@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: fe370ec882fd0462bba6afdf11c718cf46618f0c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85480937"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---company-policy-and-compliance"></a>Governação da infraestrutura Azure DevTest Labs - Política e conformidade da empresa
@@ -67,5 +67,5 @@ A segunda camada de controlos consiste em aplicar um conjunto de objetos de pol�
 Em última análise, o mesmo tipo de restrições deve ser aplicado em toda a organização, o que teria também de explicar todos os métodos possíveis de meios amovíveis ou URLs externos que pudessem aceitar um post de conteúdo. Consulte o seu profissional de segurança para rever e implementar uma política de segurança. Para mais recomendações, consulte [a Microsoft Cyber Security.](https://www.microsoft.com/security/default.aspx?&WT.srch=1&wt.mc_id=AID623240_SEM_sNYnsZDs)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte [a migração e integração de aplicações.](devtest-lab-guidance-governance-application-migration-integration.md)

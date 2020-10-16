@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: eb94b67b026ed108f31f6cd802010577665ec0d8
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87286092"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Troubleshooting connectivity problems between Azure VMs (Resolver problemas de conectividade entre VMs do Azure)
@@ -67,7 +67,7 @@ Para obter mais informações, consulte [adicionar interfaces de rede ou remover
 
 ### <a name="step-2-check-whether-network-traffic-is-blocked-by-nsg-or-udr"></a>Passo 2: Verifique se o tráfego da rede está bloqueado pela NSG ou pela UDR
 
-Utilize [o Verificador de Fluxo IP do Observador de Rede](../network-watcher/network-watcher-ip-flow-verify-overview.md) e registo de fluxo [NSG](../network-watcher/network-watcher-nsg-flow-logging-overview.md) para determinar se existe um Grupo de Segurança de Rede (NSG) ou rota definida pelo utilizador (UDR) que esteja a interferir com o fluxo de tráfego.
+Utilize [o Verificador de Fluxo IP do Observador de Rede](../network-watcher/network-watcher-ip-flow-verify-overview.md) e registo de fluxo [NSG](../network-watcher/network-watcher-nsg-flow-logging-overview.md) para determinar se existe um Grupo de Segurança de Rede (NSG) ou User-Defined Rota (UDR) que esteja a interferir com o fluxo de tráfego.
 
 ### <a name="step-3-check-whether-network-traffic-is-blocked-by-vm-firewall"></a>Passo 3: Verifique se o tráfego de rede está bloqueado pela firewall VM
 
@@ -109,9 +109,9 @@ Todos os VMs que cria no Azure utilizando o modelo de implementação clássico 
 
 Se não conseguir ligar-se a uma partilha de rede VM, o problema pode ser causado por NICs indisponíveis no VM. Para eliminar os NICs indisponíveis, consulte [Como eliminar os NICs indisponíveis](../virtual-machines/troubleshooting/reset-network-interface.md#delete-the-unavailable-nics)
 
-### <a name="step-9-check-inter-vnet-connectivity"></a>Passo 9: Verifique a conectividade Inter-Vnet
+### <a name="step-9-check-inter-vnet-connectivity"></a>Passo 9: Verifique Inter-Vnet conectividade
 
-Utilize [o Verificador de Fluxo IP do Observador de Rede](../network-watcher/network-watcher-ip-flow-verify-overview.md) e registo de fluxo [NSG](../network-watcher/network-watcher-nsg-flow-logging-overview.md) para determinar se existe um NSG ou UDR que esteja a interferir com o fluxo de tráfego. Também pode verificar [aqui](https://support.microsoft.com/en-us/help/4032151/configuring-and-validating-vnet-or-vpn-connections)a sua configuração Inter-Vnet .
+Utilize [o Verificador de Fluxo IP do Observador de Rede](../network-watcher/network-watcher-ip-flow-verify-overview.md) e registo de fluxo [NSG](../network-watcher/network-watcher-nsg-flow-logging-overview.md) para determinar se existe um NSG ou UDR que esteja a interferir com o fluxo de tráfego. Também pode verificar aqui a [sua](https://support.microsoft.com/en-us/help/4032151/configuring-and-validating-vnet-or-vpn-connections)configuração de Inter-Vnet .
 
 ### <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
 Se ainda precisar de ajuda, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o seu problema rapidamente.

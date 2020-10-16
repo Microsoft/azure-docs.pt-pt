@@ -3,12 +3,13 @@ title: Especificar pontos finais de serviço de tecido de serviço
 description: Como descrever os recursos de ponto final num manifesto de serviço, incluindo como configurar pontos finais HTTPS
 ms.topic: conceptual
 ms.date: 09/16/2020
-ms.openlocfilehash: c0c3c45c47447390901e5e0d60e77ab6b85a6a0d
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.custom: contperfq1
+ms.openlocfilehash: 775e554128b9828915ce7dafaf4bccf597911912
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91354764"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017595"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Especificar recursos num manifesto de serviço
 ## <a name="overview"></a>Descrição geral
@@ -220,7 +221,7 @@ Se no ServiceManifest especificado
 
 Assuma que o valor port1 e protocol1 para parâmetros de aplicação é nulo ou vazio. O porto será decidido pelo ServiceFabric e o Protocolo será tcp.
 
-Suponha que especifique um valor errado. Diga para o Porto que especificou um valor de corda "Foo" em vez de um int.  O comando New-ServiceFabricApplication falhará com um erro: `The override parameter with name 'ServiceEndpoint1' attribute 'Port1' in section 'ResourceOverrides' is invalid. The value specified is 'Foo' and required is 'int'.`
+Suponha que especifique um valor errado. Diga para o Porto que especificou um valor de corda "Foo" em vez de um int.  New-ServiceFabricApplication comando falhará com um erro: `The override parameter with name 'ServiceEndpoint1' attribute 'Port1' in section 'ResourceOverrides' is invalid. The value specified is 'Foo' and required is 'int'.`
 
 ## <a name="next-steps"></a>Passos Seguintes
 

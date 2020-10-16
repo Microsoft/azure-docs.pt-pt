@@ -8,10 +8,10 @@ ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.topic: how-to
 ms.date: 06/29/2018
 ms.openlocfilehash: 70a251db6c08f353f9c50512c41551e7a909a059
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87125654"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Gerir a Análise do Azure Data Lake com o Azure PowerShell
@@ -205,7 +205,7 @@ Get-AdlJob -Account $adla
 
 ### <a name="list-the-top-n-jobs"></a>Listar os melhores empregos N
 
-Por defeito, a lista de postos de trabalho é ordenada no tempo de envio. Assim, os trabalhos mais recentemente apresentados aparecem primeiro. Por padrão, a conta ADLA lembra-se de empregos durante 180 dias, mas o cmdlet Get-AdlJob por defeito devolve apenas os primeiros 500. Use -O parâmetro de topo para listar um número específico de empregos.
+Por defeito, a lista de postos de trabalho é ordenada no tempo de envio. Assim, os trabalhos mais recentemente apresentados aparecem primeiro. Por defeito, a conta da ADLA lembra-se de empregos durante 180 dias, mas o Get-AdlJob cmdlet por defeito devolve apenas os primeiros 500. Use -O parâmetro de topo para listar um número específico de empregos.
 
 ```powershell
 $jobs = Get-AdlJob -Account $adla -Top 10

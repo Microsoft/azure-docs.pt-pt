@@ -4,10 +4,10 @@ description: Consulte as notificações de saúde do seu serviço no portal Azur
 ms.topic: conceptual
 ms.date: 6/27/2019
 ms.openlocfilehash: 615d08b6a04aef9e8ef2033154da8ff8caeebe04
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90967765"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Ver notificações do estado de funcionamento do serviço ao utilizar o portal do Azure

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 883cf48fd38d79544d08a68f2c18fc2d2efb4706
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 6ac7d99f4a47711f9974d30d877a3237eec15443
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776294"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078838"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de runbooks na Automatização do Azure
 
@@ -71,7 +71,7 @@ Os seus runbooks devem incluir lógica para lidar com [recursos](/rest/api/resou
 
 ## <a name="security"></a>Segurança
 
-A Azure Automation utiliza o [Azure Security Center (ASC)](../security-center/security-center-intro.md) para fornecer segurança aos seus recursos e detetar compromissos nos sistemas Linux. A segurança é fornecida através das suas cargas de trabalho, quer os recursos estejam em Azure ou não. Ver [Introdução à autenticação na Azure Automation.](automation-security-overview.md)
+A Azure Automation utiliza o [Azure Security Center (ASC)](../security-center/security-center-introduction.md) para fornecer segurança aos seus recursos e detetar compromissos nos sistemas Linux. A segurança é fornecida através das suas cargas de trabalho, quer os recursos estejam em Azure ou não. Ver [Introdução à autenticação na Azure Automation.](automation-security-overview.md)
 
 A ASC coloca restrições aos utilizadores que possam executar quaisquer scripts, assinados ou não assinados, num VM. Se for um utilizador com acesso de raiz a um VM, tem de configurar explicitamente a máquina com uma assinatura digital ou desligá-la. Caso contrário, só é possível executar um script para aplicar atualizações do sistema operativo depois de criar uma conta Demôm automação e ativar a funcionalidade adequada.
 
@@ -218,7 +218,7 @@ Os runbooks que funcionam em caixas de areia Azure não suportam processos de ch
 
 ## <a name="device-and-application-characteristics"></a>Características do dispositivo e da aplicação
 
-Os trabalhos de runbook em caixas de areia Azure não podem aceder a nenhum dispositivo ou características de aplicação. A API mais comum usada para consultar métricas de desempenho no Windows é o WMI, com algumas das métricas comuns a serem a memória e o uso do CPU. No entanto, não importa o que a API é usada, uma vez que os trabalhos que correm na nuvem não conseguem aceder à implementação da Microsoft de Web-Based Enterprise Management (WBEM). Esta plataforma é construída sobre o Modelo Comum de Informação (CIM), fornecendo os padrões da indústria para definir características de dispositivo e aplicação.
+Os trabalhos de runbook em caixas de areia Azure não podem aceder a nenhum dispositivo ou características de aplicação. A API mais comum usada para consultar métricas de desempenho no Windows é o WMI, com algumas das métricas comuns a serem a memória e o uso do CPU. No entanto, não importa o que a API é usada, uma vez que os empregos que correm na nuvem não conseguem aceder à implementação da Microsoft de Web-Based Enterprise Management (WBEM). Esta plataforma é construída sobre o Modelo Comum de Informação (CIM), fornecendo os padrões da indústria para definir características de dispositivo e aplicação.
 
 ## <a name="webhooks"></a>Webhooks
 

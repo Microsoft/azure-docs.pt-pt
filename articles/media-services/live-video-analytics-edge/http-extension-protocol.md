@@ -3,12 +3,12 @@ title: Protocolo de extensão HTTP - Azure
 description: Neste artigo, você aprenderá sobre a utilização do protocolo de extensão HTTP para enviar mensagens entre o módulo Live Video Analytics e o seu módulo de IA ou CV.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: bfc8672185d284abc8f2985b44cea92000bc73db
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f1e1fb0e8fe63b3a83c59a4ec48abdac7f22096a
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89448367"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016659"
 ---
 # <a name="http-extension-protocol"></a>Protocolo de extensão HTTP
 
@@ -100,4 +100,4 @@ Se o seu módulo devolver uma resposta com o tipo de conteúdo como "aplicação
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Contrato de dados gRPC](grpc-data-contract.md)
+[Contrato de dados gRPC](./grpc-extension-protocol.md)

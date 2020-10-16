@@ -8,10 +8,10 @@ ms.author: robreed
 ms.date: 05/02/2018
 ms.topic: how-to
 ms.openlocfilehash: 0f91bb33116947312173d8f22929b8548d23a9ab
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87292278"
 ---
 # <a name="run-scripts-in-your-linux-vm"></a>Execute scripts no seu Linux VM

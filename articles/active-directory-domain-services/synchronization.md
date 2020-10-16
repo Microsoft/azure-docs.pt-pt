@@ -2,7 +2,7 @@
 title: Como funciona a sincronização nos Serviços de Domínio Azure AD Microsoft Docs
 description: Saiba como funciona o processo de sincronização para objetos e credenciais de um inquilino AD AZure ou no local Ative Directory Domain Services ambiente para um domínio gerido por Azure Ative Directory Domain Services.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 10eec1527fb0ac5109822da398642613219771f6
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.author: joflore
+ms.openlocfilehash: 683a6c9f31947355a5415a5b8b57b621f717af91
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039845"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967669"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-active-directory-domain-services-managed-domain"></a>Como os objetos e credenciais são sincronizados num domínio gerido por Serviços de Domínio do Diretório Ativo Azure
 
@@ -144,7 +144,7 @@ Para ambientes Azure AD apenas na nuvem, [os utilizadores devem redefinir/altera
 
 Para contas híbridas de utilizadores sincronizadas a partir do ambiente AD DS no local utilizando o Azure AD Connect, é necessário [configurar o Azure AD Connect para sincronizar hashes de palavra-passe nos formatos compatíveis com NTLM e Kerberos.](tutorial-configure-password-hash-sync.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre as especificidades da sincronização da palavra-passe, consulte [como funciona a sincronização de hash de palavra-passe com o Azure AD Connect](../active-directory/hybrid/how-to-connect-password-hash-synchronization.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context).
 

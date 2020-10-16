@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
 ms.openlocfilehash: 1c6faf2bb1811f7b27a49f8029c833499273d8a1
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91817108"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Tutorial: Integração do Diretório Ativo Azure com Help Scout
@@ -83,7 +83,7 @@ Para configurar o Azure AD com o Help Scout, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-1. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+1. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -104,7 +104,7 @@ Para configurar o Azure AD com o Help Scout, execute os seguintes passos:
 
     Na caixa de texto **url de entrada de inscrição,** digite um URL como: `https://secure.helpscout.net/members/login/`
 
-1. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+1. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -191,7 +191,7 @@ Nesta secção, você permite que B.Simon use a Azure single sign-on, concedendo
 
 1. Isto leva-o à secção de definições DE SAML e executa os seguintes passos:
 
-    ![A screenshot mostra o separador 'Sign-On' único onde introduz as informações especificadas.](./media/helpscout-tutorial/settings3.png)
+    ![A screenshot mostra o separador Single Sign-On onde introduz as informações especificadas.](./media/helpscout-tutorial/settings3.png)
 
     a. Copie o valor **URL pós-back (URL do serviço de apoio à afirmação)** e cole o valor na caixa de texto **URL de resposta** na secção **configuração de SAML básico** no portal Azure.
 
@@ -199,9 +199,9 @@ Nesta secção, você permite que B.Simon use a Azure single sign-on, concedendo
 
 1. Toggle **Ativar o SAML** e executar os seguintes passos:
 
-    ![A screenshot mostra o separador Sign-On único onde ativa o SAML e adiciona outras informações.](./media/helpscout-tutorial/settings4.png)
+    ![A screenshot mostra o separador Single Sign-On onde ativa a SAML e adiciona outras informações.](./media/helpscout-tutorial/settings4.png)
 
-    a. Na caixa de texto **url de inscrição única,** cole o valor do URL de **login,** que copiou do portal Azure.
+    a. Na caixa de texto **de URL Sign-On única,** cole o valor do URL de **login,** que copiou do portal Azure.
 
     b. Clique **em 'Upload Certificate'** para fazer o upload do **Certificado (Base64)** descarregado a partir do portal Azure.
 

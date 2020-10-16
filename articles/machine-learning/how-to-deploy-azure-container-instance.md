@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, deploy
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/12/2020
-ms.openlocfilehash: fc20d59ca016e7c6be8dae9f50a84e4927449467
-ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
+ms.openlocfilehash: e64914118409332f6a1c08b6d5e1669685529d76
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91660739"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999162"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Implementar um modelo no Azure Container Instances
 
@@ -105,7 +105,7 @@ Consulte [os seus modelos com o Código VS.](tutorial-train-deploy-image-classif
 > Não é preciso criar um recipiente ACI para testar com antecedência. Os contentores ACI são criados conforme necessário.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 * [Como implementar um modelo usando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md)
 * [Resolução de problemas de implantação](how-to-troubleshoot-deployment.md)

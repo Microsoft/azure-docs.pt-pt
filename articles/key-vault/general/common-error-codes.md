@@ -1,0 +1,39 @@
+---
+title: Códigos de erro comuns para Azure Key Vault Microsoft Docs
+description: Códigos de erro comuns para Azure Key Vault
+services: key-vault
+author: sebansal
+tags: azure-resource-manager
+ms.service: key-vault
+ms.subservice: general
+ms.topic: reference
+ms.date: 09/29/2020
+ms.author: mbaldwin
+ms.openlocfilehash: 25c79229a09db912903fba825f0d48f571880745
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91877001"
+---
+# <a name="common-error-codes-for-azure-key-vault"></a>Códigos de erro comuns para Azure Key Vault
+
+Os códigos de erro listados na tabela seguinte podem ser devolvidos por uma operação no cofre da chave Azure
+
+| Código de erro | Mensagem de utilizador |
+|--|--|
+| VaultAlreadyExists |  O cofre-chave especificado já existe (em estado de apagação suave ou em outra subscrição). |
+| VaultNameNotValid |  O nome do cofre deve ser 24 char, alfanumérico e começar com um alfabeto |
+| AcessoDenied |  Podes estar a perder permissões na política de acesso para fazer essa operação. |
+| Proibido PorFirewall |  O endereço do cliente não é autorizado e o chamador não é um serviço de confiança. |
+| ConflictError |  Está a pedir várias operações no mesmo item.  |
+| RegionNotSupporto |  A região azul especificada não é apoiada para este recurso. |
+| SkuNotsupported |  O tipo SKU especificado não é suportado para este recurso. |
+| RecursosNotFound |  O recurso azul especificado não é encontrado. |
+| CertificadoSExpired |  Verifique a data de validade e o prazo de validade do certificado. |
+
+
+## <a name="next-steps"></a>Passos seguintes
+
+- Consulte o guia de desenvolvedores do [Azure Key Vault](developers-guide.md)
+- Ler mais sobre [autenticação no cofre da Chave](authentication.md)

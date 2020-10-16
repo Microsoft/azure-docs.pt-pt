@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: victorh
 ms.openlocfilehash: 7c7ea5297276ed9a1d1f2ca8f4190997dcab57c3
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90602222"
 ---
 # <a name="tutorial-create-a-web-application-firewall-policy-on-azure-front-door-using-the-azure-portal"></a>Tutorial: Criar uma política de Firewall de aplicação web na porta frontal do Azure usando o portal Azure
@@ -53,7 +53,7 @@ Em primeiro lugar, crie uma política de WAF básica com o Conjunto de Regras Pa
     
     > [!NOTE]
     > Se o anfitrião frontal estiver associado a uma política de WAF, é mostrado como acinzentado. Primeiro, deve remover o anfitrião frontal da política associada e, em seguida, voltar a associar o anfitrião frontal a uma nova política da WAF.
-1. Selecione **'Rever + criar'** e, em seguida, selecione **Criar**.
+1. Selecione **Rever + criar** e, em seguida, selecione **Criar**.
 
 ## <a name="configure-web-application-firewall-rules-optional"></a>Configure as regras de Firewall de Aplicação Web (opcional)
 

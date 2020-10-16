@@ -5,10 +5,10 @@ ms.topic: troubleshooting
 ms.date: 08/18/2017
 ms.author: pepogors
 ms.openlocfilehash: 1655a8ed03b1f678cc5dba0a165e0bcca1d2517a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87292856"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Perguntas comuns acerca do Service Fabric
@@ -28,7 +28,7 @@ Se o seu cluster ainda estiver aproveitando a propriedade clássica de impressã
 
 ### <a name="can-i-create-a-cluster-that-spans-multiple-azure-regions-or-my-own-datacenters"></a>Posso criar um cluster que abrange várias regiões do Azure ou os meus próprios centros de dados?
 
-Yes. 
+Sim. 
 
 A tecnologia de clustering core Service Fabric pode ser usada para combinar máquinas que correm em qualquer parte do mundo, desde que tenham conectividade de rede entre si. No entanto, construir e executar tal aglomerado pode ser complicado.
 
@@ -94,10 +94,10 @@ Se pretender criar clusters para testar a sua aplicação antes de ser implantad
 Enquanto estamos a trabalhar numa experiência melhorada, hoje, és responsável pela atualização. Tem de atualizar a imagem de SO nas máquinas virtuais do cluster um VM de cada vez. 
 
 ### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>Posso encriptar os discos de dados anexados num tipo de nó de cluster (conjunto de escala de máquina virtual)?
-Yes.  Para obter mais informações, consulte [Criar um cluster com discos de dados anexados](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks) e [encriptação de disco Azure para conjuntos de escala de máquina virtual](../virtual-machine-scale-sets/disk-encryption-overview.md).
+Sim.  Para obter mais informações, consulte [Criar um cluster com discos de dados anexados](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks) e [encriptação de disco Azure para conjuntos de escala de máquina virtual](../virtual-machine-scale-sets/disk-encryption-overview.md).
 
 ### <a name="can-i-use-low-priority-vms-in-a-cluster-node-type-virtual-machine-scale-set"></a>Posso utilizar VMs de baixa prioridade num tipo de nó de cluster (conjunto de escala de máquina virtual)?
-Não. Os VM de baixa prioridade não são suportados. 
+N.º Os VM de baixa prioridade não são suportados. 
 
 ### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>Quais são os diretórios e processos que preciso excluir quando executo um programa antivírus no meu grupo?
 

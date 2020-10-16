@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: 29f5b549bd5f5dbc421487739bb1eb8c7f120bb0
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91441037"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>Ligue um Gateway VPN (gateway de rede virtual) ao VIRTUAL WAN
@@ -20,7 +20,7 @@ Este artigo ajuda-o a configurar a conectividade de um Gateway Azure VPN (gatewa
 
 De forma a minimizar uma possível confusão entre duas funcionalidades, vamos prefaciar o gateway com o nome da funcionalidade a que nos referimos. Por exemplo, gateway de rede virtual VPN Gateway e gateway Virtual WAN VPN.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Antes de começar, crie os seguintes recursos:
 
@@ -138,7 +138,7 @@ Pode testar a conectividade criando duas máquinas virtuais, uma na lateral do g
 4. Clique **em OK** para criar a ligação de rede virtual.
 5. A conectividade está agora definida entre os VMs. Você deve ser capaz de ping um VM do outro, a menos que existam quaisquer firewalls ou outras políticas que bloqueiem a comunicação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter medidas para configurar uma política personalizada do IPsec, consulte [configurar uma política personalizada do IPsec para o VIRTUAL WAN](virtual-wan-custom-ipsec-portal.md).
 Para obter mais informações sobre o WAN Virtual, consulte [About Azure Virtual WAN](virtual-wan-about.md) e o [Azure Virtual WAN FAQ](virtual-wan-faq.md).

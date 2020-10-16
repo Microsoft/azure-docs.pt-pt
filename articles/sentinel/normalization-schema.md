@@ -16,10 +16,10 @@ ms.topic: reference
 ms.date: 09/08/2020
 ms.author: yelevin
 ms.openlocfilehash: eb1752ea66f2cbebf6a653705b5a760e8e268240
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90937606"
 ---
 # <a name="azure-sentinel-data-normalization-schema-reference"></a>Referência de esquema de normalização de dados do Azure Sentinel
@@ -41,11 +41,11 @@ Os valores devem ser normalizados com base nas diretrizes abaixo. Isto é obriga
 | Tipo de dados | Tipo físico | Formato e valor |
 | --------- | ------------- | ---------------- |
 | **Data/Hora** | Dependendo da utilização da capacidade do método de ingestão na prioridade descendente:<ul><li>Log Analytics incorporado no tipo de data</li><li>Um campo inteiro usando log analytics representação numérica da data</li><li>Um campo de cordas usando a representação numérica da data de data do Log Analytics</li></ul> | Registar representação da hora de data do Log Analytics. <br></br>Log Analytics data & a representação do tempo é de natureza semelhante, mas diferente da representação do tempo Unix. Consulte estas diretrizes de conversão. <br></br>A data & hora deve ser ajustada. |
-| **Endereço MAC** | Cadeia | Notação colon-hexadémica |
+| **Endereço MAC** | Cadeia | notação Colon-Hexadecimal |
 | **Endereço IP** | Endereço IP | O esquema não tem endereços IPv4 e IPv6 separados. Qualquer campo de endereço IP pode incluir um endereço IPv4 ou um endereço IPv6:<ul><li>IPv4 em notação de ponto-decimal</li><li>IPv6 em 8 hextets notação, permitindo as formas curtas descritas aqui.</li></ul> |
 | **Utilizador** | Cadeia | Estão disponíveis os seguintes 3 campos de utilizadores:<ul><li>Nome de utilizador</li><li>UPN de utilizador</li><li>Domínio do utilizador</li></ul> |
 | **ID de Utilizador** | Cadeia | Os seguintes 2 IDs de utilizador são atualmente suportados:<ul><li>SID do utilizador</li><li>ID de diretório Azure Ative</li></ul> |
-| **Dispositivo** | Cadeia | São suportadas as seguintes colunas de dispositivo/hospedeiro:<ul><li>ID</li><li>Name</li><li>Nome de domínio totalmente qualificado (FQDN)</li></ul> |
+| **Dispositivo** | Cadeia | São suportadas as seguintes colunas de dispositivo/hospedeiro:<ul><li>ID</li><li>Nome</li><li>Nome de domínio totalmente qualificado (FQDN)</li></ul> |
 | **País** | Cadeia | Uma corda usando ISO 3166-1 de acordo com esta prioridade:<ul><li>Códigos Alfa-2 (isto é, EUA para os Estados Unidos)</li><li>Códigos Alfa-3 (isto é, EUA para os Estados Unidos)</li><li>Nome abreviado</li></ul> |
 | **Região** | Cadeia | O nome da sub-divisão do país usando ISO 3166-2 |
 | **City** | Cadeia | |
@@ -63,7 +63,7 @@ Abaixo está o esquema da tabela de sessões de rede, versão 1.0.0
 |-|-|-|-|-|
 | EventType | Cadeia | Trânsito | Tipo de evento a ser recolhido | Evento |
 | EventSubType | Cadeia | Autenticação | Descrição adicional do tipo, se aplicável | Evento |
-| Conta de Eventos | Integer (Número inteiro)  | 10 | O número de eventos agregados, se aplicável. | Evento |
+| Conta de Eventos | Número inteiro  | 10 | O número de eventos agregados, se aplicável. | Evento |
 | EventEndTime | Data/Hora | Ver "tipos de dados" | O tempo em que o evento terminou | Evento |
 | EventoSMessage | string |  acesso negado | Uma mensagem geral ou descrição, incluída ou gerada a partir do registo | Evento |
 | DvcIpAddr | Endereço IP |  23.21.23.34 | O endereço IP do dispositivo que gera o registo | Dispositivo,<br>IP |
@@ -101,7 +101,7 @@ Abaixo está o esquema da tabela de sessões de rede, versão 1.0.0
 | DstMacAddr | Cadeia | 06:10:9f:eb:8f:14 | O endereço MAC da interface de rede em que a ligação ou sessão terminou, mais comumente referido ao destino MAC no pacote de rede | Destino,<br>MAC |
 | DstDvcMacAddr | Cadeia | 06:10:9f:eb:8f:14 | O endereço MAC de destino de um dispositivo que não está diretamente associado ao pacote de rede. | Destino,<br>Dispositivo,<br>MAC |
 | DstDvcDomain | Cadeia | CONTOSO | O Domínio do dispositivo de destino. | Destino,<br>Dispositivo |
-| DstPortNumber | Integer (Número inteiro) | 443 | A porta IP de destino. | Destino,<br>Porta |
+| DstPortNumber | Número inteiro | 443 | A porta IP de destino. | Destino,<br>Porta |
 | Região de DstGeo | Região (Corda) | Vermont | A região dentro de um país associado ao endereço IP de destino | Destino,<br>Área Geográfica |
 | DstResourceId | ID do dispositivo (cadeia) |  /subscrições/3c1bb38c-82e3-4f8d-a115-a7110ba70d05 /resourcegroups/contoso77/providers /microsoft.compute/virtualmachines /vítima | O id de recursos do dispositivo de destino. | Destino |
 | DstNatIpAddr | Endereço IP | 2::1 | Se reportado por um dispositivo NAT intermediário, como uma firewall, o endereço IP utilizado pelo dispositivo NAT para comunicação com a fonte. | Destino NAT,<br>IP |
@@ -116,14 +116,14 @@ Abaixo está o esquema da tabela de sessões de rede, versão 1.0.0
 | DvcAction | Multi-valor: Permitir, Negar, Largar (cadeia) | Permitir | Se reportado por um dispositivo intermediário, como uma firewall, a ação tomada pelo dispositivo. | Dispositivo |
 | DvcInboundInterface | Cadeia | eth0 | Se for reportado por um dispositivo intermediário, como uma firewall, a interface de rede utilizada por ele para a ligação ao dispositivo de origem. | Dispositivo |
 | DvcOutboundInterface | Cadeia  | Adaptador Ethernet Ethernet 4 | Se reportado por um dispositivo intermediário, como uma firewall, a interface de rede por si utilizada para a ligação ao dispositivo de destino. | Dispositivo |
-| NetworkDuration | Integer (Número inteiro) | 1500 | O tempo, em milissegundo, para a conclusão da sessão de rede ou ligação | Rede |
-| Código de RedeIcmp | Integer (Número inteiro) | 34 | Para uma mensagem ICMP, o valor numérico do tipo de mensagem ICMP (RFC 2780 ou RFC 4443). | Rede |
+| NetworkDuration | Número inteiro | 1500 | O tempo, em milissegundo, para a conclusão da sessão de rede ou ligação | Rede |
+| Código de RedeIcmp | Número inteiro | 34 | Para uma mensagem ICMP, o valor numérico do tipo de mensagem ICMP (RFC 2780 ou RFC 4443). | Rede |
 | RedeIcmpType | Cadeia | Destino Inacessível | Para uma mensagem ICMP, representação de texto tipo icMP (RFC 2780 ou RFC 4443). | Rede |
 | DstPackets | int  | 446 | O número de pacotes enviados do destino para a fonte para a ligação ou sessão. O significado de um pacote é definido pelo dispositivo de reporte. | Destino |
 | SrcPackets | int  | 6478 | O número de pacotes enviados da fonte para o destino para a ligação ou sessão. O significado de um pacote é definido pelo dispositivo de reporte. | Origem |
 | Pacotes de rede | int  | 0 | Número de pacotes enviados em ambas as direções. Se ambos os PacotesReceived e PacketsSent existirem, o BytesTotal deve igualar a sua soma. | Rede |
-| HttpRequestTime | Integer (Número inteiro) | 700 | O tempo que demorou a enviar o pedido para o servidor, se aplicável. | Http |
-| HttpResponseTime | Integer (Número inteiro) | 800 | O tempo que demorou a receber uma resposta no servidor, se aplicável. | Http |
+| HttpRequestTime | Número inteiro | 700 | O tempo que demorou a enviar o pedido para o servidor, se aplicável. | Http |
+| HttpResponseTime | Número inteiro | 800 | O tempo que demorou a receber uma resposta no servidor, se aplicável. | Http |
 | Nome de rederule | Cadeia | AnyAnyDrop | O nome ou ID da regra pela qual o DeviceAction foi decidido | Rede |
 | NetworkRuleNumber | int |  23 | Número de regras combinado  | Rede |
 | NetworkSessionId | string | 172_12_53_32_4322__123_64_207_1_80 | O identificador da sessão foi relatado pelo dispositivo de reporte. Por exemplo, identificador de sessão L7 para aplicações específicas após a autenticação | Rede |
@@ -135,7 +135,7 @@ Abaixo está o esquema da tabela de sessões de rede, versão 1.0.0
 | SrcDvcOs | Cadeia | iOS | O SO do dispositivo de origem | Fonte,<br>Dispositivo |
 | SrcDvcModelName | Cadeia | Samsung Galaxy Note | O nome modelo do dispositivo de origem | Fonte,<br>Dispositivo |
 | SrcDvcModelNumber | Cadeia | 10.0 | O número de modelo do dispositivo de origem | Fonte,<br>Dispositivo |
-| SrcDvcType | Cadeia | Móvel | O tipo do dispositivo de origem | Fonte,<br> Dispositivo |
+| SrcDvcType | Cadeia | Telemóvel | O tipo do dispositivo de origem | Fonte,<br> Dispositivo |
 | SrcIntefaceName | Cadeia | eth01 | A interface de rede utilizada para a ligação ou sessão pelo dispositivo de origem. | Origem |
 | SrcInterfaceGuid | Cadeia | 46ad544b-eaf0-47ef-827c-266030f545a6 | GUIA da interface de rede utilizada | Origem |
 | SrcIpAddr | Endereço IP | 77.138.103.108 | O endereço IP a partir do qual a ligação ou sessão teve origem. | Fonte,<br>IP |
@@ -144,11 +144,11 @@ Abaixo está o esquema da tabela de sessões de rede, versão 1.0.0
 | SrcGeoLongitude | Longitude (Duplo) | -73.211944 | A longitude da coordenada geográfica associada ao endereço IP de origem | Fonte,<br>Área Geográfica |
 | SrcMacAddr | Cadeia | 06:10:9f:eb:8f:14 | O endereço MAC da interface de rede a partir da qual originou a sessão de od de ligação. | Fonte,<br>Mac |
 | SrcDvcMacAddr | Cadeia | 06:10:9f:eb:8f:14 | O endereço MAC de origem de um dispositivo que não está diretamente associado ao pacote de rede. | Fonte,<br>Dispositivo,<br>Mac |
-| SrcPortNumber | Integer (Número inteiro) | 2335 | A porta IP de onde a ligação se originou. Pode não ser relevante para uma sessão que inclua múltiplas ligações. | Fonte,<br>Porta |
+| SrcPortNumber | Número inteiro | 2335 | A porta IP de onde a ligação se originou. Pode não ser relevante para uma sessão que inclua múltiplas ligações. | Fonte,<br>Porta |
 | SrcGeoRegion | Região (Corda) | Vermont | A região dentro de um país associado ao endereço IP de origem | Fonte,<br>Área Geográfica |
 | SrcResourceId | Cadeia | /subscrições/3c1bb38c-82e3-4f8d-a115-a7110ba70d05 /resourcegroups/contoso77/providers /microsoft.compute/virtualmachines /syslogserver1 | O ID de recursos do dispositivo que gera a mensagem. | Origem |
 | SrcNatIpAddr | Endereço IP | 4.3.2.1 | Se reportado por um dispositivo NAT intermediário, como uma firewall, o endereço IP utilizado pelo dispositivo NAT para comunicação com o destino. | FONTE NAT,<br>IP |
-| SrcNatPortNumber | Integer (Número inteiro) | 345 | Se reportado por um dispositivo NAT intermediário, como uma firewall, a porta utilizada pelo dispositivo NAT para comunicação com o destino. | FONTE NAT,<br>Porta |
+| SrcNatPortNumber | Número inteiro | 345 | Se reportado por um dispositivo NAT intermediário, como uma firewall, a porta utilizada pelo dispositivo NAT para comunicação com o destino. | FONTE NAT,<br>Porta |
 | SrcUserSid | ID do utilizador (cadeia) | S-15-1445 | Identificação do utilizador da identidade associada à fonte das sessões. Normalmente, o utilizador realiza uma ação sobre o cliente. Consulte "tipos de dados" para obter mais detalhes. | Fonte,<br>Utilizador |
 | SrcUserAadId | Corda (guia) | 16c8752c-7dd2-4cad-9e03-fb5d1cee5477 | O ID do objeto de conta Azure AD do utilizador no final da sessão | Fonte,<br>Utilizador |
 | SrcUserName | Nome de utilizador (String) | bob | O nome de utilizador da identidade associada à fonte das sessões. Normalmente, o utilizador realiza uma ação sobre o cliente. Consulte "tipos de dados" para obter mais detalhes. | Origem<br>Utilizador |
@@ -168,7 +168,7 @@ Abaixo está o esquema da tabela de sessões de rede, versão 1.0.0
 | Filehashsha512 | Cadeia | 5E127D... F69F73F01F361 | O valor hash sha512 do ficheiro transmitido através das ligações de rede para protocolos. | Ficheiro |
 | Arquidestésia |  Cadeia | exe | O tipo de ficheiro transmitido através das ligações de rede para protocolos como FTP e HTTP. | Ficheiro
 | FileMimeType | Cadeia | aplicação/msword | O tipo MIME do ficheiro transmitido através das ligações de rede para protocolos como FTP e HTTP | Ficheiro |
-| Tamanho de arquivo | Integer (Número inteiro) | 23500 | O tamanho do ficheiro, em bytes, do ficheiro transmitido através das ligações de rede para protocolos. | Ficheiro |
+| Tamanho de arquivo | Número inteiro | 23500 | O tamanho do ficheiro, em bytes, do ficheiro transmitido através das ligações de rede para protocolos. | Ficheiro |
 | HttpVersion | Cadeia | 2.0 | A versão http request para ligações de rede HTTP/HTTPS. | Http |
 | HttpRequestMethod | Cadeia | GET | O método HTTP para sessões de rede HTTP/HTTPS. | Http |
 | HttpStatusCode | Cadeia | 404 | O código de estado HTTP para sessões de rede HTTP/HTTPS. | Http |

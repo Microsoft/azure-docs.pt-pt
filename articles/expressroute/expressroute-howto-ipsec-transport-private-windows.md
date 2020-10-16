@@ -9,10 +9,10 @@ ms.date: 10/17/2018
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 026b7ee6cf8061c7cff25b4f9f8d46b6ec3e6a8d
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89396493"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Configure o modo de transporte IPsec para o espremiamento privado ExpressRoute
@@ -61,7 +61,7 @@ Ao configurar a política do IPsec, é importante compreender a seguinte termino
 
 [![5]][5]
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Certifique-se de que cumpre os seguintes requisitos:
 
@@ -312,7 +312,7 @@ A seguinte captura de rede mostra os resultados do anfitrião no local1 com o fi
 
 Se executar o script powershell on-premisies (cliente HTTP), a captura de rede no Azure VM mostra um traço semelhante.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o ExpressRoute, consulte as [FAQ ExpressRoute.](expressroute-faqs.md)
 

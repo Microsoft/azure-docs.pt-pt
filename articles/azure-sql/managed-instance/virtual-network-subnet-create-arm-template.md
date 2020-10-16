@@ -13,10 +13,10 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 09/12/2019
 ms.openlocfilehash: 2a23fc0b769727cab5a28d3d313a7791bcfa6eee
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91617711"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-managed-instance"></a>Criar uma rede virtual para o Azure SQL Managed Instance

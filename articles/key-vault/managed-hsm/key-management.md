@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
 ms.openlocfilehash: 846153dd482130bbb3b35c38a3dbb791e0d0d32e
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448272"
 ---
 # <a name="manage-a-managed-hsm-using-the-azure-cli"></a>Gerir um HSM gerido utilizando o Azure CLI
@@ -223,7 +223,7 @@ az keyvault key recover --id https://ContosoMHSM.managedhsm.azure.net/deletedKey
 
 Para importar uma chave do seu HSM no local para o HSM gerido, consulte [as chaves protegidas pelo Import HSM para o Gerido HSM (BYOK)](hsm-protected-keys-byok.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter uma referência completa do Azure CLI para comandos de cofre de chaves, consulte [a referência CLI do Cofre-Chave](/cli/azure/keyvault).
 - Para obter referências de programação, consulte [o guia do desenvolvedor do Azure Key Vault](../general/developers-guide.md)

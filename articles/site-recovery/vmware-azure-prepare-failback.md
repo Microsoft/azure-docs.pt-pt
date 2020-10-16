@@ -4,13 +4,13 @@ description: Prepare-se para falhar de VMware VMs após falha com recuperação 
 ms.topic: conceptual
 ms.date: 12/24/2019
 ms.openlocfilehash: 5a330f8cba31640d0116ca3d5ccab352ce5b3509
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85847743"
 ---
-# <a name="prepare-for-reprotection-and-failback-of-vmware-vms"></a>Prepare-se para reproteção e reprovação dos VMware VMs
+# <a name="prepare-for-reprotection-and-failback-of-vmware-vms"></a>Preparar para reproteção e reativação pós-falha de VMs do VMware
 
 Após [a falha](site-recovery-failover.md) de VMware VMware no local ou servidores físicos para Azure, reprotete os VMs Azure criados após o failover, de modo que eles se reproduzem de volta ao local. Com a replicação de Azure para as instalações no local, pode então falhar, executando uma falha de Azure para o local quando estiver pronto.
 
@@ -70,6 +70,6 @@ Algumas portas devem estar abertas para reprotecção/falha. O gráfico que se s
 10. Verifique se o anfitrião ESXi no qual o VM alvo principal tem pelo menos uma loja de ficheiros de máquina virtual (VMFS) anexada a ele. Se não forem anexadas lojas de dados VMFS, a entrada da loja de dados nas definições de reproteção está vazia e não pode prosseguir.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Reprotegir](vmware-azure-reprotect.md) um VM.

@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: genli
 ms.openlocfilehash: dbf0d096827ec1af16e6d38d405709e48175ae89
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88035956"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Resolução de problemas: Problemas de ligação ponto-a-local azure

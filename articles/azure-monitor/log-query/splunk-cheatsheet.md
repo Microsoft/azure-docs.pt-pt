@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/21/2018
 ms.openlocfilehash: 00fdaf93553c97112c67caa66cb2246756b63c33
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86207482"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Consulta de registo splunk para Azure Monitor
@@ -26,8 +26,8 @@ A tabela a seguir compara conceitos e estruturas de dados entre os registos splu
  | Unidade de implantação  | cluster |  cluster |  O Azure Monitor permite consultas arbitrárias de clusters cruzados. Splunk não. |
  | Caches de dados |  baldes  |  Política de caching e retenção |  Controla o período e o nível de caching para os dados. Esta definição impacta diretamente o desempenho das consultas e o custo da implantação. |
  | Partição lógica de dados  |  índice  |  base de dados  |  Permite a separação lógica dos dados. Ambas as implementações permitem aos sindicatos e juntam-se a estas divisórias. |
- | Metadados de eventos estruturados | N/D | tabela |  Splunk não tem o conceito exposto à linguagem de pesquisa de metadados de eventos. Os registos do Monitor Azure têm o conceito de tabela, que tem colunas. Cada instância do evento é mapeada para uma linha. |
- | Registo de dados | evento | linha |  A terminologia só muda. |
+ | Metadados de eventos estruturados | N/D | table |  Splunk não tem o conceito exposto à linguagem de pesquisa de metadados de eventos. Os registos do Monitor Azure têm o conceito de tabela, que tem colunas. Cada instância do evento é mapeada para uma linha. |
+ | Registo de dados | evento | row |  A terminologia só muda. |
  | Atributo de registo de dados | campo |  coluna |  No Azure Monitor, este é predefinido como parte da estrutura da mesa. Em Splunk, cada evento tem o seu próprio conjunto de campos. |
  | Tipos | tipo de dados |  tipo de dados |  Os tipos de dados do Monitor Azure são mais explícitos à medida que são definidos nas colunas. Ambos têm a capacidade de trabalhar dinamicamente com tipos de dados e um conjunto de tipos de dados aproximadamente equivalentes, incluindo suporte JSON. |
  | Consulta e pesquisa  | pesquisar | consulta |  Os conceitos são essencialmente os mesmos entre o Azure Monitor e o Splunk. |
@@ -74,7 +74,7 @@ Em Splunk, pode omitir a `search` palavra-chave e especificar uma corda não cit
 | **Azure Monitor** | **encontrar** | <code>find Session.Id=="c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time()> ago(24h)</code> |
 
 
-### <a name="filter"></a>Filtro
+### <a name="filter"></a>Filtrar
 As consultas de registo do Azure Monitor partem de um conjunto de resultados tabulares onde o filtro. Em Splunk, a filtragem é a operação predefinida no índice atual. Também pode utilizar `where` o operador em Splunk, mas não é recomendado.
 
 | | Operador | Exemplo |
@@ -96,7 +96,7 @@ Para obter resultados inferiores, em Splunk `tail` utilize. No Azure Monitor pod
 | | Operador | Exemplo |
 |:---|:---|:---|
 | **Splunk** | **cabeça** |  <code>Event.Rule="330009.2"<br>&#124; sort Event.Sequence<br>&#124; head 20</code> |
-| **Azure Monitor** | **top** | <code>Office_Hub_OHubBGTaskError<br>&#124; top 20 by Event_Sequence</code> |
+| **Azure Monitor** | **Início** | <code>Office_Hub_OHubBGTaskError<br>&#124; top 20 by Event_Sequence</code> |
 
 ### <a name="extending-the-result-set-with-new-fieldscolumns"></a>Alargamento do conjunto de resultados com novos campos/colunas
 Splunk também tem uma `eval` função, que não deve ser comparável com o `eval` operador. Tanto o `eval` operador em Splunk como o operador no `extend` Azure Monitor suportam apenas funções de escalar e operadores aritméticos.
@@ -107,7 +107,7 @@ Splunk também tem uma `eval` função, que não deve ser comparável com o `eva
 | **Azure Monitor** | **estender** | <code>Office_Hub_OHubBGTaskError<br>&#124; extend state = iif(Data_Exception == 0,"success" ,"error")</code> |
 
 ### <a name="rename"></a>Mudar o Nome 
-O Azure Monitor utiliza o `project-rename` operador para mudar o nome de um campo. `project-rename`permite que a consulta tire partido de quaisquer índices pré-construídos para um campo. Splunk tem um `rename` operador para fazer o mesmo.
+O Azure Monitor utiliza o `project-rename` operador para mudar o nome de um campo. `project-rename` permite que a consulta tire partido de quaisquer índices pré-construídos para um campo. Splunk tem um `rename` operador para fazer o mesmo.
 
 | | Operador | Exemplo |
 |:---|:---|:---|
@@ -119,7 +119,7 @@ Splunk não parece ter um operador semelhante a `project-away` . Pode utilizar a
 
 | | Operador | Exemplo |
 |:---|:---|:---|
-| **Splunk** | **tabela** |  <code>Event.Rule=330009.2<br>&#124; table rule, state</code> |
+| **Splunk** | **table** |  <code>Event.Rule=330009.2<br>&#124; table rule, state</code> |
 | **Azure Monitor** | **projeto**<br>**projeto-away** | <code>Office_Hub_OHubBGTaskError<br>&#124; project exception, state</code> |
 
 ### <a name="aggregation"></a>Agregação

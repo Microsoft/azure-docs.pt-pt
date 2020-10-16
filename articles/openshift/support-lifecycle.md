@@ -7,13 +7,13 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.openlocfilehash: c066931cece60d14767b86254020ea5ba4bad1be
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88854503"
 ---
-# <a name="support-lifecycle-for-azure-red-hat-openshift-4"></a>Ciclo de vida de suporte para Azure Red Hat OpenShift 4
+# <a name="support-lifecycle-for-azure-red-hat-openshift-4"></a>Ciclo de vida do suporte do Azure Red Hat OpenShift 4
 
 A Red Hat lança versões menores da Plataforma de Contentores OpenShift (OCP) de chapéu vermelho aproximadamente de três em três meses. Estes lançamentos incluem novas funcionalidades e melhorias. As versões de patch são mais frequentes (normalmente semanais) e destinam-se apenas a correções críticas de bugs dentro de uma versão menor. Estes lançamentos de patch podem incluir correções para vulnerabilidades de segurança ou bugs importantes.
 

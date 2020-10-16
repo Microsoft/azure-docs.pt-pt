@@ -4,10 +4,10 @@ description: Este artigo fornece as propriedades e esquema para eventos Azure Io
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 02ecf8d4df55aa6b4319e40892778f85f94e29a7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86113654"
 ---
 # <a name="azure-iot-hub-as-an-event-grid-source"></a>Azure IoT Hub como fonte de grade de eventos
@@ -24,7 +24,7 @@ Azure IoT Hub emite os seguintes tipos de eventos:
 | Microsoft.Devices.DeviceCreated | Publicado quando um dispositivo está registado num hub IoT. |
 | Microsoft.Devices.DeviceDeleted | Publicado quando um dispositivo é eliminado de um hub IoT. | 
 | Microsoft.Devices.DeviceConnected | Publicado quando um dispositivo está ligado a um hub IoT. |
-| Microsoft.DeviceDisconnected | Publicado quando um dispositivo é desligado de um hub IoT. | 
+| Microsoft.Devices.DeviceDisconnected | Publicado quando um dispositivo é desligado de um hub IoT. | 
 | Microsoft.Devices.DeviceTelemetry | Publicado quando uma mensagem de telemetria é enviada para um hub IoT. |
 
 Todos os eventos de dispositivos, exceto eventos de telemetria do dispositivo, estão geralmente disponíveis em todas as regiões suportadas pela Grade de Eventos. O evento de telemetria de dispositivos está em pré-visualização pública e está disponível em todas as regiões, exceto nos EUA, Oeste dos EUA, Europa Ocidental, [Governo Azure](../azure-government/documentation-government-welcome.md), [Azure China 21Vianet](/azure/china/china-welcome), e [Azure Germany.](https://azure.microsoft.com/global-infrastructure/germany/)
@@ -144,7 +144,7 @@ Todos os eventos contêm os mesmos dados de alto nível:
 | -------- | ---- | ----------- |
 | ID | string | Identificador único para o evento. |
 | tópico | string | Caminho completo de recursos para a fonte do evento. Este campo não é escrito. O Event Grid fornece este valor. |
-| Assunto | string | Caminho definido pelo publicador para o assunto do evento. |
+| subject | string | Caminho definido pelo publicador para o assunto do evento. |
 | eventType | string | Um dos tipos de eventos registados para esta origem de evento. |
 | eventTime | string | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
 | dados | objeto | Dados do evento IoT Hub.  |
@@ -178,7 +178,7 @@ Para o evento IoT Hub de **Telemetria do Dispositivo,** o objeto de dados conté
 
 Para **eventos IoT** Hub criados e **eliminados por dispositivos,** o objeto de dados contém as seguintes propriedades:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | gémeo | objeto | Informação sobre o dispositivo twin, que é a representação em nuvem dos metadados do dispositivo de aplicação. | 
 | deviceID | string | O identificador único do dispositivo gémeo. | 
@@ -205,7 +205,7 @@ Para **eventos IoT** Hub criados e **eliminados por dispositivos,** o objeto de 
 | [Reagir aos eventos do IoT Hub usando a Grade de Eventos para desencadear ações](../iot-hub/iot-hub-event-grid.md) | Visão geral da integração do Hub IoT com grade de eventos. |
 | [Dispositivo de encomenda ligado e eventos desligados do dispositivo](../iot-hub/iot-hub-how-to-order-connection-state-events.md) | Mostra como encomendar eventos estatais de ligação do dispositivo. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grade de Eventos?](overview.md)
 * Para saber como o IoT Hub e a Grade de Eventos funcionam em conjunto, consulte [os eventos do IoT Hub utilizando a Grade de Eventos para desencadear ações.](../iot-hub/iot-hub-event-grid.md)

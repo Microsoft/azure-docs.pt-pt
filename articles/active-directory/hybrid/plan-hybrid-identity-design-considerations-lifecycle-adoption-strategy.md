@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: abec780deb7834e67618c74e556a1bc20154b0b4
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89658547"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Determinar estratégia híbrida de adoção de ciclo de vida
@@ -60,7 +60,7 @@ Outras empresas poderão achar impraticável, por razões comerciais, alcançar 
 ## <a name="license-management"></a>Gestão de licenças
 A gestão de licenças baseada em grupo em Azure AD permite que os administradores atribuam os utilizadores a um grupo de segurança e a Azure AD atribui automaticamente licenças a todos os membros do grupo. Se um utilizador for posteriormente adicionado ou removido do grupo, uma licença será automaticamente atribuída ou removida conforme o caso.
 
-Pode utilizar grupos que sincroniza a partir de AD no local ou gerir em Azure AD. Emparelhando isto com a Azure AD premium Self-Service Group Management, pode delegar facilmente a atribuição de licenças aos decisores apropriados. Pode ter a certeza de que problemas como conflitos de licenças e dados de localização em falta são automaticamente resolvidos.
+Pode utilizar grupos que sincroniza a partir de AD no local ou gerir em Azure AD. Emparelhando isto com o Azure AD premium Self-Service Group Management, pode delegar facilmente a atribuição de licenças aos decisores apropriados. Pode ter a certeza de que problemas como conflitos de licenças e dados de localização em falta são automaticamente resolvidos.
 
 ## <a name="self-regulating-user-administration"></a>Administração de utilizadores autorregulados
 Quando a sua organização começa a fornecê-lo recursos em todas as organizações internas, implementa a capacidade de administração de utilizadores autorregulado. Você pode perceber as vantagens e benefícios de aprovisionar utilizadores através dos limites organizacionais. Neste ambiente, uma mudança no estado de um utilizador reflete-se automaticamente nos direitos de acesso através das fronteiras e geografias da organização. Pode reduzir os custos de provisionamento e agilizar os processos de acesso e aprovação. A implementação realiza todo o potencial de implementação de um controlo de acesso baseado em papéis para a gestão de acessos de ponta a ponta na sua organização. Pode reduzir os custos administrativos através de procedimentos automatizados para reger o fornecimento de utilizadores. Pode melhorar a segurança automatizando a aplicação da política de segurança e racionalizar e centralizar a gestão do ciclo de vida dos utilizadores e o fornecimento de recursos para as grandes populações de utilizadores.

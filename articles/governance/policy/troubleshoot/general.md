@@ -3,12 +3,12 @@ title: Resolver erros comuns
 description: Aprenda a resolver problemas com a criação de definições políticas, os vários SDK e o addon para Kubernetes.
 ms.date: 10/05/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 6026dc75187c8a70203a2484380eed70d519599d
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 98b5f1658a7d3fc7c4a7db7145b92bb6065befc5
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743442"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999896"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Erros de resolução de problemas usando a Política Azure
 
@@ -68,7 +68,7 @@ Siga estes passos para resolver os problemas da sua definição política:
 
 1. Em primeiro lugar, aguarde o tempo adequado para que uma avaliação complete e os resultados de conformidade fiquem disponíveis no portal Azure ou SDK. Para iniciar uma nova avaliação com Azure PowerShell ou REST API, consulte a [avaliação a pedido](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
 1. Verifique se os parâmetros de atribuição e o âmbito de atribuição estão corretamente definidos.
-1. Verifique o [modo de definição de política:](../concepts/definition-structure.md#mode)
+1. Verifique o [modo de definição de política](../concepts/definition-structure.md#mode):
    - Modo 'todos' para todos os tipos de recursos.
    - Modo 'indexado' se a definição de política verificar as etiquetas ou a localização.
 1. Verifique se o âmbito do recurso não está [excluído](../concepts/assignment-structure.md#excluded-scopes) ou [isento.](../concepts/exemption-structure.md)
@@ -96,11 +96,11 @@ Siga estes passos para resolver os problemas da aplicação da sua missão polí
 
 1. Em primeiro lugar, aguarde o tempo adequado para que uma avaliação complete e os resultados de conformidade fiquem disponíveis no portal Azure ou SDK. Para iniciar uma nova avaliação com Azure PowerShell ou REST API, consulte a [avaliação a pedido](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
 1. Verifique se os parâmetros de atribuição e o âmbito de atribuição estão corretamente definidos e se **o modo de execução** está _ativado_. 
-1. Verifique o [modo de definição de política:](../concepts/definition-structure.md#mode)
+1. Verifique o [modo de definição de política](../concepts/definition-structure.md#mode):
    - Modo 'todos' para todos os tipos de recursos.
    - Modo 'indexado' se a definição de política verificar as etiquetas ou a localização.
 1. Verifique se o âmbito do recurso não está [excluído](../concepts/assignment-structure.md#excluded-scopes) ou [isento.](../concepts/exemption-structure.md)
-1. Verifique se a carga útil do recurso corresponde à lógica da política. Isto pode ser feito [capturando um traço HAR](../../../azure-portal/capture-browser-trace.md) ou revendo as propriedades do modelo ARM.
+1. Verifique se o payload do recurso corresponde à lógica da política. Isto pode ser feito [capturando um traço HAR](../../../azure-portal/capture-browser-trace.md) ou revendo as propriedades do modelo ARM.
 1. Verifique [resolução de problemas: Conformidade não como esperado](#scenario-compliance-not-as-expected) para outras questões e soluções comuns.
 
 Se ainda tiver algum problema com a definição de política incorporada duplicada e personalizada ou a definição personalizada, crie um bilhete de apoio ao abrigo **da Autoria de uma política** para encaminhar o problema corretamente.
@@ -169,6 +169,24 @@ O Gráfico helm com o nome `azure-policy-addon` já foi instalado ou parcialment
 #### <a name="resolution"></a>Resolução
 
 Siga as instruções para [remover a Política de Azure para o add-on de Kubernetes](../concepts/policy-for-kubernetes.md#remove-the-add-on)e, em seguida, repercuta o `helm install azure-policy-addon` comando.
+
+### <a name="scenario-azure-virtual-machine-user-assigned-identities-are-replaced-by-system-assigned-managed-identities"></a>Cenário: As identidades atribuídas pelo utilizador da máquina virtual Azure são substituídas por identidades geridas atribuídas pelo sistema
+
+#### <a name="issue"></a>Problema
+
+Após a atribuição de iniciativas de política de Configuração de Convidados para configurações de auditoria dentro de máquinas, as identidades geridas atribuídas pelo utilizador que foram atribuídas à máquina deixaram de ser atribuídas. Apenas uma identidade gerida atribuída pelo sistema é atribuída.
+
+#### <a name="cause"></a>Causa
+
+As definições de política anteriormente utilizadas nas definições de Implementação de Configuração de HóspedesIfNotExists garantiram que uma identidade atribuída ao sistema é atribuída à máquina, mas também removidas as atribuições de identidade atribuídas pelo utilizador.
+
+#### <a name="resolution"></a>Resolução
+
+As definições que anteriormente causaram este problema aparecem como \[ Deprecadas \] e são substituídas por definições políticas que gerem pré-requisitos sem remover a identidade gerida atribuída pelo utilizador. É necessário um passo manual. Eliminar quaisquer atribuições políticas existentes que estejam marcadas \[ Deprecadas \] e substituí-las pela iniciativa política pré-requisito atualizada e definições políticas que tenham o mesmo nome que o original.
+
+Para obter uma narrativa detalhada, consulte a seguinte publicação de blog:
+
+[Mudança importante lançada para as políticas de auditoria de Configuração de Hóspedes](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
 
 ## <a name="next-steps"></a>Passos seguintes
 

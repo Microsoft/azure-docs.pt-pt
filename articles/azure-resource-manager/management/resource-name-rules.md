@@ -4,10 +4,10 @@ description: Mostra as regras e restrições para nomear recursos Azure.
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.openlocfilehash: ff92eff9351e944f8baa11cf981e8511ad8e4ae1
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91653371"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regras de nomenclatura e restrições para recursos do Azure
@@ -39,8 +39,8 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > | serviço | global | 1-50 | Alfanuméricos e hífenes.<br><br>Comece com a letra, e termine com alfanumérico. |
 > | serviço / apis | serviço | 1-256 | Não posso usar:<br> `*#&+:<>?` |
 > | serviço / apis / questões | api | 1-256 | Não posso usar:<br> `*#&+:<>?` |
-> | serviço / apis / problemas / anexos | questão | 1-256 | Não posso usar:<br> `*#&+:<>?` |
-> | serviço / apis / problemas / comentários | questão | 1-256 | Não posso usar:<br> `*#&+:<>?` |
+> | serviço / apis / problemas / anexos | issue | 1-256 | Não posso usar:<br> `*#&+:<>?` |
+> | serviço / apis / problemas / comentários | issue | 1-256 | Não posso usar:<br> `*#&+:<>?` |
 > | serviço / apis / operações | api | 1-256 | Não posso usar:<br> `*#&+:<>?` |
 > | serviço / apis / operações / tags | operation | 1-256 | Não posso usar:<br> `*#&+:<>?` |
 > | serviço / apis / lançamentos | api | 1-80 | Alfanuméricos, sublinhados e hífens.<br><br>Comece e termine com alfanumérico ou sublinhado. |
@@ -653,7 +653,7 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > | armazenamentoCotas / gestãoPolícias | conta de armazenamento |  | Deve `default` ser. |
 > | blob | contentor | 1-1024 | Quaisquer caracteres URL, sensíveis a casos |
 > | fila | conta de armazenamento | 3-63 | Letras minúsculas, números e hífenes.<br><br>Não se pode começar ou acabar com hífen. Não se pode usar hífenes consecutivos. |
-> | mesa | conta de armazenamento | 3-63 | Alfanuméricos.<br><br>Comece com a carta. |
+> | table | conta de armazenamento | 3-63 | Alfanuméricos.<br><br>Comece com a carta. |
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 

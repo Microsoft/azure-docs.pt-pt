@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 1/17/2019
 ms.author: srrengar
 ms.openlocfilehash: 25a50a2841a03929804be45be8012f9b5d0457ff
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91357136"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Monitorização e diagnósticos para O Tecido de Serviço Azure

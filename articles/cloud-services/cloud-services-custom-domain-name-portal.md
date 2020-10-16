@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
-ms.openlocfilehash: 37189df6b1c9bf3f9fca185226f2ee3eeb3ddd7d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 012801d0aada8ee55bb0eb05eaf75caa95878765
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092733"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069930"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configurar um nome de domínio personalizado para um serviço cloud do Azure
 Quando cria um Serviço cloud, o Azure atribui-o a um subdomínio de **cloudapp.net**. Por exemplo, se o seu Serviço cloud estiver nomeado "contoso", os seus utilizadores poderão aceder à sua aplicação num URL como `http://contoso.cloudapp.net` . O Azure também atribui um endereço IP virtual.
@@ -62,7 +62,7 @@ Para criar um registo CNAME, deve adicionar uma nova entrada na tabela DNS para 
 
        ![secção de olhar rápido mostrando o URL do site][csurl]
 
-       **OU**
+       **OR**
    * Instale e configuure [Azure Powershell](/powershell/azure/), e, em seguida, use o seguinte comando:
 
        ```powershell
@@ -95,7 +95,7 @@ Para criar um registo A, tem primeiro de encontrar o endereço IP virtual do seu
 
        ![secção de olhar rápido mostrando o VIP][vip]
 
-       **OU**
+       **OR**
    * Instale e configuure [Azure Powershell](/powershell/azure/), e, em seguida, use o seguinte comando:
 
        ```powershell
@@ -119,7 +119,7 @@ Por exemplo, o seguinte registo A encaminha todo o tráfego de **contoso.com** p
 Este exemplo demonstra a criação de um registo A para o domínio raiz. Se desejar criar uma entrada wildcard para cobrir todos os subdomínios, introduzirá '*****' como subdomínio.
 
 > [!WARNING]
-> Os endereços IP em Azure são dinâmicos por padrão. Provavelmente irá querer utilizar um [endereço IP reservado](../virtual-network/virtual-networks-reserved-public-ip.md) para garantir que o seu endereço IP não se altere.
+> Os endereços IP em Azure são dinâmicos por padrão. Provavelmente irá querer utilizar um [endereço IP reservado](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) para garantir que o seu endereço IP não se altere.
 > 
 > 
 
@@ -138,6 +138,3 @@ Este exemplo demonstra a criação de um registo A para o domínio raiz. Se dese
 [Portal do Azure]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
-
-
-

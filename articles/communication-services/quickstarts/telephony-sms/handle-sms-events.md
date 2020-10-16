@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 072e885ec1c618229141dea477cd598d8db34ce7
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: e66d5c4dd4fc1c6c641da975b0ac2254f459642a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91756767"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976934"
 ---
 # <a name="quickstart-handle-sms-events"></a>Quickstart: Lidar com eventos DE SMS
 
@@ -86,19 +86,19 @@ Em seguida, **selecione Confirmar Seleção**.
 Para ver os desencadeadores do evento, temos de gerar eventos em primeiro lugar.
 
 - `SMS Received` os eventos são gerados quando o número de telefone dos Serviços de Comunicação recebe uma mensagem de texto. Para desencadear um evento, basta enviar uma mensagem do seu telefone para o número de telefone anexado ao seu recurso de Serviços de Comunicação.
-- `SMS Delivery Report Received` os eventos são gerados quando envia um SMS a um utilizador utilizando um número de telefone dos Serviços de Comunicação. Para ativar e evento, é necessário ativar `Delivery Report` nas opções do [SMS enviado.](../telephony-sms/send.md) Tente enviar uma mensagem para o seu telefone com `Delivery Report` . Completar esta ação incorre num pequeno custo de alguns usd ou menos na sua conta Azure.
+- `SMS Delivery Report Received` os eventos são gerados quando envia um SMS a um utilizador utilizando um número de telefone dos Serviços de Comunicação. Para desencadear um evento, é-lhe exigido que ative `Delivery Report` nas opções do [SMS enviado.](../telephony-sms/send.md) Tente enviar uma mensagem para o seu telefone com `Delivery Report` . Completar esta ação incorre num pequeno custo de alguns usd ou menos na sua conta Azure.
 
 Confira a lista completa de [eventos suportados pelos Serviços de Comunicação Azure.](../../concepts/event-handling.md)
 
 ### <a name="receiving-sms-events"></a>Receber eventos de SMS
 
-Assim que completares qualquer ação acima, vais reparar nisso  `SMS Received` e `SMS Delivery Report Received` os eventos são enviados para o teu ponto final. Estes eventos vão aparecer na amostra de [espectadores de grelha de eventos Azure](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) que criamos no início. Pode premir o ícone dos olhos ao lado do evento para ver toda a carga útil. Os eventos serão assim:
+Assim que completares qualquer ação acima, vais reparar nisso `SMS Received` e `SMS Delivery Report Received` os eventos são enviados para o teu ponto final. Estes eventos vão aparecer na amostra de [espectadores de grelha de eventos Azure](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) que criamos no início. Pode premir o ícone dos olhos ao lado do evento para ver toda a carga útil. Os eventos serão assim:
 
 :::image type="content" source="./media/handle-sms-events/sms-received.png" alt-text="Screenshot mostrando a seleção do botão de subscrição do evento dentro da página de eventos de um recurso.":::
 
 :::image type="content" source="./media/handle-sms-events/sms-delivery-report-received.png" alt-text="Screenshot mostrando a seleção do botão de subscrição do evento dentro da página de eventos de um recurso.":::
 
-Saiba mais sobre os esquemas de [eventos e outros conceitos de eventos](../../concepts/event-handling.md)
+Saiba mais sobre os esquemas de [eventos e outros conceitos de eventos.](../../concepts/event-handling.md)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

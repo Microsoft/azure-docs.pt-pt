@@ -1,14 +1,14 @@
 ---
 title: OFICIAL DO Reino Unido & controlos de amostras de amostras do NHS do Reino Unido
-description: Controlo do mapeamento das amostras de plantas do NHS do Reino Unido e do Reino Unido. Cada controlo é mapeado para uma ou mais Políticas Azure que ajudam na avaliação.
+description: Controlo do mapeamento das amostras de plantas do NHS do Reino Unido e do Reino Unido. Cada controlo é mapeado para uma ou mais definições da Política Azure que ajudam na avaliação.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: dd16e6e62e5df3bae083cc4df05207f1f518d560
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: b798ac98e057b85cce0faa835575dbb0d50f9c8c
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540392"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91931277"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Controlo do mapeamento das amostras de plantas do NHS oficial do Reino Unido e do Reino Unido
 
@@ -17,7 +17,7 @@ O artigo seguinte detalha como o mapa de amostras de amostras do NHS oficial do 
 Os seguintes mapeamentos são para os controlos **oficiais** do Reino Unido e **do NhS do Reino Unido.** Utilize a navegação no direito de saltar diretamente para um mapeamento de controlo específico. Muitos dos controlos mapeados são implementados com uma iniciativa [da Política Azure.](../../../policy/overview.md) Para rever a iniciativa completa, abra **a Política** no portal Azure e selecione a página **Definições.** Em seguida, encontre e selecione os ** \[ \] controlos oficiais do NHS oficiais e britânicos de pré-visualização e implemente extensões VM específicas para apoiar os requisitos** de auditoria integrados na iniciativa política.
 
 > [!IMPORTANT]
-> Cada controlo abaixo está associado a uma ou mais definições [da Política Azure.](../../../policy/overview.md) Estas políticas podem ajudá-lo a avaliar o [cumprimento](../../../policy/how-to/get-compliance-data.md) do controlo; no entanto, muitas vezes não há um 1:1 ou um jogo completo entre um controlo e uma ou mais políticas. Como tal, **a Conformidade** na Política Azure refere-se apenas às próprias políticas; isto não garante que esteja totalmente em conformidade com todos os requisitos de um controlo. Além disso, a norma de conformidade inclui controlos que não são abordados por nenhuma definição da Política Azure neste momento. Portanto, o cumprimento da Política Azure é apenas uma visão parcial do seu estado de conformidade geral. As associações entre controlos e definições de Política Azure para esta amostra de projeto de conformidade podem mudar ao longo do tempo. Para ver a história da mudança, consulte o [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ukofficial/control-mapping.md).
+> Cada controlo abaixo está associado a uma ou mais definições [da Política Azure.](../../../policy/overview.md) Estas políticas podem ajudá-lo a avaliar o [cumprimento](../../../policy/how-to/get-compliance-data.md) do controlo; no entanto, muitas vezes não há um para um ou um jogo completo entre um controlo e uma ou mais políticas. Como tal, **a Conformidade** na Política Azure refere-se apenas às próprias políticas; isto não garante que esteja totalmente em conformidade com todos os requisitos de um controlo. Além disso, a norma de conformidade inclui controlos que não são abordados por nenhuma definição da Política Azure neste momento. Portanto, o cumprimento da Política Azure é apenas uma visão parcial do seu estado de conformidade geral. As associações entre controlos e definições de Política Azure para esta amostra de projeto de conformidade podem mudar ao longo do tempo. Para ver a história da mudança, consulte o [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ukofficial/control-mapping.md).
 
 ## <a name="1-data-in-transit-protection"></a>1 Dados relativos à proteção do trânsito
 
@@ -33,8 +33,7 @@ O plano ajuda-o a garantir que a transferência de informação com os serviços
 
 ## <a name="23-data-at-rest-protection"></a>2.3 Dados relativos à proteção do repouso
 
-Esta planta ajuda-o a impor a sua política sobre a utilização de controlos criptógrafos, atribuindo definições [de Política de Azure](../../../policy/overview.md) que impõem controlos criptógrafos específicos e auditam o uso de configurações criptográficas fracas.
-Compreender onde os seus recursos Azure podem ter configurações criptográficas não ideais pode ajudá-lo a tomar ações corretivas para garantir que os recursos são configurados de acordo com a sua política de segurança de informação. Especificamente, as políticas atribuídas por esta planta requerem encriptação para contas de armazenamento de data lake; requerer encriptação de dados transparentes nas bases de dados SQL; auditoria em falta de encriptação em contas de armazenamento, bases de dados SQL, discos de máquinas virtuais e variáveis de conta de automação; auditoria de ligações inseguras às contas de armazenamento e à Cache Redis; encriptação de senha de máquina virtual fraca; e auditoria comunicação de tecido de serviço não encriptado.
+Esta planta ajuda-o a impor a sua política sobre a utilização de controlos criptógrafos, atribuindo definições [de Política de Azure](../../../policy/overview.md) que impõem controlos criptógrafos específicos e auditam o uso de configurações criptográficas fracas. Compreender onde os seus recursos Azure podem ter configurações criptográficas não ideais pode ajudá-lo a tomar ações corretivas para garantir que os recursos são configurados de acordo com a sua política de segurança de informação. Especificamente, as políticas atribuídas por esta planta requerem encriptação para contas de armazenamento de data lake; requerer encriptação de dados transparentes nas bases de dados SQL; auditoria em falta de encriptação em contas de armazenamento, bases de dados SQL, discos de máquinas virtuais e variáveis de conta de automação; auditoria de ligações inseguras às contas de armazenamento e à Cache Redis; encriptação de senha de máquina virtual fraca; e auditoria comunicação de tecido de serviço não encriptado.
 
 - A encriptação do disco deve ser aplicada em máquinas virtuais
 - As variáveis de conta de automação devem ser encriptadas
@@ -76,7 +75,8 @@ Esta planta ajuda-o a proteger os ativos do sistema de informação, atribuindo 
 
 ## <a name="9-secure-user-management"></a>9 Gestão Segura do Utilizador 
 
-O controlo de acesso baseado em funções (Azure RBAC) ajuda-o a gerir quem tem acesso a recursos em Azure. Utilizando o portal Azure, pode rever quem tem acesso aos recursos do Azure e às suas permissões. Este projeto ajuda-o a restringir e a controlar os direitos de acesso, atribuindo definições [da Azure Policy](../../../policy/overview.md) para auditar contas externas com permissões e contas de proprietário e/ou de leitura/escrita com o proprietário, ler e/ou escrever permissões que não tenham autenticação de vários fatores ativadas.
+O controlo de acesso baseado em funções (Azure RBAC) ajuda-o a gerir quem tem acesso a recursos em Azure.
+Utilizando o portal Azure, pode rever quem tem acesso aos recursos do Azure e às suas permissões. Este projeto ajuda-o a restringir e a controlar os direitos de acesso, atribuindo definições [da Azure Policy](../../../policy/overview.md) para auditar contas externas com permissões e contas de proprietário e/ou de leitura/escrita com o proprietário, ler e/ou escrever permissões que não tenham autenticação de vários fatores ativadas.
 
 - O MFA deve ser ativado em contas com permissões do proprietário na sua subscrição
 - A MFA deve ser ativada em contas com permissões de escrita na sua subscrição
@@ -101,7 +101,8 @@ Esta planta atribui definições de Política Azure à utilização de auditaç�
 - Um administrador do Azure Ative Directory deve ser a provisionado para servidores SQL
 - Os clusters de tecido de serviço só devem utilizar o Azure Ative Directy para a autenticação do cliente
 
-Este projeto também atribui definições de Política Azure a contas de auditoria que devem ser priorizadas para revisão, incluindo contas amortizadas e contas externas. Quando necessário, as contas podem ser bloqueadas de iniciar sessão (ou removida), o que elimina imediatamente os direitos de acesso aos recursos da Azure. Este projeto atribui duas definições da Política Azure à auditoria de conta amortizada que deve ser considerada para remoção.
+Este projeto também atribui definições de Política Azure a contas de auditoria que devem ser priorizadas para revisão, incluindo contas amortizadas e contas externas. Quando necessário, as contas podem ser bloqueadas de iniciar sessão (ou removida), o que elimina imediatamente os direitos de acesso aos recursos da Azure.
+Este projeto atribui duas definições da Política Azure à auditoria de conta amortizada que deve ser considerada para remoção.
 
 - As contas preprecadas devem ser removidas da sua subscrição
 - Contas pregridadas com permissões do proprietário devem ser removidas da sua subscrição
@@ -137,7 +138,8 @@ Esta planta também ajuda a controlar o acesso aos recursos Azure, atribuindo de
 
 ## <a name="11-external-interface-protection"></a>11 Proteção de Interface Externa
 
-Além de utilizar mais de 25 políticas para uma gestão segura e adequada do utilizador, este plano ajuda-o a proteger as interfaces de serviço do acesso não autorizado, atribuindo uma definição [de Política Azure](../../../policy/overview.md) que monitoriza contas de armazenamento sem restrições. As contas de armazenamento com acesso ilimitado podem permitir o acesso não intencional às informações contidas no sistema de informação. Esta planta também atribui uma política que permite controlos de aplicações adaptativos em máquinas virtuais.
+Além de utilizar mais de 25 políticas para uma gestão segura e adequada do utilizador, este plano ajuda-o a proteger as interfaces de serviço do acesso não autorizado, atribuindo uma definição [de Política Azure](../../../policy/overview.md) que monitoriza contas de armazenamento sem restrições.
+As contas de armazenamento com acesso ilimitado podem permitir o acesso não intencional às informações contidas no sistema de informação. Esta planta também atribui uma política que permite controlos de aplicações adaptativos em máquinas virtuais.
 
 - Auditoria acesso ilimitado à rede a contas de armazenamento
 - Os controlos de aplicações adaptativos devem ser ativados em máquinas virtuais
@@ -151,7 +153,8 @@ Além de utilizar mais de 25 políticas para uma gestão segura e adequada do ut
 
 ## <a name="13-audit-information-for-users"></a>13 Informações de Auditoria para Utilizadores
 
-Esta planta ajuda-o a garantir que os eventos do sistema são registados atribuindo definições [de Política Azure](../../../policy/overview.md) que auditam as definições de registo nos recursos do Azure. Uma política atribuída também audita se as máquinas virtuais não estiverem a enviar registos para um espaço de trabalho específico de análise de registos.
+Esta planta ajuda-o a garantir que os eventos do sistema são registados atribuindo definições [de Política Azure](../../../policy/overview.md) que auditam as definições de registo nos recursos do Azure.
+Uma política atribuída também audita se as máquinas virtuais não estiverem a enviar registos para um espaço de trabalho específico de análise de registos.
 
 - A segurança avançada dos dados deve ser ativada nos seus servidores SQL
 - Definição de diagnóstico de auditoria
@@ -159,7 +162,7 @@ Esta planta ajuda-o a garantir que os eventos do sistema são registados atribui
 - \[Pré-visualização \] : Implementar agente de análise de registo para VMs do Windows
 - Implementar o observador de rede quando as redes virtuais forem criadas
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que reviu o mapeamento de controlo das plantas do NHS do Reino Unido e do Reino Unido, visite os seguintes artigos para saber mais sobre a visão geral e como implementar esta amostra:
 

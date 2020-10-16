@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 9526a1569a5d8320dd59272ca97f5b48ec1dac1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e148adfe6db62e6fdaea53165a5c23d9a08efba
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88999126"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042393"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Tutorial: Implementar funções de Azure como módulos IoT Edge
 
-Pode utilizar as Funções do Azure para implementar código que aplica a sua lógica de negócio diretamente nos seus dispositivos Azure IoT Edge. Este tutorial acompanha-o através da criação e implementação de uma Função Azure que filtra dados do sensor no dispositivo IoT Edge simulado. Vai utilizar o dispositivo IoT Edge simulado que criou na Implementação do Azure IoT Edge num dispositivo simulado em inícios rápidos do [Windows](quickstart.md) ou do [Linux](quickstart-linux.md). Neste tutorial, ficará a saber como:
+Pode utilizar as Funções do Azure para implementar código que aplica a sua lógica de negócio diretamente nos seus dispositivos Azure IoT Edge. Este tutorial acompanha-o através da criação e implementação de uma Função Azure que filtra dados do sensor no dispositivo IoT Edge simulado. Vai utilizar o dispositivo IoT Edge simulado que criou na Implementação do Azure IoT Edge num dispositivo simulado em inícios rápidos do [Windows](quickstart.md) ou do [Linux](quickstart-linux.md). Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -42,7 +42,7 @@ Antes de iniciar este tutorial, deveria ter passado pelo tutorial anterior para 
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) no escalão gratuito ou standard no Azure.
 * Um [dispositivo Linux executando Azure IoT Edge](quickstart-linux.md)
-* Um registo de contentores, como [o Registo de Contentores de Azure.](https://docs.microsoft.com/azure/container-registry/)
+* Um registo de contentores, como [o Registo de Contentores de Azure.](../container-registry/index.yml)
 * [Código de Estúdio Visual](https://code.visualstudio.com/) configurado com as [Ferramentas Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) configurado para executar contentores Linux.
 
@@ -227,7 +227,7 @@ Também pode filtrar para ver todas as mensagens que chegam ao seu hub IoT a par
 
 Para parar de monitorizar as mensagens, executar o comando **Azure IoT Hub: Parar de monitorizar** o ponto final do evento incorporado na paleta de comando.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se planeia avançar para o próximo artigo recomendado, pode manter os recursos e as configurações que criou e reutilizá-los. Também pode continuar a utilizar o mesmo dispositivo IoT Edge como um dispositivo de teste.
 

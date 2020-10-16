@@ -12,10 +12,10 @@ ms.date: 09/03/2019
 ms.author: kenwith
 ms.reviewer: asteen
 ms.openlocfilehash: 306c3771c0392bbc97260a726e153cfd385cebcd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84782131"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problema de configuração do fornecimento de um utilizador a uma aplicação da Galeria AD Azure
@@ -65,5 +65,5 @@ Quando um utilizador aparece como "ignorado" nos registos de provisionamento, é
 
   * **Atribuir mapeamentos para grupos:** Provisionamento do nome do grupo e detalhes do grupo, além dos membros, se apoiados em algumas candidaturas. Pode ativar ou desativar esta funcionalidade ativando ou desativando o **Mapeamento** de objetos de grupo indicados no **separador Provisioning.** Se os grupos de provisionamento estiverem habilitados, certifique-se de rever os mapeamentos de atributos para garantir que um campo adequado está a ser utilizado para o "ID correspondente". Este pode ser o nome de exibição ou pseudónimo de e-mail), uma vez que o grupo e os seus membros não são a provisionados se a propriedade correspondente estiver vazia ou não povoada para um grupo em Azure AD.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Automatizar o Provisionamento de Utilizadores e Deprovisionamento para aplicações saas com diretório ativo Azure](user-provisioning.md)

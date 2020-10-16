@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a1efafd353bea20ea1ada0b5e92a9e6df00deb78
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91273605"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: contas e permissões
@@ -175,7 +175,7 @@ Se utilizar definições personalizadas, é responsável por criar a conta antes
 ### <a name="adsync-service-account"></a>ADSync service account (conta de serviço do ADSync)
 O serviço de sincronização pode ser executado em diferentes contas. Pode ser executado numa **Conta de Serviço Virtual** (VSA), numa Conta de Serviço Gerido pelo **Grupo** (gMSA/sMSA), ou numa conta de utilizador regular. As opções suportadas foram alteradas com o lançamento de abril de 2017 do Connect quando se faz uma nova instalação. Se atualizar a partir de uma versão anterior do Azure AD Connect, estas opções adicionais não estão disponíveis.
 
-| Tipo de conta | Opção de instalação | Description |
+| Tipo de conta | Opção de instalação | Descrição |
 | --- | --- | --- |
 | [Conta de Serviço Virtual](#virtual-service-account) | Expresso e personalizado, abril de 2017 e mais tarde | Esta é a opção utilizada para todas as instalações expressas, com exceção das instalações num Controlador de Domínio. Para o costume, é a opção padrão a menos que outra opção seja usada. |
 | [Conta de Serviço Gerida de Grupo](#group-managed-service-account) | Personalizado, abril de 2017 e mais tarde | Se utilizar um servidor SQL remoto, recomendamos a utilização de uma conta de serviço gerida pelo grupo. |

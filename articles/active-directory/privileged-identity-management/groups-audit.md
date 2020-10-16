@@ -15,10 +15,10 @@ ms.author: curtand
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 94dd5c2579eb7ce96dea70c6354df8ec84125bd9
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88141674"
 ---
 # <a name="audit-activity-history-for-privileged-access-group-assignments-preview-in-privileged-identity-management"></a>Histórico de atividades de auditoria para atribuições privilegiadas de grupos de acesso (pré-visualização) em Gestão de Identidade Privilegiada
@@ -62,7 +62,7 @@ Siga estes passos para ver o histórico de auditoria para grupos de acesso privi
 
     ![Lista de auditoria para o utilizador atual](media/azure-pim-resource-rbac/my-audit-time.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atribuir a filiação e a propriedade do grupo na Gestão de Identidade Privilegiada](groups-assign-member-owner.md)
 - [Aprovar ou negar pedidos de grupos de acesso privilegiados em PIM](groups-approval-workflow.md)

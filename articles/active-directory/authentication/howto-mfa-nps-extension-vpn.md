@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13ed87903845d9f8295e56f187b643d73fbfb04e
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: c7243857db9a3726bb42815ac4c9eef661f52e47
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717885"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91964728"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integre a sua infraestrutura VPN com o Azure MFA utilizando a extensão do Servidor de Política de Rede para Azure
 
@@ -172,7 +172,7 @@ Pode utilizar uma opção de configuração padrão (baseada em assistentes) ou 
 7. Na janela **Configure Authentication Methods,** aceite a seleção predefinida **(Microsoft Encrypted Authentication version 2 [MS-CHAPv2])** ou escolha outra opção e selecione **Seguinte**.
 
     > [!NOTE]
-    > Se configurar o Protocolo de Autenticação Extensível (EAP), deve utilizar o Microsoft Challenge-Handshake Authentication Protocol (CHAPv2) ou o Protected Extensible Authentication Protocol (PEAP). Nenhum outro EAP é apoiado.
+    > Se configurar o Protocolo de Autenticação Extensível (EAP), deve utilizar o Microsoft Challenge-Handshake Protocolo de Autenticação (CHAPv2) ou o Protocolo de Autenticação Extensível Protegido (PEAP). Nenhum outro EAP é apoiado.
 
 8. Na janela **"Specify User Groups",** selecione **Adicionar**e, em seguida, selecione um grupo apropriado. Se não existir nenhum grupo, deixe a seleção em branco para conceder acesso a todos os utilizadores.
 

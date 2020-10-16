@@ -9,12 +9,12 @@ metadata:
   ms.service: azure-app-configuration
   ms.topic: landing-page
   ms.date: 02/03/2020
-  ms.openlocfilehash: 598fb9fa8c780219de13af668f0a1c35cba9b40c
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: d9f08f99b6b8d945243b78cc208a3432e43108b7
+  ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "89421599"
+  ms.lasthandoff: 10/15/2020
+  ms.locfileid: "92074758"
 landingContent:
 - title: Sobre a Configuração da Aplicação Azure
   linkLists:
@@ -74,6 +74,8 @@ landingContent:
       url: enable-dynamic-configuration-dotnet.md
     - text: Utilizar a configuração dinâmica nas Funções do Azure
       url: enable-dynamic-configuration-azure-functions-csharp.md
+    - text: Utilizar a configuração dinâmica no Spring Boot
+      url: enable-dynamic-configuration-java-spring-app.md
   - linkListType: tutorial
     links:
     - text: Integrar num pipeline CI/CD
@@ -113,9 +115,9 @@ landingContent:
   - linkListType: reference
     links:
     - text: Biblioteca de .NET Core
-      url: https://go.microsoft.com/fwlink/?linkid=2091700
+      url: /dotnet/api/microsoft.featuremanagement
     - text: Biblioteca de filtro .NET Core
-      url: https://go.microsoft.com/fwlink/?linkid=2091601
+      url: /dotnet/api/microsoft.featuremanagement.featurefilters
 - title: SDKs e exemplos de configuração
   linkLists:
   - linkListType: sample
@@ -125,13 +127,13 @@ landingContent:
   - linkListType: reference
     links:
     - text: CLI do Azure
-      url: https://docs.microsoft.com/cli/azure/appconfig?view=azure-cli-latest
+      url: /cli/azure/appconfig?view=azure-cli-latest
     - text: PowerShell
-      url: https://docs.microsoft.com/powershell/module/az.appconfiguration/
+      url: /powershell/module/az.appconfiguration/
     - text: Terraform
       url: https://www.terraform.io/docs/providers/azurerm/r/app_configuration.html
     - text: Fornecedor de .NET Core
-      url: https://go.microsoft.com/fwlink/?linkid=2074664
+      url: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
     - text: Fornecedor do Spring Boot
       url: https://github.com/microsoft/spring-cloud-azure/tree/master/
     - text: SDK do Azure para Java

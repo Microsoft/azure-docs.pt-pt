@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: atsenthi
 ms.openlocfilehash: 1da70c37c8a6ed93e7abe1b5d329e808c592e43a
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86034987"
 ---
 # <a name="read-and-update-a-reliable-collections-backup-by-using-backup-explorer"></a>Leia e atualize uma cópia de segurança de Cobranças Fiáveis utilizando o Backup Explorer
@@ -42,7 +42,7 @@ Você também pode construir o repositório localmente e trabalhar em backups.
  
 O NuGet for Backup Explorer (Microsoft.ServiceFabric.ReliableCollectionBackup.Parser) estará disponível no [nuget.org](https://www.nuget.org/). 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Leia mais sobre [As Coleções Fiáveis em Serviços Azure Fabric serviços estatais](service-fabric-reliable-services-reliable-collections.md).
 * Rever [as melhores práticas do Serviço de Revisão.](service-fabric-best-practices-overview.md)

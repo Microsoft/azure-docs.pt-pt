@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: 140385a26dbfd754438d632ce327c3c4a3ea1b61
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88166183"
 ---
 # <a name="instantiate-a-confidential-client-application-with-configuration-options-using-msalnet"></a>Instantiizar uma aplicação confidencial do cliente com opções de configuração usando MSAL.NET
@@ -60,7 +60,7 @@ Uma configuração de aplicação core ASP.NET é descrita num *appsettings.jsno
 
 A partir de MSAL.NET v3.x, pode configurar a sua aplicação confidencial de cliente a partir do ficheiro config.
 
-Na classe onde pretende configurar e instantaneamente a sua aplicação, tem de declarar um `ConfidentialClientApplicationOptions` objeto.  Ligue a configuração lida da fonte (incluindo a appconfig.jsem ficheiro) à instância das opções de aplicação, utilizando o `IConfigurationRoot.Bind()` método a partir daMicrosoft.Extensions.Config[uration. Pacote nuget binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
+Na classe onde pretende configurar e instantaneamente a sua aplicação, tem de declarar um `ConfidentialClientApplicationOptions` objeto.  Ligue a configuração lida da fonte (incluindo a appconfig.jsem ficheiro) à instância das opções de aplicação, utilizando o `IConfigurationRoot.Bind()` método a partir daMicrosoft.Extensions.Config[ uration. Pacote nuget binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
 
 ```csharp
 using Microsoft.Identity.Client;

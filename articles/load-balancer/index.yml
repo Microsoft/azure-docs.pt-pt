@@ -11,12 +11,12 @@ metadata:
   author: asudbring
   ms.author: allensu
   ms.date: 05/07/2020
-  ms.openlocfilehash: a6348b967e814a49c766388540a594987af2231e
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: afc3b8c4d10bc55d8d7c8faa5e8d9eedd9e2a082
+  ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
   ms.translationtype: HT
   ms.contentlocale: pt-PT
   ms.lasthandoff: 10/09/2020
-  ms.locfileid: "89296943"
+  ms.locfileid: "91929749"
 landingContent:
 - title: Acerca do Balanceador de Carga
   linkLists:
@@ -24,7 +24,7 @@ landingContent:
     links:
     - text: O que é o Balanceador de Carga?
       url: load-balancer-overview.md
-    - text: Conceitos do Balanceador de Carga
+    - text: Algoritmo do Balanceador de Carga
       url: concepts.md
     - text: Componentes do Balanceador de Carga
       url: components.md
@@ -96,6 +96,10 @@ landingContent:
       url: load-balancer-common-deployment-errors.md
     - text: Resolver problemas comuns de ligação de saída
       url: troubleshoot-outbound-connection.md
+  - linkListType: video
+    links:
+    - text: Criar e monitorizar aplicações de elevada disponibilidade com o Balanceador de Carga do Azure
+      url: https://techcommunity.microsoft.com/t5/video-hub/build-amp-monitor-highly-available-apps-w-azure-load-balancer/m-p/1703353
 - title: Referência
   linkLists:
   - linkListType: reference

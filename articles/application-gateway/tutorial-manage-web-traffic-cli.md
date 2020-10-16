@@ -9,10 +9,10 @@ ms.date: 07/20/2019
 ms.author: victorh
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 6bc5761f4e629a90dacf06cd7503ca86a5448fe4
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89595878"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>Gerir o tráfego da Web com um gateway de aplicação com a CLI do Azure
@@ -153,6 +153,6 @@ Quando já não forem necessários, remova o grupo de recursos, o gateway de apl
 az group delete --name myResourceGroupAG --location eastus
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Restringir o tráfego da Web com uma firewall de aplicações Web](./tutorial-restrict-web-traffic-cli.md)

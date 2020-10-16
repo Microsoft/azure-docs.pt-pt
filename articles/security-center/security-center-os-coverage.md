@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 03/31/2020
 ms.author: memildin
 ms.openlocfilehash: 68cb738ae6e4689a0356ea56c1de2d383ea83ad6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91449939"
 ---
 # <a name="supported-platforms"></a>Plataformas suportadas 

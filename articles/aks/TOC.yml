@@ -171,7 +171,7 @@
             - name: Utilizar conjuntos de nós de sistema
               href: use-system-pools.md
         - name: Implementar AKS com Terraform
-          href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
+          href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
           maintainContext: true
         - name: Utilizar o visualizador de recursos do Kubernetes (Pré-visualização)
           href: kubernetes-portal.md
@@ -358,10 +358,10 @@
     - name: DevOps
       items:
         - name: Utilizar Ansible para criar clusters do AKS
-          href: /azure/ansible/ansible-create-configure-aks
+          href: /azure/developer/ansible/aks-configure-clusters
           maintainContext: true
         - name: Implementação contínua do Jenkins
-          href: jenkins-continuous-deployment.md
+          href: /azure/developer/jenkins/deploy-from-github-to-aks
         - name: Projeto de DevOps do Azure
           href: ../devops-project/azure-devops-project-aks.md
           maintainContext: true

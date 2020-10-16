@@ -11,10 +11,10 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: devx-track-csharp, aaddev, vs-azure
 ms.openlocfilehash: a070bee7a9fa836eeac7c739cf2757295533ad7f
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88165367"
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>O que aconteceu com o meu projeto WebAPI (serviço de ligação ao Visual Studio Azure Ative Directory)
@@ -23,7 +23,7 @@ ms.locfileid: "88165367"
 > - [Introdução](vs-active-directory-webapi-getting-started.md)
 > - [O que aconteceu](vs-active-directory-webapi-what-happened.md)
 
-Este artigo identifica as alterações exatas feitas aos projetos ASP.NET WebAPI, ASP.NET Aplicação de Página Única e ASP.NET API Azure ao adicionar o [serviço de ligação ao Diretório Ativo Azure utilizando](vs-active-directory-add-connected-service.md)o Visual Studio . Aplica-se também aos projetos ASP.NET Azure Mobile Service no Visual Studio 2015.
+Este artigo identifica as alterações exatas feitas aos projetos ASP.NET webAPI, ASP.NET Single-Page e ASP.NET Azure API ao adicionar o [serviço de ligação ao Azure Ative Directory utilizando](vs-active-directory-add-connected-service.md)o Visual Studio . Aplica-se também aos projetos ASP.NET Azure Mobile Service no Visual Studio 2015.
 
 Para obter informações sobre o trabalho com o serviço conectado, consulte ["Começar".](vs-active-directory-webapi-getting-started.md)
 

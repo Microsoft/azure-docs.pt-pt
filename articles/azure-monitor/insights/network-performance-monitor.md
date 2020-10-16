@@ -7,10 +7,10 @@ author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
 ms.openlocfilehash: c5a442a3d3711b85c0bad30218cb1ffab92558d9
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91403726"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução monitor de desempenho de rede em Azure

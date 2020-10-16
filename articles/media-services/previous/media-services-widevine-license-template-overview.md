@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 7bdffa607a1cbe47b940590d19f6140238d31bf0
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89266498"
 ---
 # <a name="widevine-license-template-overview"></a>Visão geral do modelo de licença de widevine
@@ -64,7 +64,7 @@ Um pedido de licença Widevine é formatado como uma mensagem JSON.
 ```
 
 ## <a name="json-message"></a>Mensagem JSON
-| Name | Valor | Descrição |
+| Nome | Valor | Descrição |
 | --- | --- | --- |
 | payload |Cadeia codificada base64 |O pedido de licença enviado por um cliente. |
 | content_id |Cadeia codificada base64 |O identificador utilizado para obter o ID da chave e a chave de conteúdo para cada content_key_specs.track_type. |
@@ -82,7 +82,7 @@ Se existir uma política pré-existente, não há necessidade de especificar nen
 
 Cada content_key_specs valor deve ser especificado para todas as faixas, independentemente da opção use_policy_overrides_exclusively. 
 
-| Name | Valor | Descrição |
+| Nome | Valor | Descrição |
 | --- | --- | --- |
 | content_key_specs. track_type |string |Um nome do tipo de faixa. Se content_key_specs for especificado no pedido de licença, certifique-se de especificar explicitamente todos os tipos de faixas. Se não o fizer, resulta em não voltar a jogar depois de 10 segundos. |
 | content_key_specs  <br/> security_level |uint32 |Define os requisitos de robustez do cliente para a reprodução. <br/> - É necessária uma criptografia de caixa branca baseada em software. <br/> - São necessárias criptografia de software e um descodificador obfuscado. <br/> - As operações de material-chave e criptografia devem ser efetuadas num ambiente de execução fidedigno apoiado por hardware. <br/> - A criptografia e a descodão dos conteúdos devem ser efetuadas num ambiente de execução fidedigno apoiado por hardware.  <br/> - A criptografia, a descodão e todo o manuseamento dos meios de comunicação (comprimidos e descomprimidos) devem ser manuseados num ambiente de execução fidedigno apoiado por hardware. |
@@ -91,7 +91,7 @@ Cada content_key_specs valor deve ser especificado para todas as faixas, indepen
 | content_key_specs.key_id |Binário de cordas codificado base64, 16 bytes |Identificador único para a chave. |
 
 ## <a name="policy-overrides"></a>A política sobrepõe-se
-| Name | Valor | Descrição |
+| Nome | Valor | Descrição |
 | --- | --- | --- |
 | policy_overrides. can_play |Booleano, verdadeiro ou falso |Indica que a reprodução do conteúdo é permitida. A predefinição é falso. |
 | policy_overrides. can_persist |Booleano, verdadeiro ou falso |Indica que a licença pode ser persistido para armazenamento nãovolásimo para uso offline. A predefinição é falso. |
@@ -106,7 +106,7 @@ Cada content_key_specs valor deve ser especificado para todas as faixas, indepen
 | policy_overrides. renew_with_usage |Booleano, verdadeiro ou falso |Indica que a licença é enviada para renovação quando a utilização começa. Este campo só é usado se can_renew for verdade. |
 
 ## <a name="session-initialization"></a>Inicialização da sessão
-| Name | Valor | Descrição |
+| Nome | Valor | Descrição |
 | --- | --- | --- |
 | provider_session_token |Cadeia codificada base64 |Esta sessão é repercutido na licença e existe em renovações subsequentes. O token da sessão não persiste além das sessões. |
 | provider_client_token |Cadeia codificada base64 |Ficha do cliente para enviar de volta a resposta da licença. Se o pedido de licença contiver um símbolo de cliente, este valor é ignorado. O símbolo do cliente persiste para além das sessões de licença. |
@@ -208,6 +208,6 @@ private static string ConfigureWidevineLicenseTemplate()
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 [Utilizar a encriptação comum dinâmica com PlayReady e/ou Widevine](media-services-protect-with-playready-widevine.md)
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/06/2020
 ms.openlocfilehash: 87feba3bc79e39f1379a25fa55fe0186d5605e4a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86085553"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Executar consultas de Colmeia Apache com Apache Hadoop em HDInsight usando REST
@@ -98,8 +98,8 @@ $clusterName
 
     Os parâmetros utilizados neste comando são os seguintes:
 
-    * `-u`- O nome de utilizador e a palavra-passe utilizados para autenticar o pedido.
-    * `-G`- Indica que este pedido é uma operação GET.
+    * `-u` - O nome de utilizador e a palavra-passe utilizados para autenticar o pedido.
+    * `-G` - Indica que este pedido é uma operação GET.
 
 1. O início da URL, `https://$CLUSTERNAME.azurehdinsight.net/templeton/v1` é o mesmo para todos os pedidos. O caminho, `/status` indica que o pedido é devolver um estado de WebHCat (também conhecido como Templeton) para o servidor. Também pode solicitar a versão da Colmeia utilizando o seguinte comando:
 
@@ -140,23 +140,23 @@ $clusterName
 
     Este pedido utiliza o método POST, que envia dados como parte do pedido à API REST. Os seguintes valores de dados são enviados com o pedido:
 
-     * `user.name`- O utilizador que está a comandar o comando.
-     * `execute`- As declarações da HiveQL para executar.
-     * `statusdir`- O diretório a que o estatuto para este trabalho está escrito.
+     * `user.name` - O utilizador que está a comandar o comando.
+     * `execute` - As declarações da HiveQL para executar.
+     * `statusdir` - O diretório a que o estatuto para este trabalho está escrito.
 
    Estas declarações executam as seguintes ações:
 
-   * `DROP TABLE`- Se a mesa já existe, é apagada.
-   * `CREATE EXTERNAL TABLE`- Cria uma nova tabela 'externa' na Colmeia. As mesas externas armazenam apenas a definição de tabela na Colmeia. Os dados são deixados no local original.
+   * `DROP TABLE` - Se a mesa já existe, é apagada.
+   * `CREATE EXTERNAL TABLE` - Cria uma nova tabela 'externa' na Colmeia. As mesas externas armazenam apenas a definição de tabela na Colmeia. Os dados são deixados no local original.
 
      > [!NOTE]  
      > As tabelas externas devem ser utilizadas quando se espera que os dados subjacentes sejam atualizados por uma fonte externa. Por exemplo, um processo automatizado de upload de dados ou outra operação MapReduce.
      >
      > Deixar cair uma tabela externa **não** apaga os dados, apenas a definição de tabela.
 
-   * `ROW FORMAT`- Como os dados são formatados. Os campos em cada tronco são separados por um espaço.
-   * `STORED AS TEXTFILE LOCATION`- Onde os dados são armazenados (o diretório de exemplo/dados) e que são armazenados como texto.
-   * `SELECT`- Selecione uma contagem de todas as linhas onde a coluna **t4** contém o valor **[ERROR]**. Esta declaração devolve um valor de **3,** uma vez que existem três linhas que contêm este valor.
+   * `ROW FORMAT` - Como os dados são formatados. Os campos em cada tronco são separados por um espaço.
+   * `STORED AS TEXTFILE LOCATION` - Onde os dados são armazenados (o diretório de exemplo/dados) e que são armazenados como texto.
+   * `SELECT` - Selecione uma contagem de todas as linhas onde a coluna **t4** contém o valor **[ERROR]**. Esta declaração devolve um valor de **3,** uma vez que existem três linhas que contêm este valor.
 
      > [!NOTE]  
      > Note que os espaços entre as declarações de HiveQL são substituídos pelo `+` personagem quando usados com Curl. Valores citados que contenham um espaço, como o delimiter, não devem ser substituídos por `+` .
@@ -187,7 +187,7 @@ $clusterName
 
     Pode listar e descarregar estes ficheiros utilizando o [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Para obter mais informações sobre a utilização do Azure CLI com armazenamento Azure, consulte o [Use Azure CLI com](https://docs.microsoft.com/azure/storage/storage-azure-cli) o documento de armazenamento Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações sobre outras formas de trabalhar com Hadoop em HDInsight:
 

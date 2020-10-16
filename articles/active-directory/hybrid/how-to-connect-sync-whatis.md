@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cea26cb119f64679807bc6c5eaadb41b341e5d5a
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89662394"
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Azure AD Connect sync: Entenda e personalize a sincronização
@@ -64,7 +64,7 @@ O serviço de sincronização é composto por dois componentes, o componente de 
 | **Mais informações e referências** | |
 | [Portas](reference-connect-ports.md) |Lista quais as portas que precisa de abrir entre o motor de sincronização e os seus diretórios no local e a Azure AD. |
 | [Atributos sincronizados com o Azure Active Directory](reference-connect-sync-attributes-synchronized.md) |Lista todos os atributos que estão a ser sincronizados entre AD no local e Azure AD. |
-| [Referência das Funções](reference-connect-sync-functions-reference.md) |Lista todas as funções disponíveis no provisionamento declarativo. |
+| [Funções Referência](reference-connect-sync-functions-reference.md) |Lista todas as funções disponíveis no provisionamento declarativo. |
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 * [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md)

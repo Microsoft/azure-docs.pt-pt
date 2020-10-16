@@ -9,10 +9,10 @@ ms.date: 09/22/2020
 ms.author: scottnap
 Customer intent: As someone with a networking background, I want to learn about Network Virtual Appliances in the Virtual WAN hub.
 ms.openlocfilehash: 1e4b8a2d801d7d7eccfaf558c3926ead1ab0a953
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91313778"
 ---
 # <a name="about-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Sobre o aparelho virtual de rede num hub Azure Virtual WAN (Pré-visualização)
@@ -50,7 +50,7 @@ A NVA Partners pode criar diferentes recursos dependendo da sua implementação 
 * **Grupo de Recursos do Cliente** - Isto conterá um espaço reservado para a aplicação gerida. Os parceiros podem usá-lo para expor quaisquer propriedades do cliente que escolherem aqui.
 * **Grupo de Recursos Geridos** - Os clientes não podem configurar ou alterar recursos diretamente neste grupo de recursos, uma vez que este é controlado pelo editor da Aplicação Gerida. Este Grupo de Recursos conterá o recurso **NetworkVirtualAppliances.**
 
-:::image type="content" source="./media/about-nva-hub/managed-app.png" alt-text="Grupos de recursos de aplicação geridos":::
+:::image type="content" source="./media/about-nva-hub/managed-app.png" alt-text="Visão geral do processo":::
 
 ### <a name="nva-infrastructure-units"></a><a name="units"></a>Unidades de Infraestruturas NVA
 
@@ -93,7 +93,7 @@ Infelizmente, não temos capacidade para embarcar quaisquer novos parceiros nest
 
 ### <a name="can-i-deploy-any-nva-from-azure-marketplace-into-the-virtual-wan-hub"></a>Posso colocar qualquer NVA do Azure Marketplace no centro virtual WAN?
 
-Não. Neste momento, apenas [o Barracuda CloudGen WAN](https://aka.ms/BarracudaMarketPlaceOffer) está disponível para ser implantado no centro virtual WAN.
+N.º Neste momento, apenas [o Barracuda CloudGen WAN](https://aka.ms/BarracudaMarketPlaceOffer) está disponível para ser implantado no centro virtual WAN.
 
 ### <a name="what-is-the-cost-of-the-nva"></a>Qual é o custo da NVA?
 
@@ -101,7 +101,7 @@ Tem de adquirir uma licença para o seu Barracuda CloudGen WAN NVA da Barracuda.
 
 ### <a name="can-i-deploy-an-nva-to-a-basic-hub"></a>Posso colocar um NVA num centro básico?
 
-Não. Tem de utilizar um hub Standard se quiser implantar um NVA.
+N.º Tem de utilizar um hub Standard se quiser implantar um NVA.
 
 ### <a name="can-i-deploy-an-nva-into-a-secure-hub"></a>Posso colocar um NVA num centro seguro?
 
@@ -109,7 +109,7 @@ Sim. Barracuda CloudGen WAN pode ser implantado num hub com Azure Firewall.
 
 ### <a name="can-i-connect-any-cpe-device-in-my-branch-office-to-barracuda-cloudgen-wan-nva-in-the-hub"></a>Posso ligar algum dispositivo CPE na minha sucursal à Barracuda CloudGen WAN NVA no centro?
 
-Não. Barracuda CloudGen WAN só é compatível com dispositivos Barracuda CPE. Para saber mais sobre os requisitos da CloudGen WAN, consulte [a página Wan CloudGen da Barracuda.](https://www.barracuda.com/products/cloudgenwan)
+N.º Barracuda CloudGen WAN só é compatível com dispositivos Barracuda CPE. Para saber mais sobre os requisitos da CloudGen WAN, consulte [a página Wan CloudGen da Barracuda.](https://www.barracuda.com/products/cloudgenwan)
 
 ### <a name="what-routing-scenarios-are-supported-with-nva-in-the-hub"></a>Que cenários de encaminhamento são suportados com a NVA no centro?
 

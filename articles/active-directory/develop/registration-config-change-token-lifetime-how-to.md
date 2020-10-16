@@ -12,10 +12,10 @@ ms.date: 09/30/2020
 ms.author: ryanwi
 ms.custom: aaddev, seoapril2019
 ms.openlocfilehash: 7eb01ccda3c3e13827a8977b8ee0e244aef6b0be
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91613243"
 ---
 # <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>Como alterar os incumprimentos de vida de símbolo para uma aplicação desenvolvida sob medida

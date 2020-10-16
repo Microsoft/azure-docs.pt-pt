@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
-ms.openlocfilehash: 50194341d1d34da4b02558461f532ae64b941b16
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1668c7ccad75771a598aaa55f5403f070ea2dff8
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319627"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090221"
 ---
 # <a name="secure-a-web-application-with-user-sign-in"></a>Garantir uma aplicação web com o utilizador iniciar s-in
 
@@ -59,7 +59,7 @@ Tem de criar a aplicação web em Azure AD para que os utilizadores entrem. Esta
    * Para uma implementação não-AspNetCore ou outra, consulte [o Token adquirir para a aplicação a](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token) partir da documentação AD AZure.
    * O ponto final de token seguro é responsável por devolver um token de acesso para o utilizador autenticado e autorizado a ligar para a Azure Maps REST APIs.
 
-8. Configure O controlo de acesso baseado em funções Azure para utilizadores ou grupos. Consulte [o acesso baseado em funções de subvenção para os utilizadores](#grant-role-based-access-for-users-to-azure-maps).
+8. Configure O controlo de acesso baseado em funções (Azure RBAC) para utilizadores ou grupos. Consulte [o acesso baseado em funções para os utilizadores.](#grant-role-based-access-for-users-to-azure-maps)
 
 9. Configure a página de aplicação web com o Azure Maps Web SDK para aceder ao ponto final de token seguro. 
 
@@ -94,7 +94,7 @@ var map = new atlas.Map("map", {
     });
 ```
 
-[!INCLUDE [grant role access to users](./includes/grant-rbac-users.md)]
+[!INCLUDE [grant role-based access to users](./includes/grant-rbac-users.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

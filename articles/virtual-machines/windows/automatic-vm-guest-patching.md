@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: manayar
 ms.openlocfilehash: 0a777b9008864368a6d1731cae0374e55a4c585f
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91842874"
 ---
 # <a name="preview-automatic-vm-guest-patching-for-windows-vms-in-azure"></a>Pré-visualização: Aplicação de patches automática de convidado da VM para VMs do Windows no Azure

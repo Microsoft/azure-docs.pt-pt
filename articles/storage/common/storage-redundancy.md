@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: fbc24db21ee43e3c2aef3d0164e8510a79508fd2
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89658584"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância de armazenamento Azure
@@ -165,10 +165,10 @@ A tabela a seguir indica se os seus dados são duráveis e disponíveis num dete
 
 | Cenário de paralisação | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|:-|
-| Um nó dentro de um centro de dados torna-se indisponível | Yes | Yes | Yes | Yes |
-| Um centro de dados inteiro (zonal ou não-zonal) torna-se indisponível | No | Yes | Sim<sup>1</sup> | Yes |
-| Uma paralisação em toda a região ocorre na região primária | No | No | Sim<sup>1</sup> | Sim<sup>1</sup> |
-| Leia o acesso à região secundária disponível se a região primária ficar indisponível | No | No | Sim (com RA-GRS) | Sim (com RA-GZRS) |
+| Um nó dentro de um centro de dados torna-se indisponível | Sim | Sim | Sim | Sim |
+| Um centro de dados inteiro (zonal ou não-zonal) torna-se indisponível | Não | Sim | Sim<sup>1</sup> | Sim |
+| Uma paralisação em toda a região ocorre na região primária | Não | Não | Sim<sup>1</sup> | Sim<sup>1</sup> |
+| Leia o acesso à região secundária disponível se a região primária ficar indisponível | Não | Não | Sim (com RA-GRS) | Sim (com RA-GZRS) |
 
 <sup>1</sup> O failover da conta é necessário para restaurar a disponibilidade de escrita se a região primária ficar indisponível. Para obter mais informações, consulte [a recuperação de desastres e a falha da conta de armazenamento.](storage-disaster-recovery-guidance.md)
 
@@ -191,7 +191,7 @@ Para obter informações sobre preços para cada opção de redundância, consul
 
 O Azure Storage verifica regularmente a integridade dos dados armazenados através de verificações cíclicas de redundância (CRCs). Se for detetada corrupção de dados, é reparada com dados redundantes. O Azure Storage também calcula os dados de verificação em todo o tráfego de rede para detetar a corrupção de pacotes de dados ao armazenar ou recuperar dados.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 - [Verifique a propriedade da Última Hora do Sincronização para obter uma conta de armazenamento](last-sync-time-get.md)
 - [Alterar a opção de despedimento para uma conta de armazenamento](redundancy-migration.md)

@@ -17,10 +17,10 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1a9b43660889a318b2085f3aa8c1060daebe0244
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764745"
 ---
 # <a name="no-working-connector-group-found-for-an-application-proxy-application"></a>Nenhum grupo de conector de trabalho encontrado para uma aplicação de Procuração de Aplicação
@@ -68,7 +68,7 @@ Se os únicos Conectores do grupo estiverem inativos, é provável que estejam n
 
 consulte o documento de resolução de problemas das portas para obter detalhes sobre a investigação deste problema.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Compreenda os conectores Proxy de aplicação AD Azure](application-proxy-connectors.md)
 
 

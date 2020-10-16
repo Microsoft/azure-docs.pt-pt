@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
 ms.openlocfilehash: ce6561652801d52e5600ddc63e573070281da3f2
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89078134"
 ---
 # <a name="language-understanding-service-encryption-of-data-at-rest"></a>Encriptação do serviço de compreensão de linguagem de dados em repouso
@@ -32,11 +32,11 @@ Por predefinição, a subscrição utiliza chaves de encriptação geridas pela 
 
 Existe também uma opção para gerir a sua subscrição com as suas próprias chaves. As teclas geridas pelo cliente (CMK), também conhecidas como Bring your own key (BYOK), oferecem uma maior flexibilidade para criar, rodar, desativar e revogar os controlos de acesso. Também pode auditar as chaves de encriptação utilizadas para proteger os dados.
 
-Tem de utilizar o Cofre da Chave Azure para armazenar as suas chaves geridas pelo cliente. Pode criar as suas próprias chaves e armazená-las num cofre de chaves, ou pode usar as APIs do Cofre de Chaves Azure para gerar chaves. O recurso de Serviços Cognitivos e o cofre-chave devem estar na mesma região e no mesmo inquilino do Azure Ative Directory (Azure AD), mas podem estar em diferentes subscrições. Para mais informações sobre o Azure Key Vault, veja [o que é Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+Tem de utilizar o Azure Key Vault para armazenar as chaves geridas pelo cliente. Pode criar as suas próprias chaves e armazená-las num cofre de chaves, ou pode usar as APIs do Cofre de Chaves Azure para gerar chaves. O recurso de Serviços Cognitivos e o cofre-chave devem estar na mesma região e no mesmo inquilino do Azure Ative Directory (Azure AD), mas podem estar em diferentes subscrições. Para mais informações sobre o Azure Key Vault, veja [o que é Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
 
 ### <a name="customer-managed-keys-for-language-understanding"></a>Chaves geridas pelo cliente para a compreensão de linguagem
 
-Para solicitar a capacidade de utilizar chaves geridas pelo cliente, preencha e envie o [Formulário de Pedido de Chave Gerido pelo Cliente do Serviço LUIS](https://aka.ms/cogsvc-cmk). Levará aproximadamente 3 a 5 dias úteis para ouvir de volta o estado do seu pedido. Dependendo da procura, você pode ser colocado em uma fila e aprovado à medida que o espaço fica disponível. Uma vez aprovado para a utilização de CMK com LUIS, terá de criar um novo recurso de Compreensão linguística a partir do portal Azure e selecionar e0 como O Nível de Preços. O novo SKU funcionará da mesma forma que o F0 SKU que já está disponível, exceto para CMK. Os utilizadores não poderão fazer upgrade do F0 para o novo E0 SKU.
+Para solicitar a capacidade de utilizar chaves geridas pelo cliente, preencha e envie o [Formulário de Pedido chave do Serviço LUIS Customer-Managed](https://aka.ms/cogsvc-cmk). Levará aproximadamente 3 a 5 dias úteis para ouvir de volta o estado do seu pedido. Dependendo da procura, você pode ser colocado em uma fila e aprovado à medida que o espaço fica disponível. Uma vez aprovado para a utilização de CMK com LUIS, terá de criar um novo recurso de Compreensão linguística a partir do portal Azure e selecionar e0 como O Nível de Preços. O novo SKU funcionará da mesma forma que o F0 SKU que já está disponível, exceto para CMK. Os utilizadores não poderão fazer upgrade do F0 para o novo E0 SKU.
 
 ![Imagem de assinatura LUIS](../media/cognitive-services-encryption/luis-subscription.png)
 
@@ -85,5 +85,5 @@ Para revogar o acesso às chaves geridas pelo cliente, utilize o PowerShell ou o
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Formulário de pedido de chave gerido pelo cliente do serviço LUIS](https://aka.ms/cogsvc-cmk)
+* [Formulário de pedido chave Customer-Managed serviço LUIS](https://aka.ms/cogsvc-cmk)
 * [Saiba mais sobre o Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)

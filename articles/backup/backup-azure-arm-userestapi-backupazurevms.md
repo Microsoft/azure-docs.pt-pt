@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
 ms.openlocfilehash: 42af6ae69699be7eefac0aca2bcd22b1e25720b2
-ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89506632"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Faça backup do Azure VM usando Azure Backup via REST API
@@ -235,7 +235,7 @@ Location: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000
 X-Powered-By: ASP.NET
 ```
 
-Em seguida, rastreia a operação resultante utilizando o cabeçalho de localização ou o cabeçalho Azure-AsyncOperation com um simples comando *GET.*
+Em seguida, rastreia a operação resultante utilizando o cabeçalho de localização ou Azure-AsyncOperation cabeçalho com um simples comando *GET.*
 
 ```http
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationsStatus/a0866047-6fc7-4ac3-ba38-fb0ae8aa550f?api-version=2019-05-13
@@ -374,7 +374,7 @@ Location: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000
 X-Powered-By: ASP.NET
 ```
 
-Em seguida, rastreia a operação resultante utilizando o cabeçalho de localização ou o cabeçalho Azure-AsyncOperation com um simples comando *GET.*
+Em seguida, rastreia a operação resultante utilizando o cabeçalho de localização ou Azure-AsyncOperation cabeçalho com um simples comando *GET.*
 
 ```http
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationsStatus/a0866047-6fc7-4ac3-ba38-fb0ae8aa550f?api-version=2019-05-13
@@ -504,7 +504,7 @@ A eliminação de desfazer é uma operação *PUT* muito semelhante a [alterar a
 
 A resposta seguirá o mesmo formato mencionado [para desencadear uma cópia de segurança a pedido](#example-responses-for-on-demand-backup). O trabalho resultante deve ser acompanhado, tal como explicado nos postos de controlo, utilizando o [documento REST API](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Restaurar os dados de uma cópia de segurança da máquina Virtual Azure](backup-azure-arm-userestapi-restoreazurevms.md).
 

@@ -13,10 +13,10 @@ ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4871af354d68a8d6dcaf3170271959146f57cba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84763623"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>Configure o fluxo de trabalho de consentimento administrativo (pré-visualização)
@@ -118,7 +118,7 @@ O quadro abaixo descreve os cenários e os valores de auditoria disponíveis par
 > O contexto de utilizador do ator de auditoria está atualmente desaparecido em todos os cenários. Esta é uma limitação conhecida na versão de pré-visualização.
 
 
-|Scenario  |Serviço de Auditoria  |Categoria de Auditoria  |Atividade de Auditoria  |Ator de Auditoria  |Limitações do registo de auditoria  |
+|Cenário  |Serviço de Auditoria  |Categoria de Auditoria  |Atividade de Auditoria  |Ator de Auditoria  |Limitações do registo de auditoria  |
 |---------|---------|---------|---------|---------|---------|
 |Administração que permite o fluxo de trabalho do pedido de consentimento        |Revisões de Acesso           |Gestão de Utilizador           |Criar modelo de política de governação          |Contexto de aplicativo            |Atualmente não é possível encontrar o contexto do utilizador            |
 |Administração desativando o fluxo de trabalho do pedido de consentimento       |Revisões de Acesso           |Gestão de Utilizador           |Eliminar o modelo de política de governação          |Contexto de aplicativo            |Atualmente não é possível encontrar o contexto do utilizador           |
@@ -149,7 +149,7 @@ Não, por enquanto os solicitadores só podem obter atualizações através de n
  
 Se está preocupado em conceder o consentimento administrativo e permitir que todos os utilizadores do arrendatário utilizem a aplicação, recomendamos que negue o pedido. Em seguida, conceda manualmente o consentimento da administração, restringindo o acesso à aplicação, exigindo a atribuição do utilizador e atribuindo utilizadores ou grupos à aplicação. Para obter mais informações, consulte [Métodos para atribuir utilizadores e grupos.](methods-for-assigning-users-and-groups.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o consentimento dos pedidos, consulte [o quadro de consentimento do Diretório Ativo Azure](../develop/consent-framework.md).
 

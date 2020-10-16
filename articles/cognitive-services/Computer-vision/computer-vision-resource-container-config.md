@@ -12,10 +12,10 @@ ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: seodec18
 ms.openlocfilehash: 00c96333e612c7f92d7c53630eaa006b060986ad
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91536244"
 ---
 # <a name="configure-read-ocr-docker-containers"></a>Configure Ler recipientes OCR Docker
@@ -37,7 +37,7 @@ O contentor também tem as seguintes definições de configuração específicas
 |Não|Cache:Redis| apenas contentores v2.0. Permite o armazenamento redis para armazenar resultados. É *necessária* uma cache se vários recipientes de leitura forem colocados atrás de um equilibrador de carga.|
 |Não|Fila:RabbitMQ|apenas contentores v2.0. Permite o RabbitMQ para o envio de tarefas. A regulação é útil quando vários recipientes de leitura são colocados atrás de um equilibrador de carga.|
 |Não|Fila:Azure:QueueVisibilityTimeoutInMilliseconds | apenas contentores v3.x. O tempo para uma mensagem ser invisível quando outro trabalhador está a processá-la. |
-|Não|Armazenamento::DocumentStore::MongoDB|apenas contentores v2.0. Permite o MongoDB para armazenamento permanente de resultados. |
+|Não|Armazenamento::D ocumentStore::MongoDB|apenas contentores v2.0. Permite o MongoDB para armazenamento permanente de resultados. |
 |Não|Armazenamento:ObjectStore:AzureBlob:ConnectionString| apenas contentores v3.x. Cadeia de ligação de armazenamento de bolhas Azure. |
 
 ## <a name="apikey-configuration-setting"></a>Definição de configuração apikey
@@ -62,7 +62,7 @@ Esta definição pode ser encontrada no seguinte local:
 
 Lembre-se de adicionar o `vision/v1.0` encaminhamento ao ponto final URI, como indicado na tabela seguinte. 
 
-|Necessário| Name | Tipo de dados | Descrição |
+|Necessário| Nome | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
 |Sim| `Billing` | String | URI de ponto final de faturação<br><br>Exemplo:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
@@ -90,10 +90,10 @@ Os recipientes de Visão de Computador não utilizam suportes de entrada ou saí
 
 A sintaxe exata da localização do suporte do hospedeiro varia consoante o sistema operativo do hospedeiro. Além disso, a localização do suporte do [computador anfitrião](computer-vision-how-to-install-containers.md#the-host-computer)pode não estar acessível devido a um conflito entre permissões utilizadas pela conta de serviço Docker e as permissões de localização do anfitrião. 
 
-|Opcional| Name | Tipo de dados | Descrição |
+|Opcional| Nome | Tipo de dados | Descrição |
 |-------|------|-----------|-------------|
-|Não permitido| `Input` | String | Os recipientes de Visão de Computador não utilizam isto.|
-|Opcional| `Output` | String | O alvo do suporte de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isto inclui registos de contentores. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Não permitido| `Input` | Cadeia | Os recipientes de Visão de Computador não utilizam isto.|
+|Opcional| `Output` | Cadeia | O alvo do suporte de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isto inclui registos de contentores. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Exemplo de estivador executar comandos
 
@@ -193,6 +193,6 @@ Logging:Console:LogLevel:Default=Information
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Rever [Como instalar e executar recipientes](computer-vision-how-to-install-containers.md).

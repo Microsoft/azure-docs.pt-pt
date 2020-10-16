@@ -10,10 +10,10 @@ ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
 ms.openlocfilehash: 9a081a28d4c96e3c38986cbb3c0990bc89c5ab99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83684476"
 ---
 # <a name="storage-analytics"></a>Análise de Armazenamento
@@ -45,7 +45,7 @@ Todos os pedidos feitos ao serviço de armazenamento de uma conta são faturais 
 
 Ao analisar os dados do Storage Analytics, pode utilizar as tabelas no tópico [de Operações registadas e Mensagens de Estado](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) do Armazenamento Analytics para determinar quais os pedidos que são faturados. Em seguida, pode comparar os seus dados de registos e métricas com as mensagens de estado para ver se foi cobrado um pedido específico. Também pode utilizar as tabelas no tópico anterior para investigar a disponibilidade para um serviço de armazenamento ou operação API individual.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Monitorizar uma conta de armazenamento no portal do Azure](storage-monitor-storage-account.md)
 * [Métricas de Análise de Armazenamento](storage-analytics-metrics.md)
 * [Registo da Análise de Armazenamento](storage-analytics-logging.md)

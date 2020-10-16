@@ -9,10 +9,10 @@ ms.date: 07/17/2020
 ms.author: bwren
 ms.custom: subject-monitoring
 ms.openlocfilehash: 21e1d93e206751b5a55b0b3549e8bd566612ddbe
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88080458"
 ---
 # <a name="azure-cosmos-db-monitoring-data-reference"></a>Referência dos dados de monitorização do Azure Cosmos DB
@@ -28,7 +28,7 @@ A tabela que se segue lista as propriedades dos registos de recursos em Azure Co
 | **Hora** | **TimeGenerated** | A data e a hora (UTC) quando ocorreu a operação. |
 | **recursosId** | **Recurso** | A conta DB do Azure Cosmos para os registos que estão ativados.|
 | **categoria** | **Categoria** | Para Azure Cosmos DB, **DataPlaneRequests**, **MongoRequests**, **QueryRuntimeStatistics**, **PartitionKeyStatistics**, **PartitionKeyRUConsumption**, **ControlPlaneRequests** são os tipos de registos disponíveis. |
-| **operaçãoName** | **OperationName** | O nome da operação. O nome da operação pode ser `Create` , , , , , , , , `Update` , , , `Read` , , , `ReadFeed` , , , `Delete` ou `Replace` `Execute` `SqlQuery` `Query` `JSQuery` `Head` `HeadFeed` `Upsert` .   |
+| **operaçãoName** | **OperationName** | O nome da operação. O nome da operação pode ser  `Create` , , , , , , , , `Update` , , , `Read` , , , `ReadFeed` , , , `Delete` ou `Replace` `Execute` `SqlQuery` `Query` `JSQuery` `Head` `HeadFeed` `Upsert` .   |
 | **propriedades** | n/a | O conteúdo deste campo é descrito nas linhas que se seguem. |
 | **activityId** | **activityId_g** | O GUIA único para a operação registada. |
 | **userAgent** | **userAgent_s** | Uma cadeia que especifica o agente utilizador cliente a partir do qual o pedido foi enviado. O formato do agente utilizador é `{user agent name}/{version}` .|

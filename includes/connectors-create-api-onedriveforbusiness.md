@@ -5,10 +5,10 @@ author: ecfan
 ms.author: estfan
 ms.date: 07/21/2020
 ms.openlocfilehash: 06a503e800309d8689735417931820d9f16a6e75
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87102918"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -19,7 +19,7 @@ Antes de poder utilizar a sua conta OneDrive para negócios com aplicações ló
 
 Siga estes passos para autorizar as Aplicações Lógicas a ligarem-se à sua conta OneDrive para negócios:  
 
-1. Inicie sessão no portal do Azure. 
+1. Inicie sessão no Portal do Azure. 
 
 1. Nos **serviços Azure**, selecione **Logic Apps**. Em seguida, selecione o nome da sua aplicação lógica na lista.
 

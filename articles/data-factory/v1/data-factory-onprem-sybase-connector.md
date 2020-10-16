@@ -13,10 +13,10 @@ ms.date: 02/02/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: cefa0c15dd50f95780034dcb63f888a2e1c6b65e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84707366"
 ---
 # <a name="move-data-from-sybase-using-azure-data-factory"></a>Mover dados da Sybase usando a Azure Data Factory
@@ -63,14 +63,14 @@ As seguintes secções fornecem detalhes sobre as propriedades JSON que são usa
 ## <a name="linked-service-properties"></a>Propriedades de serviço ligadas
 A tabela seguinte fornece descrição para elementos JSON específicos do serviço ligado à Sybase.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | tipo |A propriedade tipo deve ser definida para: **OnPremisesSybase** |Sim |
 | servidor |Nome do servidor Sybase. |Sim |
 | base de dados |Nome da base de dados Sybase. |Sim |
 | esquema |O nome do esquema na base de dados. |Não |
 | authenticationType |Tipo de autenticação usada para ligar à base de dados Sybase. Os valores possíveis são: Anónimo, Básico e Windows. |Sim |
-| o nome de utilizador |Especifique o nome do utilizador se estiver a utilizar a autenticação Básica ou o Windows. |Não |
+| nome de utilizador |Especifique o nome do utilizador se estiver a utilizar a autenticação Básica ou o Windows. |Não |
 | palavra-passe |Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. |Não |
 | gatewayName |Nome do gateway que o serviço data factory deve usar para ligar à base de dados Sybase no local. |Sim |
 
@@ -79,7 +79,7 @@ Para obter uma lista completa de secções & propriedades disponíveis para defi
 
 A secção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados na loja de dados. A secção **de tipos de direitos** para conjunto de dados do tipo **RelationalTable** (que inclui conjunto de dados Sybase) tem as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | tableName |Nome da tabela na instância Sybase Database a que o serviço ligado se refere. |Não (se a **consulta** de **RelationalSource** for especificada) |
 

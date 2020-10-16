@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 4d1c68ba1e0b7db8afefa64abefc671d51e78bd4
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 5d57a6705973fbd5ee39042404015347d75b49b3
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569506"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019788"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Programar com as APIs dos Serviços de Multimédia v3
 
@@ -122,9 +122,9 @@ Apenas uma operação de longa duração é suportada para um determinado Evento
 
 |SDK|Referência|
 |---|---|
-|[SDK do .NET](https://aka.ms/ams-v3-dotnet-sdk)|[Referência a .NET](https://aka.ms/ams-v3-dotnet-ref)|
-|[SDK Java](https://aka.ms/ams-v3-java-sdk)|[Referência a Java](https://aka.ms/ams-v3-java-ref)|
-|[Python SDK](https://aka.ms/ams-v3-python-sdk)|[Referência a Python](https://aka.ms/ams-v3-python-ref)|
+|[SDK do .NET](https://aka.ms/ams-v3-dotnet-sdk)|[Referência a .NET](/dotnet/api/overview/azure/mediaservices/management)|
+|[SDK Java](https://aka.ms/ams-v3-java-sdk)|[Referência a Java](/java/api/overview/azure/mediaservices/management)|
+|[Python SDK](https://aka.ms/ams-v3-python-sdk)|[Referência a Python](/python/api/overview/azure/mediaservices/management)|
 |[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk) |[Referência a Node.js](/javascript/api/overview/azure/mediaservices/management)| 
 |[SDK Go](https://aka.ms/ams-v3-go-sdk) |[Referência a Go](https://aka.ms/ams-v3-go-ref)|
 |[SDK Ruby](https://aka.ms/ams-v3-ruby-sdk)||

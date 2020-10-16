@@ -12,10 +12,10 @@ ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.openlocfilehash: 10f0079f47e5d2fd99b358fcc5cfb4c80aa9bd91
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84508901"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Criar um gatilho que executa um oleoduto em resposta a um evento
@@ -81,10 +81,10 @@ A tabela seguinte fornece uma visão geral dos elementos de esquema que estão r
 
 | **Elemento JSON** | **Descrição** | **Tipo** | **Valores Permitidos** | **Necessário** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
-| **âmbito** | O ID de recursos do Azure Resource Manager da Conta de Armazenamento. | String | ID do gestor de recursos Azure | Sim |
+| **âmbito** | O ID de recursos do Azure Resource Manager da Conta de Armazenamento. | Cadeia | ID do gestor de recursos Azure | Sim |
 | **eventos** | O tipo de eventos que causam este gatilho a disparar. | Matriz    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Sim, qualquer combinação destes valores. |
-| **blobPathBeginsWith** | O caminho da bolha deve começar com o padrão previsto para o gatilho disparar. Por exemplo, `/records/blobs/december/` apenas dispara o gatilho para as bolhas na `december` pasta debaixo do `records` recipiente. | String   | | Tem de fornecer um valor para pelo menos uma destas propriedades: `blobPathBeginsWith` ou `blobPathEndsWith` . |
-| **blobPathEndsWith** | O caminho da bolha deve terminar com o padrão previsto para o gatilho disparar. Por exemplo, `december/boxes.csv` apenas dispara o gatilho para bolhas nomeadas `boxes` numa `december` pasta. | String   | | Tem de fornecer um valor para pelo menos uma destas propriedades: `blobPathBeginsWith` ou `blobPathEndsWith` . |
+| **blobPathBeginsWith** | O caminho da bolha deve começar com o padrão previsto para o gatilho disparar. Por exemplo, `/records/blobs/december/` apenas dispara o gatilho para as bolhas na `december` pasta debaixo do `records` recipiente. | Cadeia   | | Tem de fornecer um valor para pelo menos uma destas propriedades: `blobPathBeginsWith` ou `blobPathEndsWith` . |
+| **blobPathEndsWith** | O caminho da bolha deve terminar com o padrão previsto para o gatilho disparar. Por exemplo, `december/boxes.csv` apenas dispara o gatilho para bolhas nomeadas `boxes` numa `december` pasta. | Cadeia   | | Tem de fornecer um valor para pelo menos uma destas propriedades: `blobPathBeginsWith` ou `blobPathEndsWith` . |
 | **ignorarEmptyBlobs** | Se as bolhas de byte zero desencadearão ou não uma corrida ao gasoduto. Por defeito, isto é definido como verdadeiro. | Booleano | true ou false | Não |
 
 ## <a name="examples-of-event-based-triggers"></a>Exemplos de gatilhos baseados em eventos
@@ -104,5 +104,5 @@ Esta secção fornece exemplos de definições de gatilho baseadas em eventos.
 | **O caminho da bolha termina com** | `/containername/blobs/file.txt` | Recebe eventos para uma bolha chamada `file.txt` sob `containername` recipiente. |
 | **O caminho da bolha termina com** | `foldername/file.txt` | Recebe eventos para uma bolha nomeada `file.txt` em pasta sob qualquer `foldername` recipiente. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter informações detalhadas sobre os gatilhos, consulte [a execução do Pipeline e os gatilhos](concepts-pipeline-execution-triggers.md#trigger-execution).

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions
 ms.openlocfilehash: 1e62af4f2ab8233125777bf6edf713758e4f2ec7
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87543083"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Criar e configurar um cluster Azure Kubernetes Services (AKS) para usar nós virtuais usando o Azure CLI
@@ -19,7 +19,7 @@ Para escalar rapidamente as cargas de trabalho da aplicação num cluster Azure 
 
 Este artigo mostra-lhe como criar e configurar os recursos de rede virtuais e o cluster AKS, em seguida, ativar nós virtuais.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Os nós virtuais permitem a comunicação de rede entre as cápsulas que funcionam em Instâncias de Contentores Azure (ACI) e o cluster AKS. Para fornecer esta comunicação, é criada uma sub-rede de rede virtual e são atribuídas permissões delegadas. Os nós virtuais só funcionam com clusters AKS criados com redes *avançadas.* Por padrão, os clusters AKS são criados com rede *básica.* Este artigo mostra-lhe como criar uma rede virtual e sub-redes, em seguida, implementar um cluster AKS que utiliza networking avançado.
 

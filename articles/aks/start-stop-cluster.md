@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 09/24/2020
 author: palma21
-ms.openlocfilehash: 4a814d575e0879daec64ebfdabc1539219bea250
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: bc756994cf0f6e12af1c1ad5a6c8db304b4253e3
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91368945"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968791"
 ---
 # <a name="stop-and-start-an-azure-kubernetes-service-aks-cluster-preview"></a>Parar e Iniciar um cluster de serviço Azure Kubernetes (AKS) (pré-visualização)
 
@@ -18,7 +18,7 @@ As suas cargas de trabalho AKS podem não precisar de funcionar continuamente, p
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 
@@ -30,6 +30,7 @@ Ao utilizar a função de arranque/paragem do cluster, aplicam-se as seguintes r
 - Esta funcionalidade é suportada apenas para conjuntos de escala de máquina virtual.
 - Durante a pré-visualização, esta funcionalidade não é suportada para clusters privados.
 - O estado de aglomerado de um aglomerado AKS parado é preservado por até 12 meses. Se o seu aglomerado for parado por mais de 12 meses, o estado de agrupamento não pode ser recuperado. Para mais informações, consulte as [Políticas de Apoio À AKS.](support-policies.md)
+- Durante a pré-visualização, é necessário parar o autoescalador de cluster (CA) antes de tentar parar o cluster.
 - Só pode iniciar ou eliminar um cluster AKS parado. Para realizar qualquer operação como escala ou upgrade, inicie primeiro o seu cluster.
 
 ### <a name="install-the-aks-preview-azure-cli"></a>Instale o `aks-preview` Azure CLI 

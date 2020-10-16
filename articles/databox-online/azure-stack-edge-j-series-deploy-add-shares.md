@@ -10,10 +10,10 @@ ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
 ms.openlocfilehash: cd288926e6f7a3f454be2788479b5c9d414b167a
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91440282"
 ---
 # <a name="tutorial-transfer-data-via-shares-with-azure-stack-edge-pro-gpu"></a>Tutorial: Transferir dados através de ações com a Azure Stack Edge Pro GPU
@@ -186,7 +186,7 @@ No seu cliente Linux ligado ao seu dispositivo Azure Stack Edge Pro, faça o seg
 > - A eliminação de um ficheiro de uma ação não elimina a entrada na conta de Armazenamento Azure.
 > - Quando `rsync` utilizar para copiar sobre NFS, utilize a `--inplace` bandeira. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu sobre os seguintes tópicos Azure Stack Edge Pro:
 

@@ -10,10 +10,10 @@ ms.date: 05/13/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3a802cc3d6178302445e0c31c52785d00207d0bd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88998548"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processador do feed de alterações no Azure Cosmos DB

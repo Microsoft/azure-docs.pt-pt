@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 09/01/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 63bc3caf97e1325c365171ba3f8e6353885d9b68
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 30e76ec3085922ec2a1d4693681eb97c9052c026
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322556"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978735"
 ---
 # <a name="creating-generalized-images-without-a-provisioning-agent"></a>Criação de imagens generalizadas sem um agente de provisionamento
 
@@ -199,7 +199,7 @@ WantedBy=multi-user.target
 Este serviço sistemado faz três coisas para o fornecimento básico:
 
 1. Relatórios prontos para Azure (para indicar que surgiu com sucesso).
-1. Rebatiza o VM com base no nome VM fornecido pelo utilizador, retirando estes dados do [Azure Instance Medata Service (IMDS)](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service). **Nota** O IMDS também fornece outros [metadados de exemplo,](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service#accessing-azure-instance-metadata-service)como as Chaves Públicas SSH, para que possa definir mais do que o nome de anfitrião.
+1. Rebatiza o VM com base no nome VM fornecido pelo utilizador, retirando estes dados do [Azure Instance Medata Service (IMDS)](./instance-metadata-service.md). **Nota** O IMDS também fornece outros [metadados de exemplo,](./instance-metadata-service.md#accessing-azure-instance-metadata-service)como as Chaves Públicas SSH, para que possa definir mais do que o nome de anfitrião.
 1. Desativa-se por si só para que corra apenas na primeira bota e não em reboots subsequentes.
 
 Com a unidade no sistema de ficheiros, execute o seguinte para o ativar:
@@ -271,6 +271,6 @@ Jun 11 20:28:56 thstringnopa2 systemd[1]: Started Azure Provisioning.
 
 Se implementar o seu próprio código/agente de provisionamento, então é dono do suporte deste código, o suporte da Microsoft apenas investigará questões relacionadas com as interfaces de provisionamento que não estão disponíveis. Estamos continuamente a fazer melhorias e alterações nesta área, pelo que deve monitorizar as alterações no cloud-init e no Agente Azure Linux para o fornecimento de alterações na API.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações, consulte [o fornecimento de Linux.](provisioning.md)

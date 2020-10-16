@@ -4,12 +4,12 @@ description: Fornece respostas a algumas das perguntas comuns sobre a Azure VMwa
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: fd0c0158106a24ba12fec42e41df69f246e7f3f5
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 8868f86f0cf46ff82e37cd433d7b5bca0d69567d
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91530481"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078940"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Perguntas frequentes sobre Azure VMware Solution
 
@@ -67,6 +67,21 @@ A Microsoft e a Red Hat partilham uma equipa de suporte integrada e co-localizad
 
 VMware HCX Enterprise Edition (EE) está disponível com a Azure VMware Solution como uma função/serviço *de pré-visualização.* Enquanto vMware HCX EE para Azure VMware Solution está em Pré-visualização, é uma função/serviço gratuito e sujeito a termos e condições de serviço de pré-visualização. Assim que o serviço VMware HCX EE for classificado, receberá um aviso de 30 dias de que a faturação irá mudar. Também terá a opção de desligar/excluir o serviço.
 
+#### <a name="can-azure-vmware-solution-vms-be-managed-by-vmrc"></a>Os VMS de Solução VMware Azure podem ser geridos pela VMRC?
+Sim, desde que o sistema em que esteja instalado possa aceder ao vCenter de nuvem privada e que esteja a utilizar DNS públicos (para que possa resolver os hostnames ESXi).
+
+#### <a name="are-there-special-instructions-for-installing-and-using-vmrc-with-azure-vmware-solution-vms"></a>Existem instruções especiais para instalar e utilizar VMRC com VMS de Solução VMware Azure?
+Não, utilize as [instruções fornecidas pela VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) e cumpra os pré-requisitos VM especificados nessas instruções. 
+
+#### <a name="is-vmware-hcx-supported-on-vpns"></a>A VMware HCX é suportada em VPNs?
+Não, por causa dos requisitos de largura de banda e latência.
+
+#### <a name="can-azure-bastion-be-used-for-connecting-to-avs-vms"></a>O Azure Bastion pode ser utilizado para a ligação aos VMs AVS?
+Azure Bastion é o serviço recomendado para ligar à caixa de salto para evitar expor a Solução Azure VMware à internet. Não é possível utilizar o Azure Bastion para ligar aos VMs da Solução VMware Azure, uma vez que não são objetos Azure IaaS.
+
+#### <a name="can-an-existing-expressroute-gateway-be-used-to-connect-to-azure-vmware-solution"></a>Pode ser utilizado um Gateway ExpressRoute existente para ligar à Solução VMware Azure?
+Sim, pode utilizar um Gateway ExpressRoute existente para ligar à Azure VMware Solution desde que não exceda o limite de quatro circuitos ExpressRoute por rede virtual.  No entanto, para aceder à Azure VMware Solution a partir das instalações através do ExpressRoute, deve ter ExpressRoute Global Reach uma vez que o gateway ExpressRoute não fornece encaminhamento transitório entre os seus circuitos conectados.
+
 ## <a name="compute-network-storage-and-backup"></a>Computação, rede, armazenamento e backup
 
 #### <a name="is-there-more-than-one-type-of-host-available"></a>Há mais de um tipo de hospedeiro disponível?
@@ -100,6 +115,14 @@ Tanto quanto sabemos, qualquer solução de backup que utilize o VMware VADP com
 #### <a name="what-about-support-for-isv-backup-solutions"></a>E o suporte para soluções de backup ISV?
 
 Uma vez que estas soluções de backup são instaladas e geridas pelos clientes, podem contactar o respetivo ISV para apoio. 
+
+#### <a name="what-is-the-correct-storage-policy-for-the-dedup-set-up"></a>Qual é a política de armazenamento correta para a dedup criada?
+
+Utilize a política de armazenamento *thin_provision* para o seu modelo VM.  O padrão é *thick_provision*.
+
+#### <a name="are-the-snmp-infrastructure-logs-shared"></a>Os registos de infraestruturas do SNMP são partilhados?
+
+Não.
 
 ## <a name="hosts-clusters-and-private-clouds"></a>Anfitriões, aglomerados e nuvens privadas
 
@@ -174,6 +197,8 @@ Não. O tráfego de rede a entrar da internet diretamente para nuvens privadas n
 
 Sim. Terá de usar o gestor NSX-T para criar uma firewall que restringe o acesso de VM à internet.
 
+
+
 ## <a name="accounts-and-privileges"></a>Contas e privilégios
 
 #### <a name="what-accounts-and-privileges-will-i-get-with-my-new-azure-vmware-solution-private-cloud"></a>Que contas e privilégios vou ter com a minha nova nuvem privada Azure VMware Solution?
@@ -211,7 +236,7 @@ Você precisará de uma conta Azure numa subscrição do Azure.
 
 #### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>Como solicito um aumento da quota de anfitrião para a Azure VMware Solution?
 
-* Vai precisar de um [Acordo de Empresa Azure (EA)](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-agreements) com a Microsoft.
+* Vai precisar de um [Acordo de Empresa Azure (EA)](../cost-management-billing/manage/ea-portal-agreements.md) com a Microsoft.
 * Você precisará de uma conta Azure numa subscrição do Azure.
 
 Antes de criar o seu recurso Azure VMware Solution, terá de submeter um bilhete de apoio para que os seus nós tenham os seus nós atribuídos. Uma vez que a equipa de apoio recebe o seu pedido, leva até cinco dias úteis para confirmar o seu pedido e alocar os seus nós. Se tiver uma nuvem privada Azure VMware Solution e quiser mais nós atribuídos, passará pelo mesmo processo.

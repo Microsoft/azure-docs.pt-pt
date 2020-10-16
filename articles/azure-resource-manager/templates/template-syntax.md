@@ -4,13 +4,13 @@ description: Descreve a estrutura e propriedades dos modelos do Gestor de Recurs
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.openlocfilehash: ae2c5a5fe1440c3adbae475cd4c7652a3b01c285
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86116544"
 ---
-# <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Compreender a estrutura e a sintaxe dos modelos ARM
+# <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Understand the structure and syntax of ARM templates (Compreender a estrutura e a sintaxe dos modelos do Resource Manager)
 
 Este artigo descreve a estrutura de um modelo Azure Resource Manager (ARM). Apresenta as diferentes secções de um modelo e as propriedades que estão disponíveis nessas secções.
 
@@ -35,7 +35,7 @@ Na sua estrutura mais simples, um modelo tem os seguintes elementos:
 
 | Nome do elemento | Obrigatório | Descrição |
 |:--- |:--- |:--- |
-| $schema |Sim |Localização do ficheiro de esquema JSON que descreve a versão do idioma do modelo. O número de versão que utiliza depende do âmbito de aplicação e do seu editor JSON.<br><br>Se estiver a utilizar [o Código VS com a extensão de ferramentas Azure Resource Manager,](quickstart-create-templates-use-visual-studio-code.md)utilize a versão mais recente para implementações de grupos de recursos:<br>`https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`<br><br>Outros editores (incluindo o Visual Studio) podem não ser capazes de processar este esquema. Para os editores, utilize:<br>`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Para implementações de subscrição, utilize:<br>`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`<br><br>Para implementações de grupos de gestão, utilize:<br>`https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#`<br><br>Para implantações de inquilinos, utilize:<br>`https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#` |
+| $schema |Sim |Localização do ficheiro de esquema JSON que descreve a versão do idioma do modelo. O número de versão que utiliza depende do âmbito da implementação e do seu editor de JSON.<br><br>Se estiver a utilizar [o Código VS com a extensão de ferramentas Azure Resource Manager,](quickstart-create-templates-use-visual-studio-code.md)utilize a versão mais recente para implementações de grupos de recursos:<br>`https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`<br><br>Outros editores (incluindo o Visual Studio) podem não ser capazes de processar este esquema. Para os editores, utilize:<br>`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Para implementações de subscrição, utilize:<br>`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`<br><br>Para implementações de grupos de gestão, utilize:<br>`https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#`<br><br>Para implantações de inquilinos, utilize:<br>`https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#` |
 | parte de conteúdoVersão |Sim |Versão do modelo (tal como 1.0.0.0). Pode fornecer qualquer valor para este elemento. Utilize este valor para documentar alterações significativas no seu modelo. Ao utilizar recursos utilizando o modelo, este valor pode ser usado para garantir que o modelo certo está a ser utilizado. |
 | apiProfile |Não | Uma versão API que serve como uma coleção de versões API para tipos de recursos. Utilize este valor para evitar ter de especificar versões API para cada recurso no modelo. Quando especifica uma versão de perfil API e não especifica uma versão API para o tipo de recurso, o Gestor de Recursos utiliza a versão API para esse tipo de recurso que é definido no perfil.<br><br>A propriedade de perfil API é especialmente útil ao implementar um modelo para diferentes ambientes, como Azure Stack e Global Azure. Utilize a versão de perfil API para se certificar de que o seu modelo utiliza automaticamente versões suportadas em ambos os ambientes. Para obter uma lista das versões de perfil da API atuais e as versões API de recursos definidas no perfil, consulte o [Perfil da API](https://github.com/Azure/azure-rest-api-specs/tree/master/profile).<br><br>Para obter mais informações, consulte [as versões Track utilizando perfis API](templates-cloud-consistency.md#track-versions-using-api-profiles). |
 | [parâmetros](#parameters) |Não |Valores que são fornecidos quando a implementação é executada para personalizar a implementação de recursos. |
@@ -48,7 +48,7 @@ Cada elemento tem propriedades que pode definir. Este artigo descreve as secçõ
 
 ## <a name="parameters"></a>Parâmetros
 
-Na secção de parâmetros do modelo, especifica quais os valores que pode inserir ao utilizar os recursos. Está limitado a 256 parâmetros num modelo. Pode reduzir o número de parâmetros utilizando objetos que contêm múltiplas propriedades.
+Na secção de parâmetros do modelo, especifique os valores que pode introduzir ao implementar os recursos. Está limitado a 256 parâmetros num modelo. Pode reduzir o número de parâmetros utilizando objetos que contêm múltiplas propriedades.
 
 As propriedades disponíveis para um parâmetro são:
 
@@ -406,7 +406,7 @@ Pode partir uma corda em várias linhas. Por exemplo, consulte a propriedade de 
 
 Para implementar modelos com cordas multi-linhas utilizando o CLI Azure com a versão 2.3.0 ou mais antiga, deve utilizar o `--handle-extended-json-format` interruptor.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para ver modelos completos para vários tipos de soluções, veja os [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/).
 * Para obter detalhes sobre as funções que pode utilizar dentro de um modelo, consulte as [funções do modelo do Gestor de Recursos Azure](template-functions.md).

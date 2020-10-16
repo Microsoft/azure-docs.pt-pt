@@ -9,10 +9,10 @@ ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: cd7b889560acbe484581f065b641375c222f7ca8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81536501"
 ---
 Por padrão, as ações de ficheiros padrão podem abranger apenas até 5 TiB, embora o limite de ações possa ser aumentado para 100 TiB. Para isso, a grande funcionalidade *de partilha de ficheiros* deve ser ativada ao nível da conta de armazenamento. As contas de armazenamento premium (Contas de armazenamento*FileStorage)* não têm o grande pavilhão de funcionalidades de partilha de ficheiros, uma vez que todas as ações de ficheiros premium já estão habilitados para o provisionamento até à capacidade total de 100 TiB.

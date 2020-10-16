@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.author: jeedes
-ms.openlocfilehash: 5457730494d509a2923ce929f41e397cb6064126
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 236c24ac63aef6b802edf53f9c414a522c2308e4
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88550084"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015129"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cylanceprotect"></a>Tutorial: Azure Ative Directory integração única (SSO) com CylancePROTECT
 
@@ -144,7 +144,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ## <a name="configure-cylanceprotect-sso"></a>Configure CylancePROTECT SSO
 
-Para configurar um único sinal no lado **CylancePROTECT,** é necessário enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para a equipa de [suporte CylancePROTECT.](https://www.cylance.com/en-us/resources/support/support-overview.html) Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados. Para mais informações, utilize documentação cylance: [https://support.cylance.com/s/article/Use-Microsoft-Azure-with-CylancePROTECT4](https://support.cylance.com/s/article/Use-Microsoft-Azure-with-CylancePROTECT4) .
+Para configurar um único sinal no lado **CylancePROTECT,** é necessário enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para a equipa de [suporte CylancePROTECT.](https://www.cylance.com/en-us/resources/support/support-overview.html) Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados. Para mais informações, utilize documentação cylance: [https://support.cylance.com/s/](https://support.cylance.com/s/) .
 
 ### <a name="create-cylanceprotect-test-user"></a>Criar utilizador de teste CylancePROTECT
 

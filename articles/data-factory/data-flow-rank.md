@@ -8,18 +8,20 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/05/2020
-ms.openlocfilehash: cb3a8c1c6df61a4a20ce596e3ff1118c2870033a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8584d1b64191cc5258c6eeeef9ae4125bf1a2c65
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91716521"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044739"
 ---
 # <a name="rank-transformation-in-mapping-data-flow"></a>Classificação transformação no fluxo de dados de mapeamento 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Utilize a transformação da classificação para gerar um ranking ordenado com base em condições de classificação especificadas pelo utilizador. 
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4GGJo]
 
 ## <a name="configuration"></a>Configuração
 
@@ -37,7 +39,7 @@ A configuração acima pega nos dados do basquetebol e cria uma coluna de classi
 
 ## <a name="data-flow-script"></a>Script de fluxo de dados
 
-### <a name="syntax"></a>Sintaxe
+### <a name="syntax"></a>Syntax
 
 ```
 <incomingStream>
@@ -67,6 +69,6 @@ PruneColumns
     ) ~> RankByPoints
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Filtrar linhas com base nos valores de classificação utilizando a [transformação](data-flow-filter.md)do filtro .

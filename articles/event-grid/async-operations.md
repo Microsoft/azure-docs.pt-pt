@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: baae7b097a0b696d405c0e7ea3d3bdeb326f23b1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89011689"
 ---
 # <a name="track-event-grid-asynchronous-azure-operations"></a>Operações de Azure assíncrona de track Event Grid assíncronas
@@ -31,10 +31,10 @@ Consulte a documentação da [API](/rest/api/) REST para ver as respostas para a
 As operações assíncronas REST devolvem os valores do cabeçalho, que utiliza para determinar o estado da operação. Existem potencialmente três valores de cabeçalho para examinar:
 
 * `Azure-AsyncOperation` - URL para verificação do estado em curso da operação. Se a sua operação devolver este valor, utilize-o sempre (em vez de Localização) para acompanhar o estado da operação.
-* `Location` - URL para determinar quando uma operação tiver terminado. Utilize este valor apenas quando a Azure-AsyncOperation não for devolvida.
+* `Location` - URL para determinar quando uma operação tiver terminado. Use este valor apenas quando Azure-AsyncOperation não for devolvido.
 * `Retry-After` - O número de segundos a esperar antes de verificar o estado da operação assíncronea.
 
-No entanto, nem todas as operações assíncronas devolvem todos estes valores. Por exemplo, poderá ser necessário avaliar o valor do cabeçalho Azure-AsyncOperation para uma operação e o valor do cabeçalho de localização para outra operação. 
+No entanto, nem todas as operações assíncronas devolvem todos estes valores. Por exemplo, poderá ser necessário avaliar o valor do cabeçalho Azure-AsyncOperation para uma operação e o valor do cabeçalho localização para outra operação. 
 
 Recupera os valores do cabeçalho, pois recuperaria qualquer valor de cabeçalho para um pedido. Por exemplo, em C#, você recupera o valor do cabeçalho de um `HttpWebResponse` objeto nomeado com o seguinte `response` código:
 
@@ -42,9 +42,9 @@ Recupera os valores do cabeçalho, pois recuperaria qualquer valor de cabeçalho
 response.Headers.GetValues("Azure-AsyncOperation").GetValue(0)
 ```
 
-## <a name="azure-asyncoperation-request-and-response"></a>Pedido e resposta Azure-AsyncOperation
+## <a name="azure-asyncoperation-request-and-response"></a>Azure-AsyncOperation pedido e resposta
 
-Para obter o estado da operação assíncrona, envie um pedido GET para o URL no valor do cabeçalho Azure-AsyncOperation.
+Para obter o estado da operação assíncronea, envie um pedido GET para o URL em Azure-AsyncOperation valor do cabeçalho.
 
 O corpo da resposta desta operação contém informações sobre a operação. O exemplo a seguir mostra os valores possíveis devolvidos da operação:
 

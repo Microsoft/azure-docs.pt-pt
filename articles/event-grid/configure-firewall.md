@@ -4,14 +4,14 @@ description: Este artigo descreve como configurar as definições de firewall pa
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: fd190a13a177b6b6d0f6b0dbcaa35d63dccd93c9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324166"
 ---
 # <a name="configure-ip-firewall-for-azure-event-grid-topics-or-domains"></a>Configure firewall IP para tópicos ou domínios da Grelha de Eventos Azure 
-Por predefinição, o tópico e o domínio estão acessíveis a partir da Internet desde que o pedido venha com autenticação e autorização válidas. Com a firewall IP, pode restringi-lo ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (Roteamento Inter-Domain Sem Classe).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) Os editores originários de qualquer outro endereço IP serão rejeitados e receberão uma resposta 403 (Proibida). Para obter mais informações sobre funcionalidades de segurança de rede suportadas pela Grade de Eventos, consulte [a segurança da rede de eventos](network-security.md).
+Por predefinição, o tópico e o domínio estão acessíveis a partir da Internet desde que o pedido venha com autenticação e autorização válidas. Com a firewall IP, pode restringi-lo ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (Classless Inter-Domain Encaminhamento).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) Os editores originários de qualquer outro endereço IP serão rejeitados e receberão uma resposta 403 (Proibida). Para obter mais informações sobre funcionalidades de segurança de rede suportadas pela Grade de Eventos, consulte [a segurança da rede de eventos](network-security.md).
 
 Este artigo descreve como configurar as definições de firewall IP para tópicos ou domínios da Grelha de Eventos Azure.
 

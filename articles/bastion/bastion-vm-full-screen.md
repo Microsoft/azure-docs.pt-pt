@@ -2,21 +2,21 @@
 title: 'Azure Bastion: Ver sessão de máquina virtual: ecrã completo'
 description: Saiba como alterar a vista da máquina virtual para ecrã completo e de volta ao seu navegador para uma ligação RDP ou SSH em Azure Bastion.
 services: bastion
-author: charwen
+author: cherylmc
 ms.service: bastion
 ms.topic: how-to
 ms.date: 02/03/2020
-ms.author: charwen
-ms.openlocfilehash: fa795d7b066733aba54f8612bbabecf264a11c70
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.author: cherylmc
+ms.openlocfilehash: 7db85c5e1d5f67c30adf08969c51bb4c57838fb5
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88270296"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079144"
 ---
 # <a name="change-to-full-screen-view-for-a-vm-session-azure-bastion"></a>Alterar para a vista de ecrã completo para uma sessão em Vm: Azure Bastion
 
-Este artigo ajuda-o a alterar a visão da máquina virtual para ecrã completo e de volta ao seu navegador. Antes de trabalhar com um VM, certifique-se de que seguiu os passos para [criar um hospedeiro de bastião.](bastion-create-host-portal.md) Em seguida, ligue-se ao VM com o que pretende trabalhar utilizando o [RDP](bastion-connect-vm-rdp.md) ou [o SSH](bastion-connect-vm-ssh.md).
+Este artigo ajuda-o a alterar a visão da máquina virtual para ecrã completo e de volta ao seu navegador. Antes de trabalhar com um VM, certifique-se de que seguiu os passos para [criar um hospedeiro de bastião.](./tutorial-create-host-portal.md) Em seguida, ligue-se ao VM com o que pretende trabalhar utilizando o [RDP](bastion-connect-vm-rdp.md) ou [o SSH](bastion-connect-vm-ssh.md).
 
 ## <a name="launch-the-clipboard-tool"></a>Lançar a ferramenta de área de transferência
 

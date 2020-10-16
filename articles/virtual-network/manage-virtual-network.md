@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
 ms.openlocfilehash: 5581a4c43f0b78dc8c14c44bfb1ded371a925fd0
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88706035"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Criar, alterar ou eliminar uma rede virtual
@@ -25,7 +25,7 @@ ms.locfileid: "88706035"
 
 Saiba como criar e eliminar uma rede virtual e alterar definições, como servidores DNS e espaços de endereço IP, para uma rede virtual existente. Se é novo em redes virtuais, pode saber mais sobre elas na [visão geral](virtual-networks-overview.md) da rede Virtual ou completando um [tutorial](quick-create-portal.md). Uma rede virtual contém sub-redes. Para aprender a criar, alterar e eliminar sub-redes, consulte [Gerir sub-redes](virtual-network-manage-subnet.md).
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Complete as seguintes tarefas antes de completar etapas em qualquer secção deste artigo:
 

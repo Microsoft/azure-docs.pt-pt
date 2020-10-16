@@ -4,10 +4,10 @@ description: Este artigo descreve as propriedades para subscrever um evento com 
 ms.topic: reference
 ms.date: 07/07/2020
 ms.openlocfilehash: 21016627e545cc4935b4ac213df675e894c12d95
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86119077"
 ---
 # <a name="event-grid-subscription-schema"></a>Esquema de subscrição de Grade de Eventos
@@ -44,7 +44,7 @@ O nome de Subscrição do Evento deve ter 3-64 caracteres de comprimento e só p
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| incluieeventTypes | array | Corresponda quando o tipo de evento na mensagem do evento é uma correspondência exata com um destes nomes do tipo evento. Levanta um erro quando o nome do evento não corresponde aos nomes do tipo de evento registados para a fonte do evento. O predefinição corresponde a todos os tipos de eventos. |
+| incluieeventTypes | matriz | Corresponda quando o tipo de evento na mensagem do evento é uma correspondência exata com um destes nomes do tipo evento. Levanta um erro quando o nome do evento não corresponde aos nomes do tipo de evento registados para a fonte do evento. O predefinição corresponde a todos os tipos de eventos. |
 | assuntoScom | string | Um filtro de pré-jogo para o campo de assunto na mensagem do evento. A corda padrão ou vazia combina com todas. | 
 | AssuntoEndsWith | string | Um filtro de sufixo para o campo de assunto na mensagem do evento. A corda padrão ou vazia combina com todas. |
 | isSubjectCaseSensitive | string | Controla a correspondência sensível à caixa para os filtros. |
@@ -71,6 +71,6 @@ O nome de Subscrição do Evento deve ter 3-64 caracteres de comprimento e só p
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para uma introdução à Grade de Eventos, veja [o que é a Grade de Eventos?](overview.md)

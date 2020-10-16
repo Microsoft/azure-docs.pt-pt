@@ -14,10 +14,10 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: aa10cb207011051c30866a3a3ed693e7113b5882
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89297723"
 ---
 # <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Configure Carteiro para Serviços de Mídia v3 REST Chamadas API
@@ -99,12 +99,12 @@ Antes de começar a manipular os recursos AMS v3, precisa de obter e definir Azu
 * Se a sua aplicação falhar com "HTTP 504: Gateway Timeout", certifique-se de que a variável de localização não foi explicitamente definida para outro valor que não a localização esperada da conta Serviços de Comunicação. 
 * Se obtém um erro de "conta não encontrada", verifique também se a propriedade de localização na mensagem Body JSON está definida para o local onde se encontra a conta dos Serviços de Comunicação Social. 
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 - [Criar filtros com Serviços de Mídia - REST](filters-dynamic-manifest-rest-howto.md)
 - [API REST baseada no Azure Resource Manager](https://github.com/Azure-Samples/media-services-v3-arm-templates)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Transmitir ficheiros com REST](stream-files-tutorial-with-rest.md).  
 - [Tutorial: Encode a remote file based on URL and stream the video - REST](stream-files-tutorial-with-rest.md) (Codificar ficheiros remotos com base no URL e transmitir o vídeo em fluxo - REST)

@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: a1fedb637bee9d98fb09d8fc3fa133b2992ce86e
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: ad7fc7d9d02cd9a9a6fe74534a7c674fe0ac778d
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89613662"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893259"
 ---
 # <a name="pbr-materials"></a>Materiais PBR
 
@@ -40,6 +40,8 @@ Estas propriedades são comuns a todos os materiais:
 * **useVertexColor:** Se a malha contiver :::no-loc text="vertex"::: cores e esta opção estiver ativada, a cor das malhas :::no-loc text="vertex"::: é multiplicada no *albedoColor* e *albedoMap.* Por *utilização predefinidaVertexColor* é desativado.
 
 * **isDoubleSided:** Se a dupla faceta for verdadeira, os triângulos com este material são renderizados mesmo que a câmara esteja a olhar para as suas faces traseiras. Para a iluminação de materiais PBR também é computada adequadamente para faces traseiras. Por predefinição, esta opção é desativada. Ver também [ :::no-loc text="Single-sided"::: renderização.](single-sided-rendering.md)
+
+* **TransparênciaDesseepth:** Se a bandeira TransparencyWritesDepth for colocada no material e o material for transparente, os objetos que utilizam este material também contribuirão para o tampão de profundidade final. Consulte a bandeira de material PBR *transparente* na secção seguinte. Para ativar esta funcionalidade é recomendado se o seu caso de utilização necessitar de uma [reprojecção tardia](late-stage-reprojection.md) mais plausível de cenas totalmente transparentes. Para cenas opacas/transparentes mistas, este cenário pode introduzir comportamentos de reprojecção implausíveis ou artefactos de reprojecção. Por esta razão, a definição predefinida e recomendada para o caso de utilização geral é para desativar esta bandeira. Os valores de profundidade escrita são retirados da camada de profundidade por pixel do objeto mais próximo da câmara.
 
 ## <a name="pbr-material-properties"></a>Propriedades de materiais PBR
 
@@ -76,7 +78,7 @@ A ideia central da renderização baseada fisicamente é usar propriedades *Base
 
 ## <a name="technical-details"></a>Detalhes técnicos
 
-A renderização remota Azure usa o micro-facet Cook-Torrance BRDF com GGX NDF, Schlick Fresnel, e um termo de visibilidade correlacionado GGX Smith com um termo difuso Lambert. Este modelo é o padrão da indústria de facto neste momento. Para mais detalhes aprofundados, consulte este artigo: [Rendering fisicamente baseado - Cook Torrance](http://www.codinglabs.net/article_physically_based_rendering_cook_torrance.aspx)
+A renderização remota Azure usa o Cook-Torrance microfacet BRDF com GGX NDF, Schlick Fresnel, e um termo de visibilidade GGX Smith correlacionado com um termo difuso Lambert. Este modelo é o padrão da indústria de facto neste momento. Para mais detalhes aprofundados, consulte este artigo: [Rendering fisicamente baseado - Cook Torrance](http://www.codinglabs.net/article_physically_based_rendering_cook_torrance.aspx)
 
  Uma alternativa ao modelo *PBR Metalness-Asperness* utilizado na Renderização Remota Azure é o modelo *Specular-Glossiness* PBR. Este modelo pode representar uma gama mais ampla de materiais. No entanto, é mais caro e normalmente não funciona bem em casos em tempo real.
 Nem sempre é possível converter *de Specular-Glossiness* para *Metalness-Aspereza,* uma vez que existem pares de valor *(Difuso, Specular)* que não podem ser convertidos para *(BaseColor, Metalness)*. A conversão na outra direção é mais simples e precisa, uma vez que todos os pares *(BaseColor, Metalness)* correspondem a pares bem definidos *(Difuso, Specular).*
@@ -88,7 +90,7 @@ Nem sempre é possível converter *de Specular-Glossiness* para *Metalness-Asper
 * [Classe PbrMaterial C++](https://docs.microsoft.com/cpp/api/remote-rendering/pbrmaterial)
 * [C++ RemoteManager::CreateMaterial()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#creatematerial)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Materiais de cor](color-materials.md)
 * [Texturas](../../concepts/textures.md)

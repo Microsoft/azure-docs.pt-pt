@@ -9,10 +9,10 @@ ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
 ms.openlocfilehash: d925c1387a408d38eb7974a01ebf3ce3386b7e58
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88067615"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Dicas de desempenho para Azure Cosmos DB Async Java SDK v2
@@ -86,7 +86,7 @@ Então, se está a perguntar"Como posso melhorar o desempenho da minha base de d
 
   * ***Visão geral do modo Direto***
 
-  :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Ilustração da arquitetura do modo direto" border="false":::
+  :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Ilustração da política de conexão DB Azure Cosmos" border="false":::
   
   A arquitetura do lado do cliente utilizada no modo Direct permite uma utilização previsível da rede e acesso multiplexed às réplicas DB do Azure Cosmos. O diagrama acima mostra como o modo direto encaminha os pedidos do cliente para réplicas no backend do Cosmos DB. A arquitetura do modo direto aloca até 10 **canais** no lado cliente por réplica DB. Um Canal é uma ligação TCP precedida por um tampão de pedido, que é de 30 pedidos de profundidade. Os canais pertencentes a uma réplica são dinamicamente atribuídos conforme necessário pelo **Ponto de Serviço**da réplica. Quando o utilizador emite um pedido em modo direto, o **TransportClient** encaminha o pedido para o ponto final de serviço adequado com base na chave de partição. Os pedidos de buffers **de fila de pedidos** antes do ponto de final de serviço.
 
@@ -260,7 +260,7 @@ Então, se está a perguntar"Como posso melhorar o desempenho da minha base de d
 
     Para obter mais informações, consulte [as políticas de indexação de DB do Azure Cosmos](indexing-policies.md).
 
-## <a name="throughput"></a><a id="measure-rus"></a>Produção
+## <a name="throughput"></a><a id="measure-rus"></a>Débito
 
 * **Medida e sintonização para unidades de pedido mais baixas/segunda utilização**
 

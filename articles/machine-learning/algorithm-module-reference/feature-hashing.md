@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: 444cb6a7819fa72f5987a21807fc707e0ba8b396
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907923"
 ---
 # <a name="feature-hashing-module-reference"></a>Referência do módulo hashing de recurso
@@ -96,7 +96,7 @@ As saídas numéricas também possibilitam a utilização de métodos comuns de 
 
 1. Envie o oleoduto.
 
-## <a name="results"></a>Resultados
+## <a name="results"></a>Results
 
 Após o processamento estar concluído, o módulo produz um conjunto de dados transformado no qual a coluna de texto original foi convertida em várias colunas. Cada coluna representa uma característica no texto. Dependendo da importência do dicionário, o conjunto de dados resultante pode ser grande:
 

@@ -8,10 +8,10 @@ ms.author: andrela
 ms.service: mariadb
 ms.custom: subject-policy-reference
 ms.openlocfilehash: fb2d8815c6584561135bb2b186e6cee27cb62b9a
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91827517"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-database-for-mariadb"></a>Azure Policy definições incorporadas para Azure Database for MariaDB

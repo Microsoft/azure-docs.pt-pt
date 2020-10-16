@@ -12,14 +12,14 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 6261e31fd84b9471fa4ea5d30e1d6a4afbac9115
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86085383"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Criar funcionalidades para dados num cluster Hadoop usando consultas de Colmeia
-Este documento mostra como criar funcionalidades para dados armazenados num cluster Azure HDInsight Hadoop usando consultas de Hive. Estas consultas de Colmeia utilizam funções definidas pelo utilizador da Colmeia (UDFs), os scripts para os quais são fornecidos.
+Este documento mostra como criar funcionalidades para dados armazenados num cluster Azure HDInsight Hadoop usando consultas de Hive. Estas consultas de Colmeia usam hive incorporado User-Defined Funções (UDFs), os scripts para os quais são fornecidos.
 
 As operações necessárias para criar funcionalidades podem ser intensivas na memória. O desempenho das consultas de Colmeia torna-se mais crítico nestes casos e pode ser melhorado através da afinação de certos parâmetros. A sintonização destes parâmetros é discutida na secção final.
 
@@ -150,7 +150,7 @@ As equações matemáticas que calculam a distância entre duas coordenadas de G
 
 Uma lista completa de UDFs incorporados por Colmeia pode ser encontrada na secção **funções incorporadas** no <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Wiki Apache Hive).</a>  
 
-## <a name="advanced-topics-tune-hive-parameters-to-improve-query-speed"></a><a name="tuning"></a>Tópicos avançados: Sintonizar os parâmetros da Colmeia para melhorar a velocidade da consulta
+## <a name="advanced-topics-tune-hive-parameters-to-improve-query-speed"></a><a name="tuning"></a> Tópicos avançados: Sintonizar os parâmetros da Colmeia para melhorar a velocidade da consulta
 As definições de parâmetros padrão do cluster hive podem não ser adequadas para as consultas de Colmeia e os dados que as consultas estão a processar. Esta secção discute alguns parâmetros que os utilizadores podem sintonizar para melhorar o desempenho das consultas de Hive. Os utilizadores precisam de adicionar as consultas de afinação de parâmetros antes das consultas de dados de processamento.
 
 1. **Java heap space**: Para consultas que envolvam a junção de grandes conjuntos de dados, ou o processamento de longos registos, **ficar sem espaço é** um dos erros comuns. Este erro pode ser evitado definindo parâmetros *mapreduce.map.java.opts* e *mapreduce.task.io.sort.mb* para valores desejados. Segue-se um exemplo:

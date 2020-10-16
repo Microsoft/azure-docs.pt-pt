@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 8/15/2018
 ms.author: victorh
 ms.openlocfilehash: de57a58f7c891009d2e0cc43b351c2cad42a2766
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84807881"
 ---
 # <a name="renew-application-gateway-certificates"></a>Renovar certificados de Gateway de Aplicação
@@ -60,6 +60,6 @@ az network application-gateway ssl-cert update \
   --cert-password "<password>"
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender a configurar o descarregamento de TLS com gateway de aplicação Azure, consulte [Configure TLS Offload](application-gateway-ssl-portal.md)

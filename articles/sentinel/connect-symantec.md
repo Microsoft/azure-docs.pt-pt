@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 67fc80b5f34cf3a98fd39ddc352cb2dd9a5e7151
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85564919"
 ---
 # <a name="connect-your-symantec-icdx-appliance"></a>Ligue o seu aparelho Symantec ICDx 
@@ -50,7 +50,7 @@ O ICDx Symantec pode integrar e exportar registos diretamente para o Azure Senti
       > [!NOTE]
       > Os arquivos recetores ICDx são listados separadamente, pelo nome. 
  
-    - **Filtro**: Adicione um filtro que especifique o subconjunto de eventos para encaminhar. Execute um dos seguintes procedimentos:
+    - **Filtro**: Adicione um filtro que especifique o subconjunto de eventos para encaminhar. Faça um dos seguintes:
         - Para selecionar uma condição de filtro, clique num Tipo, Atributo, Operador e Valor. 
         - No campo Filtro, reveja a sua condição de filtro. Pode editá-lo diretamente no campo ou eliminá-lo conforme necessário.
         - Clique em E ou OU para adicionar à sua condição de filtro.
@@ -74,7 +74,7 @@ Pode demorar mais de 20 minutos até que os seus registos comecem a aparecer no 
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu a ligar o Symantec ICDx ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
 - Começa [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)

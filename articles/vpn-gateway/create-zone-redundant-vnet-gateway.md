@@ -9,17 +9,17 @@ ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: cherylmc
 ms.openlocfilehash: 2eaf1470e2d861ecfc1c1bc96f6040a1c3e0a644
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89425233"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones"></a>Criar uma porta de entrada de rede virtual redundante em Zonas de Disponibilidade Azure
 
 Pode implantar gateways VPN e ExpressRoute em Zonas de Disponibilidade Azure. Isto traz resiliência, escalabilidade e uma maior disponibilidade para os gateways de redes virtuais. Implementar gateways nas Zonas de Disponibilidade do Azure separa física e logicamente os gateways numa região, enquanto protege a sua conectividade de rede no local para o Azure contra falhas ao nível das zonas. Para obter informações, consulte [sobre as portas de rede virtuais redundantes de zona e](about-zone-redundant-vnet-gateways.md) sobre as zonas de disponibilidade de [Azure.](../availability-zones/az-overview.md)
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 [!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
@@ -126,7 +126,7 @@ New-AzVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name $Gw1 
 New-AzVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name $Gw1 -IpConfigurations $GwIPConf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1AZ
 ```
 
-## <a name="faq"></a><a name="faq"></a>FAQ
+## <a name="faq"></a><a name="faq"></a>Perguntas Frequentes
 
 ### <a name="what-will-change-when-i-deploy-these-new-skus"></a>O que mudará quando eu implementar estes novos SKUs?
 

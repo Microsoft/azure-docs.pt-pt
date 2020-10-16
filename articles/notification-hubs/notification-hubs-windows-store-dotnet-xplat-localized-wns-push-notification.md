@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
 ms.openlocfilehash: 2fc29eeea7969812f0fbef17892893f7a79a048a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88998191"
 ---
 # <a name="tutorial-send-localized-push-notifications-to-windows-apps-using-azure-notification-hubs"></a>Tutorial: Enviar notificações push localizadas para apps do Windows usando hubs de notificação do Azure
@@ -39,7 +39,7 @@ Este tutorial mostra-lhe como enviar notificações localizadas para dispositivo
 
 Quando concluir o tutorial, a aplicação móvel vai permitir-lhe registar-se em categorias nas quais está interessado, bem como especificar um idioma no qual as notificações vão ser recebidas. A aplicação de back-end envia notificações que estão localizadas por idioma e dispositivo.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Atualizar a aplicação do Windows para suportar informações de região

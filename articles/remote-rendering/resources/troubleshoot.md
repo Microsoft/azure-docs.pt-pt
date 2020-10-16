@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
 ms.openlocfilehash: e8de33e7417ab6421792d341474c320a5f63423b
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91803828"
 ---
 # <a name="troubleshoot"></a>Resolução de problemas

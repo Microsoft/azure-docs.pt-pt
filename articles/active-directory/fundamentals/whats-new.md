@@ -17,10 +17,10 @@ ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c16008ac4a328f93669179ccca783efb9ef092a5
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91773510"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Quais as novidades no Diretório Ativo do Azure?
@@ -320,13 +320,13 @@ Você pode expandir um domínio gerido para ter mais de um conjunto de réplicas
 
 ---
 
-### <a name="general-availability-of-azure-ad-my-sign-ins"></a>Disponibilidade Geral de AD AD AD Meus Ins
+### <a name="general-availability-of-azure-ad-my-sign-ins"></a>Disponibilidade Geral de Azure AD Meu Sign-Ins
 
 **Tipo:** Nova funcionalidade  
 **Categoria de serviço:** Autenticações (Logins)  
 **Capacidade do produto:** Experiências de utilizador final
  
-Azure AD My Sign-Ins é uma nova funcionalidade que permite aos utilizadores da empresa rever o seu histórico de inscrições para verificar em qualquer atividade incomum. Além disso, esta funcionalidade permite que os utilizadores finais reportem "This was not me" ou "This was me" em atividades suspeitas. Para saber mais sobre a utilização desta funcionalidade, consulte [a Visualização e pesque a sua recente atividade de início de sposição na página My's Ins](../user-help/my-account-portal-sign-ins-page.md#confirm-unusual-activity).
+Azure AD My Sign-Ins é uma nova funcionalidade que permite aos utilizadores da empresa rever o seu histórico de inscrições para verificar em qualquer atividade incomum. Além disso, esta funcionalidade permite que os utilizadores finais reportem "This was not me" ou "This was me" em atividades suspeitas. Para saber mais sobre a utilização desta funcionalidade, consulte [a Visualização e pesque a sua recente atividade de início de sposição a partir da página My Sign-Ins](../user-help/my-account-portal-sign-ins-page.md#confirm-unusual-activity).
  
 ---
 
@@ -460,7 +460,7 @@ Segurança da camada de transporte (TLS) 1.2 e servidores e clientes de atualiza
  
 O Windows Hello for Business permite que os utilizadores finais assinem em máquinas Windows com um gesto (como um PIN ou biométrico). Os administradores da AD AZure podem querer diferenciar o Windows Hello para iniciar sing-ins do Windows de outros insus máximos do Windows como parte da viagem de uma organização à autenticação sem palavras-passe. 
 
-Os administradores podem agora verificar se uma autenticação do Windows usou o Windows Hello for Business, verificando o separador Detalhes de Autenticação de um evento de entrada no Windows na lâmina AD AD do portal Azure. As autenticações do Windows Hello for Business incluirão "WindowsHelloForBusiness" no campo Método de Autenticação. Para obter mais informações sobre a interpretação de Registos de Inscrição, consulte a [documentação de Registos de Início de Sessão](../reports-monitoring/concept-sign-ins.md).
+Os administradores podem agora verificar se uma autenticação do Windows usou o Windows Hello for Business, verificando o separador Detalhes de Autenticação de um evento de entrada no Windows no Azure AD Sign-Ins lâmina no portal Azure. As autenticações do Windows Hello for Business incluirão "WindowsHelloForBusiness" no campo Método de Autenticação. Para obter mais informações sobre a interpretação de Sign-In Registos, consulte a [documentação de Registos de Início de Sessão](../reports-monitoring/concept-sign-ins.md).
  
 ---
 
@@ -593,7 +593,7 @@ A condição de risco do utilizador requer Azure AD Premium P2 porque utiliza a 
 **Categoria de serviço:** Aplicativos da Empresa  
 **Capacidade do produto:** SSO
  
-Algumas aplicações SAML exigem que o SPNameQualifier seja devolvido no sujeito de afirmação quando solicitado. Agora, a Azure AD responde corretamente quando um SPNameQualifier é solicitado na política nameID do pedido. Isto também funciona para a sed-in iniciada pela SP, e o IdP iniciou a s inscrição.  Para saber mais sobre o protocolo SAML no Diretório Ativo Azure, consulte [o protocolo SINGLE Sign-On SAML](../develop/single-sign-on-saml-protocol.md).
+Algumas aplicações SAML exigem que o SPNameQualifier seja devolvido no sujeito de afirmação quando solicitado. Agora, a Azure AD responde corretamente quando um SPNameQualifier é solicitado na política nameID do pedido. Isto também funciona para a sed-in iniciada pela SP, e o IdP iniciou a s inscrição.  Para saber mais sobre o protocolo SAML no Azure Ative Directory, consulte [o protocolo Single Sign-On SAML](../develop/single-sign-on-saml-protocol.md).
 
 ---
 
@@ -1039,7 +1039,7 @@ Para mais informações, visite [a nova experiência de registo de aplicações 
 
 **Capacidade do produto:** Proteção & de Segurança de Identidade
 
-A experiência de registo combinado para autenticação multi-factor (MFA) e autosserviço de redefinição de senha (SSPR) está agora geralmente disponível. Esta nova experiência de registo permite que os utilizadores se registem para MFA e SSPR num único processo passo a passo. Quando implementa a nova experiência para a sua organização, os utilizadores podem registar-se em menos tempo e com menos agios. Confira o post do blog [aqui.](https://bit.ly/3etiRyQ)
+A experiência de registo combinado para autenticação multi-factor (MFA) e Self-Service Redefinição de Password (SSPR) está agora geralmente disponível. Esta nova experiência de registo permite que os utilizadores se registem para MFA e SSPR num único processo passo a passo. Quando implementa a nova experiência para a sua organização, os utilizadores podem registar-se em menos tempo e com menos agios. Confira o post do blog [aqui.](https://bit.ly/3etiRyQ)
 
 ---
 
@@ -1237,7 +1237,7 @@ Para mais informações, consulte [a gestão de unidades administrativas no Dire
 
 **Capacidade do produto:** Controlo de Acessos
 
-Os utilizadores desta função podem permitir, configurar e gerir serviços e configurações relacionadas com a ativação da identidade híbrida em AZure AD. Esta função confere a possibilidade de configurar a Azure AD a um dos três métodos de autenticação suportados&#8212;sincronização de hash password (PHS), autenticação pass-through (PTA) ou Federação (AD FS ou provedor de federação de terceiros)&#8212;e implantar infraestruturas relacionadas nas instalações para os permitir. As infraestruturas no local incluem agentes de provisionamento e de PTA. Esta função garante a capacidade de permitir um Único Sign-On (S-SSO) sem emenda para permitir a autenticação sem emenda em dispositivos não Windows 10 ou computadores não Windows Server 2016. Além disso, esta função confere a possibilidade de ver registos de inscrição e de aceder à saúde e análise para fins de monitorização e resolução de problemas. [Saiba mais.](../users-groups-roles/directory-assign-admin-roles.md#hybrid-identity-administrator)
+Os utilizadores desta função podem permitir, configurar e gerir serviços e configurações relacionadas com a ativação da identidade híbrida em AZure AD. Esta função confere a possibilidade de configurar a Azure AD a um dos três métodos de autenticação suportados&#8212;sincronização de hash password (PHS), autenticação pass-through (PTA) ou Federação (AD FS ou provedor de federação de terceiros)&#8212;e implantar infraestruturas relacionadas nas instalações para os permitir. As infraestruturas no local incluem agentes de provisionamento e de PTA. Esta função garante a capacidade de permitir que o Seamless Single Sign-On (S-SSO) permita a autenticação sem emenda em dispositivos não Windows 10 ou computadores não-Windows Server 2016. Além disso, esta função confere a possibilidade de ver registos de inscrição e de aceder à saúde e análise para fins de monitorização e resolução de problemas. [Saiba mais.](../users-groups-roles/directory-assign-admin-roles.md#hybrid-identity-administrator)
 
 ---
 

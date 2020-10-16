@@ -7,10 +7,10 @@ ms.topic: troubleshooting
 ms.date: 03/18/2020
 ms.author: v-erkel
 ms.openlocfilehash: efa163a2c10a7dc93bf5d26865a0e7eb43f11dea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87082771"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>Resolução de problemas Na configuração e problemas de alvo de armazenamento NFS
@@ -96,7 +96,7 @@ Para evitar esta possível colisão de ficheiros para ficheiros em múltiplas ex
 
 O NAS deve enumerar as suas exportações quando o Cache Azure HPC o questiona.
 
-Na maioria dos sistemas de armazenamento NFS, pode testá-lo enviando a seguinte consulta a um cliente Linux:``showmount -e <storage IP address>``
+Na maioria dos sistemas de armazenamento NFS, pode testá-lo enviando a seguinte consulta a um cliente Linux: ``showmount -e <storage IP address>``
 
 Utilize um cliente Linux da mesma rede virtual que o seu cache, se possível.
 
@@ -120,9 +120,9 @@ Não há uma maneira simples de dizer se o seu sistema tem ou não este problema
 
   Estas são as opções no comando:
 
-  * ``-M do``- Não se fragmente
-  * ``-c 1``- Enviar apenas um pacote
-  * ``-s 1472``- Ajuste o tamanho da carga útil para 1472 bytes. Esta é a carga útil de tamanho máximo para um pacote de 1500 bytes após a contabilização da sobrecarga do Ethernet.
+  * ``-M do`` - Não se fragmente
+  * ``-c 1`` - Enviar apenas um pacote
+  * ``-s 1472`` - Ajuste o tamanho da carga útil para 1472 bytes. Esta é a carga útil de tamanho máximo para um pacote de 1500 bytes após a contabilização da sobrecarga do Ethernet.
 
   Uma resposta com êxito tem o seguinte aspeto:
 

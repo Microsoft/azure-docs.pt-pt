@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: Nova atribuição de políticas com portal'
 description: Neste quickstart, você usa o portal Azure para criar uma atribuição de Política Azure para identificar recursos não conformes.
-ms.date: 08/17/2020
+ms.date: 10/05/2020
 ms.topic: quickstart
-ms.openlocfilehash: 956ec05b5a7fac862eeea86cf96a2db37f1c0536
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 51ca2f9e5d3f3df9304804ba3da2c5c5ceb0c19b
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89651965"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91875313"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Quickstart: Criar uma atribuição de política para identificar recursos não conformes
 
@@ -58,7 +58,7 @@ Neste arranque rápido, cria-se uma atribuição de política e atribui os _VMs 
 1. O **Nome da atribuição** é automaticamente preenchido com o nome da política que selecionou, mas pode alterá-lo. Neste exemplo, vamos deixar _Auditar VMs que não utilizam discos geridos_. Também pode adicionar uma **Descrição** opcional. A descrição fornece detalhes sobre esta atribuição de política.
    **Atribuído por** será preenchido automaticamente com base em quem tem sessão iniciada. Este campo é opcional e, por isso, podem ser introduzidos valores personalizados.
 
-1. Não marque o campo **Criar uma Identidade Gerida**. Esta caixa _deve_ ser verificada quando a política ou iniciativa inclui uma política com o efeito [implantadoIfNotExists.](./concepts/effects.md#deployifnotexists) Como a política usada para este arranque rápido não, deixe-a em branco. Para obter mais informações, veja [identidades geridas](../../active-directory/managed-identities-azure-resources/overview.md) e [como funciona a segurança de remediação](./how-to/remediate-resources.md#how-remediation-security-works).
+1. Não marque o campo **Criar uma Identidade Gerida**. Esta caixa _deve_ ser verificada quando a política ou iniciativa inclui uma política com o [deployIfNotExists](./concepts/effects.md#deployifnotexists) ou [modificar](./concepts/effects.md#modify) o efeito. Como a política usada para este arranque rápido não, deixe-a em branco. Para obter mais informações, veja [identidades geridas](../../active-directory/managed-identities-azure-resources/overview.md) e [como funciona a segurança de remediação](./how-to/remediate-resources.md#how-remediation-security-works).
 
 1. Selecione **Atribuir**.
 
@@ -74,17 +74,17 @@ Se houver recursos existentes que não estejam em conformidade com esta nova atr
 
 Quando uma condição é avaliada em relação aos seus recursos existentes e resulta como verdadeira, esses recursos são então marcados como em não conformidade com a política. A tabela seguinte mostra como funcionam os diferentes efeitos de política com a avaliação de condição para o estado de conformidade resultante. Embora não veja a lógica de avaliação no portal Azure, os resultados do estado de conformidade são mostrados. O resultado do estado de conformidade pode ser em conformidade ou em não conformidade.
 
-| **Estado do Recurso** | **Efeito** | **Avaliação da Política** | **Estado de conformidade** |
+| Estado do Recurso | Efeito | Avaliação da Política | Estado de Compatibilidade |
 | --- | --- | --- | --- |
-| Existe | Negar, Auditar, Acrescentar\*, DeployIfNotExist\*, AuditIfNotExist\* | Verdadeiro | Em Não Conformidade |
-| Existe | Negar, Auditar, Acrescentar\*, DeployIfNotExist\*, AuditIfNotExist\* | Falso | Compatível |
-| Novo | Audit, AuditIfNotExist\* | Verdadeiro | Em Não Conformidade |
-| Novo | Audit, AuditIfNotExist\* | Falso | Compatível |
+| Nova ou Atualizada | Auditoria, Modificação, AuditoriaIfNotExist | Verdadeiro | Em Não Conformidade |
+| Nova ou Atualizada | Auditoria, Modificação, AuditoriaIfNotExist | Falso | Compatível |
+| Existe | Negar, Auditar, Append, Modificar, ImplementarIfNotExist, AuditIfNotExist | Verdadeiro | Em Não Conformidade |
+| Existe | Negar, Auditar, Append, Modificar, ImplementarIfNotExist, AuditIfNotExist | Falso | Compatível |
 
-\* Os efeitos de Append, DeployIfNotExist e AuditIfNotExist requerem que a declaração IF seja TRUE.
-Os efeitos também necessitam que a condição de existência seja FALSE para estarem em não conformidade. Quando for TRUE, a condição IF aciona a avaliação da condição de existência dos recursos relacionados.
+> [!NOTE]
+> Os efeitos DeployIfNotExist e AuditIfNotExist requerem que a declaração IF seja VERDADEIRA e a condição de existência seja FALSA para não ser conforme. Quando for TRUE, a condição IF aciona a avaliação da condição de existência dos recursos relacionados.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para remover a atribuição criada, siga estes passos:
 

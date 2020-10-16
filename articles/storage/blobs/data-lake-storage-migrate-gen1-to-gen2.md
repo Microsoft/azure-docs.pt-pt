@@ -9,10 +9,10 @@ ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: bc6d4a60c3db6b2537a0f300562db1df5e249b43
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91716135"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Migrar Azure Data Lake Storage da Gen1 para a Gen2
@@ -202,7 +202,7 @@ Este é o padrão mais simples.
 
 :heavy_check_mark: O esforço de migração é elevado, mas fornece apoio lado a lado para a Gen1 e a Gen2.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - Conheça as várias partes da criação de segurança para uma conta de armazenamento. Consulte [o guia de segurança do armazenamento Azure](../common/storage-security-guide.md).
 - Otimize o desempenho da sua Data Lake Store. Consulte [Otimize Azure Data Lake Storage Gen2 para desempenho](data-lake-storage-performance-tuning-guidance.md)

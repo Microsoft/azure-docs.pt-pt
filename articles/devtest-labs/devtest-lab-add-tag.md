@@ -4,10 +4,10 @@ description: Aprenda a criar tags personalizadas em Azure DevTest Labs e use tag
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: a4d2b328626f0d0f096082fa88bb170894ccf3e4
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88270738"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Adicionar tags a um laboratório em Azure DevTest Labs

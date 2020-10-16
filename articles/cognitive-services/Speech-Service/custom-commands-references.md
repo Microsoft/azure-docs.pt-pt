@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.openlocfilehash: 83725a3839d36fc753bb43803e67acaca7571a6e
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85851844"
 ---
 # <a name="custom-commands-concepts-and-definitions"></a>Conceitos e definições de Comandos Personalizados
@@ -40,7 +40,7 @@ As regras de interação são regras adicionais para lidar com situações mais 
 
 Os parâmetros são informações necessárias pelos comandos para completar uma tarefa. Em cenários complexos, os parâmetros também podem ser usados para definir condições que desencadeiam ações personalizadas.
 
-### <a name="name"></a>Name
+### <a name="name"></a>Nome
 Um parâmetro é identificado pela propriedade do nome. Deve sempre dar um nome descritivo a um parâmetro. Um parâmetro pode ser referido em diferentes secções, por exemplo, quando se constrói condições, respostas da fala ou outras ações.
  
 ### <a name="isglobal"></a>IsGlobal
@@ -55,7 +55,7 @@ Os Comandos Personalizados suportam os seguintes tipos de parâmetros:
 * DateTime
 * Geografia
 * Número
-* String
+* Cadeia
 
 Todos estes tipos de parâmetros suportam a configuração de valor predefinido, que pode configurar a partir do portal Azure.
 
@@ -117,7 +117,7 @@ O estado pós-execução é o estado de diálogo após o processamento da entrad
 * **Executar regras de conclusão**: Execute todas as regras de conclusão válidas.
 * **Aguarde a entrada do utilizador**: Aguarde a próxima entrada do utilizador.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Ver amostras no GitHub](https://aka.ms/speech/cc-samples)

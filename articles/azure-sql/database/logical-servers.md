@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: abb8f42e7fe4ffe6e933f466202247c73ece129a
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89441719"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>O que é um servidor SQL lógico na Base de Dados Azure SQL e Azure Synapse?
@@ -190,7 +190,7 @@ Para criar e gerir servidores, bases de dados e firewalls, utilize estes pedidos
 |[Regras de firewall - Obter](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|Tem uma regra de firewall.|
 |[Regras de firewall - Lista por servidor](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|Devolve uma lista de regras de firewall.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber sobre a migração de uma base de dados do SQL Server para a Base de Dados Azure SQL, consulte [a Migração para a Base de Dados SQL Azure](migrate-to-database-from-sql-server.md).
 - Para obter informações sobre as funcionalidades suportadas, veja [Funcionalidades](features-comparison.md).

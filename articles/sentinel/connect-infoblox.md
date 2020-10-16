@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
 ms.openlocfilehash: c8af1c32607e5fc7bf548b40069e18923c666303
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87089656"
 ---
 # <a name="connect-your-infoblox-nios-to-azure-sentinel"></a>Ligue o infoblox NIOS ao Azure Sentinel

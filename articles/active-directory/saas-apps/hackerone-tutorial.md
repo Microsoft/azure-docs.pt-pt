@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 530ef271091afc3e646d375ea471d8c48f0f8651
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d72e6c6a606a199bd8b0ada601479267e0d728d
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88544201"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945180"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>Tutorial: Integração do Azure Ative Directory com a HackerOne
 
@@ -126,11 +126,11 @@ Para configurar o Azure AD com o HackerOne, execute os seguintes passos:
 
 2. No menu em cima, clique nas **Definições**.
 
-    ![Configurar Sign-On Individuais](./media/hackerone-tutorial/tutorial_hackerone_001.png)
+    ![Screenshot que mostra "Definições" selecionadas no menu.](./media/hackerone-tutorial/tutorial_hackerone_001.png)
 
 3. Navegue para **autenticação** e clique **em Adicionar as definições DE SAML**.
 
-    ![Configurar Sign-On Individuais](./media/hackerone-tutorial/tutorial_hackerone_003.png)
+    ![Screenshot que mostra a página "Definições de autenticação" com o botão "Adicionar S A M L" selecionado.](./media/hackerone-tutorial/tutorial_hackerone_003.png)
 
 4. No diálogo **de Definições SAML,** execute os seguintes passos:
 
@@ -146,7 +146,7 @@ Para configurar o Azure AD com o HackerOne, execute os seguintes passos:
 
 5. No diálogo Definições de Autenticação, execute os seguintes passos:
 
-    ![Configurar Sign-On Individuais](./media/hackerone-tutorial/tutorial_hackerone_005.png)
+    ![Screenshot que mostra o diálogo "Definições de autenticação" com o botão "Executar teste" selecionado.](./media/hackerone-tutorial/tutorial_hackerone_005.png)
 
     a. Clique **no teste de execução**.
 

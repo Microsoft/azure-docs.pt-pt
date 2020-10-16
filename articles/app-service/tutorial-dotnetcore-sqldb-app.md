@@ -7,10 +7,10 @@ ms.date: 06/20/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
 ms.openlocfilehash: b83dfbd715a6b27491fd5f5efd41213210092325
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90982886"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-azure-sql-database-app-in-azure-app-service"></a>Tutorial: Construir uma aplicação ASP.NET de base de dados core e Azure SQL em Azure App Service

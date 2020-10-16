@@ -9,10 +9,10 @@ ms.date: 05/08/2020
 ms.author: buhollan
 ms.custom: devx-track-js
 ms.openlocfilehash: c89ccee430d374d9aee58326627ff800f737324b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91250033"
 ---
 # <a name="configure-application-settings-for-azure-static-web-apps-preview"></a>Configurar configurar configurações de aplicações para visualização de aplicações web estáticas Azure
@@ -110,7 +110,7 @@ O portal Azure fornece uma interface para criar, atualizar e eliminar configura�
 
 1. Clique em **OK**.
 
-1. Clique em **Save** (Guardar).
+1. Clique em **Guardar**.
 
 ### <a name="using-the-azure-cli"></a>Com a CLI do Azure
 
@@ -144,7 +144,7 @@ O comando Azure CLI requer uma série de valores específicos da sua conta para 
 2. Nome do grupo de recursos
 3. ID da subscrição
 
-:::image type="content" source="media/application-settings/overview.png" alt-text="Visão geral das aplicações web estáticas do Azure":::
+:::image type="content" source="media/application-settings/overview.png" alt-text="Vista de configuração de aplicativos web estáticos Azure":::
 
 4. A partir de um terminal ou linha de comando, execute o seguinte comando. Certifique-se de que substitui os espaços reservados de `<YOUR_STATIC_SITE_NAME>` , e pelos seus `<YOUR_RESOURCE_GROUP_NAME>` `<YOUR_SUBSCRIPTION_ID>` valores da janela _Overview._
 

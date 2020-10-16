@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
 ms.openlocfilehash: 25ddcc2c3a890b407b2116f64ebab577e30c9457
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91613191"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Tutorial: Crie e implemente o seu primeiro modelo ARM

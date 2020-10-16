@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 06/14/2019
 ms.author: alkohli
 ms.openlocfilehash: 1c1b38c4021660b9f59098f8442d16bfd0ecc582
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87925547"
 ---
 # <a name="use-logs-to-troubleshoot-validation-issues-in-azure-data-box-disk"></a>Utilize registos para resolver problemas de validação no Disco de Caixa de Dados Azure
@@ -21,7 +21,7 @@ Este artigo aplica-se ao Disco de Caixa de Dados do Microsoft Azure. O artigo de
 
 ## <a name="validation-tool-log-files"></a>Ficheiros de registo de ferramentas de validação
 
-Quando valida os dados dos discos utilizando a [ferramenta de validação,](data-box-disk-deploy-copy-data.md#validate-data)é gerado um *error.xml* para registar eventuais erros. O ficheiro de registo está localizado na `Drive:\DataBoxDiskImport\logs` pasta da sua unidade. É fornecida uma ligação ao registo de erros quando executa a validação.
+Quando valida os dados dos discos utilizando a [ferramenta de validação,](data-box-disk-deploy-copy-data.md#validate-data)é gerado um *error.xml* para registar eventuais erros. O ficheiro de registo está localizado na  `Drive:\DataBoxDiskImport\logs` pasta da sua unidade. É fornecida uma ligação ao registo de erros quando executa a validação.
 
 <!--![Validation tool with link to error log](media/data-box-disk-troubleshoot/validation-tool-link-error-log.png)-->
 

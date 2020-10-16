@@ -4,10 +4,10 @@ description: Descreve como usar uma definição de iniciativa para agrupar polí
 ms.date: 08/17/2020
 ms.topic: conceptual
 ms.openlocfilehash: 15b03b5a40cba1290859b02883df70e3df54c5cf
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89645535"
 ---
 # <a name="regulatory-compliance-in-azure-policy"></a>Conformidade Regulamentar na Política Azure
@@ -40,11 +40,11 @@ A seleção de um **controlo** abre uma página de detalhes sobre esse controlo.
 > [!NOTE]
 > Um tipo de avaliação gerida **pela Microsoft** é para uma definição de política [estática.](./definition-structure.md#type) `type`
 
-:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-policies.png" alt-text="Screenshot dos detalhes da conformidade regulamentar para o controlo de proteção de fronteiras da definição incorporada NIST SP 800-53 R4.":::
+:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-policies.png" alt-text="Screenshot da visão geral da conformidade regulamentar para a definição incorporada NIST SP 800-53 R4 mostrando controlos compatíveis e não conformes.":::
 
 A partir da mesma página **de controlo,** a alteração para o **separador de conformidade de Recursos** mostra todos os recursos que as definições de política do **controlo**incluem. Os filtros estão disponíveis para nome ou ID, estado de conformidade, tipo de recurso e localização.
 
-:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-resources.png" alt-text="Screenshot da conformidade dos recursos com o controlo de proteção de fronteiras da definição incorporada NIST SP 800-53 R4.":::
+:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-resources.png" alt-text="Screenshot da visão geral da conformidade regulamentar para a definição incorporada NIST SP 800-53 R4 mostrando controlos compatíveis e não conformes.":::
 
 ## <a name="regulatory-compliance-in-sdk"></a>Conformidade Regulamentar em SDK
 
@@ -64,7 +64,7 @@ O seguinte código é um exemplo de resultados adicionados de uma `summarize` ch
 ]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a estrutura de [definição de iniciativa](./initiative-definition-structure.md)
 - Rever exemplos nas [amostras da Azure Policy](../samples/index.md).

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 806f175db2abefd6bebcd875c7adf4eb22f57f58
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89257369"
 ---
 # <a name="h264-multiple-bitrate-1080p-audio-51"></a>H264 Taxas de Bits Múltiplas 1080p Audio 5.1

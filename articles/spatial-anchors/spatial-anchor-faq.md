@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 05/18/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 9457836a3048ff08b228bf9d5b84400af15d6cc5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: eb02de25cfcb0dde01699c1169d03f0d822c4ae2
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88854953"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097410"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Perguntas frequentes sobre âncoras espaciais Azure
 
@@ -33,7 +33,7 @@ Para mais informações, consulte [a visão geral das Âncoras Espaciais Azure](
 
 **P: Quais são os requisitos de conectividade para âncoras espaciais Azure?**
 
-**A:** A Azure Spatial Anchors trabalha com Wi-Fi e conexões móveis de banda larga.
+**A:** A Azure Spatial Anchors trabalha com ligações de banda larga Wi-Fi e móveis.
 
 **P: Com que precisão as âncoras espaciais de Azure podem localizar âncoras?**
 
@@ -128,4 +128,4 @@ Começa com [o desenvolvimento aqui.](index.yml)
 
 **P: Que portas e protocolos utiliza a Azure Spatial Anchors?**
 
-**A:** A azure Spatial Anchors comunica através da porta TCP 443 usando um protocolo encriptado. Para autenticação, utiliza [o Azure Ative Directory,](https://docs.microsoft.com/azure/active-directory/)que comunica utilizando https sobre a porta 443.
+**A:** A azure Spatial Anchors comunica através da porta TCP 443 usando um protocolo encriptado. Para autenticação, utiliza [o Azure Ative Directory,](../active-directory/index.yml)que comunica utilizando https sobre a porta 443.

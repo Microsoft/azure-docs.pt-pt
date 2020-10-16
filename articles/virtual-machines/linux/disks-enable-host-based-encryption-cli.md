@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: ff56654981ef69648b1fa7ad11a8681c887289f6
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88816971"
 ---
 # <a name="use-the-azure-cli-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Utilize o CLI Azure para ativar a encriptação de ponta a ponta utilizando encriptação no anfitrião

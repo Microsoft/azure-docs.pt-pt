@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 6aa4273933190ccfe495bcaf243ee15a5ce823fb
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 5cdee274ebc815b23b8ce59e8b9eca90d00e3818
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91577650"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042971"
 ---
-# <a name="how-to-certify-iot-plug-and-play-devices"></a>Como certificar os dispositivos IoT Plug e Play
+# <a name="how-to-certify-iot-plug-and-play-devices"></a>Como certificar dispositivos IoT Plug and Play
 
-O programa de certificação ioT Plug and Play inclui ferramentas para verificar se um dispositivo cumpre os requisitos de certificação IoT Plug and Play. As ferramentas também ajudam as organizações a impulsionar a consciencialização sobre a disponibilidade dos seus dispositivos IoT Plug e Play. Estes dispositivos certificados são adaptados para soluções IoT e ajudam a reduzir o tempo ao mercado.
+O programa de certificação de dispositivos IoT Plug and Play inclui ferramentas para verificar se um dispositivo cumpre os requisitos de certificação de IoT Plug and Play. As ferramentas também ajudam as organizações a impulsionar a consciencialização sobre a disponibilidade dos seus dispositivos IoT Plug e Play. Estes dispositivos certificados são adaptados para soluções IoT e ajudam a reduzir o tempo ao mercado.
 
 Este artigo mostra-lhe como:
 
@@ -25,7 +25,7 @@ Este artigo mostra-lhe como:
 - Executar os testes IoT Plug and Play para validar a aplicação do seu dispositivo durante a fase de desenvolvimento  
 - Utilize o portal Azure Certified Device para validar a aplicação do dispositivo
 
-## <a name="prepare-your-device"></a>Prepare o seu dispositivo
+## <a name="prepare-your-device"></a>Preparar o dispositivo
 
 O código de aplicação que funciona no seu IoT Plug and Play deve:
 
@@ -45,15 +45,15 @@ Para satisfazer os requisitos de certificação, o seu dispositivo deve:
 - Envie o ID do modelo durante o [registo DPS](concepts-developer-guide-device-csharp.md#dps-payload) na carga útil de provisionamento DPS.
 - Anuncie o ID do modelo durante a [ligação MQTT](concepts-developer-guide-device-csharp.md#model-id-announcement).
 
-## <a name="test-with-the-azure-iot-extension-cli"></a>Teste com a extensão Azure IoT CLI
+## <a name="test-with-the-azure-iot-extension-cli"></a>Testar com a CLI da Extensão do Azure IoT
 
-A [extensão Azure IoT CLI](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/product?view=azure-cli-latest&preserve-view=true) permite validar que a implementação do dispositivo corresponde ao modelo antes de submeter o dispositivo para certificação através do portal Azure Certified Device.
+A [extensão Azure IoT CLI](/cli/azure/ext/azure-iot/iot/product?preserve-view=true&view=azure-cli-latest) permite validar que a implementação do dispositivo corresponde ao modelo antes de submeter o dispositivo para certificação através do portal Azure Certified Device.
 
 Os seguintes passos mostram-lhe como preparar e executar os testes de certificação utilizando o CLI:
 
 ### <a name="install-the-azure-iot-extension-for-the-azure-cli"></a>Instale a extensão Azure IoT para o Azure CLI
 
-Consulte as instruções de instalação para configurar o [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true) no seu ambiente.
+Consulte as instruções de instalação para configurar o [Azure CLI](/cli/azure/?preserve-view=true&view=azure-cli-latest) no seu ambiente.
 
 Para instalar a Extensão Azure IoT, executar o seguinte comando:
 
@@ -61,7 +61,7 @@ Para instalar a Extensão Azure IoT, executar o seguinte comando:
 az extension add --name azure-iot
 ```
 
-Para saber mais, consulte [Azure CLI para Azure IoT](https://docs.microsoft.com/cli/azure/azure-cli-reference-for-iot?view=azure-cli-latest&preserve-view=true).
+Para saber mais, consulte [Azure CLI para Azure IoT](/cli/azure/azure-cli-reference-for-iot?preserve-view=true&view=azure-cli-latest).
 
 ### <a name="create-a-new-product-test"></a>Criar um novo teste de produto
 
@@ -75,7 +75,7 @@ az iot product test create --badge-type Pnp --at SymmetricKey --device-type Fini
 ```
 
 > [!NOTE]
-> Tem de [iniciar súmis na](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true) sua subscrição quando utilizar o CLI.
+> Tem de [iniciar súmis na](/cli/azure/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest) sua subscrição quando utilizar o CLI.
 
 A saída JSON do comando contém `primaryKey` o , e para usar quando liga o seu `registrationId` `scopeID` dispositivo.
 
@@ -162,7 +162,7 @@ Saída de teste de exemplo
             },
 ```
 
-## <a name="test-using-the-azure-certified-device-portal"></a>Teste utilizando o portal do dispositivo certificado Azure
+## <a name="test-using-the-azure-certified-device-portal"></a>Testar com o portal do Microsoft Azure Certified for IoT
 
 Os passos seguintes mostram-lhe como utilizar o [portal Azure Certified Device](https://aka.ms/acdp) para embarcar, registar detalhes do produto, enviar um guia de arranque e executar os testes de certificação.
 

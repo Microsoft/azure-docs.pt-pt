@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: victorh
 ms.openlocfilehash: cbad025a0d0c4d679ea9cdc7557c81b5145798fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85610681"
 ---
 # <a name="deploy-an-azure-firewall-with-multiple-public-ip-addresses-using-azure-powershell"></a>Implementar uma Firewall do Azure com vários endereços IP públicos através do Azure PowerShell
 
 Esta funcionalidade permite os seguintes cenários:
 
-- **DNAT** - Pode traduzir várias instâncias de porta padrão para os seus servidores backend. Por exemplo, se tiver dois endereços IP públicos, pode traduzir a porta TCP 3389 (PDR) para ambos os endereços IP.
-- **SNAT** - Estão disponíveis portas adicionais para ligações SNAT de saída, reduzindo o potencial de exaustão portuária SNAT. Neste momento, o Azure Firewall seleciona aleatoriamente o endereço IP público de origem para utilizar para uma ligação. Se tiver alguma filtragem a jusante na sua rede, tem de permitir todos os endereços IP públicos associados à sua firewall. Considere utilizar um [prefixo de endereço IP público](../virtual-network/public-ip-address-prefix.md) para simplificar esta configuração.
+- **DNAT** - Pode traduzir várias instâncias de porta padrão para os seus servidores backend. Por exemplo, se tiver dois endereços IP públicos, poderá converter a porta TCP 3389 (RDP) para ambos os endereços IP.
+- **SNAT** - Estão disponíveis portas adicionais para ligações SNAT de saída, reduzindo o potencial de exaustão portuária SNAT. Neste momento, o Azure Firewall seleciona aleatoriamente o endereço IP público de origem para utilizar para uma ligação. Se tiver alguma filtragem a jusante na rede, terá de permitir todos os endereços IP públicos associados à firewall. Considere utilizar um [prefixo de endereço IP público](../virtual-network/public-ip-address-prefix.md) para simplificar esta configuração.
  
 Azure Firewall com vários endereços IP públicos está disponível através do portal Azure PowerShell, Azure CLI, REST e modelos. Pode implantar um Azure Firewall com até 250 endereços IP públicos.
 
@@ -100,6 +100,6 @@ $azFw.RemovePublicIpAddress($pip)
 $azFw | Set-AzFirewall
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Quickstart: Criar uma Firewall Azure com vários endereços IP públicos - Modelo de Gestor de Recursos](quick-create-multiple-ip-template.md)

@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
 ms.openlocfilehash: 33b8d3f62ef45c6078f10535c6376f611472f5a2
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89441753"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configurar a aceleração da unidade de processamento gráfico (GPU) para o Windows Virtual Desktop
@@ -108,7 +108,7 @@ Para verificar se o Remote Desktop está a utilizar a codificação de vídeo so
 2. Lançar o Observador de Eventos e navegar para o seguinte nó: **Aplicações e Serviços Regista**  >  **Microsoft**  >  **Windows**  >  **RemoteDesktopServices-RdpCoreCDV**  >  **Operacional**
 3. Para determinar se a codificação de vídeo de ecrã completo é utilizada, procure o ID 162 do evento. Se vir "AVC Disponível: 1 Perfil Inicial: 2048" então é utilizado AVC 444.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Estas instruções devem tê-lo a funcionar com a aceleração da GPU num anfitrião de uma sessão (um VM). Algumas considerações adicionais para permitir a aceleração da GPU através de um pool de hospedeiro maior:
 

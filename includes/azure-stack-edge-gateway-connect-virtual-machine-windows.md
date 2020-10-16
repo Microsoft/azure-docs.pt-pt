@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/04/2020
 ms.author: alkohli
 ms.openlocfilehash: 8d6c3125d0109ae9005414add27f9aa08e932e49
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89085714"
 ---
 Ligue-se ao Seu VM windows utilizando o Protocolo de Ambiente de Trabalho Remoto (RDP) através do IP que passou durante a criação de VM.

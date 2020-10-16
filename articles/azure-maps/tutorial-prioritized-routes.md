@@ -10,10 +10,10 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
 ms.openlocfilehash: 0d57e86088ee472c63b433bde14a0e4316cc20a5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91321752"
 ---
 # <a name="tutorial-find-and-display-routes-for-different-modes-of-travel-using-azure-maps"></a>Tutorial: Encontrar e exibir rotas para diferentes modos de viagem usando mapas Azure
@@ -121,7 +121,7 @@ Os passos a seguir mostram-lhe como criar e exibir o controlo do Mapa numa pági
 
 2. Guarde o ficheiro **MapTruckRoute.html** e atualize a página no browser. Se você aproximar em qualquer cidade, como Los Angeles, você verá que as ruas exibem com os dados atuais do fluxo de tráfego.
 
-    :::image type="content" source="./media/tutorial-prioritized-routes/traffic-map.png" alt-text="Ver tráfego em um mapa":::
+    :::image type="content" source="./media/tutorial-prioritized-routes/traffic-map.png" alt-text="Renderização de mapas básicos do controlo do mapa":::
 
 <a id="queryroutes"></a>
 
@@ -197,7 +197,7 @@ Neste tutorial, dois trajetos serão calculados e processados no mapa. A primeir
 
 3. Guarde **TruckRoute.htmi** e refresque o seu navegador. O mapa está agora centrado em Seattle. O pino azul lágrima marca o ponto de partida. O pino azul redondo marca o ponto final.
 
-   :::image type="content" source="./media/tutorial-prioritized-routes/pins-map.png" alt-text="Ver mapa com os pontos de partida e de início":::
+   :::image type="content" source="./media/tutorial-prioritized-routes/pins-map.png" alt-text="Renderização de mapas básicos do controlo do mapa":::
 
 <a id="multipleroutes"></a>
 
@@ -277,7 +277,7 @@ Esta secção mostra-lhe como utilizar o serviço Azure Maps Route para obter di
 
 4. Guarde o **TruckRoute.htmficheiro i** e refresque o seu navegador web. O mapa deve agora mostrar as rotas do caminhão e do carro.
 
-    :::image type="content" source="./media/tutorial-prioritized-routes/prioritized-routes.png" alt-text="Rotas de veículos particulares e comerciais em um mapa com Serviço de Rota Azure":::
+    :::image type="content" source="./media/tutorial-prioritized-routes/prioritized-routes.png" alt-text="Renderização de mapas básicos do controlo do mapa":::
 
     A rota do caminhão é exibida com uma linha azul grossa. A rota do carro é exibida utilizando uma linha roxa fina. A rota do carro atravessa o Lago Washington através da I-90, passando por túneis sob áreas residenciais. Como os túneis estão perto de áreas residenciais, a carga de resíduos perigosos é restrita. A rota do caminhão, que especifica um tipo de `USHazmatClass2` carga, é direcionada para usar uma estrada diferente.
 

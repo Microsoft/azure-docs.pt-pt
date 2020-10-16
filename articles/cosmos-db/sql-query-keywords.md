@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: tisande
 ms.openlocfilehash: f00e757f9b51da850c49924f6ae49bf00c9c53d1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87496686"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Palavras-chave em Azure Cosmos DB
@@ -73,7 +73,7 @@ Os resultados são:
 ]
 ```
 
-`DISTINCT`pode também ser utilizado na projeção dentro de um subquery:
+`DISTINCT` pode também ser utilizado na projeção dentro de um subquery:
 
 ```sql
 SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames

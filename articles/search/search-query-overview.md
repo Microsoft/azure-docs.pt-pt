@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.openlocfilehash: bae4cb72201bbc1653db5bb549d67531bda71d50
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91537723"
 ---
 # <a name="query-types-and-composition-in-azure-cognitive-search"></a>Tipos de consulta e composição em Pesquisa Cognitiva Azure
@@ -165,7 +165,7 @@ Se quiser que a Azure Cognitive Search retorna os seus resultados encomendados p
 ### <a name="hit-highlighting"></a>Detetor de ocorrências
 Na Pesquisa Cognitiva Azure, enfatizar a parte exata dos resultados de pesquisa que correspondem à consulta de pesquisa é facilitada através da utilização de **`highlight`** **`highlightPreTag`** , e **`highlightPostTag`** parâmetros. Pode especificar quais os campos *pes pesjáveis* que devem ter o seu texto combinado realçado, bem como especificar as etiquetas de corda exatas para anexar ao início e fim do texto combinado que a Azure Cognitive Search retorna.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 + [Como funciona a pesquisa completa de texto na Azure Cognitive Search (arquitetura de análise de consulta)](search-lucene-query-architecture.md)
 + [Explorador de pesquisa](search-explorer.md)

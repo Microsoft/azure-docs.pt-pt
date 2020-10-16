@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/04/2020
 ms.openlocfilehash: d6f20780ccd90d83631ce07411820fb8c9280c3e
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86084091"
 ---
 # <a name="optimize-apache-pig-with-apache-ambari-in-azure-hdinsight"></a>Otimizar o Porco Apache com Apache Ambari em Azure HDInsight
@@ -83,7 +83,7 @@ O número de mappers é controlado modificando a `pig.maxCombinedSplitSize` prop
 
 O número de redutores é calculado com base no parâmetro `pig.exec.reducers.bytes.per.reducer` . O parâmetro especifica o número de bytes processados por redutor, por defeito de 1 GB. Para limitar o número máximo de redutores, desafine a `pig.exec.reducers.max` propriedade, por defeito 999.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Gerir clusters HDInsight com a Web UI Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)

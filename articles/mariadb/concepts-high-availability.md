@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 7/7/2020
 ms.openlocfilehash: bea32b3b60c9013ea223513c95629092b9ab231b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86203356"
 ---
 # <a name="high-availability-in-azure-database-for-mariadb"></a>Alta disponibilidade na Base de Dados Azure para MariaDB
@@ -60,8 +60,8 @@ Eis alguns cenários de falha que exigem que a ação do utilizador recupere:
 
 | **Cenário** | **Plano de recuperação** |
 | ---------- | ---------- |
-| <b>Falha na região | O fracasso de uma região é um acontecimento raro. No entanto, se precisar de proteção contra uma falha da região, pode configurar uma ou mais réplicas lidas noutras regiões para a recuperação de desastres (DR). (Consulte [este artigo](howto-read-replicas-portal.md) sobre a criação e gestão de réplicas de leitura para mais detalhes). Em caso de falha a nível da região, pode promover manualmente a réplica de leitura configurada na outra região para ser o seu servidor de base de dados de produção. |
-| <b>Erros lógicos/de utilizador | A recuperação de erros do utilizador, tais como tabelas acidentalmente largadas ou dados incorretamente atualizados, envolve a realização de uma [recuperação pontual](concepts-backup.md) (PITR), restaurando e recuperando os dados até ao momento antes do erro ter ocorrido.<br> <br>  Se pretender restaurar apenas um subconjunto de bases de dados ou tabelas específicas em vez de todas as bases de dados no servidor de bases de dados, pode restaurar o servidor de base de dados num novo caso, exportar a tabela(s) através do [mysqldump](howto-migrate-dump-restore.md), e depois utilizar [o restauro](howto-migrate-dump-restore.md#restore-your-mariadb-database) para restaurar essas tabelas na sua base de dados. |
+| <b> Falha na região | O fracasso de uma região é um acontecimento raro. No entanto, se precisar de proteção contra uma falha da região, pode configurar uma ou mais réplicas lidas noutras regiões para a recuperação de desastres (DR). (Consulte [este artigo](howto-read-replicas-portal.md) sobre a criação e gestão de réplicas de leitura para mais detalhes). Em caso de falha a nível da região, pode promover manualmente a réplica de leitura configurada na outra região para ser o seu servidor de base de dados de produção. |
+| <b> Erros lógicos/de utilizador | A recuperação de erros do utilizador, tais como tabelas acidentalmente largadas ou dados incorretamente atualizados, envolve a realização de uma [recuperação pontual](concepts-backup.md) (PITR), restaurando e recuperando os dados até ao momento antes do erro ter ocorrido.<br> <br>  Se pretender restaurar apenas um subconjunto de bases de dados ou tabelas específicas em vez de todas as bases de dados no servidor de bases de dados, pode restaurar o servidor de base de dados num novo caso, exportar a tabela(s) através do [mysqldump](howto-migrate-dump-restore.md), e depois utilizar [o restauro](howto-migrate-dump-restore.md#restore-your-mariadb-database) para restaurar essas tabelas na sua base de dados. |
 
 
 

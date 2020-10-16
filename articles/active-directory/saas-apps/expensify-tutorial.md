@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: jeedes
 ms.openlocfilehash: 0be39ebc765efe968f27d948dada1304c0d6d711
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88555251"
 ---
 # <a name="tutorial-integrate-expensify-with-azure-active-directory"></a>Tutorial: Integrar Expensify com Diretório Ativo Azure
@@ -61,7 +61,7 @@ Para configurar e testar o Azure AD SSO com expensificar, complete os seguintes 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
     1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
-2. **[Configure Expensify SSO](#configure-expensify-sso)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure Expensify SSO](#configure-expensify-sso)** - para configurar as definições de Sign-On única no lado da aplicação.
     1. **[Crie Expensify utilizador](#create-expensify-test-user)** de teste - para ter uma contraparte de B.Simon em Expensify que está ligada à representação AD Azure do utilizador.
 6. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
@@ -71,7 +71,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **Expensify,** encontre a secção **Gerir** e selecione **'Único sinal de súplica'.**
 1. Na página **de método de inscrição única,** selecione **SAML**.
-1. Na **configuração de 'Sessão Única' com** a página SAML, clique no ícone edit/pen para **a configuração básica do SAML** para editar as definições.
+1. Na **configuração single Sign-On com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -86,7 +86,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     > [!NOTE]
     > O valor URL de resposta não é real. Atualize este valor com o URL de resposta real. Contacte a equipa de [apoio ao Cliente](mailto:help@expensify.com) para obter este valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-1. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre **o Metadata XML** e selecione **Descarregue** para descarregar o certificado e guarde-o no seu computador.
+1. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre **metadata XML** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -128,7 +128,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 Para ativar o SSO em Expensify, primeiro tem de ativar o **Controlo de Domínio** na aplicação. Pode ativar o Controlo de Domínio na aplicação através dos passos listados [aqui.](https://help.expensify.com/domain-control) Para apoio adicional, trabalhe com [a equipa de apoio ao Cliente Expensify.](mailto:help@expensify.com) Assim que tiver o Controlo de Domínio ativo, siga estes passos:
 
-![Configurar um único sign-on](./media/expensify-tutorial/tutorial_expensify_51.png)
+![Configurar Sign-On Individuais](./media/expensify-tutorial/tutorial_expensify_51.png)
 
 1. Inscreva-se na sua aplicação Expensify.
 

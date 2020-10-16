@@ -1,5 +1,5 @@
 ---
-title: Configuração do balançador de carga apenas de saída
+title: Configuração do balanceador de carga só de saída
 titleSuffix: Azure Load Balancer
 description: Com este artigo, aprenda sobre como criar um equilibrador de carga interno com NAT de saída
 services: load-balancer
@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.date: 08/07/2020
 ms.author: allensu
 ms.openlocfilehash: b44f626546b313299701687157b37b7df021bd61
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88038261"
 ---
-# <a name="outbound-only-load-balancer-configuration"></a>Configuração do balançador de carga apenas de saída
+# <a name="outbound-only-load-balancer-configuration"></a>Configuração do balanceador de carga só de saída
 
 Utilize uma combinação de equilibradores de carga padrão internos e externos para criar conectividade de saída para VMs atrás de um equilibrador de carga interno. 
 
@@ -63,7 +63,7 @@ Crie uma máquina virtual na nova rede virtual.
 
 1. [Inicie sessão](https://portal.azure.com) no portal do Azure.
 
-2. No lado superior esquerdo do ecrã, selecione **Criar um recurso > rede > rede virtual** ou procurar rede **Virtual** na caixa de pesquisa.
+2. No canto superior esquerdo do ecrã, selecione **Criar um recurso > Redes > Rede virtual** ou procure **Rede virtual** na caixa de pesquisa.
 
 2. Na **Criação de rede virtual,** insira ou selecione esta informação no **separador Básicos:**
 
@@ -73,8 +73,8 @@ Crie uma máquina virtual na nova rede virtual.
     | Subscrição     | selecione a subscrição do Azure                                  |
     | Grupo de Recursos   | Selecione **Criar novo**. </br> Insira **o myResourceGroupLB**. </br> Selecione **OK**. |
     | **Detalhes da instância** |                                                                 |
-    | Nome             | Insira **myVNet**                                    |
-    | Região           | Selecione **East US 2** |
+    | Name             | Insira **myVNet**                                    |
+    | Region           | Selecione **East US 2** |
 
 3. Selecione o separador **endereços IP** ou selecione o botão **Seguinte: Endereços IP** na parte inferior da página.
 
@@ -123,7 +123,7 @@ Crie uma máquina virtual na nova rede virtual.
     | Grupo de Recursos | Selecione **myResourceGroupLB** |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira **o myVM** |
-    | Região | Selecione **East US 2** |
+    | Region | Selecione **East US 2** |
     | Opções de Disponibilidade | Selecione **Não é necessário um despedimento de infraestrutura** |
     | Imagem | Selecione **o Centro de Dados 2019 do Windows Server 2019** |
     | Instância do Azure Spot | Selecione **Não** |
@@ -131,10 +131,10 @@ Crie uma máquina virtual na nova rede virtual.
     | **Conta de administrador** |  |
     | Nome de utilizador | Insira um nome de utilizador |
     | Palavra-passe | Introduza uma senha |
-    | Confirmar palavra-passe | Senha de reentrada |
-    | **Regras da porta de entrada** |  |
+    | Confirmar palavra-passe | Reintroduza a palavra-passe |
+    | **Regras portuárias de entrada** |  |
     | Portas de entrada públicas | Selecione **Permitir portas selecionadas** |
-    | Selecione portas de entrada | Selecione **RDP (3389)** |
+    | Selecione as portas de entrada | Selecione **RDP (3389)** |
 
 3. Selecione o **separador 'Rede'** ou selecione **Seguinte: Discos**e, em seguida, **seguinte: Networking**.
   
@@ -144,7 +144,7 @@ Crie uma máquina virtual na nova rede virtual.
     |-----|------------|
     | **Interface de rede** |  |
     | Rede virtual | **myVNet** |
-    | Subrede | **myBackendSubnet** |
+    | Sub-rede | **myBackendSubnet** |
     | IP público | Selecione **Nenhuma**. |
     | Grupo de segurança de rede NIC | Selecione **Nenhum**|
     | Colocar esta máquina virtual por trás de uma solução de equilíbrio de carga existente? | Selecione **Não** |
@@ -182,11 +182,11 @@ Adicione o seu VM criado à piscina de backend de cada um.  Em seguida, configur
     | Subscrição               | Selecione a sua subscrição.    |    
     | Grupo de recursos         | Selecione **myResourceGroupLB** criado no passo anterior.|
     | Nome                   | Insira **o meu InternalLoadBalancer**                                   |
-    | Região         | Selecione **E.U.A. Leste 2**.                                        |
+    | Region         | Selecione **E.U.A. Leste 2**.                                        |
     | Tipo          | Selecione **Interno**.                                        |
     | SKU           | Selecione **Standard** |
     | Rede virtual | Selecione **myVNet** criado no passo anterior. |
-    | Subrede  | Selecione **myBackendSubnet** criado no passo anterior. |
+    | Sub-rede  | Selecione **myBackendSubnet** criado no passo anterior. |
     | Atribuição de endereços IP | Selecione **Dynamic**. |
 
 3. Aceite as predefinições para as definições restantes e, em seguida, selecione **Review + create**.
@@ -204,7 +204,7 @@ Adicione o seu VM criado à piscina de backend de cada um.  Em seguida, configur
     | Subscrição               | Selecione a sua subscrição.    |    
     | Grupo de recursos         | **Selecione Criar novo** e insira o **myResourceGroupLB** na caixa de texto.|
     | Nome                   | Insira **myPublicLoadBalancer**                                   |
-    | Região         | Selecione **E.U.A. Leste 2**.                                        |
+    | Region         | Selecione **E.U.A. Leste 2**.                                        |
     | Tipo          | Selecione **Público**.                                        |
     | SKU           | Selecione **Standard** |
     | Endereço IP público | Selecione **Criar novo**. |
@@ -301,7 +301,7 @@ Crie a piscina de endereços de backend **myPublicBackendPool**:
 
 9. O endereço IP apresentado deve ser o endereço IP frontend do **myPublicLoadBalancer**.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o grupo de recursos, carregue balanceadores, VM e todos os recursos relacionados. 
 

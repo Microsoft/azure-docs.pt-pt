@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: how-to
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 710f023a64f66e486bb2db9c08807af3431d0016
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 43d5c1ae03c359dcbef21f8e7ba3205bc6ab0004
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87812317"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096118"
 ---
 # <a name="configuring-azure-spatial-anchors-in-a-cwinrt-hololens-project"></a>Configurar âncoras espaciais Azure num projeto C++/WinRT HoloLens
 
@@ -25,7 +25,7 @@ ms.locfileid: "87812317"
 
 As âncoras espaciais Azure para HoloLens e C++/WinRT são distribuídas através do pacote [Microsoft.Azure.SpatialAnchors.WinRT](https://www.nuget.org/packages/Microsoft.Azure.SpatialAnchors.WinRT/) NuGet.
 
-Siga as instruções [aqui](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio) para utilizar o NuGet Package Manager do Visual Studio para instalar o pacote [Microsoft.Azure.SpatialAnchors.WinRT](https://www.nuget.org/packages/Microsoft.Azure.SpatialAnchors.WinRT/) NuGet no seu projeto.
+Siga as instruções [aqui](/nuget/consume-packages/install-use-packages-visual-studio) para utilizar o NuGet Package Manager do Visual Studio para instalar o pacote [Microsoft.Azure.SpatialAnchors.WinRT](https://www.nuget.org/packages/Microsoft.Azure.SpatialAnchors.WinRT/) NuGet no seu projeto.
 
 ## <a name="next-steps"></a>Passos seguintes
 

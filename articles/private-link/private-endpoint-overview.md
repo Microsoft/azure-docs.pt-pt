@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
 ms.openlocfilehash: 7456402605328592d4f5677767bcd985941173ec
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88639839"
 ---
-# <a name="what-is-azure-private-endpoint"></a>O que é Azure Private Endpoint?
+# <a name="what-is-azure-private-endpoint"></a>O que é o Ponto Final Privado do Azure?
 
-O Ponto Final Privado do Azure é uma interface de rede que o liga a um serviço de forma privada e segura com a tecnologia Azure Private Link. O Private Endpoint utiliza um endereço IP privado a partir do seu VNet, efetivamente trazendo o serviço para o seu VNet. O serviço pode ser um serviço Azure como Azure Storage, Azure Cosmos DB, SQL, etc. ou o seu próprio [Serviço de Ligação Privada](private-link-service-overview.md).
+O Ponto Final Privado do Azure é uma interface de rede que o liga a um serviço de forma privada e segura com a tecnologia Azure Private Link. O Ponto Final Privado utiliza um endereço IP privado na VNet e leva de forma eficaz o serviço até à VNet. O serviço pode ser um serviço Azure como Azure Storage, Azure Cosmos DB, SQL, etc. ou o seu próprio [Serviço de Ligação Privada](private-link-service-overview.md).
   
 ## <a name="private-endpoint-properties"></a>Propriedades private Endpoint 
  Um ponto final privado especifica as seguintes propriedades: 
@@ -61,7 +61,7 @@ Um recurso de ligação privada é o alvo de destino de um determinado ponto fin
 |**Azure Synapse Analytics** | Microsoft.Sql/servidores    |  Sql Server (SqlServer)        | 
 |**Armazenamento do Azure**  | Microsoft.Storage/storageAcontas    |  Blob (bolha, blob_secondary)<BR> Tabela (tabela, table_secondary)<BR> Fila (fila, queue_secondary)<BR> Arquivo (arquivo, file_secondary)<BR> Web (web, web_secondary)        |
 |**Azure Data Lake Storage Gen2** (Armazenamento do Azure Data Lake Gen2)  | Microsoft.Storage/storageAcontas    |  Blob (bolha, blob_secondary)<BR> Data Lake File System Gen2 (dfs, dfs_secondary)       |
-|**Azure Cosmos DB** | Microsoft.AzureCosmosDB/databaseSacons    | Sql, MongoDB, Cassandra, Gremlin, Mesa|
+|**BD do Cosmos para o Azure** | Microsoft.AzureCosmosDB/databaseSacons    | Sql, MongoDB, Cassandra, Gremlin, Mesa|
 |**Base de Dados Azure para PostgreSQL -Servidor único** | Microsoft.DBforPostgreSQL/servidores    | postgresqlServer |
 |**Base de Dados do Azure para MySQL** | Microsoft.DBforMySQL/servidores    | mysqlServer |
 |**Azure Database for MariaDB** | Microsoft.DBforMariaDB/servidores    | mariadbServer |
@@ -74,7 +74,7 @@ Um recurso de ligação privada é o alvo de destino de um determinado ponto fin
 |**Azure Backup** | Microsoft.RecoveryServices/cofres    | cofre |
 |**Hub de Eventos do Azure** | Microsoft.EventHub/espaços de nome    | espaço de nomes |
 |**Azure Service Bus** | Microsoft.ServiceBus/namespaces | espaço de nomes |
-|**Reencaminhamento do Azure** | Microsoft.Relay/namespaces | espaço de nomes |
+|**Relé Azure** | Microsoft.Relay/namespaces | espaço de nomes |
 |**Azure Event Grid** | Microsoft.EventGrid/tópicos    | tópico |
 |**Azure Event Grid** | Microsoft.EventGrid/domínios    | domínio |
 |**Azure WebApps** | Microsoft.Web/sites    | sites |

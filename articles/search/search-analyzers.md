@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 06/20/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 01b57526b15a806271d58b250f06a4372fe56b72
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91532266"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analisadores para processamento de texto em Pesquisa Cognitiva Azure
@@ -365,7 +365,7 @@ Crie um objeto [PersonalizadoAnalyzer.](/dotnet/api/microsoft.azure.search.model
    serviceClient.Indexes.Create(definition);
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 + Reveja a nossa explicação completa de como a pesquisa completa de [texto funciona na Pesquisa Cognitiva Azure.](search-lucene-query-architecture.md) Este artigo usa exemplos para explicar comportamentos que podem parecer contraintuitivos na superfície.
 
@@ -375,7 +375,7 @@ Crie um objeto [PersonalizadoAnalyzer.](/dotnet/api/microsoft.azure.search.model
 
 + [Configure os analisadores personalizados](index-add-custom-analyzers.md) para o processamento mínimo ou para o processamento especializado em campos individuais.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
  [Search Documents REST API](/rest/api/searchservice/search-documents) (Pesquisar Documentos com a API REST) 
 

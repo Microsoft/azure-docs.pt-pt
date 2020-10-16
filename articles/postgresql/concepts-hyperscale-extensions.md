@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: ed023f17e19c6a018f55cb95df6447c6e5474ce8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fda40e58231b849f1e63f53f7bb268375ffe7fec
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91314883"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996448"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql--hyperscale-citus"></a>Extensões postgreSQL em Azure Database for PostgreSQL – Hyperscale (Citus)
 
@@ -41,6 +41,7 @@ As tabelas seguintes listam as extensões postgreSQL padrão que são atualmente
 > | [lo](https://www.postgresql.org/docs/current/lo.html) | Manutenção de objetos grandes. |
 > | [Rio Itree](https://www.postgresql.org/docs/current/static/ltree.html) | Fornece um tipo de dados para estruturas hierárquicas semelhantes a árvores. |
 > | [seg](https://www.postgresql.org/docs/current/seg.html) | Tipo de dados para representar segmentos de linha ou intervalos de ponto flutuante. |
+> | [tdigest](https://github.com/tvondra/tdigest) | Tipo de dados para a acumulação on-line de estatísticas baseadas em classificação, tais como quânticos e meios aparados. |
 > | [topn](https://github.com/citusdata/postgresql-topn/) | Digite para o top-n JSONB. |
 
 ### <a name="full-text-search-extensions"></a>Extensões de pesquisa de texto completo

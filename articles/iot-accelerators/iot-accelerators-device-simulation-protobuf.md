@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc, amqp, devx-track-csharp
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: c9c8aa86aa8a374a33750e306529ef212c9a8bfc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 12aa18c966745b450b3c9aa55e87e576b0c3f99b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012335"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075965"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serialize telemetria usando tampão de protocolo
 
@@ -40,7 +40,7 @@ Para seguir os passos neste guia de como guiar, você precisa:
 * .NET Core. Pode baixar [.NET Core para Mac, Linux e Windows.](https://www.microsoft.com/net/download)
 * Carteiro. Você pode baixar [Carteiro para Mac, janelas ou Linux.](https://www.getpostman.com/apps)
 * Um [hub IoT implantado na sua subscrição Azure](../iot-hub/iot-hub-create-through-portal.md). Você precisa da cadeia de ligação do hub IoT para completar os passos neste guia. Pode obter a cadeia de ligação do portal Azure.
-* Uma [base de dados de Coss DB implementada na sua subscrição Azure](../cosmos-db/create-sql-api-dotnet.md#create-account) que utiliza a API SQL e que está configurada para [uma forte consistência.](../cosmos-db/manage-account.md) Precisa da cadeia de ligação da base de dados Cosmos DB para completar os passos deste guia. Pode obter a cadeia de ligação do portal Azure.
+* Uma [base de dados de Coss DB implementada na sua subscrição Azure](../cosmos-db/create-sql-api-dotnet.md#create-account) que utiliza a API SQL e que está configurada para [uma forte consistência.](../cosmos-db/how-to-manage-database-account.md) Precisa da cadeia de ligação da base de dados Cosmos DB para completar os passos deste guia. Pode obter a cadeia de ligação do portal Azure.
 * Uma [conta de armazenamento Azure implantada na sua subscrição Azure](../storage/common/storage-account-create.md). Precisa do fio de ligação da conta de armazenamento para completar os passos neste guia. Pode obter a cadeia de ligação do portal Azure.
 
 ## <a name="prepare-your-development-environment"></a>Preparar o ambiente de desenvolvimento
@@ -265,7 +265,7 @@ Para configurar e executar a simulação:
 
 Para interromper a simulação, selecione o pedido **de simulação Stop** no Carteiro e clique em **Enviar**.
 
-### <a name="clean-up-resources"></a>Limpar os recursos
+### <a name="clean-up-resources"></a>Limpar recursos
 
 Pode parar os dois microserviços de funcionamento local nas suas instâncias do Código do Estúdio Visual **(Debug \> Stop Debugging).**
 

@@ -4,15 +4,15 @@ description: Aprenda a configurar e gerir o tempo para viver num contentor e num
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 03/27/2020
+ms.date: 10/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 5a310dca40b8f5fea074c0cd3c75751d62ccb8f5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 56cf360dd8d015d797b4974aab667bb89edcce4b
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91297900"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951932"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurar tempo para viver em Azure Cosmos DB
 
@@ -116,7 +116,7 @@ container = database.createContainerIfNotExists(containerProperties, 400).block(
 
 ## <a name="set-time-to-live-on-a-container-using-sdk"></a>Definir a hora para viver em um recipiente usando SDK
 
-Para definir a hora de viver num recipiente, é necessário fornecer um número positivo não zero que indique o período de tempo em segundos. Com base no valor TTL configurado, todos os itens no recipiente após a última hora modificada do artigo `_ts` são eliminados.
+Para definir a hora de viver num recipiente, é necessário fornecer um número positivo não zero que indique o período de tempo em segundos. Com base no valor TTL configurado, todos os itens no recipiente após a última hora modificada do artigo `_ts` são eliminados. Pode configurar opcionalmente `TimeToLivePropertyPath` , que utilizará uma propriedade diferente em vez da propriedade gerada pelo sistema `_ts` para determinar quais itens eliminar com base no TTL.
 
 ### <a name="net-sdk"></a><a id="dotnet-enable-withexpiry"></a> .NET SDK
 
@@ -204,7 +204,7 @@ Além de definir um tempo padrão para viver num recipiente, pode definir uma ho
 
 * Se o TTL estiver desativado ao nível do recipiente, o campo TTL no item será ignorado até que a TTL seja reativada no recipiente.
 
-### <a name="azure-portal"></a><a id="portal-set-ttl-item"></a>Portal Azure
+### <a name="azure-portal"></a><a id="portal-set-ttl-item"></a>Portal do Azure
 
 Utilize os seguintes passos para permitir que o tempo viva num item:
 

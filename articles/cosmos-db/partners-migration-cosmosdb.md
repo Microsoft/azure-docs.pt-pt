@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.openlocfilehash: bd0ec4cf085fb19c89c6be48d4f4534383560fd5
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91707783"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Parceiros de migração e desenvolvimento de aplicações Azure Cosmos DB NoSQL
@@ -48,7 +48,7 @@ Da migração noSQL ao desenvolvimento de aplicações, pode escolher entre uma 
 | [Incycle Software](https://www.incyclesoftware.com/) | Migração NoSQL, arquitetura serverless, desenvolvimento de aplicações| E.U.A.|
 | [Rio Orion](https://www.orioninc.com/) | Personalização, Retalho (inventário), Analytics Operacional (Faísca), IoT, Desenvolvimento de App| EUA|
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre alguns dos outros parceiros da Microsoft, consulte o [site do Microsoft Partner](https://partner.microsoft.com/).
 

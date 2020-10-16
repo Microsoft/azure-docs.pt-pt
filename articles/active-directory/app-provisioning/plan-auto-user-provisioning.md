@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 24de1b2cfc5e0804039923f23b6a5cd9f6c6fb80
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: b7d05cd394453ff7c3a40b80a4cd6c850b86ee21
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235710"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070372"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planear uma implementação de aprovisionamento automático de utilizadores
 
@@ -26,7 +26,7 @@ O provisionamento automático do utilizador (Azure AD) simplifica este processo 
 
 Consulte [automatizar o fornecimento de utilizadores e desprovisionar as aplicações saaS com o Azure Ative Directory](../app-provisioning/user-provisioning.md) para entender melhor a funcionalidade.
 
-## <a name="learn"></a>Saiba mais
+## <a name="learn"></a>Learn
 
 O fornecimento de utilizadores cria uma base para a governação de identidade em curso e melhora a qualidade dos processos de negócio que dependem de dados de identidade autorizados.
 
@@ -129,7 +129,7 @@ Considere as suas necessidades organizacionais para determinar a estratégia de 
 
 ### <a name="engage-the-right-stakeholders"></a>Envolver as partes interessadas certas
 
-Quando os projetos tecnológicos falham, é tipicamente devido a expectativas desajustadas no impacto, resultados e responsabilidades. Para evitar estas armadilhas, [certifique-se de que está a envolver as partes interessadas certas](https://aka.ms/deploymentplans) e que as partes interessadas no projeto são bem compreendidas documentando as partes interessadas e os seus contributos e contas do projeto.
+Quando os projetos tecnológicos falham, é tipicamente devido a expectativas desajustadas no impacto, resultados e responsabilidades. Para evitar estas armadilhas, [certifique-se de que está a envolver as partes interessadas certas](../fundamentals/active-directory-deployment-plans.md) e que as partes interessadas no projeto são bem compreendidas documentando as partes interessadas e os seus contributos e contas do projeto.
 
 ### <a name="plan-communications"></a>Planear as comunicações
 
@@ -207,7 +207,7 @@ Para implementar o fornecimento automático do utilizador, é necessário defini
 
 A AZure AD suporta por mapeamento de atributos diretos, fornecendo [valores constantes ou escrevendo expressões para mapeamentos de atributos](../app-provisioning/functions-for-customizing-application-data.md). Esta flexibilidade dá-lhe um bom controlo do que será preenchido no atributo do sistema direcionado. Pode utilizar [a Microsoft Graph API](../app-provisioning/export-import-provisioning-configuration.md) e o Graph Explorer para exportar os seus mapeamentos e esquemas de a provisionamento do utilizador para um ficheiro JSON e importá-lo de volta para Azure AD.
 
-Para obter mais informações, consulte [personalizar o fornecimento de cartões de utilizador para aplicações saas no Diretório Ativo Azure](../app-provisioning/customize-application-attributes.md).
+Para mais informações, consulte [personalizar a Attribute-Mappings de Provisionamento do Utilizador para aplicações SaaS no Diretório Ativo Azure](../app-provisioning/customize-application-attributes.md).
 
 ### <a name="special-considerations-for-user-provisioning"></a>Considerações especiais para o provisionamento dos utilizadores
 
@@ -264,7 +264,7 @@ O serviço de fornecimento armazena o estado de ambos os sistemas após o ciclo 
 
 Utilize o [portal Azure](https://portal.azure.com/) para gerir o fornecimento automático de conta de utilizador e desatentação de aplicações que o suportem. Siga os passos em [Como configurar o provisionamento automático para uma aplicação?](../app-provisioning/user-provisioning.md)
 
-O serviço de fornecimento de utilizadores Azure AD também pode ser configurado e gerido usando a API do [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview).
+O serviço de fornecimento de utilizadores Azure AD também pode ser configurado e gerido usando a API do [Microsoft Graph](/graph/api/resources/synchronization-overview).
 
 ## <a name="manage-automatic-user-provisioning"></a>Gerir o fornecimento automático do utilizador
 
@@ -274,7 +274,7 @@ Agora que se desdobrou, precisa gerir a solução.
 
 Após um [ciclo inicial](../app-provisioning/user-provisioning.md)bem sucedido, o serviço de fornecimento AZure AD executará atualizações incrementais indefinidamente, em intervalos específicos de cada aplicação, até que ocorra um dos seguintes eventos:
 
-* O serviço é interrompido manualmente e um novo ciclo inicial é acionado através do [portal Azure](https://portal.azure.com/), ou utilizando o comando API do [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) apropriado.
+* O serviço é interrompido manualmente e um novo ciclo inicial é acionado através do [portal Azure](https://portal.azure.com/), ou utilizando o comando API do [Microsoft Graph](/graph/api/resources/synchronization-overview) apropriado.
 
 * Um novo ciclo inicial é desencadeado por uma alteração nos mapeamentos de atributos ou filtros de deteção.
 
@@ -310,7 +310,7 @@ Consulte os seguintes links para resolver problemas que possam surgir durante o 
 
 * [Expressãos de escrita para mapeamentos de atributos](../app-provisioning/functions-for-customizing-application-data.md)
 
-* [Visão geral da API de sincronização AZure AD](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+* [Visão geral da API de sincronização AZure AD](/graph/api/resources/synchronization-overview)
 
 * [Ignorar a eliminação das contas de utilizador que ficam fora de alcance](skip-out-of-scope-deletions.md)
 

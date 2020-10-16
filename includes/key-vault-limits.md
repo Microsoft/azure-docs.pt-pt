@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/21/2020
 ms.author: jroth
 ms.openlocfilehash: 01b3c9584f3ecddbcdcc6938f5eb469510a47a4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85838793"
 ---
 ### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Principais transações (transações máximas permitidas em 10 segundos, por abóbada por região<sup>1):</sup>

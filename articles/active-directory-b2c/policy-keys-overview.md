@@ -11,10 +11,10 @@ ms.date: 09/08/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 8019c049d830df0c2f3301a450eed60145c8eab3
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89570479"
 ---
 # <a name="overview-of-policy-keys-in-azure-active-directory-b2c"></a>Visão geral das chaves de política no Azure Ative Directory B2C
@@ -38,9 +38,9 @@ O recurso de nível superior para chaves de política em Azure AD B2C é o recip
 
 | Atributo |  Necessário | Observações |
 | --- | --- |--- |
-| `use` | Yes | Utilização: Identifica a utilização pretendida da chave pública. Encriptar dados `enc` , ou verificar a assinatura nos dados `sig` .|
-| `nbf`| No | Data e hora de ativação. |
-| `exp`| No | Data de validade e hora. |
+| `use` | Sim | Utilização: Identifica a utilização pretendida da chave pública. Encriptar dados `enc` , ou verificar a assinatura nos dados `sig` .|
+| `nbf`| Não | Data e hora de ativação. |
+| `exp`| Não | Data de validade e hora. |
 
 Recomendamos definir os valores de ativação e expiração da chave de acordo com os seus padrões PKI. Pode ser necessário rodar estes certificados periodicamente por razões de segurança ou política. Por exemplo, pode ter uma política para rodar todos os seus certificados todos os anos.
 
@@ -79,7 +79,7 @@ Para adicionar ou eliminar as chaves de assinatura e encriptação:
     1. Para adicionar uma nova chave, **selecione Adicionar**.
     1. Para remover uma nova chave, selecione a chave e, em seguida, **selecione Delete**. Para eliminar a chave, digite o nome do recipiente da chave para eliminar. O Azure AD B2C apagará a chave e criará uma cópia da chave com o sufixo .bak.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como utilizar o Microsoft Graph para automatizar uma implementação [de teclas](microsoft-graph-operations.md#trust-framework-policy-keyset) e [teclas de política.](microsoft-graph-operations.md#trust-framework-policy-key)
 

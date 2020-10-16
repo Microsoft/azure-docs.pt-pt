@@ -8,10 +8,10 @@ author: rajap
 ms.author: rajap
 ms.date: 12/11/2019
 ms.openlocfilehash: 6fd42e7661e04b6eab35e3b076e9c8c2fb55a363
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86122018"
 ---
 # <a name="access-analytic-reports-for-the-commercial-marketplace-in-partner-center"></a>Aceder a relatórios analíticos para o mercado comercial no Partner Center
@@ -25,7 +25,7 @@ Para aceder às ferramentas de análise do Partner Center, abra o painel **[de c
 >[!NOTE]
 > Para definições detalhadas de terminologia analítica, consulte [perguntas frequentes e terminologia para análise de mercado comercial.](./faq-terminology.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para gráficos, tendências e valores de dados agregados que resumem a atividade do mercado para a sua oferta, consulte [o Painel De Resumo em análise de mercado comercial.](./summary-dashboard.md)
 - Para obter informações sobre as suas encomendas num formato gráfico e transferível, consulte [o Painel de Encomendas em análise de marketplace comercial.](./orders-dashboard.md)

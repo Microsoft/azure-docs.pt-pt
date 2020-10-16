@@ -8,10 +8,10 @@ ms.date: 09/02/2020
 ms.author: cherylmc
 ms.topic: how-to
 ms.openlocfilehash: 7a7eb87f57676b469203e45e48b6f863cdf894c0
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89400658"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>Excluir um gateway de rede virtual usando o portal

@@ -6,10 +6,10 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 2f814c54aeca8a337f786beb8da1b98accbeef7e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87319002"
 ---
 # <a name="azure-monitor-application-insights-agent-api-reference"></a>Referência Azure Monitor Application Insights Agent API
@@ -84,10 +84,10 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 
 #### <a name="example-with-an-instrumentation-key-map"></a>Exemplo com um mapa chave de instrumentação
 Neste exemplo:
-- `MachineFilter`corresponde ao computador atual utilizando o `'.*'` wildcard.
-- `AppFilter='WebAppExclude'`fornece uma `null` chave de instrumentação. A aplicação especificada não será instrumentada.
-- `AppFilter='WebAppOne'`atribui à aplicação especificada uma chave de instrumentação única.
-- `AppFilter='WebAppTwo'`atribui à aplicação especificada uma chave de instrumentação única.
+- `MachineFilter` corresponde ao computador atual utilizando o `'.*'` wildcard.
+- `AppFilter='WebAppExclude'` fornece uma `null` chave de instrumentação. A aplicação especificada não será instrumentada.
+- `AppFilter='WebAppOne'` atribui à aplicação especificada uma chave de instrumentação única.
+- `AppFilter='WebAppTwo'` atribui à aplicação especificada uma chave de instrumentação única.
 - Por fim, `AppFilter` também utiliza o wildcard para combinar todas as `'.*'` aplicações web que não são correspondidas pelas regras anteriores e atribuir uma chave de instrumentação padrão.
 - Os espaços são adicionados para a legibilidade.
 
@@ -181,7 +181,7 @@ Updating app pool permissions...
 Successfully enabled Application Insights Status Monitor
 ```
 
-## <a name="disable-instrumentationengine"></a>Deficiente-InstrumentaçãoEngenhare
+## <a name="disable-instrumentationengine"></a>Disable-InstrumentationEngine
 
 Desativa o motor de instrumentação removendo algumas chaves de registo.
 Reinicie o IIS para que as alterações entrem em vigor.
@@ -210,7 +210,7 @@ Registry: removing 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WAS[Env
 Configuring registry for instrumentation engine...
 ```
 
-## <a name="disable-applicationinsightsmonitoring"></a>Desativação aplicaçõesInsightsMonitoring
+## <a name="disable-applicationinsightsmonitoring"></a>Disable-ApplicationInsightsMonitoring
 
 Desativa a monitorização no computador alvo.
 Este cmdlet removerá as edições para o IIS applicationHost.config e removerá as chaves de registo.
@@ -476,10 +476,10 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 
 #### <a name="example-with-an-instrumentation-key-map"></a>Exemplo com um mapa chave de instrumentação
 Neste exemplo:
-- `MachineFilter`corresponde ao computador atual utilizando o `'.*'` wildcard.
-- `AppFilter='WebAppExclude'`fornece uma `null` chave de instrumentação. A aplicação especificada não será instrumentada.
-- `AppFilter='WebAppOne'`atribui à aplicação especificada uma chave de instrumentação única.
-- `AppFilter='WebAppTwo'`atribui à aplicação especificada uma chave de instrumentação única.
+- `MachineFilter` corresponde ao computador atual utilizando o `'.*'` wildcard.
+- `AppFilter='WebAppExclude'` fornece uma `null` chave de instrumentação. A aplicação especificada não será instrumentada.
+- `AppFilter='WebAppOne'` atribui à aplicação especificada uma chave de instrumentação única.
+- `AppFilter='WebAppTwo'` atribui à aplicação especificada uma chave de instrumentação única.
 - Por fim, `AppFilter` também utiliza o wildcard para combinar todas as `'.*'` aplicações web que não são correspondidas pelas regras anteriores e atribuir uma chave de instrumentação padrão.
 - Os espaços são adicionados para a legibilidade.
 
@@ -550,7 +550,7 @@ VERBOSE: Config File Path:
 C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applicationInsights.ikey.config
 ```
 
-## <a name="start-applicationinsightsmonitoringtrace"></a>Início-AplicaçãoInsightsMonitoringTrace
+## <a name="start-applicationinsightsmonitoringtrace"></a>Start-ApplicationInsightsMonitoringTrace
 
 Recolhe [eventos DA ETW](/windows/desktop/etw/event-tracing-portal) a partir do tempo de execução do anexo sem código. Este cmdlet é uma alternativa à execução [do PerfView](https://github.com/microsoft/perfview).
 

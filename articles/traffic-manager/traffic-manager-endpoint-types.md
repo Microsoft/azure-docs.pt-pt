@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: duau
 ms.openlocfilehash: 692c63849bc9e92ded43db3bf22ce14384f2b68d
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401287"
 ---
 # <a name="traffic-manager-endpoints"></a>Pontos finais do Gestor de Tráfego
@@ -102,7 +102,7 @@ Se todos os pontos finais de um perfil estiverem desativados, ou se o próprio p
 
 * [Como posso mover os pontos finais do Azure do meu perfil de Gerente de Tráfego para um grupo de recursos diferente?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group-or-subscription)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba [como funciona o Gestor de Tráfego.](traffic-manager-how-it-works.md)
 * Saiba mais sobre [a monitorização do ponto final](traffic-manager-monitoring.md)do Traffic Manager e a falha automática.

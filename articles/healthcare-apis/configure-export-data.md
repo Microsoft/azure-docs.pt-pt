@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 3/5/2020
 ms.author: matjazl
 ms.openlocfilehash: e4adceea5c2cd2a36d7a867ca9b9d2ad7c33c155
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91529988"
 ---
 # <a name="configure-export-setting-and-set-up-the-storage-account"></a>Configurar a definição de exportação e configurar a conta de armazenamento

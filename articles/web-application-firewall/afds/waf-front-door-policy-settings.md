@@ -8,10 +8,10 @@ services: web-application-firewall
 ms.date: 08/21/2019
 ms.author: victorh
 ms.openlocfilehash: 08b21ccd7f7958f00546583f680ecb8cde4a20c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75932604"
 ---
 # <a name="policy-settings-for-web-application-firewall-on-azure-front-door"></a>Definições de política para firewall de aplicação web na porta frontal Azure
@@ -51,5 +51,5 @@ Código de estado de resposta personalizada e mensagem de resposta é uma defini
 É-lhe exigido que defina um URI para redirecionar os pedidos para se a ação **REDIRECT** for selecionada para qualquer uma das regras contidas numa política da WAF. Este redireccionamento URI precisa de ser um site HTTP(S válido e uma vez configurado, todos os pedidos que correspondam as regras com uma ação "REDIRECT" serão redirecionados para o site especificado.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba como definir [respostas personalizadas](waf-front-door-configure-custom-response-code.md) da WAF

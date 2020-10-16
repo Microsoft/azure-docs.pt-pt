@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
 ms.openlocfilehash: 171ae04a70f3639981e74d20d260a03359a0f2c8
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86187443"
 ---
 # <a name="what-is-routing-preference-preview"></a>O que é a preferência de encaminhamento (pré-visualização)?

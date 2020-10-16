@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: d7f0ca619c990d2a42c31df82ee9f90bd7ea230b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f2603ce055d18e1ad7e202e0c662e042a1d1d48
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801839"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996101"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---aperture"></a>Tutorial: Integração do Diretório Ativo Azure com redes Palo Alto - Abertura
 
@@ -77,7 +77,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 4. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    ![Palo Alto Networks - Domínio de Abertura e URLs informação única de súps](common/idp-intiated.png)
+    ![Screenshot que mostra a configuração "Basic S A M L" com as caixas de texto "Identifier" e "Answer U R L" realçadas, e a ação "Save" selecionada.](common/idp-intiated.png)
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/metadata`
 

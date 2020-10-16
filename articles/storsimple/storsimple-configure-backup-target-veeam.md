@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/06/2016
 ms.author: matd
 ms.openlocfilehash: 052859e99ffd0082994d313508ebb6f0496d980b
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91710350"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple como alvo de backup com Veeam
@@ -308,7 +308,7 @@ Com base nos pressupostos anteriores, crie um volume hierárquico de 26-TiB Stor
 > [!IMPORTANT]
 > Os dados restaurados a partir de uma cópia de segurança que foi nivelada para a nuvem ocorre a velocidades de nuvem.
 
-A figura a seguir mostra o mapeamento de um volume típico para um trabalho de reserva. Neste caso, todos os backups semanais mapeam para o disco completo de sábado, e o mapa incremental de backups para discos incrementais de segunda a sexta-feira. Todos os backups e restauros são de um volume de nível StorSimple.
+A figura a seguir mostra o mapeamento de um volume típico para um trabalho de reserva. Neste caso, todos os backups semanais mapeiam para o disco completo de sábado, e o mapa de backups incrementais para Monday-Friday discos incrementais. Todos os backups e restauros são de um volume de nível StorSimple.
 
 ![Diagrama lógico de configuração do alvo de backup primário](./media/storsimple-configure-backup-target-using-veeam/primarybackuptargetdiagram.png)
 
@@ -318,7 +318,7 @@ Aqui está um exemplo de um horário de rotação GFS para quatro semanas, mensa
 
 | Tipo de frequência/backup | Completa | Incremental (dias 1-5)  |   
 |---|---|---|
-| Semanal (semanas 1-4) | Saturday | Segunda-feira a sexta-feira |
+| Semanal (semanas 1-4) | Saturday | Monday-Friday |
 | Mensalmente  | Saturday  |   |
 | Anualmente | Saturday  |   |
 
@@ -516,7 +516,7 @@ Para este artigo foram referenciados os seguintes documentos:
 - [Usando unidades GPT](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
 - [Configurar cópias-sombra para pastas partilhadas](https://technet.microsoft.com/library/cc771893.aspx)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre como restaurar a [partir de um conjunto de backup](storsimple-restore-from-backup-set-u2.md).
 - Saiba mais sobre como executar o [failover do dispositivo e a recuperação de desastres](storsimple-device-failover-disaster-recovery.md).

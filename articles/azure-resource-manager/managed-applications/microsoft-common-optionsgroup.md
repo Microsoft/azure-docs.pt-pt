@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: tomfitz
 ms.openlocfilehash: aa73b4cbded98291a14792a7151df9fdfb885b53
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87004200"
 ---
 # <a name="microsoftcommonoptionsgroup-ui-element"></a>Microsoft.Common.OptionsGroup UI elemento
@@ -49,7 +49,7 @@ O controlo OptionsGroup permite que os utilizadores selecionem uma opção de du
 }
 ```
 
-## <a name="sample-output"></a>Resultado da amostra
+## <a name="sample-output"></a>Saída de exemplo
 
 ```json
 "two"
@@ -59,7 +59,7 @@ O controlo OptionsGroup permite que os utilizadores selecionem uma opção de du
 
 - O rótulo para `constraints.allowedValues` é o texto do visor de um item, e o seu valor é o valor de saída do elemento quando selecionado.
 - Se especificado, o valor predefinido deve ser um rótulo presente em `constraints.allowedValues` . Se não for especificado, o primeiro item `constraints.allowedValues` é selecionado por predefinição. O valor por defeito é **nulo.**
-- `constraints.allowedValues`deve ter pelo menos um item.
+- `constraints.allowedValues` deve ter pelo menos um item.
 
 ## <a name="next-steps"></a>Passos seguintes
 

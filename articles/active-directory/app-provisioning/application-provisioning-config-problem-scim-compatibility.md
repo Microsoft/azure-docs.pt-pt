@@ -12,10 +12,10 @@ ms.date: 08/05/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.openlocfilehash: 7f400d6959a40361ea3beff8bd21c2fa9ef2996a
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90052635"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Questões e resoluções conhecidas com o protocolo SCIM 2.0 cumprimento do serviço de fornecimento de utilizadores Azure AD
@@ -39,16 +39,16 @@ Na tabela abaixo, qualquer item marcado como fixo significa que o comportamento 
 
 | **Emissão de conformidade SCIM 2.0** |  **Fixo?** | **Data de fixação**  |  **Compatibilidade ao contrário** |
 |---|---|---|
-| A AD AZure exige que "/scim" esteja na raiz do URL do ponto final scim da aplicação  | Yes  |  18 de dezembro de 2018 | downgrade para customappSSO |
-| Atributos de extensão usam ponto "." notação antes de atribuir nomes em vez de cólon ":" notação |  Yes  | 18 de dezembro de 2018  | downgrade para customappSSO |
-| Os pedidos de remendos para atributos de vários valores contêm sintaxe de filtro de caminho inválido | Yes  |  18 de dezembro de 2018  | downgrade para customappSSO |
-| Os pedidos de criação de grupo contêm um esquema inválido URI | Yes  |  18 de dezembro de 2018  |  downgrade para customappSSO |
-| Atualizar o comportamento do PATCH para garantir a conformidade (por exemplo, ativa como remoção de membros booleanos e adequados) | No | TBD| usar bandeira de pré-visualização |
+| A AD AZure exige que "/scim" esteja na raiz do URL do ponto final scim da aplicação  | Sim  |  18 de dezembro de 2018 | downgrade para customappSSO |
+| Atributos de extensão usam ponto "." notação antes de atribuir nomes em vez de cólon ":" notação |  Sim  | 18 de dezembro de 2018  | downgrade para customappSSO |
+| Os pedidos de remendos para atributos de vários valores contêm sintaxe de filtro de caminho inválido | Sim  |  18 de dezembro de 2018  | downgrade para customappSSO |
+| Os pedidos de criação de grupo contêm um esquema inválido URI | Sim  |  18 de dezembro de 2018  |  downgrade para customappSSO |
+| Atualizar o comportamento do PATCH para garantir a conformidade (por exemplo, ativa como remoção de membros booleanos e adequados) | Não | TBD| usar bandeira de pré-visualização |
 
 ## <a name="flags-to-alter-the-scim-behavior"></a>Bandeiras para alterar o comportamento do SCIM
 Use as bandeiras abaixo no URL do inquilino da sua aplicação para alterar o comportamento padrão do cliente SCIM.
 
-:::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="Scim bandeiras para comportamento posterior.":::
+:::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="Scim bandeiras para comportamento posterior.&quot;:::
 
 * Utilize o seguinte URL para atualizar o comportamento do PATCH e garantir a conformidade do SCIM (por exemplo, ativo como remoção de membros booleanos e adequados para membros do grupo). Este comportamento está atualmente disponível apenas quando se usa a bandeira, mas tornar-se-á o comportamento padrão ao longo dos próximos meses. Note que esta bandeira de pré-visualização não funciona atualmente com o provisionamento a pedido. 
   * **URL (Conformidade COM a SCIM):** AzureAdScimPatch062020
@@ -58,29 +58,29 @@ Use as bandeiras abaixo no URL do inquilino da sua aplicação para alterar o co
   ```json
    PATCH https://[...]/Groups/ac56b4e5-e079-46d0-810e-85ddbd223b09
    {
-    "schemas": [
-        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    &quot;schemas&quot;: [
+        &quot;urn:ietf:params:scim:api:messages:2.0:PatchOp&quot;
     ],
-    "Operations": [
+    &quot;Operations&quot;: [
         {
-            "op": "remove",
-            "path": "members[value eq \"16b083c0-f1e8-4544-b6ee-27a28dc98761\"]"
+            &quot;op&quot;: &quot;remove&quot;,
+            &quot;path&quot;: &quot;members[value eq \&quot;16b083c0-f1e8-4544-b6ee-27a28dc98761\&quot;]&quot;
         }
     ]
    }
 
     PATCH https://[...]/Groups/ac56b4e5-e079-46d0-810e-85ddbd223b09
     {
-    "schemas": [
-        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    &quot;schemas&quot;: [
+        &quot;urn:ietf:params:scim:api:messages:2.0:PatchOp&quot;
     ],
-    "Operations": [
+    &quot;Operations&quot;: [
         {
-            "op": "add",
-            "path": "members",
-            "value": [
+            &quot;op&quot;: &quot;add&quot;,
+            &quot;path&quot;: &quot;members&quot;,
+            &quot;value&quot;: [
                 {
-                    "value": "10263a6910a84ef9a581dd9b8dcc0eae"
+                    &quot;value&quot;: &quot;10263a6910a84ef9a581dd9b8dcc0eae&quot;
                 }
             ]
         }
@@ -89,25 +89,25 @@ Use as bandeiras abaixo no URL do inquilino da sua aplicação para alterar o co
 
     PATCH https://[...]/Users/ac56b4e5-e079-46d0-810e-85ddbd223b09
     {
-    "schemas": [
-        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    &quot;schemas&quot;: [
+        &quot;urn:ietf:params:scim:api:messages:2.0:PatchOp&quot;
     ],
-    "Operations": [
+    &quot;Operations&quot;: [
         {
-            "op": "replace",
-            "path": "emails[type eq \"work\"].value",
-            "value": "someone@contoso.com"
+            &quot;op&quot;: &quot;replace&quot;,
+            &quot;path&quot;: &quot;emails[type eq \&quot;work\&quot;].value&quot;,
+            &quot;value&quot;: &quot;someone@contoso.com&quot;
         },
         {
-            "op": "replace",
-            "path": "emails[type eq \"work\"].primary",
-            "value": true
+            &quot;op&quot;: &quot;replace&quot;,
+            &quot;path&quot;: &quot;emails[type eq \&quot;work\&quot;].primary&quot;,
+            &quot;value&quot;: true
         },
         {
-            "op": "replace",
-            "value": {
-                "active": false,
-                "userName": "someone"
+            &quot;op&quot;: &quot;replace&quot;,
+            &quot;value&quot;: {
+                &quot;active&quot;: false,
+                &quot;userName&quot;: &quot;someone&quot;
             }
         }
     ]
@@ -115,28 +115,28 @@ Use as bandeiras abaixo no URL do inquilino da sua aplicação para alterar o co
 
     PATCH https://[...]/Users/ac56b4e5-e079-46d0-810e-85ddbd223b09
     {
-    "schemas": [
-        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    &quot;schemas&quot;: [
+        &quot;urn:ietf:params:scim:api:messages:2.0:PatchOp&quot;
     ],
-    "Operations": [
+    &quot;Operations&quot;: [
         {
-            "op": "replace",
-            "path": "active",
-            "value": false
+            &quot;op&quot;: &quot;replace&quot;,
+            &quot;path&quot;: &quot;active&quot;,
+            &quot;value&quot;: false
         }
     ]
     }
 
     PATCH https://[...]/Users/ac56b4e5-e079-46d0-810e-85ddbd223b09
     {
-    "schemas": [
-        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    &quot;schemas&quot;: [
+        &quot;urn:ietf:params:scim:api:messages:2.0:PatchOp&quot;
     ],
-    "Operations": [
+    &quot;Operations&quot;: [
         {
-            "op": "add",
-            "path": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department",
-            "value": "Tech Infrastructure"
+            &quot;op&quot;: &quot;add&quot;,
+            &quot;path&quot;: &quot;urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department&quot;,
+            &quot;value&quot;: &quot;Tech Infrastructure"
         }
     ]
     }
@@ -203,5 +203,5 @@ Seguindo os passos abaixo irá eliminar o seu trabalho de aplicação personaliz
 7. Preencha a configuração de provisionamento do utilizador como normalmente faria.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Saiba mais sobre o provisionamento e desavisionamento das aplicações do SaaS](user-provisioning.md)

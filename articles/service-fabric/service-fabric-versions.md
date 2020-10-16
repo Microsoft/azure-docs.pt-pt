@@ -4,10 +4,10 @@ description: Conheça as versões de cluster no Azure Service Fabric, incluindo 
 ms.topic: troubleshooting
 ms.date: 06/15/2020
 ms.openlocfilehash: e3194a59607563656f6624dabf51e9369e9258ee
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91843248"
 ---
 # <a name="supported-service-fabric-versions"></a>Versões de tecido de serviço suportado

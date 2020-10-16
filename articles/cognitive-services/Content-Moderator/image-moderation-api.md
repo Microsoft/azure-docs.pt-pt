@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.openlocfilehash: fe76e32bfd9b1734f3c84a400f897b7af7e3168b
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85801000"
 ---
 # <a name="learn-image-moderation-concepts"></a>Aprenda conceitos de moderação de imagem
@@ -67,7 +67,7 @@ Extrato de exemplo:
 },
 ```
 
-## <a name="detecting-faces"></a>Detetar rostos
+## <a name="detecting-faces"></a>Detetar faces
 
 A deteção de rostos ajuda a detetar dados pessoais, como rostos nas imagens. Deteta potenciais rostos e o número de potenciais rostos em cada imagem.
 

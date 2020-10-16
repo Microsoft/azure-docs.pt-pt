@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cbcc2351b7ead3714cfd21aa30b031cec75074a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84463761"
 ---
 # <a name="simulating-risk-detections-in-identity-protection"></a>Simulação de deteções de riscos na Proteção de Identidade
@@ -49,7 +49,7 @@ Completar o seguinte procedimento requer que utilize:
 
 A inscrição aparece no painel de proteção de identidade dentro de 10 a 15 minutos. 
 
-## <a name="unfamiliar-sign-in-properties"></a>Propriedades de inscrição desconhecidas
+## <a name="unfamiliar-sign-in-properties"></a>Propriedades de inícios de sessão desconhecidos
 
 Para simular locais desconhecidos, tem de iniciar scontabilidade a partir de um local e o dispositivo que a sua conta de teste não assinou antes.
 
@@ -70,7 +70,7 @@ O preenchimento do seguinte procedimento requer que utilize uma conta de utiliza
 
 A inscrição aparece no painel de proteção de identidade dentro de 10 a 15 minutos.
 
-## <a name="atypical-travel"></a>Viagens atípicas
+## <a name="atypical-travel"></a>Viagem atípica
 
 Simular a condição atípica de viagem é difícil porque o algoritmo usa machine learning para eliminar falsos positivos, tais como viagens atípicas de dispositivos familiares, ou inscrições de VPNs que são usadas por outros utilizadores no diretório. Além disso, o algoritmo requer um histórico de login de 14 dias e 10 de início de sessão do utilizador antes de começar a gerar deteções de risco. Devido aos complexos modelos de aprendizagem automática e acima das regras, existe a possibilidade de que os seguintes passos não conduzam a uma deteção de riscos. É melhor replicar estes passos para várias contas AD Azure para simular esta deteção.
 
@@ -125,7 +125,7 @@ Para testar um sinal na política de risco, execute os seguintes passos:
    1. **Guardar** - Esta ação irá devolvê-lo à página **geral.**
 1. Agora pode testar o Acesso Condicional baseado em Risco de Acesso baseado em Sinais, assinando usando uma sessão de risco (por exemplo, utilizando o navegador Tor). 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [O que é o risco?](concept-identity-protection-risks.md)
 

@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 0c8739dff39490f14b613af483f769ac031c1bd9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6acea560c3a02420b15aff84475ab58e642116c
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82792382"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078260"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Perguntas frequentes para acelerador de solução de fábrica conectada
 
@@ -68,7 +68,7 @@ Se implementou a solução a partir de www.azureiotsolutions.com, não pode entr
 1. O nome de utilizador a utilizar é: `docker` .
 1. A palavra-passe a utilizar depende da versão utilizada para implementar:
     * Para as soluções implementadas utilizando o script build.ps1 antes de 1 de junho de 2017, a palavra-passe é: `Passw0rd` .
-    * Para soluções implementadas usando o script build.ps1 após 1 de junho de 2017, pode encontrar a palavra-passe no `<name of your deployment>.config.user` ficheiro. A palavra-passe é armazenada na definição **VmAdminPassword.** A palavra-passe é gerada aleatoriamente no tempo de implementação, a menos que especifique usando o `build.ps1` parâmetro do script`-VmAdminPassword`
+    * Para soluções implementadas usando o script build.ps1 após 1 de junho de 2017, pode encontrar a palavra-passe no `<name of your deployment>.config.user` ficheiro. A palavra-passe é armazenada na definição **VmAdminPassword.** A palavra-passe é gerada aleatoriamente no tempo de implementação, a menos que especifique usando o `build.ps1` parâmetro do script `-VmAdminPassword`
 
 ### <a name="how-do-i-stop-and-start-all-docker-processes-in-the-simulation-vm"></a>Como paro e insindo todos os processos de estivadores na simulação VM?
 
@@ -125,7 +125,7 @@ Alternativamente, inicie sessão no VM via SSH e inspecione os ficheiros de regi
 
 ### <a name="how-can-i-check-if-the-simulation-is-sending-data-to-the-cloud"></a>Como posso verificar se a simulação está a enviar dados para a nuvem?
 
-Com o [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer) ou o comando [de monitorização de extensão Azure IoT CLI,](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events) pode inspecionar os dados enviados para o IoT Hub a partir de determinados dispositivos. Para utilizar estas ferramentas, precisa de saber a cadeia de ligação do hub IoT na sua implantação. Veja [como descuito a cadeia de ligação do hub IoT usado pela minha solução?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
+Com o [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer) ou o comando [de monitorização de extensão Azure IoT CLI,](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events) pode inspecionar os dados enviados para o IoT Hub a partir de determinados dispositivos. Para utilizar estas ferramentas, precisa de saber a cadeia de ligação do hub IoT na sua implantação. Veja [como descuito a cadeia de ligação do hub IoT usado pela minha solução?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
 
 Inspecione os dados enviados por um dos dispositivos editoriais:
 
@@ -186,14 +186,14 @@ Para enviar dados de telemetria de dispositivos UA não OPC para a Fábrica Cone
     ]
     ```
 
-1. O formato `<timestamp>` de:`2017-12-08T19:24:51.886753Z`
+1. O formato `<timestamp>` de: `2017-12-08T19:24:51.886753Z`
 
 1. Reinicie o Serviço de Aplicações de Fábrica Conectada.
 
-### <a name="next-steps"></a>Próximos passos
+### <a name="next-steps"></a>Passos seguintes
 
 Também pode explorar algumas das outras funcionalidades e capacidades dos aceleradores de soluções do IoT:
 
-* [Descrição geral do acelerador de soluções de Manutenção Preditiva](iot-accelerators-predictive-overview.md)
+* [Descrição geral do acelerador de soluções de Manutenção Preditiva](./iot-accelerators-predictive-walkthrough.md)
 * [Implementar acelerador de solução de fábrica conectado](quickstart-connected-factory-deploy.md)
-* [Segurança de IoT desde o início](/azure/iot-fundamentals/iot-security-ground-up)
+* [Segurança de IoT desde o início](../iot-fundamentals/iot-security-ground-up.md)

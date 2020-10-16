@@ -7,14 +7,15 @@ ms.author: saveenr
 manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
+ms.subservice: sql
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 11c11d3e43f15b569a74c282b15a95525cea7e7c
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: a42157223c0c9a0b326c400388ea2b564e42f7f2
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91620040"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088946"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Analisar dados com piscinas SQL dedicadas
 

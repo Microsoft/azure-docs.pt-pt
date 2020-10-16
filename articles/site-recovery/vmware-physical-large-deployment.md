@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 101e42263e46c5a21f26b0fa9cdeed798525fee9
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89047091"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configurar a recuperação de desastres à escala para VMware VMs/servidores físicos
@@ -100,8 +100,8 @@ O que obedece significa? Para iniciar um Azure VM, a Azure exige que alguns cond
 
 **A máquina está de acordo com o Azure?** | **Limites Azure VM (falha de disco gerido)**
 --- | --- 
-Yes | 2000
-No | 1000
+Sim | 2000
+Não | 1000
 
 - Os limites pressupõem que estão em curso outros postos de trabalho mínimos na região-alvo para a subscrição.
 - Algumas regiões de Azure são menores e podem ter limites ligeiramente mais baixos.

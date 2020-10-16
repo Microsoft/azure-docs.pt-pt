@@ -10,13 +10,13 @@ ms.author: jordane
 author: jpe316
 ms.date: 09/24/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq2, devx-track-python
-ms.openlocfilehash: 5d7956b5538b272454f3f55bcda84188c946e978
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: how-to, contperfq2, devx-track-python, deploy
+ms.openlocfilehash: 18b1c155c0bb85e346ec28d5c145e6578ca3ec48
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328433"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999080"
 ---
 # <a name="deploy-ml-models-to-field-programmable-gate-arrays-fpgas-with-azure-machine-learning"></a>Implementar modelos ML para arrays de portão programáveis em campo (FPGAs) com Azure Machine Learning 
 
@@ -347,7 +347,7 @@ for top in sorted_results[:5]:
     print(classes_entries[top[0]], 'confidence:', top[1])
 ```
 
-### <a name="clean-up-resources"></a>Limpar os recursos
+### <a name="clean-up-resources"></a>Limpar recursos
 
 Para evitar custos desnecessários, limpe os seus recursos **nesta ordem**: serviço web, depois imagem e, em seguida, o modelo.
 

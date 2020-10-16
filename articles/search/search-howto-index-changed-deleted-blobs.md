@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.openlocfilehash: 2e73039418233c97fc20242ed7af7df14c5b47ee
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91534782"
 ---
 # <a name="how-to-set-up-change-and-deletion-detection-for-blobs-in-azure-cognitive-search-indexing"></a>Como configurar a deteção de alterações e eliminação para bolhas no índice de pesquisa cognitiva Azure
@@ -104,7 +104,7 @@ Se quiser reindexar esse documento, mude o `"softDeleteMarkerValue" : "false"` p
 
 Se tiver pedidos de funcionalidades ou ideias para melhorias, forneça a sua entrada no [UserVoice](https://feedback.azure.com/forums/263029-azure-search/). Se precisar de ajuda para utilizar a função existente, publique a sua pergunta no [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/18870).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Indexadores na Pesquisa Cognitiva do Azure](search-indexer-overview.md)
 * [Como configurar um indexador de bolhas](search-howto-indexing-azure-blob-storage.md)

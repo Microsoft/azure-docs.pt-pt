@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb, martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6778b556795f4e079100f1a7bcbb8b9465e9e315
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88032973"
 ---
 # <a name="troubleshooting-sign-in-problems-with-conditional-access"></a>Resolver problemas de início de sessão com Acesso Condicional

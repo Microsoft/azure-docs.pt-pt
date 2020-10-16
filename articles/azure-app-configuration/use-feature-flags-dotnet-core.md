@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/17/2020
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: f863ca855ca36603085ed96b5aa17d277ae00516
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f8ad2558c664d1a8b577f01b707200d416d5348a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317315"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078906"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Tutorial: Use bandeiras de recurso numa aplicação core ASP.NET
 
@@ -27,7 +27,7 @@ As bibliotecas de Gestão de Recursos Centrais .NET fornecem suporte idiomático
 
 As bibliotecas de Gestão de Recursos também gerem ciclos de vida de bandeira de recurso nos bastidores. Por exemplo, as bibliotecas renovam e cache estados de bandeira, ou garantem que um estado de bandeira seja imutável durante uma chamada de pedido. Além disso, a biblioteca core ASP.NET oferece integrações fora da caixa, incluindo ações de controlador MVC, vistas, rotas e middleware.
 
-O [Add feature bandeiras para uma aplicação core ASP.NET Quickstart](./quickstart-feature-flag-aspnet-core.md) mostra várias formas de adicionar bandeiras de funcionalidades numa aplicação core ASP.NET. Este tutorial explica estes métodos com mais detalhes. Para obter uma referência completa, consulte a [documentação de gestão de recursos do núcleo ASP.NET.](https://go.microsoft.com/fwlink/?linkid=2091410)
+O [Add feature bandeiras para uma aplicação core ASP.NET Quickstart](./quickstart-feature-flag-aspnet-core.md) mostra várias formas de adicionar bandeiras de funcionalidades numa aplicação core ASP.NET. Este tutorial explica estes métodos com mais detalhes. Para obter uma referência completa, consulte a [documentação de gestão de recursos do núcleo ASP.NET.](/dotnet/api/microsoft.featuremanagement)
 
 Neste tutorial, vai aprender a:
 
@@ -301,6 +301,6 @@ app.UseForFeature(featureName, appBuilder => {
 
 Neste tutorial, aprendeu a implementar bandeiras de funcionalidades na sua aplicação Core ASP.NET utilizando as `Microsoft.FeatureManagement` bibliotecas. Para obter mais informações sobre o suporte à gestão de funcionalidades na configuração ASP.NET Core e App, consulte os seguintes recursos:
 
-* [ASP.NET Código de amostra de bandeira de característica do núcleo](/azure/azure-app-configuration/quickstart-feature-flag-aspnet-core)
-* [Documentação microsoft.featureManagement](https://docs.microsoft.com/dotnet/api/microsoft.featuremanagement)
+* [ASP.NET Código de amostra de bandeira de característica do núcleo](./quickstart-feature-flag-aspnet-core.md)
+* [Documentação microsoft.featureManagement](/dotnet/api/microsoft.featuremanagement)
 * [Gerir sinalizadores de funcionalidades](./manage-feature-flags.md)

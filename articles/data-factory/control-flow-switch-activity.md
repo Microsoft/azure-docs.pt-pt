@@ -10,10 +10,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.openlocfilehash: 4f839de6e276727fa910f91eccc34601cf34f85c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81418019"
 ---
 # <a name="switch-activity-in-azure-data-factory"></a>Mudar de atividade na Azure Data Factory
@@ -69,11 +69,11 @@ A atividade Switch fornece a mesma funcionalidade que uma declaração de comuta
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-name | Nome da atividade do interruptor. | String | Yes
-tipo | Tem de ser definido para *mudar** | String | Yes
-expression | Expressão que deve avaliar o valor das cordas | Expressão com cadeia do tipo de resultado | Yes
-casos | Conjunto de casos que contêm um valor e um conjunto de atividades a executar quando o valor corresponde à avaliação de expressão. Deve fornecer pelo menos um caso. Há um limite máximo de 25 casos. | Matriz de objetos de caso | Yes
-padrãoAtivas | Conjunto de atividades que são executadas quando a avaliação da expressão não está satisfeita. | Conjunto de atividades | Yes
+name | Nome da atividade do interruptor. | String | Sim
+tipo | Tem de ser definido para *mudar** | String | Sim
+expression | Expressão que deve avaliar o valor das cordas | Expressão com cadeia do tipo de resultado | Sim
+casos | Conjunto de casos que contêm um valor e um conjunto de atividades a executar quando o valor corresponde à avaliação de expressão. Deve fornecer pelo menos um caso. Há um limite máximo de 25 casos. | Matriz de objetos de caso | Sim
+padrãoAtivas | Conjunto de atividades que são executadas quando a avaliação da expressão não está satisfeita. | Conjunto de atividades | Sim
 
 ## <a name="example"></a>Exemplo
 

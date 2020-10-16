@@ -3,12 +3,12 @@ title: Use o Servidor de Backup Azure para fazer backup de cargas de trabalho
 description: Neste artigo, aprenda a preparar o seu ambiente para proteger e fazer backup de cargas de trabalho utilizando o Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 6fe03260cc1759929e7ff9886b1b232a37056866
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 1be2af43f4d923a27fd96c5c0888a234725775a3
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90975527"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056706"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instale e atualize o Servidor de Backup do Azure
 
@@ -78,9 +78,9 @@ Quer envie dados de backup para o Azure, ou o mantenha localmente, o Azure Backu
 
 [!INCLUDE [backup-create-rs-vault.md](../../includes/backup-create-rs-vault.md)]
 
-### <a name="set-storage-replication"></a>Definir Replicação de Armazenamento
+### <a name="set-storage-replication"></a>Definir replicação de armazenamento
 
-A opção de replicação de armazenamento permite-lhe escolher entre o armazenamento georredundante e o armazenamento localmente redundante. Por padrão, os cofres dos Serviços de Recuperação utilizam armazenamento geo-redundante. Se este cofre for o seu cofre primário, deixe a opção de armazenamento definida para armazenamento geo-redundante. Escolha armazenamento localmente redundante se pretende uma opção mais barata que não é tão durável. Leia mais sobre opções de armazenamento [geo-redundantes,](../storage/common/storage-redundancy.md#geo-redundant-storage) [redundantes locais](../storage/common/storage-redundancy.md#locally-redundant-storage) e [redundantes](../storage/common/storage-redundancy.md#zone-redundant-storage) na visão geral da replicação do [Azure Storage](../storage/common/storage-redundancy.md).
+A opção de replicação de armazenamento permite-lhe escolher entre o armazenamento georredundante e o armazenamento localmente redundante. Por padrão, os cofres dos Serviços de Recuperação utilizam armazenamento geo-redundante. Se este cofre for o seu cofre primário, deixe a opção de armazenamento definida para armazenamento geo-redundante. Escolha armazenamento localmente redundante se pretende uma opção mais barata que não é tão durável. Leia mais sobre opções de armazenamento [geo-redundantes,](../storage/common/storage-redundancy.md#geo-redundant-storage) [localmente redundantes](../storage/common/storage-redundancy.md#locally-redundant-storage)e [redundantes](../storage/common/storage-redundancy.md#zone-redundant-storage) na visão geral da replicação do [Azure Storage](../storage/common/storage-redundancy.md).
 
 Para editar a definição de replicação de armazenamento:
 
@@ -200,6 +200,9 @@ Uma vez concluído o processo de extração, verifique se a caixa para lançar o
     ![Fornecer localização para a instalação de ficheiros](./media/backup-azure-microsoft-azure-backup/space-screen.png)
 
     A localização do risco é um requisito para voltar a Azure. Certifique-se de que a localização do risco é de pelo menos 5% dos dados planeados para serem apoiados até à nuvem. Para a proteção do disco, os discos separados devem ser configurados uma vez concluída a instalação. Para obter mais informações sobre piscinas de armazenamento, consulte [Prepare o armazenamento de dados.](/system-center/dpm/plan-long-and-short-term-data-storage)
+
+    Os requisitos de capacidade para o armazenamento de discos dependem principalmente do tamanho dos dados protegidos, do tamanho do ponto de recuperação diário, da taxa de crescimento esperada dos dados de volume e dos objetivos da gama de retenção. Recomendamos que faça o armazenamento do disco duas vezes o tamanho dos dados protegidos. Isto assume um tamanho do ponto de recuperação diário correspondente a 10% do tamanho dos dados protegidos e um período de retenção de 10 dias. Para obter uma boa estimativa do tamanho, reveja o [DPM Capacity Planner](https://www.microsoft.com/download/details.aspx?id=54301). 
+
 5. Forneça uma palavra-passe forte para contas de utilizador locais restritas e selecione **Next**.
 
     ![Fornecer senha forte](./media/backup-azure-microsoft-azure-backup/security-screen.png)
@@ -210,7 +213,7 @@ Uma vez concluído o processo de extração, verifique se a caixa para lançar o
    >
    >
 
-    ![Opt-In da Atualização da Microsoft](./media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
+    ![Microsoft Update Opt-In](./media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
 7. Reveja o *Resumo das Definições* e selecione **Instalar.**
 
     ![Resumo das definições](./media/backup-azure-microsoft-azure-backup/summary-screen.png)

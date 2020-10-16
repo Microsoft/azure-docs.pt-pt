@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: 4443b0f479079a4722a5d62fea40afcb4a58632d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86261938"
 ---
 # <a name="add-a-bubble-layer"></a>Adicionar uma camada de bolha
@@ -25,7 +25,7 @@ A **camada bolha** torna os dados de localização como círculos dimensionizado
 
 Inicialmente, todas as bolhas têm a mesma cor de enchimento. Se um campo for passado para o balde **da lenda** do painel **Fields,** as bolhas serão coloridas com base na sua categorização. O contorno das bolhas é branco ser padrão, mas pode ser alterado para uma nova cor ou permitindo a opção de contorno de alto contraste. A opção **de contorno de alto contraste** atribui dinamicamente uma cor de contorno que é uma variante de alto contraste da cor de preenchimento. Isto ajuda a garantir que as bolhas são claramente visíveis independentemente do estilo do mapa. Seguem-se as definições primárias no painel **de formato** que estão disponíveis na secção camada **de bolha.**
 
-| Definição               | Descrição    |
+| Definições               | Descrição    |
 |-----------------------|----------------|
 | Tamanho                  | O tamanho de cada bolha. Esta opção é escondida quando um campo é passado para o balde **tamanho** do painel **fields.** Opções adicionais aparecerão como delineadas no tópico de escala do [tamanho da Bolha](#bubble-size-scaling) mais abaixo neste artigo. |
 | Cor de preenchimento            | Cor de cada bolha. Esta opção é ocultada quando um campo é passado para o balde **da Lenda** do painel **Fields** e uma secção de cores **de dados** separada aparecerá no painel **de formato.** |
@@ -45,21 +45,21 @@ Inicialmente, todas as bolhas têm a mesma cor de enchimento. Se um campo for pa
 
 Se um campo for passado para o balde **tamanho** do painel **fields,** as bolhas serão dimensionados relativamente ao valor de medida de cada ponto de dados. A opção **Tamanho** na secção **camada de bolha** do painel de **formato** desaparecerá quando um campo é passado para o balde **Tamanho,** uma vez que as bolhas terão o seu radii dimensionado entre um min e o valor máximo. As seguintes opções aparecerão na secção **camada de bolha** do painel de **formato** quando um balde **de tamanho** tiver um campo especificado.
 
-| Definição             | Descrição  |
+| Definições             | Descrição  |
 |---------------------|--------------|
 | Tamanho min            | Tamanho mínimo da bolha ao escalonar os dados.|
 | Tamanho máximo            | Tamanho máximo da bolha ao escalonar os dados.|
-| Método de escala de tamanho | Algoritmo de escala usado para determinar o tamanho relativo da bolha.<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;• Linear - Gama de dados de entrada linearmente mapeados para o tamanho min e máximo. (Predefinição)<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Log - Gama de dados de entrada logaritmicamente mapeados para o tamanho min e max.<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Cúbico-Bezier - Especificar os valores X1, Y1, X2, Y2 de uma curva Cubic-Bezier para criar um método de escala personalizado. |
+| Método de escala de tamanho | Algoritmo de escala usado para determinar o tamanho relativo da bolha.<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;• Linear - Gama de dados de entrada linearmente mapeados para o tamanho min e máximo. (Predefinição)<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Log - Gama de dados de entrada logaritmicamente mapeados para o tamanho min e max.<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Cubic-Bezier - Especificar os valores X1, Y1, X2, Y2 de uma curva Cubic-Bezier para criar um método de escala personalizado. |
 
 Quando o **método de escalagem size** estiver definido para **Registar,** serão disponibilizadas as seguintes opções.
 
-| Definição   | Descrição      |
+| Definições   | Descrição      |
 |-----------|------------------|
 | Escala de registo | A escala logarítmica a aplicar ao calcular o tamanho das bolhas. |
 
 Quando o **método de escalagem size** estiver definido para **Cubic-Bezier,** serão disponibilizadas as seguintes opções para personalizar a curva de escala.
 
-| Definição | Descrição                           |
+| Definições | Descrição                           |
 |---------|---------------------------------------|
 | X1      | Parâmetro X1 de uma curva cúbica de Bezier. |
 | Y1      | Parâmetro X2 de uma curva cúbica de Bezier. |
@@ -67,19 +67,19 @@ Quando o **método de escalagem size** estiver definido para **Cubic-Bezier,** s
 | Y2      | Parâmetro Y2 de uma curva cúbica de Bezier. |
 
 > [!TIP]
-> [https://cubic-bezier.com/](https://cubic-bezier.com/)tem uma ferramenta útil para criar os parâmetros para curvas Cubic-Bezier.
+> [https://cubic-bezier.com/](https://cubic-bezier.com/) tem uma ferramenta útil para criar os parâmetros para Cubic-Bezier curvas.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Altere a forma como os seus dados são apresentados no mapa:
 
 > [!div class="nextstepaction"]
-> [Adicione uma camada de gráfico de barras](power-bi-visual-add-bar-chart-layer.md)
+> [Adicionar uma camada de gráfico de barras](power-bi-visual-add-bar-chart-layer.md)
 
 Adicione mais contexto ao mapa:
 
 > [!div class="nextstepaction"]
-> [Adicione uma camada de referência](power-bi-visual-add-reference-layer.md)
+> [Adicionar uma camada de referência](power-bi-visual-add-reference-layer.md)
 
 > [!div class="nextstepaction"]
 > [Adicionar uma camada de mosaico](power-bi-visual-add-tile-layer.md)

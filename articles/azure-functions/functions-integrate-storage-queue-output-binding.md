@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 04/24/2020
 ms.custom: devx-track-csharp, mvc
 ms.openlocfilehash: 9c635b01bcd04bd03191fca2590b0189bad0f544
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90982021"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Utilizar as Funções para adicionar mensagens a uma fila do Armazenamento do Azure
@@ -38,7 +38,7 @@ Nesta secção, utilize a IU do portal para adicionar um enlace de saída de arm
 
 1. Selecione o tipo de encadernação **de armazenamento de fila Azure** e adicione as definições conforme especificado na tabela que segue esta imagem: 
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-create-output-binding-details.png" alt-text="Adicione um enlace de saída do Armazenamento de filas a uma função no portal do Azure." border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-create-output-binding-details.png" alt-text="Crie uma ligação de saída para a sua função." border="true":::
     
     | Definição      |  Valor sugerido   | Descrição                              |
     | ------------ |  ------- | -------------------------------------------------- |
@@ -94,7 +94,7 @@ Nesta secção, adicione código que escreve uma mensagem para a fila de saída.
 1. Depois de guardar as alterações de código, selecione **Teste**.
 1. Confirme que o seu teste corresponde à imagem abaixo e selecione **Executar**. 
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png" alt-text="Teste a ligação de armazenamento de fila no portal Azure." border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png" alt-text="Crie uma ligação de saída para a sua função." border="true":::
 
     Tenha em atenção que o **Corpo do pedido** contém o valor `name`*Azure*. Este valor é apresentado na mensagem de fila que é criada quando a função é invocada.
     
@@ -111,11 +111,11 @@ Da primeira vez que o enlace de saída é utilizado, o runtime das Funções cri
 
 1. Nas **definições de Aplicação**, selecione **AzureWebJobsStorage**.
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-find-storage-account.png" alt-text="A screenshot mostra a página de Configuração com AzureWebJobsStorage selecionado." border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-find-storage-account.png" alt-text="Crie uma ligação de saída para a sua função." border="true":::
 
 1. Localize e tome nota do nome da conta.
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-storage-account-name.png" alt-text="Localize a conta de armazenamento ligada ao AzureWebJobsStorage." border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-storage-account-name.png" alt-text="Crie uma ligação de saída para a sua função." border="true":::
 
 ### <a name="examine-the-output-queue"></a>Examinar a fila de saída
 

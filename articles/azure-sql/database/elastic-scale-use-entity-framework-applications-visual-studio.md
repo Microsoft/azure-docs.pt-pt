@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/04/2019
 ms.openlocfilehash: 8eafd99f07c64c20565a954216341f3dea9541b0
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91442655"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Biblioteca de clientes de base de dados elástica com enquadramento de entidade
@@ -60,7 +60,7 @@ Com biblioteca de clientes de base de dados elástica, define as divisórias dos
 
 O gestor de mapas de fragmentos protege os utilizadores de visões inconsistentes em dados de shardlet que podem ocorrer quando estão a acontecer operações de gestão de fragmentos simultâneas (como a relocalização de dados de um fragmento para outro). Para tal, os mapas de fragmentos geridos pelo corretor da biblioteca do cliente são as ligações de base de dados para uma aplicação. Isto permite que a funcionalidade do mapa de fragmentos mate automaticamente uma ligação de base de dados quando as operações de gestão de fragmentos podem ter impacto no fragmento para o que a ligação foi criada. Esta abordagem tem de ser integrado com algumas das funcionalidades da EF, tais como a criação de novas ligações a partir de uma existente para verificar a existência de bases de dados. Em geral, a nossa observação tem sido a de que os construtores padrão DbContext apenas funcionam de forma fiável para ligações de base de dados fechadas que podem ser clonadas com segurança para trabalhos de EF. Em vez disso, o princípio de conceção da base de dados elástica é apenas ligar a corretora aberta. Poder-se-ia pensar que fechar uma ligação intermediada pela biblioteca do cliente antes de a entregar ao EF DbContext pode resolver este problema. No entanto, ao fechar a ligação e contar com a EF para a reabrir, renuncia-se à validação e à verificação de consistência realizadas pela biblioteca. No entanto, a funcionalidade de migração na EF utiliza estas ligações para gerir o esquema de base de dados subjacente de uma forma transparente à aplicação. Idealmente, irá reter e combinar todas estas capacidades tanto da biblioteca de clientes de base de dados elástica como da EF na mesma aplicação. A secção seguinte discute mais detalhadamente estas propriedades e requisitos.
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 
 Ao trabalhar com a biblioteca de clientes de base de dados elástica e as APIs do Quadro de Entidades, pretende reter as seguintes propriedades:
 
@@ -271,7 +271,7 @@ Pode-se ter usado a versão do construtor herdado da classe base. Mas o código 
 As abordagens descritas neste documento implicam algumas limitações:
 
 * As aplicações EF que utilizam **o LocalDb** precisam primeiro de migrar para uma base de dados regular do SQL Server antes de utilizar a biblioteca de clientes de base de dados elástica. Escalonar uma aplicação através de fragmentos com escala elástica não é possível com **o LocalDb**. Note que o desenvolvimento ainda pode usar **o LocalDb.**
-* Quaisquer alterações à aplicação que impliquem alterações no esquema de bases de dados devem passar por migrações de EF em todos os fragmentos. O código de amostra deste documento não demonstra como fazê-lo. Considere utilizar a Base de Dados de Atualização com um parâmetro ConnectionString para iterar sobre todos os fragmentos; ou extrair o script T-SQL para a migração pendente usando a Base de Dados de Atualização com a opção -Script e aplicar o script T-SQL nos seus fragmentos.  
+* Quaisquer alterações à aplicação que impliquem alterações no esquema de bases de dados devem passar por migrações de EF em todos os fragmentos. O código de amostra deste documento não demonstra como fazê-lo. Considere utilizar Update-Database com um parâmetro ConnectionString para iterar sobre todos os fragmentos; ou extrair o script T-SQL para a migração pendente usando Update-Database com a opção -Script e aplicar o script T-SQL nos seus fragmentos.  
 * Dado um pedido, presume-se que todo o seu processamento de base de dados está contido num único fragmento identificado pela chave de fragmentos fornecida pelo pedido. No entanto, esta suposição nem sempre é verdadeira. Por exemplo, quando não é possível disponibilizar uma chave de cacos. Para resolver este problema, a biblioteca do cliente fornece a classe **MultiShardQuery** que implementa uma abstração de conexão para consulta sobre vários fragmentos. Aprender a usar o **MultiShardQuery** em combinação com a EF está fora do âmbito deste documento
 
 ## <a name="conclusion"></a>Conclusão

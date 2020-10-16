@@ -1,5 +1,5 @@
 ---
-title: Privacidade do utilizador e Azure AD Sem Emenda Único Sinal- On / Microsoft Docs
+title: Privacidade do Utilizador e Azure AD Single Sign-On [ Microsoft Docs
 description: Este artigo trata do cumprimento do Azure Ative Directory (Azure AD) Seamless SSO e do RGPD.
 services: active-directory
 keywords: o que é Azure AD Connect, RGPD, componentes necessários para Azure AD, SSO, Single Sign-on
@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2aa1a30c548ef60cd9b596031f4115297dd20844
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89278603"
 ---
 # <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>Privacidade do Utilizar e Início de Sessão Simples no Azure AD
@@ -66,7 +66,7 @@ Para saber mais sobre os requisitos relacionados com o RGPD Azure AD, consulte [
 
 Se o registo de auditoria estiver ativado, este produto poderá gerar registos de segurança para os seus Controladores de Domínio. Para saber mais sobre a configuração das políticas de auditoria, leia este [artigo.](/previous-versions/tn-archive/dd277403(v=technet.10))
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Reveja a política de privacidade da Microsoft no Trust Center](https://www.microsoft.com/trustcenter)
   - [**Resolução de problemas**](tshoot-connect-sso.md) - Aprenda a resolver problemas comuns com a funcionalidade.

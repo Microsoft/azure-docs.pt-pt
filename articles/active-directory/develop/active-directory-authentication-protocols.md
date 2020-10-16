@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.openlocfilehash: 41ea41b4d7c181dad9246653a68c329387ac5381
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80884686"
 ---
 # <a name="microsoft-identity-platform-authentication-protocols"></a>Protocolos de autenticação da plataforma de identidade da Microsoft
@@ -31,9 +31,9 @@ A plataforma de identidade da Microsoft suporta vários dos protocolos de autent
 * [OpenID Connect 1.0](v2-protocols-oidc.md) - Saiba como utilizar o OAuth 2.0, um protocolo de autorização, para autenticação.
 * [Serviço a Chamadas de Serviço com Credenciais](v2-oauth2-client-creds-grant-flow.md) de Cliente - Saiba como usar o fluxo de concessão de credenciais de cliente OAuth 2.0 para serviço a chamadas de serviço.
 * [Serviço a Chamadas de Serviço com On-Behalf-Of Flow](v2-oauth2-on-behalf-of-flow.md) - Saiba como usar o fluxo de nome de OAuth 2.0 para o serviço para chamadas de serviço.
-* [Referência do Protocolo SAML](active-directory-saml-protocol-reference.md) - Conheça os perfis SAML de assinatura única e único sinal de assinatura da plataforma de identidade da Microsoft.
+* [Referência do Protocolo SAML](active-directory-saml-protocol-reference.md) - Conheça os perfis DE SAML de Sign-On e assinatura única da plataforma de identidade microsoft.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 * [Visão geral da plataforma de identidade da Microsoft](v2-overview.md)
 * [Amostras de código de diretório ativo](sample-v2-code.md)

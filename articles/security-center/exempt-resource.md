@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
 ms.openlocfilehash: 87c16207f312479dcfe083ad9494d75b3538e18c
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91532555"
 ---
 # <a name="exempt-a-resource-from-recommendations-and-secure-score"></a>Isentar um recurso de recomendações e pontuação segura
@@ -77,7 +77,7 @@ Pode utilizar a Política Azure para acompanhar toda a sua isenção na página 
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a isentar um recurso de uma recomendação para que não tenha impacto na sua pontuação segura. Para obter mais informações sobre a pontuação segura, consulte:
 

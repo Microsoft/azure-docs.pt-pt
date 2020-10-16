@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8884711bbb32054ca1d8e4d9f9e7dee753f0c629
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 63378369b9924f01c5d0217746a8a2c330c88631
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361930"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970627"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure Virtual Machines planejamento e implementação para SAP NetWeaver
 
@@ -486,18 +486,18 @@ Como modelo de preços, tem várias opções de preços diferentes que listam co
 O preço de cada uma das diferentes ofertas com diferentes ofertas de serviços em torno de sistemas operativos e diferentes regiões está disponível no site [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Para mais detalhes e flexibilidade de um ano e três anos de instâncias reservadas, consulte estes artigos:
 
 - [O que são as reservas do Azure?](../../../cost-management-billing/reservations/save-compute-costs-reservations.md)
-- [Flexibilidade de tamanho da máquina virtual com o Reserved VM Instances](../../windows/reserved-vm-instance-size-flexibility.md)
+- [Flexibilidade de tamanho da máquina virtual com o Reserved VM Instances](../../reserved-vm-instance-size-flexibility.md)
 - [Como o desconto de reserva do Azure é aplicado a máquinas virtuais](../../../cost-management-billing/manage/understand-vm-reservation-charges.md)
 
 Para obter mais informações sobre os preços no local, leia o artigo [Máquinas Virtuais Azure Spot](https://azure.microsoft.com/pricing/spot/). Os preços do mesmo tipo VM também podem ser diferentes entre diferentes regiões do Azure. Para alguns clientes, valeu a pena implantar-se numa região de Azure menos dispendiosa.
 
-Além disso, a Azure oferece os conceitos de um anfitrião dedicado. O conceito de anfitrião dedicado dá-lhe mais controlo sobre ciclos de remendos que são feitos pela Azure. Pode cronometrar o remendado de acordo com os seus próprios horários. Esta oferta destina-se especificamente aos clientes com carga de trabalho que pode não seguir o ciclo normal de carga de trabalho. Para ler os conceitos de ofertas dedicadas a Azure, leia o artigo [Azure Dedicado Anfitrião.](../../windows/dedicated-hosts.md) A utilização desta oferta é suportada pela carga de trabalho SAP e é utilizada por vários clientes SAP que querem ter mais controlo sobre patching de infraestruturas e eventuais planos de manutenção da Microsoft. Para obter mais informações sobre como a Microsoft mantém e corrige a infraestrutura Azure que acolhe máquinas virtuais, leia o artigo [Manutenção para máquinas virtuais em Azure](../../maintenance-and-updates.md).
+Além disso, a Azure oferece os conceitos de um anfitrião dedicado. O conceito de anfitrião dedicado dá-lhe mais controlo sobre ciclos de remendos que são feitos pela Azure. Pode cronometrar o remendado de acordo com os seus próprios horários. Esta oferta destina-se especificamente aos clientes com carga de trabalho que pode não seguir o ciclo normal de carga de trabalho. Para ler os conceitos de ofertas dedicadas a Azure, leia o artigo [Azure Dedicado Anfitrião.](../../dedicated-hosts.md) A utilização desta oferta é suportada pela carga de trabalho SAP e é utilizada por vários clientes SAP que querem ter mais controlo sobre patching de infraestruturas e eventuais planos de manutenção da Microsoft. Para obter mais informações sobre como a Microsoft mantém e corrige a infraestrutura Azure que acolhe máquinas virtuais, leia o artigo [Manutenção para máquinas virtuais em Azure](../../maintenance-and-updates.md).
 
 #### <a name="generation-1-and-generation-2-virtual-machines"></a>Máquinas virtuais geração 1 e Geração 2
-O hipervisor da Microsoft é capaz de lidar com duas gerações diferentes de máquinas virtuais. Estes formatos são chamados **Geração 1** e **Geração 2.** **A Geração 2** foi introduzida no ano de 2012 com o hipervisor windows Server 2012. O Azure começou a usar máquinas virtuais da Geração 1. À medida que implementa máquinas virtuais Azure, o padrão ainda é utilizar o formato Geração 1. Entretanto, também podes implementar formatos VM da Geração 2. O artigo [Suporte para a geração 2 VMs em Azure](../../windows/generation-2.md) lista as famílias Azure VM que podem ser implantadas como Geração 2 VM. Este artigo também enumera as importantes diferenças funcionais das máquinas virtuais generation 2, uma vez que podem funcionar em nuvem privada Hiper-V e Azure. Mais importante ainda este artigo também lista diferenças funcionais entre máquinas virtuais geração 1 e VMs geração 2, como as que são executadas em Azure.
+O hipervisor da Microsoft é capaz de lidar com duas gerações diferentes de máquinas virtuais. Estes formatos são chamados **Geração 1** e **Geração 2.** **A Geração 2** foi introduzida no ano de 2012 com o hipervisor windows Server 2012. O Azure começou a usar máquinas virtuais da Geração 1. À medida que implementa máquinas virtuais Azure, o padrão ainda é utilizar o formato Geração 1. Entretanto, também podes implementar formatos VM da Geração 2. O artigo [Suporte para a geração 2 VMs em Azure](../../generation-2.md) lista as famílias Azure VM que podem ser implantadas como Geração 2 VM. Este artigo também enumera as importantes diferenças funcionais das máquinas virtuais generation 2, uma vez que podem funcionar em nuvem privada Hiper-V e Azure. Mais importante ainda este artigo também lista diferenças funcionais entre máquinas virtuais geração 1 e VMs geração 2, como as que são executadas em Azure.
 
 > [!NOTE]
-> Existem diferenças funcionais de Geração 1 e VMs de Geração 2 em execução em Azure. Leia o artigo  [Suporte para a geração 2 VMs em Azure](../../windows/generation-2.md) para ver uma lista dessas diferenças.
+> Existem diferenças funcionais de Geração 1 e VMs de Geração 2 em execução em Azure. Leia o artigo  [Suporte para a geração 2 VMs em Azure](../../generation-2.md) para ver uma lista dessas diferenças.
 
 Deslocar um VM existente de uma geração para outra não é possível. Para alterar a geração de máquinas virtuais, é necessário implementar um novo VM da geração que deseja e reinstalar o software que está a executar na máquina virtual da geração. Esta alteração apenas afeta a imagem VHD base do VM e não tem qualquer impacto nos discos de dados ou nas ações NFS ou SMB anexadas. Discos de dados, NFS ou Ações SMB que foram inicialmente atribuídas, por exemplo, a uma Geração 1 VM.
 
@@ -620,7 +620,7 @@ A figura acima mostra que duas subscrições Azure têm subgrupos de endereço I
 
 A VPN ponto-a-local requer que todas as máquinas de clientes se conectem com a sua própria VPN em Azure. Para os cenários SAP, estamos a olhar para, a conectividade ponto-a-local não é prática. Por conseguinte, não são dadas mais referências à conectividade VPN ponto-a-local.
 
-Mais informações podem ser encontradas aqui
+Pode encontrar mais informações aqui
 * [Configure uma ligação ponto-a-local a um VNet utilizando o portal Azure](../../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 * [Configurar uma ligação de Ponto a Site a uma VNet com o PowerShell](../../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
@@ -767,7 +767,7 @@ O Microsoft Azure oferece várias formas de implementar VMs e discos associados.
 
 Planeia mover um sistema SAP específico do local para Ozure. Isto pode ser feito através do upload do VHD, que contém o SO, os binários SAP e DBMS, além dos VHDs com os dados e ficheiros de registo do DBMS para Azure. Em contraste com o [cenário #2 abaixo][planning-guide-5.1.2], mantenha as contas de utilizadores hostname, SAP SID e SAP no Azure VM, uma vez que foram configuradas no ambiente no local. Portanto, generalizar a imagem não é necessário. Ver capítulos [Preparação para a deslocação de um VM das instalações para Azure com um disco não generalizado][planning-guide-5.2.1] deste documento para etapas de preparação no local e carregamento de VMs ou VHDs não generalizados para Azure. Leia o capítulo [3: Mover um VM das instalações utilizando um Azure VHD não generalizado com o SAP][deployment-guide-3.4] no Guia de [Implantação][deployment-guide] para passos detalhados de implantação de tal imagem em Azure.
 
-Outra opção que não discutiremos em detalhe neste guia é a utilização da Recuperação do Site Azure para replicar os Servidores de Aplicações SAP NetWeaver e os Serviços Centrais SAP NetWeaver para o Azure. Não recomendamos a utilização da Recuperação do Local de Azure para a camada de base de dados e, em vez disso, utilizar mecanismos de replicação específicos da base de dados, como a replicação do sistema HANA. Para obter mais informações, consulte o capítulo [Protect SAP](https://docs.microsoft.com/azure/site-recovery/site-recovery-workload#protect-sap) of the About disaster recovery [for in-in-in apps](https://docs.microsoft.com/azure/site-recovery/site-recovery-workload) guide.
+Outra opção que não discutiremos em detalhe neste guia é a utilização da Recuperação do Site Azure para replicar os Servidores de Aplicações SAP NetWeaver e os Serviços Centrais SAP NetWeaver para o Azure. Não recomendamos a utilização da Recuperação do Local de Azure para a camada de base de dados e, em vez disso, utilizar mecanismos de replicação específicos da base de dados, como a replicação do sistema HANA. Para obter mais informações, consulte o capítulo [Protect SAP](../../../site-recovery/site-recovery-workload.md#protect-sap) of the About disaster recovery [for in-in-in apps](../../../site-recovery/site-recovery-workload.md) guide.
 
 #### <a name="deploying-a-vm-with-a-customer-specific-image"></a><a name="e18f7839-c0e2-4385-b1e6-4538453a285c"></a>Implantação de um VM com uma imagem específica do cliente
 
@@ -963,7 +963,7 @@ Durante o download, os VHDs ou Discos Geridos não podem estar ativos. Mesmo ao 
   Save-AzVhd -ResourceGroupName <resource group name of storage account> -SourceUri http://<storage account name>.blob.core.windows.net/<container name>/sapidedata.vhd -LocalFilePath E:\Azure_downloads\sapidesdata.vhd
   ```
 
-  Para mais detalhes sobre o cmdlet Save-AzVhd, consulte aqui <https://docs.microsoft.com/powershell/module/az.compute/save-Azvhd> .
+  Para mais detalhes sobre o Save-AzVhd cmdlet, consulte <https://docs.microsoft.com/powershell/module/az.compute/save-Azvhd> aqui.
 
 #### <a name="azure-cli"></a>CLI do Azure
 * Descarregar um Disco Gerido primeiro precisa de ter acesso à bolha subjacente do Disco Gerido. Em seguida, pode copiar a bolha subjacente para uma nova conta de armazenamento e fazer o download da bolha desta conta de armazenamento.
@@ -998,7 +998,7 @@ Os discos de dados também podem ser Geridos Discos. Neste caso, o Disco Gerido 
 
 ##### <a name="powershell"></a>PowerShell
 
-Pode utilizar cmdlets Azure PowerShell para copiar um VHD como mostrado [neste artigo][storage-powershell-guide-full-copy-vhd]. Para criar um novo Disco Gerido, utilize o New-AzDiskConfig e o New-AzDisk como mostrado no exemplo seguinte.
+Pode utilizar cmdlets Azure PowerShell para copiar um VHD como mostrado [neste artigo][storage-powershell-guide-full-copy-vhd]. Para criar um novo Disco Gerido, utilize New-AzDiskConfig e New-AzDisk como mostrado no exemplo seguinte.
 
 ```powershell
 $config = New-AzDiskConfig -CreateOption Copy -SourceUri "/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Compute/disks/<disk name>" -Location <location>
@@ -1168,7 +1168,7 @@ A experiência das implementações da SAP nos últimos dois anos ensinou-nos al
 >
 
 ---
-* O Premium Storage está a apresentar um melhor desempenho significativo, especialmente para as gravações críticas de registos de transações. Para cenários SAP que se espera que entreguem produção como desempenho, é altamente recomendado usar VM-Series que possa alavancar o Azure Premium Storage.
+* O Premium Storage está a apresentar um melhor desempenho significativo, especialmente para as gravações críticas de registos de transações. Para cenários SAP que se espera que entreguem produção como desempenho, é altamente recomendado usar VM-Series que possam alavancar o Azure Premium Storage.
 
 Tenha em mente que o disco, que contém o SO, e como recomendamos, os binários do SAP e da base de dados (VM base) também não se limitam a 127 GB. Agora pode ter até 1 TB de tamanho. Isto deve ser espaço suficiente para manter todos os ficheiros necessários, incluindo, por exemplo, registos de trabalho em lote SAP.
 
@@ -1219,7 +1219,7 @@ A azure Geo-replicação funciona localmente em cada VHD em um VM e não replica
 >
 > Para definir a automonto, consulte a documentação da linha de comando executável diskpart.exe aqui:
 >
-> * [Opções de linha de comando diskpart](/previous-versions/windows/it-pro/windows-xp/bb490893(v=technet.10))
+> * [Opções de Command-Line de parte de disco](/previous-versions/windows/it-pro/windows-xp/bb490893(v=technet.10))
 > * [Automount](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc753703(v=ws.11))
 >
 > A janela da linha de comando do Windows deve ser aberta como administrador.
@@ -1738,7 +1738,7 @@ A arquitetura geral da extensão Azure para SAP parece:
 
 Os casos sap em execução em Azure também precisam de ser acessíveis a partir do SAProuter.
 
-![Ligação da rede SAP-Router][planning-guide-figure-2600]
+![Ligação de rede SAP-Router][planning-guide-figure-2600]
 
 Um SAProuter permite a comunicação TCP/IP entre os sistemas participantes se não houver ligação IP direta. Isto proporciona a vantagem de que não é necessária qualquer ligação de ponta a ponta entre os parceiros de comunicação a nível da rede. O SAProuter está a ouvir a porta 3299 por defeito.
 Para ligar as instâncias SAP através de um SAProuter, é necessário dar a cadeia SAProuter e o nome do anfitrião a qualquer tentativa de ligação.
@@ -1805,7 +1805,7 @@ Existem dois tipos de eventos da plataforma Azure que podem afetar a disponibili
 * Os eventos de manutenção planeada são atualizações periódicas feitas pela Microsoft na plataforma Azure subjacente para melhorar a fiabilidade, o desempenho e a segurança gerais da infraestrutura da plataforma na qual as suas máquinas virtuais são executadas.
 * Os eventos de manutenção não planeada ocorrem quando o hardware ou a infraestrutura física subjacente à máquina virtual falharam de alguma forma. Isto pode incluir falhas de rede local, falhas de disco local ou outras falhas estruturais. Quando tal falha for detetada, a plataforma Azure migrará automaticamente a sua máquina virtual do servidor físico pouco saudável que hospeda a sua máquina virtual para um servidor físico saudável. Estes eventos são raros, mas também podem provocar o reinício da máquina virtual.
 
-Para mais detalhes, consulte [disponibilidade de máquinas virtuais do Windows em Azure](../../windows/manage-availability.md) e [Disponibilidade de máquinas virtuais Linux em Azure.](../../linux/manage-availability.md)
+Para mais detalhes, consulte [disponibilidade de máquinas virtuais do Windows em Azure](../../manage-availability.md) e [Disponibilidade de máquinas virtuais Linux em Azure.](../../manage-availability.md)
 
 #### <a name="azure-storage-redundancy"></a>Redundância de armazenamento Azure
 
@@ -1936,7 +1936,7 @@ Consulte aqui informações adicionais sobre o arranque automático para casos S
 * [Como ativar o arranque automático da Base de Dados HANA](http://sapbasisinfo.com/blog/2016/08/15/enabling-autostart-of-sap-hana-database-on-server-boot-situation/)
 
 ### <a name="larger-3-tier-sap-systems"></a>Sistemas SAP de 3 níveis maiores
-Os aspetos de Alta Disponibilidade das configurações DE SAP de 3 níveis já foram discutidos em secções anteriores. Mas e os sistemas onde os requisitos do servidor DBMS são demasiado grandes para o ter localizado em Azure, mas a camada de aplicação SAP poderia ser implantada em Azure?
+High-Availability aspetos das configurações DE SAP de 3 níveis já foram discutidos em secções anteriores. Mas e os sistemas onde os requisitos do servidor DBMS são demasiado grandes para o ter localizado em Azure, mas a camada de aplicação SAP poderia ser implantada em Azure?
 
 #### <a name="location-of-3-tier-sap-configurations"></a>Localização das configurações SAP de 3 níveis
 Não é suportado para dividir o próprio nível de aplicação ou o nível de aplicação e DBMS entre as instalações e o Azure. Um sistema SAP ou está completamente implantado no local ou em Azure. Também não é suportado para ter alguns dos servidores de aplicações executados no local e alguns outros em Azure. Este é o ponto de partida da discussão. Também não estamos a apoiar que os componentes DBMS de um sistema SAP e a camada de servidor de aplicação SAP sejam implantados em duas regiões diferentes do Azure. Por exemplo, a camada de aplicação DBMS nos EUA e SAP no Centro dos EUA. Razão para não suportar tais configurações é a sensibilidade de latência da arquitetura SAP NetWeaver.

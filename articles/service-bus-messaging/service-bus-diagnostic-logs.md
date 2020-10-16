@@ -4,10 +4,10 @@ description: Este artigo fornece uma visão geral de todos os registos operacion
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: f227f5a988ccd51425b4f43e87b4ed4d9af74e1f
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88064439"
 ---
 # <a name="enable-diagnostics-logs-for-service-bus"></a>Ativar registos de diagnóstico para Service Bus
@@ -76,7 +76,7 @@ As seguintes operações de gestão são capturadas em registos operacionais:
 
 Os registos operacionais são desativado por predefinição. Para ativar registos de diagnóstico, faça o seguinte:
 
-1. No [portal Azure,](https://portal.azure.com)aceda ao seu espaço de nomes para o Azure Service Bus e, em seguida, em **Monitorização,** selecione **Definições de Diagnóstico**.
+1. No [portal Azure,](https://portal.azure.com)aceda ao seu espaço de nomes para o Azure Service Bus e, em seguida, em **Monitorização,** selecione  **Definições de Diagnóstico**.
 
    ![A ligação "Definições de diagnóstico"](./media/service-bus-diagnostic-logs/image1.png)
 

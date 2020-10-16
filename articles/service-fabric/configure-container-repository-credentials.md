@@ -4,12 +4,12 @@ description: Configure credenciais de repositório para descarregar imagens do r
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: 142ede6fcc59063d83854712a966a90c7472923b
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 47a3fb39693bf6143d4033eed437f65b7e63eabb
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421429"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978684"
 ---
 # <a name="configure-repository-credentials-for-your-application-to-download-container-images"></a>Configure credenciais de repositório para a sua aplicação para descarregar imagens de contentores
 
@@ -83,10 +83,6 @@ Aqui está um exemplo do que pode ser adicionado dentro da `Hosting` secção na
           {
             "name": "DefaultContainerRepositoryPasswordType",
             "value": "PlainText"
-          },
-          {
-        "name": "DefaultMSIEndpointForTokenAuthentication",
-        "value": "URI"
           }
         ]
       },
@@ -100,6 +96,9 @@ O Service Fabric suporta o uso de tokens como credenciais para descarregar image
 1. Certifique-se de que *a identidade gerida atribuída* pelo sistema está ativada para o VM.
 
     ![Portal Azure: Criar opção de identidade definida em escala de máquina virtual](./media/configure-container-repository-credentials/configure-container-repository-credentials-acr-iam.png)
+
+> [!NOTE]
+> Para obter a identidade gerida atribuída pelo utilizador, ignore este passo. Os passos restantes abaixo funcionarão da mesma forma, desde que o conjunto de escala esteja apenas associado a uma única identidade gerida atribuída pelo utilizador.
 
 2. Conceder permissões à escala de máquina virtual definida para retirar/ler imagens do registo. A partir da lâmina do Controlo de Acesso (IAM) do seu Registo de Contentores Azure no portal Azure, adicione uma *atribuição de função* para a sua máquina virtual:
 
@@ -122,25 +121,6 @@ O Service Fabric suporta o uso de tokens como credenciais para descarregar image
     > [!NOTE]
     > A bandeira `UseDefaultRepositoryCredentials` definida como verdadeira, enquanto `UseTokenAuthenticationCredentials` é verdadeira, causará um erro durante a implantação.
 
-### <a name="using-token-credentials-outside-of-azure-global-cloud"></a>Usando credenciais simbólicas fora da Azure Global Cloud
-
-Ao utilizar credenciais de registo baseadas em fichas, o Service Fabric recolhe um símbolo em nome da máquina virtual para apresentar ao ACR. Por padrão, o Service Fabric solicita um símbolo cujo público é o ponto final global da nuvem Azure. Se estiver a implantar para outra instância em nuvem, como a Azure Germany, ou o Governo Azure, terá de anular o padrão do parâmetro `DefaultMSIEndpointForTokenAuthentication` . Se não estiver a deslocar-se para um ambiente especial, não sobreponha este parâmetro. Se estiver, substituirá o padrão, que é
-
-```
-http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.core.windows.net/
-```
-
-com o ponto final de recursos apropriado para o seu ambiente. Por exemplo, para [a Azure Alemanha,](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)a sobreposição seria 
-
-```json
-{
-    "name": "DefaultMSIEndpointForTokenAuthentication",
-    "value": "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.core.cloudapi.de/"
-}
-```
-
-[Leia mais sobre a procura de fichas de escala de máquina virtual](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token).
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Veja mais sobre [a autenticação do registo do contentor.](../container-registry/container-registry-authentication.md)

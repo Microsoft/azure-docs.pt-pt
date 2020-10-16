@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/24/2020
 ms.custom: seodec18
 ms.openlocfilehash: 3bfc03dd7a04bea7e69aa1b62cef267a81b650f1
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86037618"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Começar a usar Azure Stream Analytics: Deteção de fraude em tempo real
@@ -204,7 +204,7 @@ Agora que tem uma série de eventos de chamadas, pode configurar um trabalho de 
    |Alias de entrada  |  CallStream   |  Insira um nome para identificar a entrada do trabalho.   |
    |Subscrição   |  \<Your subscription\> |  Selecione a subscrição Azure que tem o Centro de Eventos que criou.   |
    |Espaço de nomes do hub de eventos  |  asa-eh-ns-demo |  Insira o nome do espaço de nomes do Event Hub.   |
-   |O nome do hub de eventos  | asa-eh-fraudedetecção-demonstração | Selecione o nome do seu Centro de Eventos.   |
+   |Nome do Hub de Eventos  | asa-eh-fraudedetecção-demonstração | Selecione o nome do seu Centro de Eventos.   |
    |Nome da política do Hub de Eventos  | asa-policy-manage-demo | Selecione a política de acesso que criou anteriormente.   |
 
     </br>
@@ -405,7 +405,7 @@ Quando examina o conteúdo de um ficheiro no armazenamento de bolhas, vê algo c
    ![Armazenamento de blob Azure com saída streaming Analytics](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-blob-storage-view.png)
  
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Existem artigos adicionais que continuam com o cenário de deteção de fraudes e usam os recursos que criou neste tutorial. Se quiser continuar, consulte as sugestões nos **próximos passos**.
 
@@ -422,7 +422,7 @@ No entanto, se já acabou e não precisa dos recursos que criou, pode eliminá-l
 
 Para obter mais assistência, experimente a [página de perguntas do Microsoft Q&A para o Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode continuar este tutorial com o seguinte artigo:
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: a692f4dd86d110f7f0a91a862a7b16ac28345de5
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86084533"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Utilizar blocos de notas do Apache Zeppelin com o cluster do Apache Spark no Azure HDInsight
@@ -159,7 +159,7 @@ Como referido acima, o `%sh` intérprete não é suportado a partir de HDInsight
 
 Os utilizadores privilegiados de domínio podem usar o `Shiro.ini` ficheiro para controlar o acesso à UI intérprete. Apenas estes utilizadores podem criar novos `%sh` intérpretes e definir permissões em cada novo `%sh` intérprete. Para controlar o acesso utilizando o `shiro.ini` ficheiro, utilize os seguintes passos:
 
-1. Defina um novo papel utilizando um nome de grupo de domínio existente. No exemplo seguinte, `adminGroupName` está um grupo de utilizadores privilegiados na AAD. Não utilize caracteres especiais ou espaços brancos no nome de grupo. Os personagens depois `=` dão as permissões para este papel. `*`significa que o grupo tem permissões completas.
+1. Defina um novo papel utilizando um nome de grupo de domínio existente. No exemplo seguinte, `adminGroupName` está um grupo de utilizadores privilegiados na AAD. Não utilize caracteres especiais ou espaços brancos no nome de grupo. Os personagens depois `=` dão as permissões para este papel. `*` significa que o grupo tem permissões completas.
 
     ```
     [roles]
@@ -224,7 +224,7 @@ Para validar o serviço a partir de uma linha de comando, SSH para o nó de cabe
 
 1. Guarde as alterações e reinicie o serviço.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 * [Kernels disponíveis para o caderno Jupyter em aglomerado de Faíscas Apache para HDInsight](apache-spark-jupyter-notebook-kernels.md)

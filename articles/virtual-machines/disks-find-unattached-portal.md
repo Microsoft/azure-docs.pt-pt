@@ -8,10 +8,10 @@ ms.date: 06/01/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 6632d65fa07788e35b24c2f957e713f824f6b091
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87542743"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks---azure-portal"></a>Localizar e apagar discos geridos e não geridos do Azure - portal Azure
@@ -45,17 +45,17 @@ Se tiver discos não geridos que não estejam ligados a um VM, já não precisa 
 
     É-lhe apresentada uma lista de todos os seus discos não geridos. Qualquer disco que tenha " **-** " na coluna **anexada** é um disco não ligado.
 
-    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-attached-to.png" alt-text="Screenshot da lâmina dos discos não geridos. Os discos desta lâmina que têm - na coluna anexa à coluna estão desapegados.":::
+    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-attached-to.png" alt-text="Screenshot de uma lâmina de discos geridos individualmente. Esta lâmina mostrar-se-á desapegado no estado do disco se não estiver presa. Pode eliminar este disco se não precisar de preservar os seus dados por mais tempo":::
 
 1. Selecione o disco não ligado que gostaria de apagar, isto traz a lâmina do disco.
 
 1. Na lâmina do disco, pode confirmar que não está ligada, uma vez que **a attached to** will still is **-** .
 
-    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-select-blade.png" alt-text="Screenshot de uma lâmina de disco individual não gerido. Terá - como o anexo ao valor se não estiver ligado. Se já não necessitar destes dados dos discos, pode eliminá-lo.":::
+    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-select-blade.png" alt-text="Screenshot de uma lâmina de discos geridos individualmente. Esta lâmina mostrar-se-á desapegado no estado do disco se não estiver presa. Pode eliminar este disco se não precisar de preservar os seus dados por mais tempo":::
 
 1. Selecione **Eliminar**.
 
-    :::image type="content" source="media/disks-find-unattached-portal/delete-unmanaged-disk-unattached.png" alt-text="Screenshot de uma lâmina de disco individual não gerido, realçando a exclusão.":::
+    :::image type="content" source="media/disks-find-unattached-portal/delete-unmanaged-disk-unattached.png" alt-text="Screenshot de uma lâmina de discos geridos individualmente. Esta lâmina mostrar-se-á desapegado no estado do disco se não estiver presa. Pode eliminar este disco se não precisar de preservar os seus dados por mais tempo":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -8,19 +8,19 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a04435b1e2feb537231bb80d2777b9ea2599c241
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 6bdf008c13a1466ec47134c303902a1f9d19545b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91812408"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072769"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do Programador do Azure Key Vault
 
 O Key Vault permite-lhe aceder de forma segura a informações sensíveis a partir das suas aplicações:
 
 - Chaves, segredos e certificados estão protegidos sem ter de escrever o código por si mesmo e você pode facilmente usá-los a partir das suas aplicações.
-- Você é capaz de ter clientes para possuir e gerir suas próprias chaves, segredos e certificados para que você possa se concentrar em fornecer as principais funcionalidades de software. Desta forma, as suas aplicações não serão proprietárias da responsabilidade ou potencial responsabilidade pelas chaves, segredos e certificados dos seus clientes.
+- Permite que os clientes possuam e gerem as suas próprias chaves, segredos e certificados para que possa concentrar-se em fornecer as principais funcionalidades de software. Desta forma, as suas aplicações não serão proprietárias da responsabilidade ou potencial responsabilidade pelas chaves, segredos e certificados dos seus clientes.
 - A sua aplicação pode usar chaves para a assinatura e encriptação, mas mantém a gestão da chave externa da sua aplicação. Para mais informações sobre as chaves, consulte [Sobre Chaves](../keys/about-keys.md)
 - Você pode gerir credenciais como palavras-passe, chaves de acesso, fichas sas armazenando-as em Key Vault como segredos, ver [Sobre Segredos](../secrets/about-secrets.md)
 - Gerir certificados. Para mais informações, consulte [Sobre Certificados](../certificates/about-certificates.md)
@@ -52,17 +52,27 @@ Para obter mais informações sobre o avião de gestão key vault, consulte [o K
 O Key Vault está a usar a autenticação AD AZure que requer o diretor de segurança AZure AD para conceder acesso. Um diretor de segurança Azure AD pode ser um utilizador, um diretor de serviço de aplicação, uma [identidade gerida para os recursos Azure,](../../active-directory/managed-identities-azure-resources/overview.md)ou um grupo de qualquer tipo de princípios de segurança.
 
 ### <a name="authentication-best-practices"></a>Melhores práticas de autenticação
+
 Recomenda-se a utilização de identidade gerida para aplicações implantadas no Azure. Se utilizar os serviços Azure, que não suportam a identidade gerida ou se os pedidos forem implementados no local, [o principal de serviço com um certificado](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) é uma alternativa possível. Nesse cenário, o certificado deve ser armazenado no Cofre de Chaves e rodado frequentemente. Recomenda-se o principal do serviço com segredo para ambientes de desenvolvimento e teste, e localmente ou em Cloud Shell usando o principal utilizador é recomendado.
 
-Acima, os cenários de autenticação são suportados pela biblioteca de clientes da Azure Identity e integrados com Key Vault SDKs. A biblioteca de identidade Azure pode ser usada em diferentes ambientes e plataformas sem alterar o seu código. A Azure Identity também recuperaria automaticamente o token de autenticação de iniciar sessão no utilizador Azure com Azure CLI, Visual Studio, Visual Studio Code, entre outros. 
+Princípios de segurança recomendados por ambiente:
+- **Ambiente de produção:**
+  - Com certificado de identidade ou serviço gerido
+- **Ambientes de ensaio e desenvolvimento:**
+  - Identidade gerida, principal de serviço com certificado ou principal de serviço com segredo
+- **Desenvolvimento local:**
+  - Diretor de utilizadores ou diretor de serviço com segredo
 
-Para obter mais informações, consulte: 
+Acima, os cenários de autenticação são suportados pela **biblioteca de clientes da Azure Identity** e integrados com Key Vault SDKs. A biblioteca de identidade Azure pode ser usada em diferentes ambientes e plataformas sem alterar o seu código. A Azure Identity também recuperaria automaticamente o token de autenticação de iniciar sessão no utilizador Azure com Azure CLI, Visual Studio, Visual Studio Code, entre outros. 
 
+Para obter mais informações sobre o libarário do cliente da Identidade Azure, consulte:
+
+### <a name="azure-identity-client-libraries"></a>Bibliotecas de clientes de identidade Azure
 | .NET | Python | Java | JavaScript |
 |--|--|--|--|
 |[Identidade Azure SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)|[Azure Identidade SDK Python](https://docs.microsoft.com/python/api/overview/azure/identity-readme)|[Identidade Azure SDK Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme)|[Identidade Azure SDK JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme)|     
 
-Autenticar para o Cofre de Chaves em aplicações:
+Para tutoriais sobre como autenticar o Key Vault em aplicações, consulte:
 - [Autenticar para Key Vault na aplicação hospedada em VM em .NET](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-virtual-machine)
 - [Autenticar para Key Vault na aplicação hospedada em VM em Python](https://docs.microsoft.com/azure/key-vault/general/tutorial-python-virtual-machine)
 - [Autenticar para cofre de chaves com serviço de aplicações](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-create-vault-azure-web-app)

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: jeedes
 ms.openlocfilehash: a6150093bd6735fe3ba6b2ff20aea89a3802bf21
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91743476"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-creatio"></a>Tutorial: Azure Ative Directory integração única (SSO) com Creatio
@@ -91,11 +91,11 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Contacte [a equipa de suporte do Cliente Creatio](mailto:support@creatio.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-1. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+1. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O Screenshot mostra a página do Certificado de Assinatura SAML com um link de descarregamento para um certificado base64.](common/certificatebase64.png)
 
-1. Na **configuração de um único sinal com página SAML,** na secção certificado de assinatura **SAML,** clique no botão de cópia para copiar o **Url de metadados da Federação de Aplicações** e guarde-o no seu computador.
+1. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** clique no botão de cópia para copiar o **Url de Metadados da Federação de Aplicações** e guarde-o no seu computador.
 
     ![O Screenshot mostra a página do Certificado de Assinatura SAML onde pode copiar metadados da Federação de Aplicações que é l.](common/copy-metadataurl.png)
 

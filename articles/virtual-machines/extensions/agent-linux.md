@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2237b0b0d0c1f6e95e100743b377f9c04f57210f
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 19b9259b55332d9f31fdefd166f0509e5443628d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279708"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965816"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Compreensão e utilização do Agente Azure Linux
 
@@ -93,7 +93,7 @@ O agente Linux depende de alguns pacotes do sistema para funcionar corretamente:
 * Ferramentas de rede: via ip
 * Suporte kernel para a montagem de sistemas de ficheiros UDF.
 
-Confirme que a VM tem acesso ao endereço IP 168.63.129.16. Para mais informações, consulte [o endereço IP 168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16).
+Confirme que a VM tem acesso ao endereço IP 168.63.129.16. Para mais informações, consulte [o endereço IP 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
 
 ## <a name="installation"></a>Instalação
@@ -101,7 +101,7 @@ A instalação utilizando um RPM ou uma embalagem DEB do repositório de pacotes
 
 Consulte a documentação no repo do [Agente Azure Linux no GitHub](https://github.com/Azure/WALinuxAgent) para opções avançadas de instalação, tais como instalar a partir de fonte ou para locais ou prefixos personalizados.
 
-## <a name="command-line-options"></a>Opções de Linha de Comando
+## <a name="command-line-options"></a>Opções Command-Line
 ### <a name="flags"></a>Sinalizadores
 * verbose: Aumentar a verbosidade do comando especificado
 * força: Saltar a confirmação interativa para alguns comandos

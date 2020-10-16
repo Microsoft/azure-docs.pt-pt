@@ -11,10 +11,10 @@ ms.topic: troubleshooting
 ms.date: 05/13/2019
 ms.author: kenwith
 ms.openlocfilehash: 00c4dec329456409bc8d5b77dca72f25daf9f5c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84781078"
 ---
 # <a name="sync-an-attribute-from-your-on-premises-active-directory-to-azure-ad-for-provisioning-to-an-application"></a>Sync um atributo do seu Ative Directy no local para Azure AD para provisionamento a uma aplicação
@@ -52,6 +52,6 @@ Se os dados necessários para o provisionamento estiverem no Ative Directory mas
 > [!NOTE]
 > A capacidade de provisão de atributos de referência de AD no local, como **gerido por ou** **DN/DistinguishedName,** não é suportada hoje em dia. Pode solicitar esta funcionalidade no [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory). 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Definir quem está no âmbito do provisionamento](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)

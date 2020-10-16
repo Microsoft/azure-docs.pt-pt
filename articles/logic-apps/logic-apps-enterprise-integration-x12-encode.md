@@ -9,10 +9,10 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 01/27/2017
 ms.openlocfilehash: c87a61dc77e656a1cfe667ce87f852303a0cc486
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74792358"
 ---
 # <a name="encode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Codificar mensagens X12 no Azure Logic Apps com o Enterprise Integration Pack
@@ -90,6 +90,6 @@ O conector X12 Encode executa estas tarefas:
 ## <a name="view-the-swagger"></a>Ver a arrogância
 Veja os [detalhes da arrogância.](/connectors/x12/) 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Saiba mais sobre o Pacote de Integração Empresarial](logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Pacote de Integração Empresarial") 
 

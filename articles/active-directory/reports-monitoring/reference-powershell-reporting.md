@@ -19,10 +19,10 @@ ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 4353ed5413f76b13425a59d31bb6108542e3bd23
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89231134"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Cmdlets do Azure AD PowerShell para relatórios
@@ -51,10 +51,10 @@ Obtém acesso aos registos de auditoria utilizando o cmdlet 'Get-AzureADAuditDir
 
 | Cenário                      | Comando do PowerShell |
 | :--                           | :--                |
-| Nome do display da aplicação      | Get-AzureADAuditDirectoryLogs -Filtro "iniciado Por/app/displayName eq 'Azure AD Cloud Sync'" |
+| Nome do display da aplicação      | Get-AzureADAuditDirectoryLogs -Filtro "iniciadoBy/app/displayName eq 'Azure AD Cloud Sync'" |
 | Categoria                      | Get-AzureADAuditDirectoryLogs -Filtrar "categoria eq 'ApplicationManagement'" |
 | Data de Data de Atividade            | Get-AzureADAuditDirectoryLogs -Filtrar "atividadeDateTime gt 2019-04-18" |
-| Todas as opções acima              | Get-AzureADAuditDirectoryLogs -Filtro "iniciado Por/app/displayName eq 'Azure AD Cloud Sync' e categoria eq 'ApplicationManagement' e atividadeDateTime gt 2019-04-18"|
+| Todas as opções acima              | Get-AzureADAuditDirectoryLogs -Filter "iniciadoBy/app/displayName eq 'Azure AD Cloud Sync' e categoria eq 'ApplicationManagement' e atividadeDateTime gt 2019-04-18"|
 
 
 A imagem que se segue mostra um exemplo para este comando. 
@@ -75,8 +75,8 @@ Obtém acesso aos registos de entrada utilizando o cmdlet 'Get-AzureADAuditSignI
 | Nome de exibição do utilizador             | Get-AzureADAuditSignInLogs -Filtro "userDisplayName eq 'Timothy Perkins'" |
 | Criar hora da data              | Get-AzureADAuditSignInLogs -Filtro "createdDateTime gt 2019-04-18T17:30:00.0Z" (Tudo desde as 17h30 do dia 4/18) |
 | Estado                        | Get-AzureADAuditSignInLogs -Filtrar "status/errorCode eq 50105" |
-| Nome do display da aplicação      | Get-AzureADAuditSignInLogs -Filter "appDisplayName eq 'StoreFrontStudio [wsfed enabled]'" |
-| Todas as opções acima              | Get-AzureADAuditSignInLogs -Filtro "userDisplayName eq 'Timothy Perkins' e status/errorCode ne 0 e appDisplayName eq 'StoreFrontStudio [wsfed enabled]". |
+| Nome do display da aplicação      | Get-AzureADAuditSignInLogs -Filtro "appDisplayName eq 'StoreFrontStudio [wsfed enabled]'" |
+| Todas as opções acima              | Get-AzureADAuditSignInLogs -Filter "userDisplayName eq 'Timothy Perkins' e status/errorCode ne 0 e appDisplayName eq 'StoreFrontStudio [wsfed enabled]'" |
 
 
 A imagem que se segue mostra um exemplo para este comando. 

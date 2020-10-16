@@ -2,13 +2,13 @@
 title: Funções de modelos
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para recuperar valores, trabalhar com cordas e numéricos e recuperar informações de implantação.
 ms.topic: conceptual
-ms.date: 09/01/2020
-ms.openlocfilehash: c78e9481e6f2ba1f17389992aab2712719fc4c3b
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.date: 10/12/2020
+ms.openlocfilehash: a479b81d0f0bc378f77885cbd644e70d7be1d857
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378411"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961175"
 ---
 # <a name="arm-template-functions"></a>Funções do modelo ARM
 
@@ -40,7 +40,7 @@ O Gestor de Recursos fornece várias funções para trabalhar com matrizes.
 
 * [matriz](template-functions-array.md#array)
 * [concat](template-functions-array.md#concat)
-* [contains](template-functions-array.md#contains)
+* [contém](template-functions-array.md#contains)
 * [criarArray](template-functions-array.md#createarray)
 * [vazio](template-functions-array.md#empty)
 * [primeiro](template-functions-array.md#first)
@@ -104,9 +104,11 @@ O Gestor de Recursos fornece as seguintes funções para trabalhar com condiçõ
 
 * [and](template-functions-logical.md#and)
 * [bool](template-functions-logical.md#bool)
+* [falso](template-functions-logical.md#false)
 * [se](template-functions-logical.md#if)
 * [não](template-functions-logical.md#not)
 * [ou](template-functions-logical.md#or)
+* [verdade](template-functions-logical.md#true)
 
 <a id="add" aria-hidden="true"></a>
 <a id="copyindex" aria-hidden="true"></a>
@@ -140,11 +142,13 @@ O Gestor de Recursos fornece as seguintes funções para trabalhar com inteiros:
 
 O Gestor de Recursos fornece várias funções para trabalhar com objetos.
 
-* [contains](template-functions-object.md#contains)
+* [contém](template-functions-object.md#contains)
+* [criarObject](template-functions-object.md#createobject)
 * [vazio](template-functions-object.md#empty)
 * [intersecção](template-functions-object.md#intersection)
 * [json](template-functions-object.md#json)
 * [length](template-functions-object.md#length)
+* [nulo](template-functions-object.md#null)
 * [união](template-functions-object.md#union)
 
 <a id="extensionResourceId" aria-hidden="true"></a>
@@ -215,7 +219,7 @@ O Gestor de Recursos fornece as seguintes funções para trabalhar com cordas:
 * [base64ToJson](template-functions-string.md#base64tojson)
 * [base64ToString](template-functions-string.md#base64tostring)
 * [concat](template-functions-string.md#concat)
-* [contains](template-functions-string.md#contains)
+* [contém](template-functions-string.md#contains)
 * [dataUri](template-functions-string.md#datauri)
 * [dataUriToString](template-functions-string.md#datauritostring)
 * [vazio](template-functions-string.md#empty)
@@ -233,7 +237,7 @@ O Gestor de Recursos fornece as seguintes funções para trabalhar com cordas:
 * [saltar](template-functions-string.md#skip)
 * [divisão](template-functions-string.md#split)
 * [começacom](template-functions-string.md#startswith)
-* [string](template-functions-string.md#string)
+* [cadeia](template-functions-string.md#string)
 * [substring](template-functions-string.md#substring)
 * [take](template-functions-string.md#take)
 * [toLower](template-functions-string.md#tolower)
@@ -244,7 +248,7 @@ O Gestor de Recursos fornece as seguintes funções para trabalhar com cordas:
 * [uriComponente](template-functions-string.md#uricomponent)
 * [uriComponentToString](template-functions-string.md#uricomponenttostring)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para uma descrição das secções num modelo ARM, consulte [os modelos ARM de autoria](template-syntax.md)
 * Para fundir vários modelos, consulte [Usando modelos ligados com Azure Resource Manager](linked-templates.md)

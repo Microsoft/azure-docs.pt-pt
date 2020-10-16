@@ -3,19 +3,19 @@ title: Gerir feeds de dados em Metrics Advisor
 titleSuffix: Azure Cognitive Services
 description: Saiba como gerir os feeds de dados que adicionou ao Metrics Advisor.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 08/28/2020
-ms.author: aahi
-ms.openlocfilehash: 22a1be7231b730c83ca97b0f128e43258ed24533
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.author: mbullwin
+ms.openlocfilehash: de8d5d8e9fc5ce1df05cfd4c67ef146760e2c7e9
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937813"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043175"
 ---
 # <a name="how-to-manage-your-data-feeds"></a>Como: Gerir os feeds de dados
 
@@ -106,7 +106,7 @@ As opções são:
 
 Os modelos de ligação de ação são usados para pré-finir urls HTTP aactivos, que consistem nos espaços reservados `%datafeed` , , , e `%metric` `%timestamp` `%detect_config` `%tagset` . Pode utilizar o modelo para redirecionar de uma anomalia ou de um incidente para um URL específico para perfurar.
 
-:::image type="content" source="../media/action-link-template.png" alt-text="Modelo de ligação de ação" lightbox="../media/action-link-template.png":::
+:::image type="content" source="../media/action-link-template.png" alt-text="Feed de dados de enchimento de reenchimento" lightbox="../media/action-link-template.png":::
 
 Uma vez preenchido o link de ação, clique em **Ir ao link de ação** na opção de ação da lista de incidentes e no menu de cliques à direita da árvore incidente. Substitua os espaços reservados no modelo de ligação de ação pelos valores correspondentes da anomalia ou incidente.
 

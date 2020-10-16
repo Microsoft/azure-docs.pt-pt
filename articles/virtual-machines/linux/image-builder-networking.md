@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: dfd0929ea03cd99033482f71579e91aaf6fc131c
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 531c423e42338b72b41c54466d5bfe8a89cd3c45
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88068246"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969642"
 ---
 # <a name="azure-image-builder-service-networking-options"></a>Opções de networking do Azure Image Builder Service
 
@@ -33,7 +33,7 @@ Para mais informações, consulte um dos seguintes exemplos:
 
 ### <a name="what-is-azure-private-link"></a>O que é a Ligação Privada do Azure?
 
-O Azure Private Link fornece conectividade privada de uma rede virtual para a plataforma Azure como um serviço (PaaS), serviços de parceiros de propriedade do cliente ou Microsoft. Simplifica a arquitetura da rede e assegura a ligação entre pontos finais em Azure, eliminando a exposição de dados à internet pública. Para mais informações, consulte a [documentação private link.](https://docs.microsoft.com/azure/private-link)
+O Azure Private Link fornece conectividade privada de uma rede virtual para a plataforma Azure como um serviço (PaaS), serviços de parceiros de propriedade do cliente ou Microsoft. Simplifica a arquitetura da rede e assegura a ligação entre pontos finais em Azure, eliminando a exposição de dados à internet pública. Para mais informações, consulte a [documentação private link.](../../private-link/index.yml)
 
 ### <a name="required-permissions-for-an-existing-vnet"></a>Permissões necessárias para um VNET existente
 
@@ -68,7 +68,7 @@ O tamanho VM de procuração implantado é Standard A1_v2 para além da constru�
 | subnetName | Nome da sub-rede dentro da rede virtual especificada. Deve ser especificado se e somente se o *nome* for especificado. |
 | resourceGroupName | Nome do grupo de recursos que contém a rede virtual especificada. Deve ser especificado se e somente se o *nome* for especificado. |
 
-O serviço private Link requer um IP a partir do VNET e da sub-rede. Atualmente, a Azure não apoia políticas de rede nestes IPs. Por conseguinte, as políticas de rede têm de ser desativadas na sub-rede. Para mais informações, consulte a [documentação private link.](https://docs.microsoft.com/azure/private-link)
+O serviço private Link requer um IP a partir do VNET e da sub-rede. Atualmente, a Azure não apoia políticas de rede nestes IPs. Por conseguinte, as políticas de rede têm de ser desativadas na sub-rede. Para mais informações, consulte a [documentação private link.](../../private-link/index.yml)
 
 ### <a name="checklist-for-using-your-vnet"></a>Lista de verificação para utilização do seu VNET
 

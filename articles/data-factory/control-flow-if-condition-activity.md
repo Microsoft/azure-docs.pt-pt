@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 9f65ffc9ef24b18ce0f18571c1f3fc91e7ca7fdf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85414611"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Se a atividade da condição na Fábrica de Dados Azure
@@ -79,7 +79,7 @@ O pipeline neste exemplo copia dados de uma pasta de entrada para uma pasta de s
 > [!NOTE]
 > Esta secção fornece definições JSON e comandos de amostra PowerShell para executar o gasoduto. Para uma passagem com instruções passo a passo para criar um oleoduto data factory utilizando definições Azure PowerShell e JSON, consulte tutorial: crie uma fábrica de [dados utilizando a Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
-### <a name="pipeline-with-if-condition-activity-adfv2quickstartpipelinejson"></a>Gasoduto com atividade IF-Condition (Adfv2QuickStartPipeline.js)
+### <a name="pipeline-with-if-condition-activity-adfv2quickstartpipelinejson"></a>Gasoduto com atividade IF-Condition (Adfv2QuickStartPipeline.jsem curso)
 
 ```json
 {
@@ -287,7 +287,7 @@ Write-Host "\nActivity 'Error' section:" -foregroundcolor "Yellow"
 $result.Error -join "`r`n"
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte outras atividades de fluxo de controlo suportadas pela Data Factory: 
 
 - [Executar a Atividade do Pipeline](control-flow-execute-pipeline-activity.md)

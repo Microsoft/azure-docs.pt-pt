@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/08/2020
 ms.openlocfilehash: 2785f79d327402a40be0a905877b5113b3f751b7
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91710452"
 ---
 # <a name="configure-tls-connectivity-in-azure-database-for-postgresql---single-server"></a>Configure a conectividade TLS na Base de Dados Azure para PostgreSQL - Servidor Único
@@ -104,7 +104,7 @@ Como parte da comunicação SSL/TLS, as suítes cifra são validadas e apenas os
 *   TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 *   TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Reveja várias opções de conectividade de aplicações nas [bibliotecas connection para Azure Database for PostgreSQL](concepts-connection-libraries.md).
 

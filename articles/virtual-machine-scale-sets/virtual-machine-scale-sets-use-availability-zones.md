@@ -10,10 +10,10 @@ ms.date: 08/08/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.openlocfilehash: cb4d30a2bb7704ef7d4d4760f3d8cf74788945c2
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89611922"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Crie um conjunto de escala de máquina virtual que utilize Zonas de Disponibilidade
@@ -65,7 +65,7 @@ Para utilizar Zonas de Disponibilidade, o seu conjunto de escalas deve ser criad
 - [Portal do Azure](#use-the-azure-portal)
 - CLI do Azure
 - [Azure PowerShell](#use-azure-powershell)
-- [Modelos de gestor de recursos Azure](#use-azure-resource-manager-templates)
+- [Modelos do Azure Resource Manager](#use-azure-resource-manager-templates)
 
 ## <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
 
@@ -217,6 +217,6 @@ Se criar um endereço IP público ou um equilibrador de carga, especifique o *"s
 
 Para um exemplo completo de um conjunto de escalas redundantes de zona e recursos de rede, consulte [este modelo de gestor de recursos de amostra](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que criou uma escala definida numa Zona de Disponibilidade, pode aprender a [implementar aplicações em conjuntos de escala de máquinas virtuais](tutorial-install-apps-cli.md) ou [utilizar uma escala automática com conjuntos de escala de máquina virtual](tutorial-autoscale-cli.md).

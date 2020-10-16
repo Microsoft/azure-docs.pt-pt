@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 608f984b3e3a3020863e0c28b0aa2ad504531e3b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: aa13baf7c6fc6d3bb66b97e533da29e4a1a6e73c
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91273228"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876248"
 ---
 # <a name="azure-data-studio-dashboards"></a>Dashboards Azure Data Studio
 
@@ -57,7 +57,7 @@ Agora, você vai querer construir um URL para o seu ponto final, combinando esta
 https://<ip address>:<port>
 
 Example:
-https://52.;154.152.24:30080
+https://52.154.152.24:30080
 ```
 
 Tome nota do seu endereço IP como irá usá-lo no próximo passo.

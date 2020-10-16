@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 0eb814ea0d941ca01d3a21db1cb507ef273a1a18
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: dc08e23b6ef040ba5833ffa97f71d8cd1da3bb8a
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328348"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019805"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming em direto com a Azure Media Services v3
 
@@ -37,7 +37,7 @@ Para clientes que procuram entregar conteúdo a grandes audiências de internet,
 Este artigo dá uma visão geral e orientação de streaming ao vivo com os Media Services e links para outros artigos relevantes.
  
 > [!NOTE]
-> Pode utilizar o [portal Azure](https://portal.azure.com/) para gerir v3 [Live Events,](live-events-outputs-concept.md)ver [ativos](assets-concept.md)v3, obter informações sobre o acesso às APIs. Para todas as outras tarefas de gestão (por exemplo, Transformações e Empregos), utilize o [REST API,](/rest/api/media/) [CLI,](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs suportados.](media-services-apis-overview.md#sdks)
+> Pode utilizar o [portal Azure](https://portal.azure.com/) para gerir v3 [Live Events,](live-events-outputs-concept.md)ver [ativos](assets-concept.md)v3, obter informações sobre o acesso às APIs. Para todas as outras tarefas de gestão (por exemplo, Transformações e Empregos), utilize o [REST API,](/rest/api/media/) [CLI,](/cli/azure/ams)ou um dos [SDKs suportados.](media-services-apis-overview.md#sdks)
 
 ## <a name="dynamic-packaging-and-delivery"></a>Embalagem e entrega dinâmicas
 

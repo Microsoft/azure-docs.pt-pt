@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/09/2020
 ms.reviewer: sngun
 ms.openlocfilehash: 58db7dcade7567d632fb405b31c4ff7bdbc6e71a
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90018974"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Leitura do feed de alterações do Azure Cosmos DB
@@ -27,7 +27,7 @@ Ao ler o feed de mudança de DB do Azure Cosmos, recomendamos a utilização de 
 - Carregamento equilibrando vários clientes consumindo mudanças. Por exemplo, se um cliente não consegue acompanhar as alterações de processamento e outro tem capacidade disponível.
 - [Erros de manuseamento](change-feed-processor.md#error-handling). Por exemplo, rectição automática de alterações falhadas que não foram processadas corretamente após uma exceção não manipulada no código ou um problema de rede transitório.
 
-A maioria dos cenários que usam o feed de mudança de DB Azure Cosmos usará uma das opções do modelo push. No entanto, existem alguns cenários em que poderá querer o controlo adicional de baixo nível do modelo de puxar. Incluem-se:
+A maioria dos cenários que usam o feed de mudança de DB Azure Cosmos usará uma das opções do modelo push. No entanto, existem alguns cenários em que poderá querer o controlo adicional de baixo nível do modelo de puxar. Estes incluem:
 
 - Alterações de leitura a partir de uma chave de partição particular
 - Controlando o ritmo em que o seu cliente recebe alterações para o processamento
@@ -76,7 +76,7 @@ A funcionalidade de feed de alteração é emergida como fluxos de mudança na A
 
 A Nativa Apache Cassandra fornece a captura de dados de mudança (CDC), um mecanismo para sinalizar tabelas específicas para arquivo, bem como rejeitar escritas para essas tabelas uma vez que um tamanho-on-disco configurável para o log CDC é alcançado. A funcionalidade de feed de mudança em Azure Cosmos DB API para Cassandra aumenta a capacidade de consultar as mudanças com predicado via CQL. Para saber mais sobre os detalhes da implementação, consulte [change feed na API API do Azure Cosmos para Cassandra.](cassandra-change-feed.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode agora continuar a aprender mais sobre a alteração do feed nos seguintes artigos:
 

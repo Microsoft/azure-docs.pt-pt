@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: trbye
 ms.openlocfilehash: 272367d5311952b45c73febe0e05b1ec2d225261
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88056691"
 ---
 # <a name="get-started-with-custom-voice"></a>Introdução à Voz Personalizada

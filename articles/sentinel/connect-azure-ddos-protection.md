@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: yelevin
 ms.openlocfilehash: e8e44f69965af1987bd5f023644d966b3caf1c77
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89505878"
 ---
 # <a name="connect-data-from-azure-ddos-protection"></a>Ligar dados da Azure DDoS Protection
@@ -59,7 +59,7 @@ Os ataques de negação de serviço distribuídos (DDoS) tentam esgotar os recur
 >
 > Com este conector de dados em particular, os indicadores de estado de conectividade (uma faixa de cor na galeria de conectores de dados e ícones de conexão ao lado dos nomes do tipo de dados) só mostrarão como *conectados* (verdes) se os dados ingerirem em algum ponto nas últimas duas semanas. Uma vez passadas duas semanas sem ingestão de dados, o conector mostrará como estando desligado. No momento em que mais dados chegam, o estado *ligado* voltará.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste documento, aprendeu a ligar os registos de Proteção Azure DDoS ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)

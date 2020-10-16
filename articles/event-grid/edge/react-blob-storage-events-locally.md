@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 230e158a970f8c815b1575403c013e30749124c5
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87462025"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>Tutorial: Reagir aos eventos de armazenamento blob em IoT Edge (Preview)
@@ -75,7 +75,7 @@ Um manifesto de implantação é um documento JSON que descreve quais os módulo
         }
     ```    
 
- 1. Clique em **Guardar**
+ 1. Clicar em **Guardar**
  1. Continue na secção seguinte para adicionar o módulo Azure Event Grid Subscriber antes de os colocar em conjunto.
 
     >[!IMPORTANT]
@@ -95,7 +95,7 @@ Esta secção mostra-lhe como implantar outro módulo IoT que funcionaria como u
    * **Nome**: assinante
    * **Imagem URI:**`mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
    * **Opções de criação de contentores:** Nenhuma
-1. Clique em **Guardar**
+1. Clicar em **Guardar**
 1. Continue até a secção seguinte para adicionar o módulo de armazenamento Azure Blob
 
 ## <a name="deploy-azure-blob-storage-module"></a>Implementar módulo de armazenamento Azure Blob
@@ -146,7 +146,7 @@ Esta secção mostra-lhe como implantar o módulo de armazenamento Azure Blob, q
      - Para recipientes Linux, **o meu volume:/blobroot**
      - Para recipientes Windows,**o meu volume:C:/BlobRoot**
 
-5. Clique em **Guardar**
+5. Clicar em **Guardar**
 6. Clique **ao lado** para continuar na secção de rotas
 
     > [!NOTE]
@@ -193,8 +193,8 @@ Mantenha as rotas predefinidos e selecione **Seguinte** para continuar na secç�
     ```
 
     > [!IMPORTANT]
-    > - Para o fluxo HTTPS, se a autenticação do cliente estiver ativada através da tecla SAS, a tecla SAS especificada anteriormente deve ser adicionada como cabeçalho. Daí que o pedido de caracóis seja:`curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview`
-    > - Para o fluxo HTTPS, se a autenticação do cliente estiver ativada através de certificado, o pedido de caracóis será:`curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview`
+    > - Para o fluxo HTTPS, se a autenticação do cliente estiver ativada através da tecla SAS, a tecla SAS especificada anteriormente deve ser adicionada como cabeçalho. Daí que o pedido de caracóis seja: `curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview`
+    > - Para o fluxo HTTPS, se a autenticação do cliente estiver ativada através de certificado, o pedido de caracóis será: `curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview`
 
 2. Os assinantes podem inscrever-se para eventos publicados num tema. Para receber qualquer evento, terá de criar uma subscrição de Event Grid para o tópico **MicrosoftStorage.**
     1. Crie blobsubscription.jscom o seguinte conteúdo. Para mais detalhes sobre a carga útil, consulte a nossa [documentação da API](api.md)
@@ -222,7 +222,7 @@ Mantenha as rotas predefinidos e selecione **Seguinte** para continuar na secç�
        ```
 
        > [!IMPORTANT]
-       > - Para o fluxo HTTPS, se a autenticação do cliente estiver ativada através da tecla SAS, a tecla SAS especificada anteriormente deve ser adicionada como cabeçalho. Daí que o pedido de caracóis seja:`curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview` 
+       > - Para o fluxo HTTPS, se a autenticação do cliente estiver ativada através da tecla SAS, a tecla SAS especificada anteriormente deve ser adicionada como cabeçalho. Daí que o pedido de caracóis seja: `curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview` 
        > - Para o fluxo HTTPS, se a autenticação do cliente estiver ativada através de certificado, o pedido de caracóis será:`curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
 
     3. Executar o seguinte comando para verificar se a subscrição foi criada com sucesso. HTTP Código de Estado de 200 OK deve ser devolvido.
@@ -251,8 +251,8 @@ Mantenha as rotas predefinidos e selecione **Seguinte** para continuar na secç�
        ```
 
        > [!IMPORTANT]
-       > - Para o fluxo HTTPS, se a autenticação do cliente estiver ativada através da tecla SAS, a tecla SAS especificada anteriormente deve ser adicionada como cabeçalho. Daí que o pedido de caracóis seja:`curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
-       > - Para o fluxo HTTPS, se a autenticação do cliente estiver ativada através de certificado, o pedido de caracóis será:`curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
+       > - Para o fluxo HTTPS, se a autenticação do cliente estiver ativada através da tecla SAS, a tecla SAS especificada anteriormente deve ser adicionada como cabeçalho. Daí que o pedido de caracóis seja: `curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
+       > - Para o fluxo HTTPS, se a autenticação do cliente estiver ativada através de certificado, o pedido de caracóis será: `curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
 
 3. Baixe [o Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) e [conecte-o ao seu armazenamento local](../../iot-edge/how-to-store-data-blob.md#connect-to-your-local-storage-with-azure-storage-explorer)
 
@@ -326,27 +326,27 @@ Aqui está a lista de propriedades de eventos suportados e seus tipos e descriç
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| tópico | cadeia | Caminho completo de recursos para a fonte do evento. Este campo não é escrito. O Event Grid fornece este valor. |
-| subject | cadeia | Caminho definido pelo publicador para o assunto do evento. |
-| eventType | cadeia | Um dos tipos de eventos registados para esta origem de evento. |
-| eventTime | cadeia | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
-| ID | cadeia | Identificador único para o evento. |
+| tópico | string | Caminho completo de recursos para a fonte do evento. Este campo não é escrito. O Event Grid fornece este valor. |
+| subject | string | Caminho definido pelo publicador para o assunto do evento. |
+| eventType | string | Um dos tipos de eventos registados para esta origem de evento. |
+| eventTime | string | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
+| ID | string | Identificador único para o evento. |
 | dados | objeto | Dados do evento de armazenamento de bolhas. |
-| dataVersion | cadeia | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
-| metadataVersion | cadeia | A versão do esquema dos metadados do evento. O Event Grid define o esquema das propriedades de nível superior. O Event Grid fornece este valor. |
+| dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | string | A versão do esquema dos metadados do evento. O Event Grid define o esquema das propriedades de nível superior. O Event Grid fornece este valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| api | cadeia | A operação que desencadeou o evento. Pode ser um dos seguintes valores: <ul><li>BlobCreated - valores permitidos são: `PutBlob` e`PutBlockList`</li><li>BlobDeleted - valores permitidos são `DeleteBlob` , `DeleteAfterUpload` e `AutoDelete` . <p>O `DeleteAfterUpload` evento é gerado quando a bolha é automaticamente eliminada porque deleteAfterUpload propriedade desejada é definida como verdadeira. </p><p>`AutoDelete`o evento é gerado quando o blob é automaticamente eliminado porque eliminaMinutes o valor de propriedade desejado expirou.</p></li></ul>|
-| clienteRequestId | cadeia | um ID de pedido fornecido pelo cliente para a operação de API de armazenamento. Este ID pode ser usado para correlacionar com os registos de diagnóstico do Azure Storage utilizando o campo "cliente-pedido-id" nos registos, e pode ser fornecido em pedidos do cliente usando o cabeçalho "x-ms-cliente-pedido-id". Para mais informações, consulte [o Formato de Registo](/rest/api/storageservices/storage-analytics-log-format). |
-| requestId | cadeia | ID de pedido gerado pelo serviço para a operação de API de armazenamento. Pode ser usado para correlacionar com os registos de diagnóstico de armazenamento Azure usando o campo "solicit-id-header" nos registos e é devolvido do início da chamada API no cabeçalho 'x-ms-request-id'. Ver [Formato de Registo](/rest/api/storageservices/storage-analytics-log-format). |
-| eTag | cadeia | O valor que pode usar para realizar operações condicionalmente. |
-| conteúdoType | cadeia | O tipo de conteúdo especificado para a bolha. |
+| api | string | A operação que desencadeou o evento. Pode ser um dos seguintes valores: <ul><li>BlobCreated - valores permitidos são: `PutBlob` e `PutBlockList`</li><li>BlobDeleted - valores permitidos são `DeleteBlob` , `DeleteAfterUpload` e `AutoDelete` . <p>O `DeleteAfterUpload` evento é gerado quando a bolha é automaticamente eliminada porque deleteAfterUpload propriedade desejada é definida como verdadeira. </p><p>`AutoDelete` o evento é gerado quando o blob é automaticamente eliminado porque eliminaMinutes o valor de propriedade desejado expirou.</p></li></ul>|
+| clienteRequestId | string | um ID de pedido fornecido pelo cliente para a operação de API de armazenamento. Este ID pode ser usado para correlacionar com os registos de diagnóstico do Azure Storage utilizando o campo "cliente-pedido-id" nos registos, e pode ser fornecido em pedidos do cliente usando o cabeçalho "x-ms-cliente-pedido-id". Para mais informações, consulte [o Formato de Registo](/rest/api/storageservices/storage-analytics-log-format). |
+| requestId | string | ID de pedido gerado pelo serviço para a operação de API de armazenamento. Pode ser usado para correlacionar com os registos de diagnóstico de armazenamento Azure usando o campo "solicit-id-header" nos registos e é devolvido do início da chamada API no cabeçalho 'x-ms-request-id'. Ver [Formato de Registo](/rest/api/storageservices/storage-analytics-log-format). |
+| eTag | string | O valor que pode usar para realizar operações condicionalmente. |
+| conteúdoType | string | O tipo de conteúdo especificado para a bolha. |
 | contentAver | número inteiro | O tamanho da bolha em bytes. |
-| BlobType | cadeia | O tipo de bolha. Os valores válidos são "BlockBlob" ou "PageBlob". |
-| url | cadeia | O caminho para a bolha. <br>Se o cliente utilizar uma API Blob REST, então o url tem esta estrutura: * \<storage-account-name\> .blob.core.windows.net/ \<container-name\> / \<file-name\> *. <br>Se o cliente utilizar uma API de Armazenamento de Data Lake, então o url tem esta estrutura: * \<storage-account-name\> .dfs.core.windows.net/ \<file-system-name\> / \<file-name\> *. |
+| BlobType | string | O tipo de bolha. Os valores válidos são "BlockBlob" ou "PageBlob". |
+| url | string | O caminho para a bolha. <br>Se o cliente utilizar uma API Blob REST, então o url tem esta estrutura: * \<storage-account-name\> .blob.core.windows.net/ \<container-name\> / \<file-name\> *. <br>Se o cliente utilizar uma API de Armazenamento de Data Lake, então o url tem esta estrutura: * \<storage-account-name\> .dfs.core.windows.net/ \<file-system-name\> / \<file-name\> *. |
 
 
 ## <a name="next-steps"></a>Passos seguintes

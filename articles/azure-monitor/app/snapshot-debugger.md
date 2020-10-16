@@ -5,17 +5,17 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 10/23/2019
 ms.reviewer: cweining
-ms.openlocfilehash: ab142b4e0a2d5486727ffc71fc94ae4944513052
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: b439dcfc755f0113ffabf792850a2bd0fbcf322e
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935811"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996519"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Instantâneos de depuração com exceções em aplicações .NET
 Quando ocorre uma exceção, pode recolher automaticamente uma imagem de depurar da sua aplicação web ao vivo. O instantâneo mostra o estado do código fonte e as variáveis no momento em que a exceção foi lançada. O Snapshot Debugger in [Azure Application Insights](./app-insights-overview.md) monitoriza a telemetria de exceção da sua aplicação web. Recolhe instantâneos nas suas exceções de arremesso de topo para que tenha a informação necessária para diagnosticar problemas na produção. Inclua o [pacote NuGet do colecionador Snapshot](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) na sua aplicação e configurar opcionalmente os parâmetros de recolha em [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). As imagens aparecem em [exceções](./asp-net-exceptions.md) no portal Application Insights.
 
-Pode ver instantâneos de depuração no portal para visualizar a pilha de chamadas e inspecionar as variáveis em cada frame de pilha de chamadas. Para obter uma experiência de depuragem mais poderosa com código fonte, abra fotos com o Visual Studio 2019 Enterprise. No Visual Studio, também pode [definir Snappoints para tirar fotos interativamente](https://aka.ms/snappoint) sem esperar por uma exceção.
+Pode ver instantâneos de depuração no portal para visualizar a pilha de chamadas e inspecionar as variáveis em cada frame de pilha de chamadas. Para obter uma experiência de depuragem mais poderosa com código fonte, abra fotos com o Visual Studio 2019 Enterprise. No Visual Studio, também pode [definir Snappoints para tirar fotos interativamente](/visualstudio/debugger/debug-live-azure-applications) sem esperar por uma exceção.
 
 As fotos de depurg são armazenadas durante 15 dias. Esta política de retenção é definida numa base por aplicação. Se precisar de aumentar este valor, pode solicitar um aumento abrindo um caso de suporte no portal Azure.
 
@@ -142,4 +142,3 @@ Além da aplicação Insights Snapshot Debugger:
 * [Desaponte os pontos de encaixe no seu código](/visualstudio/debugger/debug-live-azure-applications) para obter instantâneos sem esperar por uma exceção.
 * [Diagnosticar exceções nas suas aplicações web](./asp-net-exceptions.md) explica como tornar mais exceções visíveis ao Application Insights.
 * [A Deteção Inteligente](./proactive-diagnostics.md) descobre automaticamente anomalias de desempenho.
-

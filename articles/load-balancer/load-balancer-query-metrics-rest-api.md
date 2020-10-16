@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: allensu
 ms.openlocfilehash: 3b5aedb20bc7a8d2aa6f3aa3d8691a71af4cd3a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84808378"
 ---
 # <a name="get-load-balancer-usage-metrics-using-the-rest-api"></a>Obtenha métricas de utilização do Balanceador de Carga utilizando a API REST
@@ -38,16 +38,16 @@ Os seguintes cabeçalhos são obrigatórios:
 |Cabeçalho do pedido|Descrição|  
 |--------------------|-----------------|  
 |*Content-Type:*|Necessário. Definido como `application/json`.|  
-|*Authorization:*|Necessário. Definido como um  [token de acesso `Bearer`](/rest/api/azure/#authorization-code-grant-interactive-clients) válido. |  
+|*Authorization:*|Necessário. Definido como um [token de acesso `Bearer` ](/rest/api/azure/#authorization-code-grant-interactive-clients) válido. |  
 
 ### <a name="uri-parameters"></a>Parâmetros URI
 
-| Name | Descrição |
+| Nome | Descrição |
 | :--- | :---------- |
 | subscriptionId | O ID de subscrição que identifica uma subscrição do Azure. Se tiver várias subscrições, consulte [Trabalhar com várias subscrições](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | resourceGroupName | O nome do grupo de recursos que contém o recurso. Pode obter este valor a partir da Azure Resource Manager API, CLI ou do portal. |
 | loadBalancerName | O nome do Equilibrador de Carga Azure. |
-| nomes métricos | Lista separada por vírgulas de [métricas válidas do Balanceador](/azure/load-balancer/load-balancer-standard-diagnostics)de Carga . |
+| nomes métricos | Lista separada por vírgulas de  [métricas válidas do Balanceador](/azure/load-balancer/load-balancer-standard-diagnostics)de Carga . |
 | api-version | A versão API a utilizar para o pedido.<br /><br /> Este documento abrange a versão `2018-01-01` api, incluída no URL acima.  |
 | timespan | O tempo da consulta. É uma corda com o seguinte `startDateTime_ISO/endDateTime_ISO` formato. Este parâmetro opcional está definido para devolver um dia de dados no exemplo. |
 | &nbsp; | &nbsp; |

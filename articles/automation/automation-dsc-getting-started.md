@@ -10,10 +10,10 @@ ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 0e98078fe2799d1c524190c8ced36588f35498b4
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86186440"
 ---
 # <a name="get-started-with-azure-automation-state-configuration"></a>Começar com a configuração do Estado da Automação Azure
@@ -83,7 +83,7 @@ Depois de importar uma configuração, pode vê-la no portal Azure.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. À esquerda, clique em **Todos os recursos** e, em seguida, o nome da sua conta Automation.
-1. Na página da conta Automation, selecione **a configuração do Estado (DSC)** em **Gestão de Configuração**.
+1. Na página da conta Automation, selecione  **a configuração do Estado (DSC)** em **Gestão de Configuração**.
 1. Na página de configuração do Estado (DSC), clique no **separador Configurações** e, em seguida, clique em **TestConfig**. Este é o nome da configuração que importou no procedimento anterior.
 1. No painel de configuração TestConfig, clique **na fonte de configuração de Ver**.
 

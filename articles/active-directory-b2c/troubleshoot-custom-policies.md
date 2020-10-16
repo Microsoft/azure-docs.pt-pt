@@ -11,10 +11,10 @@ ms.date: 08/13/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c1b51792c86cfce15fa718040dfcbcc13997ee26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85384962"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Resolução de problemas Azure AD B2C políticas personalizadas e enquadramento de experiência de identidade
@@ -39,18 +39,18 @@ A validação do ficheiro de política XML é executada automaticamente no uploa
 
 Os erros de validação comuns incluem:
 
-> Erro:`...makes a reference to ClaimType with id "displayName" but neither the policy nor any of its base policies contain such an element`
+> Erro: `...makes a reference to ClaimType with id "displayName" but neither the policy nor any of its base policies contain such an element`
 
 * O valor ClaimType pode ser mal escrito, ou não existe no esquema.
 * Os valores de ClaimType devem ser definidos em pelo menos um dos ficheiros da apólice.
     Por exemplo: `<ClaimType Id="issuerUserId">`
 * Se o ClaimType for definido no ficheiro de extensões, mas também for utilizado num valor TécnicoProfile no ficheiro base, o upload do ficheiro base resulta num erro.
 
-> Erro:`...makes a reference to a ClaimsTransformation with id...`
+> Erro: `...makes a reference to a ClaimsTransformation with id...`
 
 * As causas deste erro podem ser as mesmas que para o erro do ClaimType.
 
-> Erro:`Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
+> Erro: `Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
 
 * Verifique se o valor do TenantId no `<TrustFrameworkPolicy\>` e `<BasePolicy\>` elementos correspondem ao seu inquilino Azure AD B2C.
 
@@ -74,7 +74,7 @@ Os erros de validação comuns incluem:
 
 **Desenvolver e testar viagens de utilizador com perfis técnicos testados.** Alterar gradualmente os passos de orquestração de uma viagem de utilizador. Construa progressivamente os seus cenários pretendidos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Disponível no GitHub, descarregue o arquivo [active-directório-b2c-custom-policy-starterpack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) .zip. Também pode clonar o repositório:
 

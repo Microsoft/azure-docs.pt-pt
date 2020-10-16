@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a recuperar ficheiros e pastas a partir de um
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 3f26f761b3d683be71f7f6d900d91dd432ceefc8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 654ed7467410743e0db1abc2e51f1304b4f91a5d
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91292970"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093723"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar ficheiros da cópia de segurança da máquina virtual Azure
 
@@ -376,7 +376,7 @@ Esta funcionalidade foi construída para aceder aos dados VM sem a necessidade d
 
 #### <a name="select-recovery-point-who-can-generate-script"></a>Selecione ponto de recuperação (quem pode gerar script)
 
-O script fornece acesso aos dados VM, por isso é importante regular quem pode gerar em primeiro lugar. Tem de entrar no portal Azure e ser [RBAC autorizado](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) a gerar o script.
+O script fornece acesso aos dados VM, por isso é importante regular quem pode gerar em primeiro lugar. Você precisa entrar no portal Azure e ser [Azure RBAC autorizado](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) a gerar o script.
 
 A recuperação de ficheiros necessita do mesmo nível de autorização necessário para a restauração de VM e restauro dos discos. Por outras palavras, apenas os utilizadores autorizados podem ver os dados VM podem gerar o script.
 

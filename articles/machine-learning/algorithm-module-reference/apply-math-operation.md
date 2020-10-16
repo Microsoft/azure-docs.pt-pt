@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
 ms.openlocfilehash: 04ce45f428604275696d83938708bcee0c6c023f
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91536771"
 ---
 # <a name="apply-math-operation"></a>Aplicar Operação Matemática
@@ -88,7 +88,7 @@ Cada instância deste módulo pode efetuar apenas um tipo de operação de cada 
   
 1.  Envie o oleoduto.  
   
-## <a name="results"></a>Resultados
+## <a name="results"></a>Results
 
 Se gerar os resultados utilizando as opções **Append** ou **ResultOnly,** as rubricas de coluna do conjunto de dados devolvidos indicam a operação e as colunas utilizadas. Por exemplo, se compararmos duas colunas utilizando o operador **Equals,** os resultados seriam assim:  
   
@@ -588,6 +588,6 @@ Em alternativa, utilize um dos seguintes módulos para fazer todos os cálculos 
 + [Executar Script do Python](execute-python-script.md)
 + [Aplicar Transformação SQL](apply-sql-transformation.md)   
   
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

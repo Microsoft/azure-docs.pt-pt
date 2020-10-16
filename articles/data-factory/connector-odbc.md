@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: jingwang
 ms.openlocfilehash: c92428666f0766f78475be16416027cdc6e71f20
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85506536"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Copiar dados de e para lojas de dados ODBC usando Azure Data Factory
@@ -54,7 +54,7 @@ As seguintes secções fornecem detalhes sobre propriedades que são usadas para
 
 As seguintes propriedades são suportadas para o serviço ligado à ODBC:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo deve ser definida para: **Odbc** | Sim |
 | conexãoStragem | A cadeia de ligação excluindo a parte credencial. Pode especificar a cadeia de ligação com padrão como `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` , ou utilizar o sistema DSN (Data Source Name) que configura na máquina de tempo de execução de integração `"DSN=<name of the DSN on IR machine>;"` (ainda precisa especificar a parte credencial no serviço ligado em conformidade).<br>Também pode colocar uma palavra-passe no Cofre da Chave Azure e retirar a  `password`   configuração da cadeia de ligação.Consulte [as credenciais da Loja no Cofre de Chaves Azure](store-credentials-in-key-vault.md)   com mais detalhes.| Sim |
@@ -117,7 +117,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados de/para loja de dados compatíveis com ODBC, suportam-se as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo do conjunto de dados deve ser definida para: **OdbcTable** | Sim |
 | tableName | Nome da tabela na loja de dados ODBC. | Não para a fonte (se for especificada "consulta" na fonte de atividade);<br/>Sim para afundar |
@@ -151,7 +151,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados da loja de dados compatíveis com o ODBC, as seguintes propriedades são suportadas na secção fonte de **origem** da atividade da cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **OdbcSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
@@ -194,7 +194,7 @@ Se estava a usar `RelationalSource` uma fonte dactilografada, ainda é suportada
 
 Para copiar dados para a loja de dados compatível com ODBC, desaperte o tipo de pia na atividade da cópia para **o OdbcSink**. As seguintes propriedades são suportadas na secção de **lavatório** de atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo do lavatório de atividade de cópia deve ser definida para: **OdbcSink** | Sim |
 | escreverBatchTimeout |Tempo de espera para que o funcionamento do encaixe do lote esteja concluído antes de esgotar o tempo.<br/>Os valores permitidos são: timepan. Exemplo: "00:30:00" (30 minutos). |Não |
@@ -250,5 +250,5 @@ Para resolver problemas de conexão, utilize o separador **de Diagnóstico** do 
 4. Especifique a **cadeia de ligação** que é utilizada para ligar à loja de dados, escolha a **autenticação** e introduza o **nome de utilizador,** **palavra-passe**e/ou **credenciais**.
 5. Clique **na ligação de teste** para testar a ligação à loja de dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter uma lista de lojas de dados suportadas como fontes e sumidouros pela atividade de cópia na Azure Data Factory, consulte lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)

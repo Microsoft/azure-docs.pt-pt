@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 3/18/2020
 ms.author: derekol
 ms.openlocfilehash: a52e6038b622c004dc0d133394cd4f53600b2935
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84700047"
 ---
 # <a name="enable-azure-peering-service-on-a-direct-peering-by-using-the-azure-portal"></a>Ativar o Serviço de Observação Azure num espreitamento direto utilizando o portal Azure
@@ -21,7 +21,7 @@ Este artigo descreve como ativar o [Serviço de Observação Azure](overview-pee
 
 Se preferir, pode completar este guia utilizando [o PowerShell](howto-peering-service-powershell.md).
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 * Reveja os [pré-requisitos](prerequisites.md) antes de iniciar a configuração.
 * Escolha um espreitamento direto na sua subscrição para a qual pretende ativar o Serviço de Peering. Se não tiver um, converta um legado espreitando diretamente ou crie um novo olhar direto:
     * Para converter um legado Espreitar diretamente, siga as instruções em [Converter um legado Espreitar diretamente para um recurso Azure utilizando o portal](howto-legacy-direct-portal.md).
@@ -41,7 +41,7 @@ Depois de abrir um olhar direto no passo anterior, ative-o para o Serviço de Ob
 
 Para modificar as definições de ligação, consulte a secção "Modificar um esprevamento direto" em [Criar ou modificar um esprevamento direto utilizando o portal](howto-direct-portal.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar ou modificar o Persto cambial utilizando o portal](howto-exchange-portal.md)
 * [Converter um legado Exchange olhando para um recurso Azure usando o portal](howto-legacy-exchange-portal.md)

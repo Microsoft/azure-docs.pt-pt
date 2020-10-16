@@ -8,10 +8,10 @@ ms.date: 07/12/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 10674d15a7515b01b0df6cf37bce89f153cb9b0b
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88870690"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-or-premium-to-standard"></a>Converter o armazenamento de discos geridos da Azure de Standard a Premium ou Premium para Standard
@@ -22,7 +22,7 @@ Esta funcionalidade não é suportada por discos não geridos. Mas pode [facilme
 
 Este artigo mostra como converter discos geridos de Standard a Premium ou Premium para Standard utilizando o Azure CLI. Para instalar ou atualizar a ferramenta, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 * A conversão do disco requer um reinício da máquina virtual (VM), por isso, agende a migração do seu armazenamento em disco durante uma janela de manutenção pré-existente.
 * Para discos não geridos, [converta-se](convert-unmanaged-to-managed-disks.md) primeiro em discos geridos para que possa alternar entre opções de armazenamento.

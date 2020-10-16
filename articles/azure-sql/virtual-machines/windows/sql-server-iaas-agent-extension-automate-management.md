@@ -17,10 +17,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: df3e2ae2737aa8bfedd0e8d7daa9d42771f1937b
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91570349"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-by-using-the-sql-server-iaas-agent-extension"></a>Automatizar tarefas de gestão em máquinas virtuais Azure utilizando a extensão do agente iaaS do servidor SQL
@@ -37,11 +37,11 @@ Para ver a versão clássica deste artigo, consulte a extensão do [agente do SQ
 ## <a name="supported-services"></a>Serviços suportados
 A extensão do agente do servidor SQL IaaS suporta as seguintes tarefas de administração:
 
-| Recurso de administração | Description |
+| Recurso de administração | Descrição |
 | --- | --- |
 | **Backup automatizado do SQL Server** |Automatiza o agendamento de backups para todas as bases de dados para a instância predefinida ou para uma instância nomeada [corretamente instalada](frequently-asked-questions-faq.md#administration) do SQL Server no VM. Para obter mais informações, consulte [a cópia de segurança automatizada para o SQL Server em máquinas virtuais Azure (Gestor de Recursos)](automated-backup-sql-2014.md). |
 | **Patching automatizado do SQL Server** |Configura uma janela de manutenção durante a qual podem ocorrer atualizações importantes do Windows para o seu VM, para que possa evitar atualizações durante os tempos de pico da sua carga de trabalho. Para obter mais informações, consulte [patching automatizado para O Servidor SQL em máquinas virtuais Azure (Gestor de Recursos)](automated-patching.md). |
-| **Integração do Cofre de Chaves do Azure** |Permite-lhe instalar e configurar automaticamente o Cofre da Chave Azure no seu SQL Server VM. Para obter mais informações, consulte [a integração do Cofre de Chave Configure para O Servidor SQL em Máquinas Virtuais Azure (Gestor de Recursos)](azure-key-vault-integration-configure.md). |
+| **Integração do Cofre chave Azure** |Permite-lhe instalar e configurar automaticamente o Cofre da Chave Azure no seu SQL Server VM. Para obter mais informações, consulte [a integração do Cofre de Chave Configure para O Servidor SQL em Máquinas Virtuais Azure (Gestor de Recursos)](azure-key-vault-integration-configure.md). |
 
 Depois de a extensão do agente do Sql Server Iaas ser instalada e em funcionamento, disponibiliza as funcionalidades da administração:
 

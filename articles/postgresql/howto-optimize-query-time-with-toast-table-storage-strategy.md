@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.openlocfilehash: 3f1fa0affb821b00d4f5529841533e854e634377
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86116187"
 ---
 # <a name="optimize-query-time-with-the-toast-table-storage-strategy"></a>Otimize o tempo de consulta com a estratégia de armazenamento da mesa TOAST 
@@ -28,7 +28,7 @@ Se as suas consultas acederem a tipos de dados que podem utilizar o TOAST, consi
 
 Se tiver uma carga de trabalho que utilize um esquema com mesas largas e altas contagens de caracteres, considere usar as tabelas PostgreSQL TOAST. Uma tabela de clientes exemplo tinha mais de 350 colunas com várias colunas que se estenderam por 255 caracteres. Depois de ter sido convertido para a estratégia principal da tabela TOAST, o seu tempo de consulta de referência reduziu-se de 4203 segundos para 467 segundos. É uma melhoria de 89%.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Reveja a sua carga de trabalho para as características anteriores. 
 
 Reveja a seguinte documentação PostgreSQL: 

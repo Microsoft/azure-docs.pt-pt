@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/28/2020
 ms.openlocfilehash: 4ff1a793b3e8c4fe642aa304f1aa59bd8edefb8c
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91405625"
 ---
 # <a name="copy-data-to-and-from-azure-databricks-delta-lake-by-using-azure-data-factory"></a>Copiar dados de e para a Azure Databricks Delta Lake usando a Azure Data Factory
@@ -116,7 +116,7 @@ As seguintes propriedades são suportadas para o conjunto de dados Azure Databri
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | tipo      | A propriedade do tipo do conjunto de dados deve ser definida para **AzureDatabricksDeltaLakeDataset**. | Sim                         |
 | base de dados | O nome da base de dados. |Não para a fonte, sim para a pia.  |
-| mesa | Nome da mesa delta. |Não para a fonte, sim para a pia.  |
+| table | Nome da mesa delta. |Não para a fonte, sim para a pia.  |
 
 **Exemplo:**
 

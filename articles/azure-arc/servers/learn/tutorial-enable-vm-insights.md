@@ -4,10 +4,10 @@ description: Saiba como recolher e analisar dados a partir de uma máquina híbr
 ms.topic: tutorial
 ms.date: 09/23/2020
 ms.openlocfilehash: 97ab390570f434295a5aa836ef994640f6dc14f8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91335420"
 ---
 # <a name="tutorial-monitor-a-hybrid-machine-with-azure-monitor-for-vms"></a>Tutorial: Monitorize uma máquina híbrida com Monitor Azure para VMs
@@ -40,15 +40,15 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. A partir do painel esquerdo sob a secção **de monitorização,** selecione **Insights** e, em seguida, **Ative**.
 
-    :::image type="content" source="./media/tutorial-enable-vm-insights/insights-option.png" alt-text="Selecione a opção Insights do menu da mão esquerda" border="false":::
+    :::image type="content" source="./media/tutorial-enable-vm-insights/insights-option.png" alt-text="Pesquisa de servidores ativados arc em todos os serviços" border="false":::
 
 1. Na página Azure Monitor **Insights Onboarding,** é solicitado que crie um espaço de trabalho. Para este tutorial, não recomendamos que selecione um espaço de trabalho log analytics existente se já tiver um. Selecione o padrão, que é um espaço de trabalho com um nome único na mesma região que a sua máquina conectada registada. Este espaço de trabalho é criado e configurado para si.
 
-    :::image type="content" source="./media/tutorial-enable-vm-insights/enable-vm-insights.png" alt-text="Ativar o Monitor Azure para a página VMs" border="false":::
+    :::image type="content" source="./media/tutorial-enable-vm-insights/enable-vm-insights.png" alt-text="Pesquisa de servidores ativados arc em todos os serviços" border="false":::
 
 1. Recebe mensagens de estado enquanto a configuração é executada. Este processo demora alguns minutos à medida que as extensões são instaladas na sua máquina ligada.
 
-    :::image type="content" source="./media/tutorial-enable-vm-insights/onboard-vminsights-vm-portal-status.png" alt-text="Ativar o Monitor Azure para a mensagem de estado do progresso dos VMs" border="false":::
+    :::image type="content" source="./media/tutorial-enable-vm-insights/onboard-vminsights-vm-portal-status.png" alt-text="Pesquisa de servidores ativados arc em todos os serviços" border="false":::
 
     Quando estiver concluída, recebe-se uma mensagem de que a máquina foi a bordo com sucesso e que a perceção foi implantada com sucesso.
 
@@ -56,11 +56,11 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 Após a implementação e configuração concluídas, selecione **Insights**e, em seguida, selecione o **separador Desempenho.** No separador Performance, mostra um grupo selecionado de contadores de desempenho recolhidos do sistema operativo convidado do seu VM. Desloque-se para baixo para ver mais contadores e mova o rato sobre um gráfico para ver a média e percentículas tiradas a partir do momento em que a extensão VM Log Analytics foi instalada na máquina.
 
-:::image type="content" source="./media/tutorial-enable-vm-insights/insights-performance-charts.png" alt-text="Monitor Azure para gráficos de desempenho de VMs para máquina selecionada" border="false":::
+:::image type="content" source="./media/tutorial-enable-vm-insights/insights-performance-charts.png" alt-text="Pesquisa de servidores ativados arc em todos os serviços" border="false":::
 
 Selecione **Mapa** para abrir a funcionalidade de mapas, que mostra os processos em execução na máquina virtual e as suas dependências. Selecione **Propriedades** para abrir o painel de propriedades se ainda não estiver aberto.
 
-:::image type="content" source="./media/tutorial-enable-vm-insights/insights-map.png" alt-text="Monitor Azure para mapa de VMs para máquina selecionada" border="false":::
+:::image type="content" source="./media/tutorial-enable-vm-insights/insights-map.png" alt-text="Pesquisa de servidores ativados arc em todos os serviços" border="false":::
 
 Expanda os processos para a sua máquina virtual. Selecione um dos processos para ver os seus detalhes e destacar as suas dependências.
 

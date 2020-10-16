@@ -4,10 +4,10 @@ description: Este artigo descreve como configurar o acesso a partir de pontos fi
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: ae6cbdc8258cde9bb2da961cb452f996f0797cfe
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91767800"
 ---
 # <a name="network-security-for-azure-event-hubs"></a>Segurança de rede para hubs de eventos Azure 
@@ -30,7 +30,7 @@ Pode utilizar tags de serviço para definir controlos de acesso à rede em [grup
 
 
 ## <a name="ip-firewall"></a>Firewall de IP 
-Por predefinição, os espaços de nomes do Event Hubs estão acessíveis a partir da Internet desde que o pedido venha com autenticação e autorização válidas. Com a firewall IP, pode restringi-lo ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (Roteamento Inter-Domain Sem Classe).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+Por predefinição, os espaços de nomes do Event Hubs estão acessíveis a partir da Internet desde que o pedido venha com autenticação e autorização válidas. Com a firewall IP, pode restringi-lo ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (Classless Inter-Domain Encaminhamento).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
 
 Esta funcionalidade é útil em cenários em que os Azure Event Hubs deverão ser acessíveis apenas a partir de determinados sites conhecidos. As regras de firewall permitem-lhe configurar regras para aceitar tráfego originário de endereços IPv4 específicos. Por exemplo, se utilizar Os Centros de Eventos com [Rota Azure Express,](../expressroute/expressroute-faqs.md#supported-services)pode criar uma regra de **firewall** para permitir o tráfego a partir apenas dos endereços IP da infraestrutura no local. 
 

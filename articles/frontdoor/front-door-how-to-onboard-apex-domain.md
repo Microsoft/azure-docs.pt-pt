@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: duau
 ms.openlocfilehash: 44813a7662420ab4dedcd0bf99cc1eec7e9d9d2d
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91819088"
 ---
 # <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Integrar um domínio de raiz ou apex no seu Front Door

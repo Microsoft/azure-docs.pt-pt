@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.author: ramamill
 ms.date: 04/03/2020
 ms.openlocfilehash: 8ee6449f357a578b30809bb03723ac1556e4f459
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88816194"
 ---
 # <a name="troubleshoot-mobility-service-push-installation"></a>Instalação push do serviço de mobilidade de resolução de problemas

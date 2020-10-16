@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 9c258d8d0a7aa26c96ab4f64017770ebdd153e60
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86257514"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Recuperação de desastres no Tecido de Serviço Azure
@@ -151,7 +151,7 @@ Se descobrir que as réplicas restantes são insuficientes para continuar num ce
 > [!NOTE]
 > Os serviços de sistema também podem sofrer perdas de quórum. O impacto é específico do serviço em questão. Por exemplo, a perda de quórum no serviço de nomeação afeta a resolução de nomes, enquanto a perda de quórum no serviço Failover Manager bloqueia a criação de novos serviços e as falhas. 
 > 
-> Os serviços de sistema Service Fabric seguem o mesmo padrão que os seus serviços para gestão do Estado, mas não recomendamos que tente movê-los para fora da perda de quórum e para a perda de dados potenciais. Em vez disso, recomendamos que [procure apoio](service-fabric-support.md) para encontrar uma solução direcionada para a sua situação. Normalmente é preferível simplesmente esperar até que as réplicas de baixo voltem.
+> Os serviços de sistema Service Fabric seguem o mesmo padrão que os seus serviços para gestão do Estado, mas não recomendamos que tente movê-los para fora da perda de quórum e para a perda de dados potenciais. Em vez disso, recomendamos que  [procure apoio](service-fabric-support.md) para encontrar uma solução direcionada para a sua situação. Normalmente é preferível simplesmente esperar até que as réplicas de baixo voltem.
 >
 
 #### <a name="troubleshooting-quorum-loss"></a>Perda de quórum de resolução de problemas

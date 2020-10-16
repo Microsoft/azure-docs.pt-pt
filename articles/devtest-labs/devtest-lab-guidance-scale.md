@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 50bf08678a12a1a0499abd08c52a264d03f4a401
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85478795"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>Dimensione a sua infraestrutura Azure DevTest Labs
@@ -57,5 +57,5 @@ Uma prova de conceito da DevTest Labs tem três funções primárias com respons
 - **Dono da DevTest Labs** – O dono da DevTest Labs tem acesso administrativo total ao laboratório. Esta pessoa é responsável por adicionar/remover utilizadores, gerir definições de custos, configurações gerais de laboratório e outras tarefas baseadas em VM/artefacto. Um dono de laboratório também tem todos os direitos de um utilizador da DevTest Labs.
 - **Utilizador da DevTest Labs** – O utilizador da DevTest Labs pode criar e consumir as máquinas virtuais em laboratório. Estes indivíduos têm algumas capacidades administrativas mínimas em VMs que criam (iniciar/parar/eliminar/configurar os seus VMs). Os utilizadores não conseguem gerir VMs de outros utilizadores.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Veja o próximo artigo desta série: [Orquestrou a implementação da Azure DevTest Labs](devtest-lab-guidance-orchestrate-implementation.md)

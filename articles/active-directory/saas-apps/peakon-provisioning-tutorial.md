@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 06/28/2019
 ms.author: zhchia
 ms.openlocfilehash: 06fca39b1170d36f22040ccf48eb02f948e47e41
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91304703"
 ---
 # <a name="tutorial-configure-peakon-for-automatic-user-provisioning"></a>Tutorial: Configurar Peakon para fornecimento automático de utilizadores
@@ -119,7 +119,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![E-mail de Notificação](common/provisioning-notification-email.png)
 
-8. Clique em **Save** (Guardar).
+8. Clique em **Guardar**.
 
 9. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users to Peakon**.
 

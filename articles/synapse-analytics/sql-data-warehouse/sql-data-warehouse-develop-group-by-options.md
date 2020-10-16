@@ -12,10 +12,10 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 260bd7cc6402a7cb4ed17d004d0f61b7462c51d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85213453"
 ---
 # <a name="group-by-options-in-synapse-sql-pool"></a>Grupo por opções na piscina Synapse SQL
@@ -183,6 +183,6 @@ ORDER BY 1,2,3
 
 Ao dividir o código em secções e gerar uma construção em loop, o código torna-se mais manejável e manejável.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais dicas de desenvolvimento, consulte [a visão geral do desenvolvimento.](sql-data-warehouse-overview-develop.md)

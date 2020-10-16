@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/04/2020
+ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 30c64e4cf467f4e505327414e15b23ee2c6d1543
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 4f2b4d6da8d4d69a44ca3aabd755c72fd87aaa8e
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89611657"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92054904"
 ---
 # <a name="define-a-saml-identity-provider-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico do fornecedor de identidade SAML numa política personalizada do Azure Ative Directory B2C
 
@@ -166,7 +166,7 @@ O elemento **CryptographicKeys** contém os seguintes atributos:
 | Atributo |Obrigatório | Descrição |
 | --------- | ----------- | ----------- |
 | SamlMessageSigning |Yes | O certificado X509 (conjunto de teclas RSA) para usar para assinar mensagens SAML. A Azure AD B2C utiliza esta chave para assinar os pedidos e enviá-los para o fornecedor de identidade. |
-| SamlAssertionDecryption |Yes | O certificado X509 (conjunto de teclas RSA) para utilizar para desencriptar mensagens SAML. Este certificado deve ser fornecido pelo fornecedor de identidade. A Azure AD B2C utiliza este certificado para desencriptar os dados enviados pelo fornecedor de identidade. |
+| SamlAssertionDecryption |No | O certificado X509 (conjunto de teclas RSA). Um fornecedor de identidade SAML utiliza a parte pública do certificado para encriptar a afirmação da resposta SAML. A Azure AD B2C utiliza a parte privada do certificado para desencriptar a afirmação. |
 | MetadadosSigning |No | O certificado X509 (conjunto de teclas RSA) para usar para assinar metadados SAML. Azure AD B2C utiliza esta chave para assinar os metadados.  |
 
 ## <a name="saml-entityid-customization"></a>Personalização DEID de entidade SAML
@@ -201,7 +201,7 @@ Exemplo:
      …
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte os seguintes artigos para exemplos de trabalhar com fornecedores de identidade SAML em Azure AD B2C:
 

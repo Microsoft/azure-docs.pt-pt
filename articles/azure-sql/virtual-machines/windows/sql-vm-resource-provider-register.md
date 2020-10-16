@@ -15,10 +15,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: b48f0429525822d09f08965128df0ceb1e32898a
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761316"
 ---
 # <a name="register-a-sql-server-vm-in-azure-with-the-sql-vm-resource-provider-rp"></a>Registar um SQL Server VM em Azure com o fornecedor de recursos SQL VM (RP)
@@ -378,7 +378,7 @@ O fornecedor de recursos SQL VM só suporta:
 
 **Devo registar o meu SQL Server VM a partir de uma imagem do SQL Server no Azure Marketplace?**
 
-Não. A Microsoft regista automaticamente VMs a partir das imagens do SQL Server no Azure Marketplace. O registo com o fornecedor de recursos SQL VM só é necessário se o VM *não* tiver sido aprovisionado a partir das imagens do SQL Server no Azure Marketplace e no SQL Server.
+N.º A Microsoft regista automaticamente VMs a partir das imagens do SQL Server no Azure Marketplace. O registo com o fornecedor de recursos SQL VM só é necessário se o VM *não* tiver sido aprovisionado a partir das imagens do SQL Server no Azure Marketplace e no SQL Server.
 
 **O fornecedor de recursos de VM do SQL está disponível para todos os clientes?** 
 
@@ -420,11 +420,11 @@ O modo no-agent requer que a versão e as propriedades de edição do SQL Server
 
 **Posso registar-me com o fornecedor de recursos SQL VM sem especificar o tipo de licença SQL Server?**
 
-Não. O tipo de licença SQL Server não é uma propriedade opcional quando se está a registar com o fornecedor de recursos SQL VM. Tem de definir o tipo de licença SQL Server como pay-as-you-go ou Azure Hybrid Benefit ao registar-se com o fornecedor de recursos SQL VM em todos os modos de gestão (sem agente, leve e cheio).
+N.º O tipo de licença SQL Server não é uma propriedade opcional quando se está a registar com o fornecedor de recursos SQL VM. Tem de definir o tipo de licença SQL Server como pay-as-you-go ou Azure Hybrid Benefit ao registar-se com o fornecedor de recursos SQL VM em todos os modos de gestão (sem agente, leve e cheio).
 
 **Posso atualizar a extensão IAAS do SQL Server do modo sem agente para o modo completo?**
 
-Não. A atualização do modo de gestão para o modo de gestão para o modo completo ou leve não está disponível para o modo sem agente. Esta é uma limitação técnica do Windows Server 2008. Terá de atualizar o SISTEMA primeiro para o Windows Server 2008 R2 ou superior, e depois poderá fazer o upgrade para o modo de gestão completa. 
+N.º A atualização do modo de gestão para o modo de gestão para o modo completo ou leve não está disponível para o modo sem agente. Esta é uma limitação técnica do Windows Server 2008. Terá de atualizar o SISTEMA primeiro para o Windows Server 2008 R2 ou superior, e depois poderá fazer o upgrade para o modo de gestão completa. 
 
 **Posso atualizar a extensão IAAS do SQL Server do modo leve para o modo completo?**
 
@@ -432,17 +432,17 @@ Sim. A atualização do modo de gestão de peso para cheio é suportada através
 
 **Posso reduzir a extensão IAAS do SQL Server de modo completo para modo de gestão sem agente ou leve?**
 
-Não. A redução do modo de gestão de extensão SQL Server IaaS não é suportada. O modo de gestão não pode ser desclassificado do modo completo para o modo leve ou sem agente, e não pode ser desclassificado do modo leve para o modo sem agente. 
+N.º A redução do modo de gestão de extensão SQL Server IaaS não é suportada. O modo de gestão não pode ser desclassificado do modo completo para o modo leve ou sem agente, e não pode ser desclassificado do modo leve para o modo sem agente. 
 
 Para alterar o modo de gestão da plena gestibilidade, [não registe](#unregister-from-rp) o SQL Server VM do fornecedor de recursos SQL VM, largando o *recurso* SQL Server e reregistando novamente o SQL Server VM com o fornecedor de recursos SQL VM num modo de gestão diferente.
 
 **Posso inscrever-me no fornecedor de recursos SQL VM do portal Azure?**
 
-Não. O registo com o fornecedor de recursos SQL VM não está disponível no portal Azure. O registo junto do fornecedor de recursos SQL VM só é suportado com o Azure CLI ou o PowerShell. 
+N.º O registo com o fornecedor de recursos SQL VM não está disponível no portal Azure. O registo junto do fornecedor de recursos SQL VM só é suportado com o Azure CLI ou o PowerShell. 
 
 **Posso registar um VM com o fornecedor de recursos SQL VM antes da instalação do SQL Server?**
 
-Não. Um VM deve ter pelo menos uma instância SQL Server (Database Engine) para registar com sucesso com o fornecedor de recursos SQL VM. Se não houver nenhuma instância do SQL Server no VM, o novo recurso Microsoft.SqlVirtualMachine estará num estado falhado.
+N.º Um VM deve ter pelo menos uma instância SQL Server (Database Engine) para registar com sucesso com o fornecedor de recursos SQL VM. Se não houver nenhuma instância do SQL Server no VM, o novo recurso Microsoft.SqlVirtualMachine estará num estado falhado.
 
 **Posso registar um VM com o fornecedor de recursos SQL VM se existirem várias instâncias do SQL Server?**
 

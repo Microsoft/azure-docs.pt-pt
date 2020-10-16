@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 1ee38196f0b1a6e00d385dc0d2c88d45a4291d3b
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90087441"
 ---
 # <a name="monitoring-key-vault-with-azure-event-grid"></a>Cofre de chave de monitorização com grade de evento azure

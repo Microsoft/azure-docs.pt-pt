@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/10/2020
 ms.author: vikancha
 ms.openlocfilehash: 7c3423e8bd5cd3e38c05205842845bec2243ed83
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91653507"
 ---
 # <a name="ncast4_v3-series-in-preview"></a>NCasT4_v3 série (Na pré-visualização) 

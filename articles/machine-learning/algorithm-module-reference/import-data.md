@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: 5fe1c3e344705b6cde9791f889b22be53a9e8c76
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91372600"
 ---
 # <a name="import-data-module"></a>Módulo de Dados de Importação
@@ -77,7 +77,7 @@ Se os dados de origem alterarem, pode atualizar o conjunto de dados e adicionar 
 
     Se não houver cabeçalhos de coluna existentes nos dados, novos nomes de colunas são gerados usando o formato col1, col2,... Coln*.
 
-## <a name="results"></a>Resultados
+## <a name="results"></a>Results
 
 Quando a importação estiver concluída, clique no conjunto de dados de saída e **selecione Visualize** para ver se os dados foram importados com sucesso.
 

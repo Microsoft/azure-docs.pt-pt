@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: mqtt
 ms.openlocfilehash: 5c14e8cfcbf8df86b0f71d6b12025594d2e648c4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81730114"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Programar tarefas em vários dispositivos
@@ -33,7 +33,7 @@ Considere usar empregos quando precisar de agendar e acompanhar o progresso de q
 Os postos de trabalho são iniciados pela solução back-end e mantidos pela IoT Hub. Pode iniciar um trabalho através de um URI virado para o serviço e consultar o `PUT https://<iot hub>/jobs/v2/<jobID>?api-version=2018-06-30` progresso de um trabalho de execução através de um URI virado para o serviço ( `GET https://<iot hub>/jobs/v2/<jobID?api-version=2018-06-30` ). Para refrescar o estado de gestão de empregos uma vez iniciado um trabalho, executar uma consulta de trabalho.
 
 > [!NOTE]
-> Quando inicia um trabalho, os nomes e valores de propriedade só podem conter alfanumérico imprimível US-ASCII, exceto qualquer um no seguinte conjunto:`$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`
+> Quando inicia um trabalho, os nomes e valores de propriedade só podem conter alfanumérico imprimível US-ASCII, exceto qualquer um no seguinte conjunto: `$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`
 
 ## <a name="jobs-to-execute-direct-methods"></a>Empregos para executar métodos diretos
 
@@ -181,7 +181,7 @@ A lista a seguir mostra as propriedades e descrições correspondentes, que pode
 | Propriedade | Descrição |
 | --- | --- |
 | **jobId** |A candidatura forneceu identificação para o trabalho. |
-| **startTime** |A aplicação forneceu a hora de início (ISO-8601) para o trabalho. |
+| **horário de início** |A aplicação forneceu a hora de início (ISO-8601) para o trabalho. |
 | **endTime** |IoT Hub forneceu a data (ISO-8601) para quando o trabalho terminou. Válido apenas após o trabalho chegar ao estado "concluído". |
 | **tipo** |Tipos de empregos: |
 | | **scheduleUpdateTwin**: Um trabalho usado para atualizar um conjunto de propriedades ou tags desejadas. |
@@ -215,7 +215,7 @@ Outros tópicos de referência no guia de desenvolvimento do IoT Hub incluem:
 
 * [O suporte do IoT Hub MQTT](iot-hub-mqtt-support.md) fornece mais informações sobre o suporte do IoT Hub para o protocolo MQTT.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para experimentar alguns dos conceitos descritos neste artigo, consulte o seguinte tutorial IoT Hub:
 

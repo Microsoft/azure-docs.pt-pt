@@ -9,10 +9,10 @@ ms.date: 05/08/2020
 ms.author: aapowell
 ms.custom: devx-track-js
 ms.openlocfilehash: e24a2a19eb39e2c6c7612631ad98f95cb4c5b9ef
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91250169"
 ---
 # <a name="tutorial-publish-a-gatsby-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicar um site gatsby para pré-visualização de aplicações web estáticas Azure
@@ -102,7 +102,7 @@ Os passos seguintes mostram-lhe como criar uma nova aplicação estática do sit
 
 1. Para _SKU_, selecione **Grátis**.
 
-   :::image type="content" source="./media/publish-gatsby/basic-app-details.png" alt-text="Detalhes preenchidos":::
+   :::image type="content" source="./media/publish-gatsby/basic-app-details.png" alt-text="Criar uma Web Apps estática (pré-visualização) no portal":::
 
 1. Clique **no botão Iniciar sin com GitHub.**
 
@@ -112,7 +112,7 @@ Os passos seguintes mostram-lhe como criar uma nova aplicação estática do sit
 
 1. Para o _Branch_ selecione **master**.
 
-   :::image type="content" source="./media/publish-gatsby/completed-github-info.png" alt-text="Informação completa do GitHub":::
+   :::image type="content" source="./media/publish-gatsby/completed-github-info.png" alt-text="Criar uma Web Apps estática (pré-visualização) no portal":::
 
 ### <a name="build"></a>Compilar
 
@@ -126,7 +126,7 @@ Em seguida, adicione as definições de configuração que o processo de constru
 
    Um valor para _a localização_ da API não é necessário, uma vez que não está a implementar uma API neste momento.
 
-   :::image type="content" source="./media/publish-gatsby/build-details.png" alt-text="Configurações de construção":::
+   :::image type="content" source="./media/publish-gatsby/build-details.png" alt-text="Criar uma Web Apps estática (pré-visualização) no portal":::
 
 ### <a name="review-and-create"></a>Rever e criar
 
@@ -138,7 +138,7 @@ Em seguida, adicione as definições de configuração que o processo de constru
 
 1. No ecrã de recursos, clique no link _URL_ para abrir a aplicação implementada. Pode ter de esperar um minuto ou dois para que a Ação GitHub esteja concluída.
 
-   :::image type="content" source="./media/publish-gatsby/deployed-app.png" alt-text="Aplicação implantada":::
+   :::image type="content" source="./media/publish-gatsby/deployed-app.png" alt-text="Criar uma Web Apps estática (pré-visualização) no portal":::
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

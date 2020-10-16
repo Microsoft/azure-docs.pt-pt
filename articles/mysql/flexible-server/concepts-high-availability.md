@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.openlocfilehash: 9db5776a4d2395baf03a5ed7cf05db49de8d0321
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90937131"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Conceitos de alta disponibilidade na Base de Dados Azure para o MySQL Flexible Server (Pré-visualização)
@@ -18,7 +18,7 @@ ms.locfileid: "90937131"
 > [!IMPORTANT] 
 > A azure Database for MySQL - Flexible Server encontra-se atualmente em pré-visualização pública.
 
-A base de dados Azure para o MySQL Flexible Server (Preview), permite configurar alta disponibilidade com falha automática utilizando a opção de alta disponibilidade redundante da **zona.** Quando implantado numa configuração redundante de zona, o servidor flexível fornece automaticamente e gere uma réplica de espera numa zona de disponibilidade diferente. Utilizando a replicação do nível de armazenamento, os dados são **sincronizados replicados** no servidor de espera na zona secundária para permitir a perda de dados zero após uma falha. O failover é totalmente transparente a partir da aplicação do cliente e não requer qualquer ação do utilizador. O servidor de espera não está disponível para qualquer operação de leitura ou escrita, mas é um standby passivo para permitir uma rápida falha. Os tempos de insí bem-estar variam tipicamente entre 60 e 120 segundos.
+A base de dados Azure para o MySQL Flexible Server (Preview), permite configurar alta disponibilidade com falha automática utilizando a opção de alta disponibilidade redundante da **zona.** Quando implementado numa configuração com redundância de zona, o servidor flexível aprovisiona e gere automaticamente uma réplica de reserva numa zona de disponibilidade diferente. Utilizando a replicação do nível de armazenamento, os dados são **sincronizados replicados** no servidor de espera na zona secundária para permitir a perda de dados zero após uma falha. O failover é totalmente transparente a partir da aplicação do cliente e não requer qualquer ação do utilizador. O servidor de espera não está disponível para qualquer operação de leitura ou escrita, mas é um standby passivo para permitir uma rápida falha. Os tempos de insí bem-estar variam tipicamente entre 60 e 120 segundos.
 
 A configuração de alta disponibilidade redundante da zona permite a falha automática durante eventos planeados, tais como operações de computação de escala iniciadas pelo utilizador, e eventos não planeados, tais como falhas de hardware e software subjacentes, falhas de rede e até falhas na zona de disponibilidade.
 

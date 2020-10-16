@@ -4,10 +4,10 @@ description: Saiba como adicionar um repositório GitHub ou Azure DevOps Git par
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 225aae5e0a017b711f29a47829b06f8bb7a6a8ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85483147"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Adicione um repositório Git para armazenar artefactos personalizados e modelos de Gestor de Recursos
@@ -82,7 +82,7 @@ Para adicionar um repositório ao seu laboratório, primeiro, obtenha informaç�
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Depois de ter criado o seu repositório privado git, pode fazer um ou ambos os seguintes, dependendo das suas necessidades:
 * Guarde os seus [artefactos personalizados.](devtest-lab-artifact-author.md) Pode usá-los mais tarde para criar novos VMs.
 * [Crie ambientes multi-VM e recursos PaaS utilizando modelos de Gestor de Recursos.](devtest-lab-create-environment-from-arm.md) Em seguida, pode armazenar os modelos no seu repo privado.

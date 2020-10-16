@@ -4,10 +4,10 @@ description: Aborda questões comuns sobre o backup de ficheiros e pastas com Az
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.openlocfilehash: e3a5b6d07982c3261b457d4999025c44489c0a8d
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89182518"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Perguntas frequentes - Agente da Microsoft Azure Recovery Services (MARS)
@@ -51,11 +51,11 @@ Não é possível fazer recuar os seguintes tipos de unidades e volumes:
 
 ### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-an-azure-vm"></a>Posso usar o agente MARS para fazer o back-up ficheiros e pastas num VM Azure?  
 
-Yes. O Azure Backup fornece uma cópia de segurança ao nível VM para VMs Azure utilizando a extensão VM para o agente Azure VM. Se pretender fazer o back up ficheiros e pastas no sistema operativo Windows do hóspede no VM, pode instalar o agente MARS para o fazer.
+Sim. O Azure Backup fornece uma cópia de segurança ao nível VM para VMs Azure utilizando a extensão VM para o agente Azure VM. Se pretender fazer o back up ficheiros e pastas no sistema operativo Windows do hóspede no VM, pode instalar o agente MARS para o fazer.
 
 ### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-temporary-storage-for-the-azure-vm"></a>Posso usar o agente MARS para fazer o back-up ficheiros e pastas no armazenamento temporário para o Azure VM?
 
-Yes. Instale o agente MARS e ressalte ficheiros e pastas no sistema operativo Windows do hóspede para armazenamento temporário.
+Sim. Instale o agente MARS e ressalte ficheiros e pastas no sistema operativo Windows do hóspede para armazenamento temporário.
 
 * Os trabalhos de reserva falham quando os dados de armazenamento temporários são eliminados.
 * Se os dados de armazenamento temporário forem eliminados, só poderá restaurar o armazenamento não volátil.
@@ -66,7 +66,7 @@ Os dados de cópia de segurança são enviados para o centro de dados do cofre n
 
 ### <a name="does-the-mars-agent-support-windows-server-2012-deduplication"></a>O agente MARS suporta a deduplica do Windows Server 2012?
 
-Yes. O agente MARS converte os dados desduplicados em dados normais quando prepara a operação de backup. Em seguida, otimiza os dados para a cópia de segurança, encripta os dados e, em seguida, envia os dados encriptados para o cofre.
+Sim. O agente MARS converte os dados desduplicados em dados normais quando prepara a operação de backup. Em seguida, otimiza os dados para a cópia de segurança, encripta os dados e, em seguida, envia os dados encriptados para o cofre.
 
 ### <a name="do-i-need-administrator-permissions-to-install-and-configure-the-mars-agent"></a>Preciso de permissões de administrador para instalar e configurar o agente MARS?
 
@@ -140,7 +140,7 @@ O tamanho da pasta de cache determina a quantidade de dados que está a fazer.
     Net start obengine
     ```
 
-7. Faça uma cópia de segurança a pedido. Depois de a cópia de segurança terminar com sucesso utilizando a nova localização, pode remover a pasta de cache original.
+7. Executar uma cópia de segurança a pedido. Depois de a cópia de segurança terminar com sucesso utilizando a nova localização, pode remover a pasta de cache original.
 
 ### <a name="where-should-the-cache-folder-be-located"></a>Onde deve ser localizada a pasta de cache?
 

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/26/2020
 ms.openlocfilehash: 458336f27f01cfb0d127b96cd3df6aa40f8db0b3
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89440563"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerações de segurança para o movimento de dados na Azure Data Factory
@@ -194,14 +194,14 @@ As seguintes lojas de dados em nuvem requerem que você permita o endereço IP d
 
 **O tempo de integração auto-organizado pode ser partilhado em diferentes fábricas de dados?**
 
-Yes. Mais detalhes [aqui.](https://azure.microsoft.com/blog/sharing-a-self-hosted-integration-runtime-infrastructure-with-multiple-data-factories/)
+Sim. Mais detalhes [aqui.](https://azure.microsoft.com/blog/sharing-a-self-hosted-integration-runtime-infrastructure-with-multiple-data-factories/)
 
 **Quais são os requisitos portuários para o tempo de funcionamento da integração auto-acolhida?**
 
 O tempo de integração auto-hospedado faz ligações baseadas em HTTP para aceder à internet. As portas de saída 443 devem ser abertas para o tempo de integração auto-hospedado para fazer esta ligação. Abra a porta de entrada 8060 apenas ao nível da máquina (não ao nível de firewall corporativa) para aplicação de gestor credencial. Se a Base de Dados Azure SQL ou a Azure Synapse Analytics forem usadas como fonte ou destino, também precisa de abrir a porta 1433. Para obter mais informações, consulte as configurações de [Firewall e permita a configuração da lista para a secção de endereços IP.](#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway) 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter informações sobre o desempenho da Atividade de Cópia da Fábrica de Dados Azure, consulte [o desempenho da Atividade de Cópia e o guia de afinação](copy-activity-performance.md).
 
  

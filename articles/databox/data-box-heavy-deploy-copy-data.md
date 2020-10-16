@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 6c88a1eaee50676cfe6bb9589779d7156b805e30
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 77dc64d9660f9a0bf66559c4a5a976362cf1acd0
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920981"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951643"
 ---
 ::: zone target = "docs"
 
@@ -97,11 +97,11 @@ Se estiver a utilizar um computador anfitrião do Windows Server, execute estes 
 
 1. O primeiro passo é autenticar e iniciar uma sessão. Aceda a **Ligar e copiar**. Clique em **Obter credenciais** para obter as credenciais de acesso para as partilhas associadas à sua conta de armazenamento.
 
-    ![Obter credenciais de partilhas 1](media/data-box-heavy-deploy-copy-data/get-share-credentials-1.png)
+    ![Obter credenciais de partilhas](media/data-box-heavy-deploy-copy-data/get-share-credentials-1.png)
 
 2. Na caixa de diálogo Aceder à partilha e copiar os dados, copie o **Nome de utilizador** e a **Palavra-passe** correspondentes à partilha. Clique em **OK**.
     
-    ![Obter credenciais de partilhas 1](media/data-box-heavy-deploy-copy-data/get-share-credentials-2.png)
+    ![Obter credenciais de partilhas 2](media/data-box-heavy-deploy-copy-data/get-share-credentials-2.png)
 
 3. Para aceder às partilhas associadas à conta de armazenamento (*databoxe2etest* no exemplo a seguir) a partir do computador anfitrião, abra uma janela de comando. Na linha de comandos, escreva:
 
@@ -122,7 +122,7 @@ Se estiver a utilizar um computador anfitrião do Windows Server, execute estes 
 
 4. Prima Windows + R. Na janela **Executar**, especifique o `\\<device IP address>`. Clique em **OK** para abrir o Explorador de Ficheiros.
     
-    ![Ligar à partilha através do Explorador de Ficheiros 2](media/data-box-heavy-deploy-copy-data/connect-shares-file-explorer-1.png)
+    ![Ligar à partilha através do Explorador de Ficheiros](media/data-box-heavy-deploy-copy-data/connect-shares-file-explorer-1.png)
 
     Agora deve conseguir ver as partilhas como pastas.
     

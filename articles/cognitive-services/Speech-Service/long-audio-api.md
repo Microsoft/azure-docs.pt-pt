@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: trbye
 ms.openlocfilehash: be38d3e78108a15c9f7875a15156e0eeba5a6211
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88167764"
 ---
 # <a name="long-audio-api-preview"></a>API de áudio longo (pré-visualização)
@@ -285,7 +285,7 @@ A tabela seguinte detalha os códigos e mensagens de resposta HTTP da API REST.
 
 A API áudio longa está disponível em várias regiões com pontos finais únicos.
 
-| Região | Ponto final |
+| Region | Ponto final |
 |--------|----------|
 | Leste da Austrália | `https://australiaeast.customvoice.api.speech.microsoft.com` |
 | Canadá Central | `https://canadacentral.customvoice.api.speech.microsoft.com` |

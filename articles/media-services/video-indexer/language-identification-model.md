@@ -11,13 +11,13 @@ ms.topic: article
 ms.date: 04/12/2020
 ms.author: ellbe
 ms.openlocfilehash: 3a71a29fdf4af10162e2f7961fb457d0e99b18e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81687129"
 ---
-# <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>Identificar automaticamente a língua falada com o modelo de identificação linguística
+# <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>Identificar automaticamente o idioma falado com o modelo de identificação de idioma
 
 O Indexante de Vídeo suporta a identificação automática da linguagem (LID), que é o processo de identificar automaticamente o conteúdo da língua falada a partir do áudio e enviar o ficheiro de mídia para ser transcrito na língua identificada dominante. 
 
@@ -64,7 +64,7 @@ A linguagem dominante do modelo está disponível nos insights JSON como `source
 * O modelo requer pelo menos um minuto de discurso no áudio.
 * O modelo foi concebido para reconhecer um discurso de conversação espontâneo (não comandos de voz, canto, etc.).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Descrição geral](video-indexer-overview.md)
-* [Identificar e transcrever automaticamente conteúdos multi-linguísticos](multi-language-identification-transcription.md)
+* [Identificar e transcrever automaticamente conteúdo em vários idiomas](multi-language-identification-transcription.md)

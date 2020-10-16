@@ -11,10 +11,10 @@ ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: 9f2f3eee12bb8741f6d079f6f081a08f4e2db9b5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87046857"
 ---
 # <a name="azure-synapse-sql-architecture"></a>Arquitetura Azure Synapse SQL 
@@ -59,7 +59,7 @@ O SQL on demand permite-lhe consultar ficheiros no seu lago de dados apenas de f
 
 ## <a name="control-node"></a>Nó de controlo
 
-O nó de controlo é o cérebro da arquitetura. É o front-end que interage com todas as ligações e aplicações. 
+O nó de Controlo é o cérebro da arquitetura. É o front-end que interage com todas as ligações e aplicações. 
 
 Na piscina SQL, o motor MPP funciona no nó de Controlo para otimizar e coordenar consultas paralelas. Quando submete uma consulta T-SQL à piscina SQL, o nó de Controlo transforma-o em consultas que vão contra cada distribuição em paralelo.
 

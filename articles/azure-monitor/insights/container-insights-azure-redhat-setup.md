@@ -3,12 +3,12 @@ title: Configure Azure Red Hat OpenShift v3.x com Monitor Azure para contentores
 description: Este artigo descreve como configurar a monitorização de um cluster Kubernetes com o Azure Monitor hospedado na versão 3 e superior do Azure Red Hat OpenShift.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: e462fb25672fa1912f7bb24efad4ea9a6d27d078
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 4e1770944fa1917bc94dfbf1a3daa0708593e356
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816648"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994560"
 ---
 # <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>Configure Azure Red Hat OpenShift v3 com Monitor Azure para contentores 
 
@@ -34,7 +34,7 @@ O Azure Monitor para contentores suporta a monitorização do Azure Red Hat Open
 
 - Uma [área de trabalho do Log Analytics](../platform/design-logs-deployment.md).
 
-    O Azure Monitor para contentores suporta um espaço de trabalho Log Analytics nas regiões listadas nos Produtos Azure [por região.](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor) Para criar o seu próprio espaço de trabalho, pode ser criado através do [Azure Resource Manager,](../platform/template-workspace-configuration.md)através do [PowerShell,](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)ou no [portal Azure.](../learn/quick-create-workspace.md)
+    O Azure Monitor para contentores suporta um espaço de trabalho Log Analytics nas regiões listadas nos Produtos Azure [por região.](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor) Para criar o seu próprio espaço de trabalho, pode ser criado através do [Azure Resource Manager,](../samples/resource-manager-workspace.md)através do [PowerShell,](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)ou no [portal Azure.](../learn/quick-create-workspace.md)
 
 - Para ativar e aceder às funcionalidades no Azure Monitor para contentores, é necessário ser membro da função *Azure Contributor* na subscrição Azure, e membro da função de Contribuinte [*Log Analytics*](../platform/manage-access.md#manage-access-using-azure-permissions) do espaço de trabalho Log Analytics configurado com O Monitor Azure para contentores.
 
@@ -244,4 +244,3 @@ Se optar por utilizar o Azure CLI, primeiro tem de instalar e utilizar o CLI loc
 - Para raspar e analisar as métricas prometheus do seu cluster, [reveja métricas configure Prometheus raspando](container-insights-prometheus-integration.md)
 
 - Para aprender a parar de monitorizar o seu cluster com o Azure Monitor para obter recipientes, consulte [Como Parar de monitorizar o seu aglomerado de chapéus abertos Azure Red Hat](./container-insights-optout-openshift-v3.md).
-

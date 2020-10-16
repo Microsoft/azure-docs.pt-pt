@@ -7,10 +7,10 @@ ms.date: 02/04/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.openlocfilehash: a488e2499b92b290ad2b55120c3c70a18d45d426
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89613948"
 ---
 # <a name="components"></a>Componentes
@@ -70,7 +70,7 @@ A integração da Unidade tem funções de extensão adicionais para interagir c
 * [C++ RemoteManager::CreateComponent()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#createcomponent)
 * [C++ Entidade::FindComponentOfType()](https://docs.microsoft.com/cpp/api/remote-rendering/entity#findcomponentoftype)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Limites dos objetos](object-bounds.md)
 * [Malhas](meshes.md)

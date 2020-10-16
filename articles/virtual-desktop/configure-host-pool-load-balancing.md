@@ -3,15 +3,15 @@ title: Configurar o equilíbrio de carga virtual do Windows Desktop - Azure
 description: Como configurar o método de equilíbrio de carga para um ambiente de ambiente de trabalho virtual do Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/29/2019
+ms.date: 10/12/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 07eae73a36bf4051925547fa375f46963a162881
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 2c57ac10fbd318dd4bbb2dc86457e186dd824834
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010111"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951660"
 ---
 # <a name="configure-the-windows-virtual-desktop-load-balancing-method"></a>Configurar o método de balanceamento de carga do Windows Virtual Desktop
 
@@ -51,13 +51,19 @@ Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname>
 
 ## <a name="configure-depth-first-load-balancing"></a>Configurar o equilíbrio de primeira carga de profundidade
 
-O equilíbrio de carga de profundidade distribui novas sessões de utilizador a um anfitrião de sessão disponível com o maior número de ligações, mas não atingiu o seu limite máximo de sessão. Ao configurar o equilíbrio de carga de profundidade primeiro, deve definir um limite máximo de sessão por anfitrião na piscina de anfitrião.
+O equilíbrio de carga de profundidade distribui novas sessões de utilizador a um anfitrião de sessão disponível com o maior número de ligações, mas não atingiu o seu limite máximo de sessão.
+
+>[!IMPORTANT]
+>Ao configurar o equilíbrio de carga de profundidade primeiro, deve definir um limite máximo de sessão por anfitrião na piscina de anfitrião.
 
 Para configurar uma piscina hospedeira para efetuar o equilíbrio de carga de profundidade primeiro, execute o seguinte cmdlet PowerShell:
 
 ```powershell
 Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -LoadBalancerType 'DepthFirst' -MaxSessionLimit ###
 ```
+
+>[!NOTE]
+> O algoritmo de equilíbrio de primeira carga de profundidade distribui sessões a anfitriões de sessão com base no limite máximo de anfitrião da sessão ( `-MaxSessionLimit` ). O valor padrão deste parâmetro é `999999` , que é também o número mais alto possível para o qual pode definir esta variável. Este parâmetro é necessário quando se utiliza o algoritmo de equilíbrio de carga de profundidade primeiro. Para obter a melhor experiência possível do utilizador, certifique-se de alterar o parâmetro limite de anfitrião de sessão máxima para um número que melhor se adapte ao seu ambiente.
 
 Para se certificar de que a definição foi atualizada, execute este cmdlet:
 

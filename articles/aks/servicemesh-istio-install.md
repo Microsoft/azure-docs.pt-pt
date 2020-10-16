@@ -7,10 +7,10 @@ ms.date: 10/02/2020
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
 ms.openlocfilehash: 285fa34db3886cf405a3682438a27a17c75d81ed
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91666729"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Instale e utilize o Istio no Serviço Azure Kubernetes (AKS)
@@ -33,7 +33,7 @@ Neste artigo, vai aprender a:
 > * Aceda aos addons
 > * Desinstalar Istio da AKS
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Os passos detalhados neste artigo assumem que criou um cluster AKS (Kubernetes `1.16` e acima, com o RBAC habilitado) e estabeleceu uma `kubectl` ligação com o cluster. Se precisar de ajuda com algum destes itens, consulte o arranque rápido da [AKS][aks-quickstart].
 
@@ -310,7 +310,7 @@ kubectl delete ns istio-system
 kubectl delete ns istio-operator
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Para explorar mais opções de instalação e configuração para Istio, consulte as seguintes orientações oficiais da Istio:
 

@@ -23,6 +23,8 @@
           href: quickstart-azure-functions-csharp.md
         - name: Java Spring
           href: quickstart-java-spring-app.md
+        - name: Python
+          href: quickstart-python.md
         - name: Modelo ARM
           href: quickstart-resource-manager.md
           displayName: 'ARM, azure resource manager template'
@@ -123,9 +125,9 @@
     - name: Configuração
       items:
         - name: CLI do Azure
-          href: 'https://docs.microsoft.com/cli/azure/appconfig?view=azure-cli-latest'
+          href: /cli/azure/appconfig?view=azure-cli-latest
         - name: Fornecedor de .NET Core
-          href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
+          href: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
         - name: Construtor de .NET Framework
           href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
         - name: SDK do Azure para .NET
@@ -143,15 +145,15 @@
     - name: Gestão de funcionalidades
       items:
         - name: Biblioteca de .NET Core
-          href: 'https://go.microsoft.com/fwlink/?linkid=2091700'
+          href: /dotnet/api/microsoft.featuremanagement
         - name: Biblioteca de filtro .NET Core
-          href: 'https://go.microsoft.com/fwlink/?linkid=2091601'
+          href: /dotnet/api/microsoft.featuremanagement.featurefilters
     - name: Gestão do arquivo de configuração
       items:
         - name: API REST
-          href: 'https://docs.microsoft.com/rest/api/appconfiguration/'
+          href: /rest/api/appconfiguration/
         - name: PowerShell
-          href: 'https://docs.microsoft.com/powershell/module/az.appconfiguration/'
+          href: /powershell/module/az.appconfiguration/
         - name: Terraform
           href: 'https://www.terraform.io/docs/providers/azurerm/r/app_configuration.html'
     - name: Incorporações do Azure Policy

@@ -43,7 +43,19 @@
         - name: Repositório de exemplos do Batch
           href: 'https://github.com/Azure/azure-batch-samples'
     - name: CLI do Azure
-      href: cli-samples.md
+      items:
+        - name: Criar uma conta do Batch no modo de serviço do Batch
+          href: ./scripts/batch-cli-sample-create-account.md
+        - name: Criar uma conta do Batch no modo de subscrição do utilizador
+          href: ./scripts/batch-cli-sample-create-user-subscription-account.md
+        - name: Adicionar uma aplicação a uma conta do Azure Batch
+          href: ./scripts/batch-cli-sample-add-application.md
+        - name: Criar e gerir um conjunto do Linux
+          href: ./scripts/batch-cli-sample-manage-linux-pool.md
+        - name: Criar e gerir um conjunto do Windows
+          href: ./scripts/batch-cli-sample-manage-windows-pool.md
+        - name: Executar uma tarefa e tarefas
+          href: ./scripts/batch-cli-sample-run-job.md
 - name: Conceitos
   items:
     - name: Segurança
@@ -257,12 +269,16 @@
           href: batch-pool-resize-start-event.md
         - name: Evento de conclusão de redimensionamento de conjunto
           href: batch-pool-resize-complete-event.md
+        - name: Evento de dimensionamento automático de conjunto
+          href: batch-pool-autoscale-event.md
         - name: Evento de início de tarefa
           href: batch-task-start-event.md
         - name: Evento de conclusão de tarefa
           href: batch-task-complete-event.md
         - name: Evento de falha de tarefa
           href: batch-task-fail-event.md
+        - name: Evento de falha de agendamento de tarefa
+          href: batch-task-schedule-fail-event.md
     - name: Incorporações do Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md

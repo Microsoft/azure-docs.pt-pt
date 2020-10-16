@@ -4,10 +4,10 @@ description: Conheça os conceitos centrais e as principais áreas do Azure Serv
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.openlocfilehash: d09d774ed32c98222b71423ca733f1b4294957ef
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87836705"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Quer aprender sobre o Service Fabric?
@@ -75,7 +75,7 @@ Por predefinição, o Service Fabric implementa e ativa os serviços como proces
 ### <a name="reliable-actors"></a>Reliable Actors
 Construído em cima de Serviços Confiáveis, o quadro [de Ator Fiável](service-fabric-reliable-actors-introduction.md) é uma estrutura de aplicação que implementa o padrão de Ator Virtual, baseado no padrão de design do ator. O quadro de Ator Fiável usa unidades independentes de computação e estado com execução de linha única chamadas atores. O quadro de Ator Fiável fornece uma comunicação construída para os atores e configurações de persistência e escala pré-definidas.
 
-### <a name="aspnet-core"></a>ASP.NET Core
+### <a name="aspnet-core"></a>Núcleo de ASP.NET
 O Service Fabric integra-se com [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) como um modelo de programação de primeira classe para a construção de aplicações web e API.  ASP.NET Core pode ser usado de duas maneiras diferentes no Tecido de Serviço:
 
 - Hospedado como um hóspede executável. Isto é usado principalmente para executar aplicações core ASP.NET existentes no Tecido de Serviço sem alterações de código.

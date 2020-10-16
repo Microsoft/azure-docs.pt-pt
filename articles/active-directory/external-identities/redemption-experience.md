@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d6bf5d40262c5991504d3dc62490fb50f6a20592
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87909150"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Ative Directory B2B convite de colaboração resgate
@@ -42,9 +42,9 @@ Como alternativa ao e-mail do convite, pode dar a um hóspede um link direto par
 
 > [!IMPORTANT]
 > A ligação direta deve ser específica do inquilino. Por outras palavras, deve incluir um ID do inquilino ou domínio verificado para que o hóspede possa ser autenticado no seu inquilino, onde a app partilhada está localizada. Um URL comum como https://myapps.microsoft.com não funcionará para um hóspede porque irá redirecionar para o seu inquilino de casa para autenticação. Aqui estão alguns exemplos de ligações diretas com o contexto do inquilino:
- > - Painel de acesso a apps:`https://myapps.microsoft.com/?tenantid=<tenant id>`
- > - Painel de acesso de aplicações para um domínio verificado:`https://myapps.microsoft.com/<;verified domain>`
- > - Portal Azure:`https://portal.azure.com/<tenant id>`
+ > - Painel de acesso a apps: `https://myapps.microsoft.com/?tenantid=<tenant id>`
+ > - Painel de acesso de aplicações para um domínio verificado: `https://myapps.microsoft.com/<;verified domain>`
+ > - Portal Azure: `https://portal.azure.com/<tenant id>`
  > - Aplicação individual: veja como usar um [link de acesso direto](../manage-apps/end-user-experiences.md#direct-sign-on-links)
 
 Existem alguns casos em que o e-mail de convite é recomendado por um link direto. Se estes casos especiais forem importantes para a sua organização, recomendamos que convide os utilizadores utilizando métodos que ainda enviam o e-mail do convite:
@@ -113,4 +113,4 @@ No seu diretório, o Convite do Hóspede **aceitou** alterações de valor para 
 - [Adicionar utilizadores de colaboração Azure Ative Directory B2B no portal Azure](add-users-administrator.md)
 - [Como é que os trabalhadores da informação adicionam utilizadores de colaboração B2B ao Azure Ative Directory?](add-users-information-worker.md)
 - [Adicione utilizadores de colaboração B2B do Azure Ative Directory através da utilização do PowerShell](customize-invitation-api.md#powershell)
-- [Deixe uma organização como utilizador convidado](leave-the-organization.md)
+- [Deixar uma organização como utilizador convidado](leave-the-organization.md)

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
 ms.openlocfilehash: 170716804a5bc3133e070ee67f2aac71acad7b0b
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89435567"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Carregar dados do Office 365 utilizando a Azure Data Factory
@@ -145,7 +145,7 @@ Uma vez que o consentimento é fornecido, a extração de dados continuará e, a
 
 Agora vá ao destino Azure Blob Storage e verifique se os dados do Office 365 foram extraídos em formato Binário.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Avance para o seguinte artigo para saber sobre o suporte da Azure Synapse Analytics (anteriormente SQL Data Warehouse): 
 

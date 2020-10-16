@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: rogarana
 ms.openlocfilehash: 03b569422b6ce9e74f77637a514c1c0b28011bed
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761146"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Parte três: configurar o diretório e as permissões de nível de ficheiro sobre o SMB 

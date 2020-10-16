@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: bbde23dd888d179917f123d00745fb7d0099c2d2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 8cbec0b4b28574bfbe46516de54f1b8a3fad7ce2
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259295"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091139"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric with Azure API Management overview(Service Fabric com descrição geral da Gestão de API do Azure)
 
@@ -29,13 +29,13 @@ Uma arquitetura de Tecido de Serviço comum usa uma aplicação web de uma pági
 
 Neste cenário, um serviço web apátrida serve de porta de entrada para a aplicação Service Fabric. Esta abordagem requer que você escreva um serviço web que pode proxy HTTP solicita a serviços back-end, como mostrado no diagrama seguinte:
 
-![Tecido de serviço com topologia de gestão API Azure][sf-web-app-stateless-gateway]
+![Diagrama que mostra como um serviço web apátrida serve como porta de entrada para a aplicação De Tecido de Serviço.][sf-web-app-stateless-gateway]
 
 À medida que as aplicações crescem em complexidade, também os gateways que devem apresentar uma API em frente a miríades de serviços back-end. A Azure API Management é projetado para lidar com APIs complexos com regras de encaminhamento, controlo de acesso, limitação de tarifas, monitorização, registo de eventos e caching de resposta com o mínimo de trabalho da sua parte. A Azure API Management suporta a descoberta do serviço service Fabric, resolução de divisórias e seleção de réplicas para solicitar inteligentemente os pedidos de back-end em Service Fabric para que não tenha que escrever o seu próprio gateway apátrida API. 
 
 Neste cenário, o UI web ainda é servido através de um serviço web, enquanto as chamadas HTTP API são geridas e encaminhadas através da Azure API Management, como mostrado no seguinte diagrama:
 
-![Tecido de serviço com topologia de gestão API Azure][sf-apim-web-app]
+![Diagrama que mostra como a UI web ainda é servida através de um serviço web, enquanto as chamadas HTTP API são geridas e encaminhada através da Azure API Management.][sf-apim-web-app]
 
 ## <a name="application-scenarios"></a>Cenários de aplicações
 
@@ -51,7 +51,7 @@ No caso mais simples, o tráfego é encaminhado para uma instância de serviço 
 
 No cenário seguinte, uma aplicação Service Fabric contém um serviço apátrida denominado `fabric:/app/fooservice` , que expõe uma API HTTP interna. O nome da instância de serviço é bem conhecido e pode ser codificado diretamente na política de processamento de entrada da API Management. 
 
-![Tecido de serviço com topologia de gestão API Azure][sf-apim-static-stateless]
+![Diagrama que mostra uma aplicação de Tecido de Serviço contém um serviço apátrida que expõe uma API HTTP interna.][sf-apim-static-stateless]
 
 ## <a name="send-traffic-to-a-stateful-service"></a>Enviar tráfego para um serviço estatal
 
@@ -79,10 +79,10 @@ Neste exemplo, é criada uma nova instância de serviço apátrida para cada uti
 
   Cada serviço tem um nome único, mas os nomes não são conhecidos adiantado porque os serviços são criados em resposta à entrada de utilizador ou administração e, portanto, não podem ser codificados em políticas apim ou regras de encaminhamento. Em vez disso, o nome do serviço para o qual enviar um pedido é gerado na definição de política de back-end a partir do `name` valor fornecido na trajetória de pedido de URL. Por exemplo:
 
-  - Um pedido `/api/users/foo` é encaminhado para a instância de serviço`fabric:/app/users/foo`
-  - Um pedido `/api/users/bar` é encaminhado para a instância de serviço`fabric:/app/users/bar`
+  - Um pedido `/api/users/foo` é encaminhado para a instância de serviço `fabric:/app/users/foo`
+  - Um pedido `/api/users/bar` é encaminhado para a instância de serviço `fabric:/app/users/bar`
 
-![Tecido de serviço com topologia de gestão API Azure][sf-apim-dynamic-stateless]
+![Diagrama que mostra um exemplo onde uma nova instância de serviço apátrida é criada para cada utilizador de uma aplicação com um nome gerado dinamicamente.][sf-apim-dynamic-stateless]
 
 ## <a name="send-traffic-to-multiple-stateful-services"></a>Enviar tráfego para vários serviços estatais
 
@@ -98,12 +98,12 @@ Neste exemplo, é criada uma nova instância de serviço estatal para cada utili
 
   Cada serviço tem um nome único, mas os nomes não são conhecidos adiantado porque os serviços são criados em resposta à entrada de utilizador ou administração e, portanto, não podem ser codificados em políticas apim ou regras de encaminhamento. Em vez disso, o nome do serviço para o qual enviar um pedido é gerado na definição de política de back-end a partir do `name` valor fornecido pela trajetória de pedido de URL. Por exemplo:
 
-  - Um pedido `/api/users/foo` é encaminhado para a instância de serviço`fabric:/app/users/foo`
-  - Um pedido `/api/users/bar` é encaminhado para a instância de serviço`fabric:/app/users/bar`
+  - Um pedido `/api/users/foo` é encaminhado para a instância de serviço `fabric:/app/users/foo`
+  - Um pedido `/api/users/bar` é encaminhado para a instância de serviço `fabric:/app/users/bar`
 
 Cada instância de serviço também é dividida usando o esquema de partição Int64 com duas divisórias e uma gama chave que se estende `Int64.MinValue` até `Int64.MaxValue` . A política de back-end calcula uma chave de partição dentro desse intervalo, convertendo o `id` valor fornecido no caminho de pedido de URL para um inteiro de 64 bits, embora qualquer algoritmo possa ser usado aqui para calcular a chave de partição. 
 
-![Tecido de serviço com topologia de gestão API Azure][sf-apim-dynamic-stateful]
+![Diagrama que mostra que cada instância de serviço também é dividida usando o esquema de partição Int64 com duas divisórias e uma gama chave que abrange Int64.MinValue a Int64.MaxValue.][sf-apim-dynamic-stateful]
 
 ## <a name="next-steps"></a>Passos seguintes
 

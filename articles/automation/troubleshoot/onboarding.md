@@ -5,12 +5,12 @@ services: automation
 ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: ca2f866dc882e003469163a22d32d3d72031443a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a6b8384193e821e6c41a0d4d979cda51f6c65b3a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85801034"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070491"
 ---
 # <a name="troubleshoot-feature-deployment-issues"></a>Resolver problemas de implementação de funcionalidades
 
@@ -82,7 +82,7 @@ Failed to configure automation account for diagnostic logging
 
 #### <a name="cause"></a>Causa
 
-Este erro pode ser causado se o nível de preços não corresponder ao modelo de faturação da subscrição. Para obter mais informações, consulte [a utilização da monitorização e os custos estimados no Azure Monitor](https://aka.ms/PricingTierWarning).
+Este erro pode ser causado se o nível de preços não corresponder ao modelo de faturação da subscrição. Para obter mais informações, consulte [a utilização da monitorização e os custos estimados no Azure Monitor](../../azure-monitor/platform/usage-estimated-costs.md).
 
 #### <a name="resolution"></a>Resolução
 

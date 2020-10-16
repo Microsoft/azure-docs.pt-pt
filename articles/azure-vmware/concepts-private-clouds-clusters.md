@@ -4,10 +4,10 @@ description: Conheça as principais capacidades dos centros de dados definidos p
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: 715293d9951876ff0f794f8f6b580093f89571b3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91316873"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Azure VMware Solution conceitos de nuvem privada e cluster
@@ -61,7 +61,7 @@ As políticas e processos gerais de upgrade para o software da plataforma Azure 
 
 A manutenção do hospedeiro e a gestão do ciclo de vida são feitas sem impacto na capacidade ou desempenho de aglomerados de nuvens privadas. Exemplos de manutenção automatizada do hospedeiro incluem upgrades de firmware e reparação de hardware ou substituição.
 
-A Microsoft é responsável pela gestão do ciclo de vida de aparelhos NSX-T, tais como NSX-T Manager e NSX-T Edge. A Microsoft também é responsável pela config da rede bootstrapping, como a criação do gateway Tier-0 e a viabilizar o Encaminhamento Norte-Sul. Como administrador da sua nuvem privada Azure VMware Solution, é responsável pela configuração NSX-T SDN. Por exemplo, segmentos de rede, regras de firewall distribuídas, gateways de nível 1 e equilibres de carga.
+A Microsoft é responsável pela gestão do ciclo de vida de aparelhos NSX-T, tais como NSX-T Manager e NSX-T Edge. A Microsoft também é responsável pela config de rede de bootstrapping, como a criação do gateway Tier-0 e permitir North-South encaminhamento. Como administrador da sua nuvem privada Azure VMware Solution, é responsável pela configuração NSX-T SDN. Por exemplo, segmentos de rede, regras de firewall distribuídas, gateways de nível 1 e equilibres de carga.
 
 > [!IMPORTANT]
 > Um administrador de Solução VMware Azure não deve modificar a configuração de NSX-T Edge ou Gateway Tier-0. Isto pode resultar numa perda de serviço.

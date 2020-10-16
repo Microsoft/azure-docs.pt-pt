@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 07/10/2020
 author: jluk
 ms.openlocfilehash: 5b3dc3803cfb89f4a74d082b5913e69df1d03a00
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87986717"
 ---
 # <a name="reduce-latency-with-proximity-placement-groups-preview"></a>Reduzir a latência com grupos de colocação de proximidade (Pré-visualização)
@@ -28,7 +28,7 @@ Ao implementar a sua aplicação no Azure, espalhar instâncias da Máquina Virt
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Deve ter os seguintes recursos instalados:
 

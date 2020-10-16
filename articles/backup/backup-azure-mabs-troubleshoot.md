@@ -5,10 +5,10 @@ ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.openlocfilehash: 09e5fe5da7e316257cbbdcb89074fe8a4bc692c0
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91403012"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Resolução de problemas do Azure Backup Server
@@ -77,7 +77,7 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 
 | Operação | Detalhes do erro | Solução |
 | --- | --- | --- |
-| Backup | Falha na criação de ponto de recuperação online | **Error Message**: O Windows Azure Backup Agent não foi capaz de criar uma imagem do volume selecionado. <br> **Solução alternativa**: Tente aumentar o espaço no volume de réplica e ponto de recuperação.<br> <br> **Error Message**: O Windows Azure Backup Agent não pode ligar-se ao serviço OBEngine <br> **Solução:** verifique se o OBEngine existe na lista de serviços de execução no computador. Se o serviço OBEngine não estiver em funcionamento, utilize o comando "net start OBEngine" para iniciar o serviço OBEngine. <br> <br> **Error Message**: A palavra-passe de encriptação para este servidor não está definida. Por favor, configuure uma palavra-passe de encriptação. <br> **Solução alternativa**: Tente configurar uma palavra-passe de encriptação. Se falhar, tome os seguintes passos: <br> <ol><li>Verifique se a localização do risco existe. Esta é a localização mencionada no registo **HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config,** com o nome **ScratchLocation** deve existir.</li><li> Se a localização do risco existir, tente voltar a registar-se utilizando a frase de passagem antiga. *Sempre que configurar uma palavra-passe de encriptação, guarde-a num local seguro.*</li><ol>|
+| Backup | Falha na criação de ponto de recuperação online | **Error Message**: O Windows Azure Backup Agent não foi capaz de criar uma imagem do volume selecionado. <br> **Solução alternativa**: Tente aumentar o espaço no volume de réplica e ponto de recuperação.<br> <br> **Error Message**: O Windows Azure Backup Agent não pode ligar-se ao serviço OBEngine <br> **Solução:** verifique se o OBEngine existe na lista de serviços de execução no computador. Se o serviço OBEngine não estiver em funcionamento, utilize o comando "net start OBEngine" para iniciar o serviço OBEngine. <br> <br> **Error Message**: A palavra-passe de encriptação para este servidor não está definida. Por favor, configuure uma palavra-passe de encriptação. <br> **Solução alternativa**: Tente configurar uma palavra-passe de encriptação. Se falhar, tome os seguintes passos: <br> <ol><li>Verifique se a localização do risco existe. Esta é a localização que é mencionada no ** registoHKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config, **com o nome **ScratchLocation** deve existir.</li><li> Se a localização do risco existir, tente voltar a registar-se utilizando a frase de passagem antiga. *Sempre que configurar uma palavra-passe de encriptação, guarde-a num local seguro.*</li><ol>|
 
 ## <a name="the-original-and-external-dpm-servers-must-be-registered-to-the-same-vault"></a>Os servidores DPM originais e externos devem estar registados no mesmo cofre
 

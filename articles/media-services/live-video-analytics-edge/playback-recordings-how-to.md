@@ -4,10 +4,10 @@ description: Pode utilizar o Live Video Analytics no IoT Edge para gravação co
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.openlocfilehash: 6222d2c05b2fe05945d4bcbef6dbb0d64bd4726a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84261080"
 ---
 # <a name="playback-of-recordings"></a>Reprodução de gravações 
@@ -209,8 +209,8 @@ GET https://hostname/locatorId/content.ism/availableMedia?precision=day&startTim
 
 Como mencionado acima, estes filtros ajudam-no a selecionar partes da sua gravação (por exemplo, das 9h às 11h no Dia de Ano Novo) para reprodução. Ao transmitir via HLS, o URL de streaming seria como `https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl).m3u8` . Para selecionar uma parte da sua gravação, adicionaria um parâmetro startTime e um fimtime, tais como: `https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2019-12-21T08:00:00Z,endTime=2019-12-21T10:00:00Z).m3u8` . Assim, os filtros de intervalo de tempo são modificadores DE URL utilizados para descrever a parte da linha temporal da gravação que está incluída no manifesto de streaming:
 
-* `starttime`é um carimbo ISO 8601 DateTime que descreve a hora de início desejada da linha do tempo de vídeo no manifesto devolvido.
-* `endtime`é um carimbo ISO 8601 DateTime que descreve o tempo de fim desejado da linha de tempo de vídeo devolvido no manifesto.
+* `starttime` é um carimbo ISO 8601 DateTime que descreve a hora de início desejada da linha do tempo de vídeo no manifesto devolvido.
+* `endtime` é um carimbo ISO 8601 DateTime que descreve o tempo de fim desejado da linha de tempo de vídeo devolvido no manifesto.
 
 O comprimento máximo (a tempo) de tal manifesto não pode exceder 24 horas.
 
@@ -294,7 +294,7 @@ Com tal gravação:
     `GET https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2019-12-21T14:01:00.000Z,endTime=2019-12-21T03:00:00.000Z).m3u8`
 * Se solicitar um manifesto onde o startTime e o endTime estavam dentro do 'buraco' no meio – digamos das 8h às 10h UTC, então o serviço comportar-se-ia da mesma forma que se um Filtro de Ativos resultasse num resultado vazio.
 
-    [Este é um pedido que recebe uma resposta vazia]`GET https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2019-12-21T08:00:00.000Z,endTime=2019-12-21T10:00:00.000Z).m3u8`
+    [Este é um pedido que recebe uma resposta vazia] `GET https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2019-12-21T08:00:00.000Z,endTime=2019-12-21T10:00:00.000Z).m3u8`
 * Se solicitar um manifesto onde apenas um dos tempos de arranque ou fim do Tempo esteja dentro do 'buraco', então o manifesto devolvido apenas incluirá uma parte desse período de tempo. Encaixaria o valor startTime ou endTime para o limite válido mais próximo. Por exemplo, se pedisse um fluxo de 3 horas das 10:00 às 13:00, a resposta conteria 1 hora de meios de comunicação entre as 12:00 e as 13:00.
 
     `GET https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2019-12-21T10:00:00.000Z,endTime=2019-12-21T13:00:00.000Z).m3u8`
@@ -309,6 +309,6 @@ Consequentemente, o streaming do vídeo dos Media Services será adiado pelo men
 
 Outro fator que determina a latência da reprodução (o atraso entre o momento em que um evento ocorre em frente à câmara, até ao momento em que pode ser visto num dispositivo de reprodução) é a duração [do GOP](https://en.wikipedia.org/wiki/Group_of_pictures) em grupo de imagens. Como [reduzir o atraso dos fluxos ao vivo usando 3 técnicas simples](https://medium.com/vrt-digital-studio/reducing-the-delay-of-live-streams-by-using-3-simple-techniques-e8e028b0a641) explica, mais longa duração do GOP, mais longa a latência. É comum ter câmaras IP usadas em cenários de vigilância e segurança configurados para usar GOPs por mais de 30 segundos. Isto tem um grande impacto na latência global.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Tutorial de gravação contínua de vídeo](continuous-video-recording-tutorial.md)

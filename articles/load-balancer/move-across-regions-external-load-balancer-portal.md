@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
 ms.openlocfilehash: 0598f21cddbaeef6b3cd10cd77250eeae8bd34bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84808715"
 ---
 # <a name="move-an-external-load-balancer-to-another-region-by-using-the-azure-portal"></a>Mover um equilibrador de carga externo para outra região utilizando o portal Azure
@@ -182,7 +182,7 @@ Os seguintes procedimentos mostram como preparar o balançador de carga externo 
 
     1. Em outro separador ou janela do navegador, inscreva-se no [portal Azure](https://portal.azure.com) e selecione **grupos de Recursos.**
     2. Localize o grupo de recursos-alvo que contém o IP público que moveu nos passos anteriores. Selecione-a.
-    3. Selecione **Settings**  >  **Configurações Propriedades**.
+    3. Selecione **Configurações** > **Propriedades**.
     4. Na lâmina à direita, realce o **ID do recurso** e copie-o para a área de transferência. Em alternativa, pode selecionar **a cópia para a área de transferência** à direita do caminho de ID de **recursos.**
     5. Cole o ID do recurso na propriedade de **valor** no editor **editar parâmetros** que está aberto na outra janela ou separador do navegador:
 
@@ -409,10 +409,10 @@ Se pretender descartar o IP público-alvo e o equilibrador de carga externo, eli
 
 Para comprometer as alterações e completar o movimento do equilibrador de carga público e externo, elimine a fonte de IP público e o equilibrador de carga externo ou grupo de recursos. Para tal, selecione o grupo de recursos do seu painel de instrumentos no portal e, em seguida, **selecione Delete** no topo de cada página.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você moveu um equilibrador de carga externa Azure de uma região para outra e limpou os recursos de origem. Para saber mais sobre a movimentação de recursos entre regiões e recuperação de desastres em Azure, consulte:
 
 
-- [Move resources to a new resource group or subscription](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources) (Mover recursos para um grupo de recursos ou uma subscrição nova)
+- [Mover recursos para um novo grupo de recursos ou subscrição](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
 - [Mover VMs do Azure para outra região](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)

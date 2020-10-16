@@ -8,10 +8,10 @@ ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 69a47820d2afaf24f413aabf2c59a40c032070c1
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89231389"
 ---
 # <a name="azure-security-baseline-for-expressroute"></a>Linha de segurança Azure para ExpressRoute
@@ -242,7 +242,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 Pode utilizar o painel de controlo de identidade e acesso (IAM) no portal Azure para a sua subscrição para configurar o controlo de acesso baseado em funções (Azure RBAC). As funções são aplicadas aos utilizadores, grupos, diretores de serviços e identidades geridas no Ative Directory.
 
-Além disso, os parceiros que utilizam a API do Gestor de Recursos do Parceiro ExpressRoute podem aplicar o Controlo de Acesso Baseado em Função ao recurso expressRouteCrossConnection. Estes controlos podem definir permissões para as quais as contas dos utilizadores podem modificar o recurso expressRouteCrossConnection e adicionar/atualizar/eliminar configurações de peering.
+Além disso, os parceiros que utilizam a API do Gestor de Recursos parceiros ExpressRoute podem aplicar Role-Based Controlo de Acesso ao recurso expressRouteCrossConnection. Estes controlos podem definir permissões para as quais as contas dos utilizadores podem modificar o recurso expressRouteCrossConnection e adicionar/atualizar/eliminar configurações de peering.
 
 * [Compreender Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
@@ -459,7 +459,7 @@ Como configurar o Site IPSEC sobre o ExpressRoute: https://docs.microsoft.com/az
 
 O Azure ExpressRoute também tem funções de proprietário de circuitos e de utilizador de circuitos. Os utilizadores de circuitos são proprietários de gateways de rede virtuais que não estão dentro da mesma subscrição que o circuito ExpressRoute. O proprietário do circuito tem o poder de modificar e revogar autorizações a qualquer momento. A revogação de uma autorização resulta na suprição de todas as ligações de ligação da subscrição cujo acesso foi revogado. Os utilizadores de circuitos podem resgatar autorizações (uma autorização por rede virtual).
 
-Além disso, os parceiros que utilizam a API do Gestor de Recursos do Parceiro ExpressRoute podem aplicar o Controlo de Acesso Baseado em Função ao recurso expressRouteCrossConnection. Estes controlos podem definir permissões para as quais as contas dos utilizadores podem modificar o recurso expressRouteCrossConnection e adicionar/atualizar/eliminar configurações de peering.
+Além disso, os parceiros que utilizam a API do Gestor de Recursos parceiros ExpressRoute podem aplicar Role-Based Controlo de Acesso ao recurso expressRouteCrossConnection. Estes controlos podem definir permissões para as quais as contas dos utilizadores podem modificar o recurso expressRouteCrossConnection e adicionar/atualizar/eliminar configurações de peering.
 
 * [Compreender Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
@@ -891,9 +891,9 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: Garantir a proteção das cópias de segurança e das chaves geridas pelo cliente
 
-**Orientação**: Ative a eliminação suave no cofre da chave para proteger as chaves contra a eliminação acidental ou maliciosa.
+**Orientação**: Ative Soft-Delete no Cofre de Chaves para proteger as chaves contra a eliminação acidental ou maliciosa.
 
-* [Como permitir o Soft-Delete no Cofre da Chave](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+* [Como permitir Soft-Delete em Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 

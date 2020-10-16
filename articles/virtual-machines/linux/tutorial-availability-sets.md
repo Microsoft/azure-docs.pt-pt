@@ -15,18 +15,18 @@ ms.topic: tutorial
 ms.date: 01/17/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: e04f6120f7d9a5646a3b30553b5083c5259acae2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b3817bd33c72ce6d1c3426aa8379101c84f5bc5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87499641"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961515"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>Tutorial: Criar e implementar máquinas virtuais altamente disponíveis com a CLI do Azure
 
 Neste tutorial, irá aprender a aumentar a disponibilidade e a fiabilidade das suas soluções de Máquina Virtual no Azure através de uma função chamada Conjuntos de Disponibilidade. Os conjuntos de disponibilidade garantem que as VMs que implementa no Azure são distribuídas por vários clusters de hardware isolados. Fazer isto garante que, se ocorrer uma falha de hardware ou software no Azure, apenas um subconjunto das suas VMs é afetado e que a solução global permanece disponível e operacional.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar um conjunto de disponibilidade
@@ -37,7 +37,7 @@ Este tutorial utiliza o CLI dentro da [Azure Cloud Shell](../../cloud-shell/over
 
 Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Overview (Descrição geral)
 
 Um Conjunto de Disponibilidade é uma função de agrupamento lógico que pode utilizar no Azure para garantir que os recursos de VM que nele colocar estão isolados uns dos outros quando são implementados num datacenter do Azure. O Azure garante que as VMs que colocar num Conjunto de Disponibilidade são executadas em vários servidores físicos, suportes de computação, unidades de armazenamento e comutadores de rede. Se ocorrer uma falha de software do Azure ou de hardware, apenas um subconjunto das suas VMs será afetado, e a aplicação global mantém-se e continua disponível para os seus clientes. Os Conjuntos de Disponibilidade são uma função essencial quando pretende criar soluções cloud fiáveis.
 
@@ -116,5 +116,5 @@ Avance para o tutorial seguinte para saber mais sobre os conjuntos de dimensiona
 > [Criar um conjunto de dimensionamento de máquinas virtuais](tutorial-create-vmss.md)
 
 * Para saber mais sobre as zonas de disponibilidade, visite a [documentação zonas de disponibilidade.](../../availability-zones/az-overview.md)
-* Mais documentação sobre os conjuntos de disponibilidade e zonas de disponibilidade também está disponível [aqui.](./manage-availability.md)
+* Mais documentação sobre os conjuntos de disponibilidade e zonas de disponibilidade também está disponível [aqui.](../manage-availability.md)
 * Para experimentar zonas de disponibilidade, visite [Criar uma máquina virtual Linux numa zona de disponibilidade com o Azure CLI](./create-cli-availability-zone.md)

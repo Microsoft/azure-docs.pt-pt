@@ -9,12 +9,12 @@ ms.reviewer: dineshm
 ms.date: 09/04/2020
 ms.subservice: blobs
 ms.custom: devx-track-js
-ms.openlocfilehash: 27ea88ad4d349d6a7aedd4e1e3bc8dc804683292
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 952d0acb00a25fe7d84738825cbad017e5b18029
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326087"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91892698"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Static website hosting in Azure Storage (Alojamento de sites estáticos no Armazenamento do Microsoft Azure)
 
@@ -49,7 +49,7 @@ Pode utilizar qualquer uma destas ferramentas para enviar conteúdo para o recip
 > * [CLI do Azure](storage-blob-static-website-how-to.md?tabs=azure-cli)
 > * [Módulo do Azure PowerShell](storage-blob-static-website-how-to.md?tabs=azure-powershell)
 > * [AzCopy](../common/storage-use-azcopy-v10.md)
-> * [Explorador do Storage do Azure](https://azure.microsoft.com/features/storage-explorer/)
+> * [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/)
 > * [Pipelines do Azure](https://azure.microsoft.com/services/devops/pipelines/)
 > * [Extensão do Visual Studio Code](/azure/developer/javascript/tutorial-vscode-static-website-node-01)
 
@@ -60,7 +60,7 @@ Os utilizadores podem ver o conteúdo do site a partir de um navegador usando o 
 Se o servidor retornar um erro 404 e não tiver especificado um documento de erro quando ativou o website, então uma página 404 predefinida é devolvida ao utilizador.
 
 > [!NOTE]
-> [O CORS](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) não é suportado com um website estático.
+> [O suporte de partilha de recursos de origem cruzada (CORS) para armazenamento de Azure](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) não é suportado com website estático.
 
 ### <a name="regional-codes"></a>Códigos regionais
 

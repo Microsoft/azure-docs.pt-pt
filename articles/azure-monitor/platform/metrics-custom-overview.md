@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/01/2020
 ms.subservice: metrics
 ms.openlocfilehash: 73c9b2bf8cf88ca5e8576c451c9d9ac5f0eae8a3
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88639907"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Métricas personalizadas no Monitor Azure (Pré-visualização)
@@ -61,7 +61,7 @@ Esta propriedade captura qual iD de recurso Azure a métrica personalizada é re
 > Não é possível emitir métricas personalizadas contra o ID de recursos de um grupo de recursos ou subscrição.
 
 
-### <a name="region"></a>Região
+### <a name="region"></a>Region
 Esta propriedade captura o que a região de Azure, o recurso para o qual está a emitir métricas, é implantado. As métricas devem ser emitidas para o mesmo ponto final regional do Azure Monitor em que o recurso é implantado. Por exemplo, as métricas personalizadas para um VM implantado nos EUA ocidentais devem ser enviadas para o ponto final regional do WestUS Azure Monitor. A informação da região também está codificada no URL da chamada API.
 
 > [!NOTE]  

@@ -5,14 +5,14 @@ author: Rodrigossz
 ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 0e02f0bf1bb9646a644a40279a8bae930de34c0b
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 97f24537f2fa68f1a9be83e2c9abdc8101edb8d0
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91568000"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014550"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>O que é Azure Synapse Link para Azure Cosmos DB (Preview)?
 
@@ -116,13 +116,13 @@ O Synapse Link não é recomendado se estiver à procura de requisitos tradicion
 
 ## <a name="limitations"></a>Limitações
 
-* A Azure Synapse Link é suportado para a API API AZure Cosmos DB SQL (Core) e a API da AZure Cosmos DB para a MongoDB.
+* Hoje, a Azure Synapse Link for Azure Cosmos DB é suportada para API SQL e Azure Cosmos DB API para MongoDB. Não é apoiado pela Gremlin API e para a Table API. O suporte para a API cassandra está em pré-visualização privada, para mais informações contacte a equipa do [Azure Synapse Link](mailto:cosmosdbsynapselink@microsoft.com).  
 
 * Atualmente, a loja analítica só pode ser ativada para novos contentores. Para utilizar a loja analítica para recipientes existentes, migrar dados dos seus recipientes existentes para novos recipientes utilizando [ferramentas de migração Azure Cosmos DB](cosmosdb-migrationchoices.md). Pode ativar o Synapse Link em novas e existentes contas DB do Azure Cosmos.
 
-* O acesso à loja analítica Azure Cosmos DB com servidor Sinaapse SQL está atualmente sob pré-visualização fechada. Para solicitar acesso, envie um e-mail para a [equipa DB da Azure Cosmos.](mailto:cosmosdbsynapselink@microsoft.com)
+* O acesso à loja analítica Azure Cosmos DB com servidor Sinaapse SQL está atualmente sob pré-visualização fechada. Para solicitar acesso, envie um e-mail para a [equipa do Azure Synapse Link.](mailto:cosmosdbsynapselink@microsoft.com)
 
-* Na pré-visualização, para o Synapse Link as contas de base de dados ativadas, a cópia de segurança e a restauração de contentores não são suportadas. Se tiver cargas de trabalho que exijam cópias de segurança e restaurar a funcionalidade, recomendamos que não ative o Synapse Link nessas contas de base de dados. 
+* Para os recipientes com loja analítica ligada, a cópia de segurança automática e a restauração dos seus dados na loja analítica não são suportadas neste momento. Quando o Synapse Link estiver ativado numa conta de base de [dados,](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore) a Azure Cosmos DB continuará a receber automaticamente cópias de segurança dos seus dados na loja transacional (apenas) de contentores num intervalo de backup programado, como sempre. É importante notar que quando um recipiente com loja analítica ligada é restaurado para uma nova conta, o recipiente será restaurado apenas com uma loja transacional e sem loja analítica ativada. 
 
 * O acesso à loja de análiseS DB da Azure Cosmos com o Sinaapse SQL abastado não está disponível atualmente.
 

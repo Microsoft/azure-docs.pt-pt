@@ -15,10 +15,10 @@ ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 36b39f3706db615e40ebfadebf36be4d8b29c33e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80154734"
 ---
 # <a name="what-is-authentication"></a>O que é a autenticação?
@@ -119,9 +119,9 @@ As afirmações presentes em qualquer token de segurança dependem do tipo de to
 
 É fornecida uma breve descrição de cada tipo de afirmação emitida pelo Azure AD na tabela abaixo. Para obter informações mais detalhadas, consulte os [tokens de acesso](../develop/access-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) e [fichas de identificação emitidas](../develop/id-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) pela Azure AD.
 
-| Afirmação | Description |
+| Afirmação | Descrição |
 | --- | --- |
-| ID da aplicação | Identifica a aplicação que está a utilizar o token. |
+| ID da Aplicação | Identifica a aplicação que está a utilizar o token. |
 | Audiência | Identifica o recurso de destinatário a que se destina o token. |
 | Referência da Classe de Contexto de Autenticação da Aplicação | Indica de que forma o cliente foi autenticado (cliente público versus cliente confidencial). |
 | Autenticação Instantânea | Regista a data e hora em que ocorreu a autenticação. |
@@ -132,7 +132,7 @@ As afirmações presentes em qualquer token de segurança dependem do tipo de to
 | Emitido às | Regista a hora a que o token foi emitido, muitas vezes utilizado para atualização do token. |
 | Emissor | Identifica o STS que emitiu o token, bem como o inquilino do Azure AD. |
 | Apelido | Fornece o apelido do utilizador conforme definido no Azure AD. |
-| Name | Fornece um valor legível por humanos que identifica o requerente do token. |
+| Nome | Fornece um valor legível por humanos que identifica o requerente do token. |
 | ID de objeto | Contém um identificador exclusivo imutável do requerente no Azure AD. |
 | Funções | Contém os nomes amigáveis das Funções de Aplicação do Azure AD concedidas ao utilizador. |
 | Âmbito | Indica as permissões concedidas à aplicação cliente. |

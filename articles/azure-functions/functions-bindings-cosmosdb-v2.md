@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 02/24/2017
 ms.author: cshoe
 ms.openlocfilehash: 2c6efd14bd974de1b01b1725b9810f153df74bf8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85482178"
 ---
 # <a name="azure-cosmos-db-trigger-and-bindings-for-azure-functions-2x-and-higher-overview"></a>Azure Cosmos DB gatilho e encadernações para funções Azure 2.x e visão geral superior
@@ -41,7 +41,7 @@ Este conjunto de artigos explica como trabalhar com as ligações [DB da Azure C
 
 Trabalhar com o gatilho e as ligações requer que você refira o pacote apropriado. O pacote NuGet é utilizado para bibliotecas de classe .NET enquanto o pacote de extensão é utilizado para todos os outros tipos de aplicação.
 
-| Linguagem                                        | Adicione por...                                   | Observações 
+| Idioma                                        | Adicione por...                                   | Observações 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | Instalação do [pacote NuGet], versão 3.x | |
 | C# Script, Java, JavaScript, Python, PowerShell | Registar o [pacote de extensão]          | Recomenda-se a utilização da [extensão Azure Tools] com Código de Estúdio Visual. |
@@ -57,7 +57,7 @@ Trabalhar com o gatilho e as ligações requer que você refira o pacote apropri
 
 As aplicações Functions 1.x têm automaticamente uma referência ao pacote [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet, versão 2.x.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Executar uma função quando um documento DB Azure Cosmos é criado ou modificado (Gatilho)](./functions-bindings-cosmosdb-v2-trigger.md)
 - [Leia um documento DB da Azure Cosmos (ligação à entrada)](./functions-bindings-cosmosdb-v2-input.md)

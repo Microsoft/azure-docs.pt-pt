@@ -7,10 +7,10 @@ ms.date: 02/27/2020
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 4a0be44d8709726e159e17e703566c6c576bc18f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89018982"
 ---
 # <a name="set-up-remote-rendering-for-unity"></a>Configurar o Remote Rendering para o Unity

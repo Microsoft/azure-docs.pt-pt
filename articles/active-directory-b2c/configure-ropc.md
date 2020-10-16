@@ -12,10 +12,10 @@ ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 3dbafac99ebc1b7472bf884647ad5e8657f0de0b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87482860"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configure o fluxo de credenciais de senha do proprietário do recurso em Azure AD B2C
@@ -127,7 +127,7 @@ Uma resposta bem sucedida parece ser o seguinte exemplo:
 > [!NOTE]
 > Ao criar utilizadores através da API de gráficos, a aplicação precisa de ter permissões "openid", "offline_access" e "perfil" do Microsoft Graph.
 
-## <a name="implement-with-your-preferred-native-sdk-or-use-app-auth"></a>Implemente com o seu SDK nativo preferido ou use app-Auth
+## <a name="implement-with-your-preferred-native-sdk-or-use-app-auth"></a>Implemente com o seu SDK nativo preferido ou use App-Auth
 
 A implementação Azure AD B2C cumpre as normas OAuth 2.0 para credenciais de senha do proprietário de recursos públicos do cliente e deve ser compatível com a maioria dos SDKs do cliente. Testámos extensivamente este fluxo, em produção, com AppAuth para iOS e AppAuth para Android. Para obter as informações mais recentes, consulte [Native App SDK para OAuth 2.0 e OpenID Connect implementando as melhores práticas modernas.](https://appauth.io/)
 

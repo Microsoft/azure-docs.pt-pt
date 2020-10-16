@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.openlocfilehash: 1a14615e96d5be4fbc8994073d66677997281131
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86499890"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opções de dimensionamento para aplicações no Serviço Kubernetes do Azure (AKS)
@@ -30,7 +30,7 @@ Ao escalonar os nós, a API de Kubernetes chama a API AZURE Compute relevante li
 
 Para começar com cápsulas de escala manual e nós ver [aplicações de escala em AKS][aks-scale].
 
-## <a name="horizontal-pod-autoscaler"></a>Autoescalador de vagem horizontal
+## <a name="horizontal-pod-autoscaler"></a>Dimensionador automático de pods horizontal
 
 Kubernetes utiliza o autoescalador horizontal (HPA) para monitorizar a procura de recursos e escalar automaticamente o número de réplicas. Por predefinição, o autoescalador horizontal verifica a API métrica a cada 30 segundos para quaisquer alterações necessárias na contagem de réplicas. Quando são necessárias alterações, o número de réplicas é aumentado ou diminuído em conformidade. O autoescalador horizontal funciona com clusters AKS que implementaram o Metrics Server para Kubernetes 1.8+.
 
@@ -86,7 +86,7 @@ A sua aplicação não requer modificação para usar nós virtuais. As implemen
 
 Os nós virtuais são implantados numa sub-rede adicional na mesma rede virtual que o seu cluster AKS. Esta configuração de rede virtual permite que o tráfego entre ACI e AKS seja seguro. Como um cluster AKS, um caso ACI é um recurso de computação segura e lógica que é isolado de outros utilizadores.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar com aplicações de escala, siga primeiro o [quickstart para criar um cluster AKS com o Azure CLI][aks-quickstart]. Em seguida, pode começar a escalar as aplicações manualmente ou automaticamente no seu cluster AKS:
 

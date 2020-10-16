@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.custom: seodec18
 ms.openlocfilehash: e2c5ba137d5277466cf1b382d2b0b1bc02259f00
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88723457"
 ---
 # <a name="track-asynchronous-azure-operations"></a>Rastreio assíncrona operações de Azure assíncrona
@@ -40,10 +40,10 @@ Há duas maneiras diferentes de monitorizar o estado da operação assíncronea.
 
 Se `Azure-AsyncOperation` não é um dos valores do cabeçalho, procure:
 
-* `Location` - URL para determinar quando uma operação tiver terminado. Utilize este valor apenas quando a Azure-AsyncOperation não for devolvida.
+* `Location` - URL para determinar quando uma operação tiver terminado. Só use este valor quando Azure-AsyncOperation não for devolvido.
 * `Retry-After` - O número de segundos a esperar antes de verificar o estado da operação assíncronea.
 
-## <a name="azure-asyncoperation-request-and-response"></a>Pedido e resposta Azure-AsyncOperation
+## <a name="azure-asyncoperation-request-and-response"></a>Azure-AsyncOperation pedido e resposta
 
 Se tiver um URL do valor do `Azure-AsyncOperation` cabeçalho, envie um pedido GET para essa URL. Utilize o valor de `Retry-After` um horário com que frequência verificar o estado. Receberá um objeto de resposta que indique o estado da operação. Uma resposta diferente é devolvida ao verificar o estado da operação com o `Location` URL. Para obter mais informações sobre a resposta a partir de um URL de localização, consulte [Criar conta de armazenamento (202 com Localização e Retry-After)](#create-storage-account-202-with-location-and-retry-after).
 

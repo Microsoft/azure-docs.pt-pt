@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
 ms.openlocfilehash: 021bfc0b87b0da800728eda26d9f5222bd52bc1e
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86086964"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Understand and resolve errors received from WebHCat on HDInsight (Compreender e resolver erros recebidos do WebHCat no HDInsight)
@@ -71,11 +71,11 @@ Se os seguintes valores predefinidos forem ultrapassados, pode degradar o desemp
 | --- | --- |
 | A recolha interna de lixo está a ocorrer no âmbito do processo WebHCat |Aguarde que a recolha do lixo termine ou reinicie o serviço WebHCat |
 | Time out à espera de uma resposta do serviço ResourceManager. Este erro pode ocorrer quando o número de aplicações ativas for o máximo configurado (padrão 10.000) |Aguarde que atualmente os postos de trabalho completem ou aumentem o limite de emprego simultâneo modificando `yarn.scheduler.capacity.maximum-applications` . Para obter mais informações, consulte a secção [de configuração modificante.](#modifying-configuration) |
-| Tentar recuperar todos os empregos através da chamada [GET/jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) enquanto `Fields` está definido para`*` |Não recupere *todos os* detalhes do trabalho. Em vez disso, use `jobid` para recuperar detalhes para empregos apenas maiores do que certos postos de trabalho. Ou, não use`Fields` |
+| Tentar recuperar todos os empregos através da chamada [GET/jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) enquanto `Fields` está definido para `*` |Não recupere *todos os* detalhes do trabalho. Em vez disso, use `jobid` para recuperar detalhes para empregos apenas maiores do que certos postos de trabalho. Ou, não use `Fields` |
 | O serviço WebHCat está em baixo durante o failover headNode |Espere dois minutos e relemisça a operação |
 | Existem mais de 500 postos de trabalho pendentes submetidos através do WebHCat |Aguarde até que os postos de trabalho pendentes tenham concluído antes de apresentar mais empregos |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

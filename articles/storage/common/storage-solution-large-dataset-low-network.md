@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: 6514b149b057d690d37551bd0489c63852addb1e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86207501"
 ---
 # <a name="data-transfer-for-large-datasets-with-low-or-no-network-bandwidth"></a>Data transfer for large datasets with low or no network bandwidth (Transferência de dados para conjuntos de dados grandes com pouca ou nenhuma largura de banda de rede)
@@ -56,8 +56,8 @@ A tabela seguinte resume as diferenças nas capacidades-chave.
 |    **Encriptação**                   |    AES 128-bit                  |    AES 256-bit                                   |    AES 256-bit                           |    AES 128-bit                         |
 |    **Hardware**                     |     Microsoft fornecida          |    Microsoft fornecida                            |    Microsoft fornecida                    |    Cliente fornecido                   |
 |    **Interface de rede**            |    USB 3.1/SATA                 |    RJ 45, SFP+                                   |    RJ45, QSFP+                           |    SATA II/SATA III                    |
-|    **Integração de parceiros**          |    Alguns                         |    [Elevado](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                          |    [Elevado](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                  |    Alguns                                |
-|    **Shipping**                     |    Microsoft gerido            |    Microsoft gerido                             |    Microsoft gerido                     |    Gerido pelo cliente                    |
+|    **Integração de parceiros**          |    Algum                         |    [Alto](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                          |    [Alto](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                  |    Algum                                |
+|    **Envio**                     |    Microsoft gerido            |    Microsoft gerido                             |    Microsoft gerido                     |    Gerido pelo cliente                    |
 | **Use quando os dados se movem**     |Dentro de um limite de comércio|Dentro de um limite de comércio|Dentro de um limite de comércio|Além das fronteiras geográficas, por exemplo, eua à UE|
 |    **Preços**                      |    [Preços](https://azure.microsoft.com/pricing/details/databox/disk/)                    |   [Preços](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [Preços](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [Preços](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
 

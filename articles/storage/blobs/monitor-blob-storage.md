@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
 ms.openlocfilehash: b5eb37ff7063662341cf3b92176c26839df4b21d
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91711576"
 ---
 # <a name="monitoring-azure-blob-storage"></a>Monitorização do armazenamento do Azure Blob
@@ -401,7 +401,7 @@ Utilize estas consultas para ajudá-lo a monitorizar as suas contas de Armazenam
 
 N.º O Azure Compute suporta as métricas nos discos. Para obter mais informações, consulte [as métricas de discos por discos geridos e não geridos.](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter uma referência dos registos e métricas criados pelo armazenamento Azure Blob, consulte [a referência de dados de monitorização do armazenamento Azure Blob](monitor-blob-storage-reference.md).
 - Para obter informações sobre a monitorização dos recursos do Azure, consulte [os recursos do Monitor Azure com o Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md).

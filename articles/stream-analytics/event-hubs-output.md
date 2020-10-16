@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: 86a6c1a15d804a6c758e90dbd4bdd7057a7a2716
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295289"
 ---
 # <a name="event-hubs-output-from-azure-stream-analytics"></a>Saída de Hubs de Eventos da Azure Stream Analytics
@@ -22,7 +22,7 @@ O serviço [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) 
 
 A tabela seguinte tem os parâmetros necessários para configurar fluxos de dados dos centros de eventos como uma saída.
 
-| Nome da propriedade | Description |
+| Nome da propriedade | Descrição |
 | --- | --- |
 | Alias de saída | Um nome amigável usado em consultas para direcionar a saída de consulta para este centro de eventos. |
 | Espaço de nomes do hub de eventos | Um contentor para um conjunto de entidades de mensagens. Quando criou um novo centro de eventos, também criou um espaço de nomes de centros de eventos. |
@@ -62,7 +62,7 @@ No exemplo seguinte, os campos `DeviceId` são `DeviceStatus` adicionados aos me
 
 A imagem a seguir é das propriedades de mensagens de saída esperadas inspecionadas no EventHub utilizando [o Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
 
-:::image type="content" source="media/event-hubs-output/custom-properties.png" alt-text="Propriedades personalizadas do evento":::
+:::image type="content" source="media/event-hubs-output/custom-properties.png" alt-text="Colunas de propriedade":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

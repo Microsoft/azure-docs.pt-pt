@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: c98aeaff3ba39a28fad68454d76f6f4d33f44e5d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 763b9977f756075789b826c2f1e01cd41ac60a73
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836739"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091173"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Saiba mais sobre as diferenças entre os Serviços cloud e o Tecido de Serviço antes de migrar as aplicações.
 O Microsoft Azure Service Fabric é a plataforma de aplicações cloud de próxima geração para aplicações distribuídas altamente escaláveis e altamente fiáveis. Introduz muitas novidades para a embalagem, implantação, upgrade e gestão de aplicações em nuvem distribuídas. 
@@ -69,7 +69,7 @@ Com a comunicação direta, os níveis podem comunicar diretamente através do p
 
 A Service Fabric fornece um mecanismo de descoberta de serviços, chamado Serviço de Nomeação, que pode ser usado para resolver endereços de ponto final de serviços. 
 
-![Comunicação direta do Tecido de Serviço][6]
+![Diagrama que mostra como o Service Fabric fornece um mecanismo de descoberta de serviço, chamado Serviço de Nomeação, que pode ser usado para resolver endereços de ponto final de serviços.][6]
 
 ### <a name="queues"></a>Filas
 Um mecanismo comum de comunicação entre níveis em ambientes apátridas, como os Serviços Cloud, é usar uma fila de armazenamento externo para armazenar tarefas de trabalho duradouras de um nível para outro. Um cenário comum é um nível web que envia empregos para uma Fila Azure ou autocarro de serviço onde os casos de papel dos trabalhadores podem descaendirá-lo e processar os empregos.

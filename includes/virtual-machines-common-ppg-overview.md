@@ -9,10 +9,10 @@ ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
 ms.openlocfilehash: b5827d60b5968eb9f5e9e0a2ca5ec884366aea3d
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91376671"
 ---
 A colocação de VMs numa única região reduz a distância física entre os casos. Colocá-los dentro de uma única zona de disponibilidade também os aproximará fisicamente. No entanto, à medida que a pegada Azure cresce, uma única zona de disponibilidade pode abranger vários centros de dados físicos, o que pode resultar numa latência de rede com impacto na sua aplicação. 
@@ -58,7 +58,7 @@ Pode fazer o seguinte para verificar o estado de alinhamento dos seus grupos de 
 
 - O estado de colocação do grupo de colocação de proximidade pode ser visto usando o portal, CLI e PowerShell.
 
-    -   Ao utilizar o PowerShell, o estado de cosão pode ser obtido utilizando o cmdlet Get-AzProximityPlacementGroup, incluindo o parâmetro opcional '-ColocationStatus'.
+    -   Ao utilizar o PowerShell, o estado de cosão pode ser obtido utilizando Get-AzProximityPlacementGroup cmdlet, incluindo o parâmetro opcional '-ColocationStatus'.
 
     -   Ao utilizar o CLI, o estado de comarcação pode ser obtido através `az ppg show` da inclusão do parâmetro opcional "--incluir-estado de colocação".
 

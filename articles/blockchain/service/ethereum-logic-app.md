@@ -5,10 +5,10 @@ ms.date: 08/31/2020
 ms.topic: how-to
 ms.reviewer: caleteet
 ms.openlocfilehash: 4364d2f616c8eaadedf12baf4bf77810eec69fdb
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89230539"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Utilize o conector Ethereum Blockchain com apps Azure Logic
@@ -156,8 +156,8 @@ Para ajudá-lo a configurar uma ligação com um membro do Serviço Azure Blockc
 
 | Propriedade | Descrição |
 |----------|-------------|
-|**Nome da ligação** | Nome da ligação API. Necessário. |
-|**Ponto final do Ethereum RPC** | Endereço HTTP do nó de transação do Serviço Azure Blockchain. Necessário. Para obter mais informações, [consulte o ponto de terminação do RPC.](#get-the-rpc-endpoint) |
+|**Nome da ligação** | Nome da ligação API. Obrigatório. |
+|**Ponto final do Ethereum RPC** | Endereço HTTP do nó de transação do Serviço Azure Blockchain. Obrigatório. Para obter mais informações, [consulte o ponto de terminação do RPC.](#get-the-rpc-endpoint) |
 |**Chave privada** | Chave privada da conta Ethereum. São necessárias chaves privadas ou endereço de conta e senha para transações. Para mais informações, consulte [a chave privada.](#get-the-private-key) |
 |**Endereço da conta** | Endereço da conta do membro do Serviço Azure Blockchain. São necessárias chaves privadas ou endereço de conta e senha para transações. Para mais informações, consulte [obter o endereço da conta.](#get-the-account-address) |
 |**Senha de conta** | A palavra-passe da conta é definida quando cria o membro. Para obter informações sobre a reposição da palavra-passe, consulte [a conta Ethereum](consortium.md#ethereum-account).|

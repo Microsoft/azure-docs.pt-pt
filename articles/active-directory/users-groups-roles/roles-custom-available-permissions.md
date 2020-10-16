@@ -14,10 +14,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 624489033097c0da4d85488b7ae376c5e0f3a56b
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90967680"
 ---
 # <a name="application-registration-permissions-for-custom-roles-in-azure-active-directory"></a>Permissões de registo de aplicativos para funções personalizadas no Azure Ative Directory

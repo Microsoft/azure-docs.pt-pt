@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 8d5f9b360e1d81bae62e34a8e20d61636e1d22ea
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.openlocfilehash: baf3d02e1c0ecf51ddea043ee560d5054f09d057
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91859349"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91936080"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limites de rede - Gestor de Recursos Azure
 Os seguintes limites aplicam-se apenas aos recursos de rede geridos através **do Azure Resource Manager** por região por subscrição. Saiba como ver o [uso do seu recurso atual contra os limites de subscrição.](../articles/networking/check-usage-against-limits.md)
@@ -75,6 +75,7 @@ Os seguintes limites só se aplicam aos recursos de rede geridos através do Azu
 | Recursos de backend por Balanceador de Carga <sup> 1<sup> | 150                   |
 | Portas de alta disponibilidade                 | 1 por frontend interno       |
 | Regras de saída por Balanceador de Carga        | 600                           |
+| Balançadores de carga por VM                   | 2 (1 Público e 1 interno)   |
 
 <sup>1</sup> O limite é de até 150 recursos, em qualquer combinação de recursos de máquinas virtuais autónomos, recursos definidos de disponibilidade e grupos de colocação de escala de máquina virtual.
 
@@ -88,6 +89,7 @@ Os seguintes limites só se aplicam aos recursos de rede geridos através do Azu
 | Configurações IP frontend              | 200                          |
 | Tamanho da piscina backend                       | 300 configurações IP, conjunto de disponibilidade única |
 | Conjuntos de disponibilidade por balanceador de carga     | 1                            |
+| Balançadores de carga por VM                   | 2 (1 Público e 1 interno)  |
 
 <a name="virtual-networking-limits-classic"></a>Os seguintes limites aplicam-se apenas aos recursos de networking geridos através do modelo **clássico** de implementação por subscrição. Saiba como ver o [uso do seu recurso atual contra os limites de subscrição.](../articles/networking/check-usage-against-limits.md)
 

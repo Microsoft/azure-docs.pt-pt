@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 08a73c2b1be4b17136ba19e7efb71c2b21359fdf
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89280150"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Ative Directory Pass-through Authentication security deep mergulho
@@ -214,7 +214,7 @@ Para atualizar automaticamente um Agente de Autenticação:
 >
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Limitações atuais](how-to-connect-pta-current-limitations.md): Saiba quais os cenários que são apoiados e quais não são.
 - [Quickstart](how-to-connect-pta-quick-start.md): Levante-se e corra na Autenticação AD AD Azure.
 - [Migrar de AD FS para Autenticação Pass-through](https://aka.ms/adfstoptadpdownload) - Um guia detalhado para migrar de FS AD (ou outras tecnologias da federação) para a Autenticação Pass-through.

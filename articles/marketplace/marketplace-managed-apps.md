@@ -8,10 +8,10 @@ author: msjogarrig
 ms.author: jogarrig
 ms.date: 09/04/2020
 ms.openlocfilehash: 10ca7602dd3cf5a80e371ceda845977bcd8f218a
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89484244"
 ---
 # <a name="publishing-guide-for-azure-managed-applications"></a>Guia de publicação de aplicações geridas pela Azure
@@ -44,7 +44,7 @@ Utilize o tipo de oferta de aplicação gerida nas seguintes condições:
 > [!Note]
 > Um fornecedor de solução de nuvem (CSP) de canal de parceiro opt-in já está disponível. Para obter mais informações sobre o marketing da sua oferta através dos canais parceiros da Microsoft CSP, consulte [os Fornecedores de Soluções Cloud.](./cloud-solution-providers.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se ainda não o fez, aprenda a [fazer crescer o seu negócio na nuvem com o Azure Marketplace.](https://azuremarketplace.microsoft.com/sell)
 

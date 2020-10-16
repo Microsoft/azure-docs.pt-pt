@@ -11,10 +11,10 @@ ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 4559c72481dfa0cefb2ce84cab56a50d0bf182ef
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90030332"
 ---
 # <a name="temporary-tables-in-synapse-sql"></a>Tabelas temporárias em Synapse SQL
@@ -230,7 +230,7 @@ As tabelas temporárias em SQL a pedido são suportadas, mas a sua utilização 
 
 Por exemplo, não é possível aderir a uma tabela temporária com dados de ficheiros armazenados. O número de tabelas temporárias é limitado a 100, e o seu tamanho total é limitado a 100MB.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o desenvolvimento de tabelas, consulte as tabelas de Design utilizando o artigo [de recursos Synapse SQL.](develop-tables-overview.md)
 

@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: b-juche
 ms.openlocfilehash: c6cdf2f6dada0aa4dea2f70f18237b7ee39e3ea1
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91571414"
 ---
-# <a name="oracle-database-performance-on-azure-netapp-files-single-volumes"></a>Desempenho da base de dados da Oracle em volumes únicos do Azure NetApp Files
+# <a name="oracle-database-performance-on-azure-netapp-files-single-volumes"></a>Desempenho da base de dados Oracle em volumes individuais do Azure NetApp Files
 
 Este artigo aborda os seguintes tópicos sobre o Oráculo na nuvem. Estes tópicos podem ser de particular interesse para um administrador de base de dados, arquiteto de nuvem ou arquiteto de armazenamento:   
 

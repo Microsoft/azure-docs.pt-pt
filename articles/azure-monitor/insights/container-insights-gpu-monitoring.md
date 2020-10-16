@@ -4,10 +4,10 @@ description: Este artigo descreve como pode configurar os aglomerados kubernetes
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.openlocfilehash: 4c6044d407dc4abd0e69bac0190cc19c901022c3
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89569701"
 ---
 # <a name="configure-gpu-monitoring-with-azure-monitor-for-containers"></a>Configure a monitorização da GPU com o Monitor Azure para contentores
@@ -41,7 +41,7 @@ O Azure Monitor para contentores inicia automaticamente a monitorização da uti
 
 O Azure Monitor para contentores inclui gráficos pré-configurados para as métricas listadas anteriormente na tabela como um livro de GPU para cada cluster. Pode encontrar o **GDE GU** do livro da GPU diretamente de um cluster AKS, selecionando Livros de **Trabalho** a partir do painel de esquerda e da lista de drop-down do **View Workbooks** no Insight.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte [as GPUs de utilização para cargas de trabalho intensivas em Azure Kubernetes Service](../../aks/gpu-cluster.md) (AKS) para aprender a implementar um cluster AKS que inclui nós ativados por GPU.
 

@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.openlocfilehash: 6f0e688f3d483536e0d82186dd8e498cdadf97da
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87563556"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Monitorizar e alertar a fábrica de dados utilizando o Monitor Azure
@@ -137,23 +137,23 @@ Estas são algumas das métricas emitidas pela versão 2 da Azure Data Factory:
 
 | **Métrica**                           | **Nome de exibição métrica**                  | **Unidade** | **Tipo de agregação** | **Descrição**                |
 |--------------------------------------|------------------------------------------|----------|----------------------|--------------------------------|
-| AtividadeCancelledRuns                 | Atividade cancelada executa métricas           | de palavras    | Total                | O número total de operações que foram canceladas dentro de um minuto. |
-| AtividadeFailedRuns                   | Atividade falhada executa métricas             | de palavras    | Total                | O número total de atividades que falharam dentro de um minuto. |
-| AtividadeSSucceedEdRuns                | A atividade bem sucedida executa métricas          | de palavras    | Total                | O número total de operações é bem sucedido dentro de uma janela de um minuto. |
-| PipelineCancelledRuns                 | Gasoduto cancelado executa métricas           | de palavras    | Total                | O número total de gasodutos que foram cancelados dentro de um minuto. |
-| PipelineFailedRuns                   | Gasoduto falhado executa métricas             | de palavras    | Total                | O número total de gasodutos que falhou dentro de um minuto. |
-| PipelineSucceededRuns                | Pipeline bem sucedido executa métricas          | de palavras    | Total                | O número total de gasodutos que foi bem sucedido dentro de uma janela de um minuto. |
-| TriggerCancelledRuns                  | Gatilho cancelado executa métricas            | de palavras    | Total                | O número total de disparos que foram cancelados dentro de um minuto. |
-| TriggerFailedRuns                    | O gatilho falhado executa métricas              | de palavras    | Total                | O número total de disparos que falharam dentro de um minuto. |
-| TriggerSucceeddRuns                 | O gatilho bem sucedido executa métricas           | de palavras    | Total                | O número total de disparos que foi bem sucedido dentro de uma janela de um minuto. |
-| SSISIntegrationRuntimeStartCancelled  | Métricas de início de tempo de integração da SSIS canceladas           | de palavras    | Total                | O número total de tempo de execução de integração SSIS que foram cancelados dentro de um minuto. |
-| SSISIntegrationRuntimeStartFailed    | Métricas falhadas de início de tempo de integração do SSIS             | de palavras    | Total                | O número total de tempo de integração SSIS começa que falhou dentro de um minuto. |
-| SSISIntegrationRuntimeStartSucceed | Métricas de início de tempo de integração SSIS bem sucedidas          | de palavras    | Total                | O número total de tempo de integração SSIS começa que foi bem sucedido dentro de um minuto. |
-| SSISIntegrationRuntimestopStuck      | Métricas de paragem de tempo de integração SSIS stuck               | de palavras    | Total                | O número total de paragens de tempo de integração SSIS que ficaram presas dentro de uma janela de um minuto. |
-| SSISIntegrationRuntimestopsucceed  | Métricas de paragem de tempo de integração SSIS bem sucedidas           | de palavras    | Total                | O número total de paragens de integração SSIS que foram bem sucedidas dentro de um minuto. |
-| SSISPackageExecutionCancelled         | Métricas de execução de pacotes SSIS canceladas  | de palavras    | Total                | O número total de execuções de pacotes SSIS que foram canceladas dentro de um minuto. |
-| SSISPackageExecutionFailed           | Métricas de execução de pacote ssis falhados    | de palavras    | Total                | O número total de execuções de pacotes SSIS que falharam dentro de um minuto. |
-| SSISPackageExecutionSucceed        | Métricas de execução de pacote ssis bem sucedidas | de palavras    | Total                | O número total de execuções de pacotes SSIS que foram bem sucedidas dentro de um minuto. |
+| AtividadeCancelledRuns                 | Atividade cancelada executa métricas           | Contagem    | Total                | O número total de operações que foram canceladas dentro de um minuto. |
+| AtividadeFailedRuns                   | Atividade falhada executa métricas             | Contagem    | Total                | O número total de atividades que falharam dentro de um minuto. |
+| AtividadeSSucceedEdRuns                | A atividade bem sucedida executa métricas          | Contagem    | Total                | O número total de operações é bem sucedido dentro de uma janela de um minuto. |
+| PipelineCancelledRuns                 | Gasoduto cancelado executa métricas           | Contagem    | Total                | O número total de gasodutos que foram cancelados dentro de um minuto. |
+| PipelineFailedRuns                   | Gasoduto falhado executa métricas             | Contagem    | Total                | O número total de gasodutos que falhou dentro de um minuto. |
+| PipelineSucceededRuns                | Pipeline bem sucedido executa métricas          | Contagem    | Total                | O número total de gasodutos que foi bem sucedido dentro de uma janela de um minuto. |
+| TriggerCancelledRuns                  | Gatilho cancelado executa métricas            | Contagem    | Total                | O número total de disparos que foram cancelados dentro de um minuto. |
+| TriggerFailedRuns                    | O gatilho falhado executa métricas              | Contagem    | Total                | O número total de disparos que falharam dentro de um minuto. |
+| TriggerSucceeddRuns                 | O gatilho bem sucedido executa métricas           | Contagem    | Total                | O número total de disparos que foi bem sucedido dentro de uma janela de um minuto. |
+| SSISIntegrationRuntimeStartCancelled  | Métricas de início de tempo de integração da SSIS canceladas           | Contagem    | Total                | O número total de tempo de execução de integração SSIS que foram cancelados dentro de um minuto. |
+| SSISIntegrationRuntimeStartFailed    | Métricas falhadas de início de tempo de integração do SSIS             | Contagem    | Total                | O número total de tempo de integração SSIS começa que falhou dentro de um minuto. |
+| SSISIntegrationRuntimeStartSucceed | Métricas de início de tempo de integração SSIS bem sucedidas          | Contagem    | Total                | O número total de tempo de integração SSIS começa que foi bem sucedido dentro de um minuto. |
+| SSISIntegrationRuntimestopStuck      | Métricas de paragem de tempo de integração SSIS stuck               | Contagem    | Total                | O número total de paragens de tempo de integração SSIS que ficaram presas dentro de uma janela de um minuto. |
+| SSISIntegrationRuntimestopsucceed  | Métricas de paragem de tempo de integração SSIS bem sucedidas           | Contagem    | Total                | O número total de paragens de integração SSIS que foram bem sucedidas dentro de um minuto. |
+| SSISPackageExecutionCancelled         | Métricas de execução de pacotes SSIS canceladas  | Contagem    | Total                | O número total de execuções de pacotes SSIS que foram canceladas dentro de um minuto. |
+| SSISPackageExecutionFailed           | Métricas de execução de pacote ssis falhados    | Contagem    | Total                | O número total de execuções de pacotes SSIS que falharam dentro de um minuto. |
+| SSISPackageExecutionSucceed        | Métricas de execução de pacote ssis bem sucedidas | Contagem    | Total                | O número total de execuções de pacotes SSIS que foram bem sucedidas dentro de um minuto. |
 
 Para aceder às métricas, preencha as instruções na [plataforma de dados Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
@@ -271,13 +271,13 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 | Propriedade | Tipo | Descrição |
 | --- | --- | --- |
-| **armazenamentoSacountId** |String | O ID de recursos da conta de armazenamento para a qual pretende enviar registos de diagnóstico. |
-| **serviçoBusRuleId** |String | A regra de serviço-autocarro ID do espaço de nomes de autocarro de serviço no qual pretende ter Os Centros de Eventos criados para streaming de registos de diagnóstico. A regra ID tem o formato `{service bus resource ID}/authorizationrules/{key name}` .|
+| **armazenamentoSacountId** |Cadeia | O ID de recursos da conta de armazenamento para a qual pretende enviar registos de diagnóstico. |
+| **serviçoBusRuleId** |Cadeia | A regra de serviço-autocarro ID do espaço de nomes de autocarro de serviço no qual pretende ter Os Centros de Eventos criados para streaming de registos de diagnóstico. A regra ID tem o formato `{service bus resource ID}/authorizationrules/{key name}` .|
 | **workspaceId** | Tipo Complexo | Uma série de grãos de tempo métricos e as suas políticas de retenção. O valor desta propriedade está vazio. |
 |**métricas**| Os valores parâmetros do gasoduto a passar para o gasoduto invocado| Um objeto JSON que mapeia nomes de parâmetros para valores de argumento. |
 | **troncos**| Tipo Complexo| O nome de uma categoria de registo de diagnóstico para um tipo de recurso. Para obter a lista de categorias de registo de diagnóstico para um recurso, efetue uma operação de definições de diagnóstico GET. |
-| **categoria**| String| Uma série de categorias de registos e as suas políticas de retenção. |
-| **timeGrain** | String | A granularidade das métricas, que são capturadas no formato de duração ISO 8601. O valor da propriedade deve `PT1M` ser, que especifica um minuto. |
+| **categoria**| Cadeia| Uma série de categorias de registos e as suas políticas de retenção. |
+| **timeGrain** | Cadeia | A granularidade das métricas, que são capturadas no formato de duração ISO 8601. O valor da propriedade deve `PT1M` ser, que especifica um minuto. |
 | **habilitado**| Booleano | Especifica se a recolha da categoria métrica ou de registo está ativada para este recurso. |
 | **retençãoPolícia**| Tipo Complexo| Descreve a política de retenção para uma categoria métrica ou de registo. Esta propriedade é usada apenas para contas de armazenamento. |
 |**Dias**| int| O número de dias para manter as métricas ou registos. Se o valor da propriedade for 0, os registos são mantidos para sempre. Esta propriedade é usada apenas para contas de armazenamento. |
@@ -444,19 +444,19 @@ Para obter mais informações, consulte [Definições de Diagnóstico](https://d
 
 | Propriedade | Tipo | Descrição | Exemplo |
 | --- | --- | --- | --- |
-| **Nível** |String | O nível dos registos de diagnóstico. Para registos de execução de atividades, desa um valor de propriedade para 4. | `4` |
-| **correlationId** |String | A identificação única para rastrear um pedido particular. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| **Hora** | String | A hora do evento no formato `YYYY-MM-DDTHH:MM:SS.00000Z` TEMPOMUC . | `2017-06-28T21:00:27.3534352Z` |
-|**activityRunId**| String| A identificação da atividade funciona. | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
-|**pipelineRunId**| String| A identificação do oleoduto. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
-|**recursosId**| String | O ID associado ao recurso de fábrica de dados. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|**categoria**| String | A categoria dos registos de diagnóstico. Desa estava o valor da propriedade para `ActivityRuns` . | `ActivityRuns` |
-|**nível**| String | O nível dos registos de diagnóstico. Desa estava o valor da propriedade para `Informational` . | `Informational` |
-|**operaçãoName**| String | O nome da atividade com o seu estado. Se a atividade for o batimento cardíaco inicial, o valor da propriedade é `MyActivity -` . Se a atividade for o batimento cardíaco final, o valor da propriedade é `MyActivity - Succeeded` . | `MyActivity - Succeeded` |
-|**pipelineName**| String | O nome do oleoduto. | `MyPipeline` |
-|**nome de atividades**| String | O nome da atividade. | `MyActivity` |
-|**iniciar**| String | A hora de início da atividade é executado no formato UTC timepan. | `2017-06-26T20:55:29.5007959Z`|
-|**fim**| String | O tempo final da atividade é executado em formato UTC timepan. Se o registo de diagnóstico mostrar que uma atividade começou mas ainda não terminou, o valor da propriedade é `1601-01-01T00:00:00Z` . | `2017-06-26T20:55:29.5007959Z` |
+| **Nível** |Cadeia | O nível dos registos de diagnóstico. Para registos de execução de atividades, desa um valor de propriedade para 4. | `4` |
+| **correlationId** |Cadeia | A identificação única para rastrear um pedido particular. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| **Hora** | Cadeia | A hora do evento no formato `YYYY-MM-DDTHH:MM:SS.00000Z` TEMPOMUC . | `2017-06-28T21:00:27.3534352Z` |
+|**activityRunId**| Cadeia| A identificação da atividade funciona. | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
+|**pipelineRunId**| Cadeia| A identificação do oleoduto. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
+|**recursosId**| Cadeia | O ID associado ao recurso de fábrica de dados. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|**categoria**| Cadeia | A categoria dos registos de diagnóstico. Desa estava o valor da propriedade para `ActivityRuns` . | `ActivityRuns` |
+|**nível**| Cadeia | O nível dos registos de diagnóstico. Desa estava o valor da propriedade para `Informational` . | `Informational` |
+|**operaçãoName**| Cadeia | O nome da atividade com o seu estado. Se a atividade for o batimento cardíaco inicial, o valor da propriedade é `MyActivity -` . Se a atividade for o batimento cardíaco final, o valor da propriedade é `MyActivity - Succeeded` . | `MyActivity - Succeeded` |
+|**pipelineName**| Cadeia | O nome do oleoduto. | `MyPipeline` |
+|**nome de atividades**| Cadeia | O nome da atividade. | `MyActivity` |
+|**iniciar**| Cadeia | A hora de início da atividade é executado no formato UTC timepan. | `2017-06-26T20:55:29.5007959Z`|
+|**fim**| Cadeia | O tempo final da atividade é executado em formato UTC timepan. Se o registo de diagnóstico mostrar que uma atividade começou mas ainda não terminou, o valor da propriedade é `1601-01-01T00:00:00Z` . | `2017-06-26T20:55:29.5007959Z` |
 
 #### <a name="pipeline-run-log-attributes"></a>Atributos de registo executados por pipeline
 
@@ -490,18 +490,18 @@ Para obter mais informações, consulte [Definições de Diagnóstico](https://d
 
 | Propriedade | Tipo | Descrição | Exemplo |
 | --- | --- | --- | --- |
-| **Nível** |String | O nível dos registos de diagnóstico. Para registos de execução de atividades, desa um valor de propriedade para 4. | `4` |
-| **correlationId** |String | A identificação única para rastrear um pedido particular. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| **Hora** | String | A hora do evento no formato `YYYY-MM-DDTHH:MM:SS.00000Z` TEMPOMUC . | `2017-06-28T21:00:27.3534352Z` |
-|**runId**| String| A identificação do oleoduto. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
-|**recursosId**| String | O ID associado ao recurso de fábrica de dados. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|**categoria**| String | A categoria dos registos de diagnóstico. Desa estava o valor da propriedade para `PipelineRuns` . | `PipelineRuns` |
-|**nível**| String | O nível dos registos de diagnóstico. Desa estava o valor da propriedade para `Informational` . | `Informational` |
-|**operaçãoName**| String | O nome do oleoduto juntamente com o seu estado. Após o curso do gasoduto estar concluído, o valor da propriedade é `Pipeline - Succeeded` . | `MyPipeline - Succeeded`. |
-|**pipelineName**| String | O nome do oleoduto. | `MyPipeline` |
-|**iniciar**| String | A hora de início da atividade é executado no formato UTC timepan. | `2017-06-26T20:55:29.5007959Z`. |
-|**fim**| String | O tempo final da atividade é executado em formato UTC timepan. Se o registo de diagnóstico mostrar que uma atividade começou mas ainda não terminou, o valor da propriedade é `1601-01-01T00:00:00Z` .  | `2017-06-26T20:55:29.5007959Z` |
-|**estado**| String | O estado final do oleoduto. Possíveis valores de propriedade são `Succeeded` `Failed` e. | `Succeeded`|
+| **Nível** |Cadeia | O nível dos registos de diagnóstico. Para registos de execução de atividades, desa um valor de propriedade para 4. | `4` |
+| **correlationId** |Cadeia | A identificação única para rastrear um pedido particular. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| **Hora** | Cadeia | A hora do evento no formato `YYYY-MM-DDTHH:MM:SS.00000Z` TEMPOMUC . | `2017-06-28T21:00:27.3534352Z` |
+|**runId**| Cadeia| A identificação do oleoduto. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
+|**recursosId**| Cadeia | O ID associado ao recurso de fábrica de dados. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|**categoria**| Cadeia | A categoria dos registos de diagnóstico. Desa estava o valor da propriedade para `PipelineRuns` . | `PipelineRuns` |
+|**nível**| Cadeia | O nível dos registos de diagnóstico. Desa estava o valor da propriedade para `Informational` . | `Informational` |
+|**operaçãoName**| Cadeia | O nome do oleoduto juntamente com o seu estado. Após o curso do gasoduto estar concluído, o valor da propriedade é `Pipeline - Succeeded` . | `MyPipeline - Succeeded`. |
+|**pipelineName**| Cadeia | O nome do oleoduto. | `MyPipeline` |
+|**iniciar**| Cadeia | A hora de início da atividade é executado no formato UTC timepan. | `2017-06-26T20:55:29.5007959Z`. |
+|**fim**| Cadeia | O tempo final da atividade é executado em formato UTC timepan. Se o registo de diagnóstico mostrar que uma atividade começou mas ainda não terminou, o valor da propriedade é `1601-01-01T00:00:00Z` .  | `2017-06-26T20:55:29.5007959Z` |
+|**estado**| Cadeia | O estado final do oleoduto. Possíveis valores de propriedade são `Succeeded` `Failed` e. | `Succeeded`|
 
 #### <a name="trigger-run-log-attributes"></a>Atributos de registo de execução de gatilho
 
@@ -533,19 +533,19 @@ Para obter mais informações, consulte [Definições de Diagnóstico](https://d
 
 | Propriedade | Tipo | Descrição | Exemplo |
 | --- | --- | --- | --- |
-| **Nível** |String | O nível dos registos de diagnóstico. Para registos de execução de atividades, desa um valor de propriedade para 4. | `4` |
-| **correlationId** |String | A identificação única para rastrear um pedido particular. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| **Hora** | String | A hora do evento no formato `YYYY-MM-DDTHH:MM:SS.00000Z` TEMPOMUC . | `2017-06-28T21:00:27.3534352Z` |
-|**triggerId**| String| A identificação do gatilho funciona. | `08587023010602533858661257311` |
-|**recursosId**| String | O ID associado ao recurso de fábrica de dados. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|**categoria**| String | A categoria dos registos de diagnóstico. Desa estava o valor da propriedade para `PipelineRuns` . | `PipelineRuns` |
-|**nível**| String | O nível dos registos de diagnóstico. Desa estava o valor da propriedade para `Informational` . | `Informational` |
-|**operaçãoName**| String | O nome do gatilho com o seu estado final, o que indica se o gatilho disparou com sucesso. Se o batimento cardíaco foi bem sucedido, o valor da propriedade é `MyTrigger - Succeeded` . | `MyTrigger - Succeeded` |
-|**gatilhoName**| String | O nome do gatilho. | `MyTrigger` |
-|**triggerType**| String | O tipo do gatilho. Possíveis valores de propriedade são `Manual Trigger` `Schedule Trigger` e. | `ScheduleTrigger` |
-|**triggerEvent**| String | O caso do gatilho. | `ScheduleTime - 2017-07-06T01:50:25Z` |
-|**iniciar**| String | A hora de início do disparo do gatilho no formato UTC timepan. | `2017-06-26T20:55:29.5007959Z`|
-|**estado**| String | O estado final mostrando se o gatilho disparou com sucesso. Possíveis valores de propriedade são `Succeeded` `Failed` e. | `Succeeded`|
+| **Nível** |Cadeia | O nível dos registos de diagnóstico. Para registos de execução de atividades, desa um valor de propriedade para 4. | `4` |
+| **correlationId** |Cadeia | A identificação única para rastrear um pedido particular. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| **Hora** | Cadeia | A hora do evento no formato `YYYY-MM-DDTHH:MM:SS.00000Z` TEMPOMUC . | `2017-06-28T21:00:27.3534352Z` |
+|**triggerId**| Cadeia| A identificação do gatilho funciona. | `08587023010602533858661257311` |
+|**recursosId**| Cadeia | O ID associado ao recurso de fábrica de dados. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|**categoria**| Cadeia | A categoria dos registos de diagnóstico. Desa estava o valor da propriedade para `PipelineRuns` . | `PipelineRuns` |
+|**nível**| Cadeia | O nível dos registos de diagnóstico. Desa estava o valor da propriedade para `Informational` . | `Informational` |
+|**operaçãoName**| Cadeia | O nome do gatilho com o seu estado final, o que indica se o gatilho disparou com sucesso. Se o batimento cardíaco foi bem sucedido, o valor da propriedade é `MyTrigger - Succeeded` . | `MyTrigger - Succeeded` |
+|**gatilhoName**| Cadeia | O nome do gatilho. | `MyTrigger` |
+|**triggerType**| Cadeia | O tipo do gatilho. Possíveis valores de propriedade são `Manual Trigger` `Schedule Trigger` e. | `ScheduleTrigger` |
+|**triggerEvent**| Cadeia | O caso do gatilho. | `ScheduleTime - 2017-07-06T01:50:25Z` |
+|**iniciar**| Cadeia | A hora de início do disparo do gatilho no formato UTC timepan. | `2017-06-26T20:55:29.5007959Z`|
+|**estado**| Cadeia | O estado final mostrando se o gatilho disparou com sucesso. Possíveis valores de propriedade são `Succeeded` `Failed` e. | `Succeeded`|
 
 #### <a name="ssis-integration-runtime-log-attributes"></a>Atributos de registo de runtime de integração SSIS
 
@@ -570,16 +570,16 @@ Aqui estão os atributos de registo das operações de arranque/paragem/manuten�
 
 | Propriedade                   | Tipo   | Descrição                                                   | Exemplo                        |
 | -------------------------- | ------ | ------------------------------------------------------------- | ------------------------------ |
-| **Hora**                   | String | A hora do evento em formato UTC:`YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
-| **operaçãoName**          | String | O nome da sua operação SSIS IR                            | `Start/Stop/Maintenance` |
-| **categoria**               | String | A categoria de registos de diagnóstico                               | `SSISIntegrationRuntimeLogs` |
-| **correlationId**          | String | O ID único para rastrear uma determinada operação             | `f13b159b-515f-4885-9dfa-a664e949f785Deprovision0059035558` |
-| **dataFactoryName**        | String | O nome da sua ADF                                          | `MyADFv2` |
-| **integraçãoRuntimeName** | String | O nome do seu SSIS IR                                      | `MySSISIR` |
-| **nível**                  | String | O nível de registos de diagnóstico                                  | `Informational` |
-| **resultadoType**             | String | O resultado da sua operação SSIS IR                          | `Started/InProgress/Succeeded/Failed` |
-| **Mensagem**                | String | A mensagem de saída da sua operação SSIS IR                  | `The stopping of your SSIS integration runtime has succeeded.` |
-| **recursosId**             | String | O ID único do seu recurso ADF                            | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+| **Hora**                   | Cadeia | A hora do evento em formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| **operaçãoName**          | Cadeia | O nome da sua operação SSIS IR                            | `Start/Stop/Maintenance` |
+| **categoria**               | Cadeia | A categoria de registos de diagnóstico                               | `SSISIntegrationRuntimeLogs` |
+| **correlationId**          | Cadeia | O ID único para rastrear uma determinada operação             | `f13b159b-515f-4885-9dfa-a664e949f785Deprovision0059035558` |
+| **dataFactoryName**        | Cadeia | O nome da sua ADF                                          | `MyADFv2` |
+| **integraçãoRuntimeName** | Cadeia | O nome do seu SSIS IR                                      | `MySSISIR` |
+| **nível**                  | Cadeia | O nível de registos de diagnóstico                                  | `Informational` |
+| **resultadoType**             | Cadeia | O resultado da sua operação SSIS IR                          | `Started/InProgress/Succeeded/Failed` |
+| **Mensagem**                | Cadeia | A mensagem de saída da sua operação SSIS IR                  | `The stopping of your SSIS integration runtime has succeeded.` |
+| **recursosId**             | Cadeia | O ID único do seu recurso ADF                            | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 
 #### <a name="ssis-event-message-context-log-attributes"></a>Atributos de registo de registo de mensagem de evento SSIS
 
@@ -610,22 +610,22 @@ Aqui estão os atributos de registo de condições relacionadas com mensagens de
 
 | Propriedade                   | Tipo   | Descrição                                                          | Exemplo                        |
 | -------------------------- | ------ | -------------------------------------------------------------------- | ------------------------------ |
-| **Hora**                   | String | A hora do evento em formato UTC:`YYYY-MM-DDTHH:MM:SS.00000Z`        | `2017-06-28T21:00:27.3534352Z` |
-| **operaçãoName**          | String | Isto está definido para`YourSSISIRName-SSISPackageEventMessageContext`       | `mysqlmissisir-SSISPackageEventMessageContext` |
-| **categoria**               | String | A categoria de registos de diagnóstico                                      | `SSISPackageEventMessageContext` |
-| **correlationId**          | String | O ID único para rastrear uma determinada operação                    | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
-| **dataFactoryName**        | String | O nome da sua ADF                                                 | `MyADFv2` |
-| **integraçãoRuntimeName** | String | O nome do seu SSIS IR                                             | `MySSISIR` |
-| **nível**                  | String | O nível de registos de diagnóstico                                         | `Informational` |
-| **operationId**            | String | O ID único para rastrear uma determinada operação no SSISDB          | `1`(1 significa operações relacionadas com embalagens **não** armazenadas em SSISDB/invocadas via T-SQL) |
-| **contextDepth**           | String | A profundidade do contexto da sua mensagem de evento                              | `0`(0 significa o contexto antes do início da execução do pacote, 1 significa o contexto quando ocorre um erro, e aumenta à medida que o contexto está mais longe do erro) |
-| **packagePath**            | String | O caminho do objeto do pacote como fonte de contexto de mensagem de evento      | `\Package` |
-| **type de contexto**            | String | O tipo de objeto pacote como fonte de contexto de mensagem de evento      | `60`(ver [mais tipos de contexto)](https://docs.microsoft.com/sql/integration-services/system-views/catalog-event-message-context?view=sql-server-ver15#remarks) |
-| **nome de contextoSourceName**      | String | O nome do objeto do pacote como fonte de contexto de mensagem de evento      | `MyPackage` |
-| **contextSourceId**        | String | O ID único do objeto do pacote como fonte de contexto de mensagem de evento | `{E2CF27FB-EA48-41E9-AF6F-3FE938B4ADE1}` |
-| **nome de propriedade**           | String | O nome da propriedade do pacote para a fonte de contexto de mensagem do seu evento   | `DelayValidation` |
-| **propriedadeValue**          | String | O valor da propriedade do pacote para a fonte de contexto de mensagem do seu evento  | `False` |
-| **recursosId**             | String | O ID único do seu recurso ADF                                   | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+| **Hora**                   | Cadeia | A hora do evento em formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z`        | `2017-06-28T21:00:27.3534352Z` |
+| **operaçãoName**          | Cadeia | Isto está definido para `YourSSISIRName-SSISPackageEventMessageContext`       | `mysqlmissisir-SSISPackageEventMessageContext` |
+| **categoria**               | Cadeia | A categoria de registos de diagnóstico                                      | `SSISPackageEventMessageContext` |
+| **correlationId**          | Cadeia | O ID único para rastrear uma determinada operação                    | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
+| **dataFactoryName**        | Cadeia | O nome da sua ADF                                                 | `MyADFv2` |
+| **integraçãoRuntimeName** | Cadeia | O nome do seu SSIS IR                                             | `MySSISIR` |
+| **nível**                  | Cadeia | O nível de registos de diagnóstico                                         | `Informational` |
+| **operationId**            | Cadeia | O ID único para rastrear uma determinada operação no SSISDB          | `1` (1 significa operações relacionadas com embalagens **não** armazenadas em SSISDB/invocadas via T-SQL) |
+| **contextDepth**           | Cadeia | A profundidade do contexto da sua mensagem de evento                              | `0` (0 significa o contexto antes do início da execução do pacote, 1 significa o contexto quando ocorre um erro, e aumenta à medida que o contexto está mais longe do erro) |
+| **packagePath**            | Cadeia | O caminho do objeto do pacote como fonte de contexto de mensagem de evento      | `\Package` |
+| **type de contexto**            | Cadeia | O tipo de objeto pacote como fonte de contexto de mensagem de evento      | `60`(ver [mais tipos de contexto)](https://docs.microsoft.com/sql/integration-services/system-views/catalog-event-message-context?view=sql-server-ver15#remarks) |
+| **nome de contextoSourceName**      | Cadeia | O nome do objeto do pacote como fonte de contexto de mensagem de evento      | `MyPackage` |
+| **contextSourceId**        | Cadeia | O ID único do objeto do pacote como fonte de contexto de mensagem de evento | `{E2CF27FB-EA48-41E9-AF6F-3FE938B4ADE1}` |
+| **nome de propriedade**           | Cadeia | O nome da propriedade do pacote para a fonte de contexto de mensagem do seu evento   | `DelayValidation` |
+| **propriedadeValue**          | Cadeia | O valor da propriedade do pacote para a fonte de contexto de mensagem do seu evento  | `False` |
+| **recursosId**             | Cadeia | O ID único do seu recurso ADF                                   | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 
 #### <a name="ssis-event-messages-log-attributes"></a>Atributos de registo de mensagens de evento SSIS
 
@@ -660,26 +660,26 @@ Aqui estão os atributos de registo de mensagens de evento que são geradas por 
 
 | Propriedade                   | Tipo   | Descrição                                                        | Exemplo                        |
 | -------------------------- | ------ | ------------------------------------------------------------------ | ------------------------------ |
-| **Hora**                   | String | A hora do evento em formato UTC:`YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
-| **operaçãoName**          | String | Isto está definido para`YourSSISIRName-SSISPackageEventMessages`           | `mysqlmissisir-SSISPackageEventMessages` |
-| **categoria**               | String | A categoria de registos de diagnóstico                                    | `SSISPackageEventMessages` |
-| **correlationId**          | String | O ID único para rastrear uma determinada operação                  | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
-| **dataFactoryName**        | String | O nome da sua ADF                                               | `MyADFv2` |
-| **integraçãoRuntimeName** | String | O nome do seu SSIS IR                                           | `MySSISIR` |
-| **nível**                  | String | O nível de registos de diagnóstico                                       | `Informational` |
-| **operationId**            | String | O ID único para rastrear uma determinada operação no SSISDB        | `1`(1 significa operações relacionadas com embalagens **não** armazenadas em SSISDB/invocadas via T-SQL) |
-| **hora da mensagem**            | String | O momento em que a sua mensagem de evento é criada em formato UTC          | `2017-06-28T21:00:27.3534352Z` |
-| **mensagemType**            | String | O tipo da sua mensagem de evento                                     | `70`(ver [mais tipos de mensagens)](https://docs.microsoft.com/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database?view=sql-server-ver15#remarks) |
-| **mensagemSourceType**      | String | O tipo de origem da sua mensagem de evento                              | `20`(ver [mais tipos de origem de mensagens)](https://docs.microsoft.com/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database?view=sql-server-ver15#remarks) |
-| **Mensagem**                | String | O texto da sua mensagem de evento                                     | `MyPackage:Validation has started.` |
-| **nome de pacote**            | String | O nome do seu ficheiro de pacote executado                             | `MyPackage.dtsx` |
-| **nome de evento**              | String | O nome do evento relacionado em tempo de execução                                 | `OnPreValidate` |
-| **nome de mensagemSourceName**      | String | O nome do componente do pacote como fonte de mensagem do evento         | `Data Flow Task` |
-| **mensagemSourceId**        | String | O ID único do componente do pacote como fonte de mensagem do evento    | `{1a45a5a4-3df9-4f02-b818-ebf583829ad2}    ` |
-| **subcomponenteName**       | String | O nome do componente de fluxo de dados como fonte de mensagem de evento       | `SSIS.Pipeline` |
-| **packagePath**            | String | O caminho do objeto pacote como fonte de mensagem de evento            | `\Package\Data Flow Task` |
-| **execuçãoAata**          | String | O caminho completo do pacote dos pais para o componente executado            | `\Transformation\Data Flow Task`(Este caminho também captura iterações de componentes) |
-| **threadId**               | String | O ID único de fio executado quando a sua mensagem de evento é registada | `{1a45a5a4-3df9-4f02-b818-ebf583829ad2}    ` |
+| **Hora**                   | Cadeia | A hora do evento em formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
+| **operaçãoName**          | Cadeia | Isto está definido para `YourSSISIRName-SSISPackageEventMessages`           | `mysqlmissisir-SSISPackageEventMessages` |
+| **categoria**               | Cadeia | A categoria de registos de diagnóstico                                    | `SSISPackageEventMessages` |
+| **correlationId**          | Cadeia | O ID único para rastrear uma determinada operação                  | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
+| **dataFactoryName**        | Cadeia | O nome da sua ADF                                               | `MyADFv2` |
+| **integraçãoRuntimeName** | Cadeia | O nome do seu SSIS IR                                           | `MySSISIR` |
+| **nível**                  | Cadeia | O nível de registos de diagnóstico                                       | `Informational` |
+| **operationId**            | Cadeia | O ID único para rastrear uma determinada operação no SSISDB        | `1` (1 significa operações relacionadas com embalagens **não** armazenadas em SSISDB/invocadas via T-SQL) |
+| **hora da mensagem**            | Cadeia | O momento em que a sua mensagem de evento é criada em formato UTC          | `2017-06-28T21:00:27.3534352Z` |
+| **mensagemType**            | Cadeia | O tipo da sua mensagem de evento                                     | `70`(ver [mais tipos de mensagens)](https://docs.microsoft.com/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database?view=sql-server-ver15#remarks) |
+| **mensagemSourceType**      | Cadeia | O tipo de origem da sua mensagem de evento                              | `20`(ver [mais tipos de origem de mensagens)](https://docs.microsoft.com/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database?view=sql-server-ver15#remarks) |
+| **Mensagem**                | Cadeia | O texto da sua mensagem de evento                                     | `MyPackage:Validation has started.` |
+| **nome de pacote**            | Cadeia | O nome do seu ficheiro de pacote executado                             | `MyPackage.dtsx` |
+| **nome de evento**              | Cadeia | O nome do evento relacionado em tempo de execução                                 | `OnPreValidate` |
+| **nome de mensagemSourceName**      | Cadeia | O nome do componente do pacote como fonte de mensagem do evento         | `Data Flow Task` |
+| **mensagemSourceId**        | Cadeia | O ID único do componente do pacote como fonte de mensagem do evento    | `{1a45a5a4-3df9-4f02-b818-ebf583829ad2}    ` |
+| **subcomponenteName**       | Cadeia | O nome do componente de fluxo de dados como fonte de mensagem de evento       | `SSIS.Pipeline` |
+| **packagePath**            | Cadeia | O caminho do objeto pacote como fonte de mensagem de evento            | `\Package\Data Flow Task` |
+| **execuçãoAata**          | Cadeia | O caminho completo do pacote dos pais para o componente executado            | `\Transformation\Data Flow Task` (Este caminho também captura iterações de componentes) |
+| **threadId**               | Cadeia | O ID único de fio executado quando a sua mensagem de evento é registada | `{1a45a5a4-3df9-4f02-b818-ebf583829ad2}    ` |
 
 #### <a name="ssis-executable-statistics-log-attributes"></a>Atributos de registo de registo de estatísticas executáveis SSIS
 
@@ -709,21 +709,21 @@ Aqui estão os atributos de registo de estatísticas executáveis que são gerad
 
 | Propriedade                   | Tipo   | Descrição                                                      | Exemplo                        |
 | -------------------------- | ------ | ---------------------------------------------------------------- | ------------------------------ |
-| **Hora**                   | String | A hora do evento em formato UTC:`YYYY-MM-DDTHH:MM:SS.00000Z`    | `2017-06-28T21:00:27.3534352Z` |
-| **operaçãoName**          | String | Isto está definido para`YourSSISIRName-SSISPackageExecutableStatistics`  | `mysqlmissisir-SSISPackageExecutableStatistics` |
-| **categoria**               | String | A categoria de registos de diagnóstico                                  | `SSISPackageExecutableStatistics` |
-| **correlationId**          | String | O ID único para rastrear uma determinada operação                | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
-| **dataFactoryName**        | String | O nome da sua ADF                                             | `MyADFv2` |
-| **integraçãoRuntimeName** | String | O nome do seu SSIS IR                                         | `MySSISIR` |
-| **nível**                  | String | O nível de registos de diagnóstico                                     | `Informational` |
-| **execuçãoId**            | String | O ID único para rastrear uma execução particular no SSISDB      | `1`(1 significa execuções relacionadas com embalagens **não** armazenadas no SSISDB/invocadas via T-SQL) |
-| **execuçãoAata**          | String | O caminho completo do pacote dos pais para o componente executado          | `\Transformation\Data Flow Task`(Este caminho também captura iterações de componentes) |
-| **startTime**              | String | O tempo em que o executável entra na fase de pré-execução no formato UTC  | `2017-06-28T21:00:27.3534352Z` |
-| **endTime**                | String | O tempo em que o executável entra na fase pós-execução no formato UTC | `2017-06-28T21:00:27.3534352Z` |
-| **execuçãoDuration**      | String | O tempo de execução do executável em milissegundos                   | `1,125` |
-| **resultadosResult**        | String | O resultado de correr executável                                 | `0`(0 significa sucesso, 1 significa falha, 2 significa conclusão e 3 significa cancelamento) |
-| **execuçãoValue**         | String | O valor definido pelo utilizador devolvido por execução executável            | `1` |
-| **recursosId**             | String | O ID único do seu recurso ADF                               | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+| **Hora**                   | Cadeia | A hora do evento em formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z`    | `2017-06-28T21:00:27.3534352Z` |
+| **operaçãoName**          | Cadeia | Isto está definido para `YourSSISIRName-SSISPackageExecutableStatistics`  | `mysqlmissisir-SSISPackageExecutableStatistics` |
+| **categoria**               | Cadeia | A categoria de registos de diagnóstico                                  | `SSISPackageExecutableStatistics` |
+| **correlationId**          | Cadeia | O ID único para rastrear uma determinada operação                | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
+| **dataFactoryName**        | Cadeia | O nome da sua ADF                                             | `MyADFv2` |
+| **integraçãoRuntimeName** | Cadeia | O nome do seu SSIS IR                                         | `MySSISIR` |
+| **nível**                  | Cadeia | O nível de registos de diagnóstico                                     | `Informational` |
+| **execuçãoId**            | Cadeia | O ID único para rastrear uma execução particular no SSISDB      | `1` (1 significa execuções relacionadas com embalagens **não** armazenadas no SSISDB/invocadas via T-SQL) |
+| **execuçãoAata**          | Cadeia | O caminho completo do pacote dos pais para o componente executado          | `\Transformation\Data Flow Task` (Este caminho também captura iterações de componentes) |
+| **horário de início**              | Cadeia | O tempo em que o executável entra na fase de pré-execução no formato UTC  | `2017-06-28T21:00:27.3534352Z` |
+| **endTime**                | Cadeia | O tempo em que o executável entra na fase pós-execução no formato UTC | `2017-06-28T21:00:27.3534352Z` |
+| **execuçãoDuration**      | Cadeia | O tempo de execução do executável em milissegundos                   | `1,125` |
+| **resultadosResult**        | Cadeia | O resultado de correr executável                                 | `0` (0 significa sucesso, 1 significa falha, 2 significa conclusão e 3 significa cancelamento) |
+| **execuçãoValue**         | Cadeia | O valor definido pelo utilizador devolvido por execução executável            | `1` |
+| **recursosId**             | Cadeia | O ID único do seu recurso ADF                               | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 
 #### <a name="ssis-execution-component-phases-log-attributes"></a>Atributos de registo de fases de execução SSIS
 
@@ -754,22 +754,22 @@ Aqui estão os atributos de registo de estatísticas de tempo de execução para
 
 | Propriedade                   | Tipo   | Descrição                                                         | Exemplo                        |
 | -------------------------- | ------ | ------------------------------------------------------------------- | ------------------------------ |
-| **Hora**                   | String | A hora do evento em formato UTC:`YYYY-MM-DDTHH:MM:SS.00000Z`       | `2017-06-28T21:00:27.3534352Z` |
-| **operaçãoName**          | String | Isto está definido para`YourSSISIRName-SSISPackageExecutionComponentPhases` | `mysqlmissisir-SSISPackageExecutionComponentPhases` |
-| **categoria**               | String | A categoria de registos de diagnóstico                                     | `SSISPackageExecutionComponentPhases` |
-| **correlationId**          | String | O ID único para rastrear uma determinada operação                   | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
-| **dataFactoryName**        | String | O nome da sua ADF                                                | `MyADFv2` |
-| **integraçãoRuntimeName** | String | O nome do seu SSIS IR                                            | `MySSISIR` |
-| **nível**                  | String | O nível de registos de diagnóstico                                        | `Informational` |
-| **execuçãoId**            | String | O ID único para rastrear uma execução particular no SSISDB         | `1`(1 significa execuções relacionadas com embalagens **não** armazenadas no SSISDB/invocadas via T-SQL) |
-| **nome de pacote**            | String | O nome do seu ficheiro de pacote executado                              | `MyPackage.dtsx` |
-| **nome de tarefaName**               | String | O nome da tarefa de fluxo de dados executado                                 | `Data Flow Task` |
-| **subcomponenteName**       | String | O nome da componente de fluxo de dados                                     | `Derived Column` |
-| **fase**                  | String | O nome da fase de execução                                         | `AcquireConnections` |
-| **startTime**              | String | O momento em que a fase de execução começa no formato UTC                  | `2017-06-28T21:00:27.3534352Z` |
-| **endTime**                | String | O momento em que a fase de execução termina em formato UTC                    | `2017-06-28T21:00:27.3534352Z` |
-| **execuçãoAata**          | String | O caminho da execução para a tarefa de fluxo de dados                            | `\Transformation\Data Flow Task` |
-| **recursosId**             | String | O ID único do seu recurso ADF                                  | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+| **Hora**                   | Cadeia | A hora do evento em formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z`       | `2017-06-28T21:00:27.3534352Z` |
+| **operaçãoName**          | Cadeia | Isto está definido para `YourSSISIRName-SSISPackageExecutionComponentPhases` | `mysqlmissisir-SSISPackageExecutionComponentPhases` |
+| **categoria**               | Cadeia | A categoria de registos de diagnóstico                                     | `SSISPackageExecutionComponentPhases` |
+| **correlationId**          | Cadeia | O ID único para rastrear uma determinada operação                   | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
+| **dataFactoryName**        | Cadeia | O nome da sua ADF                                                | `MyADFv2` |
+| **integraçãoRuntimeName** | Cadeia | O nome do seu SSIS IR                                            | `MySSISIR` |
+| **nível**                  | Cadeia | O nível de registos de diagnóstico                                        | `Informational` |
+| **execuçãoId**            | Cadeia | O ID único para rastrear uma execução particular no SSISDB         | `1` (1 significa execuções relacionadas com embalagens **não** armazenadas no SSISDB/invocadas via T-SQL) |
+| **nome de pacote**            | Cadeia | O nome do seu ficheiro de pacote executado                              | `MyPackage.dtsx` |
+| **nome de tarefaName**               | Cadeia | O nome da tarefa de fluxo de dados executado                                 | `Data Flow Task` |
+| **subcomponenteName**       | Cadeia | O nome da componente de fluxo de dados                                     | `Derived Column` |
+| **fase**                  | Cadeia | O nome da fase de execução                                         | `AcquireConnections` |
+| **horário de início**              | Cadeia | O momento em que a fase de execução começa no formato UTC                  | `2017-06-28T21:00:27.3534352Z` |
+| **endTime**                | Cadeia | O momento em que a fase de execução termina em formato UTC                    | `2017-06-28T21:00:27.3534352Z` |
+| **execuçãoAata**          | Cadeia | O caminho da execução para a tarefa de fluxo de dados                            | `\Transformation\Data Flow Task` |
+| **recursosId**             | Cadeia | O ID único do seu recurso ADF                                  | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 
 #### <a name="ssis-execution-data-statistics-log-attributes"></a>Atributos de registo de estatísticas de execução SSIS
 
@@ -802,24 +802,24 @@ Aqui estão os atributos de registo de movimentos de dados através de cada part
 
 | Propriedade                     | Tipo   | Descrição                                                        | Exemplo                        |
 | ---------------------------- | ------ | ------------------------------------------------------------------ | ------------------------------ |
-| **Hora**                     | String | A hora do evento em formato UTC:`YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
-| **operaçãoName**            | String | Isto está definido para`YourSSISIRName-SSISPackageExecutionDataStatistics` | `mysqlmissisir-SSISPackageExecutionDataStatistics` |
-| **categoria**                 | String | A categoria de registos de diagnóstico                                    | `SSISPackageExecutionDataStatistics` |
-| **correlationId**            | String | O ID único para rastrear uma determinada operação                  | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
-| **dataFactoryName**          | String | O nome da sua ADF                                               | `MyADFv2` |
-| **integraçãoRuntimeName**   | String | O nome do seu SSIS IR                                           | `MySSISIR` |
-| **nível**                    | String | O nível de registos de diagnóstico                                       | `Informational` |
-| **execuçãoId**              | String | O ID único para rastrear uma execução particular no SSISDB        | `1`(1 significa execuções relacionadas com embalagens **não** armazenadas no SSISDB/invocadas via T-SQL) |
-| **nome de pacote**              | String | O nome do seu ficheiro de pacote executado                             | `MyPackage.dtsx` |
-| **nome de tarefaName**                 | String | O nome da tarefa de fluxo de dados executado                                | `Data Flow Task` |
-| **dataflowPathIdString**     | String | O ID único para rastrear o caminho do fluxo de dados                          | `Paths[SQLDB Table3.ADO NET Source Output]` |
-| **dataflowMarme**         | String | O nome do caminho do fluxo de dados                                         | `ADO NET Source Output` |
-| **fonteComponentName**      | String | O nome do componente de fluxo de dados que envia dados                    | `SQLDB Table3` |
-| **destinoComponentName** | String | O nome da componente de fluxo de dados que recebe dados                 | `Derived Column` |
-| **linhasSent**                 | String | O número de linhas enviadas por componente de origem                        | `500` |
-| **createdTime**              | String | O tempo em que os valores da linha são obtidos em formato UTC                | `2017-06-28T21:00:27.3534352Z` |
-| **execuçãoAata**            | String | O caminho da execução para a tarefa de fluxo de dados                           | `\Transformation\Data Flow Task` |
-| **recursosId**               | String | O ID único do seu recurso ADF                                 | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+| **Hora**                     | Cadeia | A hora do evento em formato UTC: `YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
+| **operaçãoName**            | Cadeia | Isto está definido para `YourSSISIRName-SSISPackageExecutionDataStatistics` | `mysqlmissisir-SSISPackageExecutionDataStatistics` |
+| **categoria**                 | Cadeia | A categoria de registos de diagnóstico                                    | `SSISPackageExecutionDataStatistics` |
+| **correlationId**            | Cadeia | O ID único para rastrear uma determinada operação                  | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
+| **dataFactoryName**          | Cadeia | O nome da sua ADF                                               | `MyADFv2` |
+| **integraçãoRuntimeName**   | Cadeia | O nome do seu SSIS IR                                           | `MySSISIR` |
+| **nível**                    | Cadeia | O nível de registos de diagnóstico                                       | `Informational` |
+| **execuçãoId**              | Cadeia | O ID único para rastrear uma execução particular no SSISDB        | `1` (1 significa execuções relacionadas com embalagens **não** armazenadas no SSISDB/invocadas via T-SQL) |
+| **nome de pacote**              | Cadeia | O nome do seu ficheiro de pacote executado                             | `MyPackage.dtsx` |
+| **nome de tarefaName**                 | Cadeia | O nome da tarefa de fluxo de dados executado                                | `Data Flow Task` |
+| **dataflowPathIdString**     | Cadeia | O ID único para rastrear o caminho do fluxo de dados                          | `Paths[SQLDB Table3.ADO NET Source Output]` |
+| **dataflowMarme**         | Cadeia | O nome do caminho do fluxo de dados                                         | `ADO NET Source Output` |
+| **fonteComponentName**      | Cadeia | O nome do componente de fluxo de dados que envia dados                    | `SQLDB Table3` |
+| **destinoComponentName** | Cadeia | O nome da componente de fluxo de dados que recebe dados                 | `Derived Column` |
+| **linhasSent**                 | Cadeia | O número de linhas enviadas por componente de origem                        | `500` |
+| **createdTime**              | Cadeia | O tempo em que os valores da linha são obtidos em formato UTC                | `2017-06-28T21:00:27.3534352Z` |
+| **execuçãoAata**            | Cadeia | O caminho da execução para a tarefa de fluxo de dados                           | `\Transformation\Data Flow Task` |
+| **recursosId**               | Cadeia | O ID único do seu recurso ADF                                 | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 
 ### <a name="log-analytics-schema"></a>Log Analytics schema
 
@@ -907,5 +907,5 @@ Ao consultar os registos de execução do pacote SSIS no Logs Analytics, pode ju
 
 ![Consulta de registos de execução de pacote sSIS no Log Analytics](media/data-factory-monitor-oms/log-analytics-query2.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Monitorize e gere os oleodutos programáticamente](monitor-programmatically.md)

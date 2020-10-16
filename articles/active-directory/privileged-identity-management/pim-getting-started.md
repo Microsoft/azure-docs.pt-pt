@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5bcfb21ab15355653780355f1b5e459bc806ec8c
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90600726"
 ---
 # <a name="start-using-privileged-identity-management"></a>Começar a utilizar o Privileged Identity Management
@@ -67,7 +67,7 @@ Assim que a Gestão de Identidade Privilegiada estiver configurada, poderá apre
 
 ![Janela de navegação em Gestão de Identidade Privilegiada mostrando tarefas e opções de gestão](./media/pim-getting-started/pim-quickstart-tasks.png)
 
-| Tarefa + Gerir | Description |
+| Tarefa + Gerir | Descrição |
 | --- | --- |
 | **Os meus papéis**  | Apresenta uma lista de funções elegíveis e ativas atribuídas a si. Este é o local onde pode ativar quaisquer funções elegíveis atribuídas. |
 | **Os meus pedidos** | Apresenta os seus pedidos pendentes para ativar atribuições de funções elegíveis. |

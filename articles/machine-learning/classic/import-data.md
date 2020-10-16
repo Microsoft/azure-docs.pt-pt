@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
 ms.openlocfilehash: 085f865b567cf67adfd6f50a37e07ac40b36f871
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91356575"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-classic-from-various-data-sources"></a>Importe os seus dados de formação em Azure Machine Learning Studio (clássico) de várias fontes de dados
@@ -67,7 +67,7 @@ Pode especificar ou alterar explicitamente os títulos e tipos de dados para col
 Os seguintes tipos de dados são reconhecidos pelo Studio (clássico):
 
 * Cadeia
-* Integer (Número inteiro)
+* Número inteiro
 * Double (Duplo)
 * Booleano
 * DateTime
@@ -157,7 +157,7 @@ As fontes de dados online que são suportadas estão itemadas na tabela abaixo. 
 ### <a name="supported-online-data-sources"></a>Fontes de dados online suportadas
 O módulo Azure Machine Learning Studio (clássico) **Import Data** suporta as seguintes fontes de dados:
 
-| Origem de dados | Description | Parâmetros |
+| Origem de dados | Descrição | Parâmetros |
 | --- | --- | --- |
 | Web URL via HTTP |Lê dados em valores separados por vírgula (CSV), valores separados por separados por separados de separados por separados (TSV), formato de ficheiro de relação de atributos (ARFF) e Máquinas de Vetores de Suporte (luz SVM), a partir de qualquer URL web que utilize HTTP |<b>URL</b>: Especifica o nome completo do ficheiro, incluindo o URL do site e o nome do ficheiro, com qualquer extensão. <br/><br/><b>Formato de dados</b>: Especifica um dos formatos de dados suportados: CSV, TSV, ARFF ou SVM-light. Se os dados ímis ímis agem, é utilizado para atribuir nomes de colunas. |
 | Hadoop/HDFS |Lê dados de armazenamento distribuído em Hadoop. Especifica os dados que pretende utilizando o HiveQL, uma linguagem de consulta semelhante ao SQL. O HiveQL também pode ser usado para agregar dados e realizar a filtragem de dados antes de adicionar os dados ao Studio (clássico). |<b>Consulta da base de dados da colmeia</b>: Especifica a consulta de Colmeia utilizada para gerar os dados.<br/><br/><b>HCatalog servidor URI</b> : Especificou o nome do seu cluster utilizando o formato do * &lt; seu nome de cluster &gt; .azurehdinsight.net.*<br/><br/><b>Nome da conta do utilizador Hadoop</b>: Especifica o nome da conta de utilizador Hadoop utilizado para a provisionação do cluster.<br/><br/><b>Palavra-passe da conta de utilizador Hadoop</b> : Especifica as credenciais utilizadas no fornecimento do cluster. Para obter mais informações, consulte [os clusters Create Hadoop em HDInsight](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).<br/><br/><b>Localização dos dados de saída</b>: Especifica se os dados são armazenados num sistema de ficheiros distribuídos por Hadoop (HDFS) ou em Azure. <br/><ul>Se armazenar dados de saída em HDFS, especifique o servidor HDFS URI. (Certifique-se de que utiliza o nome do cluster HDInsight sem o prefixo HTTPS://). <br/><br/>Se armazenar os seus dados de saída no Azure, tem de especificar o nome da conta de armazenamento Azure, a chave de acesso ao armazenamento e o nome do contentor de armazenamento.</ul> |

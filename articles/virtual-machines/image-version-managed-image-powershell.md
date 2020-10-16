@@ -10,10 +10,10 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: c1b40cc8d52ffe5655401f7698790cdc05898331
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88225550"
 ---
 # <a name="migrate-from-a-managed-image-to-a-shared-image-gallery-image"></a>Migrar de uma imagem gerida para uma imagem da Galeria de Imagens Partilhada
@@ -25,7 +25,7 @@ As imagens numa galeria de imagens têm dois componentes, que iremos criar neste
 - Uma **versão de imagem** é o que é usado para criar um VM quando se utiliza uma Galeria de Imagens Partilhadas. Pode ter várias versões de uma imagem necessária para o seu ambiente. Quando se cria um VM, a versão de imagem é usada para criar novos discos para o VM. As versões de imagem podem ser usadas várias vezes.
 
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Para completar este artigo, você deve ter uma imagem gerida existente. Se a imagem gerida contiver um disco de dados, o tamanho do disco de dados não pode ser superior a 1 TB.
 
@@ -130,7 +130,7 @@ Remove-AzImage `
    -ResourceGroupName $managedImage.ResourceGroupName
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Uma vez verificada a replicação, pode criar um VM a partir da [imagem generalizada](vm-generalized-image-version-powershell.md).
 

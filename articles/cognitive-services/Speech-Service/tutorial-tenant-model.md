@@ -12,10 +12,10 @@ ms.date: 06/25/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5e861182ee57a0b49d3e62a858fc97dbf0890ea3
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91399708"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>Tutorial: Criar um modelo de inquilino (pré-visualização)

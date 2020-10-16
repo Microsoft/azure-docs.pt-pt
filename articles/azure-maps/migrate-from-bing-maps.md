@@ -9,14 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: b0c23955248a3468ee6bd624ebf7281bc6c3c961
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ab4b4e0ab7d0474dc4fe7692cfe3c46835095f45
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319610"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873749"
 ---
-# <a name="migrate-from-bing-maps-to-azure-maps"></a>Migrar de Bing Maps para Azure Maps
+# <a name="tutorial---migrate-from-bing-maps-to-azure-maps"></a>Tutorial - Migrar de Bing Maps para Azure Maps
 
 Este guia fornece informações sobre como migrar aplicações baseadas na web, mobile e servidor, desde o Bing Maps até à plataforma Azure Maps. Este guia inclui amostras de código comparativas, sugestões de migração e boas práticas para migrar para a Azure Maps.
 

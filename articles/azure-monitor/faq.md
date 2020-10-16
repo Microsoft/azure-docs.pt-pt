@@ -6,17 +6,17 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/15/2020
-ms.openlocfilehash: b524b0d8f24f011065772495bc2bb283a3c90d4a
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.date: 10/08/2020
+ms.openlocfilehash: 180490dc79554efa072311e9a2b7f5df348b432b
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91760258"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014244"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor perguntas frequentes
 
-Este Microsoft FAQ é uma lista de perguntas comumente feitas sobre o Azure Monitor. Se tiver alguma pergunta adicional, vá ao [fórum de discussão](https://docs.microsoft.com/answers/questions/topics/single/24223.html) e publique as suas perguntas. Quando uma pergunta é frequentemente feita, adicionamo-la a este artigo para que possa ser encontrada de forma rápida e fácil.
+Este Microsoft FAQ é uma lista de perguntas comumente feitas sobre o Azure Monitor. Se tiver alguma pergunta adicional, vá ao [fórum de discussão](/answers/questions/topics/single/24223.html) e publique as suas perguntas. Quando uma pergunta é frequentemente feita, adicionamo-la a este artigo para que possa ser encontrada de forma rápida e fácil.
 
 
 ## <a name="general"></a>Geral
@@ -322,7 +322,6 @@ Procuramos o endereço IP (IPv4 ou IPv6) do cliente web utilizando a [GeoLite2](
 * Telemetria do servidor: O módulo Application Insights recolhe o endereço IP do cliente. Não é recolhido se `X-Forwarded-For` estiver definido.
 * Para saber mais sobre como o endereço IP e os dados de geolocalização são recolhidos no Application Insights consulte este [artigo.](./app/ip-collection.md)
 
-
 Pode configurar o `ClientIpHeaderTelemetryInitializer` endereço IP para tirar o endereço IP de um cabeçalho diferente. Em alguns sistemas, por exemplo, é movido por um proxy, balanceador de carga ou CDN para `X-Originating-IP` . [Saiba mais](https://apmtips.com/posts/2016-07-05-client-ip-address/).
 
 Pode [utilizar o Power BI](app/export-power-bi.md ) para mostrar a telemetria do seu pedido num mapa.
@@ -398,6 +397,29 @@ Cada item que é transmitido transporta uma `itemCount` propriedade que mostra q
     requests | summarize original_events = sum(itemCount), transmitted_events = count()
 ```
 
+### <a name="how-do-i-move-an-application-insights-resource-to-a-new-region"></a>Como posso mover um recurso Application Insights para uma nova região?
+
+**Atualmente, não**é suportado o movimento dos recursos de Insights de Aplicação existentes de uma região para outra. Os dados históricos que recolheu **não podem ser migrados** para uma nova região. A única solução parcial é:
+
+1. Crie um novo recurso Application Insights[(clássico](app/create-new-resource.md) ou [baseado no espaço de trabalho)](/azure/azure-monitor/app/create-workspace-resource)na nova região.
+2. Recrie todas as personalizações únicas específicas ao recurso original no novo recurso.
+3. Modifique a sua aplicação para utilizar a chave de [instrumentação](app/create-new-resource.md#copy-the-instrumentation-key) ou a cadeia de ligação do novo recurso da [região.](app/sdk-connection-string.md)  
+4. Teste para confirmar que tudo continua a funcionar como esperado com o seu novo recurso Application Insights. 
+5. Neste momento pode eliminar o recurso original que resultará na perda de **todos os dados históricos**. Ou reter o recurso original para fins históricos de reporte durante a duração das suas definições de retenção de dados.
+
+Personalizações únicas que normalmente precisam de ser recriadas manualmente ou atualizadas para o recurso na nova região incluem, mas não se limitam a:
+
+- Recrie os painéis e livros personalizados. 
+- Recrie ou atualize o âmbito de quaisquer alertas de registo/métrica personalizados. 
+- Recrie os alertas de disponibilidade.
+- Recrie quaisquer definições personalizadas Role-Based Access Control (RBAC) que sejam necessárias para que os seus utilizadores acedam ao novo recurso. 
+- Replicar configurações envolvendo amostragem de ingestão, retenção de dados, tampa diária e ativação de métricas personalizadas. Estas definições são controladas através do **painel de utilização e custos estimados.**
+- Qualquer integração que dependa de chaves API, tais como [anotações de libertação,](/azure/azure-monitor/app/annotations) [métricas ao vivo, canal de controlo seguro,](app/live-stream.md#secure-the-control-channel) etc. Terá de gerar novas teclas API e atualizar a integração associada. 
+- As exportações contínuas de recursos clássicos teriam de ser configuradas novamente.
+- As definições de diagnóstico dos recursos baseados no espaço de trabalho teriam de ser configuradas novamente.
+
+> [!NOTE]
+> Se o recurso que está a criar numa nova região está a substituir um recurso clássico, recomendamos explorar os benefícios de [criar um novo recurso baseado no espaço de trabalho](app/create-workspace-resource.md) ou, em alternativa, [migrar o seu recurso existente para o espaço de trabalho baseado.](app/convert-classic-resource.md) 
 
 ### <a name="automation"></a>Automatização
 

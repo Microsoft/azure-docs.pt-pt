@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
 ms.openlocfilehash: e5ed8fd2eba175a170c12c032e7c6ecf6a926b64
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86084618"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Utilizar a API REST do Apache Spark para submeter trabalhos remotos para um cluster do HDInsight Spark
@@ -97,7 +97,7 @@ Nesta secção, olhamos para exemplos para usar Livy Spark para submeter o traba
 * Já copiou o frasco de aplicação para a conta de armazenamento associada ao cluster.
 * Instalou o CuRL no computador onde está a tentar estes passos.
 
-Executar os seguintes passos:
+Efetue os seguintes passos:
 
 1. Para facilitar a utilização, desaprote as variáveis ambientais. Este exemplo baseia-se num ambiente Windows, reveja as variáveis necessárias para o seu ambiente. Substitua `CLUSTERNAME` , e `PASSWORD` pelos valores apropriados.
 
@@ -209,7 +209,7 @@ HdInsight 3.5 clusters e acima, por padrão, desativar a utilização de caminho
 
 Se ligar a um cluster HDInsight Spark dentro de uma Rede Virtual Azure, pode ligar-se diretamente à Livy no cluster. Neste caso, o URL para livy endpoint é `http://<IP address of the headnode>:8998/batches` . Aqui, **8998** é o porto onde Livy corre no cabeçado do cluster. Para obter mais informações sobre o acesso a serviços em portos não públicos, consulte [os portos utilizados pelos serviços Apache Hadoop em HDInsight.](../hdinsight-hadoop-port-settings-for-services.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Documentação da API Apache Livy REST](https://livy.incubator.apache.org/docs/latest/rest-api.html)
 * [Gerir recursos para o cluster do Apache Spark no Azure HDInsight](apache-spark-resource-manager.md)

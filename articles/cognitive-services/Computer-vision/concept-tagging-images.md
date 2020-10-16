@@ -1,7 +1,7 @@
 ---
-title: Etiquetas de conteúdo - Visão Computacional
+title: Etiquetas de conteúdo - Visão de Computador
 titleSuffix: Azure Cognitive Services
-description: Conheça conceitos relacionados com a característica de marcação de imagens da API da Visão Computacional.
+description: Aprenda conceitos relacionados com a característica de marcação de imagens da API de Visão Computacional.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -12,23 +12,23 @@ ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 887f6d9163f800ecbe8a5ab9a0715fd171f1d3d9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80244516"
 ---
 # <a name="applying-content-tags-to-images"></a>Aplicação de etiquetas de conteúdo a imagens
 
-A Computer Vision devolve etiquetas baseadas em milhares de objetos reconhecíveis, seres vivos, cenários e ações. Quando as etiquetas são ambíguas ou não são do conhecimento geral, a resposta da API fornece "sugestões" para clarificar o significado da etiqueta no contexto de um cenário conhecido. As etiquetas não são organizadas como uma taxonomia e não existem hierarquias de herança. Uma coleção de etiquetas de conteúdos é a base da "descrição" de uma imagem apresentada como um idioma legível por humanos e formatada em frases completas. Tenha em atenção que, neste momento, o inglês é o único idioma suportado para a descrição de imagens.
+A Visão Computacional devolve etiquetas baseadas em milhares de objetos reconhecíveis, seres vivos, cenários e ações. Quando as etiquetas são ambíguas ou não são do conhecimento geral, a resposta da API fornece "sugestões" para clarificar o significado da etiqueta no contexto de um cenário conhecido. As etiquetas não são organizadas como uma taxonomia e não existem hierarquias de herança. Uma coleção de etiquetas de conteúdos é a base da "descrição" de uma imagem apresentada como um idioma legível por humanos e formatada em frases completas. Tenha em atenção que, neste momento, o inglês é o único idioma suportado para a descrição de imagens.
 
 Depois de carregar uma imagem ou especificar um URL de imagem, os algoritmos de Imagem Digitalizada produzem etiquetas com base nos objetos, seres vivos e ações identificados na imagem. As etiquetas não se limitam ao tema principal, como por exemplo uma pessoa em primeiro plano, mas também incluem o cenário (interior ou exterior), o mobiliário, ferramentas, plantas, animais, acessórios, gadgets, etc.
 
 ## <a name="image-tagging-example"></a>Exemplo de marcação de imagem
 
-A resposta json seguinte ilustra o que a Visão de Computador retorna ao marcar as funcionalidades visuais detetadas na imagem do exemplo.
+A seguinte resposta JSON ilustra o que a Visão Computacional retorna ao marcar funcionalidades visuais detetadas na imagem de exemplo.
 
-![Uma casa azul e o quintal da frente](./Images/house_yard.png).
+![Uma casa azul e o jardim da frente](./Images/house_yard.png).
 
 ```json
 {
@@ -85,10 +85,10 @@ A resposta json seguinte ilustra o que a Visão de Computador retorna ao marcar 
 
 ## <a name="use-the-api"></a>Utilizar a API
 
-A função de marcação faz parte da [API de Imagem de Análise.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) Você pode chamar isto de API através de um SDK nativo ou através de chamadas REST. Incluir `Tags` no parâmetro de consulta **visualFeatures.** Em seguida, quando obtém a resposta completa da JSON, `"tags"` basta analisar a corda para o conteúdo da secção.
+A função de marcação faz parte da [API de Imagem de Análise.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) Você pode chamar esta API através de um SDK nativo ou através de chamadas REST. Incluir `Tags` no parâmetro de consulta **visualFeatures.** Em seguida, quando tiver a resposta JSON completa, basta analisar a corda para o conteúdo da `"tags"` secção.
 
-* [Quickstart: Computer Vision .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
-* [Quickstart: Analise uma imagem (REST API)](./quickstarts/csharp-analyze.md)
+* [Quickstart: Visão por Computador .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Quickstart: Analisar uma imagem (REST API)](./quickstarts/csharp-analyze.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

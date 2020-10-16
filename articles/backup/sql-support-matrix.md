@@ -4,12 +4,12 @@ description: Fornece um resumo das definições e limitações de suporte ao faz
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.custom: references_regions
-ms.openlocfilehash: 41511abaa071bd0f64ee699c52486b71ec036a68
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 5126159f2f9e5761b5f6a073972935101bc03210
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926455"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946353"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Matriz de suporte para backup do servidor SQL em VMs Azure
 
@@ -22,7 +22,7 @@ Pode utilizar o Azure Backup para fazer backup nas bases de dados do SQL Server 
 **Implantações apoiadas** | Sql Marketplace Azure VMs e VMs não-Marketplace (SQL Server instalado manualmente) são suportados.
 **Regiões suportadas** | Austrália Sudeste (ASE), Austrália Oriental (AE), Austrália Central (AC), Austrália Central 2 (AC) <br> Sul do Brasil (BRS)<br> Canadá Central (CNC), Canadá Leste (CE)<br> Sudeste Asiático (SEA), Ásia Oriental (EA) <br> Leste dos EUA (EUS), Leste dos EUA 2 (EUS2), Centro Ocidental dos EUA (WCUS), Eua Ocidental (WUS); West US 2 (WUS 2) North Central US (NCUS) Central US (CUS) South Central US (SCUS) <br> India Central (INC), Índia Sul (INS), Índia Oeste <br> Japão Leste (JPE), Japão Oeste (JPW) <br> Coreia Central (KRC), Coreia do Sul (KRS) <br> Norte da Europa (NE), Europa Ocidental <br> Reino Unido Sul (Reino Unido), UK West (UKW) <br> US Gov Arizona, US Gov Virginia, US Gov Texas, US DoD Central, US DoD East <br> Alemanha Norte, Alemanha Centro Ocidental <br> Suíça Norte, Suíça Oeste <br> França Central <br> China Leste, China Leste 2, China Norte, China Norte 2
 **Sistemas operativos suportados** | Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2008 R2 SP1 <br/><br/> Linux não é apoiado.
-**Versões suportadas do SQL Server** | SQL Server 2019, SQL Server 2017 conforme detalhado na [página de lifecycle](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017)do produto Search , SQL Server 2016 e SPs conforme detalhado na [página de lifecycle do produto Search](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008 <br/><br/> Empresa, Standard, Web, Developer, Express.
+**Versões suportadas do SQL Server** | SQL Server 2019, SQL Server 2017 conforme detalhado na [página de lifecycle](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017)do produto Search , SQL Server 2016 e SPs conforme detalhado na [página de lifecycle do produto Search](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008 <br/><br/> Empresa, Standard, Web, Developer, Express.<br><br>As versões DB locais do Expresso não são suportadas.
 **Versões suportadas .NET** | .NET Quadro 4.5.2 ou posteriormente instalado no VM
 
 ## <a name="feature-considerations-and-limitations"></a>Considerações e limitações de recursos
@@ -60,40 +60,40 @@ Dependendo da preferência de backup e dos tipos de backups (completo/diferencia
 
 #### <a name="backup-preference-primary"></a>Preferência de backup: Primário
 
-**Tipo de backup** | **Nó**
+**Tipo de Cópia de Segurança** | **Nó**
 --- | ---
 Completa | Primário
 Diferencial | Primário
-Registo |  Primário
-Apenas cópia cheia |  Primário
+Registar |  Primário
+Copy-Only Cheio |  Primário
 
 #### <a name="backup-preference-secondary-only"></a>Preferência de backup: Apenas secundário
 
-**Tipo de backup** | **Nó**
+**Tipo de Cópia de Segurança** | **Nó**
 --- | ---
 Completa | Primário
 Diferencial | Primário
-Registo |  Secundária
-Apenas cópia cheia |  Secundária
+Registar |  Secundária
+Copy-Only Cheio |  Secundária
 
 #### <a name="backup-preference-secondary"></a>Preferência de backup: Secundário
 
-**Tipo de backup** | **Nó**
+**Tipo de Cópia de Segurança** | **Nó**
 --- | ---
 Completa | Primário
 Diferencial | Primário
-Registo |  Secundária
-Apenas cópia cheia |  Secundária
+Registar |  Secundária
+Copy-Only Cheio |  Secundária
 
 #### <a name="no-backup-preference"></a>Sem preferência de backup
 
-**Tipo de backup** | **Nó**
+**Tipo de Cópia de Segurança** | **Nó**
 --- | ---
 Completa | Primário
 Diferencial | Primário
-Registo |  Secundária
-Apenas cópia cheia |  Secundária
+Registar |  Secundária
+Copy-Only Cheio |  Secundária
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como [fazer o back up de uma base de dados](backup-azure-sql-database.md) do SQL Server que está a funcionar num VM Azure.

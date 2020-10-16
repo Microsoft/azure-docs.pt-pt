@@ -1,26 +1,18 @@
 ---
 title: SAP Business One em Azure Virtual Machines / Microsoft Docs
 description: SAP Business One em Azure.
-services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
 author: msjuergent
-manager: patfilot
-editor: ''
-tags: azure-resource-manager
-keywords: ''
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: juergent
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ccec58f012dcd4b6371c15e79fa964600e775f54
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.reviewer: cynthn
+ms.openlocfilehash: caabaa6fbf65787f90c0033a06af26996c2388f2
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654655"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994103"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One em Máquinas Virtuais do Azure
 Este documento fornece orientações para implantar o SAP Business One em Azure Virtual Machines. A documentação não substitui a documentação de instalação do Negócios um para a SAP. A documentação deve abranger as diretrizes básicas de planeamento e implantação para a infraestrutura Azure para executar aplicações do Business One.
@@ -58,7 +50,7 @@ Além da documentação do Azure, deve estar atento às principais notas sapais,
 - [2483583 - Nota central para SAP Business One 9.3](https://launchpad.support.sap.com/#/notes/2483583)
 - [2483615 - Nota de atualizações de lançamento para SAP Business One 9.3](https://launchpad.support.sap.com/#/notes/2483615)
 - [2483595 - Nota coletiva para o SAP Business One 9.3 Emissões Gerais](https://launchpad.support.sap.com/#/notes/2483595)
-- [2027458 - Nota de consultoria coletiva para tópicos relacionados com SAP HANA da SAP Business One, versão para SAP HANA](https://launchpad.support.sap.com/#/notes/2027458)
+- [2027458 - Nota de Consultoria Coletiva para OSE HANA-Related Tópicos do SAP Business One, versão para SAP HANA](https://launchpad.support.sap.com/#/notes/2027458)
 
 
 ## <a name="business-one-architecture"></a>Business One Architecture
@@ -95,7 +87,7 @@ A infraestrutura de rede que precisa de implementar em Azure depende se implemen
 A configuração simplificada apresentada introduz várias instâncias de segurança que permitem controlar e limitar o encaminhamento. Começa com 
 
 - O router/firewall no lado do cliente no local.
-- Segue-se o [Grupo de Segurança da Rede Azure](../../../virtual-network/security-overview.md) que pode utilizar para introduzir regras de encaminhamento e segurança para o Azure VNet em que executou a configuração sap Business one.
+- Segue-se o [Grupo de Segurança da Rede Azure](../../../virtual-network/network-security-groups-overview.md) que pode utilizar para introduzir regras de encaminhamento e segurança para o Azure VNet em que executou a configuração sap Business one.
 - Para evitar que os utilizadores do cliente Business One possam também ver o servidor que executa o servidor Business One, que executa a base de dados, deve separar o VM que hospeda o cliente Business one e o servidor de negócios em duas sub-redes diferentes dentro do VNet.
 - Voltaria a utilizar o Azure NSG atribuído às duas sub-redes diferentes para limitar o acesso ao servidor Business one.
 
@@ -111,7 +103,7 @@ Para o tipo de base de dados, SQL Server e SAP HANA estão disponíveis. Indepen
 
 Embora já salientado nos documentos específicos e genéricos da base de dados, deve familiarizar-se com:
 
-- [Gerir a disponibilidade de máquinas virtuais do Windows em Azure](../../windows/manage-availability.md) e [Gerir a disponibilidade de máquinas virtuais Linux em Azure](../../linux/manage-availability.md)
+- [Gerir a disponibilidade de máquinas virtuais do Windows em Azure](../../manage-availability.md) e [Gerir a disponibilidade de máquinas virtuais Linux em Azure](../../manage-availability.md)
 - [SLA para Máquinas Virtuais](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)
 
 Estes documentos devem ajudá-lo a decidir sobre a seleção de tipos de armazenamento e configuração de alta disponibilidade.

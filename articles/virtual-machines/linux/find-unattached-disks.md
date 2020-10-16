@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/30/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 87fe277bbd2fa618d43ce3274c1d2c05a5d7b396
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 821ba551dc19f92988a352b8f1bab792ce52207b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84660164"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978922"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks-using-the-azure-cli"></a>Localizar e apagar discos geridos e não geridos pelo Azure utilizando o Azure CLI
 Quando elimina uma máquina virtual (VM) em Azure, por padrão, quaisquer discos que estejam ligados ao VM não são eliminados. Esta funcionalidade ajuda a prevenir a perda de dados devido à eliminação não intencional de VMs. Depois de eliminado um VM, continuará a pagar por discos não ligados. Este artigo mostra-lhe como encontrar e eliminar quaisquer discos não ligados e reduzir custos desnecessários. 
@@ -20,7 +20,7 @@ Quando elimina uma máquina virtual (VM) em Azure, por padrão, quaisquer discos
 
 ## <a name="managed-disks-find-and-delete-unattached-disks"></a>Discos geridos: Localizar e apagar discos não ligados 
 
-O seguinte script procura [discos geridos](managed-disks-overview.md) não ligados examinando o valor da propriedade **ManagedBy.** Quando um disco gerido é ligado a um VM, a propriedade **ManagedBy** contém o ID de recurso do VM. Quando um disco gerido não está ligado, a propriedade **ManagedBy** é nula. O script examina todos os discos geridos numa subscrição do Azure. Quando o script localiza um disco gerido com a propriedade **ManagedBy** definida para nula, o script determina que o disco está desapegado.
+O seguinte script procura [discos geridos](../managed-disks-overview.md) não ligados examinando o valor da propriedade **ManagedBy.** Quando um disco gerido é ligado a um VM, a propriedade **ManagedBy** contém o ID de recurso do VM. Quando um disco gerido não está ligado, a propriedade **ManagedBy** é nula. O script examina todos os discos geridos numa subscrição do Azure. Quando o script localiza um disco gerido com a propriedade **ManagedBy** definida para nula, o script determina que o disco está desapegado.
 
 >[!IMPORTANT]
 >Em primeiro lugar, executar o script definindo a variável **deleteUnattachedDisks** para 0. Esta ação permite-lhe encontrar e ver todos os discos geridos desvinculados.
@@ -103,8 +103,6 @@ do
 done 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, consulte [Eliminar uma conta de armazenamento.](../../storage/common/storage-account-create.md#delete-a-storage-account)
-
-

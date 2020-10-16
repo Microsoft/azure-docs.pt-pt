@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2019
 ms.author: damendo
 ms.openlocfilehash: 84f34c9441805352422215fcbac300bd900024d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84737959"
 ---
 # <a name="delete-network-security-group-flow-log-storage-blobs-in-network-watcher"></a>Eliminar bolhas de armazenamento de registo de fluxo de fluxo de rede no Network Watcher
@@ -135,7 +135,7 @@ Write-Output ('Retention policy for all NSGs evaluated and completed successfull
    .\Delete-NsgFlowLogsBlobs.ps1 -SubscriptionId <subscriptionId> -Location  <location> -Confirm
    ```
     
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Os clientes podem automatizar a execução do script utilizando [apps Azure Logic](../logic-apps/logic-apps-overview.md) ou [Azure Automation](https://azure.microsoft.com/services/automation/)
 - Para saber mais sobre a sessão de registo de NSG, consulte [os registos do Azure Monitor para grupos de segurança de rede (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 

@@ -16,10 +16,10 @@ ms.topic: how-to
 ms.date: 02/1/2018
 ms.author: mazha
 ms.openlocfilehash: 49748b3d77d097e655ee6ec5777022c038841a6d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87073128"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Gerir a expiração do armazenamento da Azure Blob na Azure CDN
@@ -41,7 +41,7 @@ Também pode controlar as definições de cache a partir do portal Azure definin
 > Para obter mais informações sobre o armazenamento da Azure Blob, consulte [Introdução ao armazenamento blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction).
  
 
-## <a name="setting-cache-control-headers-by-using-cdn-caching-rules"></a>Definir cabeçalhos de controlo de cache utilizando regras de cache CDN
+## <a name="setting-cache-control-headers-by-using-cdn-caching-rules"></a>Definição de cabeçalhos Cache-Control utilizando regras de caching CDN
 O método preferido para definir o cabeçalho de uma bolha `Cache-Control` é usar as regras de caching no portal Azure. Para obter mais informações sobre as regras de caching CDN, consulte [o comportamento do caching do Control Azure CDN com as regras de caching](cdn-caching-rules.md).
 
 > [!NOTE] 
@@ -60,7 +60,7 @@ O método preferido para definir o cabeçalho de uma bolha `Cache-Control` é us
    ![Página de caching CDN](./media/cdn-manage-expiration-of-blob-content/cdn-caching-page.png)
 
 
-**Para definir os cabeçalhos cache-control de um serviço blob utilizando regras globais de cacheing:**
+**Para definir os cabeçalhos Cache-Control de um serviço blob utilizando regras globais de caching:**
 
 1. De acordo com **as regras globais de caching**, desempenhar **o comportamento de caching de cordas de consulta** para ignorar as cordas de **consulta** e definir o comportamento **de Caching** para **Override**.
       
@@ -72,7 +72,7 @@ O método preferido para definir o cabeçalho de uma bolha `Cache-Control` é us
 
 3. Selecione **Guardar**.
  
-**Para definir os cabeçalhos cache-control de um ficheiro blob utilizando regras de cache personalizadas:**
+**Para definir os cabeçalhos Cache-Control de um ficheiro blob utilizando regras de caching personalizadas:**
 
 1. De acordo com **as regras de caching personalizado,** crie duas condições de jogo:
 
@@ -87,7 +87,7 @@ O método preferido para definir o cabeçalho de uma bolha `Cache-Control` é us
 2. Selecione **Guardar**.
 
 
-## <a name="setting-cache-control-headers-by-using-azure-powershell"></a>Definir cabeçalhos de controlo de cache utilizando Azure PowerShell
+## <a name="setting-cache-control-headers-by-using-azure-powershell"></a>Definição de cabeçalhos Cache-Control utilizando Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -114,7 +114,7 @@ $blob.ICloudBlob.SetProperties()
 > 
 >
 
-## <a name="setting-cache-control-headers-by-using-net"></a>Definir cabeçalhos de controlo de cache utilizando .NET
+## <a name="setting-cache-control-headers-by-using-net"></a>Definição de cabeçalhos Cache-Control utilizando .NET
 Para especificar o cabeçalho de uma bolha `Cache-Control` utilizando o código .NET, utilize a Biblioteca do [Cliente de Armazenamento Azure para .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) para definir a propriedade [CloudBlob.Properties.CacheControl.](/dotnet/api/microsoft.azure.storage.blob.blobproperties.cachecontrol)
 
 Por exemplo:
@@ -150,7 +150,7 @@ class Program
 > Existem mais amostras de código .NET disponíveis em [Amostras de Armazenamento Azure Blob para .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/).
 > 
 
-## <a name="setting-cache-control-headers-by-using-other-methods"></a>Definição dos cabeçalhos de controlo de cache utilizando outros métodos
+## <a name="setting-cache-control-headers-by-using-other-methods"></a>Definição de cabeçalhos Cache-Control utilizando outros métodos
 
 ### <a name="azure-storage-explorer"></a>Explorador do Storage do Azure
 Com [o Azure Storage Explorer,](https://azure.microsoft.com/features/storage-explorer/)pode ver e editar os seus recursos de armazenamento de bolhas, incluindo propriedades como a propriedade *CacheControl.* 
@@ -177,7 +177,7 @@ Pode utilizar os [serviços de armazenamento Azure REST API](/rest/api/storagese
    - [Colocar lista de blocos](/rest/api/storageservices/Put-Block-List)
    - [Definir propriedades blob](/rest/api/storageservices/Set-Blob-Properties)
 
-## <a name="testing-the-cache-control-header"></a>Testar o cabeçalho cache-control
+## <a name="testing-the-cache-control-header"></a>Testar o cabeçalho Cache-Control
 Pode verificar facilmente as definições de TTL das suas bolhas. Com as [ferramentas](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/)de desenvolvimento do seu navegador, teste que a sua bolha inclui o `Cache-Control` cabeçalho de resposta. Também pode utilizar uma ferramenta como [Wget,](https://www.gnu.org/software/wget/) [Carteiro](https://www.getpostman.com/)ou [Violinista](https://www.telerik.com/fiddler) para examinar os cabeçalhos de resposta.
 
 ## <a name="next-steps"></a>Passos Seguintes

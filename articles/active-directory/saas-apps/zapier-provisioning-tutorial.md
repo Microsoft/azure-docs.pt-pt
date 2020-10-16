@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: Zhchia
 ms.openlocfilehash: b45c7fcbc4e3c0eda4f2e8d3eb21a81428dee39d
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361250"
 ---
 # <a name="tutorial-configure-zapier-for-automatic-user-provisioning"></a>Tutorial: Configurar Zapier para o fornecimento automático de utilizadores

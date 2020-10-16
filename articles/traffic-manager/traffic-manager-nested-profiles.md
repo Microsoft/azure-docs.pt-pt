@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2018
 ms.author: duau
 ms.openlocfilehash: d96cd9b3c83357c2591edf4bbb09a82b897c6a24
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91826029"
 ---
 # <a name="nested-traffic-manager-profiles"></a>Perfis do Gestor de Tráfego aninhados

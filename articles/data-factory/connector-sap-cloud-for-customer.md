@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/12/2020
 ms.openlocfilehash: 3874d3b2b0938b6fd0f763b42ef15f8250b42f1d
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87529624"
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Copiar dados da NUVEM SAP para Cliente (C4C) utilizando a Azure Data Factory
@@ -126,7 +126,7 @@ Para copiar dados da SAP Cloud para Cliente, deteta o tipo de origem na atividad
 | consulta | Especifique a consulta personalizada OData para ler dados. | Não |
 | httpRequestTimeout | O tempo limite (o valor **TimeSpan)** para o pedido HTTP obter uma resposta. Este valor é o tempo limite para obter uma resposta, não o tempo limite para ler dados de resposta. Se não for especificado, o valor predefinido é **00:30:00** (30 minutos). | Não |
 
-Consulta de amostra para obter dados para um dia específico:`"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
+Consulta de amostra para obter dados para um dia específico: `"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
 
 **Exemplo:**
 
@@ -167,8 +167,8 @@ Para copiar dados para SAP Cloud para Cliente, desaperte o tipo de pia na ativid
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo deve ser definida para: **SapCloudForCustomerSink**  | Sim |
-| escrever Comportamento | O comportamento de escrita da operação. Pode ser "Inserir", "Atualizar". | Não. Predefinitivo "Inserir". |
-| escreverBatchSize | O tamanho do lote da operação de escrita. O tamanho do lote para obter o melhor desempenho pode ser diferente para diferentes tabelas ou servidores. | Não. Padrão 10. |
+| escrever Comportamento | O comportamento de escrita da operação. Pode ser "Inserir", "Atualizar". | N.º Predefinitivo "Inserir". |
+| escreverBatchSize | O tamanho do lote da operação de escrita. O tamanho do lote para obter o melhor desempenho pode ser diferente para diferentes tabelas ou servidores. | N.º Padrão 10. |
 
 **Exemplo:**
 
@@ -227,7 +227,7 @@ Ao copiar dados da SAP Cloud para o Cliente, os seguintes mapeamentos são usado
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
 | Edm.SByte | Int16 |
-| Edm.String | String |
+| Edm.String | Cadeia |
 | Edm.Tempo | TimeSpan |
 | Edm.DateTimeOffset | Início de execução de tempo de data |
 

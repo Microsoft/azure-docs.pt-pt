@@ -4,10 +4,10 @@ description: Este artigo fornece respostas a algumas das perguntas frequentes (F
 ms.topic: article
 ms.date: 09/16/2020
 ms.openlocfilehash: addd629f137c5f638cd32a639f79cdbbafc4a94d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90894523"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure Service Bus - Perguntas frequentes (FAQ)
@@ -113,7 +113,7 @@ Para obter informações completas sobre os preços do Service Bus, consulte [os
 Qualquer transferência de dados dentro de uma determinada região de Azure é fornecida gratuitamente, bem como qualquer transferência de dados de entrada. A transferência de dados para fora de uma região está sujeita a encargos de saída, que podem ser encontrados [aqui.](https://azure.microsoft.com/pricing/details/bandwidth/)
 
 ### <a name="does-service-bus-charge-for-storage"></a>O Service Bus cobra pelo armazenamento?
-Não. A Service Bus não cobra pelo armazenamento. No entanto, há uma quota que limita a quantidade máxima de dados que podem ser persistidos por fila/tópico. Veja as próximas FAQ.
+N.º A Service Bus não cobra pelo armazenamento. No entanto, há uma quota que limita a quantidade máxima de dados que podem ser persistidos por fila/tópico. Veja as próximas FAQ.
 
 ### <a name="i-have-a-service-bus-standard-namespace-why-do-i-see-charges-under-resource-group-system"></a>Tenho um espaço de nomes padrão de autocarro de serviço. Por que vejo acusações no âmbito do grupo de recursos "$system"?
 A Azure Service Bus atualizou recentemente os componentes de faturação. Devido a esta alteração, se tiver um espaço de nomes Service Bus Standard, poderá ver itens de linha para o recurso '/subscrições/<azure_subscription_id>/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system' no grupo de recursos '$system'.

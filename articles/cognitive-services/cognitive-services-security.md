@@ -11,10 +11,10 @@ ms.date: 08/28/2020
 ms.author: erhopf
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 ms.openlocfilehash: 9b90d886923f4bbdab3715130bde15ecb5921636
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91326818"
 ---
 # <a name="azure-cognitive-services-security"></a>Segurança dos Serviços Cognitivos Azure
@@ -197,7 +197,7 @@ NSString* value =
 
 ## <a name="customer-lockbox"></a>Sistema de Proteção de Dados do Cliente
 
-[O Lockbox do Cliente para o Microsoft Azure](../security/fundamentals/customer-lockbox-overview.md) fornece uma interface para os clientes reverem e aprovarem ou rejeitarem os pedidos de acesso aos dados dos clientes. É utilizado nos casos em que um engenheiro da Microsoft precisa de aceder aos dados dos clientes durante um pedido de suporte. Para obter informações sobre como os pedidos de Bloqueio do Cliente são iniciados, rastreados e armazenados para posteriores avaliações e auditorias, consulte [o Customer Lockbox](../security/fundamentals/customer-lockbox-overview.md). 
+[O Lockbox do Cliente para o Microsoft Azure](../security/fundamentals/customer-lockbox-overview.md) fornece uma interface para os clientes reverem e aprovarem ou rejeitarem os pedidos de acesso aos dados dos clientes. É utilizado nos casos em que um engenheiro da Microsoft precisa de aceder aos dados do cliente durante um pedido de suporte. Para obter informações sobre como os pedidos de Bloqueio do Cliente são iniciados, rastreados e armazenados para posteriores avaliações e auditorias, consulte [o Customer Lockbox](../security/fundamentals/customer-lockbox-overview.md). 
 
 O Lockbox do cliente está disponível para este Serviço Cognitivo:
 
@@ -206,7 +206,7 @@ O Lockbox do cliente está disponível para este Serviço Cognitivo:
 Para os seguintes serviços, os engenheiros da Microsoft não acederão a quaisquer dados do cliente no nível E0: 
 
 * Compreensão de Idiomas
-* Face
+* Rostos
 * Content Moderator
 * Personalizador
 

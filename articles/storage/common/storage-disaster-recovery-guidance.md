@@ -1,5 +1,5 @@
 ---
-title: Recuperação de desastres e falha na conta de armazenamento
+title: Recuperação após desastre e ativação pós-falha de contas de armazenamento
 titleSuffix: Azure Storage
 description: O Azure Storage suporta a falha da conta para contas de armazenamento geo-redundantes. Com o failover da conta, pode iniciar o processo de failover para a sua conta de armazenamento se o ponto final principal ficar indisponível.
 services: storage
@@ -11,13 +11,13 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: e9bd2db8bcc427118a76f87e49ade422a74a11c1
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87276929"
 ---
-# <a name="disaster-recovery-and-storage-account-failover"></a>Recuperação de desastres e falha na conta de armazenamento
+# <a name="disaster-recovery-and-storage-account-failover"></a>Recuperação após desastre e ativação pós-falha de contas de armazenamento
 
 A Microsoft esforça-se por garantir que os serviços Azure estão sempre disponíveis. No entanto, podem ocorrer interrupções de serviço não planeadas. Se a sua aplicação necessitar de resiliência, a Microsoft recomenda a utilização de armazenamento geo-redundante, para que os seus dados sejam copiados para uma segunda região. Além disso, os clientes devem ter um plano de recuperação de desastres em vigor para lidar com uma interrupção do serviço regional. Uma parte importante de um plano de recuperação de desastres está a preparar-se para falhar até ao ponto final secundário no caso de o ponto final principal ficar indisponível.
 
@@ -171,7 +171,7 @@ Se a sua conta de armazenamento estiver configurada para ler o acesso ao secund�
 
 Em circunstâncias extremas em que uma região se perde devido a um desastre significativo, a Microsoft pode iniciar um fracasso regional. Neste caso, não é necessária qualquer ação da sua parte. Até que o failover gerido pela Microsoft esteja concluído, não terá acesso à sua conta de armazenamento. As suas aplicações podem ser lidas na região secundária se a sua conta de armazenamento estiver configurada para RA-GRS ou RA-GZRS.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 - [Use geo-redundância para projetar aplicações altamente disponíveis](geo-redundant-design.md)
 - [Iniciar a ativação pós-falha de uma conta](storage-initiate-account-failover.md)

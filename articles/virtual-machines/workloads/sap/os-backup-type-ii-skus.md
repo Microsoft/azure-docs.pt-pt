@@ -14,10 +14,10 @@ ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: b02c669439c54f34afb4212949b20f6793784103
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91359430"
 ---
 # <a name="os-backup-and-restore-for-type-ii-skus-of-revision-3-stamps"></a>Backup de SO e restauro para SKUs tipo II de revisão 3 selos

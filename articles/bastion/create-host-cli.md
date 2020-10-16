@@ -2,29 +2,29 @@
 title: Criar um hospedeiro bastonário usando O Azure CLI Bastião Azure
 description: Neste artigo, aprenda a criar e apagar um anfitrião de Bastião
 services: bastion
-author: mialdrid
+author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 03/26/2020
-ms.author: mialdrid
-ms.openlocfilehash: 8ee90d80230f9115946525ede325e874e98e358e
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.date: 10/14/2020
+ms.author: cherylmc
+ms.openlocfilehash: e4f0a3ea85fa479826fe9e666df2b18f8dba7ce3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024337"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079127"
 ---
 # <a name="create-an-azure-bastion-host-using-azure-cli"></a>Criar um anfitrião Azure Bastion usando Azure CLI
 
 Este artigo mostra-lhe como criar um anfitrião Azure Bastion usando Azure CLI. Uma vez que fornece o serviço Azure Bastion na sua rede virtual, a experiência PDR/SSH sem costura está disponível para todos os VMs na mesma rede virtual. A implementação do Azure Bastion é por rede virtual, não por subscrição/conta ou máquina virtual.
 
-Opcionalmente, pode criar um anfitrião Azure Bastion utilizando o [portal Azure,](bastion-create-host-portal.md)ou utilizando [a Azure PowerShell](bastion-create-host-powershell.md).
+Opcionalmente, pode criar um anfitrião Azure Bastion utilizando o [portal Azure,](./tutorial-create-host-portal.md)ou utilizando [a Azure PowerShell](bastion-create-host-powershell.md).
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="prerequisites"></a>Pré-requisitos
 
 Verifique se tem uma subscrição do Azure. Se ainda não tiver uma subscrição do Azure, pode ativar os [Benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) ou inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial).
 
-[!INCLUDE [cloudshell cli](../../includes/vpn-gateway-cloud-shell-cli.md)]
+[!INCLUDE [Cloud Shell CLI](../../includes/vpn-gateway-cloud-shell-cli.md)]
 
 ## <a name="create-a-bastion-host"></a><a name="createhost"></a>Criar um hospedeiro de bastião
 
@@ -51,8 +51,7 @@ Esta secção ajuda-o a criar um novo recurso Azure Bastion utilizando o Azure C
    az network bastion create --name MyBastion --public-ip-address MyIp --resource-group MyResourceGroup --vnet-name MyVnet --location northeurope
    ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Leia as [FAQ de Bastião](bastion-faq.md) para obter informações adicionais.
-
 * Para utilizar grupos de segurança de rede com a sub-rede Azure Bastion, consulte [Work with NSGs](bastion-nsg.md).

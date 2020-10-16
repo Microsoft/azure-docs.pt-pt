@@ -10,10 +10,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: c670c011f911e9b27f1280800508124d32e696cb
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87489848"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>Quickstart: Route storage events to web endpoint with Azure CLI
@@ -147,7 +147,7 @@ Acionou o evento e o Event Grid enviou a mensagem para o ponto final que configu
 
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Se quiser continuar a trabalhar com esta conta de armazenamento e subscrição de eventos, não limpe os recursos criados neste artigo. Se não quiser continuar, utilize o comando seguinte para eliminar os recursos que criou neste artigo.
 
 Substitua `<resource_group_name>` pelo grupo de recursos que criou acima.

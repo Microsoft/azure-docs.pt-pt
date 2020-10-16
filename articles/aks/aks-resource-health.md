@@ -6,17 +6,17 @@ author: yunjchoi
 ms.topic: troubleshooting
 ms.date: 08/18/2020
 ms.author: yunjchoi
-ms.openlocfilehash: f830debafb1a9b6b303ee6af987c7cd4fbf34aea
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: a409ac944c51d893fc344f82ae83d97559e055ef
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91358258"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070661"
 ---
 # <a name="check-for-resource-health-events-impacting-your-aks-cluster-preview"></a>Verifique se há eventos de saúde de recursos com impacto no seu cluster AKS (Pré-visualização)
 
 
-Ao executar as cargas de trabalho do seu contentor em AKS, pretende garantir que pode resolver problemas e corrigir problemas assim que estes surgirem para minimizar o impacto na disponibilidade das suas cargas de trabalho. [A Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview) dá-lhe visibilidade em vários eventos de saúde que podem fazer com que o seu cluster AKS esteja indisponível.
+Ao executar as cargas de trabalho do seu contentor em AKS, pretende garantir que pode resolver problemas e corrigir problemas assim que estes surgirem para minimizar o impacto na disponibilidade das suas cargas de trabalho. [A Azure Resource Health](../service-health/resource-health-overview.md) dá-lhe visibilidade em vários eventos de saúde que podem fazer com que o seu cluster AKS esteja indisponível.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -49,7 +49,7 @@ A Resource Health recebe sinais para o seu cluster gerido para determinar o esta
 
 - **Degradado**: Quando há um problema de saúde que requer a sua ação, a Resource Health reporta o seu cluster como *degradado*.
 
-Para mais detalhes sobre o que cada estado de saúde indica, visite a [visão geral da Saúde dos Recursos](https://docs.microsoft.com/azure/service-health/resource-health-overview#health-status).
+Para mais detalhes sobre o que cada estado de saúde indica, visite a [visão geral da Saúde dos Recursos](../service-health/resource-health-overview.md#health-status).
 
 ### <a name="view-historical-data"></a>Ver dados históricos
 
@@ -57,4 +57,4 @@ Pode ainda ver os últimos 30 dias de informação histórica sobre saúde em re
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Verifique o seu cluster para resolver problemas com o cluster utilizando [diagnósticos AKS](https://docs.microsoft.com/azure/aks/concepts-diagnostics).
+Verifique o seu cluster para resolver problemas com o cluster utilizando [diagnósticos AKS](./concepts-diagnostics.md).

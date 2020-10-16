@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/28/2019
 ms.openlocfilehash: 0761ea059350369a363ee1022b21c9da2702b396
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86076118"
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-apache-hadoop-on-hdinsight-and-azure-sql-database"></a>Utilize o Apache Sqoop para importar e exportar dados entre a Apache Hadoop na HDInsight e a Azure SQL Database
@@ -154,9 +154,9 @@ Do SQL ao armazenamento Azure.
 
 * Poderá ter de configurar o SQL Server para aceitar ligações remotas. Para obter mais informações, consulte a [resolução de problemas da ligação ao documento do motor do motor de base de dados do SQL Server.](https://social.technet.microsoft.com/wiki/contents/articles/2102.how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Agora aprendeste a usar o Sqoop. Para saber mais, consulte:
+Agora aprendeste a usar o Sqoop. Para saber mais, veja:
 
 * [Use Apache Oozie com HDInsight](../hdinsight-use-oozie-linux-mac.md): Use a ação Sqoop num fluxo de trabalho Oozie.
 * [Analise os dados de atraso de voo usando HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md): Use a Consulta Interativa para analisar os dados do atraso de voo e, em seguida, use o Sqoop para exportar dados para uma base de dados em Azure.

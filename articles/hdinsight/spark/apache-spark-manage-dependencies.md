@@ -9,13 +9,13 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.openlocfilehash: dafb4485ae9b10d89fa36bd790dcf3a799054de3
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90064179"
 ---
-# <a name="manage-spark-application-dependencies"></a>Gerir as dependências de aplicações Spark
+# <a name="manage-spark-application-dependencies"></a>Gerir dependências de aplicação do Spark
 
 Neste artigo, aprende-se a gerir dependências para as suas aplicações Spark em execução no HDInsight. Cobrimos tanto o Scala como o PySpark na aplicação Spark e no âmbito do cluster.
 
@@ -23,7 +23,7 @@ Utilize links rápidos para saltar para a secção com base no seu caso de utili
 * [Configurar dependências de frascos de trabalho spark usando o caderno Jupyter](#use-jupyter-notebook)
 * [Configurar dependências de frascos de trabalho spark usando use Azure Toolkit para IntelliJ](#use-azure-toolkit-for-intellij)
 * [Configure dependências de frascos para cluster spark](#jar-libs-for-cluster)
-* [Gerir com segurança as dependências dos frascos](#safely-manage-jar-dependencies)
+* [Gerir dependências jar com segurança](#safely-manage-jar-dependencies)
 * [Configurar pacotes de spark job Python usando o caderno Jupyter](#use-jupyter-notebook-1)
 * [Gerir com segurança pacotes Python para cluster Spark](#python-packages-for-cluster)
 
@@ -98,7 +98,7 @@ Em alguns casos, pode querer configurar as dependências do frasco ao nível do 
 
 Pode automatizar os passos utilizando [ações de script](../hdinsight-hadoop-customize-cluster-linux.md). A ação do script para [adicionar bibliotecas personalizadas da Hive](https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh) é uma boa referência. Ao alterar os configs do serviço Spark, certifique-se de que utiliza APIs Ambari em vez de modificar os ficheiros config diretamente. 
 
-## <a name="safely-manage-jar-dependencies"></a>Gerir com segurança as dependências dos frascos
+## <a name="safely-manage-jar-dependencies"></a>Gerir dependências jar com segurança
 O cluster HDInsight tem dependências de frascos incorporados, e as atualizações para estas versões de frasco acontecem de vez em quando. Para evitar conflitos de versão entre frascos embutidos e os frascos que traz para referência, considere [sombrear as dependências da sua aplicação](./safely-manage-jar-dependency.md).
 
 ## <a name="python-packages-for-one-spark-job"></a>Pacotes python para um trabalho de faísca

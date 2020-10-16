@@ -4,10 +4,10 @@ description: Este artigo fornece uma visão geral do Live Video Analytics na mon
 ms.topic: reference
 ms.date: 04/27/2020
 ms.openlocfilehash: ef00517fc61ac532bdd99c1e887dfd93d56a8c4f
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89567559"
 ---
 # <a name="monitoring-and-logging"></a>Monitorização e registos
@@ -21,7 +21,7 @@ Também aprenderá como pode controlar os registos que o módulo gera.
 Live Video Analytics on IoT Edge emite eventos ou dados de telemetria de acordo com a taxonomia seguinte.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/telemetry-schema/taxonomy.png" alt-text="Taxonomia dos eventos":::
+> :::image type="content" source="./media/telemetry-schema/taxonomy.png" alt-text="Taxonomia dos eventos&quot;:::
 
 * Operacionais: eventos que são gerados no âmbito de ações tomadas por um utilizador, ou durante a execução de um [gráfico de mídia](media-graph-concept.md).
    
@@ -32,16 +32,16 @@ Live Video Analytics on IoT Edge emite eventos ou dados de telemetria de acordo 
       
       ```
       {
-        "body": {
-          "outputType": "assetName",
-          "outputLocation": "sampleAssetFromEVR-LVAEdge-20200512T233309Z"
+        &quot;body&quot;: {
+          &quot;outputType&quot;: &quot;assetName&quot;,
+          &quot;outputLocation&quot;: &quot;sampleAssetFromEVR-LVAEdge-20200512T233309Z&quot;
         },
-        "applicationProperties": {
-          "topic": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<my-resource-group>/providers/microsoft.media/mediaservices/<ams-account-name>",
-          "subject": "/graphInstances/Sample-Graph-2/sinks/assetSink",
-          "eventType": "Microsoft.Media.Graph.Operational.RecordingStarted",
-          "eventTime": "2020-05-12T23:33:10.392Z",
-          "dataVersion": "1.0"
+        &quot;applicationProperties&quot;: {
+          &quot;topic&quot;: &quot;/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<my-resource-group>/providers/microsoft.media/mediaservices/<ams-account-name>&quot;,
+          &quot;subject&quot;: &quot;/graphInstances/Sample-Graph-2/sinks/assetSink&quot;,
+          &quot;eventType&quot;: &quot;Microsoft.Media.Graph.Operational.RecordingStarted&quot;,
+          &quot;eventTime&quot;: &quot;2020-05-12T23:33:10.392Z&quot;,
+          &quot;dataVersion&quot;: &quot;1.0"
         }
       }
       ```
@@ -268,6 +268,6 @@ Em seguida, o módulo escreverá registos de depuração num formato binário pa
 
 [FAQs](faq.md#monitoring-and-metrics)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Gravação de vídeo contínua](continuous-video-recording-tutorial.md)

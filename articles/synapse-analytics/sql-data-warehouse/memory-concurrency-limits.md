@@ -12,10 +12,10 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 5b72694f93ed5b712a0f684887df5b69a7b35c72
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89441685"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Limites de memória e concência para Azure Synapse Analytics
@@ -60,7 +60,7 @@ Com a introdução de grupos de [carga de trabalho,](sql-data-warehouse-workload
 |DW100c|4|25%|
 |DW200c|8|12.5%|
 |DW300c|12|8%|
-|DW400c|16|6.25%|
+|DW400c|16|6,25%|
 |DW500c|20|5%|
 |DW1000c|32|3%|
 |DW1500c|32|3%|
@@ -127,7 +127,7 @@ A tabela a seguir mostra as consultas simultâneas máximas e as faixas horária
 
 Quando não há slots de concuncy suficientes para iniciar a execução de consultas, as consultas são filas e executadas com base na importância.  Se houver uma importância equivalente, as consultas são executadas numa base de primeira e primeira saída.  À medida que as consultas terminam e o número de consultas e slots ficam abaixo dos limites, a Azure Synapse Analytics lança consultas em fila.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre como aproveitar as classes de recursos para otimizar ainda mais a sua carga de trabalho, reveja os seguintes artigos:
 

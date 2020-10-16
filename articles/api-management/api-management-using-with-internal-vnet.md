@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: apimpm
-ms.openlocfilehash: ac9554ae5ca151a377395d3b16598f7070c87d10
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 06d114c500722259d02a940633a76d043b83064a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386049"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077495"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Utilizar o serviço Gestão de API do Azure com uma rede virtual interna
 Com a Azure Virtual Networks, a Azure API Management pode gerir APIs não acessíveis na internet. Várias tecnologias VPN estão disponíveis para fazer a ligação. A API Management pode ser implementada em dois modos principais dentro de uma rede virtual:
@@ -51,7 +51,7 @@ Para executar os passos descritos neste artigo, deve ter:
 + Quando um serviço de Gestão API é implantado numa rede virtual, uma [lista de portas](./api-management-using-with-vnet.md#required-ports) é usada e precisa de ser aberta. 
 
 ## <a name="creating-an-api-management-in-an-internal-virtual-network"></a><a name="enable-vpn"> </a>Criar uma Gestão de API numa rede virtual interna
-O serviço de Gestão API numa rede virtual interna está alojado atrás de um [equilibrador de carga interno (clássico)](/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). Esta é a única opção disponível e não pode ser alterada.
+O serviço de Gestão API numa rede virtual interna está alojado atrás de um [equilibrador de carga interno (clássico)](/previous-versions/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). Esta é a única opção disponível e não pode ser alterada.
 
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Ativar uma ligação de rede virtual utilizando o portal Azure
 
@@ -80,7 +80,7 @@ Também pode ativar a conectividade da rede virtual utilizando cmdlets PowerShel
 
 * Atualize uma implementação existente de um serviço de Gestão API dentro de uma rede virtual: Utilize o cmdlet [Update-AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) para mover um serviço de Gestão de API existente dentro de uma rede virtual e configurar-se para utilizar o tipo de rede virtual interna.
 
-## <a name="dns-configuration"></a><a name="apim-dns-configuration"></a>Configuração DNS
+## <a name="dns-configuration"></a><a name="apim-dns-configuration"></a>Configuração do DNS
 Quando a API Management está em modo de rede virtual externa, o DNS é gerido pelo Azure. Para o modo de rede virtual interna, tem de gerir o seu próprio DNS.
 
 > [!NOTE]
@@ -131,7 +131,7 @@ Se utilizar um servidor DNS personalizado numa rede virtual, também pode criar 
 * Os endereços IP atribuídos para acesso público e privado podem ser alterados se o serviço for removido e depois adicionado de volta à rede virtual. Se isso acontecer, poderá ser necessário atualizar registos de DNS, regras de encaminhamento e listas de restrições IP dentro da rede virtual.
 
 ## <a name="related-content"></a><a name="related-content"> </a>Conteúdo relacionado
-Para saber mais, consulte os seguintes artigos:
+Para saber mais, leia os artigos seguintes:
 * [Problemas comuns de configuração da rede ao criar a Azure API Management numa rede virtual][Common network configuration problems]
 * [FaQs de rede virtual](../virtual-network/virtual-networks-faq.md)
 * [Criar um recorde no DNS](/previous-versions/windows/it-pro/windows-2000-server/bb727018(v=technet.10))
@@ -143,4 +143,4 @@ Para saber mais, consulte os seguintes artigos:
 [Create API Management service]: get-started-create-service-instance.md
 [Common network configuration problems]: api-management-using-with-vnet.md#network-configuration-issues
 
-[ServiceTags]: ../virtual-network/security-overview.md#service-tags
+[ServiceTags]: ../virtual-network/network-security-groups-overview.md#service-tags

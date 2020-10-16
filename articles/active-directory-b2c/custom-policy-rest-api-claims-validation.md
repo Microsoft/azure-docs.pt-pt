@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/26/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6381f678979437fdfc10d2ea63a79ed347183e92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30273c0103d8a0fde12b1b7c6f66d16dd4ea84cb
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388923"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089524"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-to-validate-user-input"></a>Walkthrough: Integrar as trocas de reclamações da API REST na sua viagem de utilizador Azure AD B2C para validar a entrada do utilizador
 
@@ -93,7 +93,7 @@ Uma reclamação fornece armazenamento temporário de dados durante uma execuç�
 </ClaimType>
 ```
 
-## <a name="configure-the-restful-api-technical-profile"></a>Configurar o perfil técnico restful da API 
+## <a name="add-the-restful-api-technical-profile"></a>Adicione o perfil técnico restful da API 
 
 Um [perfil técnico repousante](restful-technical-profile.md) fornece suporte para a interligagem ao seu próprio serviço RESTful. A Azure AD B2C envia dados para o serviço RESTful numa `InputClaims` recolha e recebe dados de volta numa `OutputClaims` recolha. Encontre o elemento **ClaimsProviders** e adicione um novo fornecedor de sinistros da seguinte forma:
 
@@ -105,6 +105,7 @@ Um [perfil técnico repousante](restful-technical-profile.md) fornece suporte pa
       <DisplayName>Check loyaltyId Azure Function web hook</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
+        <!-- Set the ServiceUrl with your own REST API endpoint -->
         <Item Key="ServiceUrl">https://your-account.azurewebsites.net/api/ValidateProfile?code=your-code</Item>
         <Item Key="SendClaimsIn">Body</Item>
         <!-- Set AuthenticationType to Basic or ClientCertificate in production environments -->
@@ -129,6 +130,17 @@ Um [perfil técnico repousante](restful-technical-profile.md) fornece suporte pa
 ```
 
 Neste exemplo, o `userLanguage` será enviado para o serviço REST como dentro da carga útil `lang` JSON. O valor da `userLanguage` reclamação contém o ID do idioma do utilizador atual. Para mais informações, consulte [a reclamação.](claim-resolver-overview.md)
+
+### <a name="configure-the-restful-api-technical-profile"></a>Configurar o perfil técnico restful da API 
+
+Depois de implementar a sua API REST, desaver os metadados do `REST-ValidateProfile` perfil técnico para refletir a sua própria API REST, incluindo:
+
+- **ServiceUrl**. Desaponte o URL do ponto final da API REST.
+- **Enviar EmailIn**. Especifique como os pedidos de entrada são enviados para o provedor de reclamações RESTful.
+- **AutenticaçãoType**. Desacorda o tipo de autenticação que está a ser realizada pelo provedor de reclamações RESTful. 
+- **AllowInsecureAuthInProduction**. Em um ambiente de produção, certifique-se de definir estes metadados para `true`
+    
+Consulte os [metadados de perfil técnico RESTful](restful-technical-profile.md#metadata) para obter mais configurações.
 
 Os comentários acima `AuthenticationType` e `AllowInsecureAuthInProduction` especificam as alterações que deve fazer quando se muda para um ambiente de produção. Para aprender a proteger as suas APIs RESTful para produção, consulte [API Restful Secure](secure-rest-api.md).
 

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
 ms.openlocfilehash: 6bdc7a087e60791ba3e3367aca3ea3a4500478ab
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91534204"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Criar a implementação de Registos do Azure Monitor
@@ -161,7 +161,7 @@ Enquanto planeia a sua migração para este modelo, considere o seguinte:
 * Remova a permissão das equipas de aplicação para ler e consultar o espaço de trabalho.
 * Ativar e configurar quaisquer soluções de monitorização, Insights como o Azure Monitor para contentores e/ou Monitor Azure para VMs, a sua conta de Automação e soluções de gestão como a Update Management, Start/Stop VMs, etc., que foram implantadas no espaço de trabalho original.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para implementar as permissões e controlos de segurança recomendados neste guia, [reveja o acesso aos registos](manage-access.md).
 

@@ -9,10 +9,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
 ms.openlocfilehash: d4f77cec793e13ff943c173d88948eb5b5de0957
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91356252"
 ---
 # <a name="door-monitor----using-azure-functions-and-sendgrid-send-email-when-a-door-is-opened"></a>Monitor de porta -- Usando funções Azure e SendGrid, envie e-mail quando uma porta é aberta           
@@ -34,7 +34,7 @@ Neste projeto, aprende-se:
 
 Termine o [Guia de Início](iot-hub-arduino-iot-devkit-az3166-get-started.md) para:
 
-* Tenha o seu DevKit ligado ao Wi-Fi
+* Tenha o seu DevKit ligado a Wi-Fi
 * Preparar o ambiente de desenvolvimento
 
 Uma subscrição ativa do Azure. Se não tiver um, pode registar-se através de um destes métodos:

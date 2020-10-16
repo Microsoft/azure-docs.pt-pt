@@ -4,10 +4,10 @@ description: Saiba como configurar a recuperação de desastres para Azure Stack
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.openlocfilehash: a7e58f5b24786169c9d0c989b79a14c4115acca8
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448971"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicar as VMs do Azure Stack para o Azure
@@ -97,7 +97,7 @@ Todos os VM que pretende replicar devem ter o serviço de Mobilidade instalado. 
     - Especifica esta conta quando configurar a Recuperação do Site. Em seguida, o servidor de processos utiliza esta conta para instalar o serviço Mobility quando a replicação está ativada.
     - Esta conta só será utilizada pela Recuperação do Site para a instalação push e para atualizar o serviço mobility.
     - Se não estiver a utilizar uma conta de domínio, tem de desativar o controlo de acesso ao utilizador remoto no VM:
-        - No registo, crie o valor DWORD **LocalAccountTokenFilterPolicy** sob HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System.
+        - No registo, crie o valor DWORD **LocalAccountTokenFilterPolicy** em HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System.
         - Defina o valor para 1.
         - Para o fazer na indicação de comando, digite o seguinte: **REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1**.
 - Na Firewall do Windows no VM pretende replicar, permitir a partilha de ficheiros e impressoras e o WMI.
@@ -320,7 +320,7 @@ Quando o seu site principal estiver a funcionar novamente, pode falhar de volta 
 
 Neste artigo replicamos VMs Azure Stack para Azure. Com a replicação no lugar, fizemos um exercício de recuperação de desastres para garantir que o fracasso para Azure funcionou como esperado. O artigo também incluiu passos para executar um fracasso total para Azure, e falhando de volta a Azure Stack.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de ter falhado, pode reprotegir o VM e começar a replicá-lo ao Azure novamente Para o fazer, repita os passos deste artigo.
 

@@ -4,10 +4,10 @@ description: Sintomas, causas e resolução de problemas comuns ao aceder a um r
 ms.topic: article
 ms.date: 10/01/2020
 ms.openlocfilehash: f84b11418344bfeaf790377c1d8644fbc7d7d636
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91743374"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Problemas de rede de resolução de problemas com registo
@@ -105,7 +105,7 @@ Links relacionados:
 
 Atualmente, o Azure Security Center não pode realizar [a verificação de vulnerabilidade de imagem](../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) num registo que restringe o acesso a pontos finais privados, sub-redes selecionadas ou endereços IP. Além disso, os recursos dos seguintes serviços não podem aceder a um registo de contentores com restrições de rede:
 
-* Serviços de DevOps do Azure 
+* Azure DevOps Services 
 * Azure Container Instances
 * Tarefas do Azure Container Registry
 

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
 ms.openlocfilehash: 63adb5d6898fd467a0557aa147e54f814c167e72
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91400139"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure glossário: Um dicionário de terminologia em nuvem na plataforma Azure
@@ -66,7 +66,7 @@ Ver [Regiões de Azure](best-practices-availability-paired-regions.md)
 
 ## <a name="geo-replication"></a>geo-replicação
 O processo de replicação automática de conteúdos, tais como bolhas, mesas e filas dentro de um par regional.  
-Ver [Geo-Replicação Ativa para Base de Dados SQL Azure](sql-database/sql-database-geo-replication-overview.md)
+Consulte [Geo-Replication Ativa para Base de Dados Azure SQL](sql-database/sql-database-geo-replication-overview.md)
 <!-- The meaning of "geo" in this term seems to be different than the meaning provided in the "geo" entry -->
 
 ## <a name="image"></a>image
@@ -153,7 +153,7 @@ Ver [Visão Geral da Rede Virtual](virtual-network/virtual-networks-overview.md)
 ## <a name="web-app"></a>Aplicação Web
 Outro nome para [App Service App](#app-service-app).
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 * [Introdução ao Azure](https://azure.microsoft.com/get-started/)
 * [Centro de recursos de nuvem](https://azure.microsoft.com/resources/)  

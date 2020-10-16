@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.openlocfilehash: 58b991f5b229d924bc933ff34987db24bc895e10
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88529870"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Tutorial: Configurar Cerner Central para o fornecimento automático de utilizadores
@@ -23,7 +23,7 @@ O objetivo deste tutorial é mostrar-lhe os passos que precisa de executar na Ce
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O cenário delineado neste tutorial pressupõe que já tem os seguintes itens:
+O cenário descrito neste tutorial pressupõe que já tem os seguintes itens:
 
 * Um inquilino do Azure Active Directory
 * Um inquilino central da Cerner
@@ -52,7 +52,7 @@ Antes de configurar e ativar o serviço de fornecimento, deve decidir quais os u
 Esta secção guia-o através da ligação do seu AZure AD à Lista de Utilizadores da Cerner Central utilizando a conta de utilizador SCIM da Cerner que fornece a API, e configurando o serviço de fornecimento para criar, atualizar e desativar as contas de utilizador atribuídas na Cerner Central com base na atribuição de utilizadores e grupos em Azure AD.
 
 > [!TIP]
-> Pode também optar por ativar um único sign-on baseado em SAML para a Cerner Central, seguindo as instruções fornecidas no [portal Azure](https://portal.azure.com). O único sinal pode ser configurado independentemente do fornecimento automático, embora estas duas características se complementem. Para mais informações, consulte o tutorial de assinatura único da [Cerner Central.](cernercentral-tutorial.md)
+> Pode também optar por ativar Sign-On individuais baseadas em SAML para a Cerner Central, seguindo as instruções fornecidas no [portal Azure](https://portal.azure.com). O único sinal pode ser configurado independentemente do fornecimento automático, embora estas duas características se complementem. Para mais informações, consulte o tutorial de assinatura único da [Cerner Central.](cernercentral-tutorial.md)
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-cerner-central-in-azure-ad"></a>Para configurar o fornecimento automático de conta de utilizador à Cerner Central em Azure AD:
 
@@ -88,7 +88,7 @@ Para providenciar contas de utilizador à Cerner Central, terá de solicitar uma
 
 7. Selecione a sua instância de Cerner Central e, em seguida, selecione o **separador Provisioning.**
 
-8. Desa ajuste o **modo de provisionamento** para **automático**.
+8. Defina o **Modo de Aprovisionamento** como **Automático**.
 
    ![Provisionamento Central cerner](./media/cernercentral-provisioning-tutorial/Cerner.PNG)
 
@@ -108,7 +108,7 @@ Para providenciar contas de utilizador à Cerner Central, terá de solicitar uma
 
 1. Clique em **Guardar**.
 
-1. Na secção **De mapeamentos de atributos,** reveja os atributos do utilizador e do grupo para serem sincronizados de Azure AD para Cerner Central. Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas e grupos de utilizador no Cerner Central para operações de atualização. Selecione o botão Guardar para escoar quaisquer alterações.
+1. Na secção **De mapeamentos de atributos,** reveja os atributos do utilizador e do grupo para serem sincronizados de Azure AD para Cerner Central. Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas e grupos de utilizador no Cerner Central para operações de atualização. Selecione o botão Guardar para confirmar as alterações.
 
 1. Para ativar o serviço de prestação de Ad Azure para a Cerner Central, altere o **Estado de Provisionamento** para **On** na secção **Definições**
 
@@ -122,7 +122,7 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 
 * [Cerner Central: Publicar dados de identidade utilizando a Azure AD](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD)
 * [Tutorial: Configurar cerner Central para um único sign-on com Azure Ative Directory](cernercentral-tutorial.md)
-* [Gestão do fornecimento de conta de utilizador para apps empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gerir o aprovisionamento de contas de utilizador para Aplicações Empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -7,10 +7,10 @@ ms.date: 06/07/2017
 ms.author: motanv
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 8b1d4ae42fa033c03bd82ae5cee5794d98c23c65
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89022178"
 ---
 # <a name="testability-actions"></a>Ações de testability
@@ -33,18 +33,18 @@ Para uma melhor validação de qualidade, gere o serviço e a carga de trabalho 
 | --- | --- | --- | --- | --- |
 | Estado de Limpeza |Remove todo o estado de teste do cluster em caso de paragem do controlador de teste. |CleanTestStateAsync |Remove-ServiceFabricTestState |Não aplicável |
 | InvocarDataLoss |Induz a perda de dados numa divisória de serviço. |InvocarDataLossAsync |Invoke-ServiceFabricPartitionDataLoss |Gracioso |
-| InvocarQuorumLoss |Coloca uma partição de serviço imponente em perda de quórum. |InvocarQuorumLossAsync |Invocar-ServiçoFabricQuorumLoss |Gracioso |
+| InvocarQuorumLoss |Coloca uma partição de serviço imponente em perda de quórum. |InvocarQuorumLossAsync |Invoke-ServiceFabricQuorumLoss |Gracioso |
 | MovePrimary |Move a réplica primária especificada de um serviço stateful para o nó de cluster especificado. |MovePrimaryAsync |Move-ServiceFabricPrimaryReplica |Gracioso |
 | MoveSecondary |Move a réplica secundária atual de um serviço stateful para um nó de cluster diferente. |MoveSecondaryAsync |Move-ServiceFabricSecondaryReplica |Gracioso |
-| Remover AReplica |Simula uma falha de réplica removendo uma réplica de um cluster. Isto vai fechar a réplica e vai transferi-la para o papel 'Nenhum', retirando todo o seu estado do cluster. |RemoverReplicaAsync |Remover-ServiçoFabricReplica |Gracioso |
-| ReiniciarDeployedCodePackage |Simula uma falha do processo do pacote de código reiniciando um pacote de código implantado num nó num cluster. Isto aborta o processo de pacote de código, que reiniciará todas as réplicas do serviço de utilizador hospedadas nesse processo. |ReiniciarDeployedCodePackageAsync |Reiniciar-ServiçoFabricDeployedCodePackage |Imperdoativo |
-| ReinícioNode |Simula uma falha do nó do nó do conjunto de tecido de serviço reiniciando um nó. |RestartNodeAsync |Reiniciar-ServiçoFabricNode |Imperdoativo |
+| Remover AReplica |Simula uma falha de réplica removendo uma réplica de um cluster. Isto vai fechar a réplica e vai transferi-la para o papel 'Nenhum', retirando todo o seu estado do cluster. |RemoverReplicaAsync |Remove-ServiceFabricReplica |Gracioso |
+| ReiniciarDeployedCodePackage |Simula uma falha do processo do pacote de código reiniciando um pacote de código implantado num nó num cluster. Isto aborta o processo de pacote de código, que reiniciará todas as réplicas do serviço de utilizador hospedadas nesse processo. |ReiniciarDeployedCodePackageAsync |Restart-ServiceFabricDeployedCodePackage |Imperdoativo |
+| ReinícioNode |Simula uma falha do nó do nó do conjunto de tecido de serviço reiniciando um nó. |RestartNodeAsync |Restart-ServiceFabricNode |Imperdoativo |
 | Reinício DaPartição |Simula um apagão do datacenter ou um cenário de apagão de cluster reiniciando algumas ou todas as réplicas de uma partição. |RestartPartitionAsync |Restart-ServiceFabricPartition |Gracioso |
-| RestartReplica |Simula uma falha de réplica reiniciando uma réplica persistiu num cluster, fechando a réplica e reabrindo-a. |RestartReplicaAsync |Reiniciar-ServiçoFabricReplica |Gracioso |
+| RestartReplica |Simula uma falha de réplica reiniciando uma réplica persistiu num cluster, fechando a réplica e reabrindo-a. |RestartReplicaAsync |Restart-ServiceFabricReplica |Gracioso |
 | InícioNode |Inicia um nó num aglomerado que já está parado. |StartNodeAsync |Start-ServiceFabricNode |Não aplicável |
 | StopNode |Simula uma falha no nó parando um nó num aglomerado. O nó permanecerá no chão até que o StartNode seja chamado. |StopNodeAsync |Stop-ServiceFabricNode |Imperdoativo |
-| ValidarApplicação |Valida a disponibilidade e a saúde de todos os serviços de Tecido de Serviço dentro de uma aplicação, normalmente depois de induzir alguma falha no sistema. |ValidarApplicationAsync |Test-ServiceFabricApplicação |Não aplicável |
-| Validar Serviço |Valida a disponibilidade e a saúde de um serviço de Tecido de Serviço, normalmente depois de induzir alguma falha no sistema. |Validar o ServiçoAsync |Serviço de TesteFabricService |Não aplicável |
+| ValidarApplicação |Valida a disponibilidade e a saúde de todos os serviços de Tecido de Serviço dentro de uma aplicação, normalmente depois de induzir alguma falha no sistema. |ValidarApplicationAsync |Test-ServiceFabricApplication |Não aplicável |
+| Validar Serviço |Valida a disponibilidade e a saúde de um serviço de Tecido de Serviço, normalmente depois de induzir alguma falha no sistema. |Validar o ServiçoAsync |Test-ServiceFabricService |Não aplicável |
 
 ## <a name="running-a-testability-action-using-powershell"></a>Executar uma ação de testability usando PowerShell
 Este tutorial mostra-lhe como executar uma ação de testability usando PowerShell. Você aprenderá a executar uma ação de teste contra um cluster local (uma caixa) ou um cluster Azure. Microsoft.Fabric.Powershell.dll- o módulo PowerShell do tecido de serviço - é instalado automaticamente quando instala o Microsoft Service Fabric MSI. O módulo é carregado automaticamente quando abre uma solicitação PowerShell.

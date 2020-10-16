@@ -6,10 +6,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 02/12/2018
 ms.openlocfilehash: f1f4320f0bfb924883eb7ae4807dcb714cd89983
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331935"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Accessing diagnostics logs for Azure Data Lake Analytics (Aceder aos registos de diagnóstico do Azure Data Lake Analytics)
@@ -43,7 +43,7 @@ O registo de diagnóstico permite-lhe recolher pistas de auditoria de acesso a d
 
    * Para __o Arquivo numa conta de armazenamento,__ especifique o número de dias para reter os dados.
 
-   * Clique em __Save__ (Guardar).
+   * Clique em __Guardar__.
 
         > [!NOTE]
         > Tem de selecionar o __Arquivo para uma conta de armazenamento,__ transmitir para um Centro de __Eventos__ ou __Enviar para registar analítico__ antes de clicar no botão __Guardar.__
@@ -126,7 +126,7 @@ Aqui está uma amostra de entrada no registo de pedidos formatados pela JSON. Ca
 
 #### <a name="request-log-schema"></a>Solicitar esquema de registo
 
-| Nome | Tipo | Description |
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
 | hora |Cadeia |A horatampia (em UTC) do log |
 | resourceId |Cadeia |O identificador do recurso que a operação teve lugar em |
@@ -140,7 +140,7 @@ Aqui está uma amostra de entrada no registo de pedidos formatados pela JSON. Ca
 
 #### <a name="request-log-properties-schema"></a>Solicite esquema de propriedades de registo
 
-| Nome | Tipo | Description |
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
 | HttpMethod |Cadeia |O método HTTP utilizado para a operação. Por exemplo, GET. |
 | Caminho |Cadeia |O caminho em que a operação foi realizada |
@@ -176,7 +176,7 @@ Aqui está uma amostra de entrada no registo de auditoria formatado pela JSON. C
 
 #### <a name="audit-log-schema"></a>Esquema de registo de auditoria
 
-| Nome | Tipo | Description |
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
 | hora |Cadeia |A horatampia (em UTC) do log |
 | resourceId |Cadeia |O identificador do recurso que a operação teve lugar em |
@@ -194,7 +194,7 @@ Aqui está uma amostra de entrada no registo de auditoria formatado pela JSON. C
 
 #### <a name="audit-log-properties-schema"></a>Esquema de propriedades de registo de auditoria
 
-| Nome | Tipo | Description |
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
 | JobId |Cadeia |A ID atribuída ao trabalho |
 | Nome de emprego |Cadeia |O nome que foi fornecido para o trabalho |

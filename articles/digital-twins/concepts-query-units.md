@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: c68cb8cc0ecf759b9af0e313e09663cdbc327917
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: d50c273e50a7faf2d8c24982fbd39cecdff0bf7f
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89067710"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044382"
 ---
 # <a name="query-units-in-azure-digital-twins"></a>Unidades de Consulta em Gémeos Digitais Azure 
 
-A Azure Digital Twins **Query Unit (QU)** é uma unidade de computação a pedido que é usada para executar as suas [consultas Azure Digital Twins](how-to-query-graph.md) utilizando a [API de Consulta](https://docs.microsoft.com/rest/api/digital-twins/dataplane/query). 
+A Azure Digital Twins **Query Unit (QU)** é uma unidade de computação a pedido que é usada para executar as suas [consultas Azure Digital Twins](how-to-query-graph.md) utilizando a [API de Consulta](/rest/api/digital-twins/dataplane/query). 
 
 Retira os recursos do sistema como CPU, IOPS e memória que são necessários para realizar operações de consulta suportadas pela Azure Digital Twins, permitindo-lhe acompanhar o uso em Unidades de Consulta.
 
@@ -28,7 +28,7 @@ Este artigo explica como compreender as Unidades de Consulta e acompanhar o cons
 
 ## <a name="find-the-query-unit-consumption-in-azure-digital-twins"></a>Encontre o consumo da Unidade de Consulta em Gémeos Digitais Azure 
 
-Quando fizer uma consulta utilizando a [API de Consulta](https://docs.microsoft.com/rest/api/digital-twins/dataplane/query)de Gémeos Digitais Azure, pode examinar o cabeçalho de resposta para rastrear o número de QUs que a consulta consumiu. Procure "consulta-charge" na resposta enviada de Azure Digital Twins. 
+Quando fizer uma consulta utilizando a [API de Consulta](/rest/api/digital-twins/dataplane/query)de Gémeos Digitais Azure, pode examinar o cabeçalho de resposta para rastrear o número de QUs que a consulta consumiu. Procure "consulta-charge" na resposta enviada de Azure Digital Twins. 
 
 Os [SDKs](how-to-use-apis-sdks.md) Azure Digital Twins permitem extrair o cabeçalho de carga de consulta da resposta pageable. Esta secção mostra como consultar gémeos digitais e como iterar sobre a resposta pageable para extrair o cabeçalho de carga de consulta. 
 
@@ -68,6 +68,6 @@ await foreach (Page<string> page in asyncPageableResponseWithCharge.AsPages())
 Para saber mais sobre a consulta das Gémeas Digitais Azure, visite:
 * [*Conceitos: Linguagem de consulta*](concepts-query-language.md)
 * [*Como fazer: Consulta do gráfico gémeo*](how-to-query-graph.md)
-* [Documentação de referência da API de consulta](https://docs.microsoft.com/rest/api/digital-twins/dataplane/query/querytwins)
+* [Documentação de referência da API de consulta](/rest/api/digital-twins/dataplane/query/querytwins)
 
 Pode encontrar limites relacionados com a consulta Azure Digital Twins em [*Referência: Limites de serviço na pré-visualização pública*](reference-service-limits.md).

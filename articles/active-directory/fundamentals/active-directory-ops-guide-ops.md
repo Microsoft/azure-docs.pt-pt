@@ -12,10 +12,10 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: 921a56dca8f1cda67e6f32458914fef4ac2d324c
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90601316"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Referência do guia de operações do Azure Ative Directory
@@ -156,7 +156,7 @@ Consulte a tabela seguinte para saber o tipo de notificações enviadas e onde v
 
 As organizações, que configuram aplicações para autenticar diretamente para a Azure AD beneficiam do [bloqueio inteligente AZURE AD](../authentication/concept-sspr-howitworks.md). Se utilizar O FS AD no Windows Server 2012 R2, implemente [a proteção de bloqueio de extranet](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)AD FS . Se utilizar O FS AD no Windows Server 2016 ou mais tarde, implemente [o bloqueio inteligente da extranet](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). No mínimo, recomendamos que permita que o bloqueio da extranet contenha o risco de ataques de força bruta contra o Ative Directory no local. No entanto, se tiver AD FS no Windows 2016 ou superior, também deverá ativar o bloqueio inteligente da extranet que ajudará a mitigar os ataques [de spray de palavra-passe.](https://www.microsoft.com/microsoft-365/blog/2018/03/05/azure-ad-and-adfs-best-practices-defending-against-password-spray-attacks/)
 
-Se o AD FS for utilizado apenas para a federação Azure AD, existem alguns pontos finais que podem ser desligados para minimizar a área da superfície de ataque. Por exemplo, se o FS AD só for utilizado para o Azure AD, deve desativar os pontos finais da WS-Trust para além dos pontos finais ativados para **o utilizador** e para **o transporte de janelas.**
+Se o AD FS for utilizado apenas para a federação Azure AD, existem alguns pontos finais que podem ser desligados para minimizar a área da superfície de ataque. Por exemplo, se o FS AD for utilizado apenas para o Azure AD, deve desativar WS-Trust pontos finais que não sejam os pontos finais ativados para **o utilizador** e **o transporte de janelas.**
 
 ### <a name="access-to-machines-with-on-premises-identity-components"></a>Acesso a máquinas com componentes de identidade no local
 

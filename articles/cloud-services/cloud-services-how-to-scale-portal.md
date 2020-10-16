@@ -7,19 +7,19 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
-ms.openlocfilehash: e5452e0794083afabbee2759c5b37feb1eed0c88
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 5e457742d8a940ff3a1602cc3dcf1b1d77126ac3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223691"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076679"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Como configurar a escala automática para um Serviço de Nuvem no portal
 
 Podem ser definidas condições para um papel de trabalhador de serviço de nuvem que desencadeie uma escala dentro ou fora do funcionamento. As condições para o papel podem basear-se no CPU, disco ou carga de rede da função. Também pode definir uma condição com base numa fila de mensagens ou na métrica de algum outro recurso Azure associado à sua subscrição.
 
 > [!NOTE]
-> Este artigo centra-se nas funções web e trabalhadora do Cloud Service. Quando cria uma máquina virtual (clássica) diretamente, é hospedada num serviço de nuvem. Pode escalar uma máquina virtual padrão associando-a a um [conjunto de disponibilidade](../virtual-machines/windows/classic/configure-availability-classic.md) e ligando-as ou desligando manualmente.
+> Este artigo centra-se nas funções web e trabalhadora do Cloud Service. Quando cria uma máquina virtual (clássica) diretamente, é hospedada num serviço de nuvem. Pode escalar uma máquina virtual padrão associando-a a um [conjunto de disponibilidade](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic) e ligando-as ou desligando manualmente.
 
 ## <a name="considerations"></a>Considerações
 Deve considerar as seguintes informações antes de configurar o escalonamento para a sua aplicação:
@@ -66,7 +66,7 @@ Depois de configurar o perfil e as regras, selecione o ícone **Save** na parte 
 #### <a name="profile"></a>Perfil
 O perfil define instâncias mínimas e máximas para a escala, e também quando esta gama de escala está ativa.
 
-* **Sempre**
+* **Always** (Sempre)
 
     Mantenha sempre este leque de casos disponíveis.  
 
@@ -105,6 +105,3 @@ Esta definição remove a escala automatizada da função e, em seguida, pode de
 3. Casos do papel à escala para.
 
 Depois de configurar as definições de escala, selecione o ícone **Guardar** na parte superior.
-
-
-

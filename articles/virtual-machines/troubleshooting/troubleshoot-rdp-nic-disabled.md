@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
 ms.openlocfilehash: 0e79efc9de43fc0a3044e9ae1e3959f63bb6e69f
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90090273"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>Não é possível um ambiente de trabalho remoto para um VM porque a interface de rede está desativada

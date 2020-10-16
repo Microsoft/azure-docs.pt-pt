@@ -1,5 +1,5 @@
 ---
-title: Modelos de pacotes
+title: Modelos de pacote
 titleSuffix: Azure Machine Learning
 description: Embale um modelo como um Dockerfile
 services: machine-learning
@@ -9,12 +9,14 @@ ms.author: gopalv
 author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: conceptual
-ms.openlocfilehash: d5fb2539d79c31de5a5e0196a7a4814c02a84602
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.reviewer: larryfr
+ms.custom: deploy
+ms.openlocfilehash: edaae4f4c06f038d12267e35a2c356af430e1555
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87544599"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998828"
 ---
 # <a name="how-to-package-a-registered-model-with-docker"></a>Como embalar um modelo registado com Docker
 
@@ -25,7 +27,7 @@ Este artigo mostra como embalar um modelo de Aprendizagem automática Azure regi
 Este artigo pressupõe que já treinou e registou um modelo no seu espaço de trabalho de aprendizagem automática. Para aprender a treinar e registar um modelo de aprendizagem de scikit, [siga este tutorial.](how-to-train-scikit-learn.md)
 
 
-## <a name="package-models"></a>Modelos de pacotes
+## <a name="package-models"></a>Modelos de pacote
 
 Em alguns casos, pode querer criar uma imagem Docker sem implementar o modelo (se, por exemplo, [pretender implantar-se no Azure App Service).](how-to-deploy-app-service.md) Ou talvez queira descarregar a imagem e executá-la numa instalação local do Docker. Pode até querer descarregar os ficheiros utilizados para construir a imagem, inspecioná-los, modificá-los e construir a imagem manualmente.
 
@@ -163,9 +165,9 @@ docker kill mycontainer
 * [Resolução de problemas de uma implantação falhada](how-to-troubleshoot-deployment.md)
 * [Implementar no Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Criar aplicações de clientes para consumir serviços web](how-to-consume-web-service.md)
-* [Atualizar o serviço web](how-to-deploy-update-web-service.md)
+* [Atualizar serviços Web](how-to-deploy-update-web-service.md)
 * [Como implementar um modelo usando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md)
-* [Utilize o TLS para garantir um serviço web através do Azure Machine Learning](how-to-secure-web-service.md)
+* [Utilizar o TLS para proteger um serviço Web através do Azure Machine Learning](how-to-secure-web-service.md)
 * [Monitorize os seus modelos de machine learning Azure com Insights de Aplicações](how-to-enable-app-insights.md)
 * [Recolher dados para modelos em produção](how-to-enable-data-collection.md)
 * [Criar alertas e gatilhos de eventos para implementações de modelos](how-to-use-event-grid.md)

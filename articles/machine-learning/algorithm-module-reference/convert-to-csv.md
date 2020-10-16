@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: 3b7c781717952765941acd4ea4aa47593d4b8a0f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90898798"
 ---
 # <a name="convert-to-csv-module"></a>Converter para módulo CSV
@@ -43,7 +43,7 @@ Quando converte um conjunto de dados para CSV, o csv é guardado no seu espaço 
   
 3.  Envie o oleoduto.
 
-### <a name="results"></a>Resultados
+### <a name="results"></a>Results
   
 
 Selecione o separador **Saídas** no painel direito de **Converter para CSV**e selecione num destes ícones sob as **saídas**da Porta .  

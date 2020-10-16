@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 09/16/2020
 ms.author: b-juche
 ms.openlocfilehash: f2a50872fdb71419a0c3f068712ec67523a098e0
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90708783"
 ---
 # <a name="requirements-and-considerations-for-using-cross-region-replication"></a>Requisitos e considerações para a utilização da replicação entre regiões 
@@ -40,10 +40,10 @@ Note os seguintes requisitos e considerações sobre a utilização da funcional
 * Pode eliminar instantâneos manuais no volume de origem de uma relação de replicação quando a relação de replicação está ativa ou quebrada, e também após a relação de replicação ser eliminada. Não é possível eliminar instantâneos manuais para o volume de destino até que a relação de replicação seja quebrada.
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Criar olhando de replicação](cross-region-replication-create-peering.md)
-* [Mostrar estado de saúde da relação de replicação](cross-region-replication-display-health-status.md)
+* [Criar o peering de replicação](cross-region-replication-create-peering.md)
+* [Apresentar o estado de funcionamento da relação de replicação](cross-region-replication-display-health-status.md)
 * [Gerir a recuperação após desastre](cross-region-replication-manage-disaster-recovery.md)
 * [Métricas de replicação de volume](azure-netapp-files-metrics.md#replication)
-* [Resolução de problemas replicação transversal](troubleshoot-cross-region-replication.md)
+* [Resolver problemas da replicação entre regiões](troubleshoot-cross-region-replication.md)
 
 

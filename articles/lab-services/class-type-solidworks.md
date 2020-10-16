@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
 ms.openlocfilehash: 5511ad5a517bbd320ce3d66de90a8aec084c7e15
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87290731"
 ---
 # <a name="set-up-a-lab-for-engineering-classes-using-solidworks"></a>Criar um laboratório para aulas de engenharia utilizando a SOLIDWORKS

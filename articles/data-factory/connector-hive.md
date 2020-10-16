@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
 ms.openlocfilehash: 587cdd54f09be2761026c25ccd80fb67d3eb6bb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84987044"
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Copiar dados da Hive usando a Azure Data Factory 
@@ -48,7 +48,7 @@ As seguintes secções fornecem detalhes sobre propriedades que são usadas para
 
 As seguintes propriedades são suportadas para o serviço ligado à Hive:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo deve ser definida para: **Colmeia** | Sim |
 | anfitrião | Endereço IP ou nome de anfitrião do servidor Hive, separado por ';' para vários anfitriões (apenas quando o serviçoDiscoveryMode estiver ativado).  | Sim |
@@ -59,7 +59,7 @@ As seguintes propriedades são suportadas para o serviço ligado à Hive:
 | serviçoDiscoveryMode | verdadeiro para indicar usando o serviço ZooKeeper, falso não.  | Não |
 | zooKeeperNameSpace | O espaço de nome no ZooKeeper sob o qual são adicionados nós do Hive Server 2.  | Não |
 | useNativeQuery | Especifica se o condutor utiliza consultas nativas de HiveQL ou as converte numa forma equivalente no HiveQL.  | Não |
-| o nome de utilizador | O nome de utilizador que usa para aceder ao Hive Server.  | Não |
+| nome de utilizador | O nome de utilizador que usa para aceder ao Hive Server.  | Não |
 | palavra-passe | A palavra-passe correspondente ao utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Não |
 | httpPath | O URL parcial correspondente ao servidor Hive.  | Não |
 | ativarSl | Especifica se as ligações ao servidor são encriptadas utilizando O S.TLS. O valor predefinido é false.  | Não |
@@ -96,7 +96,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados da Hive, defina a propriedade tipo do conjunto de dados para a **HiveObject**. As seguintes propriedades são suportadas:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade do tipo do conjunto de dados deve ser definida para: **HiveObject** | Sim |
 | esquema | O nome do esquema. |Não (se for especificada "consulta" na fonte de atividade)  |
@@ -128,7 +128,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados da Hive, desa estale o tipo de origem na atividade de cópia para **HiveSource**. As seguintes propriedades são suportadas na secção fonte de **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **HiveSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
@@ -170,5 +170,5 @@ Para copiar dados da Hive, desa estale o tipo de origem na atividade de cópia p
 Para obter detalhes sobre as propriedades, consulte [a atividade de Lookup](control-flow-lookup-activity.md).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter uma lista de lojas de dados suportadas como fontes e sumidouros pela atividade de cópia na Azure Data Factory, consulte lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)

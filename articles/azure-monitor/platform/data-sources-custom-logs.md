@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 09/26/2019
 ms.openlocfilehash: 4f8ef04343d873bcb94ccee599ecbc7c2a1ef94c
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89269493"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Registos personalizados no Azure Monitor

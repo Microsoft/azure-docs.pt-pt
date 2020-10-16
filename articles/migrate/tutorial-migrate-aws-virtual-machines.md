@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
 ms.openlocfilehash: 6c4b53e3c3673b913e4afbfb65801d83f0640bd3
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89651842"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Detetar, avaliar e migrar VMs do Amazon Web Services (AWS) para o Azure
@@ -77,16 +77,16 @@ Prepare o Azure para a migração com a Azure Migrate: ferramenta de migração 
 
 **Tarefa** | **Detalhes**
 --- | ---
-**Criar um projeto Azure Migrate** | A sua conta Azure precisa de permissões de Contribuidor ou Proprietário para criar um projeto.
+**Criar um projeto do Azure Migrate** | A sua conta Azure precisa de permissões de Contribuidor ou Proprietário para criar um projeto.
 **Verifique permissões para a sua conta Azure** | A sua conta Azure necessita de permissões para criar um VM e escrever para um disco gerido pelo Azure.
 
 ### <a name="assign-permissions-to-create-project"></a>Atribuir permissões para criar projeto
 
-1. No portal Azure, abra a subscrição e selecione **Access control (IAM)**.
+1. No portal do Azure, abra a subscrição e selecione **Controlo de acesso (IAM)** .
 2. No **Acesso ao Cheque,** encontre a conta relevante e clique nela para ver permissões.
 3. Deve ter permissões **de Colaborador** ou **Proprietário.**
-    - Se acabou de criar uma conta Azure gratuita, é o proprietário da sua subscrição.
-    - Se não é o proprietário da subscrição, trabalhe com o proprietário para atribuir o papel.
+    - Se acabou de criar uma conta gratuita do Azure, é o proprietário da sua subscrição.
+    - Se não for o proprietário da subscrição, trabalhe com o proprietário para atribuir a função.
 
 ### <a name="assign-azure-account-permissions"></a>Atribuir permissões de conta Azure
 
@@ -135,7 +135,7 @@ Crie um projeto Azure Migrate e, em seguida, adicione-lhe a ferramenta de migra�
 3. Em **Descrição geral**, clique em **Avaliar e migrar servidores**.
 4. No **âmbito do Discover, avaliar e migrar servidores,** clique em **Avaliar e migrar servidores**.
 
-    ![Descubra e avalie servidores](./media/tutorial-migrate-physical-virtual-machines/assess-migrate.png)
+    ![Detetar e avaliar servidores](./media/tutorial-migrate-physical-virtual-machines/assess-migrate.png)
 
 5. Em **Detetar, avaliar e migrar servidores**, clique em **Adicionar ferramentas**.
 6. Em **Migrar projeto**, selecione a sua subscrição do Azure e crie um grupo de recursos, caso não tenha um.
@@ -143,7 +143,7 @@ Crie um projeto Azure Migrate e, em seguida, adicione-lhe a ferramenta de migra�
     - A geografia do projeto é usada apenas para armazenar os metadados recolhidos a partir de máquinas AWS.
     - Pode selecionar qualquer região de destino ao executar uma migração.
 
-    ![Criar um projeto Azure Migrate](./media/tutorial-migrate-physical-virtual-machines/migrate-project.png)
+    ![Criar um projeto do Azure Migrate](./media/tutorial-migrate-physical-virtual-machines/migrate-project.png)
 
 8. Em **Selecionar ferramenta de avaliação**, selecione **Ignorar a adição de uma ferramenta de avaliação por enquanto** > **Seguinte**.
 9. Em **Selecionar ferramenta de migração**, selecione **Azure Migrate: Migração de Servidores** > **Seguinte**.
@@ -410,6 +410,6 @@ Depois de verificar que a migração do teste funciona como esperado, pode migra
 **Resposta:** Os VMs que executam o Amazon Linux não podem ser migrados como é, uma vez que o Amazon Linux OS é apenas suportado em AWS.
 Para migrar cargas de trabalho em execução no Amazon Linux, você pode girar um CentOS/RHEL VM em Azure e migrar a carga de trabalho em execução na máquina AWS Linux usando uma abordagem de migração de carga de trabalho relevante. Por exemplo, dependendo da carga de trabalho, pode existir ferramentas específicas da carga de trabalho para ajudar na migração – como por exemplo, para bases de dados ou ferramentas de implementação no caso de servidores web.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Investigue a [jornada de migração](/azure/architecture/cloud-adoption/getting-started/migrate) em nuvem no Quadro de Azure Cloud Adopt.

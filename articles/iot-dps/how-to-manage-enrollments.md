@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.openlocfilehash: 8bd896573dbd0b24df11c0d66009098de19654ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74974943"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Como gerir as inscrições de dispositivos com o Portal Azure
@@ -32,7 +32,7 @@ Existem duas formas de inscrever os seus dispositivos com o serviço de fornecim
   1. Clique no serviço de Provisionamento de Dispositivos que pretende inscrever o seu dispositivo a partir da lista de recursos.  
   1. No seu serviço de fornecimento:  
      a. Clique **em Gerir as inscrições**e, em seguida, selecione o **separador Grupos de Inscrição.**  
-     b. Clique no botão **+ Adicionar**, na parte superior.  
+     b. Clique no botão **Adicionar** na parte superior.  
      c. Quando aparecer o painel "Adicionar Grupo de Inscrição", insira as informações para a inscrição na lista de inscrições.  **É** necessário o nome do grupo. Selecione também "CA ou Intermediário" para **o tipo certificado**, e carrede o certificado **primário** de raiz para o grupo de dispositivos.  
      d. Clique em **Guardar**. Na criação bem sucedida do seu grupo de inscrição, deverá ver o nome do grupo aparecer no separador **Grupos de Inscrição.**  
 
@@ -47,7 +47,7 @@ Existem duas formas de inscrever os seus dispositivos com o serviço de fornecim
     1. Clique no serviço de Provisionamento de Dispositivos que pretende inscrever o seu dispositivo a partir da lista de recursos.
     1. No seu serviço de fornecimento:  
        a. Clique **em Gerir as inscrições**e, em seguida, selecione o **separador Inscrições Individuais.**  
-       b. Clique no botão **+ Adicionar**, na parte superior.   
+       b. Clique no botão **Adicionar** na parte superior.   
        c. Quando aparecer o painel "Adicionar Inscrição", insira as informações para a inscrição na lista. Selecione primeiro o **Mecanismo** de Atestação para o dispositivo (X.509 ou TPM). O atestado X.509 requer que faça o upload do **certificado primário** da folha para o dispositivo. O TPM requer que introduza a **Chave de Atestação** e **o ID de registo** para o dispositivo.  
        d. Clique em **Guardar**. Na criação bem sucedida do seu grupo de inscrição, deverá ver o seu dispositivo aparecer no separador **Inscrições Individuais.**  
 

@@ -8,10 +8,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: c4e5dedf2075a2e13cc91c5eed2c0f03ba498b97
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88962558"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Utilização de um balançador de carga interna com um ambiente de serviço de aplicações
@@ -115,7 +115,7 @@ Gerir um ILB ASE é em grande parte o mesmo que gerir normalmente um ASE. Tem de
 
 Os itens de gestão adicionais são a gestão de certificados e a gestão de DNS. Deve obter e carregar o certificado utilizado para HTTPS após a criação do ILB ASE e substituí-lo antes de expirar. Como a Azure é proprietária do domínio base, pode fornecer certificados para ASEs com um VIP externo. Uma vez que o subdomínio utilizado por um ILB ASE pode ser qualquer coisa, deve fornecer o seu próprio certificado para HTTPS. 
 
-#### <a name="dns-configuration"></a>Configuração do DNS
+#### <a name="dns-configuration"></a>Configuração DNS
 Ao utilizar um VIP Externo, o DNS é gerido pela Azure. Qualquer aplicação criada no seu ASE é adicionada automaticamente ao DNS do Azure, que é um DNS público. Num ASE de ILB, tem de gerir o seu próprio DNS. Para um determinado subdomínio, como contoso.corp.net, deve criar registos DNS A que apontam para o seu endereço ILB para:
 
 - \*

@@ -8,10 +8,10 @@ ms.service: cognitive-services
 ms.topic: reference
 ms.custom: subject-policy-reference
 ms.openlocfilehash: 612c288df1b9329b20088d42843239197e9be8d3
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91826580"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-cognitive-services"></a>Definições políticas incorporadas da Azure Política para os Serviços Cognitivos Azure

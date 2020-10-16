@@ -7,10 +7,10 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
 ms.openlocfilehash: 9d037fa0faa1419e4cd1b600eea1b3b3eb0a29c0
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90058772"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Ligar os produtos/serviços do ITSM ao Conector de Gestão de Serviços de TI
@@ -425,6 +425,6 @@ Para gerar o ID/chave do cliente para Cherwell, utilize o seguinte procedimento:
     ![Id de utilizador cherwell](media/itsmc-connections/itsmc-cherwell-client-id.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
  - [Crie itens de trabalho ITSM a partir de alertas Azure](./itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
 

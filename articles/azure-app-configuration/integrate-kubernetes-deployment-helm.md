@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: shuawan
-ms.openlocfilehash: 2b5440ad2bec94d4ef14fa29e723cc91a4fcdf10
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: ee5f70f40103a92ff26cfcabc6adf9e2b825b59b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766865"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074843"
 ---
 # <a name="integrate-with-kubernetes-deployment-using-helm"></a>Integre-se com a implantação de Kubernetes usando o Helm
 
@@ -23,17 +23,17 @@ Durante o processo de libertação, helm funde o gráfico com a configuração a
 
 Pode sobrepor-se aos valores armazenados em *values.yaml,* fornecendo ficheiros de configuração adicionais baseados em YAML na linha de comando ao executar o Helm. A Azure App Configuration suporta valores de configuração de exportação para ficheiros YAML. A integração desta capacidade de exportação na sua implementação permite que as suas aplicações Kubernetes aproveitem os valores de configuração armazenados na Configuração da Aplicação.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 > [!div class="checklist"]
 > * Utilize valores da Configuração da Aplicação ao implementar uma aplicação para Kubernetes utilizando o Helm.
 > * Crie um Segredo de Kubernetes baseado numa referência do Cofre de Chaves na Configuração de Aplicações.
 
-Este tutorial pressupõe a compreensão básica de gerir Kubernetes com Helm. Saiba mais sobre a instalação de aplicações com o Helm no [Serviço Azure Kubernetes.](https://docs.microsoft.com/azure/aks/kubernetes-helm)
+Este tutorial pressupõe a compreensão básica de gerir Kubernetes com Helm. Saiba mais sobre a instalação de aplicações com o Helm no [Serviço Azure Kubernetes.](../aks/kubernetes-helm.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-- Instalar [O Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) (versão 2.4.0 ou posterior)
+- Instalar [O Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (versão 2.4.0 ou posterior)
 - Instalar [o Leme](https://helm.sh/docs/intro/install/) (versão 2.14.0 ou posterior)
 - Um aglomerado de Kubernetes.
 
@@ -51,7 +51,7 @@ Este tutorial pressupõe a compreensão básica de gerir Kubernetes com Helm. Sa
     Deixe **a etiqueta** e o tipo de **conteúdo** vazios por enquanto.
 
 ## <a name="add-a-key-vault-reference-to-app-configuration"></a>Adicione uma referência do Cofre de Chaves à Configuração de Aplicações
-1. Inscreva-se no [portal Azure](https://portal.azure.com) e adicione um segredo ao [Key Vault](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault) com o nome **Password** e **valorize a minha palavra-passe**. 
+1. Inscreva-se no [portal Azure](https://portal.azure.com) e adicione um segredo ao [Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault) com o nome **Password** e **valorize a minha palavra-passe**. 
 2. Selecione a instância da loja de configuração de aplicação que criou na secção anterior.
 
 3. Selecione **O Explorador de Configuração**.
@@ -185,7 +185,7 @@ settings:
 Em primeiro lugar, descarregue a configuração da Configuração de Aplicação para um ficheiro *myConfig.yaml.* Utilize um filtro de teclas apenas para descarregar as teclas que começam com **as definições.** Se, no seu caso, o filtro de chave não for suficiente para excluir as teclas das referências do Key Vault, poderá utilizar o argumento **--skip-keyvault** para excluí-las. 
 
 > [!TIP]
-> Saiba mais sobre o [comando de exportação.](https://docs.microsoft.com/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-export) 
+> Saiba mais sobre o [comando de exportação.](/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-export) 
 
 ```azurecli-interactive
 az appconfig kv export -n myAppConfiguration -d file --path myConfig.yaml --key "settings.*"  --separator "." --format yaml
@@ -225,7 +225,7 @@ else{
 
 ```
 
-Verifique se as configurações e segredos foram definidos com sucesso acedendo ao [Painel de Instrumentos Kubernetes](https://docs.microsoft.com/azure/aks/kubernetes-dashboard). Verá que os valores de **cor** e **mensagem** da Configuração da Aplicação foram povoados nas variáveis ambientais do contentor.
+Verifique se as configurações e segredos foram definidos com sucesso acedendo ao [Painel de Instrumentos Kubernetes](../aks/kubernetes-dashboard.md). Verá que os valores de **cor** e **mensagem** da Configuração da Aplicação foram povoados nas variáveis ambientais do contentor.
 
 ![Quickstart app lançar local](./media/kubernetes-dashboard-env-variables.png)
 
@@ -233,7 +233,7 @@ Um segredo, **palavra-passe,** lojas como referência Key Vault na Configuraçã
 
 ![Quickstart app lançar local](./media/kubernetes-dashboard-secrets.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
@@ -242,4 +242,4 @@ Um segredo, **palavra-passe,** lojas como referência Key Vault na Configuraçã
 Neste tutorial, você exportou dados de Configuração de aplicações Azure para serem usados numa implementação de Kubernetes com Helm. Para saber mais sobre como usar a Configuração de Aplicações, continue para as amostras do Azure CLI.
 
 > [!div class="nextstepaction"]
-> [CLI do Azure](https://docs.microsoft.com/cli/azure/appconfig?view=azure-cli-latest)
+> [CLI do Azure](/cli/azure/appconfig?view=azure-cli-latest)

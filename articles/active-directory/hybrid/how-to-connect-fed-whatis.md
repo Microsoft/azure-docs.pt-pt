@@ -16,12 +16,12 @@ ms.date: 10/09/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d61a3dd995efd1f433c2e862c4b7a59d31f79a3
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a97142e0c512f4f95235ad08c94c852906d3efd8
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660858"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92095861"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect e a federação
 O Azure Ative Directory (Azure AD) Connect permite-lhe configurar a federação com os serviços da Federação De Diretório Ativo (AD FS) e Azure AD. Com o sign-in da federação, pode permitir que os utilizadores inscrevam-se nos serviços baseados em Azure com as suas senhas no local -- e, enquanto estiverem na rede corporativa, sem terem de introduzir novamente as suas palavras-passe. Ao utilizar a opção da federação com AD FS, pode implementar uma nova instalação de AD FS, ou pode especificar uma instalação existente numa quinta do Windows Server 2012 R2.
@@ -34,7 +34,7 @@ Este tópico é a casa para informações sobre funcionalidades relacionadas com
 | **Azure AD Connect opções de inscrição do utilizador** | |
 | [Compreender as opções de inscrição do utilizador](plan-connect-user-signin.md) |Saiba mais sobre várias opções de inscrição do utilizador e como afetam a experiência do utilizador de iniciar súmus. |
 | **Instale O FS AD utilizando o Azure AD Connect** | |
-| [Pré-requisitos](how-to-connect-install-custom.md#ad-fs-configuration-pre-requisites) |Consulte os pré-requisitos para uma instalação AD FS bem sucedida via Azure AD Connect. |
+| [Pré-requisitos](how-to-connect-install-custom.md#ad-fs-configuration-prerequisites) |Consulte os pré-requisitos para uma instalação AD FS bem sucedida via Azure AD Connect. |
 | [Configure uma fazenda AD FS](how-to-connect-install-custom.md#configuring-federation-with-ad-fs) |Instale uma nova quinta AD FS utilizando o Azure AD Connect. |
 | [Federate com AD AZure usando ID de login alternativo](how-to-connect-fed-management.md#alternateid) | Federação de configuração usando iD de login alternativo  |
 | **Modificar a configuração AD FS** | |

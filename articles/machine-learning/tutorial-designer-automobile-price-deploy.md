@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
 ms.openlocfilehash: a4923e48c890a50d642d937f014e466e998171cf
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90896641"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Tutorial: Implementar um modelo de machine learning com o designer
@@ -99,7 +99,7 @@ Depois de o seu serviço AKS ter terminado o fornecimento, volte ao gasoduto de 
 
 1. Selecione **Implementar**.
     
-    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="Screenshot mostrando como configurar um novo ponto final em tempo real":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="Screenshot mostrando onde encontrar o botão de pipeline criar":::
 
     Uma notificação de sucesso acima da tela aparece após o fim da implantação. Pode levar alguns minutos.
 

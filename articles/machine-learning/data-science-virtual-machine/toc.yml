@@ -56,6 +56,8 @@
           href: dsvm-common-identity.md
         - name: Proteger credenciais de acesso aos recursos
           href: dsvm-secure-access-keys.md
+    - name: Atualizar a Máquina Virtual de Ciência de Dados para o Ubuntu 18.04
+      href: ubuntu-upgrade.md
 - name: Recursos
   items:
     - name: Página de perguntas das Perguntas e Respostas da Microsoft

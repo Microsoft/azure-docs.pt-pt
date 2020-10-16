@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 46c0fccf965f4a4c9d05d82601d75e314aba7d73
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87421693"
 ---
 # <a name="bulk-download-a-list-of-groups-in-azure-active-directory"></a>Descarregue em massa uma lista de grupos no Azure Ative Directory
@@ -42,7 +42,7 @@ Pode ver o estado de todos os seus pedidos em massa pendentes na página de resu
 
 Cada atividade a granel para descarregar uma lista de grupo pode ser executada por até uma hora. Isto permite-lhe descarregar uma lista de pelo menos 300.000 grupos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [A granel remove membros do grupo](groups-bulk-remove-members.md)
 - [Descarregue membros de um grupo](groups-bulk-download-members.md)

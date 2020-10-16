@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
 ms.openlocfilehash: 92149289c6c422179ddb3562274020acf779f10b
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86186287"
 ---
 # <a name="enable-change-tracking-and-inventory-from-a-runbook"></a>Ativar o Controlo de alterações e Inventário a partir de um runbook
@@ -47,7 +47,7 @@ Com o Change Tracking e o Inventário ativados, pode adicionar um VM Azure para 
    ![Ativar o rastreio e inventário de alterações para VM](media/automation-enable-changes-from-runbook/enable-change-tracking.png)
 
     > [!NOTE]
-    > Se tentar ativar outra funcionalidade antes de a configuração do Change Tracking e Do Inventário tiver sido concluída, receberá esta mensagem:`Installation of another solution is in progress on this or a different virtual machine. When that installation completes the Enable button is enabled, and you can request installation of the solution on this virtual machine.`
+    > Se tentar ativar outra funcionalidade antes de a configuração do Change Tracking e Do Inventário tiver sido concluída, receberá esta mensagem: `Installation of another solution is in progress on this or a different virtual machine. When that installation completes the Enable button is enabled, and you can request installation of the solution on this virtual machine.`
 
 ## <a name="install-and-update-modules"></a>Instalar e atualizar módulos
 

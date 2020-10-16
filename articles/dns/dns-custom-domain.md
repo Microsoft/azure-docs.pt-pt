@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 7/13/2019
 ms.author: rohink
 ms.openlocfilehash: f4eb26678dee161451ff10144c2eaa3321ecc011
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84693117"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Utilize o Azure DNS para fornecer definições de domínio personalizadas para um serviço Azure
@@ -40,7 +40,7 @@ Navegue para a sua Zona DNS e clique **em + Conjunto de registos.** Preencha as 
 
 |Propriedade  |Valor  |Descrição  |
 |---------|---------|---------|
-|Name     | myfunctionapp        | Este valor juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
+|Nome     | myfunctionapp        | Este valor juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
 |Tipo     | CNAME        | Use um registo CNAME está a usar um pseudónimo.        |
 |TTL     | 1        | 1 é usado por 1 hora        |
 |Unidade de TTL     | Horas        | As horas são usadas como a medição do tempo         |
@@ -65,7 +65,7 @@ Navegue para a sua Zona DNS e clique **em + Conjunto de registos.** Preencha as 
 
 |Propriedade  |Valor  |Descrição  |
 |---------|---------|---------|
-|Name     | mywebserver        | Este valor juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
+|Nome     | mywebserver        | Este valor juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
 |Tipo     | A        | Utilize um registo A já que o recurso é um endereço IP.        |
 |TTL     | 1        | 1 é usado por 1 hora        |
 |Unidade de TTL     | Horas        | As horas são usadas como a medição do tempo         |
@@ -92,7 +92,7 @@ Navegue para a sua Zona DNS e clique **em + Conjunto de registos.** Preencha as 
 
 |Propriedade  |Valor  |Descrição  |
 |---------|---------|---------|
-|Name     | mywebserver        | Este valor juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
+|Nome     | mywebserver        | Este valor juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
 |Tipo     | CNAME        | Use um registo CNAME está a usar um pseudónimo. Se o recurso usasse um endereço IP, seria utilizado um registo A.        |
 |TTL     | 1        | 1 é usado por 1 hora        |
 |Unidade de TTL     | Horas        | As horas são usadas como a medição do tempo         |
@@ -128,7 +128,7 @@ Navegue para a sua Zona DNS e clique **em + Conjunto de registos.** Preencha as 
 
 |Propriedade  |Valor  |Descrição  |
 |---------|---------|---------|
-|Name     | asverify.mystorageaccount        | Este valor juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
+|Nome     | asverify.mystorageaccount        | Este valor juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
 |Tipo     | CNAME        | Use um registo CNAME está a usar um pseudónimo.        |
 |TTL     | 1        | 1 é usado por 1 hora        |
 |Unidade de TTL     | Horas        | As horas são usadas como a medição do tempo         |
@@ -138,7 +138,7 @@ Volte para a sua conta **Storage**de armazenamento clicando em  >  **Contas de A
 
 ![domínio personalizado de armazenamento de blob](./media/dns-custom-domain/indirectvalidate.png)
 
-Validar a resolução do DNS executando`nslookup`
+Validar a resolução do DNS executando `nslookup`
 
 Para saber mais sobre mapear um domínio personalizado para um ponto final de armazenamento de bolhas visite [Configure um nome de domínio personalizado para o seu ponto final de armazenamento Blob](../storage/blobs/storage-custom-domain-name.md?toc=%dns%2ftoc.json)
 
@@ -156,7 +156,7 @@ Navegue para a sua Zona DNS e clique **em + Conjunto de registos.** Preencha as 
 
 |Propriedade  |Valor  |Descrição  |
 |---------|---------|---------|
-|Name     | cdnverify.mycdnendpoint        | Este valor juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
+|Nome     | cdnverify.mycdnendpoint        | Este valor juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
 |Tipo     | CNAME        | Use um registo CNAME está a usar um pseudónimo.        |
 |TTL     | 1        | 1 é usado por 1 hora        |
 |Unidade de TTL     | Horas        | As horas são usadas como a medição do tempo         |
@@ -166,6 +166,6 @@ Volte a navegar para o seu ponto final cdn clicando em Perfis CDN **de rede**e  
 
 Uma vez concluído este passo, volte à sua zona de DNS e crie um registo CNAME sem o prefixo cdnver.  Depois desse ponto, é seguro apagar o registo CNAME com o prefixo cdnver. Para obter mais informações sobre a CDN e como configurar um domínio personalizado sem a etapa de registo intermédio visite o [conteúdo do Map Azure CDN para um domínio personalizado.](../cdn/cdn-map-content-to-custom-domain.md?toc=%dns%2ftoc.json)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [configurar DNS invertidos para serviços hospedados no Azure](dns-reverse-dns-for-azure-services.md).

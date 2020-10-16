@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewers: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 03e8719b256fc758874bd7375deed0637da9447e
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91620312"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Inter-inquilino reportando usando consultas distribuídas

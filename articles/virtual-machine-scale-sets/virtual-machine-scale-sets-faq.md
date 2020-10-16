@@ -10,10 +10,10 @@ ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.openlocfilehash: 8170cfcbbf200c6ba5030aff5716f46b537d8c97
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87080476"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQ dos conjuntos de dimensionamento de máquinas virtuais do Azure
@@ -28,7 +28,7 @@ Um conjunto de escala pode ter 0 a 1.000 VMs com base em imagens da plataforma, 
 
 ### <a name="are-data-disks-supported-within-scale-sets"></a>Os conjuntos de dimensionamento suportam discos de dados?
 
-Yes. Os conjuntos de dimensionamento podem definir uma configuração de discos de dados anexados, que se aplica a todas as VMs nos conjuntos. Para obter mais informações, veja [Conjuntos de dimensionamento de VMs do Azure e discos de dados anexados](virtual-machine-scale-sets-attached-disks.md). As outras opções para armazenar dados são:
+Sim. Os conjuntos de dimensionamento podem definir uma configuração de discos de dados anexados, que se aplica a todas as VMs nos conjuntos. Para obter mais informações, veja [Conjuntos de dimensionamento de VMs do Azure e discos de dados anexados](virtual-machine-scale-sets-attached-disks.md). As outras opções para armazenar dados são:
 
 * Ficheiros do Azure (unidades SMB partilhadas)
 * Unidade do sistema Operativo
@@ -79,7 +79,7 @@ Para obter nomes métricos para autoscaling que utilize métricas baseadas no ho
 
 ### <a name="are-there-any-examples-of-autoscaling-based-on-an-azure-service-bus-topic-and-queue-length"></a>Existem exemplos de autoscalagem baseados num tópico de autocarro da Azure Service Bus e no comprimento da fila?
 
-Yes. Por exemplo, a autoscalagem com base num tópico de autocarro de serviço Azure e comprimento de fila, consulte [métricas comuns de autoescalação do Azure Monitor](../azure-monitor/platform/autoscale-common-metrics.md).
+Sim. Por exemplo, a autoscalagem com base num tópico de autocarro de serviço Azure e comprimento de fila, consulte [métricas comuns de autoescalação do Azure Monitor](../azure-monitor/platform/autoscale-common-metrics.md).
 
 Para uma fila de autocarros de serviço, use o seguinte JSON:
 
@@ -129,7 +129,7 @@ Para configurar automaticamente uma escala de máquina virtual definida utilizan
 
 ### <a name="if-i-have-stopped-deallocated-a-vm-is-that-vm-started-as-part-of-an-autoscale-operation"></a>Se eu tiver parado (deallocated) um VM, será que a VM começou como parte de uma operação de autoescalação?
 
-Não. Se as regras de autoescala requerem instâncias VM adicionais como parte de um conjunto de escala, é criada uma nova instância VM. As instâncias VM que são interrompidas (deallocated) não são iniciadas como parte de um evento de autoescala. No entanto, os VMs parados (deallocated) podem ser eliminados como parte de um evento de escala automática que escala no número de casos, da mesma forma que qualquer instância VM pode ser eliminada com base na ordem de identificação de instância VM.
+N.º Se as regras de autoescala requerem instâncias VM adicionais como parte de um conjunto de escala, é criada uma nova instância VM. As instâncias VM que são interrompidas (deallocated) não são iniciadas como parte de um evento de autoescala. No entanto, os VMs parados (deallocated) podem ser eliminados como parte de um evento de escala automática que escala no número de casos, da mesma forma que qualquer instância VM pode ser eliminada com base na ordem de identificação de instância VM.
 
 
 
@@ -173,7 +173,7 @@ Os certificados auto-assinados não podem ser utilizados para a confiança distr
 
 ### <a name="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template"></a>Posso especificar um par de chaves SSH para utilizar para a autenticação SSH com uma balança de máquina virtual Linux definida a partir de um modelo de Gestor de Recursos?
 
-Yes. A API REST para **osProfile** é semelhante à API padrão VM REST.
+Sim. A API REST para **osProfile** é semelhante à API padrão VM REST.
 
 Inclua **o osProfile** no seu modelo:
 
@@ -226,9 +226,9 @@ Pode fornecer chaves públicas SSH em texto simples quando criar um Linux VM:
 
 nome do elemento linuxConfiguration | Necessário | Tipo | Descrição
 --- | --- | --- | ---
-ssh | No | Coleção | Especifica a configuração da chave SSH para um Sistema Operativo Linux
-caminho | Yes | Cadeia | Especifica o caminho do ficheiro Linux onde as chaves ou certificado SSH devem ser localizados
-keyData | Yes | Cadeia | Especifica uma chave pública SSH codificada de base64
+ssh | Não | Coleção | Especifica a configuração da chave SSH para um Sistema Operativo Linux
+caminho | Sim | String | Especifica o caminho do ficheiro Linux onde as chaves ou certificado SSH devem ser localizados
+keyData | Sim | String | Especifica uma chave pública SSH codificada de base64
 
 Por exemplo, consulte [o modelo de arranque rápido gitHub de 101 vm-sshkey](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
@@ -336,7 +336,7 @@ Para mais informações, consulte [o Microsoft Trust Center.](https://www.micros
 
 ### <a name="does-managed-identities-for-azure-resources-work-with-virtual-machine-scale-sets"></a>As [identidades geridas para os recursos Azure](../active-directory/managed-identities-azure-resources/overview.md) funcionam com conjuntos de escala de máquinas virtuais?
 
-Yes. Pode ver alguns modelos MSI de exemplo em modelos Azure Quickstart para [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) e [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
+Sim. Pode ver alguns modelos MSI de exemplo em modelos Azure Quickstart para [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) e [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
 
 ## <a name="deleting"></a>Eliminar
 
@@ -469,7 +469,7 @@ Existem duas formas principais de alterar a palavra-passe para VMs em conjuntos 
 
 ### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-applies-to-all-the-vm-nics-in-the-set"></a>É possível atribuir um Grupo de Segurança de Rede (NSG) a um conjunto de escala, de modo a que se aplique a todos os NICs VM no conjunto?
 
-Yes. Um Grupo de Segurança de Rede pode ser aplicado diretamente a uma escala definida, referindo-a na secção de Configurações De RedeInterface do perfil de rede. Exemplo:
+Sim. Um Grupo de Segurança de Rede pode ser aplicado diretamente a uma escala definida, referindo-a na secção de Configurações De RedeInterface do perfil de rede. Exemplo:
 
 ```json
 "networkProfile": {
@@ -523,7 +523,7 @@ Para implementar uma escala de máquina virtual definida para uma rede virtual A
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>Posso usar conjuntos de escala com rede acelerada?
 
-Yes. Para utilizar a rede acelerada, defina ativar a Rede de Redes a aplicar na rede de rede Do seu conjunto de escalas As definições de Configuração de Configuração do seu conjunto de escala. Por exemplo
+Sim. Para utilizar a rede acelerada, defina ativar a Rede de Redes a aplicar na rede de rede Do seu conjunto de escalas As definições de Configuração de Configuração do seu conjunto de escala. Por exemplo
 
 ```json
 "networkProfile": {
@@ -566,7 +566,7 @@ Para criar um conjunto de escala de máquina virtual que atribua um endereço IP
 
 ### <a name="can-i-configure-a-scale-set-to-work-with-multiple-application-gateways"></a>Posso configurar uma escala definida para trabalhar com vários Gateways de aplicação?
 
-Yes. Pode adicionar os IDs de recursos para vários conjuntos de endereços de backend de aplicações Gateway à lista _de aplicaçõesGatewayBackendAddressPools_ na secção _ipConfigurations_ do seu perfil de rede definido em escala.
+Sim. Pode adicionar os IDs de recursos para vários conjuntos de endereços de backend de aplicações Gateway à lista _de aplicaçõesGatewayBackendAddressPools_ na secção _ipConfigurations_ do seu perfil de rede definido em escala.
 
 ## <a name="scale"></a>Escala
 

@@ -15,10 +15,10 @@ ms.author: curtand
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 45144f64789a19390984c3f9f6a660e3c3300215
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84743155"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>Ver histórico de atividades e auditorias para funções de recursos da Azure em Gestão de Identidade Privilegiada
@@ -138,7 +138,7 @@ A minha auditoria permite-lhe ver a sua atividade de papel pessoal.
 
 Normalmente, o evento de log imediatamente acima do evento de aprovação é um evento para "Adicionar membro ao papel concluído" onde o **Iniciado por (ator)** é o solicitador. Na maioria dos casos, não precisará de encontrar o solicitador no pedido de aprovação numa perspetiva de auditoria.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atribuir funções de recursos da Azure na Gestão de Identidade Privilegiada](pim-resource-roles-assign-roles.md)
 - [Aprovar ou negar pedidos de funções de recursos da Azure na Gestão de Identidade Privilegiada](pim-resource-roles-approval-workflow.md)

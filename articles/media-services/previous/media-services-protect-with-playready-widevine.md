@@ -16,10 +16,10 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: a55151ec70c27f18c9503235519d4dd2fcf5b64e
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89259664"
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>Utilizar a encriptação comum dinâmica com PlayReady e/ou Widevine
@@ -619,7 +619,7 @@ namespace DynamicEncryptionWithDRM
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 * [Use the CENC with multi-DRM and access control](media-services-cenc-with-multidrm-access-control.md) (Utilizar a Encriptação Comum (CENC) com multi DRM e com controlo de acesso)
 * [Configure Widevine packaging with Media Services](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services) (Configurar o empacotamento do Widevine com os Serviços de Multimédia)

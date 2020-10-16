@@ -13,10 +13,10 @@ ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
 ms.openlocfilehash: 2d596b6d0e291d197146bf5e00827d82b74c125c
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89434542"
 ---
 # <a name="single-page-application-app-registration"></a>Aplicação de uma página única: Registo de aplicações
@@ -79,7 +79,7 @@ Como mencionado anteriormente, as aplicações de uma página única que utiliza
 
 Quando todas as aplicações de produção de uma página única representadas por um registo de aplicações estiverem a utilizar MSAL.js 2.0 e o fluxo de código de autorização, desmarque as definições implícitas do painel de **autenticação** do registo da aplicação no portal Azure. As aplicações que utilizam MSAL.js 1.x e o fluxo implícito podem continuar a funcionar, no entanto, se deixar o fluxo implícito ativado (verificado).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Em seguida, configurar o código da sua aplicação para utilizar o registo de aplicações que criou nos passos anteriores:.
 

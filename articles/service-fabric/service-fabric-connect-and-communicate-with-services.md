@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cf39fcbfbde8a81400cd93c7f99b066a99f643bd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 715089d40f584fbbaf23f674e4243c92c718e9d1
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005383"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093332"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Conecte-se e comunique-se com serviços em Tecido de Serviço
 Em Service Fabric, um serviço funciona em algum lugar em um cluster de Tecido de Serviço, normalmente distribuído por vários VMs. Pode ser movido de um lugar para outro, seja pelo proprietário do serviço, ou automaticamente pela Service Fabric. Os serviços não estão estáticos ligados a uma determinada máquina ou endereço.
@@ -30,7 +30,7 @@ Num sistema distribuído, os serviços podem mover-se de uma máquina para outra
 
 A Service Fabric fornece um serviço de descoberta e resolução chamado Serviço de Nomeação. O Serviço de Nomeação mantém uma tabela que mapeia casos de serviço nomeados para os endereços de ponto final que ouvem. Todas as instâncias de serviço nomeadas em Service Fabric têm nomes únicos representados como URIs, por exemplo, `"fabric:/MyApplication/MyService"` . O nome do serviço não muda ao longo da vida útil do serviço, são apenas os endereços de ponto final que podem mudar quando os serviços se movem. Isto é análogo aos websites que têm URLs constantes, mas onde o endereço IP pode mudar. E semelhante ao DNS na web, que resolve urls do site para endereços IP, o Service Fabric tem um registrador que mapeia nomes de serviço para o seu endereço de ponto final.
 
-![pontos finais de serviço][2]
+![Diagrama que mostra que o Service Fabric tem um registrador que mapeia nomes de serviço para o seu endereço de ponto final.][2]
 
 A resolução e a ligação aos serviços envolvem os seguintes passos executados em loop:
 
@@ -47,14 +47,14 @@ Uma vez que muitos serviços, especialmente serviços contentorizados, podem ter
 
 Como mostrado no diagrama seguinte, o serviço DNS, em execução no cluster De Tecido de Serviço, mapeia nomes DNS para nomes de serviço que são então resolvidos pelo Serviço de Nomeação para devolver os endereços de ponto final para se ligar. O nome DNS para o serviço é fornecido no momento da criação. 
 
-![pontos finais de serviço][9]
+![Diagrama que mostra como o serviço DNS, ao executar no cluster de Tecido de Serviço, mapeia nomes DNS para nomes de serviço que são então resolvidos pelo Serviço de Nomeação para devolver os endereços de ponto final para se ligar.][9]
 
 Para mais detalhes sobre como usar o serviço DNS consulte o serviço DNS no artigo [da Azure Service Fabric.](service-fabric-dnsservice.md)
 
 ### <a name="reverse-proxy-service"></a>Serviço de procuração inversa
 O proxy reverso endereça serviços no cluster que expõe pontos finais HTTP, incluindo HTTPS. O proxy reverso simplifica muito a chamada de outros serviços e seus métodos, tendo um formato URI específico e lida com os passos de resolução, ligação e reação necessários para que um serviço comunique com outro usando o Serviço de Nomeação. Por outras palavras, esconde o Serviço de Nomeação de si ao ligar para outros serviços, tornando isto tão simples como chamar um URL.
 
-![pontos finais de serviço][10]
+![Diagrama que mostra como o proxy invertido aborda os serviços no cluster que expõe pontos finais HTTP, incluindo HTTPS.][10]
 
 Para obter mais detalhes sobre como utilizar o serviço de procuração inversa consulte Reverse proxy no artigo [do Azure Service Fabric.](service-fabric-reverseproxy.md)
 
@@ -153,7 +153,7 @@ Por exemplo, para aceitar o tráfego externo no porto **80,** as seguintes coisa
     ![Abra uma porta em um tipo de nó][4]
 3. Uma vez criado o cluster, configuure o Balançador de Carga Azure no Grupo de Recursos do cluster para encaminhar o tráfego na porta 80. Ao criar um cluster através do portal Azure, este é configurado automaticamente para cada porta de ponto final personalizado que foi configurado.
 
-    ![Tráfego para a frente no Balançador de Carga Azure][5]
+    ![Screenshot que realça o campo porta Backend de acordo com as regras de equilíbrio de carga.][5]
 4. O Balançador de Carga Azure utiliza uma sonda para determinar se envia ou não tráfego para um determinado nó. A sonda verifica periodicamente um ponto final em cada nó para determinar se o nó está ou não a responder. Se a sonda não receber uma resposta após um número configurado de vezes, o balançador de carga para de enviar o tráfego para esse nó. Ao criar um cluster através do portal Azure, uma sonda é configurada automaticamente para cada porta de ponto final personalizada que foi configurada.
 
     ![Tráfego para a frente no Balançador de Carga Azure][8]

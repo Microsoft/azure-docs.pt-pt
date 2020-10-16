@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: alkohli
 ms.openlocfilehash: 1a8a9840cc6e1f3627c5fbd30e0b7432db0f16e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82561042"
 ---
 # <a name="azure-data-box-edgeazure-data-box-gateway-general-availability-release-notes"></a>Azure Data Box Edge/Azure Data Box Gateway Notas de lançamento geral de disponibilidade
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 As seguintes notas de lançamento identificam as questões abertas críticas e os problemas resolvidos para a libertação de Disponibilidade Geral (GA) para Azure Data Box Edge e Azure Data Box Gateway. 
 
@@ -40,7 +40,7 @@ A versão GA corresponde às versões de software:
 
 A tabela seguinte fornece um resumo de problemas conhecidos para a versão de execução do Data Box Gateway.
 
-| Não. | Funcionalidade | Problema | Soluções/comentários |
+| N.º | Funcionalidade | Problema | Soluções/comentários |
 | --- | --- | --- | --- |
 | **1.** |Tipos de ficheiros | Os seguintes tipos de ficheiros não são suportados: ficheiros de caracteres, ficheiros de blocos, tomadas, tubos, ligações simbólicas.  |Copiar estes ficheiros resulta na criação de ficheiros de 0 comprimentos na partilha NFS. Estes ficheiros permanecem em estado de erro e também são reportados em *error.xml*. <br> Ligações simbólicas a diretórios resultam em diretórios nunca ficarem marcados offline. Como resultado, pode não ver a cruz cinzenta nos diretórios que indica que os diretórios estão offline e todo o conteúdo associado foi completamente enviado para a Azure. |
 | **2.** |Eliminação | Devido a um erro nesta versão, se uma parte NFS for eliminada, então a parte não pode ser eliminada. O estado da partilha mostrará *a Eliminação*.  |Isto ocorre apenas quando a ação está usando um nome de ficheiro não suportado. |

@@ -3,18 +3,18 @@ title: Limites e quotas de subscrição do Azure
 description: Fornece uma lista de limites comuns de subscrição e serviço da Azure, quotas e constrangimentos. Este artigo inclui informações sobre como aumentar limites, juntamente com valores máximos.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 3b4185fb90aec68eda600b67c95529e6b80b09e4
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: f18bd4589ea995696175fa23300432793f0f5974
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91665638"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950249"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Subscrição do Azure e limites, quotas e restrições do serviço
 
 Este documento enumera alguns dos limites mais comuns do Microsoft Azure, que também são por vezes chamados de quotas.
 
-Para saber mais sobre os preços da Azure, consulte a [visão geral dos preços do Azure](https://azure.microsoft.com/pricing/). Aí, pode estimar os seus custos utilizando [a calculadora de preços.](https://azure.microsoft.com/pricing/calculator/) Também pode ir à página de detalhes de preços para um determinado serviço, por exemplo, [VMs Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). Para obter dicas para ajudar a gerir os seus custos, consulte [Prevenir custos inesperados com faturação da Azure e gestão de custos.](../../cost-management-billing/manage/getting-started.md)
+Para saber mais sobre os preços da Azure, consulte a [visão geral dos preços do Azure](https://azure.microsoft.com/pricing/). Aí, pode estimar os seus custos utilizando [a calculadora de preços.](https://azure.microsoft.com/pricing/calculator/) Também pode ir à página de detalhes de preços para um determinado serviço, por exemplo, [VMs Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). Para obter dicas para ajudar a gerir os seus custos, consulte [Prevenir custos inesperados com faturação da Azure e gestão de custos.](../../cost-management-billing/cost-management-billing-overview.md)
 
 ## <a name="managing-limits"></a>Limites de gestão
 
@@ -434,7 +434,7 @@ Existem limites, por subscrição, para a implantação de recursos utilizando g
 
 [!INCLUDE [virtual-machine-scale-sets-limits](../../../includes/azure-virtual-machine-scale-sets-limits.md)]
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 * [Compreender os limites e aumentos do Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 * [Tamanhos de serviço de máquina virtual e nuvem para Azure](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

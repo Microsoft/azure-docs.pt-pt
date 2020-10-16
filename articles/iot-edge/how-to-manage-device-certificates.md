@@ -8,16 +8,16 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9e3925d2c14d51785ed4fe00a508ea353490e1cd
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 1f07f9d481ca8ede29c8b8443dad81a442962a71
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669024"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044144"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>Gerir certificados num dispositivo IoT Edge
 
-Todos os dispositivos IoT Edge utilizam certificados para criar ligações seguras entre o tempo de funcionamento e quaisquer módulos em execução no dispositivo. Os dispositivos IoT Edge que funcionam como gateways usam estes mesmos certificados para se ligarem aos seus dispositivos a jusante, também.
+Todos os dispositivos IoT Edge utilizam certificados para criar ligações seguras entre o runtime e quaisquer módulos em execução no dispositivo. Os dispositivos IoT Edge que funcionam como gateways usam estes mesmos certificados para se ligarem aos seus dispositivos a jusante, também.
 
 ## <a name="install-production-certificates"></a>Instalar certificados de produção
 
@@ -33,10 +33,13 @@ Para saber mais sobre os diferentes tipos de certificados e suas funções, cons
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-* Um dispositivo IoT Edge, que funciona no [Windows](how-to-install-iot-edge-windows.md) ou [linux](how-to-install-iot-edge-linux.md).
+* Um dispositivo IoT Edge.
+
+  Se não tiver um dispositivo IoT Edge configurado, pode criar um numa máquina virtual Azure. Siga os passos num dos artigos de arranque rápido para [criar um dispositivo Linux virtual](quickstart-linux.md) ou criar um dispositivo Virtual [Windows](quickstart.md).
+
 * Possua um certificado de autoridade de certificados de raiz (CA), auto-assinado ou adquirido a uma autoridade de certificados comerciais fidedignas como Baltimore, Verisign, DigiCert ou GlobalSign.
 
-Se ainda não tiver uma autoridade de certificados de raiz, mas quiser experimentar funcionalidades IoT Edge que requerem certificados de produção (como cenários de gateway) pode [criar certificados de demonstração para testar as funcionalidades do dispositivo IoT Edge](how-to-create-test-certificates.md).
+  Se ainda não tiver uma autoridade de certificados de raiz, mas quiser experimentar funcionalidades IoT Edge que requerem certificados de produção (como cenários de gateway) pode [criar certificados de demonstração para testar as funcionalidades do dispositivo IoT Edge](how-to-create-test-certificates.md).
 
 ### <a name="create-production-certificates"></a>Criar certificados de produção
 
@@ -65,7 +68,7 @@ Por exemplo, se utilizar os scripts de amostra para [criar certificados de demon
 
 1. Copie os três certificados e ficheiros chave no seu dispositivo IoT Edge.
 
-   Pode utilizar um serviço como [o Azure Key Vault](https://docs.microsoft.com/azure/key-vault) ou uma função como o protocolo de cópia [Secure](https://www.ssh.com/ssh/scp/) para mover os ficheiros de certificado.  Se tiver gerado os certificados no próprio dispositivo IoT Edge, pode saltar este passo e utilizar o caminho para o diretório de trabalho.
+   Pode utilizar um serviço como [o Azure Key Vault](../key-vault/index.yml) ou uma função como o protocolo de cópia [Secure](https://www.ssh.com/ssh/scp/) para mover os ficheiros de certificado.  Se tiver gerado os certificados no próprio dispositivo IoT Edge, pode saltar este passo e utilizar o caminho para o diretório de trabalho.
 
 1. Abra o ficheiro IoT Edge security daemon config.
 
@@ -165,6 +168,6 @@ Depois de especificar o valor no ficheiro config.yaml, tome os seguintes passos:
 
    Verifique a saída da prontidão de produção: verificação de **certificados,** que lista o número de dias até que os certificados ca do dispositivo gerado automaticamente expirem.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Instalar certificados num dispositivo IoT Edge é um passo necessário antes de implementar a sua solução na produção. Saiba mais sobre como [preparar-se para implementar a sua solução IoT Edge na produção.](production-checklist.md)

@@ -9,10 +9,10 @@ ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 02/28/2018
 ms.openlocfilehash: 4905006baf92161932cf1d2ce0660aaf52560c90
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91707630"
 ---
 # <a name="restore-an-azure-database-for-postgresql-server-using-azure-cli"></a>Restaurar um servidor da Base de Dados do Azure para PostgreSQL com a CLI do Azure
@@ -40,7 +40,7 @@ Este script utiliza os comandos descritos na tabela seguinte:
 | [az postgresql server restore](/cli/azure/postgres/server#az-postgres-server-restore) | Restaure um servidor da cópia de segurança. |
 | [az group delete](/cli/azure/group) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 - Leia mais informações sobre a CLI do Azure: [Documentação da CLI do Azure](/cli/azure).
 - Experimente scripts adicionais: [Amostras da CLI do Azure para a Base de Dados do Azure para PostgreSQL](../sample-scripts-azure-cli.md)
 - [Como criar uma cópia de segurança e restaurar um servidor na Base de Dados do Azure para PostgreSQL no portal do Azure](../howto-restore-server-portal.md)

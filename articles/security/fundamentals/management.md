@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/08/2020
 ms.author: terrylan
 ms.openlocfilehash: 73d82efed438d447c7af3bfc54d5c3fc22cdd819
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87921933"
 ---
 # <a name="security-management-in-azure"></a>Gestão de segurança no Azure

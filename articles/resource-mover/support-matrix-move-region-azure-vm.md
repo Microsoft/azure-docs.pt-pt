@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 09/07/2020
+ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: fa71cd502f730844e4f4398d41d06ada56fc2413
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: d71181c5f45ab63febae7288f07189dc52ea12fd
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602290"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945918"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Apoio à deslocação de VMs Azure entre regiões de Azure
 
@@ -155,7 +155,7 @@ Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou superior |20 MB/s | 1684 GB po
 NIC | Suportado | Especifique um recurso existente na região alvo ou crie um novo recurso durante o processo de Preparação. 
 Balanceador de carga interno | Suportado | Especifique um recurso existente na região alvo ou crie um novo recurso durante o processo de Preparação.  
 Balanceador de carga público | Atualmente, não é suportado | Especifique um recurso existente na região alvo ou crie um novo recurso durante o processo de Preparação.  
-Endereço IP público | Suportado | Especifique um recurso existente na região alvo ou crie um novo recurso durante o processo de Preparação.  
+Endereço IP público | Suportado | Especifique um recurso existente na região alvo ou crie um novo recurso durante o processo de Preparação.<br/><br/> O endereço IP público é específico da região, e não será mantido na região alvo após a mudança. Tenha isto em mente quando modificar as definições de rede (incluindo regras de equilíbrio de carga) no local alvo.
 Grupo de segurança de rede | Suportado | Especifique um recurso existente na região alvo ou crie um novo recurso durante o processo de Preparação.  
 Endereço IP reservado (estático) | Suportado | Não pode configurar isto. O valor é desresposição do valor da fonte. <br/><br/> Se o NIC na fonte VM tiver um endereço IP estático, e a sub-rede alvo tiver o mesmo endereço IP disponível, é atribuído ao VM alvo.<br/><br/> Se a sub-rede-alvo não tiver o mesmo endereço IP disponível, o movimento iniciado para o VM falhará.
 Endereço IP dinâmico | Suportado | Não pode configurar isto. O valor é desresposição do valor da fonte.<br/><br/> Se o NIC na fonte tiver um endereço IP dinâmico, o NIC no VM alvo também é dinâmico por padrão.
@@ -188,6 +188,6 @@ Se estiver a utilizar regras de um grupo de segurança de rede (NSG) para contro
 - Recomendamos que teste regras num ambiente de não produção. [Reveja alguns exemplos.](../site-recovery/azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Tente [mover um Azure VM](tutorial-move-region-virtual-machines.md) para outra região com o Resource Mover.

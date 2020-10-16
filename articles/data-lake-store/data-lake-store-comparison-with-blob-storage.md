@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 170f20cbd3405ea6af8aef5650e4dd7ebeaeef7f
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89458217"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Comparando o armazenamento de Azure Data Lake Gen1 e o armazenamento de blob Azure
@@ -27,7 +27,7 @@ A tabela deste artigo resume as diferenças entre o Azure Data Lake Storage Gen1
 | Estrutura |Sistema de ficheiros hierárquicos |Loja de objetos com espaço de nome plano |
 | API |REST API sobre HTTPS |REST API EM HTTP/HTTPS |
 | API do lado do servidor |[API DE REPOUSO compatível com WebHDFS](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[Azure Blob Storage REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
-| Cliente do sistema de ficheiros Hadoop |Yes |Yes |
+| Cliente do sistema de ficheiros Hadoop |Sim |Sim |
 | Operações de Dados - Autenticação |Baseado em [Identidades do Diretório Ativo Azure](../active-directory/develop/authentication-scenarios.md) |Baseado em segredos partilhados - [Chaves de acesso à conta](../storage/common/storage-account-keys-manage.md) e chaves de assinatura de acesso [partilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
 | Operações de Dados - Protocolo de Autenticação |[Ligação OpenID](https://openid.net/connect/). As chamadas devem conter um JWT válido (token web JSON) emitido pela Azure Ative Directory.|Código de autenticação de mensagem baseado em haxixe (HMAC). As chamadas devem conter um haxixe SHA-256 codificado pela Base64 sobre uma parte do pedido HTTP. |
 | Operações de Dados - Autorização |Listas de Controlo de Acesso POSIX (ACLs).  Os ACLs baseados em Identidades do Diretório Ativo Azure podem ser definidos ao nível do ficheiro e da pasta. |Para autorização ao nível da conta - Utilize chaves de [acesso à conta](../storage/common/storage-account-keys-manage.md)<br>Para autorização de conta, contentor ou blob - Utilize [chaves de assinatura de acesso partilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |

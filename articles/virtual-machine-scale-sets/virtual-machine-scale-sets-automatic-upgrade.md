@@ -10,13 +10,13 @@ ms.date: 06/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma
 ms.openlocfilehash: b5f3305fc5d2595c8b7b08d78ff20edea01c195e
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89229842"
 ---
-# <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Escala de máquina virtual Azure definir atualizações automáticas de imagem de SO
+# <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Atualizações automáticas da imagem do SO do conjunto de dimensionamento de máquinas virtuais do Azure
 
 Permitir atualizações automáticas de imagens de SO no seu conjunto de escala ajuda a facilitar a gestão da atualização, atualizando de forma segura e automática o disco DE para todos os casos no conjunto de escala.
 

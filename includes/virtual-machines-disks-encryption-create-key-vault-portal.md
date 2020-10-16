@@ -9,17 +9,17 @@ ms.date: 03/23/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: a967777b65c06cf23239a47e8e691fb3a29231b4
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88815475"
 ---
 A configuração de chaves geridas pelo cliente para os seus discos exigirá que crie recursos numa determinada encomenda, se o fizer pela primeira vez. Primeiro, terás de criar e montar um Cofre de Chaves Azure.
 
 ## <a name="set-up-your-azure-key-vault"></a>Configurar o seu Cofre de Chaves Azure
 
-1. Inicie sessão no [Portal do Azure](https://aka.ms/diskencryptionupdates).
+1. Inicie sessão no [portal do Azure](https://aka.ms/diskencryptionupdates).
 1. Procure e selecione **Cofres-chave.**
 
     [![Screenshot do portal Azure com a caixa de diálogo de pesquisa expandida.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-key-vault-portal-search.png)](./media/virtual-machines-disk-encryption-portal/sever-side-encryption-key-vault-portal-search-expanded.png#lightbox)
@@ -65,7 +65,7 @@ A configuração de chaves geridas pelo cliente para os seus discos exigirá que
 1. Selecione **Clique para selecionar uma tecla**.
 1. Selecione o cofre e a chave chave que criou anteriormente, bem como a versão.
 1. **Seleção de imprensa**.
-1. Selecione **Rever + Criar** e, em seguida, **Criar**.
+1. Selecione **Rever + Criar** e, em seguida, clique em **Criar**.
 
     ![Screenshot da lâmina de criação de encriptação do disco. Mostrando a subscrição, grupo de recursos, nome de conjunto de encriptação de disco, região e chave do seletor de chaves + chave.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png)
 

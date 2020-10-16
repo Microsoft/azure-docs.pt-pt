@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 09/23/2020
 ms.openlocfilehash: 59799a09436d5968a441f6f17655d3138a2d84d8
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91711552"
 ---
 # <a name="change-analysis-in-azure-monitor-for-vms"></a>Alterar análise no Monitor Azure para VMs
@@ -34,7 +34,7 @@ Clique no botão **Descodudo para** lançar a página de Análise de Alteração
 
 [![Alterar detalhes](media/vminsights-change-analysis/change-details-screenshot.png)](media/vminsights-change-analysis/change-details-screenshot.png#lightbox)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [a Análise de Alterações de Aplicações.](../app/change-analysis.md)
 - Saiba mais sobre [o Azure Resource Graph](../../governance/resource-graph/how-to/get-resource-changes.md). 
 

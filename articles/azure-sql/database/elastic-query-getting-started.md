@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 10/10/2019
 ms.openlocfilehash: 10be0fc28b53d114a8ff87f01980513ce1759dec
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91443317"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Relatório através de bases de dados de nuvem escalonadas (pré-visualização)
@@ -138,7 +138,7 @@ Não existe qualquer custo adicional para a utilização da função de consulta
 
 Para obter informações sobre preços consulte [detalhes de preços da base de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter uma visão geral da consulta elástica, consulte [a visão geral da consulta elástica](elastic-query-overview.md).
 * Para obter um tutorial de partição vertical, consulte [Começar com consulta de base de dados cruzada (partição vertical)](elastic-query-getting-started-vertical.md).

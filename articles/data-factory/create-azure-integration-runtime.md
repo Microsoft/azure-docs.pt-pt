@@ -11,10 +11,10 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.openlocfilehash: c7880fd7fb687483409ce591059e0f5b2d2e2991
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84659706"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Como criar e configurar o tempo de execução da integração do Azure
@@ -43,7 +43,7 @@ Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName "SampleV2DataFactory1" -N
 ```  
 Para O Azure IR, o tipo deve ser definido para **Managed**. Não precisa de especificar detalhes do cálculo porque é totalmente gerido elásticamente em nuvem. Especifique detalhes do cálculo como o tamanho do nó e a contagem de nós quando pretende criar O Azure-SSIS IR. Para obter mais informações, consulte [Create and Configure Azure-SSIS IR](create-azure-ssis-integration-runtime.md).
 
-Pode configurar um Azure IR existente para alterar a sua localização utilizando o cmdlet PowerShell set-AzDataFactoryV2IntegrationRuntime. Para obter mais informações sobre a localização de um Azure IR, consulte [Introdução ao tempo de execução da integração.](concepts-integration-runtime.md)
+Pode configurar um Azure IR existente para alterar a sua localização utilizando o Set-AzDataFactoryV2IntegrationRuntime cmdlet PowerShell. Para obter mais informações sobre a localização de um Azure IR, consulte [Introdução ao tempo de execução da integração.](concepts-integration-runtime.md)
 
 ### <a name="create-an-azure-ir-via-azure-data-factory-ui"></a>Criar um Azure IR via Azure Data Factory UI
 Utilize os seguintes passos para criar um Azure IR utilizando uI Azure Data Factory.
@@ -87,7 +87,7 @@ Uma vez criado um Azure IR, pode fazê-lo referenciar na definição de Serviço
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos sobre como criar outros tipos de períodos de integração:
 
 - [Create self-hosted integration runtime](create-self-hosted-integration-runtime.md) (Criar o runtime de integração autoalojado)

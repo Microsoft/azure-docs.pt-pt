@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.openlocfilehash: a80e0f1b62257fdbce6598c9cc4088701cc2ae9c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90983622"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Compreender os preços do Data Factory através de exemplos

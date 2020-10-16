@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.openlocfilehash: 6c96c4803293db9d9bacfc43f0de2f7803e6c41c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87836484"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-portal"></a>Criar e gerir o Link Privado para Azure Database para MariaDB usando o Portal
@@ -60,23 +60,23 @@ Nesta secção, irá criar uma Rede Virtual e a sub-rede para hospedar o VM que 
     | Grupo de recursos | Selecione **myResourceGroup**. Criou isto na secção anterior.  |
     | **DETALHES DE INSTÂNCIA** |  |
     | Nome da máquina virtual | *Insira o myVm*. |
-    | Região | Selecione **Europa Ocidental**. |
+    | Region | Selecione **Europa Ocidental**. |
     | Opções de disponibilidade | Deixar o incumprimento **Não é necessário um despedimento de infraestrutura**. |
     | Imagem | Selecione **o Centro de Dados 2019 do Windows**Server . |
     | Tamanho | Deixe o **padrão DS1 v2**. |
     | **CONTA DE ADMINISTRADOR** |  |
     | Nome de utilizador | Insira um nome de utilizador à sua escolha. |
-    | Palavra-passe | Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | Palavra-passe | Introduza uma palavra-passe à sua escolha. A palavra-passe deve ter pelo menos 12 caracteres de comprimento e satisfazer os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Confirmar Palavra-passe | Reentre na senha. |
-    | **REGRAS PORTUÁRIAS DE ENTRADA** |  |
+    | **REGRAS DA PORTA DE ENTRADA** |  |
     | Portas de entrada públicas | Deixe o padrão **Nenhum**. |
-    | **POUPAR DINHEIRO** |  |
+    | **POUPE DINHEIRO** |  |
     | Já tem uma licença do Windows? | Deixe o **nº**padrão . |
     |||
 
 1. Selecione **Seguinte: Discos**.
 
-1. Em **Criar uma máquina virtual - Discos,** deixar as predefinições e selecionar **Seguinte: Networking**.
+1. Em **Criar uma máquina virtual – Discos**, mantenha as predefinições e selecione **Seguinte: Redes**.
 
 1. Na **Criação de uma máquina virtual - Networking,** selecione estas informações:
 
@@ -84,16 +84,16 @@ Nesta secção, irá criar uma Rede Virtual e a sub-rede para hospedar o VM que 
     | ------- | ----- |
     | Rede virtual | Deixe a **Rede MyVirtual padrão**.  |
     | Espaço de endereços | Deixe o **padrão 10.1.0.0/24**.|
-    | Subrede | Deixe o **mySubnet predefinido (10.1.0.0/24)**.|
+    | Sub-rede | Deixe o **mySubnet predefinido (10.1.0.0/24)**.|
     | IP público | Deixe o **padrão (novo) myVm-ip**. |
     | Portas de entrada públicas | Selecione **Deixe as portas selecionadas.** |
-    | Selecione portas de entrada | Selecione **HTTP** e **RDP**.|
+    | Selecione as portas de entrada | Selecione **HTTP** e **RDP**.|
     |||
 
 
-1. Selecione **Rever + criar**. É levado para a página **'Rever +' onde** o Azure valida a sua configuração.
+1. Selecione **Rever + criar**. Acedeu à página **Rever + criar**, onde o Azure valida a sua configuração.
 
-1. Quando vir a mensagem **de validação passada,** selecione **Criar**.
+1. Quando vir a mensagem **A validação passou**, selecione **Criar**.
 
 ## <a name="create-an-azure-database-for-mariadb"></a>Criar um Azure Database for MariaDB
 
@@ -110,7 +110,7 @@ Nesta secção, irá criar uma Base de Dados Azure para o servidor MariaDB em Az
     | Grupo de recursos | Selecione **myResourceGroup**. Criou isto na secção anterior.|
     | **Detalhes do servidor** |  |
     |Nome do servidor  | *Insira o meu servidão.* Se este nome for tomado, crie um nome único.|
-    | Nome de utilizador admin| Insira o nome de administrador à sua escolha. |
+    | Nome de utilizador de administrador| Insira o nome de administrador à sua escolha. |
     | Palavra-passe | Introduza uma palavra-passe à sua escolha. A palavra-passe deve ter pelo menos 8 caracteres de comprimento e satisfazer os requisitos definidos. |
     | Localização | Selecione uma região Azure onde pretende querer que o seu Servidor MariaDB resida. |
     |Versão  | Selecione a versão de base de dados do servidor MariaDB que é necessário.|
@@ -118,7 +118,7 @@ Nesta secção, irá criar uma Base de Dados Azure para o servidor MariaDB em Az
     |||
 
 7. Selecione **OK**. 
-8. Selecione **Rever + criar**. É levado para a página **'Rever +' onde** o Azure valida a sua configuração. 
+8. Selecione **Rever + criar**. Acedeu à página **Rever + criar**, onde o Azure valida a sua configuração. 
 9. Quando vir a mensagem de validação passada, **selecione Criar**. 
 10. Quando vir a mensagem de validação passada, selecione Criar. 
 
@@ -142,9 +142,9 @@ Nesta secção, irá criar um ponto final privado para o servidor MariaDB.
     | **Detalhes do projeto** | |
     | Subscrição | Selecione a sua subscrição. |
     | Grupo de recursos | Selecione **myResourceGroup**. Criou isto na secção anterior.|
-    | **Detalhes de instância** |  |
-    | Nome | Insira *o meuPrivateEndpoint*. Se este nome for tomado, crie um nome único. |
-    |Região|Selecione **Europa Ocidental**.|
+    | **Detalhes da instância** |  |
+    | Name | Introduza *myPrivateEndpoint*. Se este nome for tomado, crie um nome único. |
+    |Region|Selecione **Europa Ocidental**.|
     |||
 5. Selecione **Seguinte: Recurso**.
 6. Em **Criar um ponto final privado - Recurso,** insira ou selecione estas informações:
@@ -155,38 +155,38 @@ Nesta secção, irá criar um ponto final privado para o servidor MariaDB.
     | Subscrição| Selecione a sua subscrição. |
     | Tipo de recurso | Selecione **Microsoft.DBforMariaDB/servidores**. |
     | Recurso |Selecione *myServer*|
-    |Sub-recurso-alvo |Selecione *mariadbServer*|
+    |Recurso secundário de destino |Selecione *mariadbServer*|
     |||
 7. Selecione **Seguinte: Configuração**.
 8. Em **Criar um ponto final privado - Configuração,** insira ou selecione esta informação:
 
     | Definição | Valor |
     | ------- | ----- |
-    |**NETWORKING**| |
+    |**REDES**| |
     | Rede virtual| Selecione *MyVirtualNetwork*. |
-    | Subrede | Selecione *mySubnet*. |
-    |**INTEGRAÇÃO PRIVADA DE DNS**||
-    |Integrar-se com a zona privada de DNS |Selecione **Sim**. |
-    |Zona privada de DNS |Selecione *(Novo)privatelink.mariadb.database.azure.com* |
+    | Sub-rede | Selecione *mySubnet*. |
+    |**INTEGRAÇÃO DE DNS PRIVADO**||
+    |Integrar com zona DNS privada |Selecione **Sim**. |
+    |Zona DNS Privada |Selecione *(Novo)privatelink.mariadb.database.azure.com* |
     |||
 
     > [!Note] 
     > Utilize a zona de DNS privada predefinida para o seu serviço ou forneça o nome da zona DE DNS preferida. Consulte a configuração da [zona DNS dos serviços Azure](../private-link/private-endpoint-dns.md) para obter mais detalhes.
 
-1. Selecione **Rever + criar**. É levado para a página **'Rever +' onde** o Azure valida a sua configuração. 
-2. Quando vir a mensagem **de validação passada,** selecione **Criar**. 
+1. Selecione **Rever + criar**. Acedeu à página **Rever + criar**, onde o Azure valida a sua configuração. 
+2. Quando vir a mensagem **A validação passou**, selecione **Criar**. 
 
     ![Link Privado criado](media/concepts-data-access-and-security-private-link/show-mariadb-private-link.png)
 
     > [!NOTE] 
     > O FQDN na definição de DNS do cliente não se resolve com o IP privado configurado. Terá de configurar uma zona DNS para o FQDN configurado, como mostrado [aqui.](../dns/dns-operations-recordsets-portal.md)
 
-## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Ligue-se a um VM utilizando o Ambiente de Trabalho Remoto (RDP)
+## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Ligar a uma VM com o Ambiente de Trabalho Remoto (RDP)
 
 
 Depois de criar **o myVm,** ligue-o a partir da internet da seguinte forma: 
 
-1. Na barra de pesquisa do portal, insira *o myVm*.
+1. Na barra de pesquisa do portal, introduza *myVm*.
 
 1. Selecione o botão **Ligar**. Depois de selecionar o botão **Ligar,** **o Connect à máquina virtual** abre-se.
 
@@ -203,7 +203,7 @@ Depois de criar **o myVm,** ligue-o a partir da internet da seguinte forma:
 
 1. Selecione **OK**.
 
-1. Poderá receber um aviso de certificado durante o processo de início de sessão. Se receber um aviso de certificado, selecione **Sim** ou **Continue**.
+1. Poderá receber um aviso de certificado durante o processo de início de sessão. Se recebeu um aviso de certificado, selecione **Sim** ou **Continuar**.
 
 1. Assim que o ambiente de trabalho em VM aparecer, minimize-o para voltar ao seu ambiente de trabalho local.
 
@@ -213,7 +213,7 @@ Depois de criar **o myVm,** ligue-o a partir da internet da seguinte forma:
 
 2. Insira  `nslookup mydemomserver.privatelink.mariadb.database.azure.com` . 
 
-    Receberá uma mensagem semelhante a esta:
+    Irá receber uma mensagem semelhante a esta:
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16

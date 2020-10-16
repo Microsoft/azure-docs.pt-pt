@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
 ms.openlocfilehash: 73b7b57aad43eea8e8d592d437185ca5c7e8a666
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91304662"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Tutorial: Integração do Diretório Ativo Azure com a Palo Alto Networks - Admin UI
@@ -85,7 +85,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     c. Na caixa de texto **URL de resposta,** digite o URL do Serviço de Apoio ao Consumidor de Afirmação (ACS) no seguinte formato: `https://<Customer Firewall FQDN>:443/SAML20/SP/ACS`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de inscrição, identificação e URL de resposta. Contacte [a Palo Alto Networks - Equipa de suporte ao cliente da Admin UI](https://support.paloaltonetworks.com/support) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o URL de Sign-On real, identifier e responder URL. Contacte [a Palo Alto Networks - Equipa de suporte ao cliente da Admin UI](https://support.paloaltonetworks.com/support) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
     >
     > A porta 443 é necessária no **Identificador** e no **URL de resposta,** uma vez que estes valores são codificados na Firewall de Palo Alto. A remoção do número da porta resultará num erro durante o início de sessão se for removido.
 
@@ -100,7 +100,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação Palo Alto Networks - Admin UI espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
 
-    | Name |  Atributo de origem|
+    | Nome |  Atributo de origem|
     | --- | --- |
     | nome de utilizador | user.userprincipalname |
     | adminrole | customadmin |
@@ -114,7 +114,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     > * [Perfil de função administrativa para Admin UI (administrador)](https://www.paloaltonetworks.com/documentation/80/pan-os/pan-os/firewall-administration/manage-firewall-administrators/configure-an-admin-role-profile)
     > * [Domínio de acesso ao dispositivo para Admin UI (accessdomain)](https://docs.paloaltonetworks.com/pan-os/8-0/pan-os-web-interface-help/device/device-access-domain.html)
 
-1. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+1. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -133,7 +133,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Create** (Criar).
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 

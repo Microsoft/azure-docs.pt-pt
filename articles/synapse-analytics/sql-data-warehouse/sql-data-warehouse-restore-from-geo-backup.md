@@ -12,17 +12,17 @@ ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 3c8d78c164cefbab03d9d3fa783c75ded9773d38
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87075822"
 ---
 # <a name="geo-restore-for-sql-pool"></a>Geo-restauro para piscina SQL
 
 Neste artigo, aprende a restaurar a sua piscina SQL a partir de um geo-backup através do portal Azure e powerShell.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -87,7 +87,7 @@ Siga os passos descritos abaixo para restaurar uma piscina SQL a partir de um ge
 
 4. Preencha as informações **solicitadas** no separador Básicos e clique em **Seguinte: Definições adicionais**.
 
-   ![Informações básicas](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
+   ![Noções básicas](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
 
 5. Para utilizar o parâmetro **de dados existente,** selecione **Backup** e selecione a cópia de segurança adequada das opções de deslocamento para baixo. Clique em **Rever + Criar**.
 

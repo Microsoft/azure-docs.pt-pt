@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 06/05/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 29187ef99ce6628359819739ab5e4b34213eeb8a
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 17fbba605f6f20fa384d59a8c89ee536a9b121bf
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91441623"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91964440"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar Definições do Multi-Factor Authentication do Azure
 
@@ -332,7 +332,7 @@ Para permitir ou desativar os métodos de verificação, complete as seguintes e
 1. Selecione **Multi-Factor Authentication**.
 1. Em Autenticação Multi-Factor, selecione **as definições de serviço**.
 1. Na página **Definições de Serviço,** nas **opções de verificação,** selecione/desescolte os métodos a fornecer aos seus utilizadores.
-1. Clique em **Save** (Guardar).
+1. Clique em **Guardar**.
 
 ## <a name="remember-multi-factor-authentication"></a>Lembre-se da autenticação multi-factor
 
@@ -374,6 +374,6 @@ Para permitir e configurar a opção de os utilizadores se lembrarem do seu esta
 
 Depois de ativar a funcionalidade de autenticação multi-factor de ressaltação, os utilizadores podem marcar um dispositivo como confiável quando iniciarem sação selecionando a opção para **Não voltar a perguntar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre os métodos disponíveis para utilização na Autenticação Multi-Factor Azure, consulte que métodos de [autenticação e verificação estão disponíveis no Diretório Ativo Azure?](concept-authentication-methods.md)

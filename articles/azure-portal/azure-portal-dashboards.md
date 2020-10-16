@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: 06cf0a5692b3d80a07c305f53c9e3801cbdb5110
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b4241e51f186ea973702562ab27bb7f13a77de57
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764014"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089490"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Criar e partilhar dashboards no portal do Azure
 
@@ -142,7 +142,7 @@ Para utilizar um dashboard existente como modelo para um novo painel de instrume
 
 ## <a name="publish-and-share-a-dashboard"></a>Publicar e partilhar um dashboard
 
-Quando se cria um painel, é privado por defeito, o que significa que é o único que pode vê-lo. Para disponibilizar dashboards a outros, pode publicá-los e partilhá-los. Para obter mais informações, consulte [os dashboards Share Azure utilizando o Controlo de Acesso Baseado em Funções](azure-portal-dashboard-share-access.md).
+Quando se cria um painel, é privado por defeito, o que significa que é o único que pode vê-lo. Para disponibilizar dashboards a outros, pode publicá-los e partilhá-los. Para obter mais informações, consulte [os dashboards Share Azure utilizando o controlo de acesso baseado em funções Azure](azure-portal-dashboard-share-access.md).
 
 ### <a name="open-a-shared-dashboard"></a>Abra um painel partilhado
 
@@ -176,7 +176,7 @@ Para eliminar permanentemente um dashboard privado ou partilhado, siga estes pas
 
     ![Screenshot da confirmação de exclusão](./media/azure-portal-dashboards/dashboard-delete-dash.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Partilhar dashboards do Azure mediante a utilização do Controlo de Acesso Baseado em Funções](azure-portal-dashboard-share-access.md)
+* [Partilhe tabliers Azure utilizando o controlo de acesso baseado em funções Azure](azure-portal-dashboard-share-access.md)
 * [Criar programaticamente dashboards do Azure](azure-portal-dashboards-create-programmatically.md)

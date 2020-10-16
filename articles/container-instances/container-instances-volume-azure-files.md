@@ -5,15 +5,15 @@ ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc
 ms.openlocfilehash: eaf5e0704ba2ea4f0e0a30d61e4ae1d2ad1bf58d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86259481"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Montar uma partilha de ficheiros do Azure no Azure Container Instances
 
-Por predefinição, o Azure Container Instances não tem monitorização de estado. Se o contentor falhar ou parar, todo o seu estado será perdido. Para manter as informações de estado para além da duração do contentor, tem de montar um volume a partir de um arquivo externo. Como mostrado neste artigo, a Azure Container Instances pode montar uma partilha de ficheiros Azure criada com [ficheiros Azure](../storage/files/storage-files-introduction.md). O Azure Files oferece ações de ficheiros totalmente geridas, hospedadas no Azure Storage, acessíveis através do protocolo padrão do Bloco de Mensagens do Servidor (SMB) da indústria. A utilização de uma partilha de ficheiros Azure com a Azure Container Instances fornece funcionalidades de partilha de ficheiros semelhantes à utilização de uma partilha de ficheiros Azure com máquinas virtuais Azure.
+Por predefinição, o Azure Container Instances não tem monitorização de estado. Se o contentor falhar ou parar, todo o respetivo estado é perdido. Para manter as informações de estado para além da duração do contentor, tem de montar um volume a partir de um arquivo externo. Como mostrado neste artigo, a Azure Container Instances pode montar uma partilha de ficheiros Azure criada com [ficheiros Azure](../storage/files/storage-files-introduction.md). O Azure Files oferece ações de ficheiros totalmente geridas, hospedadas no Azure Storage, acessíveis através do protocolo padrão do Bloco de Mensagens do Servidor (SMB) da indústria. A utilização de uma partilha de ficheiros Azure com a Azure Container Instances fornece funcionalidades de partilha de ficheiros semelhantes à utilização de uma partilha de ficheiros Azure com máquinas virtuais Azure.
 
 > [!NOTE]
 > A montagem de uma partilha de Ficheiros Azure está atualmente restrita aos contentores Linux. Encontre as diferenças da plataforma atuais na [visão geral.](container-instances-overview.md#linux-and-windows-containers)

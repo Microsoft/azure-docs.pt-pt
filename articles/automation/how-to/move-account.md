@@ -10,10 +10,10 @@ ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 562ea5e0e9e4851ed59bd3ef917be2f9c48cd2a7
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86185556"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>Mude a sua conta Azure Automation para outra subscrição
@@ -147,7 +147,7 @@ Depois de recriar as contas Run As, tem de voltar a ativar as funcionalidades qu
 
 Quando o movimento estiver completo, verifique se as capacidades listadas abaixo estão ativadas. 
 
-|Capacidade|Testes|Resolução de problemas|
+|Funcionalidade|Testes|Resolução de problemas|
 |---|---|---|
 |Runbooks|Um runbook pode executar e conectar-se com sucesso aos recursos da Azure.|[Resolver problemas de runbooks](../troubleshoot/runbooks.md)
 |Controlo de código fonte|Pode executar uma sincronização manual no seu repositório de controlo de origem.|[Integração do controlo de origem](../source-control-integration.md)|

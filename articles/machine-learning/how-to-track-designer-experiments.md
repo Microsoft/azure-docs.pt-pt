@@ -12,10 +12,10 @@ ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
 ms.openlocfilehash: bffbf32cf5faa936a00444f1f39facaf226b8ef2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90885974"
 ---
 # <a name="enable-logging-in-azure-machine-learning-designer-pipelines"></a>Permitir o login nos oleodutos de designers de machine learning do Azure

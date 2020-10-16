@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: it-pro, has-adal-ref
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 68993a460ba3d6a672a27eb8da5ced85b29d3d12
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764558"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>Ativar o acesso remoto ao Power BI Mobile com o Proxy de Aplicações do Azure Active Directory
@@ -154,7 +154,7 @@ Pode utilizar o Microsoft Intune para gerir as aplicações de clientes que a fo
 
 Se a aplicação retornar uma página de erro depois de tentar carregar um relatório por mais de alguns minutos, poderá ter de alterar a definição de tempo limite. Por predefinição, o Application Proxy suporta aplicações que demoram até 85 segundos para responder a um pedido. Para alongar esta definição para 180 segundos, selecione o tempo limite de back-end para **Long** na página de definições de Procuração de Aplicações para a aplicação. Para obter dicas sobre como criar relatórios rápidos e fiáveis consulte [Power BI Reports Best Practices](https://docs.microsoft.com/power-bi/power-bi-reports-performance).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Permitir que as aplicações de clientes nativos interajam com aplicações proxy](application-proxy-configure-native-client-application.md)
 - [Ver KPIs e relatórios no local do servidor de relatórios nas aplicações móveis do Power BI](https://docs.microsoft.com/power-bi/consumer/mobile/mobile-app-ssrs-kpis-mobile-on-premises-reports)

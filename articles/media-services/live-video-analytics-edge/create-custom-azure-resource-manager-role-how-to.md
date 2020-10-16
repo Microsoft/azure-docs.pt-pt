@@ -4,10 +4,10 @@ description: Este artigo fornece orientações sobre como criar uma função per
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.openlocfilehash: a780ecbbf2530b15984c596281c4aa7e4f5dd520
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90526583"
 ---
 # <a name="create-custom-azure-resource-manager-role-and-assign-to-service-principal"></a>Crie uma função personalizada de Gestor de Recursos Azure e atribua ao diretor de serviços
@@ -25,7 +25,7 @@ Os pré-requisitos para este artigo são os seguintes:
 
 A forma mais fácil de verificar se a sua conta tem permissões adequadas é utilizar o portal. Veja [Permissões obrigatórias](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
-## <a name="overview"></a>Descrição Geral  
+## <a name="overview"></a>Descrição geral  
 
 Iremos reem pouco tempo para criar um papel personalizado e ligá-lo a um diretor de serviço na seguinte ordem:
 
@@ -179,7 +179,7 @@ az role assignment create --role “LVAEdge User” --assignee-object-id < objec
 
 Parâmetros:
 
-|Parâmetros|Description| 
+|Parâmetros|Descrição| 
 |---|---|
 |--papel |Nome de função personalizada ou ID. No nosso caso: "Utilizador LVAEdge".|
 |--assignee-object-id|ID de objeto do principal de serviço que você vai usar.|

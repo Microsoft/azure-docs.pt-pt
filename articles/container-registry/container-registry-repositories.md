@@ -4,10 +4,10 @@ description: Utilize o portal Azure para visualizar os repositórios do Registo 
 ms.topic: article
 ms.date: 01/05/2018
 ms.openlocfilehash: 1da72706d2554610a685f71199ab14af5e30ce1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74456286"
 ---
 # <a name="view-container-registry-repositories-in-the-azure-portal"></a>Ver repositórios de registo de contentores no portal Azure
@@ -34,7 +34,7 @@ docker push myregistry.azurecr.io/samples/nginx
 
 Para ver um repositório:
 
-1. Inscreva-se no [portal Azure][portal]
+1. Inicie sessão no [portal do Azure][portal]
 1. Selecione o **Registo do Contentor Azure** ao qual empurrou a imagem Nginx
 1. **Selecione Repositórios** para ver uma lista dos repositórios que contêm as imagens no registo
 1. Selecione um repositório para ver as etiquetas de imagem dentro desse repositório
@@ -43,7 +43,7 @@ Por exemplo, se empurrou a imagem Nginx como instruído em [Push e puxar uma ima
 
 ![Repositórios no portal](./media/container-registry-repositories/container-registry-repositories.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que conhece os fundamentos da visualização e do trabalho com repositórios no portal, tente utilizar o Registo de Contentores Azure com um cluster [Azure Kubernetes Service (AKS).](../aks/tutorial-kubernetes-prepare-app.md)
 

@@ -12,10 +12,10 @@ ms.date: 12/13/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 6faf9fb3d15709d3897db9a77bf14ebf238e8fbf
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87116366"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a mudança de senha usando políticas personalizadas no Azure Ative Directory B2C

@@ -16,10 +16,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 12/04/2019
 ms.openlocfilehash: 07a0581cd7fe2e7a9c13f860c862e34da3cfd1ca
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88998293"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-using-azure-notification-hubs"></a>Tutorial: Enviar notificações para apps da Plataforma Universal windows usando hubs de notificação do Azure

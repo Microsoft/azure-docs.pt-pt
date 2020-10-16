@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: e3f158bb4e8208d00fdfbc44b4afaf067183b6d2
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86087321"
 ---
 # <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Mover dados do HDFS no local usando a Azure Data Factory
@@ -64,7 +64,7 @@ As seguintes secções fornecem detalhes sobre as propriedades JSON que são usa
 ## <a name="linked-service-properties"></a>Propriedades de serviço ligadas
 Um serviço ligado liga uma loja de dados a uma fábrica de dados. Cria um serviço de **tipo Hdfs** ligado para ligar um HDFS no local à sua fábrica de dados. A tabela seguinte fornece descrição para elementos JSON específicos do serviço ligado ao HDFS.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | tipo |A propriedade tipo deve ser definida para: **Hdfs** |Sim |
 | url |URL para o HDFS |Sim |
@@ -117,10 +117,10 @@ Para obter uma lista completa de secções & propriedades disponíveis para defi
 
 A secção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados na loja de dados. A secção typeProperties para conjunto de dados do tipo **FileShare** (que inclui conjunto de dados HDFS) tem as seguintes propriedades
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | folderPath |Caminho para a pasta. Exemplo: `myfolder`<br/><br/>Utilize o personagem de fuga ' \ ' para caracteres especiais na corda. Por exemplo: para a sub-dobragem pasta\, especifique \\ \\ a sub-dobradeira e para d:\samplefolder, especificar d: \\ \\ amostragem.<br/><br/>Pode combinar esta propriedade com **partição Para** ter caminhos de pasta baseados em intervalos de datas de início/fim da fatia. |Sim |
-| fileName |Especifique o nome do ficheiro na **pastaPata** se pretender que a tabela se refira a um ficheiro específico na pasta. Se não especificar qualquer valor para esta propriedade, a tabela aponta para todos os ficheiros da pasta.<br/><br/>Quando o data de ficheiro não for especificado para um conjunto de dados de saída, o nome do ficheiro gerado estará no seguinte formato: <br/><br/>`Data.<Guid>.txt`(por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
+| fileName |Especifique o nome do ficheiro na **pastaPata** se pretender que a tabela se refira a um ficheiro específico na pasta. Se não especificar qualquer valor para esta propriedade, a tabela aponta para todos os ficheiros da pasta.<br/><br/>Quando o data de ficheiro não for especificado para um conjunto de dados de saída, o nome do ficheiro gerado estará no seguinte formato: <br/><br/>`Data.<Guid>.txt` (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
 | partitionedBy |partitionedBy pode ser usado para especificar uma pasta dinâmicaPath, nome de ficheiro para dados da série de tempo. Exemplo: pastaPametante parametrizada para cada hora de dados. |Não |
 | formato | Os seguintes tipos de formato são suportados: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat,** **ParquetFormat**. Desa um destes valores, o **tipo** de propriedade em formato. Para mais informações, consulte [formato de texto,](data-factory-supported-file-and-compression-formats.md#text-format) [formato Json,](data-factory-supported-file-and-compression-formats.md#json-format) [Formato Avro,](data-factory-supported-file-and-compression-formats.md#avro-format) [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e secções [de Formato Parquet.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Se pretender **copiar ficheiros como-está** entre lojas baseadas em ficheiros (cópia binária), salte a secção de formato nas definições de conjunto de dados de entrada e saída. |Não |
 | compressão | Especifique o tipo e o nível de compressão para os dados. Os tipos suportados são: **GZip,** **Deflate,** **BZip2**e **ZipDeflate**. Os níveis suportados são: **Ideal** e **Mais rápido**. Para obter mais informações, consulte [os formatos de arquivo e compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
@@ -446,7 +446,7 @@ Existem duas opções para configurar o ambiente no local de modo a utilizar a a
    Kadmin> addprinc krbtgt/REALM.COM@AD.COM
    ```
 
-3. Em **hadoop.security.auth_to_local** ficheiro de configuração de serviço HDFS, adicione `RULE:[1:$1@$0](.*\@AD.COM)s/\@.*//` .
+3. No **hadoop.security.auth_to_local** ficheiro de configuração do serviço HDFS, adicione `RULE:[1:$1@$0](.*\@AD.COM)s/\@.*//` .
 
 **No controlador de domínio:**
 

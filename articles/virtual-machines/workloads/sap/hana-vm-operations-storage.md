@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/28/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 62faec3fd9ee36cb7a2b5da7e6bae07c6c8e06af
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 9194b461cdceab889e1dfd20e3e70f3f69cb4369
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449378"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978259"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurações de armazenamento da máquina virtual do Azure do SAP HANA
 
@@ -75,7 +75,7 @@ Linux tem vários modos de agendamento de I/O diferentes. Recomendação comum a
 O Azure Write Accelerator é uma funcionalidade disponível exclusivamente para VMs da Série M-Série Azure. Como o nome afirma, o objetivo da funcionalidade é melhorar a latência de I/O de escritas contra o armazenamento premium Azure. Para o SAP HANA, o Acelerador de Escrita deve ser utilizado apenas contra o volume **/hana/log.** Portanto, o **/hana/data** e **/hana/log** são volumes separados com acelerador de escrita Azure suportando apenas o volume **/hana/log.** 
 
 > [!IMPORTANT]
-> Ao utilizar o armazenamento premium Azure, a utilização do Acelerador de [Escrita](../../how-to-enable-write-accelerator.md) Azure para o volume **/hana/log** é obrigatória. O Write Accelerator está disponível apenas para armazenamento premium e M-Series e VMs série Mv2. O Write Accelerator não está a funcionar em combinação com outras famílias Azure VM, como o Esv3 ou o Edsv4.
+> Ao utilizar o armazenamento premium Azure, a utilização do Acelerador de [Escrita](../../how-to-enable-write-accelerator.md) Azure para o volume **/hana/log** é obrigatória. O Write Accelerator está disponível apenas para armazenamento premium e M-Series e VMs Mv2-Series. O Write Accelerator não está a funcionar em combinação com outras famílias Azure VM, como o Esv3 ou o Edsv4.
 
 As recomendações de cache para discos premium Azure abaixo assumem as características de E/S para SAP HANA que lista como:
 
@@ -88,7 +88,7 @@ As recomendações de cache para discos premium Azure abaixo assumem as caracter
 **Recomendação: Em resultado destes padrões de E/S observados pela SAP HANA, o caching para os diferentes volumes que utilizam o armazenamento premium Azure deve ser definido como:**
 
 - **/hana/data** - sem caching ou leitura de caching
-- **/hana/log** - sem caching - exceção para VMs da série M- e Mv2 onde o Acelerador de Escrita Azure deve ser ativado 
+- **/hana/log** - sem caching - exceção para VMs M e Mv2-Series onde o Acelerador de Escrita Azure deve ser ativado 
 - **/hana/shared** - ler caching
 - **Disco oss** - não altere o cache padrão que é definido por Azure no tempo de criação do VM
 
@@ -229,7 +229,7 @@ O disco ultra dá-lhe a possibilidade de definir um único disco que cumpra o se
 Outras vantagens do disco Ultra podem ser a latência mais lida em comparação com o armazenamento premium. A latência de leitura mais rápida pode ter vantagens quando se pretende reduzir os tempos de arranque HANA e a carga subsequente dos dados na memória. As vantagens do armazenamento ultra-disco também podem ser sentidas quando hana está escrevendo pontos de salvamento. 
 
 > [!NOTE]
-> O disco ultra ainda não está presente em todas as regiões do Azure e também não está ainda a apoiar todos os tipos de VM listados abaixo. Para obter informações detalhadas sobre onde o disco Ultra está disponível e quais as famílias VM que são apoiadas, verifique o artigo [Que tipos de disco estão disponíveis no Azure?](../../windows/disks-types.md#ultra-disk)
+> O disco ultra ainda não está presente em todas as regiões do Azure e também não está ainda a apoiar todos os tipos de VM listados abaixo. Para obter informações detalhadas sobre onde o disco Ultra está disponível e quais as famílias VM que são apoiadas, verifique o artigo [Que tipos de disco estão disponíveis no Azure?](../../disks-types.md#ultra-disk)
 
 ### <a name="production-recommended-storage-solution-with-pure-ultra-disk-configuration"></a>Solução de armazenamento recomendada de produção com configuração de disco Ultra puro
 Nesta configuração, mantenha os **volumes /hana/data** e **/hana/log** separadamente. Os valores sugeridos são derivados dos KPI's que o SAP tem de certificar os tipos de VM para as configurações DE SAP HANA e armazenamento, conforme recomendado no [papel branco de armazenamento SAP TDI](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html).
@@ -272,7 +272,7 @@ Para obter detalhes sobre a ANF para HANA, leia o documento [NFS v4.1 volumes em
 
 
 ## <a name="cost-conscious-solution-with-azure-premium-storage"></a>Solução consciente de custos com armazenamento premium Azure
-Até agora, a solução de armazenamento premium Azure descrita neste documento na secção [Soluções com armazenamento premium e acelerador de escrita Azure para máquinas virtuais Azure M-Series destinavam-se](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) a cenários apoiados pela produção SAP HANA. Uma das características das configurações de produção suportais é a separação dos volumes para dados SAP HANA e refazer o registo em dois volumes diferentes. A razão para tal separação é que as características da carga de trabalho nos volumes são diferentes. E que, com as configurações de produção sugeridas, poderiam ser necessários diferentes tipos de caching ou mesmo diferentes tipos de armazenamento de blocos Azure. As configurações suportadas pela produção utilizando o alvo de armazenamento do bloco Azure também estão em conformidade com o [SLA VM único para máquinas virtuais Azure.](https://azure.microsoft.com/support/legal/sla/virtual-machines/)  No caso de cenários não produtivos, algumas das considerações tomadas para os sistemas de produção podem não se aplicar a sistemas de não produção mais baixos. Como resultado, os dados HANA e o volume de registo podem ser combinados. Embora eventualmente com alguns culpados, como eventualmente não cumprir certos KPI's de produção ou latência que são necessários para os sistemas de produção. Outro aspeto para reduzir os custos nestes ambientes pode ser a utilização do [armazenamento SSD Standard Azure.](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage#azure-standard-ssd-storage) Embora uma escolha que invalida o [único VM SLA para máquinas virtuais Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). 
+Até agora, a solução de armazenamento premium Azure descrita neste documento na secção [Soluções com armazenamento premium e acelerador de escrita Azure para máquinas virtuais Azure M-Series destinavam-se](#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) a cenários apoiados pela produção SAP HANA. Uma das características das configurações de produção suportais é a separação dos volumes para dados SAP HANA e refazer o registo em dois volumes diferentes. A razão para tal separação é que as características da carga de trabalho nos volumes são diferentes. E que, com as configurações de produção sugeridas, poderiam ser necessários diferentes tipos de caching ou mesmo diferentes tipos de armazenamento de blocos Azure. As configurações suportadas pela produção utilizando o alvo de armazenamento do bloco Azure também estão em conformidade com o [SLA VM único para máquinas virtuais Azure.](https://azure.microsoft.com/support/legal/sla/virtual-machines/)  No caso de cenários não produtivos, algumas das considerações tomadas para os sistemas de produção podem não se aplicar a sistemas de não produção mais baixos. Como resultado, os dados HANA e o volume de registo podem ser combinados. Embora eventualmente com alguns culpados, como eventualmente não cumprir certos KPI's de produção ou latência que são necessários para os sistemas de produção. Outro aspeto para reduzir os custos nestes ambientes pode ser a utilização do [armazenamento SSD Standard Azure.](./planning-guide-storage.md#azure-standard-ssd-storage) Embora uma escolha que invalida o [único VM SLA para máquinas virtuais Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). 
 
 Uma alternativa menos dispendiosa para tais configurações poderia parecer:
 
@@ -309,7 +309,7 @@ No caso de combinar os dados e o volume de registo para o SAP HANA, os discos qu
 Existem tipos de VM listados que não são certificados com SAP e, como tal, não estão listados no chamado [diretório de hardware SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). O feedback dos clientes foi o de que esses tipos de VM não listados foram utilizados com sucesso para algumas tarefas não-produção.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações, consulte:
 
 - [Guia de alta disponibilidade SAP HANA para máquinas virtuais Azure](./sap-hana-availability-overview.md).

@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: Nova atribuição de políticas com a REST API'
 description: Neste quickstart, você usa a API REST para criar uma atribuição de Política Azure para identificar recursos não conformes.
-ms.date: 08/10/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 04880ef013060bc5ff12618af6a9156295a26a88
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ab05079c5bb319f0808a743a1d668649df51b1b3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88136532"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074010"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-rest-api"></a>Quickstart: Criar uma atribuição de política para identificar recursos não conformes com a API REST
 
@@ -23,7 +23,7 @@ REST A API é usada para criar e gerir recursos Azure. Este guia utiliza a API R
 
 - Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-- Se ainda não o fez, instale [o ARMClient](https://github.com/projectkudu/ARMClient). É uma ferramenta que envia pedidos HTTP para AZure Resource Manager-based REST APIs. Em alternativa, pode utilizar a função "Try It" na documentação REST ou na ferramenta como [o Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) ou [o Carteiro](https://www.postman.com)da PowerShell.
+- Se ainda não o fez, instale [o ARMClient](https://github.com/projectkudu/ARMClient). É uma ferramenta que envia pedidos HTTP para AZure Resource Manager-based REST APIs. Também pode utilizar a função "Try It" na documentação REST ou ferramentas como [a Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) ou [o Carteiro](https://www.postman.com)da PowerShell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

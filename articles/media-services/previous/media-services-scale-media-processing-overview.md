@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 09/30/2020
 ms.author: inhenkel
 ms.openlocfilehash: 8867e680be0aba187daf83bc538dd47c582c71fe
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91618510"
 ---
-# <a name="media-reserved-units"></a>Unidades reservadas aos meios de comunicação
+# <a name="media-reserved-units"></a>Unidades reservadas de multimédia
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 

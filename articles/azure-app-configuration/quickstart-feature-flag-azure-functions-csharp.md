@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 8/26/2020
 ms.author: alkemper
-ms.openlocfilehash: f57163b3d17877f7f8c66fa57fc8a0736c6affb7
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: d1dc843ff676429f202c0b9077057d067294f738
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767702"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076169"
 ---
 # <a name="quickstart-add-feature-flags-to-an-azure-functions-app"></a>Quickstart: Adicione bandeiras de recurso a uma aplicação Azure Functions
 
@@ -143,13 +143,13 @@ As bibliotecas de Gestão de Recursos .NET alargam o quadro com suporte de bande
  
     ![Bandeira de função quickstart ativada](./media/quickstarts/functions-launch-ff-enabled.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, criou uma bandeira de recurso e utilizou-a com uma aplicação Azure Functions através do provedor de Configuração de [Aplicações.](https://go.microsoft.com/fwlink/?linkid=2074664)
+Neste arranque rápido, criou uma bandeira de recurso e utilizou-a com uma aplicação Azure Functions através do provedor de Configuração de [Aplicações.](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration)
 
 - Saiba mais sobre [gestão de recursos.](./concept-feature-management.md)
 - [Gerir bandeiras de características](./manage-feature-flags.md).

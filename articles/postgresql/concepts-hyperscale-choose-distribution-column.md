@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: f3c86f4b194e6d3935434b35cae958dfcf772986
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 129eff8c954c0c5469d3607e6ae16ce3202630ed
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91314917"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91929341"
 ---
 # <a name="choose-distribution-columns-in-azure-database-for-postgresql--hyperscale-citus"></a>Escolha colunas de distribuição na Base de Dados Azure para PostgreSQL – Hiperescala (Citus)
 
@@ -71,8 +71,6 @@ O erro mais comum na modelação de informações de séries temporais em Hypers
 
 -   **Não escolha um tempotando como coluna de distribuição.** Escolha uma coluna de distribuição diferente. Numa aplicação multi-inquilina, use o ID do inquilino, ou numa aplicação em tempo real use o ID da entidade.
 -   **Utilize a partição da mesa PostgreSQL durante algum tempo.** Utilize divisórias de mesa para quebrar uma grande tabela de dados encomendados pelo tempo em várias tabelas herdadas com cada tabela contendo diferentes intervalos de tempo. A distribuição de uma mesa de divisórias postgres em Hiperescala (Citus) cria fragmentos para as tabelas herdadas.
-
-Leia o [tutorial da série de tempo](https://aka.ms/hyperscale-tutorial-timeseries) para um exemplo de como construir este tipo de aplicação.
 
 ## <a name="next-steps"></a>Passos seguintes
 - Saiba como [a colocação](concepts-hyperscale-colocation.md) entre dados distribuídos ajuda as consultas a correr rapidamente.

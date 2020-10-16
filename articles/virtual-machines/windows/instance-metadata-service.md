@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: 2e0788b6a7eb6f1d43185d8b484adddd76374ea3
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 51310b1569982e0b71f39dede0d4d7dbefd1a3c9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086713"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975540"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados Azure Instance
 
@@ -35,7 +35,7 @@ Os pedidos devem igualmente conter um `Metadata: true` cabeçalho para garantir 
 > [!IMPORTANT]
 > O Serviço de Metadados de Exemplo não é um canal para dados sensíveis. O ponto final está aberto a todos os processos no VM. As informações expostas através deste serviço devem ser consideradas como informações partilhadas a todas as aplicações que estão dentro do VM.
 
-## <a name="usage"></a>Utilização
+## <a name="usage"></a>Usage
 
 ### <a name="accessing-azure-instance-metadata-service"></a>Aceder ao Serviço de Metadados de Exemplo de Azure
 
@@ -47,13 +47,15 @@ Abaixo está o código de amostra para recuperar todos os metadados para um exem
 **Pedir**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance?api-version=2020-06-01
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance?api-version=2020-06-01 | ConvertTo-Json
 ```
+> [!NOTE]
+> A `-NoProxy` bandeira só está disponível no PowerShell 6 ou superior. Pode omitir a bandeira se não tiver uma configuração de procuração.
 
 **Response**
 
 > [!NOTE]
-> A resposta é uma corda JSON. A resposta de exemplo a seguir é bastante impressa para a legibilidade.
+> A resposta é uma corda JSON. Canalizamos a nossa consulta REST através do `ConvertTo-Json` cmdlet para impressão bonita.
 
 ```json
 {
@@ -159,10 +161,10 @@ A tabela a seguir é uma referência de outros formatos de dados que as APIs pod
 
 API | Formato de dados predefinidos | Outros Formatos
 --------|---------------------|--------------
-/atestado | json | nenhum
-/identidade | json | nenhum
+/atestado | json | nenhuma
+/identidade | json | nenhuma
 /instância | json | texto
-/horários eventos | json | nenhum
+/horários eventos | json | nenhuma
 
 Para aceder a um formato de resposta não padrão, especifique o formato solicitado como um parâmetro de cadeia de consulta no pedido. Por exemplo:
 
@@ -239,7 +241,7 @@ API | Descrição | Versão introduzida
 
 A API de caso expõe os metadados importantes para as instâncias VM, incluindo o VM, a rede e o armazenamento. As seguintes categorias podem ser acedidas através de exemplo/cálculo:
 
-Dados | Description | Versão introduzida
+Dados | Descrição | Versão introduzida
 -----|-------------|-----------------------
 azEnvironment | Ambiente azul onde o VM está em execução | 2018-10-01
 customData | Esta funcionalidade encontra-se atualmente desativada. Atualizaremos esta documentação quando estiver disponível | 2019-02-01
@@ -250,8 +252,8 @@ oferta | Oferecer informações para a imagem VM e só está presente para image
 osTipos | Linux ou Windows | 2017-04-02
 placementGroupId | Grupo de [colocação](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) do seu conjunto de escala de máquina virtual | 2017-08-01
 plano | [Plano](/rest/api/compute/virtualmachines/createorupdate#plan) contendo nome, produto e editor para um VM se for uma Imagem de Mercado Azure | 2018-04-02
-plataformaUpdateDomain |  [Atualização](manage-availability.md) do domínio em que o VM está a funcionar | 2017-04-02
-plataformaFaultDomain | [Domínio de avaria](manage-availability.md) em que o VM está a funcionar | 2017-04-02
+plataformaUpdateDomain |  [Atualização](../manage-availability.md) do domínio em que o VM está a funcionar | 2017-04-02
+plataformaFaultDomain | [Domínio de avaria](../manage-availability.md) em que o VM está a funcionar | 2017-04-02
 provedor | Provedor do VM | 2018-10-01
 publicKeys | [Coleção de Chaves Públicas](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) atribuídas ao VM e caminhos | 2018-04-02
 publicador | Editor da imagem VM | 2017-04-02
@@ -433,7 +435,7 @@ A nuvem e os valores do Ambiente Azure estão listados abaixo.
 
 Os metadados de rede fazem parte do caso API. As seguintes categorias de Rede estão disponíveis através do ponto final de instância/rede.
 
-Dados | Description | Versão introduzida
+Dados | Descrição | Versão introduzida
 -----|-------------|-----------------------
 ipv4/privateIpAddress | Endereço IPv4 local do VM | 2017-04-02
 ipv4/publicIpAddress | Endereço IPv4 público do VM | 2017-04-02
@@ -501,7 +503,7 @@ O perfil de armazenamento de um VM é dividido em três categorias: referência 
 
 O objeto de referência de imagem contém as seguintes informações sobre a imagem do SO:
 
-Dados    | Description
+Dados    | Descrição
 --------|-----------------
 ID      | ID do Recurso
 oferta   | Oferta da plataforma ou imagem de mercado
@@ -511,7 +513,7 @@ versão | Versão da plataforma ou imagem do mercado
 
 O objeto do disco OS contém as seguintes informações sobre o disco de oss utilizado pelo VM:
 
-Dados    | Description
+Dados    | Descrição
 --------|-----------------
 caching | Requisitos de caching
 criar Opção | Informação sobre como o VM foi criado
@@ -527,7 +529,7 @@ writeAcceleratorEnabled | Se escrever Ou não OAccelerador está ativado no disc
 
 A matriz de discos de dados contém uma lista de discos de dados anexados ao VM. Cada objeto de disco de dados contém as seguintes informações:
 
-Dados    | Description
+Dados    | Descrição
 --------|-----------------
 caching | Requisitos de caching
 criar Opção | Informação sobre como o VM foi criado
@@ -688,7 +690,7 @@ Nonce é uma corda opcional de 10 dígitos. Se não for fornecida, o IMDS devolv
 A bolha de assinatura é uma versão assinada por [pkcs7](https://aka.ms/pkcs7) do documento. Contém o certificado utilizado para a assinatura juntamente com certos detalhes específicos da VM. Para os VMs ARM, isto inclui vmId, sku, nonce, subscriçãoId, timeStamp para criação e expiração do documento e informação do plano sobre a imagem. A informação do plano só é preenchida para imagens do Azure Marketplace. Para VMs clássicos (não-ARM), apenas o vmId é garantido para ser povoado. O certificado pode ser extraído da resposta e usado para validar que a resposta é válida e vem do Azure.
 O documento contém os seguintes campos:
 
-Dados | Description
+Dados | Descrição
 -----|------------
 nonce | Uma corda que pode ser opcionalmente fornecida com o pedido. Se não for fornecido nenhum nonce, o atual calendário UTC é usado
 plano | O [plano Azure Marketplace Image](/rest/api/compute/virtualmachines/createorupdate#plan). Contém o id do plano (nome), imagem ou oferta do produto (produto) e id editor (editor).

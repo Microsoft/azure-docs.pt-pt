@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 35f79702b7aad51b764ce2edb37c3c76d1fe98e8
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89261517"
 ---
 # <a name="media-encoder-standard-schema"></a>Esquema Media Encoder Standard
@@ -99,8 +99,8 @@ Por predefinição, se enviar uma entrada para o codificar que contém apenas á
 | **Bitrate**<br/><br/> minOccurs="0" |**xs:int** |O bitrate usado para esta camada de vídeo, especificado em kbps. |
 | **MaxBitrate**<br/><br/> minOccurs="0" |**xs: int** |O bitrate máximo utilizado para esta camada de vídeo, especificado em kbps. |
 | **BufferWindow**<br/><br/> minOccurs="0"<br/><br/> default="00:00:05" |**xs: tempo** |Comprimento do tampão de vídeo. |
-| **Width**<br/><br/> minOccurs="0" |**xs: int** |Largura da moldura de vídeo de saída, em pixels.<br/><br/> Atualmente, deve especificar tanto a largura como a altura. A Largura e Altura têm de ser números pares. |
-| **Height**<br/><br/> minOccurs="0" |**xs:int** |Altura da estrutura de vídeo de saída, em pixels.<br/><br/> Atualmente, deve especificar tanto a largura como a altura. A Largura e Altura têm de ser números pares.|
+| **Largura**<br/><br/> minOccurs="0" |**xs: int** |Largura da moldura de vídeo de saída, em pixels.<br/><br/> Atualmente, deve especificar tanto a largura como a altura. A Largura e Altura têm de ser números pares. |
+| **Altura**<br/><br/> minOccurs="0" |**xs:int** |Altura da estrutura de vídeo de saída, em pixels.<br/><br/> Atualmente, deve especificar tanto a largura como a altura. A Largura e Altura têm de ser números pares.|
 | **BFrames**<br/><br/> minOccurs="0" |**xs: int** |Número de quadros B entre quadros de referência. |
 | **Quadros de Referência**<br/><br/> minOccurs="0"<br/><br/> default="3" |**xs:int** |Número de quadros de referência num GOP. |
 | **EntropiaMode**<br/><br/> minOccurs="0"<br/><br/> default="Cabac" |**xs: corda** |Pode ser um dos seguintes valores: **Cabac** e **Cavlc**. |
@@ -185,7 +185,7 @@ Codec áudio|Detalhes
 | --- | --- | --- |
 | **Iniciar** |**xs:cadeia** | |
 | **Passo** |**xs:cadeia** | |
-| **Alcance** |**xs:cadeia** | |
+| **Intervalo** |**xs:cadeia** | |
 | **PreservarResolutionAfterRotation** |**xs:boolean** |Para obter uma explicação detalhada, consulte a seguinte secção: [PreserveResolutionAfterRotation](media-services-mes-schema.md#PreserveResolutionAfterRotation) |
 
 ### <a name="preserveresolutionafterrotation"></a><a name="PreserveResolutionAfterRotation"></a> PreservarResolutionAfterRotation
@@ -217,8 +217,8 @@ Em alternativa, pode utilizar a bandeira **de PreservaResolutionAfterRotation** 
 
 | Nome | Tipo | Descrição |
 | --- | --- | --- |
-| **Width**<br/><br/> minOccurs="0" |**xs:int** | |
-| **Height**<br/><br/> minOccurs="0" |**xs:int** | |
+| **Largura**<br/><br/> minOccurs="0" |**xs:int** | |
+| **Altura**<br/><br/> minOccurs="0" |**xs:int** | |
 
 ### <a name="attributes"></a>Atributos
 
@@ -231,8 +231,8 @@ Em alternativa, pode utilizar a bandeira **de PreservaResolutionAfterRotation** 
 
 | Nome | Tipo | Descrição |
 | --- | --- | --- |
-| **Width**<br/><br/> minOccurs="0" |**xs:int** | |
-| **Height**<br/><br/> minOccurs="0" |**xs:int** | |
+| **Largura**<br/><br/> minOccurs="0" |**xs:int** | |
+| **Altura**<br/><br/> minOccurs="0" |**xs:int** | |
 
 ### <a name="attributes"></a>Atributos
 
@@ -245,8 +245,8 @@ Em alternativa, pode utilizar a bandeira **de PreservaResolutionAfterRotation** 
 
 | Nome | Tipo | Descrição |
 | --- | --- | --- |
-| **Width**<br/><br/> minOccurs="0" |**xs:int** | |
-| **Height**<br/><br/> minOccurs="0" |**xs:int** | |
+| **Largura**<br/><br/> minOccurs="0" |**xs:int** | |
+| **Altura**<br/><br/> minOccurs="0" |**xs:int** | |
 | **Qualidade**<br/><br/> minOccurs="0" |**xs:int** |Valores válidos: 1(pior)-100 (melhor) |
 
 ### <a name="attributes"></a>Atributos

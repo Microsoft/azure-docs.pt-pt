@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 03/10/2020
 ms.openlocfilehash: b5170f1c2e6c72c684cb1afcf1bf9bf8d3ef6fff
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91284368"
 ---
 # <a name="database-advisor-performance-recommendations-for-azure-sql-database"></a>Recomendações de desempenho do Advisor da Base de Dados para a Base de Dados Azure SQL
@@ -40,10 +40,10 @@ As opções de recomendação de desempenho disponíveis na Base de Dados Azure 
 
 | Recomendação de desempenho | Base de dados única e suporte de base de dados em conjunto | Suporte de base de dados de casos |
 | :----------------------------- | ----- | ----- |
-| **Crie recomendações de índice -** Recomenda a criação de índices que possam melhorar o desempenho da sua carga de trabalho. | Yes | No |
-| **Recomendações de índice de queda** - Recomenda a remoção de índices redundantes e duplicados diariamente, com exceção de índices únicos, e índices que não foram utilizados durante muito tempo (>90 dias). Por favor, note que esta opção não é compatível com aplicações usando comutação de partição e dicas de índice. A queda de índices não suportados não é suportada para os níveis de serviço Premium e Business Critical. | Yes | No |
-| **Parametrizar recomendações de consultas (pré-visualização)** - Recomenda a parametrização forçada em casos em que tenha uma ou mais consultas que estão constantemente a ser recompiliadas, mas que acabam com o mesmo plano de execução de consultas. | Yes | No |
-| **Corrigir recomendações de problemas de esquema (pré-visualização)** - As recomendações para a correção do esquema aparecem quando a Base de Dados Azure SQL nota uma anomalia no número de erros SQL relacionados com esquemas que estão a acontecer na sua base de dados. A Microsoft está atualmente a deprepar as recomendações de "Fix Schema issue". | Yes | No |
+| **Crie recomendações de índice -** Recomenda a criação de índices que possam melhorar o desempenho da sua carga de trabalho. | Sim | Não |
+| **Recomendações de índice de queda** - Recomenda a remoção de índices redundantes e duplicados diariamente, com exceção de índices únicos, e índices que não foram utilizados durante muito tempo (>90 dias). Por favor, note que esta opção não é compatível com aplicações usando comutação de partição e dicas de índice. A queda de índices não suportados não é suportada para os níveis de serviço Premium e Business Critical. | Sim | Não |
+| **Parametrizar recomendações de consultas (pré-visualização)** - Recomenda a parametrização forçada em casos em que tenha uma ou mais consultas que estão constantemente a ser recompiliadas, mas que acabam com o mesmo plano de execução de consultas. | Sim | Não |
+| **Corrigir recomendações de problemas de esquema (pré-visualização)** - As recomendações para a correção do esquema aparecem quando a Base de Dados Azure SQL nota uma anomalia no número de erros SQL relacionados com esquemas que estão a acontecer na sua base de dados. A Microsoft está atualmente a deprepar as recomendações de "Fix Schema issue". | Sim | Não |
 
 ![Recomendações de desempenho para Azure SQL Database](./media/database-advisor-implement-performance-recommendations/performance-recommendations-annotated.png)
 

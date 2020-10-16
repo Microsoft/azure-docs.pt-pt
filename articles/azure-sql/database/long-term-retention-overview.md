@@ -13,10 +13,10 @@ ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 05/18/2019
 ms.openlocfilehash: 83d3bb78ef27af377b0a8c5edf75f658a0ca93e7
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91450226"
 ---
 # <a name="long-term-retention---azure-sql-database-and-azure-sql-managed-instance"></a>Retenção a longo prazo - Azure SQL Database e Azure SQL Managed Instance
@@ -96,7 +96,7 @@ Para aprender a configurar a retenção a longo prazo ou restaurar uma base de d
 
 Para restaurar uma base de dados a partir do armazenamento LTR, pode selecionar uma cópia de segurança específica com base na sua hora de tempo. A base de dados pode ser restaurada em qualquer servidor existente sob a mesma subscrição que a base de dados original. Para aprender a restaurar a sua base de dados a partir de uma cópia de segurança LTR, utilizando o portal Azure, ou PowerShell, consulte [Gerir a rede de backup de longo prazo da Manage Azure SQL Database](long-term-backup-retention-configure.md). No seu pedido, por favor, diga que gostaria de estar inscrito na antevisão pública limitada do LTR para SQL Managed Instance.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Como as cópias de dados protegem os dados da corrupção acidental ou da eliminação, são uma parte essencial de qualquer estratégia de continuidade de negócios e recuperação de desastres. Para conhecer as outras soluções de continuidade de negócios da SQL Database, consulte [a visão geral da continuidade do Negócio.](business-continuity-high-availability-disaster-recover-hadr-overview.md)
  

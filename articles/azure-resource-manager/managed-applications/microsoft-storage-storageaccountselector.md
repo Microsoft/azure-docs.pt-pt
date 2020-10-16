@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: tomfitz
 ms.openlocfilehash: fe70c42387e9dedea8943b5dcce04a1f9ded5190
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87033304"
 ---
 # <a name="microsoftstoragestorageaccountselector-ui-element"></a>Microsoft.Storage.StorageAçãoSelector Elemento UI
@@ -49,7 +49,7 @@ O controlo permite ao utilizador criar uma nova conta de armazenamento ou seleci
 }
 ```
 
-## <a name="sample-output"></a>Resultado da amostra
+## <a name="sample-output"></a>Saída de exemplo
 
 ```json
 {
@@ -64,7 +64,7 @@ O controlo permite ao utilizador criar uma nova conta de armazenamento ou seleci
 
 - Se especificado, `defaultValue.name` é validado automaticamente para singularidade. Se o nome da conta de armazenamento não for único, o utilizador deve especificar um nome diferente ou escolher uma conta de armazenamento existente.
 - O valor predefinido `defaultValue.type` é **Premium_LRS**.
-- Qualquer tipo não especificado `constraints.allowedTypes` é escondido, e qualquer tipo não especificado `constraints.excludedTypes` é mostrado. `constraints.allowedTypes`e `constraints.excludedTypes` são ambos opcionais, mas não podem ser usados simultaneamente.
+- Qualquer tipo não especificado `constraints.allowedTypes` é escondido, e qualquer tipo não especificado `constraints.excludedTypes` é mostrado. `constraints.allowedTypes` e `constraints.excludedTypes` são ambos opcionais, mas não podem ser usados simultaneamente.
 - Se `options.hideExisting` for **verdade,** o utilizador não pode escolher uma conta de armazenamento existente. O valor predefinido é **falso**.
 
 ## <a name="next-steps"></a>Passos seguintes

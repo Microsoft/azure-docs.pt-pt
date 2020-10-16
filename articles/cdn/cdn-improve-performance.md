@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 02/28/2018
 ms.author: allensu
 ms.openlocfilehash: 3b8ce5b82b7d2022fd7feea1cd9efe8d524ee6a4
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91358292"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Improve performance by compressing files in Azure CDN (Comprimir ficheiros na CDN do Azure para melhorar o desempenho)
@@ -139,7 +139,7 @@ Estes perfis suportam apenas a codificação da compressão gzip. Quando um pont
 As seguintes tabelas descrevem o comportamento de compressão Azure CDN para cada cenário:
 
 ### <a name="compression-is-disabled-or-file-is-ineligible-for-compression"></a>A compressão é desativada ou o ficheiro não é elegível para a compressão
-| Formato solicitado pelo cliente (via cabeçalho Accept-Encoding) | Formato de ficheiro em cache | A resposta da CDN ao cliente | &nbsp; &nbsp; &nbsp; &nbsp; Notas &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+| Formato solicitado pelo cliente (via Accept-Encoding cabeçalho) | Formato de ficheiro em cache | A resposta da CDN ao cliente | &nbsp; &nbsp; &nbsp; &nbsp; Notas &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 | --- | --- | --- | --- |
 | Comprimidos |Comprimidos |Comprimidos | |
 | Comprimidos |Descomprimido |Descomprimido | |
@@ -149,7 +149,7 @@ As seguintes tabelas descrevem o comportamento de compressão Azure CDN para cad
 | Descomprimido |Não em cache |Descomprimido | |
 
 ### <a name="compression-is-enabled-and-file-is-eligible-for-compression"></a>A compressão está ativada e o ficheiro é elegível para compressão
-| Formato solicitado pelo cliente (via cabeçalho Accept-Encoding) | Formato de ficheiro em cache | Resposta da CDN ao cliente | Notas |
+| Formato solicitado pelo cliente (via Accept-Encoding cabeçalho) | Formato de ficheiro em cache | Resposta da CDN ao cliente | Notas |
 | --- | --- | --- | --- |
 | Comprimidos |Comprimidos |Comprimidos |Os transcos da CDN entre formatos suportados. |
 | Comprimidos |Descomprimido |Comprimidos |A CDN executa uma compressão. |
@@ -165,6 +165,6 @@ Para os pontos finais ativados para o streaming CDN dos Serviços de Mídia, a c
 - url de aplicação/vnd.apple.mpeg
 - aplicação/f4m+xml 
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 * [Troubleshooting CDN file compression](cdn-troubleshoot-compression.md) (Resolver problemas de compressão de ficheiros da CDN)    
 

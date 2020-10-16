@@ -9,10 +9,10 @@ ms.date: 01/28/2019
 ms.author: juliako
 ms.custom: include file
 ms.openlocfilehash: 5ebbac39c8850737ea6f9ef333e45d305a520655
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79461219"
 ---
 ## <a name="use-cli-shell"></a>Use a concha CLI

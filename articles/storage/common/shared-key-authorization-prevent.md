@@ -10,10 +10,10 @@ ms.date: 08/20/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.openlocfilehash: 16080440a9458753992c62309ce75ed241fb64d5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91715118"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Impedir a autorização da Chave Partilhada para uma conta de Armazenamento Azure (pré-visualização)
@@ -245,7 +245,7 @@ Quando estiver a avaliar o tráfego na sua conta de armazenamento, tenha em ment
 
 Quando o acesso da Chave Partilhada é proibido para a conta de armazenamento durante a pré-visualização, as assinaturas de acesso partilhada que os recursos de fila, tabela ou ficheiros Azure continuam a ser permitidas. Esta limitação aplica-se tanto aos tokens SAS de serviço como aos tokens SAS da conta. Ambos os tipos de SAS são autorizados com Chave Partilhada.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - [Autorizar o acesso aos dados no Azure Storage](storage-auth.md)
 - [Autorizar o acesso a bolhas e filas utilizando o Azure Ative Directory](storage-auth-aad.md)

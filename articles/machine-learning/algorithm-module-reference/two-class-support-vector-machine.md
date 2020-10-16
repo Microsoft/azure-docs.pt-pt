@@ -1,5 +1,5 @@
 ---
-title: 'Máquina de vetor de suporte de duas classes: referência do módulo'
+title: 'Two-Class máquina de vetor de suporte: referência do módulo'
 titleSuffix: Azure Machine Learning
 description: Aprenda a usar o módulo **de máquina vetorial de apoio de duas classes** em Azure Machine Learning para criar um modelo que é baseado no algoritmo da máquina vetorial de suporte.
 services: machine-learning
@@ -10,13 +10,13 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 1dc2f8bdf6ed2823b44d25bdf65766b1f7ae060c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907659"
 ---
-# <a name="two-class-support-vector-machine-module"></a>Módulo de máquina de vetor de suporte de duas classes
+# <a name="two-class-support-vector-machine-module"></a>módulo de máquina de vetor de suporte Two-Class
 
 Este artigo descreve um módulo no designer de Aprendizagem automática Azure.
 
@@ -80,7 +80,7 @@ Para este tipo de modelo, recomenda-se que normalize o conjunto de dados antes d
   
 10. Envie o oleoduto.
 
-## <a name="results"></a>Resultados
+## <a name="results"></a>Results
 
 Após o treino estar completo:
 

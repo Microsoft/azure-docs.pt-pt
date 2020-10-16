@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/06/2020
 ms.author: Zhchia
 ms.openlocfilehash: 3f2f62fe158b946e00c7f81d0cb7eeb0d8f09437
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331134"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: Configurar suíte G para fornecimento automático de utilizadores

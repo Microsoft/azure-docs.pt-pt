@@ -6,20 +6,17 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 00d0808e83a888a39f9268328feb209167c9b644
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e630ccec744c4edf0dc80d374ecc93526f960d44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295994"
 ---
 # <a name="track-database-activity-with-audit-logs-in-azure-database-for-mysql-flexible-server"></a>Acompanhe a atividade da base de dados com registos de auditoria na base de dados Azure para o MySQL Flexible Server
 
 > [!IMPORTANT] 
 > Azure Database for MySQL Flexible Server está atualmente em pré-visualização pública
-
-> [!NOTE]
-> A integração com as definições de diagnóstico do Azure Monitor para aceder a registos está em processo de implantação e a funcionalidade completa estará disponível em breve.
 
 A Azure Database for MySQL Flexible Server fornece aos utilizadores a capacidade de configurar registos de auditoria. Os registos de auditoria podem ser usados para rastrear a atividade de nível de base de dados, incluindo eventos de conexão, administração, DDL e DML. Estes tipos de registos são frequentemente utilizados para fins de conformidade.
 
@@ -52,9 +49,6 @@ Outros parâmetros que pode ajustar para controlar o comportamento de registo de
 | `TABLE_ACCESS` | - Disponível apenas para MySQL 5.7 <br> - Declarações de leitura de tabelas, tais como SELECT ou INSERT INTO... SELECIONE <br> - Tabela eliminar declarações, tais como DELETE ou TABELA TRUNCATE <br> - Declarações de inserção de tabelas, tais como INSERT ou REPLACE <br> - Declarações de atualização de tabelas, tais como UPDATE |
 
 ## <a name="access-audit-logs"></a>Aceder aos registos de auditoria
-
-> [!NOTE]
-> A integração com as definições de diagnóstico do Azure Monitor para aceder a registos está em processo de implantação e a funcionalidade completa estará disponível em breve.
 
 Os registos de auditoria são integrados com as definições de diagnóstico do Azure Monitor. Uma vez que tenha ativado os registos de auditoria no seu servidor flexível MySQL, pode emitê-los para registos do Azure Monitor, Centros de Eventos ou Armazenamento Azure. Para saber mais sobre as definições de diagnóstico, consulte a documentação dos [registos de diagnóstico](../../azure-monitor/platform/platform-logs-overview.md). Para saber mais sobre como ativar as definições de diagnóstico no portal Azure, consulte o artigo do [portal de registo de auditoria](how-to-configure-audit-logs-portal.md#set-up-diagnostics).
 

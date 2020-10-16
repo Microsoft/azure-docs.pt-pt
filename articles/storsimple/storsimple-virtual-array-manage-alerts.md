@@ -16,10 +16,10 @@ ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5f32ec82c2b4c6d8b902195782b286cca82befb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85507641"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Utilize o Gestor de Dispositivos StorSimple para gerir alertas para o StorSimple Virtual Array
@@ -32,7 +32,7 @@ Este tutorial descreve como configurar notificações de alerta, condições de 
 
 ![Página de alertas](./media/storsimple-virtual-array-manage-alerts/alerts1.png)
 
-## <a name="configure-alert-settings"></a>Configurar definições de alerta
+## <a name="configure-alert-settings"></a>Configurar as definições de alertas
 
 Pode escolher se pretende ser notificado por e-mail das condições de alerta de cada uma das suas Matrizes Virtuais StorSimple. Além disso, pode identificar outros destinatários de notificação de alerta inserindo os seus endereços de e-mail na caixa adicional de destinatários de **e-mail,** separada por pontos de e-mail.
 
@@ -72,7 +72,7 @@ Depois de ativar a notificação por e-mail para um conjunto virtual, os membros
 
 O seu StorSimple Virtual Array gera alertas em resposta a uma variedade de condições. Seguem-se os tipos mais comuns de condições de alerta:
 
-* **Problemas de conectividade** – Estes alertas ocorrem quando há dificuldade em transferir dados. Problemas de comunicação podem ocorrer durante a transferência de dados de e para a conta de armazenamento Azure ou devido à falta de conectividade entre os dispositivos virtuais e o serviço StorSimple Device Manager. As questões de comunicação são algumas das mais difíceis de corrigir, porque há tantos pontos de falha. Deve verificar-se sempre primeiro se a conectividade da rede e o acesso à Internet estão disponíveis antes de continuar a uma resolução de problemas mais avançada. Para obter informações sobre portas e configurações de firewall, aceda aos [requisitos do sistema StorSimple Virtual Array](storsimple-ova-system-requirements.md). Para obter ajuda na resolução de problemas, vá à [resolução de problemas com o cmdlet de ligação de teste](storsimple-troubleshoot-deployment.md).
+* **Problemas de conectividade** – Estes alertas ocorrem quando há dificuldade em transferir dados. Problemas de comunicação podem ocorrer durante a transferência de dados de e para a conta de armazenamento Azure ou devido à falta de conectividade entre os dispositivos virtuais e o serviço StorSimple Device Manager. As questões de comunicação são algumas das mais difíceis de corrigir, porque há tantos pontos de falha. Deve verificar-se sempre primeiro se a conectividade da rede e o acesso à Internet estão disponíveis antes de continuar a uma resolução de problemas mais avançada. Para obter informações sobre portas e configurações de firewall, aceda aos [requisitos do sistema StorSimple Virtual Array](storsimple-ova-system-requirements.md). Para obter ajuda na resolução de problemas, vá à [resolução de problemas com o Test-Connection cmdlet](storsimple-troubleshoot-deployment.md).
 * **Problemas de desempenho** – Estes alertas são causados quando o seu sistema não está a funcionar da melhor forma, como quando está sob uma carga pesada.
 
 Além disso, poderá ver alertas relacionados com segurança, atualizações ou falhas de emprego.
@@ -165,6 +165,6 @@ As tabelas que se seguem listam alguns dos alertas StorSimple que poderá encont
 |:--- |:--- |:--- |
 | A palavra-passe para <*nome do dispositivo* \> expirará em <dias de *número.* \> |Aviso de senha. |A sua palavra-passe expirará em *number* \> <dias. Considere mudar a sua senha. Para obter mais informações, aceda à [palavra-passe do administrador do dispositivo StorSimple Virtual Array](storsimple-virtual-array-change-device-admin-password.md). |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba mais sobre o Conjunto Virtual StorSimple.](storsimple-ova-overview.md)

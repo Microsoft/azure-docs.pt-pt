@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/24/2019
 ms.openlocfilehash: 327a8a0de0d144a5c1d8494a6dd22a8b89a7bd93
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87081054"
 ---
 # <a name="run-apache-hive-queries-using-powershell"></a>Executar consultas de Colmeia Apache usando PowerShell
@@ -67,7 +67,7 @@ Os seguintes passos demonstram como usar estes cmdlets para executar um trabalho
     2012-02-03      19:25:27        SampleClass4    [ERROR] incorrect       id
     ```
 
-4. Como mencionado anteriormente, `Invoke-Hive` pode ser usado para executar uma consulta e esperar pela resposta. Use o seguinte script para ver como funciona a Invoke-Hive:
+4. Como mencionado anteriormente, `Invoke-Hive` pode ser usado para executar uma consulta e esperar pela resposta. Use o seguinte script para ver como funciona Invoke-Hive:
 
     [!code-powershell[main](../../../powershell_scripts/hdinsight/use-hive/use-hive.ps1?range=50-71)]
 

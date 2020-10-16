@@ -9,10 +9,10 @@ ms.service: iot-dps
 ms.custom: iot-p0-scenario, iot-devices-deviceOEM
 ms.reviewer: nberdy
 ms.openlocfilehash: 788738082cbf9995fb2f7282bc3f574903275528
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90527212"
 ---
 # <a name="security-practices-for-azure-iot-device-manufacturers"></a>Práticas de segurança para fabricantes de dispositivos Azure IoT

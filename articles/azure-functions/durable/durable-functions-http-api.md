@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 4e4081ecca4714c713d105d363a83a4f96a0d3fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84697848"
 ---
 # <a name="http-api-reference"></a>Referência HTTP API
@@ -24,7 +24,7 @@ Todas as APIs HTTP implementadas pela extensão requerem os seguintes parâmetro
 | **`connection`** | Cadeias de consulta    | O **nome** da cadeia de ligação para a conta de armazenamento. Se não for especificado, assume-se a cadeia de ligação predefinida para a aplicação de funções. |
 | **`systemKey`**  | Cadeias de consulta    | A chave de autorização necessária para invocar a API. |
 
-`systemKey`é uma chave de autorização autogerida pelo anfitrião Azure Functions. Concede especificamente acesso às APIs de extensão de tarefa duradoura e pode ser gerida da mesma forma que [outras chaves de autorização.](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API) Pode gerar URLs que contenham os `taskHub` `connection` valores corretos, e `systemKey` consultar valores de cadeia usando APIs de ligação ao cliente de [orquestração,](durable-functions-bindings.md#orchestration-client) tais como as `CreateCheckStatusResponse` APIs e `CreateHttpManagementPayload` APIs em .NET, ou as `createCheckStatusResponse` APIs e `createHttpManagementPayload` APIs em JavaScript.
+`systemKey` é uma chave de autorização autogerida pelo anfitrião Azure Functions. Concede especificamente acesso às APIs de extensão de tarefa duradoura e pode ser gerida da mesma forma que [outras chaves de autorização.](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API) Pode gerar URLs que contenham os `taskHub` `connection` valores corretos, e `systemKey` consultar valores de cadeia usando APIs de ligação ao cliente de [orquestração,](durable-functions-bindings.md#orchestration-client) tais como as `CreateCheckStatusResponse` APIs e `CreateHttpManagementPayload` APIs em .NET, ou as `createCheckStatusResponse` APIs e `createHttpManagementPayload` APIs em JavaScript.
 
 As próximas secções abrangem as APIs http específicas suportadas pela extensão e fornecem exemplos de como podem ser utilizadas.
 
@@ -166,7 +166,7 @@ Vários valores possíveis de código de estado podem ser devolvidos.
 
 A carga útil de resposta para os casos **HTTP 200** e **HTTP 202** é um objeto JSON com os seguintes campos:
 
-| Campo                 | Tipo de dados | Description |
+| Campo                 | Tipo de dados | Descrição |
 |-----------------------|-----------|-------------|
 | **`runtimeStatus`**   | cadeia (de carateres)    | O estado de funcionação do caso. Os valores incluem *Execução,* *Pendente,* *Falhado,* *Cancelado,* *Terminado,* *Concluído*. |
 | **`input`**           | JSON      | Os dados do JSON usados para inicializar o caso. Este campo é `null` se o parâmetro de cadeia de consulta está definido para `showInput` `false` .|
@@ -791,7 +791,7 @@ A resposta JSON pode parecer o seguinte (formatado para a legibilidade):
 ]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba como utilizar o Application Insights para monitorizar as suas funções duráveis](durable-functions-diagnostics.md)

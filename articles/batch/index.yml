@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: JnHs
   ms.author: jenhayes
-  ms.date: 09/29/2020
-  ms.openlocfilehash: 40c268ed31cf7360d74c5eb8bebf75756fd76563
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.date: 10/09/2020
+  ms.openlocfilehash: 2b2f1a9dbf8c5621ff83dee9e600575c54e9de28
+  ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
   ms.translationtype: HT
   ms.contentlocale: pt-PT
   ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91570480"
+  ms.locfileid: "91931738"
 landingContent:
 - title: Acerca do Azure Batch
   linkLists:
@@ -40,8 +40,12 @@ landingContent:
       url: quick-run-python.md
   - linkListType: concept
     links:
-    - text: Descrição geral do fluxo de trabalho e das funcionalidades para programadores
+    - text: Descrição geral dos fluxos de trabalho e das funcionalidades
       url: batch-service-workflow-features.md
+    - text: Trabalhos e tarefas
+      url: jobs-and-tasks.md
+    - text: Nós e conjuntos
+      url: nodes-and-pools.md
 - title: Guias passo a passo
   linkLists:
   - linkListType: tutorial
@@ -50,6 +54,8 @@ landingContent:
       url: tutorial-parallel-dotnet.md
     - text: Processamento de ficheiros em paralelo - Python
       url: tutorial-parallel-python.md
+    - text: Scripts do Python com o Data Factory
+      url: tutorial-run-python-batch-azure-data-factory.md
     - text: OCR com o Batch e as Funções
       url: tutorial-batch-functions.md
     - text: Composição de cenas com o Arnold
@@ -65,11 +71,13 @@ landingContent:
     - text: Criar uma conta do Batch
       url: batch-account-create-portal.md
     - text: Criar e gerir agrupamentos
-      url: batch-custom-images.md
+      url: batch-sig-images.md
     - text: Executar tarefas em simultâneo
       url: batch-parallel-node-tasks.md
     - text: Utilizar pacotes de aplicações
       url: batch-application-packages.md
+    - text: Executar aplicações contentoras
+      url: batch-docker-container-workloads.md
   - linkListType: concept
     links:
     - text: Tamanhos de VM suportados

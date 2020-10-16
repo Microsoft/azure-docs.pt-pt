@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: tisande
 ms.openlocfilehash: f33cf20b76655a893fe7eebd9e6e6569d35de98f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83005943"
 ---
 # <a name="select-clause-in-azure-cosmos-db"></a>Cláusula SELECT em Azure Cosmos DB
@@ -59,7 +59,7 @@ SELECT <select_specification>
 
 ## <a name="remarks"></a>Observações
 
-A `SELECT *` sintaxe só é válida se a cláusula FROM tiver declarado exatamente um pseudónimo. `SELECT *`fornece uma projeção de identidade, que pode ser útil se não for necessária nenhuma projeção. SELECT * só é válido se a cláusula FROM for especificada e introduzida apenas uma única fonte de entrada.  
+A `SELECT *` sintaxe só é válida se a cláusula FROM tiver declarado exatamente um pseudónimo. `SELECT *` fornece uma projeção de identidade, que pode ser útil se não for necessária nenhuma projeção. SELECT * só é válido se a cláusula FROM for especificada e introduzida apenas uma única fonte de entrada.  
   
 Ambos `SELECT <select_list>` são `SELECT *` "açúcar sintático" e podem ser expressos alternativamente utilizando declarações simples SELECT como mostrado abaixo.  
   
@@ -97,7 +97,7 @@ Os resultados são:
     }]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Introdução](sql-query-getting-started.md)
 - [Amostras de Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)

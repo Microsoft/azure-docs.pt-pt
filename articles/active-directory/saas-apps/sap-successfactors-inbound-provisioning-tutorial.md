@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
 ms.openlocfilehash: e305795f4f45a0ea858eb8d74880aedca8ec538d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90979851"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning"></a>Tutorial: Configurar os sap successFactors para o provisionamento do utilizador do Ative Directory 
@@ -232,7 +232,7 @@ Transfira o instalador de agente descarregado para o anfitrião do servidor e si
   
    ![Tela de saída](./media/workday-inbound-tutorial/pa_install_screen_9.png "Tela de saída")
    
-1. Verifique a instalação do Agente e certifique-se de que está a funcionar abrindo o Snap-In "Serviços" e procure o Serviço denominado "Microsoft Azure AD Connect Provisioning Agent"
+1. Verifique a instalação do Agente e certifique-se de que está em execução abrindo o Snap-In "Serviços" e procure o Serviço denominado "Microsoft Azure AD Connect Provisioning Agent"
   
    ![Screenshot do Agente de Provisionamento de Ligação AD da Microsoft Azure em execução em Serviços.](./media/workday-inbound-tutorial/services.png)
 
@@ -329,7 +329,7 @@ Nesta secção, irá configurar como os dados dos utilizadores fluem de SuccessF
 
          * **Apenas durante a criação** - Aplique este mapeamento apenas em ações de criação de utilizadores
 
-1. Para guardar os seus mapeamentos, clique em **Guardar** na parte superior da secção De mapeamento de Atributos.
+1. Para guardar os seus mapeamentos, clique em **Guardar** na parte superior da secção Attribute-Mapping.
 
 Uma vez concluída a configuração de mapeamento do seu atributo, pode agora [ativar e lançar o serviço de fornecimento de utilizadores](#enable-and-launch-user-provisioning).
 
@@ -342,7 +342,7 @@ Uma vez concluídas as configurações de aplicações do SuccessFactors, pode l
 
 1. No **separador Provisioning,** desa fixação do **Estado de Provisionamento** para **On**.
 
-2. Clique em **Save** (Guardar).
+2. Clique em **Guardar**.
 
 3. Esta operação iniciará a sincronização inicial, que pode demorar um número variável de horas dependendo de quantos utilizadores estão no inquilino successFactors. Pode verificar a barra de progresso para acompanhar o progresso do ciclo de sincronização. 
 

@@ -4,10 +4,10 @@ description: Este artigo fornece passos para visualizar registos de atividades p
 ms.topic: how-to
 ms.date: 07/10/2020
 ms.openlocfilehash: 24b5eb25f1c8c9044ad6e77545381a43a11714f9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87097854"
 ---
 # <a name="view-activity-logs-for-labs-in-azure-devtest-labs"></a>Ver registos de atividades para laboratórios em Azure DevTest Labs 
@@ -27,24 +27,24 @@ Este artigo explica como ver registos de atividades para um laboratório em Azur
     :::image type="content" source="./media/activity-logs/configuration-policies-link.png" alt-text="Selecione Configuração e políticas no menu à esquerda":::
 1. Na página **de Configuração e políticas,** selecione **'Iniciar sessão de actividade'** no menu esquerdo em **Manage**. Devia ver as entradas para as operações feitas no laboratório. 
 
-    :::image type="content" source="./media/activity-logs/activity-log.png" alt-text="Registo de atividades":::    
+    :::image type="content" source="./media/activity-logs/activity-log.png" alt-text="Selecione Configuração e políticas no menu à esquerda":::    
 1. Selecione um evento para ver detalhes sobre o mesmo. Na página **Resumo,** vê informações como o nome da operação, o carimbo do tempo e quem fez a operação. 
     
-    :::image type="content" source="./media/activity-logs/stop-vm-event.png" alt-text="Stop VM event - resumo":::        
+    :::image type="content" source="./media/activity-logs/stop-vm-event.png" alt-text="Selecione Configuração e políticas no menu à esquerda":::        
 1. Mude para o separador **JSON** para ver mais detalhes. No exemplo seguinte, pode ver o nome do VM e a operação feita no VM (parado).
 
-    :::image type="content" source="./media/activity-logs/stop-vm-event-json.png" alt-text="Evento Stop VM - JSON":::           
+    :::image type="content" source="./media/activity-logs/stop-vm-event-json.png" alt-text="Selecione Configuração e políticas no menu à esquerda":::           
 1. Mude para o separador Alterar histórico **(Pré-visualização)** para ver o histórico das alterações. No exemplo seguinte, vê-se a alteração que foi feita no VM. 
 
-    :::image type="content" source="./media/activity-logs/change-history.png" alt-text="Stop VM event - Alterar a história":::             
+    :::image type="content" source="./media/activity-logs/change-history.png" alt-text="Selecione Configuração e políticas no menu à esquerda":::             
 1. Selecione a alteração na lista de histórico de alteração para ver mais detalhes sobre a mudança. 
 
-    :::image type="content" source="./media/activity-logs/change-details.png" alt-text="Stop VM event - Alterar detalhes":::             
+    :::image type="content" source="./media/activity-logs/change-details.png" alt-text="Selecione Configuração e políticas no menu à esquerda":::             
 
 Para obter mais informações sobre registos de atividades, consulte [o Registo de Atividades do Azure](../azure-monitor/platform/activity-log.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Para saber sobre a definição **de alertas** nos registos de atividade, consulte [Criar alertas](create-alerts.md).
-- Para saber mais sobre os registos de atividades, consulte [o Registo de Atividades do Azure](../azure-monitor/platform/activity-log.md).
+- Para saber mais sobre os registos de atividades, consulte  [o Registo de Atividades do Azure](../azure-monitor/platform/activity-log.md).
 

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7275d115210100bdd4a3a2eb683c867a6a4a4f4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85358706"
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Selecionar o tipo de instalação a utilizar para o Azure AD Connect
@@ -47,7 +47,7 @@ Opções onde ainda pode utilizar o Express:
 - Se não quiser sincronizar todas as OUs, ainda pode utilizar o Express e na última página, desmarcar **Iniciar o processo de sincronização...***** Em seguida, volte a executar o assistente de instalação e altere as OUs nas [opções de configuração](how-to-connect-installation-wizard.md#customize-synchronization-options) e ative a sincronização programada.
 - Pretende ativar uma das funcionalidades do Azure AD Premium, como a gravação de Password. Primeiro passe pelo expresso para completar a instalação inicial. Em seguida, volte a executar o assistente de instalação e altere as [opções de configuração](how-to-connect-installation-wizard.md#customize-synchronization-options).
 
-## <a name="custom"></a>Personalizar
+## <a name="custom"></a>Personalizado
 O caminho personalizado permite muito mais opções do que expresso. Deve ser utilizado em todos os casos em que a configuração descrita na secção anterior para expresso não seja representativa para a sua organização.
 
 Utilize se:
@@ -74,5 +74,5 @@ Se está atualmente a utilizar o Azure AD Sync, então pode seguir os [mesmos pa
 ## <a name="migrate-from-fim2010-or-mim2016"></a>Migrar do FIM2010 ou MIM2016
 Se está atualmente a usar o Gestor de Identidade da Vanguarda 2010 ou o Microsoft Identity Manager 2016 com o Azure AD Connector, então a sua única opção é uma migração. Siga os passos descritos na [migração do balanço.](how-to-upgrade-previous-version.md#swing-migration) Nos passos, substitua qualquer menção do Azure AD Sync pelo FIM2010/MIM2016.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Dependendo da opção selecionada para utilizar, utilize a tabela de conteúdos à esquerda para encontrar o seu artigo com os passos detalhados.

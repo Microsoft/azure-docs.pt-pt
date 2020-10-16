@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.reviewer: sngun
 ms.openlocfilehash: 0a79f6883a150cb95724a7be30dcbd2e8e03f01f
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91396081"
 ---
 # <a name="how-to-choose-the-right-consistency-level-for-your-azure-cosmos-db-application"></a>Como escolher o nível de consistência certo para a sua aplicação DB Azure Cosmos? 

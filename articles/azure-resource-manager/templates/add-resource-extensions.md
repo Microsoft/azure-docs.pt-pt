@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: jgao
 ms.openlocfilehash: be55138a2aa6dc0552c7556438ffd43705687c87
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86055055"
 ---
 # <a name="provide-post-deployment-configurations-by-using-extensions"></a>Fornecer configurações pós-implantação utilizando extensões
@@ -33,7 +33,7 @@ Para aprender a usar estas extensões, consulte:
 - [Tutorial: Implementar extensões de máquinas virtuais com modelos do Gestor de Recursos Azure](template-tutorial-deploy-vm-extensions.md).
 - [Tutorial: Importar ficheiros SQL BACPAC com modelos do Azure Resource Manager](template-tutorial-deploy-sql-extensions-bacpac.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial: Implementar extensões de máquina virtual com modelos do Azure Resource Manager](template-tutorial-deploy-vm-extensions.md)

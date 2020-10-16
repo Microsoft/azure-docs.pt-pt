@@ -4,10 +4,10 @@ description: Fornece uma visão geral da arquitetura, componentes e processos ut
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.openlocfilehash: 6f95e8f6edaef61a7c5971a46ed4bff1a34e3dbe
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91614007"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitetura e componentes Azure Backup

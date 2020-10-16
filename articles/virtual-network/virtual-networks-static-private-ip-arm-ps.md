@@ -18,10 +18,10 @@ ms.date: 02/07/2019
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: ced76b73a8a08e6886cf0cef04c74a82d05c75dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84708132"
 ---
 # <a name="create-a-virtual-machine-with-a-static-private-ip-address-using-powershell"></a>Crie uma máquina virtual com um endereço IP estático privado usando PowerShell
@@ -99,7 +99,7 @@ Pode completar os seguintes passos a partir do seu computador local ou utilizand
 > [!IMPORTANT]
 > Para aceder ao VM a partir da internet, tem de atribuir um endereço IP público ao VM. Também pode alterar uma atribuição dinâmica de endereço IP privado para uma atribuição estática. Para mais informações, consulte [adicionar ou alterar endereços IP](virtual-network-network-interface-addresses.md). Além disso, recomenda-se que limite o tráfego de rede ao seu VM associando um grupo de segurança de rede à interface de rede, a sub-rede em que criou a interface de rede, ou ambos. Para mais informações, consulte [Gerir grupos de segurança de rede](manage-network-security-group.md).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, pode utilizar [o Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos que contém:
 
@@ -107,7 +107,7 @@ Quando já não for necessário, pode utilizar [o Remove-AzResourceGroup](/power
 Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [endereços IP privados](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) e atribuindo um [endereço IP estático privado](virtual-network-network-interface-addresses.md#add-ip-addresses) a uma máquina virtual Azure.
 - Saiba mais sobre a criação de máquinas virtuais [Linux](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Windows.](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

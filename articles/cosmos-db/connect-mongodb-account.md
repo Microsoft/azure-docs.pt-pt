@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.reviewer: sngun
 ms.openlocfilehash: 0a25301bac125cd95b975a5ba1fc0cce47b56abd
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85954099"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Ligar uma aplicação MongoDB ao Azure Cosmos DB
@@ -46,7 +46,7 @@ Este tutorial fornece duas formas de recuperar informações da cadeia de ligaç
 3. No painel esquerdo da lâmina da conta, clique em **Connection String**.
 4. A **lâmina de ligação** abre-se. Tem todas as informações necessárias para ligar à conta utilizando um controlador para o MongoDB, incluindo uma cadeia de ligação pré-reconstruída.
 
-   :::image type="content" source="./media/connect-mongodb-account/ConnectionStringBlade.png" alt-text="Painel Cadeia de Ligação" lightbox= "./media/connect-mongodb-account/ConnectionStringBlade.png" :::
+   :::image type="content" source="./media/connect-mongodb-account/ConnectionStringBlade.png" alt-text="Lâmina de arranque rápido" lightbox= "./media/connect-mongodb-account/ConnectionStringBlade.png" :::
 
 ## <a name="connection-string-requirements"></a>Requisitos de cadeia de ligação
 
@@ -70,7 +70,7 @@ Por exemplo, considere a conta mostrada na lâmina **de corda de ligação.** Um
 
 `mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.com:10255/mydatabase?ssl=true`
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Aprenda a usar o [Studio 3T](mongodb-mongochef.md) com a API da Azure Cosmos DB para a MongoDB.
 - Aprenda a [usar Robo 3T](mongodb-robomongo.md) com API da Azure Cosmos DB para a MongoDB.

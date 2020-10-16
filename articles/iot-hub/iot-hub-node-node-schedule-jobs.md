@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/16/2019
 ms.custom: mqtt, devx-track-js
 ms.openlocfilehash: 2c5ce219e40117a2b656b7acab6dd68a1d20dffb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91251937"
 ---
 # <a name="schedule-and-broadcast-jobs-nodejs"></a>Horários e trabalhos de transmissão (Node.js)

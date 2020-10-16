@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: jingwang
 ms.openlocfilehash: 96603de7014419b142cc35714b891f9e4b15ec99
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91405090"
 ---
 # <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Copie os dados do servidor HDFS utilizando a Azure Data Factory

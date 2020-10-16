@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: jeedes
 ms.openlocfilehash: fe1f5f718ce54845dea2fc9da3ea2c9f4e18ce92
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89659403"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-vyond"></a>Tutorial: Azure Ative Directory integração única (SSO) com Vyond

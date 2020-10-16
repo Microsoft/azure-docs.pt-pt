@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 12/31/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 271f62625433a6651ba0e3230a62be51e5147f3e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89000197"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Desenvolver topologias C# para a Tempestade Apache utilizando as ferramentas data lake para o Estúdio Visual
@@ -478,7 +478,7 @@ Considere o seguinte quando estiver a criar e submeter uma topologia híbrida:
 
 * Ao submeter a topologia ao servidor, deve utilizar a opção **configurações adicionais** para especificar os caminhos do **Ficheiro Java**. O caminho especificado deve ser o diretório que tem os ficheiros JAR que contêm as suas aulas de Java.
 
-### <a name="azure-event-hubs"></a>Hubs de Eventos do Azure
+### <a name="azure-event-hubs"></a>Azure Event Hubs
 
 SCP.NET versão 0.9.4.203 introduz uma nova classe e método especificamente para trabalhar com o bico do Event Hub (um bico java que lê a partir de Event Hubs). Quando criar uma topologia que utiliza um bico de Centro de Eventos (por exemplo, utilizando o modelo de amostra de **leitor Storm EventHub),** utilize as seguintes APIs:
 

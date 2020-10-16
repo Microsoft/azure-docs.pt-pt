@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/28/2019
 ms.openlocfilehash: 20d55de7ef0f7b7f49b922409f8cb61874fae0f6
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448149"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Ligue o Gestor de Configuração ao Monitor Azure
@@ -147,7 +147,7 @@ Depois de importadas as coleções, pode ver quantos computadores com membros de
 
 Quando clica em qualquer um, o editor de consulta de registos abre a exibição de todos os grupos importados ou de todos os computadores que pertencem a cada grupo. Utilizando [a Pesquisa de Registo,](../log-query/log-query-overview.md)pode efetuar uma análise mais aprofundada dos dados de membros da recolha.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Utilize [a Pesquisa de Registo](../log-query/log-query-overview.md) para ver informações detalhadas sobre os dados do seu Gestor de Configuração.
 

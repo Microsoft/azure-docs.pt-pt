@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 08/04/2020
 ms.author: radeltch
 ms.openlocfilehash: 3ea8be2bbf3296f97ca0562a2d8e72bfe7a77d3b
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87760486"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Azure Virtual Machines alta disponibilidade para SAP NetWeaver em Red Hat Enterprise Linux
@@ -69,14 +69,14 @@ Leia primeiro as seguintes notas e artigos SAP
 * [Documentação do produto para armazenamento de gluster de chapéu vermelho](https://access.redhat.com/documentation/red_hat_gluster_storage/)
 * [SAP Netweaver em cluster pacemaker](https://access.redhat.com/articles/3150081)
 * Documentação geral do RHEL
-  * [Visão geral do suplemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
-  * [Administração de complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
-  * [Referência de complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+  * [Visão geral Add-On de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
+  * [Alta Disponibilidade Add-On Administração](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
+  * [Referência de Add-On de Alta Disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
   * [Configuração ASCS/ERS para SAP Netweaver com recursos autónomos em RHEL 7.5](https://access.redhat.com/articles/3569681)
-  * [Configure SAP S/4HANA ASCS/ERS com Standalone Enqueue Server 2 (ENSA2) em Pacemaker em RHEL](https://access.redhat.com/articles/3974941)
+  * [Configure SAP S/4HANA ASCS/ERS com Standalone Enqueue Server 2 (ENSA2) em Pacemaker em RHEL ](https://access.redhat.com/articles/3974941)
 * Documentação REL específica do Azure:
   * [Políticas de suporte para clusters de alta disponibilidade RHEL - Microsoft Azure Virtual Machines como Membros do Cluster](https://access.redhat.com/articles/3131341)
-  * [Instalação e Configuração de um Red Hat Enterprise Linux 7.4 (e mais tarde) Cluster de Alta Disponibilidade no Microsoft Azure](https://access.redhat.com/articles/3252491)
+  * [Instalar e Configurar um Red Hat Enterprise Linux 7.4 (e mais tarde) High-Availability Cluster no Microsoft Azure](https://access.redhat.com/articles/3252491)
 
 ## <a name="overview"></a>Descrição geral
 
@@ -161,10 +161,10 @@ Primeiro, tens de criar as máquinas virtuais para este cluster. Em seguida, cri
 1. Criar um conjunto de disponibilidade  
    Definir domínio de atualização máxima
 1. Criar Máquina Virtual 1  
-   Use pelo menos RHEL 7, neste exemplo a imagem Red Hat Enterprise Linux 7.4<https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Use pelo menos RHEL 7, neste exemplo a imagem Red Hat Enterprise Linux 7.4 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Selecione Conjunto de Disponibilidade criado anteriormente  
 1. Criar Máquina Virtual 2  
-   Use pelo menos RHEL 7, neste exemplo a imagem Red Hat Enterprise Linux 7.4<https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Use pelo menos RHEL 7, neste exemplo a imagem Red Hat Enterprise Linux 7.4 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Selecione Conjunto de Disponibilidade criado anteriormente  
 1. Adicione pelo menos um disco de dados a ambas as máquinas virtuais  
    Os discos de dados são utilizados para o diretório /usr/seiva/ `<SAPSID`>
@@ -244,7 +244,7 @@ Primeiro, tens de criar as máquinas virtuais para este cluster. Em seguida, cri
 > Quando os VMs sem endereços IP públicos forem colocados no pool de backend de saldos de carga standard Azure (sem endereço IP público), não haverá conectividade de saída na Internet, a menos que seja realizada uma configuração adicional para permitir o encaminhamento para pontos finais públicos. Para obter detalhes sobre como alcançar a conectividade de saída, consulte [a conectividade do ponto final público para máquinas virtuais utilizando o Azure Standard Load Balancer em cenários de alta disponibilidade SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 > [!IMPORTANT]
-> Não ative os cartas temporais TCP em VMs Azure colocados atrás do Balançador de Carga Azure. Permitir os tempos de TCP fará com que as sondas de saúde falhem. Definir parâmetro **net.ipv4.tcp_timestamps** a **0**. Para mais detalhes consulte [as sondas de saúde load balancer](../../../load-balancer/load-balancer-custom-probe-overview.md).
+> Não ative os cartas temporais TCP em VMs Azure colocados atrás do Balançador de Carga Azure. Permitir os tempos de TCP fará com que as sondas de saúde falhem. Definir o parâmetro **net.ipv4.tcp_timestamps** a **0**. Para mais detalhes consulte [as sondas de saúde load balancer](../../../load-balancer/load-balancer-custom-probe-overview.md).
 
 ### <a name="create-pacemaker-cluster"></a>Criar cluster pacemaker
 
@@ -545,7 +545,7 @@ Os seguintes itens são prefixados com **ambos [A]** - aplicável a todos os nó
    </code></pre>
 
    A SAP introduziu suporte para o servidor 2, incluindo a replicação, a partir de SAP NW 7.52. A partir da Plataforma ABAP 1809, o servidor 2 do enqueue é instalado por padrão. Consulte a nota [SAP 2630416](https://launchpad.support.sap.com/#/notes/2630416) para obter suporte ao servidor 2.
-   Se utilizar a arquitetura do servidor 2 do enqueue[(ENSA2),](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)instale agentes de recursos-agentes de recursos-sap-4.1.1-12.el7.x86_64 ou mais recentes e defina os recursos da seguinte forma:
+   Se utilizar a arquitetura do servidor 2 do enqueue[(ENSA2),](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)instale agentes de recursos-agentes-sap-4.1.1-12.el7.x86_64 ou mais recentes e defina os recursos da seguinte forma:
 
 <pre><code>sudo pcs property set maintenance-mode=true
    

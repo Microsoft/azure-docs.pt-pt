@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.openlocfilehash: 165b7d00c3cf307e7996e84a35bb2a202f448cc0
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86076883"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Utilizar o Apache Sqoop com o Hadoop no HDInsight
@@ -95,7 +95,7 @@ O cluster, base de dados SQL e outros objetos são criados através do portal Az
     |Nome do arquivo Bacpac |Utilize o valor predefinido a menos que pretenda utilizar o seu próprio ficheiro bacpac.|
     |Localização |Utilize o valor predefinido.|
 
-    O nome [lógico do servidor SQL](../../azure-sql/database/logical-servers.md) será `<ClusterName>dbserver` . O nome da base de dados `<ClusterName>db` será. O nome da conta de armazenamento predefinido será `e6qhezrh2pdqu` .
+    O nome [lógico do servidor SQL](../../azure-sql/database/logical-servers.md) será  `<ClusterName>dbserver` . O nome da base de dados `<ClusterName>db` será. O nome da conta de armazenamento predefinido será `e6qhezrh2pdqu` .
 
 3. **Selecione Concordo com os termos e condições acima indicados.**
 
@@ -116,9 +116,9 @@ HDInsight pode executar trabalhos sqoop usando uma variedade de métodos. Use a 
 * Exportação a granel - Com o HDInsight baseado em Linux, o conector Sqoop utilizado para exportar dados para o Microsoft SQL Server ou SQL Database não suporta atualmente inserções a granel.
 * Loteamento - Com o HDInsight baseado em Linux, quando utiliza o `-batch` interruptor ao efetuar inserções, a Sqoop executa múltiplas inserções em vez de lotar as operações de inserção.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Agora aprendeste a usar o Sqoop. Para saber mais, consulte:
+Agora aprendeste a usar o Sqoop. Para saber mais, veja:
 
 * [Use a Colmeia Apache com HDInsight](../hdinsight-use-hive.md)
 * [Faça upload de dados para HDInsight](../hdinsight-upload-data.md): Encontre outros métodos para enviar dados para o armazenamento HDInsight/Azure Blob.

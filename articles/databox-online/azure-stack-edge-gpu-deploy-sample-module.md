@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: alkohli
 ms.openlocfilehash: 1f16ef0ede25f17acb915a7812ae5b15b45f78a4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90899732"
 ---
 # <a name="deploy-a-gpu-enabled-iot-module-on-azure-stack-edge-pro-gpu-device"></a>Implementar um módulo IoT ativado por GPO em dispositivo GPU Azure Stack Edge Pro

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: agummadi
 ms.openlocfilehash: 36e41db6e1a3cff13f31f0abf2e83e872dfd7c49
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91742337"
 ---
 # <a name="network-monitoring-solutions"></a>Soluções de monitorização de rede 
@@ -70,7 +70,7 @@ O NPM para o ExpressRoute oferece uma monitorização completa do ExpressRoute p
 
 ![Geo-mapa mostrando tráfego em regiões](./media/network-monitoring-overview/expressroute-topology-map.png) 
 
-Para obter mais informações, veja os seguintes artigos:
+Para obter mais informações, veja os artigos seguintes:
 
 * [Configurar o Monitor de Desempenho de Rede para o ExpressRoute](../expressroute/how-to-npm.md)
 * [Blog post](https://aka.ms/NPMExRmonitorGA)
@@ -86,7 +86,7 @@ Com a monitorização da Conectividade de Serviço, pode agora testar a capacida
 * Determinar pontos quentes na rede, que podem estar a causar um fraco desempenho da aplicação
 * Monitor de alcance para aplicações Microsoft 365, utilizando testes incorporados para Microsoft 365, Dynamics 365, Skype para empresas e outros serviços da Microsoft
 
-Para obter mais informações, veja os seguintes artigos:
+Para obter mais informações, veja os artigos seguintes:
 
 * [Configure monitor de desempenho da rede para monitorizar os pontos finais do serviço](../azure-monitor/insights/network-performance-monitor-service-connectivity.md#configuration)
 * [Blog post](https://aka.ms/svcendptmonitor)

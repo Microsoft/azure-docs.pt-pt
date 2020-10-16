@@ -1,5 +1,5 @@
 ---
-title: Conjuntos de Dados
+title: Conjuntos de dados
 description: Saiba mais sobre conjuntos de dados na Data Factory. Os conjuntos de dados representam dados de entrada/saída.
 services: data-factory
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/24/2020
 ms.openlocfilehash: 747d780b8f679adf66810bdcdf6e9b263e8d241c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88923760"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Conjuntos de dados no Azure Data Factory
@@ -32,7 +32,7 @@ Este artigo descreve quais são os conjuntos de dados, como são definidos no fo
 Se é novo na Data Factory, consulte [a Introdução à Fábrica de Dados Azure](introduction.md) para uma visão geral.
 
 ## <a name="overview"></a>Descrição geral
-Uma fábrica de dados pode ter um ou mais pipelines. Um **oleoduto** é um agrupamento lógico de **atividades** que juntos desempenham uma tarefa. As atividades num pipeline definem as ações a efetuar nos seus dados. Agora, um conjunto de **dados** é uma visão nomeada de dados que simplesmente apontam ou referenciam os dados que pretende utilizar nas suas **atividades** como entradas e saídas. Os conjuntos de dados identificam dados dentro de diferentes arquivos de dados, como tabelas, ficheiros, pastas e documentos. Por exemplo, um conjunto de dados de Blobs do Azure especifica o contentor de blobs e a pasta no armazenamento de Blobs a partir dos quais a atividade deve ler os dados.
+Uma fábrica de dados pode ter um ou mais pipelines. Um **oleoduto** é um agrupamento lógico de **atividades** que juntos desempenham uma tarefa. As atividades num pipeline definem as ações a executar nos seus dados. Agora, um conjunto de **dados** é uma visão nomeada de dados que simplesmente apontam ou referenciam os dados que pretende utilizar nas suas **atividades** como entradas e saídas. Os conjuntos de dados identificam dados dentro de diferentes arquivos de dados, como tabelas, ficheiros, pastas e documentos. Por exemplo, um conjunto de dados de Blobs do Azure especifica o contentor de blobs e a pasta no armazenamento de Blobs a partir dos quais a atividade deve ler os dados.
 
 Antes de criar um conjunto de dados, tem de criar um [**serviço ligado**](concepts-linked-services.md) para ligar a sua loja de dados à fábrica de dados. Os serviços ligados são muito semelhantes às cadeias de ligação, que definem as informações de ligação necessárias para que o Data Factory se possa ligar a recursos externos. Pense desta forma; o conjunto de dados representa a estrutura dos dados dentro das lojas de dados ligadas, e o serviço ligado define a ligação à fonte de dados. Por exemplo, um serviço ligado ao Azure Storage liga uma conta de armazenamento à fábrica de dados. Um conjunto de dados Azure Blob representa o recipiente blob e a pasta dentro dessa conta de Armazenamento Azure que contém as bolhas de entrada a serem processadas.
 

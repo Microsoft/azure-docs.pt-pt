@@ -14,10 +14,10 @@ ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8485f3474da18e052bc0eab6c053be084ef884a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82192421"
 ---
 # <a name="operating-system-upgrade"></a>Atualização do sistema operativo
@@ -95,7 +95,7 @@ SAP on Azure HANA Large Instances (Tipo I) pode estar em estado não inicial ap�
 
 
 *   Executar `multipath -ll` o comando.
-*   Obtenha o ID LUN cujo tamanho seja aproximadamente 50G ou use o comando:`fdisk -l | grep mapper`
+*   Obtenha o ID LUN cujo tamanho seja aproximadamente 50G ou use o comando: `fdisk -l | grep mapper`
 *   Atualizar `/etc/default/grub_installdevice` o ficheiro com linha `/dev/mapper/<LUN ID>` . Exemplo: /dev/mapper/3600a09803830372f483f495242534a56
 >[!NOTE]
 >O ID LUN varia de servidor para servidor.
@@ -110,7 +110,7 @@ SAP on Azure HANA Large Instances (Tipo I) pode estar em estado não inicial ap�
 ```
 lsmod | grep -i edac 
 ```
-* Desative os módulos, anexando as seguintes linhas ao ficheiro`/etc/modprobe.d/blacklist.conf`
+* Desative os módulos, anexando as seguintes linhas ao ficheiro `/etc/modprobe.d/blacklist.conf`
 ```
 blacklist sb_edac
 blacklist edac_core
@@ -122,7 +122,7 @@ blacklist edac_core
    Certifique-se de que a regulação correta para `transparent_hugepage` , , e são `numa_balancing` `processor.max_cstate` `ignore_ce` `intel_idle.max_cstate` aplicadas.
 
 * intel_idle.max_cstate=1
-* processador.max_cstate=1
+* processor.max_cstate=1
 * transparent_hugepage=nunca
 * numa_balancing=desativar
 * mce=ignore_ce
@@ -130,7 +130,7 @@ blacklist edac_core
 
 #### <a name="execution-steps"></a>Etapas de Execução
 
-* Adicione estes parâmetros à `GRB_CMDLINE_LINUX` linha no ficheiro`/etc/default/grub`
+* Adicione estes parâmetros à `GRB_CMDLINE_LINUX` linha no ficheiro `/etc/default/grub`
 ```
 intel_idle.max_cstate=1 processor.max_cstate=1 transparent_hugepage=never numa_balancing=disable mce=ignore_ce
 ```

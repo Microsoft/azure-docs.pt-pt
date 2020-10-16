@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.openlocfilehash: 73178a9707d35fe7337210b11e76504794bc93ed
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90896389"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Arquitetura de conectividade em Azure Database para MySQL

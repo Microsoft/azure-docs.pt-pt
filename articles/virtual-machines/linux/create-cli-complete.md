@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 4348d3d71259b5bdf63b1c52af53bff59c650086
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 17d36acfa2de699ff2b22ac16d327ea738519f4a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829021"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975387"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Crie uma máquina virtual Linux completa com o Azure CLI
 Para criar rapidamente uma máquina virtual (VM) em Azure, pode utilizar um único comando Azure CLI que utiliza valores predefinidos para criar os recursos de suporte necessários. Recursos como uma rede virtual, endereço IP público e regras do grupo de segurança de rede são automaticamente criados. Para um maior controlo do seu ambiente em uso de produção, pode criar estes recursos com antecedência e, em seguida, adicionar-lhes os seus VMs. Este artigo guia-o através da forma de criar um VM e cada um dos recursos de apoio, um a um.
@@ -103,7 +103,7 @@ az network public-ip create \
     --dns-name mypublicdns
 ```
 
-Saída:
+Resultado:
 
 ```json
 {
@@ -173,7 +173,7 @@ Examine o grupo de segurança da rede e as regras com [a rede az nsg show:](/cli
 az network nsg show --resource-group myResourceGroup --name myNetworkSecurityGroup
 ```
 
-Saída:
+Resultado:
 
 ```json
 {
@@ -336,7 +336,7 @@ az network nic create \
     --network-security-group myNetworkSecurityGroup
 ```
 
-Saída:
+Resultado:
 
 ```json
 {
@@ -434,7 +434,7 @@ Os domínios de avaria definem um agrupamento de máquinas virtuais que partilha
 
 Os domínios de atualização indicam grupos de máquinas virtuais e hardware físico subjacente que podem ser reiniciados ao mesmo tempo. Durante a manutenção planeada, a ordem em que os domínios de atualização são reiniciados pode não ser sequencial, mas apenas um domínio de atualização é reiniciado de cada vez.
 
-O Azure distribui automaticamente VMs pelos domínios de falha e atualização ao colocá-los num conjunto de disponibilidade. Para mais informações, consulte [a gestão da disponibilidade de VMs.](manage-availability.md)
+O Azure distribui automaticamente VMs pelos domínios de falha e atualização ao colocá-los num conjunto de disponibilidade. Para mais informações, consulte [a gestão da disponibilidade de VMs.](../manage-availability.md)
 
 Crie um conjunto de disponibilidade para o seu VM com [a criação de disponibilidade de vm az.](/cli/azure/vm/availability-set) O exemplo seguinte cria um conjunto de disponibilidade com o nome *myAvailabilitySet*:
 
@@ -506,7 +506,7 @@ SSH para o seu VM com a entrada DNS que forneceu quando criou o endereço IP pú
 ssh azureuser@mypublicdns.eastus.cloudapp.azure.com
 ```
 
-Saída:
+Resultado:
 
 ```bash
 The authenticity of host 'mypublicdns.eastus.cloudapp.azure.com (13.90.94.252)' can't be established.

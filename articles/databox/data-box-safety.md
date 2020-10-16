@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: alkohli
 ms.openlocfilehash: f4a0739eb1ab14155a98b17e2427c5b08c9db788
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90564428"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>Instale e opere com segurança a sua Caixa de Dados Azure
@@ -24,7 +24,7 @@ Leia todas as informações de segurança deste artigo antes de utilizar a Caixa
 ## <a name="safety-icon-conventions"></a>Convenções de ícones de segurança
 Aqui estão os ícones que encontrará quando revê as precauções de segurança a observar ao configurar e executar a sua Caixa de Dados.
 
-| Ícone | Description |
+| Ícone | Descrição |
 |:--- |:--- |
 | ![Perigo de ícone ](./media/data-box-safety/warning_icon.png) **de perigo!** |Indica uma situação perigosa que, se não for evitada, resultará em morte ou ferimentos graves. Esta palavra de sinal deve limitar-se às situações mais extremas. |
 | ![Aviso ícone ](./media/data-box-safety/warning_icon.png) **AVISO!** |Indica uma situação perigosa que, se não for evitada, pode resultar em morte ou ferimentos graves. |

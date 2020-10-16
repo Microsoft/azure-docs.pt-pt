@@ -7,10 +7,10 @@ ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
 ms.openlocfilehash: 271d3c0ca44c500a6fd8ee50ed5f1698e46cd511
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88510271"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Ingerir dados telemétricos do histórico
@@ -19,7 +19,7 @@ Este artigo descreve como ingerir dados de sensores históricos em Azure FarmBea
 
 Ingerir dados históricos da Internet das Coisas (IoT) recursos como dispositivos e sensores é um cenário comum no FarmBeats. Cria metadados para dispositivos e sensores e, em seguida, ingere os dados históricos ao FarmBeats num formato canónico.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Antes de prosseguir com este artigo, certifique-se de que instalou FarmBeats e recolheu dados históricos dos seus dispositivos IoT. Também tem de permitir o acesso do parceiro, como mencionado nos seguintes passos.
 
@@ -33,7 +33,7 @@ Você precisa permitir a integração de parceiros para o seu exemplo Azure Farm
 - Segredo do cliente
 - Cadeia de conexão EventHub
 
-Siga estes passos.
+Siga estes passos:
 
 > [!NOTE]
 > Deve ser um administrador para fazer os seguintes passos.
@@ -193,7 +193,7 @@ access_token = token_response.get('access_token')
 Aqui estão os cabeçalhos de pedido mais comuns que devem ser especificados quando escruisse uma chamada da API para FarmBeats Datahub:
 
 - **Tipo de Conteúdo**: aplicação/json
-- **Autorização**: Portador <> access-token
+- **Autorização**: <Access-Token> portador
 - **Aceitar:** candidatura/json
 
 ### <a name="input-payload-to-create-metadata"></a>Carga útil de entrada para criar metadados

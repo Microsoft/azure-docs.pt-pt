@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: tagore
-ms.openlocfilehash: e3c4beac5bd88ba0bbefa91fc83976416b24d2fc
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: f0bf7fa56ca511981820f63cd7178493a7d048e3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141079"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077512"
 ---
 # <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>Ativar diagnósticos em Azure Cloud Services usando PowerShell
 Pode recolher dados de diagnóstico como registos de aplicações, contadores de desempenho, etc. de um Serviço de Cloud utilizando a extensão Azure Diagnostics. Este artigo descreve como ativar a extensão Azure Diagnostics para um Serviço de Cloud utilizando o PowerShell.  Ver [Como instalar e configurar a Azure PowerShell](/powershell/azure/) para os pré-requisitos necessários para este artigo.
@@ -131,8 +131,5 @@ Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService" -Role "WebRole"
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Para obter orientações adicionais sobre a utilização de diagnósticos Azure e outras técnicas para resolver [problemas, consulte Ativar diagnósticos em Azure Cloud Services e Máquinas Virtuais](cloud-services-dotnet-diagnostics.md).
-* O [Esquema de Configuração de Diagnóstico](/azure/azure-monitor/platform/diagnostics-extension-schema-1dot3) explica as várias opções de configurações xml para a extensão de diagnóstico.
-* Para aprender a ativar a extensão de diagnóstico para máquinas virtuais, consulte [Criar uma máquina virtual do Windows com monitorização e diagnósticos utilizando o Modelo do Gestor de Recursos Azure](../virtual-machines/windows/extensions-diagnostics-template.md)
-
-
-
+* O [Esquema de Configuração de Diagnóstico](../azure-monitor/platform/diagnostics-extension-schema-windows.md) explica as várias opções de configurações xml para a extensão de diagnóstico.
+* Para aprender a ativar a extensão de diagnóstico para máquinas virtuais, consulte [Criar uma máquina virtual do Windows com monitorização e diagnósticos utilizando o Modelo do Gestor de Recursos Azure](../virtual-machines/extensions/diagnostics-template.md)

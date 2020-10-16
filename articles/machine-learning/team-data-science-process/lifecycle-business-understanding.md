@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a7aaed519f8f97a9be77a263568aeed5257c16d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76710331"
 ---
 # <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>A fase de compreensão do negócio do ciclo de vida do Processo de Ciência de Dados da Equipa
@@ -81,7 +81,7 @@ Aqui estão os resultados nesta fase:
    * [Fontes de dados](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources): A secção de fontes de **dados brutos** do relatório **de definições** de dados encontrado na pasta de **relatório de dados** do projeto TDSP contém as fontes de dados. Esta secção especifica os locais originais e de destino para os dados brutos. Em fases posteriores, preenche detalhes adicionais como os scripts para mover os dados para o seu ambiente analítico.  
    * [Dicionários de dados](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): Este documento fornece descrições dos dados fornecidos pelo cliente. Estas descrições incluem informações sobre o esquema (os tipos de dados e informações sobre as regras de validação, se houver) e os diagramas de relação entidade, se disponível.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aqui estão as ligações a cada passo no ciclo de vida do TDSP:
 

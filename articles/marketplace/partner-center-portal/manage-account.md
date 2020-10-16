@@ -8,10 +8,10 @@ author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 08/27/2020
 ms.openlocfilehash: a2d2c4d29a6af073e3e4e6a74c257cb864b8a78c
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91400694"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Gerir a sua conta de mercado comercial no Partner Center
@@ -265,7 +265,7 @@ Se quiser conceder acesso ao Partner Center a uma nova conta de aplicação AZur
 
 1. A partir da página **de Utilizadores** (nas **definições de Conta),** selecione **adicionar aplicações AD Azure**.
 2. Na página seguinte, selecione **a aplicação New AD AZure**.
-3. Introduza o **URL de resposta** para a nova aplicação AZure AD. Este é o URL onde os utilizadores podem iniciar sposição e utilizar a sua aplicação AD Azure (por vezes também conhecida como URL de aplicação ou URL de inscrição). O **URL de resposta** não pode ter mais de 256 caracteres e deve ser único dentro do seu diretório.
+3. Introduza o **URL de resposta** para a nova aplicação AZure AD. Este é o URL onde os utilizadores podem iniciar sposição e utilizar a sua aplicação AD Azure (por vezes também conhecida como URL da app ou URL Sign-On). O **URL de resposta** não pode ter mais de 256 caracteres e deve ser único dentro do seu diretório.
 4. Insira a **App ID URI** para a nova aplicação AZure AD. Este é um identificador lógico para a aplicação Azure AD que é apresentado quando um único pedido de inscrição é enviado para Azure AD. A **App ID URI** deve ser única para cada aplicação AD AZure no seu diretório. Esta identificação não pode ter mais de 256 caracteres. Para obter mais informações sobre o ID URI da app, consulte [integrar aplicações com o Azure Ative Directory).](../../active-directory/develop/quickstart-modify-supported-accounts.md#change-the-application-registration-to-support-different-accounts)
 5. Na secção **Funções,** especifique as funções ou permissões personalizadas para a aplicação Azure AD.
 6. Selecione **Guardar**.

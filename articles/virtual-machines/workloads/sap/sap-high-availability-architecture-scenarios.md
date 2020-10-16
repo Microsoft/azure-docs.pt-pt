@@ -17,10 +17,10 @@ ms.date: 02/26/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c837a4020ab1aaad1798d6b19e72e09edafea1f5
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91360357"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Arquitetura e cenários de alta disponibilidade para SAP NetWeaver
@@ -288,7 +288,7 @@ Um conjunto de disponibilidade é usado para alcançar uma elevada disponibilida
 * Clusters com dois ou mais nós (VMs, por exemplo) que protegem SPOFs como uma instância SAP ASCS/SCS ou um DBMS.
 
 
-### <a name="azure-availability-zones"></a>Zonas de Disponibilidade do Azure
+### <a name="azure-availability-zones"></a>Zonas de Disponibilidade Azure
 O Azure está em vias de lançar um conceito de Zonas de [Disponibilidade Azure](../../../availability-zones/az-overview.md) em [diferentes Regiões do Azure.](https://azure.microsoft.com/global-infrastructure/regions/) Nas regiões de Azure onde são oferecidas zonas de disponibilidade, as regiões do Azure dispõem de múltiplos centros de dados, independentes no fornecimento de fonte de energia, arrefecimento e rede. A razão para oferecer diferentes zonas dentro de uma única região de Azure é permitir-lhe implementar aplicações em duas ou três Zonas de Disponibilidade oferecidas. Assumindo que problemas em fontes de energia e/ou rede afetariam apenas uma infraestrutura da Zona de Disponibilidade, a sua implementação de aplicação dentro de uma região do Azure ainda está totalmente funcional. Eventualmente, com alguma capacidade reduzida, uma vez que alguns VMs numa zona podem ser perdidos. Mas os VMs nas outras duas zonas ainda estão a funcionar. As regiões de Azure que oferecem zonas estão listadas em [Zonas de Disponibilidade Azure.](../../../availability-zones/az-overview.md)
 
 Usando Zonas de Disponibilidade, há algumas coisas a considerar. A lista de considerações como:

@@ -1,7 +1,7 @@
 ---
-title: Método de procura do dicionário tradutor
+title: Método de procura do dicionário de tradutor
 titleSuffix: Azure Cognitive Services
-description: O método de lookup do Dicionário fornece traduções alternativas para uma palavra e um pequeno número de frases idiomáticas.
+description: O método DeEscureamento do Dicionário fornece traduções alternativas para uma palavra e um pequeno número de frases idiomáticas.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: reference
 ms.date: 01/21/2020
 ms.author: swmachan
 ms.openlocfilehash: b2d111f22b8ef36b20b93b65ff1ea6f7b52ea8f7
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83584744"
 ---
-# <a name="translator-30-dictionary-lookup"></a>Tradutor 3.0: Lookup dicionário
+# <a name="translator-30-dictionary-lookup"></a>Tradutor 3.0: Observatório do Dicionário
 
-Fornece traduções alternativas para uma palavra e um pequeno número de frases idiomáticas. Cada tradução tem uma parte da fala e uma lista de traduções traseiras. As traduções traseiras permitem que um utilizador compreenda a tradução em contexto. A operação [Dictionary Example](./v3-0-dictionary-examples.md) permite continuar a perfurar para ver as utilizações de cada par de tradução.
+Fornece traduções alternativas para uma palavra e um pequeno número de frases idiomáticas. Cada tradução tem uma parte do discurso e uma lista de back-translations. As traduções traseiras permitem ao utilizador compreender a tradução em contexto. A operação [Exemplo do Dicionário](./v3-0-dictionary-examples.md) permite perfurar ainda mais para ver o exemplo de utilização de cada par de tradução.
 
 ## <a name="request-url"></a>URL do Pedido
 
@@ -31,27 +31,27 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
 
 ## <a name="request-parameters"></a>Parâmetros de pedido
 
-Os parâmetros de pedido transmitidos na corda de consulta são:
+Os parâmetros de pedido passados na cadeia de consulta são:
 
 | Parâmetro de consulta  | Descrição |
 | ------ | ----------- |
-| api-version <img width=200/>   | **Parâmetro necessário**.<br/>Versão da API solicitada pelo cliente. Valor deve ser`3.0` |
-| De | **Parâmetro necessário**.<br/>Especifica a linguagem do texto de entrada. A língua de origem deve ser uma das [línguas apoiadas incluídas](./v3-0-languages.md) no `dictionary` âmbito. |
-| para   | **Parâmetro necessário**.<br/>Especifica a linguagem do texto de saída. A língua-alvo deve ser uma das [línguas apoiadas incluídas](v3-0-languages.md) no `dictionary` âmbito. |
+| api-version <img width=200/>   | **Parâmetro requerido**.<br/>Versão da API solicitada pelo cliente. Valor deve ser `3.0` |
+| De | **Parâmetro requerido**.<br/>Especifica a linguagem do texto de entrada. A língua de origem deve ser uma das [línguas apoiadas incluídas](./v3-0-languages.md) no `dictionary` âmbito. |
+| para   | **Parâmetro requerido**.<br/>Especifica a linguagem do texto de saída. A língua-alvo deve ser uma das [línguas apoiadas incluídas](v3-0-languages.md) no `dictionary` âmbito. |
 
 
 Os cabeçalhos de pedido incluem:
 
 | Cabeçalhos  | Descrição |
 | ------ | ----------- |
-| Cabeçalho de autenticação <img width=200/>  | **Cabeçalho de pedido exigido**.<br/>Consulte <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">as opções disponíveis para autenticação.</a> |
-| Content-Type | **Cabeçalho de pedido exigido**.<br/>Especifica o tipo de conteúdo da carga útil. Os valores possíveis são: `application/json` . |
-| Comprimento do conteúdo   | **Cabeçalho de pedido exigido**.<br/>O comprimento do corpo de pedido. |
-| X-ClientTraceid   | **Opcional.**<br/>Um GUID gerado pelo cliente para identificar exclusivamente o pedido. Pode omitir este cabeçalho se incluir o id de rastreio na corda de consulta usando um parâmetro de consulta chamado `ClientTraceId` . |
+| Cabeçalho de autenticação <img width=200/>  | **Cabeçalho de pedido necessário**.<br/>Consulte <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">as opções disponíveis para autenticação.</a> |
+| Content-Type | **Cabeçalho de pedido necessário**.<br/>Especifica o tipo de conteúdo da carga útil. Os valores possíveis são: `application/json` . |
+| Comprimento do conteúdo   | **Cabeçalho de pedido necessário**.<br/>O comprimento do corpo do pedido. |
+| X-ClientTraceId   | **Opcional.**<br/>Um GUID gerado pelo cliente para identificar exclusivamente o pedido. Pode omitir este cabeçalho se incluir o ID de traço na cadeia de consulta utilizando um parâmetro de consulta denominado `ClientTraceId` . |
 
 ## <a name="request-body"></a>Corpo do pedido
 
-O corpo do pedido é uma matriz JSON. Cada elemento matriz é um objeto JSON com uma propriedade de cordas `Text` chamada, que representa o termo para pesquisa.
+O corpo do pedido é uma matriz JSON. Cada elemento de matriz é um objeto JSON com uma propriedade de cordas chamada `Text` , que representa o termo para procurar.
 
 ```json
 [
@@ -62,65 +62,65 @@ O corpo do pedido é uma matriz JSON. Cada elemento matriz é um objeto JSON com
 Aplicam-se as seguintes limitações:
 
 * A matriz pode ter no máximo 10 elementos.
-* O valor de texto de um elemento matriz não pode exceder 100 caracteres, incluindo espaços.
+* O valor de texto de um elemento de matriz não pode exceder 100 caracteres, incluindo espaços.
 
 ## <a name="response-body"></a>Corpo da resposta
 
-Uma resposta bem sucedida é um array JSON com um resultado para cada corda na matriz de entrada. Um objeto de resultado inclui as seguintes propriedades:
+Uma resposta bem sucedida é uma matriz JSON com um resultado para cada cadeia na matriz de entrada. Um objeto de resultado inclui as seguintes propriedades:
 
-  * `normalizedSource`: Uma corda que dá a forma normalizada do termo fonte. Por exemplo, se o pedido for "JOHN", o formulário normalizado será "joão". O conteúdo deste campo torna-se a entrada para [procurar exemplos](./v3-0-dictionary-examples.md).
+  * `normalizedSource`: Uma corda que dá a forma normalizada do termo de origem. Por exemplo, se o pedido for "JOÃO", o formulário normalizado será "john". O conteúdo deste campo torna-se a entrada para [procurar exemplos](./v3-0-dictionary-examples.md).
     
-  * `displaySource`: Uma corda que dá o termo fonte de forma mais adequada para o ecrã do utilizador final. Por exemplo, se a entrada for "JOHN", o formulário de exibição refletirá a ortografia habitual do nome: "João". 
+  * `displaySource`: Uma cadeia que dá o termo de origem num formulário mais adequado para visualização do utilizador final. Por exemplo, se a entrada for "JOHN", o formulário de visualização refletirá a ortografia habitual do nome: "João". 
 
   * `translations`: Uma lista de traduções para o termo-fonte. Cada elemento da lista é um objeto com as seguintes propriedades:
 
     * `normalizedTarget`: Uma corda que dá a forma normalizada deste termo na linguagem-alvo. Este valor deve ser utilizado como entrada para [procurar exemplos](./v3-0-dictionary-examples.md).
 
-    * `displayTarget`: Uma corda que dá o termo no idioma-alvo e de uma forma mais adequada para o ecrã do utilizador final. Em geral, isso só será diferente do `normalizedTarget` em termos de capitalização. Por exemplo, um substantivo como "Juan" terá `normalizedTarget = "juan"` `displayTarget = "Juan"` e.
+    * `displayTarget`: Uma cadeia que dá o termo no idioma-alvo e num formulário mais adequado para visualização do utilizador final. Em geral, isto só será diferente do que se refere à `normalizedTarget` capitalização. Por exemplo, um substantivo adequado como "Juan" terá `normalizedTarget = "juan"` e `displayTarget = "Juan"` .
 
-    * `posTag`: Uma corda que associa este termo a uma etiqueta de parte da fala.
+    * `posTag`: Uma corda que associa este termo a uma etiqueta de parte do discurso.
 
         | Nome da etiqueta | Descrição  |
         |----------|--------------|
         | ADJ      | Adjetivos   |
-        | ADV      | Advérbios      |
+        | ADV      | Advér ovabs      |
         | CONJ     | Conjunções |
         | DET      | Determinantes  |
         | MODAL    | Verbos        |
         | SUBSTANTIVO     | Substantivos        |
-        | PREPARAÇÃO     | Preposições |
+        | PREP     | Preposições |
         | PRON     | Pronomes     |
-        | VERBo     | Verbos        |
+        | VERBO     | Verbos        |
         | OUTROS    | Outro        |
 
-        Como nota de implementação, estas etiquetas foram determinadas por parte da fala marcando o lado inglês, e, em seguida, tomando a etiqueta mais frequente para cada par de fonte/alvo. Assim, se as pessoas frequentemente traduzem uma palavra espanhola para uma etiqueta diferente de parte da fala em inglês, as etiquetas podem acabar por estar erradas (no que diz respeito à palavra espanhola).
+        Como nota de implementação, estas tags foram determinadas por marcação parcial do lado inglês e, em seguida, tomando a etiqueta mais frequente para cada par de origem/alvo. Assim, se as pessoas frequentemente traduzem uma palavra espanhola para uma etiqueta de parte diferente do discurso em inglês, as etiquetas podem acabar por estar erradas (no que diz respeito à palavra espanhola).
 
-    * `confidence`: Um valor entre 0,0 e 1.0 que represente a "confiança" (ou talvez mais precisamente, "probabilidade nos dados de formação") desse par de tradução. A soma da confiança para uma palavra fonte pode ou não resumir-se a 1,0. 
+    * `confidence`: Valor entre 0,0 e 1.0 que represente a "confiança" (ou talvez mais precisamente, "probabilidade nos dados de formação") desse par de tradução. A soma das notas de confiança para uma palavra-fonte pode ou não ser elevada a 1.0. 
 
-    * `prefixWord`: Uma corda que dá a palavra para exibir como prefixo da tradução. Atualmente, este é o determinante de género dos substantivos, em línguas que têm determinantes de género. Por exemplo, o prefixo da palavra espanhola "mosca" é "la", uma vez que "mosca" é um substantivo feminino em espanhol. Isto depende apenas da tradução, e não da fonte. Se não houver prefixo, será a corda vazia.
+    * `prefixWord`: Uma corda que dá a palavra para exibir como prefixo da tradução. Atualmente, este é o determinante de género dos substantivos, em línguas que têm determinantes de género. Por exemplo, o prefixo da palavra espanhola "mosca" é "la", uma vez que "mosca" é um substantivo feminino em espanhol. Isto só depende da tradução, e não da fonte. Se não houver prefixo, será a corda vazia.
     
-    * `backTranslations`: Uma lista de "traduções traseiras" do alvo. Por exemplo, palavras-chave para as as que o alvo pode traduzir. A lista é garantida para conter a palavra-fonte que foi solicitada (por exemplo, se a palavra-fonte que está a ser analisada é "fly", então é garantido que "fly" estará na `backTranslations` lista). No entanto, não é garantido que esteja na primeira posição, e muitas vezes não estará. Cada elemento da `backTranslations` lista é um objeto descrito pelas seguintes propriedades:
+    * `backTranslations`: Uma lista de "traduções traseiras" do alvo. Por exemplo, palavras-fonte para as que o alvo pode traduzir. A lista é garantida para conter a palavra-fonte que foi solicitada (por exemplo, se a palavra de origem que está a ser analisada é "fly", então é garantido que "fly" estará na `backTranslations` lista). No entanto, não é garantido estar na primeira posição, e muitas vezes não estará. Cada elemento da `backTranslations` lista é um objeto descrito pelas seguintes propriedades:
 
-        * `normalizedText`: Uma corda que dá a forma normalizada do termo fonte que é uma tradução traseira do alvo. Este valor deve ser utilizado como entrada para [procurar exemplos](./v3-0-dictionary-examples.md).        
+        * `normalizedText`: Uma corda que dá a forma normalizada do termo de origem que é uma tradução traseira do alvo. Este valor deve ser utilizado como entrada para [procurar exemplos](./v3-0-dictionary-examples.md).        
 
-        * `displayText`: Uma cadeia que dá o termo fonte que é uma tradução traseira do alvo de uma forma mais adequada para o ecrã do utilizador final.
+        * `displayText`: Uma cadeia que dá o termo de origem que é uma tradução traseira do alvo num formulário mais adequado para visualização do utilizador final.
 
-        * `numExamples`: Um inteiro que representa o número de exemplos disponíveis para este par de tradução. Os exemplos reais devem ser recuperados com uma chamada separada para [procurar exemplos](./v3-0-dictionary-examples.md). O número destina-se principalmente a facilitar o visualização num UX. Por exemplo, uma interface de utilizador pode adicionar uma hiperligação à tradução traseira se o número de exemplos for superior a zero e mostrar a tradução traseira como texto simples se não houver exemplos. Note que o número real de exemplos devolvidos por uma chamada para [procurar exemplos](./v3-0-dictionary-examples.md) pode ser inferior `numExamples` , porque pode ser aplicada filtragem adicional no voo para remover exemplos "maus".
+        * `numExamples`: Um número inteiro que representa o número de exemplos disponíveis para este par de tradução. Os exemplos reais devem ser recuperados com uma chamada separada para [procurar exemplos](./v3-0-dictionary-examples.md). O número destina-se principalmente a facilitar a visualização num UX. Por exemplo, uma interface de utilizador pode adicionar uma hiperligação à tradução traseira se o número de exemplos for maior do que zero e mostrar a tradução traseira como texto simples se não houver exemplos. Note que o número real de exemplos devolvidos por uma chamada para [procurar exemplos](./v3-0-dictionary-examples.md) pode ser menor do que `numExamples` , porque a filtragem adicional pode ser aplicada na mosca para remover exemplos "maus".
         
-        * `frequencyCount`: Um inteiro que represente a frequência deste par de tradução nos dados. O principal objetivo deste campo é fornecer uma interface de utilizador com um meio de ordenar traduções traseiras para que os termos mais frequentes sejam os primeiros.
+        * `frequencyCount`: Um número inteiro que represente a frequência deste par de tradução nos dados. O principal objetivo deste campo é fornecer a uma interface de utilizador um meio de ordenar traduções traseiras para que os termos mais frequentes sejam os primeiros.
 
     > [!NOTE]
-    > Se o termo que está a ser procurado não existir no dicionário, a resposta é de 200 (OK), mas a `translations` lista é uma lista vazia.
+    > Se o termo que está a ser analisado não existir no dicionário, a resposta é de 200 (OK), mas a `translations` lista é uma lista vazia.
 
 ## <a name="examples"></a>Exemplos
 
-Este exemplo mostra como procurar traduções alternativas em espanhol do termo `fly` inglês.
+Este exemplo mostra como procurar traduções alternativas em espanhol do termo inglês `fly` .
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly'}]"
 ```
 
-O corpo de resposta (abreviado para a clareza) é:
+O organismo de resposta (abreviado para clareza) é:
 
 ```
 [
@@ -161,7 +161,7 @@ O corpo de resposta (abreviado para a clareza) é:
 ]
 ```
 
-Este exemplo mostra o que acontece quando o termo que está a ser procurado não existe para o par de dicionário válido.
+Este exemplo mostra o que acontece quando o termo que está a ser analisado não existe para o par de dicionários válidos.
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly123456'}]"

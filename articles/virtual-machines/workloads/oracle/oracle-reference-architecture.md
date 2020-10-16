@@ -1,23 +1,18 @@
 ---
 title: Arquiteturas de referência para bases de dados da Oracle em Azure Microsoft Docs
 description: Referências arquiteturas para executar bases de dados Da Oracle Database Enterprise Edition em Microsoft Azure Virtual Machines.
-services: virtual-machines-linux
 author: dbakevlar
-manager: ''
-tags: ''
-ms.service: virtual-machines
+ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 12/13/2019
 ms.author: kegorman
-ms.custom: ''
-ms.openlocfilehash: 2bbc78f9a5569c8446743980cdea153883c19d4d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.reviewer: cynthn
+ms.openlocfilehash: f9765f4ce47e6e698daf1680aecf059241c58382
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91274441"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993575"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Arquiteturas de referência para Oracle Database Enterprise Edition em Azure
 
@@ -33,7 +28,7 @@ Se está interessado em saber mais sobre maximizar o desempenho da sua base de d
 
 ## <a name="high-availability-for-oracle-databases"></a>Alta disponibilidade para bases de dados da Oracle
 
-Alcançar uma elevada disponibilidade na nuvem é uma parte importante do planeamento e design de cada organização. O Microsoft Azure oferece [zonas de disponibilidade](../../../availability-zones/az-overview.md) e conjuntos de disponibilidade (a serem utilizados em regiões onde as zonas de disponibilidade não estão disponíveis). Leia mais sobre [a gestão da disponibilidade das suas máquinas virtuais](../../../virtual-machines/linux/manage-availability.md) para projetar para a nuvem.
+Alcançar uma elevada disponibilidade na nuvem é uma parte importante do planeamento e design de cada organização. O Microsoft Azure oferece [zonas de disponibilidade](../../../availability-zones/az-overview.md) e conjuntos de disponibilidade (a serem utilizados em regiões onde as zonas de disponibilidade não estão disponíveis). Leia mais sobre [a gestão da disponibilidade das suas máquinas virtuais](../../manage-availability.md) para projetar para a nuvem.
 
 Além de ferramentas e ofertas nativas em nuvem, a Oracle fornece soluções para uma alta disponibilidade, como [Oracle Data Guard,](https://docs.oracle.com/en/database/oracle/oracle-database/18/sbydb/introduction-to-oracle-data-guard-concepts.html#GUID-5E73667D-4A56-445E-911F-1E99092DD8D7) [Data Guard com FSFO,](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/index.html) [Sharding](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/admin/sharding-overview.html)e [GoldenGate](https://www.oracle.com/middleware/technologies/goldengate.html) que podem ser configurados no Azure. Este guia abrange arquiteturas de referência para cada uma destas soluções.
 
@@ -43,7 +38,7 @@ Finalmente, ao migrar ou criar aplicações para a nuvem, é importante ajustar 
 
 O Oracle Real Application Cluster (RAC) é uma solução da Oracle para ajudar os clientes a alcançar altos resultados, tendo muitas instâncias a aceder a um armazenamento de base de dados (padrão de arquitetura partilhado). Embora o Oracle RAC também possa ser usado para alta disponibilidade no local, o Oracle RAC por si só não pode ser usado para alta disponibilidade na nuvem, uma vez que apenas protege contra falhas de nível de instância e não contra falhas de nível de rack ou de nível de dados. Por esta razão, a Oracle recomenda a utilização da Oracle Data Guard com a sua base de dados (seja uma instância única ou RAC) para uma elevada disponibilidade. Os clientes geralmente exigem um SLA elevado para executar as suas aplicações críticas de missão. A Oracle RAC não é atualmente certificada ou apoiada pela Oracle em Azure. No entanto, o Azure oferece funcionalidades como a Azure oferece Zonas de Disponibilidade e janelas de manutenção planeadas para ajudar a proteger contra falhas de nível de exemplo. Além disso, os clientes podem usar tecnologias como Oracle Data Guard, Oracle GoldenGate e Oracle Sharding para alto desempenho e resiliência, protegendo as suas bases de dados de falhas ao nível do rack, bem como falhas de nível de datacenter e geopolítica.
 
-Ao executar as Bases de Dados da Oracle em [várias zonas de disponibilidade](../../../availability-zones/az-overview.md) em conjunto com a Oracle Data Guard ou GoldenGate, os clientes são capazes de obter um SLA de 99,99%. Nas regiões de Azure onde as zonas de disponibilidade ainda não estão presentes, os clientes podem utilizar [Conjuntos de Disponibilidade](../../linux/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) e alcançar um SLA de 99,95%.
+Ao executar as Bases de Dados da Oracle em [várias zonas de disponibilidade](../../../availability-zones/az-overview.md) em conjunto com a Oracle Data Guard ou GoldenGate, os clientes são capazes de obter um SLA de 99,99%. Nas regiões de Azure onde as zonas de disponibilidade ainda não estão presentes, os clientes podem utilizar [Conjuntos de Disponibilidade](../../manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) e alcançar um SLA de 99,95%.
 
 >NOTA: Pode ter um alvo de uptime muito superior ao SLA de uptime fornecido pela Microsoft.
 
@@ -71,7 +66,7 @@ Ao utilizar o Oracle Data Guard, também pode abrir a sua base de dados secundá
 > A Ative Data Guard requer licenças adicionais. Esta licença também é necessária para utilizar a funcionalidade Far Sync. Por favor, conecte-se com o seu representante da Oracle para discutir as implicações de licenciamento.
 
 #### <a name="oracle-data-guard-with-fsfo"></a>Guarda de Dados da Oracle com FSFO
-A Oracle Data Guard com Falha de Arranque Rápido (FSFO) pode fornecer resiliência adicional através da configuração do corretor numa máquina separada. O corretor da Guarda de Dados e a base de dados secundária executam o observador e observam a base de dados primária para o tempo de inatividade. Isto permite a redundância na configuração do observador da Data Guard também. 
+A Oracle Data Guard com Fast-Start Failover (FSFO) pode fornecer resiliência adicional através da configuração do corretor numa máquina separada. O corretor da Guarda de Dados e a base de dados secundária executam o observador e observam a base de dados primária para o tempo de inatividade. Isto permite a redundância na configuração do observador da Data Guard também. 
 
 Com a versão 12.2 ou superior da Oracle Database, também é possível configurar vários observadores com uma única configuração de corretor oracle Data Guard. Esta configuração proporciona disponibilidade adicional, caso um observador e a base de dados secundária experimentem tempo de inatividade. Data Guard Broker é leve e pode ser hospedado numa máquina virtual relativamente pequena. Para saber mais sobre o Data Guard Broker e as suas vantagens, visite a [documentação](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/oracle-data-guard-broker-concepts.html) da Oracle sobre este tema.
 
@@ -152,7 +147,7 @@ O oráculo sharding consiste principalmente dos seguintes componentes. Mais info
 
 - **Serviço global** - O serviço global é semelhante ao serviço de base de dados regular. Além de todas as propriedades de um serviço de base de dados, um serviço global tem propriedades para bases de dados de fragmentos, como a afinidade da região entre clientes e tolerância de shard e replicação lag. Apenas um serviço Global precisa de ser criado para ler/escrever dados de/para uma base de dados de fragmentos. Ao utilizar a Ative Data Guard e configurar réplicas apenas de leitura dos fragmentos, pode criar outro serviço gGobal para cargas de trabalho apenas de leitura. O cliente pode usar estes serviços Globais para se conectar à base de dados.
 
-- **Bases de dados de fragmentos** - Bases de dados de fragmentos são as bases de dados do Oracle. Cada base de dados é replicada utilizando a Oracle Data Guard numa configuração de corretor com falha de arranque rápido (FSFO) ativada. Não é preciso configurar a falha da Data Guard e a replicação em cada fragmento. Isto é configurado automaticamente e implementado quando a base de dados partilhada é criada. Se um fragmento em particular falhar, a Oracle Sharing falha automaticamente nas ligações de base de dados da primária para a espera.
+- **Bases de dados de fragmentos** - Bases de dados de fragmentos são as bases de dados do Oracle. Cada base de dados é replicada utilizando a Oracle Data Guard numa configuração de corretor com Fast-Start Failover (FSFO) ativada. Não é preciso configurar a falha da Data Guard e a replicação em cada fragmento. Isto é configurado automaticamente e implementado quando a base de dados partilhada é criada. Se um fragmento em particular falhar, a Oracle Sharing falha automaticamente nas ligações de base de dados da primária para a espera.
 
 Pode implementar e gerir bases de dados de fragmentos da Oracle com duas interfaces: Oracle Enterprise Manager Cloud Control GUI e/ou o `GDSCTL` utilitário da linha de comando. Pode até monitorizar os diferentes fragmentos para disponibilidade e desempenho utilizando o controlo cloud. O `GDSCTL DEPLOY` comando cria automaticamente os fragmentos e os respetivos ouvintes. Além disso, este comando implementa automaticamente a configuração de replicação utilizada para uma alta disponibilidade de nível de fragmento especificada pelo administrador.
 
@@ -209,7 +204,7 @@ Durante o pedido inicial, o servidor de aplicações conecta-se ao diretor de fr
 
 ## <a name="patching-and-maintenance"></a>Remendação e manutenção
 
-Ao implementar as suas cargas de trabalho da Oracle para o Azure, a Microsoft cuida de todos os patchings de nível OS do hospedeiro. Qualquer manutenção planeada ao nível do SO é comunicada antecipadamente aos clientes para permitir ao cliente esta manutenção planeada. Dois servidores de duas zonas de disponibilidade diferentes nunca são remendados simultaneamente. Consulte [Gerir a disponibilidade de máquinas virtuais](../../../virtual-machines/linux/manage-availability.md) para obter mais detalhes sobre manutenção e remendos em VM. 
+Ao implementar as suas cargas de trabalho da Oracle para o Azure, a Microsoft cuida de todos os patchings de nível OS do hospedeiro. Qualquer manutenção planeada ao nível do SO é comunicada antecipadamente aos clientes para permitir ao cliente esta manutenção planeada. Dois servidores de duas zonas de disponibilidade diferentes nunca são remendados simultaneamente. Consulte [Gerir a disponibilidade de máquinas virtuais](../../manage-availability.md) para obter mais detalhes sobre manutenção e remendos em VM. 
 
 Remendar o sistema operativo da máquina virtual pode ser automatizado utilizando [a Azure Automation Update Management](../../../automation/update-management/update-mgmt-overview.md). Remendar e manter a base de dados oracle pode ser automatizado e programado usando [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) ou [Azure Automation Update Management](../../../automation/update-management/update-mgmt-overview.md) para minimizar o tempo de inatividade. Consulte [a Entrega Contínua e As Implementações Azuis/Verdes](/azure/devops/learn/what-is-continuous-delivery) para entender como pode ser usada no contexto das suas bases de dados Oráculos.
 
@@ -232,6 +227,6 @@ Reveja os seguintes artigos de referência da Oracle que se aplicam ao seu cená
 
 - [Introdução à Oracle Data Guard](https://docs.oracle.com/en/database/oracle/oracle-database/18/sbydb/introduction-to-oracle-data-guard-concepts.html#GUID-5E73667D-4A56-445E-911F-1E99092DD8D7)
 - [Conceitos de corretor de guarda de dados da Oracle](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/oracle-data-guard-broker-concepts.html)
-- [Configurar o Oracle GoldenGate para alta disponibilidade ativa](https://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_bidirectional.htm#GWUAD282)
+- [Configurar o Oracle GoldenGate para Active-Active alta disponibilidade](https://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_bidirectional.htm#GWUAD282)
 - [Visão geral do Oráculo Sharding](https://docs.oracle.com/en/database/oracle/oracle-database/19/shard/sharding-overview.html)
 - [Oracle Ative Data Guard Far Sync Zero Data Loss a qualquer distância](https://www.oracle.com/technetwork/database/availability/farsync-2267608.pdf)

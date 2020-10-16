@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
 ms.openlocfilehash: 38500edeca2241bfa9ab093e037af18159994b02
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87920420"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>Controlo de acesso baseado em funções para StorSimple

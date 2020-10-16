@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.author: normesta
 ms.date: 04/07/2020
 ms.openlocfilehash: 02b7e02c33161db33420e2efe1ef4b70a138d127
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84465223"
 ---
 # <a name="integrate-a-static-website-with-azure-cdn"></a>Integrar um website estático com a Azure CDN
@@ -69,6 +69,6 @@ Se já não pretender ter um objeto em cache na CDN do Azure, poderá efetuar um
 
 Um objeto que já esteja em cache na CDN do Azure permanece em cache até o período TTL do objeto expirar ou até o ponto final ser [removido](../../cdn/cdn-purge-endpoint.md). Quando o período TTL expirar, a CDN do Azure determina se o ponto final da CDN ainda é válido e se o objeto ainda é acessível anonimamente. Se não forem, o objeto não já estará em cache.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 (Opcional) Adicione um domínio personalizado ao seu ponto final Azure CDN. Ver [Tutorial: Adicione um domínio personalizado ao seu ponto final Azure CDN](../../cdn/cdn-map-content-to-custom-domain.md).

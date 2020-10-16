@@ -1,7 +1,7 @@
 ---
-title: 'Regressão Logística de duas classes: Referência do módulo'
+title: 'Two-Class Regressão Logística: Referência do módulo'
 titleSuffix: Azure Machine Learning
-description: Aprenda a usar o módulo de regressão logística de duas classes no Azure Machine Learning para criar um modelo de regressão logística que pode ser usado para prever dois (e apenas dois) resultados.
+description: Saiba como utilizar o módulo de regressão logística Two-Class em Azure Machine Learning para criar um modelo de regressão logística que pode ser usado para prever dois (e apenas dois) resultados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 525293c7ae3d0af49f6deaa0ce9d3cb037d9ba38
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907701"
 ---
-# <a name="two-class-logistic-regression-module"></a>Módulo de regressão logística de duas classes
+# <a name="two-class-logistic-regression-module"></a>Two-Class módulo de regressão logística
 
 Este artigo descreve um módulo no designer de Aprendizagem automática Azure.
 
@@ -87,7 +87,7 @@ Por exemplo, a coluna do rótulo pode ser [Votada] com possíveis valores de "Si
   
 9. Envie o oleoduto.  
   
-## <a name="results"></a>Resultados
+## <a name="results"></a>Results
 
 Após o treino estar completo:
  

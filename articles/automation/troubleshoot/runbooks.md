@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.service: automation
 ms.custom: has-adal-ref
 ms.openlocfilehash: 1cbb5be8c1a4045b218c0e6bf5ac7ed0b901aa80
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87904807"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Resolver problemas de runbooks
@@ -188,7 +188,7 @@ Recebe o seguinte erro quando trabalha com o `Select-AzureSubscription` `Select-
 The subscription named <subscription name> cannot be found.
 ```
 
-### <a name="error"></a>Error
+### <a name="error"></a>Erro
 
 Este erro pode ocorrer se:
 
@@ -677,7 +677,7 @@ Siga [o Passo 5 - Adicione a autenticação para gerir os recursos do Azure](../
 
 ## <a name="recommended-documents"></a>Documentos recomendados
 
-* [Execução de runbooks na Automatização do Azure](../automation-runbook-execution.md)
+* [Execução de runbook na Azure Automation](../automation-runbook-execution.md)
 * [Iniciar um runbook na Azure Automation](../start-runbooks.md)
 
 ## <a name="next-steps"></a>Passos seguintes

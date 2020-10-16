@@ -1,18 +1,18 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/08/2020
-ms.author: akjosh
+ms.date: 10/14/2020
+ms.author: olayemio
 ms.custom: include file
-ms.openlocfilehash: 662afb902c97e164cc24bc664b854db118904210
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a5c06d0beeb76193c2b8ddba9413878dbf428819
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89494295"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071783"
 ---
 A Shared Image Gallery é um serviço que o ajuda a construir estrutura e organização em torno das suas imagens. As Galerias de Imagem Partilhadas fornecem:
 
@@ -56,19 +56,36 @@ Existem três parâmetros para cada definição de imagem que são usados em com
 
 Todos estes três têm conjuntos únicos de valores. O formato é semelhante ao que pode especificar atualmente as imagens de editor, oferta e SKU para [Azure Marketplace](../articles/virtual-machines/windows/cli-ps-findimage.md) em Azure PowerShell para obter a versão mais recente de uma imagem do Marketplace. Cada definição de imagem precisa de ter um conjunto único destes valores.
 
+As definições de imagem devem definir os seguintes parâmetros que determinam quais os tipos de versões de imagem que podem conter:
+-   Estado do sistema operativo - Pode definir o estado de SO para [generalizado ou especializado](#generalized-and-specialized-images).
+- Sistema operativo - pode ser Windows ou Linux.
+
+
+
 Seguem-se outros parâmetros que podem ser definidos na definição de imagem para que possa acompanhar mais facilmente os seus recursos:
 
-* Estado do sistema operativo - Pode definir o estado de SO para [generalizado ou especializado](#generalized-and-specialized-images).
-* Sistema operativo - pode ser Windows ou Linux.
-* Descrição - utilize a descrição para dar informações mais detalhadas sobre a existência da definição de imagem. Por exemplo, pode ter uma definição de imagem para o seu servidor frontal que tem a aplicação pré-instalada.
-* Eula - pode ser usado para apontar para um contrato de licença de utilizador final específico para a definição de imagem.
-* Privacy Statement and Release notes - armazenar notas de lançamento e declarações de privacidade no armazenamento Azure e fornecer um URI para aceder a elas como parte da definição de imagem.
-* Data de fim de vida - anexe uma data de fim de vida à sua definição de imagem para poder utilizar a automatização para eliminar definições de imagem antigas.
-* Tag - pode adicionar tags quando criar a definição de imagem. Para obter mais informações sobre tags, consulte [Usando tags para organizar os seus recursos](../articles/azure-resource-manager/management/tag-resources.md)
-* Recomendações mínimas e máximas de vCPU e memória - se a sua imagem tiver vCPU e recomendações de memória, pode anexar essa informação à sua definição de imagem.
-* Tipos de disco não permitidos - pode fornecer informações sobre as necessidades de armazenamento para o seu VM. Por exemplo, se a imagem não for adequada para discos HDD padrão, adicione-os à lista de não-adesecedores.
-* Geração Hiper-V - você pode especificar se a imagem foi criada a partir de um género 1 ou gen 2 Hyper-V VHD.
-* Informação do plano de compra para imagens do Marketplace - `-PurchasePlanPublisher ` `-PurchasePlanName` , e `-PurchasePlanProduct` . Para obter mais informações sobre informações sobre planos de compra, consulte [encontrar imagens no Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) e fornecer informações do [plano de compra do Azure Marketplace ao criar imagens.](../articles/virtual-machines/marketplace-images.md)
+- Descrição - utilize a descrição para dar informações mais detalhadas sobre a existência da definição de imagem. Por exemplo, pode ter uma definição de imagem para o seu servidor frontal que tem a aplicação pré-instalada.
+- Eula - pode ser usado para apontar para um contrato de licença de utilizador final específico para a definição de imagem.
+- Privacy Statement and Release notes - armazenar notas de lançamento e declarações de privacidade no armazenamento Azure e fornecer um URI para aceder a elas como parte da definição de imagem.
+- Data de fim de vida - anexe uma data de fim de vida à sua definição de imagem para poder utilizar a automatização para eliminar definições de imagem antigas.
+- Tag - pode adicionar tags quando criar a definição de imagem. Para obter mais informações sobre tags, consulte [Usando tags para organizar os seus recursos](../articles/azure-resource-manager/management/tag-resources.md)
+- Recomendações mínimas e máximas de vCPU e memória - se a sua imagem tiver vCPU e recomendações de memória, pode anexar essa informação à sua definição de imagem.
+- Tipos de disco não permitidos - pode fornecer informações sobre as necessidades de armazenamento para o seu VM. Por exemplo, se a imagem não for adequada para discos HDD padrão, adicione-os à lista de não-adesecedores.
+-   Geração Hyper-V - especifique se a imagem foi criada a partir de uma geração 1 ou [geração 2](../articles/virtual-machines/generation-2.md) Hyper-V VHD. O padrão é a geração 1.
+- Informação do plano de compra para imagens do Marketplace - `-PurchasePlanPublisher` `-PurchasePlanName` , e `-PurchasePlanProduct` . Para obter mais informações sobre informações sobre planos de compra, consulte [encontrar imagens no Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) e fornecer informações do [plano de compra do Azure Marketplace ao criar imagens.](../articles/virtual-machines/marketplace-images.md)
+
+
+## <a name="image-versions"></a>Versões de imagem
+
+Uma **versão de imagem** é o que se usa para criar um VM. Pode ter várias versões de uma imagem necessária para o seu ambiente. Quando se utiliza uma **versão de imagem** para criar um VM, a versão de imagem é usada para criar novos discos para o VM. As versões de imagem podem ser usadas várias vezes.
+
+As propriedades de uma versão de imagem são:
+
+- Número da versão. Isto é usado como o nome da versão de imagem. Está sempre no formato: MajorVersion.MinorVersion.Patch. Quando especifica para usar o **mais recente** ao criar um VM, a imagem mais recente é escolhida com base na maiorversão, em seguida, MinorVersion, em seguida, Patch. 
+- A fonte. A fonte pode ser um VM, disco gerido, instantâneo, imagem gerida ou outra versão de imagem. 
+- Excluir das últimas. Pode evitar que uma versão seja usada como a versão mais recente da imagem. 
+- Fim da vida. Data após a qual os VM não podem ser criados a partir desta imagem.
+
 
 ## <a name="generalized-and-specialized-images"></a>Imagens generalizadas e especializadas
 
@@ -129,8 +146,8 @@ Como a Galeria de Imagens Partilhada, Definição de Imagem e Versão Image são
 
 | Partilhado com o Utilizador     | Galeria de Imagens Partilhada | Definição da Imagem | Versão da imagem |
 |----------------------|----------------------|--------------|----------------------|
-| Galeria de Imagens Partilhada | Sim                  | Sim          | Sim                  |
-| Definição da Imagem     | Não                   | Sim          | Sim                  |
+| Galeria de Imagens Partilhada | Yes                  | Yes          | Yes                  |
+| Definição da Imagem     | No                   | Yes          | Yes                  |
 
 Recomendamos a partilha ao nível da Galeria para obter a melhor experiência. Não recomendamos a partilha de versões de imagem individuais. Para obter mais informações sobre o RBAC, consulte [Gerir o acesso aos recursos do Azure utilizando o RBAC.](../articles/role-based-access-control/role-assignments-portal.md)
 

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf03dffe82d611f10639af2a147bc2d9e9316621
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 6a4e540ff6a81be8afa769d93b0649e0fce49882
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052779"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965102"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Reposição personalizada de palavra-passe do AAD
 
@@ -235,7 +235,7 @@ Para testar este cenário, vá a https://passwordreset.microsoftonline.com um de
 > [!NOTE]
 > As contas da Microsoft a quem foi concedido acesso ao seu inquilino Azure AD, como as de Hotmail.com, Outlook.com ou outros endereços de e-mail pessoais, não são capazes de usar Azure AD SSPR. Precisam de redefinir a sua palavra-passe utilizando as informações encontradas no [When you can't't iniciar sôm no seu](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) artigo de conta Microsoft.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar com a SSPR, complete o seguinte tutorial:
 

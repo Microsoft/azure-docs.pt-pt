@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: erhopf
 ms.openlocfilehash: 560c156c8e2c3d69c099b2ad573fa0d214f3f80b
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91355079"
 ---
 # <a name="what-is-the-speech-devices-sdk"></a>O que é o SDK dos Dispositivos de Fala?

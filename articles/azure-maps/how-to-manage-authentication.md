@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 3383971b9984e6f565feebc3bdfb968fb77cbe85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6fb4d1459584e8dd2b230a424f043ad086f2570d
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311109"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089456"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gerir a autenticação em Azure Maps
 
@@ -41,7 +41,7 @@ Dependendo das necessidades de aplicação, existem caminhos específicos para a
 A tabela que se segue descreve cenários comuns de autenticação e autorização no Azure Maps. A tabela fornece uma comparação dos tipos de proteção que cada cenário oferece.
 
 > [!IMPORTANT]
-> A Microsoft recomenda a implementação do Azure Ative Directory (Azure AD) com controlo de acesso baseado em funções (RBAC) para aplicações de produção.
+> A Microsoft recomenda a implementação do Azure Ative Directory (Azure AD) com o controlo de acesso baseado em funções Azure (Azure RBAC) para aplicações de produção.
 
 | Cenário                                                                                    | Autenticação | Autorização | Esforço de desenvolvimento | Esforço operacional |
 | ------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------------ | ------------------ |
@@ -63,10 +63,10 @@ Para ver as funções Azure que estão disponíveis para O Azure Maps, vá ao **
 
 ## <a name="view-role-assignments"></a>Ver atribuições de funções
 
-Para ver utilizadores e aplicativos a quem foi concedido o RBAC para o Azure Maps, vá ao **Access Control (IAM)**. Lá, selecione **atribuições de funções**e, em seguida, filtrar por **Azure Maps**.
+Para ver utilizadores e apps a quem foi concedido acesso ao Azure Maps, aceda ao **Access Control (IAM)**. Lá, selecione **atribuições de funções**e, em seguida, filtrar por **Azure Maps**.
 
 > [!div class="mx-imgBorder"]
-> ![Ver utilizadores e aplicativos que foram concedidos RBAC](./media/how-to-manage-authentication/how-to-view-amrbac.png)
+> ![Ver utilizadores e apps a quem foi concedido acesso](./media/how-to-manage-authentication/how-to-view-amrbac.png)
 
 ## <a name="request-tokens-for-azure-maps"></a>Fichas de pedido para Azure Maps
 

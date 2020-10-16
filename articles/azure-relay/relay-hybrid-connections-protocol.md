@@ -4,10 +4,10 @@ description: Este artigo descreve as interações do lado do cliente com o relé
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 893092124961ffa9df2535ca6de75def2930b797
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91531450"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocolo de conexões híbridas Azure Relay
@@ -137,7 +137,7 @@ As opções de parâmetros de cadeia de consulta são as seguintes.
 | ---------------- | -------- | -------------------------------------------
 | `sb-hc-action`   | Sim      | Para o papel de ouvinte, o parâmetro deve ser **sb-hc-action=ouvir**
 | `{path}`         | Sim      | O caminho do espaço de nome codificado por URL da Ligação Híbrida pré-configurada para registar este ouvinte. Esta expressão é anexada à parte do `$hc/` caminho fixo.
-| `sb-hc-token`    | Sim\*    | O ouvinte deve fornecer um token de acesso compartilhado de serviço de serviço codificado por URL para o espaço de nome ou conexão híbrida que confere o direito **de escuta.**
+| `sb-hc-token`    | Sim, é o seu\*    | O ouvinte deve fornecer um token de acesso compartilhado de serviço de serviço codificado por URL para o espaço de nome ou conexão híbrida que confere o direito **de escuta.**
 | `sb-hc-id`       | Não       | Este ID opcional fornecido pelo cliente permite o rastreio de diagnóstico de ponta a ponta.
 
 Se a ligação WebSocket falhar devido à não inscrição do caminho de Ligação Híbrida, ou a um token inválido ou em falta, ou a qualquer outro erro, o feedback de erro é fornecido utilizando o modelo regular de feedback do estado HTTP 1.1. A descrição do estado contém um id de rastreio de erro que pode ser comunicado ao pessoal de apoio da Azure:
@@ -427,7 +427,7 @@ As opções de parâmetro de cadeia de consulta são as seguintes:
 | -------------- | --------- | -------------------------- |
 | `sb-hc-action` | Sim       | Para o papel de remetente, o parâmetro deve ser `sb-hc-action=connect` .
 | `{path}`       | Sim       | (ver o parágrafo seguinte)
-| `sb-hc-token`  | Sim\*     | O ouvinte deve fornecer um token de acesso compartilhado de serviço de serviço codificado por URL para o espaço de nome ou conexão híbrida que confere o direito **enviar.**
+| `sb-hc-token`  | Sim, é o seu\*     | O ouvinte deve fornecer um token de acesso compartilhado de serviço de serviço codificado por URL para o espaço de nome ou conexão híbrida que confere o direito **enviar.**
 | `sb-hc-id`     | Não        | Um ID opcional que permite o rastreio de diagnóstico de ponta a ponta e é disponibilizado ao ouvinte durante o aperto de mão aceite.
 
  O `{path}` é o caminho do espaço de nome codificado por URL da ligação híbrida pré-configurada para registar este ouvinte. A `path` expressão pode ser estendida com um sufixo e uma expressão de corda de consulta para comunicar mais. Se a Ligação Híbrida for registada no `hyco` caminho, a `path` expressão pode ser seguida pelos `hyco/suffix?param=value&...` parâmetros de cadeia de consulta definidos aqui. Uma expressão completa pode então ser a seguinte:
@@ -496,7 +496,7 @@ Se houver um erro, o serviço pode responder da seguinte forma. Se a resposta te
 | 503  | Bad Gateway     | O pedido não podia ser encaminhado para nenhum ouvinte.
 | 504  | Tempo de gateway | O pedido foi encaminhado para um ouvinte, mas o ouvinte não reconheceu o recibo no tempo necessário.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [FAQ de Reencaminhamento](relay-faq.md)
 * [Criar um espaço de nomes](relay-create-namespace-portal.md)

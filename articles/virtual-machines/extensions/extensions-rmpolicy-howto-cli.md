@@ -14,10 +14,10 @@ ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.openlocfilehash: 2129130dab58c9e1fb98878efc3ec668eeb45359
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87069778"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Utilize a Política Azure para restringir a instalação de extensões em VMs Linux

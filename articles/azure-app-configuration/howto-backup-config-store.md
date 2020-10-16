@@ -10,12 +10,12 @@ ms.custom: devx-track-dotnet
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: a3c1699dd4b7b828c7dc652f14f431878f785061
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 3c4bdf1268aea06d7b67776a4022c608549994e7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207139"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074860"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Fazer o back up Lojas de Configuração de Aplicativos automaticamente
 
@@ -124,7 +124,7 @@ Neste artigo, você vai trabalhar com funções C# que têm as seguintes proprie
 - Azure Functions versão de tempo de execução 3.x
 - Função desencadeada pelo temporizador a cada 10 minutos
 
-Para facilitar o seu início ao backup dos seus dados, [testámos e publicámos uma função](https://github.com/Azure/AppConfiguration/tree/master/examples/ConfigurationStoreBackup) que pode utilizar sem escoar quaisquer alterações ao código. Descarregue os ficheiros do projeto e [publique-os na sua própria aplicação de função Azure a partir do Visual Studio](/azure/azure-functions/functions-develop-vs#publish-to-azure).
+Para facilitar o seu início ao backup dos seus dados, [testámos e publicámos uma função](https://github.com/Azure/AppConfiguration/tree/master/examples/ConfigurationStoreBackup) que pode utilizar sem escoar quaisquer alterações ao código. Descarregue os ficheiros do projeto e [publique-os na sua própria aplicação de função Azure a partir do Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
 
 > [!IMPORTANT]
 > Não faça alterações nas variáveis ambientais no código que descarregou. Criará as definições de aplicação necessárias na secção seguinte.
@@ -133,13 +133,13 @@ Para facilitar o seu início ao backup dos seus dados, [testámos e publicámos 
 ### <a name="build-your-own-function"></a>Construa a sua própria função
 
 Se o código de amostra fornecido anteriormente não cumprir os seus requisitos, também pode criar a sua própria função. A sua função deve ser capaz de executar as seguintes tarefas para completar a cópia de segurança:
-- Leia periodicamente o conteúdo da sua fila para ver se contém notificações da Grade de Eventos. Consulte o [SDK da fila de armazenamento](/azure/storage/queues/storage-quickstart-queues-dotnet) para obter detalhes de implementação.
-- Se a sua fila contiver [notificações de eventos da Grade de Eventos,](/azure/azure-app-configuration/concept-app-configuration-event?branch=pr-en-us-112982#event-schema)extraia todas as `<key, label>` informações únicas das mensagens do evento. A combinação de chave e etiqueta é o identificador único para alterações de valor-chave na loja primária.
+- Leia periodicamente o conteúdo da sua fila para ver se contém notificações da Grade de Eventos. Consulte o [SDK da fila de armazenamento](../storage/queues/storage-quickstart-queues-dotnet.md) para obter detalhes de implementação.
+- Se a sua fila contiver [notificações de eventos da Grade de Eventos,](./concept-app-configuration-event.md?branch=pr-en-us-112982#event-schema)extraia todas as `<key, label>` informações únicas das mensagens do evento. A combinação de chave e etiqueta é o identificador único para alterações de valor-chave na loja primária.
 - Leia todas as definições da loja primária. Atualize apenas as definições na loja secundária que tenham um evento correspondente na fila. Elimine todas as definições da loja secundária que estavam presentes na fila, mas não na loja primária. Pode utilizar o [SDK de Configuração](https://github.com/Azure/AppConfiguration#sdks) de Aplicações para aceder às suas lojas de configuração programáticamente.
 - Elimine as mensagens da fila se não houver exceções durante o processamento.
 - Implemente o tratamento de erros de acordo com as suas necessidades. Consulte a amostra de código anterior para ver algumas exceções comuns que possa querer manusear.
 
-Para saber mais sobre a criação de uma função, consulte: [Criar uma função em Azure que é desencadeada por um temporizador](/azure/azure-functions/functions-create-scheduled-function) e [desenvolver funções Azure utilizando o Visual Studio](/azure/azure-functions/functions-develop-vs).
+Para saber mais sobre a criação de uma função, consulte: [Criar uma função em Azure que é desencadeada por um temporizador](../azure-functions/functions-create-scheduled-function.md) e [desenvolver funções Azure utilizando o Visual Studio](../azure-functions/functions-develop-vs.md).
 
 
 > [!IMPORTANT]
@@ -167,16 +167,16 @@ az functionapp config appsettings set --name $functionAppName --resource-group $
 
 ## <a name="grant-access-to-the-managed-identity-of-the-function-app"></a>Conceder acesso à identidade gerida da app de função
 
-Utilize o seguinte comando ou o [portal Azure](/azure/app-service/overview-managed-identity#add-a-system-assigned-identity) para adicionar uma identidade gerida atribuída ao sistema para a sua aplicação de função.
+Utilize o seguinte comando ou o [portal Azure](../app-service/overview-managed-identity.md#add-a-system-assigned-identity) para adicionar uma identidade gerida atribuída ao sistema para a sua aplicação de função.
 
 ```azurecli-interactive
 az functionapp identity assign --name $functionAppName --resource-group $resourceGroupName
 ```
 
 > [!NOTE]
-> Para realizar a criação de recursos e gestão de funções necessárias, a sua conta necessita de `Owner` permissões no âmbito apropriado (a sua subscrição ou grupo de recursos). Se precisar de assistência com a atribuição de funções, aprenda [a adicionar ou remover atribuições de funções Azure utilizando o portal Azure](/azure/role-based-access-control/role-assignments-portal).
+> Para realizar a criação de recursos e gestão de funções necessárias, a sua conta necessita de `Owner` permissões no âmbito apropriado (a sua subscrição ou grupo de recursos). Se precisar de assistência com a atribuição de funções, aprenda [a adicionar ou remover atribuições de funções Azure utilizando o portal Azure](../role-based-access-control/role-assignments-portal.md).
 
-Utilize os seguintes comandos ou o [portal Azure](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity#grant-access-to-app-configuration) para garantir a identidade gerida da sua aplicação de função de acesso às suas lojas de Configuração de Aplicações. Utilize estas funções:
+Utilize os seguintes comandos ou o [portal Azure](./howto-integrate-azure-managed-service-identity.md#grant-access-to-app-configuration) para garantir a identidade gerida da sua aplicação de função de acesso às suas lojas de Configuração de Aplicações. Utilize estas funções:
 - Atribua o `App Configuration Data Reader` papel na loja primária de configuração de aplicações.
 - Atribua o `App Configuration Data Owner` papel na loja de configuração de aplicações secundárias.
 
@@ -196,7 +196,7 @@ az role assignment create \
     --scope $secondaryAppConfigId
 ```
 
-Utilize o seguinte comando ou o [portal Azure](/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal) para garantir a identidade gerida da sua aplicação de função acesso à sua fila. Atribua o `Storage Queue Data Contributor` papel na fila.
+Utilize o seguinte comando ou o [portal Azure](../storage/common/storage-auth-aad-rbac-portal.md#assign-azure-roles-using-the-azure-portal) para garantir a identidade gerida da sua aplicação de função acesso à sua fila. Atribua o `Storage Queue Data Contributor` papel na fila.
 
 ```azurecli-interactive
 az role assignment create \
@@ -216,7 +216,7 @@ az appconfig kv set --name $primaryAppConfigName --key Foo --value Bar --yes
 Desencadeou o evento. Dentro de momentos, a Event Grid enviará a notificação do evento para a sua fila. *Após o próximo funcionamento programado da sua função,* veja as definições de configuração na sua loja secundária para ver se contém o valor-chave atualizado da loja primária.
 
 > [!NOTE]
-> Pode [ativar a sua função manualmente](/azure/azure-functions/functions-manually-run-non-http) durante o teste e a resolução de problemas sem esperar pelo gatilho do temporizador programado.
+> Pode [ativar a sua função manualmente](../azure-functions/functions-manually-run-non-http.md) durante o teste e a resolução de problemas sem esperar pelo gatilho do temporizador programado.
 
 Depois de se certificar de que a função de backup foi bem sucedida, pode ver que a chave está agora presente na sua loja secundária.
 
@@ -243,12 +243,12 @@ Se não vir o novo cenário na sua loja secundária:
 
 - Certifique-se de que a função de backup foi ativada *depois de* ter criado a definição na sua loja primária.
 - É possível que a Grade de Eventos não tenha conseguido enviar a notificação do evento para a fila a tempo. Verifique se a sua fila ainda contém a notificação do evento da sua loja principal. Se o fizer, volte a ativar a função de reserva.
-- Verifique [os registos de funções Azure](/azure/azure-functions/functions-create-scheduled-function#test-the-function) para obter quaisquer erros ou avisos.
-- Utilize o [portal Azure](/azure/azure-functions/functions-how-to-use-azure-function-app-settings#get-started-in-the-azure-portal) para garantir que a aplicação de função Azure contém valores corretos para as definições de aplicação que o Azure Functions está a tentar ler.
-- Também pode configurar a monitorização e alerta para funções Azure utilizando [insights de aplicação Azure](/azure/azure-functions/functions-monitoring?tabs=cmd). 
+- Verifique [os registos de funções Azure](../azure-functions/functions-create-scheduled-function.md#test-the-function) para obter quaisquer erros ou avisos.
+- Utilize o [portal Azure](../azure-functions/functions-how-to-use-azure-function-app-settings.md#get-started-in-the-azure-portal) para garantir que a aplicação de função Azure contém valores corretos para as definições de aplicação que o Azure Functions está a tentar ler.
+- Também pode configurar a monitorização e alerta para funções Azure utilizando [insights de aplicação Azure](../azure-functions/functions-monitoring.md?tabs=cmd). 
 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 Se pretender continuar a trabalhar com esta Configuração de Aplicações e subscrição de eventos, não limpe os recursos criados neste artigo. Se não pretender continuar, utilize o seguinte comando para eliminar os recursos criados neste artigo.
 
 ```azurecli-interactive

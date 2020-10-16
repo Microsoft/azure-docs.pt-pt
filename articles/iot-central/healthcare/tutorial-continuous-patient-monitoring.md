@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: eliotgra
 ms.openlocfilehash: 1967a2fb5adebe01ef4bff8d58f7832bffe95762
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90531275"
 ---
 # <a name="tutorial-deploy-and-walkthrough-a-continuous-patient-monitoring-app-template"></a>Tutorial: Implementar e caminhar através de um modelo de aplicação de monitorização contínua do paciente
@@ -61,11 +61,11 @@ Depois de implementar o modelo de aplicação, você pousará primeiro no **pain
 
 * Altere o estado do **paciente** do seu dispositivo para indicar se o dispositivo está a ser utilizado para um cenário in-patient ou remoto.
 
-:::image type="content" source="media/lamna-in-patient.png" alt-text="Estado do doente":::
+:::image type="content" source="media/lamna-in-patient.png" alt-text="Modelo de aplicativo Healthcre":::
 
 Também pode selecionar **Ir ao painel de instrumentos do paciente remoto** para ver o painel do operador do Hospital de Burkville. Este painel contém um conjunto semelhante de ações, telemetria e informação. Também pode ver vários dispositivos em uso e optar por **atualizar o firmware** em cada um.
 
-:::image type="content" source="media/lamna-remote.png" alt-text="Painel de instrumentos do operador remoto":::
+:::image type="content" source="media/lamna-remote.png" alt-text="Modelo de aplicativo Healthcre":::
 
 ### <a name="device-templates"></a>Modelos de dispositivo
 
@@ -75,7 +75,7 @@ Se selecionar **modelos de dispositivo,** consulte os dois tipos de dispositivo 
 
 * **Cinta de joelho**inteligente : Este dispositivo representa uma joelheira que os pacientes usam quando recuperam de uma cirurgia de substituição do joelho. Se selecionar este modelo, vê capacidades como dados do dispositivo, alcance de movimento e aceleração.
 
-:::image type="content" source="media/smart-vitals-device-template.png" alt-text="Modelo de patch inteligente":::
+:::image type="content" source="media/smart-vitals-device-template.png" alt-text="Modelo de aplicativo Healthcre":::
 
 ### <a name="device-groups"></a>Device groups
 
@@ -93,7 +93,7 @@ Se selecionar **Regras,** vê as três regras no modelo:
 
 * **Bateria de remendação fraca**: Esta regra é acionada quando o nível da bateria do dispositivo fica abaixo de 10%. Utilize esta regra para acionar uma notificação ao paciente para carregar o seu dispositivo.
 
-:::image type="content" source="media/brace-temp-rule.png" alt-text="Regras":::
+:::image type="content" source="media/brace-temp-rule.png" alt-text="Modelo de aplicativo Healthcre":::
 
 ### <a name="jobs"></a>Tarefas
 
@@ -113,7 +113,7 @@ O separador **Propriedades** permite-lhe editar propriedades na nuvem e ler/escr
 
 O **separador Comandos** permite-lhe executar comandos no dispositivo.
 
-:::image type="content" source="media/knee-brace-dashboard.png" alt-text="Painel de joelheira":::
+:::image type="content" source="media/knee-brace-dashboard.png" alt-text="Modelo de aplicativo Healthcre":::
 
 ### <a name="data-export"></a>Exportação de dados
 
@@ -123,7 +123,7 @@ A exportação de dados permite exportar continuamente os dados do seu dispositi
 
 Se não continuar a utilizar esta aplicação, elimine a aplicação visitando **as definições de Aplicação > administração** e clique em **Eliminar**.
 
-:::image type="content" source="media/admin-delete.png" alt-text="Recursos arrumados":::
+:::image type="content" source="media/admin-delete.png" alt-text="Modelo de aplicativo Healthcre":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/20/2020
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 1adb9b009a250942bab7e9b0e3b4b3e52840341c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85481600"
 ---
 # <a name="popular-scenarios-for-using-azure-devtest-labs"></a>Cenários populares para usar Azure DevTest Labs
@@ -72,7 +72,7 @@ Uma **implementação em escala** consiste em semanas/meses de revisão e planea
 
 Uma prova de implementação **de conceito** centra-se num esforço concentrado de uma única equipa para estabelecer valor organizacional. Embora possa ser tentador pensar numa implementação em escala, a abordagem tende a falhar mais frequentemente do que a prova de opção de conceito. Por isso, recomendamos que comece minúsculo, aprenda com a primeira equipa, repita a mesma abordagem com duas a três equipas adicionais e, em seguida, planeie uma implantação em escala com base no conhecimento adquirido. Para uma prova bem sucedida de conceito, recomendamos que escolha uma ou duas equipas e identifique os seus cenários (dev ambiente vs ambientes de teste), documente os seus casos de uso atual e implemente a DevTest Labs.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Leia os seguintes artigos:
 
 - [Conceitos de Laboratórios DevTest](devtest-lab-concepts.md)

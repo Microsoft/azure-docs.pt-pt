@@ -4,10 +4,10 @@ description: Saiba como executar um comando num contentor que está atualmente a
 ms.topic: article
 ms.date: 03/30/2018
 ms.openlocfilehash: de48e6ac246e2b0751561b4c60bb63d88b599bdf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79247205"
 ---
 # <a name="execute-a-command-in-a-running-azure-container-instance"></a>Execute um comando em uma instância de contentor Azure em execução
@@ -84,7 +84,7 @@ az container exec --resource-group myResourceGroup --name mynginx --container-na
 
 A azure Container Instances suporta atualmente o lançamento de um único processo com [o executivo de contentores az][az-container-exec], e não é possível passar argumentos de comando. Por exemplo, não é possível acorrentar comandos como em `sh -c "echo FOO && echo BAR"` , ou executar `echo FOO` .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre outras ferramentas de resolução de problemas e problemas comuns de implantação em [contentores de resolução de problemas e problemas de implantação em instâncias de contentores Azure](container-instances-troubleshooting.md).
 

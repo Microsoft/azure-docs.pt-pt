@@ -10,10 +10,10 @@ ms.date: 02/28/2017
 ms.author: cynthn
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 1a417e7cff4c7afb601861ddfe09eec171f0cf15
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89320618"
 ---
 # <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>Como marcar uma máquina virtual Linux em Azure
@@ -50,7 +50,7 @@ Agora que aplicámos etiquetas nos nossos recursos Azure CLI e no Portal, vamos 
 
 [!INCLUDE [virtual-machines-common-tag-usage](../../../includes/virtual-machines-common-tag-usage.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Para saber mais sobre a marcação dos seus recursos Azure, consulte [a Visão Geral do Gestor de Recursos da Azure][Azure Resource Manager Overview] e [a utilização de Tags para organizar os seus Recursos Azure.][Using Tags to organize your Azure Resources]
 * Para ver como as tags podem ajudá-lo a gerir o seu uso de recursos Azure, consulte [compreender o seu Azure Bill][Understanding your Azure Bill] e obter informações sobre o seu consumo de recursos Microsoft [Azure][Gain insights into your Microsoft Azure resource consumption].
 

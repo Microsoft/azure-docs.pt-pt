@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
-ms.date: 06/15/2020
-ms.openlocfilehash: d9bc5e91d45b75c47cee31c45b937f7d3f0118b8
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.date: 10/12/2020
+ms.openlocfilehash: 10728a5500d8ad36c006bac9176422c6afb9bf1a
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836688"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945997"
 ---
 # <a name="transparent-data-encryption-for-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Encriptação de dados transparente para base de dados SQL, SQL Managed Instance e Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -32,7 +32,7 @@ Para a Base de Dados Azure SQL e Azure Synapse, o protetor TDE é definido ao n�
 > Todas as bases de dados recentemente criadas na Base de Dados SQL são encriptadas por padrão utilizando encriptação de dados transparente gerida pelo serviço. As bases de dados SQL existentes criadas antes de maio de 2017 e as bases de dados SQL criadas através da restauração, da geo-replicação e da cópia da base de dados não são encriptadas por padrão. As bases de dados existentes de SqL Managed Instance criadas antes de fevereiro de 2019 não são encriptadas por padrão. Bases de dados SQL Managed Instance criadas através da restauração do estado de encriptação herdada da fonte.
 
 > [!NOTE]
-> O TDE não pode ser utilizado para encriptar a base de dados **principal** na Base de Dados SQL.  A base de dados **principal** contém objetos necessários para realizar as operações do TDE nas bases de dados dos utilizadores.
+> O TDE não pode ser utilizado para encriptar a base de dados **principal** na Base de Dados Azure SQL e na Azure SQL Managed Instance. A base de dados **principal** contém objetos necessários para realizar as operações do TDE nas bases de dados dos utilizadores.
 
 ## <a name="service-managed-transparent-data-encryption"></a>Encriptação de dados transparentes gerida pelo serviço
 
@@ -71,7 +71,7 @@ A única exceção é quando exporta uma base de dados de e para a Base de Dados
 
 ## <a name="manage-transparent-data-encryption"></a>Gerir encriptação de dados transparentes
 
-# <a name="the-azure-portal"></a>[O portal Azure](#tab/azure-portal)
+# <a name="the-azure-portal"></a>[O portal do Azure](#tab/azure-portal)
 
 Gerir o TDE no portal Azure.
 

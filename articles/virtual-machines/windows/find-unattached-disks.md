@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: d1e7c90e558a6834a169b528d2e8c2f96af377b0
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 4f217a53c23df4f161207aaceb528680ddcddbe7
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705702"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972803"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>Encontre e elimine discos geridos e não geridos do Azure desanexados
 
@@ -20,7 +20,7 @@ Quando elimina uma máquina virtual (VM) em Azure, por padrão, quaisquer discos
 
 ## <a name="managed-disks-find-and-delete-unattached-disks"></a>Discos geridos: Localizar e apagar discos não ligados
 
-O seguinte script procura [discos geridos](managed-disks-overview.md) não ligados examinando o valor da propriedade **ManagedBy.** Quando um disco gerido é ligado a um VM, a propriedade **ManagedBy** contém o ID de recurso do VM. Quando um disco gerido não está ligado, a propriedade **ManagedBy** é nula. O script examina todos os discos geridos numa subscrição do Azure. Quando o script localiza um disco gerido com a propriedade **ManagedBy** definida para nula, o script determina que o disco está desapegado.
+O seguinte script procura [discos geridos](../managed-disks-overview.md) não ligados examinando o valor da propriedade **ManagedBy.** Quando um disco gerido é ligado a um VM, a propriedade **ManagedBy** contém o ID de recurso do VM. Quando um disco gerido não está ligado, a propriedade **ManagedBy** é nula. O script examina todos os discos geridos numa subscrição do Azure. Quando o script localiza um disco gerido com a propriedade **ManagedBy** definida para nula, o script determina que o disco está desapegado.
 
 >[!IMPORTANT]
 >Em primeiro lugar, executar o script definindo a variável **deleteUnattachedDisks** para 0. Esta ação permite-lhe encontrar e ver todos os discos geridos desvinculados.

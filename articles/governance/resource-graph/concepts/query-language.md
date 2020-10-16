@@ -4,10 +4,10 @@ description: Descreve tabelas de gráficos de recursos e os tipos de dados, oper
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.openlocfilehash: ef588bd3fd8afcf1f1139f97d5df2d48a14b4dd9
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91578534"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Compreender a linguagem de consulta de gráfico de recurso Azure
@@ -128,15 +128,15 @@ Aqui está a lista de operadores tabulares KQL suportados por Gráfico de Recurs
 |[limite](/azure/kusto/query/limitoperator) |[Listar todos os endereços IP públicos](../samples/starter.md#list-publicip) |Sinónimo `take` de. Não funciona com [o Skip.](./work-with-data.md#skipping-records) |
 |[mvexpand](/azure/kusto/query/mvexpandoperator) | | Operador legado, use `mv-expand` em vez disso. _LinhaLimit_ max de 400. O padrão é 128. |
 |[mv-expandir](/azure/kusto/query/mvexpandoperator) |[List Cosmos DB com locais de escrita específicos](../samples/advanced.md#mvexpand-cosmosdb) |_LinhaLimit_ max de 400. O padrão é 128. |
-|[ordem](/azure/kusto/query/orderoperator) |[Listar recursos ordenados pelo nome](../samples/starter.md#list-resources) |Sinónimo de `sort` |
+|[order](/azure/kusto/query/orderoperator) |[Listar recursos ordenados pelo nome](../samples/starter.md#list-resources) |Sinónimo de `sort` |
 |[projeto](/azure/kusto/query/projectoperator) |[Listar recursos ordenados pelo nome](../samples/starter.md#list-resources) | |
 |[projeto-away](/azure/kusto/query/projectawayoperator) |[Remover colunas dos resultados](../samples/advanced.md#remove-column) | |
 |[tipo](/azure/kusto/query/sortoperator) |[Listar recursos ordenados pelo nome](../samples/starter.md#list-resources) |Sinónimo de `order` |
 |[resumir](/azure/kusto/query/summarizeoperator) |[Contar recursos do Azure](../samples/starter.md#count-resources) |Primeira página simplificada apenas |
 |[take](/azure/kusto/query/takeoperator) |[Listar todos os endereços IP públicos](../samples/starter.md#list-publicip) |Sinónimo `limit` de. Não funciona com [o Skip.](./work-with-data.md#skipping-records) |
-|[top](/azure/kusto/query/topoperator) |[Mostrar as primeiras cinco máquinas virtuais pelo nome e o seu tipo de SO](../samples/starter.md#show-sorted) | |
+|[Início](/azure/kusto/query/topoperator) |[Mostrar as primeiras cinco máquinas virtuais pelo nome e o seu tipo de SO](../samples/starter.md#show-sorted) | |
 |[união](/azure/kusto/query/unionoperator) |[Combine resultados de duas consultas num único resultado](../samples/advanced.md#unionresults) |Tabela única permitida: _Tabela T_ `| union` \[ `kind=` `inner` \| `outer` \] \[ `withsource=` _ColumnName_ \] _Table_. Limite de 3 `union` pernas numa única consulta. Não é permitida a resolução fuzzy das mesas das `union` pernas. Pode ser usado dentro de uma única tabela ou entre as _tabelas Recursos_ e _RecursosContainers._ |
-|[em que](/azure/kusto/query/whereoperator) |[Mostrar recursos que contenham armazenamento](../samples/starter.md#show-storage) | |
+|[onde](/azure/kusto/query/whereoperator) |[Mostrar recursos que contenham armazenamento](../samples/starter.md#show-storage) | |
 
 ## <a name="query-scope"></a>Âmbito de consulta
 

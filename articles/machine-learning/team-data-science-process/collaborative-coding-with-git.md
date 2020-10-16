@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 739be373992fcd994f085f8571675779e450bfee
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87090217"
 ---
 # <a name="collaborative-coding-with-git"></a>Codificação em colaboração com Git
@@ -49,7 +49,7 @@ git checkout <working branch name>
 
 Depois de mudar para o ramo de trabalho, pode começar a desenvolver artefactos de código ou documentação para completar o artigo de trabalho. Correr `git checkout master` troca-te de volta para o `master` ramo.
 
-É uma boa prática criar um ramo Git para cada item de trabalho de User Story. Em seguida, para cada item de trabalho de tarefa, pode criar um ramo baseado na sucursal de User Story. Organize os balcões numa hierarquia que corresponda à relação User Story-Task quando tem várias pessoas a trabalhar em diferentes Histórias de Utilizador para o mesmo projeto, ou em diferentes Tarefas para a mesma História do Utilizador. Pode minimizar conflitos fazendo com que cada membro da equipa trabalhe num ramo diferente, ou em códigos diferentes ou outros artefactos ao partilhar um ramo. 
+É uma boa prática criar um ramo Git para cada item de trabalho de User Story. Em seguida, para cada item de trabalho de tarefa, pode criar um ramo baseado na sucursal de User Story. Organize os balcões numa hierarquia que corresponda à relação Story-Task utilizador quando tem várias pessoas a trabalhar em diferentes Histórias de Utilizador para o mesmo projeto, ou em diferentes Tarefas para a mesma História do Utilizador. Pode minimizar conflitos fazendo com que cada membro da equipa trabalhe num ramo diferente, ou em códigos diferentes ou outros artefactos ao partilhar um ramo. 
 
 O diagrama a seguir mostra a estratégia de ramificação recomendada para a TDSP. Você pode não precisar de tantos ramos como mostrado aqui, especialmente quando apenas uma ou duas pessoas trabalham em um projeto, ou apenas uma pessoa trabalha em todas as Tarefas de uma História de Utilizador. Mas separar o ramo de desenvolvimento do ramo primário é sempre uma boa prática, e pode ajudar a evitar que o ramo de libertação seja interrompido por atividades de desenvolvimento. Para obter uma descrição completa do modelo do ramo Git, consulte [Um Modelo de Ramificação Git Bem sucedido.](https://nvie.com/posts/a-successful-git-branching-model/)
 
@@ -72,7 +72,7 @@ git push origin script
 
 ![5](./media/collaborative-coding-with-git/5-sprint-push-to-branch.png)
 
-## <a name="create-a-pull-request"></a><a name='CreateapullrequestonVSTS-3'></a>Criar um pedido Pull
+## <a name="create-a-pull-request"></a><a name='CreateapullrequestonVSTS-3'></a>Criar um pedido de puxar
 
 Depois de um ou mais compromissos e impulsos, quando estiver pronto para fundir o seu atual ramo de trabalho no seu ramo base, pode criar e submeter um *pedido de atração* em Azure Repos. 
 

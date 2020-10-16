@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/10/2019
 ms.author: mimckitt
 ms.openlocfilehash: aba47500400004c1d6a7044a266bad6f20d5d9c9
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91360553"
 ---
 # <a name="proactively-ensuring-you-have-access-to-grub-and-sysrq-could-save-you-lots-of-down-time"></a>Garantir proativamente que você tem acesso a GRUB e sysrq poderia economizar muito tempo de insudor

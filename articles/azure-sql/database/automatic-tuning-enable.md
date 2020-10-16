@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 12/03/2019
 ms.openlocfilehash: 35fc4b18ee5a98270f715a969354df2be5000150
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91444085"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Permitir a sintonização automática no portal Azure para monitorizar consultas e melhorar o desempenho da carga de trabalho
@@ -125,7 +125,7 @@ Para utilizar a sintonização automática, a permissão mínima necessária par
 
 Consulte o guia [de notificações por e-mail de afinação automática.](automatic-tuning-email-notifications-configure.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia o [artigo de afinação automática](automatic-tuning-overview.md) para saber mais sobre a sintonização automática e como pode ajudá-lo a melhorar o seu desempenho.
 - Consulte [as recomendações](database-advisor-implement-performance-recommendations.md) de desempenho para uma visão geral das recomendações de desempenho da Base de Dados Azure SQL.

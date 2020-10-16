@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 93f5e4d659b94bd79345a5e687de14ab6a5e8ba6
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 49cac230363750e481e165712bf4f619e5cba7ae
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267977"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017850"
 ---
 # <a name="create-a-media-services-account"></a>Criar uma conta dos Media Services
 
@@ -47,7 +47,7 @@ Atualmente, pode utilizar o [portal Azure](https://portal.azure.com/) para:
 * ver (não gerir) v3 [Ativos,](assets-concept.md) 
 * [obter informações sobre o acesso a APIs](./access-api-howto.md). 
 
-Para todas as outras tarefas de gestão (por exemplo, [Transformações e Empregos](transforms-jobs-concept.md) e [Proteção de Conteúdos),](content-protection-overview.md)utilize o [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs suportados.](media-services-apis-overview.md#sdks)
+Para todas as outras tarefas de gestão (por exemplo, [Transformações e Empregos](transforms-jobs-concept.md) e [Proteção de Conteúdos),](content-protection-overview.md)utilize o [REST API](/rest/api/media/accountfilters), [CLI](/cli/azure/ams)ou um dos [SDKs suportados.](media-services-apis-overview.md#sdks)
 <!-- Move this section. This section should be moved to conceptual.  It doesn't belong in task based -->
 
 ### <a name="use-the-azure-portal-to-create-a-media-services-account"></a>Utilize o portal Azure para criar uma conta de Serviços de Comunicação Social

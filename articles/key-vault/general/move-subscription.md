@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: e6ab37539d00b6748d0e63a3f559bf70f493cf42
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 2a06fd55d73c37caaa35797131d2b31817bf90f0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89394742"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042410"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Mover um Cofre chave Azure para outra subscrição
 
@@ -36,6 +36,9 @@ Quando cria um cofre chave, está automaticamente ligado ao ID do inquilino Azur
 * Adicione novas entradas de política de acesso associadas ao inquilino B.
 
 ## <a name="limitations"></a>Limitações
+
+> [!IMPORTANT]
+> **Os cofres-chave utilizados para encriptação do disco não podem ser movidos** Se estiver a utilizar o cofre-chave com encriptação de disco para um VM, o cofre de teclas não pode ser movido para um grupo de recursos diferente ou uma subscrição enquanto a encriptação do disco estiver ativada. Tem de desativar a encriptação do disco antes de mover o cofre de chaves para um novo grupo de recursos ou subscrição. 
 
 Alguns diretores de serviço (utilizadores e aplicações) estão ligados a um inquilino específico. Se você mudar o seu cofre chave para uma subscrição em outro inquilino, há a chance de que você não será capaz de restaurar o acesso a um diretor de serviço específico. Verifique se todos os diretores de serviço essenciais existem no inquilino para onde você está movendo o seu cofre chave.
 
@@ -72,7 +75,7 @@ Certifique-se de que vai à página da Política Azure no portal Azure e veja as
 
 ### <a name="additional-steps-if-you-moved-key-vault-to-a-subscription-in-a-new-tenant"></a>Passos adicionais se você mudou o cofre chave para uma subscrição em um novo inquilino
 
-Se você mudou o seu cofre chave para uma subscrição em um novo inquilino, você precisa atualizar manualmente o ID do inquilino e remover as antigas políticas de acesso. Aqui estão os tutoriais para estes passos em PowerShell e Azure CLI. Se estiver a utilizar o PowerShell, poderá ter de executar o comando Clear-AzContext documentado abaixo para lhe permitir ver recursos fora do âmbito atual selecionado. 
+Se você mudou o seu cofre chave para uma subscrição em um novo inquilino, você precisa atualizar manualmente o ID do inquilino e remover as antigas políticas de acesso. Aqui estão os tutoriais para estes passos em PowerShell e Azure CLI. Se estiver a utilizar o PowerShell, poderá ter de executar o Clear-AzContext comando documentado abaixo para lhe permitir ver recursos fora do âmbito atual selecionado. 
 
 ```azurepowershell
 Select-AzSubscription -SubscriptionId <your-subscriptionId>                # Select your Azure Subscription

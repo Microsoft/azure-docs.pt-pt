@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/06/2020
 ms.author: genli
 ms.openlocfilehash: 456aa225fa8eed47ca794c54e61b77a30c93fa9a
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85983233"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Instale o Agente de Máquina Virtual Azure em modo offline 
@@ -62,10 +62,10 @@ Utilize os seguintes passos para instalar o Agente VM no modo offline.
     1. Mude o nome da pasta \windowsazure para \windowsazure.old.
 
     2. Exportar os seguintes registos:
-        - HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet001\Serviços\WindowsAzureGuestAgent
-        - HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet001\Serviços\RdAgent
+        - HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
+        - HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet001\Services\RdAgent
 
-8.  Utilize os ficheiros existentes no VM de resolução de problemas como repositório para a instalação do Agente VM. Conclua os seguintes passos:
+8.  Utilize os ficheiros existentes no VM de resolução de problemas como repositório para a instalação do Agente VM. Siga os seguintes passos:
 
     1. A partir do resolução de problemas VM, exporte as seguintes sub-teias em formato de registo (.reg): 
         - HKEY_LOCAL_MACHINE \SYSTEM\ControlSet001\Serviços\WindowsAzureGuestAgent
@@ -122,7 +122,7 @@ Então executar o `Get-AzureVM` comando. Note que a propriedade **GuestAgentStat
    GuestAgentStatus:Microsoft.WindowsAzure.Commands.ServiceManagement.Model.PersistentVMModel.GuestAgentStatus
    ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Descrição geral do Agente da Máquina Virtual do Azure](../extensions/agent-windows.md)
 - [Extensões e funcionalidades de máquinas virtuais para Windows](../extensions/features-windows.md)

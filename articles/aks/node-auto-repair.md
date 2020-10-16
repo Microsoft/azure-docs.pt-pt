@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 08/24/2020
 ms.openlocfilehash: 781a1ffebb40b0cce9f18699d308db90633e8626
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89490110"
 ---
 # <a name="azure-kubernetes-service-aks-node-auto-repair"></a>Serviço Azure Kubernetes (AKS) autorreparação do nó
@@ -41,7 +41,7 @@ Se um nó não for saudável com base nas regras acima referidas e permanecer in
 
 Se nenhuma das ações for bem sucedida, as reparações adicionais são investigadas por engenheiros da AKS. Se vários nós não forem saudáveis durante uma verificação de saúde, cada nó é reparado individualmente antes de começar outra reparação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Utilize [Zonas de disponibilidade][availability-zones] para aumentar a disponibilidade com as cargas de trabalho do cluster AKS.
 

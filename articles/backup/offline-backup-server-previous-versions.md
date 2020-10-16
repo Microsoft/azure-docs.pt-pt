@@ -4,10 +4,10 @@ description: Com a Azure Backup, pode enviar dados para fora da rede utilizando 
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.openlocfilehash: b747fd3c682dc1caf7312ba7279470a1e6b38bd5
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88890098"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>Fluxo de trabalho de backup offline para DPM e Azure Backup Server (versões anteriores)
@@ -99,7 +99,7 @@ Certifique-se de que os seguintes pré-requisitos são cumpridos antes de inicia
 
 Siga estes passos para enviar manualmente o certificado de cópia de segurança offline para uma aplicação de Diretório Azure Ative anteriormente criada destinada a cópias de segurança offline.
 
-1. Inicie sessão no portal do Azure.
+1. Inicie sessão no Portal do Azure.
 1. Aceda às inscrições da **Azure Ative Directory**  >  **App**.
 1. No **separador aplicações Possuídas,** localize uma aplicação com o formato de nome de `AzureOfflineBackup _<Azure User Id` exibição.
 
@@ -115,7 +115,7 @@ Siga estes passos para enviar manualmente o certificado de cópia de segurança 
     ![Carregar o certificado](./media/offline-backup-dpm-mabs-previous-versions/upload-certificate.png)
 
 1. No servidor, abra o registo introduzindo **o regedit** na janela de execução.
-1. Aceda à entrada de registo *Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackUpProvider*.
+1. Vá ao registo *Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider. *
 1. Clique com o botão direito **CloudBackupProvider**e adicione um novo valor de corda com o nome `AzureADAppCertThumbprint_<Azure User Id>` .
 
     >[!NOTE]

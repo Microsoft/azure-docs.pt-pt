@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: Criar uma planta com REST API'
 description: Neste arranque rápido, utiliza-se a Azure Blueprints para criar, definir e implantar artefactos utilizando a API REST.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: e3cdf28cfe523e52aceefe20294042d28b98e1e2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aa25a65b20b295045b52a49c8c47fb8849c3cba3
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85971203"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056996"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Quickstart: Definir e Atribuir uma Planta Azure com REST API
 
@@ -329,7 +329,7 @@ Em cada URI da API REST, existem variáveis que são utilizadas que precisa de s
 - `{YourMG}` - Substitua pelo ID do seu grupo de gestão
 - `{subscriptionId}` - substituir pelo ID da subscrição
 
-1. Forneça ao principal de serviço do Azure Blueprint a função **Proprietário** na subscrição de destino. O AppId é estático , `f71766dc-90d9-4b7d-bd9d-4499c4331c3f` mas o ID principal de serviço varia por inquilino. Pode pedir detalhes para o seu inquilino através da API REST seguinte. Utiliza a [Graph API do Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) que tem uma autorização diferente.
+1. Forneça ao principal de serviço do Azure Blueprint a função **Proprietário** na subscrição de destino. O AppId é estático , `f71766dc-90d9-4b7d-bd9d-4499c4331c3f` mas o ID principal de serviço varia por inquilino. Pode pedir detalhes para o seu inquilino através da API REST seguinte. Utiliza [a Azure Ative Directory Graph API,](../../active-directory/develop/active-directory-graph-api.md)que tem uma autorização diferente.
 
    - URI da API REST
 

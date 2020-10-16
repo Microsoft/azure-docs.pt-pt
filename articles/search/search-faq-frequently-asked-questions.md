@@ -1,5 +1,5 @@
 ---
-title: Perguntas Mais Frequentes (FAQ)
+title: Perguntas mais frequentes (FAQ)
 titleSuffix: Azure Cognitive Search
 description: Obtenha respostas a perguntas comuns sobre o serviço microsoft Azure Cognitive Search, um serviço de pesquisa hospedado na nuvem no Microsoft Azure.
 manager: nitinme
@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.openlocfilehash: 9d6acdcf9487b2d1a5964d4ec686cd23666275b0
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88923097"
 ---
 # <a name="azure-cognitive-search---frequently-asked-questions-faq"></a>Azure Cognitive Search - perguntas frequentes (FAQ)
@@ -101,8 +101,8 @@ A maioria dos clientes escolhe campos dedicados em vez de uma coleção quando s
 
 A sua pergunta é sobre uma funcionalidade ou funcionalidade em falta? Solicite a funcionalidade no site da [Voz do Utilizador.](https://feedback.azure.com/forums/263029-azure-search)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
  [StackOverflow: Azure Cognitive Search](https://stackoverflow.com/questions/tagged/azure-search)   
  [Como funciona a pesquisa em texto completo no Azure Cognitive Search](search-lucene-query-architecture.md)  
- [O que é a Pesquisa Cognitiva do Azure?](search-what-is-azure-search.md)
+ [O que é Azure Cognitive Search?](search-what-is-azure-search.md)

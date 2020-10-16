@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.openlocfilehash: 6884b0c5d351d5cca160a1e00e409397f21311ef
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89381267"
 ---
 # <a name="how-to-configure-your-saas-offer-listing-details"></a>Como configurar os seus dados de listagem de oferta saaS
@@ -100,7 +100,7 @@ Pode adicionar links ao YouTube ou vídeos Vimeo que demonstrem a sua oferta. Es
 
 **Selecione Guardar o rascunho** antes de continuar para o separador seguinte: Visualizar o público.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Se estiver a vender a sua oferta através da Microsoft, vá ao [How to Add a preview audience for your SaaS offer](create-new-saas-offer-preview.md). 
 - Caso contrário, vá ao [Como comercializar a sua oferta SaaS.](create-new-saas-offer-marketing.md)

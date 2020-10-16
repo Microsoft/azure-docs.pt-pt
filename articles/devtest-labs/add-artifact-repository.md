@@ -4,10 +4,10 @@ description: Aprenda a especificar o seu próprio repositório de artefactos par
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 7553f6b1afa416a5428577a8313bdadb669e32c2
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88270993"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Adicione um repositório de artefactos ao seu laboratório em Laboratórios DevTest
@@ -180,7 +180,7 @@ New-AzResourceGroupDeployment `
     -TemplateParameterFile azuredeploy.parameters.json
 ```
 
-Após a execução do New-AzResourceGroupDeployment com sucesso, o comando produz informações importantes como o estado de provisionamento (deve ser bem sucedido) e quaisquer saídas para o modelo.
+Após New-AzResourceGroupDeployment executado com sucesso, o comando produz informações importantes como o estado de provisionamento (deve ser bem sucedido) e quaisquer saídas para o modelo.
 
 ## <a name="use-azure-powershell"></a>Utilizar o Azure PowerShell
 Esta secção fornece-lhe uma amostra do script PowerShell que pode ser usado para adicionar um repositório de artefactos a um laboratório. Se não tiver Azure PowerShell, consulte [Como instalar e configurar a Azure PowerShell](/powershell/azure/?view=azps-1.2.0) para obter instruções detalhadas para a sua instalação.

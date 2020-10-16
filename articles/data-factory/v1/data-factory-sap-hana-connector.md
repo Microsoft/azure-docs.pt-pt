@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 361b98a1cde8ee5dee99a370b46d8fc8e0f5af28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84707145"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Mover dados da SAP HANA usando a Azure Data Factory
@@ -61,7 +61,7 @@ Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
 servidor | Nome do servidor em que reside a instância SAP HANA. Se o seu servidor estiver a utilizar uma porta personalizada, especifique `server:port` . | string | Sim
 authenticationType | Tipo de autenticação. | corda. "Básico" ou "Windows" | Sim 
-o nome de utilizador | Nome do utilizador que tem acesso ao servidor SAP | string | Sim
+nome de utilizador | Nome do utilizador que tem acesso ao servidor SAP | string | Sim
 palavra-passe | A palavra-passe do utilizador. | string | Sim
 gatewayName | Nome do gateway que o serviço data factory deve utilizar para ligar ao local de entrada SAP HANA. | string | Sim
 criptografadoCredential | A cadeia de credencial encriptada. | cadeia (de carateres) | No
@@ -291,13 +291,13 @@ REAL | Único
 DUPLO | Único
 DECIMAL | Decimal
 BOOLEANA | Byte
-RIO VARCHAR | String
-NVARCHAR | String
+RIO VARCHAR | Cadeia
+NVARCHAR | Cadeia
 CLOB | Byte[]
-ALPHANUM | String
+ALPHANUM | Cadeia
 BLOB | Byte[]
-DATA | DateTime
-HORA | TimeSpan
+DATE | DateTime
+TIME | TimeSpan
 TIMETAMP | DateTime
 SEGUNDADATA | DateTime
 

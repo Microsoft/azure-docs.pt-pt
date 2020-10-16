@@ -14,20 +14,20 @@ ms.date: 05/18/2020
 ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
-ms.openlocfilehash: 4990b81d929019b3d201f004176234fa0ea78339
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 40bf202e0f14f18d817e4e918f8372ba3c0a4ad8
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118455"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950674"
 ---
-# <a name="single-sign-on-saml-protocol"></a>Protocolo SAML de assinatura única
+# <a name="single-sign-on-saml-protocol"></a>Protocolo SAML de Sign-On único
 
-Este artigo abrange os pedidos e respostas de autenticação SAML 2.0 que o Azure Ative Directory (Azure AD) suporta para o Sign-On Único (SSO).
+Este artigo abrange os pedidos e respostas de autenticação SAML 2.0 que o Azure Ative Directory (Azure AD) suporta para Sign-On Individuais (SSO).
 
 O diagrama do protocolo abaixo descreve a sequência de inscrição única. O serviço de nuvem (o prestador de serviços) utiliza uma ligação HTTP Redirect para passar um `AuthnRequest` elemento (pedido de autenticação) ao Azure AD (o fornecedor de identidade). Azure AD utiliza então uma ligação de post HTTP para colocar um `Response` elemento no serviço de nuvem.
 
-![Fluxo de trabalho de inscrição única (SSO)](./media/single-sign-on-saml-protocol/active-directory-saml-single-sign-on-workflow.png)
+![Fluxo de trabalho de Sign-On único (SSO)](./media/single-sign-on-saml-protocol/active-directory-saml-single-sign-on-workflow.png)
 
 > [!NOTE]
 > Este artigo discute a utilização de SAML para uma única súmis. Para obter mais informações sobre outras formas de lidar com um único sinal de acesso (por exemplo, utilizando o OpenID Connect ou a Autenticação Integrada do Windows), consulte [um único sinal de acesso às aplicações no Diretório Ativo Azure](../manage-apps/what-is-single-sign-on.md).
@@ -48,10 +48,10 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 
 | Parâmetro | Tipo | Descrição |
 | --- | --- | --- |
-| ID | Necessário | A Azure AD utiliza este atributo para preencher o `InResponseTo` atributo da resposta devolvida. O ID não deve começar com um número, por isso uma estratégia comum é preparar uma corda como "id" para a representação de cordas de um GUID. Por exemplo, `id6c1c178c166d486687be4aaf5e482730` é um ID válido. |
-| Versão | Necessário | Este parâmetro deve ser definido para **2.0**. |
-| EmissãoInstant | Necessário | Esta é uma cadeia DateTime com um valor UTC e [formato de ida e volta ("o")](/dotnet/standard/base-types/standard-date-and-time-format-strings). A Azure AD espera um valor DateTime deste tipo, mas não avalia ou utiliza o valor. |
-| AfirmaçãoConsumerServiceUrl | Opcional | Se fornecido, este parâmetro deve coincidir com `RedirectUri` o serviço de nuvem em Azure AD. |
+| ID | Obrigatório | A Azure AD utiliza este atributo para preencher o `InResponseTo` atributo da resposta devolvida. O ID não deve começar com um número, por isso uma estratégia comum é preparar uma corda como "id" para a representação de cordas de um GUID. Por exemplo, `id6c1c178c166d486687be4aaf5e482730` é um ID válido. |
+| Versão | Obrigatório | Este parâmetro deve ser definido para **2.0**. |
+| EmissãoInstant | Obrigatório | Esta é uma cadeia DateTime com um valor UTC e [formato de ida e volta ("o")](/dotnet/standard/base-types/standard-date-and-time-format-strings). A Azure AD espera um valor DateTime deste tipo, mas não avalia ou utiliza o valor. |
+| AfirmaçãoConsumerServiceURL | Opcional | Se fornecido, este parâmetro deve coincidir com `RedirectUri` o serviço de nuvem em Azure AD. |
 | ForçaAuthn | Opcional | Este é um valor booleano. Se for verdade, significa que o utilizador será forçado a reautensar, mesmo que tenha uma sessão válida com Azure AD. |
 | IsPassive | Opcional | Este é um valor booleano que especifica se a Azure AD deve autenticar o utilizador silenciosamente, sem interação do utilizador, utilizando o cookie de sessão se existir. Se isso for verdade, o Azure AD tentará autenticar o utilizador utilizando o cookie de sessão. |
 
@@ -273,7 +273,7 @@ Isto contém reclamações sobre o assunto ou o utilizador. O seguinte excerto c
 ```        
 
 * **Denominação -** O valor do `Name` atributo é o nome principal do utilizador do utilizador `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` autenticado, tal como `testuser@managedtenant.com` .
-* **Reclamação do ObjectIdentifier** - O valor do `ObjectIdentifier` atributo é o do objeto de `http://schemas.microsoft.com/identity/claims/objectidentifier` `ObjectId` diretório que representa o utilizador autenticado em Azure AD. `ObjectId`é um identificador imutável, globalmente único e reutilizador seguro do utilizador autenticado.
+* **Reclamação do ObjectIdentifier** - O valor do `ObjectIdentifier` atributo é o do objeto de `http://schemas.microsoft.com/identity/claims/objectidentifier` `ObjectId` diretório que representa o utilizador autenticado em Azure AD. `ObjectId` é um identificador imutável, globalmente único e reutilizador seguro do utilizador autenticado.
 
 #### <a name="authnstatement"></a>Declaração de Authn
 

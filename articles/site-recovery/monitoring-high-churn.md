@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: sharrai
 ms.openlocfilehash: 51f45b5c0b8a2729f64eb376e06875719474cbfc
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89664688"
 ---
 # <a name="monitoring-churn-patterns-on-virtual-machines"></a>Monitorização de padrões de churn em máquinas virtuais
@@ -80,6 +80,6 @@ O IoStat é uma ferramenta simples que irá recolher e mostrar estatísticas de 
 
 Abra o pedido de comando e executar o comando `iostat` .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como monitorizar com [o Azure Monitor](monitor-log-analytics.md).

@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.openlocfilehash: d02fa8fa23b587db06f3d2d1e08f0a8565471123
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88510424"
 ---
 # <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>Instale e configuure o MongoDB num Windows VM em Azure

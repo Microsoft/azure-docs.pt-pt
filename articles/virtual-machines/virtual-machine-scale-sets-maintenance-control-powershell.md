@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 09/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 62b2fd0554c218b733501805779745049d3b8c92
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: d8acab17e9d8dfc078b46f6a279cc671a70b0a50
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532712"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974843"
 ---
 # <a name="preview-maintenance-control-for-os-image-upgrades-on-azure-virtual-machine-scale-sets-using-powershell"></a>Pré-visualização: Controlo de manutenção para upgrades de imagem DE EM em conjuntos de escala de máquina virtual Azure usando PowerShell
 
@@ -44,7 +44,7 @@ Também pode ser solicitado que confirme que pretende instalar a partir de um *r
 
 ## <a name="connect-to-an-azure-account"></a>Ligar a uma conta do Azure
 
-Ligue-se à sua conta Azure desejada utilizando [o Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) e [o Set-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext).
+Ligue-se à sua conta Azure desejada utilizando [o Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) e [o Set-AzAccount](/powershell/module/az.accounts/set-azcontext).
 
 ```azurepowershell-interactive
 Connect-AzAccount

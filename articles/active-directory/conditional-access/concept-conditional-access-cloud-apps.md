@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6f65a43cf5730f56b43d79388a0e73ea93e3225b
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91801992"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Acesso Condicional: aplicativos ou ações na nuvem
@@ -35,7 +35,7 @@ Os administradores podem atribuir uma política de acesso condicional às seguin
 
 - [Office 365](#office-365)
 - Azure Analysis Services
-- DevOps do Azure
+- Azure DevOps
 - [Base de Dados SQL do Azure e Azure SQL Data Warehouse](../../azure-sql/database/conditional-access-configure.md)
 - Dynamics CRM Online
 - Microsoft Application Insights Analytics
@@ -104,7 +104,7 @@ A aplicação Microsoft Azure Management inclui vários serviços subjacentes.
    - Azure PowerShell
    - CLI do Azure
    - Portal de administrador de subscrições de Estúdio Visual
-   - DevOps do Azure
+   - Azure DevOps
    - Portal Azure Data Factory
 
 > [!NOTE]

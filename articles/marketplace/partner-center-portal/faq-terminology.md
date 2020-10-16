@@ -8,10 +8,10 @@ ms.date: 02/17/2020
 author: shganesh-dev
 ms.author: shganesh
 ms.openlocfilehash: aff26d3b491896aa9a1b1fee93d39a5ec93d730c
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91665146"
 ---
 # <a name="commercial-marketplace-analytics-terminology-and-common-questions"></a>Terminologia de análise de mercado comercial e questões comuns
@@ -94,7 +94,7 @@ Se estiver a receber esta mensagem, significa que tem dados de análise, mas nã
 | Data de Fim do Julgamento| Encomenda| A data do período experimental para esta ordem terminará ou terminou.|
 |||
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - Para uma visão geral dos relatórios de análise disponíveis no mercado comercial do Partner Center, consulte [Analytics para o mercado comercial no Partner Center](./analytics.md).
 - Para gráficos, tendências e valores de dados agregados que resumem a atividade do mercado para a sua oferta, consulte [o Painel De Resumo em análise de mercado comercial.](./summary-dashboard.md)

@@ -8,10 +8,10 @@ author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 08/14/2020
 ms.openlocfilehash: a84f287c6303e093d68dd462ccc5cecc34b463cd
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89144535"
 ---
 # <a name="get-a-sas-uri-for-your-vm-image"></a>Obtenha um SAS URI para a sua imagem em VM

@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4543a46c9362ac6d20cc7597de9f59c1a7520163
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90600802"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Quatro passos para uma forte fundação de identidade com Azure Ative Directory
@@ -131,7 +131,7 @@ No local de trabalho digital de hoje, é importante equilibrar a segurança com 
 
 Esta secção lista recomendações para remover o atrito da sua organização, capacitando os seus utilizadores enquanto permanece vigilante.
 
-### <a name="enable-self-service-password-reset-for-all-users"></a>Ativar o reset da palavra-passe de autosserviço para todos os utilizadores
+### <a name="enable-self-service-password-reset-for-all-users"></a>Ativar Self-Service redefinição de palavra-passe para todos os utilizadores
 
 O reset da [palavra-passe de autosserviço](../authentication/tutorial-enable-sspr.md) da Azure (SSPR) oferece um meio simples para os administradores de TI permitirem que os utilizadores reiniciem e desbloqueiem as suas palavras-passe ou contas sem intervenção do administrador. O sistema inclui relatórios detalhados que controlam quando os utilizadores acedem ao sistema, juntamente com notificações para o alertar quanto a utilizações indevidas ou abusos.
 
@@ -147,7 +147,7 @@ Da mesma forma, o [relatório de Gestão de Passwords self-service](../authentic
 
 ### <a name="self-service-app-management"></a>Gestão de aplicativos self-service
 
-Antes que os seus utilizadores possam auto-descobrir aplicações a partir do seu painel de acesso, é necessário permitir o acesso de [aplicações de autosserviço](../manage-apps/access-panel-manage-self-service-access.md) a quaisquer aplicações que deseje permitir que os utilizadores se auto-descubram e solicitem acesso. O acesso a aplicações self-service é uma ótima forma de permitir que os utilizadores se auto-descubram e opcionalmente permitam ao grupo empresarial aprovar o acesso a essas aplicações. Pode permitir que o grupo empresarial gere as credenciais atribuídas a esses utilizadores para [o Signo Único de Palavra-Passe nas Aplicações](../manage-apps/application-sign-in-problem-password-sso-gallery.md#configure-password-sso-for-an-azure-ad-gallery-app) a partir dos seus painéis de acesso.
+Antes que os seus utilizadores possam auto-descobrir aplicações a partir do seu painel de acesso, é necessário permitir o acesso de [aplicações de autosserviço](../manage-apps/access-panel-manage-self-service-access.md) a quaisquer aplicações que deseje permitir que os utilizadores se auto-descubram e solicitem acesso. O acesso a aplicações self-service é uma ótima forma de permitir que os utilizadores se auto-descubram e opcionalmente permitam ao grupo empresarial aprovar o acesso a essas aplicações. Pode permitir que o grupo empresarial gere as credenciais atribuídas a esses utilizadores para [Single-Sign Password nas Aplicações](../manage-apps/application-sign-in-problem-password-sso-gallery.md#configure-password-sso-for-an-azure-ad-gallery-app) a partir dos seus painéis de acesso.
 
 ### <a name="self-service-group-management"></a>Gestão de grupos self-service
 

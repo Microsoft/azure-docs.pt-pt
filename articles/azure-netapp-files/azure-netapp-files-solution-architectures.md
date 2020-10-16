@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 10/09/2020
 ms.author: b-juche
-ms.openlocfilehash: f6e38585e86dd962bc5f94a7c2a8a67c55f2a8fd
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 0818d113b5475e847c009f979345e103d6e089bb
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91595909"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938870"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Arquiteturas de solução com o Azure NetApp Files
 Este artigo fornece referências às melhores práticas que podem ajudá-lo a entender as arquiteturas de solução para a utilização de Ficheiros Azure NetApp.  
@@ -34,9 +34,9 @@ Esta secção fornece referências para soluções para aplicações e bases de 
 
 ### <a name="oracle"></a>Oracle
 
-* [Desempenho da base de dados da Oracle em volumes únicos do Azure NetApp Files](performance-oracle-single-volumes.md)
+* [Desempenho da base de dados Oracle em volumes individuais do Azure NetApp Files](performance-oracle-single-volumes.md)
 * [Oracle no guia de boas práticas de implementação do Azure usando ficheiros Azure NetApp](https://www.netapp.com/us/media/tr-4780.pdf)
-* [Imagens Do Oracle VM e a sua implementação no Microsoft Azure: Opções de configuração de armazenamento partilhada](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-vm-solutions#shared-storage-configuration-options)
+* [Imagens Do Oracle VM e a sua implementação no Microsoft Azure: Opções de configuração de armazenamento partilhada](../virtual-machines/workloads/oracle/oracle-vm-solutions.md#shared-storage-configuration-options)
 * [Benefícios da utilização do Azure NetApp Files com o Oracle Database](solutions-benefits-azure-netapp-files-oracle-database.md)
 
 ## <a name="windows-apps-and-sql-server-solutions"></a>Apps Windows e soluções SQL Server
@@ -61,17 +61,20 @@ Esta secção fornece referências à SAP sobre soluções Azure.
 ### <a name="generic-sap-and-sap-netweaver"></a>Sap e SAP Netweaver genéricos 
 
 * [Aplicações SAP no Microsoft Azure utilizando ficheiros Azure NetApp](https://www.netapp.com/us/media/tr-4746.pdf)
-* [Alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server com Ficheiros Azure NetApp para aplicações SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
-* [Alta disponibilidade para SAP NetWeaver em VMs Azure em Red Hat Enterprise Linux com Ficheiros Azure NetApp para aplicações SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files)
-* [Alta disponibilidade para SAP NetWeaver em VMs Azure no Windows com Ficheiros Azure NetApp (SMB) para aplicações SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb)
-* [Alta disponibilidade para SAP NetWeaver em VMs Azure em Red Hat Enterprise Linux para aplicações SAP multi-SID guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
+* [Alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server com Ficheiros Azure NetApp para aplicações SAP](../virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files.md)
+* [Alta disponibilidade para SAP NetWeaver em VMs Azure em Red Hat Enterprise Linux com Ficheiros Azure NetApp para aplicações SAP](../virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files.md)
+* [Alta disponibilidade para SAP NetWeaver em VMs Azure no Windows com Ficheiros Azure NetApp (SMB) para aplicações SAP](../virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb.md)
+* [Alta disponibilidade para SAP NetWeaver em VMs Azure em Red Hat Enterprise Linux para aplicações SAP multi-SID guide](../virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid.md)
 
 ### <a name="sap-hana"></a>SAP HANA 
 
-* [Configurações de armazenamento da máquina virtual do Azure do SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
-* [Alta disponibilidade de ESCALA SAP HANA com ficheiros Azure NetApp no Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-red-hat)
-* [Escala SAP HANA com nó de espera em VMs Azure com Ficheiros Azure NetApp no SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)
-* [Escala SAP HANA com nó de espera em VMs Azure com Ficheiros Azure NetApp no Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel)
+* [Configurações de armazenamento da máquina virtual do Azure do SAP HANA](../virtual-machines/workloads/sap/hana-vm-operations-storage.md)
+* [Alta disponibilidade de ESCALA SAP HANA com ficheiros Azure NetApp no Red Hat Enterprise Linux](../virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-red-hat.md)
+* [Escala SAP HANA com nó de espera em VMs Azure com Ficheiros Azure NetApp no SUSE Linux Enterprise Server](../virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse.md)
+* [Escala SAP HANA com nó de espera em VMs Azure com Ficheiros Azure NetApp no Red Hat Enterprise Linux](../virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel.md)
+
+### <a name="sap-iq-nls"></a>SAP IQ-NLS
+*   [Implementar solução SAP IQ-NLS HA utilizando ficheiros Azure NetApp no SUSE Linux Enterprise Server](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/deploy-sap-iq-nls-ha-solution-using-azure-netapp-files-on-suse/ba-p/1651172#.X2tDfpNzBh4.linkedin)
 
 ### <a name="sap-tech-community-and-blog-posts"></a>Sap tech community e blog posts 
 
@@ -88,9 +91,10 @@ Esta secção fornece referências para soluções de infraestrutura virtual do 
 ### <a name="windows-virtual-desktop"></a>Windows Virtual Desktop
 
 * [Benefícios da utilização do Azure NetApp Files com o Windows Virtual Desktop](solutions-windows-virtual-desktop.md)
-* [Opções de armazenamento para recipientes de perfil FSLogix no Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/store-fslogix-profile#azure-platform-details)
-* [Crie um recipiente de perfil FSLogix para uma piscina hospedeira utilizando ficheiros Azure NetApp](https://docs.microsoft.com/azure/virtual-desktop/create-fslogix-profile-container)
-* [Windows Virtual Desktop à escala empresarial](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
+* [Opções de armazenamento para recipientes de perfil FSLogix no Windows Virtual Desktop](../virtual-desktop/store-fslogix-profile.md#azure-platform-details)
+* [Crie um recipiente de perfil FSLogix para uma piscina hospedeira utilizando ficheiros Azure NetApp](../virtual-desktop/create-fslogix-profile-container.md)
+* [Windows Virtual Desktop à escala empresarial](/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
+* [Microsoft FSLogix para a empresa - Azure NetApp Files as melhores práticas](/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix#azure-netapp-files-best-practices)
 
 ## <a name="hpc-solutions"></a>Soluções HPC
 
@@ -100,17 +104,18 @@ Esta secção fornece referências para soluções de Computação de Alto Desem
 
 * [Ficheiros Azure NetApp: Aproveitar ao máximo o seu armazenamento em nuvem](https://cloud.netapp.com/hubfs/Resources/ANF%20PERFORMANCE%20TESTING%20IN%20TEMPLATE.pdf)
 * [Executar cargas de carga de MPI com ficheiros Azure Batch e Azure NetApp](https://azure.microsoft.com/resources/run-mpi-workloads-with-azure-batch-and-azure-netapp-files/)
-* [Nuvem de ciclo Azure: ambientes HPC cicloCloud em ficheiros Azure NetApp](https://docs.microsoft.com/azure/cyclecloud/overview)
+* [Nuvem de ciclo Azure: ambientes HPC cicloCloud em ficheiros Azure NetApp](/azure/cyclecloud/overview)
 
 ### <a name="oil-and-gas"></a>Petróleo e gás
 
 * [Computação de alto desempenho (HPC): Petróleo e gás em Azure](https://techcommunity.microsoft.com/t5/azure-global/high-performance-computing-hpc-oil-and-gas-in-azure/ba-p/824926)
-* [Executar o software de simulação do reservatório em Azure](https://docs.microsoft.com/azure/architecture/example-scenario/infrastructure/reservoir-simulation)
+* [Executar o software de simulação do reservatório em Azure](/azure/architecture/example-scenario/infrastructure/reservoir-simulation)
 
 ### <a name="electronic-design-automation-eda"></a>Automação de design eletrónico (EDA)
 
 * [Benefícios da utilização do Azure NetApp Files para a automatização de design eletrónico](solutions-benefits-azure-netapp-files-electronic-design-automation.md)
 * [Azure CycleCloud: EDA HPC Lab com ficheiros Azure NetApp](https://github.com/Azure/cyclecloud-hands-on-labs/blob/master/EDA/README.md)
+* [Azure para a indústria de semicondutores](https://azurecomcdn.azureedge.net/cvt-f40f39cd9de2d875ab0c198a8d7b186350cf0bca161e80d7896941389685d012/mediahandler/files/resourcefiles/azure-for-the-semiconductor-industry/Azure_for_the_Semiconductor_Industry.pdf)
 
 ### <a name="analytics"></a>Análise
 
@@ -123,11 +128,10 @@ Esta secção fornece soluções para os serviços da plataforma Azure.
 
 ### <a name="azure-kubernetes-services-and-kubernetes"></a>Serviços Azure Kubernetes e Kubernetes
 
-* [Integrar ficheiros Azure NetApp com o Serviço Azure Kubernetes](https://docs.microsoft.com/azure/aks/azure-netapp-files)
+* [Integrar ficheiros Azure NetApp com o Serviço Azure Kubernetes](../aks/azure-netapp-files.md)
 * [Desempenho fora deste mundo kubernetes no Azure com ficheiros Azure NetApp](https://cloud.netapp.com/blog/ma-anf-blg-configure-kubernetes-openshift)
 * [Tridente - Orquestrador de Armazenamento para Contentores](https://netapp-trident.readthedocs.io/en/stable-v20.04/kubernetes/operations/tasks/backends/anf.html)
 
 ### <a name="azure-batch"></a>Azure Batch
 
 * [Executar cargas de carga de MPI com ficheiros Azure Batch e Azure NetApp](https://azure.microsoft.com/resources/run-mpi-workloads-with-azure-batch-and-azure-netapp-files/)
- 

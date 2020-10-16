@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
-ms.openlocfilehash: 857d49fa579e7ea1a6e2c14ae8198cd8ac4fe228
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 04b70e593e8b1bee8beb72ac88bc8441bc38bb9a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090640"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963249"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Diagnóstico de desempenho para máquinas virtuais do Azure
 
@@ -61,7 +61,7 @@ Pode executar diagnósticos de desempenho diretamente a partir do portal Azure, 
 
 ## <a name="install-and-run-performance-diagnostics-on-your-vm"></a>Instale e execute diagnósticos de desempenho no seu VM
 
-O diagnóstico de desempenho instala uma extensão VM que executa uma ferramenta de diagnóstico chamada PerfInsights. PerfInsights está disponível tanto para [Windows](https://aka.ms/perfinsights) como [Linux.](https://aka.ms/perfinsightslinux) Para instalar e executar diagnósticos de desempenho, siga estes passos:
+O diagnóstico de desempenho instala uma extensão VM que executa uma ferramenta de diagnóstico chamada PerfInsights. PerfInsights está disponível tanto para [Windows](./how-to-use-perfinsights.md) como [Linux.](./how-to-use-perfinsights-linux.md) Para instalar e executar diagnósticos de desempenho, siga estes passos:
 
 1. Na coluna esquerda de comandos, selecione **Máquinas Virtuais**.
 1. A partir da lista de nomes VM, selecione o VM em que pretende executar diagnósticos.
@@ -91,16 +91,16 @@ O diagnóstico de desempenho instala uma extensão VM que executa uma ferramenta
 Os seguintes cenários de análise estão disponíveis no portal Azure. Selecione uma análise, dependendo do problema de desempenho que está a ter. Selecione as opções de duração e rastreio, conforme necessário para a análise.
 
 * **Análise rápida do desempenho**  
-    Verifica questões conhecidas, analisa as melhores práticas e recolhe dados de diagnóstico. Esta análise leva vários minutos para ser executada. Saiba mais [Windows](https://aka.ms/perfinsights/quick) ou [Linux](https://aka.ms/perfinsightslinux/quick)
+    Verifica questões conhecidas, analisa as melhores práticas e recolhe dados de diagnóstico. Esta análise leva vários minutos para ser executada. Saiba mais [Windows](./how-to-use-perfinsights.md) ou [Linux](./how-to-use-perfinsights-linux.md)
 
 * **Análise de desempenho**  
-    Inclui todas as verificações na análise rápida do desempenho e monitoriza o alto consumo de recursos. Utilize esta versão para resolver problemas de desempenho geral, tais como cpu alto, memória e utilização do disco. Esta análise demora 30 segundos a 15 minutos, dependendo da duração selecionada. Saiba mais [Windows](https://aka.ms/perfinsights/vmslow) ou [Linux](https://aka.ms/perfinsightslinux/vmslow)
+    Inclui todas as verificações na análise rápida do desempenho e monitoriza o alto consumo de recursos. Utilize esta versão para resolver problemas de desempenho geral, tais como cpu alto, memória e utilização do disco. Esta análise demora 30 segundos a 15 minutos, dependendo da duração selecionada. Saiba mais [Windows](./how-to-use-perfinsights.md) ou [Linux](./how-to-use-perfinsights-linux.md)
 
 * **Análise avançada de desempenho**`*`  
-    Inclui todas as verificações na análise de desempenho e recolhe um ou mais dos vestígios, conforme listado nas seguintes secções. Use este cenário para resolver problemas complexos que requerem vestígios adicionais. Executar este cenário por períodos mais longos aumentará o tamanho global da produção de diagnósticos, dependendo do tamanho do VM e das opções de rastreio que são selecionadas. Esta análise leva 30 segundos a 15 minutos para ser executada, dependendo da duração selecionada. [Saiba mais](https://aka.ms/perfinsights/advanced)
+    Inclui todas as verificações na análise de desempenho e recolhe um ou mais dos vestígios, conforme listado nas seguintes secções. Use este cenário para resolver problemas complexos que requerem vestígios adicionais. Executar este cenário por períodos mais longos aumentará o tamanho global da produção de diagnósticos, dependendo do tamanho do VM e das opções de rastreio que são selecionadas. Esta análise leva 30 segundos a 15 minutos para ser executada, dependendo da duração selecionada. [Saiba mais](./how-to-use-perfinsights.md)
 
 * **Análise de Ficheiros Azure**`*`  
-    Inclui todas as verificações na análise de desempenho e captura um rastreio de rede e contadores SMB. Utilize este cenário para resolver problemas no desempenho dos ficheiros Azure. Esta análise leva 30 segundos a 15 minutos para ser executada, dependendo da duração selecionada. [Saiba mais](https://aka.ms/perfinsights/azurefiles)
+    Inclui todas as verificações na análise de desempenho e captura um rastreio de rede e contadores SMB. Utilize este cenário para resolver problemas no desempenho dos ficheiros Azure. Esta análise leva 30 segundos a 15 minutos para ser executada, dependendo da duração selecionada. [Saiba mais](./how-to-use-perfinsights.md)
 
 >[!Note]
 >[ `*` ] Estes cenários de análise só são suportados no Windows.

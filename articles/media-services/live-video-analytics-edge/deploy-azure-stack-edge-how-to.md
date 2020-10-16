@@ -3,12 +3,12 @@ title: Implementar vídeo ao vivo analytics no Azure Stack Edge
 description: Este artigo lista os passos que o ajudarão a implementar o Live Video Analytics no seu Azure Stack Edge.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: b13bb779a5a780b21f2d5d96ed8831ef5c26564d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f33b6fb0f0dc5c5b733a0fcb021e2792ce9c6ec6
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937717"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019601"
 ---
 # <a name="deploy-live-video-analytics-on-azure-stack-edge"></a>Implementar vídeo ao vivo analytics no Azure Stack Edge
 
@@ -21,27 +21,27 @@ Para o Live Video Analytics, vamos implementar via IoT Hub, mas os recursos do A
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Assinatura Azure para a qual tem [privilégios de proprietário.](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
-* Um recurso [Azure Stack Edge](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-prep)
+* Assinatura Azure para a qual tem [privilégios de proprietário.](../../role-based-access-control/built-in-roles.md#owner)
+* Um recurso [Azure Stack Edge](../../databox-online/azure-stack-edge-gpu-deploy-prep.md)
    
-* [Um hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal)
-* Um [diretor de serviço](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/create-custom-azure-resource-manager-role-how-to#create-service-principal) para o módulo Live Video Analytics.
+* [Um hub IoT](../../iot-hub/iot-hub-create-through-portal.md)
+* Um [diretor de serviço](./create-custom-azure-resource-manager-role-how-to.md#create-service-principal) para o módulo Live Video Analytics.
 
    Utilize uma dessas regiões onde o IoT Hub está disponível: East US 2, Central EUA, North Central US, Japan East, West US 2, West Central US, Canadá East, UK South, France Central, France South, Switzerland North, Switzerland West e Japan West.
 * Conta de armazenamento
 
     Recomenda-se que utilize contas de armazenamento v2 (GPv2) para fins gerais.  
-    Saiba mais sobre uma [conta de armazenamento v2 para fins gerais.](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade?tabs=azure-portal)
+    Saiba mais sobre uma [conta de armazenamento v2 para fins gerais.](../../storage/common/storage-account-upgrade.md?tabs=azure-portal)
 * [Código de estúdio visual](https://code.visualstudio.com/) na sua máquina de desenvolvimento. Certifique-se de que tem a [extensão Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * Certifique-se de que a rede de que a sua máquina de desenvolvimento está ligada permite o Protocolo avançado de fila de mensagens sobre a porta 5671. Esta configuração permite que as ferramentas Azure IoT se comuniquem com o Azure IoT Hub.
 
 ## <a name="configuring-azure-stack-edge-for-using-live-video-analytics"></a>Configurar Azure Stack Edge para usar vídeo ao vivo Analytics
 
-Azure Stack Edge é uma solução hardware-as-a-Service e um dispositivo de computação de borda ativado por IA com capacidades de transferência de dados de rede. Leia mais sobre [a Azure Stack Edge e instruções detalhadas de configuração](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-prep). Para começar, siga as instruções nos links abaixo:
+Azure Stack Edge é uma solução hardware-as-a-Service e um dispositivo de computação de borda ativado por IA com capacidades de transferência de dados de rede. Leia mais sobre [a Azure Stack Edge e instruções detalhadas de configuração](../../databox-online/azure-stack-edge-deploy-prep.md). Para começar, siga as instruções nos links abaixo:
 
-* [Azure Stack Edge / Data Box Gateway Criação de recursos](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-prep)
-* [Instalação e Configuração](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-install)
-* [Ligação e Ativação](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-connect-setup-activate)
+* [Azure Stack Edge / Data Box Gateway Criação de recursos](../../databox-online/azure-stack-edge-deploy-prep.md)
+* [Instalação e Configuração](../../databox-online/azure-stack-edge-deploy-install.md)
+* [Ligação e Ativação](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md)
 
 ### <a name="attach-an-iot-hub-to-azure-stack-edge"></a>Anexar um hub IoT ao Azure Stack Edge
 
@@ -54,15 +54,15 @@ Azure Stack Edge é uma solução hardware-as-a-Service e um dispositivo de comp
     
     | Campo|Valor|
     |---|---|
-    |Hub IoT|Escolha entre Novo ou Já.<br/>Por predefinição, é utilizado um escalão Standard (S1) para criar um recurso IoT. Para utilizar um recurso IoT de escalão gratuito, crie um e, em seguida, selecione o recurso existente.<br/>Em cada caso, o recurso IoT Hub utiliza o mesmo grupo de subscrição e recursos que é utilizado o recurso Azure Stack Edge.|
-    |Name|Insira um nome para o seu recurso IoT Hub.|
+    |Hub IoT|Escolha entre Novo ou Já.<br/>Por predefinição, é utilizado um escalão Standard (S1) para criar um recurso IoT. Para utilizar um recurso IoT de escalão gratuito, crie um e, em seguida, selecione o recurso existente.<br/>Em cada caso, o recurso IoT Hub utiliza o mesmo grupo de subscrição e recursos que é utilizado o recurso Azure Stack Edge.|
+    |Nome|Insira um nome para o seu recurso IoT Hub.|
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-get-started.png" alt-text="Azure Stack Edge começa":::
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-get-started.png" alt-text="Azure Stack Edge":::
 1. Selecione **Criar**. A criação de recursos IoT Hub demora alguns minutos. Após a criação do recurso IoT Hub, as atualizações de azulejos **de computação Configure** para mostrar a configuração do cálculo. Para confirmar que a função de computação Edge foi configurada, selecione **Ver Computação** no azulejo **do cálculo Configure.**
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/edge-compute-config.png" alt-text="Criação de recursos IoT Hub":::
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/edge-compute-config.png" alt-text="Azure Stack Edge":::
 
     > [!NOTE]
     > Se o diálogo Configure Compute for fechado antes de o IoT Hub estar associado ao recurso Azure Stack Edge, o IoT Hub é criado mas não é mostrado na configuração do cálculo. Recarregue a página após alguns minutos e veja-a aparecer.
@@ -72,7 +72,7 @@ Azure Stack Edge é uma solução hardware-as-a-Service e um dispositivo de comp
     Uma vez preenchida toda a informação, verá o cartão de computação Configure Edge algo assim:
     
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/configure-edge-compute.png" alt-text="Configure o cartão computacional Edge ":::
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/configure-edge-compute.png" alt-text="Azure Stack Edge":::
  
 ### <a name="enable-compute-prerequisites-on-the-azure-stack-edge-local-ui"></a>Ativar os pré-requisitos computo no Azure Stack Edge Local UI
 
@@ -80,7 +80,7 @@ Antes de continuar, certifique-se de que:
 
 * Ativou o seu recurso Azure Stack Edge.
 * Tem acesso a um sistema de clientes Windows que executa o PowerShell 5.0 ou mais tarde para aceder ao recurso Azure Stack Edge.
-* Para implementar um cluster Kubernetes, é necessário configurar o seu recurso Azure Stack Edge através da sua [UI web local.](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-connect-setup-activate#connect-to-the-local-web-ui-setup) 
+* Para implementar um cluster Kubernetes, é necessário configurar o seu recurso Azure Stack Edge através da sua [UI web local.](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md#connect-to-the-local-web-ui-setup) 
     
     * Para ativar o cálculo, na UI web local do seu dispositivo, aceda à página compute.
     
@@ -89,7 +89,7 @@ Antes de continuar, certifique-se de que:
         * Selecione Aplicar - Esta operação deve demorar cerca de 2 minutos.
         
         > [!div class="mx-imgBorder"]
-        > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-commercial.png" alt-text=" Requisitos pré-requisitos de cálculo na UI local Azure Stack Edge":::
+        > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-commercial.png" alt-text="Azure Stack Edge":::
 
         * Se o DNS não estiver configurado para o recurso API e Azure Stack Edge da Kubernetes, pode atualizar o ficheiro de anfitrião da janela.
         
@@ -185,7 +185,7 @@ Estes passos abrangem a criação de um utilizador Gateway e a criação de part
     1. Clique em **Criar**.
         
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/local-share.png" alt-text="Partilha local":::
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/local-share.png" alt-text="Azure Stack Edge":::
     
 1. Crie uma Partilha Remota para armazenamento de sincronização de ficheiros.
 
@@ -203,36 +203,7 @@ Estes passos abrangem a criação de um utilizador Gateway e a criação de part
     1. Clique em **Criar**.    
     
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/remote-share.png" alt-text="Partilha remota":::
-    
-    > [!TIP]
-    > Utilizando o seu cliente Windows ligado ao seu Azure Stack Edge, ligue-se às ações SMB seguindo os passos [mencionados neste documento](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-add-shares#connect-to-an-smb-share).
-    
-1. Atualize as opções de criação do módulo Live Video Analytics Edge (ver ponto 4 no [documento de módulos adicionais](deploy-iot-edge-device.md#add-modules)) para utilizar os suportes de volume.
-
-   ```json
-    // Original (Bind Mounts)
-    "createOptions": {
-        "HostConfig": {
-            "Binds": [
-                "/var/lib/azuremediaservices:/var/lib/azuremediaservices",
-                "/var/media:/var/media"
-            ]
-        }
-    }
-    // Updated (Volume Mounts)
-    "createOptions": {
-        "HostConfig": {
-            "Mounts": [
-            {
-                "Target": "/var/lib/azuremediaservices",
-                "Source": "lva",
-                "Type": "volume"
-            },
-            {
-                "Target": "/var/media",
-                "Source": "media",
-                "Type": "volume"
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/remote-share.png" alt-text="Azure Stack Edge"
             }]
         }
     }
@@ -248,7 +219,7 @@ Para verificar se o módulo está em funcionamento, faça o seguinte:
 1. Selecione o azulejo dos Módulos. Isto leva-te à lâmina dos Módulos. Na lista de módulos, identifique o módulo que implementou. O estado de funcionamento do módulo que adicionou deve estar a funcionar.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/iot-edge-custom-module.png" alt-text="Módulo personalizado":::
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/iot-edge-custom-module.png" alt-text="Azure Stack Edge":::
 
 ### <a name="configure-the-azure-iot-tools-extension"></a>Configure a extensão Azure IoT Tools
 

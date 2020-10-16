@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: xpouyat
 ms.openlocfilehash: c82fb9764b29119092bf313b2c10f00c983e8c03
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91710792"
 ---
 # <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Licenciamento Microsoft &reg; Smooth Streaming Cliente Kit de Porting

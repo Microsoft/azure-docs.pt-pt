@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: azfuncdf
 ms.openlocfilehash: 3cd04c93d508bd06c4ddd2e05074084202b9fc60
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87014944"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Lidar com eventos externos em Funções Duradouras (Funções Azure)
@@ -223,7 +223,7 @@ main = df.Orchestrator.create(orchestrator_function)
 
 ---
 
-`WaitForExternalEvent`espera indefinidamente por alguma entrada.  A aplicação de função pode ser descarregada com segurança enquanto espera. Se e quando um evento chega para esta instância de orquestração, é despertado automaticamente e processa imediatamente o evento.
+`WaitForExternalEvent` espera indefinidamente por alguma entrada.  A aplicação de função pode ser descarregada com segurança enquanto espera. Se e quando um evento chega para esta instância de orquestração, é despertado automaticamente e processa imediatamente o evento.
 
 > [!NOTE]
 > Se a sua aplicação de função utilizar o Plano de Consumo, não são incorridos encargos de faturação enquanto uma função de orquestrador aguarda uma tarefa de `WaitForExternalEvent` (.NET), `waitForExternalEvent` (JavaScript) ou `wait_for_external_event` (Python), não importa quanto tempo espere.

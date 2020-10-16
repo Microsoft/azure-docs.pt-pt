@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 26c6f70f92e4c372c0ff6afbcbb3c0bb284e2f6c
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91704808"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-postgresql-using-powershell"></a>Como criar e gerir réplicas de leitura na Base de Dados Azure para PostgreSQL usando PowerShell
@@ -54,7 +54,7 @@ O `New-AzPostgreSqlServerReplica` comando requer os seguintes parâmetros:
 | Definição | Valor de exemplo | Descrição  |
 | --- | --- | --- |
 | ResourceGroupName |  myResourceGroup |  O grupo de recursos onde o servidor de réplica é criado.  |
-| Name | mydemoreplicaserver | O nome do novo servidor de réplica que é criado. |
+| Nome | mydemoreplicaserver | O nome do novo servidor de réplica que é criado. |
 
 Para criar uma réplica de leitura de região cruzada, utilize o parâmetro **Localização.** O exemplo a seguir cria uma réplica na região **oeste dos EUA.**
 
@@ -104,7 +104,7 @@ Para eliminar um servidor primário, pode executar o `Remove-AzPostgreSqlServer`
 Remove-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Reinicie a base de dados do Azure para o servidor PostgreSQL utilizando o PowerShell](howto-restart-server-powershell.md)

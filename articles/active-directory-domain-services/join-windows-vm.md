@@ -1,26 +1,26 @@
 ---
 title: Junte-se a um Windows Server VM a um domínio gerido por Azure AD Domain Services Microsoft Docs
 description: Neste tutorial, aprenda a juntar uma máquina virtual do Windows Server a um domínio gerido por Serviços de Domínio do Diretório Ativo Azure.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 259b27528779c9934da6d69ca46f2794e2257d24
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.author: joflore
+ms.openlocfilehash: 3df96f5576829694b5eb12fd1811de112279884d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723032"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963232"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Junte uma máquina virtual do Windows Server a um domínio gerido por Serviços de Domínio do Diretório Ativo Azure
 
 Azure Ative Directory Domain Services (Azure AD DS) fornece serviços de domínio geridos, tais como a junção de domínio, política de grupo, autenticação de LDAP, Kerberos/NTLM que é totalmente compatível com o Windows Server Ative Directory. Com um domínio gerido AD DS Azure, pode fornecer funcionalidades de junção de domínio e gestão a máquinas virtuais (VMs) em Azure. Este tutorial mostra-lhe como criar um VM do Servidor do Windows e, em seguida, junte-o a um domínio gerido.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar um VM do Servidor do Windows
@@ -68,7 +68,7 @@ Se já tem um VM que pretende juntar-se ao domínio, salte para a secção para 
     |----------------------|-------------------|
     | Grupo de recursos       | Selecione ou crie um grupo de recursos, como *o myResourceGroup* |
     | Nome da máquina virtual | Insira um nome para o VM, como *myVM* |
-    | Region               | Escolha a região para criar o seu VM em, como *o Leste dos EUA* |
+    | Região               | Escolha a região para criar o seu VM em, como *o Leste dos EUA* |
     | Nome de utilizador             | Introduza um nome de utilizador para a conta de administrador local para criar no VM, como *azureuser* |
     | Palavra-passe             | Introduza e confirme, uma senha segura para o administrador local criar no VM. Não especifique as credenciais de uma conta de utilizador de domínio. |
 

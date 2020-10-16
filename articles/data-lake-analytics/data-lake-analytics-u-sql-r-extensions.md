@@ -7,10 +7,10 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/20/2017
 ms.openlocfilehash: 1c054dcfe12ad1d2098fc5352183839704e39330
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87127405"
 ---
 # <a name="extend-u-sql-scripts-with-r-code-in-azure-data-lake-analytics"></a>Estender scripts U-SQL com código R em Azure Data Lake Analytics
@@ -92,7 +92,7 @@ DECLARE @PartitionCount int = 10;
 
 * As colunas de cordas e numéricas da U-SQL são convertidas como-é entre R DataFrame e U-SQL [tipos suportados: `double` , , , , ] `string` `bool` `integer` `byte` .
 * O `Factor` tipo de dados não é suportado em U-SQL.
-* `byte[]`deve ser serializado como uma base 64 codificada `string` .
+* `byte[]` deve ser serializado como uma base 64 codificada `string` .
 * As cordas U-SQL podem ser convertidas em fatores em código R, uma vez que o U-SQL cria um dataframe de entrada R ou estabelece o parâmetro de redução `stringsAsFactors: true` .
 
 ### <a name="schemas"></a>Esquemas

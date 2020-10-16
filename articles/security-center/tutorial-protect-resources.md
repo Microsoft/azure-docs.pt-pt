@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/03/2018
 ms.author: memildin
-ms.openlocfilehash: 56dd74fba46aa8b79c94b1460996bb6edb1ff93f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 89d04588d07407be5dbd7ddbafd6543ed461462e
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904614"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945724"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Tutorial: proteger os seus recursos com o Centro de Segurança do Azure
 O Centro de Segurança limita a exposição a ameaças ao utilizar controlos de acesso e aplicações para bloquear atividade maliciosa. O acesso à máquina virtual (VM) just-in-time (VM) reduz a sua exposição a ataques, permitindo-lhe negar o acesso persistente aos VM. Em alternativa, o utilizador fornece acesso controlado e auditado a VMs apenas quando necessário. Os controlos de aplicações adaptáveis ajudam a proteger as VMs contra software maligno ao controlar as aplicações que podem ser executadas nas suas VMs. O Security Center utiliza machine learning para analisar os processos em curso no VM e ajuda-o a aplicar regras de listagem usando esta inteligência.
@@ -45,7 +45,7 @@ Os controlos de aplicações adaptáveis ajudam a definir um conjunto de aplica�
 
 Siga as orientações em [Utilizar controlos de aplicação adaptativos para reduzir as superfícies de ataque das suas máquinas](security-center-adaptive-application.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste tutorial, aprendeu a limitar a exposição a ameaças ao:
 
 > [!div class="checklist"]

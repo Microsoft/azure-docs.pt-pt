@@ -9,10 +9,10 @@ ms.date: 08/23/2019
 ms.topic: how-to
 manager: philmea
 ms.openlocfilehash: e000e2979436605b9274792ad3dde8eb1fa80976
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91653354"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>Criar e gerir uma aplicação Azure IoT Central a partir do portal CSP

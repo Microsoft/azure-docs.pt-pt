@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: e859ac13c72ed07d3f57da6e61fd6d9f827f0fca
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bceffe5c53b9cbc863fd9c923ffa4718ebd50436
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88854889"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893820"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Conheça os fundamentos do Discurso CLI
 
@@ -69,6 +69,51 @@ Neste comando, especifica tanto a origem (linguagem a **traduzir),** como o alvo
 
 > [!NOTE]
 > Consulte o [idioma e o artigo local](language-support.md) para obter uma lista de todas as línguas suportadas com os respetivos códigos locais.
+
+### <a name="configuration-files-in-the-datastore"></a>Ficheiros de configuração na loja de dados
+
+O CLI do Discurso pode ler e escrever várias configurações em ficheiros de configuração, que são armazenados na loja de dados local do Speech CLI, e são nomeados dentro das chamadas CLI do Discurso usando um símbolo @. O CLI da fala tenta salvar uma nova configuração num novo `./spx/data` subdiretório que cria no atual diretório de trabalho.
+Ao procurar um valor de configuração, o CLI da fala olha para o seu diretório de trabalho atual e, em seguida, no `./spx/data` caminho.
+Anteriormente, utilizou a datastore para guardar os seus `@key` `@region` valores, pelo que não precisava de os especificar com cada chamada de linha de comando.
+Também pode utilizar ficheiros de configuração para armazenar as suas próprias definições de configuração, ou até usá-los para passar URLs ou outros conteúdos dinâmicos gerados em tempo de execução.
+
+Esta secção mostra a utilização de um ficheiro de configuração na loja de dados local para armazenar e buscar as definições de comando utilizando `spx config` , e armazenar a saída do Speech CLI utilizando a `--output` opção.
+
+O exemplo a seguir limpa o `@my.defaults` ficheiro de configuração, adiciona pares de valor-chave para **chave** e **região** no ficheiro e utiliza a configuração numa chamada para `spx recognize` .
+
+```shell
+spx config @my.defaults --clear
+spx config @my.defaults --add key 000072626F6E20697320636F6F6C0000
+spx config @my.defaults --add region westus
+
+spx config @my.defaults
+
+spx recognize --nodefaults @my.defaults --file hello.wav
+```
+
+Também pode escrever conteúdo dinâmico num ficheiro de configuração. Por exemplo, o seguinte comando cria um modelo de fala personalizado e armazena o URL do novo modelo num ficheiro de configuração. O comando seguinte aguarda até que o modelo dessa URL esteja pronto para ser utilizado antes de regressar.
+
+```shell
+spx csr model create --name "Example 4" --datasets @my.datasets.txt --output url @my.model.txt
+spx csr model status --model @my.model.txt --wait
+```
+
+O exemplo a seguir escreve dois URLs no `@my.datasets.txt` ficheiro de configuração.
+Neste cenário, `--output` pode incluir uma palavra-chave de **adicionar** opcional para criar um ficheiro de configuração ou anexar ao existente.
+
+
+```shell
+spx csr dataset create --name "LM" --kind Language --content https://crbn.us/data.txt --output url @my.datasets.txt
+spx csr dataset create --name "AM" --kind Acoustic --content https://crbn.us/audio.zip --output add url @my.datasets.txt
+
+spx config @my.datasets.txt
+```
+
+Para obter mais detalhes sobre ficheiros de datastore, incluindo a utilização de ficheiros de configuração predefinidos `@spx.default` `@default.config` (, , e `@*.default.config` para definições padrão específicas do comando), insira este comando:
+
+```shell
+spx help advanced setup
+```
 
 ## <a name="batch-operations"></a>Operações de lote
 

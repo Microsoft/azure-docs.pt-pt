@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: jeedes
 ms.openlocfilehash: 7d249005e77328460a0e7152e0a3ff125857534b
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89659475"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-datava-enterprise-service-platform"></a>Tutorial: Azure Ative Directy integração única (SSO) com a Plataforma de Serviço Empresarial Datava
@@ -87,7 +87,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     b. Na caixa de texto **URL de resposta,** digite o URL: `https://go.datava.com/saml/module.php/saml/sp/saml2-acs.php/azure-sp`
 
     > [!NOTE]
-    > O valor não é real. Atualize o valor com o URL de inscrição real. Contacte [a equipa de suporte ao cliente da Plataforma de Serviços Empresariais Datava](mailto:support@datava.com) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > O valor não é real. Atualize o valor com o URL de Sign-On real. Contacte [a equipa de suporte ao cliente da Plataforma de Serviços Empresariais Datava](mailto:support@datava.com) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
 1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** clique no botão de cópia para copiar o Url de **metadados da Federação de Aplicações** e guarde-o no seu computador.
 

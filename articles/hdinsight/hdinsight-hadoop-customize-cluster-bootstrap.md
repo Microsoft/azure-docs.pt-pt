@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/01/2020
 ms.openlocfilehash: eaddae04c198742007947831046139d80828534b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87006590"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalize os clusters HDInsight usando Bootstrap
@@ -138,7 +138,7 @@ Corte do modelo do Gestor de Recursos da Amostra para mudar a configuração em 
 }
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 * [Criar clusters Apache Hadoop em HDInsight](hdinsight-hadoop-provision-linux-clusters.md) fornece instruções sobre como criar um cluster HDInsight utilizando outras opções personalizadas.
 * [Desenvolver scripts de ação de script para HDInsight](hdinsight-hadoop-script-actions-linux.md)

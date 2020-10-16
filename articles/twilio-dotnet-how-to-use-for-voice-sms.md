@@ -14,10 +14,10 @@ ms.date: 04/24/2015
 ms.author: gwallace
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 104f969f5e27ef36ad43eb10e19176a4bcfd6648
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89021141"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>Como usar twilio para capacidades de voz e SMS do Azure

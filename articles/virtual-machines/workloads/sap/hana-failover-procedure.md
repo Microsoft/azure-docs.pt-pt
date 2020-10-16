@@ -14,10 +14,10 @@ ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 6454903a7c37da30e317e29c126109b39b14efbc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83660574"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>Procedimento de ativação pós-falha de recuperação após desastre
@@ -104,7 +104,7 @@ Pode falhar de um DR para um local de produção. Vejamos um cenário em que a f
 
 Tens estado a executar a tua carga de trabalho de produção da SAP há algum tempo no local de recuperação de desastres. À medida que os problemas no local de produção estão resolvidos, pretende-se que volte ao seu local de produção. Como não se pode perder dados, o passo de volta ao local de produção envolve vários passos e estreita cooperação com a equipa de operações da SAP HANA. Cabe-lhe a si desencadear a equipa de operações para começar a sincronizar o local de produção depois de os problemas estarem resolvidos.
 
-Siga estes passos.
+Siga estes passos:
 
 1. A equipa de operações sap hana da Azure obtém o gatilho para sincronizar os volumes de armazenamento de produção dos volumes de armazenamento de recuperação de desastres, que representam agora o estado de produção. Neste estado, a unidade HANA Large Instance no local de produção é encerrada.
 1. A equipa de operações da SAP HANA na Azure monitoriza a replicação e certifica-se de que é apanhada antes de o informarem.
@@ -120,5 +120,5 @@ Para monitorizar o estado do progresso da sua replicação de armazenamento, exe
 Para obter mais informações sobre o comando e a sua saída, consulte "Get DR replication status - azure_hana_replication_status" em [ferramentas instantâneas da Microsoft para SAP HANA em Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.3/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.3.pdf).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Consulte [monitor e resolução de problemas do lado HANA](hana-monitor-troubleshoot.md).

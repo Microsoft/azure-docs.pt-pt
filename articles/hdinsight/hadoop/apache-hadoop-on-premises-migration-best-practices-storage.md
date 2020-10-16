@@ -12,7 +12,7 @@ ms.openlocfilehash: cd27babee4b78d22bbd49ab53c1ed2fe5a54a0da
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91856692"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Migrar para o local aglomerados Apache Hadoop para Azure HDInsight

@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
 ms.openlocfilehash: e3080836e8b9ed38e99c691c66e71a4620829c90
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90890212"
 ---
 # <a name="train-model-module"></a>Módulo modelo de trem
@@ -64,7 +64,7 @@ No Azure Machine Learning, criar e utilizar um modelo de aprendizagem automátic
   
 5.  Envie o oleoduto. Se tiver muitos dados, isto pode demorar um pouco.
 
-## <a name="results"></a>Resultados
+## <a name="results"></a>Results
 
 Depois de o modelo ser treinado:
 

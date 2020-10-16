@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 6097dba9193fce4c8158137b488080107881994a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84707757"
 ---
 # <a name="azure-data-box-heavy-system-requirements"></a>Requisitos do sistema Azure Data Box
@@ -58,6 +58,6 @@ A tabela que se segue lista as portas que precisam de ser abertas na sua firewal
 
 [!INCLUDE [data-box-port-requirements](../../includes/data-box-port-requirements.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Implemente a sua Caixa de Dados Azure](data-box-deploy-ordered.md)

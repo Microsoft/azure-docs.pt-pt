@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.openlocfilehash: 6807f3d4ef0596b4dbb51f6bc8c0348901e78d0e
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91439937"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mysql"></a>Conectividade SSL/TLS na Base de Dados Azure para o MySQL
@@ -73,7 +73,7 @@ Como parte da comunicação SSL/TLS, as suítes cifra são validadas e apenas os
 *   TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 *   TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Bibliotecas de conexão para Azure Database para MySQL](concepts-connection-libraries.md)
 - Saiba como configurar o [SSL](howto-configure-ssl.md)

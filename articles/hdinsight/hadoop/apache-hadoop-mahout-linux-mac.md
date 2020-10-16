@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/14/2020
 ms.openlocfilehash: a4e4a45519526dd0eeb938a3b83e737d82589c1e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86207679"
 ---
 # <a name="generate-recommendations-using-apache-mahout-in-azure-hdinsight"></a>Gerar recomendações usando Apache Mahout em Azure HDInsight
@@ -170,9 +170,9 @@ Os dados contidos `user-ratings.txt` têm uma estrutura `userID` `movieID` de, e
 
     Este comando analisa as recomendações geradas para o ID 4 do utilizador.
 
-   * O **ficheirouser-ratings.txt** é usado para recuperar filmes que foram classificados.
+   * O ** ficheirouser-ratings.txt** é usado para recuperar filmes que foram classificados.
 
-   * O **ficheiromoviedb.txt** é usado para recuperar os nomes dos filmes.
+   * O ** ficheiromoviedb.txt** é usado para recuperar os nomes dos filmes.
 
    * O **recommendations.txt** é usado para recuperar as recomendações do filme para este utilizador.
 

@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: d36c0ab78f9f96a051e6cb0a53b756c7409ca142
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a9259e287c75a3a39ad1d4e701638f38b4512ee0
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893406"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966411"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerir o acesso a uma área de trabalho do Azure Machine Learning
 
@@ -66,6 +66,22 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 ## <a name="azure-machine-learning-operations"></a>Operações de Aprendizagem automática Azure
 
 Azure Machine Learning em ações incorporadas para muitas operações e tarefas. Para obter uma lista completa, consulte [as operações do fornecedor de recursos Azure](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+
+## <a name="mlflow-operations-in-azure-machine-learning"></a>MLflow operações em aprendizagem de máquinas Azure
+
+Estas tabelas descrevem o âmbito de permissão que deve ser adicionado às ações na função personalizada criada para executar operações de MLflow.
+
+| Operação MLflow | Âmbito |
+| --- | --- |
+| Liste todas as experiências na loja de rastreio do espaço de trabalho, faça uma experiência por id, obtenha uma experiência pelo nome | Microsoft.MachineLearningServices/workspaces/experiments/read |
+| Crie uma experiência com um nome, coloque uma etiqueta numa experiência, restaure uma experiência marcada para a eliminação| Microsoft.MachineLearningServices/workspaces/experiments/write | 
+| Excluir uma experiência | Microsoft.MachineLearningServices/workspaces/experiments/delete |
+| Obtenha uma execução e dados relacionados e metadados, obtenha uma lista de todos os valores para a métrica especificada para uma determinada execução, liste artefactos para uma corrida | Microsoft.MachineLearningServices/workspaces/experiments/runs/read |
+| Criar uma nova execução dentro de uma experiência, eliminar runs, restaurar corridas eliminadas, registar métricas sob a execução atual, definir tags em uma corrida, eliminar tags em uma corrida, pára-quedamentos de log (par de valores-chave) usado para uma corrida, registar um lote de métricas, parames e tags para uma execução, estado de execução de atualização | Microsoft.MachineLearningServices/workspaces/experiments/runs/write |
+| Obtenha modelo registado pelo nome, obtenha uma lista de todos os modelos registados no registo, procure modelos registados, modelos de versão mais recentes para cada fase de pedidos, obtenha uma versão de modelo registada, versões de modelos de pesquisa, obter URI onde os artefactos de uma versão modelo são armazenados, pesquisa por execuções por ids de experiência | Microsoft.MachineLearningServices/workspaces/models/read |
+| Criar um novo modelo registado, atualizar o nome/descrição de um modelo registado, mudar o nome do modelo registado existente, criar nova versão do modelo, atualizar a descrição de uma versão modelo, transitar um modelo registado para uma das fases | Microsoft.MachineLearningServices/workspaces/models/write |
+| Eliminar um modelo registado juntamente com toda a sua versão, eliminar versões específicas de um modelo registado | Microsoft.MachineLearningServices/workspaces/models/delete |
+
 
 ## <a name="create-custom-role"></a>Criar função personalizada
 
@@ -141,7 +157,7 @@ O quadro a seguir é um resumo das atividades de Aprendizagem automática do Azu
 | Publicação de um ponto final do gasoduto | não é necessário | não é necessário | Função de proprietário, colaborador ou personalizado que permite: `"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
 | Implantação de um modelo registado num recurso AKS/ACI | não é necessário | não é necessário | Função de proprietário, colaborador ou personalizado que permite: `"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
 | Pontuação contra um ponto final AKS implantado | não é necessário | não é necessário | Titular, colaborador ou papel personalizado que permite: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (quando não estiver a utilizar auth Azure Ative Directory) OR `"/workspaces/read"` (quando estiver a utilizar auth token) |
-| Acesso ao armazenamento usando cadernos interativos | não é necessário | não é necessário | Função de proprietário, colaborador ou personalizado que permite: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*"` |
+| Acesso ao armazenamento usando cadernos interativos | não é necessário | não é necessário | Função de proprietário, colaborador ou personalizado que permite: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*", "/workspaces/listKeys/action"` |
 | Criar novo papel personalizado | Titular, colaborador ou papel personalizado permitindo `Microsoft.Authorization/roleDefinitions/write` | não é necessário | Função de proprietário, colaborador ou personalizado que permite: `/workspaces/computes/write` |
 
 > [!TIP]
@@ -253,6 +269,46 @@ Sim, aqui estão alguns cenários comuns com definições de papéis propostas p
         ]
     }
     ```
+     
+* __MLflow Data Scientist Custom__: Permite que um cientista de dados execute todas as operações apoiadas pela MLflow AzureML, **exceto:**
+
+   * Criação de computação
+   * Implantação de modelos para um cluster AKS de produção
+   * Implantação de um ponto final de gasoduto na produção
+
+   `mlflow_data_scientist_custom_role.json` :
+   ```json
+   {
+        "Name": "MLFlow Data Scientist Custom",
+        "IsCustom": true,
+        "Description": "Can perform azureml mlflow integrated functionalities that includes mlflow tracking, projects, model registry",
+        "Actions": [
+            "Microsoft.MachineLearningServices/workspaces/experiments/read",
+            "Microsoft.MachineLearningServices/workspaces/experiments/write",
+            "Microsoft.MachineLearningServices/workspaces/experiments/delete",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/read",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/write",
+            "Microsoft.MachineLearningServices/workspaces/models/read",
+            "Microsoft.MachineLearningServices/workspaces/models/write",
+            "Microsoft.MachineLearningServices/workspaces/models/delete"
+        ],
+        "NotActions": [
+            "Microsoft.MachineLearningServices/workspaces/delete",
+            "Microsoft.MachineLearningServices/workspaces/write",
+            "Microsoft.MachineLearningServices/workspaces/computes/*/write",
+            "Microsoft.MachineLearningServices/workspaces/computes/*/delete", 
+            "Microsoft.Authorization/*",
+            "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
+            "Microsoft.MachineLearningServices/workspaces/listKeys/action",
+            "Microsoft.MachineLearningServices/workspaces/services/aks/write",
+            "Microsoft.MachineLearningServices/workspaces/services/aks/delete",
+            "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/write"
+        ],
+     "AssignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ]
+    }
+    ```   
 
 * __MLOps Custom__: Permite-lhe atribuir uma função a um diretor de serviço e usá-lo para automatizar os seus oleodutos MLOps. Por exemplo, submeter corridas contra um oleoduto já publicado:
 

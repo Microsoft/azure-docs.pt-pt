@@ -3,12 +3,12 @@ title: Otimize cargas de trabalho do Azure utilizando a pontuação do Advisor
 description: Use pontuação do Advisor para tirar o máximo partido de Azure
 ms.topic: article
 ms.date: 09/09/2020
-ms.openlocfilehash: 29d8480f501a78c1668b52034f439f998419f9d9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c4c401a8b532c247806c5fe30728a1f4afd334a4
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335624"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074027"
 ---
 # <a name="optimize-azure-workloads-using-advisor-score"></a>Otimize cargas de trabalho do Azure utilizando a pontuação do Advisor
 
@@ -17,11 +17,11 @@ ms.locfileid: "91335624"
 O Azure Advisor fornece recomendações de boas práticas para as suas cargas de trabalho. Estas recomendações são personalizadas e ações para ajudá-lo:
 * Melhore a postura das suas cargas de trabalho e otimize as suas implementações Azure
 * Proativamente prevenir as principais questões seguindo as melhores práticas
-* Avalie as suas cargas de trabalho do Azure contra os cinco pilares do Quadro Bem Architected da [Microsoft Azure](https://docs.microsoft.com/azure/architecture/framework/)
+* Avalie as suas cargas de trabalho do Azure contra os cinco pilares do [Quadro de Well-Architected microsoft Azure](/azure/architecture/framework/)
 
 Como uma característica central do Advisor, a **pontuação do Advisor** é concebida para ajudá-lo a alcançar estes objetivos de forma eficaz e eficiente. 
 
-Para tirar o máximo partido do Azure, é crucial entender onde está na sua jornada de otimização de carga de trabalho, quais os serviços/recursos que são bem consumidos e que não são. Além disso, vai querer saber como priorizar as suas ações, com base em recomendações, para maximizar o resultado. Também é importante acompanhar e relatar os progressos que está a fazer nesta jornada de otimização. Com **pontuação Advisor,** você pode facilmente fazer todas estas coisas com a nossa nova experiência de gamificação. Como seu consultor de nuvem personalizado, o Azure Advisor avalia continuamente a sua configuração de telemetria e recursos de uso para verificar as melhores práticas da indústria. O Advisor agrega então as suas descobertas numa única pontuação para que possa ver, num ápice, se está a tomar as medidas necessárias para construir soluções fiáveis, seguras e económicas. A pontuação do Advisor consiste numa pontuação global, que pode ser ainda mais dividida em cinco categorias, uma para cada categoria de Azure Advisor, que representa os cinco pilares do Quadro Bem-Architected. Você pode acompanhar o progresso que faz ao longo do tempo, visualizando a sua pontuação geral e pontuação de categoria com tendência diária, semanal e mensal, e pode definir referências para ajudá-lo a alcançar os seus objetivos. 
+Para tirar o máximo partido do Azure, é crucial entender onde está na sua jornada de otimização de carga de trabalho, quais os serviços/recursos que são bem consumidos e que não são. Além disso, vai querer saber como priorizar as suas ações, com base em recomendações, para maximizar o resultado. Também é importante acompanhar e relatar os progressos que está a fazer nesta jornada de otimização. Com **pontuação Advisor,** você pode facilmente fazer todas estas coisas com a nossa nova experiência de gamificação. Como seu consultor de nuvem personalizado, o Azure Advisor avalia continuamente a sua configuração de telemetria e recursos de uso para verificar as melhores práticas da indústria. O Advisor agrega então as suas descobertas numa única pontuação para que possa ver, num ápice, se está a tomar as medidas necessárias para construir soluções fiáveis, seguras e económicas. A pontuação do Advisor consiste numa pontuação global, que pode ser ainda mais dividida em cinco categorias, uma para cada categoria de Azure Advisor, que representa os cinco pilares do Quadro Well-Architected. Você pode acompanhar o progresso que faz ao longo do tempo, visualizando a sua pontuação geral e pontuação de categoria com tendência diária, semanal e mensal, e pode definir referências para ajudá-lo a alcançar os seus objetivos. 
 
  ![Experiência de pontuação de conselheiro](./media/advisor-score-1.png)
 
@@ -56,7 +56,7 @@ O cálculo da pontuação do Advisor pode ser resumido em quatro etapas:
   * Os recursos com recomendações de longa data contarão mais contra a sua pontuação.
   * Os recursos que adia ou dispensa no Advisor são totalmente removidos do seu cálculo de pontuação. 
     
-O Advisor aplica este modelo a um nível de categoria Advisor (Security usa o modelo [Secure Score),](https://docs.microsoft.com/azure/security-center/secure-score-security-controls#introduction-to-secure-score) dando-nos pontuação Advisor para cada categoria e ainda uma média simples produz a pontuação final do Advisor.
+O Advisor aplica este modelo a um nível de categoria Advisor (Security usa o modelo [Secure Score),](../security-center/secure-score-security-controls.md#introduction-to-secure-score) dando-nos pontuação Advisor para cada categoria e ainda uma média simples produz a pontuação final do Advisor.
 
 
 ## <a name="advisor-score-faq"></a>Pontuação de assessores FAQ

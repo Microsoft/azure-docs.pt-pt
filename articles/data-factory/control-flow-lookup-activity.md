@@ -10,13 +10,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: fd345f0eed5bd7140047b12a3c1a7471872c8bb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/14/2020
+ms.openlocfilehash: 371afbd9380ed1ecf28d0b26e2b4c5cd16ae6317
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91270445"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044076"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Atividade de procura na Fábrica de Dados Azure
 
@@ -31,7 +31,7 @@ A atividade de procura lê e devolve o conteúdo de um ficheiro ou tabela de con
 
 As seguintes fontes de dados são suportadas para a atividade de Procura. 
 
-A atividade de Lookup pode voltar até 5000 linhas; se o conjunto de resultados contiver mais registos, as primeiras 5000 linhas serão devolvidas. A produção da atividade do Lookup suporta até cerca de 4 MB de tamanho, a atividade falhará se o tamanho exceder o limite. Atualmente, a duração mais longa para a atividade de Lookup antes do intervalo é de uma hora.
+A atividade de Lookup pode voltar até 5000 linhas; se o conjunto de resultados contiver mais registos, as primeiras 5000 linhas serão devolvidas. A produção da atividade do Lookup suporta até cerca de 4 MB de tamanho, a atividade falhará se o tamanho exceder o limite. Atualmente, a duração mais longa para a atividade de Lookup antes do intervalo é de 24 horas.
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
@@ -59,8 +59,8 @@ A atividade de Lookup pode voltar até 5000 linhas; se o conjunto de resultados 
 Nome | Descrição | Tipo | Necessário?
 ---- | ----------- | ---- | --------
 conjunto de dados | Fornece a referência de conjunto de dados para a procura. Obtenha detalhes da secção **de propriedades do Dataset** em cada artigo de conector correspondente. | Par chave/valor | Sim
-source | Contém propriedades de origem específicas do conjunto de dados, as mesmas que a fonte de Atividade de Cópia. Obtenha detalhes da secção **de propriedades da Atividade de Cópia** em cada artigo de conector correspondente. | Par chave/valor | Sim
-firstRowOnly | Indica se deve voltar apenas a primeira linha ou todas as linhas. | Booleano | N.º A predefinição é `true`.
+source | Contém propriedades de origem específicas do conjunto de dados, as mesmas que a fonte de Atividade de Cópia. Obtenha detalhes da secção **de propriedades da Atividade de Cópia** em cada artigo de conector correspondente. | Par chave/valor | Yes
+firstRowOnly | Indica se deve voltar apenas a primeira linha ou todas as linhas. | Booleano | Não. A predefinição é `true`.
 
 > [!NOTE]
 > 

@@ -1,6 +1,6 @@
 ---
-title: Validação de alerta (ficheiro de teste EICAR) no Azure Security Center Microsoft Docs
-description: Este documento ajuda-o a validar os alertas de segurança no Centro de Segurança do Azure.
+title: Validação de alerta no Centro de Segurança Azure / Microsoft Docs
+description: Saiba como validar que os seus alertas de segurança estão corretamente configurados no Azure Security Center
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 0c777c2461047f21e8fb413faec6d5f1140fc75f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 764a2263587a477eb506edec1e0f661d0ca7ae31
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91438813"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971613"
 ---
 # <a name="alert-validation-in-azure-security-center"></a>Validação de alerta no Centro de Segurança Azure
 Este documento ajuda-o a aprender como verificar se o sistema está corretamente configurado para os alertas do Centro de Segurança do Azure.
@@ -26,12 +26,6 @@ Este documento ajuda-o a aprender como verificar se o sistema está corretamente
 ## <a name="what-are-security-alerts"></a>O que são alertas de segurança?
 Os alertas são as notificações que o Centro de Segurança gera quando deteta ameaças nos seus recursos. Prioriza e enumera os alertas juntamente com as informações necessárias para investigar rapidamente o problema. O Centro de Segurança também fornece recomendações sobre como pode remediar um ataque.
 Para mais informações, consulte [alertas de segurança no Centro de Segurança](security-center-alerts-overview.md) e [Gestão e respondendo a alertas de segurança](security-center-managing-and-responding-alerts.md)
-
-## <a name="alert-validation"></a>Validação de alertas
-
-* [Windows](#validate-windows)
-* [Linux](#validate-linux)
-* [Kubernetes](#validate-kubernetes)
 
 ## <a name="validate-alerts-on-windows-vms"></a>Validar alertas em VMs do Windows <a name="validate-windows"></a>
 
@@ -68,7 +62,7 @@ Se integrou o Serviço Azure Kubernetes com o Security Center, pode testar que o
 
 Para obter mais informações sobre a defesa dos seus nódoas e aglomerados Kubernetes, consulte [Introdução ao Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Este artigo apresentou-lhe o processo de validação de alertas. Agora que está familiarizado com a validação, experimente os seguintes artigos:
 
 * [Validação da deteção de ameaças de cofre de chave Azure no Centro de Segurança Azure](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336)

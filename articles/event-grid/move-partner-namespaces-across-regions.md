@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/20/2020
 ms.openlocfilehash: 6783db6b9bb1c7d48b308234a179925d6f30e281
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89086210"
 ---
 # <a name="move-azure-event-grid-partner-namespaces-to-another-region"></a>Mover espaços de nomes parceiros da Azure Event Grid para outra região
@@ -30,7 +30,7 @@ Aqui estão os passos de alto nível abrangidos por este artigo:
 ## <a name="prepare"></a>Preparação
 Para começar, exporte um modelo de Gestor de Recursos para o espaço de nome do parceiro. 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na barra de pesquisa no topo, digite **os espaços de nome do parceiro Event Grid**e selecione Os Espaços de Nome do Parceiro de Grelha de Eventos na lista de **resultados.** 
 3. Selecione o **espaço de nome do parceiro** que pretende exportar para um modelo de Gestor de Recursos. 
 4. Na página **'Espaço nome do parceiro' '' '' '' '' ''** **'' 'Designar' 'Exportação'** **no** menu esquerdo e, em seguida, selecione **Descarregue** na barra de ferramentas. 

@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/28/2019
 ms.openlocfilehash: 08354e212b8ca3cae642b599f25ed318e79f581c
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86082255"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Desenvolvimento de ação de script com HDInsight
@@ -73,7 +73,7 @@ elif [[ $OS_VERSION == 16* ]]; then
 fi
 ```
 
-### <a name="target-the-operating-system-version"></a><a name="bps10"></a>Direcionar a versão do sistema operativo
+### <a name="target-the-operating-system-version"></a><a name="bps10"></a> Direcionar a versão do sistema operativo
 
 O HDInsight baseia-se na distribuição Ubuntu Linux. Diferentes versões do HDInsight dependem de diferentes versões de Ubuntu, o que pode mudar o comportamento do seu script. Por exemplo, HDInsight 3.4 e anteriormente são baseados em versões Ubuntu que usam Upstart. As versões 3.5 ou maiores são baseadas em Ubuntu 16.04, que utiliza Systemd. Systemd e Upstart dependem de diferentes comandos, por isso o seu script deve ser escrito para trabalhar com ambos.
 
@@ -177,7 +177,7 @@ Isto redireciona as informações escritas para STDOUT para STDERR (2) em vez di
 
 Para obter mais informações sobre a visualização de informações registadas pelas ações do script, consulte [as ações do script troubleshoot](./troubleshoot-script-action.md).
 
-### <a name="save-files-as-ascii-with-lf-line-endings"></a><a name="bps8"></a>Guardar ficheiros como ASCII com terminações de linha LF
+### <a name="save-files-as-ascii-with-lf-line-endings"></a><a name="bps8"></a> Guardar ficheiros como ASCII com terminações de linha LF
 
 Os scripts bash devem ser armazenados como formato ASCII, com linhas terminadas pelo LF. Ficheiros que são armazenados como UTF-8, ou usam CRLF como o final da linha pode falhar com o seguinte erro:
 
@@ -186,7 +186,7 @@ $'\r': command not found
 line 1: #!/usr/bin/env: No such file or directory
 ```
 
-### <a name="use-retry-logic-to-recover-from-transient-errors"></a><a name="bps9"></a>Use a lógica de relemgar para recuperar de erros transitórios
+### <a name="use-retry-logic-to-recover-from-transient-errors"></a><a name="bps9"></a> Use a lógica de relemgar para recuperar de erros transitórios
 
 Ao descarregar ficheiros, instalar pacotes utilizando apt-get, ou outras ações que transmitam dados através da internet, a ação pode falhar devido a erros transitórios de rede. Por exemplo, o recurso remoto com que está a comunicar pode estar em vias de falhar num nó de reserva.
 
@@ -256,7 +256,7 @@ Esta secção fornece orientações sobre a implementação de alguns dos padrõ
 
 Em alguns casos, o seu script pode requerer parâmetros. Por exemplo, pode precisar da palavra-passe de administração para o cluster ao utilizar a API Ambari REST.
 
-Os parâmetros passados para o script são conhecidos como *parâmetros posicionais*, e são atribuídos `$1` para o primeiro parâmetro, para o `$2` segundo, e assim-on. `$0`contém o nome do próprio guião.
+Os parâmetros passados para o script são conhecidos como *parâmetros posicionais*, e são atribuídos `$1` para o primeiro parâmetro, para o `$2` segundo, e assim-on. `$0` contém o nome do próprio guião.
 
 Os valores passados para o guião como parâmetros devem ser incluídos por cotações únicas ('). Ao fazê-lo, garante que o valor passado é tratado como literal.
 
@@ -360,9 +360,9 @@ Este problema ocorre mais frequentemente quando o script é da autoria num ambie
 awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
 ```
 
-`INFILE`Substitua-a pelo ficheiro que contém o BOM. `OUTFILE`deve ser um novo nome de ficheiro, que contém o script sem o BOM.
+`INFILE`Substitua-a pelo ficheiro que contém o BOM. `OUTFILE` deve ser um novo nome de ficheiro, que contém o script sem o BOM.
 
-## <a name="next-steps"></a><a name="seeAlso"></a>Próximos passos
+## <a name="next-steps"></a><a name="seeAlso"></a>Passos seguintes
 
 * Saiba como [personalizar clusters HDInsight usando ação de script](hdinsight-hadoop-customize-cluster-linux.md)
 * Utilize a [referência HDInsight .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight) para saber mais sobre a criação de aplicações .NET que gerem o HDInsight

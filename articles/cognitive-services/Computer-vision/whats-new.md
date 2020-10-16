@@ -10,16 +10,22 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: f007ddf2625bf9e8b9d4365902ac1511ea95fa81
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e4c56700e75eb5bc7e5e7faec073fe7157e5df88
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90904103"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976373"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novidades na Visão Computacional
 
 Saiba o que há de novo no serviço. Estes itens podem ser notas de lançamento, vídeos, posts de blog e outros tipos de informação. Marque esta página para ficar a par do serviço.
+
+## <a name="october-2020"></a>outubro de 2020
+
+### <a name="computer-vision-api-v31-ga"></a>API de Visão Computacional v3.1 GA
+
+A API de Visão Computacional em Disponibilidade Geral foi atualizada para v3.1.
 
 ## <a name="september-2020"></a>Setembro de 2020
 

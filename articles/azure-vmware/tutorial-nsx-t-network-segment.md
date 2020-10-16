@@ -4,10 +4,10 @@ description: Saiba como criar os segmentos de rede NSX-T que são usados para VM
 ms.topic: tutorial
 ms.date: 09/21/2020
 ms.openlocfilehash: 780cac15efc043b9ae44b77af1234adca3fec5a1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91254538"
 ---
 # <a name="tutorial-create-an-nsx-t-network-segment-in-azure-vmware-solution"></a>Tutorial: Criar um segmento de rede NSX-T na Solução VMware Azure
@@ -33,41 +33,41 @@ Uma nuvem privada Azure VMware Solution com acesso às interfaces de gestão vCe
 
 1. No NSX-T Manager para a sua nuvem privada, **selecione Networking**.
 
-   :::image type="content" source="media/nsxt/nsxt-network-overview.png" alt-text="No NSX-T Manager para a sua nuvem privada, selecione Networking.":::
+   :::image type="content" source="media/nsxt/nsxt-network-overview.png" alt-text="No vCenter para a sua nuvem privada, selecione SDDC-Datacenter > Networks e note que ainda não existem redes.":::
 
 1. Selecione **Segmentos**.
 
-   :::image type="content" source="media/nsxt/nsxt-select-segments.png" alt-text="Selecione Segmentos na página 'Visão Geral' da rede.":::
+   :::image type="content" source="media/nsxt/nsxt-select-segments.png" alt-text="No vCenter para a sua nuvem privada, selecione SDDC-Datacenter > Networks e note que ainda não existem redes.":::
 
 1. Na página de visão geral dos segmentos NSX-T, selecione **ADD SEGMENT**. Três segmentos são criados como parte do fornecimento de nuvem privada e não podem ser usados para VMs.  Para o efeito, terá de adicionar um novo segmento de rede.
 
-   :::image type="content" source="media/nsxt/nsxt-segments-overview.png" alt-text="Na página de visão geral dos segmentos NSX-T, selecione ADD SEGMENT.":::
+   :::image type="content" source="media/nsxt/nsxt-segments-overview.png" alt-text="No vCenter para a sua nuvem privada, selecione SDDC-Datacenter > Networks e note que ainda não existem redes.":::
 
 1. Nomeie o segmento, escolha o Gateway Tier1 pré-configurado (TNTxx-T1) como **gateway conectado,** deixe o **Tipo** como Flexível, escolha a **zona de transporte** de sobreposição pré-configurada (TNTxx-OVERLAY-TZ) e, em seguida, selecione set Subnets. Todas as outras definições nesta secção e os **PERFIS DE PORTAS** e **SEGMENTOS** podem permanecer no predefinido, como é a configuração.
 
-   :::image type="content" source="media/nsxt/nsxt-create-segment-specs.png" alt-text="Desa estaga o nome do segmento, o gateway conectado e o tipo e a zona de transporte, em seguida, selecione set Subnet.":::
+   :::image type="content" source="media/nsxt/nsxt-create-segment-specs.png" alt-text="No vCenter para a sua nuvem privada, selecione SDDC-Datacenter > Networks e note que ainda não existem redes.":::
 
 1. Desaponuse o endereço IP do gateway para o novo segmento e, em seguida, selecione **ADD**. O endereço IP que utiliza tem de estar num bloco de endereços RFC1918 não sobreposto, o que garante que pode ligar-se aos VMs no novo segmento.
 
-   :::image type="content" source="media/nsxt/nsxt-create-segment-gateway.png" alt-text="Desaponuse o endereço IP do gateway para o novo segmento e, em seguida, selecione ADD.":::
+   :::image type="content" source="media/nsxt/nsxt-create-segment-gateway.png" alt-text="No vCenter para a sua nuvem privada, selecione SDDC-Datacenter > Networks e note que ainda não existem redes.":::
 
 1. Aplique o novo segmento de rede selecionando **APPLY** e, em seguida, guarde a configuração com **SAVE**.
 
-   :::image type="content" source="media/nsxt/nsxt-create-segment-apply.png" alt-text="Aplique o novo segmento de rede na configuração NSX-T com APPLY.":::
+   :::image type="content" source="media/nsxt/nsxt-create-segment-apply.png" alt-text="No vCenter para a sua nuvem privada, selecione SDDC-Datacenter > Networks e note que ainda não existem redes.":::
 
-   :::image type="content" source="media/nsxt/nsxt-create-segment-save.png" alt-text="Guarde o novo segmento de rede para a configuração NSX-T com SAVE.":::
+   :::image type="content" source="media/nsxt/nsxt-create-segment-save.png" alt-text="No vCenter para a sua nuvem privada, selecione SDDC-Datacenter > Networks e note que ainda não existem redes.":::
 
 1. O novo segmento de rede foi agora criado e irá recusar a opção de continuar a configurar o segmento selecionando **NO**.
 
-   :::image type="content" source="media/nsxt/nsxt-create-segment-continue-no.png" alt-text="Recuse-se a configurar ainda mais o segmento de rede recém-criado selecionando NO.":::
+   :::image type="content" source="media/nsxt/nsxt-create-segment-continue-no.png" alt-text="No vCenter para a sua nuvem privada, selecione SDDC-Datacenter > Networks e note que ainda não existem redes.":::
 
 1. Confirme que o novo segmento de rede está presente no NSX-T **selecionando Networking > Segmentos** e vendo que o novo segmento está na lista (neste caso, "ls01").
 
-   :::image type="content" source="media/nsxt/nsxt-new-segment-overview-2.png" alt-text="Confirme que o novo segmento de rede está presente no NSX-T.":::
+   :::image type="content" source="media/nsxt/nsxt-new-segment-overview-2.png" alt-text="No vCenter para a sua nuvem privada, selecione SDDC-Datacenter > Networks e note que ainda não existem redes.":::
 
 1. Confirme que o novo segmento de rede está presente no vCenter **selecionando networking > SDDC-Datacenter** e observando o novo segmento está na lista (neste caso, "ls01").
 
-   :::image type="content" source="media/nsxt/vcenter-with-ls01-2.png" alt-text="Confirme que o novo segmento de rede está presente no vCenter.":::
+   :::image type="content" source="media/nsxt/vcenter-with-ls01-2.png" alt-text="No vCenter para a sua nuvem privada, selecione SDDC-Datacenter > Networks e note que ainda não existem redes.":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

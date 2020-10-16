@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/20/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de76a9138f782ab699bcd6ff56dab09a4e694102
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e22e4cdbfaf90eb9bba30fc26dc3495f767216f1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035524"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968344"
 ---
 # <a name="enable-combined-security-information-registration-in-azure-active-directory"></a>Permitir o registo combinado de informações de segurança no Azure Ative Directory
 

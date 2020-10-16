@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/18/2020
 ms.openlocfilehash: ec926bf6065e11e1b6ca2e3f6df22c4b5ee2c2c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83836129"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mysql"></a>Como utilizar o EXPLAIN para perfilar desempenho de consulta na Base de Dados Azure para o MySQL
@@ -166,5 +166,5 @@ O EXPLAIN mostra agora que o MySQL é capaz de usar índice combinado para evita
 A utilização de EXPLAIN e diferentes tipos de Índices pode aumentar significativamente o desempenho. Ter um índice em cima da mesa não significa necessariamente que o MySQL possa usá-lo para as suas consultas. Valide sempre os seus pressupostos utilizando o EXPLAIN e otimize as suas consultas utilizando índices.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Para encontrar respostas de pares às suas perguntas mais preocupadas ou publicar uma nova pergunta/resposta, visite [o Microsoft Q&Uma página de perguntas](https://docs.microsoft.com/answers/topics/azure-database-mysql.html) ou Stack [Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).

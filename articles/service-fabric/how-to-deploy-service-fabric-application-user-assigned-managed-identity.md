@@ -4,13 +4,13 @@ description: Este artigo mostra-lhe como implementar a aplicação De Tecido de 
 ms.topic: article
 ms.date: 12/09/2019
 ms.openlocfilehash: 79d8654733b580be96d59e78f31105077929ac78
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260093"
 ---
-# <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity"></a>Implementar aplicação de tecido de serviço com uma identidade gerida atribuída ao utilizador
+# <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity"></a>Implementar aplicação de tecido de serviço com uma identidade gerida User-Assigned
 
 Para implementar uma aplicação de Tecido de Serviço com identidade gerida, a aplicação precisa de ser implementada através do Azure Resource Manager, tipicamente com um modelo de Gestor de Recursos Azure. Para obter mais informações sobre como implementar a aplicação de Tecido de Serviço através do Azure Resource Manager, consulte [Gerir aplicações e serviços como recursos do Azure Resource Manager](service-fabric-application-arm-resource.md).
 
@@ -21,9 +21,9 @@ Para implementar uma aplicação de Tecido de Serviço com identidade gerida, a 
 > A implementação da aplicação de tecido de serviço com identidade gerida é suportada com a versão `"2019-06-01-preview"` API. Também pode utilizar a mesma versão API para tipo de aplicação, versão tipo de aplicação e recursos de serviço.
 >
 
-## <a name="user-assigned-identity"></a>Identidade atribuída ao utilizador
+## <a name="user-assigned-identity"></a>Identidade User-Assigned
 
-Para ativar a aplicação com identidade atribuída ao Utilizador, adicione primeiro a propriedade **de identidade** ao recurso de aplicação com o tipo **de utilizadorAssigned** e as identidades atribuídas pelo utilizador referenciado. Em seguida, adicione uma secção **de identificação gerida** dentro da secção de **propriedades** para o recurso de **aplicação** que contém uma lista de nome amigável para mapeamento principal para cada uma das identidades atribuídas pelo utilizador. Para obter mais informações sobre identidades atribuídas ao utilizador consulte [Criar, listar ou eliminar uma identidade gerida atribuída pelo utilizador.](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)
+Para ativar a aplicação com User-Assigned identidade, adicione primeiro a propriedade **de identidade** ao recurso de aplicação com o **utilizador tipoAssigned** e as identidades atribuídas pelo utilizador referenciado. Em seguida, adicione uma secção **de identificação gerida** dentro da secção de **propriedades** para o recurso de **aplicação** que contém uma lista de nome amigável para mapeamento principal para cada uma das identidades atribuídas pelo utilizador. Para obter mais informações sobre identidades atribuídas ao utilizador consulte [Criar, listar ou eliminar uma identidade gerida atribuída pelo utilizador.](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)
 
 ### <a name="application-template"></a>Modelo de aplicação
 

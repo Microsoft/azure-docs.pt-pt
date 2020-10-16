@@ -5,10 +5,10 @@ services: automation
 ms.date: 08/10/2020
 ms.topic: article
 ms.openlocfilehash: 8767687f0b72d3469bef570770ac81fa8300097f
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88055938"
 ---
 # <a name="monitor-runbooks-with-metric-alerts"></a>Monitorizar runbooks com alertas de métrica
@@ -46,7 +46,7 @@ Os alertas permitem definir uma condição para monitorizar e uma ação a tomar
 
 3. Em **lógica de alerta,** defina a condição e o limiar para o seu alerta. Uma pré-visualização da sua condição definida é mostrada por baixo.
 
-4. Em **Avaliação com base em**, selecione a timepan para a consulta e quantas vezes deseja que essa consulta seja executada. Por exemplo, se escolher **Nos últimos 5 minutos** para **o período**, e a **cada 1 minuto** de **frequência,** o alerta procura o número de livros que satisfaçam os seus critérios nos últimos 5 minutos. Esta consulta é executada a cada minuto, e uma vez que os critérios de alerta definidos já não se encontram numa janela de 5 minutos, o alerta resolve-se sozinho. Quando terminar, clique em **Concluído**.
+4. Em **Avaliação com base em**, selecione a timepan para a consulta e quantas vezes deseja que essa consulta seja executada. Por exemplo, se escolher **Nos últimos 5 minutos** para **o período**, e a **cada 1 minuto** de **frequência,** o alerta procura o número de livros que satisfaçam os seus critérios nos últimos 5 minutos. Esta consulta é executada a cada minuto, e uma vez que os critérios de alerta definidos já não se encontram numa janela de 5 minutos, o alerta resolve-se sozinho. Quando terminar, clique em **'Fazer'.**
 
    ![Selecione um recurso para o alerta](./media/automation-alert-activity-log/configure-signal-logic.png)
 

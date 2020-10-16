@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
 ms.openlocfilehash: 513d48114d73b2c91ebecf06f9492a6ebf0ba1cf
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89504711"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>Carregamento de dados em massa para o Apache Phoenix com psql
@@ -181,7 +181,7 @@ Para uma carga de maior produção distribuída sobre o cluster, utilize a ferra
 
 * Evite pontos de acesso ao servidor da região. Se a tecla de linha estiver a aumentar monotonicamente, as gravações sequenciais da HBase podem induzir o hotspotting do servidor da região. *Salgar* a tecla de linha reduz as gravações sequenciais. Phoenix fornece uma maneira de salgar transparentemente a chave da linha com um byte de salga para uma determinada tabela, como referenciado abaixo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Carregamento de dados em massa com Apache Phoenix](https://phoenix.apache.org/bulk_dataload.html)
 * [Use Apache Phoenix com clusters Apache HBase baseados em Linux em HDInsight](../hbase/apache-hbase-query-with-phoenix.md)

@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 08/16/2020
 ms.author: cshoe
 ms.openlocfilehash: 942ca3229808b57894598c3477e9dc97e40e8c80
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88689572"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registar extensões de ligação funções Azure Funções
@@ -20,7 +20,7 @@ As aplicações de funções de biblioteca de classe .NET utilizam encadernaçõ
 
 A tabela seguinte indica quando e como regista as encadernações.
 
-| Ambiente de desenvolvimento |Registo<br/> em Funções 1.x  |Registo<br/> em Funções 3.x/2.x  |
+| Ambiente de programação |Registo<br/> em Funções 1.x  |Registo<br/> em Funções 3.x/2.x  |
 |-------------------------|------------------------------------|------------------------------------|
 |Portal do Azure|Automático|Automático<sup>*</sup>|
 |línguas Non-.NET|Automático|Utilize [pacotes de extensão](#extension-bundles) (recomendado) ou [instale explicitamente extensões](#explicitly-install-extensions)|

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/8/2020
 ms.author: allensu
 ms.openlocfilehash: e1080aea12e70f4312fbee07b063d5a5cfbd1201
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89596312"
 ---
 # <a name="azure-load-balancer-portal-settings"></a>Definições do portal Azure Load Balancer
@@ -36,7 +36,7 @@ No separador Básicos da página do portal do balanceador de carga, verá as **s
 | ---------- | ---------- |
 | Subscrição  | Selecione a sua subscrição. Esta seleção é a subscrição em que pretende que o seu equilibrador de carga seja implantado. |
 | Grupo de recursos | **Selecione Criar novo** e escrever o nome para o seu grupo de recursos na caixa de texto. Se tiver um grupo de recursos existente criado, selecione-o. |
-| Name | Esta definição é o nome do seu Balançador de Carga Azure. |
+| Nome | Esta definição é o nome do seu Balançador de Carga Azure. |
 | Region | Selecione uma região Azure em que gostaria de colocar o seu equilibrador de carga. |
 | Tipo | O equilibrador de carga tem dois tipos: </br> **Interno (Privado)** </br> **Público (Externo)**.</br> Um equilibrador de carga interno (ILB) encaminha o tráfego para remusar os membros do pool através de um endereço IP privado.</br> Um equilibrador de carga pública direciona os pedidos dos clientes através da internet para a piscina de backend.</br> Saiba mais sobre [tipos de equilibradores de carga.](components.md#frontend-ip-configuration-)|
 | SKU  | Selecione **Standard**. </br> O equilibrador de carga tem dois SKUs: **Básico** e **Standard**. </br> Basic tem funcionalidade limitada. </br> **Recomenda-se** a norma para a carga de trabalho de produção. </br> Saiba mais sobre [os SKUs.](skus.md) |
@@ -63,7 +63,7 @@ Se selecionar **Internal** in Type, verá as seguintes informações:
 | Atribuição de endereços IP | As suas opções são **Estáticas** ou **Dinâmicas.** </br> A estática garante que o IP não muda. Um IP dinâmico pode mudar. |
 | Zona de disponibilidade | As opções são: </br> **Zona redundante** </br> **Zona 1** </br> **Zona 2** </br> **Zona 3** </br> Para criar um equilibrador de carga altamente disponível e resistente a falhas de zona de disponibilidade, selecione um IP **redundante de zona.** |
 
-:::image type="content" source="./media/manage/create-internal-load-balancer-basics.png" alt-text="Crie o equilibrador de carga interno." border="true":::
+:::image type="content" source="./media/manage/create-internal-load-balancer-basics.png" alt-text="Criar o balanceador de carga público." border="true":::
 
 ## <a name="frontend-ip-configuration"></a>Configuração IP frontend
 
@@ -75,12 +75,12 @@ Se pretender adicionar uma configuração IP frontal ao seu equilibrador de carg
 
 | Definição |  Detalhes |
 | ---------- | ---------- |
-| Name | O nome da configuração IP do frontend. |
+| Nome | O nome da configuração IP do frontend. |
 | Versão do IP | A versão ip address que gostaria que o seu frontend tivesse. </br> O equilibrador de carga suporta as configurações IP do iPv4 e do IPv6 frontend. |
 | Tipo IP | O tipo IP determina se um único endereço IP está associado ao seu frontend ou a uma série de endereços IP utilizando um Prefix IP. </br> Um [prefixo IP público](../virtual-network/public-ip-address-prefix.md) ajuda quando precisa de ligar-se repetidamente ao mesmo ponto final. O prefixo garante que são dadas portas suficientes para ajudar nas questões portuárias do SNAT. |
 | Endereço IP público (ou Prefixo se selecionou prefixo acima) | Selecione ou crie um novo IP público (ou prefixo) para o frontend do seu balançador de carga. |
 
-:::image type="content" source="./media/manage/frontend.png" alt-text="Crie a página de configuração ip frontend." border="true":::
+:::image type="content" source="./media/manage/frontend.png" alt-text="Criar o balanceador de carga público." border="true":::
 
 ## <a name="backend-pools"></a>Piscinas de backend
 
@@ -90,13 +90,13 @@ Se pretender adicionar uma piscina de backend ao seu equilibrador de carga, vá 
 
 | Definição | Detalhes |
 | ---------- |  ---------- |
-| Name | O nome da sua piscina de backend. |
+| Nome | O nome da sua piscina de backend. |
 | Rede virtual | A rede virtual que os seus casos de backend são. |
 | Versão do IP | As suas opções são **IPv4** ou **IPv6**. |
 
 Pode adicionar máquinas virtuais ou conjuntos de balanças de máquinas virtuais à piscina de backend do seu Balançador de Carga Azure. Crie primeiro as máquinas virtuais ou os conjuntos de balança de máquinas virtuais. Em seguida, adicione-os ao equilibrador de carga no portal.
 
-:::image type="content" source="./media/manage/backend.png" alt-text="Crie a página da piscina backend." border="true":::
+:::image type="content" source="./media/manage/backend.png" alt-text="Criar o balanceador de carga público." border="true":::
 
 ## <a name="health-probes"></a>Sondas do estado de funcionamento
 
@@ -106,13 +106,13 @@ Se pretender adicionar uma sonda de saúde ao seu equilibrador de carga, vá ao 
 
 | Definição | Detalhes |
 | ---------- | ---------- |
-| Name | O nome da sua sonda de saúde. |
+| Nome | O nome da sua sonda de saúde. |
 | Protocolo | O protocolo selecionado determina o tipo de verificação utilizado para determinar se a(s) instância de backend(s) é saudável. </br> As opções são: </br> **TCP** </br> **HTTPS** </br> **HTTP** </br> Certifique-se de que está a usar o protocolo certo. Esta seleção dependerá da natureza da sua candidatura. </br> A configuração da sonda de saúde e as respostas da sonda determinam quais as instâncias de backend pool que receberão novos fluxos. </br> Pode utilizar sondas de saúde para detetar a falha de uma aplicação num ponto final de backend. </br> Saiba mais sobre [as sondas de saúde.](load-balancer-custom-probe-overview.md) |
 | Porta | O porto de destino para a sonda de saúde. </br> Esta definição é a porta no caso de backend que a sonda de saúde usará para determinar a saúde do caso. |
 | Intervalo | O número de segundos entre tentativas de sonda. </br> O intervalo determinará com que frequência a sonda de saúde tentará chegar à instância de backend. </br> Se selecionar 5, a segunda tentativa de sonda será feita após 5 segundos e assim por diante. |
 | Limiar com funcionamento incorreto | O número de falhas consecutivas da sonda que devem ocorrer antes de um VM é considerado insalubre.</br> Se selecionar 2, não serão definidos novos fluxos para esta instância de backend após duas falhas consecutivas. |
 
-:::image type="content" source="./media/manage/health-probe.png" alt-text="Adicione sonda de saúde." border="true":::
+:::image type="content" source="./media/manage/health-probe.png" alt-text="Criar o balanceador de carga público." border="true":::
 
 ## <a name="load-balancing-rules"></a>Regras de equilíbrio de carga
 
@@ -122,7 +122,7 @@ Se pretender adicionar uma regra do balançador de carga ao seu equilibrador de 
     
 | Definição | Detalhes |
 | ---------- | ---------- |
-| Name | O nome da regra do balançador de carga. |
+| Nome | O nome da regra do balançador de carga. |
 | Versão IP | As suas opções são **IPv4** ou **IPv6**.  |
 | Endereço IP frontend | Selecione o endereço IP frontend. </br> O endereço IP frontend do seu equilibrador de carga deseja a regra do balançador de carga associada.|
 | Protocolo | Azure Load Balancer é um equilibrador de carga de rede de camada 4. </br> As suas opções são: **TCP** ou **UDP**. |
@@ -136,7 +136,7 @@ Se pretender adicionar uma regra do balançador de carga ao seu equilibrador de 
 | IP Flutuante | Ip flutuante é a terminologia de Azure para uma parte do que é conhecido como **Retorno direto do Servidor (DSR)**. </br> A DSR é constituída por duas partes: <br> 1. Topologia do fluxo </br> 2. Um esquema de mapeamento de endereços IP a nível da plataforma. </br></br> O Azure Load Balancer funciona sempre numa topologia de fluxo DSR quer o IP flutuante esteja ativado ou não. </br> Esta operação significa que a parte de saída de um fluxo é sempre corretamente reescrita para fluir diretamente de volta à origem. </br> Sem IP flutuante, a Azure expõe um esquema tradicional de mapeamento de endereços IP equilibrador de carga, o IP das instâncias VM. </br> Ativar o IP flutuante altera o mapeamento do endereço IP para o IP frontend do Balancer de carga para permitir uma flexibilidade adicional. </br> Para obter mais informações, consulte [vários frontends para Azure Load Balancer](load-balancer-multivip-overview.md).|
 | Criar regras implícitas de saída | Selecione **Não**. </br> **Predefinição: desativarOutboundSnat = falso**  </br> Neste caso, a saída ocorre através do mesmo FRONTend IP. </br></br> **desativarOutboundSnat = verdadeiro** </br>Neste caso, são necessárias regras de saída para a saída. |
 
-:::image type="content" source="./media/manage/load-balancing-rule.png" alt-text="Adicione a regra de equilíbrio de carga." border="true":::
+:::image type="content" source="./media/manage/load-balancing-rule.png" alt-text="Criar o balanceador de carga público." border="true":::
 
 ## <a name="inbound-nat-rules"></a>Regras NAT de entrada
 
@@ -152,7 +152,7 @@ Se pretender adicionar uma regra nat de entrada ao seu equilibrador de carga, v�
 
 | Definição | Detalhes |
 | ---------- | ---------- |
-| Name | O nome da sua regra NAT de entrada |
+| Nome | O nome da sua regra NAT de entrada |
 | Endereço IP frontend | Selecione o endereço IP frontend. </br> O endereço IP frontend do seu equilibrador de carga deseja a regra NAT de entrada associada. |
 | Versão IP | As suas opções são IPv4 e IPv6. |
 | Serviço | O tipo de serviço que vai executar no Azure Load Balancer. </br> Uma seleção aqui atualizará adequadamente as informações do porto. |
@@ -163,7 +163,7 @@ Se pretender adicionar uma regra nat de entrada ao seu equilibrador de carga, v�
 | Máquina virtual alvo | A parte virtual da máquina do pool de backend a que gostaria que esta regra fosse associada. |
 | Mapeamento portuário | Esta definição pode ser padrão ou personalizada com base na sua preferência de aplicação. |
 
-:::image type="content" source="./media/manage/inbound-nat-rule.png" alt-text="Adicione a regra NAT de entrada." border="true":::
+:::image type="content" source="./media/manage/inbound-nat-rule.png" alt-text="Criar o balanceador de carga público." border="true":::
 
 ## <a name="outbound-rules"></a>Regras de saída
 
@@ -173,7 +173,7 @@ Se pretender adicionar uma regra de saída ao seu equilibrador de carga, vá ao 
 
 | Definição | Detalhes |
 | ------- | ------ |
-| Name | O nome da sua regra de saída. |
+| Nome | O nome da sua regra de saída. |
 | Endereço IP frontend | Selecione o endereço IP frontend. </br> O endereço IP frontend do seu equilibrador de carga deseja que a regra de saída seja associada. |
 | Protocolo | Azure Load Balancer é um equilibrador de carga de rede de camada 4. </br> As suas opções são: **Todas,** **TCP**ou **UDP.** |
 | Tempo de 20 minutos (minutos) | Mantenha uma ligação **TCP** ou **HTTP** aberta sem depender dos clientes para enviar mensagens de vida. |
@@ -193,7 +193,7 @@ Se pretender adicionar uma regra de saída ao seu equilibrador de carga, vá ao 
 | Escolha por | Selecione **portas por exemplo** |
 | Portos por exemplo | Insira **10.000**. |
 
-:::image type="content" source="./media/manage/outbound-rule.png" alt-text="Adicione a regra de saída de entrada." border="true":::
+:::image type="content" source="./media/manage/outbound-rule.png" alt-text="Criar o balanceador de carga público." border="true":::
 
 ## <a name="next-steps"></a>Passos Seguintes
 

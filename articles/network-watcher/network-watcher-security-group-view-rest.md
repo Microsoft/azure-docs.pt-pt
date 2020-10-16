@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 156da7504a1a5e2a704e52a783fcd3e437a59867
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90986265"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>Analise a segurança da sua máquina virtual com vista de grupo de segurança usando a API REST
@@ -34,7 +34,7 @@ A visão do grupo de segurança devolve regras de segurança configuradas e efic
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Neste cenário, ligue para a API do Observador de Rede para obter a visão do grupo de segurança para uma máquina virtual. A ARMclient é utilizada para chamar a API REST usando o PowerShell. ARMClient é encontrado em chocolate no [ARMClient em Chocolatey](https://chocolatey.org/packages/ARMClient)
 

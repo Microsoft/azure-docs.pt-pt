@@ -7,14 +7,15 @@ ms.author: saveenr
 manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
+ms.subservice: overview
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: 47b8c45e22569cc758d00fb8534f409ecebf58ca
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 65089f899f15db86edf77d9eb96d198c6cc789ce
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91299936"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089847"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Explore o Centro de Conhecimento sinapse
 

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
 ms.openlocfilehash: 4b7fd2de0762de147ad3ceae0d562a1c78b33dc2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81417476"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Copiar dados de Cassandra usando Azure Data Factory
@@ -60,15 +60,15 @@ As secções seguintes fornecem detalhes sobre propriedades que são usadas para
 
 As seguintes propriedades são suportadas para o serviço ligado à Cassandra:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo |A propriedade tipo deve ser definida para: **Cassandra** |Yes |
-| anfitrião |Um ou mais endereços IP ou nomes de anfitrião de servidores Cassandra.<br/>Especifique uma lista separada de vírgulas de endereços IP ou nomes de anfitrião para ligar a todos os servidores simultaneamente. |Yes |
+| tipo |A propriedade tipo deve ser definida para: **Cassandra** |Sim |
+| anfitrião |Um ou mais endereços IP ou nomes de anfitrião de servidores Cassandra.<br/>Especifique uma lista separada de vírgulas de endereços IP ou nomes de anfitrião para ligar a todos os servidores simultaneamente. |Sim |
 | porta |A porta TCP que o servidor Cassandra usa para ouvir as ligações do cliente. |Não (padrão é 9042) |
-| authenticationType | Tipo de autenticação usada para ligar à base de dados cassandra.<br/>Os valores permitidos são: **Básico,** e **Anónimo.** |Yes |
-| o nome de utilizador |Especifique o nome de utilizador para a conta do utilizador. |Sim, se a autenticaçãoType estiver definida como Basic. |
+| authenticationType | Tipo de autenticação usada para ligar à base de dados cassandra.<br/>Os valores permitidos são: **Básico,** e **Anónimo.** |Sim |
+| nome de utilizador |Especifique o nome de utilizador para a conta do utilizador. |Sim, se a autenticaçãoType estiver definida como Basic. |
 | palavra-passe |Especifique a palavra-passe para a conta de utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). |Sim, se a autenticaçãoType estiver definida como Basic. |
-| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |No |
+| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |Não |
 
 >[!NOTE]
 >Atualmente, a ligação com a Cassandra usando TLS não é suportada.
@@ -103,9 +103,9 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados da Cassandra, defina a propriedade tipo do conjunto de dados para **a CassandraTable**. As seguintes propriedades são suportadas:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade do tipo do conjunto de dados deve ser definida para: **CassandraTable** | Yes |
+| tipo | A propriedade do tipo do conjunto de dados deve ser definida para: **CassandraTable** | Sim |
 | keyspace |Nome do espaço-chave ou esquema na base de dados de Cassandra. |Não (se for especificada "consulta" para "CassandraSource") |
 | tableName |O nome da mesa na base de dados da Cassandra. |Não (se for especificada "consulta" para "CassandraSource") |
 
@@ -138,9 +138,9 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados da Cassandra, desagrafe o tipo de origem na atividade de cópia à **CassandraSource**. As seguintes propriedades são suportadas na secção fonte de **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **CassandraSource** | Yes |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **CassandraSource** | Sim |
 | consulta |Utilize a consulta personalizada para ler dados. Consulta SQL-92 ou consulta CQL. Consulte [a referência CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Ao utilizar a consulta SQL, especifique **o nome do keyspace.table** para representar a tabela que pretende consultar. |Não (se forem especificados "tableName" e "keyspace" no conjunto de dados). |
 | consistênciaLevel |O nível de consistência especifica quantas réplicas devem responder a um pedido de leitura antes de devolver os dados à aplicação do cliente. Cassandra verifica o número especificado de réplicas de dados para satisfazer o pedido de leitura. Consulte [a consistência dos dados](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) para obter informações mais pormenores.<br/><br/>Os valores permitidos são: **UM,** **DOIS,** **TRÊS,** **QUORUM**, **ALL**, **LOCAL_QUORUM,** **EACH_QUORUM**, e **LOCAL_ONE**. |Não (o padrão `ONE` é) |
 
@@ -187,7 +187,7 @@ Ao copiar dados da Cassandra, os seguintes mapeamentos são usados desde os tipo
 | BLOB |Byte[] |
 | BOOLEANA |Booleano |
 | DECIMAL |Decimal |
-| DUPLO |Double |
+| DUPLO |Double (Duplo) |
 | FLUTUAR |Único |
 | INET |String |
 | INT |Int32 |

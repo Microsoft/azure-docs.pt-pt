@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: duau
 ms.openlocfilehash: 871af5b767e8cfe10db3a0a1c15c47340e25581f
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89395031"
 ---
 # <a name="expressroute-qos-requirements"></a>Requisitos do QoS do ExpressRoute
@@ -38,7 +38,7 @@ A tabela seguinte fornece uma lista de marcas DSCP usadas pelas Equipas microsof
 * Deve configurar e suportar várias filas do QoS na rede. A voz deve ser uma classe autónoma e receber o tratamento EF especificado no [RFC 3246](https://www.ietf.org/rfc/rfc3246.txt). 
 * Pode decidir o mecanismo de colocação em fila, a política de deteção de congestionamento e a alocação de largura de banda por classe de tráfego. No entanto, a marcação DSCP para cargas de trabalho do Skype para Empresas tem de ser preservada. Se estiver a utilizar marcações DSCP não listadas acima, por exemplo, AF31 (26), terá de reescrever este valor DSCP para 0 antes de enviar o pacote à Microsoft. A Microsoft só envia pacotes marcados com o valor DSCP mostrado na tabela acima. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Veja os requisitos para [Encaminhamento](expressroute-routing.md) e [NAT](expressroute-nat.md).
 * Consulte as ligações seguintes para configurar a ligação do ExpressRoute.
   

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: tomfitz
 ms.openlocfilehash: a8172b63039d2d247f30fca4099254cb8fca068e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87073425"
 ---
 # <a name="microsoftstoragemultistorageaccountcombo-ui-element"></a>Microsoft.Storage.MultiStorageAccountDI
@@ -47,7 +47,7 @@ Um grupo de controlos para criar várias contas de armazenamento com nomes que c
 }
 ```
 
-## <a name="sample-output"></a>Resultado da amostra
+## <a name="sample-output"></a>Saída de exemplo
 
 ```json
 {
@@ -63,7 +63,7 @@ Um grupo de controlos para criar várias contas de armazenamento com nomes que c
 - O valor `defaultValue.prefix` é concatentado com um ou mais inteiros para gerar a sequência de nomes de conta de armazenamento. Por exemplo, se `defaultValue.prefix` for **sa** e `count` é **2**, então são gerados nomes de conta de armazenamento **sa1** e **sa2.** Os nomes das contas de armazenamento gerados são validados automaticamente para singularidade.
 - Os nomes das contas de armazenamento são gerados lexicograficamente com base em `count` . Por exemplo, se `count` for 10, os nomes da conta de armazenamento terminam com inteiros de dois dígitos (01, 02, 03).
 - O valor por defeito `defaultValue.prefix` é **nulo,** e para `defaultValue.type` é **Premium_LRS**.
-- Qualquer tipo não especificado `constraints.allowedTypes` é escondido, e qualquer tipo não especificado `constraints.excludedTypes` é mostrado. `constraints.allowedTypes`e `constraints.excludedTypes` são ambos opcionais, mas não podem ser usados simultaneamente.
+- Qualquer tipo não especificado `constraints.allowedTypes` é escondido, e qualquer tipo não especificado `constraints.excludedTypes` é mostrado. `constraints.allowedTypes` e `constraints.excludedTypes` são ambos opcionais, mas não podem ser usados simultaneamente.
 - Além de gerar nomes de conta de armazenamento, `count` é usado para definir o multiplicador apropriado para o elemento. Suporta um valor estático, como **2,** ou um valor dinâmico de outro elemento, como `[steps('step1').storageAccountCount]` . O valor predefinido é **1**.
 
 ## <a name="next-steps"></a>Passos seguintes

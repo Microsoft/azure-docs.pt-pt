@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/29/2020
 ms.openlocfilehash: 0eaac8ac65b490e1b8de716d79bd36d2f7a7567c
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91707664"
 ---
 # <a name="move-an-azure-database-for-azure-database-for-postgresql---single-server-to-another-region-by-using-the-azure-portal"></a>Mover uma base de dados Azure para a base de dados de Azure para PostgreSQL - Servidor Único para outra região utilizando o portal Azure

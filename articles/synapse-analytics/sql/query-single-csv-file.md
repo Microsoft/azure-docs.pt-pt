@@ -10,10 +10,10 @@ ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.openlocfilehash: d2f8a30503e14e647cbc9151ebcea7efa000ca07
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91288295"
 ---
 # <a name="query-csv-files"></a>Consultar ficheiros CSV
@@ -131,7 +131,7 @@ A seguinte consulta mostra como ler um ficheiro sem uma linha de cabeçalho, com
 
 Pré-visualização do ficheiro:
 
-![Primeiras 10 linhas do ficheiro CSV sem cabeçalho e com a nova linha Unix-Style.](./media/query-single-csv-file/population-unix.png)
+![Primeiras 10 linhas do ficheiro CSV sem cabeçalho e com Unix-Style nova linha.](./media/query-single-csv-file/population-unix.png)
 
 ```sql
 SELECT *
@@ -159,7 +159,7 @@ A seguinte consulta mostra como ler um ficheiro com uma linha de cabeçalho, com
 
 Pré-visualização do ficheiro:
 
-![Primeiras 10 linhas do ficheiro CSV com linha de cabeçalho e com a nova linha Unix-Style.](./media/query-single-csv-file/population-unix-hdr.png)
+![Primeiras 10 linhas do ficheiro CSV com linha de cabeçalho e com Unix-Style nova linha.](./media/query-single-csv-file/population-unix-hdr.png)
 
 ```sql
 SELECT *
@@ -187,7 +187,7 @@ A seguinte consulta mostra como ler um ficheiro com uma linha de cabeçalho, com
 
 Pré-visualização do ficheiro:
 
-![Primeiras 10 linhas do ficheiro CSV com linha de cabeçalho e com nova linha Unix-Style e valores citados.](./media/query-single-csv-file/population-unix-hdr-quoted.png)
+![Primeiras 10 linhas do ficheiro CSV com linha de cabeçalho e com Unix-Style nova linha e valores citados.](./media/query-single-csv-file/population-unix-hdr-quoted.png)
 
 ```sql
 SELECT *
@@ -220,7 +220,7 @@ A seguinte consulta mostra como ler um ficheiro com uma linha de cabeçalho, com
 
 Pré-visualização do ficheiro:
 
-![Primeiras 10 linhas do ficheiro CSV com linha de cabeçalho e com nova linha e char de escape Unix-Style usado para delimiter de campo.](./media/query-single-csv-file/population-unix-hdr-escape.png)
+![Primeiras 10 linhas do ficheiro CSV com linha de cabeçalho e com Unix-Style nova linha e carvão de fuga usado para delimiter de campo.](./media/query-single-csv-file/population-unix-hdr-escape.png)
 
 ```sql
 SELECT *
@@ -283,7 +283,7 @@ A seguinte consulta mostra como ler um ficheiro com uma linha de cabeçalho, com
 
 Pré-visualização do ficheiro:
 
-![Primeiras 10 linhas do ficheiro CSV com linha de cabeçalho e com nova linha e delimiter de separador Unix-Style.](./media/query-single-csv-file/population-unix-hdr-tsv.png)
+![As primeiras 10 linhas do ficheiro CSV com a linha do cabeçalho e com Unix-Style nova linha e delimiter de separador.](./media/query-single-csv-file/population-unix-hdr-tsv.png)
 
 ```sql
 SELECT *

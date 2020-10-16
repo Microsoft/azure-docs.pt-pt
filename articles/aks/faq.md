@@ -3,12 +3,12 @@ title: Perguntas frequentes para o Serviço Azure Kubernetes (AKS)
 description: Encontre respostas para algumas das perguntas comuns sobre o Serviço Azure Kubernetes (AKS).
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 4150f850263aed7b8aa4317028386dc285f06ade
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 9506b3430775f137c09fe3d155b203cdcbd14783
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905334"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070559"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas mais frequentes acerca do Azure Kubernetes Service (AKS)
 
@@ -89,7 +89,7 @@ A AKS suporta os seguintes [controladores de admissão:][admission-controllers]
 
 - *Espaço nomeLifecycle*
 - *LimiteRanger*
-- *Contagem de serviços*
+- *ServiceAccount*
 - *Classe defaultstorage*
 - *Padrão DeleraçãoSegundos*
 - *MutatingAdmissionWebhook*
@@ -212,7 +212,7 @@ A funcionalidade para permitir o armazenamento de dados de clientes numa única 
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [aks-windows-cli]: windows-container-cli.md
-[aks-windows-limitations]: windows-node-limitations.md
+[aks-windows-limitations]: ./windows-faq.md
 [reservation-discounts]:../cost-management-billing/reservations/save-compute-costs-reservations.md
 [api-server-authorized-ip-ranges]: ./api-server-authorized-ip-ranges.md
 [multi-node-pools]: ./use-multiple-node-pools.md

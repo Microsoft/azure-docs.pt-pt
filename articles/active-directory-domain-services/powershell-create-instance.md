@@ -2,7 +2,7 @@
 title: Ativar os Serviços de Domínio Azure DS utilizando o PowerShell Microsoft Docs
 description: Aprenda a configurar e a capacitar os Serviços de Domínio do Diretório Ativo Azure utilizando a Azure AD PowerShell e a Azure PowerShell.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: d4bc5583-6537-4cd9-bc4b-7712fdd9272a
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
 ms.date: 10/02/2020
-ms.author: iainfou
+ms.author: joflore
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b43e546cc4f7a07462817080b287628df2af8a95
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 4b2ea0806f70d9f99982b9d9af9c462ff0099966
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91704638"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967958"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Ativar os serviços de domínio do diretório ativo Azure utilizando o PowerShell
 
@@ -376,7 +376,7 @@ Quando o portal Azure mostrar que o domínio gerido terminou o provisionamento, 
     * Para configurar o DNS, selecione o seu domínio gerido no portal. Na janela **'Vista Geral',** é solicitado que configufique automaticamente estas definições de DNS.
 * [Ativar a sincronização de palavras-passe para Azure AD DS para](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) que os utilizadores finais possam iniciar sação no domínio gerido utilizando as suas credenciais corporativas.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Para ver o domínio gerido em ação, pode [juntar-se a um VM do Windows,][windows-join] [configurar LDAP seguro][tutorial-ldaps]e [configurar a sincronização de haxixe de palavra-passe][tutorial-phs].
 

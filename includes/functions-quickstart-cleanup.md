@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: e5213a20036385ff25373252e6670d8bd86a4b07
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80056609"
 ---
 Outros guias de introdução desta coleção têm por base este guia de introdução. Se planeia trabalhar com quickstarts subsequentes, tutoriais ou com qualquer um dos serviços que criou neste arranque rápido, não limpe os recursos.

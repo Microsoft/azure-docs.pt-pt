@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 9/22/2020
 ms.openlocfilehash: ec8f27d0376f7187fd36b3feba556dbced0946e9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90937594"
 ---
 # <a name="continuous-integration-and-deployment-cicd-for-azure-stream-analytics"></a>Integração e implantação contínuas (CI/CD) para Azure Stream Analytics
@@ -21,7 +21,7 @@ Pode implementar continuamente o seu trabalho Azure Stream Analytics utilizando 
 
 Se é novo no Azure Stream Analytics, começa com o [quickstart Azure Stream Analytics](stream-analytics-quick-create-portal.md).
 
-## <a name="create-a-cicd-pipeline"></a>Criar um pipeline CI/CD
+## <a name="create-a-cicd-pipeline"></a>Criar um pipeline de CI/CD
 
 Siga os passos deste guia para criar um pipeline CI/CD para stream analytics.
 

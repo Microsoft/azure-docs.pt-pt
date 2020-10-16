@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2c706de8a7638c16f3778d0d5295069c13b79d98
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87387273"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>SAML único sinal de inscrição para aplicações no local com Proxy de aplicação
@@ -72,7 +72,7 @@ Antes de poder fornecer SSO para aplicações no local, tem de ativar o Applicat
 
 1. Com a aplicação ainda aberta no portal Azure, selecione **Single sign-on**. 
 
-2. Na **configuração de um único sign-on com página SAML,** vá ao título **de configuração básica do SAML** e selecione o seu ícone **editar** (um lápis). Certifique-se de que o **URL externo** configurado no Application Proxy está preenchido nos campos **identifier,** **URL de resposta**e **URL logo.** Estes URLs são necessários para que o Application Proxy funcione corretamente. 
+2. Na **configuração single Sign-On com página SAML,** vá ao título de **Configuração Básica SAML** e selecione o seu ícone **editar** (um lápis). Certifique-se de que o **URL externo** configurado no Application Proxy está preenchido nos campos **identifier,** **URL de resposta**e **URL logo.** Estes URLs são necessários para que o Application Proxy funcione corretamente. 
 
 3. Editar o **URL de resposta** configurado anteriormente para que o seu domínio seja acessível na internet através do Application Proxy. Por exemplo, se o seu **URL Externo** for e o URL `https://contosotravel-f128.msappproxy.net` de **resposta** original `https://contosotravel.com/acs` for, terá de atualizar o URL de **resposta** original para `https://contosotravel-f128.msappproxy.net/acs` .
 
@@ -95,7 +95,7 @@ Quando tiver completado todos estes passos, a sua aplicação deve estar a funci
 1. Abra um navegador e navegue para o **URL Externo** que criou quando publicou a aplicação. 
 1. Inscreva-se na conta de teste que atribuiu à aplicação. Deverá ser capaz de carregar a aplicação e ter SSO na aplicação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Como é que o Azure AD Application Proxy fornece um único sinal de inscrição?](application-proxy-single-sign-on.md)
 - [Resolver problemas do Proxy de Aplicações](application-proxy-troubleshoot.md)

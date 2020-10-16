@@ -13,10 +13,10 @@ ms.custom: sqldbrb=1
 ms.date: 04/28/2020
 tag: azure-synpase
 ms.openlocfilehash: ad80f68c1ab3b3583c5a22de49b77211571f345e
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91443980"
 ---
 # <a name="conditional-access-with-azure-sql-database-and-azure-synapse-analytics"></a>Acesso Condicional com Base de Dados Azure SQL e Azure Synapse Analytics
@@ -60,6 +60,6 @@ A aplicação selecionada (Azure SQL Database) utilizando o Azure AD Premium, ag
 
 Para questões sobre a Base de Dados Azure SQL e Azure Synapse relativas à autenticação de vários fatores, contacte <MFAforSQLDB@microsoft.com> .  
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Passos seguintes  
 
 Para obter um tutorial, consulte [Secure your database in SQL Database](secure-database-tutorial.md).

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 07/23/2019
 ms.author: victorh
 ms.openlocfilehash: de580d8f94292ae65769c696aa232f5b660bf414
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84806763"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Gere um certificado auto-assinado do Azure Application Gateway com uma raiz personalizada CA
@@ -270,7 +270,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 ![Sonda HTTPS](media/self-signed-certificates/https-probe.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre sSL\TLS em Gateway de aplicação, consulte [a visão geral da rescisão de TLS e o fim do TLS com o Gateway de aplicações](ssl-overview.md).
 

@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: it-pro, has-adal-ref
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a5fc1b84e624828d7feb64bd53e8fe8ffff2a7ff
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88054839"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Criar um script de instalação não acompanhado para o conector proxy aplicação AD Azure
@@ -45,7 +45,7 @@ Há dois passos para uma instalação não acompanhada. Primeiro, instale o cone
 Utilize os seguintes passos para instalar o conector sem o registar:
 
 1. Abra uma linha de comandos.
-2. Executar o seguinte comando, no qual o /q significa instalação silenciosa. Uma instalação silenciosa não o leva a aceitar o Contrato de Licença do Utilizador Final.
+2. Executar o seguinte comando, no qual o /q significa instalação silenciosa. Uma instalação silenciosa não o leva a aceitar o Contrato de Licença End-User.
 
    ```
    AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q

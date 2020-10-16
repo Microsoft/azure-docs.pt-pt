@@ -17,10 +17,10 @@ ms.author: willzhan
 ms.reviewer: Mingfeiy;rajputam;Juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 1f486bfe7cb96e81cef2da64552be5ddfd87990b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89264696"
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Utilização do Axinom para entregar licenças de Widevine para Serviços de Multimédia do Azure

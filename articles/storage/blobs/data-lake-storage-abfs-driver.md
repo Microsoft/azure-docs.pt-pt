@@ -9,10 +9,10 @@ ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: e9c56f59d6dd64002632a5f74e9f39c51293caab
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87836365"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>O controlador de files Azure Blob (ABFS): Um controlador dedicado de armazenamento Azure para Hadoop
@@ -31,7 +31,7 @@ No entanto, existem algumas funções que o condutor ainda deve desempenhar:
 
 ### <a name="uri-scheme-to-reference-data"></a>Esquema URI para dados de referência
 
-Em consonância com outras implementações do FileSystem dentro da Hadoop, o controlador ABFS define o seu próprio esquema URI para que os recursos (diretórios e ficheiros) possam ser claramente abordados. O regime URI é documentado na [Utilização do Azure Data Lake Storage Gen2 URI](./data-lake-storage-introduction-abfs-uri.md). A estrutura do URI é:`abfs[s]://file_system@account_name.dfs.core.windows.net/<path>/<path>/<file_name>`
+Em consonância com outras implementações do FileSystem dentro da Hadoop, o controlador ABFS define o seu próprio esquema URI para que os recursos (diretórios e ficheiros) possam ser claramente abordados. O regime URI é documentado na [Utilização do Azure Data Lake Storage Gen2 URI](./data-lake-storage-introduction-abfs-uri.md). A estrutura do URI é: `abfs[s]://file_system@account_name.dfs.core.windows.net/<path>/<path>/<file_name>`
 
 Utilizando o formato URI acima, podem ser utilizadas ferramentas e quadros padrão hadoop para fazer referência a estes recursos:
 
@@ -44,7 +44,7 @@ Internamente, o controlador ABFS traduz os recursos especificados no URI para fi
 
 ### <a name="authentication"></a>Autenticação
 
-O condutor da ABFS suporta duas formas de autenticação para que a aplicação Hadoop possa aceder de forma segura aos recursos contidos numa conta de Data Lake Storage Gen2 capaz. Todos os detalhes dos esquemas de autenticação disponíveis são fornecidos no guia de [segurança do Azure Storage](security-recommendations.md). São:
+O condutor da ABFS suporta duas formas de autenticação para que a aplicação Hadoop possa aceder de forma segura aos recursos contidos numa conta de Data Lake Storage Gen2 capaz. Todos os detalhes dos esquemas de autenticação disponíveis são fornecidos no guia de [segurança do Azure Storage](security-recommendations.md). A saber:
 
 - **Chave partilhada:** Isto permite aos utilizadores aceder a TODOS os recursos na conta. A chave é encriptada e armazenada na configuração de Hadoop.
 

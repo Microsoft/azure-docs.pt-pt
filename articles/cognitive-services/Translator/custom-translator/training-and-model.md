@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.openlocfilehash: d8713d20503dc788175a408f5ec652505090396e
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88510832"
 ---
 # <a name="what-are-trainings-and-models"></a>O que são treinos e modelos?

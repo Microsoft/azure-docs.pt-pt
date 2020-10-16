@@ -4,10 +4,10 @@ description: Saiba como o Azure Backup permite encriptar os seus dados de backup
 ms.topic: conceptual
 ms.date: 07/08/2020
 ms.openlocfilehash: 5c0bddc6cdb8ec150a031541ced1abf1ebfb6f0f
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89378292"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Encriptação de dados de backup usando chaves geridas pelo cliente
@@ -258,6 +258,6 @@ Não seguir os passos do artigo e continuar a proteger os itens pode levar a que
 
 A utilização da encriptação CMK para cópia de segurança não incorre em custos adicionais para si. No entanto, pode continuar a incorrer em custos para a utilização do seu Cofre de Chaves Azure, onde a sua chave está armazenada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral das funcionalidades de segurança no Azure Backup](security-overview.md)

@@ -4,10 +4,10 @@ description: Como utilizar as regiões geográficas para falhar e realizar a rec
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 8c203ed197c1e5bfb15cfb503a04df79b85c630e
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91372528"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperação de geo-desastre de autocarro de serviço Azure
@@ -17,7 +17,7 @@ Quando regiões ou centros de dados inteiros do Azure (se não forem [utilizadas
 A funcionalidade de recuperação de geo-desastres está globalmente disponível para o Service Bus Premium SKU. 
 
 >[!NOTE]
-> A recuperação de geo-desastres atualmente apenas garante que os metadados (Filas, Tópicos, Subscrições, Filtros) são copiados do espaço de nome primário para o espaço de nome secundário quando emparelhados.
+> Geo-Disaster a recuperação atualmente apenas garante que os metadados (Filas, Tópicos, Subscrições, Filtros) são copiados do espaço de nome primário para o espaço de nome secundário quando emparelhados.
 
 ## <a name="outages-and-disasters"></a>Interrupções e desastres
 
@@ -168,7 +168,7 @@ Digamos que tem duas redes virtuais: VNET-1, VNET-2 e estes espaços primários 
 ![Pontos finais privados e redes virtuais](./media/service-bus-geo-dr/private-endpoints-virtual-networks.png)
 
 
-A vantagem desta abordagem é que o failover pode acontecer na camada de aplicação independente do espaço de nomes do Service Bus. Considere os seguintes cenários: 
+A vantagem desta abordagem é que o failover pode acontecer na camada de aplicação independente do espaço de nomes do Service Bus. Pondere os seguintes cenários: 
 
 **Falha apenas na aplicação:** Aqui, a aplicação não existirá no VNET-1, mas passará para vNET-2. Uma vez que ambos os pontos finais privados estão configurados tanto no VNET-1 como no VNET-2 para espaços de nome primário e secundário, a aplicação apenas funcionará. 
 

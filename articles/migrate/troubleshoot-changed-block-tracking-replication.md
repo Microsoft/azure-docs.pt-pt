@@ -7,10 +7,10 @@ ms.author: anvar
 ms.topic: troubleshooting
 ms.date: 08/17/2020
 ms.openlocfilehash: 6318f426e42612f21da7a43c9857894ae610f68e
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88871190"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Problemas de resolução de problemas na migração VMware VM sem agente
@@ -44,7 +44,7 @@ Esta secção descreve alguns dos erros comuns e como pode resolvê-los.
 
 **Erro:** "A operação do Cofre de Chaves falhou. Operação : Gerar definição de assinatura de acesso partilhado, Cofre-chave: nome do cofre-chave, Conta de Armazenamento: nome da conta de armazenamento falhou com o erro:"
 
-![Key Vault](./media/troubleshoot-changed-block-tracking-replication/key-vault.png)
+![Cofre de Chaves](./media/troubleshoot-changed-block-tracking-replication/key-vault.png)
 
 Este erro ocorre normalmente porque a Política de Acesso ao Utilizador para o Cofre de Chaves não dá ao utilizador atualmente registado as permissões necessárias para configurar contas de armazenamento para serem geridas pelo Key Vault. Para verificar a política de acesso do utilizador no cofre de chaves, aceda à página do cofre key no portal para o cofre chave e selecione as políticas de acesso 
 
@@ -58,7 +58,7 @@ Quando o portal cria o cofre de chaves, também adiciona uma política de acesso
 
 $userPrincipalId = $(Get-AzureRmADUser -UserPrincipalName "user2_email_address"). ID
 
-Set-AzureRmKeyVaultAccessPolicy -VaultName "keyvaultname" -ObjectId $userPrincipalId -PermissionsToStorage get, list, delete, set, update, regeneratekey, getsas, listsas, deletesas, setsas, recuperar, backup, restaurar, purgar
+Set-AzureRmKeyVaultAccessPolicy -VaultName "keyvaultname" -ObjectId $userPrincipalId -PermissionsToStorage obter, lista, excluir, definir, atualizar, regenerar a chave, getsas, listsas, deletesas, sets, recuperar, backup, restaurar, purgar
 
 
 ## <a name="disposeartefactstimedout"></a>DisporArtefactsTimedOut

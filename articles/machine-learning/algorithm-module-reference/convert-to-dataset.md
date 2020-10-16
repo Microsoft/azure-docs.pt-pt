@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
 ms.openlocfilehash: 9b2d003ef4938681229317b625aae4526787ac15
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90898707"
 ---
 # <a name="convert-to-dataset"></a>Converter em Conjunto de Dados
@@ -53,7 +53,7 @@ Recomendamos que utilize o módulo [editar metadados](edit-metadata.md) para pre
   
 5.  Envie o oleoduto.  
 
-## <a name="results"></a>Resultados
+## <a name="results"></a>Results
 
 +  Para guardar o conjunto de dados resultante com um novo nome, selecione no **conjunto de dados** do registo do ícone sob o separador **Saídas** no painel direito do módulo.  
   

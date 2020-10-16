@@ -9,17 +9,17 @@ ms.author: mlearned
 description: Use a Política Azure para aplicar configurações de cluster à escala
 keywords: Kubernetes, Arc, Azure, K8s, contentores
 ms.openlocfilehash: e4279f3d89376320116067bf191e3196271918ce
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87050035"
 ---
 # <a name="use-azure-policy-to-apply-cluster-configurations-at-scale-preview"></a>Utilize a Política Azure para aplicar configurações de cluster à escala (Visualização)
 
 ## <a name="overview"></a>Descrição geral
 
-Use a Política Azure para impor que cada `Microsoft.Kubernetes/connectedclusters` recurso ou recurso habilitado a Git-Ops `Microsoft.ContainerService/managedClusters` tenha aplicado especificamente `Microsoft.KubernetesConfiguration/sourceControlConfigurations` nele. Para utilizar a Política Azure selecione uma definição de política existente e crie uma atribuição de política. Ao criar a atribuição de política, definiu o âmbito para a atribuição: este será um grupo de recursos Azure ou subscrição. Também definiu os parâmetros para o `sourceControlConfiguration` que será criado. Uma vez criada a atribuição, o motor Policy identificará todos `connectedCluster` ou `managedCluster` recursos que estão localizados dentro do âmbito e aplicará o `sourceControlConfiguration` a cada um.
+Utilize a Política Azure para impor que cada `Microsoft.Kubernetes/connectedclusters` recurso ou Git-Ops recurso habilitado tenha aplicado `Microsoft.ContainerService/managedClusters` especificamente `Microsoft.KubernetesConfiguration/sourceControlConfigurations` nele. Para utilizar a Política Azure selecione uma definição de política existente e crie uma atribuição de política. Ao criar a atribuição de política, definiu o âmbito para a atribuição: este será um grupo de recursos Azure ou subscrição. Também definiu os parâmetros para o `sourceControlConfiguration` que será criado. Uma vez criada a atribuição, o motor Policy identificará todos `connectedCluster` ou `managedCluster` recursos que estão localizados dentro do âmbito e aplicará o `sourceControlConfiguration` a cada um.
 
 Se estiver a utilizar vários repos git como fontes de verdade para cada cluster (por exemplo, um repo para operador central de TI/cluster e outros repos para equipas de aplicação), pode permitir isso utilizando várias atribuições políticas, cada atribuição de política configurada para usar um repo Git diferente.
 

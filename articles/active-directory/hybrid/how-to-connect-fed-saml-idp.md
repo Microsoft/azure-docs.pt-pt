@@ -15,20 +15,20 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2cd95d01c9b49bb6002c00c805dc82dcf30941e3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295043"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Utilizar um Fornecedor de Identidade (IdP) SAML 2.0 para Início de Sessão Único
 
-Este documento contém informações sobre a utilização de um Fornecedor de Identidade BASEADO em Perfil SP-Lite compatível com o PERFIL 2.0 como o fornecedor preferido do Serviço de Token de Segurança (STS) / fornecedor de identidade. Este cenário é útil quando já tem um diretório de utilizadores e uma loja de senhas no local que podem ser acedidos usando o SAML 2.0. Este diretório de utilizadores existente pode ser usado para iniciar sing-on no Microsoft 365 e outros recursos seguros AZure AD. O perfil SAML 2.0 SP-Lite baseia-se na padrão de identidade federada de marcação de afirmação de segurança (SAML) amplamente utilizada para fornecer um quadro de troca de sinais e atributos.
+Este documento contém informações sobre a utilização de um Fornecedor de Identidade SP-Lite baseado em perfis SAML 2.0 como o fornecedor preferido do Serviço de Token de Segurança (STS) /fornecedor de identidade. Este cenário é útil quando já tem um diretório de utilizadores e uma loja de senhas no local que podem ser acedidos usando o SAML 2.0. Este diretório de utilizadores existente pode ser usado para iniciar sing-on no Microsoft 365 e outros recursos seguros AZure AD. O perfil de SP-Lite SAML 2.0 baseia-se na padrão de identidade federada de marcação de afirmação de segurança (SAML) amplamente utilizada para fornecer um quadro de troca de sinais e atributos.
 
 >[!NOTE]
 >Para uma lista de 3º partido IDPs que foram testados para uso com Azure AD ver a lista de [compatibilidade da federação AD Azure](how-to-connect-fed-compatibility.md)
 
-A Microsoft suporta esta experiência de início de sessão como a integração de um serviço de cloud da Microsoft, como o Microsoft 365, com o idP baseado em perfis SAML 2.0 devidamente configurado. Os fornecedores de identidade SAML 2.0 são produtos de terceiros e, por isso, a Microsoft não fornece suporte para a implementação, configuração, resolução de problemas das melhores práticas em relação aos mesmos. Uma vez configurada corretamente, a integração com o fornecedor de identidade SAML 2.0 pode ser testada para uma configuração adequada utilizando a Ferramenta de Analisador de Conectividade da Microsoft, que é descrita mais detalhadamente abaixo. Para mais informações sobre o seu fornecedor de identidade baseado em perfis SAML 2.0 SP-Lite, pergunte à organização que o forneceu.
+A Microsoft suporta esta experiência de início de sessão como a integração de um serviço de cloud da Microsoft, como o Microsoft 365, com o idP baseado em perfis SAML 2.0 devidamente configurado. Os fornecedores de identidade SAML 2.0 são produtos de terceiros e, por isso, a Microsoft não fornece suporte para a implementação, configuração, resolução de problemas das melhores práticas em relação aos mesmos. Uma vez configurada corretamente, a integração com o fornecedor de identidade SAML 2.0 pode ser testada para uma configuração adequada utilizando a Ferramenta de Analisador de Conectividade da Microsoft, que é descrita mais detalhadamente abaixo. Para mais informações sobre o seu SAML 2.0 SP-Lite fornecedor de identidade baseado em perfis, pergunte à organização que o forneceu.
 
 > [!IMPORTANT]
 > Apenas um conjunto limitado de clientes estão disponíveis neste cenário de login com os fornecedores de identidade SAML 2.0, isto inclui:
@@ -276,7 +276,7 @@ Para mais informações sobre o check-out "New-MsolUser", [/versões anteriores/
 >O valor "UserPrinciplName" deve corresponder ao valor que irá enviar para "IDPEmail" na sua reclamação SAML 2.0 e o valor "ImuttableID" deve corresponder ao valor enviado na sua afirmação "NameID".
 
 ## <a name="verify-single-sign-on-with-your-saml-20-idp"></a>Verifique o único sinal de s-on com o seu IDP SAML 2.0
-Como administrador, antes de verificar e gerir um único sign-on (também chamado federação de identidade), reveja as informações e execute os passos nos seguintes artigos para configurar um único sign-on com o seu fornecedor de identidade baseado EM SAML 2.0 SP-Lite:
+Como administrador, antes de verificar e gerir um único sign-on (também chamado federação de identidade), reveja as informações e execute os passos nos seguintes artigos para configurar um único sign-on com o seu SAML 2.0 SP-Lite fornecedor de identidade baseado:
 
 
 1.  Reviu os Requisitos do Protocolo Azure AD SAML 2.0
@@ -286,7 +286,7 @@ Como administrador, antes de verificar e gerir um único sign-on (também chamad
 5.  Forte um conhecido diretor de teste ao Azure Ative Directory (Microsoft 365) através do Windows PowerShell ou do Azure AD Connect.
 6.  Configure a sincronização do diretório utilizando [o Azure AD Connect](whatis-hybrid-identity.md).
 
-Depois de configurar um único sismo com o seu Fornecedor de identidade baseado em SAML 2.0 SP-Lite, deverá verificar se está a funcionar corretamente.
+Depois de configurar um único sismo com o seu FORNECEDOR de identidade baseado em SP-Lite SAML 2.0, deverá verificar se está a funcionar corretamente.
 
 >[!NOTE]
 >Se converteu um domínio, em vez de adicionar um, pode levar até 24 horas para configurar uma única inscrição.

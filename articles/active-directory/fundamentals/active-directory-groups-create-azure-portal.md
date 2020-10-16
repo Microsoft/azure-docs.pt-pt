@@ -14,10 +14,10 @@ ms.reviewer: krbain
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3dcbd8618dc0f2bae2eacc9ced67869d8209286a
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89565529"
 ---
 # <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>Crie um grupo básico e adicione membros usando o Azure Ative Directory
@@ -79,7 +79,7 @@ Pode criar um grupo básico e adicionar os membros ao mesmo tempo. Para criar um
 
 Quando qualquer novo grupo Microsoft 365 é criado, seja com adesão dinâmica ou estática, é enviada uma notificação bem-vinda a todos os utilizadores que são adicionados ao grupo. Quando quaisquer atributos de um utilizador ou dispositivo mudam, todas as regras dinâmicas do grupo na organização são processadas para potenciais alterações de membros. Os utilizadores que são adicionados também recebem a notificação de boas-vindas. Pode desligar este comportamento em [Exchange PowerShell](/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Gerir o acesso a aplicações SaaS através de grupos](../users-groups-roles/groups-saasapps.md)
 - [Gerir grupos através de comandos do PowerShell](../users-groups-roles/groups-settings-v2-cmdlets.md)

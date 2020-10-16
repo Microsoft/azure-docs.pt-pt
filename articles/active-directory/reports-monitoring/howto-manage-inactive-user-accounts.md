@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5b48a84bb69a356815cccd1e33c555eeb667699f
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89244726"
 ---
 # <a name="how-to-manage-inactive-user-accounts-in-azure-ad"></a>Como: Gerir contas de utilizadores inativas em Azure AD
@@ -60,9 +60,9 @@ Esta secção lista o que precisa de saber sobre a última propriedadeSignInDate
 
 A **última propriedadeSignInDateTime** é exposta pelo tipo de [recurso signInActivity](/graph/api/resources/signinactivity?view=graph-rest-beta) do [Microsoft Graph REST API](/graph/overview?view=graph-rest-beta#whats-in-microsoft-graph).   
 
-### <a name="is-the-lastsignindatetime-property-available-through-the-get-azureaduser-cmdlet"></a>A última propriedade DoignInDateTime está disponível através do cmdlet Get-AzureAdUser?
+### <a name="is-the-lastsignindatetime-property-available-through-the-get-azureaduser-cmdlet"></a>A última propriedade DoignInDateTime está disponível através do Get-AzureAdUser cmdlet?
 
-Não.
+N.º
 
 ### <a name="what-edition-of-azure-ad-do-i-need-to-access-the-property"></a>Que edição do Azure AD preciso para aceder à propriedade?
 

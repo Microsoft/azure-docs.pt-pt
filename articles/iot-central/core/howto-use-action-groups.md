@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.service: iot-central
 manager: philmea
 ms.openlocfilehash: b447f44d0c95693e560fd5bbfbff8c8daeec964e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80157692"
 ---
 # <a name="group-multiple-actions-to-run-from-one-or-more-rules"></a>Agrupar múltiplas ações para executar a partir de uma ou mais regras

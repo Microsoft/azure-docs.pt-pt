@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/11/2020
 ms.openlocfilehash: e4f4fcfa52733ec8f1f0ceedc669b8307efabf3c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324013"
 ---
 # <a name="unable-to-create-jupyter-notebook-in-azure-hdinsight"></a>Incapaz de criar o caderno Jupyter em Azure HDInsight

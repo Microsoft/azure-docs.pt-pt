@@ -4,10 +4,10 @@ description: Dimensione um cluster de tecido de serviço dentro ou fora para cor
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.openlocfilehash: c9393ca4531dea58859a4fc60509524e9c4a0b7f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86246491"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>Reduzir ou aumentar horizontalmente um cluster

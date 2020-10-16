@@ -4,10 +4,10 @@ description: Este artigo fornece informações sobre problemas de conectividade 
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: b85c0895d1c8f165f494d29013adea014187dd23
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87039332"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-hubs"></a>Problemas de conectividade de resolução de problemas - Azure Event Hubs
@@ -86,7 +86,7 @@ Quando cria um ponto final de serviço de rede virtual para um espaço de nome d
 ### <a name="check-the-ip-firewall-settings-for-your-namespace"></a>Verifique as definições ip firewall para o seu espaço de nome
 Verifique se o endereço IP público da máquina em que a aplicação está a funcionar não está bloqueado pela firewall IP.  
 
-Por predefinição, os espaços de nomes do Event Hubs estão acessíveis a partir da Internet desde que o pedido venha com autenticação e autorização válidas. Com a firewall IP, pode restringi-lo ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (Roteamento Inter-Domain Sem Classe).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+Por predefinição, os espaços de nomes do Event Hubs estão acessíveis a partir da Internet desde que o pedido venha com autenticação e autorização válidas. Com a firewall IP, pode restringi-lo ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (Classless Inter-Domain Encaminhamento).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
 
 As regras de firewall IP são aplicadas ao nível do espaço de nomes do Event Hubs. Por isso, as regras aplicam-se a todas as ligações dos clientes utilizando qualquer protocolo suportado. Qualquer tentativa de ligação a partir de um endereço IP que não corresponda a uma regra IP permitida no espaço de nomes Do Event Hubs é rejeitada como não autorizada. A resposta não menciona a regra do IP. As regras do filtro IP são aplicadas por ordem, e a primeira regra que corresponde ao endereço IP determina a ação de aceitação ou rejeição.
 

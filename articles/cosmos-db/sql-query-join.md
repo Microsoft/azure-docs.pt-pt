@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
 ms.openlocfilehash: 38e80f1597a08b8db7cbfa852d1bcf38ac768b1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74871147"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Junta-se ao Azure Cosmos DB
@@ -23,7 +23,7 @@ As juntas interiores resultam num produto transversal completo dos conjuntos que
 
 A língua suporta a `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>` sintaxe. Esta consulta devolve um conjunto de tuples com `N` valores. Cada tuple tem valores produzidos através da iterando todos os pseudónimos dos recipientes sobre os respetivos conjuntos. 
 
-Vejamos a seguinte cláusula FROM:`<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
+Vejamos a seguinte cláusula FROM: `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
   
  Que cada fonte `input_alias1, input_alias2, …, input_aliasN` defina. Esta cláusula FROM devolve um conjunto de N-tuples (tuple com valores N). Cada tuple tem valores produzidos através da iterando todos os pseudónimos dos recipientes sobre os respetivos conjuntos.  
   
@@ -33,11 +33,11 @@ Vejamos a seguinte cláusula FROM:`<from_source1> JOIN <from_source2> JOIN ... J
   
 - Sejamos `<from_source2>` referenciados por documentos input_alias1 e represente conjuntos:  
   
-    {1, 2} para`input_alias1 = A,`  
+    {1, 2} para `input_alias1 = A,`  
   
-    {3}para`input_alias1 = B,`  
+    {3} para `input_alias1 = B,`  
   
-    {4, 5} para`input_alias1 = C,`  
+    {4, 5} para `input_alias1 = C,`  
   
 - A cláusula FROM `<from_source1> JOIN <from_source2>` resultará nos seguintes tuples:  
   
@@ -51,17 +51,17 @@ Vejamos a seguinte cláusula FROM:`<from_source1> JOIN <from_source2> JOIN ... J
   
 - Sejamos `<from_source2>` referenciados e `input_alias1` represente conjuntos:  
   
-    {1, 2} para`input_alias1 = A,`  
+    {1, 2} para `input_alias1 = A,`  
   
-    {3}para`input_alias1 = B,`  
+    {3} para `input_alias1 = B,`  
   
-    {4, 5} para`input_alias1 = C,`  
+    {4, 5} para `input_alias1 = C,`  
   
 - Sejamos `<from_source3>` referenciados e `input_alias2` represente conjuntos:  
   
-    {100, 200} para`input_alias2 = 1,`  
+    {100, 200} para `input_alias2 = 1,`  
   
-    {300}para`input_alias2 = 3,`  
+    {300} para `input_alias2 = 3,`  
   
 - A cláusula FROM `<from_source1> JOIN <from_source2> JOIN <from_source3>` resultará nos seguintes tuples:  
   
@@ -80,17 +80,17 @@ Vejamos a seguinte cláusula FROM:`<from_source1> JOIN <from_source2> JOIN ... J
   
 - Deixe <from_source2> ser referenciado por documentos input_alias1 e represente conjuntos:  
   
-    {1, 2} para`input_alias1 = A,`  
+    {1, 2} para `input_alias1 = A,`  
   
-    {3}para`input_alias1 = B,`  
+    {3} para `input_alias1 = B,`  
   
-    {4, 5} para`input_alias1 = C,`  
+    {4, 5} para `input_alias1 = C,`  
   
 - Vamos `<from_source3>` ser examinados `input_alias1` e representar conjuntos:  
   
-    {100, 200} para`input_alias2 = A,`  
+    {100, 200} para `input_alias2 = A,`  
   
-    {300}para`input_alias2 = C,`  
+    {300} para `input_alias2 = C,`  
   
 - A cláusula FROM `<from_source1> JOIN <from_source2> JOIN <from_source3>` resultará nos seguintes tuples:  
   
@@ -224,7 +224,7 @@ A seguinte extensão do exemplo anterior executa uma dupla junção. Pode ver o 
     }
 ```
 
-`AndersenFamily`tem um filho que tem um animal de estimação, por isso o produto cruzado rende uma linha \* (1 \* 11) desta família. `WakefieldFamily`tem dois filhos, apenas um dos quais tem animais de estimação, mas a criança tem dois animais de estimação. O produto transversal para esta família rende 1 \* \* 12 = 2 linhas.
+`AndersenFamily` tem um filho que tem um animal de estimação, por isso o produto cruzado rende uma linha \* (1 \* 11) desta família. `WakefieldFamily` tem dois filhos, apenas um dos quais tem animais de estimação, mas a criança tem dois animais de estimação. O produto transversal para esta família rende 1 \* \* 12 = 2 linhas.
 
 No exemplo seguinte, existe um filtro adicional, `pet` que exclui todos os tuples onde o nome de estimação não é `Shadow` . Você pode construir tuples a partir de matrizes, filtrar em qualquer um dos elementos do tuple, e projetar qualquer combinação dos elementos.
 
@@ -252,7 +252,7 @@ Os resultados são:
     ]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Introdução](sql-query-getting-started.md)
 - [Amostras de Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmosdb-dotnet)

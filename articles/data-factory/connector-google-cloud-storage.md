@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 10/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 24f9b7655398cbd6a2621edb61d67d4fc4edfb52
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a916da121c8ffee1729ede6dd700ca4f6872fbf7
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332037"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043515"
 ---
 # <a name="copy-data-from-google-cloud-storage-by-using-azure-data-factory"></a>Copie os dados do Google Cloud Storage utilizando a Azure Data Factory
 
@@ -47,7 +47,11 @@ A seguinte configuração é necessária na sua conta de Armazenamento no Google
 
 ## <a name="required-permissions"></a>Permissões obrigatórias
 
-Para copiar dados do Google Cloud Storage, certifique-se de que concedeu as permissões necessárias. As permissões definidas na conta de serviço podem conter `storage.buckets.get` `storage.buckets.list` , ou para `storage.objects.get` operações de objetos.
+Para copiar dados do Google Cloud Storage, certifique-se de que lhe foram concedidas as seguintes permissões para operações de objetos: ` storage.objects.get` e ` storage.objects.list` .
+
+Se utilizar a UI da Data Factory para autor, é necessária uma autorização adicional ` storage.buckets.list` para operações como testar a ligação ao serviço ligado e navegar a partir da raiz. Se não quiser conceder esta permissão, pode escolher as opções de "Testar a ligação para o caminho do ficheiro" ou "Navegar a partir do caminho especificado" a partir da UI.
+
+Para obter a lista completa de funções de Armazenamento no Google Cloud e permissões associadas, consulte [os papéis do IAM para armazenamento](https://cloud.google.com/storage/docs/access-control/iam-roles) em nuvem no site do Google Cloud.
 
 ## <a name="getting-started"></a>Introdução
 
@@ -61,11 +65,11 @@ As seguintes propriedades são suportadas para serviços ligados ao Google Cloud
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade **tipo** deve ser definida para **GoogleCloudStorage**. | Yes |
+| tipo | A propriedade **tipo** deve ser definida para **GoogleCloudStorage**. | Sim |
 | accessKeyId | Identificação da chave de acesso secreta. Para encontrar a chave de acesso e o segredo, consulte [Pré-requisitos.](#prerequisites) |Yes |
 | SecretAccessKey | A chave de acesso secreto em si. Marque este campo como **SecureString** para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). |Yes |
-| serviceUrl | Especifique o ponto final GCS personalizado como `https://storage.googleapis.com` . | Yes |
-| connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o tempo de funcionamento da integração Azure ou o tempo de integração auto-hospedado (se a sua loja de dados estiver numa rede privada). Se esta propriedade não for especificada, o serviço utiliza o tempo de execução de integração Azure padrão. |No |
+| serviceUrl | Especifique o ponto final GCS personalizado como `https://storage.googleapis.com` . | Sim |
+| connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o tempo de funcionamento da integração Azure ou o tempo de integração auto-hospedado (se a sua loja de dados estiver numa rede privada). Se esta propriedade não for especificada, o serviço utiliza o tempo de execução de integração Azure padrão. |Não |
 
 Eis um exemplo:
 
@@ -98,10 +102,10 @@ As seguintes propriedades são suportadas para o Google Cloud Storage `location`
 
 | Propriedade   | Descrição                                                  | Obrigatório |
 | ---------- | ------------------------------------------------------------ | -------- |
-| tipo       | A propriedade **tipo** `location` no conjunto de dados deve ser definida para **GoogleCloudStorageLocation**. | Yes      |
+| tipo       | A propriedade **tipo** `location` no conjunto de dados deve ser definida para **GoogleCloudStorageLocation**. | Sim      |
 | baldeName | O nome do balde GCS.                                          | Yes      |
-| folderPath | O caminho para a pasta sob o balde dado. Se pretender utilizar um wildcard para filtrar a pasta, ignore esta definição e especifique-a nas definições de origem da atividade. | No       |
-| fileName   | O nome do ficheiro sob o caminho do balde e da pasta. Se pretender utilizar um wildcard para filtrar os ficheiros, ignore esta definição e especifique-a nas definições de origem de atividade. | No       |
+| folderPath | O caminho para a pasta sob o balde dado. Se pretender utilizar um wildcard para filtrar a pasta, ignore esta definição e especifique-a nas definições de origem da atividade. | Não       |
+| fileName   | O nome do ficheiro sob o caminho do balde e da pasta. Se pretender utilizar um wildcard para filtrar os ficheiros, ignore esta definição e especifique-a nas definições de origem de atividade. | Não       |
 
 **Exemplo:**
 
@@ -142,21 +146,21 @@ As seguintes propriedades são suportadas para o Google Cloud Storage `storeSett
 
 | Propriedade                 | Descrição                                                  | Obrigatório                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
-| tipo                     | A propriedade **tipo** em baixo `storeSettings` deve ser definida para **GoogleCloudStorageReadSettings**. | Yes                                                         |
+| tipo                     | A propriedade **tipo** em baixo `storeSettings` deve ser definida para **GoogleCloudStorageReadSettings**. | Sim                                                         |
 | ***Localize os ficheiros para copiar:*** |  |  |
 | OPÇÃO 1: caminho estático<br> | Copiar a partir do balde dado ou do caminho da pasta/ficheiro especificado no conjunto de dados. Se pretender copiar todos os ficheiros de um balde ou pasta, especificar ainda `wildcardFileName` como `*` . |  |
-| OPÇÃO 2: Prefixo GCS<br>- prefixo | Prefixo para o nome da chave GCS sob o balde dado configurado no conjunto de dados para filtrar ficheiros GCS de origem. As teclas GCS cujos nomes começam `bucket_in_dataset/this_prefix` por ser selecionados. Utiliza o filtro do lado de serviço do GCS, que proporciona um melhor desempenho do que um filtro wildcard. | No |
-| OPÇÃO 3: wildcard<br>- wildcardFolderPath | O caminho da pasta com caracteres wildcard sob o balde dado configurado num conjunto de dados para filtrar pastas de origem. <br>Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caracteres individuais). Use `^` para escapar se o nome da sua pasta tiver um wildcard ou este personagem de fuga no interior. <br>Veja mais exemplos em [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). | No                                            |
-| OPÇÃO 3: wildcard<br>- wildcardFileName | O nome do ficheiro com caracteres wildcard sob o caminho do balde e da pasta (ou caminho da pasta wildcard) para filtrar ficheiros de origem. <br>Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caracteres individuais). Use `^` para escapar se o nome da sua pasta tiver um wildcard ou este personagem de fuga no interior.  Veja mais exemplos em [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). | Yes |
-| OPÇÃO 3: uma lista de ficheiros<br>- fileListPath | Indica copiar um determinado conjunto de ficheiros. Aponte para um ficheiro de texto que inclua uma lista de ficheiros que pretende copiar, um ficheiro por linha, que é o caminho relativo para o caminho configurado no conjunto de dados.<br/>Quando estiver a utilizar esta opção, não especifique o nome do ficheiro no conjunto de dados. Ver mais exemplos em [exemplos da lista de ficheiros.](#file-list-examples) |No |
+| OPÇÃO 2: Prefixo GCS<br>- prefixo | Prefixo para o nome da chave GCS sob o balde dado configurado no conjunto de dados para filtrar ficheiros GCS de origem. As teclas GCS cujos nomes começam `bucket_in_dataset/this_prefix` por ser selecionados. Utiliza o filtro do lado de serviço do GCS, que proporciona um melhor desempenho do que um filtro wildcard. | Não |
+| OPÇÃO 3: wildcard<br>- wildcardFolderPath | O caminho da pasta com caracteres wildcard sob o balde dado configurado num conjunto de dados para filtrar pastas de origem. <br>Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caracteres individuais). Use `^` para escapar se o nome da sua pasta tiver um wildcard ou este personagem de fuga no interior. <br>Veja mais exemplos em [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). | Não                                            |
+| OPÇÃO 3: wildcard<br>- wildcardFileName | O nome do ficheiro com caracteres wildcard sob o caminho do balde e da pasta (ou caminho da pasta wildcard) para filtrar ficheiros de origem. <br>Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caracteres individuais). Use `^` para escapar se o nome da sua pasta tiver um wildcard ou este personagem de fuga no interior.  Veja mais exemplos em [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). | Sim |
+| OPÇÃO 3: uma lista de ficheiros<br>- fileListPath | Indica copiar um determinado conjunto de ficheiros. Aponte para um ficheiro de texto que inclua uma lista de ficheiros que pretende copiar, um ficheiro por linha, que é o caminho relativo para o caminho configurado no conjunto de dados.<br/>Quando estiver a utilizar esta opção, não especifique o nome do ficheiro no conjunto de dados. Ver mais exemplos em [exemplos da lista de ficheiros.](#file-list-examples) |Não |
 | ***Definições adicionais:*** |  | |
-| recursivo | Indica se os dados são lidos novamente a partir das sub-dobradeiras ou apenas a partir da pasta especificada. Note que quando **a recursiva** é definida como **verdadeira** e a pia é uma loja baseada em ficheiros, uma pasta ou sub-dobrador vazio não é copiado ou criado na pia. <br>Os valores permitidos são **verdadeiros** (padrão) e **falsos.**<br>Esta propriedade não se aplica quando se `fileListPath` configura. |No |
-| eliminarFilesAfterCompletion | Indica se os ficheiros binários serão eliminados da loja de origem depois de se mudarem com sucesso para a loja de destino. A eliminação do ficheiro é por ficheiro, pelo que quando a atividade da cópia falhar, verá que alguns ficheiros já foram copiados para o destino e eliminados da fonte, enquanto outros ainda permanecem na loja de origem. <br/>Esta propriedade é válida apenas em cenário de cópia de ficheiros binários. O valor predefinido: falso. |No |
-| modificadoDatetimeStart    | Os ficheiros são filtrados com base no atributo: última modificada. <br>Os ficheiros serão selecionados se o seu último tempo modificado estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd` . . O tempo é aplicado ao fuso horário UTC no formato de "2018-12-01T05:00:00Z". <br> As propriedades podem ser **NUAS,** o que significa que nenhum filtro de atributos de ficheiro será aplicado no conjunto de dados.  Quando `modifiedDatetimeStart` tiver um valor de data, mas é `modifiedDatetimeEnd` **NU,** serão selecionados os ficheiros cujo último atributo modificado é superior ou igual ao valor da data.  Quando `modifiedDatetimeEnd` tiver um valor de data mas é `modifiedDatetimeStart` **NU,** serão selecionados os ficheiros cujo último atributo modificado é inferior ao valor da data.<br/>Esta propriedade não se aplica quando se `fileListPath` configura. | No                                            |
-| modificadoDatetimeEnd      | O mesmo que acima.                                               | No                                                          |
-| permitirPartitionDiscovery | Para os ficheiros que são divididos, especifique se analisar as divisórias do caminho do ficheiro e adicioná-las como colunas de origem adicionais.<br/>Os valores permitidos são **falsos** (padrão) e **verdadeiros.** | No                                            |
-| partitionRootPath | Quando a descoberta da partição estiver ativada, especifique o caminho da raiz absoluta para ler as pastas partidas como colunas de dados.<br/><br/>Se não for especificado, por defeito,<br/>- Quando utiliza o caminho do ficheiro no conjunto de dados ou na lista de ficheiros na fonte, o caminho da raiz da partição é o caminho configurado no conjunto de dados.<br/>- Quando utiliza o filtro de pasta wildcard, o caminho da raiz da partição é o sub-caminho antes do primeiro wildcard.<br/><br/>Por exemplo, assumindo que configura o caminho no conjunto de dados como "raiz/pasta/ano=2020/mês=08/dia=27":<br/>- Se especificar o caminho da raiz da partição como "raiz/pasta/ano=2020", a atividade da cópia gerará mais duas colunas `month` e com o valor `day` "08" e "27", respectivamente, para além das colunas dentro dos ficheiros.<br/>- Se não for especificado o caminho da raiz da partição, não será gerada nenhuma coluna extra. | No                                            |
-| maxConcurrentConnections | O número de ligações simultâneas ao armazenamento. Especifique apenas quando pretende limitar as ligações simultâneas à loja de dados. | No                                                          |
+| recursivo | Indica se os dados são lidos novamente a partir das sub-dobradeiras ou apenas a partir da pasta especificada. Note que quando **a recursiva** é definida como **verdadeira** e a pia é uma loja baseada em ficheiros, uma pasta ou sub-dobrador vazio não é copiado ou criado na pia. <br>Os valores permitidos são **verdadeiros** (padrão) e **falsos.**<br>Esta propriedade não se aplica quando se `fileListPath` configura. |Não |
+| eliminarFilesAfterCompletion | Indica se os ficheiros binários serão eliminados da loja de origem depois de se mudarem com sucesso para a loja de destino. A eliminação do ficheiro é por ficheiro, pelo que quando a atividade da cópia falhar, verá que alguns ficheiros já foram copiados para o destino e eliminados da fonte, enquanto outros ainda permanecem na loja de origem. <br/>Esta propriedade é válida apenas em cenário de cópia de ficheiros binários. O valor predefinido: falso. |Não |
+| modificadoDatetimeStart    | Os ficheiros são filtrados com base no atributo: última modificada. <br>Os ficheiros serão selecionados se o seu último tempo modificado estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd` . . O tempo é aplicado ao fuso horário UTC no formato de "2018-12-01T05:00:00Z". <br> As propriedades podem ser **NUAS,** o que significa que nenhum filtro de atributos de ficheiro será aplicado no conjunto de dados.  Quando `modifiedDatetimeStart` tiver um valor de data, mas é `modifiedDatetimeEnd` **NU,** serão selecionados os ficheiros cujo último atributo modificado é superior ou igual ao valor da data.  Quando `modifiedDatetimeEnd` tiver um valor de data mas é `modifiedDatetimeStart` **NU,** serão selecionados os ficheiros cujo último atributo modificado é inferior ao valor da data.<br/>Esta propriedade não se aplica quando se `fileListPath` configura. | Não                                            |
+| modificadoDatetimeEnd      | O mesmo que acima.                                               | Não                                                          |
+| permitirPartitionDiscovery | Para os ficheiros que são divididos, especifique se analisar as divisórias do caminho do ficheiro e adicioná-las como colunas de origem adicionais.<br/>Os valores permitidos são **falsos** (padrão) e **verdadeiros.** | Não                                            |
+| partitionRootPath | Quando a descoberta da partição estiver ativada, especifique o caminho da raiz absoluta para ler as pastas partidas como colunas de dados.<br/><br/>Se não for especificado, por defeito,<br/>- Quando utiliza o caminho do ficheiro no conjunto de dados ou na lista de ficheiros na fonte, o caminho da raiz da partição é o caminho configurado no conjunto de dados.<br/>- Quando utiliza o filtro de pasta wildcard, o caminho da raiz da partição é o sub-caminho antes do primeiro wildcard.<br/><br/>Por exemplo, assumindo que configura o caminho no conjunto de dados como "raiz/pasta/ano=2020/mês=08/dia=27":<br/>- Se especificar o caminho da raiz da partição como "raiz/pasta/ano=2020", a atividade da cópia gerará mais duas colunas `month` e com o valor `day` "08" e "27", respectivamente, para além das colunas dentro dos ficheiros.<br/>- Se não for especificado o caminho da raiz da partição, não será gerada nenhuma coluna extra. | Não                                            |
+| maxConcurrentConnections | O número de ligações simultâneas ao armazenamento. Especifique apenas quando pretende limitar as ligações simultâneas à loja de dados. | Não                                                          |
 
 **Exemplo:**
 

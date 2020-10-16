@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d14023065005977334a9f399a61acfde3b6ba9f3
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87413158"
 ---
 # <a name="assign-an-azure-ad-custom-role-in-privileged-identity-management"></a>Atribuir um papel personalizado a AZure AD na Gestão de Identidade Privilegiada
@@ -78,7 +78,7 @@ Para verificar a atribuição de funções, numa função aberta, selecione **At
 
  ![Verifique se a atribuição de funções é visível como elegível ou ativa](./media/azure-ad-custom-roles-assign/verify-assignments.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Ativar um papel personalizado AZure AD](azure-ad-custom-roles-assign.md)
 - [Remova ou atualize uma atribuição de função personalizada Azure AD](azure-ad-custom-roles-update-remove.md)

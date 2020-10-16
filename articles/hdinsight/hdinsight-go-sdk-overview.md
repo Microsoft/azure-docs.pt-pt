@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 01/03/2020
 ms.openlocfilehash: 292496c4d458621213fe62105149ac845d78891e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79479591"
 ---
 # <a name="hdinsight-sdk-for-go-preview"></a>HDInsight SDK para Go (Pré-visualização)
@@ -32,7 +32,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="sdk-installation"></a>Instalação SDK
 
-A partir da sua localização GOPATH, corra`go get github.com/Azure/azure-sdk-for-go/tree/master/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight`
+A partir da sua localização GOPATH, corra `go get github.com/Azure/azure-sdk-for-go/tree/master/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight`
 
 ## <a name="authentication"></a>Autenticação
 
@@ -489,6 +489,6 @@ for (page.NotDone()) {
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Explore o [material de referência GoDoc.](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight) Os GoDocs fornecem documentação de referência para todas as funções do SDK.

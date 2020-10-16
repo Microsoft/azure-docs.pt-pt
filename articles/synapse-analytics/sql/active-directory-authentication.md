@@ -4,16 +4,17 @@ description: Saiba como utilizar o Azure Ative Directy para autenticação com b
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
+ms.subservice: sql
 ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4f1d955999ce44e8ef3d511d67d6a64c98120b62
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a3bd565b26d011e6186cc6957769db57f9cd1c9c
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91289417"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093417"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-synapse-sql"></a>Utilize autenticação de diretório ativo Azure para autenticação com Sinapse SQL
 

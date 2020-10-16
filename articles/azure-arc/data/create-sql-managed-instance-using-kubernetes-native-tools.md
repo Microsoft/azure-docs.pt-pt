@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 80aa323dfb08ec1e8156099bd5d04e790732b3b0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91346244"
 ---
 # <a name="create-azure-sql-managed-instance-using-kubernetes-tools"></a>Criar exemplo gerido pelo Azure SQL utilizando ferramentas Kubernetes

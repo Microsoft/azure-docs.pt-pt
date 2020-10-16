@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 8aa8599cbaab6af00d7b4122b94c9e24870881f3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86511335"
 ---
 # <a name="connect-fortinet-to-azure-sentinel"></a>Conecte Fortinet a Azure Sentinel
@@ -57,7 +57,7 @@ Configure Fortinet para encaminhar mensagens Syslog em formato CEF para o seu es
 1. Continuar a [PASSO 3: Validar a conectividade](connect-cef-verify.md).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste artigo, aprendeu a ligar os aparelhos Fortinet ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
 - Começa [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)

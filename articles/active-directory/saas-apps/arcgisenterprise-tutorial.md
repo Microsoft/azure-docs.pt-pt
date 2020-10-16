@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/28/2018
 ms.author: jeedes
 ms.openlocfilehash: fc0303cc4ba00f873ecfea7b02047ebd1bff7da1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91713876"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-enterprise"></a>Tutorial: Integração do Azure Ative Directory com a ArcGIS Enterprise
@@ -78,7 +78,7 @@ Para um único sinal de sação a funcionar, é necessário estabelecer uma rela
 Para configurar e testar o único sinal de Azure AD com [Nome da aplicação], é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o Sign-On Único da Empresa ArcGIS](#configure-arcgis-enterprise-single-sign-on)** - para configurar as definições de Sign-On único no lado da aplicação.
+2. **[Configure o Sign-On Único da Empresa ArcGIS](#configure-arcgis-enterprise-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create ArcGIS Enterprise test user](#create-arcgis-enterprise-test-user)** - para ter uma contraparte de Britta Simon na ArcGIS Enterprise que está ligada à representação AD AD Azure do utilizador.
@@ -98,7 +98,7 @@ Para configurar o Azure AD com [Nome da aplicação], execute os seguintes passo
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -119,11 +119,11 @@ Para configurar o Azure AD com [Nome da aplicação], execute os seguintes passo
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Contacte [a equipa de suporte ao Cliente da ArcGIS Enterprise](mailto:support@esri.com) para obter estes valores. Você receberá o valor identificador da secção De Fornecedor de **Identidade,** que é explicado mais tarde neste tutorial.
 
-5. Na **configuração de um único sinal com página SAML,** na secção certificado de assinatura **SAML,** clique no botão de cópia para copiar o **Url de metadados da Federação de Aplicações** e guarde-o no seu computador.
+5. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** clique no botão de cópia para copiar o **Url de Metadados da Federação de Aplicações** e guarde-o no seu computador.
 
     ![O link de descarregamento de certificado](common/copy-metadataurl.png)
 
-### <a name="configure-arcgis-enterprise-single-sign-on"></a>Configurar a empresa arcgis única sign-on
+### <a name="configure-arcgis-enterprise-single-sign-on"></a>Configurar a empresa ArcGIS Single Sign-On
 
 1. Para automatizar a configuração dentro do ArcGIS Enterprise, é necessário instalar a extensão do **navegador 'As aplicações' Secure Sign-in** clicando **em instalar a extensão**.
 

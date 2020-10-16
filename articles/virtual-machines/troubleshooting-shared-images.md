@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/15/2020
 ms.author: cynthn
 ms.reviewer: cynthn
-ms.openlocfilehash: 3a206a7aabee9f75524ab4715afa30ec05c612bf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d01ac7d5b01f485c3b0100c468332475a9bd4274
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328068"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978548"
 ---
 # <a name="troubleshooting-shared-image-galleries-in-azure"></a>Resolução de problemas partilhadas galerias de imagens em Azure
 
@@ -79,7 +79,7 @@ Causas possíveis:
 
 *O utilizador que tenta criar um conjunto de escala de VM ou de máquina virtual não tem acesso à versão de imagem.*
 
-Contacte o proprietário da subscrição e peça-lhes que dêem acesso à versão de imagem ou aos recursos-mãe (como a galeria de imagens partilhada ou a definição de imagem) através do [controlo de acesso baseado em funções Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles). 
+Contacte o proprietário da subscrição e peça-lhes que dêem acesso à versão de imagem ou aos recursos-mãe (como a galeria de imagens partilhada ou a definição de imagem) através do [controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/rbac-and-directory-admin-roles.md). 
 
 *A versão de imagem não é encontrada.*
 
@@ -91,7 +91,7 @@ Verifique se o **OSType** da versão de imagem que está a tentar criar o VM ou 
 
 ## <a name="unable-to-share-resources"></a>Unable to share resources (Não é possível partilhar recursos)
 
-A partilha de recursos de galeria de imagens partilhadas, definição de imagem e versão de imagem através de subscrições é ativada através do [controlo de acesso baseado em funções Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles). 
+A partilha de recursos de galeria de imagens partilhadas, definição de imagem e versão de imagem através de subscrições é ativada através do [controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/rbac-and-directory-admin-roles.md). 
 
 ## <a name="replication-is-slow"></a>A replicação é lenta.
 
@@ -99,7 +99,7 @@ Utilize a bandeira **replicationStatus** de expansão para verificar se a replic
 
 ## <a name="azure-limits-and-quotas"></a>Limites e quotas do Azure 
 
-[Limites e quotas azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) aplicam-se a todos os recursos de galeria de imagens partilhadas, definição de imagem e versão de imagem. Certifique-se de que está dentro dos limites das suas subscrições. 
+[Limites e quotas azure](../azure-resource-manager/management/azure-subscription-service-limits.md) aplicam-se a todos os recursos de galeria de imagens partilhadas, definição de imagem e versão de imagem. Certifique-se de que está dentro dos limites das suas subscrições. 
 
 
 ## <a name="next-steps"></a>Passos seguintes

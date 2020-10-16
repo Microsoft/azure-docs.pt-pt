@@ -4,10 +4,10 @@ description: Saiba como configurar um aparelho Azure Migrate para avaliar e migr
 ms.topic: article
 ms.date: 04/16/2020
 ms.openlocfilehash: 9a4e652180b236262ea57ae49d35410ebfbdc927
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448656"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configurar um aparelho para VMware VMs
@@ -143,6 +143,6 @@ A descoberta funciona da seguinte forma:
 - Leva cerca de 15 minutos para que os metadados VM descobertos apareçam no portal.
 - A descoberta de aplicações, funções e funcionalidades instaladas leva algum tempo. A duração depende do número de VMs descobertos. Para 500 VMs, leva aproximadamente uma hora para o inventário da aplicação aparecer no portal Azure Migrate.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Reveja os tutoriais para [avaliação de VMware](tutorial-assess-vmware.md) e [migração sem agentes.](tutorial-migrate-vmware.md)

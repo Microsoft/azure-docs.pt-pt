@@ -14,10 +14,10 @@ ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
 ms.openlocfilehash: 7d937542201792c0d1c0be69df9bd1c2b34edea3
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89434474"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos finais de serviço de Rede Virtual
@@ -62,7 +62,7 @@ Os pontos finais de serviço oferecem as seguintes vantagens:
 
 - A funcionalidade só está disponível para redes virtuais implementadas através do modelo de implementação Azure Resource Manager.
 - Os pontos finais estão ativados nas sub-redes configuradas em redes virtuais do Azure. Os pontos finais não podem ser utilizados para o tráfego das suas instalações para os serviços Azure. Para mais informações, consulte [o acesso ao serviço Secure Azure a partir do local](#secure-azure-services-to-virtual-networks)
-- No Azure SQL, um ponto final de serviço aplica-se apenas ao tráfego de serviço do Azure numa região da rede virtual. Para o armazenamento Azure, os pontos finais também se estendem para incluir regiões emparelhadas onde você implanta a rede virtual para apoiar o tráfego de Armazenamento Geo-Redundante de Acesso De Read (RA-GRS) e armazenamento geo-redundante (GRS). Para mais informações, consulte [as regiões emparelhadas Azure.](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions)
+- No Azure SQL, um ponto final de serviço aplica-se apenas ao tráfego de serviço do Azure numa região da rede virtual. Para o armazenamento Azure, os pontos finais também se estendem para incluir regiões emparelhadas onde você implanta a rede virtual para suportar o tráfego de armazenamento Read-Access Geo-Redundant (RA-GRS) e Geo-Redundant armazenamento (GRS). Para mais informações, consulte [as regiões emparelhadas Azure.](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions)
 - Para o Azure Data Lake Storage (ADLS) Gen 1, a capacidade de Integração VNet só está disponível para redes virtuais dentro da mesma região. Note também que a integração de rede virtual para a ADLS Gen1 utiliza a segurança do ponto final do serviço de rede virtual entre a sua rede virtual e o Azure Ative Directory (Azure AD) para gerar pedidos de segurança adicionais no token de acesso. Essas afirmações são, posteriormente, utilizadas para autenticar a rede virtual na conta do Data Lake Storage Gen1 e permitir o acesso. A tag *Microsoft.AzureActiveDirectory* listada nos pontos finais de serviço de suporte de serviços é utilizada apenas para apoiar pontos finais de serviço para a ADLS Gen 1. A Azure AD não suporta pontos finais de serviço de forma nativa. Para obter mais informações sobre a integração da Azure Data Lake Store Gen 1 VNet, consulte [a segurança da rede em Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="secure-azure-services-to-virtual-networks"></a>Serviços Secure Azure para redes virtuais
@@ -144,7 +144,7 @@ As políticas de ponto final do serviço VNet permitem filtrar o tráfego de red
 
 Para perguntas frequentes, consulte [as FAQs de endpoint do serviço de rede virtual.](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#virtual-network-service-endpoints)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configurar pontos finais de serviço de rede virtual](tutorial-restrict-network-access-to-resources.md)
 - [Garantir uma conta de Armazenamento Azure a uma rede virtual](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 9/24/2020
 ms.author: mnanda
-ms.openlocfilehash: 3bd19f301b1afd7dd1c35f03f6f6131a26b00708
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: ffac5ac4d1a8143590e1d72aaafc8a02d6ab04ca
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91596843"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977260"
 ---
 # <a name="troubleshoot-high-cpu-issues-for-azure-windows-virtual-machines"></a>Problemas de alto CPU para máquinas virtuais Azure Windows
 
@@ -35,7 +35,7 @@ Além dos problemas de I/O e de latência da rede, a resolução de problemas do
 
 A maioria das ferramentas existentes de resolução de problemas de desempenho, como Perfmon ou Procmon, que são usadas para servidores no local funcionarão em VMs do Azure Windows. No entanto, perfInsights é explicitamente projetado para VMs Azure para fornecer mais informações, incluindo Azure Best Practices, SQL Best Practices, gráficos de latência de alta resolução, cpu e separadores de memória, e assim por diante.
 
-Quer seja funciona como Modo de Utilizador ou Modo Kernel, qualquer fio de um processo ativo requer ciclos de CPU para executar o código a partir do qual é construído. Muitas questões estão diretamente relacionadas com a carga de trabalho. O tipo de carga de trabalho que existe no servidor impulsiona o consumo de recursos, incluindo CPU.
+Quer seja executado como User-Mode ou Kernel-Mode, qualquer fio de um processo ativo requer ciclos de CPU para executar o código a partir do qual é construído. Muitas questões estão diretamente relacionadas com a carga de trabalho. O tipo de carga de trabalho que existe no servidor impulsiona o consumo de recursos, incluindo CPU.
 
 #### <a name="common-factors"></a>Fatores comuns
 
@@ -90,11 +90,11 @@ PerfInsights é a ferramenta recomendada do suporte Azure para problemas de dese
 
 #### <a name="run-perfinsights"></a>Executar PerfInsights
 
-PerfInsights está disponível tanto para o [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) como para o [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) OS. Para o Windows, aqui estão as opções.
+PerfInsights está disponível tanto para o [Windows](./how-to-use-perfinsights.md) como para o [Linux](./how-to-use-perfinsights-linux.md) OS. Para o Windows, aqui estão as opções.
 
 #### <a name="run-and-analyze-reports-through-azure-portal"></a>Executar e analisar relatórios através do portal Azure
 
-Quando é [instalado através do portal Azure,](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics)na verdade instala uma extensão no VM. Os utilizadores também podem instalar PerfInsights como uma extensão, indo diretamente para [Extensões na lâmina VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics-vm-extension), e, em seguida, escolher uma opção de diagnóstico de desempenho.
+Quando é [instalado através do portal Azure,](./performance-diagnostics.md)na verdade instala uma extensão no VM. Os utilizadores também podem instalar PerfInsights como uma extensão, indo diretamente para [Extensões na lâmina VM](./performance-diagnostics-vm-extension.md), e, em seguida, escolher uma opção de diagnóstico de desempenho.
 
 #### <a name="azure-portal-option-1"></a>Portal Azure Opção 1
 
@@ -132,7 +132,7 @@ O relatório é armazenado numa das Contas de Armazenamento sob a sua assinatura
 
 #### <a name="run-perfinsights-from-within-the-vm"></a>Executar PerfInsights de dentro do VM
 
-Este método pode ser utilizado se pretender executar PerfInsights por períodos mais longos. O [artigo perfInsights](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights#how-do-i-run-perfinsights) dá uma passagem detalhada dos diferentes comandos e bandeiras que são necessários para executar PerfInsights como um executável. Para fins de alta utilização do CPU, você precisará de qualquer um dos seguintes modos:
+Este método pode ser utilizado se pretender executar PerfInsights por períodos mais longos. O [artigo perfInsights](./how-to-use-perfinsights.md#how-do-i-run-perfinsights) dá uma passagem detalhada dos diferentes comandos e bandeiras que são necessários para executar PerfInsights como um executável. Para fins de alta utilização do CPU, você precisará de qualquer um dos seguintes modos:
 
 - Cenário Avançado
 
@@ -184,7 +184,7 @@ Se expandir o evento **Descobertas,** verá vários detalhes chave. O separador 
 
 Existe um subtab dedicado ao abrigo **do CPU** que pode ser usado para análise de padrões detalhados, por núcleo ou por processo.
 
-O separador **Top CPU Consumers** tem duas secções de interesse separadas, e você pode ver por processador estatísticas aqui. O design da aplicação é frequentemente single-threaded ou fixa-se a um único processador. Neste cenário, um ou alguns núcleos funcionam a 100%, enquanto outros núcleos correm em níveis esperados. Estes cenários são mais complexos porque o CPU médio do servidor parece funcionar como esperado, mas os processos que estão presos em núcleos que têm alta utilização serão mais lentos do que o esperado.
+O separador **Top CPU Consumers** tem duas secções de interesse separadas, e você pode ver por processador estatísticas aqui. O design da aplicação é frequentemente Single-Threaded ou fixa-se a um único processador. Neste cenário, um ou alguns núcleos funcionam a 100%, enquanto outros núcleos correm em níveis esperados. Estes cenários são mais complexos porque o CPU médio do servidor parece funcionar como esperado, mas os processos que estão presos em núcleos que têm alta utilização serão mais lentos do que o esperado.
 
   ![uso de alto CPU](./media/troubleshoot-high-cpu-issues-azure-windows-vm/9-high-cpu-usage.png)
 
@@ -289,7 +289,7 @@ Depois de ativadas as definições, pode ver estes contadores **De hóspedes** n
 
   ![Espaço de nome de métricas](./media/troubleshoot-high-cpu-issues-azure-windows-vm/19-metrics-namespace.png)
 
-Para obter mais informações sobre como utilizar o monitor Azure para gerir os VMs do Azure, consulte [as máquinas virtuais do Azure monitor com o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-vm-azure).
+Para obter mais informações sobre como utilizar o monitor Azure para gerir os VMs do Azure, consulte [as máquinas virtuais do Azure monitor com o Azure Monitor](../../azure-monitor/insights/monitor-vm-azure.md).
 
 ### <a name="reactive-troubleshooting"></a>Resolução de problemas reativos
 
@@ -311,7 +311,7 @@ O comando **Logman Create Counter** é utilizado para executar a recolha perfmon
 
 Logman.exe também podem ser iniciados a partir de um computador Azure VM no mesmo VNET.
 
-Para saber mais sobre estes parâmetros, consulte [o logman criar contador](https://docs.microsoft.com/windows-server/administration/windows-commands/logman-create-counter).
+Para saber mais sobre estes parâmetros, consulte [o logman criar contador](/windows-server/administration/windows-commands/logman-create-counter).
 
 Após a recolha dos dados do Perfmon enquanto o problema está a ocorrer, os passos restantes para analisar os dados são os mesmos que discutidos anteriormente.
 

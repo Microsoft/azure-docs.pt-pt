@@ -8,10 +8,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 06/17/2020
 ms.openlocfilehash: 464e75e55bc67ce619134be01ba00f2606a271a4
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91709075"
 ---
 # <a name="create-a-consulting-service-offer"></a>Criar uma oferta de serviço de consultoria
@@ -160,7 +160,7 @@ Aqui está um exemplo de como a informação de oferta aparece no Azure Marketpl
 8. Screenshots/vídeos
 9. Documentos
 
-### <a name="name"></a>Name
+### <a name="name"></a>Nome
 
 O nome que aqui entra apresenta como título da sua oferta. Este campo está pré-preenchido com o texto que inseriu na caixa **de pseudónimos Oferta** quando criou a oferta. Pode alterar este nome posteriormente.
 

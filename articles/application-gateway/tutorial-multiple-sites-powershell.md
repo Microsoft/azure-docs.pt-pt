@@ -10,10 +10,10 @@ ms.date: 07/20/2020
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: dd73dc69fc2d40a0b4c24739dca6ad8174ad1047
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89595873"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-azure-powershell"></a>Criar um gateway de aplicação que aloja vários sites através do Azure PowerShell
@@ -303,6 +303,6 @@ Quando já não for necessário, remova o grupo de recursos, o gateway de aplica
 Remove-AzResourceGroup -Name myResourceGroupAG
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Criar um gateway de aplicação com regras de encaminhamento com base no caminho de URL](./tutorial-url-route-powershell.md)

@@ -12,10 +12,10 @@ ms.author: joke
 ms.reviewer: sstein
 ms.date: 03/13/2019
 ms.openlocfilehash: e8c222d7cdcdb203cd323cde38818e5b51643159
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91443377"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs-preview"></a>Migrar para os novos trabalhos de Base de Dados Elásticas (pré-visualização)
@@ -628,7 +628,7 @@ Para quaisquer trabalhos que estivessem a funcionar num horário, lembre-se de h
 $jobs | Set-AzSqlElasticJob -Enable
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar e gerir Tarefas Elásticas com o PowerShell](elastic-jobs-powershell-create.md)
 - [Criar e gerir Tarefas Elásticas com o Transact-SQL (T-SQL)](elastic-jobs-tsql-create-manage.md)

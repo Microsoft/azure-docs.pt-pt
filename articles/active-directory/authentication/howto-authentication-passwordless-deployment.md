@@ -7,16 +7,16 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: baselden
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95f4221b390071ad149699608d3937b9af4e1d5d
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 8f0c19e33ab6f91e69f9c7dbc5bc29fef1fd53bb
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527008"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91964881"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planeie uma implementação de autenticação sem palavras-passe no Azure Ative Directory
 
@@ -82,7 +82,7 @@ Os pré-requisitos para o Windows Hello são altamente dependentes de estar a im
 
 Os utilizadores registam o seu método sem palavra-passe como parte do fluxo de registo de autenticação de vários fatores Azure. A autenticação multi-factor com um nome de utilizador e palavra-passe juntamente com outro método registado pode ser usada como um recuo no caso de não poderem usar o seu telefone ou chave de segurança em alguns cenários.
 
-### <a name="licensing"></a>Licenciamento 
+### <a name="licensing"></a>Licensing 
 Não existe um custo adicional para a autenticação sem palavra-passe, embora alguns pré-requisitos possam exigir uma subscrição premium. Para informações detalhadas sobre funcionalidades e licenciamento na página de licenciamento do [Azure Ative Directory](https://azure.microsoft.com/pricing/details/active-directory/). 
 
 ## <a name="develop-a-plan"></a>Desenvolver um plano
@@ -93,7 +93,7 @@ Considere as necessidades do seu negócio e os casos de utilização para cada m
 
 O quadro seguinte descreve os casos de utilização a implementar durante este projeto.
 
-| Área | Description |
+| Área | Descrição |
 | --- | --- |
 | **Acesso** | O sing-in sem palavra-passe está disponível a partir de um dispositivo corporativo ou pessoal dentro ou fora da rede corporativa. |
 | **Auditoria** | Os dados de utilização estão disponíveis para os administradores auditar em tempo real. <br> Os dados de utilização são descarregados em sistemas corporativos pelo menos a cada 29 dias, ou a ferramenta SIEM é usada. |
@@ -118,7 +118,7 @@ As suas comunicações aos utilizadores finais devem incluir as seguintes inform
 - [Registo na aplicação Microsoft Authenticator](howto-authentication-passwordless-phone.md)
 - [Iniciar sessão com o seu telefone](../user-help/user-help-auth-app-sign-in.md)
 
-A Microsoft fornece modelos de [comunicação](https://aka.ms/mfatemplates)de autenticação multi-factor, [modelos](https://www.microsoft.com/download/details.aspx?id=56768)de comunicação de autosserviço reset (SSPR) e [documentação do utilizador final](../user-help/security-info-setup-signin.md) para ajudar a elaborar as suas comunicações. Pode enviar os utilizadores [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) para se registarem diretamente, selecionando os links **de Informações de Segurança** nessa página.
+A Microsoft fornece modelos de [comunicação](https://aka.ms/mfatemplates)de autenticação multi-factores , Self-Service modelos de comunicação de redefinição de [palavras-passe](https://www.microsoft.com/download/details.aspx?id=56768)(SSPR) e [documentação do utilizador final](../user-help/security-info-setup-signin.md) para ajudar a elaborar as suas comunicações. Pode enviar os utilizadores [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) para se registarem diretamente, selecionando os links **de Informações de Segurança** nessa página.
 
 ### <a name="plan-to-pilot"></a>Plano para piloto
 
@@ -292,7 +292,7 @@ Siga os passos alinhados com o método escolhido abaixo.
 
 ### <a name="required-administrative-roles"></a>Funções administrativas necessárias
 
-| Papel de Azure AD | Description |
+| Papel de Azure AD | Descrição |
 | --- | --- |
 | Administrador Global|Papel menos privilegiado capaz de implementar experiência de registo combinado. |
 | Administrador de Autenticação | Papel menos privilegiado capaz de implementar e gerir métodos de autenticação. |

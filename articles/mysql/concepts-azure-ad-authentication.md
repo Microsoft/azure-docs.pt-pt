@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.openlocfilehash: 942789d5541e796247af2dbdf9371cce4701105e
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87171888"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Utilizar o Azure Ative Directory para a autenticação com o MySQL
@@ -86,7 +86,7 @@ Por favor, note que as operações de gestão, como a adição de novos utilizad
 - Se o administrador AD AD do Azure for removido do servidor, o servidor deixará de estar associado a um inquilino AZure AD, pelo que todos os logins AD do Azure serão desativados para o servidor. A adição de um novo administrador AD AD do mesmo inquilino irá ree capacitar os logins AZure AD.
 - A Azure Database for MySQL corresponde aos tokens de acesso à Base de Dados Azure para o utilizador MySQL utilizando o ID único do utilizador Azure AD, em oposição à utilização do nome de utilizador. Isto significa que se um utilizador AD Azure for eliminado em Azure AD e um novo utilizador criado com o mesmo nome, a Azure Database para o MySQL considera que é um utilizador diferente. Portanto, se um utilizador for eliminado do Azure AD e, em seguida, um novo utilizador com o mesmo nome adicionado, o novo utilizador não poderá ligar-se ao utilizador existente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para aprender a criar e povoar a AD AD azul, e depois configurar a Azure AD com a Azure Database for MySQL, consulte [Configure e inscreva-se com Azure AD para Azure Database for MySQL](howto-configure-sign-in-azure-ad-authentication.md).
 - Para obter uma visão geral dos logins e dos utilizadores de bases de dados para Azure Database for MySQL, consulte [criar utilizadores na Base de Dados Azure para o MySQL](howto-create-users.md).

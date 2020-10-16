@@ -14,10 +14,10 @@ ms.date: 09/18/2018
 ms.author: changov
 ms.reviewer: vashan, rajraj
 ms.openlocfilehash: b1cc8a43423ecd33218948aaa001fc34877eac60
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87074280"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Resolver erros de limitação da API 
@@ -93,7 +93,7 @@ Os cmdlets PowerShell estão a utilizar uma API de serviço REST, que pode ser f
 
 - Não relemque os erros de API de serviço Azure incondicionalmente e/ou imediatamente. Uma ocorrência comum é que o código do cliente entre num ciclo rápido de retagem quando se depara com um erro que não é retível. As retrações acabarão por esgotar o limite de chamada permitido para o grupo da operação-alvo e impactar outros clientes da subscrição. 
 - Em casos de automação de API de grande volume, considere implementar o auto-estrangulamento do lado do cliente proactivo quando a contagem de chamadas disponíveis para um grupo de operação alvo cai abaixo de algum limiar baixo. 
-- Ao rastrear as operações de async, respeite as dicas do cabeçalho Retry-After. 
+- Ao rastrear as operações de async, respeite as dicas de cabeçalho Retry-After. 
 - Se o código do cliente precisar de informações sobre uma máquina virtual em particular, consulta-se que vM diretamente em vez de listar todos os VMs no grupo de recursos contendo ou toda a subscrição e, em seguida, escolher o VM necessário do lado do cliente. 
 - Se o código do cliente necessitar de VMs, discos e instantâneos a partir de uma localização específica do Azure, utilize a forma baseada na localização da consulta em vez de consultar todos os VMs de subscrição e, em seguida, filtrar por localização do lado do cliente: `GET /subscriptions/<subId>/providers/Microsoft.Compute/locations/<location>/virtualMachines?api-version=2017-03-30` consulta aos pontos finais regionais do Fornecedor de Recursos Compute. 
 -   Ao criar ou atualizar recursos da API em particular, VMs e conjuntos de escala de máquinas virtuais, é muito mais eficiente acompanhar a operação de assíon devolvido até à conclusão do que fazer sondagens sobre o próprio URL de recursos (com base no `provisioningState` ).

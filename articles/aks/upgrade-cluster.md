@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 05/28/2020
 ms.openlocfilehash: da46c44dc9cc16dfa44aacb15b35b652c0c912a9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87050613"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Atualizar um cluster do Azure Kubernetes Service (AKS)
@@ -17,7 +17,7 @@ Como parte do ciclo de vida de um cluster AKS, você precisa muitas vezes de atu
 
 Para clusters AKS que usam várias piscinas de nós ou nós do Windows Server, consulte [atualizar uma piscina de nós em AKS][nodepool-upgrade].
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo requer que esteja a executar a versão Azure CLI 2.0.65 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
 

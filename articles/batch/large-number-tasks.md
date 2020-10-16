@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 08/24/2018
 ms.custom: devx-track-python, devx-track-csharp
 ms.openlocfilehash: 26230372a04d13a8b8f59d50aa5da1362126413b
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89144061"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Submeta um grande número de tarefas a um trabalho de Lote

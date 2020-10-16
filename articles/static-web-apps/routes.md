@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
 ms.openlocfilehash: 8abbe575e855347714c19c40155d890af484d5d6
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91822325"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Rotas em Azure Static Web Apps Preview

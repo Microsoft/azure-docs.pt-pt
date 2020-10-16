@@ -6,18 +6,11 @@
     - name: O que é o aprovisionamento de aplicações?
       href: user-provisioning.md
 - name: Tutoriais
+  expanded: true
   items:
-    - name: G Suite
-      href: ../saas-apps/google-apps-provisioning-tutorial.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
-    - name: ServiceNow
-      href: ../saas-apps/servicenow-provisioning-tutorial.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
-    - name: Amazon Web Services (AWS) - Aprovisionamento de Funções
-      href: ../saas-apps/amazon-web-service-tutorial.md?context=azure/active-directory/app-provisioning/context/app-provisioning-context#configure-azure-ad-sso
-    - name: Workday
-      href: ../saas-apps/workday-inbound-tutorial.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
-    - name: SAP SuccessFactors
-      href: ../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
-    - name: Todas as aplicações de galeria integradas
+    - name: Criar um ponto final SCIM e configurar o aprovisionamento
+      href: use-scim-to-provision-users-and-groups.md
+    - name: Tutoriais de aprovisionamento específicos de aplicações
       href: /azure/active-directory/saas-apps
 - name: Conceitos
   expanded: true
@@ -28,17 +21,15 @@
       href: plan-auto-user-provisioning.md
     - name: Planear uma implementação de aprovisionamento de HR na cloud
       href: plan-cloud-hr-provision.md
+    - name: Compreender registos com o Azure Monitor
+      href: application-provisioning-log-analytics.md
 - name: Guias de procedimentos
   expanded: true
   items:
     - name: Configurar o aprovisionamento para uma aplicação da galeria
       href: configure-automatic-user-provisioning-portal.md
-    - name: Editar os mapeamentos de atributos
-      items:
-        - name: Personalizar os mapeamentos de atributos
-          href: customize-application-attributes.md
-        - name: Escrever expressões para mapeamentos de atributos
-          href: functions-for-customizing-application-data.md
+    - name: Personalizar os mapeamentos de atributos
+      href: customize-application-attributes.md
     - name: Incluir ou excluir utilizadores e grupos do âmbito
       items:
         - name: Definir o âmbito dos utilizadores ou grupos a aprovisionar
@@ -57,6 +48,8 @@
           href: export-import-provisioning-configuration.md
         - name: Aprovisionar os relatórios
           href: ../reports-monitoring/concept-provisioning-logs.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+    - name: Automatizar a configuração com o MS Graph
+      href: 'https://docs.microsoft.com/graph/application-provisioning-configure-api'
     - name: Resolver problemas de aprovisionamento de aplicações
       items:
         - name: Problemas conhecidos
@@ -65,26 +58,20 @@
           href: application-provisioning-config-problem.md
         - name: Estado de quarentena
           href: application-provisioning-quarantine-status.md
-        - name: Problema de autorização (não é possível guardar as credenciais de administrador)
-          href: application-provisioning-config-problem-storage-limit.md
         - name: Os utilizadores não estão aprovisionados
           href: application-provisioning-config-problem-no-users-provisioned.md
-        - name: Foram aprovisionados os utilizadores errados
-          href: application-provisioning-config-problem-wrong-users-provisioned.md
         - name: Atributo de origem em falta
           href: user-provisioning-sync-attributes-for-mapping.md
         - name: Registos de aprovisionamento
           href: ../reports-monitoring/concept-provisioning-logs.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
-    - name: Criar um ponto final SCIM e configurar o aprovisionamento
-      href: use-scim-to-provision-users-and-groups.md
-    - name: Automatizar a configuração com o MS Graph
-      href: 'https://docs.microsoft.com/graph/application-provisioning-configure-api'
 - name: Referência
   items:
     - name: Conformidade do protocolo SCIM 2.0
       href: application-provisioning-config-problem-scim-compatibility.md
     - name: Cenários SCIM e Graph
       href: scim-graph-scenarios.md
+    - name: Referência de funções para escrever expressões para mapeamentos de atributos
+      href: functions-for-customizing-application-data.md
     - name: Aprovisionamento de HR de Cloud
       items:
         - name: Integração do SuccessFactors
@@ -93,8 +80,6 @@
           href: sap-successfactors-attribute-reference.md
         - name: Referência de atributo da Workday
           href: workday-attribute-reference.md
-    - name: Agente de Aprovisionamento do Azure AD Connect
-      items:
         - name: Histórico de versões do Agente de Aprovisionamento
           href: provisioning-agent-release-version-history.md
 - name: Recursos

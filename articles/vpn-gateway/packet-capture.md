@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: radwiv
-ms.openlocfilehash: 486ac23f26a7eee6b31322de79bfb68076a598ec
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 3be01f6d8e1fb1f6ba541f8d1cb0c92d2a43b0da
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441600"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073109"
 ---
 # <a name="configure-packet-capture-for-vpn-gateways"></a>Captura de pacotes de configuração para gateways VPN
 
@@ -318,7 +318,7 @@ Os seguintes exemplos de JSON e um esquema JSON fornecem explicações de cada p
 
 ## <a name="set-up-packet-capture-by-using-powershell"></a>Configurar a captura de pacotes utilizando o PowerShell
 
-Os exemplos a seguir mostram comandos PowerShell que iniciam e param as capturas de pacotes. Para obter mais informações sobre as opções de parâmetros, consulte [este documento PowerShell](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
+Os exemplos a seguir mostram comandos PowerShell que iniciam e param as capturas de pacotes. Para obter mais informações sobre as opções de parâmetros, consulte [Start-AzVirtualnetworkGatewayPacketCapture](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
 
 ### <a name="start-packet-capture-for-a-vpn-gateway"></a>Inicie a captura de pacotes para uma porta de entrada VPN
 
@@ -354,7 +354,10 @@ Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourReso
 - A duração mínima de captura do pacote é de 600 segundos. Devido a problemas de sincronização entre vários componentes no caminho, capturas de pacotes mais curtos podem não fornecer dados completos.
 - Os ficheiros de dados de captura de pacotes são gerados no formato PCAP. Utilize o Wireshark ou outras aplicações comumente disponíveis para abrir ficheiros PCAP.
 - As capturas de pacotes não são suportadas em gateways baseados em políticas.
+- Se o `SASurl` parâmetro não estiver configurado corretamente, o vestígio pode falhar com erros de armazenamento. Por exemplo, como gerar corretamente um `SASurl` parâmetro, consulte [Stop-AzVirtualNetworkGatewayPacketCapture](https://docs.microsoft.com/powershell/module/az.network/stop-azvirtualnetworkgatewaypacketcapture).
 
-## <a name="next-steps"></a>Próximos passos
+
+
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações sobre o VPN Gateway, veja [o que é VPN Gateway?](vpn-gateway-about-vpngateways.md)

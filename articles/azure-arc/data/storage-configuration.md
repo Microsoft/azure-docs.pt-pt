@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: c1560325f21fd60e6bdb2a64eb987359a7246ff2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317332"
 ---
 # <a name="storage-configuration"></a>Configuração do Armazenamento
@@ -175,14 +175,14 @@ Ao criar uma instância utilizando `azdata arc sql mi create` ou `azdata arc pos
 
 A tabela abaixo lista os caminhos dentro do recipiente Azure SQL Managed Instance que é mapeado para o volume persistente de dados e registos:
 
-|Nome do parâmetro, nome curto|Caminho dentro do recipiente mssql-miaa|Description|
+|Nome do parâmetro, nome curto|Caminho dentro do recipiente mssql-miaa|Descrição|
 |---|---|---|
 |`--storage-class-data`, `-scd`|/var/opt|Contém diretórios para a instalação de mssql e outros processos do sistema. O diretório mssql contém dados predefinidos (incluindo registos de transações), registo de erros & diretórios de backup|
 |`--storage-class-logs`, `-scl`|/var/log|Contém diretórios que armazenam a saída da consola (stderr, stdout), outras informações de registo de processos dentro do contentor|
 
 A tabela abaixo lista os caminhos dentro do recipiente de instância PostgreSQL que é mapeado para o volume persistente para dados e registos:
 
-|Nome do parâmetro, nome curto|Caminho dentro do recipiente postgres|Description|
+|Nome do parâmetro, nome curto|Caminho dentro do recipiente postgres|Descrição|
 |---|---|---|
 |`--storage-class-data`, `-scd`|/var/opt/postgresql|Contém dados e diretórios de registo para a instalação de postgres|
 |`--storage-class-logs`, `-scl`|/var/log|Contém diretórios que armazenam a saída da consola (stderr, stdout), outras informações de registo de processos dentro do contentor|

@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.openlocfilehash: 32e9da592d4c8f3997d5b1844065bf550d7d7d48
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82207518"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Criar e utilizar manualmente um volume com discos Azure no Serviço Azure Kubernetes (AKS)
@@ -59,7 +59,7 @@ O ID do recurso do disco é apresentado uma vez que o comando tenha sido conclu�
 
 ## <a name="mount-disk-as-volume"></a>Monte o disco como volume
 
-Para montar o disco Azure na sua cápsula, configuure o volume na especificação do recipiente. Crie um novo ficheiro com `azure-disk-pod.yaml` o seguinte conteúdo. Atualize `diskName` com o nome do disco criado no passo anterior, e com o `diskURI` ID do disco mostrado na saída do disco criar comando. Se desejar, atualize o `mountPath` , que é o caminho onde o disco Azure é montado na vagem. Para os recipientes do Windows Server, especifique um *mountPath* utilizando a convenção do caminho do Windows, como *'D:'*.
+Para montar o disco Azure na sua vagem, configuure o volume na especificação do recipiente. Crie um novo ficheiro com `azure-disk-pod.yaml` o seguinte conteúdo. Atualize `diskName` com o nome do disco criado no passo anterior, e com o `diskURI` ID do disco mostrado na saída do disco criar comando. Se desejar, atualize o `mountPath` , que é o caminho onde o disco Azure é montado na vagem. Para os recipientes do Windows Server, especifique um *mountPath* utilizando a convenção do caminho do Windows, como *'D:'*.
 
 ```yaml
 apiVersion: v1

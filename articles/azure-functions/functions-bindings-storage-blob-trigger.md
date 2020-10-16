@@ -7,10 +7,10 @@ ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
 ms.openlocfilehash: 67e1f1dff43939ce7ef279db57bee4b18bd12dc8
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88213943"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Gatilho de armazenamento Azure Blob para Funções Azure

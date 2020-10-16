@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 3851e6a784d244b101c2c71c67b4b2c9a8f5cbee
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91618945"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Implementar e explorar uma app SaaS multitenant que utiliza o padrão de base de dados por inquilino com Base de Dados Azure SQL
@@ -187,7 +187,7 @@ Se quiser controlar e monitorizar os trabalhos de fundo, utilize os seguintes cm
 
 4. Se, `$OneTime = $false` o gerador de carga iniciar os trabalhos de fundo e, em seguida, continuar a funcionar. A cada 10 segundos, monitoriza todos os novos inquilinos que são a provisionados. Se `$OneTime = $true` definir, o LoadGenerator inicia os trabalhos de fundo e, em seguida, deixa de funcionar em primeiro plano. Para este tutorial, `$OneTime = $false` saia.
 
-   Utilize Ctrl-C ou Stop Operation Ctrl-Break se quiser parar ou reiniciar o gerador de carga.
+   Utilize ctrl-C ou stop Operation Ctrl-Break se quiser parar ou reiniciar o gerador de carga.
 
    Se deixar o gerador de carga em primeiro plano, utilize outra instância do PowerShell ISE para executar outros scripts PowerShell.
 

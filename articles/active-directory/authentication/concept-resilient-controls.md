@@ -13,10 +13,10 @@ ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f58e5a07348dfde4e4618eb58746f08016c55ed6
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89049575"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Crie uma estratégia resiliente de gestão de controlo de acessos com o Azure Ative Directory
@@ -119,7 +119,7 @@ Uma política de acesso condicional de contingência é uma **política de backu
 
 * Configure um conjunto de políticas de recuo se uma rutura num tipo de credencial ou um mecanismo de controlo de acesso tiver impacto no acesso às suas apps. Configure uma política em estado apenas de relatório que exija a Participação do Domínio como um controlo, como um backup para uma política ativa que requer um provedor de MFA de terceiros.
 * Reduzir o risco de maus atores adivinharem palavras-passe, quando não é necessário o MFA, seguindo as práticas no livro branco de orientação da [palavra-passe.](https://aka.ms/passwordguidance)
-* Implementar [Azure AD Self-Service Password Reset (SSPR)](./tutorial-enable-sspr.md) e [Azure AD Password Protection](./howto-password-ban-bad-on-premises-deploy.md) para garantir que os utilizadores não usam a palavra-passe comum e os termos que escolhe proibir.
+* Implementar [Azure AD Self-Service Redefinição de Password (SSPR)](./tutorial-enable-sspr.md) e [Proteção de Password AD Azure](./howto-password-ban-bad-on-premises-deploy.md) para garantir que os utilizadores não usam a palavra-passe comum e os termos que escolhe proibir.
 * Utilize políticas que restrinjam o acesso dentro das apps se um determinado nível de autenticação não for atingido em vez de simplesmente voltar ao acesso total. Por exemplo:
   * Configure uma política de backup que envia o pedido de sessão restrita para Exchange e SharePoint.
   * Se a sua organização utilizar o Microsoft Cloud App Security, considere recorrer a uma política que envolva o MCAS e, em seguida, o MCAS permite o acesso apenas à leitura, mas não o upload.
@@ -215,13 +215,13 @@ Se implementou a extensão NPS MFA AD AD Ad para proteger recursos on-prem, como
 Neste caso, pode desativar a extensão NPS, como resultado, o servidor NPS apenas verificará a autenticação primária e não aplicará MFA aos utilizadores.
 
 Desativar a extensão de NPS: 
--   Exporte a HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters registro como cópia de segurança. 
+-   Exporte a chave de registo HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters como reserva. 
 -   Eliminar os valores de registo de "AutorizaçõesDL" e "ExtensionDLls", não a chave parâmetros. 
 -   Reiniciar o serviço de política de rede (IAS) para que as alterações produzam efeitos 
 -   Determine se a autenticação primária para a VPN é bem sucedida.
 
 Uma vez recuperado o serviço e estiver pronto para impor novamente o MFA aos seus utilizadores, ative a extensão NPS: 
--   Importar a chave de registo de HKEY_LOCAL_MACHINE de backup\SYSTEM\CurrentControlSet\Services\AuthSrv\Parâmetros 
+-   Importe a chave de registo de HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters de reserva 
 -   Reiniciar o serviço de política de rede (IAS) para que as alterações produzam efeitos 
 -   Determine se a autenticação primária e a autenticação secundária para VPN são bem sucedidas.
 -   Reveja o servidor NPS e o registo VPN para determinar quais os utilizadores que se inscreveram durante a janela de emergência.
@@ -282,7 +282,7 @@ Se a sua organização estiver a utilizar políticas antigas de MFA por utilizad
 >[!NOTE]
  > Configurar [IPs fidedignos](./howto-mfa-mfasettings.md) para Azure MFA só está disponível com [licenças Azure AD Premium](./concept-mfa-licensing.md).
 
-## <a name="learn-more"></a>Saber mais
+## <a name="learn-more"></a>Saiba mais
 
 * [Documentação da Autenticação do Azure AD](./howto-mfaserver-iis.md)
 * [Gerir contas administrativas de acesso de emergência em Azure AD](../users-groups-roles/directory-emergency-access.md)

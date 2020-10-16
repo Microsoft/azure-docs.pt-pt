@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 7cabae837656611813d44017ce2e1112f06066ef
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89669602"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Prepare-se para implementar a sua solução IoT Edge na produção
@@ -194,7 +194,7 @@ Em seguida, certifique-se de atualizar as referências de imagem no deployment.t
 
     `"image": "<registry name and server>/azureiotedge-hub:1.0",`
 
-## <a name="networking"></a>Rede
+## <a name="networking"></a>Redes
 
 * **Útil**
   * Revisão da configuração de saída/entrada
@@ -323,7 +323,7 @@ Pode fazê-lo nas **opções de criação** de cada módulo. Por exemplo:
 
 Para o cenário de implementação IoT Edge mais eficiente, considere integrar a sua implantação de produção nos seus testes e oleodutos CI/CD. Azure IoT Edge suporta várias plataformas ci/CD, incluindo Azure DevOps. Para obter mais informações, consulte [integração contínua e implementação contínua para Azure IoT Edge](how-to-continuous-integration-continuous-deployment.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [a implementação automática IoT Edge](module-deployment-monitoring.md).
 * Veja como o IoT Edge suporta [a integração contínua e a implementação contínua.](how-to-continuous-integration-continuous-deployment.md)

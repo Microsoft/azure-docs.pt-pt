@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: raynew
 ms.openlocfilehash: 7a71502ec361004079e0962d8bc6433316a4ba81
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90007643"
 ---
 # <a name="moving-azure-resources-across-regions"></a>Movimentação de recursos Azure em regiões
@@ -73,6 +73,6 @@ O processo real de movimentação de recursos através das regiões depende dos 
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba mais](../../resource-mover/about-move-process.md) sobre o processo de mudança em Resource Mover.

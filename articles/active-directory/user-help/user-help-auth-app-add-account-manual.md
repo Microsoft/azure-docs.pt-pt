@@ -12,10 +12,10 @@ ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: 3838234f9f65fcf91f8de33e3d7196aa13f2b903
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83741726"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Adicionar manualmente uma conta à app
@@ -93,14 +93,14 @@ Pode adicionar a sua conta Amazon, ligando a verificação de dois fatores e adi
 
 5. Na página de **método de verificação de cópia de segurança** no seu computador, digite o código de verificação de seis dígitos fornecido pelo método de verificação de cópia de segurança para a sua conta Amazon e, em seguida, selecione Verificar código e **continuar**.
 
-6. Na página Quase pronto, decida se faz do seu computador um dispositivo de confiança e, em seguida, selecione **Got it. Ligue a verificação em duas etapas.**
+6. Na página Quase pronto, decida se faz do seu computador um dispositivo de confiança e, em seguida, selecione **Got it. Ligue Two-Step Verificação**.
 
     Aparece a página **Definições avançadas** de segurança, mostrando os detalhes de verificação de dois fatores atualizados.
 
     >[!NOTE]
-    >Para obter mais informações sobre a verificação de dois fatores e a sua conta Amazon, consulte [Sobre a Verificação em Duas Etapas](https://www.amazon.com/gp/help/customer/display.html?nodeId=201596330) e [Inscreva-se com Verificação em Duas Etapas](https://www.amazon.com/gp/help/customer/display.html?nodeId=201962440).    
+    >Para obter mais informações sobre a verificação de dois fatores e a sua conta Amazon, consulte [Sobre a Verificação Two-Step](https://www.amazon.com/gp/help/customer/display.html?nodeId=201596330) e Iniciar [sessão com Two-Step Verificação](https://www.amazon.com/gp/help/customer/display.html?nodeId=201962440).    
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Depois de adicionar as suas contas à aplicação, pode iniciar sôms usando a aplicação Microsoft Authenticator no seu dispositivo. Para obter mais informações, consulte [Iniciar sção usando a aplicação.](user-help-auth-app-sign-in.md)
 

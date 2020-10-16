@@ -10,10 +10,10 @@ ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ms.openlocfilehash: 0cdc9e242c2254cafaf0af75bcb8f8879cf3eb58
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91287833"
 ---
 # <a name="azure-synapse-link-preview-for-azure-cosmos-db-supported-features"></a>Azure Synapse Link (pré-visualização) para funcionalidades suportadas pelo Azure Cosmos DB
@@ -37,14 +37,14 @@ Pode ligar-se a um recipiente DB Azure Cosmos sem permitir a Ligação Synapse. 
 | **Suporte da Azure Cosmos DB API** | Suportado Azure Cosmos DB API tipo | SQL / MongoDB | SQL / MongoDB |
 | **Objeto**  |Objetos como uma tabela que pode ser criada, apontando diretamente para o contentor DB Azure Cosmos| Dataframe, Ver, Tabela | Vista |
 | **Ler**    | Tipo de recipiente DB Azure Cosmos que pode ser lido | OLTP / HTAP | HTAP  |
-| **Escrita**   | O tempo de execução do Azure Synapse pode ser usado para escrever dados num contentor DB Azure Cosmos | Yes | No |
+| **Escrita**   | O tempo de execução do Azure Synapse pode ser usado para escrever dados num contentor DB Azure Cosmos | Sim | Não |
 
 * Se escrever dados num contentor DB Azure Cosmos da Spark, este processo acontece através da loja transacional da Azure Cosmos DB. Irá impactar o desempenho transacional da Azure Cosmos DB consumindo Unidades de Pedido.
 * A integração da piscina SQL através de mesas externas não é suportada atualmente.
  
 ## <a name="supported-code-generated-actions-for-spark"></a>Ações geradas por código para faíscas
 
-| Gesto              | Description |OLTP |HTAP  |
+| Gesto              | Descrição |OLTP |HTAP  |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- |----------------------------------------------------------- |
 | **Carregar para DataFrame** |Carregue e leia dados num DataFrame de Faísca |✓| ✓ |
 | **Criar mesa spark** |Crie uma tabela que aponte para um recipiente DB Azure Cosmos|✓| ✓ |
@@ -55,7 +55,7 @@ Pode ligar-se a um recipiente DB Azure Cosmos sem permitir a Ligação Synapse. 
 
 ## <a name="supported-code-generated-actions-for-sql-serverless"></a>Ações geradas por código suportadas para o sql sem servidor
 
-| Gesto              | Description |OLTP |HTAP |
+| Gesto              | Descrição |OLTP |HTAP |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- |----------------------------------------------------------- |
 | **Explorar dados** |Explore dados de um recipiente com sintaxe T-SQL familiar e inferência automática de esquemas|X| ✓ |
 | **Criar vistas e construir relatórios de BI** |Crie uma vista SQL para ter acesso direto a um recipiente para BI através do sinapse SQL sem servidor |X| ✓ |

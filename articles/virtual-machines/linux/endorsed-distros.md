@@ -11,14 +11,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: conceptual
-ms.date: 08/02/2020
+ms.date: 10/09/2020
 ms.author: guybo
-ms.openlocfilehash: f945c58b256c2a024a62b15a1bca1841483e1849
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0236644930af699180cf26b4baee7bb591d8bbaa
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91279438"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978939"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Distribuição de Linux endossada em Azure
 
@@ -37,9 +37,9 @@ O Agente Azure Linux já está pré-instalado em imagens do Azure Marketplace e 
 | CentOS by Rogue Wave Software |CentOS 6.x, 7.x, 8.x |CentOS 6.3: [Download LIS](https://www.microsoft.com/download/details.aspx?id=55106)<p>CentOS 6.4+: No núcleo |Pacote: Em [repo](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) em "WALinuxAgent" <br/>Código fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)<p> CoreOS está agora [no fim da vida a](https://coreos.com/os/eol/) partir de 26 de maio de 2020. |Já não está disponível | | |
 | Debian por Credativ |8.x, 9.x |Em kernel |Pacote: Em repo sob "waagent" <br/>Código fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
-|Recipiente de carro chato Linux by Kinvolk| Estável, Beta| Em kernel | wa-linux-agent está instalado já em /usr/share/oem/bin/waagent |
+|Recipiente de carro chato Linux by Kinvolk| Pro, Estável, Beta| Em kernel | wa-linux-agent está instalado já em /usr/share/oem/bin/waagent |
 | Oráculo Linux por Oráculo |6.x, 7.x, 8.x |Em kernel |Pacote: Em repo em "WALinuxAgent" <br/>Código fonte: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
-| [Red Hat Enterprise Linux por Chapéu Vermelho](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/overview) |6.x, 7.x, 8.x |Em kernel |Pacote: Em repo em "WALinuxAgent" <br/>Código fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| [Red Hat Enterprise Linux por Chapéu Vermelho](../workloads/redhat/overview.md) |6.x, 7.x, 8.x |Em kernel |Pacote: Em repo em "WALinuxAgent" <br/>Código fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | SUSE Linux Enterprise by SUSE |SLES/SLES para SAP 11.x, 12.x, 15.x <br/> [SUSE Public Cloud Image Lifecycle](https://www.suse.com/c/suse-public-cloud-image-life-cycle/) |Em kernel |Pacote:<p> por 11 em [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) repo<br>para 12 incluídos no Módulo "Nuvem Pública" em "python-azure-agent"<br/>Código fonte: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | openSUSE by SUSE |openSUSE Leap 15.x |Em kernel |Pacote: Em [Nuvem:Ferramentas](https://build.opensuse.org/project/show/Cloud:Tools) repo em "python-azure-agent" <br/>Código fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Ubuntu por Canônico |Ubuntu Server e Pro. 16.x, 18.x, 20.x<p>Informações sobre suporte alargado para Ubuntu 12.04 e 14.04 podem ser consultadas aqui: [Ubuntu Extended Security Maintenance](https://www.ubuntu.com/esm). |Em kernel |Pacote: Em repo sob "walinuxagent" <br/>Código fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
@@ -50,14 +50,15 @@ O Azure exige que os editores das distribuições de Linux endossadas atualizem 
 
 ## <a name="azure-tuned-kernels"></a>Núcleos afinados a azulados
 
-A Azure trabalha em estreita colaboração com várias distribuições de Linux endossadas para otimizar as imagens que publicaram no Azure Marketplace. Um aspeto desta colaboração é o desenvolvimento de núcleos Linux "afinados" que são otimizados para a plataforma Azure e entregues como componentes totalmente suportados da distribuição Linux. Os núcleos Azure-Tuned incorporam novas funcionalidades e melhorias de desempenho, e a uma cadência mais rápida (tipicamente trimestral) em comparação com os núcleos padrão ou genéricos que estão disponíveis na distribuição.
+A Azure trabalha em estreita colaboração com várias distribuições de Linux endossadas para otimizar as imagens que publicaram no Azure Marketplace. Um aspeto desta colaboração é o desenvolvimento de núcleos Linux "afinados" que são otimizados para a plataforma Azure e entregues como componentes totalmente suportados da distribuição Linux. Os núcleos Azure-Tuned incorporam novas funcionalidades e melhorias de desempenho, e numa cadência mais rápida (tipicamente trimestral) em comparação com os núcleos padrão ou genéricos que estão disponíveis a partir da distribuição.
 
 Na maioria dos casos, você encontrará estes núcleos pré-instalados nas imagens padrão no Azure Marketplace para que os clientes obtenham imediatamente o benefício destes núcleos otimizados. Mais informações sobre estes núcleos Azure-Tuned podem ser encontradas nos seguintes links:
 
-- [Kernel azure-tuned CentOS - Disponível através do CentOS Virtualization SIG](https://wiki.centos.org/SpecialInterestGroup/Virtualization)
+- [CentOS Azure-Tuned Kernel - Disponível através do CentOS Virtualization SIG](https://wiki.centos.org/SpecialInterestGroup/Virtualization)
 - [Debian Cloud Kernel - Disponível com a imagem de Debian 10 e Debian 9 "backports" em Azure](https://wiki.debian.org/Cloud/MicrosoftAzure)
 - [SLES Azure-Tuned Kernel](https://www.suse.com/c/a-different-builtin-kernel-for-azure-on-demand-images/)
 - [Ubuntu Azure-Tuned Kernel](https://blog.ubuntu.com/2017/09/21/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel)
+- [Recipiente de carro chato Linux Pro](https://azuremarketplace.microsoft.com/marketplace/apps/kinvolk.flatcar_pro)
 
 ## <a name="partners"></a>Parceiros
 

@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.custom: references_regions
 ms.openlocfilehash: 90556e0843cda94dc79330321d027f8d28eb7d20
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91652198"
 ---
 # <a name="create-an-azure-event-hubs-schema-registry-preview"></a>Criar um registo de esquemas Azure Event Hubs (pré-visualização)

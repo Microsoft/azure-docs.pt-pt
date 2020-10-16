@@ -7,13 +7,13 @@ author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
 ms.openlocfilehash: 64c461c5d3e1bb34f480e5173621f8753eadbbd8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87318322"
 ---
-# <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Orientação para dados pessoais armazenados em Log Analytics e Insights de Aplicações
+# <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Orientações para dados pessoais armazenados no Log Analytics e no Application Insights
 
 O Log Analytics é uma loja de dados onde é provável que os dados pessoais sejam encontrados. A Application Insights armazena os seus dados numa partição do Log Analytics. Este artigo irá discutir onde em Log Analytics e Application Insights esses dados são normalmente encontrados, bem como as capacidades disponíveis para lidar com esses dados.
 

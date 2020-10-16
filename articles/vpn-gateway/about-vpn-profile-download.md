@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 09/03/2020
 ms.author: cherylmc
 ms.openlocfilehash: 6a09767a7992a5f902adea6f99e937f3fc6fa7fa
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90985934"
 ---
 # <a name="about-p2s-vpn-client-profiles"></a>Sobre os perfis de clientes P2S VPN

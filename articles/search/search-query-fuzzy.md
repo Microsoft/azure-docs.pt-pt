@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/08/2020
 ms.openlocfilehash: faa98f1c52cfe2dd0e19f085f4d33dedb6f01851
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88934893"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>Pesquisa fuzzy para corrigir erros ortográficos e erros de tipografia
@@ -132,7 +132,7 @@ Note que a mesma resposta é devolvida, mas agora em vez de combinar em "especia
 
 O objetivo deste exemplo alargado é ilustrar a clareza que o destaque pode trazer a resultados ambíguos. Em todos os casos, o mesmo documento é devolvido. Se tivesse confiado em documentos de identificação para verificar uma correspondência, poderia ter perdido a mudança de "especial" para "SQL".
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 + [Como funciona a pesquisa completa de texto na Azure Cognitive Search (arquitetura de análise de consulta)](search-lucene-query-architecture.md)
 + [Explorador de pesquisa](search-explorer.md)

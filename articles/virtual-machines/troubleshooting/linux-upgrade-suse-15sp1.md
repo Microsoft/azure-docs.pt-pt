@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 05/21/2020
 ms.author: arremana
 ms.openlocfilehash: 7ed355f82b88f460ff4b372484a690f166a15550
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91359516"
 ---
 # <a name="upgrade-azure-vm-with-sles-12-to-sles-15-sp1"></a>Upgrade Azure VM com SLES 12 a SLES 15 SP1

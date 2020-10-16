@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: mathoma
 ms.date: 04/28/2020
 ms.openlocfilehash: 079d187f66cf77585121198df06cabafc454fea1
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362134"
 ---
 # <a name="replication-to-azure-sql-database"></a>Replicação para Azure SQL Database
@@ -54,12 +54,12 @@ Existem diferentes [tipos de replicação:](https://docs.microsoft.com/sql/relat
 
 | Replicação | Base de Dados SQL do Azure | Instância Gerida do Azure SQL |
 | :----| :------------- | :--------------- |
-| [**Transação Padrão**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Sim (apenas como assinante) | Yes | 
-| [**Instantâneo**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Sim (apenas como assinante) | Yes|
-| [**Fusão de replicação**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | No | No|
-| [**Ponto a ponto**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | No | No|
-| [**Bidirecional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | No | Yes|
-| [**Assinaturas updatable**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | No | No|
+| [**Transação Padrão**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Sim (apenas como assinante) | Sim | 
+| [**Instantâneo**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Sim (apenas como assinante) | Sim|
+| [**Fusão de replicação**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Não | Não|
+| [**Ponto a ponto**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Não | Não|
+| [**Bidirecional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Não | Sim|
+| [**Assinaturas updatable**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Não | Não|
 | &nbsp; | &nbsp; | &nbsp; |
 
   

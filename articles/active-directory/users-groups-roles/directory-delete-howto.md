@@ -15,10 +15,10 @@ ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bf8eeb2d1f19ca0848ae5c608ba9f0d8e9526e05
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541259"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Eliminar um inquilino no Azure Ative Directory
@@ -141,6 +141,6 @@ Pode colocar um produto de inscrição de autosserviço como o Microsoft Power B
 
     ![o nome de utilizador é mal assinalado ou não encontrado](./media/directory-delete-howto/delete-organization.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Documentação do Azure Active Directory](../index.yml)

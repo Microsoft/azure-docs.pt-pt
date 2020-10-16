@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: allensu
 ms.openlocfilehash: 265ed0f4cb58a321bde78714f36123bf197d42f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84711005"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Add, change, or remove IP addresses for an Azure network interface (Adicionar, alterar ou remover endereços IP para uma interface de rede do Azure)
@@ -29,7 +29,7 @@ Saiba como adicionar, alterar e remover endereços IP públicos e privados para 
 
 Se precisar de criar, alterar ou eliminar uma interface de rede, leia o artigo de interface de [rede.](virtual-network-network-interface.md) Se precisar de adicionar interfaces de rede ou remover interfaces de rede de uma máquina virtual, leia o artigo [de Interfaces de Rede Add ou remova.](virtual-network-network-interface-vm.md)
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -54,7 +54,7 @@ Pode adicionar o maior número de endereços [IPv4](#ipv4) [privados](#private) 
 
    |Definição|Necessário?|Detalhes|
    |---|---|---|
-   |Name|Sim|Deve ser único para a interface de rede|
+   |Nome|Sim|Deve ser único para a interface de rede|
    |Tipo|Sim|Uma vez que está a adicionar uma configuração IP a uma interface de rede existente, e cada interface de rede deve ter uma configuração IP [primária,](#primary) a sua única opção é **Secundária**.|
    |Método de atribuição de endereços IP privados|Sim|[**Dinâmica**](#dynamic): O Azure atribui o próximo endereço disponível para o intervalo de endereços da sub-rede em que a interface de rede está implantada. [**Estática**](#static): Atribua um endereço não utilizado para o intervalo de endereços da sub-rede em que a interface de rede está implantada.|
    |Endereço IP público|Não|**Deficientes:** Nenhum recurso de endereço IP público está atualmente associado à configuração IP. **Habilitado:** Selecione um endereço IP público IPv4 existente ou crie um novo. Para saber como criar um endereço IP público, leia o artigo [IP público.](virtual-network-public-ip-address.md#create-a-public-ip-address)|
@@ -202,7 +202,7 @@ Um endereço IP público é criado com o SKU básico ou padrão. Para obter mais
 > [!NOTE]
 > Quando atribui um endereço IP público de SKU standard a uma interface de rede de máquina virtual, tem de permitir explicitamente o tráfego pretendido com um [grupo de segurança de rede](security-overview.md#network-security-groups). A comunicação com o recurso falha até criar e associar um grupo de segurança de rede e permitir explicitamente o tráfego pretendido.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para criar uma máquina virtual com diferentes configurações IP, leia os seguintes artigos:
 
 |Tarefa|Ferramenta|

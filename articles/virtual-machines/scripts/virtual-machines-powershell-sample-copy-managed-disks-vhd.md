@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/17/2018
 ms.author: ramankum
-ms.openlocfilehash: d76fda02f94f85126214de27d88079977824098d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a02b55adf4ac1838e9fcb98b9dffcfbd2b4b52d4
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320137"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969906"
 ---
 # <a name="exportcopy-the-vhd-of-a-managed-disk-to-a-storage-account-in-different-region-with-powershell-windows"></a>Exportar/Copiar o VHD de um disco gerido para uma conta de armazenamento em diferentes regiões com o PowerShell (Windows)
 
@@ -47,7 +47,7 @@ Este script utiliza os seguintes comandos para gerar o URI de SAS de um disco ge
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Criar um disco gerido a partir de um VHD](virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+[Criar um disco gerido a partir de um VHD](./virtual-machines-powershell-sample-create-managed-disk-from-vhd.md?toc=%252fpowershell%252fmodule%252ftoc.json)
 
 [Criar uma máquina virtual a partir de um disco gerido](./virtual-machines-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json)
 

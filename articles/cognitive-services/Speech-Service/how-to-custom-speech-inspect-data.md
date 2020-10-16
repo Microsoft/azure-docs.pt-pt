@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: erhopf
 ms.openlocfilehash: c55d69e99715a0c646c4e836df06cf105f9770bf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319136"
 ---
 # <a name="inspect-custom-speech-data"></a>Inspecionar dados da Voz Personalizada
@@ -35,7 +35,7 @@ Siga estas instruções para criar um teste:
 3. Clique **em Adicionar Teste**.
 4. **Selecione Inspecionar a qualidade (dados áudio-only)**. Dê ao teste um nome, descrição e selecione o seu conjunto de dados áudio.
 5. Selecione até dois modelos que gostaria de testar.
-6. Clique em **Create** (Criar).
+6. Clique em **Criar**.
 
 Depois de um teste ter sido criado com sucesso, pode ver como um modelo transcreve o conjunto de dados áudio especificado ou compara os resultados de dois modelos lado a lado.
 

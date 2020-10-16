@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: e2d577261a1cea0bad9aab549b3669f8fdef5751
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91715847"
 ---
 # <a name="use-the-azure-portal-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Utilize o portal Azure para atribuir uma função Azure para acesso a dados de bolhas e filas
@@ -95,12 +95,12 @@ A atribuição da função **Reader** é necessária apenas para os utilizadores
 > [!IMPORTANT]
 > A versão de pré-visualização do Storage Explorer no portal Azure não suporta a utilização de credenciais AZure AD para visualizar e modificar dados de blob ou fila. O Explorador de Armazenamento no portal Azure utiliza sempre as chaves da conta para aceder aos dados. Para utilizar o Storage Explorer no portal Azure, tem de ser atribuída uma função que inclua **Microsoft.Storage/storageAccounts/listkeys/action**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre as funções Azure para recursos de armazenamento, consulte [o acesso autenticado a blobs e filas Azure usando o Azure Ative Directory](storage-auth-aad.md). 
 - Para saber mais sobre o Azure RBAC, veja [o que é o controlo de acesso baseado em funções do Azure (Azure RBAC)?](../../role-based-access-control/overview.md)
 - Para aprender a atribuir e gerir atribuições de funções da Azure PowerShell, Azure CLI ou da REST API, consulte estes artigos:
     - [Adicione ou remova atribuições de funções Azure utilizando o módulo Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
     - [Adicione ou remova atribuições de funções Azure usando o CLI Azure](../../role-based-access-control/role-assignments-cli.md)
-    - [Adicione ou remova atribuições de funções Azure usando a API REST](../../role-based-access-control/role-assignments-rest.md)
+    - [Utilizar a API REST para adicionar ou remover atribuições de funções do Azure](../../role-based-access-control/role-assignments-rest.md)
 - Para saber como autorizar o acesso a contentores e filas a partir das suas aplicações de armazenamento, consulte [Use Azure AD com aplicações de Armazenamento Azure](storage-auth-aad-app.md).

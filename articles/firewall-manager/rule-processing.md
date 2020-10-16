@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: victorh
 ms.openlocfilehash: 9184bf7baa85420e067edb4c0aafccb7e6711225
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86512185"
 ---
 # <a name="azure-firewall-rule-processing-logic"></a>Lógica de processamento de regras do Azure Firewall
@@ -32,6 +32,6 @@ As coleções de regras de rede herdadas de uma política de pais são sempre pr
 
 Por defeito, a sua política herda o modo de inteligência de ameaça de ameaça de mãe. Pode sobrepor-se a isto definindo o modo de inteligência de ameaça para um valor diferente na página de definições de política. Só é possível anular com um valor mais rigoroso. Por exemplo, se a política dos pais estiver definida apenas para *Alerta,* pode configurar esta política local para *Alertar e negar*, mas não pode desligá-la.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba mais sobre o Azure Firewall Manager](overview.md)

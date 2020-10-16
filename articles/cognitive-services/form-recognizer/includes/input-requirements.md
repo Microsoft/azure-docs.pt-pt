@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 06/27/2019
 ms.author: pafarley
 ms.openlocfilehash: 5de121a1a905a58f8b5eaf8e60c1f8da71ee8cd6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91276952"
 ---
 O Form Recogniser trabalha em documentos de entrada que satisfazem estes requisitos:

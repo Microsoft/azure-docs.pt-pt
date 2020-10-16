@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: d3d5ced5860c14e9e4d522c42ffd0bc71341a9c4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90938667"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---flexible-server"></a>Utilize o portal Azure para configurar alertas em métricas para a base de dados Azure para PostgreSQL - Servidor Flexível
@@ -46,37 +46,29 @@ Pode configurar e obter informações sobre as regras de alerta utilizando:
 
 4. A página **de regras Create** abre conforme mostrado abaixo. Preencha as informações necessárias:
 
-   :::image type="content" source="./media/howto-alert-on-metrics/4-add-rule-form.png" alt-text="Adicione formulário de alerta métrico":::
+   :::image type="content" source="./media/howto-alert-on-metrics/4-add-rule-form.png" alt-text="Selecione Regras de Alerta":::
 
 5. Dentro da secção **Condição,** **selecione Adicionar a condição**.
 
 6. Selecione uma métrica da lista de sinais a serem alertados. Neste exemplo, selecione "Storage percent".
 
-   :::image type="content" source="./media/howto-alert-on-metrics/6-configure-signal-logic.png" alt-text="Selecionar métrica":::
+   :::image type="content" source="./media/howto-alert-on-metrics/6-configure-signal-logic.png" alt-text="Selecione Regras de Alerta":::
 
 7. Configure a lógica de alerta, incluindo a **Condição** (ex. "Maior do que"), **Threshold** (ex. 85 por cento), **Agregação do tempo,** **Período** de tempo a regra métrica deve ser satisfeita antes do gatilho de alerta (ex. "Nos últimos 30 minutos"), e **Frequência.**
 
    Selecione **Fazer** quando concluído.
 
-   :::image type="content" source="./media/howto-alert-on-metrics/7-set-threshold-time.png" alt-text="Definir limiar":::
-
-8. Na secção **Grupos de Ação,** selecione **Criar Novo** para criar um novo grupo para receber notificações no alerta.
-
-9. Preencha o formulário "Adicionar grupo de ação" com um nome, nome curto, subscrição e grupo de recursos.
-
-10. Configure um tipo de ação **por E-mail/SMS/Push/Voice.**
-
-    1. Escolha "Email Azure Resource Manager Role" para selecionar proprietários, contribuintes e leitores de subscrição para receber notificações.
+   :::image type="content" source="./media/howto-alert-on-metrics/7-set-threshold-time.png" alt-text="Selecione Regras de Alerta" para selecionar proprietários, contribuintes e leitores de subscrição para receber notificações.
 
     2. Opcionalmente, forneça um URI válido no campo **Webhook** se quiser que seja chamado quando o alerta disparar.
 
     3. Selecione **OK** quando concluído.
 
-    :::image type="content" source="./media/howto-alert-on-metrics/10-action-group-type.png" alt-text="Grupo de ações":::
+    :::image type="content" source="./media/howto-alert-on-metrics/10-action-group-type.png" alt-text="Selecione Regras de Alerta":::
 
 11. Especifique um nome de regra de alerta, descrição e severidade.
 
-    :::image type="content" source="./media/howto-alert-on-metrics/11-name-description-severity.png" alt-text="Especificar, descrição do nome e gravidade"::: 
+    :::image type="content" source="./media/howto-alert-on-metrics/11-name-description-severity.png" alt-text="Selecione Regras de Alerta"::: 
 
 12. Selecione **Criar a regra de alerta** para criar o alerta.
 

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
 ms.openlocfilehash: 46435ef773e90234538bb755e20035990bbf1066
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91460038"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Como executar os Jupyter Notebooks na área de trabalho
@@ -248,7 +248,7 @@ Um indicador ao lado da queda do **Kernel** mostra o seu estado.
 
 Encontre detalhes sobre as suas instâncias de computação na página **compute** em [estúdio](https://ml.azure.com).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Executar a sua primeira experiência](tutorial-1st-experiment-sdk-train.md)
 * [Faça backup do armazenamento do seu ficheiro com instantâneos](../storage/files/storage-snapshots-files.md)

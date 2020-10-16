@@ -8,12 +8,12 @@ author: troy0820
 ms.author: b-trconn
 keywords: aro, openshift, az aro, chapéu vermelho, cli
 ms.custom: mvc
-ms.openlocfilehash: 6cf77aa41a9a485ba70519fed33c1b6aec736525
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 49ffc33310564299131e2831b74154719b7cf7c7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89470073"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078583"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-cluster-application-backup"></a>Crie um Azure Red Hat OpenShift 4 Cluster Application Backup
 
@@ -25,7 +25,7 @@ Neste artigo, você vai preparar o seu ambiente para criar um backup de aplicaç
 
 Se optar por instalar e utilizar o CLI localmente, este tutorial requer que esteja a executar a versão Azure CLI 2.6.0 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 ### <a name="install-velero"></a>Instalar Velero
 
@@ -90,7 +90,7 @@ EOF
 
 ## <a name="install-velero-on-azure-red-hat-openshift-4-cluster"></a>Instale Velero no aglomerado Azure Red Hat OpenShift 4
 
-Este passo irá instalar o Velero no seu próprio projeto e nas [definições de recursos personalizados necessárias](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) para fazer backups e restauros com o Velero. Certifique-se de que está a iniciar sessão com sucesso num cluster V4 do Chapéu Vermelho Azure.
+Este passo irá instalar o Velero no seu próprio projeto e nas [definições de recursos personalizados necessárias](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) para fazer backups e restauros com o Velero. Certifique-se de que está ligado com sucesso a um cluster V4 do Chapéu Vermelho Azure.
 
 
 ```bash
@@ -120,14 +120,34 @@ oc get backups -n velero <name of backup> -o yaml
 
 Uma cópia de segurança bem sucedida irá funcionar `phase:Completed` e os objetos viverão no recipiente na conta de armazenamento.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="create-a-backup-with-velero-to-include-snapshots"></a>Crie uma cópia de segurança com Velero para incluir instantâneos
+
+Para criar uma cópia de segurança da aplicação com o Velero para incluir os volumes persistentes da sua aplicação, terá de incluir o espaço de nome em que a aplicação se encontra, bem como incluir a bandeira ao `snapshot-volumes=true` criar o backup
+
+```bash
+velero backup create <name of backup> --include-namespaces=nginx-example --snapshot-volumes=true --include-cluster-resources=true
+```
+
+Pode verificar o estado da cópia de segurança executando:
+
+```bash
+oc get backups -n velero <name of backup> -o yaml
+```
+
+Uma cópia de segurança bem sucedida com saída `phase:Completed` e os objetos viverão no recipiente na conta de armazenamento.
+
+Para mais informações sobre como criar backups e restauros usando Velero consulte [backup Recursos OpenShift da forma nativa](https://www.openshift.com/blog/backup-openshift-resources-the-native-way)
+
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, foi apoiada uma aplicação de cluster Azure Red Hat OpenShift 4. Aprendeu a:
 
 > [!div class="checklist"]
 > * Crie uma cópia de segurança da aplicação OpenShift v4 utilizando o Velero
+> * Crie uma cópia de segurança da aplicação openShift v4 com instantâneos usando Velero
 
 
 Avance para o próximo artigo para aprender como criar uma aplicação de cluster Azure Red Hat OpenShift 4 restaurada.
 
 * [Crie um Azure Red Hat OpenShift 4 cluster app restaurar](howto-create-a-restore.md)
+* [Crie um Azure Red Hat OpenShift 4 cluster app restaurar, incluindo instantâneos](howto-create-a-restore.md)

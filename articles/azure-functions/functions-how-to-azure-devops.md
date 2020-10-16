@@ -7,10 +7,10 @@ ms.date: 04/18/2019
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurecli
 ms.openlocfilehash: d503d71cf44446f93fab3d292d4c26d9b7b0941d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88210211"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Entrega contínua utilizando Azure DevOps
@@ -26,7 +26,7 @@ Tem duas opções para definir o seu oleoduto:
 
 Para criar um pipeline baseado em YAML, primeiro construa a sua app e, em seguida, implemente a aplicação.
 
-### <a name="build-your-app"></a>Compilar a sua aplicação
+### <a name="build-your-app"></a>Criar a sua aplicação
 
 A forma como constrói a sua aplicação em Azure Pipelines depende da linguagem de programação da sua aplicação. Cada idioma tem passos de construção específicos que criam um artefacto de implantação. Um artefacto de implantação é usado para implementar a sua aplicação de função em Azure.
 
@@ -216,7 +216,7 @@ steps:
 
 Os modelos em Azure DevOps são grupos pré-finidos de tarefas que constroem ou implementam uma aplicação.
 
-### <a name="build-your-app"></a>Compilar a sua aplicação
+### <a name="build-your-app"></a>Criar a sua aplicação
 
 A forma como constrói a sua aplicação em Azure Pipelines depende da linguagem de programação da sua aplicação. Cada idioma tem passos de construção específicos que criam um artefacto de implantação. Um artefacto de implementação é usado para atualizar a sua aplicação de função em Azure.
 

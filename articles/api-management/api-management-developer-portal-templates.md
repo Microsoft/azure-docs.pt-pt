@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 7a8c348340be143f7059ce7e64a1c66b66074a45
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16c0b3e6dc4bd9097312e3a8c43618e66781ef85
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75430778"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092890"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Como personalizar o portal de desenvolvimento da Azure API Management usando modelos
 
@@ -41,7 +41,7 @@ Os modelos de edição são feitos a partir do **portal Developer** enquanto est
 
 Para aceder aos modelos do portal do desenvolvedor, clique no ícone de personalização à esquerda para exibir o menu de personalização e clique em **Modelos**.
 
-![Modelos de portal de desenvolvedores][api-management-customize-menu]
+![Screenshot que realça o ícone de personalização para exibir o menu de personalização.][api-management-customize-menu]
 
 A lista de modelos apresenta várias categorias de modelos que cobrem as diferentes páginas do portal do desenvolvedor. Cada modelo é diferente, mas os passos para editá-los e publicar as alterações são os mesmos. Para editar um modelo, clique no nome do modelo.
 
@@ -103,7 +103,7 @@ No exemplo anterior, existem dois produtos apresentados no portal do desenvolved
 }
 ```
 
-A marcação no modelo da **lista de produtos** processa os dados para fornecer a saída desejada através da recolha de produtos para apresentar informações e uma ligação a cada produto. Observe os `<search-control>` elementos e `<page-control>` elementos na marcação. Estes controlam a visualização dos controlos de pesquisa e paging na página. `ProductsStrings|PageTitleProducts`é uma referência de corda localizada que contém o `h2` texto do cabeçalho para a página. Para obter uma lista de recursos de cordas, controlos de página e ícones disponíveis para utilização em modelos de portal de desenvolvedores de desenvolvedores, consulte [a referência de modelos do portal do desenvolvedor da API Management](api-management-developer-portal-templates-reference.md).
+A marcação no modelo da **lista de produtos** processa os dados para fornecer a saída desejada através da recolha de produtos para apresentar informações e uma ligação a cada produto. Observe os `<search-control>` elementos e `<page-control>` elementos na marcação. Estes controlam a visualização dos controlos de pesquisa e paging na página. `ProductsStrings|PageTitleProducts` é uma referência de corda localizada que contém o `h2` texto do cabeçalho para a página. Para obter uma lista de recursos de cordas, controlos de página e ícones disponíveis para utilização em modelos de portal de desenvolvedores de desenvolvedores, consulte [a referência de modelos do portal do desenvolvedor da API Management](api-management-developer-portal-templates-reference.md).
 
 ```html
 <search-control></search-control>
@@ -145,7 +145,7 @@ Os modelos guardados podem ser publicados individualmente ou todos juntos. Para 
 
 Clique **em Sim** para confirmar e fazer o modelo ao vivo no portal do desenvolvedor.
 
-![Confirmar publicação][api-management-publish-template-confirm]
+![Screenshot que mostra onde você seleciona Sim para fazer o modelo ao vivo.][api-management-publish-template-confirm]
 
 Para publicar todas as versões de modelo não publicadas atualmente, clique em **Publicar** na lista de modelos. Os modelos não publicados são designados por um asterisco seguindo o nome do modelo. Neste exemplo, a **lista de produtos** e modelos de **produto** estão a ser publicados.
 
@@ -160,11 +160,11 @@ Os modelos recém-publicados são eficazes imediatamente no portal do desenvolve
 ## <a name="to-revert-a-template-to-the-previous-version"></a>Para reverter um modelo para a versão anterior
 Para reverter um modelo para a versão publicada anteriormente, clique em reverter no editor de modelo.
 
-![Modelo reverter][api-management-revert-template]
+![Screenshot que realça o ícone que você usa para reverter um modelo.][api-management-revert-template]
 
 Clique em **Sim** para confirmar.
 
-![Confirmar][api-management-revert-template-confirm]
+![Screenshot que mostra onde seleciona Sim para confirmar as alterações.][api-management-revert-template-confirm]
 
 A versão previamente publicada de um modelo é transmitida ao vivo no portal do desenvolvedor uma vez que a operação reverteda está concluída.
 
@@ -185,7 +185,7 @@ Para restaurar todos os modelos nas suas versões predefinitivos, clique em **Re
 
 Os modelos restaurados devem então ser publicados individualmente ou todos de uma só vez, seguindo os passos para [publicar um modelo](#to-publish-a-template).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter informações de referência para modelos de portal de desenvolvedores, recursos de cordas, ícones e controlos de página, consulte [a referência de modelos do portal do desenvolvedor da API Management](api-management-developer-portal-templates-reference.md).
 
 [modify-content-layout]: api-management-modify-content-layout.md

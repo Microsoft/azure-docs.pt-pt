@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 63a1f8e30be2983c0df93ff5a7229460f8f39214
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 69b84a3edb606ed99b6aaca7db5ad0e57124f1b9
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936049"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948940"
 ---
 # <a name="image-analysis-cognitive-skill"></a>Capacidade cognitiva de análise de imagem
 
-A habilidade **de Análise de Imagem** extrai um rico conjunto de funcionalidades visuais baseadas no conteúdo da imagem. Por exemplo, pode gerar uma legenda a partir de uma imagem, gerar tags ou identificar celebridades e marcos. Esta habilidade utiliza os modelos de aprendizagem automática fornecidos pela [Visão Computacional](../cognitive-services/computer-vision/home.md) nos Serviços Cognitivos. 
+A habilidade **de Análise de Imagem** extrai um rico conjunto de funcionalidades visuais baseadas no conteúdo da imagem. Por exemplo, pode gerar uma legenda a partir de uma imagem, gerar tags ou identificar celebridades e marcos. Esta habilidade utiliza os modelos de aprendizagem automática fornecidos pela [Visão Computacional](../cognitive-services/computer-vision/overview.md) nos Serviços Cognitivos. 
 
 > [!NOTE]
 > Pequenos volumes (menos de 20 transações) podem ser executados gratuitamente na Pesquisa Cognitiva Azure, mas cargas de trabalho maiores [requerem a anexação de um recurso de Serviços Cognitivos faturados](cognitive-search-attach-cognitive-services.md). As taxas acumulam-se ao chamar APIs em Serviços Cognitivos, e para a extração de imagem como parte da fase de cracking de documentos em Azure Cognitive Search. Não há encargos para a extração de texto a partir de documentos.
@@ -538,7 +538,7 @@ Se obter o erro `"One or more skills are invalid. Details: Error in skill #<num>
             ]
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)

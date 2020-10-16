@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: a6664b5a2c0c6b4de2435ee5c8bb29f63560c342
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88037699"
 ---
 # <a name="localization-support-in-azure-maps"></a>Apoio à localização no Azure Maps
@@ -25,7 +25,7 @@ O Azure Maps suporta várias línguas e pontos de vista baseados em país/regiã
 O Azure Maps tem sido localizado em línguas de variedades em todos os seus serviços. A tabela seguinte fornece os códigos linguísticos suportados para cada serviço.  
   
 
-| ID         | Nome                   |  Maps | Pesquisa | Encaminhamento | Meteorologia | Incidentes de trânsito | Controlo de mapas JS |
+| ID         | Nome                   |  Mapas | Pesquisa | Encaminhamento | Meteorologia | Incidentes de trânsito | Controlo de mapas JS |
 |------------|------------------------|:-----:|:------:|:-------:|:--------:|:-----------------:|:--------------:|
 | af-ZA      | Afrikaans              |       |    ✓   |    ✓    |         |                   |                |
 | ar-SA      | Árabe                 |   ✓   |    ✓   |    ✓    |    ✓      |         ✓         |        ✓       |
@@ -147,7 +147,7 @@ Por predefinição, o parâmetro 'Ver' é definido como **Unificado,** mesmo que
 
 A tabela a seguir fornece pontos de vista apoiados.
 
-| Vista         | Descrição                            |  Maps | Pesquisa | JS Controlo de Mapas |
+| Vista         | Descrição                            |  Mapas | Pesquisa | JS Controlo de Mapas |
 |--------------|----------------------------------------|:-----:|:------:|:--------------:|
 | AE           | Emirados Árabes Unidos (Visão Árabe)    |   ✓   |        |     ✓          |
 | AR           | Argentina (Visão Argentina)           |   ✓   |    ✓   |     ✓          |

@@ -13,10 +13,10 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 ms.openlocfilehash: 3286b464051b8fea88d2797d4f82b20fe432b4b8
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90019534"
 ---
 # <a name="upload-files-with-iot-hub"></a>Carregar ficheiros com o Hub IoT
@@ -152,7 +152,7 @@ Outros tópicos de referência no guia de desenvolvimento do IoT Hub incluem:
 
 * [O suporte do IoT Hub MQTT](iot-hub-mqtt-support.md) fornece mais informações sobre o suporte do IoT Hub para o protocolo MQTT.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a enviar ficheiros a partir de dispositivos que utilizam o IoT Hub, poderá estar interessado nos seguintes tópicos de guia de desenvolvimento do IoT Hub:
 

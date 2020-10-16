@@ -13,10 +13,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: f872159e538dc85121a7a6d4d6503fd18a263628
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87543049"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas mais frequentes
@@ -26,7 +26,7 @@ Tem perguntas? Consulte as seguintes FAQ para mais informações.
 
 ### <a name="can-i-install-the-extension-on-my-visual-studio-team-foundation-server-instance-instead-of-on-an-azure-devops-instance"></a>Posso instalar a extensão no meu servidor da Fundação Visual Studio Team em vez de num caso de Azure DevOps?
 
-Não. A extensão não está disponível para download e instalação para Visual Studio Team Foundation Server.
+N.º A extensão não está disponível para download e instalação para Visual Studio Team Foundation Server.
 
 ### <a name="do-i-have-to-run-microsoft-security-code-analysis-with-my-build"></a>Tenho de executar a Microsoft Security Code Analysis com a minha construção? 
 
@@ -55,7 +55,7 @@ Diferenças percetíveis:
 
 ### <a name="can-i-run-a-build-task-like-credential-scanner-across-multiple-repositories-in-an-azure-devops-build"></a>Posso executar uma tarefa de construção como o Scanner Credencial através de vários repositórios numa Construção de DevOps Azure?
 
-Não. Executar as ferramentas de desenvolvimento seguras através de vários repositórios num único oleoduto não é suportado.
+N.º Executar as ferramentas de desenvolvimento seguras através de vários repositórios num único oleoduto não é suportado.
 
 ### <a name="the-output-file-i-specified-isnt-being-created-or-i-cant-find-the-output-file-i-specified"></a>O ficheiro de saída que especifiquei não está a ser criado, ou não consigo encontrar o ficheiro de saída que especifiquei.
 
@@ -90,7 +90,7 @@ Após a sua instalação, as tarefas de construção de segurança fornecidas pe
 
 ### <a name="does-installing-the-extension-modify-my-existing-azure-pipelines"></a>A instalação da extensão modifica os meus gasodutos Azure existentes? 
 
-Não. A instalação da extensão disponibiliza as tarefas de construção de segurança para a adição aos seus oleodutos. Você ainda é obrigado a adicionar ou atualizar definições de construção, para que as ferramentas possam trabalhar com o seu processo de construção.
+N.º A instalação da extensão disponibiliza as tarefas de construção de segurança para a adição aos seus oleodutos. Você ainda é obrigado a adicionar ou atualizar definições de construção, para que as ferramentas possam trabalhar com o seu processo de construção.
 
 ## <a name="task-specific-faq"></a>FAQ específico de tarefas
 

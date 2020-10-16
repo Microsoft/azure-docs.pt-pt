@@ -12,10 +12,10 @@ ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 90815d52e6884efe6cff9a7860c093b4b5c1bc94
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85204546"
 ---
 # <a name="manage-compute-in-azure-synapse-analytics-data-warehouse"></a>Gerir o computação no armazém de dados Azure Synapse Analytics
@@ -36,7 +36,7 @@ Para realizar uma operação de escala, a piscina SQL primeiro mata todas as con
 
 A tabela seguinte mostra como o número de distribuições por nó compute muda à medida que as unidades de armazém de dados mudam.  O DW30000c fornece 60 nós compute e obtém um desempenho de consulta muito superior ao DO DW100c.
 
-| Unidades do armazém de dados  | \#de nó de computação | \#de distribuições por nó |
+| Unidades do armazém de dados  | \# de nó de computação | \# de distribuições por nó |
 | -------- | ---------------- | -------------------------- |
 | DW100c   | 1                | 60                         |
 | DW200c   | 1                | 60                         |
@@ -124,6 +124,6 @@ Para verificar o estado da piscina SQL, consulte o arranque rápido [PowerShell]
 
 A escala da piscina SQL requer as permissões descritas na [BASE DE DADOS ALTER](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Pausa e Currículo requerem a permissão [do Contribuinte DB SQL,](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#sql-db-contributor) especificamente Microsoft.Sql/servidores/bases de dados/ação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Ver como orientar para [gerir o cálculo](manage-compute-with-azure-functions.md) Outro aspeto da gestão dos recursos computacional é a alocar diferentes recursos computacional para consultas individuais. Para obter mais informações, consulte [as classes de Recursos para a gestão da carga de trabalho.](resource-classes-for-workload-management.md)

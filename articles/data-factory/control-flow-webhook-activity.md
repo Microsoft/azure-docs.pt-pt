@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.openlocfilehash: 4056550ae0a71138d136878fc7e3aa5f6f8f4180
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81417883"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Atividade webhook na Azure Data Factory
@@ -55,25 +55,25 @@ Uma atividade webhook pode controlar a execução de oleodutos através do seu c
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-**nome** | O nome da atividade webhook. | String | Yes |
-**tipo** | Deve ser definido como "WebHook". | String | Yes |
-**método** | O método REST API para o ponto final alvo. | Cadeia. O tipo suportado é "POST". | Yes |
-**url** | O ponto final e o caminho do alvo. | Uma corda ou uma expressão com o **resultado Valor** de um fio. | Yes |
+**nome** | O nome da atividade webhook. | String | Sim |
+**tipo** | Deve ser definido como "WebHook". | String | Sim |
+**método** | O método REST API para o ponto final alvo. | Cadeia. O tipo suportado é "POST". | Sim |
+**url** | O ponto final e o caminho do alvo. | Uma corda ou uma expressão com o **resultado Valor** de um fio. | Sim |
 **cabeçalhos** | Cabeçalhos que são enviados para o pedido. Aqui está um exemplo que define o idioma e o tipo num pedido: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` . | Uma corda ou uma expressão com o **resultado Valor** de um fio. | Sim. Um `Content-Type` cabeçalho como `"headers":{ "Content-Type":"application/json"}` é necessário. |
-**corpo** | Representa a carga útil que é enviada para o ponto final. | JSON válido ou uma expressão com o **resultado Valor de** Tipo de JSON. Consulte [o esquema de carga útil do Pedido](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#request-payload-schema) para o esquema da carga útil do pedido. | Yes |
-**autenticação** | O método de autenticação usado para chamar o ponto final. Os tipos suportados são "Básico" e "ClientCertificate". Para obter mais informações, veja [Autenticação](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#authentication). Se a autenticação não for necessária, exclua esta propriedade. | Uma corda ou uma expressão com o **resultado Valor** de um fio. | No |
-**tempo limite** | Quanto tempo a atividade aguarda que a chamada especificada pelo **callBackUri** seja invocada. O valor predefinido é de 10 minutos ("00:10:00"). Os valores têm o formato TimeSpan *d*. *hh*:*mm*:*ss*. | String | No |
-**Estado do relatório sobre o retorno** | Permite que um utilizador reporte o estado falhado de uma atividade webhook. | Booleano | No |
+**corpo** | Representa a carga útil que é enviada para o ponto final. | JSON válido ou uma expressão com o **resultado Valor de** Tipo de JSON. Consulte [o esquema de carga útil do Pedido](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#request-payload-schema) para o esquema da carga útil do pedido. | Sim |
+**autenticação** | O método de autenticação usado para chamar o ponto final. Os tipos suportados são "Básico" e "ClientCertificate". Para obter mais informações, veja [Autenticação](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#authentication). Se a autenticação não for necessária, exclua esta propriedade. | Uma corda ou uma expressão com o **resultado Valor** de um fio. | Não |
+**tempo limite** | Quanto tempo a atividade aguarda que a chamada especificada pelo **callBackUri** seja invocada. O valor predefinido é de 10 minutos ("00:10:00"). Os valores têm o formato TimeSpan *d*. *hh*:*mm*:*ss*. | String | Não |
+**Estado do relatório sobre o retorno** | Permite que um utilizador reporte o estado falhado de uma atividade webhook. | Booleano | Não |
 
 ## <a name="authentication"></a>Autenticação
 
 Uma atividade webhook suporta os seguintes tipos de autenticação.
 
-### <a name="none"></a>Nenhuma
+### <a name="none"></a>Nenhum
 
 Se a autenticação não for necessária, não inclua o imóvel **de autenticação.**
 
-### <a name="basic"></a>Básica
+### <a name="basic"></a>Básico
 
 Especifique o nome de utilizador e a palavra-passe para utilizar com a autenticação básica.
 

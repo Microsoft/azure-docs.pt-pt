@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
 ms.openlocfilehash: 33198f95ef0309cada6f5f11c809811f23d7f826
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708650"
 ---
 # <a name="offer-listing-best-practices"></a>Melhores práticas de listagem de ofertas
@@ -137,7 +137,7 @@ O url de exemplo a seguir contém ambos os parâmetros de consulta anteriores: `
 
 Ao adicionar os parâmetros ao seu URL AppSource, pode rever a eficácia da sua campanha no painel de análise no [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre os seus [benefícios no mercado comercial.](./gtm-your-marketplace-benefits.md)
 

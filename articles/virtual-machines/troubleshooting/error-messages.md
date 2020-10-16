@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
 ms.openlocfilehash: 52508a6820ce0cbbbe3a0341a99894f8b92b1645
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87831231"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Compreender as mensagens de erro comuns na gestão de máquinas virtuais no Azure
@@ -79,7 +79,7 @@ Esta secção lista as mensagens de erro comuns que pode encontrar ao gerir os V
 |  DiskBlobAlreadyInUseByAnotherDisk  |  Blob {0} já está a ser utilizado por outro disco pertencente à VM'. {1} Pode examinar os metadados blob para obter informações de referência do disco.  |
 |  DiskBlobNotFound  |  Incapaz de encontrar bolha VHD com URI {0} para o {1} disco'.  |
 |  DiskBlobNotFound  |  Incapaz de encontrar bolha VHD com URI {0} .  |
-|  DiskEncryptionKeySecretMissingTags  |  {0}segredo não tem as {1} etiquetas. Por favor, atualize a versão secreta, adicione as etiquetas necessárias e revendo.  |
+|  DiskEncryptionKeySecretMissingTags  |  {0} segredo não tem as {1} etiquetas. Por favor, atualize a versão secreta, adicione as etiquetas necessárias e revendo.  |
 |  DiskEncryptionKeySecretUnwrapFailed  |  Desembrulhar o valor secreto {0} usando a chave {1} falhou.  |
 |  DiskImageNotReady  |  A imagem do {0} disco está no {1} estado. Por favor, reda o momento em que a imagem estiver pronta.  |
 |  DiskPreparationError  |  Ocorreram um ou mais erros durante a preparação dos discos VM. Consulte a visualização do caso do disco para mais detalhes.  |
@@ -91,7 +91,7 @@ Esta secção lista as mensagens de erro comuns que pode encontrar ao gerir os V
 |  IncorrectImageBlobType  |  As bolhas de disco só podem ser de bolha de página tipo. Blob {0} para disco ' é de tipo bloco {1} blob.  |
 |  IncorrectImageBlobType  |  As bolhas de disco só podem ser de bolha de página tipo. Blob {0} é do tipo ' {1} .  |
 |  InternalOperationError  |  Não consegui resolver a conta de {0} armazenamento. Certifique-se de que foi criado através do Fornecedor de Recursos de Armazenamento no mesmo local que o recurso compute.  |
-|  InternalOperationError  |  {0}objetivo procurando tarefas falhou.  |
+|  InternalOperationError  |  {0} objetivo procurando tarefas falhou.  |
 |  InternalOperationError  |  Erro ocorreu na validação do perfil de rede de VM {0} '.  |
 |  InvalidAccountType  |  O 'AccountType' {0} é inválido.  |
 |  InvalidParameter  |  O valor do parâmetro {0} é inválido.  |
@@ -110,7 +110,7 @@ Esta secção lista as mensagens de erro comuns que pode encontrar ao gerir os V
 |  InvalidParameter  |  A contagem de domínio de avarias especificada {0} deve cair no intervalo para {1} {2} .  |
 |  InvalidParameter  |  O tipo de licença {0} é inválido. Os tipos de licença válidos são: Windows_Client ou Windows_Server, caso sensível a caso.  |
 |  InvalidParameter  |  O nome do anfitrião Linux não pode exceder {0} os caracteres de comprimento ou conter os seguintes caracteres: {1} .  |
-|  InvalidParameter  |  O caminho de destino das chaves públicas Ssh está atualmente limitado ao seu valor padrão {0} devido a um problema conhecido no agente de provisionamento Linux.  |
+|  InvalidParameter  |  O caminho de destino das chaves públicas Ssh está atualmente limitado ao seu valor padrão {0}  devido a um problema conhecido no agente de provisionamento Linux.  |
 |  InvalidParameter  |  Um disco na LUN {0} já existe.  |
 |  InvalidParameter  |  A subscrição {0} do pedido deve corresponder à subscrição contida no {1} id do disco gerido.  |
 |  InvalidParameter  |  Os dados personalizados no OSProfile devem estar na codificação base64 e com um comprimento máximo de {0} caracteres.  |
@@ -171,13 +171,13 @@ Esta secção lista as mensagens de erro comuns que pode encontrar ao gerir os V
 |  OperaçãoNotAllowed  |  Não é possível redimensionar o VM porque a dimensão solicitada {0} não está disponível no cluster onde o conjunto de disponibilidade está atualmente atribuído. Os tamanhos disponíveis são: {1} . Leia mais sobre a estratégia de redimensionamento de VM em https://aka.ms/azure-resizevm .  |
 |  OperaçãoNotAllowed  |  Não é possível redimensionar o VM porque a dimensão solicitada {0} não está disponível no cluster onde o VM está atualmente atribuído. Para redimensionar o seu VM {1} para, por favor, transar (isto é stop operation no portal Azure) e tentar novamente o redimensionar. Leia mais sobre a estratégia de redimensionamento de VM em https://aka.ms/azure-resizevm .  |
 |  OSProvisioningClientError  |  O Provisioning os OS falhou para vm {0} ' 'porque o SO convidado está atualmente a ser a provisionado.  |
-|  OSProvisioningClientError  |  O fornecimento de OS para VM {0} ' 'falhou. Detalhes de erro: {1} Certifique-se de que a imagem foi devidamente preparada (generalizada). <ul><li>Instruções para windows:https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/  </li></ul> |
-|  OSProvisioningClientError  |  A geração chave do anfitrião SSH falhou. Detalhes de erro: {0} . Para resolver este problema, verifique se o agente Linux está devidamente configurado. <ul><li>Pode consultar as instruções em:https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux/ </li></ul> |
+|  OSProvisioningClientError  |  O fornecimento de OS para VM {0} ' 'falhou. Detalhes de erro: {1} Certifique-se de que a imagem foi devidamente preparada (generalizada). <ul><li>Instruções para windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/  </li></ul> |
+|  OSProvisioningClientError  |  A geração chave do anfitrião SSH falhou. Detalhes de erro: {0} . Para resolver este problema, verifique se o agente Linux está devidamente configurado. <ul><li>Pode consultar as instruções em: https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux/ </li></ul> |
 |  OSProvisioningClientError  |  O nome de utilizador especificado para o VM é inválido para esta distribuição Linux. Detalhes de erro: {0} .  |
 |  OSProvisioningInternalError  |  O provisionamento do OS falhou para vm {0} ' ' devido a um erro interno.  |
 |  OSProvisioningTimedOut  |  Os Provisões para VM {0} ' ' não terminaram no tempo atribuído. O VM pode ainda terminar o fornecimento com sucesso. Por favor, verifique o estado de provisionamento mais tarde.  |
 |  OSProvisioningTimedOut  |  Os Provisões para VM {0} ' ' não terminaram no tempo atribuído. O VM pode ainda terminar o fornecimento com sucesso. Por favor, verifique o estado de provisionamento mais tarde. Além disso, certifique-se de que a imagem foi devidamente preparada (generalizada).   <ul><li>Instruções para [o Windows]( ../windows/upload-generalized-managed.md).</li><li> Instruções para [Linux](../linux/capture-image.md)</li></ul>  |
-|  OSProvisioningTimedOut  |  Os Provisões para VM {0} ' ' não terminaram no tempo atribuído. No entanto, o agente convidado VM foi detetado a funcionar. Isto sugere que o SO convidado não foi devidamente preparado para ser usado como uma imagem VM (com CreateOption=FromImage). Para resolver este problema, utilize o VHD como está com o CreateOption=Attach ou prepare-o corretamente para ser utilizado como uma imagem:   <ul><li>Instruções para windows:https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Instruções para Linux:https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
+|  OSProvisioningTimedOut  |  Os Provisões para VM {0} ' ' não terminaram no tempo atribuído. No entanto, o agente convidado VM foi detetado a funcionar. Isto sugere que o SO convidado não foi devidamente preparado para ser usado como uma imagem VM (com CreateOption=FromImage). Para resolver este problema, utilize o VHD como está com o CreateOption=Attach ou prepare-o corretamente para ser utilizado como uma imagem:   <ul><li>Instruções para windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Instruções para Linux: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
 |  OverConstrainedAllocationRequest  |  O tamanho VM necessário não está atualmente disponível no local selecionado.  |
 |  ResourceUpdateBlockedOnPlatformUpdate  |  O recurso não pode ser atualizado neste momento devido à atualização da plataforma em curso. Tente novamente mais tarde.  |
 |  ArmazenamentoSAdeslimitação  |  A conta de armazenamento {0} ' ' não suporta bolhas de página que são necessárias para criar discos.  |

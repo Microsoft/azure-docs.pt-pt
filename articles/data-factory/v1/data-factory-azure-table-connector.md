@@ -13,10 +13,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 462d54a9d89d6f03aed5e221fa02609da786c8c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84702333"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Mover dados de e para a Azure Table usando a Azure Data Factory
@@ -60,7 +60,7 @@ Para obter uma lista completa de secções & propriedades disponíveis para defi
 
 A secção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados na loja de dados. A secção **typeProperties** para o conjunto de dados do tipo **AzureTable** tem as seguintes propriedades.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | tableName |Nome da tabela na instância Azure Table Database a que o serviço ligado se refere. |Sim. Quando um nome de mesa é especificado sem um azureTableSourceQuery, todos os registos da tabela são copiados para o destino. Se for também especificado um azureTableSourceQuery, os registos da tabela que satisfaz a consulta são copiados para o destino. |
 
@@ -81,7 +81,7 @@ As propriedades disponíveis na secção de tipoProperties da atividade, por out
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| azureTableSourceQuery |Utilize a consulta personalizada para ler dados. |Corda de consulta de mesa azul. Veja os exemplos na secção seguinte. |Não. Quando um nome de mesa é especificado sem um azureTableSourceQuery, todos os registos da tabela são copiados para o destino. Se for também especificado um azureTableSourceQuery, os registos da tabela que satisfaz a consulta são copiados para o destino. |
+| azureTableSourceQuery |Utilize a consulta personalizada para ler dados. |Corda de consulta de mesa azul. Veja os exemplos na secção seguinte. |N.º Quando um nome de mesa é especificado sem um azureTableSourceQuery, todos os registos da tabela são copiados para o destino. Se for também especificado um azureTableSourceQuery, os registos da tabela que satisfaz a consulta são copiados para o destino. |
 | azureTableSourceIgnoreTableNotFound |Indicar se engolir a exceção da tabela não existe. |TRUE<br/>FALSE |Não |
 
 ### <a name="azuretablesourcequery-examples"></a>exemplos azureTableSourceQuery
@@ -483,7 +483,7 @@ Ao mover dados para & a partir da Tabela Azure, os [seguintes mapeamentos defini
 | Edm.Guid |GUID |Um identificador globalmente único de 128 bits. |
 | Edm.Int32 |Int32 |Um inteiro de 32 bits. |
 | Edm.Int64 |Int64 |Um inteiro de 64 bits. |
-| Edm.String |String |Um valor codificado UTF-16. Os valores das cordas podem chegar a 64 KB. |
+| Edm.String |Cadeia |Um valor codificado UTF-16. Os valores das cordas podem chegar a 64 KB. |
 
 ### <a name="type-conversion-sample"></a>Amostra de conversão do tipo
 A amostra a seguir destina-se a copiar dados de uma Bolha Azure para Azure Table com conversões de tipo.

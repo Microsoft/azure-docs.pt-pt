@@ -2,7 +2,7 @@
 title: Junte-se a um Ubuntu VM para Azure AD Domain Services / Microsoft Docs
 description: Aprenda a configurar e junte-se a uma máquina virtual Ubuntu Linux a um domínio gerido por Azure AD Domain Services.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 804438c4-51a1-497d-8ccc-5be775980203
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/13/2020
-ms.author: iainfou
+ms.author: joflore
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d01d961a5d5b86f74bb785c3fddfa09843aa060c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ac620ffa36bdeb35ef524ef2956db03c8edcb566
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283151"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962093"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Junte-se a uma máquina virtual Ubuntu Linux a um domínio gerido por Azure Ative Directory Domain Services
 
@@ -77,7 +77,7 @@ Quando terminar, guarde e saia do ficheiro dos *anfitriões* utilizando `:wq` o 
 
 ## <a name="install-required-packages"></a>Instalar pacotes necessários
 
-O VM precisa de alguns pacotes adicionais para juntar o VM ao domínio gerido. Para instalar e configurar estes pacotes, atualizar e instalar as ferramentas de união de domínios utilizando`apt-get`
+O VM precisa de alguns pacotes adicionais para juntar o VM ao domínio gerido. Para instalar e configurar estes pacotes, atualizar e instalar as ferramentas de união de domínios utilizando `apt-get`
 
 Durante a instalação kerberos, o pacote *de utilizador krb5* solicita o nome do reino em TODOS OS MAI. Por exemplo, se o nome do seu domínio gerido for *aaddscontoso.com*, insira *AADDSCONTOSO.COM* como o reino. A instalação escreve as `[realm]` secções e `[domain_realm]` secções em */etc/krb5.conf* ficheiro de configuração. Certifique-se de que especifica o reino de um MAI:
 

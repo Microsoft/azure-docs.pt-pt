@@ -9,17 +9,17 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.openlocfilehash: 6abe0ed88adbdf8263aa27d340fb2fff156d98e6
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90089348"
 ---
 # <a name="drawing-tool-events"></a>Eventos de ferramentas de desenho
 
 Ao usar ferramentas de desenho num mapa, é útil reagir a certos eventos à medida que o utilizador se desenha no mapa. Esta tabela lista todos os eventos apoiados pela `DrawingManager` classe.
 
-| Evento | Description |
+| Evento | Descrição |
 |-------|-------------|
 | `drawingchanged` | Disparado quando qualquer coordenada de forma foi adicionada ou alterada. | 
 | `drawingchanging` | Disparado quando estiver a ser apresentada qualquer coordenada de pré-visualização para uma forma. Por exemplo, este evento disparará várias vezes à medida que uma coordenada é arrastada. | 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 07/30/2020
 ms.openlocfilehash: ceb4a3356ef78d2129f76bd11f555a9ca5206d51
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87505838"
 ---
 # <a name="azure-cli-script-sample---create-a-logic-app"></a>Azure CLI script sample - crie uma app lógica
@@ -25,7 +25,7 @@ Este script cria uma aplicação lógica de amostra através da [extensão Azure
 
 * Uma conta Azure com uma subscrição ativa. Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * O [CLI Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) instalado no seu computador local.
-* A [extensão Logic Apps Azure CLI](/cli/azure/azure-cli-extensions-list?view=azure-cli-latest) instalada no seu computador. Para instalar esta extensão, utilize este comando:`az extension add --name logic`
+* A [extensão Logic Apps Azure CLI](/cli/azure/azure-cli-extensions-list?view=azure-cli-latest) instalada no seu computador. Para instalar esta extensão, utilize este comando: `az extension add --name logic`
 * Uma [definição de fluxo de trabalho](quickstart-logic-apps-azure-cli.md#workflow-definition) para a sua aplicação lógica. Este ficheiro JSON deve seguir o [esquema linguístico de Definição de Fluxo de Trabalho](logic-apps-workflow-definition-language.md).
 * Uma ligação API a uma conta de e-mail através de um [conector De Aplicações Lógicas](../connectors/apis-list.md) suportado no mesmo grupo de recursos que a sua aplicação lógica. Este exemplo utiliza o conector [Office 365 Outlook,](../connectors/connectors-create-api-office365-outlook.md) mas também pode utilizar outros conectores como [Outlook.com](../connectors/connectors-create-api-outlook.md).
 

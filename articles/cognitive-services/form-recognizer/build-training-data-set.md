@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
 ms.openlocfilehash: 073f1361771ded96b33158d040efd77306acd846
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91276951"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Construa um conjunto de dados de formação para um modelo personalizado
@@ -78,6 +78,6 @@ Agora que aprendeu a construir um conjunto de dados de treino, siga um quickstar
 * [Treine com etiquetas usando a ferramenta de rotulagem da amostra](./quickstarts/label-tool.md)
 * [Preparar com etiquetas através da API REST e do Python](./quickstarts/python-labeled-data.md)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 * [O que é o Reconhecedor de Formato?](./overview.md)

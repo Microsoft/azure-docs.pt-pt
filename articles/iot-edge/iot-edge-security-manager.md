@@ -9,12 +9,12 @@ ms.author: eustacea
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: d5cfa16196a8815b711fd5277a80f6eb67d3a388
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d50ff37c3d29ae8e9e25d8759ef3c55787a58047
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76548701"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043005"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Gestor de segurança Azure IoT Edge
 
@@ -75,7 +75,7 @@ O daemon de segurança IoT Edge aproveita qualquer raiz de hardware disponível 
 
 #### <a name="cloud-interface"></a>Interface em nuvem
 
-A interface na nuvem permite que o daemon de segurança IoT Edge aceda a serviços na nuvem, como elogios na nuvem à segurança do dispositivo, como renovação de segurança.  Por exemplo, o daemon de segurança IoT Edge utiliza atualmente esta interface para aceder ao [Serviço de Provisionamento de Dispositivos](https://docs.microsoft.com/azure/iot-dps/) Azure IoT Hub para gestão do ciclo de vida da identidade do dispositivo.  
+A interface na nuvem permite que o daemon de segurança IoT Edge aceda a serviços na nuvem, como elogios na nuvem à segurança do dispositivo, como renovação de segurança.  Por exemplo, o daemon de segurança IoT Edge utiliza atualmente esta interface para aceder ao [Serviço de Provisionamento de Dispositivos](../iot-dps/index.yml) Azure IoT Hub para gestão do ciclo de vida da identidade do dispositivo.  
 
 #### <a name="management-api"></a>API de Gestão
 
@@ -119,7 +119,7 @@ O silício seguro é necessário para ancorar a confiança dentro do hardware do
 
 O gestor de segurança IoT Edge tem como objetivo identificar e isolar os componentes que defendem a segurança e integridade da plataforma Azure IoT Edge para o endurecimento personalizado. Terceiros, como fabricantes de dispositivos, devem utilizar funcionalidades de segurança personalizadas disponíveis com o hardware do dispositivo.  Consulte a secção de próximos passos para obter links que demonstrem como endurecer o gestor de segurança Azure IoT com o Módulo de Plataforma Fidedigna (TPM) nas plataformas Linux e Windows. Estes exemplos utilizam software ou TPMs virtuais, mas aplicam-se diretamente à utilização de dispositivos TPM discretos.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia o blog sobre [a garantia da borda inteligente.](https://azure.microsoft.com/blog/securing-the-intelligent-edge/)
 

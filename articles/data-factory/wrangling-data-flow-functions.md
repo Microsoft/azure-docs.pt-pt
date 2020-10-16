@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
 ms.openlocfilehash: e63c3f329cb9c1fd5ca91274540f5145c3ad098a
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85921558"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>Funções de transformação no fluxo de dados de estrangulamento
@@ -68,15 +68,15 @@ As seguintes funções M adicionam ou transformam colunas: [Table.AddColumn](htt
 ----------------------
 * A Power Query gerará uma junção aninhada (Table.NestedJoin; os utilizadores também podem escrever manualmente [Table.AddJoinColumn).](https://docs.microsoft.com/powerquery-m/table-addjoincolumn)
     Os utilizadores devem então expandir a coluna de união aninhada para uma junção não aninhada (Table.ExpandTableColumn, não suportado em nenhum outro contexto).
-* A tabela de funções [M.Se pode](https://docs.microsoft.com/powerquery-m/table-join) ser escrita diretamente para evitar a necessidade de um passo de expansão adicional, mas o utilizador deve garantir que não existem nomes de colunas duplicados entre as tabelas unidas
-* Tipos de Junção Suportados: [Interior,](https://docs.microsoft.com/powerquery-m/joinkind-inner) [LeftOuter,](https://docs.microsoft.com/powerquery-m/joinkind-leftouter) [RightOuter,](https://docs.microsoft.com/powerquery-m/joinkind-rightouter) [FullOuter](https://docs.microsoft.com/powerquery-m/joinkind-fullouter)
-* Tanto [o Valor.Iguais como](https://docs.microsoft.com/powerquery-m/value-equals) o [Valor.NullableEquals](https://docs.microsoft.com/powerquery-m/value-nullableequals) são suportados como principais comparadores de igualdade
+* A tabela de funções   [M.Se pode](https://docs.microsoft.com/powerquery-m/table-join) ser escrita diretamente para evitar a necessidade de um passo de expansão adicional, mas o utilizador deve garantir que não existem nomes de colunas duplicados entre as tabelas unidas
+* Tipos de Junção Suportados:   [Interior,](https://docs.microsoft.com/powerquery-m/joinkind-inner)   [LeftOuter,](https://docs.microsoft.com/powerquery-m/joinkind-leftouter)   [RightOuter,](https://docs.microsoft.com/powerquery-m/joinkind-rightouter)   [FullOuter](https://docs.microsoft.com/powerquery-m/joinkind-fullouter)
+* Tanto   [o Valor.Iguais como](https://docs.microsoft.com/powerquery-m/value-equals) o   [Valor.NullableEquals](https://docs.microsoft.com/powerquery-m/value-nullableequals) são suportados como principais comparadores de igualdade
 
 ## <a name="group-by"></a>Agrupar por
 
 Utilize [o Quadro.Grupo](https://docs.microsoft.com/powerquery-m/table-group) para valores agregados.
 * Deve ser usado com uma função de agregação
-* Funções de agregação suportadas: [Table.RowCount](https://docs.microsoft.com/powerquery-m/table-rowcount), [List.Sum](https://docs.microsoft.com/powerquery-m/list-sum), [List.Count](https://docs.microsoft.com/powerquery-m/list-count), [List.Average](https://docs.microsoft.com/powerquery-m/list-average), [List.Min](https://docs.microsoft.com/powerquery-m/list-min), [List.Max](https://docs.microsoft.com/powerquery-m/list-max), [List.StandardDeviation](https://docs.microsoft.com/powerquery-m/list-standarddeviation), [List.First](https://docs.microsoft.com/powerquery-m/list-first), [List.Last](https://docs.microsoft.com/powerquery-m/list-last)
+* Funções de agregação suportadas:   [Table.RowCount](https://docs.microsoft.com/powerquery-m/table-rowcount),   [List.Sum](https://docs.microsoft.com/powerquery-m/list-sum),   [List.Count](https://docs.microsoft.com/powerquery-m/list-count),   [List.Average](https://docs.microsoft.com/powerquery-m/list-average),   [List.Min](https://docs.microsoft.com/powerquery-m/list-min),   [List.Max](https://docs.microsoft.com/powerquery-m/list-max),   [List.StandardDeviation](https://docs.microsoft.com/powerquery-m/list-standarddeviation),   [List.First](https://docs.microsoft.com/powerquery-m/list-first),   [List.Last](https://docs.microsoft.com/powerquery-m/list-last)
 
 ## <a name="sorting"></a>Ordenação
 
@@ -101,6 +101,6 @@ Manter e remover a parte superior, manter o alcance (funções M correspondentes
 | Table.Transpose | Não suportado |
 | Table.Pivot | Não suportado |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [criar um fluxo de dados de estrangulamento.](wrangling-data-flow-tutorial.md)

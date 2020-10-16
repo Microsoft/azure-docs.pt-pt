@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
 ms.openlocfilehash: 00fb4073bc8a7b1375f92202b5a6bd0a59a23816
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91442298"
 ---
 # <a name="tutorial-discover-physical-servers-with-server-assessment"></a>Tutorial: Descubra servidores físicos com avaliação do servidor
@@ -241,7 +241,7 @@ Após o fim da descoberta, pode verificar se os servidores aparecem no portal.
 
 1. Abra o dashboard do Azure Migrate.
 2. Em **Azure Migrate - Servidores**  >  **Azure Migrate:** Página de Avaliação do servidor, clique no ícone que exibe a contagem para **servidores descobertos**.
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Avaliar servidores físicos](tutorial-assess-physical.md) para migração para VMs Azure.
 - [Reveja os dados](migrate-appliance.md#collected-data---physical) que o aparelho recolhe durante a descoberta.

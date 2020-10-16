@@ -9,7 +9,7 @@ ms.openlocfilehash: 870345d244a7f23011c900154e1c486e039a6d8d
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91854819"
 ---
 # <a name="enable-update-management-from-a-runbook"></a>Ativar a Gestão de Atualizações a partir de um runbook

@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 07/15/2019
 ms.author: raynew
 ms.openlocfilehash: bcc6f41d7cc08764266ffb6705d1b8937d355199
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86109727"
 ---
 # <a name="customize-an-assessment"></a>Personalizar uma avaliação
@@ -27,15 +27,15 @@ As avaliações que cria com a Avaliação do Servidor são uma imagem pontual d
 
 **Tipo de Avaliação** | **Detalhes**
 --- | --- 
-**VM do Azure** | Avaliações para migrar os seus servidores no local para máquinas virtuais Azure. <br/><br/> Pode avaliar os seus [VMS VMware](how-to-set-up-appliance-vmware.md)no local, [VMs hiper-V](how-to-set-up-appliance-hyper-v.md)e [servidores físicos](how-to-set-up-appliance-physical.md) para migração para Azure utilizando este tipo de avaliação. (concepts-assessment-calculation.md)
-**Solução VMware no Azure (AVS)** | Avaliações para migrar os seus servidores no local para [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> Pode avaliar os seus [VMS VMware](how-to-set-up-appliance-vmware.md) no local para migração para Azure VMware Solution (AVS) utilizando este tipo de avaliação. [Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
+**VM do Azure** | Avaliações para migrar os seus servidores no local para máquinas virtuais do Azure. <br/><br/> Pode avaliar os seus [VMS VMware](how-to-set-up-appliance-vmware.md)no local, [VMs hiper-V](how-to-set-up-appliance-hyper-v.md)e [servidores físicos](how-to-set-up-appliance-physical.md) para migração para Azure utilizando este tipo de avaliação. (concepts-assessment-calculation.md)
+**Solução VMware no Azure (AVS)** | Avaliações para migrar os seus servidores no local para o [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> Pode avaliar as [VMs VMware](how-to-set-up-appliance-vmware.md) no local para a migração para o Azure VMware Solution (AVS) com este tipo de avaliação.[Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
 
 Uma avaliação Azure VM na Avaliação do Servidor fornece duas opções de critérios de dimensionamento:
 
 **Critérios de dimensionamento** | **Detalhes** | **Dados**
 --- | --- | ---
-**Baseado no desempenho** | Avaliações que fazem recomendações com base em dados de desempenho recolhidos | **Avaliação Azure VM**: A recomendação do tamanho de VM baseia-se em dados de cpu e utilização da memória.<br/><br/> A recomendação do tipo de disco (hdd/SSD padrão ou discos geridos por prémios) baseia-se no IOPS e na produção dos discos no local.<br/><br/> **Avaliação da Solução Azure VMware (AVS):** A recomendação dos nós AVS baseia-se em dados de CPU e utilização da memória.
-**As-is in-ins** | Avaliações que não usam dados de desempenho para fazer recomendações. | **Avaliação Azure VM**: A recomendação do tamanho de VM baseia-se no tamanho VM no local<br/><br> O tipo de disco recomendado baseia-se no que seleciona na definição do tipo de armazenamento para a avaliação.<br/><br/> **Avaliação da Solução Azure VMware (AVS):** A recomendação dos nós AVS baseia-se no tamanho VM no local.
+**Com base no desempenho** | Avaliações que fazem recomendações com base nos dados de desempenho recolhidos | **Avaliação da VM do Azure**: A recomendação de tamanho da VM baseia-se nos dados de utilização da CPU e da memória.<br/><br/> A recomendação do tipo de disco (HDD/SSD padrão ou discos geridos premium) baseia-se no IOPS e no débito dos discos no local.<br/><br/> **Avaliação do Azure VMware Solution (AVS)** : A recomendação de nós AVS baseia-se nos dados de utilização da CPU e da memória.
+**Como está no local** | Avaliações que não utilizam dados de desempenho para fazer recomendações. | **Avaliação da VM do Azure**: A recomendação de tamanho da VM baseia-se no tamanho da VM no local<br/><br> O tipo de disco recomendado baseia-se naquilo que seleciona na definição do tipo de armazenamento para a avaliação.<br/><br/> **Avaliação do Azure VMware Solution (AVS)** : A recomendação de nós AVS baseia-se no tamanho da VM no local.
 
 
 ## <a name="how-is-an-assessment-done"></a>Como se faz uma avaliação?
@@ -96,7 +96,7 @@ Para editar propriedades de avaliação após a criação de uma avaliação, fa
 Também pode editar propriedades de avaliação quando estiver a criar uma avaliação.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba mais](concepts-assessment-calculation.md) sobre como as avaliações de Azure VM são calculadas.
 - [Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md) sobre como as avaliações do AVS são calculadas.

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 5/2/2020
 ms.author: derekol
 ms.openlocfilehash: 69201c97882846fb929b3b6f9a90be6647603bcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84700485"
 ---
 # <a name="create-or-modify-an-exchange-peering-by-using-the-azure-portal"></a>Criar ou modificar um persco de Troca utilizando o portal Azure
@@ -21,7 +21,7 @@ Este artigo descreve como criar uma Microsoft Exchange a espreitar utilizando o 
 
 Se preferir, pode completar este guia utilizando [o PowerShell](howto-exchange-powershell.md).
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 * Reveja os [pré-requisitos](prerequisites.md) e o [Persimento do Persimento cambial](walkthrough-exchange-all.md) antes de iniciar a configuração.
 * Se já tem persigos de Troca com a Microsoft que não são convertidos para recursos Azure, consulte [Converter um legado Exchange olhando para um recurso Azure utilizando o portal](howto-legacy-exchange-portal.md).
 
@@ -70,7 +70,7 @@ Como Fornecedor de Troca de Internet, pode criar um pedido de permuta [através 
 ## <a name="deprovision-an-exchange-peering"></a><a name="delete"></a>Deprovisionar um perscruta de trocas
 [!INCLUDE [peering-exchange-delete-portal](./includes/delete.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar ou modificar um espreitamento direto utilizando o portal](howto-direct-portal.md)
 * [Converter um legado Espreitar diretamente para um recurso Azure utilizando o portal](howto-legacy-direct-portal.md)

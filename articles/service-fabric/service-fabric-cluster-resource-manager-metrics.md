@@ -7,10 +7,10 @@ ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3cb22bc2cd032e51dcdb7429e2c0684c578b0870
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89005654"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Gestão do consumo de recursos e carga em Tecido de Serviço com métricas
@@ -29,7 +29,7 @@ Digamos que quer começar a escrever e a implementar o seu serviço. Neste momen
 | --- | --- | --- | --- | --- |
 | Contagem primária |0 |0 |1 |Alto |
 | ReplicaCount |0 |1 |1 |Médio |
-| de palavras |1 |1 |1 |Baixa |
+| Contagem |1 |1 |1 |Baixo |
 
 
 Para cargas de trabalho básicas, as métricas padrão proporcionam uma distribuição decente do trabalho no cluster. No exemplo seguinte, vamos ver o que acontece quando criamos dois serviços e dependemos das métricas padrão para equilibrar. O primeiro serviço é um serviço imponente com três divisórias e uma réplica de três tamanhos. O segundo serviço é um serviço apátrida com uma divisória e uma contagem de três casos.

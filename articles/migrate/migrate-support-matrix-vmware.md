@@ -4,10 +4,10 @@ description: Saiba mais sobre o suporte para a avaliação de VMware VM com aval
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.openlocfilehash: f672c90f6056cd735d5ddc8dd96de9e7007999ce
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91667797"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matriz de suporte para avaliação de VMware 
@@ -114,7 +114,7 @@ Além de descobrir máquinas, a Avaliação do Servidor pode descobrir apps, fun
 **Azure Government** | A análise da dependência baseada em agentes não é suportada.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - [Reveja as](best-practices-assessment.md) melhores práticas para criar avaliações.
 - Prepare-se para a avaliação [da VMware.](tutorial-prepare-vmware.md)

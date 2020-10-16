@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 09/02/2020
 ms.topic: conceptual
 ms.openlocfilehash: 6dcd2005971927de30ca96173cb2bdb063e46663
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89397440"
 ---
 # <a name="forward-azure-automation-job-data-to-azure-monitor-logs"></a>Reencaminhar dados de tarefa da Automatização do Azure para os registos do Azure Monitor
@@ -190,7 +190,7 @@ AzureDiagnostics
 
 ![Log Analytics Histórico Fluxo de Emprego JSON formato](media/automation-manage-send-joblogs-log-analytics/job-status-format-json.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para aprender a construir consultas de pesquisa e rever os registos de trabalho da Automação com registos do Azure Monitor, consulte [as pesquisas de Registo nos registos do Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 * Para compreender a criação e recuperação de mensagens de saída e erro a partir de runbooks, consulte [a saída do livro de execução do Monitor](automation-runbook-output-and-messages.md).

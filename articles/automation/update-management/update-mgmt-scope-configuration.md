@@ -6,10 +6,10 @@ ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
 ms.openlocfilehash: aafd284122ca61ba2b668186095b88003be2775c
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87450372"
 ---
 # <a name="limit-update-management-deployment-scope"></a>Limite de implementação de gestão de atualização
@@ -30,7 +30,7 @@ Para limitar o âmbito de aplicação da sua gestão de atualização:
 
 3. Selecione **Configurações de âmbito (pré-visualização)** em **Fontes de Dados do Espaço de Trabalho**.
 
-4. Selecione a elipse à direita da configuração do `MicrosoftDefaultScopeConfig-Updates` âmbito e **selecione Editar**.
+4. Selecione a elipse à direita da configuração do  `MicrosoftDefaultScopeConfig-Updates` âmbito e **selecione Editar**.
 
 5. No painel de edição, **expanda os grupos de computador selecionados.** O painel de grupos de computador mostra as pesquisas guardadas que são usadas para criar a configuração do âmbito. A pesquisa guardada utilizada pela Update Management é:
 

@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 23d1e4b06c9c0278742da0cec8ac565b5f80a362
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88004909"
 ---
 # <a name="windows-virtual-desktop-classic-powershell"></a>Windows Virtual Desktop (clássico) PowerShell
@@ -28,7 +28,7 @@ Visite a [Comunidade Virtual desktop tech do Windows](https://techcommunity.micr
 
 Esta secção lista os comandos PowerShell que são normalmente utilizados durante a configuração do Windows Virtual Desktop e fornece formas de resolver problemas que podem ocorrer durante a sua utilização.
 
-### <a name="error-add-rdsappgroupuser-command----the-specified-userprincipalname-is-already-assigned-to-a-remoteapp-app-group-in-the-specified-host-pool"></a>Erro: Comando Add-RdsAppGroupUser -- O nome designado userPrincipal Já está atribuído a um grupo de aplicações RemoteApp no Pool anfitrião especificado
+### <a name="error-add-rdsappgroupuser-command----the-specified-userprincipalname-is-already-assigned-to-a-remoteapp-app-group-in-the-specified-host-pool"></a>Erro: Add-RdsAppGroupUser comando -- O Nome Do Utilizador Especificado já está atribuído a um grupo de aplicações RemoteApp no Pool host especificado
 
 ```Powershell
 Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName 'Desktop Application Group' -UserPrincipalName <UserName>
@@ -38,7 +38,7 @@ Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGr
 
 **Correção:** Se o utilizador precisar de aplicações remotas e de desktop remoto, crie diferentes piscinas de anfitriões ou conceda o acesso do utilizador ao ambiente de trabalho remoto, o que permitirá a utilização de qualquer aplicação no VM do anfitrião da sessão.
 
-### <a name="error-add-rdsappgroupuser-command----the-specified-userprincipalname-doesnt-exist-in-the-azure-active-directory-associated-with-the-remote-desktop-tenant"></a>Erro: Comando Add-RdsAppGroupUser -- O nome de UtilizadorPrincipal especificado não existe no Diretório Ativo Azure associado ao inquilino de Ambiente de Trabalho Remoto
+### <a name="error-add-rdsappgroupuser-command----the-specified-userprincipalname-doesnt-exist-in-the-azure-active-directory-associated-with-the-remote-desktop-tenant"></a>Erro: Add-RdsAppGroupUser comando -- O Nome Do Utilizador Especificado não existe no Diretório Ativo Azure associado ao inquilino de Ambiente de Trabalho Remoto
 
 ```PowerShell
 Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName "Desktop Application Group" -UserPrincipalName <UserPrincipalName>
@@ -52,7 +52,7 @@ Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGr
 - O utilizador não está ligado ao comércio de negócios (B2C) ou de negócios-a-negócios (B2B).
 - O inquilino virtual do Windows desktop está ligado à correção do Azure Ative Directory.
 
-### <a name="error-get-rdsdiagnosticactivities----user-isnt-authorized-to-query-the-management-service"></a>Erro: Get-RdsDiagnosticActividades -- O utilizador não está autorizado a consultar o serviço de gestão
+### <a name="error-get-rdsdiagnosticactivities----user-isnt-authorized-to-query-the-management-service"></a>Erro: Get-RdsDiagnosticActivities -- O utilizador não está autorizado a consultar o serviço de gestão
 
 ```PowerShell
 Get-RdsDiagnosticActivities -ActivityId <ActivityId>
@@ -60,9 +60,9 @@ Get-RdsDiagnosticActivities -ActivityId <ActivityId>
 
 **Causa:** -Parâmetro de Nome do Inquilino
 
-**Correção:** Emissão Atividades Get-RdsDiagnostic com -TenantName \<TenantName> .
+**Correção:** Emissão Get-RdsDiagnosticActivities com -TenantName. \<TenantName>
 
-### <a name="error-get-rdsdiagnosticactivities----the-user-isnt-authorized-to-query-the-management-service"></a>Erro: Get-RdsDiagnosticActividades -- o utilizador não está autorizado a consultar o serviço de gestão
+### <a name="error-get-rdsdiagnosticactivities----the-user-isnt-authorized-to-query-the-management-service"></a>Erro: Get-RdsDiagnosticActivities -- o utilizador não está autorizado a consultar o serviço de gestão
 
 ```PowerShell
 Get-RdsDiagnosticActivities -Deployment -username <username>
@@ -83,7 +83,7 @@ Get-RdsDiagnosticActivities -Deployment -username <username>
 **Correção 2:** Um utilizador com permissões de Ative Directory precisa de executar a atribuição de funções.
 
 >[!Note]
->A New-RdsRoleAssignment não pode dar permissões a um utilizador que não exista no Diretório Ativo Azure (AD).
+>New-RdsRoleAssignment não pode dar permissões a um utilizador que não exista no Diretório Ativo Azure (AD).
 
 ## <a name="next-steps"></a>Passos seguintes
 

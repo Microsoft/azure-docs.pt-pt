@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: d34b5aaaa12a3d296f92e0d7be34ae76931d8506
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: aa33319f146ac57ab4d253696c94308a43b5db2e
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268490"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019618"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Serviços de Mídia v3 frequentemente perguntas
 
@@ -28,7 +28,7 @@ Este artigo dá respostas a perguntas frequentes sobre a Azure Media Services v3
 
 ### <a name="what-are-the-azure-portal-limitations-for-media-services-v3"></a>Quais são as limitações do portal Azure para os Serviços de Comunicação Social v3?
 
-Você pode usar o [portal Azure](https://portal.azure.com/) para gerir eventos v3 ao vivo, ver ativos e empregos v3, obter informações sobre o acesso a APIs, encriptar conteúdo. <br/>Para todas as outras tarefas de gestão (por exemplo, gerir transformações e empregos ou analisar o conteúdo v3), utilize o [REST API,](https://aka.ms/ams-v3-rest-ref) [OCli,](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs suportados.](media-services-apis-overview.md#sdks)
+Você pode usar o [portal Azure](https://portal.azure.com/) para gerir eventos v3 ao vivo, ver ativos e empregos v3, obter informações sobre o acesso a APIs, encriptar conteúdo. <br/>Para todas as outras tarefas de gestão (por exemplo, gerir transformações e empregos ou analisar o conteúdo v3), utilize o [REST API,](/rest/api/media/accountfilters) [OCli,](/cli/azure/ams)ou um dos [SDKs suportados.](media-services-apis-overview.md#sdks)
 
 Se o seu vídeo foi previamente enviado para a conta dos Media Services utilizando os Serviços de Comunicação v3 API ou se o conteúdo foi gerado com base numa saída ao vivo, não verá os botões **Encode**, **Analyze**ou **Encrypt** no portal Azure. Utilize os Serviços de Mídia v3 APIs para executar estas tarefas.  
 
@@ -163,7 +163,7 @@ Atualmente, pode utilizar o [portal Azure](https://portal.azure.com/) para:
 * Ver (não gerir) [ativos](assets-concept.md)v3 . 
 * [Obtenha informações sobre o acesso às APIs.](./access-api-howto.md) 
 
-Para todas as outras tarefas de gestão (por exemplo, [Transformações e Empregos](transforms-jobs-concept.md) e [proteção de conteúdos),](content-protection-overview.md)utilize a [API REST](/rest/api/media/), o [Azure CLI,](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs suportados.](media-services-apis-overview.md#sdks)
+Para todas as outras tarefas de gestão (por exemplo, [Transformações e Empregos](transforms-jobs-concept.md) e [proteção de conteúdos),](content-protection-overview.md)utilize a [API REST](/rest/api/media/), o [Azure CLI,](/cli/azure/ams)ou um dos [SDKs suportados.](media-services-apis-overview.md#sdks)
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>Existe um conceito AssetFile em v3?
 
@@ -191,7 +191,7 @@ Dependendo do design da chave de cache para a rede de entrega de conteúdos, o c
 
 #### <a name="is-fps-offline-mode-supported-on-ios-11-in-addition-to-ios-10"></a>O modo offline FPS é suportado no iOS 11 para além do iOS 10?
 
-Yes. O modo offline FPS é suportado para iOS 10 e iOS 11.
+Sim. O modo offline FPS é suportado para iOS 10 e iOS 11.
 
 #### <a name="why-cant-i-find-the-document-offline-playback-with-fairplay-streaming-and-http-live-streaming-in-the-fps-server-sdk"></a>Por que não posso encontrar o documento "Offline Playback with FairPlay Streaming e HTTP Live Streaming" no FPS Server SDK?
 

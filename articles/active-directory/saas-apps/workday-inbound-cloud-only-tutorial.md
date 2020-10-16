@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
 ms.openlocfilehash: 7d47c21da1279271b12933a2e4642abcce622600
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90015488"
 ---
 # <a name="tutorial-configure-workday-to-azure-ad-user-provisioning"></a>Tutorial: Configurar o Workday para o provisionamento do utilizador Azure AD
@@ -115,9 +115,9 @@ As secções seguintes descrevem passos para configurar o fornecimento do utiliz
    
      | Formato do URL | Versão API da WWS usada | Alterações XPATH necessárias |
      |------------|----------------------|------------------------|
-     | https://####.workday.com/ccx/service/tenantName | v21.1 | No |
-     | https://####.workday.com/ccx/service/tenantName/Human_Resources | v21.1 | No |
-     | https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# | v## . # | Yes |
+     | https://####.workday.com/ccx/service/tenantName | v21.1 | Não |
+     | https://####.workday.com/ccx/service/tenantName/Human_Resources | v21.1 | Não |
+     | https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# | v## . # | Sim |
 
       > [!NOTE]
      > Se nenhuma informação de versão for especificada no URL, a aplicação utiliza o Workday Web Services (WWS) v21.1 e não são necessárias alterações nas expressões API padrão enviadas com a aplicação. Para utilizar uma versão API da WWS específica, especifique o número da versão no URL <br>
@@ -183,7 +183,7 @@ Nesta secção, irá configurar como os dados dos utilizadores fluem de Workday 
 
      * **Apenas durante a criação** - Aplique este mapeamento apenas em ações de criação de utilizadores
 
-6. Para guardar os seus mapeamentos, clique em **Guardar** na parte superior da secção De mapeamento de Atributos.
+6. Para guardar os seus mapeamentos, clique em **Guardar** na parte superior da secção Attribute-Mapping.
 
 
 ## <a name="enable-and-launch-user-provisioning"></a>Permitir e lançar o fornecimento de utilizadores
@@ -206,11 +206,11 @@ Uma vez concluídas as configurações da aplicação de provisionamento workday
    > [!div class="mx-imgBorder"]
    > ![Provisão de barras de progresso](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba mais sobre atributos de trabalho suportados para o provisionamento de entrada](../app-provisioning/workday-attribute-reference.md)
 * [Saiba como configurar o Writeback workday](workday-writeback-tutorial.md)
-* [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
+* [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 * [Saiba como configurar um único sign-on entre workday e Azure Ative Directory](workday-tutorial.md)
 * [Saiba como integrar outras aplicações saaS com o Azure Ative Directory](tutorial-list.md)
 * [Saiba como exportar e importar as suas configurações de provisionamento](../app-provisioning/export-import-provisioning-configuration.md)

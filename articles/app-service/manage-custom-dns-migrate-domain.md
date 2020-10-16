@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 08/25/2020
 ms.custom: seodec18
 ms.openlocfilehash: e1b50675bef0f883ff617b3098a742d3491b3c13
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89484308"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrar um nome DNS ativo para o Azure App Service
@@ -119,7 +119,7 @@ Pode migrar um domínio personalizado ativo em Azure, entre subscrições ou den
 
 Pode encontrar a unidade de implantação da sua aplicação olhando para o nome de domínio do URL FTP/S `<deployment-unit>.ftp.azurewebsites.windows.net` . Verifique e certifique-se de que a unidade de implementação é diferente entre a aplicação de origem e a aplicação-alvo. A unidade de implantação de uma aplicação é determinada pelo plano de Serviço de [Aplicações](overview-hosting-plans.md) em que está. É selecionado aleatoriamente pelo Azure quando se cria o plano e não se pode mudar. O Azure apenas garante que dois planos estão na mesma unidade de implantação quando [os cria no mesmo grupo de recursos *e* na mesma região](app-service-plan-manage.md#create-an-app-service-plan), mas não tem qualquer lógica para garantir que os planos estão em diferentes unidades de implantação. A única maneira de criar um plano numa unidade de implantação diferente é continuar a criar um plano num novo grupo de recursos ou região até obter uma unidade de implantação diferente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como ligar um certificado TLS/SSL personalizado ao Serviço de Aplicações.
 

@@ -18,10 +18,10 @@ ms.date: 03/30/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 9af6311165f50023cfca8f9253f77b4c84c25dd5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87500934"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Filtrar o tráfego da rede com um grupo de segurança de rede usando o Azure CLI
@@ -232,7 +232,7 @@ curl myVmWeb
 
 Logout do *myVmMgmt* VM. Para confirmar que pode aceder ao servidor web *myVmWeb* a partir de fora do Azure, insira `curl <publicIpAddress>` a partir do seu próprio computador. A ligação tem sucesso, uma vez que a porta 80 é permitida a entrada da Internet para o grupo de segurança da aplicação *myAsgWebServers* em que se encontra a interface de rede anexada ao *myVmWeb* VM.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, utilize [o grupo AZ para remover](/cli/azure/group) o grupo de recursos e todos os recursos que contém.
 

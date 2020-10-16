@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 04/19/2020
 ms.openlocfilehash: 53428a542bb8d8d546e68f63aaf80ee40f2b0874
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91450239"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database-and-azure-sql-managed-instance"></a>Começar com funcionalidades JSON na Azure SQL Database e Azure SQL Managed Instance
@@ -192,7 +192,7 @@ END
 
 A recolha de encomendas formatada como matriz JSON e fornecida como parâmetro para o procedimento armazenado pode ser analisada e inserida na tabela Encomendas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender a integrar a JSON na sua aplicação, confira estes recursos:
 

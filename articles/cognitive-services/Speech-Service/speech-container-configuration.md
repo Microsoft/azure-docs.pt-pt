@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: aahi
 ms.openlocfilehash: e65bb7c7d8fc04baec6b50a53519e689e748fbe1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90900291"
 ---
 # <a name="configure-speech-service-containers"></a>Configurar recipientes de serviço de fala
@@ -50,7 +50,7 @@ Esta definição pode ser encontrada no seguinte local:
 
 - Portal Azure: Visão geral **da fala,** rotulada `Endpoint`
 
-| Necessário | Name | Tipo de dados | Descrição |
+| Necessário | Nome | Tipo de dados | Descrição |
 | -------- | ---- | --------- | ----------- |
 | Sim | `Billing` | String | URI de faturação. Para obter mais informações sobre a obtenção do URI de faturação, consulte [a recolha dos parâmetros necessários](speech-container-howto.md#gathering-required-parameters). Para obter mais informações e uma lista completa de pontos finais regionais, consulte [os nomes de subdomínio personalizados para serviços cognitivos.](../cognitive-services-custom-subdomains.md) |
 
@@ -78,7 +78,7 @@ Os recipientes Standard Speech não utilizam suportes de entrada ou saída para 
 
 A sintaxe exata da localização do suporte do hospedeiro varia consoante o sistema operativo do hospedeiro. Além disso, a localização do suporte do [computador anfitrião](speech-container-howto.md#the-host-computer)pode não estar acessível devido a um conflito entre permissões utilizadas pela conta de serviço do estivador e as permissões de localização do anfitrião.
 
-| Opcional | Name | Tipo de dados | Descrição |
+| Opcional | Nome | Tipo de dados | Descrição |
 | -------- | ---- | --------- | ----------- |
 | Não permitido | `Input` | Cadeia | Os recipientes de fala padrão não usam isto. Os recipientes de fala personalizados utilizam [suportes de volume](#volume-mount-settings).                                                                                    |
 | Opcional | `Output` | Cadeia | O alvo do suporte de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isto inclui registos de contentores. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output` |
@@ -130,7 +130,7 @@ Substitua {_argument_name_} com os seus próprios valores:
 
 Os seguintes exemplos do Docker são para o recipiente da Fala.
 
-## <a name="speech-to-text"></a>[Discurso-a-texto](#tab/stt)
+## <a name="speech-to-text"></a>[Conversão de voz em texto](#tab/stt)
 
 ### <a name="basic-example-for-speech-to-text"></a>Exemplo básico para Discurso-a-Texto
 
@@ -180,7 +180,7 @@ ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
-## <a name="text-to-speech"></a>[Texto-a-discurso](#tab/tss)
+## <a name="text-to-speech"></a>[Conversão de texto em voz](#tab/tss)
 
 ### <a name="basic-example-for-text-to-speech"></a>Exemplo básico para texto-a-discurso
 

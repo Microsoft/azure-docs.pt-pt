@@ -2,17 +2,14 @@
 title: Debug em Estúdio Visual com Azure Application Insights
 description: Análise de desempenho da aplicação Web e diagnóstico durante a depuração e produção.
 ms.topic: conceptual
-author: NumberByColors
-ms.author: daviste
-ms.date: 07/07/2017
-ms.reviewer: mbullwin
+ms.date: 03/17/2017
 ms.custom: vs-azure
-ms.openlocfilehash: 1bb18cc43ef306a208500ff49ec41dbfb74b788e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a3937719fd47ba988cf1e0a93f4c06fcc8112d3e
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323473"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91932214"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Depurar as suas aplicações com a Azure Application Insights no Visual Studio
 No Visual Studio (versão 2015 e posterior), pode analisar o desempenho e diagnosticar problemas de depuração e produção na sua aplicação Web ASP.NET, com a telemetria do [Application Insights do Azure](./app-insights-overview.md).
@@ -94,8 +91,6 @@ Também poderá ser útil se tiver alguma [telemetria personalizada](./api-custo
 
 
 ## <a name="next-steps"></a>Passos seguintes
-|  |  |
-| --- | --- |
-| **[Adicionar mais dados](./asp-net-more.md)**<br/>Monitorize a utilização, a disponibilidade, as dependências e as exceções. Integre rastreios a partir de arquiteturas de registo. Grave a telemetria personalizada. |![Visual Studio](./media/visual-studio/64.png) |
-| **[Trabalhar com o portal do Application Insights](./overview-dashboard.md)**<br/>Veja dashboards, ferramentas de diagnóstico e analítica poderosas, alertas, um mapa de dependência ao vivo da sua aplicação e dados de telemetria exportados. |![Visual Studio](./media/visual-studio/62.png) |
+
+ * **[Trabalhar com o portal Application Insights](./overview-dashboard.md)**. Veja dashboards, ferramentas de diagnóstico e analítica poderosas, alertas, um mapa de dependência ao vivo da sua aplicação e dados de telemetria exportados. 
 

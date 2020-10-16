@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/10/2019
 ms.author: sngun
 ms.openlocfilehash: 7257246f618e3028534f3ebd60eaf6f94a3a4720
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87092512"
 ---
 # <a name="azure-cosmos-db-gremlin-compatibility"></a>Compatibilidade Azure Cosmos DB Gremlin
@@ -33,7 +33,7 @@ O motor Azure Cosmos DB Graph segue de perto a especificação de passos travers
 
 * ***Triagem por propriedades*** `order().by(<array property>)` de matriz não é apoiado. A ordenação é suportada apenas por tipos primitivos.
 
-* ***Os tipos json não primitivos*** não são suportados. Utilizar, `string` `number` ou `true` / `false` tipos. `null`os valores não são suportados. 
+* ***Os tipos json não primitivos*** não são suportados. Utilizar, `string` `number` ou `true` / `false` tipos. `null` os valores não são suportados. 
 
 * O serializer ***GraphSONv3*** não está suportado atualmente. Utilize `GraphSONv2` aulas de Serializer, Reader e Writer na configuração de ligação. Os resultados devolvidos pela API AZURE Cosmos DB Gremlin não têm o mesmo formato que o formato GraphSON. 
 

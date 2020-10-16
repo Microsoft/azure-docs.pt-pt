@@ -8,10 +8,10 @@ ms.author: mingshen
 author: mingshen-ms
 ms.date: 06/10/2020
 ms.openlocfilehash: cb134c82f231eb8b6329b1acafb181032edd6936
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87320090"
 ---
 # <a name="anomaly-detection-service-for-metered-billing"></a>Serviço de deteção de anomalias da faturação limitada

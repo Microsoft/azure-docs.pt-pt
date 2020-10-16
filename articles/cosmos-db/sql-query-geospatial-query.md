@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
 ms.openlocfilehash: bbfc31e810e2c11cde4907c9d5120b66195191af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764983"
 ---
 # <a name="querying-geospatial-data-with-azure-cosmos-db"></a>Consulta de dados geoespaciais com Azure Cosmos DB
@@ -31,7 +31,7 @@ Aqui está uma lista de funções do sistema geoespacial úteis para consulta em
 
 As funções espaciais podem ser usadas para realizar consultas de proximidade contra dados espaciais. Por exemplo, aqui está uma consulta que devolve todos os documentos familiares que estão a menos de 30 km do local especificado usando a `ST_DISTANCE` função incorporada.
 
-**Consulta**
+**Query**
 
 ```sql
     SELECT f.id
@@ -39,7 +39,7 @@ As funções espaciais podem ser usadas para realizar consultas de proximidade c
     WHERE ST_DISTANCE(f.location, {"type": "Point", "coordinates":[31.9, -4.8]}) < 30000
 ```
 
-**Resultados**
+**Results**
 
 ```json
     [{
@@ -49,11 +49,11 @@ As funções espaciais podem ser usadas para realizar consultas de proximidade c
 
 Se incluir indexação espacial na sua política de indexação, então as "consultas à distância" serão servidas de forma eficiente através do índice. Para obter mais informações sobre a indexação espacial, consulte [a indexação geoespacial](sql-query-geospatial-index.md). Se não tiver um índice espacial para os caminhos especificados, a consulta fará uma verificação do recipiente.
 
-`ST_WITHIN`pode ser usado para verificar se um ponto está dentro de um Polígono. Normalmente, os polígonos são usados para representar limites como códigos postais, fronteiras do estado ou formações naturais. Mais uma vez, se incluir indexação espacial na sua política de indexação, então as consultas "dentro" serão servidas de forma eficiente através do índice.
+`ST_WITHIN` pode ser usado para verificar se um ponto está dentro de um Polígono. Normalmente, os polígonos são usados para representar limites como códigos postais, fronteiras do estado ou formações naturais. Mais uma vez, se incluir indexação espacial na sua política de indexação, então as consultas "dentro" serão servidas de forma eficiente através do índice.
 
 Os argumentos do `ST_WITHIN` polígono podem conter apenas um único anel, ou seja, os Polígonos não devem conter buracos neles.
 
-**Consulta**
+**Query**
 
 ```sql
     SELECT *
@@ -64,7 +64,7 @@ Os argumentos do `ST_WITHIN` polígono podem conter apenas um único anel, ou se
     })
 ```
 
-**Resultados**
+**Results**
 
 ```json
     [{
@@ -79,7 +79,7 @@ Os argumentos do `ST_WITHIN` polígono podem conter apenas um único anel, ou se
 
 A Azure Cosmos DB também suporta a realização de consultas inversas, ou seja, pode indexar polígonos ou linhas em Azure Cosmos DB, em seguida, consultar as áreas que contêm um ponto especificado. Este padrão é comumente usado em logística para identificar, por exemplo, quando um caminhão entra ou sai de uma área designada.
 
-**Consulta**
+**Query**
 
 ```sql
     SELECT *
@@ -87,7 +87,7 @@ A Azure Cosmos DB também suporta a realização de consultas inversas, ou seja,
     WHERE ST_WITHIN({"type": "Point", "coordinates":[31.9, -4.8]}, a.location)
 ```
 
-**Resultados**
+**Results**
 
 ```json
     [{
@@ -99,15 +99,15 @@ A Azure Cosmos DB também suporta a realização de consultas inversas, ou seja,
     }]
 ```
 
-`ST_ISVALID`e `ST_ISVALIDDETAILED` pode ser usado para verificar se um objeto espacial é válido. Por exemplo, a seguinte consulta verifica a validade de um ponto com um valor de latitude fora de alcance (-132.8). `ST_ISVALID`devolve apenas um valor Boolean, e `ST_ISVALIDDETAILED` devolve o Boolean e uma cadeia contendo a razão pela qual é considerado inválido.
+`ST_ISVALID` e `ST_ISVALIDDETAILED` pode ser usado para verificar se um objeto espacial é válido. Por exemplo, a seguinte consulta verifica a validade de um ponto com um valor de latitude fora de alcance (-132.8). `ST_ISVALID` devolve apenas um valor Boolean, e `ST_ISVALIDDETAILED` devolve o Boolean e uma cadeia contendo a razão pela qual é considerado inválido.
 
-**Consulta**
+**Query**
 
 ```sql
     SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })
 ```
 
-**Resultados**
+**Results**
 
 ```json
     [{
@@ -117,7 +117,7 @@ A Azure Cosmos DB também suporta a realização de consultas inversas, ou seja,
 
 Estas funções também podem ser usadas para validar polígonos. Por exemplo, aqui usamos `ST_ISVALIDDETAILED` para validar um Polígono que não está fechado.
 
-**Consulta**
+**Query**
 
 ```sql
     SELECT ST_ISVALIDDETAILED({ "type": "Polygon", "coordinates": [[ 
@@ -125,7 +125,7 @@ Estas funções também podem ser usadas para validar polígonos. Por exemplo, a
         ]]})
 ```
 
-**Resultados**
+**Results**
 
 ```json
     [{
@@ -176,7 +176,7 @@ Da mesma forma, aqui está uma consulta para encontrar todos os documentos que `
     }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a começar com o suporte geoespacial em Azure Cosmos DB, a seguir pode:
 

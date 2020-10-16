@@ -14,10 +14,10 @@ ms.date: 03/30/2020
 ms.author: prtyag
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 6d723e95212e457a81eedf7726bf3c5bd2499643
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84488890"
 ---
 # <a name="enable-kdump-service"></a>Ativar o serviço Kdump

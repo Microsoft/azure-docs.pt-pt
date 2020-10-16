@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: a8879bed4160c7cd1bd74cb196ce271964e384f7
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 52a2b5e27cd5857416343e559237d08ea9a591be
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91813241"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972395"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnóstico de arranque Azure
 
@@ -39,9 +39,9 @@ Localizada na lâmina da máquina virtual, a opção de diagnóstico de arranque
 - O diagnóstico de arranque só está disponível para VMs do Azure Resource Manager. 
 - Os diagnósticos de arranque não suportam contas de armazenamento premium, se uma conta de armazenamento premium for utilizada para diagnósticos de arranque os utilizadores receberão um `StorageAccountTypeNotSupported` erro ao iniciar o VM. 
 - As contas de armazenamento geridas são suportadas na versão API do Gestor de Recursos "2020-06-01" e posteriormente.
-- A Azure Serial Console é atualmente incompatível com uma conta de armazenamento gerida para o Boot Diagnostics. Saiba mais sobre [a Consola Em Série Azure.](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-overview)
+- A Azure Serial Console é atualmente incompatível com uma conta de armazenamento gerida para o Boot Diagnostics. Saiba mais sobre [a Consola Em Série Azure.](./troubleshooting/serial-console-overview.md)
 - Os diagnósticos de arranque utilizando uma conta de armazenamento de gestão só podem ser aplicados através do portal Azure. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre a [Consola em Série Azure](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-overview) e como utilizar diagnósticos de arranque para [resolver problemas em máquinas virtuais em Azure](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics).
+Saiba mais sobre a [Consola em Série Azure](./troubleshooting/serial-console-overview.md) e como utilizar diagnósticos de arranque para [resolver problemas em máquinas virtuais em Azure](./troubleshooting/boot-diagnostics.md).

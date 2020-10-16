@@ -10,10 +10,10 @@ ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: c51ef23e27cd63d3706c104d1e39a14bf61c258e
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86186355"
 ---
 # <a name="edit-textual-runbooks-in-azure-automation"></a>Editar livros de texto na Azure Automation
@@ -62,7 +62,7 @@ Este artigo fornece passos detalhados para o desempenho de diferentes funções 
 
 ## <a name="edit-an-azure-automation-runbook-using-windows-powershell"></a>Editar um runbook Azure Automation utilizando o Windows PowerShell
 
-Para editar um livro de bordo com o Windows PowerShell, utilize o editor da sua escolha e guarde o livro de execução para um ficheiro **.ps1.** Pode utilizar o [cmdlet Export-AzAutomationRunbook](/powershell/module/Az.Automation/Export-AzAutomationRunbook) para recuperar o conteúdo do livro de bordo. Pode utilizar o cmdlet [Import-AzAutomationRunbook](/powershell/module/Az.Automation/import-azautomationrunbook) para substituir o rascunho existente por um livro modificado.
+Para editar um livro de bordo com o Windows PowerShell, utilize o editor da sua escolha e guarde o livro de execução para um ficheiro **.ps1.** Pode utilizar o [cmdlet Export-AzAutomationRunbook](/powershell/module/Az.Automation/Export-AzAutomationRunbook) para recuperar o conteúdo do livro de bordo. Pode utilizar o cmdlet  [Import-AzAutomationRunbook](/powershell/module/Az.Automation/import-azautomationrunbook) para substituir o rascunho existente por um livro modificado.
 
 ### <a name="retrieve-the-contents-of-a-runbook-using-windows-powershell"></a>Recupere o conteúdo de um livro de execução utilizando o Windows PowerShell
 

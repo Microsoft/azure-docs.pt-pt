@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0b910e3b119167fb4c6de55289d92b9d538c8ddb
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6fedefccf57364e690415542114030ba7ce12b49
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284562"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974096"
 ---
 # <a name="azure-disk-encryption-for-windows-virtual-machines-faq"></a>Encriptação do disco Azure para máquinas virtuais do Windows FAQ
 
@@ -124,7 +124,7 @@ A Azure Disk Encryption seleciona o método de encriptação no BitLocker com ba
 | Windows Server 2012, Windows 8, 8.1, 10 | < 1511 |AES 256 bit *              |
 | Windows Server 2008R2            |        |AES 256 bit com Difusor |
 
-\*A aES 256 bit com Diffuser não é suportada no Windows 2012 e mais tarde.
+\* A aES 256 bit com Diffuser não é suportada no Windows 2012 e mais tarde.
 
 Para determinar a versão Do Windows OS, execute a ferramenta 'winver' na sua máquina virtual.
 
@@ -140,5 +140,5 @@ Pode fazer perguntas ou fornecer feedback sobre a [página de perguntas do Micro
 Neste documento, aprendeu mais sobre as questões mais frequentes relacionadas com a Encriptação do Disco Azure. Para obter mais informações sobre este serviço, consulte os seguintes artigos:
 
 - [Descrição geral do Azure Disk Encryption](disk-encryption-overview.md)
-- [Aplicar encriptação de disco no Azure Security Center](../../security-center/security-center-virtual-machine-protection.md)
+- [Aplicar encriptação de disco no Azure Security Center](../../security-center/asset-inventory.md)
 - [Encriptação de dados inativa do Azure](../../security/fundamentals/encryption-atrest.md)

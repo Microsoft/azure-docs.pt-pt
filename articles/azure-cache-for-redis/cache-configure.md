@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 81a65c088fd83ce179f67edd1ecdb96149dd1614
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.openlocfilehash: 22025e7be9a0ff276336511a906055dc31a67230
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91840256"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089728"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Como configurar cache Azure para Redis
 Este tópico descreve as configurações disponíveis para o seu Azure Cache para instâncias Redis. Este tópico também cobre a configuração padrão do servidor Redis para Azure Cache para instâncias Redis.
@@ -72,7 +72,7 @@ Clique **em Iniciarções de atividades** para ver as ações realizadas no seu 
 
 ### <a name="access-control-iam"></a>Controlo de acesso (IAM)
 
-A secção **de controlo de acesso (IAM)** fornece suporte para o controlo de acesso baseado em funções (RBAC) no portal Azure. Esta configuração ajuda as organizações a cumprir os seus requisitos de gestão de acesso de forma simples e precisa. Para obter mais informações, consulte [o controlo de acesso baseado em funções no portal Azure](../role-based-access-control/role-assignments-portal.md).
+A secção **de controlo de acesso (IAM)** fornece suporte para o controlo de acesso baseado em funções Azure (Azure RBAC) no portal Azure. Esta configuração ajuda as organizações a cumprir os seus requisitos de gestão de acesso de forma simples e precisa. Para obter mais informações, consulte [o controlo de acesso baseado em funções Azure no portal Azure](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="tags"></a>Etiquetas
 
@@ -214,7 +214,7 @@ Para alterar o tamanho do cluster, utilize o slider ou escreva um número entre 
 
 
 ### <a name="redis-data-persistence"></a>Persistência de dados de Redis
-Clique **em Persistência de Dados** para ativar, desativar ou configurar a persistência de dados para a sua cache premium. A azure Cache for Redis oferece persistência redis usando [a persistência de RDB](cache-how-to-premium-persistence.md#configure-rdb-persistence) ou [a persistência da AOF](cache-how-to-premium-persistence.md#configure-aof-persistence).
+Clique **em Persistência de Dados** para ativar, desativar ou configurar a persistência de dados para a sua cache premium. Azure Cache for Redis oferece persistência redis usando a persistência de RDB ou a persistência da AOF.
 
 Para obter mais informações, consulte [Como configurar a persistência para uma Cache Premium Azure para Redis](cache-how-to-premium-persistence.md).
 
@@ -386,7 +386,7 @@ A nova cache Azure para instâncias Redis são configuradas com os seguintes val
 >
 >
 
-| Definição | Valor predefinido | Descrição |
+| Definição | Valor predefinido | Description |
 | --- | --- | --- |
 | `databases` |16 |O número predefinido das bases de dados é de 16, mas pode configurar um número diferente com base no nível de preços. <sup>1</sup> A base de dados predefinitiva é DB 0, pode selecionar uma diferente numa base por ligação, utilizando `connection.GetDatabase(dbid)` onde está um número entre e `dbid` `0` `databases - 1` . |
 | `maxclients` |Depende do nível de preços<sup>2</sup> |Este valor é o número máximo de clientes conectados permitido ao mesmo tempo. Uma vez atingido o limite, a Redis fecha todas as novas ligações, devolvendo um erro de "número máximo de clientes atingidos". |

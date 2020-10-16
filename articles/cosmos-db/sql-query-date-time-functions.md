@@ -8,10 +8,10 @@ ms.date: 08/18/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 1ea838224f9d91b000100d5fa9308289619fd963
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88605191"
 ---
 # <a name="date-and-time-functions-azure-cosmos-db"></a>Funções de data e hora (Azure Cosmos DB)
@@ -35,9 +35,9 @@ As seguintes funções permitem manipular facilmente o DateTime, o relógio e os
 * [DateTimeFromParts](sql-query-datetimefromparts.md)
 * [DataTimePart](sql-query-datetimepart.md)
 * [DateTimeToTicks](sql-query-datetimetoticks.md)
-* [DataTimeToTimestamp](sql-query-datetimetotimestamp.md)
-* [Hora do Tiquetaque](sql-query-tickstodatetime.md)
-* [TempotampToDateTime](sql-query-timestamptodatetime.md)
+* [DateTimeToTimestamp](sql-query-datetimetotimestamp.md)
+* [TicksToDateTime](sql-query-tickstodatetime.md)
+* [TimestampToDateTime](sql-query-timestamptodatetime.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

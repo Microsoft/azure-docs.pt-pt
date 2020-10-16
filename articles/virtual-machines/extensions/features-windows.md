@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 611edb06762b96ded7671b70ec0f5d4f07f51848
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 78ea26adb8299cc13d4677c66a0e06cba901d9dc
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829089"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977379"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensões e funcionalidades de máquinas virtuais para Windows
 
@@ -70,7 +70,7 @@ Os pacotes de extensão são descarregados do repositório de extensão de armaz
 > [!IMPORTANT]
 > Se tiver bloqueado o acesso a *168.63.129.16* utilizando a firewall do hóspede ou com um representante, as extensões falham independentemente do acima referido. São necessários os portos 80, 443 e 32526.
 
-Os agentes só podem ser usados para descarregar pacotes de extensão e estado de reporte. Por exemplo, se uma instalação de extensão precisar de descarregar um script do GitHub (Script Personalizado) ou precisar de acesso ao Azure Storage (Azure Backup), então devem ser abertas portas adicionais do Firewall/Network Security Group. As extensões diferentes têm requisitos diferentes, uma vez que são aplicações por si só. Para extensões que exijam acesso ao Azure Storage ou ao Azure Ative Directory, pode permitir o acesso utilizando [tags de serviço Azure NSG](../../virtual-network/security-overview.md#service-tags) para armazenamento ou AzureActiveDirectory.
+Os agentes só podem ser usados para descarregar pacotes de extensão e estado de reporte. Por exemplo, se uma instalação de extensão precisar de descarregar um script do GitHub (Script Personalizado) ou precisar de acesso ao Azure Storage (Azure Backup), então devem ser abertas portas adicionais do Firewall/Network Security Group. As extensões diferentes têm requisitos diferentes, uma vez que são aplicações por si só. Para extensões que exijam acesso ao Azure Storage ou ao Azure Ative Directory, pode permitir o acesso utilizando [tags de serviço Azure NSG](../../virtual-network/network-security-groups-overview.md#service-tags) para armazenamento ou AzureActiveDirectory.
 
 O Windows Guest Agent não tem suporte para o servidor proxy para redirecionar os pedidos de tráfego de agentes através, o que significa que o Windows Guest Agent irá contar com o seu representante personalizado (se tiver um) para aceder a recursos na internet ou no Anfitrião através do IP 168.63.129.16.
 
@@ -254,7 +254,7 @@ Mover o **comando para executar a** propriedade para a configuração **protegid
 
 Num Azure IaaS VM que utiliza extensões, na consola de certificados, poderá ver certificados que têm o sujeito **_Gerador de Certificados PCR Azure._** Num VM RDFE Clássico, estes certificados têm o nome de **_Contat de Gestão de Serviços Windows Azure para Extensões_**.
 
-Estes certificados asseguram a comunicação entre o VM e o seu anfitrião durante a transferência de definições protegidas (palavra-passe, outras credenciais) utilizadas por extensões. Os certificados são construídos pelo controlador de tecido Azure e passados para o Agente VM. Se parar e iniciar o VM todos os dias, um novo certificado pode ser criado pelo controlador de tecido. O certificado está guardado na loja de certificados pessoais do computador. Estes certificados podem ser eliminados. O Agente VM recria certificados se necessário.
+Estes certificados garantem a comunicação entre a VM e o anfitrião durante a transferência das definições protegidas (palavra-passe, outras credenciais) utilizadas pelas extensões. Os certificados são criados pelo controlador dos recursos de infraestrutura do Azure e transferidos pelo Agente da VM. Se parar e iniciar a VM todos os dias, um novo certificado poderá ser criado pelo controlador dos recursos de infraestrutura. O certificado é armazenado no Arquivo de certificados pessoais do computador. Estes certificados podem ser eliminados. O Agente VM recria certificados se necessário.
 
 ### <a name="how-do-agents-and-extensions-get-updated"></a>Como é que os agentes e as extensões são atualizados?
 

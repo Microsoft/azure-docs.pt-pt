@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da9a0fe30721a2f55db2c4771f54716868f9972f
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: f2cbb9876d9e28b2cab8efb9ccdb2aa543fcc4b4
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055078"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91964473"
 ---
 # <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Planeie uma implementação de autenticação multi-factor Azure
 
@@ -238,10 +238,10 @@ Para planear a sua estratégia de política de acesso condicional, que determina
 1. Sob **utilizadores e grupos:**
    * No **separador Incluir,** selecione o botão de rádio **Todos os utilizadores**
    * No **separador Excluir,** verifique a caixa para **Utilizadores e grupos** e escolha as suas contas de acesso de emergência.
-   * Clique em **Concluído**.
+   * Clique em **Done** (Concluído).
 1. Nas **aplicações Cloud**, selecione o botão de rádio **All cloud apps.**
    * OPCIONALMENTE: No separador **Excluir,** escolha aplicações em nuvem para as quais a sua organização não necessita de MFA.
-   * Clique em **Concluído**.
+   * Clique em **Done** (Concluído).
 1. Secção **de Condições:**
    * OPCIONAL: Se tiver ativado a Proteção de Identidade Azure, pode optar por avaliar o risco de inscrição como parte da política.
    * OPCIONALMENTE: Se tiver configurado localizações fidedignas ou locais nomeados, pode especificar para incluir ou excluir essas localizações da apólice.

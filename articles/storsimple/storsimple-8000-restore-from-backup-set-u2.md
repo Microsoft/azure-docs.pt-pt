@@ -10,16 +10,16 @@ ms.devlang: NA
 ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 8783d5ce5596cdb4678c09b79c09797ef62cc9c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9033caf903967432b713afa00a509bd2d966d8b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86527834"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972021"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Restaurar um volume StorSimple a partir de um conjunto de cópias de segurança
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Overview (Descrição geral)
 
 Este tutorial descreve a operação de restauro realizada num dispositivo da série StorSimple 8000 utilizando um conjunto de backup existente. Utilize a lâmina **do catálogo Backup** para restaurar um volume a partir de uma cópia de segurança local ou na nuvem. A lâmina **do catálogo de cópias de segurança** exibe todos os conjuntos de backup que são criados quando são recolhidas cópias de segurança manuais ou automatizadas. A operação de restauro a partir de um conjunto de backup traz o volume on-line imediatamente enquanto os dados são descarregados em segundo plano.
 
@@ -115,7 +115,7 @@ Pode utilizar a lâmina **do Catálogo de Cópias de Segurança** para restaurar
    
 4. Volte para o separador **Catálogo de Cópias de Segurança** e selecione um conjunto de backup. Clique à direita e, em seguida, a partir do menu de contexto, **selecione Restaurar**.
 
-    ![Lista de conjuntos de backup](./media/storsimple-8000-restore-from-backup-set-u2/restorebu1.png)
+    ![Lista de conjunto de backup 2](./media/storsimple-8000-restore-from-backup-set-u2/restorebu1.png)
 
 5. Ser-lhe-á pedido que confirme. Reveja a informação de restauro e, em seguida, selecione a caixa de verificação de confirmação.
    
@@ -123,7 +123,7 @@ Pode utilizar a lâmina **do Catálogo de Cópias de Segurança** para restaurar
 
 7. Clique **em Restaurar**. Isto inicia um trabalho de restauro que pode ver acedendo à página **Jobs.**
 
-   ![Página de confirmação](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
+   ![Página de confirmação 2](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
 
 8. Após a restauração estar concluída, verifique se o conteúdo dos seus volumes é substituído por volumes da cópia de segurança.
 

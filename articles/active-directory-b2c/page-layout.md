@@ -12,10 +12,10 @@ ms.date: 08/24/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 868d99a82009dc8545fc24ad1cfa1da3959da131
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88852080"
 ---
 # <a name="page-layout-versions"></a>Versões do esquema de página

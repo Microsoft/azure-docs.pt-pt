@@ -8,10 +8,10 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.openlocfilehash: f6afd5c4cc5aa0215f943979ae91389b39d449f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79284931"
 ---
 # <a name="iot-hub-dps-ip-addresses"></a>Endereços IP DPS do Hub IoT
@@ -47,7 +47,7 @@ Os prefixos de endereço IP para os pontos finais públicos de um Serviço de Pr
 
 O IPv6 não é atualmente suportado no IoT Hub ou DPS.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre configurações de endereços IP com DPS, consulte:
 

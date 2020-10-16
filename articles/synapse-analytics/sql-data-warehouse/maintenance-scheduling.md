@@ -11,10 +11,10 @@ ms.date: 02/02/2019
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.openlocfilehash: 1c5bc4400e99fb1c24e321e623aaee523b9c7383
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85210988"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Utilize horários de manutenção para gerir atualizações de serviços e manutenção
@@ -94,7 +94,7 @@ Durante a pré-visualização, algumas regiões podem ainda não suportar o conj
 
    ![Mensagem sobre disponibilidade da região](./media/maintenance-scheduling/maintenance-not-active-toast.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba mais](../../azure-monitor/platform/alerts-metric.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) sobre a criação, visualização e gestão de alertas utilizando o Azure Monitor.
 - [Saiba mais](../..//azure-monitor/platform/alerts-log-webhook.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) sobre as ações de webhook para regras de alerta de registo.

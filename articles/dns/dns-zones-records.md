@@ -10,13 +10,13 @@ ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: rohink
 ms.openlocfilehash: 19189af6424960b8e20be686af745b10f2d8578b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85846840"
 ---
-# <a name="overview-of-dns-zones-and-records"></a>Visão geral das zonas e registos do DNS
+# <a name="overview-of-dns-zones-and-records"></a>Descrição geral de zonas e registos DNS
 
 Esta página explica os conceitos-chave de domínios, zonas dns e registos de DNS e conjuntos de discos, e como são suportados no Azure DNS.
 
@@ -129,8 +129,8 @@ Ao nível da Azure DNS REST API, os Etags são especificados utilizando cabeçal
 
 | Cabeçalho | Comportamento |
 | --- | --- |
-| Nenhuma |O PUT tem sempre sucesso (sem controlos Etag) |
-| Se-jogo\<etag> |PUT só tem sucesso se o recurso existir e etag corresponder |
+| Nenhum |O PUT tem sempre sucesso (sem controlos Etag) |
+| Se-jogo \<etag> |PUT só tem sucesso se o recurso existir e etag corresponder |
 | Se-match * |PUT só tem sucesso se o recurso existir |
 | Se-nenhum-match * |PUT só tem sucesso se o recurso não existir |
 
@@ -141,7 +141,7 @@ Os seguintes limites por defeito aplicam-se quando se utiliza O DNS do Azure:
 
 [!INCLUDE [dns-limits](../../includes/dns-limits.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para começar a utilizar o Azure DNS, aprenda a [criar uma zona DE DNS](dns-getstarted-create-dnszone-portal.md) e crie [registos DNS](dns-getstarted-create-recordset-portal.md).
 * Para migrar uma zona de DNS existente, aprenda a [importar e exportar um ficheiro de zona DNS](dns-import-export.md).

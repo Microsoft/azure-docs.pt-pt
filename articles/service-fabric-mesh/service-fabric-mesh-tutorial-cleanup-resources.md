@@ -7,10 +7,10 @@ ms.date: 09/18/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 1d594001340f76c6dde9f3e00de2d76ee4e5104b
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91843333"
 ---
 # <a name="tutorial-remove-azure-resources"></a>Tutorial: Remover recursos do Azure

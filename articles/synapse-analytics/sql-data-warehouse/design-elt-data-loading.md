@@ -11,12 +11,12 @@ ms.date: 05/13/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 1b73b82b4367d50cc5fbe9881a67e0afa041db86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fecdd65ae0dbf9faeb0e74e6446a9deaf8273106
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85201163"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075030"
 ---
 # <a name="data-loading-strategies-for-synapse-sql-pool"></a>Estratégias de carregamento de dados para conjuntos Synapse SQL
 
@@ -24,14 +24,10 @@ As piscinas SMP SQL tradicionais utilizam um processo de extração, transforma�
 
 A utilização de um processo de Extração, Carga e Transformação (ELT) alavanca o MPP e elimina os recursos necessários para a transformação de dados antes do carregamento.
 
-Enquanto o pool SQL suporta muitos métodos de carregamento, incluindo as opções populares do SQL Server, como o [BCP](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) e a [SqlBulkCopy API,](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)a forma mais rápida e escalável de carregar dados é através de tabelas externas polyBase e da [declaração COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (pré-visualização).
+Enquanto o pool SQL suporta muitos métodos de carregamento, incluindo opções populares do SQL Server, como o [BCP](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) e a [SqlBulkCopy API,](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)a forma mais rápida e escalável de carregar dados é através de tabelas externas da PolyBase e da [declaração COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 Com a PolyBase e a declaração COPY, pode aceder a dados externos armazenados no armazenamento Azure Blob ou na Azure Data Lake Store através do idioma T-SQL. Para maior flexibilidade no carregamento, recomendamos a utilização da declaração COPY.
 
-> [!NOTE]  
-> A declaração COPY encontra-se atualmente em pré-visualização pública. Para fornecer feedback, envie e-mail para a seguinte lista de distribuição: sqldwcopypreview@service.microsoft.com .
-
-> [!VIDEO https://www.youtube.com/embed/l9-wP7OdhDk]
 
 ## <a name="what-is-elt"></a>O que é ELT?
 
@@ -111,7 +107,7 @@ Utilize o seguinte mapeamento do tipo de dados SQL ao carregar ficheiros Parquet
 |                            INT32                             |            INT(8, falso)            |     tinyint      |
 |                            INT32                             |            INT(16, falso)             |       int        |
 |                            INT32                             |           INT(32, falso)            |      bigint      |
-|                            INT32                             |                 DATE                  |       date       |
+|                            INT32                             |                 DATE                  |       data       |
 |                            INT32                             |                DECIMAL                |     decimal      |
 |                            INT32                             |            TEMPO (MILLIS)             |       hora       |
 |                            INT64                             |            INT(64, verdade)            |      bigint      |

@@ -7,10 +7,10 @@ ms.date: 10/02/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: a47126a48ea63efd4e49097428679b85b7a95a61
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91667168"
 ---
 # <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>Crie uma piscina de anfitriões virtual do Windows desktop com PowerShell
@@ -140,13 +140,13 @@ Para atualizar o agente:
    Para desinstalar estes ficheiros, clique com o botão direito em cada nome de ficheiro e, em seguida, selecione **Desinstalar**.
 5. Opcionalmente, também pode remover as seguintes definições de registo:
      
-     - Computador\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDInfraAgent
-     - Computador\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MICROSOFT\RDAgentBootLoader
+     - Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDInfraAgent
+     - Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDAgentBootLoader
 
 6. Uma vez desinstalados estes itens, isto deve remover todas as associações com a antiga piscina de anfitriões. Se pretender voltar a inscrever este anfitrião no serviço, siga as instruções no [Registo das máquinas virtuais para a piscina de anfitriões virtual do Windows Desktop](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que fez uma piscina de anfitriões, pode povoá-la com RemoteApps. Para saber mais sobre como gerir aplicações no Windows Virtual Desktop, consulte o tutorial de grupos de aplicações Manage.
 

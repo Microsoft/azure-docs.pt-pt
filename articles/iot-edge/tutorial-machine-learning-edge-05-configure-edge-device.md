@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp
-ms.openlocfilehash: 1e92da6f99ccb32580d7f0286b5bcbf77d694262
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2245bd970e93595358e95465bcc815ddaf2ef821
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91855655"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974554"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Tutorial: Configurar um dispositivo IoT Edge
 
@@ -96,7 +96,7 @@ Para armazenar os nossos certificados de forma segura e torná-los acessíveis a
 
 Para ligar um dispositivo Azure IoT Edge a um hub IoT, criamos primeiro uma identidade para o dispositivo no centro. Pegamos na cadeia de ligação da identidade do dispositivo na nuvem e utilizamo-la para configurar o tempo de funcionamento do nosso dispositivo IoT Edge. Uma vez que um dispositivo configurado se conecta ao hub, somos capazes de implementar módulos e enviar mensagens. Também podemos alterar a configuração do dispositivo físico IoT Edge alterando a sua identidade de dispositivo correspondente no hub IoT.
 
-Para este tutorial, criamos a nova identidade do dispositivo utilizando o Código do Estúdio Visual. Também pode completar estes passos utilizando o [portal Azure](how-to-register-device.md#register-in-the-azure-portal), ou [Azure CLI](how-to-register-device.md#register-with-the-azure-cli).
+Para este tutorial, criamos a nova identidade do dispositivo utilizando o Código do Estúdio Visual. Também pode completar estes passos utilizando o portal Azure ou o Azure CLI.
 
 1. Na sua máquina de desenvolvimento, abra o Código do Estúdio Visual.
 

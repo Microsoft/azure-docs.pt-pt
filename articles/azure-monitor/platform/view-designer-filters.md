@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/22/2018
 ms.openlocfilehash: d428382493e15d2e0571f4cb4b6f090cf9056fe4
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91449307"
 ---
 # <a name="filters-in-azure-monitor-views"></a>Filtros nas vistas do Monitor Azure
@@ -75,5 +75,5 @@ Se adicionar outro filtro chamado Severity, pode utilizar a seguinte consulta pa
 Event | where ${Computers} | where ${Severity} | summarize count() by EventLevelName
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre as [Peças de Visualização](view-designer-parts.md) que pode adicionar à sua vista personalizada.

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: yushwang
 ms.openlocfilehash: 93916bb1eb92447da45ebae7ccb2e61c5af1dd9b
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89441583"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Adicione uma ligação Site-a-Local a um VNet com uma ligação de gateway VPN existente (clássico)
@@ -49,7 +49,7 @@ Se já tiver um gateway estático ligado à sua rede virtual, pode alterar o tip
 
 Deve sentir-se confortável usando o ficheiro de configuração da rede quando tiver concluído o procedimento multi-site. No entanto, se tiver várias pessoas a trabalhar na sua configuração de rede, terá de se certificar de que todos sabem desta limitação. Isto não significa que não possas usar o portal. Pode usá-lo para tudo o resto, exceto fazer alterações de configuração nesta rede virtual em particular.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Antes de iniciar a configuração, verifique se tem o seguinte:
 
@@ -218,6 +218,6 @@ Devolução de exemplo:
     OperationStatus           : Succeeded
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre gateways VPN, consulte [Sobre gateways VPN.](vpn-gateway-about-vpngateways.md)

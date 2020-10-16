@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.openlocfilehash: 97797e309c32c6ea996d5ae1901b9a266a683173
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91537638"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Adicionar perfis de classificação a um índice do Azure Cognitive Search
@@ -164,7 +164,7 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 |||  
 |-|-|  
 |**Pesos**|Especifique os pares de valor-nome que atribuem um peso relativo a um campo. No [Exemplo](#bkmk_ex), o álbumTitle, género e artistName fields são impulsionados 1,5, 5 e 2 respectivamente. Por que o género é aumentado muito mais alto que os outros? Se a pesquisa for realizada sobre dados que são um pouco homogéneos (como é o caso do 'género' `musicstoreindex` no), poderá necessitar de uma maior variação nos pesos relativos. Por exemplo, no `musicstoreindex` "rock" aparece como um género e em descrições de géneros com frases idênticas. Se quiser que o género sobrepõe a descrição do género, o campo de género precisará de um peso relativo muito maior.|  
-|**Funções**|Utilizados quando são necessários cálculos adicionais para contextos específicos. Valores válidos `freshness` `magnitude` `distance` são, , e `tag` . Cada função tem parâmetros únicos.<br /><br /> -   `freshness` deve ser usado quando quiser aumentar o quão novo ou antigo é um item. Esta função só pode ser utilizada com `datetime` campos (edm. DataTimeOffset). Note que o `boostingDuration` atributo é utilizado apenas com a `freshness` função.<br />-   `magnitude` deve ser usado quando pretender aumentar com base no valor numérico alto ou baixo. Os cenários que exigem esta função incluem o aumento da margem de lucro, o preço mais alto, o preço mais baixo ou a contagem de downloads. Esta função só pode ser utilizada com campos duplos e inteiros.<br />     Para a `magnitude` função, pode inverter a gama, de alto a baixo, se quiser o padrão inverso (por exemplo, para aumentar os itens a preços mais baixos do que os itens mais caros). Dada uma gama de preços de $100 a $1, você definiria `boostingRangeStart` a 100 e `boostingRangeEnd` a 1 para aumentar os itens mais baixos.<br />-   `distance` deve ser usado quando pretender aumentar pela proximidade ou localização geográfica. Esta função só pode ser utilizada com `Edm.GeographyPoint` campos.<br />-   `tag` deve ser usado quando pretender aumentar por etiquetas em comum entre documentos e consultas de pesquisa. Esta função só pode ser utilizada com `Edm.String` campos e `Collection(Edm.String)` campos.<br /><br /> **Regras para a utilização de funções**<br /><br /> O tipo de função `freshness` `magnitude` (, , `distance` , deve ser `tag` mais baixo.<br /><br /> As funções não podem incluir valores nulos ou vazios. Especificamente, se incluir o nome de campo, tem que defini-lo para algo.<br /><br /> As funções só podem ser aplicadas em campos filtrados. Consulte [o Índice de Criação &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/create-index) para obter mais informações sobre campos filtrados.<br /><br /> As funções só podem ser aplicadas em campos definidos na recolha de campos de um índice.|  
+|**Funções**|Utilizados quando são necessários cálculos adicionais para contextos específicos. Os valores válidos são `freshness`, `magnitude`, `distance` e `tag`. Cada função tem parâmetros únicos.<br /><br /> -   `freshness` deve ser usado quando quiser aumentar o quão novo ou antigo é um item. Esta função só pode ser utilizada com `datetime` campos (edm. DataTimeOffset). Note que o `boostingDuration` atributo é utilizado apenas com a `freshness` função.<br />-   `magnitude` deve ser usado quando pretender aumentar com base no valor numérico alto ou baixo. Os cenários que exigem esta função incluem o aumento da margem de lucro, o preço mais alto, o preço mais baixo ou a contagem de downloads. Esta função só pode ser utilizada com campos duplos e inteiros.<br />     Para a `magnitude` função, pode inverter a gama, de alto a baixo, se quiser o padrão inverso (por exemplo, para aumentar os itens a preços mais baixos do que os itens mais caros). Dada uma gama de preços de $100 a $1, você definiria `boostingRangeStart` a 100 e `boostingRangeEnd` a 1 para aumentar os itens mais baixos.<br />-   `distance` deve ser usado quando pretender aumentar pela proximidade ou localização geográfica. Esta função só pode ser utilizada com `Edm.GeographyPoint` campos.<br />-   `tag` deve ser usado quando pretender aumentar por etiquetas em comum entre documentos e consultas de pesquisa. Esta função só pode ser utilizada com `Edm.String` campos e `Collection(Edm.String)` campos.<br /><br /> **Regras para a utilização de funções**<br /><br /> O tipo de função `freshness` `magnitude` (, , `distance` , deve ser `tag` mais baixo.<br /><br /> As funções não podem incluir valores nulos ou vazios. Especificamente, se incluir o nome de campo, tem que defini-lo para algo.<br /><br /> As funções só podem ser aplicadas em campos filtrados. Consulte [o Índice de Criação &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/create-index) para obter mais informações sobre campos filtrados.<br /><br /> As funções só podem ser aplicadas em campos definidos na recolha de campos de um índice.|  
 
  Após a definição do índice, constroem o índice carregando o esquema de índice, seguido de documentos. Consulte [Criar Índice &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/create-index) e [Adicionar, Atualizar ou Eliminar Documentos &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/addupdate-or-delete-documents) de instruções sobre estas operações. Uma vez que o índice é construído, você deve ter um perfil de pontuação funcional que funciona com os seus dados de pesquisa.  
 
@@ -229,7 +229,7 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 
 |Atributo|Descrição|  
 |---------------|-----------------|  
-|`name`|Necessário. Este é o nome do perfil de pontuação. Segue as mesmas convenções de nomeação de um campo. Deve começar com uma letra, não pode conter pontos, cólons ou símbolos @, e não pode começar com a frase 'azureSearch' (sensível a maiúsculas).|  
+|`name`|Obrigatório. Este é o nome do perfil de pontuação. Segue as mesmas convenções de nomeação de um campo. Deve começar com uma letra, não pode conter pontos, cólons ou símbolos @, e não pode começar com a frase 'azureSearch' (sensível a maiúsculas).|  
 |`text`|Contém a propriedade dos pesos.|  
 |`weights`|Opcional. Contém pares de valor de nome que cada um especifica um nome de campo e peso relativo. O peso relativo deve ser um número inteiro ou de ponto flutuante positivo.<br /><br /> Os pesos são usados para indicar a importância de um campo pes pes pes pes pes pesculável em relação a outro.|  
 |`functions`|Opcional. Uma função de pontuação só pode ser aplicada em campos que são filtrados.|  
@@ -279,7 +279,7 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 
  Para mais exemplos, consulte [XML Schema: Datatypes (W3.org web site)](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration).  
 
-## <a name="see-also"></a>Veja também  
+## <a name="see-also"></a>Consulte também  
 
 + [Referência API DE REPOUSO](/rest/api/searchservice/)
 + [Criar API de Índice](/rest/api/searchservice/create-index)

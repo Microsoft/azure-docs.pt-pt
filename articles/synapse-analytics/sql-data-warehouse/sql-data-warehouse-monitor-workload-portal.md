@@ -11,10 +11,10 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.openlocfilehash: 01a22aa5d2ec7ed54be62f0975b0fefbafd84cd8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85211566"
 ---
 # <a name="monitor-workload---azure-portal"></a>Monitor de carga de trabalho - Portal Azure
@@ -95,6 +95,6 @@ AzureDiagnostics
 | summarize totalQueuedQueries = dcount(RequestId_s)
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que configuraram e configuraram registos de monitores Azure, [personalize os dashboards Azure](../../azure-portal/azure-portal-dashboards.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) para partilhar em toda a sua equipa.

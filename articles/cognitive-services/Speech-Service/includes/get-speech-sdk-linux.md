@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
 ms.openlocfilehash: a93c478f0621bf62b710f58f3e6f06298bad9954
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83673055"
 ---
 :::row:::
     :::column span="3":::
-        O Speech SDK apenas apoia **Ubuntu 16.04/18.04**, **Debian 9**, **Red Hat Enterprise Linux (RHEL) 7/8**, e **CentOS 7/8** nas seguintes arquiteturas-alvo quando utilizados com Linux:
+        O Speech SDK suporta apenas **Ubuntu 16.04/18.04**, **Debian 9**, **Red Hat Enterprise Linux (RHEL) 7/8**, e **CentOS 7/8** sobre as seguintes arquiteturas-alvo quando usado com Linux:
     :::column-end:::
     :::column:::
         <br>
@@ -33,11 +33,11 @@ ms.locfileid: "83673055"
 
 ### <a name="system-requirements"></a>Requisitos de sistema
 
-Para uma aplicação nativa, o SDK do Discurso baseia-se `libMicrosoft.CognitiveServices.Speech.core.so` em . Certifique-se de que a arquitetura alvo (x86, x64) corresponde à aplicação. Dependendo da versão Linux, podem ser necessárias dependências adicionais.
+Para uma aplicação nativa, o SDK do discurso depende `libMicrosoft.CognitiveServices.Speech.core.so` de . Certifique-se de que a arquitetura-alvo (x86, x64) corresponde à aplicação. Dependendo da versão Linux, podem ser necessárias dependências adicionais.
 
-- As bibliotecas partilhadas da biblioteca GNU C (incluindo a biblioteca de programação POSIX `libpthreads` Threads),
+- As bibliotecas partilhadas da biblioteca GNU C (incluindo a biblioteca de programação posix threads, `libpthreads` )
 - A biblioteca OpenSSL `libssl.so.1.0.0` `libssl.so.1.0.2` (ou)
-- A biblioteca partilhada para aplicações ALSA ( `libasound.so.2` )
+- A biblioteca partilhada para aplicações ALSA `libasound.so.2` ()
 
 # <a name="ubuntu-16041804"></a>[Ubuntu 16.04/18.04](#tab/ubuntu)
 
@@ -46,7 +46,7 @@ sudo apt-get update
 sudo apt-get install build-essential libssl1.0.0 libasound2
 ```
 
-# <a name="debian-9"></a>[Debiano 9](#tab/debian)
+# <a name="debian-9"></a>[Debian 9](#tab/debian)
 
 ```Bash
 sudo apt-get update
@@ -61,8 +61,8 @@ sudo yum install alsa-lib openssl
 ```
 
 > [!IMPORTANT]
-> - No RHEL/CentOS 7, siga as instruções sobre [como configurar o RHEL/CentOS 7 para o SDK](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md)da Fala .
-> - No RHEL/CentOS 8, siga as instruções sobre como configurar o [OpenSSL para Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
+> - No RHEL/CentOS 7, siga as instruções sobre [como configurar RHEL/CentOS 7 para A SDK de fala](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
+> - No RHEL/CentOS 8, siga as instruções sobre como configurar o [OpenSSL para o Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 ---
 

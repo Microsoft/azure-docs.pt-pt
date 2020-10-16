@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: overview
 ms.date: 07/13/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e65149b2524d2785039be78caad4ce84924e7e3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 01751caba2b14f899588deba083a8c59c41d13ba
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87035116"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91964014"
 ---
 # <a name="what-is-azure-active-directory-authentication"></a>O que é a autenticação do Azure Ative Directory?
 

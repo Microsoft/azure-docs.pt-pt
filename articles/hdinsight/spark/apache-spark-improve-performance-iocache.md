@@ -8,15 +8,15 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/23/2019
 ms.openlocfilehash: 3e724e6336163a092c9b4385324b1aa037295bb6
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86081762"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Melhorar o desempenho das cargas de trabalho da Apache Spark utilizando a cache IO IO do Azure HDInsight
 
-IO Cache é um serviço de cache de dados para a Azure HDInsight que melhora o desempenho dos empregos da Apache Spark. IO Cache também trabalha com cargas de carga [Apache TEZ](https://tez.apache.org/) e [Apache Hive,](https://hive.apache.org/) que podem ser executados em aglomerados [Apache Spark.](https://spark.apache.org/) IO Cache usa um componente de cache de código aberto chamado RubiX. RubiX é uma cache de disco local para uso com motores de análise de dados grandes que acedem a dados de sistemas de armazenamento em nuvem. RubiX é único entre os sistemas de caching, porque utiliza Unidades de Estado Sólido (SSDs) em vez de reservar memória operacional para fins de caching. O serviço IO Cache lança e gere os Servidores de Metadados RubiX em cada nó de trabalhador do cluster. Também configura todos os serviços do cluster para uso transparente da cache RubiX.
+IO Cache é um serviço de cache de dados para a Azure HDInsight que melhora o desempenho dos empregos da Apache Spark. IO Cache também trabalha com cargas de carga [Apache TEZ](https://tez.apache.org/) e [Apache Hive,](https://hive.apache.org/) que podem ser executados em aglomerados [Apache Spark.](https://spark.apache.org/) IO Cache usa um componente de cache de código aberto chamado RubiX. RubiX é uma cache de disco local para uso com motores de análise de dados grandes que acedem a dados de sistemas de armazenamento em nuvem. RubiX é único entre os sistemas de caching, porque utiliza Solid-State Drives (SSDs) em vez de reservar memória operacional para fins de caching. O serviço IO Cache lança e gere os Servidores de Metadados RubiX em cada nó de trabalhador do cluster. Também configura todos os serviços do cluster para uso transparente da cache RubiX.
 
 A maioria dos SSDs fornecem mais de 1 GByte por segundo de largura de banda. Esta largura de banda, complementada pela cache de ficheiros de sistema operativo na memória, fornece largura de banda suficiente para carregar grandes motores de processamento de computação de dados, como o Apache Spark. A memória operacional é deixada disponível para o Apache Spark processar tarefas fortemente dependentes da memória, como baralhadas. Ter uma utilização exclusiva da memória operacional permite ao Apache Spark obter uma utilização ótima do recurso.  
 
@@ -47,7 +47,7 @@ A azure HDInsight IO Cache é desativado por padrão na pré-visualização. IO 
 > [!NOTE]  
 > Mesmo que a barra de progresso mostre ativada, a Cache IO não está ativada até reiniciar os outros serviços afetados.
 
-## <a name="troubleshooting"></a>Resolução de Problemas
+## <a name="troubleshooting"></a>Resolução de problemas
   
 Pode obter erros de espaço em disco executando trabalhos spark depois de ativar io Cache. Estes erros ocorrem porque a Spark também utiliza o armazenamento de discos locais para armazenar dados durante as operações de baralhar. A faísca pode ficar sem espaço SSD uma vez que a Cache IO esteja ativada e o espaço para armazenamento de faíscas seja reduzido. A quantidade de espaço utilizada pela IO Cache é padrão para metade do espaço SSD total. O uso do espaço em disco para IO Cache é configurável em Ambari. Se tiver erros de espaço em disco, reduza a quantidade de espaço SSD utilizado para cache IO e reinicie o serviço. Para alterar o espaço definido para IO Cache, faça os seguintes passos:
 

@@ -11,10 +11,10 @@ manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 07/31/2018
 ms.openlocfilehash: 19b4ee621a3918a49b524c5e4515bddd5962e0f4
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89442790"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformar dados no Azure Data Factory
@@ -26,7 +26,7 @@ ms.locfileid: "89442790"
 > * [MapReduce](transform-data-using-hadoop-map-reduce.md)  
 > * [HDInsight Streaming](transform-data-using-hadoop-streaming.md)
 > * [HDInsight Spark](transform-data-using-spark.md)
-> * [Machine Learning](transform-data-using-machine-learning.md) 
+> * [Aprendizagem automática](transform-data-using-machine-learning.md) 
 > * [Procedimento armazenado](transform-data-using-stored-procedure.md)
 > * [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md)
 > * [Caderno databricks](transform-data-databricks-notebook.md)
@@ -108,5 +108,5 @@ Cria um serviço ligado para o ambiente computacional e, em seguida, utiliza o s
 
 Consulte o artigo [da Compute Linked Services](compute-linked-services.md) para saber mais sobre os serviços de computação suportados pela Data Factory. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Veja o seguinte tutorial para um exemplo de utilização de uma atividade de transformação: [Tutorial: transformar dados usando Faísca](tutorial-transform-data-spark-powershell.md)

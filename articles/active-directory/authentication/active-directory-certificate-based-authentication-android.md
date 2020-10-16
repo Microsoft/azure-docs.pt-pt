@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7dd4c95c3c02f4b4a807b5238aa61e76ecb56e3e
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 1bbc17bc3dfff4a9cc3d90386b4cae62611e4b15
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716423"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965850"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Autenticação baseada em certificados Azure Ative Para Android
 

@@ -6,12 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 639764c9cae5e27e90a55da00b246807e49d2a20
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 9a3a7cad8399146834eed0282e0655a551bc083a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652853"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977277"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>Mover o armazenamento do computador principal para Azure
 
@@ -57,7 +57,7 @@ O armazenamento Azure está disponível como [Azure Disks](../../../managed-disk
 <tr><td>Ficheiros do Azure
 </td>
 <td>
-Fornece uma interface SMB, bibliotecas de clientes e uma interface <a href="https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api">REST</a> que permite o acesso de qualquer lugar a ficheiros armazenados.
+Fornece uma interface SMB, bibliotecas de clientes e uma interface <a href="/rest/api/storageservices/file-service-rest-api">REST</a> que permite o acesso de qualquer lugar a ficheiros armazenados.
 </td>
 <td><ul>
 <li>Levante e transloja uma aplicação para a nuvem quando a aplicação utiliza as APIs do sistema de ficheiros nativo para partilhar dados entre ele e outras aplicações em execução em Azure.</li>
@@ -67,7 +67,7 @@ Fornece uma interface SMB, bibliotecas de clientes e uma interface <a href="http
 </tr>
 <tr><td>Blobs do Azure
 </td>
-<td>Fornece bibliotecas de clientes e uma interface <a href="https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api">REST</a> que permite que os dados não estruturados sejam armazenados e acedidos a uma escala massiva em blobs de bloco. Também suporta <a href="/azure/storage/blobs/data-lake-storage-introduction">a Azure Data Lake Storage Gen2</a> para soluções de análise de big data da empresa.
+<td>Fornece bibliotecas de clientes e uma interface <a href="/rest/api/storageservices/blob-service-rest-api">REST</a> que permite que os dados não estruturados sejam armazenados e acedidos a uma escala massiva em blobs de bloco. Também suporta <a href="/azure/storage/blobs/data-lake-storage-introduction">a Azure Data Lake Storage Gen2</a> para soluções de análise de big data da empresa.
 </td>
 <td><ul>
 <li>Suporte o streaming e cenários de acesso aleatório numa aplicação.</li>
@@ -77,7 +77,7 @@ Fornece uma interface SMB, bibliotecas de clientes e uma interface <a href="http
 </tr>
 <tr><td>Discos do Azure
 </td>
-<td>Fornece bibliotecas de clientes e uma interface <a href="https://docs.microsoft.com/rest/api/compute/disks">REST</a> que permite que os dados sejam armazenados e acedidos persistentemente a partir de um disco rígido virtual anexado.
+<td>Fornece bibliotecas de clientes e uma interface <a href="/rest/api/compute/disks">REST</a> que permite que os dados sejam armazenados e acedidos persistentemente a partir de um disco rígido virtual anexado.
 </td>
 <td><ul>
 <li>Aplicações de elevação e mudança que usam APIs do sistema de ficheiros nativo para ler e escrever dados para discos persistentes.</li>

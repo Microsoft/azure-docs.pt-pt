@@ -3,12 +3,12 @@ title: Resolução de problemas do agente reserva da Azure
 description: Neste artigo, aprenda a resolver problemas na instalação e registo do agente Azure Backup.
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: 86f9dfd8554e2560ea16a85c3551dba3f7dc01f1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 2e2e807a8b849af435fe82d54bbfdd96b729fa38
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019628"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091462"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Resolução de problemas do agente Microsoft Azure Recovery Services (MARS)
 
@@ -67,7 +67,7 @@ Recomendamos que verifique o seguinte antes de começar a resolver problemas à 
 
 | Erro   | Ações recomendadas |
 | ---     | ---    |
-|Falhou em descarregar o ficheiro de credencial do cofre. (ID: 403) | <ul><li> Tente descarregar as credenciais do cofre usando um navegador diferente, ou tome estes passos: <ul><li> Inicie o Internet Explorer. Selecione F12. </li><li> Vá ao separador **'Rede'** e limpe a cache e os cookies. </li> <li> Atualize a página.<br></li></ul> <li> Verifique se a subscrição está desativada/expirada.<br></li> <li> Verifique se alguma regra de firewall está a bloquear o download. <br></li> <li> Certifique-se de que não esgotou o limite do cofre (50 máquinas por abóbada).<br></li>  <li> Certifique-se de que o utilizador tem as permissões de Backup Azure que são necessárias para descarregar credenciais de cofre e registar um servidor com o cofre. Consulte [o Controlo de Acesso Baseado em Funções para gerir pontos de recuperação de backup do Azure](backup-rbac-rs-vault.md).</li></ul> |
+|Falhou em descarregar o ficheiro de credencial do cofre. (ID: 403) | <ul><li> Tente descarregar as credenciais do cofre usando um navegador diferente, ou tome estes passos: <ul><li> Inicie o Internet Explorer. Selecione F12. </li><li> Vá ao separador **'Rede'** e limpe a cache e os cookies. </li> <li> Atualize a página.<br></li></ul> <li> Verifique se a subscrição está desativada/expirada.<br></li> <li> Verifique se alguma regra de firewall está a bloquear o download. <br></li> <li> Certifique-se de que não esgotou o limite do cofre (50 máquinas por abóbada).<br></li>  <li> Certifique-se de que o utilizador tem as permissões de Backup Azure que são necessárias para descarregar credenciais de cofre e registar um servidor com o cofre. Consulte [o controlo de acesso baseado em funções do Azure para gerir os pontos de recuperação do Azure Backup](backup-rbac-rs-vault.md).</li></ul> |
 
 ## <a name="the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup"></a>O Agente do Serviço de Recuperação do Microsoft Azure não conseguiu ligar ao Microsoft Azure Backup
 

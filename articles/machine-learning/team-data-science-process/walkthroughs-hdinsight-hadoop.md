@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: f72ea6ed5f0eec076d181ef56c99c4f1308a7741
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75864167"
 ---
 # <a name="hdinsight-hadoop-data-science-walkthroughs-using-hive-on-azure"></a>HDInsight Hadoop data science walkthroughs usando Hive on Azure 
@@ -39,7 +39,7 @@ O cenário é implementado usando a Colmeia com um [cluster Azure HDInsight Hado
 O [Use Azure HDInsight Hadoop Clusters em um walkthrough de conjunto de dados de 1-TB](hive-criteo-walkthrough.md) utiliza um conjunto de dados de clique [criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) disponível publicamente para prever se uma gorjeta é paga e os valores esperados. O cenário é implementado usando a Hive com um [cluster Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar, criar engenheiro e diminuir os dados da amostra. Utiliza a Azure Machine Learning para construir, treinar e marcar um modelo de classificação binária prevendo se um utilizador clica num anúncio. O walkthrough conclui mostrando como publicar um destes modelos como um serviço Web.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para uma discussão dos componentes-chave que compõem o Processo de Ciência de Dados de Equipa, consulte [a visão geral do Processo de Ciência de Dados da Equipa.](overview.md)
 

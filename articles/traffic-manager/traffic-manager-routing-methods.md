@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: duau
 ms.openlocfilehash: 3cf493beab6dfe1767ae35ea36732dc364e29736
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401661"
 ---
 # <a name="traffic-manager-routing-methods"></a>Métodos de encaminhamento do Gestor de Tráfego
@@ -103,7 +103,7 @@ Quando um perfil é configurado para o encaminhamento geográfico, cada ponto fi
 - Mundo: qualquer região
 - Agrupamento Regional – por exemplo, África, Médio Oriente, Austrália/Pacífico, etc. 
 - País/Região – por exemplo, Irlanda, Peru, HONG KONG SAR etc. 
-- Estado/Província – por exemplo, EUA-Califórnia, Austrália-Queensland, Canadá-Alberta etc. (nota: este nível de granularidade é suportado apenas para estados/províncias na Austrália, Canadá e EUA).
+- Estado/Província – por exemplo, EUA-Califórnia, Austrália-Queensland, Canada-Alberta etc. (nota: este nível de granularidade é suportado apenas para estados/províncias na Austrália, Canadá e EUA).
 
 Quando uma região ou um conjunto de regiões é atribuída a um ponto final, quaisquer pedidos dessas regiões são encaminhados apenas para esse ponto final. O Gestor de Tráfego utiliza o endereço IP de origem da consulta DNS para determinar a região a partir da qual um utilizador está a consultar – normalmente este é o endereço IP do DNS local que resolve a consulta em nome do utilizador.  
 
@@ -177,7 +177,7 @@ O encaminhamento de sub-redes pode ser usado para oferecer uma experiência dife
 * [O que acontece se um ponto final for desativado num perfil do tipo de encaminhamento sub-rede?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-happens-if-an-endpoint-is-disabled-in-a-subnet-routing-type-profile)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como desenvolver aplicações de alta disponibilidade utilizando [a monitorização do ponto final do Traffic Manager](traffic-manager-monitoring.md)
 

@@ -7,12 +7,12 @@ ms.date: 07/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: f6f87ed4ba74c3f7750e56d4bb8473cf4b1a4341
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 72b85388bf80a6ed2b9617b606940c243c5711f1
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91575389"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945537"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-multiple-component-device-application-running-on-windows-to-iot-hub-c"></a>Tutorial: Ligue uma aplicação de dispositivo ioT plug e play múltiplo componente em execução no Windows ao IoT Hub (C#)
 
@@ -33,7 +33,7 @@ Para completar este tutorial no Windows, instale o seguinte software no seu ambi
 
 Se tiver concluído [o Quickstart: Ligue uma aplicação de dispositivo IoT Plug e Play de amostra que está a decorrer no Windows to IoT Hub (C#),](quickstart-connect-device-csharp.md)já clonou o repositório.
 
-Clone as amostras do repositório Microsoft Azure IoT SDK para .NET GitHub. Abra um pedido de comando numa pasta à sua escolha. Executar o seguinte comando para clonar as [amostras de IoT do Microsoft Azure para](https://github.com/Azure-Samples/azure-iot-samples-csharp) o repositório .NET GitHub:
+Clone as amostras do repositório Azure IoT para o repositório C# GitHub. Abra um pedido de comando numa pasta à sua escolha. Executar o seguinte comando para clonar as [amostras de IoT do Microsoft Azure para](https://github.com/Azure-Samples/azure-iot-samples-csharp) o repositório .NET GitHub:
 
 ```cmd
 git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
@@ -47,7 +47,7 @@ Neste arranque rápido, utilize um dispositivo de controlador de temperatura de 
 
 1. No Estúdio Visual, navegue para **Project > TemperatureController Properties > Debug**. Em seguida, adicione as seguintes variáveis ambientais ao projeto:
 
-    | Name | Valor |
+    | Nome | Valor |
     | ---- | ----- |
     | IOTHUB_DEVICE_SECURITY_TYPE | DPS |
     | IOTHUB_DEVICE_DPS_ENDPOINT | global.azure-devices-provisioning.net |
@@ -134,7 +134,7 @@ Utilize a ferramenta exploradora Azure IoT para visualizar a telemetria e as pro
 
 Também pode utilizar a ferramenta exploradorA Azure IoT para chamar comandos em qualquer um dos dois componentes do termóstato ou no componente predefinido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a ligar um dispositivo IoT Plug and Play com componentes a um hub IoT. Para saber mais sobre os modelos ioT Plug e Play, consulte:
 

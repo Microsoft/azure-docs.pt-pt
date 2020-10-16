@@ -4,10 +4,10 @@ description: Neste artigo, aprenda a utilizar o Azure Backup Server para fazer b
 ms.topic: conceptual
 ms.date: 05/24/2020
 ms.openlocfilehash: db5e5c4bdac64e2faf5babb107ecec61a02d6468
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90069837"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Backup VMware VMs com Azure Backup Server
@@ -59,7 +59,7 @@ Antes de começar a fazer backup de uma máquina virtual VMware, reveja a seguin
 
 Por predefinição, o Azure Backup Server comunica com servidores VMware através de HTTPS. Para configurar a ligação HTTPS, descarregue o certificado VMware Certificate Authority (CA) e importe-o no Servidor de Backup Azure.
 
-### <a name="before-you-begin"></a>Before you begin
+### <a name="before-you-begin"></a>Antes de começar
 
 - Se não quiser utilizar HTTPS, pode [desativar a validação do certificado HTTPS para todos os servidores VMware](backup-azure-backup-server-vmware.md#disable-https-certificate-validation).
 - Normalmente, liga-se de um navegador na máquina Azure Backup Server ao servidor vCenter/ESXi utilizando o cliente web vSphere. A primeira vez que fizer isto, a ligação não é segura e mostrará o seguinte.
@@ -345,7 +345,7 @@ Adicione VMware VMs para cópia de segurança. Os grupos de proteção recolhem 
 
     ![Selecionar método de proteção de dados](./media/backup-azure-backup-server-vmware/name-protection-group.png)
 
-1. Em **Especificar Objetivos de Curto Prazo**, especifique quanto tempo pretende manter os dados no disco.
+1. Em **Especificar Short-Term Objetivos**, especifique quanto tempo pretende manter os dados no disco.
    - No **Intervalo de Retenção**, especifique quantos dias devem ser mantidos pontos de recuperação do disco.
    - Na **frequência de sincronização,** especifique a frequência com que são tomados os pontos de recuperação do disco.
        - Se não quiser definir um intervalo de backup, pode verificar **antes de um ponto de recuperação** para que um backup seja executado antes de cada ponto de recuperação ser programado.

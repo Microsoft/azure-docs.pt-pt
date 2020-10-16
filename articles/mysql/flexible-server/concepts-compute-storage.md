@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
 ms.openlocfilehash: 8a1b30803494facf6eaabcc3695770d694b4e221
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708684"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Opções de computação e armazenamento em Azure Database para MySQL - Servidor Flexível (Pré-visualização)
@@ -32,7 +32,7 @@ Pode criar uma Base de Dados Azure para o MySQL Flexible Server num dos três n�
 
 Para escolher um nível de cálculo, utilize a tabela seguinte como ponto de partida.
 
-| Nível de computação | Cargas de trabalho de destino |
+| Escalão de computação | Cargas de trabalho de destino |
 |:-------------|:-----------------|
 | Rebentado | O melhor para cargas de trabalho que não precisam de CPU completo continuamente. |
 | Fins Gerais | A maioria das cargas de trabalho do negócio que requerem cálculo equilibrado e memória com rendimento escalável de I/O. Os exemplos incluem servidores de alojamento de aplicações para dispositivos móveis e Web, entre outras aplicações empresariais.|
@@ -162,7 +162,7 @@ Se quiser otimizar o custo do servidor, pode considerar as seguintes dicas:
 - Pare o servidor quando não estiver a ser utilizado.
 - Reduza o período de retenção de backup se não for necessária uma maior retenção de cópias de segurança.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [criar um servidor MySQL no portal](quickstart-create-server-portal.md).
 - Conheça as [limitações de serviço.](concepts-limitations.md)

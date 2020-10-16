@@ -8,10 +8,10 @@ ms.author: mbaldwin
 ms.date: 10/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: 21194bf2fe76a7eb0ee034d4a502c20ee3032dd9
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87543678"
 ---
 # <a name="azure-disk-encryption-for-virtual-machines-and-virtual-machine-scale-sets"></a>Azure Disk Encryption para máquinas virtuais e conjuntos de dimensionamento de máquinas virtuais
@@ -25,7 +25,7 @@ Os seguintes artigos fornecem orientação para encriptar máquinas virtuais Lin
 ### <a name="current-version-of-azure-disk-encryption"></a>Versão atual da Encriptação do Disco Azure
 
 - [Descrição geral do Azure Disk Encryption para máquinas virtuais do Linux](../../virtual-machines/linux/disk-encryption-overview.md)
-- [Cenários do Azure Disk Encryption em VMs com Linux](../../virtual-machines/linux/disk-encryption-linux.md)
+- [Cenários do Azure Disk Encryption em VMs do Linux](../../virtual-machines/linux/disk-encryption-linux.md)
 - [Criar e encriptar uma VM do Linux com a CLI do Azure](../../virtual-machines/linux/disk-encryption-cli-quickstart.md)
 - [Criar e encriptar uma VM do Linux com o Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
 - [Criar e encriptar uma VM do Linux com o portal do Azure](../../virtual-machines/linux/disk-encryption-portal-quickstart.md)
@@ -78,5 +78,5 @@ Os seguintes artigos fornecem orientações para encriptar conjuntos de escala d
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Descrição geral da encriptação do Azure](encryption-overview.md)
-- [Encriptação de dados inativa](encryption-atrest.md)
+- [Encriptação de dados inativos](encryption-atrest.md)
 - [Melhores práticas de segurança e encriptação de dados](data-encryption-best-practices.md)

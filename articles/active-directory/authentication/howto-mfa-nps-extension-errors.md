@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 11/21/2019
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: f991e38c184fe44f63af63809deb14eda22f8f4c
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 406b53f833edabafe620b05ccb6acfadffabf5ae
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716729"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91964371"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Resolver mensagens de erro da extensão NPS para Multi-Factor Authentication do Azure
 
@@ -33,7 +33,7 @@ Se encontrar erros com a extensão NPS para autenticação multi-factor Azure, u
 | **HTTPS_COMMUNICATION_ERROR** | O servidor NPS não consegue receber respostas do Azure MFA. Verifique se as suas firewalls estão abertas bidireccionalmente para o tráfego de e para https://adnotifications.windowsazure.com |
 | **HTTP_CONNECT_ERROR** | No servidor que executa a extensão NPS, verifique se pode alcançar  `https://adnotifications.windowsazure.com` e `https://login.microsoftonline.com/` . Se esses sites não carregarem, resolvam a conectividade no servidor. |
 | **Extensão NPS para Azure MFA:** <br> A extensão NPS para Azure MFA apenas executa Auth Secundário para pedidos de Raio no Estado AccessAccept. Pedido recebido para nome de utilizador do utilizador com resposta estado AccessReject, ignorando o pedido. | Este erro normalmente reflete uma falha de autenticação em AD ou que o servidor NPS não consegue receber respostas do Azure AD. Verifique se as suas firewalls estão abertas bidireccionalmente para o tráfego de e para `https://adnotifications.windowsazure.com` e para as portas `https://login.microsoftonline.com` 80 e 443. É igualmente importante verificar se no separador DIAL-IN das Permissões de Acesso à Rede, a definição está definida para "controlar o acesso através da Política de Rede NPS". Este erro também pode desencadear se o utilizador não tiver uma licença. |
-| **REGISTRY_CONFIG_ERROR** | Falta uma chave no registo da aplicação, o que pode ser porque o [script PowerShell](howto-mfa-nps-extension.md#install-the-nps-extension) não foi executado após a instalação. A mensagem de erro deve incluir a chave em falta. Certifique-se de que tem a chave em HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa. |
+| **REGISTRY_CONFIG_ERROR** | Falta uma chave no registo da aplicação, o que pode ser porque o [script PowerShell](howto-mfa-nps-extension.md#install-the-nps-extension) não foi executado após a instalação. A mensagem de erro deve incluir a chave em falta. Certifique-se de ter a chave debaixo de HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa. |
 | **REQUEST_FORMAT_ERROR** <br> Pedido de raio Falta o atributo obrigatório do utilizador RadiusName\Identifier. Verifique se o NPS está a receber pedidos RADIUS | Este erro normalmente reflete um problema de instalação. A extensão NPS deve ser instalada em servidores NPS que possam receber pedidos RADIUS. Os servidores NPS que são instalados como dependências de serviços como RDG e RRAS não recebem pedidos de raio. A extensão NPS não funciona quando instalada sobre tais instalações e erros, uma vez que não consegue ler os detalhes do pedido de autenticação. |
 | **REQUEST_MISSING_CODE** | Certifique-se de que o protocolo de encriptação de palavra-passe entre os servidores NPS e NAS suporta o método de autenticação secundária que está a utilizar. **O PAP** suporta todos os métodos de autenticação do Azure MFA na nuvem: chamada telefónica, mensagem de texto unidirecionais, notificação de aplicações móveis e código de verificação de aplicações móveis. **CHAPV2** e **EAP** suportam chamada telefónica e notificação de aplicativos móveis. |
 | **USERNAME_CANONICALIZATION_ERROR** | Verifique se o utilizador está presente no seu local de acesso ative, e que o Serviço NPS tem permissões para aceder ao diretório. Se estiver a utilizar fundos florestais, [contacte o suporte](#contact-microsoft-support) para mais ajuda. |
@@ -107,7 +107,7 @@ Se precisar de ajuda adicional, contacte um profissional de suporte através do 
 
 Para recolher registos de depurg para diagnósticos de suporte, utilize os seguintes passos no servidor NPS:
 
-1. Editor de Registo Aberto e navegue para HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft\AzureMfa definir **VERBOSE_LOG** à **TRUE**
+1. Editor de Registo Aberto e navegue para HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa definir **VERBOSE_LOG** à **TRUE**
 2. Abra um pedido de comando do administrador e execute estes comandos:
 
    ```
@@ -131,5 +131,5 @@ Para recolher registos de depurg para diagnósticos de suporte, utilize os segui
    Start .
    ```
 
-5. Editor de Registo Aberto e navegue para HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft\AzureMfa definir **VERBOSE_LOG** a **FALSO**
+5. Editor de Registo Aberto e navegue para HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa definir **VERBOSE_LOG** a **FALSO**
 6. Feche o conteúdo da pasta C:\NPS e prenda o ficheiro com fecho à caixa de suporte.

@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: c3465e294af104c4d9c3b34960f5e95cf41e7cb8
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89291420"
 ---
 # <a name="live-transcription-preview"></a>Transcrição ao vivo (pré-visualização)
@@ -46,7 +46,7 @@ A transcrição ao vivo está disponível nas seguintes regiões:
 
 Esta é a lista de idiomas disponíveis que podem ser transcritas, use o código de idioma na API.
 
-| Linguagem | Código do idioma |
+| Idioma | Código do idioma |
 | -------- | ------------- |
 | Catalão  | ca-ES |
 | Dinamarquês (Dinamarca) | da-DK |
@@ -201,6 +201,6 @@ Para pré-visualização, são conhecidos os seguintes problemas com transcriç�
 - As aplicações precisam de utilizar as APIs de pré-visualização, descritas na [Especificação Do OpenAPI dos Serviços de Mídia v3](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2019-05-01-preview/streamingservice.json).
 - A proteção da gestão de direitos digitais (DRM) não se aplica à faixa de texto, apenas a encriptação do envelope AES é possível.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Visão geral dos Serviços de Mídia](media-services-overview.md)

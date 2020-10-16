@@ -11,10 +11,10 @@ ms.date: 04/23/2020
 ms.author: cathys
 keywords: visuaistudio
 ms.openlocfilehash: 5ec8e0f6448e725998628e41b917942966d3ef2a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87836161"
 ---
 # <a name="visual-studio-images-on-azure"></a>Imagens do Estúdio Visual em Azure

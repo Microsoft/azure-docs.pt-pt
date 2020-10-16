@@ -3,16 +3,17 @@ title: Linha de base de segurança Azure para Synapse Analytics
 description: A linha de base de segurança Synapse Analytics fornece orientações processuais e recursos para a implementação das recomendações de segurança especificadas no Benchmark de Segurança Azure.
 author: msmbaldwin
 ms.service: synapse-analytics
+ms.subservice: security
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: bbec83c655d568b43b319f30a96da0a8fc1effe8
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: e7e464520556790afe22177c0b2245ce93e48873
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230658"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088912"
 ---
 # <a name="azure-security-baseline-for-synapse-analytics"></a>Linha de base de segurança Azure para Synapse Analytics
 

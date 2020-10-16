@@ -4,10 +4,10 @@ description: Linha de Base de Segurança Azure para Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.openlocfilehash: 49b07242068df5d7c46c602140c8b3e1f778e90c
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89398328"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Linha de Base de Segurança Azure para Azure DevTest Labs
@@ -52,7 +52,7 @@ Para obter mais informações, consulte [Criar configurações de diagnóstico p
 ### <a name="24-collect-security-logs-from-operating-systems"></a>2.4: Recolher registos de segurança dos sistemas operativos
 **Orientação:** As máquinas virtuais Azure DevTest Labs (VMs) são criadas e propriedade do cliente. Então, é responsabilidade da organização monitorizá-lo. Pode utilizar o Azure Security Center para monitorizar o sistema operativo computacional. Os dados recolhidos pelo Security Center do sistema operativo incluem o tipo e versão de SISTEMA, OS (Registos de Eventos do Windows), processos de execução, nome da máquina, endereços IP e registados no utilizador. O Agente Descodudo de Log também recolhe ficheiros de despejo de acidentes.
 
-Para obter mais informações, veja os seguintes artigos: 
+Para obter mais informações, veja os artigos seguintes: 
 
 - [Como recolher registos internos de anfitriões da Azure Virtual Machine com o Azure Monitor](../azure-monitor/learn/quick-collect-azurevm.md)
 - [Compreender a recolha de dados do Centro de Segurança Azure](../security-center/security-center-enable-data-collection.md)
@@ -73,7 +73,7 @@ Para obter mais informações, consulte o seguinte artigo: [Como definir parâme
 ### <a name="26-monitor-and-review-logs"></a>2.6: Monitor e revisão de Registos
 **Orientação:** Ativar as definições de diagnóstico do Registo de Atividade do Azure e enviar os registos para um espaço de trabalho do Log Analytics. Faça consultas no Log Analytics para pesquisar termos, identificar tendências, analisar padrões e fornecer muitos outros insights com base nos dados de registo de atividade que podem ter sido recolhidos para Azure DevTest Labs.
 
-Para obter mais informações, veja os seguintes artigos:
+Para obter mais informações, veja os artigos seguintes:
 
 - [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/platform/diagnostic-settings.md)
 - [Como recolher e analisar registos de atividades do Azure no espaço de trabalho do Log Analytics no Azure Monitor](../azure-monitor/platform/activity-log.md)
@@ -799,7 +799,7 @@ Se estiver a utilizar a encriptação do disco Azure, pode restaurar o Azure VM 
 **Responsabilidade:** Cliente
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: Garantir a proteção das cópias de segurança e das chaves geridas pelo cliente
-**Orientação:** Quando faz cópia de segurança com backup Azure, os VMs são encriptados em repouso com encriptação do serviço de armazenamento (SSE). O Azure Backup também pode fazer backup de VMs Azure que são encriptados usando Azure Disk Encryption. A encriptação do disco Azure integra-se com chaves de encriptação BitLocker (BEKs), que são salvaguardadas num cofre-chave como segredos. A encriptação do disco Azure também se integra com chaves de encriptação chave Azure Key Vault (KEKs). Ativar a eliminação suave no cofre de chaves para proteger as chaves contra a eliminação acidental ou maliciosa.
+**Orientação:** Quando faz cópia de segurança com backup Azure, os VMs são encriptados em repouso com encriptação do serviço de armazenamento (SSE). O Azure Backup também pode fazer backup de VMs Azure que são encriptados usando Azure Disk Encryption. A encriptação do disco Azure integra-se com chaves de encriptação BitLocker (BEKs), que são salvaguardadas num cofre-chave como segredos. A encriptação do disco Azure também se integra com chaves de encriptação chave Azure Key Vault (KEKs). Ativar Soft-Delete no Cofre de Chaves para proteger as chaves contra a eliminação acidental ou maliciosa.
 
 - [Excluir suave para VMs](../backup/soft-delete-virtual-machines.md)
 - [Azure Key Vault - visão geral de exclusão suave](../key-vault/general/soft-delete-overview.md)
@@ -886,7 +886,7 @@ Monitorização do Centro de Segurança Azure:**** Não aplicável
 
 **Responsabilidade:** Compartilhado
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte o seguinte artigo:
 
 - [Alertas de segurança para ambientes em Azure DevTest Labs](environment-security-alerts.md)

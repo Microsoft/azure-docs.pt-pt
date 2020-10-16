@@ -1,7 +1,7 @@
 ---
 title: Subdomínios personalizados
 titleSuffix: Azure Cognitive Services
-description: Os nomes personalizados de subdomínio para cada recurso do Serviço Cognitivo são criados através do portal Azure, Azure Cloud Shell ou Azure CLI.
+description: Os nomes de subdomínio personalizados para cada recurso do Serviço Cognitivo são criados através do portal Azure Cloud Shell ou Azure CLI.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,65 +10,65 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: erhopf
 ms.openlocfilehash: c7dd916b27cd8005162c09f7e6a090293e336719
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83590643"
 ---
-# <a name="custom-subdomain-names-for-cognitive-services"></a>Nomes personalizados de subdomínio para Serviços Cognitivos
+# <a name="custom-subdomain-names-for-cognitive-services"></a>Nomes de subdomínio personalizados para Serviços Cognitivos
 
-Os Serviços Cognitivos Azure utilizam nomes de subdomínio personalizados para cada recurso criado através do [portal Azure,](https://portal.azure.com) [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/), ou [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Ao contrário dos pontos finais regionais, que eram comuns para todos os clientes numa região específica do Azure, os nomes de subdomínio personalizados são exclusivos do recurso. Os nomes de subdomínio personalizados são necessários para ativar funcionalidades como o Azure Ative Directory (Azure AD) para autenticação.
+Os Serviços Cognitivos Azure utilizam nomes de subdomínios personalizados para cada recurso criado através do [portal Azure](https://portal.azure.com) [Cloud Shell,](https://azure.microsoft.com/features/cloud-shell/)ou [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Ao contrário dos pontos finais regionais, que eram comuns para todos os clientes de uma região específica de Azure, os nomes de subdomínios personalizados são exclusivos do recurso. Os nomes de subdomínio personalizados são necessários para ativar funcionalidades como Azure Ative Directory (Azure AD) para a autenticação.
 
 ## <a name="how-does-this-impact-existing-resources"></a>Como é que isto afeta os recursos existentes?
 
 Os recursos dos Serviços Cognitivos criados antes de 1 de julho de 2019 utilizarão os pontos finais regionais para o serviço associado. Estes pontos finais funcionarão com recursos existentes e novos.
 
-Se quiser migrar um recurso existente para alavancar nomes de subdomínio personalizados, para que possa ativar funcionalidades como o Azure AD, siga estas instruções:
+Se quiser migrar um recurso existente para alavancar nomes de subdomínios personalizados, para que possa ativar funcionalidades como Azure AD, siga estas instruções:
 
-1. Inscreva-se no portal Azure e localize o recurso dos Serviços Cognitivos a que gostaria de adicionar um nome de subdomínio personalizado.
-2. Na lâmina **de visão geral,** localize e selecione **Generate Custom Domain Name**.
+1. Inscreva-se no portal Azure e localize o recurso serviços cognitivos a que gostaria de adicionar um nome de subdomínio personalizado.
+2. Na lâmina **de visão geral,** localize e selecione **Gerar Nome de Domínio Personalizado**.
 3. Isto abre um painel com instruções para criar um subdomínio personalizado único para o seu recurso.
    > [!WARNING]
-   > Depois de ter criado um nome de subdomínio personalizado, **não pode** ser alterado.
+   > Depois de criar um nome de subdomínio **personalizado, não pode** ser alterado.
 
 ## <a name="do-i-need-to-update-my-existing-resources"></a>Preciso atualizar os meus recursos existentes?
 
-Não. O ponto final regional continuará a trabalhar para novos e existentes Serviços Cognitivos e o nome de subdomínio personalizado é opcional. Mesmo que um nome de subdomínio personalizado seja adicionado, o ponto final regional continuará a trabalhar com o recurso.
+N.º O ponto final regional continuará a trabalhar para novos serviços cognitivos existentes e o nome de subdomínio personalizado é opcional. Mesmo que um nome de subdomínio personalizado seja adicionado, o ponto final regional continuará a funcionar com o recurso.
 
 ## <a name="what-if-an-sdk-asks-me-for-the-region-for-a-resource"></a>E se um SDK me pedir um recurso para a região?
 
 > [!WARNING]
-> Os Serviços de Fala **não** suportam subdomínios personalizados neste momento. Utilize os pontos finais regionais ao utilizar os Serviços de Fala e os SDKs associados.
+> Os Serviços de Fala **não** suportam subdomínios personalizados neste momento. Utilize os pontos finais regionais quando utilizar os Serviços de Fala e os SDKs associados.
 
-Os pontos finais regionais e os nomes de subdomínio personalizados são suportados e podem ser utilizados alternadamente. No entanto, é necessário o ponto final completo.
+Os pontos finais regionais e os nomes de subdomínio personalizados são suportados e podem ser usados intercambiavelmente. No entanto, é necessário o ponto final completo.
 
-A informação da região está disponível na lâmina **de visão geral** para o seu recurso no portal [Azure](https://portal.azure.com). Para a lista completa de pontos finais regionais, veja-se [uma lista de pontos finais regionais?](#is-there-a-list-of-regional-endpoints)
+Informações da região estão disponíveis na lâmina **de visão geral** para o seu recurso no [portal Azure](https://portal.azure.com). Para a lista completa dos pontos finais regionais, consulte [a lista de pontos finais regionais?](#is-there-a-list-of-regional-endpoints)
 
-## <a name="are-custom-subdomain-names-regional"></a>Os nomes de subdomínio personalizado saem regionais?
+## <a name="are-custom-subdomain-names-regional"></a>Os nomes de subdomínio personalizado são regionais?
 
-Yes. Usar um nome de subdomínio personalizado não altera nenhum dos aspetos regionais do seu recurso de Serviços Cognitivos.
+Sim. Usar um nome de subdomínio personalizado não altera nenhum dos aspetos regionais do seu recurso de Serviços Cognitivos.
 
 ## <a name="what-are-the-requirements-for-a-custom-subdomain-name"></a>Quais são os requisitos para um nome de subdomínio personalizado?
 
-Um nome de subdomínio personalizado é exclusivo do seu recurso. O nome só pode incluir caracteres alfanuméricos e o `-` personagem; deve ter entre 2 e 64 caracteres de comprimento e não pode terminar com `-` um .
+Um nome subdomínio personalizado é exclusivo do seu recurso. O nome só pode incluir caracteres alfanuméricos e o `-` personagem; deve ter entre 2 e 64 caracteres de comprimento e não pode terminar com um `-` .
 
 ## <a name="can-i-change-a-custom-domain-name"></a>Posso mudar um nome de domínio personalizado?
 
-Não. Depois de um nome de subdomínio personalizado ser criado e associado a um recurso, não pode ser alterado.
+N.º Depois de um nome de subdomínio personalizado ser criado e associado a um recurso não pode ser alterado.
 
 ## <a name="can-i-reuse-a-custom-domain-name"></a>Posso reutilizar um nome de domínio personalizado?
 
-Cada nome de subdomínio personalizado é único, por isso, para reutilizar um nome de subdomínio personalizado que atribuiu a um recurso dos Serviços Cognitivos, terá de eliminar o recurso existente. Depois de o recurso ter sido eliminado, pode reutilizar o nome de subdomínio personalizado.
+Cada nome de subdomínio personalizado é único, por isso, para reutilizar um nome de subdomínio personalizado que atribuiu a um recurso de Serviços Cognitivos, terá de eliminar o recurso existente. Depois de o recurso ter sido eliminado, pode reutilizar o nome de subdomínio personalizado.
 
 ## <a name="is-there-a-list-of-regional-endpoints"></a>Existe uma lista de pontos finais regionais?
 
-Yes. Esta é uma lista de pontos finais regionais que você pode usar com recursos dos Serviços Cognitivos Azure.
+Sim. Esta é uma lista de pontos finais regionais que você pode usar com recursos dos Serviços Cognitivos Azure.
 
 > [!NOTE]
-> O serviço de Tradutor e as APIs de Pesquisa bing usam pontos finais globais.
+> O serviço de tradutor e as APIs de pesquisa de Bing utilizam pontos finais globais.
 
-| Tipo endpoint | Região | Ponto Final |
+| Tipo de ponto final | Region | Ponto final |
 |---------------|--------|----------|
 | Público | Global (Tradutor & Bing) | `https://api.cognitive.microsoft.com` |
 | | Leste da Austrália | `https://australiaeast.api.cognitive.microsoft.com` |
@@ -86,17 +86,17 @@ Yes. Esta é uma lista de pontos finais regionais que você pode usar com recurs
 | | Europa do Norte | `https://northeurope.api.cognitive.microsoft.com` |
 | | África do Sul Norte | `https://southafricanorth.api.cognitive.microsoft.com` |
 | | E.U.A. Centro-Sul | `https://southcentralus.api.cognitive.microsoft.com` |
-| | Ásia Sudeste | `https://southeastasia.api.cognitive.microsoft.com` |
+| | Sudeste Asiático | `https://southeastasia.api.cognitive.microsoft.com` |
 | | Sul do Reino Unido | `https://uksouth.api.cognitive.microsoft.com` |
 | | E.U.A. Centro-Oeste | `https://westcentralus.api.cognitive.microsoft.com` |
-| | Europa ocidental | `https://westeurope.api.cognitive.microsoft.com` |
+| | Europa Ocidental | `https://westeurope.api.cognitive.microsoft.com` |
 | | E.U.A. Oeste | `https://westus.api.cognitive.microsoft.com` |
-| | E.U.A.Oeste 2 | `https://westus2.api.cognitive.microsoft.com` |
+| | E.U.A. Oeste 2 | `https://westus2.api.cognitive.microsoft.com` |
 | US Gov | US Gov - Virginia | `https://virginia.api.cognitive.microsoft.us` |
 | China | China Leste 2 | `https://chinaeast2.api.cognitive.azure.cn` |
 | | Norte da China | `https://chinanorth.api.cognitive.azure.cn` |
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 * [O que são os Serviços Cognitivos?](Welcome.md)
 * [Autenticação](authentication.md)

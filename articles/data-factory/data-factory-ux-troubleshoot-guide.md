@@ -9,10 +9,10 @@ ms.date: 09/03/2020
 ms.author: ceespino
 ms.reviewer: daperlov
 ms.openlocfilehash: 9f23155df6d9e63448b35974c331bf78c3e5f90c
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89426232"
 ---
 # <a name="troubleshoot-azure-data-factory-ux-issues"></a>Problemas de resolução de dados Azure Data Factory UX Problemas
@@ -111,7 +111,7 @@ Para saber mais sobre as definições de armazenamento de dados suportados para 
 
 ![Mensagem de aviso](media/data-factory-ux-troubleshoot-guide/warning-message.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais ajuda para resolver problemas, experimente estes recursos:
 

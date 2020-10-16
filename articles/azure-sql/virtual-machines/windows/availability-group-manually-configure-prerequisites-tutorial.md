@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 278e5feb327c1376b7644050f414f680334d5c50
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 812fb35f404092453ad35b2f70c4a5b1697fbfe0
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91263237"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075710"
 ---
 # <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Pré-requisitos para criar grupos de disponibilidade sempre em sql server em máquinas virtuais Azure
 
@@ -232,7 +232,7 @@ Nos passos seguintes, configuure a máquina **ad-primar-dc** como controlador de
     ![Adicionar diálogo de papéis](./media/availability-group-manually-configure-prerequisites-tutorial-/23-addroles.png)
 
 7. Selecione **Seguinte** até chegar à secção **de Confirmação.** Selecione **o servidor de destino reinicie automaticamente se necessário** caixa de verificação.
-8. Selecione **Install** (Instalar).
+8. Selecione **Instalar**.
 9. Depois de as funcionalidades terminarem de ser instaladas, volte ao painel **do Gestor do Servidor.**
 10. Selecione a nova opção **AD DS** no painel esquerdo.
 11. Selecione o link **Mais** na barra de aviso amarela.
@@ -248,7 +248,7 @@ Nos passos seguintes, configuure a máquina **ad-primar-dc** como controlador de
     | **Opções de Controlador de Domínio** |**Senha DSRM** = Contoso!0000<br/>**Confirmar Senha** = Contoso!0000 |
 
 14. Selecione **Seguinte** para ver as outras páginas do assistente. Na página **Pré-Requisitos Verificar,** verifique se vê a seguinte mensagem: **Todas as verificações pré-requisitos passadas com sucesso**. Pode rever quaisquer mensagens de aviso aplicáveis, mas é possível continuar com a instalação.
-15. Selecione **Install** (Instalar). A máquina virtual **ad-primar-dc** reinicia automaticamente.
+15. Selecione **Instalar**. A máquina virtual **ad-primar-dc** reinicia automaticamente.
 
 ### <a name="note-the-ip-address-of-the-primary-domain-controller"></a>Note o endereço IP do controlador de domínio primário
 
@@ -420,6 +420,10 @@ Agora pode juntar-se aos VMs para **corp.contoso.com.** Faça os seguintes passo
 7. Quando vir a mensagem "Bem-vindo ao domínio corp.contoso.com", selecione **OK**.
 8. Selecione **Fechar**e, em seguida, selecione **Restart Now** no diálogo popup.
 
+## <a name="add-accounts"></a>Adicionar contas
+
+Adicione a conta de instalação como administrador em cada VM, conceda permissão à conta de instalação e contas locais dentro do SQL Server e atualize a conta de serviço do SQL Server. 
+
 ### <a name="add-the-corpinstall-user-as-an-administrator-on-each-cluster-vm"></a>Adicione o Corp\Instale o utilizador como administrador em cada VM de cluster
 
 Depois de cada máquina virtual reiniciar como membro do domínio, adicione **CORP\Install** como membro do grupo de administradores locais.
@@ -438,16 +442,6 @@ Depois de cada máquina virtual reiniciar como membro do domínio, adicione **CO
 7. Selecione **OK** para fechar o diálogo **Propriedades do Administrador.**
 8. Repita os passos anteriores no **sqlserver-1** e **no cluster-fsw**.
 
-### <a name="set-the-sql-server-service-accounts"></a><a name="setServiceAccount"></a>Definir as contas de serviço do SQL Server
-
-Em cada SQL Server VM, desajuste a conta de serviço SQL Server. Utilize as contas que criou quando configurar as contas de domínio.
-
-1. Abra o **Gestor de Configuração do SQL Server**.
-2. Clique com o botão direito no serviço SQL Server e, em seguida, selecione **Propriedades**.
-3. Desa cos um pouco de conta e senha.
-4. Repita estes passos no outro SQL Server VM.  
-
-Para os grupos de disponibilidade do SQL Server, cada SQL Server VM tem de funcionar como uma conta de domínio.
 
 ### <a name="create-a-sign-in-on-each-sql-server-vm-for-the-installation-account"></a>Crie um sinal de inserção em cada SQL Server VM para a conta de instalação
 
@@ -467,13 +461,54 @@ Utilize a conta de instalação (CORP\install) para configurar o grupo de dispon
 
 1. Introduza as credenciais de rede de administrador de domínio.
 
-1. Utilize a conta de instalação.
+1. Utilize a conta de instalação (CORP\install).
 
 1. Descreva o sinal para ser membro da função de servidor fixo **sysadmin.**
 
 1. Selecione **OK**.
 
 Repita os passos anteriores no outro SQL Server VM.
+
+### <a name="configure-system-account-permissions"></a>Configure permissões de conta do sistema
+
+Para criar uma conta para a conta do sistema e conceder permissões apropriadas, complete os seguintes passos em cada instância do SQL Server:
+
+1. Crie uma conta `[NT AUTHORITY\SYSTEM]` em cada instância do SQL Server. O seguinte script cria esta conta:
+
+   ```sql
+   USE [master]
+   GO
+   CREATE LOGIN [NT AUTHORITY\SYSTEM] FROM WINDOWS WITH DEFAULT_DATABASE=[master]
+   GO 
+   ```
+
+1. Conceda as seguintes permissões `[NT AUTHORITY\SYSTEM]` em cada instância do SQL Server:
+
+   - `ALTER ANY AVAILABILITY GROUP`
+   - `CONNECT SQL`
+   - `VIEW SERVER STATE`
+
+   O seguinte script concede estas permissões:
+
+   ```sql
+   GRANT ALTER ANY AVAILABILITY GROUP TO [NT AUTHORITY\SYSTEM]
+   GO
+   GRANT CONNECT SQL TO [NT AUTHORITY\SYSTEM]
+   GO
+   GRANT VIEW SERVER STATE TO [NT AUTHORITY\SYSTEM]
+   GO 
+   ```
+
+### <a name="set-the-sql-server-service-accounts"></a><a name="setServiceAccount"></a>Definir as contas de serviço do SQL Server
+
+Em cada SQL Server VM, desajuste a conta de serviço SQL Server. Utilize as contas que criou quando configurar as contas de domínio.
+
+1. Abra o **Gestor de Configuração do SQL Server**.
+2. Clique com o botão direito no serviço SQL Server e, em seguida, selecione **Propriedades**.
+3. Desa cos um pouco de conta e senha.
+4. Repita estes passos no outro SQL Server VM.  
+
+Para os grupos de disponibilidade do SQL Server, cada SQL Server VM tem de funcionar como uma conta de domínio.
 
 ## <a name="add-failover-clustering-features-to-both-sql-server-vms"></a>Adicionar funcionalidades de Clustering failover a ambos os VMs do servidor SQL
 
@@ -524,35 +559,6 @@ O método de abertura das portas depende da solução de firewall que utiliza. A
 
 Repita estes passos no segundo SQL Server VM.
 
-## <a name="configure-system-account-permissions"></a>Configure permissões de conta do sistema
-
-Para criar uma conta para a conta do sistema e conceder permissões apropriadas, complete os seguintes passos em cada instância do SQL Server:
-
-1. Crie uma conta `[NT AUTHORITY\SYSTEM]` em cada instância do SQL Server. O seguinte script cria esta conta:
-
-   ```sql
-   USE [master]
-   GO
-   CREATE LOGIN [NT AUTHORITY\SYSTEM] FROM WINDOWS WITH DEFAULT_DATABASE=[master]
-   GO 
-   ```
-
-1. Conceda as seguintes permissões `[NT AUTHORITY\SYSTEM]` em cada instância do SQL Server:
-
-   - `ALTER ANY AVAILABILITY GROUP`
-   - `CONNECT SQL`
-   - `VIEW SERVER STATE`
-
-   O seguinte script concede estas permissões:
-
-   ```sql
-   GRANT ALTER ANY AVAILABILITY GROUP TO [NT AUTHORITY\SYSTEM]
-   GO
-   GRANT CONNECT SQL TO [NT AUTHORITY\SYSTEM]
-   GO
-   GRANT VIEW SERVER STATE TO [NT AUTHORITY\SYSTEM]
-   GO 
-   ```
 
 ## <a name="next-steps"></a>Passos seguintes
 

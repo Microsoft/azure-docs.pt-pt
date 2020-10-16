@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: dc23a0a68471b82c990d5d8a3086e2e71e88d0c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dc630021cbf93074119d4feedcb3a09fae1453e3
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513935"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949433"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-jobs-update-3-and-later"></a>Utilize o serviço StorSimple Device Manager para visualizar e gerir postos de trabalho (atualização 3 e posterior)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Overview (Descrição geral)
 A lâmina **Jobs** fornece um único portal central para visualização e gestão de trabalhos que foram iniciados em dispositivos ligados ao seu serviço StorSimple Device Manager. Pode ver trabalhos programados, em execução, concluídos, cancelados e falhados para vários dispositivos. Os resultados são apresentados em formato tabular.
 
 ![Lâmina de emprego](./media/storsimple-8000-manage-jobs-u2/jobs1.png)
@@ -59,11 +59,11 @@ Execute os seguintes passos para ver os detalhes de qualquer trabalho.
 
 2. Na lâmina **Jobs,** exiba o(s) trabalho que lhe interessa executando uma consulta com filtros apropriados. Pode procurar empregos completos, em execução ou cancelados.
 
-    ![Lâmina de trabalho](./media/storsimple-8000-manage-jobs-u2/jobs1.png)
+    ![Lâmina de trabalho 2](./media/storsimple-8000-manage-jobs-u2/jobs1.png)
 
 2. Selecione e clique num trabalho.
 
-    ![Lâmina de trabalho](./media/storsimple-8000-manage-jobs-u2/jobs3.png)
+    ![Lâmina de trabalho 3](./media/storsimple-8000-manage-jobs-u2/jobs3.png)
 
 3. Na lâmina de detalhes do trabalho, pode ver o estado, detalhes, estatísticas de tempo e estatísticas de dados.
    
@@ -81,11 +81,11 @@ Execute os seguintes passos para cancelar um trabalho de corrida.
 
 2. Clique com o botão direito no trabalho selecionado para invocar o menu de contexto e clique em **Cancelar**.
 
-    ![Detalhes da tarefa](./media/storsimple-8000-manage-jobs-u2/jobs2.png)
+    ![Detalhes do trabalho 2](./media/storsimple-8000-manage-jobs-u2/jobs2.png)
 
 3. Quando lhe for pedida a confirmação, clique em **Sim**. Este trabalho está cancelado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba como [gerir as suas políticas de backup StorSimple](storsimple-8000-manage-backup-policies-u2.md).
 * Saiba como [utilizar o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

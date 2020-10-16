@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: fc60552fadf10dde88c0e6d8c6f46bd25c68cf2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da8ae35ce85ca9ffb031511e81270afd8529681d
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543946"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994187"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-openathens"></a>Tutorial: Azure Ative Directory integração única (SSO) com OpenAthens
 
@@ -134,15 +134,15 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Selecione **Ligações** da lista no separador **Gestão.**
 
-    ![Configurar o início de sessão único](./media/openathens-tutorial/tutorial_openathens_application1.png)
+    ![Screenshot que mostra a página do site da empresa "OpenAthens" com "Conexões" selecionadas a partir do separador "Gestão".](./media/openathens-tutorial/tutorial_openathens_application1.png)
 
 1. Selecione **SAML 1.1/2.0**e, em seguida, selecione o **botão Configure.**
 
-    ![Configurar o início de sessão único](./media/openathens-tutorial/tutorial_openathens_application2.png)
+    ![Screenshot que mostra o "Selecione o tipo de sistema de autenticação local". diálogo com "S A M L 1.1/2.0" e o botão "Configurar" selecionado.](./media/openathens-tutorial/tutorial_openathens_application2.png)
 
 1. Para adicionar a configuração, selecione o botão **Browse** para carregar o ficheiro metadados .xml que descarregou a partir do portal Azure e, em seguida, selecione **Adicionar**.
 
-    ![Configurar o início de sessão único](./media/openathens-tutorial/tutorial_openathens_application3.png)
+    ![Screenshot que mostra o "Add S A M L authentication system". diálogo com a ação "Procurar" e "Adicionar botão selecionado.](./media/openathens-tutorial/tutorial_openathens_application3.png)
 
 1. Execute os seguintes passos no separador **Detalhes.**
 
@@ -164,7 +164,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     h. A partir do **separador</> Relying Party,** copie o **URL dos metadados** e abra-o no navegador para descarregar o ficheiro **XML de metadados SP.** Faça o upload deste ficheiro de metadados SP na secção **de configuração BÁSICA SAML** em Azure AD.
 
-    ![Configurar o início de sessão único](./media/openathens-tutorial/tutorial_openathens_application5.png)
+    ![Screenshot que mostra o separador "Relying party" selecionado e o "Metadadata U R L" realçado.](./media/openathens-tutorial/tutorial_openathens_application5.png)
 
 ### <a name="create-openathens-test-user"></a>Criar utilizador de teste OpenAthens
 

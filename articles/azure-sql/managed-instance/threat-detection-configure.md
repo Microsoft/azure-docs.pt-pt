@@ -13,10 +13,10 @@ ms.author: ronmat
 ms.reviewer: vanto
 ms.date: 09/21/2020
 ms.openlocfilehash: d2ea14356bf85c795769f1d406f1571f36adaa38
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91617924"
 ---
 # <a name="configure-advanced-threat-protection-in-azure-sql-managed-instance"></a>Configure proteção avançada de ameaças em Azure SQL Caso gerido

@@ -17,10 +17,10 @@ ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f2625698ae1d76dbae3ed8a8855b88dd6ac7bb17
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84763691"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Opções avançadas de assinatura de certificado no token SAML para apps de galeria em Azure Ative Directory
@@ -62,10 +62,10 @@ Para alterar as opções de assinatura de certificado SAML de uma aplicação e 
 Em seguida, altere as opções de assinatura do certificado no token SAML para esse pedido:
 
 1. No painel esquerdo da página geral da aplicação, selecione **Single sign-on**.
-1. Se aparecer o **'set up's Single Sign-On with SAML - Página de pré-visualização,** vá para o passo 5.
+1. Se aparecer a Sign-On Única configurada com a página **DE pré-visualização SAML,** vá para o passo 5.
 1. Se a página **de método de sômposição** não aparecer, selecione **Alterar os modos de inscrição única** para exibir essa página.
 1. Na página **de método de inscrição** única, selecione **SAML** se disponível. (Se **a SAML** não estiver disponível, a aplicação não suporta a SAML, e pode ignorar o resto deste procedimento e artigo.)
-1. Na **configuração de um único sign-on com a página SAML - Pré-visualização,** encontre o título **do Certificado de Assinatura SAML** e selecione o ícone **Editar** (um lápis). Aparece a página **do Certificado de Assinatura SAML.**
+1. Na **configuração single Sign-On com página DE pré-visualização SAML,** encontre o título **do Certificado de Assinatura SAML** e selecione o ícone **editar** (um lápis). Aparece a página **do Certificado de Assinatura SAML.**
 
    ![Exemplo: página de certificado de assinatura SAML](./media/certificate-signing-options/saml-signing-page.png)
 
@@ -73,7 +73,7 @@ Em seguida, altere as opções de assinatura do certificado no token SAML para e
 1. Na lista de drop-down do Algoritmo de **Assinatura,** escolha **SHA-1** ou **SHA-256**. Descrições destas opções aparecem mais cedo neste artigo na secção [de algoritmos de assinatura de certificado.](#certificate-signing-algorithms)
 1. Se estiver satisfeito com as suas escolhas, **selecione Guardar** para aplicar as novas definições de certificado de assinatura SAML. Caso contrário, selecione o **X** para descartar as alterações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Configure um único sign-on para aplicações que não estão na Galeria de Aplicações do Diretório Ativo Azure](configure-federated-single-sign-on-non-gallery-applications.md)
-* [Resolução de problemas SEML único sinal de lançamento](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+* [Resolver problemas de início de sessão único baseado em SAML](../azuread-dev/howto-v1-debug-saml-sso-issues.md)

@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.openlocfilehash: fb795a9d7100019b2b1820c592f87025b77f5878
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86045863"
 ---
 # <a name="troubleshoot-apache-oozie-in-azure-hdinsight"></a>Resolução de problemas Apache Oozie em Azure HDInsight
@@ -38,7 +38,7 @@ JA009: Cannot initialize Cluster. Please check your configuration for map
 
 ### <a name="cause"></a>Causa
 
-Os endereços de armazenamento Azure Blob utilizados no **ficheirojob.xml** não contêm o contentor de armazenamento ou o nome da conta de armazenamento. O formato de endereço de armazenamento Blob deve ser `wasbs://containername@storageaccountname.blob.core.windows.net` .
+Os endereços de armazenamento Azure Blob utilizados no ** ficheirojob.xml** não contêm o contentor de armazenamento ou o nome da conta de armazenamento. O formato de endereço de armazenamento Blob deve ser `wasbs://containername@storageaccountname.blob.core.windows.net` .
 
 ### <a name="resolution"></a>Resolução
 
@@ -105,7 +105,7 @@ Por exemplo, para o exemplo de trabalho da [Use Hadoop Oozie workflows](hdinsigh
     <archive>mssql-jdbc-7.0.0.jre8.jar</archive>
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 31220a8f8b012e08d46195b60a26be9cfc261be5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514524"
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>Utilize a lâmina de resumo de serviço para o Gestor de Dispositivos StorSimple ligado ao StorSimple Virtual Array
@@ -45,6 +45,6 @@ Para visualizar as várias operações realizadas dentro do seu Gestor de Dispos
 
 ![Registos de Atividade](./media/storsimple-virtual-array-service-summary/activity-log.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba como [utilizar a UI web local para administrar o seu StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: e0e2ac43ce0157b4917e9c45f6a02ace63432137
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 9636c76caf2302b872a2ecbb8e2e4bacfc1408a6
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904414"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952136"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro"></a>Gerir o modo de acesso, energia e conectividade para o seu Azure Stack Edge Pro
 
@@ -53,7 +53,7 @@ O fluxo de trabalho de reset não requer que o utilizador relembre a senha antig
 
 2. Introduza a nova senha e, em seguida, confirme-a. A palavra-passe fornecida deve ter entre 8 e 16 caracteres. A palavra-passe deve ter 3 dos seguintes caracteres: maiúsculas, minúsculas, numéricas e caracteres especiais. Selecione **Repor**.
 
-    ![Repor palavra-passe](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
+    ![Redefinir a palavra-passe 2](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## <a name="manage-resource-access"></a>Gerir o acesso a recursos
 

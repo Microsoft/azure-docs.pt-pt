@@ -8,10 +8,10 @@ ms.author: dobett
 ms.date: 05/19/2020
 ms.topic: how-to
 ms.openlocfilehash: ba0ee0a610299bbe6b7e550f204cd2fd50d6d71a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83749208"
 ---
 # <a name="manage-iot-central-programmatically"></a>Gerir o IoT Central programáticamente
@@ -37,6 +37,6 @@ A tabela que se segue lista os repositórios SDK e os comandos de instalação d
 
 O repositório [de amostras Azure IoT Central ARM SDK](https://docs.microsoft.com/samples/azure-samples/azure-iot-central-arm-sdk-samples/azure-iot-central-arm-sdk-samples/) tem amostras de código para várias linguagens de programação que mostram como criar, atualizar, listar e eliminar aplicações Azure IoT Central.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a gerir programáticamente aplicações Azure IoT Central, um passo sugerido é saber mais sobre o serviço [Azure Resource Manager.](../../azure-resource-manager/management/overview.md)

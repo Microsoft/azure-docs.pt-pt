@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.openlocfilehash: 903413b6ca00600e15ac3af0a93b98a8d67a1c28
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88053631"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Mapear um domínio personalizado para um ponto final de armazenamento Azure Blob
@@ -113,9 +113,9 @@ Crie um registo CNAME para apontar para o nome de anfitrião. Um registo CNAME �
 
 #### <a name="step-4-test-your-custom-domain"></a>Passo 4: Teste o seu domínio personalizado
 
-Para confirmar que o seu domínio personalizado está mapeado para o seu ponto final de serviço blob, crie uma bolha num recipiente público dentro da sua conta de armazenamento. Em seguida, num navegador web, aceda à bolha utilizando um URI no seguinte formato:`http://<subdomain.customdomain>/<mycontainer>/<myblob>`
+Para confirmar que o seu domínio personalizado está mapeado para o seu ponto final de serviço blob, crie uma bolha num recipiente público dentro da sua conta de armazenamento. Em seguida, num navegador web, aceda à bolha utilizando um URI no seguinte formato: `http://<subdomain.customdomain>/<mycontainer>/<myblob>`
 
-Por exemplo, para aceder a um formulário web no recipiente *myforms* no subdomínio personalizado *photos.contoso.com,* poderá utilizar o seguinte URI:`http://photos.contoso.com/myforms/applicationform.htm`
+Por exemplo, para aceder a um formulário web no recipiente *myforms* no subdomínio personalizado *photos.contoso.com,* poderá utilizar o seguinte URI: `http://photos.contoso.com/myforms/applicationform.htm`
 
 <a id="zero-down-time"></a>
 
@@ -225,9 +225,9 @@ Crie um registo CNAME temporário para apontar para o nome de anfitrião.
 
 #### <a name="step-5-test-your-custom-domain"></a>Passo 5: Teste o seu domínio personalizado
 
-Para confirmar que o seu domínio personalizado está mapeado para o seu ponto final de serviço blob, crie uma bolha num recipiente público dentro da sua conta de armazenamento. Em seguida, num navegador web, aceda à bolha utilizando um URI no seguinte formato:`http://<subdomain.customdomain>/<mycontainer>/<myblob>`
+Para confirmar que o seu domínio personalizado está mapeado para o seu ponto final de serviço blob, crie uma bolha num recipiente público dentro da sua conta de armazenamento. Em seguida, num navegador web, aceda à bolha utilizando um URI no seguinte formato: `http://<subdomain.customdomain>/<mycontainer>/<myblob>`
 
-Por exemplo, para aceder a um formulário web no recipiente *myforms* no subdomínio personalizado *photos.contoso.com,* poderá utilizar o seguinte URI:`http://photos.contoso.com/myforms/applicationform.htm`
+Por exemplo, para aceder a um formulário web no recipiente *myforms* no subdomínio personalizado *photos.contoso.com,* poderá utilizar o seguinte URI: `http://photos.contoso.com/myforms/applicationform.htm`
 
 ### <a name="remove-a-custom-domain-mapping"></a>Remova um mapeamento de domínio personalizado
 

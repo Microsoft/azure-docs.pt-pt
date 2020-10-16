@@ -11,10 +11,10 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.date: 03/12/2020
 ms.openlocfilehash: 67b398194d9094cd99fccaa85ed0df3be362ce2b
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91618034"
 ---
 # <a name="enabling-service-aided-subnet-configuration-for-azure-sql-managed-instance"></a>Habilitação da configuração da sub-rede ajudada pelo serviço para a Azure SQL Gestdited Instance

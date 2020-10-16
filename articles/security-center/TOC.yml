@@ -50,7 +50,7 @@
           displayName: 'KV, akv'
           href: defender-for-key-vault-introduction.md
         - name: Azure Defender para Kubernetes
-          displayName: 'clusters, k8s'
+          displayName: 'clusters, k8s, aks'
           href: defender-for-kubernetes-introduction.md
         - name: Azure Defender para registos de contentor
           displayName: 'ACR, registry, images'
@@ -58,7 +58,7 @@
         - name: Proteções adicionais contra ameaças
           href: other-threat-protections.md
     - name: Funcionalidades de segurança do contentor do Centro de Segurança
-      displayName: 'kubernetes, aks, acr, registries'
+      displayName: 'kubernetes, aks, acr, registries, k8s'
       href: container-security.md
     - name: Preços
       href: security-center-pricing.md
@@ -79,6 +79,8 @@
           href: quickstart-onboard-gcp.md
     - name: Automatizar a integração com o PowerShell
       href: security-center-powershell-onboarding.md
+    - name: Ativar o Centro de Segurança para um grupo de gestão
+      href: onboard-management-group.md
     - name: Configurar a recolha de dados
       href: security-center-enable-data-collection.md
     - name: Configurar notificações por e-mail
@@ -140,8 +142,6 @@
             - name: Automatizar as respostas às recomendações
               displayName: workflow
               href: workflow-automation.md
-            - name: Exportar recomendações
-              href: continuous-export.md
             - name: Isentar um recurso de uma recomendação
               href: exempt-resource.md
     - name: Alertas do Azure Defender
@@ -169,17 +169,20 @@
           href: update-regulatory-compliance-packages.md
     - name: Utilizar o Azure Defender para servidores
       items:
-        - name: Análise de vulnerabilidades para VMs
+        - name: Análise de vulnerabilidades
           items:
-            - name: Analisar VMs com a solução de VA integrada
-              displayName: 'qualys, vulnerability'
+            - name: Verificador de VA integrado para computadores
+              displayName: 'qualys, vulnerability, arc'
               href: deploy-vulnerability-assessment-vm.md
             - name: Analisar VMs com a solução de BYOL VA
               displayName: 'qualys, rapid7, vulnerability'
               href: deploy-vulnerability-assessment-byol-vm.md
-            - name: Analisar e remediar vulnerabilidades nas suas VMs
+            - name: Analisar e remediar vulnerabilidades
               displayName: 'qualys, rapid7, vulnerability'
               href: remediate-vulnerability-findings-vm.md
+            - name: Desativar descobertas específicas de vulnerabilidades
+              displayName: 'qualys, rapid7, vulnerability'
+              href: remediate-vulnerability-findings-vm.md#disable-specific-findings-preview
         - name: Proteger as portas de gestão com acesso just-in-time à VM
           items:
             - name: Ativar o acesso just-in-time à VM
@@ -213,6 +216,15 @@
     - name: Utilizar o Azure Defender para registos de contentores
       displayName: 'ACR, registry, images'
       href: defender-for-container-registries-usage.md
+    - name: Exportar alertas e recomendações
+      items:
+        - name: 'Exportar para SIEM, SOAR ou ITSM'
+          displayName: 'continuous, SIEM, SOAR, Splunk, QRadar, ServiceNow, ArcSight, Monitor, Graph, Sentinel,'
+          href: export-to-siem.md
+        - name: Exportar para uma área de trabalho do Log Analytics ou para um Hub de Eventos do Azure
+          href: continuous-export.md
+        - name: Transferir um relatório CSV de todos os alertas
+          href: continuous-export.md#manual-one-time-export-of-alerts-and-recommendations
     - name: Processar alertas do Azure Defender
       items:
         - name: Gerir alertas de segurança
@@ -226,16 +238,14 @@
           href: security-center-incident.md
         - name: Gerar relatórios de informações sobre ameaças
           href: security-center-threat-report.md
-        - name: Validar a sua configuração de alertas (ficheiro de teste EICAR)
+        - name: Validar a sua configuração de alertas
+          displayname: 'eicar, Kubernetes, Linux'
           href: security-center-alert-validation.md
         - name: Automatizar as respostas aos alertas
           displayName: workflow
           href: workflow-automation.md
-        - name: Exportar alertas
-          displayName: continuous
-          href: continuous-export.md
     - name: Proteger cargas de trabalho do Kubernetes
-      displayName: 'k8s, containers'
+      displayName: 'k8s, containers, aks'
       href: kubernetes-workload-protections.md
     - name: Gerir dados de utilizadores de investigação
       href: security-center-investigation-user-data.md

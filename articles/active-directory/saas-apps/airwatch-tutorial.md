@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: jeedes
 ms.openlocfilehash: 2baff2ac2af10caf857fd08b0d7e7df5030220e4
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91758154"
 ---
 # <a name="tutorial-integrate-airwatch-with-azure-active-directory"></a>Tutorial: Integrar AirWatch com Diretório Ativo Azure
@@ -69,7 +69,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **AirWatch,** encontre a secção **Gerir** e selecione **Single sign-on**.
 1. Na página **de método de inscrição única,** selecione **SAML**.
-1. Na **configuração de 'Sessão Única' com** a página SAML, clique no ícone edit/pen para **a configuração básica do SAML** para editar as definições.
+1. Na **configuração single Sign-On com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -82,13 +82,13 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     > [!NOTE]
     > Este valor não é real. Atualize este valor com o URL de inscrição real. Contacte a [equipa de suporte do Cliente AirWatch](https://www.air-watch.com/company/contact-us/) para obter este valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-1. A aplicação AirWatch espera as afirmações SAML num formato específico. Configure os seguintes pedidos para este pedido. Pode gerir os valores destes atributos a partir da secção **Atributos** do Utilizador na página de integração de aplicações. Na **configuração de 'Sessão's Single's com página SAML,** clique em **Editar** o botão Editar para abrir o diálogo **de atributos do utilizador.**
+1. A aplicação AirWatch espera as afirmações SAML num formato específico. Configure os seguintes pedidos para este pedido. Pode gerir os valores destes atributos a partir da secção **Atributos** do Utilizador na página de integração de aplicações. Na **configuração single Sign-On com** a página SAML, clique no botão **Editar** para abrir o diálogo **de Atributos do Utilizador.**
 
     ![image](common/edit-attribute.png)
 
 1. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** edite as alegações utilizando o **ícone Editar** ou adicione as alegações utilizando **adicionar uma nova alegação** para configurar o atributo de ficha SAML como mostrado na imagem acima e executar os seguintes passos:
 
-    | Name |  Atributo de origem|
+    | Nome |  Atributo de origem|
     |---------------|----------------|
     | UID | user.userprincipalname |
     | | |
@@ -107,7 +107,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     exemplo, Clique em **Guardar**.
 
-1. Na **configuração de um único sign-on com** a página SAML, na secção **certificado de assinatura SAML,** encontre o **Metadados XML da Federação** e selecione **Descarregamento** para descarregar o Metadadata XML e guardá-lo no seu computador.
+1. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre o **Metadados XML da Federação** e selecione **Descarregamento** para descarregar o Metadados XML e guardá-lo no seu computador.
 
    ![O link de descarregamento de certificado](common/metadataxml.png)
 

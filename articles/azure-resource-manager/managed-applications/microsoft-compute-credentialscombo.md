@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/29/2018
 ms.author: tomfitz
 ms.openlocfilehash: 47c88e08e5d2eac09fbcd5b60a8ccd73b46c9616
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87063778"
 ---
 # <a name="microsoftcomputecredentialscombo-ui-element"></a>Microsoft.Compute.CredentialsDi elemento UI
@@ -89,7 +89,7 @@ Para **Linux,** utilize o seguinte esquema:
 }
 ```
 
-## <a name="sample-output"></a>Resultado da amostra
+## <a name="sample-output"></a>Saída de exemplo
 
 Se `osPlatform` for o **Windows**, ou se for `osPlatform` o **Linux** e o utilizador tiver fornecido uma palavra-passe em vez de uma chave pública SSH, o controlo devolve a seguinte saída:
 
@@ -111,7 +111,7 @@ Se `osPlatform` for **o Linux** e o utilizador fornecer uma chave pública SSH, 
 
 ## <a name="remarks"></a>Observações
 
-- `osPlatform`deve ser especificado, e pode ser **windows** ou **Linux**.
+- `osPlatform` deve ser especificado, e pode ser **windows** ou **Linux**.
 - Se `constraints.required` estiver definido como **verdadeiro,** então a palavra-passe ou as caixas de texto de chaves públicas SSH devem ter valores para validar com sucesso. O valor predefinido é **verdadeiro.**
 - Se `options.hideConfirmation` estiver definido como **verdadeiro**, então a segunda caixa de texto para confirmar a palavra-passe do utilizador é ocultada. O valor predefinido é **falso**.
 - Se `options.hidePassword` estiver definido como **verdadeiro,** então a opção de utilização da autenticação de palavra-passe está oculta. Só pode ser utilizado quando `osPlatform` é **Linux.** O valor predefinido é **falso**.

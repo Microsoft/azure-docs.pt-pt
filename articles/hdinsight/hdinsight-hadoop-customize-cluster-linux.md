@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 09/02/2020
 ms.openlocfilehash: b30a7822511dc6b4c3ae7e852cba49ebff6e24ad
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89400862"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalize os clusters Azure HDInsight utilizando ações de script
@@ -133,7 +133,7 @@ Scripts de ação de scripts podem ser usados através dos seguintes utilitário
 
 O HDInsight fornece scripts para instalar os seguintes componentes em clusters HDInsight:
 
-| Name | Script |
+| Nome | Script |
 | --- | --- |
 | Adicione uma conta de Armazenamento Azure |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. Consulte [adicionar contas de armazenamento adicionais ao HDInsight](hdinsight-hadoop-add-storage.md). |
 | Instalar Matiz |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Consulte [instalar e utilizar o Hue nos clusters hdInsight Hadoop](hdinsight-hadoop-hue-linux.md). |
@@ -158,7 +158,7 @@ Esta secção explica as diferentes formas de utilizar as ações de script quan
     | Propriedade | Valor |
     | --- | --- |
     | Selecione um script | Para utilizar o seu próprio script, selecione __Custom__. Caso contrário, selecione um dos scripts fornecidos. |
-    | Name |Especifique um nome para a ação do script. |
+    | Nome |Especifique um nome para a ação do script. |
     | URI de guião de bash |Especifique o URI do script. |
     | Cabeça/Trabalhador/ZooKeeper |Especificar os nós em que o script é executado: **Head,** **Worker**, ou **ZooKeeper**. |
     | Parâmetros |Especifique os parâmetros, se necessário pelo script. |
@@ -232,7 +232,7 @@ Esta secção explica como aplicar as ações de script a um cluster de execuç�
     | Propriedade | Valor |
     | --- | --- |
     | Selecione um script | Para utilizar o seu próprio script, selecione __personalizado.__ Caso contrário, selecione um script fornecido. |
-    | Name |Especifique um nome para a ação do script. |
+    | Nome |Especifique um nome para a ação do script. |
     | URI de guião de bash |Especifique o URI do script. |
     | Cabeça/Trabalhador/Zookeeper |Especificar os nós em que o script é executado: **Head,** **Worker**, ou **ZooKeeper**. |
     | Parâmetros |Especifique os parâmetros, se necessário pelo script. |
@@ -337,7 +337,7 @@ Para um exemplo de utilização do .NET SDK para recuperar o histórico de scrip
 > [!NOTE]  
 > Este exemplo também demonstra como instalar uma aplicação HDInsight utilizando o .NET SDK.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Desenvolver scripts de ação de script para HDInsight](hdinsight-hadoop-script-actions-linux.md)
 * [Adicione armazenamento adicional a um cluster HDInsight](hdinsight-hadoop-add-storage.md)

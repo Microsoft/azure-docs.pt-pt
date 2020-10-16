@@ -1,7 +1,7 @@
 ---
-title: 'Perceptron médio de duas classes: referência do módulo'
+title: 'Two-Class Perceptron Médio: Referência do módulo'
 titleSuffix: Azure Machine Learning
-description: Aprenda a usar o módulo Perceptron Averaged de duas classes em Azure Machine Learning para criar um modelo de aprendizagem automática baseado no algoritmo perceptron médio.
+description: Aprenda a usar o módulo perceptron average Two-Class em Azure Machine Learning para criar um modelo de aprendizagem automática baseado no algoritmo perceptron médio.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 3e5351ed2d400e0b1a10a913bb62391851030053
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907759"
 ---
-# <a name="two-class-averaged-perceptron-module"></a>Módulo perceptron médio de duas classes
+# <a name="two-class-averaged-perceptron-module"></a>Two-Class módulo perceptron médio
 
 Este artigo descreve um módulo no designer de Aprendizagem automática Azure.
 
@@ -30,7 +30,7 @@ O *método perceptron médio* é uma versão antiga e simples de uma rede neural
 
 Os modelos perceptron mais simples são adequados para aprender padrões linearmente separáveis, enquanto as redes neurais (especialmente redes neuronais profundas) podem modelar limites de classe mais complexos. No entanto, os perceptrons são mais rápidos, e como processam casos em série, os perceptrons podem ser usados com treino contínuo.
 
-## <a name="how-to-configure-two-class-averaged-perceptron"></a>Como configurar perceptron médio de duas classes
+## <a name="how-to-configure-two-class-averaged-perceptron"></a>Como configurar Two-Class Perceptron Médio
 
 1.  Adicione o módulo **Perceptron average de duas classes** ao seu oleoduto.  
 

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
 ms.openlocfilehash: 4beba141fec7a819df52e4c3a669312a4ad76998
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91449293"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door"></a>Backends e piscinas de backend na Porta frontal Azure
@@ -93,7 +93,7 @@ As definições de equilíbrio de carga para o pool de backend definem como aval
 
 Para obter mais informações, consulte [o método de encaminhamento menos baseado em latência](front-door-routing-methods.md#latency).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar um perfil da porta da frente](quickstart-create-front-door.md)
 - [Como funciona a Porta da Frente](front-door-routing-architecture.md)

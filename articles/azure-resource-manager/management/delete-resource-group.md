@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 09/03/2019
 ms.custom: seodec18
 ms.openlocfilehash: d6c38169916cc6c47d6f05c88645fa435bbdb146
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91614415"
 ---
 # <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Grupo de recursos Azure Resource Manager e eliminação de recursos

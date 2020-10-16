@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ab24b3113f9dc69b8f3907037e228ba212a03106
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85252938"
 ---
 # <a name="group-policy-and-mdm-settings"></a>Políticas de Grupo e configurações de MDM
@@ -32,7 +32,7 @@ As tabelas que se seguem descrevem as definições de política disponíveis.
 
 As definições de política do MDM aplicam-se tanto ao Windows 10 como ao Windows 10 Mobile.  O suporte móvel do Windows 10 existe apenas para a conta da Microsoft baseada em roaming através da conta OneDrive do utilizador. Consulte [os Dispositivos e pontos finais](enterprise-state-roaming-windows-settings-reference.md) para obter mais detalhes sobre quais os dispositivos suportados para sincronização baseada em Azure.
 
-| Name | Descrição |
+| Nome | Descrição |
 | --- | --- |
 | Permitir a ligação da conta da Microsoft |Permite que os utilizadores autentem a autenticação utilizando uma conta Microsoft no dispositivo |
 | Permitir sincronizar as minhas definições |Permite que os utilizadores vagueiem pelas definições do Windows e dados de aplicações; Desativar esta política irá desativar a sincronização, bem como cópias de segurança em dispositivos móveis |
@@ -41,9 +41,9 @@ As definições de política do MDM aplicam-se tanto ao Windows 10 como ao Windo
 
 As definições de política de grupo aplicam-se aos dispositivos Windows 10 que se juntam a um domínio ative directory. A tabela também inclui definições antigas que parecem gerir as definições de sincronização, mas que não funcionam para o Roaming do Estado da Empresa para o Windows 10, que são notadas com "Não usar" na descrição.
 
-Estas definições situam-se em:`Computer Configuration > Administrative Templates > Windows Components > Sync your settings` 
+Estas definições situam-se em: `Computer Configuration > Administrative Templates > Windows Components > Sync your settings` 
 
-| Name | Descrição |
+| Nome | Descrição |
 | --- | --- |
 | Contas: Bloquear contas da Microsoft |Esta definição de política impede os utilizadores de adicionarem novas contas da Microsoft neste computador |
 | Não sincronize |Impede os utilizadores de percorrerem as definições do Windows e os dados das aplicações |
@@ -57,6 +57,6 @@ Estas definições situam-se em:`Computer Configuration > Administrative Templat
 | Não sincronizar as definições da aplicação |Desativa o roaming dos dados das aplicações |
 | Não sincronizar as definições de início |Não utilizar; não tem efeito |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para uma visão geral, consulte [a visão geral do Roaming do Estado da empresa.](enterprise-state-roaming-overview.md)

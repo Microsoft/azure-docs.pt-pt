@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.openlocfilehash: 8e32b2b2e619d37323b2516178ab2b24cede4ee4
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86101346"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Criar e gerir a Base de Dados Azure para pontos finais de serviço MariaDB VNet e regras VNet utilizando o portal Azure
@@ -55,7 +55,7 @@ Os pontos finais e as regras dos serviços da Rede Virtual (VNet) expandem o esp
 
    ![Pontos finais de serviço VNet ativados e regra VNet criada](./media/howto-manage-vnet-portal/3-vnet-service-endpoints-enabled-vnet-rule-created.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [a configuração do SSL na Base de Dados Azure para MariaDB](howto-configure-ssl.md)
 - Da mesma forma, pode escrever para [ativar pontos finais de serviço VNet e criar uma regra VNET para Azure Database for MariaDB usando Azure CLI](howto-manage-vnet-cli.md).
 

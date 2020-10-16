@@ -422,6 +422,9 @@
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Encriptação
       href: luis-encryption-of-data-at-rest.md
+    - name: Configurar redes virtuais
+      maintainContext: true
+      href: ../cognitive-services-virtual-networks.md
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/LUIS'
     - name: UserVoice

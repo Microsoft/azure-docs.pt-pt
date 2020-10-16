@@ -10,10 +10,10 @@ ms.date: 11/05/2019
 ms.author: sngun
 ms.custom: devx-track-js
 ms.openlocfilehash: 005473fa02dda2e5466ffbc5a32499006c41292c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91322704"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Tutorial: Construa uma Node.js aplicação web utilizando o JavaScript SDK para gerir uma conta API SQL em Azure Cosmos DB 
@@ -439,7 +439,7 @@ Agora que construiu a aplicação, pode executá-la localmente usando os seguint
 
 1. Para testar a aplicação na sua máquina local, corra `npm start` no terminal para iniciar a sua aplicação e, em seguida, refresque a página do `http://localhost:3000` navegador. A página deve ser agora apresentada conforme mostrado na captura de ecrã seguinte:
    
-    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png" alt-text="Captura de ecrã da aplicação MyTodo List numa janela do browser":::
+    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png" alt-text="Saiba Node.js - Captura de ecrã da aplicação Olá, Mundo numa janela do browser":::
 
     > [!TIP]
     > Se receber um erro sobre o travessão no ficheiro layout.jade ou no ficheiro index.jade, certifique-se de que as duas primeiras linhas em ambos os ficheiros são justificadas à esquerda, sem espaços. Se houver espaços antes das duas primeiras linhas, remova-as, guarde ambos os ficheiros e, em seguida, refresque a janela do seu navegador. 
@@ -448,7 +448,7 @@ Agora que construiu a aplicação, pode executá-la localmente usando os seguint
 
 3. A página deverá ser atualizada para mostrar o item criado recentemente na ToDo List.
    
-    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png" alt-text="Captura de ecrã da aplicação com um novo item na ToDo List":::
+    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png" alt-text="Saiba Node.js - Captura de ecrã da aplicação Olá, Mundo numa janela do browser":::
 
 4. Para completar uma tarefa, selecione a caixa de verificação na coluna Complete e, em seguida, selecione **Tarefas de Atualização**. Este procedimento atualiza o documento já criado e retira-o da vista.
 

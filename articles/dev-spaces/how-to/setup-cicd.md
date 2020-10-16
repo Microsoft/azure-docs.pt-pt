@@ -8,14 +8,16 @@ ms.topic: conceptual
 manager: gwallace
 description: Saiba como configurar a integração contínua/implementação contínua utilizando Azure DevOps com Espaços Azure Dev
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, contentores
-ms.openlocfilehash: c7b3eba0bea85082dbb4e39d108af9471d5dc45e
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: de409aa060034c9ba0faaaa56ce21f904b02cdac
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080271"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960393"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Utilizar CI/CD com o Azure Dev Spaces
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
 
 Este artigo guia-o através da configuração da integração contínua/implementação contínua (CI/CD) ao Serviço Azure Kubernetes (AKS) com espaços Dev ativados. O CI/CD para a AKS permite que as atualizações de aplicações sejam automaticamente implementadas sempre que o código comprometido é empurrado para o seu repositório de origem. A utilização de CI/CD em conjunto com um cluster habilitado para os Dev Spaces é útil porque pode manter uma linha de base da aplicação atualizada para a equipa trabalhar.
 
@@ -70,7 +72,7 @@ A opção de desativar:
 
 No _ramo azds_updates_ incluímos um simples [Azure Pipeline YAML](/azure/devops/pipelines/yaml-schema?view=vsts&tabs=schema) que define os passos de construção necessários para *o mywebapi* e *webfrontend*.
 
-Dependendo do idioma que escolheu, o pipeline YAML foi verificado num caminho semelhante ao de:`samples/dotnetcore/getting-started/azure-pipelines.dotnetcore.yml`
+Dependendo do idioma que escolheu, o pipeline YAML foi verificado num caminho semelhante ao de: `samples/dotnetcore/getting-started/azure-pipelines.dotnetcore.yml`
 
 Para criar um Pipeline a partir deste ficheiro:
 1. Na sua página principal do projeto DevOps, navegue até Pipelines > Builds.
@@ -160,7 +162,7 @@ O desbloqueio é feito quando todas as tarefas estão completas.
 
 A fase _de prod_ do gasoduto CI/CD utiliza um equilibrador de carga em vez do controlador Dev Spaces Ingress para fornecer acesso a serviços _de prod._ Os serviços implantados na fase _prod_ são acessíveis como endereços IP em vez de nomes DNS. Num ambiente de produção, poderá optar por criar o seu próprio controlador Ingress para hospedar os seus serviços com base na sua própria configuração de DNS.
 
-Para determinar o IP do serviço de webfrontend, clique no passo IP público print **webfrontend** para expandir a saída de registo. Utilize o IP apresentado na saída de registo para aceder à aplicação **webfrontend.**
+Para determinar o IP do serviço de webfrontend, clique no passo IP público print  **webfrontend** para expandir a saída de registo. Utilize o IP apresentado na saída de registo para aceder à aplicação **webfrontend.**
 
 ```cmd
 ...

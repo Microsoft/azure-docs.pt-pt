@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 09/16/2019
 ms.author: genli
 ms.openlocfilehash: 09056846ee3e531724f597ee35f92d812ce2c335
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86037839"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Resolução de problemas: Uma ligação VPN local-to-site Azure não pode ligar-se e parar de funcionar
@@ -28,7 +28,7 @@ Para resolver o problema, tente primeiro [redefinir o gateway Azure VPN](vpn-gat
 
 Verifique o tipo de gateway Azure VPN.
 
-1. Vá ao [portal Azure.](https://portal.azure.com)
+1. Aceda ao [portal do Azure](https://portal.azure.com).
 
 2. Consulte a página **geral** do gateway VPN para obter informações sobre o tipo.
     
@@ -75,7 +75,7 @@ Get-AzureVNetGatewayKey -VNetName -LocalNetworkSiteName
 -   A definição IP no objeto **Local Network Gateway** em Azure deve coincidir com o dispositivo IP no local.
 -   A definição IP de gateway Azure que está definida no dispositivo no local deve coincidir com o IP de gateway Azure.
 
-### <a name="step-4-check-udr-and-nsgs-on-the-gateway-subnet"></a>Passo 4. Verifique UDR e NSGs na sub-rede gateway
+### <a name="step-4-check-udr-and-nsgs-on-the-gateway-subnet"></a>Passo 4: Verifique UDR e NSGs na sub-rede gateway
 
 Verifique e remova o encaminhamento definido pelo utilizador (UDR) ou Grupos de Segurança de Rede (NSGs) na sub-rede gateway e, em seguida, teste o resultado. Se o problema for resolvido, valide as definições que a UDR ou a NSG aplicaram.
 
@@ -108,7 +108,7 @@ Verifique e remova o encaminhamento definido pelo utilizador (UDR) ou Grupos de 
 
 A funcionalidade de sigilo para a frente perfeita pode causar problemas de desconexão. Se o dispositivo VPN tiver um sigilo avançado perfeito ativado, desative a funcionalidade. Em seguida, atualize a política IPsec de gateway VPN.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 -   [Configure uma ligação site-a-local a uma rede virtual](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 -   [Configure uma política IPsec/IKE para ligações VPN site-to-site](vpn-gateway-ipsecikepolicy-rm-powershell.md)

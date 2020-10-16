@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/22/2020
 ms.openlocfilehash: 18ff2c9690de1708cd8382d83a0c01662a8e6fb0
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619786"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Glossário de termos da Base de Dados Azure SQL
@@ -32,7 +32,7 @@ ms.locfileid: "91619786"
 |Opção de implementação |Base de dados individual|[Bases de dados individuais](database/single-database-overview.md)|
 ||Conjunto elástico|[Piscina elástica](database/elastic-pool-overview.md)|
 |Escalão de serviço|Básico, Padrão, Premium, Finalidade Geral, Hiperescala, Negócio Crítico|Para os níveis de serviço no modelo vCore, consulte os [níveis de serviço SQL Database](database/service-tiers-vcore.md#service-tiers). Para os níveis de serviço no modelo DTU, consulte o [modelo DTU](database/service-tiers-dtu.md#compare-the-dtu-based-service-tiers).|
-|Nível de computação|Computação sem servidor|[Computação sem servidor](database/service-tiers-vcore.md#compute-tiers)
+|Escalão de computação|Computação sem servidor|[Computação sem servidor](database/service-tiers-vcore.md#compute-tiers)
 ||Cálculo provisionado|[Cálculo provisionado](database/service-tiers-vcore.md#compute-tiers)
 |Geração computacional|Gen5, Série M, Fsv2|[Gerações de hardware](database/service-tiers-vcore.md#hardware-generations)
 |Entidade do servidor| Servidor |[Servidores SQL lógicos](database/logical-servers.md)|
@@ -48,7 +48,7 @@ ms.locfileid: "91619786"
 |Opção de implementação |Instância Única|[Instância única](managed-instance/sql-managed-instance-paas-overview.md)|
 ||Piscina de instância (pré-visualização)|[Conjuntos de instâncias](managed-instance/instance-pools-overview.md)|
 |Escalão de serviço|Propósito Geral, Critical De Negócios|[Níveis de serviço de instância gerida SQL](managed-instance/sql-managed-instance-paas-overview.md#service-tiers)|
-|Nível de computação|Cálculo provisionado|[Cálculo provisionado](database/service-tiers-vcore.md#compute-tiers)|
+|Escalão de computação|Cálculo provisionado|[Cálculo provisionado](database/service-tiers-vcore.md#compute-tiers)|
 |Geração computacional|Gen5|[Gerações de hardware](database/service-tiers-vcore.md#hardware-generations)
 |Entidade do servidor|Caso ou instância gerida| N/A como a SQL Managed Instance é por si só o servidor |
 |Tipo de recurso|vCore|Um núcleo cpu fornecido ao recurso compute para SQL Managed Instance.|

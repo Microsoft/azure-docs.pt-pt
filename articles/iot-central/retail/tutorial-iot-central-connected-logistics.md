@@ -8,17 +8,17 @@ ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
 ms.openlocfilehash: 0206c111be7cd6441d9de32af498e961833d214f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90980688"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-connected-logistics-application-template"></a>Tutorial: Implementar e caminhar através de um modelo de aplicação logística conectada
 
 Este tutorial mostra-lhe como começar com o modelo de aplicação *logística conectada* IoT Central. Você vai aprender a implementar e usar o modelo.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Crie uma aplicação logística conectada.
@@ -123,7 +123,7 @@ Pode usar trabalhos para fazer operações em toda a aplicação. Os trabalhos d
 
 * Os trabalhos permitem-lhe fazer operações a nível do sistema, tais como atualizar firmware nos gateways ou atualizar o contrato de serviço para se manter atualizado nas atividades de manutenção.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não continuar a utilizar esta aplicação, elimine o **Administration**modelo de aplicação visitando  >  **as definições de Aplicação da** Administração e selecione **Delete**.
 

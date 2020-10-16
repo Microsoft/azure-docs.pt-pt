@@ -304,7 +304,7 @@
             - name: Flexibilidade do tamanho da instância de VM
               href: ../reserved-vm-instance-size-flexibility.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Anfitriões dedicados
-      href: dedicated-hosts.md
+      href: ../dedicated-hosts.md
     - name: Manutenção e atualizações
       href: ../maintenance-and-updates.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Armazenamento em disco
@@ -555,6 +555,8 @@
           href: client-images.md
         - name: Transferir o disco existente
           href: download-vhd.md
+        - name: Disco gerido a partir da versão de imagem
+          href: ../managed-disk-from-image-version.md
     - name: Proteger VMs
       items:
         - name: Recomendações

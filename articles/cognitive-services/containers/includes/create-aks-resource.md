@@ -10,28 +10,28 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: e7f5b6f3685a94b5497784360f8f12b22fb95012
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87298844"
 ---
 ## <a name="create-an-azure-kubernetes-service-cluster-resource"></a>Criar um recurso de cluster de serviço Azure Kubernetes
 
 1. Vá ao [Serviço Azure Kubernetes](https://ms.portal.azure.com/#create/microsoft.aks)e selecione **Criar**.
 
-1. No separador **Básicos,** introduza as seguintes informações:
+1. No separador **Informações Básicas**, introduza as seguintes informações:
 
     |Definição|Valor|
     |--|--|
     |Subscrição|Selecione uma subscrição adequada.|
     |Grupo de recursos|Selecione um grupo de recursos disponível.|
     |Nome do cluster Kubernetes|Introduza um nome (minúscula).|
-    |Região|Selecione uma localização próxima.|
+    |Region|Selecione uma localização próxima.|
     |Versão Kubernetes|Qualquer valor é marcado como **(padrão)**.|
     |Prefixo do nome DNS|Criado automaticamente, mas pode ser sobrepõe-se.|
     |Tamanho do nó|DS2 v2 padrão:<br>`2 vCPUs`, `7 GB`|
-    |Contagem de nó|Deixe o deslizador pelo valor predefinido.|
+    |Contagem de nós|Deixe o deslizador pelo valor predefinido.|
 
 1. No separador **agrupamento de piscinas Nó,** deixe os nós virtuais e **os conjuntos de escala VM** **definidos** para os seus valores predefinidos.
 1. No separador **Autenticação,** deixe **o principal de serviço** e ative o **RBAC** definido para os seus valores predefinidos.
@@ -40,7 +40,7 @@ ms.locfileid: "87298844"
     |Definição|Valor|
     |--|--|
     |Encaminhamento de aplicações de HTTP|Não|
-    |Configuração de rede|Básico|
+    |Configuração da rede|Básico|
 
 1. No separador **Integrações,** certifique-se de que **a monitorização do contentor** está definida como **Ativada**, e deixe o **espaço de trabalho do Log Analytics** como o valor predefinido.
 1. No **separador Tags,** deixe os pares de nome/valor em branco por enquanto.

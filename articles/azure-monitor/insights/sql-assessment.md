@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
 ms.openlocfilehash: 98caca31e172f54c3e37f33c5a463790d9d27032
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87325989"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Otimize o seu ambiente SQL com a solução SQL Server Health Check no Azure Monitor
@@ -85,7 +85,7 @@ Utilize as seguintes informações para definir o Gestor de Operações executad
    > O tipo de conta Run As deve ser Windows. A conta Run As também deve fazer parte do grupo de Administradores Locais em todos os Servidores do Windows que hospedam as instâncias do servidor SQL.
    >
    >
-5. Clique em **Save** (Guardar).
+5. Clique em **Guardar**.
 6. Modifique e execute a seguinte amostra T-SQL em cada instância do SQL Server para conceder as permissões mínimas necessárias para a Conta Run As para realizar o exame de saúde. No entanto, não precisa de o fazer se uma Conta Run As já fizer parte da função do servidor Sysadmin em instâncias do SQL Server.
 
 ```

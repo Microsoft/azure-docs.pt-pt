@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: mimckitt
-ms.openlocfilehash: a0d095c22de28368edc11fe9ab8e658c0d3ae7f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6929c0110dcf9ff9f59c200243e886af1936c22f
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90053808"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018836"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>Tamanhos de máquina virtual de propósito geral
 
@@ -31,7 +31,7 @@ Os tamanhos VM de finalidade geral proporcionam uma relação CPU-memória equil
 
 - [Série Dv4 e Dsv4](dv4-dsv4-series.md) A série Dv4 e Dsv4 funciona nos processadores Intel® Xeon® Platinum 8272CL (Cascade Lake) numa configuração hiper roscada, proporcionando uma melhor proposta de valor para a maioria das cargas de trabalho de uso geral. Apresenta uma velocidade do relógio Turbo de 3,4 GHz.
 
-- [Série Ddv4 e Ddsv4](ddv4-ddsv4-series.md) A série Ddv4 e Ddsv4 funciona nos processadores Intel &reg; Xeon &reg; Platinum 8272CL (Cascade Lake) numa configuração hiper roscada, proporcionando uma proposta de melhor valor para a maioria das cargas de trabalho de uso geral. Apresenta uma velocidade do relógio Turbo de 3,4 GHz, [Intel Turbo Boost Technology &reg; 2.0,](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html) [Intel Hyper-Threading &reg; Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) e [Extensões de Vetores Avançados Intel &reg; 512 (Intel &reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Também apoiam [o Intel Deep Learning &reg; Boost](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). Estes novos tamanhos VM terão 50% maior armazenamento local, bem como melhores IOPS de disco local para leitura e escrita em comparação com os [tamanhos Dv3/Dsv3](./dv3-dsv3-series.md) com [VMs Gen2.](./linux/generation-2.md)
+- [Série Ddv4 e Ddsv4](ddv4-ddsv4-series.md) A série Ddv4 e Ddsv4 funciona nos processadores Intel &reg; Xeon &reg; Platinum 8272CL (Cascade Lake) numa configuração hiper roscada, proporcionando uma proposta de melhor valor para a maioria das cargas de trabalho de uso geral. Apresenta uma velocidade máxima do relógio Turbo de 3,4 GHz, [Intel Turbo Boost Technology &reg; 2.0,](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html) [Intel Hyper-Threading &reg; Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) e [Extensões de Vetores Avançados Intel &reg; 512 (Intel &reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Também apoiam [o Intel Deep Learning &reg; Boost](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). Estes novos tamanhos VM terão 50% maior armazenamento local, bem como melhores IOPS de disco local para leitura e escrita em comparação com os [tamanhos Dv3/Dsv3](./dv3-dsv3-series.md) com [VMs Gen2.](./generation-2.md)
 
 - [Série Dv3 e Dsv3](dv3-dsv3-series.md) Os VMs funcionam na 2ª Geração Intel® Xeon® Platinum 8272CL (Lago cascade), Intel® Xeon® 8171M 2.1GHz (Skylake), Intel® Xeon® E5-2 673 v4 2.3 GHz (Broadwell), ou os processadores Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) numa configuração hiper roscada, proporcionando uma melhor proposta de valor para a maioria das cargas de trabalho para fins gerais. A memória foi expandida (de ~3.5 GiB/vCPU para 4 GiB/vCPU) enquanto os limites de disco e rede foram ajustados numa base por núcleo para alinhar com a mudança para a hipertonagem. A série Dv3 já não tem os tamanhos VM de alta memória da série D/Dv2, estas foram movidas para a memória otimizada [série Ev3 e Esv3](ev3-esv3-series.md).
 

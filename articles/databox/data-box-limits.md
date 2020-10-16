@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/01/2020
 ms.author: alkohli
 ms.openlocfilehash: b193247fee843796da0cb2fcfc1a874b1a1b72fb
-ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91660926"
 ---
 # <a name="azure-data-box-limits"></a>Limites da Caixa de Dados Azure

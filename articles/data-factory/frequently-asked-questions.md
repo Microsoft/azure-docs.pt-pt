@@ -10,10 +10,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.openlocfilehash: 2d2c4145ab0a070e4cb20d89b8a0d3973b23d9ed
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89440512"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory FAQ (FAQ do Azure Data Factory)
@@ -171,13 +171,13 @@ Pode utilizar o gatilho do programador ou o gatilho da janela de tempo para agen
 Sim, os parâmetros são um conceito de primeira classe, de alto nível na Data Factory. Pode definir parâmetros ao nível do gasoduto e passar argumentos à medida que executa o gasoduto a pedido ou utilizando um gatilho.  
 
 ### <a name="can-i-define-default-values-for-the-pipeline-parameters"></a>Posso definir valores padrão para os parâmetros do pipeline? 
-Yes. Pode definir valores predefinidos para os parâmetros nos oleodutos. 
+Sim. Pode definir valores predefinidos para os parâmetros nos oleodutos. 
 
 ### <a name="can-an-activity-in-a-pipeline-consume-arguments-that-are-passed-to-a-pipeline-run"></a>Pode uma atividade num oleoduto consumir argumentos que são passados para um gasoduto? 
-Yes. Cada atividade dentro do oleoduto pode consumir o valor do parâmetro que é passado para o oleoduto e correr com a `@parameter` construção. 
+Sim. Cada atividade dentro do oleoduto pode consumir o valor do parâmetro que é passado para o oleoduto e correr com a `@parameter` construção. 
 
 ### <a name="can-an-activity-output-property-be-consumed-in-another-activity"></a>Pode uma propriedade de produção de atividade ser consumida em outra atividade? 
-Yes. Uma produção de atividade pode ser consumida numa atividade subsequente com a `@activity` construção.
+Sim. Uma produção de atividade pode ser consumida numa atividade subsequente com a `@activity` construção.
  
 ### <a name="how-do-i-gracefully-handle-null-values-in-an-activity-output"></a>Como lido graciosamente com valores nulos numa produção de atividade? 
 Pode utilizar a `@coalesce` construção das expressões para lidar graciosamente com valores nulos. 
@@ -276,7 +276,7 @@ O fluxo de dados de escriminada suporta os seguintes tipos de dados em SQL. Obte
 
 Outros tipos de dados serão suportados no futuro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para instruções passo a passo para criar uma fábrica de dados, consulte os seguintes tutoriais:
 
 - [Quickstart: Criar uma fábrica de dados](quickstart-create-data-factory-dot-net.md)

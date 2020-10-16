@@ -9,10 +9,10 @@ ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: d0a1826dafd1e6ce6202dc4f29417a1ce100e54f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83195241"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Utilize chaves geridas pelo cliente no Cofre chave Azure para o serviço de importação/exportação
@@ -104,6 +104,6 @@ Se receber quaisquer erros relacionados com a tecla gerida pelo seu cliente, uti
 | CmkErrorKeyNotFound      | Não é possível encontrar a chave gerida pelo cliente. | Sim, se a chave tiver sido eliminada, mas ainda estiver dentro da duração da purga, utilizando [a remoção da chave do cofre do Undo Key](https://docs.microsoft.com/powershell/module/az.keyvault/undo-azkeyvaultkeyremoval).<br>Senão, <ol><li>Sim, se o cliente tiver a chave apoiada e a restaurar.</li><li>Não, caso contrário.</li></ol>
 | CmkErrorVaultNotFound |Não é possível encontrar o cofre chave da chave gerida pelo cliente. |   Se o cofre da chave tiver sido apagado:<ol><li>Sim, se estiver na duração da proteção da purga, utilizando os passos da [Recuperar um cofre de chaves.](https://docs.microsoft.com/azure/key-vault/general/soft-delete-powershell#recovering-a-key-vault)</li><li>Não, se for para além da duração da proteção da purga.</li></ol><br>Senão, se o cofre chave foi migrado para outro inquilino, sim, pode ser recuperado usando um dos passos abaixo:<ol><li>Reverta o cofre de volta para o velho inquilino.</li><li>Desa `Identity = None` parte e, em seguida, reesuse o valor para `Identity = SystemAssigned` . Isto elimina e recria a identidade uma vez criada a nova identidade. Ativar `Get` `Wrap` , e `Unwrap` permissões para a nova identidade na política de acesso do cofre-chave.</li></ol>|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [O que é Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)

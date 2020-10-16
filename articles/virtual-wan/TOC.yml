@@ -5,6 +5,7 @@
     - name: O que é a WAN Virtual?
       href: virtual-wan-about.md
 - name: Tutoriais
+  expanded: true
   items:
     - name: Criar uma ligação site a site
       href: virtual-wan-site-to-site-portal.md

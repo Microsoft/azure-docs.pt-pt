@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/04/2018
 ms.openlocfilehash: ed11488f397704be782a092d6cdc6463449cc71e
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86039080"
 ---
 # <a name="implement-cicd-for-stream-analytics-on-iot-edge-using-apis"></a>Implementar CI/CD para stream analytics em IoT Edge usando APIs
@@ -255,7 +255,7 @@ Amostra do Manifesto de Implantação:
 Após a configuração do manifesto de implantação, consulte os [módulos Deploy Azure IoT Edge com Azure CLI](../iot-edge/how-to-deploy-modules-cli.md) para implantação.
 
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
  
 * [Azure Stream Analytics no IoT Edge](stream-analytics-edge.md)
 * [ASA no tutorial IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)

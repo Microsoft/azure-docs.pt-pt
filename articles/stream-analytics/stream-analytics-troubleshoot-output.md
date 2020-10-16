@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.custom: seodec18
 ms.openlocfilehash: 1fa9a8aa24cf6a8c8c2223836ae80b8b47807c81
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87903192"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Resolução de problemas Saídas Azure Stream Analytics

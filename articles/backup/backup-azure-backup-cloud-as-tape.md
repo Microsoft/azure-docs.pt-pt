@@ -4,10 +4,10 @@ description: Saiba como o Azure Backup fornece semântica semelhante a fita que 
 ms.topic: conceptual
 ms.date: 04/30/2017
 ms.openlocfilehash: 695cc2644521384527ecd871f3613a078e987aa7
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89378445"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Mova o seu armazenamento a longo prazo da fita para a nuvem Azure
@@ -66,7 +66,7 @@ Ao selecionar **Modificar** no ecrã anterior, os clientes têm mais flexibilida
 
 ![Modificar a janela da política](./media/backup-azure-backup-cloud-as-tape/modify.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações sobre a Azure Backup, consulte:
 

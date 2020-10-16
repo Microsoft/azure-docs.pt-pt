@@ -11,10 +11,10 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.openlocfilehash: 031ec44cec473d9f2b2f05669aa3fc18084985f2
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91704733"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planear e gerir os custos para a Azure Machine Learning
@@ -109,11 +109,11 @@ Aqui estão algumas opções que tem:
 
 ## <a name="use-low-priority-vms"></a><a id="low-pri-vm"></a> Use VMs de baixa prioridade
 
-O Azure permite-lhe utilizar a capacidade excedentária não utilizada como VMs de baixa prioridade em conjuntos de escala de máquinas virtuais, Batch e o serviço machine learning. Estas dotações são preventivas, mas têm um preço reduzido em comparação com os VM dedicados. Em geral, recomendamos a utilização de VMs de baixa prioridade para cargas de trabalho em lote. Deve também utilizá-las quando as interrupções forem recuperáveis através de resubmitamentos (para inferencing de lote) ou através de recomeços (para treinos de aprendizagem profunda com verificação de pontos de verificação).
+O Azure permite-lhe utilizar a capacidade excedentária não utilizada à medida que Low-Priority VMs em conjuntos de escala de máquinas virtuais, Batch e o serviço de Machine Learning. Estas dotações são preventivas, mas têm um preço reduzido em comparação com os VM dedicados. Em geral, recomendamos a utilização de VMs Low-Priority para cargas de trabalho em lote. Deve também utilizá-las quando as interrupções forem recuperáveis através de resubmitamentos (para inferencing de lote) ou através de recomeços (para treinos de aprendizagem profunda com verificação de pontos de verificação).
 
-Os VM de baixa prioridade têm uma quota única separada do valor de quota dedicado, que é da família VM. Saiba [mais sobre as quotas AmlCompute](how-to-manage-quotas.md).
+Low-Priority VM têm uma quota única separada do valor de quota dedicado, que é da família VM. Saiba [mais sobre as quotas AmlCompute](how-to-manage-quotas.md).
 
- Os VMs de baixa prioridade não funcionam para casos de computação, uma vez que precisam de suportar experiências de cadernos interativos.
+ Low-Priority VMs não funcionam para casos de computação, uma vez que precisam de suportar experiências de cadernos interativos.
 
 ## <a name="use-reserved-instances"></a>Utilizar instâncias reservadas
 
@@ -122,7 +122,7 @@ Outra forma de economizar em recursos computacional é a Azure Reserved VM Insta
 A azure Machine Learning Compute suporta casos reservados inerentemente. Se comprar uma instância reservada de um ano ou três anos, aplicaremos automaticamente desconto contra o seu computo gerido Azure Machine Learning.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre:
 * [Gerir e aumentar as quotas de recursos](how-to-manage-quotas.md)

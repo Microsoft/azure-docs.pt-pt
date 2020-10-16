@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/17/2020
+ms.date: 10/12/2020
 ms.author: yohaddad
-ms.openlocfilehash: d79fd60f4fe3786cfe3106329904d9d262078411
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: b2f66f9d4a96bda323413ac9016f582f5605e6cd
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024218"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073330"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Lançamentos do Azure Guest OS e matriz de compatibilidade SDK
 Fornece-lhe informações atualizadas sobre as mais recentes versões do Azure Guest OS para serviços cloud. Estas informações ajudam-no a planear o seu caminho de upgrade antes de um So convidado ser desativado. Se configurar as suas funções para utilizar atualizações *automáticas* do Guest OS, conforme descrito nas [Definições de Atualização do Azure Guest OS,][Azure Guest OS Update Settings]não é vital que leia esta página.
@@ -41,6 +41,9 @@ Fornece-lhe informações atualizadas sobre as mais recentes versões do Azure G
 Não tem a certeza de como atualizar o seu SO convidado? Olha para [isto.][cloud updates]
 
 ## <a name="news-updates"></a>Atualizações de notícias
+
+###### <a name="october-10-2020"></a>**10 de outubro de 2020**
+O Convidado de setembro foi lançado. 
 
 ###### <a name="september-5-2020"></a>**5 de setembro de 2020**
 O So convidado de agosto foi lançado. 
@@ -140,8 +143,9 @@ O Convidado de setembro foi lançado.
 
 | Cadeia de configuração | Data da versão | Data de desativação |
 | --- | --- | --- |
+|  WA-GUEST-OS-6.23_202009-01  |  10 de outubro de 2020  |  Posto 6.25  |  
 |  WA-GUEST-OS-6.22_202008-02  |  5 de setembro de 2020  |  Posto 6.24  |  
-|  WA-GUEST-OS-6.21_202007-01  |  17 de agosto de 2020  |  Posto 6.23  |  
+|~~WA-GUEST-OS-6.21_202007-01~~|  17 de agosto de 2020  |  10 de outubro de 2020  |  
 |~~WA-GUEST-OS-6.20_202006-02~~|  10 de agosto de 2020  |  5 de setembro de 2020  |  
 |~~WA-GUEST-OS-6.19_202005-02~~|  2 de junho de 2020  |  17 de agosto de 2020  |  
 |~~WA-GUEST-OS-6.18_202004-01~~|  4 de maio de 2020  |  10 de agosto de 2020  |  
@@ -175,8 +179,9 @@ O Convidado de setembro foi lançado.
 
 | Cadeia de configuração | Data da versão | Data de desativação |
 | --- | --- | --- |
+|  WA-GUEST-OS-5.47_202009-01  |  10 de outubro de 2020  |  Posto 5.49  | 
 |  WA-GUEST-OS-5.46_202008-02  |  5 de setembro de 2020  |  Posto 5.48  |  
-|  WA-GUEST-OS-5.45_202007-01  |  17 de agosto de 2020  |  Posto 5.47  |  
+|~~WA-GUEST-OS-5.45_202007-01~~|  17 de agosto de 2020  |  10 de outubro de 2020  |  
 |~~WA-GUEST-OS-5.44_202006-02~~|  10 de agosto de 2020  |  5 de setembro de 2020  |  
 |~~WA-GUEST-OS-5.43_202005-02~~|  2 de junho de 2020  |  17 de agosto de 2020  |  
 |~~WA-GUEST-OS-5.42_202004-01~~|  4 de maio de 2020  |  10 de agosto de 2020  |  
@@ -207,8 +212,9 @@ O Convidado de setembro foi lançado.
 
 | Cadeia de configuração | Data da versão | Data de desativação |
 | --- | --- | --- |
+|  WA-GUEST-OS-4.82_202009-01  |  10 de outubro de 2020  |  Posto 4.84  | 
 |  WA-GUEST-OS-4.81_202008-02  |  5 de setembro de 2020  |  Posto 4.83  | 
-|  WA-GUEST-OS-4.80_202007-01  |  17 de agosto de 2020  |  Posto 4.82  | 
+|~~WA-GUEST-OS-4.80_202007-01~~|  17 de agosto de 2020  |  10 de outubro de 2020  | 
 |~~WA-GUEST-OS-4.79_202006-02~~|  10 de agosto de 2020  |  5 de setembro de 2020  | 
 |~~WA-GUEST-OS-4.78_202005-02~~|  2 de junho de 2020  |  17 de agosto de 2020  |  
 |~~WA-GUEST-OS-4.77_202004-01~~|  4 de maio de 2020  |  10 de agosto de 2020  |  
@@ -239,8 +245,9 @@ O Convidado de setembro foi lançado.
 
 | Cadeia de configuração | Data da versão | Data de desativação |
 | --- | --- | --- |
+|  WA-GUEST-OS-3.89_202009-01  |  10 de outubro de 2020  |  Posto 3.91  |  
 |  WA-GUEST-OS-3.88_202008-02  |  5 de setembro de 2020  |  Posto 3.90  |  
-|  WA-GUEST-OS-3.87_202007-01  |  17 de agosto de 2020  |  Posto 3.89  |  
+|~~WA-GUEST-OS-3.87_202007-01~~|  17 de agosto de 2020  |  10 de outubro de 2020  |  
 |~~WA-GUEST-OS-3.86_202006-02~~|  10 de agosto de 2020  |  5 de setembro de 2020  |  
 |~~WA-GUEST-OS-3.85_202005-02~~|  2 de junho de 2020  |  17 de agosto de 2020  |  
 |~~WA-GUEST-OS-3.84_202004-01~~|  4 de maio de 2020  |  10 de agosto de 2020  |  
@@ -271,8 +278,9 @@ O Convidado de setembro foi lançado.
 
 | Cadeia de configuração | Data da versão | Data de desativação |
 | --- | --- | --- |
+|  WA-GUEST-OS-2.102_202009-01  |  10 de outubro de 2020  |  Posto 2.104  |  
 |  WA-GUEST-OS-2.101_202008-02  |  5 de setembro de 2020  |  Posto 2.103  |  
-|  WA-GUEST-OS-2.100_202007-01  |  17 de agosto de 2020  |  Posto 2.102  |  
+|~~WA-GUEST-OS-2.100_202007-01~~|  17 de agosto de 2020  |  10 de outubro de 2020  |  
 |~~WA-GUEST-OS-2.99_202006-02~~|  10 de agosto de 2020  | 5 de setembro de 2020  |  
 |~~WA-GUEST-OS-2.98_202005-02~~|  2 de junho de 2020  |  17 de agosto de 2020  |  
 |~~WA-GUEST-OS-2.97_202004-01~~|  4 de maio de 2020  |  10 de agosto de 2020  |  
@@ -352,26 +360,26 @@ Se atualizar manualmente o seu So convidado, consulte a [política de aposentado
 ## <a name="guest-os-supportability-and-retirement-policy"></a>Política de apoio ao OS e à política de aposentadoria
 A política de apoio e aposentadoria do Guest OS é explicada [aqui.][retirepolicy]
 
-[cloud updates]: https://docs.microsoft.com/azure/cloud-services/cloud-services-update-azure-service
+[cloud updates]: ./cloud-services-update-azure-service.md
 [Feed RSS da atualização RSS do convidado]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
-[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
+[Install .NET on a Cloud Service Role]: ./cloud-services-dotnet-install-dotnet.md?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure-portal.md
 [ssl3 announcement]: https://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
-[Microsoft Security Advisory 3009008]: https://technet.microsoft.com/library/security/3009008.aspx
+[Microsoft Security Advisory 3009008]: /security-updates/SecurityAdvisories/2015/3009008
 [ssl3-fixit]: https://go.microsoft.com/?linkid=9863266
-[MS14-066]: https://technet.microsoft.com/library/security/ms14-066.aspx
-[MS14-046]: https://technet.microsoft.com/library/security/ms14-046.aspx
-[retire policy sdk]: https://msdn.microsoft.com/library/dn479282.aspx
+[MS14-066]: /security-updates/SecurityBulletins/2014/ms14-066
+[MS14-046]: /security-updates/SecurityBulletins/2014/ms14-046
+[retire policy sdk]: /previous-versions/azure/reference/dn479282(v=azure.100)
 [server and gos]: https://msdn.microsoft.com/library/dn775043.aspx
 [azuresupport]: https://azure.microsoft.com/support/options/
 [net install pkg]: https://www.microsoft.com/download/details.aspx?id=42643
 [msrc]: https://technet.microsoft.com/security/dn440717.aspx
 [update guest os portal]: https://msdn.microsoft.com/library/gg433101.aspx
 [update guest os svc]: https://msdn.microsoft.com/library/gg456324.aspx
-[restarts]: https://docs.microsoft.com/archive/blogs/kwill/role-instance-restarts-due-to-os-upgrades
+[restarts]: /archive/blogs/kwill/role-instance-restarts-due-to-os-upgrades
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
-[fix]: https://technet.microsoft.com/library/security/ms17-010.aspx
+[fix]: /security-updates/SecurityBulletins/2017/ms17-010
 [Windows Azure SDK]: https://www.microsoft.com/en-us/download/details.aspx?id=54917
-[mais]: https://docs.microsoft.com/azure/cloud-services/applications-dont-support-tls-1-2  
+[mais]: ./applications-dont-support-tls-1-2.md

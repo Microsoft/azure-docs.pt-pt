@@ -2,7 +2,7 @@
 title: Resolver alertas de grupo de segurança de rede em Azure AD DS / Microsoft Docs
 description: Saiba como resolver problemas e resolver alertas de configuração do grupo de segurança de rede para serviços de domínio do diretório ativo Azure
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 95f970a7-5867-4108-a87e-471fa0910b8c
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 584c03dc798bc21ddd5538e58d0f9047c55c5372
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.author: joflore
+ms.openlocfilehash: f8917d7bd8fc1a4091607b9a405cfefbb51bc188
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040457"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962790"
 ---
 # <a name="known-issues-network-configuration-alerts-in-azure-active-directory-domain-services"></a>Problemas conhecidos: Alertas de configuração de rede nos Serviços de Domínio do Diretório Ativo Azure
 
@@ -38,7 +38,7 @@ As seguintes regras de segurança de entrada e saída são aplicadas ao grupo de
 
 ### <a name="inbound-security-rules"></a>Regras de segurança de entrada
 
-| Prioridade | Name | Porta | Protocolo | Origem | Destino | Ação |
+| Prioridade | Nome | Porta | Protocolo | Origem | Destino | Ação |
 |----------|------|------|----------|--------|-------------|--------|
 | 101      | Permite Que o SyncWithAzureAD | 443 | TCP | AzureActiveDirectoryDomainServices | Qualquer | Permitir |
 | 201      | PermitirRD | 3389 | TCP | Serra CorpNet | Qualquer | Permitir |
@@ -52,7 +52,7 @@ As seguintes regras de segurança de entrada e saída são aplicadas ao grupo de
 
 ### <a name="outbound-security-rules"></a>Regras de segurança de saída
 
-| Prioridade | Name | Porta | Protocolo | Origem | Destino | Ação |
+| Prioridade | Nome | Porta | Protocolo | Origem | Destino | Ação |
 |----------|------|------|----------|--------|-------------|--------|
 | 65000    | AllVnetOutBound | Qualquer | Qualquer | VirtualNetwork | VirtualNetwork | Permitir |
 | 65001    | Permitir a Entrada de Água | Qualquer | Qualquer |  Qualquer | Internet | Permitir |
@@ -84,7 +84,7 @@ Para adicionar uma regra de segurança em falta, complete os seguintes passos:
 
 Leva alguns momentos para que a regra de segurança seja adicionada e mostrada na lista.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se ainda tiver problemas, abra um pedido de [apoio ao Azure][azure-support] para assistência adicional à resolução de problemas.
 

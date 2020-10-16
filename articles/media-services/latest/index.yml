@@ -12,12 +12,12 @@ metadata:
   author: IngridAtMicrosoft
   ms.author: inhenkel
   ms.date: 21/16/2020
-  ms.openlocfilehash: 8168dccb5a6eba0836b273cf7fbd9800c64925ec
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 32e5693438240c051175be232b3f442b2242e69f
+  ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "89269170"
+  ms.lasthandoff: 10/14/2020
+  ms.locfileid: "92018921"
 landingContent:
 - title: Sobre os Serviços de Multimédia
   linkLists:
@@ -60,13 +60,13 @@ landingContent:
   - linkListType: reference
     links:
     - text: CLI do Azure
-      url: https://aka.ms/ams-v3-cli-ref
+      url: /cli/azure/ams
     - text: REST
       url: /rest/api/media/
     - text: .NET
-      url: https://aka.ms/ams-v3-dotnet-ref
+      url: /dotnet/api/overview/azure/mediaservices/management
     - text: Java
-      url: https://aka.ms/ams-v3-java-ref
+      url: /java/api/overview/azure/mediaservices/management
 - title: Transmissão em direto
   linkLists:
   - linkListType: concept

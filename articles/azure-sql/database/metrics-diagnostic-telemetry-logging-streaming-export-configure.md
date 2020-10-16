@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 04/06/2020
 ms.openlocfilehash: 1442ca7957a458e1458c4815033bf5e79c67c32a
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448925"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Configure exportação de streaming de Azure SQL Database e SQL Managed Instance telemetria de diagnóstico
@@ -743,7 +743,7 @@ Saiba mais sobre [estatísticas de espera na base de dados.](https://docs.micros
 
 Saiba mais sobre o [formato de registo de Insights Inteligentes.](intelligent-insights-use-diagnostics-log.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender como permitir a exploração madeireira e compreender as métricas e categorias de registo suportadas pelos vários serviços Azure, consulte:
 

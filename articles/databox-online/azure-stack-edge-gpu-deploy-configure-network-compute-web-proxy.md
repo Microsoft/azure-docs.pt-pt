@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: c3ce12a91a0cf13bda000f7f729f6249fd04600c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
-ms.translationtype: MT
+ms.openlocfilehash: a6b72c9e6cc366d04937598f653f8ba887ce1b85
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894092"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952187"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-pro-with-gpu"></a>Tutorial: Rede de configuração para Azure Stack Edge Pro com GPU
 
@@ -78,7 +78,7 @@ Siga estes passos para configurar a rede para o seu dispositivo.
 
     Uma vez configurada a rede do dispositivo, a página atualiza-se conforme mostrado abaixo.
 
-    ![Página local de ui "definições de rede"](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-2.png)
+    ![Web local UI "Definições de rede" página 2](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-2.png)
 
 
      >[!NOTE]
@@ -149,7 +149,7 @@ Esta é uma configuração opcional.
 
     4. Para validar e aplicar as definições de procuração web configuradas, selecione **Apply**.
     
-   ![Página local de UI "Web proxy settings"](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/web-proxy-2.png)
+   ![Web local UI "Web proxy settings" página 2](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/web-proxy-2.png)
 
 2. Depois de aplicar as definições, selecione **Seguinte: Dispositivo**.
 

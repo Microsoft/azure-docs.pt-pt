@@ -11,10 +11,10 @@ manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 09/12/2017
 ms.openlocfilehash: c6d9a9299fa25013a440ee6ac45f5eae407225b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74929810"
 ---
 # <a name="powershell-script---deploy-azure-ssis-integration-runtime"></a>PowerShell script - implementar o tempo de execução da integração Azure-SSIS
@@ -56,7 +56,7 @@ Este script utiliza os seguintes comandos:
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
 

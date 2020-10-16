@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: lyhughes
 ms.openlocfilehash: 320d92ef0ad6d02dbe7c31b883eb7f73472378ce
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91667814"
 ---
 # <a name="upcoming-changes-to-json-flattening-and-escaping-rules-for-new-environments"></a>Próximas alterações ao Achatamento de JSON e fuga às regras para novos ambientes
@@ -51,7 +51,7 @@ Atualize o código do cliente que executa [o TypesBatchPut](https://docs.microso
 * `"value": {"tsx": "$event.series.value.Double"}`
 * `"value": {"tsx": "$event['series']['value'].Double"}`
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre o armazenamento e entrada da [Azure Time Series Insights Gen2](./time-series-insights-update-storage-ingress.md).
 

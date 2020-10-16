@@ -10,10 +10,10 @@ ms.workload: identity
 ms.date: 06/09/2020
 ms.author: rolyon
 ms.openlocfilehash: 343f6b7a78ca98615d512d31d7ac1c10d9de8f10
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88799337"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevate access to manage all Azure subscriptions and management groups (Elevar o acesso para gerir todas as subscrições e grupos de gestão do Azure)
@@ -330,4 +330,4 @@ Quando `elevateAccess` ligar, crie uma atribuição de função para si mesmo, p
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Compreender as diferentes funções](rbac-and-directory-admin-roles.md)
-- [Adicione ou remova atribuições de funções Azure usando a API REST](role-assignments-rest.md)
+- [Utilizar a API REST para adicionar ou remover atribuições de funções do Azure](role-assignments-rest.md)

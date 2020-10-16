@@ -5,15 +5,15 @@ ms.topic: conceptual
 ms.date: 06/17/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: e76287c4524831a84a22fb23ddf8a5fdee8bc12b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87827287"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloquear recursos para prevenir alterações inesperadas
 
-Como administrador, pode ser necessário bloquear uma subscrição, um grupo de recursos ou recursos, para impedir que outros utilizadores na sua organização eliminem ou modifiquem acidentalmente recursos críticos. Pode definir o nível do bloqueio para **CanNotDelete** ou **ReadOnly**. No portal, as fechaduras são chamadas **de Delete** e **Read-only,** respectivamente.
+Como administrador, pode precisar de bloquear uma subscrição, um grupo de recursos ou recursos, para impedir que outros utilizadores na sua organização eliminem ou modifiquem acidentalmente recursos importantes. Pode definir o nível do bloqueio para **CanNotDelete** ou **ReadOnly**. No portal, as fechaduras são chamadas **de Delete** e **Read-only,** respectivamente.
 
 * **CanNotDelete** significa que os utilizadores autorizados ainda podem ler e modificar um recurso, mas não podem eliminar o recurso.
 * **ReadOnly** significa que os utilizadores autorizados podem ler um recurso, mas não podem eliminar ou atualizar o recurso. A aplicação deste bloqueio é semelhante a restringir todos os utilizadores autorizados às permissões concedidas pela função **Reader.**
@@ -76,13 +76,13 @@ Ao utilizar um modelo de Gestor de Recursos para implantar uma fechadura, utiliz
 
 Ao aplicar um bloqueio a um **recurso,** utilize os seguintes formatos:
 
-* nome -`{resourceName}/Microsoft.Authorization/{lockName}`
-* tipo -`{resourceProviderNamespace}/{resourceType}/providers/locks`
+* nome - `{resourceName}/Microsoft.Authorization/{lockName}`
+* tipo - `{resourceProviderNamespace}/{resourceType}/providers/locks`
 
 Ao aplicar um bloqueio a um grupo de **recursos** ou **subscrição,** utilize os seguintes formatos:
 
-* nome -`{lockName}`
-* tipo -`Microsoft.Authorization/locks`
+* nome - `{lockName}`
+* tipo - `Microsoft.Authorization/locks`
 
 O exemplo a seguir mostra um modelo que cria um plano de serviço de aplicações, um web site e um bloqueio no site. O tipo de recurso do bloqueio é o tipo de recurso do recurso para bloquear e **/fornecedores/fechaduras**. O nome do bloqueio é criado através da concatenação do nome do recurso com **/Microsoft.Authorization/** e o nome do bloqueio.
 

@@ -7,10 +7,10 @@ ms.author: harelbr
 ms.date: 06/26/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: aa8529abf3d7eea7d413c59ce62c93c7eb6c76d1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87309346"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gerir regras de deteção inteligentes de deteção de aplicações usando modelos de Gestor de Recursos Azure
@@ -188,7 +188,7 @@ Este modelo de Gestor de Recursos Azure demonstra configurar uma regra de alerta
 > [!NOTE]
 > Este modelo de Gestor de Recursos Azure é exclusivo da regra de alerta de Anomalias de Falha e é diferente das outras regras clássicas de Deteção Inteligente descritas neste artigo. Se pretender gerir as Anomalias de Falha manualmente, isto é feito em Alertas monitores Azure, enquanto todas as outras regras de Deteção Inteligente são geridas no painel de Deteção Inteligente da UI.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre a deteção automática:
 

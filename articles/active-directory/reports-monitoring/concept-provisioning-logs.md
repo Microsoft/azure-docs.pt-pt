@@ -17,12 +17,12 @@ ms.date: 10/07/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6109f35c42d4b4a44430eeb99ec115f4cdc1a619
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 61a143d4294359249bffceac12e65c36ea9e5fb9
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91812561"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056162"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Relatórios de provisionamento no portal Azure Ative Directory (pré-visualização)
 
@@ -42,7 +42,7 @@ Este tópico dá-lhe uma visão geral do relatório de provisionamento.
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="who-can-access-the-data"></a>Quem pode aceder aos dados?
-* Proprietários de aplicações
+* Os proprietários de aplicações podem ver registos de aplicações que possuam
 * Utilizadores nas funções de Administrador de Segurança, Leitor de Segurança, Leitor de Relatórios, Administrador de Aplicações e Administrador de Aplicações em Nuvem
 * Administradores Globais
 
@@ -56,12 +56,12 @@ O seu inquilino deve ter uma licença Azure AD Premium associada a ela para ver 
 Os registos de provisionamento fornecem respostas às seguintes questões:
 
 * Que grupos foram criados com sucesso no ServiceNow?
-* Como os papéis foram importados da Amazon Web Services?
+* Que funções foram importadas da Amazon Web Services?
 * Que utilizadores foram criados sem sucesso no DropBox?
 
 Pode aceder aos registos de provisionamento selecionando **Registos de Provisionamento** na secção de **Monitorização** da lâmina do **Diretório Ativo Azure** no [portal Azure](https://portal.azure.com). Pode levar até duas horas para que alguns registos de provisionamento apareçam no portal.
 
-![Registos de aprovisionamento](./media/concept-provisioning-logs/access-provisioning-logs.png "Registos de aprovisionamento")
+![Registos de provisionamento](./media/concept-provisioning-logs/access-provisioning-logs.png "Registos de aprovisionamento")
 
 
 Um registo de provisionamento tem uma visão de lista padrão que mostra:
@@ -211,7 +211,7 @@ O **separador resumo** fornece uma visão geral do que aconteceu e identifica o 
 
 ## <a name="what-you-should-know"></a>O que deve saber
 
-- As lojas do portal Azure reportaram dados de provisionamento durante 30 dias se tiver uma edição premium e 7 dias se tiver uma edição gratuita. Os registos de provisionamento podem ser publicados para registar análises para retenção além de 30 dias. 
+- As lojas do portal Azure reportaram dados de provisionamento durante 30 dias se tiver uma edição premium e 7 dias se tiver uma edição gratuita. Os registos de provisionamento podem ser publicados para [registar análises](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics) para retenção além de 30 dias. 
 
 - Pode utilizar o atributo Change ID como identificador único. Isto é, por exemplo, útil quando interage com o suporte do produto.
 

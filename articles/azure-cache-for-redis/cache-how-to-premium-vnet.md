@@ -6,13 +6,13 @@ ms.author: yegu
 ms.service: cache
 ms.custom: devx-track-csharp
 ms.topic: conceptual
-ms.date: 05/15/2017
-ms.openlocfilehash: 82003ef84571c8e07982826124b33763c0e53194
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/09/2020
+ms.openlocfilehash: 34e4781d1437b34607a6d9e4f99ec5bd2ef9b46d
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88205562"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999981"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Como configurar suporte de rede virtual para uma cache premium Azure para Redis
 O Azure Cache para Redis tem diferentes ofertas de cache, que proporcionam flexibilidade na escolha do tamanho e funcionalidades da cache, incluindo características de nível Premium, tais como clustering, persistência e suporte de rede virtual. Um VNet é uma rede privada na nuvem. Quando uma cache Azure para a instância Redis é configurada com um VNet, não é publicamente endereçada e só pode ser acedida a partir de máquinas e aplicações virtuais dentro do VNet. Este artigo descreve como configurar o suporte de rede virtual para um Azure Cache premium para a instância Redis.
@@ -28,22 +28,38 @@ A implementação [da Rede Virtual Azure (VNet)](https://azure.microsoft.com/ser
 ## <a name="virtual-network-support"></a>Suporte de rede virtual
 O suporte de Rede Virtual (VNet) está configurado na **Cache Novo Azure para** lâmina Redis durante a criação da cache. 
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
+1. Para criar uma cache premium, inscreva-se no [portal Azure](https://portal.azure.com) e selecione **Criar um recurso.** Note que além de criar caches no portal Azure, também pode criá-los usando modelos de Gestor de Recursos, PowerShell ou Azure CLI. Para obter mais informações sobre a criação de uma Cache Azure para Redis, consulte [Criar uma cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
-Uma vez selecionado um nível de preços premium, pode configurar a integração do Redis VNet selecionando um VNet que está na mesma subscrição e localização que o seu cache. Para utilizar um novo VNet, crie-o primeiro seguindo os passos na [Criação de uma rede virtual utilizando o portal Azure](../virtual-network/manage-virtual-network.md#create-a-virtual-network) ou [Crie uma rede virtual (clássica) utilizando o portal Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) e, em seguida, volte à Cache Novo **Azure para** a lâmina Redis para criar e configurar o seu cache premium.
+    :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Criar recurso.":::
+   
+2. Na página **Nova,** selecione **Bases de Dados** e, em seguida, selecione **Azure Cache para Redis**.
 
-Para configurar o VNet para o seu novo cache, clique em **Rede Virtual** na Cache **Novo Azure para** lâmina Redis e selecione o VNet desejado da lista de drop-down.
+    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Criar recurso.":::
 
-![Rede virtual][redis-cache-vnet]
+3. Na página **New Redis Cache,** configufique as definições para a sua nova cache premium.
+   
+   | Definição      | Valor sugerido  | Descrição |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **Nome DNS** | Introduza um nome globalmente exclusivo. | O nome da cache deve ser uma cadeia entre 1 e 63 caracteres que contenha apenas números, letras ou hífenes. O nome deve começar e terminar com um número ou letra, e não pode conter hífenes consecutivos. O nome de *anfitrião* do seu caso de cache será * \<DNS name> .redis.cache.windows.net*. | 
+   | **Subscrição** | Drop-down e selecione a sua subscrição. | A subscrição sob a qual criar este novo Azure Cache para a instância Redis. | 
+   | **Grupo de recursos** | Drop-down e selecione um grupo de recursos, ou **selecione Criar novo** e introduza um novo nome de grupo de recursos. | Nome para o grupo de recursos para criar o seu cache e outros recursos. Ao colocar todos os recursos da sua aplicação num único grupo de recursos, pode facilmente geri-los ou eliminá-los em conjunto. | 
+   | **Localização** | Drop-down e selecione um local. | Selecione uma [região](https://azure.microsoft.com/regions/) perto de outros serviços que utilizarão o seu cache. |
+   | **Tipo cache** | Drop-down e selecione um cache premium para configurar funcionalidades premium. Para mais detalhes, consulte [a Cache Azure para obter preços de Redis](https://azure.microsoft.com/pricing/details/cache/). |  O escalão de preço determina o tamanho, o desempenho e as funcionalidades que estão disponíveis para a cache. Para mais informações, consulte [Azure Cache para ver visão geral do Redis](cache-overview.md). |
 
-Selecione a sub-rede desejada da lista de drop-down **sub-rede.**  Se desejar, especifique um **endereço IP estático**. O campo **de endereços IP estático** é opcional e, se nenhum for especificado, um é escolhido a partir da sub-rede selecionada.
+4. Selecione o **separador 'Rede'** ou clique no botão **'Rede'** na parte inferior da página.
+
+5. No **separador 'Rede',** selecione **Redes Virtuais** como método de conectividade. Para utilizar uma nova rede virtual, crie-a primeiro seguindo os passos na [Criação de uma rede virtual utilizando o portal Azure](../virtual-network/manage-virtual-network.md#create-a-virtual-network) ou [Crie uma rede virtual (clássica) utilizando o portal Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) e, em seguida, volte à Cache Novo **Azure para** a lâmina Redis para criar e configurar o seu cache premium.
 
 > [!IMPORTANT]
 > Ao implementar uma Cache Azure para Redis para um Resource Manager VNet, a cache deve estar numa sub-rede dedicada que não contenha outros recursos, exceto a Azure Cache para instâncias Redis. Se for feita uma tentativa de implantar uma Cache Azure para Redis para um VNet gestor de recursos para uma sub-rede que contenha outros recursos, a implementação falha.
 > 
 > 
 
-![Rede virtual][redis-cache-vnet-ip]
+   | Definição      | Valor sugerido  | Descrição |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **Rede Virtual** | Drop-down e selecione a sua rede virtual. | Selecione uma rede virtual que esteja na mesma subscrição e localização que o seu cache. | 
+   | **Sub-rede** | Drop-down e selecione a sua sub-rede. | O intervalo de endereços da sub-rede deve estar na notação CIDR (por exemplo, 192.168.1.0/24). Deve ser contido no espaço de endereço da rede virtual. | 
+   | **Endereço IP estático** | (Opcional) Insira um endereço IP estático. | Se não especificar um IP estático, então um endereço IP é escolhido automaticamente. | 
 
 > [!IMPORTANT]
 > O Azure reserva alguns endereços IP dentro de cada sub-rede, e estes endereços não podem ser utilizados. Os primeiros e últimos endereços IP das sub-redes estão reservados para a conformidade com o protocolo, juntamente com mais três endereços utilizados para os serviços Azure. Para mais informações, consulte [existem restrições à utilização de endereços IP dentro destas sub-redes?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
@@ -52,7 +68,19 @@ Selecione a sub-rede desejada da lista de drop-down **sub-rede.**  Se desejar, e
 > 
 > 
 
-Após a criação da cache, pode visualizar a configuração do VNet clicando em **Rede Virtual** a partir do **menu Recursos**.
+6. Selecione o **Seguinte: Separador avançado** ou clique no **seguinte: Botão avançado** na parte inferior da página.
+
+7. No separador **Avançado** para uma instância de cache premium, configurar as definições para a porta não-TLS, clustering e persistência de dados. 
+
+8. Selecione o **separador Seguinte: Tags** ou clique no botão **Seguinte: Tags** na parte inferior da página.
+
+9. Opcionalmente, no separador **Tags, insira** o nome e o valor se desejar categorizar o recurso. 
+
+10. Selecione **Review + criar**. É levado para o separador 'Rever +' onde o Azure valida a sua configuração.
+
+11. Depois de aparecer a mensagem de validação verde, selecione **Criar**.
+
+Demora um pouco para a cache criar. Pode monitorizar o progresso na cache Azure para a página Redis **Overview.**   Quando **o Estado**aparece como    **Running,** a cache está pronta a ser utilizada. Após a criação da cache, pode visualizar a configuração do VNet clicando em **Rede Virtual** a partir do **menu Recursos**.
 
 ![Rede virtual][redis-cache-vnet-info]
 

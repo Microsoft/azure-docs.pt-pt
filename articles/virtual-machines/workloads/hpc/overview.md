@@ -5,15 +5,15 @@ author: vermagit
 ms.author: amverma
 ms.service: virtual-machines
 ms-subservice: hpc
-ms.workload: infrastructure-services
 ms.topic: overview
 ms.date: 07/29/2020
-ms.openlocfilehash: f9a672777fbc8a75cb6af10ba25232f8a274c894
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.reviewer: cynthn
+ms.openlocfilehash: e2c3a1559b4a6642f17a2a998e68543a519b1225
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87543729"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996726"
 ---
 # <a name="high-performance-computing-on-infiniband-enabled-h-series-and-n-series-vms"></a>Computação de alto desempenho na InfiniBand habilitada série H e VMs da série N
 

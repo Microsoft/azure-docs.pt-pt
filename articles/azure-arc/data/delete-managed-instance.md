@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: e531349e8f404380d9f0601caa3b66557c297062
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940849"
 ---
 # <a name="delete-azure-arc-enabled-sql-managed-instance"></a>Delete Azure Arc habilitado SQL Gestdited Instance
@@ -52,7 +52,7 @@ Deleted demo-mi from namespace arc
 
 ## <a name="reclaim-the-kubernetes-persistent-volume-claims-pvcs"></a>Recuperar as alegações de volume persistentes de Kubernetes (PVCs)
 
-A eliminação de uma instância gerida sql não remove os seus [PVCs associados](https://kubernetes.io/docs/concepts/storage/persistent-volumes/). Esta ação é propositada. A intenção é ajudar o utilizador a aceder aos ficheiros da base de dados caso a eliminação do caso tenha sido acidental. Eliminar PVCs não é obrigatório. No entanto, é recomendado. Se não recuperar estes PVCs, acabará por ficar com erros, uma vez que o seu cluster Kubernetes sairá do espaço do disco. Para recuperar os PVCs, tome as seguintes medidas:
+A eliminação de uma instância gerida sql não remove os seus [PVCs associados](https://kubernetes.io/docs/concepts/storage/persistent-volumes/). Esta ação é propositada. A intenção é ajudar o utilizador a aceder aos ficheiros de base de dados caso a eliminação da instância tenha sido acidental. A eliminação de PVCs não é obrigatória. No entanto, é recomendada. Se não recuperar estes PVCs, acabará por ficar com erros, uma vez que o seu cluster Kubernetes sairá do espaço do disco. Para recuperar PVCs, execute os seguintes passos:
 
 ### <a name="1-list-the-pvcs-for-the-server-group-you-deleted"></a>1. Listar os PVCs para o grupo de servidores que eliminou
 Para listar os PVCs, executar o seguinte comando:

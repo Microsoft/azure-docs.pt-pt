@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 02f5c570b7400266ac648eaa257fb76d26819a40
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89003189"
 ---
 # <a name="coarse-relocalization"></a>Relocalização genérica
@@ -123,9 +123,9 @@ Em seguida, terá de decidir quais os sensores que gostaria de usar para a reloc
 
 |                 | Dentro de casa | Ao ar livre |
 |-----------------|---------|----------|
-| **GPS**         | Desativada | Ativado |
+| **GPS**         | Desativado | Ativado |
 | **Wi-Fi**        | Ativado | Em (opcional) |
-| **Balizas BLE** | Em (opcional com ressalvas, ver abaixo) | Desativada |
+| **Balizas BLE** | Em (opcional com ressalvas, ver abaixo) | Desativado |
 
 ### <a name="enabling-gps"></a>Ativar GPS
 

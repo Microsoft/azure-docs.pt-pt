@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.openlocfilehash: 92333857177d33307d6997bfcbdf79787d3ab127
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90895951"
 ---
 # <a name="determining-application-type"></a>Tipo de aplicação determinante
@@ -22,7 +22,7 @@ Existem, em geral, dois tipos de aplicações que funcionam bem em Hyperscale (C
 
 ## <a name="at-a-glance"></a>At a Glance
 
-| Aplicações multi-arrendatários                                 | Aplicações em tempo real                                |
+| Aplicações multi-arrendatários                                 | Aplicações Real-Time                                |
 |-----------------------------------------------------------|-------------------------------------------------------|
 | Às vezes dezenas ou centenas de mesas em esquema          | Pequeno número de mesas                                |
 | Consultas relativas a um inquilino (empresa/loja) de cada vez | Consultas analíticas relativamente simples com agregações |

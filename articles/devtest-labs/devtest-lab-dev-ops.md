@@ -4,10 +4,10 @@ description: Aprenda a usar laboratórios da Azure DevTest Labs dentro de um pip
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 8a5d35a541e079b7d39cae2ec43da608274533f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85481073"
 ---
 # <a name="integration-of-azure-devtest-labs-and-azure-devops"></a>Integração da Azure DevTest Labs e Azure DevOps
@@ -29,10 +29,10 @@ Ter um laboratório no gasoduto CI/CD facilita a utilização de múltiplos ambi
 ### <a name="development--operation"></a>Desenvolvimento / Operação 
 Um laboratório deve estar focado numa equipa que está a trabalhar numa área de recurso. Este foco comum permite a partilha de recursos específicos da área, como ferramentas, scripts ou modelos de Gestor de Recursos. Permite alterações mais rápidas, limitando os efeitos negativos a um grupo mais pequeno. Estes recursos partilhados permitem ao desenvolvedor criar VMs de desenvolvimento com todo o código, ferramentas e configuração necessários. Podem ser criados dinamicamente ou ter um sistema que cria imagens base com as personalizações. Não só o desenvolvedor pode criar VMs, mas também pode criar ambientes DevTest Labs com base nos modelos necessários para criar os recursos Azure apropriados no laboratório. Quaisquer alterações ou trabalho destrutivo podem ser feitos contra o ambiente do laboratório sem afetar mais ninguém. Considere o cenário em que o produto é um sistema autónomo instalado na máquina do cliente. Neste cenário, a DevTest Labs melhorou a criação de VM que inclui a instalação de software adicional utilizando artefactos e configurações de clientes pré-construindo para testes de loop interno mais rápidos do código. 
   
-## <a name="cicd-pipeline"></a>Gasoduto CI/CD 
+## <a name="cicd-pipeline"></a>Pipeline de CI/CD 
 O gasoduto CI/CD é um dos componentes críticos em DevOps que movem o código de um pedido de puxar do desenvolvedor, integra-o com o código existente, e o implanta no ecossistema de produção. Todos os recursos não precisam estar dentro de um laboratório. Por exemplo, um hospedeiro Jenkins poderia ser criado fora do laboratório como um recurso mais persistente. Aqui estão alguns exemplos específicos de integração de laboratórios no oleoduto. 
 
-### <a name="build"></a>Compilação 
+### <a name="build"></a>Compilar 
 O gasoduto de construção está focado na criação de um pacote de componentes que serão testados em conjunto para serem entregues ao gasoduto de libertação. Os laboratórios podem fazer parte do oleoduto de construção como local para agentes de construção e outros recursos de apoio. Ter a capacidade de construir dinamicamente a infraestrutura permite um maior controlo. Com a capacidade de ter múltiplos ambientes em laboratório, cada construção pode ser executada assíncroticamente enquanto usa o ID de construção como parte da informação ambiental para identificar exclusivamente os recursos para a construção específica.   
 
 Para os agentes de construção, a capacidade do laboratório de restringir o acesso aumenta a segurança e reduz a possibilidade de corrupçãos acidentais.  

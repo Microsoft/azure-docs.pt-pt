@@ -9,17 +9,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.openlocfilehash: 2679d24a9e8c821dae73114f32adbeb3d22a1458
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708905"
 ---
 # <a name="how-to-create-a-saas-offer-in-the-commercial-marketplace"></a>Como criar uma oferta SaaS no mercado comercial
 
 Como editor de marketplace comercial, pode criar um software como oferta de serviço (SaaS) para que potenciais clientes possam comprar a sua solução técnica baseada em SaaS. Este artigo explica o processo de criação de uma oferta SaaS para o mercado comercial da Microsoft.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Se ainda não o fez, leia [a oferta do Plano SaaS para o mercado comercial.](plan-saas-offer.md) Irá explicar os requisitos técnicos da sua aplicação SaaS e as informações e ativos de que necessita quando criar a sua oferta. A menos que pretenda publicar uma listagem simples **(Contacte-me** com a opção de listagem) no mercado comercial, a sua aplicação SaaS deve satisfazer os requisitos técnicos em torno da autenticação.
 
@@ -64,7 +64,7 @@ Um test drive é uma ótima maneira de mostrar a sua oferta a potenciais cliente
 1.  No **test drive**, selecione a caixa de **verificação de acionamento de teste.**
 1.  Selecione o tipo de unidade de teste da lista que aparece.
 
-### <a name="configure-lead-management"></a>Configure a gestão do chumbo
+### <a name="configure-lead-management"></a>Configurar a gestão de oportunidades potenciais
 
 Ligue o seu sistema de gestão de relacionamento com o cliente (CRM) com a sua oferta de mercado comercial para que possa receber informações de contacto com o cliente quando um cliente manifestar interesse ou implementar o seu produto. Pode modificar esta ligação a qualquer momento durante ou depois de criar a oferta.
 
@@ -86,6 +86,6 @@ Ligue o seu sistema de gestão de relacionamento com o cliente (CRM) com a sua o
 1. Para validar a configuração fornecida, selecione o link **Validate.**
 1. Para fechar a caixa de diálogo, selecione **OK**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - [Como configurar as suas propriedades de oferta SaaS](create-new-saas-offer-properties.md)

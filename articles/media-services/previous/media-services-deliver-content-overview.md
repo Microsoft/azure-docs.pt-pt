@@ -10,12 +10,12 @@ ms.workload: media
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: b636d1cdf2e4b9bd137768e22240d8a47d724a97
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 363bb5389eda8336d04b1ff457f8246e89a042d8
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266039"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014397"
 ---
 # <a name="deliver-content-to-customers"></a>Entregar conteúdo aos clientes
 
@@ -69,7 +69,7 @@ Os localizadores têm datas de validade. O portal Azure estabelece uma data de v
 > 
 > 
 
-Para atualizar uma data de expiração num localizador, utilize as APIs [REST](/rest/api/media/operations/locator#update_a_locator) ou [.NET](https://go.microsoft.com/fwlink/?LinkID=533259). Observe que, ao atualizar a data de expiração de um localizador SAS, o URL é alterado.
+Para atualizar uma data de expiração num localizador, utilize as APIs [REST](/rest/api/media/operations/locator#update_a_locator) ou [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client.ilocator). Observe que, ao atualizar a data de expiração de um localizador SAS, o URL é alterado.
 
 Os localizadores não foram concebidos para gerir o controlo de acesso por utilizador. Pode dar direitos de acesso diferentes a utilizadores individuais utilizando soluções de Gestão de Direitos Digitais (DRM). Para mais informações, consulte [a Secureing Media](/previous-versions/azure/dn282272(v=azure.100)).
 

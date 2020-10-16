@@ -13,10 +13,10 @@ ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d298c83c0c1a0f33f28644e2e467ad5035300221
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85847610"
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Copiar dados de e para um sistema de ficheiros no local utilizando a Azure Data Factory
@@ -70,18 +70,18 @@ As seguintes secções fornecem detalhes sobre as propriedades JSON que são usa
 ## <a name="linked-service-properties"></a>Propriedades de serviço ligadas
 Pode ligar um sistema de ficheiros no local a uma fábrica de dados Azure com o serviço de **ficheiros "Servidor de Ficheiros" "No local".** A tabela seguinte fornece descrições para elementos JSON específicos do serviço de ficheiros no local.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | tipo |Certifique-se de que a propriedade tipo está definida para **OnPremisesFileServer**. |Sim |
 | anfitrião |Especifica o caminho da raiz da pasta que pretende copiar. Utilize o personagem de fuga ' \ ' para caracteres especiais na corda. Consulte por exemplo [o serviço ligado à amostra e definições de conjunto de dados.](#sample-linked-service-and-dataset-definitions) |Sim |
 | userid |Especifique o ID do utilizador que tem acesso ao servidor. |Não (se escolher o Criptografial) |
 | palavra-passe |Especifique a palavra-passe para o utilizador (userid). |Não (se escolher o Criptografial |
-| criptografadoCredential |Especifique as credenciais encriptadas que pode obter executando o cmdlet New-AzDataFactoryEncryptValue. |Não (se optar por especificar userid e palavra-passe em texto simples) |
+| criptografadoCredential |Especifique as credenciais encriptadas que pode obter executando o New-AzDataFactoryEncryptValue cmdlet. |Não (se optar por especificar userid e palavra-passe em texto simples) |
 | gatewayName |Especifica o nome do gateway que a Data Factory deve utilizar para ligar ao servidor de ficheiros no local. |Sim |
 
 
 ### <a name="sample-linked-service-and-dataset-definitions"></a>Definições de serviço e conjunto de dados ligados à amostra
-| Scenario | Hospedagem na definição de serviço ligado | fase de pasta na definição de conjunto de dados |
+| Cenário | Hospedagem na definição de serviço ligado | fase de pasta na definição de conjunto de dados |
 | --- | --- | --- |
 | Pasta local na máquina Data Management Gateway: <br/><br/>Exemplos: D: \\ \* ou D:\pasta\sub-dobra\\\* |D: \\ \\ (para a Gestão de Dados Gateway 2.0 e versões posteriores) <br/><br/> local (para versões anteriores do que data Management Gateway 2.0) |.\\\\ sub-dobragem ou pasta \\ \\ (para a gestão de dados Gateway 2.0 e versões posteriores) <br/><br/>D: \\ \\ ou D: \\ \\ \\ \\ sub-dobragem de pasta (para a versão gateway abaixo de 2.0) |
 | Pasta partilhada remotamente: <br/><br/>Exemplos: \\ \\ \\ myserver share ou \\ \* \\ \\ \\ myserver share pasta \\ \\ subfolder\\\* |\\\\\\\\partilha de myserver \\ \\ |.\\\\ ou \\ \\ sub-dobragem de pasta |
@@ -127,10 +127,10 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 A secção typeProperties é diferente para cada tipo de conjunto de dados. Fornece informações como a localização e formato dos dados na loja de dados. A secção typeProperties para o conjunto de dados do tipo **FileShare** tem as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | folderPath |Especifica o subpato à pasta. Use o personagem de fuga \' para caracteres especiais na corda. O filtro Wildcard não é suportado. Consulte por exemplo [o serviço ligado à amostra e definições de conjunto de dados.](#sample-linked-service-and-dataset-definitions)<br/><br/>Pode combinar esta propriedade com **partição Para** ter caminhos de pasta baseados em intervalos de datas de início/fim da fatia. |Sim |
-| fileName |Especifique o nome do ficheiro na **pastaPata** se pretender que a tabela se refira a um ficheiro específico na pasta. Se não especificar qualquer valor para esta propriedade, a tabela aponta para todos os ficheiros da pasta.<br/><br/>Quando **o nome de ficheiro** não é especificado para um conjunto de dados de saída e **preservarAequia** não é especificado na pia de atividade, o nome do ficheiro gerado está no seguinte formato: <br/><br/>`Data.<Guid>.txt`(Exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Não |
+| fileName |Especifique o nome do ficheiro na **pastaPata** se pretender que a tabela se refira a um ficheiro específico na pasta. Se não especificar qualquer valor para esta propriedade, a tabela aponta para todos os ficheiros da pasta.<br/><br/>Quando **o nome de ficheiro** não é especificado para um conjunto de dados de saída e **preservarAequia** não é especificado na pia de atividade, o nome do ficheiro gerado está no seguinte formato: <br/><br/>`Data.<Guid>.txt` (Exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Não |
 | ficheiroFiltro |Especifique um filtro a ser utilizado para selecionar um subconjunto de ficheiros na pastaPalho em vez de todos os ficheiros. <br/><br/>Os valores permitidos são: `*` (múltiplos caracteres) e `?` (único carácter).<br/><br/>Exemplo 1: "fileFilter": "*.log"<br/>Exemplo 2: "fileFilter": 2014-1-?. txt "<br/><br/>Note que o ficheiroFiltro é aplicável para um conjunto de dados de FileShare de entrada. |Não |
 | partitionedBy |Pode utilizar partitionedBy para especificar uma pasta dinâmicaPa/nome de ficheiros Para dados da série de tempo. Um exemplo é pastaPamota parametrizada para cada hora de dados. |Não |
 | formato | Os seguintes tipos de formato são suportados: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat,** **ParquetFormat**. Desa um destes valores, o **tipo** de propriedade em formato. Para mais informações, consulte [formato de texto,](data-factory-supported-file-and-compression-formats.md#text-format) [formato Json,](data-factory-supported-file-and-compression-formats.md#json-format) [Formato Avro,](data-factory-supported-file-and-compression-formats.md#avro-format) [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e secções [de Formato Parquet.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Se pretender **copiar ficheiros como-está** entre lojas baseadas em ficheiros (cópia binária), salte a secção de formato nas definições de conjunto de dados de entrada e saída. |Não |

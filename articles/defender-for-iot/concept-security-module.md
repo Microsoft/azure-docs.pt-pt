@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 07/24/2019
 ms.author: mlottner
 ms.openlocfilehash: a5382313c837482f116f498f3a05c36447062b0a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940945"
 ---
 # <a name="security-module"></a>Módulo de segurança
@@ -40,7 +40,7 @@ As propriedades de segurança do dispositivo são mantidas num módulo de segura
 
 Consulte [Criar o módulo de segurança twin](quickstart-create-security-twin.md) e [configurar agentes de segurança](how-to-agent-configuration.md) para aprender a criar, personalizar e configurar o gémeo. Consulte [os gémeos módulos understanding](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) para saber mais sobre o conceito de gémeos módulos no IoT Hub.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 - [Defender para visão geral do IoT](overview.md)
 - [Implementar agentes de segurança](how-to-deploy-agent.md)

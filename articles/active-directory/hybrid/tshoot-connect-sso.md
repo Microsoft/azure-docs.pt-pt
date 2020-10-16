@@ -1,6 +1,6 @@
 ---
-title: 'Azure Ative Directory Connect: Troubleshoot Single Sign-On / Microsoft Docs'
-description: Este tópico descreve como resolver problemas Azure Ative Directory Seamless Single Sign-On
+title: 'Azure Ative Directory Connect: Troubleshoot Seamless Single Sign-On [ Microsoft Docs'
+description: Este tópico descreve como resolver problemas no Azure Ative Directory Seamless Single Sign-On
 services: active-directory
 author: billmath
 ms.reviewer: swkrish
@@ -14,13 +14,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 60f23efa4f46849e1fe8b0ebe05cdd83ec16f49e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91294823"
 ---
-# <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Resolução de problemas Azure Ative Directory Sem Emenda Único Sinal-On
+# <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Resolução de problemas Azure Ative Directory Single Sign-On
 
 Este artigo ajuda-o a encontrar informações sobre problemas comuns no que diz respeito ao Azure Ative Directory (Azure AD) Seamless Single Sign-On (Seamless SSO).
 
@@ -70,7 +70,7 @@ Navegue para **Azure Ative Directory**  >  **Sign-ins** no centro de administra�
 | 81012 | O utilizador que tenta entrar no Azure AD é diferente do utilizador que está inscrito no dispositivo. | O utilizador precisa de iniciar sôms de um dispositivo diferente.
 | 81013 | Não foi possível encontrar o objeto do utilizador com base nas informações no bilhete Kerberos do utilizador. |Utilize o Azure AD Connect para sincronizar as informações do utilizador em Azure AD. 
 
-## <a name="troubleshooting-checklist"></a>Lista de verificação de resolução de problemas (Troubleshooting checklist)
+## <a name="troubleshooting-checklist"></a>Lista de verificação de resolução de problemas
 
 Utilize a seguinte lista de verificação para resolver problemas de SSO sem problemas:
 

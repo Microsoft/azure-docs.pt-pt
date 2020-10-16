@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a9d2116062dc45f3602bf5ee0efba31ad815c0c9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 73584353d0d003588ef7de6131d3c3c4bbfcff59
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447854"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046728"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autenticar um dispositivo a jusante no Hub IoT do Azure
 
@@ -59,7 +59,7 @@ Quando criar a nova identidade do dispositivo, forneça as seguintes informaçõ
 
 * Selecione **a tecla simétrica** como o tipo de autenticação.
 
-* Opcionalmente, opte por **definir um dispositivo-mãe** e selecione o dispositivo de gateway IoT Edge que este dispositivo a jusante irá ligar. Este passo é opcional para a autenticação de chaves simétricas, mas é recomendado porque a configuração de um dispositivo principal permite capacidades offline para o seu dispositivo a [jusante.](offline-capabilities.md) Pode sempre atualizar os detalhes do dispositivo para adicionar ou alterar o progenitor mais tarde.
+* Selecione **Definir um dispositivo-mãe** e selecionar o dispositivo de gateway IoT Edge que este dispositivo a jusante irá ligar. Este passo permite [capacidades offline](offline-capabilities.md) para o seu dispositivo a jusante. Podes sempre mudar o pai mais tarde.
 
    ![Criar iD do dispositivo com chave simétrica no portal](./media/how-to-authenticate-downstream-device/symmetric-key-portal.png)
 
@@ -110,7 +110,7 @@ Para a autenticação auto-assinada X.509, por vezes referida como autenticaçã
 
 4. Copie os certificados do dispositivo primário e secundário e as suas chaves para qualquer local do dispositivo a jusante. Também mova uma cópia do certificado de CA de raiz partilhada que gerou tanto o certificado do dispositivo gateway como os certificados do dispositivo a jusante.
 
-   Você vai referenciar estes ficheiros de certificado em quaisquer aplicações no dispositivo a jusante que se conectam ao IoT Hub. Pode utilizar um serviço como [o Azure Key Vault](https://docs.microsoft.com/azure/key-vault) ou uma função como o protocolo de cópia [Secure](https://www.ssh.com/ssh/scp/) para mover os ficheiros de certificado.
+   Você vai referenciar estes ficheiros de certificado em quaisquer aplicações no dispositivo a jusante que se conectam ao IoT Hub. Pode utilizar um serviço como [o Azure Key Vault](../key-vault/index.yml) ou uma função como o protocolo de cópia [Secure](https://www.ssh.com/ssh/scp/) para mover os ficheiros de certificado.
 
 5. Dependendo do seu idioma preferido, reveja amostras de como os certificados X.509 podem ser referenciados em aplicações IoT:
 
@@ -156,7 +156,7 @@ Esta secção baseia-se nas instruções detalhadas no artigo do IoT Hub [Config
 
 5. Copie o certificado e as chaves do dispositivo para qualquer local do dispositivo a jusante. Também mova uma cópia do certificado de CA de raiz partilhada que gerou tanto o certificado do dispositivo gateway como os certificados do dispositivo a jusante.
 
-   Irá fazer referência a estes ficheiros em quaisquer aplicações do dispositivo a jusante que se ligam ao IoT Hub. Pode utilizar um serviço como [o Azure Key Vault](https://docs.microsoft.com/azure/key-vault) ou uma função como o protocolo de cópia [Secure](https://www.ssh.com/ssh/scp/) para mover os ficheiros de certificado.
+   Irá fazer referência a estes ficheiros em quaisquer aplicações do dispositivo a jusante que se ligam ao IoT Hub. Pode utilizar um serviço como [o Azure Key Vault](../key-vault/index.yml) ou uma função como o protocolo de cópia [Secure](https://www.ssh.com/ssh/scp/) para mover os ficheiros de certificado.
 
 6. Dependendo do seu idioma preferido, reveja amostras de como os certificados X.509 podem ser referenciados em aplicações IoT:
 
@@ -201,7 +201,7 @@ Ou:
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;x509=true;GatewayHostName=myGatewayDevice
 ```
 
-Se estabelecer uma relação pai/filho para este dispositivo a jusante, então pode simplificar a cadeia de ligação chamando o gateway diretamente como anfitrião de ligação. As relações entre pais e filhos são necessárias para a autenticação X.509, mas opcionais para a autenticação da chave simétrica. Por exemplo:
+Graças à relação pai/filho, pode simplificar a cadeia de ligação chamando o gateway diretamente como anfitrião de ligação. Por exemplo:
 
 ```
 HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz
@@ -209,7 +209,7 @@ HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz
 
 Utilizará esta cadeia de ligação modificada no próximo artigo da série transparente gateway.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste momento, tem um dispositivo IoT Edge registado com o seu hub IoT e configurado como um gateway transparente. Também tem um dispositivo a jusante registado no seu hub IoT e aponta para o seu dispositivo gateway.
 

@@ -1,5 +1,5 @@
 ---
-title: Ambientes curados
+title: Ambientes organizados
 titleSuffix: Azure Machine Learning
 description: Coleção de ambientes curados disponíveis no Azure Machine Learning
 services: machine-learning
@@ -11,10 +11,10 @@ ms.subservice: core
 ms.topic: reference
 ms.date: 09/03/2020
 ms.openlocfilehash: 4ae96976f81aab9a0949594551c82d3a3fec4f0a
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89662081"
 ---
 # <a name="azure-machine-learning-curated-environments"></a>Ambientes curados de aprendizagem de máquinas Azure
@@ -262,7 +262,7 @@ Este artigo lista os ambientes curados em Azure Machine Learning, e os pacotes e
 * jupyterlab
 * Rio Iz4
 * mpi4py
-* caderno
+* bloco de notas
 * pyarrow
 
 ## <a name="azureml-dask-gpu"></a>AzureML-Dask-GPU
@@ -290,7 +290,7 @@ Este artigo lista os ambientes curados em Azure Machine Learning, e os pacotes e
 * jupyterlab
 * Rio Iz4
 * mpi4py
-* caderno
+* bloco de notas
 * pyarrow
 
 ## <a name="azureml-hyperdrive-forecastdnn"></a>AzureML-Hyperdrive-ForecastDNN
@@ -311,7 +311,7 @@ Este artigo lista os ambientes curados em Azure Machine Learning, e os pacotes e
 * azureml-train-automl-runtime
 * azureml-contrib-automl-dnn-previsão
 
-## <a name="azureml-minimal"></a>AzureML-Mínimo
+## <a name="azureml-minimal"></a>AzureML-Minimal
 
 **Canais de pacote:**
 

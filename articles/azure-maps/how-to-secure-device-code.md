@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 7e61a881470b206981b65e175c1f7f40b161ebf8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e62a5c984afb434b8c47b5ee8c5c66c61485dbfc
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319763"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090442"
 ---
 # <a name="secure-an-input-constrained-device-with-azure-ad-and-azure-maps-rest-apis"></a>Proteja um dispositivo restrito de entrada com Azure AD e Azure Maps REST APIs
 
@@ -55,7 +55,7 @@ Crie a aplicação baseada no dispositivo em Azure AD para ativar o sinal de Azu
     > [!div class="mx-imgBorder"]
     > ![Selecione permissões de API de aplicativo](./media/how-to-manage-authentication/select-app-permissions.png)
 
-6. Configure O controlo de acesso baseado em funções Azure para utilizadores ou grupos. Consulte [o acesso baseado em funções grant para utilizadores ao Azure Maps](#grant-role-based-access-for-users-to-azure-maps).
+6. Configure O controlo de acesso baseado em funções (Azure RBAC) para utilizadores ou grupos. Consulte [o acesso baseado em funções grant para utilizadores ao Azure Maps](#grant-role-based-access-for-users-to-azure-maps).
 
 7. Adicione código para adquirir o fluxo de fichas na aplicação, para detalhes de implementação ver [fluxo de código do dispositivo](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-acquire-token#device-code-flow). Ao adquirir fichas, refira-se ao âmbito: `user_impersonation` que foi selecionado em passos anteriores.
 
@@ -110,7 +110,7 @@ Corpo:
 }
 ```
 
-[!INCLUDE [grant role access to users](./includes/grant-rbac-users.md)]
+[!INCLUDE [grant role-based access to users](./includes/grant-rbac-users.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

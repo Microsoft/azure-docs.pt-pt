@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.author: ryanwi
-ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1
+ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperfq1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 8697676abe5af77c8c7795ae4e2ec6480cb99e91
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 1410af4d3c1fb9974818e5c4ebc469eee03a314c
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91819445"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948628"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Vidas de token configuradas na plataforma de identidade da Microsoft (pré-visualização)
 
@@ -91,7 +91,7 @@ Uma política de vida simbólica é um tipo de objeto político que contém regr
 | Atualizar tempo inativo token Max |MaxInactiveTime |Fichas de atualização |90 dias |10 minutos |90 dias |
 | Single-Factor Refresh Token Max Age |MaxAgeSingleFactor |Fichas de atualização (para qualquer utilizadores) |Até revogação |10 minutos |Até revogado<sup>1</sup> |
 | Multi-Factor Refresh Token Max Age |MaxAgeMultiFactor |Fichas de atualização (para qualquer utilizadores) | 180 dias |10 minutos |180 dias<sup>1</sup> |
-| Sessão de fator único Token Max Age |MaxAgeSessionSingleFactor |Fichas de sessão (persistentes e não permanentes) |Até revogação |10 minutos |Até revogado<sup>1</sup> |
+| Single-Factor Session Token Max Age |MaxAgeSessionSingleFactor |Fichas de sessão (persistentes e não permanentes) |Até revogação |10 minutos |Até revogado<sup>1</sup> |
 | Sessão multi-factor Token Max Age |MaxAgeSessionMultiFactor |Fichas de sessão (persistentes e não permanentes) | 180 dias |10 minutos | 180 dias<sup>1</sup> |
 
 * <sup>1</sup>365 dias é o comprimento explícito máximo que pode ser definido para estes atributos.
@@ -160,7 +160,7 @@ Por exemplo, consulte [Criar uma política para iniciar sessão web](configure-t
 
 Esta política obriga os utilizadores que não tenham estado ativos no seu cliente a reauthenticar-se para recuperar um novo token de atualização.
 
-A propriedade Refresh Token Max Inative Time deve ser definida para um valor inferior ao Single-Factor Token Max Age e às propriedades Multi-Factor Refresh Token Max Age.
+A propriedade Refresh Token Max Inative Time deve ser definida para um valor inferior ao Single-Factor Token Max Age e as propriedades Multi-Factor Refresh Token Max Age.
 
 Por exemplo, consulte [Criar uma política para uma aplicação nativa que chame uma API web](configure-token-lifetimes.md#create-a-policy-for-a-native-app-that-calls-a-web-api).
 
@@ -182,11 +182,11 @@ Por exemplo, consulte [Criar uma política para uma aplicação nativa que chame
 
 **Resumo:** Esta política controla quanto tempo um utilizador pode usar um token de atualização para obter um novo par de token de acesso/atualização depois de terem sido autenticados com sucesso utilizando vários fatores. Depois de um utilizador autenticar e receber um novo token de atualização, o utilizador pode utilizar o fluxo de token de atualização durante o período de tempo especificado. (Isto é verdade desde que o token atual da atualização não seja revogado, e não seja desuso por mais tempo do que o tempo inativo.) Nessa altura, os utilizadores são obrigados a reauthenticar-se para receber um novo token de atualização.
 
-A redução da idade máxima obriga os utilizadores a autenticarem-se com mais frequência. Como a autenticação de um único fator é considerada menos segura do que a autenticação de vários fatores, recomendamos que você coloque esta propriedade num valor igual ou superior à propriedade Single-Factor Refresh Token Max Age.
+A redução da idade máxima obriga os utilizadores a autenticarem-se com mais frequência. Como a autenticação de um único fator é considerada menos segura do que a autenticação de vários fatores, recomendamos que você desemprete esta propriedade a um valor igual ou superior ao Single-Factor a propriedade Refresh Token Max Age.
 
 Por exemplo, consulte [Criar uma política para uma aplicação nativa que chame uma API web](configure-token-lifetimes.md#create-a-policy-for-a-native-app-that-calls-a-web-api).
 
-### <a name="single-factor-session-token-max-age"></a>Sessão de fator único Token Max Age
+### <a name="single-factor-session-token-max-age"></a>Single-Factor Session Token Max Age
 **Corda:** MaxAgeSessionSingleFactor
 
 **Afeta:** Fichas de sessão (persistentes e não permanentes)
@@ -204,7 +204,7 @@ Por exemplo, consulte [Criar uma política para iniciar sessão web](configure-t
 
 **Resumo:** Esta política controla quanto tempo um utilizador pode usar um token de sessão para obter um novo ID e token de sessão após a última vez que autenticaram com sucesso usando vários fatores. Depois de um utilizador autenticar e receber um novo token de sessão, o utilizador pode utilizar o fluxo de ficha de sessão durante o período de tempo especificado. (Isto é verdade desde que o token da sessão em curso não seja revogado e não tenha expirado.) Após o período de tempo especificado, o utilizador é obrigado a reauthenticar-se para receber um novo token de sessão.
 
-A redução da idade máxima obriga os utilizadores a autenticarem-se com mais frequência. Como a autenticação de um único fator é considerada menos segura do que a autenticação de vários fatores, recomendamos que você desemprete esta propriedade para um valor igual ou superior à propriedade Single-Factor Session Token Max Age.
+A redução da idade máxima obriga os utilizadores a autenticarem-se com mais frequência. Como a autenticação de um único fator é considerada menos segura do que a autenticação de vários fatores, recomendamos que você desemprete esta propriedade a um valor igual ou superior ao Single-Factor sessão token max age.
 
 ## <a name="cmdlet-reference"></a>Referência de cmdlets
 

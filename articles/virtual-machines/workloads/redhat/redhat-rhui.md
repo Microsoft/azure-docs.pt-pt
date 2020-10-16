@@ -1,22 +1,18 @@
 ---
 title: Infraestrutura de atualização de chapéu vermelho Microsoft Docs
 description: Saiba mais sobre a Infraestrutura de Atualização de Chapéu Vermelho para instâncias on-demand Red Hat Enterprise Linux no Microsoft Azure
-services: virtual-machines-linux
-documentationcenter: ''
 author: asinn826
-manager: BorisB2015
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: dadfd3abfad0c588f53d47cb7ab1eb138d4f90ac
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.reviewer: cynthn
+ms.openlocfilehash: 3bdbd84785053b79198479305e1ca76e133a46f3
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612516"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994277"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Infraestrutura de atualização de chapéu vermelho para red hat enterprise Linux VMs em Azure
  [A Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permite que os fornecedores de nuvem, como o Azure, espelham o conteúdo do repositório apresentado pelo Chapéu Vermelho, criem repositórios personalizados com conteúdo específico do Azure e disponibilizem-no para os VMs do utilizador final.
@@ -310,7 +306,7 @@ Este procedimento está previsto apenas para referência. As imagens RHEL PAYG j
         ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Para criar um Red Hat Enterprise Linux VM a partir de uma imagem Azure Marketplace PAYG e para usar o RHUI hospedado no Azure, vá ao [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/RedHat.RHEL_6).
 * Para saber mais sobre as imagens do Chapéu Vermelho em Azure, aceda à página de [documentação.](./redhat-images.md)
 * As informações sobre as políticas de suporte do Red Hat para todas as versões do RHEL podem ser encontradas na página [Red Hat Enterprise Linux Life Cycle.](https://access.redhat.com/support/policy/updates/errata)

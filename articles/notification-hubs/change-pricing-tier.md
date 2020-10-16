@@ -14,10 +14,10 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/28/2019
 ms.openlocfilehash: 1455259bc42aea9d506a9a2a19d725cac3d643f8
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87562774"
 ---
 # <a name="change-pricing-tier-of-an-azure-notification-hubs-namespace"></a>Alterar o nível de preços de um espaço de nome de centros de notificação Azure
@@ -95,6 +95,6 @@ PUT: https://management.core.windows.net/{subscription ID}/services/ServiceBus/N
 Body: <NotificationHubPlan xmlns:i="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect"><SKU>Standard</SKU></NotificationHubPlan>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre estes níveis e preços, consulte [os preços dos Centros de Notificação](https://azure.microsoft.com/pricing/details/notification-hubs/).

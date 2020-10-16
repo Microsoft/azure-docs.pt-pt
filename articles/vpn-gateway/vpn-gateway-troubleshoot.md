@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 01/31/2018
 ms.author: cherylmc
 ms.openlocfilehash: 0718a1b211fe6365af30a330fe6a3742cff2ff63
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84984439"
 ---
 # <a name="troubleshoot-vpn-gateway"></a>VPN Gateway de resolução de problemas
@@ -28,6 +28,6 @@ As ligações VPN Gateway podem falhar por uma variedade de razões. Este artigo
 
 * [Ligações Site a Site](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)<br>Depois de configurar uma ligação VPN site-to-site entre uma rede no local e uma rede virtual Azure, a ligação VPN para subitamente de funcionar e não pode ser reconectada. Este artigo fornece medidas de resolução de problemas para ajudá-lo a resolver este problema.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Também pode utilizar estes passos para [validar as ligações VNet e VPN.](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)

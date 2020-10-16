@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: yushwang
 ms.openlocfilehash: 7e59c8ecc0d7af341ddc1ea79aa42460e00fa444
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89419780"
 ---
 # <a name="vpn-gateway-faq"></a>FAQ do VPN Gateway
@@ -20,11 +20,11 @@ ms.locfileid: "89419780"
 
 ### <a name="can-i-connect-virtual-networks-in-different-azure-regions"></a>Posso ligar redes virtuais em diferentes regiões do Azure?
 
-Yes. Na verdade, não existe qualquer restrição de região. Uma rede virtual pode ligar a outra rede virtual na mesma região ou numa região do Azure diferente. 
+Sim. Na verdade, não existe qualquer restrição de região. Uma rede virtual pode ligar a outra rede virtual na mesma região ou numa região do Azure diferente. 
 
 ### <a name="can-i-connect-virtual-networks-in-different-subscriptions"></a>Posso ligar redes virtuais em diferentes subscrições?
 
-Yes.
+Sim.
 
 ### <a name="can-i-connect-to-multiple-sites-from-a-single-virtual-network"></a>Posso ligar a vários sites a partir de uma única rede virtual?
 
@@ -32,7 +32,7 @@ Pode ligar a vários sites com o Windows PowerShell e as APIs REST do Azure. Vej
 
 ### <a name="is-there-an-additional-cost-for-setting-up-a-vpn-gateway-as-active-active"></a>Existe um custo adicional para a criação de um gateway VPN como ativo ativo?
 
-Não. 
+N.º 
 
 ### <a name="what-are-my-cross-premises-connection-options"></a>Quais são as minhas opções de ligação em vários locais?
 
@@ -70,7 +70,7 @@ Os gateways baseados na rota implementam as VPNs baseadas na rota. As VPNs basea
 
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>Posso atualizar a minha porta de entrada VPN baseada em políticas para a base de rotas?
 
-Não.Um tipo de gateway de Vnet do Azure não pode ser alterado de baseado em políticas para baseado na rota, ou ao contrário. O gateway tem de ser eliminado e recriado, um processo que demora cerca de 60 minutos. O endereço IP do gateway não será mantido, nem a Chave Pré-partilhada (PSK).
+N.ºUm tipo de gateway de Vnet do Azure não pode ser alterado de baseado em políticas para baseado na rota, ou ao contrário. O gateway tem de ser eliminado e recriado, um processo que demora cerca de 60 minutos. O endereço IP do gateway não será mantido, nem a Chave Pré-partilhada (PSK).
 1. Elimine todas as ligações associadas ao gateway a eliminar.
 1. Elimine o gateway:
    - [Portal do Azure](vpn-gateway-delete-vnet-gateway-portal.md)
@@ -80,13 +80,13 @@ Não.Um tipo de gateway de Vnet do Azure não pode ser alterado de baseado em po
 
 ### <a name="do-i-need-a-gatewaysubnet"></a>Preciso de um "GatewaySubnet"?
 
-Yes. A sub-rede do gateway contém os endereços IP que os serviços do gateway de rede virtual utilizam. Tem de criar uma sub-rede do gateway para que a VNet configure um gateway de rede virtual. Para funcionarem corretamente, todas as sub-redes do gateway têm de ter o nome "GatewaySubnet". Não atribua outro nome à sub-rede do gateway. E não implemente VMs ou quaisquer outros elementos na sub-rede do gateway.
+Sim. A sub-rede do gateway contém os endereços IP que os serviços do gateway de rede virtual utilizam. Tem de criar uma sub-rede do gateway para que a VNet configure um gateway de rede virtual. Para funcionarem corretamente, todas as sub-redes do gateway têm de ter o nome "GatewaySubnet". Não atribua outro nome à sub-rede do gateway. E não implemente VMs ou quaisquer outros elementos na sub-rede do gateway.
 
 Quando cria a sub-rede do gateway, especifica o número de endereços IP que a sub-rede contém. Os endereços IP na sub-rede de gateway estão alocados no serviço do gateway. Algumas configurações necessitam que sejam alocados mais endereços IP para os serviços de gateway do que outros. Pretende certificar-se de que a sub-rede do gateway contém endereços IP suficientes para acomodar o futuro crescimento e possíveis novas configurações de ligação adicionais. Por isso, apesar de poder criar uma sub-rede do gateway tão pequena como /29, recomendamos que crie uma sub-rede do gateway de /27 ou superior (/ 27, /26, /25, etc.). Observe os requisitos para a configuração que pretende criar e certifique-se de que a sub-rede do gateway que tem irá satisfazer essas necessidades.
 
 ### <a name="can-i-deploy-virtual-machines-or-role-instances-to-my-gateway-subnet"></a>Posso implementar Virtual Machines ou instâncias de função na minha sub-rede do gateway?
 
-Não.
+N.º
 
 ### <a name="can-i-get-my-vpn-gateway-ip-address-before-i-create-it"></a>Posso obter o meu endereço IP do gateway de VPN antes de o criar?
 
@@ -125,7 +125,7 @@ Estamos limitados à utilização de chaves pré-partilhadas (PSK) para a autent
 
 ### <a name="can-i-configure-force-tunneling"></a>Posso configurar a Imposição do Túnel?
 
-Yes. Veja [Configurar a imposição do túnel](vpn-gateway-about-forced-tunneling.md).
+Sim. Veja [Configurar a imposição do túnel](vpn-gateway-about-forced-tunneling.md).
 
 ### <a name="can-i-use-nat-t-on-my-vpn-connections"></a>Posso usar o NAT-T nas minhas ligações VPN?
 
@@ -196,7 +196,7 @@ Esta secção aplica-se ao Modelo de implementação Resource Manager.
 ### <a name="can-i-use-azure-vpn-gateway-to-transit-traffic-between-my-on-premises-sites-or-to-another-virtual-network"></a>Posso utilizar o gateway de VPN do Azure para transitar o tráfego entre os meus sites no local ou para outra rede virtual?
 
 **Modelo de implementação Resource Manager**<br>
-Yes. Veja a secção [BGP](#bgp) para obter mais informações.
+Sim. Veja a secção [BGP](#bgp) para obter mais informações.
 
 **Modelo de implementação clássica**<br>
 É possível transitar o tráfego através do gateway de VPN do Azure com o modelo de implementação clássica, mas tal depende de espaços de endereços definidos estaticamente no ficheiro de configuração de rede. O BGP ainda não é suportado com Redes Virtuais do Azure nem gateways de VPN mediante a utilização do modelo de implementação clássica. Sem o BGP, a definição manual dos espaços de endereços de trânsito é muito propensa a erros e não se recomenda.
@@ -240,7 +240,7 @@ Também pode ligar à máquina virtual através do endereço IP privado a partir
 
 ### <a name="if-my-virtual-machine-is-in-a-virtual-network-with-cross-premises-connectivity-does-all-the-traffic-from-my-vm-go-through-that-connection"></a>Se a minha máquina virtual estiver numa rede virtual com conetividade em vários locais, todo o tráfego da minha VM passa por essa ligação?
 
-Não. Apenas o tráfego que tem um IP de destino contido nos intervalos de endereços IP da Rede Local da rede virtual que especificou passará pelo gateway de rede virtual. O tráfego tem um IP de destino localizado na rede virtual e permanece na rede virtual. O outro tipo de tráfego é enviado através do balanceador de carga para as redes públicas, ou se a imposição do túnel for utilizada, é enviado através do gateway de VPN do Azure.
+N.º Apenas o tráfego que tem um IP de destino contido nos intervalos de endereços IP da Rede Local da rede virtual que especificou passará pelo gateway de rede virtual. O tráfego tem um IP de destino localizado na rede virtual e permanece na rede virtual. O outro tipo de tráfego é enviado através do balanceador de carga para as redes públicas, ou se a imposição do túnel for utilizada, é enviado através do gateway de VPN do Azure.
 
 ### <a name="how-do-i-troubleshoot-an-rdp-connection-to-a-vm"></a>Como resolver problemas de uma ligação RDP numa VM
 
@@ -251,7 +251,7 @@ Não. Apenas o tráfego que tem um IP de destino contido nos intervalos de ender
 
 Pode ver informações adicionais sobre a rede virtual nas [FAQ da Rede Virtual](../virtual-network/virtual-networks-faq.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre o Gateway de VPN, veja [About VPN Gateway (Acerca do Gateway de VPN)](vpn-gateway-about-vpngateways.md).
 * Para obter mais informações sobre as definições de configuração do Gateway de VPN, veja [About VPN Gateway configuration settings (Acerca das definições de configuração do gateway de VPN)](vpn-gateway-about-vpn-gateway-settings.md).

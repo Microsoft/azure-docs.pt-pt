@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: alkohli
 ms.openlocfilehash: d2c7f729f4accf7c9ca212c6e4b4b5d565c3114c
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90563782"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box-heavy"></a>Instale e opere com segurança a sua Caixa de Dados Azure Heavy
@@ -27,7 +27,7 @@ Leia todas as informações de segurança deste artigo antes de utilizar a sua C
 ## <a name="safety-icon-conventions"></a>Convenções de ícones de segurança
 Aqui estão os ícones que encontrará quando revê as precauções de segurança a observar ao configurar e executar a sua Caixa de Dados.
 
-| Ícone | Description |
+| Ícone | Descrição |
 |:--- |:--- |
 | ![Ícone de perigo ](./media/data-box-heavy-safety/warning-icon.png) **PERIGO!** |Indica uma situação perigosa que, se não for evitada, resultará em morte ou ferimentos graves. Esta palavra de sinal deve limitar-se às situações mais extremas. |
 | ![Ícone de ](./media/data-box-heavy-safety/warning-icon.png) **aviso AVISO!** |Indica uma situação perigosa que, se não for evitada, pode resultar em morte ou ferimentos graves. |

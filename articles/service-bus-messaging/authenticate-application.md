@@ -4,10 +4,10 @@ description: Este artigo fornece informações sobre a autenticação de uma apl
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: b12f2f294a66159a7035240c361ab93f9f84718e
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88064830"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Autenticar e autorizar uma aplicação com a Azure Ative Directory para aceder a entidades do Azure Service Bus
@@ -152,9 +152,9 @@ Quando executar a aplicação da consola, é-lhe solicitado que selecione um cen
 ## <a name="next-steps"></a>Passos seguintes
 - Para saber mais sobre o Azure RBAC, veja [o que é o controlo de acesso baseado em funções do Azure (Azure RBAC)](../role-based-access-control/overview.md)?
 - Para aprender a atribuir e gerir atribuições de funções da Azure PowerShell, Azure CLI ou da REST API, consulte estes artigos:
-    - [Adicione ou remova atribuições de funções Azure usando Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  
-    - [Adicione ou remova atribuições de funções Azure usando Azure CLI](../role-based-access-control/role-assignments-cli.md)
-    - [Adicione ou remova atribuições de funções Azure usando a API REST](../role-based-access-control/role-assignments-rest.md)
+    - [Utilizar o Azure PowerShell para adicionar ou remover atribuições de funções do Azure](../role-based-access-control/role-assignments-powershell.md)  
+    - [Utilizar a CLI do Azure para adicionar ou remover atribuições de funções do Azure](../role-based-access-control/role-assignments-cli.md)
+    - [Utilizar a API REST para adicionar ou remover atribuições de funções do Azure](../role-based-access-control/role-assignments-rest.md)
     - [Adicione ou remova atribuições de funções Azure usando modelos de gestor de recursos Azure](../role-based-access-control/role-assignments-template.md)
 
 Para mais informações sobre mensagens do Service Bus, consulte os seguintes tópicos.

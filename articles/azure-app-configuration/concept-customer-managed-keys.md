@@ -7,10 +7,10 @@ ms.date: 02/18/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
 ms.openlocfilehash: 8942c93b7346613b8cfdc97d9afe09f1c473fb10
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87384876"
 ---
 # <a name="use-customer-managed-keys-to-encrypt-your-app-configuration-data"></a>Utilize chaves geridas pelo cliente para encriptar os dados de Configuração da Aplicação
@@ -27,7 +27,7 @@ Quando os utilizadores ativam a capacidade de chave gerida pelo cliente na sua i
 >[!NOTE]
 >Todos os dados de Configuração de Aplicações Azure são armazenados até 24 horas numa cópia de segurança isolada. Isto inclui a chave de encriptação desembrulhada. Estes dados não estão imediatamente disponíveis para o serviço ou equipa de serviço. Em caso de restauro de emergência, a Configuração da Aplicação Azure revogue-se-á a partir dos dados-chave geridos.
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 São necessários os seguintes componentes para ativar com sucesso a capacidade de chave gerida pelo cliente para a Configuração da Aplicação Azure:
 - Instância de configuração de aplicativo de nível padrão Azure
 - Cofre de chaves Azure com funcionalidades de proteção de eliminação suave e proteção de purga ativadas

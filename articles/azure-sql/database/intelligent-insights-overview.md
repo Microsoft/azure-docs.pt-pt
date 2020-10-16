@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 06/12/2020
 ms.openlocfilehash: 4f6bbbdbbee6cf83a6bea463cf200be0cf671897
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317060"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>Insights Inteligentes utilizando a IA para monitorizar e resolver problemas de desempenho da base de dados (pré-visualização)
@@ -73,10 +73,10 @@ As opções de Insights Inteligentes disponíveis são:
 
 | Opção Insights Inteligentes | Suporte à base de dados Azure SQL | Suporte de Instância Gerida do SQL do Azure |
 | :----------------------------- | ----- | ----- |
-| **Configure Insights Inteligentes** - Configurar análise de Insights Inteligentes para as suas bases de dados. | Yes | Yes |
-| **Stream insights para Azure SQL Analytics** -- Stream insights para Azure SQL Analytics. | Yes | Yes |
-| **Stream insights para Azure Event Hubs** - Stream insights para Os Centros de Eventos para mais integrações personalizadas. | Yes | Yes |
-| **Stream insights para Azure Storage** - Stream insights para Azure Storage para mais análises e arquivos a longo prazo. | Yes | Yes |
+| **Configure Insights Inteligentes** - Configurar análise de Insights Inteligentes para as suas bases de dados. | Sim | Sim |
+| **Stream insights para Azure SQL Analytics** -- Stream insights para Azure SQL Analytics. | Sim | Sim |
+| **Stream insights para Azure Event Hubs** - Stream insights para Os Centros de Eventos para mais integrações personalizadas. | Sim | Sim |
+| **Stream insights para Azure Storage** - Stream insights para Azure Storage para mais análises e arquivos a longo prazo. | Sim | Sim |
 
 > [!NOTE]
 > Insights inteligentes é uma característica de pré-visualização, não disponível nas seguintes regiões: Europa Ocidental, Norte da Europa, EUA 1 e Leste dos EUA 1.

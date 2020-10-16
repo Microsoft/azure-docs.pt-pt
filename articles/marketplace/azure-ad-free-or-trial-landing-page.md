@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.openlocfilehash: b01b482b967ba6db90aa80ba537457597fb91046
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89488614"
 ---
 # <a name="build-the-landing-page-for-your-free-or-trial-saas-offer-in-the-commercial-marketplace"></a>Construa a página de aterragem para a sua oferta saas gratuita ou experimental no mercado comercial
@@ -102,5 +102,5 @@ A maioria das aplicações registadas com Azure AD concedem permissões delegada
 > [!NOTE]
 > As contas do inquilino da MSA (com identificação do `9188040d-6c67-4c5b-b112-36a304b66dad` inquilino) não devolverão mais informações do que já foram recolhidas com o token de identificação. Para que possa ignorar esta chamada para a API do Gráfico para estas contas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Como criar uma oferta SaaS no mercado comercial](create-new-saas-offer.md)

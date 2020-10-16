@@ -8,10 +8,10 @@ ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: ffe368d763ee93d1864f0f807cbe18b8ebfe41c9
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85851672"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Testes de desempenho e escala com Azure Cosmos DB
@@ -91,9 +91,9 @@ Press any key to exit...
 
 Depois de ter a app em funcionamento, pode experimentar diferentes [políticas de indexação](index-policy.md) e [níveis de consistência](consistency-levels.md) para entender o seu impacto na produção e latência. Também pode rever o código fonte e implementar configurações semelhantes às suas próprias suítes de teste ou aplicações de produção.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, analisámos como podes realizar testes de desempenho e escala com a Azure Cosmos DB utilizando uma aplicação de consola .NET. Para obter mais informações, veja os seguintes artigos:
+Neste artigo, analisámos como podes realizar testes de desempenho e escala com a Azure Cosmos DB utilizando uma aplicação de consola .NET. Para obter mais informações, veja os artigos seguintes:
 
 * [Amostra de teste de desempenho do Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)
 * [Opções de configuração do cliente para melhorar o desempenho do Azure Cosmos DB](performance-tips.md)

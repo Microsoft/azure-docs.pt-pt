@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 02/12/2020
-  ms.openlocfilehash: 7d6de6b2600a02980b4b094dd670e6b0f5f7e730
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 9f64d6da399285b82d1222a768b344dfdf6a317b
+  ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91324217"
+  ms.lasthandoff: 10/14/2020
+  ms.locfileid: "92047047"
 landingContent:
 - title: Acerca do Azure Digital Twins
   linkLists:
@@ -84,4 +84,4 @@ landingContent:
   - linkListType: reference
     links:
     - text: APIs REST
-      url: https://docs.microsoft.com/rest/api/azure-digitaltwins/
+      url: /rest/api/azure-digitaltwins/

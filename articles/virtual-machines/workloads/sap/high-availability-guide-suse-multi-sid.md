@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/04/2020
 ms.author: radeltch
 ms.openlocfilehash: 434c2c33da73715b4ee8ce1d438626aa247d7431
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89442620"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>Alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server para aplicações SAP multi-SID guide
@@ -252,7 +252,7 @@ Esta documentação pressupõe que:
    > - Para sLES 15/15 SP1, a versão deve ser pelo menos agentes de recursos-4.3.0184.6ee15eb2-4.13.1.  
    >
    > Note que a mudança requer breves tempos de inatividade.  
-   > Para os clusters pacemaker existentes, se a configuração já foi alterada para usar socat como descrito no [Endurecimento de Deteção de Equilíbrio de Carga Azure,](https://www.suse.com/support/kb/doc/?id=7024128)não existe qualquer necessidade de mudar imediatamente para o agente de recursos azure-lb.
+   > Para os clusters pacemaker existentes, se a configuração já foi alterada para usar socat como descrito no [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128), não existe qualquer requisito para mudar imediatamente para o agente de recursos azure-lb.
 
     ```
       sudo crm configure primitive fs_NW2_ASCS Filesystem device='nw2-nfs:/NW2/ASCS' directory='/usr/sap/NW2/ASCS10' fstype='nfs4' \
@@ -968,7 +968,7 @@ Os testes apresentados estão num cluster multi-SID de dois nó, com três siste
          rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started slesmsscl2
    ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Azure Virtual Machines planejamento e implementação para SAP][planning-guide]
 * [Implantação de máquinas virtuais Azure para SAP][deployment-guide]

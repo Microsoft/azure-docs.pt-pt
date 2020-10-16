@@ -4,16 +4,17 @@ description: Introdução Azure Synapse Studio (pré-visualização) scripts SQL
 services: synapse-analytics
 author: pimorano
 ms.service: synapse-analytics
+ms.subservice: sql
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: omafnan
-ms.openlocfilehash: 9d130c2a2db9ccead7180b6248398a84fcb34c3f
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: cd00c5033d0435b24d4cfb9f413b5afe74da6774
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441243"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089014"
 ---
 # <a name="using-sql-script-in-azure-synapse-studio-preview"></a>Usando o script SQL no Azure Synapse Studio (pré-visualização)
 
@@ -80,6 +81,6 @@ Explore o gesto disponível clicando à direita nos nós da piscina SQL e SQL a 
  
 ![nova base de dados de scripts](media/author-sql-script/newscriptdatabase.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a autoria de um script SQL, consulte [a Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics).

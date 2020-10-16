@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 6fac71572446a80ff00368991d6cb80c572864ac
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.openlocfilehash: 38aea30c5f716df927b5924754eb07e7f94c7ebc
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91859208"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92038477"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>Azure Virtual WAN está na AG?
 
@@ -115,7 +115,7 @@ Para obter os passos de automatização, veja [Automatização dos parceiros da 
 
 ### <a name="am-i-required-to-use-a-preferred-partner-device"></a>Sou obrigado a utilizar um dispositivo de parceiro preferencial?
 
-N.º Pode utilizar qualquer dispositivo compatível com VPN que cumpra os requisitos para suporte de IPsec de IKEv2/IKEv1. A VIRTUAL WAN também tem soluções parceiras CPE que automatizam a conectividade com a Azure Virtual WAN, facilitando a configuração de ligações VPN IPsec em escala.
+Não. Pode utilizar qualquer dispositivo compatível com VPN que cumpra os requisitos para suporte de IPsec de IKEv2/IKEv1. A VIRTUAL WAN também tem soluções parceiras CPE que automatizam a conectividade com a Azure Virtual WAN, facilitando a configuração de ligações VPN IPsec em escala.
 
 ### <a name="how-do-virtual-wan-partners-automate-connectivity-with-azure-virtual-wan"></a>Como é que os parceiros de WAN Virtual automatizam a conectividade com a WAN Virtual do Azure?
 
@@ -159,7 +159,7 @@ Um aparelho virtual de rede (NVA) não pode ser implantado dentro de um centro v
 
 ### <a name="can-a-spoke-vnet-have-a-virtual-network-gateway"></a>Um VNet falado pode ter uma porta de entrada de rede virtual?
 
-N.º O VNet falado não pode ter uma porta de entrada de rede virtual se estiver ligado ao centro virtual.
+Não. O VNet falado não pode ter uma porta de entrada de rede virtual se estiver ligado ao centro virtual.
 
 ### <a name="is-there-support-for-bgp-in-vpn-connectivity"></a>Existe apoio para o BGP na conectividade VPN?
 
@@ -187,7 +187,7 @@ Sim.
 
 ### <a name="does-virtual-wan-require-expressroute-from-each-site"></a>O WAN virtual requer o ExpressRoute de cada site?
 
-N.º O WAN virtual não requer o ExpressRoute de cada site. Os sites podem estar ligados a uma rede de fornecedor através de um circuito do ExpressRoute. Para sites que estão conectados usando ExpressRoute para um hub virtual, bem como IPsec VPN no mesmo hub, o hub virtual fornece conectividade de trânsito entre o utilizador VPN e ExpressRoute.
+Não. O WAN virtual não requer o ExpressRoute de cada site. Os sites podem estar ligados a uma rede de fornecedor através de um circuito do ExpressRoute. Para sites que estão conectados usando ExpressRoute para um hub virtual, bem como IPsec VPN no mesmo hub, o hub virtual fornece conectividade de trânsito entre o utilizador VPN e ExpressRoute.
 
 ### <a name="is-there-a-network-throughput-or-connection-limit-when-using-azure-virtual-wan"></a>Existe um limite de produção ou ligação de rede ao utilizar o Azure Virtual WAN?
 
@@ -228,7 +228,7 @@ Um hub virtual pode propagar uma rota padrão aprendida para uma ligação VPN/E
 Se um Virtual Hub aprender a mesma rota a partir de vários hubs remotos, a ordem pela qual decide é a seguinte:
 
 1. O prefixo mais longo.
-2. Rotas locais sobre o interhub.
+2. Rotas locais sobre o interhub (Centro Virtual atribui 65520-65520 para o interhub AS)
 3. Rotas estáticas sobre o BGP: Isto está em contexto para a decisão que está a ser tomada pelo router Virtual Hub. No entanto, se o decisor for o gateway VPN onde um site anuncia rotas via BGP ou fornece prefixos de endereço estático, as rotas estáticas podem ser preferíveis nas rotas BGP.
 4. ExpressRoute (ER) sobre VPN: ER é preferido sobre VPN quando o contexto é um hub local. A conectividade de trânsito entre os circuitos ExpressRoute só está disponível através do Global Reach. Portanto, em cenários em que o circuito ExpressRoute está ligado a um hub e há outro circuito ExpressRoute ligado a um centro diferente com ligação VPN, a VPN pode ser preferível para cenários inter-hub.
 5. Comprimento do caminho as.

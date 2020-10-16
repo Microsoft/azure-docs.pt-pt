@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/17/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8690b1a4b8527a397fcf4c04892e167b5332358d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: abca66dbe80cecec2320256d8a736408de20b64f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035405"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968298"
 ---
 # <a name="customize-the-user-experience-for-azure-active-directory-self-service-password-reset"></a>Personalize a experiência do utilizador para o reposição da palavra-passe de autosserviço do Azure Ative Directory
 
@@ -67,8 +67,8 @@ Os gráficos que escolher são mostrados nas seguintes circunstâncias:
 
 * Depois de um utilizador introduzir o seu nome de utilizador
 * Se o utilizador aceder ao URL personalizado:
-   * Ao passar o `whr` parâmetro para a página de reset da palavra-passe, como`https://login.microsoftonline.com/?whr=contoso.com`
-   * Ao passar o `username` parâmetro para a página de reset da palavra-passe, como`https://login.microsoftonline.com/?username=admin@contoso.com`
+   * Ao passar o `whr` parâmetro para a página de reset da palavra-passe, como `https://login.microsoftonline.com/?whr=contoso.com`
+   * Ao passar o `username` parâmetro para a página de reset da palavra-passe, como `https://login.microsoftonline.com/?username=admin@contoso.com`
 
 ### <a name="directory-name"></a>Nome do diretório
 

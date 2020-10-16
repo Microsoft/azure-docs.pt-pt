@@ -10,13 +10,13 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 770ded494f050631cd1c373f4b3fa5846c65e01a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91275137"
 ---
-# <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>Criar uma ligação a uma conta de Armazenamento Azure usando uma identidade gerida
+# <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>Configurar uma ligação a uma conta do Armazenamento do Microsoft Azure através de uma identidade gerida
 
 Esta página descreve como configurar uma ligação indexante a uma conta de armazenamento Azure usando uma identidade gerida em vez de fornecer credenciais na cadeia de ligação de objetos de fonte de dados.
 
@@ -148,7 +148,7 @@ Para obter mais informações sobre a definição de horários de indexantes, co
 
 As contas de armazenamento Azure podem ser mais protegidas usando firewalls e redes virtuais. Se pretender indexar o conteúdo a partir de uma conta de armazenamento de bolhas ou de uma conta de armazenamento do Data Lake Gen2 que esteja protegida através de uma firewall ou rede virtual, siga as instruções para [aceder aos dados nas contas de armazenamento de forma segura através de uma exceção de serviço fidedigna](search-indexer-howto-access-trusted-service-exception.md).
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 Saiba mais sobre os indexantes de armazenamento Azure:
 

@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 03/04/2019
 ms.openlocfilehash: 81b99478358ec3d670e8d783fba27603483614ea
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87563250"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-with-a-basic-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Utilize um endereço IP público estático para tráfego de saída com um balanceador de carga *SKU básico* no Serviço Azure Kubernetes (AKS)
@@ -18,7 +18,7 @@ Por predefinição, o endereço IP de saída de um cluster Azure Kubernetes Serv
 
 Este artigo mostra-lhe como criar e usar um endereço IP público estático para uso com tráfego de saída num cluster AKS.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo pressupõe que está a utilizar o Balançador de Carga Básica Azure.  Recomendamos a utilização do [Balançador de Carga Padrão Azure,](../load-balancer/load-balancer-overview.md)e pode utilizar funcionalidades mais avançadas para [controlar o tráfego de saídas AKS](./limit-egress-traffic.md).
 
@@ -124,7 +124,7 @@ $ curl -s checkip.dyndns.org
 <html><head><title>Current IP Check</title></head><body>Current IP Address: 40.121.183.52</body></html>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para evitar a manutenção de vários endereços IP públicos no Balançador de Carga Azure, pode utilizar um controlador de entrada. Os controladores ingress fornecem benefícios adicionais, tais como a rescisão SSL/TLS, suporte para reescritas URI e encriptação SSL/TLS a montante. Para obter mais informações, consulte Criar um controlador básico de entrada [em AKS][ingress-aks-cluster].
 

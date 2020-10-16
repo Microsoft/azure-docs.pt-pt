@@ -13,10 +13,10 @@ ms.date: 02/22/2019
 tags: ''
 keywords: ''
 ms.openlocfilehash: b2509539551b3991690e6d0313e069ae015eb892
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87052404"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Configurar uma Distribuição Controlada de Desenvolvedores de Aplicações (ADCD) em IBM zD&T v1

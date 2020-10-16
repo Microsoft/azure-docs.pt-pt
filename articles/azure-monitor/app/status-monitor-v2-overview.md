@@ -6,10 +6,10 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
 ms.openlocfilehash: 0fa0b0d5e3620fc45a104ea31fd3bcbedd673da1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87318951"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Implementar o Agente de Insights de Aplicação do Monitor Azure para servidores no local
@@ -54,13 +54,13 @@ O Application Insights Agent está localizado aqui: https://www.powershellgaller
 
 - O Application Insights Agent suporta instalações de procuração?
 
-  *Sim, é um*trabalho que sim. Existem várias formas de descarregar o Application Insights Agent. Se o seu computador tiver acesso à Internet, pode embarcar na PowerShell Gallery utilizando `-Proxy` parâmetros.
+  *Sim*. Existem várias formas de descarregar o Application Insights Agent. Se o seu computador tiver acesso à Internet, pode embarcar na PowerShell Gallery utilizando `-Proxy` parâmetros.
 Também pode descarregar manualmente o módulo e instalá-lo no seu computador ou usá-lo diretamente.
 Cada uma destas opções é descrita nas [instruções detalhadas](status-monitor-v2-detailed-instructions.md).
 
 - O Status Monitor v2 suporta ASP.NET aplicações Core?
 
-  *Não, não, não,* não. Para obter instruções para permitir a monitorização das aplicações core ASP.NET, consulte [insights de aplicação para aplicações ASP.NET Core](./asp-net-core.md). Não há necessidade de instalar o StatusMonitor para uma aplicação core ASP.NET. Isto é verdade mesmo que ASP.NET aplicação Core esteja hospedada no IIS.
+  *Não*. Para obter instruções para permitir a monitorização das aplicações core ASP.NET, consulte [insights de aplicação para aplicações ASP.NET Core](./asp-net-core.md). Não há necessidade de instalar o StatusMonitor para uma aplicação core ASP.NET. Isto é verdade mesmo que ASP.NET aplicação Core esteja hospedada no IIS.
 
 - Como posso verificar se a habilitação foi bem sucedida?
 

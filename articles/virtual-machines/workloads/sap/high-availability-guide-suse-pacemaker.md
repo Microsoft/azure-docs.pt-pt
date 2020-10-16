@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 08/04/2020
 ms.author: radeltch
 ms.openlocfilehash: 6d61bd2c45cc1ba9cd9494750b793d7321288224
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87797751"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuração do Pacemaker no SUSE Linux Enterprise Server em Azure
@@ -419,7 +419,7 @@ Os seguintes itens são prefixados com **ambos [A]** - aplicável a todos os nó
    </code></pre>
 
    >[!IMPORTANT]
-   > A versão instalada dos agentes da **cerca** de pacote deve ser pelo menos **4.4.0** para beneficiar dos tempos de execução mais rápidos com o Agente da Cerca de Azure, se um conjunto de nós precisar de ser vedado. Recomendamos que atualize o pacote, se estiver a executar uma versão mais baixa.  
+   > A versão instalada dos agentes da **cerca** de pacote deve ser pelo menos **4.4.0**  para beneficiar dos tempos de execução mais rápidos com o Agente da Cerca de Azure, se um conjunto de nós precisar de ser vedado. Recomendamos que atualize o pacote, se estiver a executar uma versão mais baixa.  
 
 
 1. **[A]** Instalar Azure Python SDK 
@@ -621,7 +621,7 @@ Utilize o seguinte conteúdo para o ficheiro de entrada. É necessário adaptar 
 
 Atribua o papel personalizado "Linux Fence Agent Role" que foi criado no último capítulo ao Diretor de Serviço. Não use mais o papel de Proprietário!
 
-1. aceda a [https://portal.azure.com](https://portal.azure.com)
+1. Aceda a [https://portal.azure.com](https://portal.azure.com)
 1. Abra a lâmina de todos os recursos
 1. Selecione a máquina virtual do primeiro nó de cluster
 1. Clique no controlo de acesso (IAM)

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: harshacs
 ms.openlocfilehash: 904bc63ed2a135cdcadad75e96acd6fe3ca39039
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90069684"
 ---
 # <a name="network-security-groups-with-azure-site-recovery"></a>Grupos de Segurança de Rede com o Azure Site Recovery

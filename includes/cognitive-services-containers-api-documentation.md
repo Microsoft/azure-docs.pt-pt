@@ -5,10 +5,10 @@ ms.date: 08/22/2019
 ms.service: cognitive-services
 ms.topic: include
 ms.openlocfilehash: 8b3d856d255968b4a6736db908ce3999cbd56193
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86108939"
 ---
 ## <a name="validate-that-a-container-is-running"></a>Validar que um contentor está a funcionar 
@@ -17,9 +17,9 @@ Há várias formas de validar que o contentor está a funcionar. Localize o ende
 
 | URL do Pedido | Objetivo |
 |--|--|
-| `http://localhost:5000/` | O recipiente fornece uma página inicial. |
+| `http://localhost:5000/` | O contentor fornece uma home page. |
 | `http://localhost:5000/ready` | Solicitado com GET, isto fornece uma verificação de que o recipiente está pronto para aceitar uma consulta contra o modelo.  Este pedido pode ser utilizado para sondas kubernetes [de prontidão e prontidão.](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) |
 | `http://localhost:5000/status` | Também solicitado com GET, isto verifica se a chave api utilizada para iniciar o contentor é válida sem causar uma consulta de ponto final. Este pedido pode ser utilizado para sondas kubernetes [de prontidão e prontidão.](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) |
-| `http://localhost:5000/swagger` | O recipiente fornece um conjunto completo de documentação para os pontos finais e uma função **de teste.** Com esta funcionalidade, pode introduzir as suas definições num formulário HTML baseado na Web e fazer a consulta sem ter de escrever qualquer código. Após o retorno da consulta, é fornecido um comando CURL de exemplo para demonstrar os cabeçalhos HTTP e o formato corporal que é necessário. |
+| `http://localhost:5000/swagger` | O contentor fornece um conjunto completo de documentação para os pontos finais e uma funcionalidade **Experimentar**. Com esta funcionalidade, pode introduzir as suas definições num formulário HTML baseado na Web e fazer a consulta sem ter de escrever qualquer código. Após o retorno da consulta, é fornecido um comando CURL de exemplo para demonstrar os cabeçalhos HTTP e o formato corporal que é necessário. |
 
 ![Página inicial do contentor](./media/cognitive-services-containers-api-documentation/container-webpage.png)

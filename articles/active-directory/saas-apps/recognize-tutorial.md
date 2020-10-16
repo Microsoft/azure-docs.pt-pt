@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 86c2c7383f3850b0c51831f94e673c3941894a08
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88548897"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-recognize"></a>Tutorial: Integração do Diretório Ativo Azure com Reconhecimento
@@ -93,7 +93,7 @@ Para configurar o Azure AD um único sinal de inscrição com o Recognise, execu
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -119,7 +119,7 @@ Para configurar o Azure AD um único sinal de inscrição com o Recognise, execu
     > [!Note]
     > Se o valor do **Identificador** não for preenchido automaticamente, obterá o valor do Identificador abrindo o URL de Metadados do Fornecedor de Serviços a partir da secção Definições SSO que é explicada mais tarde na secção **Configure Reconhecer Único Sinal-On** do tutorial. O valor url de inscrição não é real. Atualize o valor com o URL de inscrição real. Contacte [a equipa de suporte do Cliente](mailto:support@recognizeapp.com) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -133,21 +133,21 @@ Para configurar o Azure AD um único sinal de inscrição com o Recognise, execu
 
     c. Logout URL
 
-### <a name="configure-recognize-single-sign-on"></a>Configurar reconhecer um único sign-on
+### <a name="configure-recognize-single-sign-on"></a>Configurar reconhecer Sign-On única
 
 1. Numa janela diferente do navegador web, inscreva-se no seu inquilino reconhecido como administrador.
 
 2. No canto superior direito, clique no **Menu**. Vá ao **Administrador da Empresa.**
    
-    ![Configure único sinal no lado da aplicação](./media/recognize-tutorial/tutorial_recognize_000.png)
+    ![Configurar Sign-On única no lado da app](./media/recognize-tutorial/tutorial_recognize_000.png)
 
 3. No painel de navegação à esquerda, clique em **Definições**.
    
-    ![Configure único sinal no lado da aplicação](./media/recognize-tutorial/tutorial_recognize_001.png)
+    ![Configurar Sign-On única no lado da app](./media/recognize-tutorial/tutorial_recognize_001.png)
 
 4. Execute os seguintes passos na secção **Definições SSO.**
    
-    ![Configure único sinal no lado da aplicação](./media/recognize-tutorial/tutorial_recognize_002.png)
+    ![Configurar Sign-On única no lado da app](./media/recognize-tutorial/tutorial_recognize_002.png)
     
     a. Como **Enable SSO**, selecione **ON**.
 
@@ -163,11 +163,11 @@ Para configurar o Azure AD um único sinal de inscrição com o Recognise, execu
 
 5. Ao lado da secção **definições SSO,** copie o URL no **url do fornecedor de serviços metadados**.
    
-    ![Configure único sinal no lado da aplicação](./media/recognize-tutorial/tutorial_recognize_003.png)
+    ![Configurar Sign-On única no lado da app](./media/recognize-tutorial/tutorial_recognize_003.png)
 
 6. Abra a **ligação URL dos metadados** num browser em branco para descarregar o documento de metadados. Em seguida, copie o valor do EntityDescriptor (entidadeID) a partir do ficheiro e cole-o na caixa de texto **Identifier** na **Configuração Básica DO SAML** no portal Azure.
     
-    ![Configure único sinal no lado da aplicação](./media/recognize-tutorial/tutorial_recognize_004.png)
+    ![Configurar Sign-On única no lado da app](./media/recognize-tutorial/tutorial_recognize_004.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 
@@ -199,7 +199,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Reconhecer**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, **selecione Recognise**.
 

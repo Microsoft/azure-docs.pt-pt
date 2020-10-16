@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: e5d2c6b0460c3a7566adb17601aceb57e57f4d0b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74931794"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Mover dados do DB2 utilizando a atividade de cópia da fábrica de dados Azure
@@ -56,7 +56,7 @@ O conector DB2 da Data Factory suporta as seguintes plataformas e versões IBM D
 
 > [!TIP]
 > Se receber a mensagem de erro "O pacote correspondente a um pedido de execução de declaração SQL não foi encontrado. SQLSTATE=51002 SQLCODE=-805", a razão é que um pacote necessário não é criado para o utilizador normal no SISTEMA. Para resolver este problema, siga estas instruções para o seu tipo de servidor DB2:
-> - DB2 para i (AS400): Deixe um utilizador de energia criar a coleção para o utilizador normal antes de executar a Atividade de Cópia. Para criar a coleção, utilize o comando:`create collection <username>`
+> - DB2 para i (AS400): Deixe um utilizador de energia criar a coleção para o utilizador normal antes de executar a Atividade de Cópia. Para criar a coleção, utilize o comando: `create collection <username>`
 > - DB2 para z/OS ou LUW: Utilize uma conta de alto privilégio -- um utilizador de energia ou administrador que tenha autoridades de pacotes e BIND, BINDADD, GRANT EXECUTE TO PUBLIC permissões -- para executar a cópia uma vez. A embalagem necessária é criada automaticamente durante a cópia. Depois, pode voltar para o utilizador normal para as suas execuções de cópias subsequentes.
 
 ## <a name="getting-started"></a>Introdução
@@ -78,7 +78,7 @@ As secções seguintes fornecem detalhes sobre as propriedades JSON que são usa
 ## <a name="db2-linked-service-properties"></a>Propriedades de serviço ligadas DB2
 A tabela a seguir lista as propriedades JSON específicas de um serviço ligado DB2.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | **tipo** |Esta propriedade deve ser definida para **OnPremisesDb2**. |Sim |
 | **servidor** |O nome do servidor DB2. |Sim |
@@ -94,7 +94,7 @@ Para obter uma lista das secções e propriedades disponíveis para definir conj
 
 A secção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados na loja de dados. A secção **de tipoproperties** para um conjunto de dados do tipo **RelationalTable,** que inclui o conjunto de dados DB2, tem a seguinte propriedade:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | **tableName** |O nome do quadro na placa de base de dados DB2 a que o serviço ligado se refere. Esta propriedade é sensível a casos. |Não (se for especificada a propriedade de **consulta** de uma atividade de cópia do tipo **RelationalSource)** |
 
@@ -311,14 +311,14 @@ Os seguintes mapeamentos são utilizados quando a Copy Activity converte os dado
 | Número inteiro |Int32 |
 | BigInt |Int64 |
 | Real |Único |
-| Double |Double |
-| Float |Double |
+| Double (Duplo) |Double (Duplo) |
+| Float |Double (Duplo) |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Numérico |Decimal |
-| Data |DateTime |
+| Date |Data e Hora |
 | Hora |TimeSpan |
-| Carimbo de data/hora |DateTime |
+| Timestamp |DateTime |
 | Xml |Byte[] |
 | Char |String |
 | Rio VarChar |String |
@@ -331,20 +331,20 @@ Os seguintes mapeamentos são utilizados quando a Copy Activity converte os dado
 | VarGraphic |String |
 | LongVarGraphic |String |
 | Clob |String |
-| Blobs |Byte[] |
+| Blob |Byte[] |
 | DbClob |String |
 | PequenoInt |Int16 |
 | Número inteiro |Int32 |
 | BigInt |Int64 |
 | Real |Único |
-| Double |Double |
-| Float |Double |
+| Double (Duplo) |Double (Duplo) |
+| Float |Double (Duplo) |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Numérico |Decimal |
-| Data |DateTime |
+| Date |Data e Hora |
 | Hora |TimeSpan |
-| Carimbo de data/hora |DateTime |
+| Timestamp |DateTime |
 | Xml |Byte[] |
 | Char |String |
 

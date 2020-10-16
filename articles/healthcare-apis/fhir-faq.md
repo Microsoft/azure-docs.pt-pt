@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2020
 ms.author: matjazl
-ms.openlocfilehash: 35b59fb0583911b5b9faee96276d1bb09a8d6679
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c32ebef16750954f3df1a1d1b379bf42853f2b3
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269714"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056860"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Perguntas frequentes sobre a AZure API para FHIR
 
@@ -43,6 +43,10 @@ O Azure API para FHIR é uma versão hospedada e gerida do Microsoft FHIR Server
 Quando está a executar o FHIR Server for Azure, tem acesso direto aos serviços subjacentes. Mas também é responsável por manter e atualizar o servidor e todos os trabalhos de conformidade necessários se estiver a armazenar dados de PHI.
 
 Do ponto de vista do desenvolvimento, todas as funcionalidades são implantadas no Microsoft FHIR Server de código aberto para o Azure primeiro. Uma vez validado em código aberto, será lançado à API PaaS Azure para a solução FHIR. O tempo entre o lançamento em open-source e PaaS depende da complexidade da funcionalidade e de outras prioridades do roteiro. 
+
+### <a name="where-can-i-see-what-is-releasing-into-the-azure-api-for-fhir"></a>Onde posso ver o que está a libertar na API azul para a FHIR?
+
+Para ver um pouco do que está a ser lançado na API Azure para FHIR, consulte a [versão](https://github.com/microsoft/fhir-server/releases) do Servidor FHIR de código aberto. Trabalhámos para marcar itens com a Azure-API-for-FHIR se eles vão lançar para o serviço gerido e estão geralmente disponíveis duas semanas após estarem na página de lançamento em código aberto. Também incluímos instruções sobre como testar a construção [aqui](https://github.com/microsoft/fhir-server/blob/master/docs/Testing-Releases.md) se quiser testar no seu próprio ambiente. Estamos a avaliar a melhor forma de partilhar atualizações adicionais de serviço gerido.
 
 ### <a name="what-is-smart-on-fhir"></a>O que é SMART no FHIR?
 

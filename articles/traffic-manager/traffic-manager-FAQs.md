@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: duau
 ms.openlocfilehash: 86758c355566fb67ebd8a606068e2044e0b8bd64
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89400182"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Gestor de tráfego frequentemente perguntas (FAQ)
@@ -59,7 +59,7 @@ Como explicado em [Como funciona o Gestor de Tráfego,](../traffic-manager/traff
 
 ### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>Posso usar o Traffic Manager com um nome de domínio "nu"?
 
-Yes. Para aprender a criar um registo de pseudónimo para o seu nome de domínio apex para fazer referência a um perfil do Gestor de Tráfego Azure, consulte [um registo de pseudónimo para suportar nomes de domínio apex com Gestor de Tráfego](../dns/tutorial-alias-tm.md).
+Sim. Para aprender a criar um registo de pseudónimo para o seu nome de domínio apex para fazer referência a um perfil do Gestor de Tráfego Azure, consulte [um registo de pseudónimo para suportar nomes de domínio apex com Gestor de Tráfego](../dns/tutorial-alias-tm.md).
 
 ### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>O Gestor de Tráfego considera o endereço da sub-rede do cliente ao manusear consultas de DNS? 
 
@@ -112,7 +112,7 @@ Não, o Gestor de Tráfego não pode garantir que a região geográfica que infe
 
 ###  <a name="does-an-endpoint-need-to-be-physically-located-in-the-same-region-as-the-one-it-is-configured-with-for-geographic-routing"></a>Um ponto final precisa de ser fisicamente localizado na mesma região com que está configurado para o encaminhamento geográfico?
 
-Não, a localização do ponto final não impõe restrições às regiões que lhe podem ser mapeadas. Por exemplo, um ponto final na região de Azure central dos EUA pode ter todos os utilizadores da Índia direcionados para ele.
+Não, a localização do ponto final não impõe restrições às regiões que lhe podem ser mapeadas. Por exemplo, um ponto final na região de US-Central Azure pode ter todos os utilizadores da Índia direcionados para ele.
 
 ### <a name="can-i-assign-geographic-regions-to-endpoints-in-a-profile-that-is-not-configured-to-do-geographic-routing"></a>Posso atribuir regiões geográficas a pontos finais num perfil que não está configurado para fazer o encaminhamento geográfico?
 
@@ -310,7 +310,7 @@ Para outros tipos de pontos finais, é possível utilizar o Traffic Manager com 
 
 ### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>Posso utilizar o Gestor de Tráfego com slots de 'Staging' do Serviço de Nuvem?
 
-Yes. As ranhuras de 'staging' do Serviço de Nuvem podem ser configuradas no Gestor de Tráfego como pontos finais externos. Os controlos de saúde ainda são cobrados à taxa Azure Endpoints.
+Sim. As ranhuras de 'staging' do Serviço de Nuvem podem ser configuradas no Gestor de Tráfego como pontos finais externos. Os controlos de saúde ainda são cobrados à taxa Azure Endpoints.
 
 ### <a name="does-traffic-manager-support-ipv6-endpoints"></a>O Gestor de Tráfego suporta pontos finais IPv6?
 
@@ -351,7 +351,7 @@ Também pode utilizar o Azure Monitor para acompanhar a saúde dos seus pontos f
 
 ### <a name="can-i-monitor-https-endpoints"></a>Posso monitorizar os pontos finais do HTTPS?
 
-Yes. O Gestor de Tráfego suporta sondagens sobre HTTPS. Configurar **HTTPS** como o protocolo na configuração de monitorização.
+Sim. O Gestor de Tráfego suporta sondagens sobre HTTPS. Configurar **HTTPS** como o protocolo na configuração de monitorização.
 
 O gestor de tráfego não pode fornecer qualquer validação de certificado, incluindo:
 
@@ -412,7 +412,7 @@ Quando um ponto final de aplicação web Azure é interrompido O Gestor de Tráf
 
 ### <a name="can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https"></a>Posso utilizar o Traffic Manager mesmo que a minha aplicação não tenha suporte para HTTP ou HTTPS?
 
-Yes. Pode especificar o TCP como o protocolo de monitorização e o Gestor de Tráfego pode iniciar uma ligação TCP e aguardar uma resposta a partir do ponto final. Se o ponto final responder ao pedido de ligação com uma resposta para estabelecer a ligação, dentro do período de tempo limite, então esse ponto final é marcado como saudável.
+Sim. Pode especificar o TCP como o protocolo de monitorização e o Gestor de Tráfego pode iniciar uma ligação TCP e aguardar uma resposta a partir do ponto final. Se o ponto final responder ao pedido de ligação com uma resposta para estabelecer a ligação, dentro do período de tempo limite, então esse ponto final é marcado como saudável.
 
 ### <a name="what-specific-responses-are-required-from-the-endpoint-when-using-tcp-monitoring"></a>Que respostas específicas são necessárias a partir do ponto final durante a utilização do controlo TCP?
 
@@ -472,7 +472,7 @@ Pode nidificar perfis até 10 níveis de profundidade. Não são permitidos "loo
 
 ### <a name="can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile"></a>Posso misturar outros tipos de pontos finais com perfis infantis aninhados, no mesmo perfil de Gerente de Tráfego?
 
-Yes. Não existem restrições na forma como combina pontos finais de diferentes tipos dentro de um perfil.
+Sim. Não existem restrições na forma como combina pontos finais de diferentes tipos dentro de um perfil.
 
 ### <a name="how-does-the-billing-model-apply-for-nested-profiles"></a>Como é que o modelo de faturação se aplica aos perfis de Nested?
 
@@ -487,7 +487,7 @@ Para mais detalhes, consulte a [página de preços do Gestor de Tráfego.](https
 
 ### <a name="is-there-a-performance-impact-for-nested-profiles"></a>Existe um impacto de desempenho para perfis aninhados?
 
-Não. Não há impacto de desempenho incorrido ao utilizar perfis aninhados.
+N.º Não há impacto de desempenho incorrido ao utilizar perfis aninhados.
 
 Os servidores de nome do Gestor de Tráfego atravessam internamente a hierarquia do perfil ao processar cada consulta DNS. Uma consulta de DNS a um perfil dos pais pode receber uma resposta DNS com um ponto final a partir de um perfil infantil. É utilizado um único registo CNAME quer esteja a utilizar um único perfil ou perfis aninhados. Não há necessidade de criar um registo CNAME para cada perfil na hierarquia.
 

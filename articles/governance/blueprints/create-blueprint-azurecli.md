@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: Criar uma planta com Azure CLI'
 description: Neste arranque rápido, utiliza-se a Azure Blueprints para criar, definir e implantar artefactos utilizando o Azure CLI.
-ms.date: 06/02/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 3dfb74469bc186c25b918bfe87c7ce6f1930f2e1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 790e23897a24ea06565572163b8226af88e0bb7c
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91667712"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057965"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>Quickstart: Definir e Atribuir uma Planta Azure com Azure CLI
 

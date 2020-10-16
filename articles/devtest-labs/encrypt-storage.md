@@ -4,10 +4,10 @@ description: Saiba como configurar a encriptação de um armazenamento Azure usa
 ms.topic: how-to
 ms.date: 07/29/2020
 ms.openlocfilehash: 3c1d1531084deeabbe9a8d261e93554a2c691eb6
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87433595"
 ---
 # <a name="encrypt-azure-storage-used-by-a-lab-in-azure-devtest-labs"></a>Encriptar armazenamento Azure usado por um laboratório em Azure DevTest Labs
@@ -28,10 +28,10 @@ Todos os laboratórios criados na Azure DevTest Labs são criados com uma conta 
     :::image type="content" source="./media/encrypt-storage/overview-resource-group-link.png" alt-text="Selecione o grupo de recursos na página 'Vista Geral'":::
 1. Selecione a conta de armazenamento Azure do laboratório. A convenção de nomeação para a conta de armazenamento do laboratório é: `a<labNameWithoutInvalidCharacters><4-digit number>` . Por exemplo, se o nome do laboratório `contosolab` for, o nome da conta de armazenamento pode ser `acontosolab7576` . 
 
-    :::image type="content" source="./media/encrypt-storage/select-storage-account.png" alt-text="Selecione a conta de armazenamento no grupo de recursos do laboratório":::
+    :::image type="content" source="./media/encrypt-storage/select-storage-account.png" alt-text="Selecione o grupo de recursos na página 'Vista Geral'":::
 3. Na página da **conta de Armazenamento,** selecione **Storage Explorer (pré-visualização)** no menu esquerdo e, em seguida, selecione **OS CONTENTORES BLOB** para encontrar conteúdo relevante relacionado com o laboratório. 
 
-   :::image type="content" source="./media/encrypt-storage/storage-explorer.png" alt-text="Explorador do Armazenamento (Pré-visualização)" lightbox="./media/encrypt-storage/storage-explorer.png":::
+   :::image type="content" source="./media/encrypt-storage/storage-explorer.png" alt-text="Selecione o grupo de recursos na página 'Vista Geral'" lightbox="./media/encrypt-storage/storage-explorer.png":::
 
 ## <a name="encrypt-the-lab-storage-account"></a>Criptografe a conta de armazenamento de laboratório
 O Azure Storage encripta automaticamente os seus dados quando estes são persistidos na nuvem. A encriptação do Azure Storage protege os seus dados e ajuda-o a cumprir os seus compromissos de segurança organizacional e de conformidade. Para obter mais informações, consulte [a encriptação do Azure Storage para obter dados em repouso](../storage/common/storage-service-encryption.md).

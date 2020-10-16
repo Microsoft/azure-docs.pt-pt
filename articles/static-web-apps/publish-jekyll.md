@@ -7,18 +7,18 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: cshoe
-ms.openlocfilehash: bf1664a35562b888f9dd7aacd3b1112058bed664
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: e3bad12362358620d0f2dc105bb2820dfb691d00
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797705"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92000226"
 ---
 # <a name="tutorial-publish-a-jekyll-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicar um site jekyll para a Azure Static Web Apps Preview
 
 Este artigo demonstra como criar e implementar uma aplicação web [Jekyll](https://jekyllrb.com/) para [Azure Azure Static Web Apps](overview.md).
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -118,7 +118,7 @@ Os passos seguintes mostram-lhe como criar uma nova aplicação estática do sit
 
 1. Para o _Branch_ selecione **master**.
 
-    :::image type="content" source="./media/publish-jekyll/completed-github-info.png" alt-text="Informação completa do GitHub":::
+    :::image type="content" source="./media/publish-jekyll/completed-github-info.png" alt-text="Detalhes preenchidos":::
 
 ### <a name="build"></a>Compilar
 
@@ -146,12 +146,9 @@ Em seguida, adiciona definições de configuração que o processo de construç�
 
 1. Abra a aplicação Jekyll num editor de texto e abra o ficheiro _.github/workflows/azure-pages-<WORKFLOW_NAME>.yml._
 
-1. Adicione linhas após o bloco `- uses: actions/checkout@v2` ao bloco de configuração seguinte.
+1. Depois da linha `- uses: actions/checkout@v2` adicione o seguinte bloco de configuração.
 
     ```yml
-    - uses: actions/checkout@v2
-      with:
-        submodules: true
     - name: Set up Ruby
       uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
       with:
@@ -174,9 +171,9 @@ Em seguida, adiciona definições de configuração que o processo de construç�
 
 1. Na janela _'Visão Geral'_ do portal Azure, clique no link _URL_ para abrir a aplicação implementada.
 
-   :::image type="content" source="./media/publish-jekyll/deployed-app.png" alt-text="Aplicação implantada":::
+   :::image type="content" source="./media/publish-jekyll/deployed-app.png" alt-text="Detalhes preenchidos":::
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [cleanup-resource](../../includes/static-web-apps-cleanup-resource.md)]
 

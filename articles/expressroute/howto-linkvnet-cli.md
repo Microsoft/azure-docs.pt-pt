@@ -11,7 +11,7 @@ ms.openlocfilehash: 41bb72ba4c220a0dd2ebb93f2bd313a15d108faa
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91856284"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Tutorial: Ligue uma rede virtual a um circuito ExpressRoute utilizando o CLI

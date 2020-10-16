@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: 73d202b3b812b59ed8dadd4a6508dfe2873ecd6c
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91532215"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Tutorial: Criar imagens de contentor num cluster do Service Fabric do Linux
@@ -194,7 +194,7 @@ azure-vote-front
 
 Ao concluir o tutorial, a imagem de contentor foi armazenada numa instância privada do Azure Container Registry. Esta imagem é implementada do ACR para um cluster do Service Fabric em tutoriais posteriores.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, uma aplicação foi retirada do GitHub e foram criadas imagens de contentores e empurradas para um registo. Foram efetuados os seguintes passos:
 

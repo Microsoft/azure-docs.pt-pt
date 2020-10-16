@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 02/21/2020
 tags: connectors
 ms.openlocfilehash: b08b5db5639d498aa6a6a47b7f7121cad565fe02
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87986373"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Melhorar a proteção contra ameaças integrando operações de segurança com a Microsoft Graph Security & Azure Logic Apps
@@ -146,7 +146,7 @@ Para obter mais informações sobre as consultas que pode utilizar com este cone
 
 | Ação | Descrição |
 |--------|-------------|
-| **Obtenha indicadores de inteligência de ameaça** | Obter tiIndicators filtrados com base em uma ou mais [propriedades tiIndicator,](/graph/api/resources/tiindicator?view=graph-rest-beta)por exemplo,`threatType eq 'MaliciousUrl' or 'DDoS'` |
+| **Obtenha indicadores de inteligência de ameaça** | Obter tiIndicators filtrados com base em uma ou mais [propriedades tiIndicator,](/graph/api/resources/tiindicator?view=graph-rest-beta)por exemplo, `threatType eq 'MaliciousUrl' or 'DDoS'` |
 | **Obtenha indicador de inteligência de ameaça por ID** | Obtenha um tiIndicator específico com base no iD do tiIndicator. | 
 | **Criar indicador de inteligência de ameaça** | Crie um novo tiIndicator publicando na coleção tiIndicators. Para se certificar de que passa as propriedades necessárias no seu pedido, consulte as [propriedades necessárias para a criação do tiIndicator](/graph/api/tiindicators-post?tabs=http&view=graph-rest-beta). |
 | **Apresentar indicadores de inteligência de ameaça múltipla** | Crie vários novos tiIndicators publicando uma coleção de tiIndicators. Para se certificar de que passa as propriedades necessárias no seu pedido, consulte as [propriedades necessárias para a submissão de múltiplos tiDdicadores](/graph/api/tiindicator-submittiindicators?tabs=http&view=graph-rest-beta). |

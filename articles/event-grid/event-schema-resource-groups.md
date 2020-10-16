@@ -4,10 +4,10 @@ description: Descreve as propriedades que são fornecidas para eventos de grupo 
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: ed01bfdb67d9b8a3dd5875ec3fd8c6edf8922520
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86105919"
 ---
 # <a name="azure-resource-group-as-an-event-grid-source"></a>Grupo de recursos Azure como fonte de Grade de Eventos
@@ -22,7 +22,7 @@ Quando subscreve eventos para um grupo de recursos, o seu ponto final recebe tod
 
 Para lidar programaticamente com eventos, pode classificar eventos olhando para o `operationName` valor. Por exemplo, o seu ponto final do evento só pode processar eventos para operações iguais `Microsoft.Compute/virtualMachines/write` ou `Microsoft.Storage/storageAccounts/write` .
 
-O assunto do evento é o ID de recursos do recurso que é o alvo da operação. Para filtrar eventos para um recurso, forneça esse ID de recurso ao criar a subscrição do evento.  Para filtrar por um tipo de recurso, utilize um valor em seguinte formato:`/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
+O assunto do evento é o ID de recursos do recurso que é o alvo da operação. Para filtrar eventos para um recurso, forneça esse ID de recurso ao criar a subscrição do evento.  Para filtrar por um tipo de recurso, utilize um valor em seguinte formato: `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
 
 
 ## <a name="event-grid-event-schema"></a>Esquema de eventos do Event Grid
@@ -234,7 +234,7 @@ Um evento tem os seguintes dados de alto nível:
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | tópico | string | Caminho completo de recursos para a fonte do evento. Este campo não é escrito. O Event Grid fornece este valor. |
-| Assunto | string | Caminho definido pelo publicador para o assunto do evento. |
+| subject | string | Caminho definido pelo publicador para o assunto do evento. |
 | eventType | string | Um dos tipos de eventos registados para esta origem de evento. |
 | eventTime | string | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
 | ID | string | Identificador único para o evento. |
@@ -267,7 +267,7 @@ O objeto de dados tem as seguintes propriedades:
 | [PowerShell: subscreva eventos para um grupo de recursos e filtre por um recurso](./scripts/event-grid-powershell-resource-group-filter.md) | O script da amostra que subscreve eventos para um grupo de recursos e filtra eventos para um recurso. |
 | [Modelo de gestor de recursos: subscrição de recursos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-resource-events-to-webhook) | Subscreve eventos para uma subscrição ou grupo de recursos Azure. Envia eventos para um WebHook. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grade de Eventos?](overview.md)
 * Para obter mais informações sobre a criação de uma subscrição da Azure Event Grid, consulte [o esquema de subscrição da Event Grid](subscription-creation-schema.md).

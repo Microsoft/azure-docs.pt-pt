@@ -11,10 +11,10 @@ ms.date: 04/02/2018
 ms.author: liydu
 ms.custom: mqtt
 ms.openlocfilehash: 09ea3ceb15c9b175b8366bf3ac57a61e468ab72a
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91356031"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Enviar mensagens para um servidor MQTT
@@ -33,7 +33,7 @@ Neste projeto, aprende-se:
 
 Termine o [Guia de Início](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) para:
 
-* Tenha o seu DevKit ligado ao Wi-Fi
+* Tenha o seu DevKit ligado a Wi-Fi
 * Preparar o ambiente de desenvolvimento
 
 ## <a name="open-the-project-folder"></a>Abra a pasta do projeto
@@ -70,7 +70,7 @@ No Código VS, siga este procedimento para abrir e configurar o Monitor de Séri
   
 3. Na barra de estado, clique no número que representa a Taxa Baud e defina-a para `115200` : Screenshot mostra a ![ definição da Taxa Baud no Código do Estúdio Visual.](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-baud-rate.jpg)
 
-O Monitor em Série exibe todas as mensagens enviadas pelo esboço da amostra. O esboço liga o DevKit ao Wi-Fi. Uma vez que a ligação Wi-Fi é bem sucedida, o esboço envia uma mensagem para o corretor MQTT. Depois disso, a amostra envia repetidamente duas mensagens "iot.eclipse.org" utilizando QoS 0 e QoS 1, respectivamente.
+O Monitor em Série exibe todas as mensagens enviadas pelo esboço da amostra. O esboço liga o DevKit ao Wi-Fi. Uma vez que a ligação Wi-Fi seja bem sucedida, o esboço envia uma mensagem para o corretor MQTT. Depois disso, a amostra envia repetidamente duas mensagens "iot.eclipse.org" utilizando QoS 0 e QoS 1, respectivamente.
 
 ![A imagem mostra o Monitor em Série a exibir as mensagens enviadas pelo esboço.](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-output.jpg)
 
@@ -81,7 +81,7 @@ Se encontrar problemas, consulte o [IoT DevKit FAQ](https://microsoft.github.io/
 * [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 * [Ligue ioT DevKit AZ3166 a Azure IoT Hub na nuvem](iot-hub-arduino-iot-devkit-az3166-get-started.md)
 * [Shake, Shake for a Tweet](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)

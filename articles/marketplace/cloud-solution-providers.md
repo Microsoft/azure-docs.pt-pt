@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
 ms.openlocfilehash: bdd2dacbba4ef8b7c439a345ea70771354b7fb5a
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708599"
 ---
 # <a name="cloud-solution-provider-program"></a>Programa fornecedor de solução de nuvem
@@ -174,7 +174,7 @@ Se optou pelo canal CSP no Partner Center, os editores devem introduzir um URL q
 
 ![Informações colaterais do Centro Parceiro CSP](media/marketplace-publishers-guide/pc-csp-channel.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [os serviços Go-to-market.](https://partner.microsoft.com/reach-customers/gtm)
 - Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para criar e configurar a sua oferta.

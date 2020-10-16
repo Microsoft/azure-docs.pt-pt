@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
 ms.openlocfilehash: baa035269f4a5b2f39263264f23183b308264ead
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85513951"
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Gerir os seus controladores de dispositivo StorSimple
@@ -117,7 +117,7 @@ Execute os seguintes passos para redefinir o seu dispositivo Microsoft Azure Sto
    
     `Reset-HcsFactoryDefault`
    
-    Em vez disso, para redefinir um único controlador, utilize o [cmdlet Reset-HcsFactoryDefault](https://technet.microsoft.com/library/dn688132.aspx) com o `-scope` parâmetro.)
+    Em vez disso, para redefinir um único controlador, utilize o  [cmdlet Reset-HcsFactoryDefault](https://technet.microsoft.com/library/dn688132.aspx) com o `-scope` parâmetro.)
    
     O sistema reiniciará várias vezes. Será notificado quando o reset tiver sido concluído com sucesso. Dependendo do modelo do sistema, pode levar 45-60 minutos para um dispositivo 8100 e 60-90 minutos para um 8600 terminar este processo.
    
@@ -158,7 +158,7 @@ Nesta secção, resumimos algumas das perguntas frequentes sobre a gestão dos c
 
 **A.** Para devolver um controlador ao serviço, deve inseri-lo no chassis descrito no [Substituto de um módulo controlador no seu dispositivo StorSimple](storsimple-8000-controller-replacement.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Se encontrar algum problema com os seus controladores de dispositivo StorSimple que não possa resolver utilizando os procedimentos listados neste tutorial, contacte o [Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 * Para saber mais sobre a utilização do serviço StorSimple Device Manager, vá utilizar [o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

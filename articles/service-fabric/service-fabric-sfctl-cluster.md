@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 05132e4c7e644e681e2e4cfdedaa2b04a066ebeb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86259965"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
@@ -21,7 +21,7 @@ Selecione, gerencie e opere os clusters de tecido de serviço.
 | --- | --- |
 | versões de código | Obtém uma lista de versões de código de tecido que são alistadas num cluster de Tecido de Serviço. |
 | config-versões | Obtém uma lista de versões de tecido config que são alistadas num cluster de Tecido de Serviço. |
-| saúde | Obtém a saúde de um cluster de tecido de serviço. |
+| Saúde | Obtém a saúde de um cluster de tecido de serviço. |
 | manifest | Obtenha o manifesto de cluster de tecido de serviço. |
 | operação-cancelar | Cancela uma operação de avaria induzida pelo utilizador. |
 | lista de operações | Obtém uma lista de operações de avaria induzidas pelo utilizador filtradas por entrada fornecida. |
@@ -131,7 +131,7 @@ Obtenha o manifesto de cluster de tecido de serviço. O manifesto de cluster con
 ## <a name="sfctl-cluster-operation-cancel"></a>sfctl cluster operação-cancelar
 Cancela uma operação de avaria induzida pelo utilizador.
 
-As seguintes APIs iniciam operações de avaria que podem ser canceladas utilizando o CancelOperation \: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. Se a força for falsa, a operação induzida pelo utilizador especificada será graciosamente interrompida e limpa.  Se a força for verdadeira, o comando será abortado, e algum estado interno pode ser deixado para trás.  Especificar a força como verdadeira deve ser usada com cuidado. Chamar esta API com força definida para verdade não é permitida até que esta API já tenha sido chamada no mesmo comando de teste com força definida para falsa primeiro, ou a menos que o comando de teste já tenha uma OperaçãoState da OperaçãoState.RollingBack. Operação De Esclarecimento \: Estado.RollingBack significa que o sistema será/está a limpar o estado interno do sistema causado pela execução do comando.  Não restabelecerá os dados se o comando de teste causar a perda de dados.  Por exemplo, se ligar para o StartDataLoss, então chame esta API, o sistema apenas limpará o estado interno de executar o comando. Não restaurará os dados da partição do alvo, se o comando progrediu o suficiente para causar a perda de dados. Nota importante \: se esta API for invocada com força=verdade, o estado interno pode ser deixado para trás.
+As seguintes APIs iniciam operações de avaria que podem ser canceladas utilizando o CancelOperation \: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. Se a força for falsa, a operação induzida pelo utilizador especificada será graciosamente interrompida e limpa.  Se a força for verdadeira, o comando será abortado, e algum estado interno pode ser deixado para trás.  Especificar a força como verdadeira deve ser usada com cuidado. Chamar esta API com força definida para verdade não é permitida até que esta API já tenha sido chamada no mesmo comando de teste com força definida para falsa primeiro, ou a menos que o comando de teste já tenha uma OperaçãoState da OperaçãoState.RollingBack. Operação De Esclarecimento \: Estado.RollingBack significa que o sistema será/está a limpar o estado interno do sistema causado pela execução do comando.  Não restabelecerá os dados se o comando de teste causar a perda de dados.  Por exemplo, se ligar para o StartDataLoss, então chame esta API, o sistema apenas limpará o estado interno de executar o comando. Não restaurará os dados da partição do alvo, se o comando progrediu o suficiente para causar a perda de dados. Nota importante \:  se esta API for invocada com força=verdade, o estado interno pode ser deixado para trás.
 
 ### <a name="arguments"></a>Argumentos
 

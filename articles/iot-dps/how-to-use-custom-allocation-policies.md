@@ -9,13 +9,13 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: devx-track-csharp
 ms.openlocfilehash: fc1154a3d4cefc84f223810a1972dd85673a6b3e
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90530901"
 ---
-# <a name="how-to-use-custom-allocation-policies"></a>Como utilizar políticas de atribuição personalizadas
+# <a name="how-to-use-custom-allocation-policies"></a>Como utilizar políticas de alocação personalizadas
 
 Uma política de atribuição personalizada dá-lhe mais controlo sobre como os dispositivos são atribuídos a um hub IoT. Isto é conseguido utilizando código personalizado numa [Função Azure](../azure-functions/functions-overview.md) para atribuir dispositivos a um hub IoT. O serviço de fornecimento de dispositivos chama o seu código Azure Function fornecendo todas as informações relevantes sobre o dispositivo e a inscrição. O seu código de função é executado e devolve as informações do hub IoT utilizadas para o fornecimento do dispositivo.
 

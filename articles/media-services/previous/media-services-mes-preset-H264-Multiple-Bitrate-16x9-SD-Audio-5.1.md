@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 836f3e19340d8009a11f30772d181c8dc17f9655
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89257301"
 ---
 # <a name="h264-multiple-bitrate-16x9-sd-audio-51"></a>H264 Taxas de Bits Múltiplas 16x9 SD Audio 5.1

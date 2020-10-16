@@ -3,12 +3,12 @@ title: Recuar e recuperar VMs Azure com PowerShell
 description: Descreve como fazer backup e recuperar VMs Azure usando Azure Backup com PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 87d655652d0207a50f8980f18d18e76fea0b1e21
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: ded2bc8a71bf564e31f40ca9f0d6c8049188768b
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90975102"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92094097"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Recuar e restaurar VMs Azure com PowerShell
 
@@ -194,7 +194,7 @@ Uma política de proteção de apoio está associada a pelo menos uma política 
 * Utilize [o Get-AzRecoveryServicesBackupRetentionPolicyObject](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject) para ver a política de retenção predefinida.
 * Da mesma forma, pode utilizar [o Get-AzRecoveryServicesBackupSchedulePolicyObject](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject) para obter a política de agenda padrão.
 * O [cmdlet New-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy) cria um objeto PowerShell que contém informações de política de backup.
-* Os objetos de política de programação e retenção são usados como entradas para o cmdlet New-AzRecoveryServicesBackupProtectionPolicy.
+* Os objetos de política de programação e retenção são utilizados como entradas para o New-AzRecoveryServicesBackupProtectionPolicy cmdlet.
 
 Por predefinição, é definida uma hora de início no Objeto de Política de Agendamento. Utilize o exemplo a seguir para alterar a hora de início para a hora de início desejada. A hora de início desejada também deve estar na UTC. O exemplo a seguir pressupõe que a hora de início desejada é 01:00 AM UTC para backups diários.
 
@@ -529,7 +529,7 @@ Depois de restaurar os discos, utilize os seguintes passos para criar e configur
 > [!NOTE]
 >
 > 1. É necessário o módulo AzureAz 3.0.0 ou superior. <br>
-> 2. Para criar VMs encriptados a partir de discos restaurados, a sua função Azure deve ter permissão para executar a ação, **Microsoft.KeyVault/vaults/deploy/action**. Se o seu papel não tiver esta permissão, crie um papel personalizado com esta ação. Para mais informações, consulte [Papéis Personalizados em Azure RBAC](../role-based-access-control/custom-roles.md). <br>
+> 2. Para criar VMs encriptados a partir de discos restaurados, a sua função Azure deve ter permissão para executar a ação, **Microsoft.KeyVault/vaults/deploy/action**. Se o seu papel não tiver esta permissão, crie um papel personalizado com esta ação. Para mais informações, consulte [as funções personalizadas Azure](../role-based-access-control/custom-roles.md). <br>
 > 3. Depois de restaurar os discos, pode agora obter um modelo de implementação que pode utilizar diretamente para criar um novo VM. Não precisa de diferentes cmdlets PowerShell para criar VMs geridos/não geridos que são encriptados/não encriptados.<br>
 > <br>
 

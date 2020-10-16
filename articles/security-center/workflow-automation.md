@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: memildin
 ms.openlocfilehash: b713977d811411ea2ccd7dfa22c7757321ecd7aa
-ms.sourcegitcommit: 5b69ba21787c07547edfbfd5254eaf34315cfadd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91712294"
 ---
 # <a name="create-automatic-responses-to-alerts-and-recommendations-with-workflow-automation"></a>Criar respostas automáticas a alertas e recomendações com automatização de fluxos de trabalho
@@ -95,7 +95,7 @@ Para executar manualmente uma Aplicação Lógica, abra um alerta ou uma recomen
 
 Para ver os esquemas de eventos brutos dos alertas de segurança ou eventos de recomendações passados para a instância da Aplicação Lógica, visite os [esquemas de tipos de dados de automatização](https://aka.ms/ASCAutomationSchemas)de fluxo de trabalho. Isto pode ser útil nos casos em que não esteja a utilizar os conectores logic app incorporados do Security Center acima mencionados, mas em vez disso está a usar o conector HTTP genérico da Logic App - pode utilizar o esquema JSON do evento para analisar manualmente o que entender.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a criar Aplicações Lógicas, automatizando a sua execução no Centro de Segurança e executando-as manualmente. 
 

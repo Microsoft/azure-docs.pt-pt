@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: tisande
 ms.openlocfilehash: dd1652781d7eae8beb400c52137a8f16891e2b2a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87498842"
 ---
 # <a name="operators-in-azure-cosmos-db"></a>Operadores em Azure Cosmos DB
@@ -71,7 +71,7 @@ Retorna `true` quando ambas as expressões são `true` .
 
 Inverte o valor de qualquer expressão booleana.
 
-|  | **NÃO** |
+|  | **NOT** |
 | --- | --- |
 | **Verdadeiro** |Falso |
 | **Falso** |Verdadeiro |
@@ -83,13 +83,13 @@ Os operadores `OR` lógicos , e têm o `AND` `NOT` nível de precedência indica
 
 | **Operador** | **Priority** |
 | --- | --- |
-| **NÃO** |1 |
-| **E** |2 |
-| **OU** |3 |
+| **NOT** |1 |
+| **AND** |2 |
+| **OR** |3 |
 
 ## <a name="-operator"></a>* operador
 
-O operador especial * projeta todo o item como está. Quando usado, deve ser o único campo projetado. Uma consulta como `SELECT * FROM Families f` é válida, mas `SELECT VALUE * FROM Families f` não é `SELECT *, f.id FROM Families f` válida.
+O operador especial * projeta todo o item como está. Quando usado, deve ser o único campo projetado. Uma consulta como `SELECT * FROM Families f` é válida, mas `SELECT VALUE * FROM Families f` não é  `SELECT *, f.id FROM Families f` válida.
 
 ## <a name="-and--operators"></a>? e ?? operadores
 

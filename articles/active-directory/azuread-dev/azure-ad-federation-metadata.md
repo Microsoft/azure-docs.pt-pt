@@ -14,10 +14,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: bcc44f61ccb7b4a19e7df39ab979669c5aa37da1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80154904"
 ---
 # <a name="federation-metadata"></a>Metadados de federação
@@ -91,7 +91,7 @@ MIIDPjCCAiqgAwIBAgIQVWmXY/+9RqFA/OG9kFulHDAJBgUrDgMCHQUAMC0xKzApBgNVBAMTImFjY291
 
 O `KeyDescriptor` elemento aparece em dois lugares no documento de metadados da federação; na secção específica da WS-Federação e na secção específica do SAML. Os certificados publicados em ambas as secções serão os mesmos.
 
-Na secção específica da WS-Federação, um leitor de metadados da WS-Federation leria os certificados a partir de um `RoleDescriptor` elemento com o `SecurityTokenServiceType` tipo.
+Na secção específica da WS-Federação, um leitor de metadados WS-Federation leria os certificados a partir de um `RoleDescriptor` elemento com o `SecurityTokenServiceType` tipo.
 
 Os metadados que se seguem mostram um elemento de `RoleDescriptor` amostra.
 
@@ -99,7 +99,7 @@ Os metadados que se seguem mostram um elemento de `RoleDescriptor` amostra.
 <RoleDescriptor xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:fed="https://docs.oasis-open.org/wsfed/federation/200706" xsi:type="fed:SecurityTokenServiceType"protocolSupportEnumeration="https://docs.oasis-open.org/wsfed/federation/200706">
 ```
 
-Na secção específica da SAML, um leitor de metadados da WS-Federation leria os certificados a partir de um `IDPSSODescriptor` elemento.
+Na secção específica da SAML, um leitor de metadados WS-Federation leria os certificados a partir de um `IDPSSODescriptor` elemento.
 
 Os metadados que se seguem mostram um elemento de `IDPSSODescriptor` amostra.
 
@@ -108,7 +108,7 @@ Os metadados que se seguem mostram um elemento de `IDPSSODescriptor` amostra.
 ```
 Não existem diferenças no formato de certificados específicos para inquilinos e independentes de inquilinos.
 
-### <a name="ws-federation-endpoint-url"></a>URL de ponto final da WS-Federação
+### <a name="ws-federation-endpoint-url"></a>URL de ponta WS-Federation
 Os metadados da federação incluem o URL que é Azure AD usa para um único sign-in e único sign-out no protocolo WS-Federation. Este ponto final aparece no `PassiveRequestorEndpoint` elemento.
 
 Os metadados que se seguem mostram um elemento de amostra `PassiveRequestorEndpoint` para um ponto final específico do inquilino.
@@ -122,7 +122,7 @@ https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db45/wsfed
 </EndpointReference>
 </fed:PassiveRequestorEndpoint>
 ```
-Para o ponto final independente do inquilino, o URL da WS-Federação aparece no ponto final da WS-Federação, como mostra a amostra seguinte.
+Para o ponto final independente do inquilino, o URL WS-Federation aparece no ponto final WS-Federation, como mostra a amostra seguinte.
 
 ```
 <fed:PassiveRequestorEndpoint>

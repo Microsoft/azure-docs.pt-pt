@@ -5,10 +5,10 @@ ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.openlocfilehash: e49c235e11eea17fdd1a7ff7751cc0493934d725
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83123693"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Implementação contínua para Funções do Azure
@@ -42,7 +42,7 @@ Para configurar a implementação contínua para uma aplicação de função exi
 
 3. No GitHub, **selecione Authorize AzureAppService**.
 
-    :::image type="content" source="./media/functions-continuous-deployment/authorize.png" alt-text="Autorizar o Serviço de Aplicações Azure":::
+    :::image type="content" source="./media/functions-continuous-deployment/authorize.png" alt-text="Centro de Implementação de Serviço de Aplicações Azure":::
 
     Introduza a sua palavra-passe GitHub e, em seguida, **selecione Continue**.
 
@@ -55,7 +55,7 @@ Para configurar a implementação contínua para uma aplicação de função exi
 
 5. Configure informações específicas da opção de controlo de origem especificada. Para o GitHub, tem de introduzir ou selecionar valores para **Organização,** **Repositório**e **Ramo.** Os valores baseiam-se na localização do seu código. Em seguida, **selecione Continue**.
 
-    :::image type="content" source="./media/functions-continuous-deployment/github-specifics.png" alt-text="Configure GitHub":::
+    :::image type="content" source="./media/functions-continuous-deployment/github-specifics.png" alt-text="Centro de Implementação de Serviço de Aplicações Azure":::
 
 6. Reveja todos os detalhes e, em seguida, **selecione Terminar** para completar a sua configuração de implementação.
 
@@ -64,7 +64,7 @@ Quando o processo estiver concluído, todo o código da fonte especificada é im
 > [!NOTE]
 > Depois de configurar a integração contínua, já não pode editar os seus ficheiros de origem no portal Funções.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Best Practices for Azure Functions (Melhores Práticas para as Funções do Azure)](functions-best-practices.md)

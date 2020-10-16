@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 96485dabd8cfb2ea9e3fb907940fccb05b5baee3
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89659337"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Azure Ative Directory hybrid design considerações de design de identidade- próximos passos
@@ -41,5 +41,5 @@ A monitorização dos seguintes recursos fornece frequentemente as últimas not�
 * [Blog da Microsoft Intune](https://techcommunity.microsoft.com/t5/intune-customer-success/welcome-to-the-new-intune-customer-success-blog/ba-p/281367)
 * [Blog do Microsoft Endpoint Configuration Manager](https://techcommunity.microsoft.com/t5/Configuration-Manager-Blog/bg-p/ConfigurationManagerBlog)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 [Visão geral de considerações de design](plan-hybrid-identity-design-considerations-overview.md)

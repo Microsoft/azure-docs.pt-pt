@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: 97d3b87edad56394d42daca19cdb8dbf962fade9
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: b8f6768ebf988ff568739c86303b52ea5b0a9234
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91649512"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018717"
 ---
 # <a name="ev4-and-esv4-series"></a>Séries Ev4 e Esv4
 
@@ -25,7 +25,7 @@ A série Ev4 e Esv4 funciona nos processadores Intel &reg; Xeon &reg; Platinum 8
 
 ## <a name="ev4-series"></a>Série Ev4
 
-Os tamanhos da série Ev4 são executados no Intel Xeon &reg; Platinum 8272CL (Lago cascade). As instâncias da série Ev4 são ideais para aplicações empresariais intensivas em memória. Os VMs da série Ev4 apresentam tecnologia de &reg; hiper rosca Intel.
+Os tamanhos da série Ev4 são executados no Intel Xeon &reg; Platinum 8272CL (Lago cascade). As instâncias da série Ev4 são ideais para aplicações empresariais intensivas em memória. Os VMs da série Ev4 apresentam Tecnologia &reg; intel Hyper-Threading.
 
 O armazenamento remoto do disco de dados é faturado separadamente das máquinas virtuais. Para utilizar discos de armazenamento premium, utilize os tamanhos Esv4. Os preços e os contadores de faturação para tamanhos Esv4 são os mesmos que a série Ev4.
 
@@ -51,7 +51,7 @@ O armazenamento remoto do disco de dados é faturado separadamente das máquinas
 
 ## <a name="esv4-series"></a>Série Esv4
 
-Os tamanhos da série Esv4 são executados no Intel &reg; Xeon &reg; Platinum 8272CL (Lago cascata). As instâncias da série Esv4 são ideais para aplicações empresariais intensivas em memória. Os VMs da série Evs4 apresentam tecnologia de &reg; hiper rosca Intel. O armazenamento remoto do disco de dados é faturado separadamente das máquinas virtuais.
+Os tamanhos da série Esv4 são executados no Intel &reg; Xeon &reg; Platinum 8272CL (Lago cascata). As instâncias da série Esv4 são ideais para aplicações empresariais intensivas em memória. Os VMs da série Evs4 apresentam Tecnologia &reg; intel Hyper-Threading. O armazenamento remoto do disco de dados é faturado separadamente das máquinas virtuais.
 
 [ACU](acu.md): 195-210<br>
 [Armazenamento Premium](premium-storage-performance.md): Suportado<br>

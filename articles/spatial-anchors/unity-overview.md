@@ -8,12 +8,12 @@ services: azure-spatial-anchors
 ms.service: azure-spatial-anchors
 ms.date: 02/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: d76207d9991d496c36fa8f9db3911a62d003fafe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d55890fc97ff24bd4b77628791bdda60c5f54347
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83006137"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096152"
 ---
 # <a name="building-in-unity-with-azure-spatial-anchors"></a>Edifício em Unidade com Âncoras Espaciais Azure
 
@@ -22,12 +22,12 @@ São suportadas as seguintes plataformas:
 
 **Unidade para HoloLens**
 
-[Quickstart: Criar uma app Unity HoloLens que usa âncoras espaciais Azure](https://docs.microsoft.com/azure/spatial-anchors/quickstarts/get-started-unity-hololens)
+[Quickstart: Criar uma app Unity HoloLens que usa âncoras espaciais Azure](./quickstarts/get-started-unity-hololens.md)
 
 **Unidade para Android**
 
-[Quickstart: Criar uma aplicação Para Android unidade que usa âncoras espaciais Azure](https://docs.microsoft.com/azure/spatial-anchors/quickstarts/get-started-unity-android)
+[Quickstart: Criar uma aplicação Para Android unidade que usa âncoras espaciais Azure](./quickstarts/get-started-unity-android.md)
 
 **Unidade para iOS**
 
-[Quickstart: Criar uma aplicação iOS da Unidade que utiliza âncoras espaciais Azure](https://docs.microsoft.com/azure/spatial-anchors/quickstarts/get-started-unity-ios)
+[Quickstart: Criar uma aplicação iOS da Unidade que utiliza âncoras espaciais Azure](./quickstarts/get-started-unity-ios.md)

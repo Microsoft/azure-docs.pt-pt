@@ -8,10 +8,10 @@ ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 685373203da14a6aa83c608d90d6416ab2b30ae4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85515297"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-linux-for-use-with-azure-files"></a>Configure uma VPN ponto-a-local (P2S) no Linux para utilização com ficheiros Azure
@@ -210,7 +210,7 @@ smbPath="//$storageAccountPrivateIP/$fileShareName"
 sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 - [Visão geral da rede de ficheiros Azure](storage-files-networking-overview.md)
 - [Configure uma VPN ponto-a-local (P2S) no Windows para utilização com ficheiros Azure](storage-files-configure-p2s-vpn-windows.md)
 - [Configure uma VPN site-to-site (S2S) para utilização com ficheiros Azure](storage-files-configure-s2s-vpn.md)

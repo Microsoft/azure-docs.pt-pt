@@ -8,10 +8,10 @@ ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: c457dacd947c7af8a6be94205ed135ce04a49a06
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85509511"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Gerir servidores registados com Azure File Sync
@@ -182,8 +182,8 @@ Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -I
 ### <a name="use-windows-server-storage-qos"></a>Use o armazenamento do Windows Server QoS 
 Quando o Azure File Sync estiver hospedado numa máquina virtual em execução num anfitrião de virtualização do Windows Server, pode utilizar o Storage QoS (qualidade de serviço de armazenamento) para regular o consumo de IO de armazenamento. A política de Armazenamento QoS pode ser definida como um limite máximo (ou limite, como o limite de ArmazenamentoSyncNetwork é aplicado acima) ou como um mínimo (ou reserva). Definir um mínimo em vez de um máximo permite que o Azure File Sync rebente para utilizar a largura de banda de armazenamento disponível se outras cargas de trabalho não estiverem a usá-lo. Para mais informações, consulte [a Qualidade de Serviço de Armazenamento.](https://docs.microsoft.com/windows-server/storage/storage-qos/storage-qos-overview)
 
-## <a name="see-also"></a>Veja também
-- [Planear uma implementação da Sincronização de Ficheiros do Azure](storage-sync-files-planning.md)
-- [Implementar Azure File Sync](storage-sync-files-deployment-guide.md)
+## <a name="see-also"></a>Consulte também
+- [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)
+- [Implementar o Azure File Sync](storage-sync-files-deployment-guide.md)
 - [Monitorizar o Azure File Sync](storage-sync-files-monitoring.md)
-- [Resolver problemas da Sincronização de Ficheiros do Azure](storage-sync-files-troubleshoot.md)
+- [Resolver problemas do Azure File Sync](storage-sync-files-troubleshoot.md)

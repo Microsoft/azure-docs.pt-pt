@@ -1,20 +1,19 @@
 ---
 title: Implementar a solução de Monitorização Remota localmente - IntelliJ IDE - Azure / Microsoft Docs
 description: Este guia de como fazer mostra-lhe como implantar o acelerador de solução de Monitorização Remota para a sua máquina local, utilizando o IntelliJ para testes e desenvolvimento.
-author: v-krghan
-manager: dominicbetts
+author: dominicbetts
 ms.custom: devx-track-java
-ms.author: v-krghan
+ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: f7554843db247ade1cddff78902430a5d84debe1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 78573cfe00d8e2e7ddcbf705dffdd5530f82c4e0
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319172"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998601"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Implementar o acelerador de solução de monitorização remota localmente - IntelliJ
 
@@ -191,10 +190,10 @@ Cada serviço web abre uma janela de solicitação de comando e janela do navega
 
 Para aceder ao estado dos serviços, aceda aos seguintes URLs:
 
-* Gestor IoT-Hub:`http://localhost:9002/v1/status`
-* Telemetria do dispositivo:`http://localhost:9004/v1/status`
-* config:`http://localhost:9005/v1/status`
-* adaptador de armazenamento:`http://localhost:9022/v1/status`
+* IoT-Hub Manager: `http://localhost:9002/v1/status`
+* Telemetria do dispositivo: `http://localhost:9004/v1/status`
+* config: `http://localhost:9005/v1/status`
+* adaptador de armazenamento: `http://localhost:9022/v1/status`
 
 ### <a name="start-the-stream-analytics-job"></a>Inicie o trabalho stream analytics
 

@@ -2,19 +2,17 @@
 title: Livro de trabalho do Monitor de Azure desce parâmetros
 description: Simplificar relatórios complexos com livros de trabalho parametrizados pré-construídos e personalizados que contenham parâmetros de dropdown
 services: azure-monitor
-author: mrbullwinkle
 manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.author: mbullwin
-ms.openlocfilehash: 73b6029dfe52a4b32c9a8ce092fcd284ac1ec0e7
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ad1e09a0f9d1e0f9e4a748220edf5eced96123f8
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965056"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91932571"
 ---
 # <a name="workbook-drop-down-parameters"></a>Livro de trabalho deixa cair parâmetros
 
@@ -28,11 +26,11 @@ A maneira mais fácil de especificar uma queda é fornecendo uma lista estática
 2. Escolha _Adicionar parâmetros_ dos links dentro do livro.
 3. Clique no botão azul _adicionar parâmetro._
 4. No novo painel de parâmetros que aparece, insira:
-    1. Nome do parâmetro:`Environment`
-    2. Tipo de parâmetro:`Drop down`
-    3. Necessário:`checked`
+    1. Nome do parâmetro: `Environment`
+    2. Tipo de parâmetro: `Drop down`
+    3. Necessário: `checked`
     4. `multiple selection`Permitir:`unchecked`
-    5. Obtenha dados de:`JSON`
+    5. Obtenha dados de: `JSON`
 5. No bloco de texto JSON Input, insira este corte json:
     ```json
     [
@@ -70,11 +68,11 @@ Se o resultado/json da consulta contiver um campo de "grupo", o dropdown apresen
 2. Escolha _Adicionar parâmetros_ dos links dentro do livro.
 3. Clique no botão azul _adicionar parâmetro._
 4. No novo painel de parâmetros que aparece, insira:
-    1. Nome do parâmetro:`RequestName`
-    2. Tipo de parâmetro:`Drop down`
-    3. Necessário:`checked`
+    1. Nome do parâmetro: `RequestName`
+    2. Tipo de parâmetro: `Drop down`
+    3. Necessário: `checked`
     4. `multiple selection`Permitir:`unchecked`
-    5. Obtenha dados de:`Query`
+    5. Obtenha dados de: `Query`
 5. No bloco de texto JSON Input, insira este corte json:
 
     ```kusto
@@ -154,7 +152,7 @@ Aqui está um exemplo para o drop-down multi-select no trabalho:
 
 ![Imagem mostrando um parâmetro de queda multi-selecionado](./media/workbook-dropdowns/dropdown-multiselect.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Começar a](workbooks-visualizations.md) aprender mais sobre livros de trabalho muitas opções de visualizações ricas.
 * [Controle](workbooks-access-control.md) e partilhe o acesso aos seus recursos do livro.

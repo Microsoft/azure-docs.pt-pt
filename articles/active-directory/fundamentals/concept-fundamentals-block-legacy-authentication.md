@@ -13,10 +13,10 @@ ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: b50c942d2e05d7f5234a17f1cf36137309c7ce97
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89320958"
 ---
 # <a name="blocking-legacy-authentication"></a>Bloquear a autenticação do legado
@@ -96,7 +96,7 @@ Os passos para permitir a autenticação moderna podem ser encontrados nos segui
 * [Como configurar o Exchange Server no local para utilizar a autenticação moderna híbrida](/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
 * [Como utilizar a Autenticação Moderna (ADAL) com o Skype para o negócio](/skypeforbusiness/manage/authentication/use-adal)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Como configurar o Exchange Server no local para utilizar a autenticação moderna híbrida](/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
 - [Como utilizar a Autenticação Moderna (ADAL) com o Skype para o negócio](/skypeforbusiness/manage/authentication/use-adal)

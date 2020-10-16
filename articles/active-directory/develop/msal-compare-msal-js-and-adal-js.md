@@ -14,10 +14,10 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 5d91514af9aea3dd7ea13b94681fbb27c53772fe
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88120903"
 ---
 # <a name="differences-between-msal-js-and-adal-js"></a>Diferenças entre MSAL JS e ADAL JS
@@ -44,7 +44,7 @@ No entanto, ainda precisa de utilizar ADAL.js se a sua aplicação precisar de a
 
 * O método para adquirir e renovar tokens silenciosamente sem avisar os utilizadores é nomeado `acquireToken` em ADAL.js. Em MSAL.js, este método é nomeado `acquireTokenSilent` para ser mais descritivo desta funcionalidade.
 
-### <a name="authority-value-common"></a>Valor da autoridade`common`
+### <a name="authority-value-common"></a>Valor da autoridade `common`
 
 Em v1.0, a utilização da `https://login.microsoftonline.com/common` autoridade permitirá que os utilizadores assinem com qualquer conta AD Azure (para qualquer organização).
 

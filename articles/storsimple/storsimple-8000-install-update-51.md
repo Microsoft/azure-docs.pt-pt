@@ -13,15 +13,15 @@ ms.workload: TBD
 ms.date: 03/05/2020
 ms.author: alkohli
 ms.openlocfilehash: 5b9958f3dd497aa612a92947b8d968439ef9d0e4
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91575967"
 ---
 # <a name="install-update-51-on-your-storsimple-device"></a>Instale a atualização 5.1 no seu dispositivo StorSimple
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Este tutorial explica como instalar o Update 5.1 num dispositivo StorSimple que executa uma versão de software anterior através do portal Azure. <!--The hotfix method is used when you are trying to install Update 5.1 on a device running pre-Update 3 versions. The hotfix method is also used when a gateway is configured on a network interface other than DATA 0 of the StorSimple device and you are trying to update from a pre-Update 1 software version.-->
 

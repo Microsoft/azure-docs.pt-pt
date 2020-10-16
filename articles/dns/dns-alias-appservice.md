@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 08/10/2019
 ms.author: rohink
 ms.openlocfilehash: e7c4db7a2fc3ba931415e3b167f7fe72ee2b3980
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84710546"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Hospedar aplicativos web Azure equilibrados na zona apex
@@ -43,10 +43,10 @@ Crie um grupo de recursos para deter todos os recursos utilizados neste artigo.
 Crie dois planos de Serviço de Aplicações Web no seu grupo de recursos utilizando a seguinte tabela para obter informações de configuração. Para obter mais informações sobre a criação de um plano de Serviço de Aplicações, consulte [Gerir um plano de Serviço de Aplicações em Azure.](../app-service/app-service-plan-manage.md)
 
 
-|Name  |Sistema Operativo  |Localização  |Escalão de Preço  |
+|Nome  |Sistema Operativo  |Localização  |Escalão de Preço  |
 |---------|---------|---------|---------|
-|ASP-01     |Windows|E.U.A. Leste|Dev/Teste D1-Compartilhado|
-|ASP-02     |Windows|E.U.A. Central|Dev/Teste D1-Compartilhado|
+|ASP-01     |Windows|E.U.A. Leste|Dev/Test D1-Shared|
+|ASP-02     |Windows|E.U.A. Central|Dev/Test D1-Shared|
 
 ## <a name="create-app-services"></a>Criar Serviços de Aplicações
 
@@ -58,7 +58,7 @@ Crie duas aplicações web, uma em cada plano de Serviço de Aplicações.
 4. Selecione **Criar**.
 5. Aceite os predefinidos e use a seguinte tabela para configurar as duas aplicações web:
 
-   |Name<br>(deve ser único dentro de .azurewebsites.net)|Grupo de Recursos |Pilha de tempo de execução|Região|Plano de Serviço de Aplicações/Localização
+   |Nome<br>(deve ser único dentro de .azurewebsites.net)|Grupo de Recursos |Pilha de tempo de execução|Region|Plano de Serviço de Aplicações/Localização
    |---------|---------|-|-|-------|
    |App-01|Utilizar existente<br>Selecione o seu grupo de recursos|.NET Core 2.2|E.U.A. Leste|ASP-01(D1)|
    |App-02|Utilizar existente<br>Selecione o seu grupo de recursos|.NET Core 2.2|E.U.A. Central|ASP-02(D1)|
@@ -87,7 +87,7 @@ Agora pode criar os pontos finais para as duas aplicações web.
 3. Selecione **Adicionar**.
 4. Utilize a seguinte tabela para configurar os pontos finais:
 
-   |Tipo  |Name  |Destino  |Localização  |Configurações personalizadas do cabeçalho|
+   |Tipo  |Nome  |Destino  |Localização  |Configurações personalizadas do cabeçalho|
    |---------|---------|---------|---------|---------|
    |Ponto final externo     |Fim de 01|Endereço IP que gravou para App-01|E.U.A. Leste|anfitrião:\<the URL you recorded for App-01\><br>Exemplo: **host:app-01.azurewebsites.net**|
    |Ponto final externo     |Fim de 02|Endereço IP que gravou para App-02|E.U.A. Central|anfitrião:\<the URL you recorded for App-02\><br>Exemplo: **host:app-02.azurewebsites.net**
@@ -104,7 +104,7 @@ Quando adicionar um nome de anfitrião personalizado às suas aplicações web, 
 2. Selecione **Conjunto de registos**.
 3. Adicione o conjunto de recordes utilizando a tabela seguinte. Para obter o valor, utilize o URL da aplicação web que gravou anteriormente:
 
-   |Name  |Tipo  |Valor|
+   |Nome  |Tipo  |Valor|
    |---------|---------|-|
    |@     |TXT|App-01.azurewebsites.net|
 
@@ -132,9 +132,9 @@ Agora adicione um recorde de pseudónimo para o ápice da zona.
 2. Selecione **Conjunto de registos**.
 3. Adicione o conjunto de recordes utilizando a seguinte tabela:
 
-   |Name  |Tipo  |Conjunto de recordes de pseudónimos  |Tipo de pseudónimo  |Recurso azul|
+   |Nome  |Tipo  |Conjunto de registos de alias  |Tipo de alias  |Recurso do Azure|
    |---------|---------|---------|---------|-----|
-   |@     |A|Sim|Recurso azul|Gestor de Tráfego - o seu perfil|
+   |@     |A|Sim|Recurso do Azure|Gestor de Tráfego - o seu perfil|
 
 
 ## <a name="test-your-web-apps"></a>Teste as suas aplicações web
@@ -152,7 +152,7 @@ Agora pode testar para se certificar de que pode chegar à sua aplicação web e
 9. Feche o seu navegador web e espere alguns minutos.
 10. Inicie o seu navegador web e navegue para o seu domínio. Deve voltar a ver a página de aplicações web padrão.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre os registos de pseudónimos, consulte os seguintes artigos:
 

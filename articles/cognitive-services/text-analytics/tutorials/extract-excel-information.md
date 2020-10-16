@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: aahi
 ms.openlocfilehash: b67de07777fa3f4f2b6190d8b003eb0495e66d15
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91400490"
 ---
 # <a name="extract-information-in-excel-using-text-analytics-and-power-automate"></a>Extrair informações no Excel usando Análise de Texto e Automatizar Energia 
@@ -44,16 +44,18 @@ Neste tutorial, irá aprender a:
 Descarregue o ficheiro Excel exemplo do [GitHub.](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/TextAnalytics/sample-data/ReportedIssues.xlsx) Este ficheiro deve ser armazenado na sua conta OneDrive for Business.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/example-data.png" alt-text="Exemplos do ficheiro Excel.":::
+> :::image type="content" source="../media/tutorials/excel/example-data.png" alt-text="Exemplos do ficheiro Excel.&quot;:::
 
-As questões são relatadas em texto cru. Utilizaremos o Reconhecimento de Entidade Nomeada da API para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra "canalização" na descrição para categorizar as questões. 
+As questões são relatadas em texto cru. Utilizaremos o Reconhecimento de Entidade Nomeada da API para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;canalização" na descrição para categorizar as questões. 
 
 ## <a name="create-a-new-power-automate-workflow"></a>Criar um novo fluxo de trabalho power automamate
 
 Vá ao [site Power Automamate](https://preview.flow.microsoft.com/)e faça login. Em seguida, clique em **Criar** e **Programar fluxo**.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/flow-creation.png" alt-text="O ecrã de criação de fluxo.":::
+> :::image type="content" source="../media/tutorials/excel/flow-creation.png" alt-text="Exemplos do ficheiro Excel.&quot;:::
+
+As questões são relatadas em texto cru. Utilizaremos o Reconhecimento de Entidade Nomeada da API para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;canalização":::
 
 
 Na **página de fluxo programado para construir,** inicialize o seu fluxo com os seguintes campos:
@@ -72,7 +74,9 @@ Na **página de fluxo programado para construir,** inicialize o seu fluxo com os
 Crie variáveis que representem a informação que será adicionada ao ficheiro Excel. Clique em **New Step** e procure a **variável Initialize.** Faça isto quatro vezes, para criar quatro variáveis.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/initialize-variables.png" alt-text="Inicializar variáveis.":::
+> :::image type="content" source="../media/tutorials/excel/initialize-variables.png" alt-text="Exemplos do ficheiro Excel.&quot;:::
+
+As questões são relatadas em texto cru. Utilizaremos o Reconhecimento de Entidade Nomeada da API para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;canalização":::
 
 Adicione as seguintes informações às variáveis que criou. Representam as colunas do ficheiro Excel. Se alguma variável for colapsada, pode clicar nelas para expandi-las.
 
@@ -84,29 +88,39 @@ Adicione as seguintes informações às variáveis que criou. Representam as col
 | Inicializar variável 4 | var_other | Cadeia | other | 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/flow-variables.png" alt-text="informação contida nas variáveis de fluxo":::
+> :::image type="content" source="../media/tutorials/excel/flow-variables.png" alt-text="Exemplos do ficheiro Excel.&quot;:::
+
+As questões são relatadas em texto cru. Utilizaremos o Reconhecimento de Entidade Nomeada da API para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;canalização":::
 
 ## <a name="read-the-excel-file"></a>Leia o ficheiro excel
 
 Clique em **New Step** e **digite Excel,** em seguida, selecione **Lista de linhas presentes numa tabela** a partir da lista de ações.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/list-excel-rows.png" alt-text="adicionar linhas excel.":::
+> :::image type="content" source="../media/tutorials/excel/list-excel-rows.png" alt-text="Exemplos do ficheiro Excel.&quot;:::
+
+As questões são relatadas em texto cru. Utilizaremos o Reconhecimento de Entidade Nomeada da API para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;canalização":::
 
 Adicione o ficheiro Excel ao fluxo preenchendo os campos nesta ação. Este tutorial requer que o ficheiro tenha sido enviado para o OneDrive para negócios.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/list-excel-rows-options.png" alt-text="adicionar linhas excel.":::
+> :::image type="content" source="../media/tutorials/excel/list-excel-rows-options.png" alt-text="Exemplos do ficheiro Excel.&quot;:::
+
+As questões são relatadas em texto cru. Utilizaremos o Reconhecimento de Entidade Nomeada da API para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;canalização":::
 
 Clique em **New Step** e adicione um Apply a **cada ação.**
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/add-apply-action.png" alt-text="adicionar um comando de aplicação.":::
+> :::image type="content" source="../media/tutorials/excel/add-apply-action.png" alt-text="Exemplos do ficheiro Excel.&quot;:::
+
+As questões são relatadas em texto cru. Utilizaremos o Reconhecimento de Entidade Nomeada da API para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;canalização":::
 
 Clique em **Selecionar uma saída do passo anterior.** Na caixa de conteúdo dinâmica que aparece, selecione **valor**.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/select-output.png" alt-text="Selecione a saída do ficheiro Excel.":::
+> :::image type="content" source="../media/tutorials/excel/select-output.png" alt-text="Exemplos do ficheiro Excel.&quot;:::
+
+As questões são relatadas em texto cru. Utilizaremos o Reconhecimento de Entidade Nomeada da API para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;canalização":::
 
 ## <a name="send-a-request-to-the-text-analytics-api"></a>Envie um pedido à API de Análise de Texto
 
@@ -128,19 +142,25 @@ No seu fluxo, insira as seguintes informações para criar uma nova ligação Te
 | Site URL        | O ponto final para o seu recurso Text Analytics.                                                       |
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/add-credentials.png" alt-text="Adicione credenciais de Análise de Texto ao seu fluxo.":::
+> :::image type="content" source="../media/tutorials/excel/add-credentials.png" alt-text="Exemplos do ficheiro Excel.&quot;:::
+
+As questões são relatadas em texto cru. Utilizaremos o Reconhecimento de Entidade Nomeada da API para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;canalização":::
 
 ## <a name="extract-the-excel-content"></a>Extrair o conteúdo do excel 
 
 Após a criação da ligação, procure por **Text Analytics** e selecione **Entidades.** Isto irá extrair informações da coluna de descrição da questão.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/extract-info.png" alt-text="Adicione credenciais de Análise de Texto ao seu fluxo.":::
+> :::image type="content" source="../media/tutorials/excel/extract-info.png" alt-text="Exemplos do ficheiro Excel.&quot;:::
+
+As questões são relatadas em texto cru. Utilizaremos o Reconhecimento de Entidade Nomeada da API para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;canalização":::
 
 Clique no campo **Texto** e **selecione Descrição** a partir das janelas de conteúdo dinâmico que aparecem. `en`Insira para a Linguagem. (Clique em Mostrar opções avançadas se não vir linguagem)
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/description-from-dynamic-content.png" alt-text="Adicione credenciais de Análise de Texto ao seu fluxo.":::
+> :::image type="content" source="../media/tutorials/excel/description-from-dynamic-content.png" alt-text="Exemplos do ficheiro Excel.&quot;:::
+
+As questões são relatadas em texto cru. Utilizaremos o Reconhecimento de Entidade Nomeada da API para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;canalização":::
 
 
 ## <a name="extract-the-person-name"></a>Extrair o nome da pessoa
@@ -148,49 +168,67 @@ Clique no campo **Texto** e **selecione Descrição** a partir das janelas de co
 Em seguida, encontraremos o tipo de entidade pessoa na saída Text Analytics. Dentro do **Apply a cada,** clique **Em Adicionar uma ação,** e crie outra **Aplicar a cada ação.** Clique dentro da caixa de texto e selecione **Entidades** na janela Conteúdo Dinâmico que aparece.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/add-apply-action-2.png" alt-text="Adicione credenciais de Análise de Texto ao seu fluxo.":::
+> :::image type="content" source="../media/tutorials/excel/add-apply-action-2.png" alt-text="Exemplos do ficheiro Excel.&quot;:::
+
+As questões são relatadas em texto cru. Utilizaremos o Reconhecimento de Entidade Nomeada da API para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;canalização":::
 
 Dentro da nova ação **Aplicar a cada 2 ação,** clique em Adicionar uma **ação**e adicione um controlo **de Condição.**
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/create-condition.png" alt-text="Adicione credenciais de Análise de Texto ao seu fluxo.":::
+> :::image type="content" source="../media/tutorials/excel/create-condition.png" alt-text="Exemplos do ficheiro Excel.&quot;:::
+
+As questões são relatadas em texto cru. Utilizaremos o Reconhecimento de Entidade Nomeada da API para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;canalização":::
 
 Na janela 'Estado', clique na primeira caixa de texto. Na janela de conteúdo dinâmico, procure por **Tipo de Entidades** e selecione-o.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/choose-entities-value.png" alt-text="Adicione credenciais de Análise de Texto ao seu fluxo.":::
+> :::image type="content" source="../media/tutorials/excel/choose-entities-value.png" alt-text="Exemplos do ficheiro Excel.&quot;:::
+
+As questões são relatadas em texto cru. Utilizaremos o Reconhecimento de Entidade Nomeada da API para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;canalização":::
 
 Certifique-se de que a segunda caixa está definida **para ser igual a**. Em seguida, selecione a terceira caixa e procure `var_person` na janela de conteúdo Dinâmico. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/choose-variable-value.png" alt-text="Adicione credenciais de Análise de Texto ao seu fluxo.":::
+> :::image type="content" source="../media/tutorials/excel/choose-variable-value.png" alt-text="Exemplos do ficheiro Excel.&quot;:::
+
+As questões são relatadas em texto cru. Utilizaremos o Reconhecimento de Entidade Nomeada da API para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;canalização":::
 
 Na condição **"Se sim",** digite o Excel e, em seguida, selecione **Update a Row**.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/yes-column-action.png" alt-text="Adicione credenciais de Análise de Texto ao seu fluxo.":::
+> :::image type="content" source="../media/tutorials/excel/yes-column-action.png" alt-text="Exemplos do ficheiro Excel.&quot;:::
+
+As questões são relatadas em texto cru. Utilizaremos o Reconhecimento de Entidade Nomeada da API para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;canalização":::
 
 Introduza a informação do Excel e atualize os campos **Coluna-chave,** **Valor chave** e Nome **de Pessoa.** Isto anexará o nome detetado pela API à folha Excel. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/yes-column-action-options.png" alt-text="Adicione credenciais de Análise de Texto ao seu fluxo.":::
+> :::image type="content" source="../media/tutorials/excel/yes-column-action-options.png" alt-text="Exemplos do ficheiro Excel.&quot;:::
+
+As questões são relatadas em texto cru. Utilizaremos o Reconhecimento de Entidade Nomeada da API para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;canalização":::
 
 ## <a name="get-the-phone-number"></a>Obtenha o número de telefone
 
 Minimize a **Aplicação a cada ação de 2** clicando no nome. Em seguida, adicione outro **Aplicar a cada ação,** como antes. será nomeado **Aplicar a cada 3**. Selecione a caixa de texto e adicione **as entidades** como saída para esta ação. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/add-apply-action-3.png" alt-text="Adicione credenciais de Análise de Texto ao seu fluxo.":::
+> :::image type="content" source="../media/tutorials/excel/add-apply-action-3.png" alt-text="Exemplos do ficheiro Excel.&quot;:::
+
+As questões são relatadas em texto cru. Utilizaremos o Reconhecimento de Entidade Nomeada da API para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;canalização":::
 
 Dentro **Aplicar a cada 3**, adicionar um controlo de **condição.** Será nomeado **Condição 2.** Na primeira caixa de texto, procure e adicione **o Tipo de Entidades** a partir da janela de conteúdo Dinâmico. Certifique-se de que a caixa central está definida para ser **igual a**. Em seguida, na caixa de texto certa, `var_phone` insira. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/condition-2-options.png" alt-text="Adicione credenciais de Análise de Texto ao seu fluxo.":::
+> :::image type="content" source="../media/tutorials/excel/condition-2-options.png" alt-text="Exemplos do ficheiro Excel.&quot;:::
+
+As questões são relatadas em texto cru. Utilizaremos o Reconhecimento de Entidade Nomeada da API para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;canalização":::
 
 Na condição **"Se sim",** adicione **uma atualização de uma ação de linha.** Em seguida, insira a informação como fizemos acima, para a coluna de números de telefone da folha excel. Isto irá anexar o número de telefone detetado pela API à folha Excel. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/condition-2-yes-column.png" alt-text="Adicione credenciais de Análise de Texto ao seu fluxo.":::
+> :::image type="content" source="../media/tutorials/excel/condition-2-yes-column.png" alt-text="Exemplos do ficheiro Excel.&quot;:::
+
+As questões são relatadas em texto cru. Utilizaremos o Reconhecimento de Entidade Nomeada da API para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;canalização":::
 
 
 ## <a name="get-the-plumbing-issues"></a>Pegue os problemas de canalização
@@ -198,23 +236,21 @@ Na condição **"Se sim",** adicione **uma atualização de uma ação de linha.
 Minimizar **Aplicar a cada 3** clicando no nome. Em seguida, crie outro **Aplicar a cada um** na ação dos pais. Selecione a caixa de texto e adicione **Entidades** como saída para esta ação a partir da janela de conteúdo Dinâmico. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/add-apply-action-4.png" alt-text="Adicione credenciais de Análise de Texto ao seu fluxo.":::
+> :::image type="content" source="../media/tutorials/excel/add-apply-action-4.png" alt-text="Exemplos do ficheiro Excel.&quot;:::
 
-
-Em seguida, o fluxo verificará se a descrição do número de emissão da linha de tabela Excel contém a palavra "canalização". Se sim, adicionará "canalização" na coluna IssueType. Se não, entraremos em "outros".
+As questões são relatadas em texto cru. Utilizaremos o Reconhecimento de Entidade Nomeada da API para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;canalização" na coluna IssueType. Se não, entraremos em "outros".
 
 Dentro da **Aplicação a cada ação de 4,** adicione um Controlo **de Condições.** Será nomeado **Condição 3.** Na primeira caixa de texto, procure e adicione **Descrição** a partir do ficheiro Excel, utilizando a janela de conteúdo Dinâmico. Certifique-se de que a caixa central diz **que contém**. Em seguida, na caixa de texto certa, encontre e selecione `var_plumbing` . 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/condition-3-options.png" alt-text="Adicione credenciais de Análise de Texto ao seu fluxo.":::
+> :::image type="content" source="../media/tutorials/excel/condition-3-options.png" alt-text="Exemplos do ficheiro Excel.&quot;:::
 
-
-Na condição **'Se sim',** clique em **Adicionar uma ação**e selecione Update a **row**. Em seguida, insira a informação como antes. Na coluna 'Emitir', selecione `var_plumbing` . Isto aplicará uma etiqueta de "canalização" à linha.
-
-No **Se não houver** condição, clique em **Adicionar uma ação**e selecione Update a **row**. Em seguida, insira a informação como antes. Na coluna 'Emitir', selecione `var_other` . Isto aplicará uma etiqueta "outra" à linha.
+As questões são relatadas em texto cru. Utilizaremos o Reconhecimento de Entidade Nomeada da API para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;canalização" à linha.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/plumbing-issue-condition.png" alt-text="Adicione credenciais de Análise de Texto ao seu fluxo.":::
+> :::image type="content" source="../media/tutorials/excel/plumbing-issue-condition.png" alt-text="Exemplos do ficheiro Excel.&quot;:::
+
+As questões são relatadas em texto cru. Utilizaremos o Reconhecimento de Entidade Nomeada da API para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;canalização":::
 
 ## <a name="test-the-workflow"></a>Testar o fluxo de trabalho
 
@@ -223,7 +259,9 @@ No canto superior direito do ecrã, clique em **Guardar**e, em seguida, **Test**
 O ficheiro Excel será atualizado na sua conta OneDrive. Vai parecer o que está abaixo.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/updated-excel-sheet.png" alt-text="A folha de cálculo atualizada do excel.":::
+> :::image type="content" source="../media/tutorials/excel/updated-excel-sheet.png" alt-text="Exemplos do ficheiro Excel.&quot;:::
+
+As questões são relatadas em texto cru. Utilizaremos o Reconhecimento de Entidade Nomeada da API para extrair o nome da pessoa e o número de telefone. Em seguida, o fluxo procurará a palavra &quot;canalização":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

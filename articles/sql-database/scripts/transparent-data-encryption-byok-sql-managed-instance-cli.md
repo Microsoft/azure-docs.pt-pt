@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: vanto
 ms.date: 11/05/2019
 ms.openlocfilehash: 2b948161633569d629dfb048a7d7dee6a9946f43
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91323693"
 ---
 # <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault"></a>Gerir encriptação de dados transparentes numa instância gerida usando a sua própria chave a partir do Cofre de Chaves Azure

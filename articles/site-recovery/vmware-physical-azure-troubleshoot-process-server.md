@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 09/09/2019
 ms.author: raynew
 ms.openlocfilehash: 4816b597d66aea3bbe7f834004f924b5108de939
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87499760"
 ---
 # <a name="troubleshoot-the-process-server"></a>Resolução de problemas do servidor de processo
@@ -51,7 +51,7 @@ O servidor de processo gera uma série de alertas de saúde. Estes alertas, e as
 
 **Tipo de alerta** | **Erro** | **Resolução de problemas**
 --- | --- | --- 
-![Bom estado de funcionamento][green] | Nenhuma  | O servidor de processo está conectado e saudável.
+![Bom estado de funcionamento][green] | Nenhum  | O servidor de processo está conectado e saudável.
 ![Aviso][yellow] | Os serviços especificados não estão a funcionar. | 1. Verifique se os serviços estão a funcionar.<br/> 2. Se os serviços estiverem a funcionar como esperado, siga as instruções abaixo para [resolver problemas de conectividade e problemas de replicação](#check-connectivity-and-replication).
 ![Aviso][yellow]  | A utilização do CPU > 80% nos últimos 15 minutos. | 1. Não adicione novas máquinas.<br/>2. Verifique se o número de VMs que utilizam o servidor de processo alinha-se com [os limites definidos](site-recovery-plan-capacity-vmware.md#capacity-considerations)e considere a criação de um [servidor de processo adicional](vmware-azure-set-up-process-server-scale.md).<br/>3. Siga as instruções abaixo para [resolver problemas de conectividade e problemas de replicação](#check-connectivity-and-replication).
 ![Crítico][red] |  A utilização do CPU > 95% nos últimos 15 minutos. | 1. Não adicione novas máquinas.<br/>2. Verifique se o número de VMs que utilizam o servidor de processo alinha-se com [os limites definidos](site-recovery-plan-capacity-vmware.md#capacity-considerations)e considere a criação de um [servidor de processo adicional](vmware-azure-set-up-process-server-scale.md).<br/>3. Siga as instruções abaixo para [resolver problemas de conectividade e problemas de replicação](#check-connectivity-and-replication).<br/> 4. Se o problema persistir, executar o [Planejador de Implementação](https://aka.ms/asr-v2a-deployment-planner) para a replicação do servidor VMware/servidor físico.

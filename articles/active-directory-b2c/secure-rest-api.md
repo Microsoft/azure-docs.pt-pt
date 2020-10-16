@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 206768604c6d08a32c0caaf9b53a1417cfa1344b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: adb9bf48800062d2cc6976a88ec48c1993858dec
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85385336"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089541"
 ---
 # <a name="secure-your-restful-services"></a>Proteja os seus serviços RESTful 
 
@@ -312,7 +312,7 @@ Depois de adicionar os snippets acima, o seu perfil técnico deve parecer o segu
 
 ### <a name="add-the-oauth2-bearer-token-policy-key"></a>Adicione a chave de política de símbolos do portador OAuth2
 
-Crie uma chave de política para armazenar o valor simbólico do portador.
+Para configurar um perfil técnico da API REST com um token portador de OAuth2, obtenha um token de acesso do proprietário da API REST. Em seguida, crie a seguinte chave criptográfica para armazenar o token portador.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 1. Certifique-se de que está a usar o diretório que contém o seu inquilino Azure AD B2C. Selecione o filtro **de subscrição Diretório +** no menu superior e escolha o seu diretório Azure AD B2C.

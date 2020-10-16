@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
 ms.openlocfilehash: ffc8fcf734877f55210507310849a5746a280c3d
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89504354"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Mergulho profundo - análise avançada
@@ -114,7 +114,7 @@ Todo o pré-processamento/pontuação das 10.000 imagens demora menos de um minu
 
 Siga [este tutorial](../spark/apache-spark-microsoft-cognitive-toolkit.md) para implementar esta solução de ponta a ponta: crie um cluster HDInsight Spark, instale o Cognitive Toolkit e execute o Jupyter Notebook que marca 10.000 imagens CIFAR.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Apache Hive e Azure Machine Learning
 

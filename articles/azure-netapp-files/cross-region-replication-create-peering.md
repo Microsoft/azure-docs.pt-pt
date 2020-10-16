@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: b-juche
 ms.openlocfilehash: df70f8a37a7223119068afd323583ea6126ca542
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90708823"
 ---
 # <a name="create-replication-peering-for-azure-netapp-files"></a>Criar olhando para a replicação para ficheiros Azure NetApp
@@ -108,9 +108,9 @@ Para autorizar a replicação, é necessário obter o ID de recursos do volume d
 
 ## <a name="next-steps"></a>Passos seguintes  
 
-* [Replicação inter-região](cross-region-replication-introduction.md)
+* [Replicação entre regiões](cross-region-replication-introduction.md)
 * [Requisitos e considerações para a utilização da replicação entre regiões](cross-region-replication-requirements-considerations.md)
-* [Mostrar estado de saúde da relação de replicação](cross-region-replication-display-health-status.md)
+* [Apresentar o estado de funcionamento da relação de replicação](cross-region-replication-display-health-status.md)
 * [Métricas de replicação de volume](azure-netapp-files-metrics.md#replication)
 * [Gerir a recuperação após desastre](cross-region-replication-manage-disaster-recovery.md)
 * [Resolução de problemas transversal à replicação da região](troubleshoot-cross-region-replication.md)

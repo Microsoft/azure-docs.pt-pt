@@ -9,10 +9,10 @@ ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: danis
 ms.openlocfilehash: d4715bd8b7a13a5ab53d254ac853ac324440b403
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87502618"
 ---
 # <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery-by-using-azure-cli"></a>Pré-visualização: Crie uma imagem Linux e distribua-a para uma Galeria de Imagens Partilhadas utilizando o Azure CLI
@@ -227,7 +227,7 @@ Deve ver que a imagem foi personalizada com uma *Mensagem do Dia* assim que a su
 *******************************************************
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender agora tentar re-personalizar a versão de imagem para criar uma nova versão da mesma imagem, salte os próximos passos e continue a utilizar o [Azure Image Builder para criar outra versão de imagem](image-builder-gallery-update-image-version.md).
 

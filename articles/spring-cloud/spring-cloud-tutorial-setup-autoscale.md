@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/22/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 5ca0c498e9fd03ce6397824465f9e1e006eeccc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4effdbf5fb924b59a540ce16e769633c484c641a
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905386"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091071"
 ---
 # <a name="tutorial-set-up-autoscale-for-microservice-applications"></a>Tutorial: Configurar autoescala para aplicações de microserviços
 
@@ -25,7 +25,7 @@ A Autoscale é uma característica incorporada do Azure Spring Cloud que ajuda a
 Para seguir estes procedimentos, é necessário:
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-* Uma instância de serviço Azure Spring Cloud implantada. Siga o [quickstart na implementação de uma aplicação através do CLI Azure](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli) para começar.
+* Uma instância de serviço Azure Spring Cloud implantada. Siga o [quickstart na implementação de uma aplicação através do CLI Azure](./spring-cloud-quickstart.md) para começar.
 * Pelo menos uma aplicação já criada na sua instância de serviço.
 
 ## <a name="navigate-to-the-autoscale-page-in-the-azure-portal"></a>Navegue para a página autoescala no portal Azure
@@ -70,5 +70,5 @@ Se estiver no nível Básico e limitado por um ou mais destes limites, pode faze
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Visão geral da autoescala no Microsoft Azure](https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-overview)
-* [Azure CLI Monitorizando autoescala](https://docs.microsoft.com/cli/azure/monitor/autoscale?view=azure-cli-latest&preserve-view=true)
+* [Visão geral da autoescala no Microsoft Azure](../azure-monitor/platform/autoscale-overview.md)
+* [Azure CLI Monitorizando autoescala](/cli/azure/monitor/autoscale?preserve-view=true&view=azure-cli-latest)

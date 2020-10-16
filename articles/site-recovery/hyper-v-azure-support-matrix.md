@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
 ms.openlocfilehash: 53967ab0bec9488691ff60cdabb8fedbb6b9730e
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87386712"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de apoio à recuperação de desastres de Hiper-V VMs para Azure
@@ -71,7 +71,7 @@ Rede VM do hóspede: IP estático (Windows) | Sim | Sim
 Rede VM convidada: IP estático (Linux) | Não | Não
 Rede VM convidada: Multi-NIC | Sim | Sim
 Procuração https | Não | Não
-Acesso de ligação privada ao serviço de Recuperação de Sítios | Yes. [Saiba mais](hybrid-how-to-enable-replication-private-endpoints.md). | Yes. [Saiba mais](hybrid-how-to-enable-replication-private-endpoints.md).
+Acesso de ligação privada ao serviço de Recuperação de Sítios | Sim. [Saiba mais](hybrid-how-to-enable-replication-private-endpoints.md). | Sim. [Saiba mais](hybrid-how-to-enable-replication-private-endpoints.md).
 
 
 
@@ -83,7 +83,7 @@ Acesso de ligação privada ao serviço de Recuperação de Sítios | Yes. [Saib
 Azure ExpressRoute | Sim | Sim
 ILB | Sim | Sim
 ELB | Sim | Sim
-Traffic Manager do Azure | Sim | Sim
+Gestor de Tráfego do Azure | Sim | Sim
 Multi-NIC | Sim | Sim
 IP reservado | Sim | Sim
 IPv4 | Sim | Sim
@@ -140,8 +140,8 @@ Dupla encriptação em repouso <br></br> (Apenas para falhas a gerir discos) <br
 Armazenamento Premium | Sim | Sim
 Armazenamento Standard | Sim | Sim
 Serviço de importação/exportação | Não | Não
-Contas de Armazenamento Azure com firewall ativadas | Yes. Para armazenamento de alvo e cache. | Yes. Para armazenamento de alvo e cache.
-Modificar a conta de armazenamento | Não. A conta de armazenamento Azure alvo não pode ser modificada após permitir a replicação. Para modificar, desativar e, em seguida, reativar a recuperação de desastres. | Não
+Contas de Armazenamento Azure com firewall ativadas | Sim. Para armazenamento de alvo e cache. | Sim. Para armazenamento de alvo e cache.
+Modificar a conta de armazenamento | N.º A conta de armazenamento Azure alvo não pode ser modificada após permitir a replicação. Para modificar, desativar e, em seguida, reativar a recuperação de desastres. | Não
 Opção de transferência segura | Sim
 
 
@@ -181,7 +181,7 @@ Mover cofre através de grupos de recursos<br/><br/> Dentro e em todas as subscr
 Mover armazenamento, rede, VMs Azure em grupos de recursos<br/><br/> Dentro e em todas as subscrições | Não | Não
 
 > [!NOTE]
-> Ao replicar Hiper-VMs de instalações para Azure, pode replicar-se a apenas um inquilino AD de um ambiente específico - Hyper-V ou Hyper-V com VMM, conforme aplicável.
+> Ao replicar Hyper-VMs de instalações para Azure, pode replicar-se a apenas um inquilino AD de um ambiente específico - Hyper-V ou Hyper-V com VMM, conforme aplicável.
 
 
 ## <a name="provider-and-agent"></a>Fornecedor e agente
@@ -198,5 +198,5 @@ Agente dos Serviços de Recuperação do Microsoft Azure | Coordena a replicaç�
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba como [preparar o Azure](tutorial-prepare-azure.md) para a recuperação de desastres dos Hiper-V VMs no local.

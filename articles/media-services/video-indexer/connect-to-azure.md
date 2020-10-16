@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 05/08/2020
 ms.author: juliako
 ms.openlocfilehash: 405533aad8247350d45cc53009abe6b58a511264
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83005934"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Criar uma conta de Indexer de Vídeo ligada ao Azure
 
-Ao criar uma conta de Índice de Vídeo, pode escolher uma conta de teste gratuita (onde obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (onde não está limitado pela quota). Com um teste gratuito, o Video Indexer fornece até 600 minutos de indexação gratuita aos utilizadores do website e até 2400 minutos de indexação gratuita aos utilizadores de API. Com a opção paga, cria uma conta de Indexer de Vídeo que está ligada à sua subscrição Azure e a uma conta Azure Media Services. Paga-se por minutos indexados, bem como pelos encargos relacionados com a conta dos media.
+Quando criar uma conta do Video Indexer, pode optar por uma conta de avaliação gratuita (através da qual obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (não fica limitado pela quota). Com uma avaliação gratuita, o Video Indexer disponibiliza até 600 minutos de indexação gratuita a utilizadores de sites e até 2400 minutos de indexação gratuita a utilizadores de APIs. Com a opção paga, pode criar uma conta do Video Indexer, ligada à subscrição do Azure, e uma conta dos Serviços de Multimédia do Azure. Pagará pelos minutos indexados, bem como pelas cobranças relacionadas com a conta de multimédia.
 
 Este artigo mostra como criar uma conta de Indexer de Vídeo que está ligada a uma subscrição do Azure e a uma conta Azure Media Services. O tópico fornece passos para a ligação ao Azure utilizando o fluxo automático (predefinido). Também mostra como ligar-se ao Azure manualmente (avançado).
 
@@ -144,10 +144,10 @@ No Indexador de Vídeo Connect para um diálogo de **subscrição Azure** da sua
 
 No diálogo, forneça as seguintes informações:
 
-|Definição|Descrição|
+|Definições|Descrição|
 |---|---|
 |Região de conta de Indexer de Vídeo|O nome da região da conta do Indexante de Vídeo. Para um melhor desempenho e custos mais baixos, é altamente recomendado especificar o nome da região onde estão localizados os recursos Azure Media Services e a conta de Armazenamento Azure. |
-|Inquilino da AD AZure|O nome do inquilino da AD Azure, por exemplo , "contoso.onmicrosoft.com". A informação do inquilino pode ser recuperada a partir do portal Azure. Coloque o cursor sobre o nome do utilizador inscrito no canto superior direito. Encontre o nome à direita do **Domínio.**|
+|Inquilino do Azure AD|O nome do inquilino da AD Azure, por exemplo , "contoso.onmicrosoft.com". A informação do inquilino pode ser recuperada a partir do portal Azure. Coloque o cursor sobre o nome do utilizador inscrito no canto superior direito. Encontre o nome à direita do **Domínio.**|
 |ID da subscrição|A assinatura Azure sob a qual esta ligação deve ser criada. O ID de subscrição pode ser recuperado a partir do portal Azure. Selecione **Todos os serviços** no painel esquerdo e procure por "subscrições". Selecione **Subscrições** e escolha o ID desejado na lista das suas subscrições.|
 |Nome do grupo de recursos Azure Media Services|O nome do grupo de recursos em que criou a conta dos Serviços de Comunicação Social.|
 |Nome de recurso de serviço de mídia|O nome da conta Azure Media Services que criou na secção anterior.|
@@ -184,7 +184,7 @@ Aplicam-se as seguintes considerações relacionadas com os Serviços de Comunic
 
 * Se ligar a uma conta de Serviços de Mídia existente, o Índice de Vídeo não altera a configuração padrão do Ponto Final de Streaming. Se não houver **streaming endpoint**em execução, não pode ver vídeos desta conta de Media Services ou no Video Indexer.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode interagir programáticamente com a sua conta experimental e/ou com as suas contas de Indexer de Vídeo que estão ligadas ao Azure seguindo as instruções em: [Use APIs](video-indexer-use-apis.md).
 

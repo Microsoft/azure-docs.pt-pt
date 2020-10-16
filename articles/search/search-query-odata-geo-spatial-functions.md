@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 376cece922ca424ec78011224852b1fa5499da16
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88934842"
 ---
 # <a name="odata-geo-spatial-functions-in-azure-cognitive-search---geodistance-and-geointersects"></a>OData funções geo-espaciais em Azure Cognitive Search - `geo.distance` e `geo.intersects`
@@ -37,7 +37,7 @@ A `geo.distance` função também pode ser usada no parâmetro [ **$orderby** ](
 
 ## <a name="syntax"></a>Syntax
 
-O seguinte EBNF[(Formulário Backus-Naur alargado)](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)define a gramática das `geo.distance` funções e `geo.intersects` funções, bem como os valores geo-espaciais em que operam:
+O seguinte formulário EBNF ([Formulário Backus-Naur Alargado)](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)define a gramática das `geo.distance` funções e `geo.intersects` funções, bem como os valores geo-espaciais em que operam:
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 

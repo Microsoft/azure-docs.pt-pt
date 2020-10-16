@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: alkohli
 ms.openlocfilehash: bd8e6d4175c57bd31c3fd83bf6f9669d2b65ffb2
-ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91660853"
 ---
 # <a name="tutorial-copy-data-from-azure-data-box-via-nfs-preview"></a>Tutorial: Copiar dados da Caixa de Dados do Azure via NFS (Pré-visualização)

@@ -10,10 +10,10 @@ ms.subservice: azure-arc-data
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: d22976254cc804ca53060fb284abde8e80a684e6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319735"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Notas de lançamento - Azure Arc habilitado serviços de dados (Pré-visualização)
@@ -54,7 +54,7 @@ Aplicam-se a esta versão as seguintes questões:
 
 - Os nomes de exemplos geridos pela SQL não podem ser superiores a 13 caracteres
 - Não há atualização no local para o controlador de dados do Arco Azure ou casos de base de dados.
-- As imagens do contentor dos serviços de dados ativadas pelo Arco não estão assinadas.  Pode ser necessário configurar os seus nós Kubernetes para permitir que imagens de contentores não assinadas sejam retiradas.  Por exemplo, se estiver a utilizar o Docker como tempo de funcionaamento do contentor, pode definir a variável ambiente DOCKER_CONTENT_TRUST=0 e reiniciar.  Outros tempos de funcionação do contentor têm opções semelhantes, tais como no [OpenShift.](https://docs.openshift.com/container-platform/4.5/openshift_images/image-configuration.html#images-configuration-file_image-configuration)
+- As imagens do contentor de serviços de dados preparados para o Arc não são assinadas.  Pode ter de configurar os nós do Kubernetes para permitir a solicitação de imagens de contentor não assinadas.  Por exemplo, se estiver a utilizar o Docker como tempo de funcionaamento do contentor, pode definir a variável ambiente DOCKER_CONTENT_TRUST=0 e reiniciar.  Outros runtimes de contentor têm opções semelhantes, como em [OpenShift](https://docs.openshift.com/container-platform/4.5/openshift_images/image-configuration.html#images-configuration-file_image-configuration).
 - Não é possível criar instâncias geridas pelo SQL ou grupos de servidores de hiperescala PostgreSQL a partir do portal Azure.
 - Por enquanto, se estiver a utilizar o NFS, tem de definir o favorecmento do RunAsRoot no seu ficheiro de perfil de implementação antes de criar o controlador de dados Azure Arc.
 - Apenas a autenticação de login SQL e PostgreSQL.  Sem suporte para Azure Ative Directory ou Ative Directory.

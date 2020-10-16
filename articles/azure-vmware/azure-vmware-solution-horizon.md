@@ -3,12 +3,12 @@ title: Implementar Horizonte na Solução VMware Azure
 description: Saiba como implementar o VMware Horizon na Solução VMware Azure.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: bda4be049e360670cb7038bfbb3070c2a5f262c4
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: 9f8951c1c346eb15ac981b99a4dbf1541f3e3eed
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91729054"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078889"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Implementar Horizonte na Solução VMware Azure 
 
@@ -197,11 +197,14 @@ Trabalhe com a sua equipa de vendas da VMware EUC para determinar o custo de lic
 
 Com base na arquitetura de implementação padrão, os VMs de infraestrutura Horizon são compostos por Servidores de Conexão, UAGs, Gestores de Volume de Aplicações e são implantados na Rede Virtual Azure do cliente. Casos nativos adicionais do Azure são necessários para suportar serviços de Alta Disponibilidade (HA), Microsoft SQL ou Microsoft Ative Directory (AD) no Azure. Segue-se uma lista de casos Azure com base num exemplo de implementação de 2.000 desktops. 
 
+>[!NOTE]
+>Para poder lidar com a falha, implante mais um servidor do que o necessário para o número de ligações (n+1). O número mínimo recomendado de instâncias do Connection Server, UAG e App Volumes Manager é 2, e o número de requisitos irá crescer com base na quantidade de utilizadores que o ambiente irá suportar.  Um único Servidor de Ligação suporta um máximo de 4.000 sessões, embora 2.000 seja recomendado como uma boa prática. Até sete Servidores de Ligação são suportados por cápsula com uma recomendação de 12.000 sessões ativas no total por vagem. Para obter os números mais atuais, consulte o [artigo Base de Conhecimento VMware VMware Horizonte 7 Limites e Recomendações](https://kb.vmware.com/s/article/2150348)de Dimensionamento .
+
 | Componente de infraestrutura horizonte | Exemplo de Azure | Número de casos necessários (para 2.000 desktops)    | Comentário  |
 |----------------------------------|----------------|----------------------------------------------------|----------|
-| Servidor de Conexão                | D4sv3          | 2       | *Inclui 1 instância para HA*             |    
-| UAG                              | F2sv2          | 2       | *Inclui 1 instância para HA*             |
-| Gestor de Volumes de Aplicativos              | D4sv3          | 2       | *Inclui 1 instância para HA*             |
+| Servidor de Conexão                | D4sv3          | 2       | *Ver Nota Acima*                         |    
+| UAG                              | F2sv2          | 2       | *Ver Nota Acima*                         |
+| Gestor de Volumes de Aplicativos              | D4sv3          | 2       | *Ver Nota Acima*                         |
 | Conector de nuvem                  | D4sv3          | 1       |                                          |
 | Controlador de anúncios                    | D4sv3          | 2       | *Opção de utilização do serviço MSFT AD no Azure* |
 | Base de Dados MS-SQL                  | D4sv3          | 2       | *Opção de utilizar o serviço SQL em Azure*     |

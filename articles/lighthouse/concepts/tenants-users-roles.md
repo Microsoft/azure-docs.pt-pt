@@ -4,10 +4,10 @@ description: Compreenda os conceitos de inquilinos, utilizadores e funções do 
 ms.date: 07/03/2020
 ms.topic: conceptual
 ms.openlocfilehash: c409b45d18504d071ffed3185de20ec5e1147bc2
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91399249"
 ---
 # <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Inquilinos, papéis e utilizadores em cenários do Farol de Azure

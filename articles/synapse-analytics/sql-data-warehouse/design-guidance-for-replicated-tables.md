@@ -12,10 +12,10 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 036cb15cf16b5f90dc17ccdce378a073a398d403
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86181340"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-synapse-sql-pool"></a>Orientação de design para usar mesas replicadas na piscina Sinaapse SQL
@@ -99,7 +99,7 @@ DROP TABLE [dbo].[DimSalesTerritory_old];
 
 ### <a name="query-performance-example-for-round-robin-versus-replicated"></a>Exemplo de desempenho de consulta para rodada-robin versus replicado
 
-Uma tabela replicada não requer qualquer movimento de dados para junções porque toda a tabela já está presente em cada nó computacional. Se as tabelas de dimensão forem distribuídas por rodapé, uma junção copia a tabela de dimensão na íntegra a cada nó computacional. Para mover os dados, o plano de consulta contém uma operação chamada BroadcastMoveOperation. Este tipo de operação de movimento de dados retarda o desempenho da consulta e é eliminado usando tabelas replicadas. Para ver os passos do plano de consulta, use a vista do catálogo do sistema [sys.dm_pdw_request_steps.](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  
+Uma tabela replicada não requer qualquer movimento de dados para junções porque toda a tabela já está presente em cada nó computacional. Se as tabelas de dimensão forem distribuídas por rodapé, uma junção copia a tabela de dimensão na íntegra a cada nó computacional. Para mover os dados, o plano de consulta contém uma operação chamada BroadcastMoveOperation. Este tipo de operação de movimento de dados retarda o desempenho da consulta e é eliminado usando tabelas replicadas. Para ver os passos do plano de consulta, utilize a vista do catálogo do sistema [sys.dm_pdw_request_steps.](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  
 
 Por exemplo, ao seguir uma consulta contra o esquema adventureWorks, a `FactInternetSales` tabela é distribuída por haxixe. As `DimDate` `DimSalesTerritory` tabelas são tabelas de dimensão menor. Esta consulta devolve o total das vendas na América do Norte para o exercício de 2004:
 
@@ -170,7 +170,7 @@ Por exemplo, este padrão de carga carrega dados de quatro fontes, mas apenas in
 
 Para garantir tempos de execução de consultas consistentes, considere forçar a construção das tabelas replicadas após uma carga de lote. Caso contrário, a primeira consulta continuará a utilizar o movimento de dados para completar a consulta.
 
-Esta consulta utiliza o [Sys.pdw_replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) DMV para listar as tabelas replicadas que foram modificadas, mas não reconstruídas.
+Esta consulta utiliza o DMV [sys.pdw_replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para listar as tabelas replicadas que foram modificadas, mas não reconstruídas.
 
 ```sql
 SELECT [ReplicatedTable] = t.[name]

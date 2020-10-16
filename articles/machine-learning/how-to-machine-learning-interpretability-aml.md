@@ -12,10 +12,10 @@ ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 ms.openlocfilehash: 08981ad21c15b6fc375e2e0733564c40d54932ba
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708259"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Utilize o pacote de interpretação para explicar os modelos ML & previsões em Python (pré-visualização)
@@ -548,7 +548,7 @@ Pode implantar o explicador juntamente com o modelo original e usá-lo no moment
 
    Para eliminar um serviço web implantado, utilize `service.delete()` .
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba mais sobre a interpretação do modelo](how-to-machine-learning-interpretability.md)
 

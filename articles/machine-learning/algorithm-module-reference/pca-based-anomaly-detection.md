@@ -1,7 +1,7 @@
 ---
-title: 'Deteção de anomalias baseadas em PCA: referência do módulo'
+title: 'Deteção de anomalias PCA-Based: referência do módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como utilizar o módulo de deteção de anomalias baseada em PCA para criar um modelo de deteção de anomalias baseado na análise principal de componentes (PCA).
+description: Saiba como utilizar o módulo de deteção de anomalias PCA-Based para criar um modelo de deteção de anomalias baseado na análise principal dos componentes (PCA).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,19 +10,19 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: fa90fcb9ebc17be9a658b08873234eada98b0fba
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90898457"
 ---
-# <a name="pca-based-anomaly-detection-module"></a>Módulo de deteção de anomalias baseada em PCA
+# <a name="pca-based-anomaly-detection-module"></a>Módulo de deteção de anomalias PCA-Based
 
-Este artigo descreve como utilizar o módulo de deteção de anomalias baseada em PCA no designer Azure Machine Learning, para criar um modelo de deteção de anomalias baseado na análise principal de componentes (PCA).
+Este artigo descreve como usar o módulo de deteção de anomalias PCA-Based no designer Azure Machine Learning, para criar um modelo de deteção de anomalias baseado na análise principal de componentes (PCA).
 
 Este módulo ajuda-o a construir um modelo em cenários onde é fácil obter dados de treino de uma classe, como transações válidas, mas difícil de obter amostras suficientes das anomalias direcionadas. 
 
-Por exemplo, para detetar transações fraudulentas, muitas vezes não tem exemplos suficientes de fraude para treinar. Mas pode ter muitos exemplos de boas transações. O módulo de deteção de anomalias baseada em PCA resolve o problema analisando as funcionalidades disponíveis para determinar o que constitui uma classe "normal". O módulo aplica então métricas de distância para identificar casos que representam anomalias. Esta abordagem permite-lhe treinar um modelo utilizando dados desequilibrados existentes.
+Por exemplo, para detetar transações fraudulentas, muitas vezes não tem exemplos suficientes de fraude para treinar. Mas pode ter muitos exemplos de boas transações. O módulo de deteção de anomalias PCA-Based resolve o problema analisando as funcionalidades disponíveis para determinar o que constitui uma classe "normal". O módulo aplica então métricas de distância para identificar casos que representam anomalias. Esta abordagem permite-lhe treinar um modelo utilizando dados desequilibrados existentes.
 
 ## <a name="more-about-principal-component-analysis"></a>Mais sobre a análise de componentes principais
 
@@ -38,7 +38,7 @@ Para obter mais informações sobre o funcionamento do APC e sobre a implementa�
 
 - [Estrutura de descoberta com aleatoriedade: Algoritmos Probabilísticos para a Construção de Decomposições Descosagens De MatrizEs Aproximadas](http://users.cms.caltech.edu/~jtropp/papers/HMT11-Finding-Structure-SIREV.pdf) (download pdf), por Halko, Martinsson e Tropp
 
-## <a name="how-to-configure-pca-based-anomaly-detection"></a>Como configurar a deteção de anomalias baseadas em PCA
+## <a name="how-to-configure-pca-based-anomaly-detection"></a>Como configurar a deteção de anomalias PCA-Based
 
 1. Adicione o módulo **de deteção de anomalias baseada em PCA** ao seu pipeline no designer. Pode encontrar este módulo na categoria **deteção de anomalias.**
 
@@ -73,7 +73,7 @@ Para obter mais informações sobre o funcionamento do APC e sobre a implementa�
 
 7. Envie o oleoduto.
 
-## <a name="results"></a>Resultados
+## <a name="results"></a>Results
 
 Quando o treino estiver completo, pode salvar o modelo treinado. Ou pode ligá-lo ao módulo ['Modelo de Pontuação'](score-model.md) para prever pontuações de anomalias.
 

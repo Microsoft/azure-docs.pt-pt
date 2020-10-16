@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 426220f38e6ddfaaf8b24bf4f7d34473d881ae56
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86245607"
 ---
 # <a name="sfctl-service"></a>sfctl service
@@ -22,12 +22,12 @@ Criar, eliminar e gerir serviços, tipos de serviço e pacotes de serviço.
 | nome de aplicativo | Obtém o nome do pedido de Serviço Fabric para um serviço. |
 | lista de pacotes de código | Obtém a lista de pacotes de código implantados num nó de Tecido de Serviço. |
 | criar | Cria o serviço de tecido de serviço especificado. |
-| eliminação | Elimina um serviço de tecido de serviço existente. |
+| delete | Elimina um serviço de tecido de serviço existente. |
 | implantado tipo | Obtém a informação sobre um tipo de serviço especificado da aplicação implantada num nó num cluster de Tecido de Serviço. |
 | implantada lista de tipos | Obtém a lista que contém as informações sobre tipos de serviço das aplicações implantadas num nó num cluster de Tecido de Serviço. |
 | descrição | Obtém a descrição de um serviço de tecido de serviço existente. |
 | obter-contentores-logs | Obtém os registos dos contentores para o contentor colocados num nó de tecido de serviço. |
-| saúde | Obtém a saúde do serviço de tecido de serviço especificado. |
+| Saúde | Obtém a saúde do serviço de tecido de serviço especificado. |
 | informações | Obtém a informação sobre o serviço específico pertencente à aplicação Service Fabric. |
 | lista | Obtém a informação sobre todos os serviços pertencentes à aplicação especificada pelo ID da aplicação. |
 | manifest | Obtém o manifesto descrevendo um tipo de serviço. |

@@ -7,10 +7,10 @@ ms.date: 12/03/2018
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: 693e552c8743b435fac6fda9d5ab023be5d9adeb
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86221141"
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>Sync conteúdo de uma pasta de nuvem para Azure App Service

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: timlt
 ms.openlocfilehash: 64f91263154f7e65238acdcef9d97e5f2d09aad5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87006029"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Série StorSimple 8000: uma solução híbrida de armazenamento em nuvem
@@ -210,10 +210,10 @@ Um resumo das cargas de trabalho StorSimple suportadas é tabulado abaixo.
 
 | Cenário | Carga de trabalho | Suportado | Restrições | Versão |
 | --- | --- | --- | --- | --- |
-| Colaboração |Partilha de ficheiros |Yes | |Todas as versões |
-| Colaboração |Partilha de ficheiros distribuídos |Yes | |Todas as versões |
+| Colaboração |Partilha de ficheiros |Sim | |Todas as versões |
+| Colaboração |Partilha de ficheiros distribuídos |Sim | |Todas as versões |
 | Colaboração |SharePoint |Sim* |Suportado apenas com volumes fixados localmente |Atualização 2 e mais tarde |
-| Arquivo |Arquivo simples de ficheiros |Yes | |Todas as versões |
+| Arquivo |Arquivo simples de ficheiros |Sim | |Todas as versões |
 | Virtualização |Máquinas virtuais |Sim* |Suportado apenas com volumes fixados localmente |Atualização 2 e mais tarde |
 | Base de Dados |SQL |Sim* |Suportado apenas com volumes fixados localmente |Atualização 2 e mais tarde |
 | Videovigilância |Videovigilância |Sim* |Suportado quando o dispositivo StorSimple é dedicado apenas a esta carga de trabalho |Atualização 2 e mais tarde |
@@ -237,7 +237,7 @@ Segue-se uma lista dos componentes de infraestrutura suportados StorSimple.
 
 | Cenário | Carga de trabalho | Suportado | Restrições | Versão |
 | --- | --- | --- | --- | --- |
-| Geral |ExpressRoute |Yes | |Todas as versões |
+| Geral |ExpressRoute |Sim | |Todas as versões |
 | Geral |DataCore FC |Sim* |Suportado com DataCore SANsymphony |Todas as versões |
 | Geral |DFSR |Sim* |Suportado apenas com volumes fixados localmente |Todas as versões |
 | Geral |Indexação |Sim* |Para volumes hierárquicos, apenas a indexação de metadados é suportada (sem dados).<br>Para volumes fixados localmente, a indexação completa é suportada. |Todas as versões |

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: 78043e3d95a94d0e9be810164b31ef031234d620
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91399606"
 ---
 # <a name="azure-advanced-threat-detection"></a>Deteção avançada de ameaças do Azure
@@ -365,7 +365,7 @@ Ao recolher dados destas fontes, a Cloud App Security executa uma análise sofis
 
 ## <a name="third-party-advanced-threat-detection-capabilities-through-the-azure-marketplace"></a>Capacidades de deteção de ameaças avançadas de terceiros através do Azure Marketplace
 
-### <a name="web-application-firewall"></a>Firewall de Aplicações Web
+### <a name="web-application-firewall"></a>Firewall de Aplicação Web
 
 Web Application Firewall inspeciona o tráfego web de entrada e bloqueia injeções DE SQL, scripts de sites cruzados, uploads de malware, ataques DDoS de aplicações e outros ataques direcionados para as suas aplicações web. Também inspeciona as respostas dos servidores web de back-end para a prevenção da perda de dados (DLP). O motor integrado de controlo de acesso permite aos administradores criar políticas de controlo de acesso granular para a autenticação, autorização e contabilidade (AAA), o que confere às organizações uma forte autenticação e controlo do utilizador.
 

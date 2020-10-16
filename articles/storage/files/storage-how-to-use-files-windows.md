@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: c8a1d1c0f8de742bdafa130cce6927a472efd8f7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91329351"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Utilizar uma partilha de ficheiros do Azure com o Windows
@@ -24,15 +24,15 @@ Pode utilizar as partilhas de ficheiros do Azure numa instalação do Windows qu
 
 | Versão do Windows        | Versão do SMB | Montável em VM do Azure | Montado no local |
 |------------------------|-------------|-----------------------|-----------------------|
-| Windows Server 2019 | SMB 3.0 | Yes | Yes |
-| Windows 10<sup>1</sup> | SMB 3.0 | Yes | Yes |
-| Windows Server semi-anual canal<sup>2</sup> | SMB 3.0 | Yes | Yes |
-| Windows Server 2016 | SMB 3.0 | Yes | Yes |
-| Windows 8.1 | SMB 3.0 | Yes | Yes |
-| Windows Server 2012 R2 | SMB 3.0 | Yes | Yes |
-| Windows Server 2012 | SMB 3.0 | Yes | Yes |
-| Windows 7<sup>3</sup> | SMB 2.1 | Yes | No |
-| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Yes | No |
+| Windows Server 2019 | SMB 3.0 | Sim | Sim |
+| Windows 10<sup>1</sup> | SMB 3.0 | Sim | Sim |
+| Windows Server semi-anual canal<sup>2</sup> | SMB 3.0 | Sim | Sim |
+| Windows Server 2016 | SMB 3.0 | Sim | Sim |
+| Windows 8.1 | SMB 3.0 | Sim | Sim |
+| Windows Server 2012 R2 | SMB 3.0 | Sim | Sim |
+| Windows Server 2012 | SMB 3.0 | Sim | Sim |
+| Windows 7<sup>3</sup> | SMB 2.1 | Sim | Não |
+| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Sim | Não |
 
 <sup>1</sup> Windows 10, versões 1507, 1607, 1803, 1809, 1903, 1909 e 2004.  
 <sup>2</sup> Windows Server, versões 1809, 1903, 1909, 2004.  
@@ -67,12 +67,12 @@ Para obter este roteiro:
 
 1. Selecione **Ligar**.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/file-share-connect-icon.png" alt-text="Screenshot do ícone de ligação para a sua partilha de ficheiros.":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/file-share-connect-icon.png" alt-text="exemplo":::
 
 1. Selecione a letra de unidade para montar a partilha para.
 1. Copie o guião fornecido.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Texto de exemplo":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="exemplo":::
 
 1. Cole o guião numa concha no anfitrião para onde gostaria de montar a partilha de ficheiros e executá-lo.
 

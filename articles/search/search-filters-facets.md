@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 9360fc000e01e1c52561cbaa3e2f2968e67e2fa2
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91740875"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-cognitive-search"></a>Como construir um filtro de faceta na Pesquisa Cognitiva Azure 
@@ -123,7 +123,7 @@ Um dos desafios com a navegação faceta na Azure Cognitive Search é que as fac
 
 Embora este seja um caso de uso comum, não é algo que a estrutura de navegação faceta fornece atualmente fora da caixa. Os desenvolvedores que querem facetas estáticas normalmente funcionam em torno da limitação, emitindo duas consultas filtradas: uma com o cuidado dos resultados, a outra usada para criar uma lista estática de facetas para fins de navegação.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 + [Filtros em Pesquisa Cognitiva Azure](search-filters.md)
 + [Criar Índice REST API](/rest/api/searchservice/create-index)

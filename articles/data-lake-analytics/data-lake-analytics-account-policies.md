@@ -8,10 +8,10 @@ ms.assetid: 0a6102d1-7554-4df2-b487-4dae9a7287b6
 ms.topic: how-to
 ms.date: 04/30/2018
 ms.openlocfilehash: cf64424d1d422e599585b76fc068c940f9311b05
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87127711"
 ---
 # <a name="manage-azure-data-lake-analytics-using-account-policies"></a>Gerir a Azure Data Lake Analytics usando políticas de conta
@@ -25,7 +25,7 @@ Para alterar o número de AUs para a sua conta Data Lake Analytics:
 1. No portal Azure, aceda à sua conta Data Lake Analytics.
 2. Clique **em Limites e políticas.**
 3. Em **AUs máximos,** mova o slider para selecionar um valor, ou introduza o valor na caixa de texto. 
-4. Clique em **Save** (Guardar).
+4. Clique em **Guardar**.
 
    > [!NOTE]
    > Se precisar de mais do que as AUs predefinidos (250) no portal, clique em **Help+Support** para submeter um pedido de suporte. O número de AUs disponíveis na sua conta Data Lake Analytics pode ser aumentado.
@@ -38,7 +38,7 @@ Para alterar o número de postos de trabalho que podem ser executados simultanea
 1. No portal Azure, aceda à sua conta Data Lake Analytics.
 2. Clique **em Limites e políticas.**
 3. Em **Número Máximo de Trabalhos em Execução,** mova o slider para selecionar um valor ou introduza o valor na caixa de texto. 
-4. Clique em **Save** (Guardar).
+4. Clique em **Guardar**.
 
    > [!NOTE]
    > Se precisar de executar mais do que o número de empregos predefinido (20) no portal, clique em **Help+Support** para submeter um pedido de apoio. O número de empregos que podem ser executados simultaneamente na sua conta Data Lake Analytics pode ser aumentado.
@@ -51,7 +51,7 @@ Para alterar quanto tempo para manter metadados e recursos de emprego:
 1. No portal Azure, aceda à sua conta Data Lake Analytics.
 2. Clique **em Limites e políticas.**
 3. Em **Dias para Reter Consultas de Trabalho,** mova o slider para selecionar um valor, ou introduza o valor na caixa de texto.  
-4. Clique em **Save** (Guardar).
+4. Clique em **Guardar**.
 
 ## <a name="job-level-policies"></a>Políticas de nível de emprego
 

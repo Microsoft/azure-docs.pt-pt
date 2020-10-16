@@ -11,10 +11,10 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 04/14/2018
 ms.openlocfilehash: 0fb19524079f84e92e1ddbc98a61917026492663
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89469903"
 ---
 # <a name="use-managed-identities-for-azure-resources-in-azure-cloud-shell"></a>Utilize identidades geridas para recursos Azure em Azure Cloud Shell
@@ -45,6 +45,6 @@ Se cache o token no seu código, deve estar preparado para lidar com cenários e
 
 Para lidar com erros simbólicos, visite a [página msi sobre os tokens de acesso MSI](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#error-handling).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Saiba mais sobre a MSI](../active-directory/managed-identities-azure-resources/overview.md)  
 [Aquisição de fichas de acesso a MSI VMs](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)

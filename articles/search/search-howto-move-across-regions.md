@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 09/10/2020
 ms.openlocfilehash: 774b605859df41e0b71ee82c38a6b08bdf5b9c49
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91629816"
 ---
 # <a name="move-your-azure-cognitive-search-service-to-another-azure-region"></a>Mude o seu serviço de Pesquisa Cognitiva Azure para outra região do Azure

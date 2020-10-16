@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
 ms.openlocfilehash: 51439edd1d8c7094a5b857821f632ace9e2dea53
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91442771"
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Credenciais utilizadas para aceder à biblioteca de clientes elastic Database
@@ -73,7 +73,7 @@ Neste exemplo, **o SMMUserConnectionString** detém a cadeia de ligação para a
 
 Tal como acontece com as credenciais de administração, não utilize valores sob a forma de " username@server ". Em vez disso, basta usar "username".  Note também que a cadeia de ligação não contém um nome de servidor e nome de base de dados. Isto porque a chamada **OpenConnectionForKey** direciona automaticamente a ligação para o fragmento correto com base na tecla. Assim, o nome da base de dados e o nome do servidor não são fornecidos.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 [Gerir bases de dados e inícios de sessão na Base de Dados SQL do Azure](logins-create-manage.md)
 

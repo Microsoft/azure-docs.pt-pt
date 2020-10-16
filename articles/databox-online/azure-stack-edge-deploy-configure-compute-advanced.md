@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro for advanced deployment flow so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: f62eec29aebdcc98569134e0c3b75457467bc014
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: bcad165f5d0ba2cf652cff35091e05b4414193c8
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903681"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951796"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro-for-advanced-deployment-flow"></a>Tutorial: Transforme dados com Azure Stack Edge Pro para fluxo avançado de implementação
 
@@ -31,7 +31,7 @@ O cálculo pode ser configurado para um fluxo de implementação simples ou avan
 
 Este procedimento pode demorar cerca de 20 a 30 minutos para ser concluído.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Configure computação
@@ -58,21 +58,21 @@ Para configurar o cálculo no seu Azure Stack Edge Pro, irá criar um recurso Io
 
 2. No azulejo **computacional Configure Edge,** selecione **Configure compute**.
 
-    ![Começar com o computo](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-2.png)
+    ![Começar com o compute 2](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-2.png)
 
 3. Na lâmina de **computação Configure Edge,** insira o seguinte:
 
    
     |Campo  |Valor  |
     |---------|---------|
-    |Hub IoT     | Escolha entre **Novo** ou **Já.** <br> Por predefinição, é utilizado um escalão Standard (S1) para criar um recurso IoT. Para utilizar um recurso IoT de escalão gratuito, crie um e, em seguida, selecione o recurso existente. <br> Em cada caso, o recurso IoT Hub utiliza o mesmo grupo de subscrição e recursos que é utilizado pelo recurso Azure Stack Edge.     |
-    |Name     |Insira um nome para o seu recurso IoT Hub.         |
+    |IoT Hub     | Escolha entre **Novo** ou **Já.** <br> Por predefinição, é utilizado um escalão Standard (S1) para criar um recurso IoT. Para utilizar um recurso IoT de escalão gratuito, crie um e, em seguida, selecione o recurso existente. <br> Em cada caso, o recurso IoT Hub utiliza o mesmo grupo de subscrição e recursos que é utilizado pelo recurso Azure Stack Edge.     |
+    |Nome     |Insira um nome para o seu recurso IoT Hub.         |
 
-    ![Começar com o computo](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-3.png)
+    ![Começar com o computo 3](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-3.png)
 
 4. Selecione **Criar**. A criação de recursos IoT Hub demora alguns minutos. Após a criação do recurso IoT Hub, as atualizações de azulejos **do Configure Edge computamam** para mostrar a configuração do cálculo. Para confirmar que a função de computação Edge foi configurada, selecione **Ver configurar** no azulejo **computacional Configure.**
     
-    ![Começar com o computo](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-4.png)
+    ![Começar com o compute 4](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-4.png)
 
     Quando a função de computação Edge é configurada no dispositivo Edge, cria dois dispositivos: um dispositivo IoT e um dispositivo IoT Edge. Ambos os dispositivos podem ser vistos no recurso IoT Hub. Um IoT Edge Runtime também está a ser executado neste dispositivo IoT Edge.
 
@@ -136,17 +136,17 @@ Para a implementação avançada neste tutorial, você precisará de duas açõe
     |Tipo de acionador     | Selecione o gatilho **do ficheiro.** Um acionador de ficheiro é acionado sempre que ocorre um evento de ficheiro, como quando um ficheiro é gravado na partilha de entrada. Um gatilho programado, por outro lado, dispara com base num horário definido por si. Para este exemplo, precisamos de um gatilho.    |
     |Partilha de entrada     | Selecione uma partilha de entrada. A participação local edge é a parte de entrada neste caso. O módulo utilizado aqui move ficheiros da partilha local edge para uma partilha edge onde são enviados para a nuvem.        |
 
-    ![Adicionar acionador](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-2.png)
+    ![Adicionar gatilho 2](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-2.png)
 
 3. É notificado depois de o gatilho ser criado. A lista de gatilhos é atualizada para exibir o gatilho recém-criado. Selecione o gatilho que acabou de criar.
 
-    ![Adicionar acionador](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-3.png)
+    ![Adicionar gatilho 3](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-3.png)
 
 4. Copie e guarde a rota da amostra. Irá modificar esta rota de amostra e usá-la mais tarde no IoT Hub.
 
     `"sampleroute": "FROM /* WHERE topic = 'mydbesmbedgelocalshare1' INTO BrokeredEndpoint(\"/modules/modulename/inputs/input1\")"`
 
-    ![Adicionar acionador](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-4.png)
+    ![Adicionar gatilho 4](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-4.png)
 
 ## <a name="add-a-module"></a>Adicionar um módulo
 
@@ -213,7 +213,7 @@ Nesta secção, adicione um módulo personalizado ao dispositivo IoT Edge que cr
  
     4. Se necessário, configurar as definições avançadas de tempo de execução do Edge e, em seguida, clicar em **Seguinte**.
 
-        ![Adicionar módulo personalizado](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-6.png)
+        ![Adicionar módulo personalizado 2](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-6.png)
  
 5. Em **Especificar Rotas,** definir rotas entre módulos.  
    
@@ -229,11 +229,11 @@ Nesta secção, adicione um módulo personalizado ao dispositivo IoT Edge que cr
 
 6. Na **implementação de Revisão,** reveja todas as definições e, em seguida, selecione **Submeter** para submeter o módulo para implementação.
 
-   ![A página de módulos de conjunto](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-9.png)
+   ![Os módulos de conjunto página 2](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-9.png)
  
     Esta ação inicia a implantação do módulo. Após a colocação estar concluída, o estado de **funcionamento** do módulo está **em funcionamento**.
 
-    ![Adicionar módulo personalizado](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-10.png)
+    ![Adicionar módulo personalizado 3](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-10.png)
 
 ## <a name="verify-data-transform-transfer"></a>Verificar a transformação de dados, a transferência
 
@@ -247,15 +247,15 @@ Tome as seguintes medidas para verificar a transformação de dados e transferê
  
 1. Adicione os dados à partilha local.
 
-   ![Verificar a transformação dos dados](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-3.png)
+   ![Verificar a transformação de dados 2](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-3.png)
  
     Os dados são movidos para a partilha na cloud.
 
-    ![Verificar a transformação dos dados](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-4.png)  
+    ![Verificar a transformação de dados 3](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-4.png)  
 
     Os dados são então empurrados da parte da nuvem para a conta de armazenamento. Para ver os dados, aceda à sua conta de armazenamento e, em seguida, selecione **Storage Explorer**. Pode ver os dados enviados na sua conta de armazenamento.
 
-    ![Verificar a transformação dos dados](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-5.png)
+    ![Verificar a transformação de dados 4](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-5.png)
  
 Concluiu o processo de validação.
 

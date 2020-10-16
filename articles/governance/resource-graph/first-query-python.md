@@ -1,15 +1,15 @@
 ---
 title: 'Quickstart: A sua primeira consulta python'
 description: Neste arranque rápido, siga os passos para ativar a biblioteca de Gráficos de Recurso para Python e executar a sua primeira consulta.
-ms.date: 07/15/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: a92eda343e8c0c38b9c9ebebb16d5c102d1b3f19
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d7ffa8aee7087e77ff14808327251ef495e88f6f
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87873675"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057404"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-python"></a>Quickstart: Executar a sua primeira consulta de Gráfico de Recurso usando Python
 

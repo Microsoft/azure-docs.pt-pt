@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/24/2020
 ms.author: damaerte
 ms.openlocfilehash: 16345ae479be70ffb1eaae95196a43ec99ca1586
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89470141"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Persistir ficheiros em Azure Cloud Shell
@@ -167,7 +167,7 @@ O `Dismount-CloudDrive` cmdlet desmonta uma parte de ficheiro Azure da conta de 
 
 Nota: Se precisar de definir uma função num ficheiro e chamá-la a partir dos cmdlets PowerShell, então o operador de pontos deve ser incluído. Por exemplo:. .\MyFunctions.ps1
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Cloud Shell Quickstart](quickstart.md) <br>
 [Saiba mais sobre o armazenamento de Ficheiros Microsoft Azure](../storage/files/storage-files-introduction.md) <br>
 [Saiba mais sobre etiquetas de armazenamento](../azure-resource-manager/management/tag-resources.md) <br>

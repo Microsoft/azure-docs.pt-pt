@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: b583e3d86ba193a92080f2da9cc0b16d07c5a993
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 46bb3b1e450312a2c02fec3f98e2b3d7381b53d2
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91447174"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946020"
 ---
 # <a name="quickstart-setting-up-azure-security-center"></a>Quickstart: Criação do Centro de Segurança Azure
 
@@ -33,7 +33,7 @@ Para começar a utilizar o Centro de Segurança, tem de possuir uma subscrição
 Para ativar o Azure Defender numa subscrição, deve ser-lhe atribuída a função de Proprietário de Assinatura, Colaborador de Assinatura ou Administrador de Segurança.
 
 
-## <a name="open-security-center-for-the-first-time"></a>Centro de Segurança Aberto pela primeira vez
+## <a name="enable-security-center-on-your-azure-subscription"></a>Ativar o Centro de Segurança na sua assinatura Azure
 
 1. Inicie sessão no [portal do Azure](https://azure.microsoft.com/features/azure-portal/).
 
@@ -54,6 +54,8 @@ Poucos minutos depois de iniciar o Centro de Segurança pela primeira vez, poder
 
 Para tirar o máximo partido do Security Center, é necessário completar os passos abaixo para ativar o Azure Defender e instalar o agente Log Analytics.
 
+> [!TIP]
+> Para ativar o Centro de Segurança em todas as subscrições dentro de um grupo de gestão, consulte [o Enable Security Center em várias subscrições do Azure](onboard-management-group.md).
 
 ## <a name="enable-azure-defender"></a>Ativar o Azure Defender
 
@@ -94,7 +96,7 @@ Com o agente implantado nas suas máquinas, o Security Center pode fornecer reco
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste quickstart, permitiu que o Azure Defender e fornecesse o agente Log Analytics para uma gestão unificada de segurança e proteção contra ameaças através das suas cargas de trabalho em nuvem híbrida. Para obter mais informações sobre como utilizar o Centro de Segurança, avance para o início rápido para inclusão de computadores Windows que estão no local e noutras clouds.
 
 > [!div class="nextstepaction"]

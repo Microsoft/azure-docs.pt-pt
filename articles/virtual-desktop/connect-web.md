@@ -7,10 +7,10 @@ ms.date: 09/24/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: c8a4b22966c3d4db268e212bb3f2d1bbb78fee74
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89400641"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-web-client"></a>Conecte-se ao Windows Virtual Desktop com o cliente web
@@ -68,6 +68,6 @@ O cliente web suprimirá a janela IME local quando estiver focado na sessão rem
 >[!NOTE]
 >Se o pacote de idiomas não for instalado na máquina virtual do anfitrião, a sessão remota será padrão para o teclado inglês (Estados Unidos).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre como usar o cliente web, confira [Consulte o cliente web.](/windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client)

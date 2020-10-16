@@ -1,5 +1,5 @@
 ---
-title: PUT apela à criação ou atualização de operações
+title: Chamadas PUT para operações de criação ou atualização
 description: PUT apela à criação ou atualização de operações sobre recursos computacional
 author: mimckitt
 ms.author: mimckitt
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.date: 08/4/2020
 ms.custom: avverma
-ms.openlocfilehash: c57025346a9f623e3fe5536b36820ea62f355cc0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d6ee4179dce905d637e933743ade7452a2484077
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91347500"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978565"
 ---
 # <a name="put-calls-for-creation-or-updates-on-compute-resources"></a>PUT apela à criação ou atualizações sobre recursos computacional
 
@@ -66,5 +66,4 @@ Isto é importante no envio de operações de atualização para um recurso com 
 `
 
 ## <a name="next-steps"></a>Passos Seguintes
-Saiba mais sobre Criar ou Atualizar chamadas para [máquinas virtuais](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate) e [conjuntos de escala de máquinas virtuais](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)
-
+Saiba mais sobre Criar ou Atualizar chamadas para [máquinas virtuais](/rest/api/compute/virtualmachines/createorupdate) e [conjuntos de escala de máquinas virtuais](/rest/api/compute/virtualmachinescalesets/createorupdate)

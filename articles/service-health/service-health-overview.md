@@ -4,10 +4,10 @@ description: Saiba como o Service Health lhe fornece um dashboard personalizáve
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.openlocfilehash: 8246b0ab93b95c13858e4ff96d0f24b255d05e55
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90967797"
 ---
 # <a name="service-health-overview"></a>Visão geral da saúde do serviço

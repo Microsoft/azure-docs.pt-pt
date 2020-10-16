@@ -3,12 +3,12 @@ title: Documentação de orientação e melhores práticas
 description: Descubra as melhores práticas e orientação para apoiar a nuvem e a carga de trabalho no local para a nuvem
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: f999c568dda6eae60f3060cc4672eccaf06541c1
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 522f7d2502a49b912f34f392c52e5046eba8d01f
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985520"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092312"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Nuvem de backup e cargas de trabalho no local para cloud
 
@@ -42,13 +42,13 @@ O Azure Backup permite a proteção de dados para várias cargas de trabalho (no
 
 * **Proteção maliciosa de exclusão –** Proteja contra quaisquer tentativas acidentais e maliciosas de eliminar as suas cópias de segurança através de uma eliminação suave das cópias de segurança. Os dados de backup eliminados são armazenados gratuitamente durante 14 dias e permitem a sua recuperação deste estado.
 
-* **Segurança encriptada segura...** O Azure Backup garante que os seus dados de backup são armazenados de forma segura, aproveitando as capacidades de segurança incorporadas da plataforma Azure, como o RBAC e o Encryption.
+* **Segurança encriptada segura...** O Azure Backup garante que os seus dados de backup são armazenados de forma segura, aproveitando as capacidades de segurança incorporadas da plataforma Azure como o Azure RBAC e a Encriptação.
 
 * **Gestão do ciclo de vida de dados de backup -** O Azure Backup limpa automaticamente os dados de backup mais antigos para cumprir as políticas de retenção. Também pode nivelar os seus dados do armazenamento operacional para o armazenamento do cofre.
 
 ### <a name="management-plane"></a>Plano de gestão
 
-* **Controlo de acessos** – Os cofres (Serviços de Recuperação e cofres de backup) fornecem as capacidades de gestão e são acessíveis através do portal Azure, Backup Center, Dashboards Vault, SDK, CLI e até MESMO REST APIs. É também um limite RBAC, proporcionando-lhe a opção de restringir o acesso a backups apenas para administradores de backup autorizados.
+* **Controlo de acessos** – Os cofres (Serviços de Recuperação e cofres de backup) fornecem as capacidades de gestão e são acessíveis através do portal Azure, Backup Center, Dashboards Vault, SDK, CLI e até MESMO REST APIs. É também um limite Azure RBAC, proporcionando-lhe a opção de restringir o acesso a backups apenas para administradores de backup autorizados.
 
 * **Gestão de** políticas – As políticas de backup do Azure dentro de cada cofre definem quando as cópias de segurança devem ser ativadas e quanto tempo precisam de ser mantidas. Também pode gerir estas políticas e aplicá-las em vários itens.
 

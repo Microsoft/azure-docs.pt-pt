@@ -15,10 +15,10 @@ ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8f520141d36726e94dc8d49d7e5aa95bb35d5484
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85956241"
 ---
 # <a name="create-collections-on-the-my-apps-portal"></a>Criar coleções no portal As Minhas Aplicações
@@ -57,15 +57,15 @@ Para criar uma coleção, você deve ter uma licença Azure AD Premium P1 ou P2.
 
    ![Nova página de coleção](media/acces-panel-collections/new-collection.png)
 
-5. Selecione o separador **Aplicações.** Selecione **+ Adicionar a aplicação**e, em seguida, na página **'Adicionar candidaturas',** selecione todas as aplicações que pretende adicionar à recolha ou utilize a caixa **de Busca** para encontrar aplicações.
+5. Selecione o separador **Aplicações.** Selecione **+ Adicionar a aplicação**, e, em seguida, na página **de aplicações Adicionar,** selecione todas as aplicações que pretende adicionar à coleção ou use a caixa **de Busca** para encontrar aplicações.
 
    ![Adicione uma aplicação à coleção](media/acces-panel-collections/add-applications.png)
 
 6. Quando terminar de adicionar aplicações, **selecione Adicionar**. A lista de candidaturas selecionadas aparece. Pode utilizar as setas para cima para alterar a ordem das aplicações na lista. Para mover uma aplicação para baixo ou para a eliminar da coleção, selecione o menu **Mais** **(...**).
 
-7. Selecione o separador **Proprietários.** Selecione **+ Adicionar utilizadores e grupos**, e, em seguida, na página **'Adicionar utilizadores e grupos',** selecione os utilizadores ou grupos a que pretende atribuir a propriedade. Quando terminar de selecionar utilizadores e grupos, escolha **Select**.
+7. Selecione o **separador Proprietários.** **Selecione + Adicionar utilizadores e grupos**, e, em seguida, na página **'Adicionar' utilizadores e grupos,** selecione os utilizadores ou grupos a que pretende atribuir a propriedade. Quando terminar de selecionar utilizadores e grupos, escolha **Select**.
 
-9. Selecione o separador **Utilizadores e grupos.** Selecione **+ Adicionar utilizadores e grupos**, e, em seguida, na página **'Adicionar utilizadores e grupos',** selecione os utilizadores ou grupos a que pretende atribuir a recolha. Ou use a caixa **de Pesquisa** para encontrar utilizadores ou grupos. Quando terminar de selecionar utilizadores e grupos, escolha **Select**.
+9. Selecione o **separador Utilizadores e grupos.** **Selecione + Adicionar utilizadores e grupos**, e, em seguida, na página **'Adicionar' utilizadores e grupos,** selecione os utilizadores ou grupos a que pretende atribuir a recolha. Ou use a caixa **de Pesquisa** para encontrar utilizadores ou grupos. Quando terminar de selecionar utilizadores e grupos, escolha **Select**.
 
    ![Adicionar utilizadores e grupos](media/acces-panel-collections/add-users-and-groups.png)
 
@@ -95,5 +95,5 @@ Caso necessite de submeter um pedido de apoio para um problema com a página da 
 
 * Para problemas com a página **do Office "A minha conta",** abra um pedido de suporte dentro do centro de administração microsoft 365. Vá ao **Microsoft 365 admin center**  >  **Support**. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Experiências de utilizador final para aplicações no Azure Ative Directory](end-user-experiences.md)

@@ -12,10 +12,10 @@ ms.date: 12/27/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.openlocfilehash: 3d95d2551f8e078f4252a19dc850345793c040d8
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89420460"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>Gerir o consentimento dos pedidos e avaliar os pedidos de consentimento
@@ -115,7 +115,7 @@ Para desativar todas as futuras operações de consentimento do utilizador em to
 5.  Selecione **Definições do utilizador**.
 6.  Desativar todas as futuras operações de consentimento do utilizador, definindo os **Utilizadores, pode permitir que as aplicações acedam aos seus dados** para **alternar** para No e clicar no botão **Guardar.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Cinco passos para garantir a sua infraestrutura de identidade](https://docs.microsoft.com/azure/security/fundamentals/steps-secure-identity#before-you-begin-protect-privileged-accounts-with-mfa)
 * [Configure o fluxo de trabalho de consentimento administrativo](configure-admin-consent-workflow.md)
 * [Configurar a forma como os utilizadores finais concedem consentimento às aplicações](configure-user-consent.md)

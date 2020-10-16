@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.date: 08/06/2019
 ms.author: alkohli
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8acbc7eec7581adcf0d73ffcd4bb2aa7ab2dd572
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96a6692524eca3a2845d648ab3df2932d00ce823
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883487"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951150"
 ---
-# <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge-pro"></a>Desenvolver um módulo C# IoT Edge para mover ficheiros no Azure Stack Edge Pro
+# <a name="develop-a-c-iot-edge-module-to-move-files-with-azure-stack-edge-pro"></a>Desenvolver um módulo C# IoT Edge para mover ficheiros com Azure Stack Edge Pro
 
 Este artigo percorre a forma de criar um módulo IoT Edge para implantação com o seu dispositivo Azure Stack Edge Pro. Azure Stack Edge Pro é uma solução de armazenamento que lhe permite processar dados e enviá-lo para o Azure.
 
@@ -259,7 +259,7 @@ Na secção anterior, criou uma solução IoT Edge e adicionou código ao FileCo
  
 3. Uma vez fornecidas as credenciais, pode empurrar a imagem do módulo para o registo do seu contentor Azure. No VS Code Explorer, clique commodule.jsà direita ** no** ficheiro e selecione **a solução Build and Push IoT Edge**.
 
-    ![Construa e empurre a solução IoT Edge](./media/azure-stack-edge-create-iot-edge-module/build-iot-edge-solution-2.png)
+    ![Construir e empurrar a solução IoT Edge 2](./media/azure-stack-edge-create-iot-edge-module/build-iot-edge-solution-2.png)
  
     Quando diz ao Visual Studio Code para construir a sua solução, executa dois comandos no terminal integrado: estivador e estivador. Estes dois comandos criam o código, colocam o CSharpModule.dll em contentores e enviam-no para o registo de contentor que especificou quando inicializou a solução.
 

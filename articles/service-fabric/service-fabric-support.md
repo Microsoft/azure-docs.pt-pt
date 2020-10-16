@@ -6,10 +6,10 @@ ms.topic: troubleshooting
 ms.date: 8/24/2018
 ms.author: pkc
 ms.openlocfilehash: ae49a59c2629d9f9461d298ada555d314c0c9f22
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86256973"
 ---
 # <a name="azure-service-fabric-support-options"></a>Opções de suporte ao tecido de serviço Azure
@@ -45,7 +45,7 @@ Saiba mais sobre:
 
 Criámos um repo GitHub para reportar problemas de Tecido de Serviço.  Estamos também a monitorizar ativamente os seguintes fóruns.
 
-### <a name="github-repo"></a>Repositório do GitHub 
+### <a name="github-repo"></a>GitHub repo 
 
 Reportar problemas de tecido de serviço Azure sobre [questões de tecido de serviço git repo](https://github.com/Azure/service-fabric-issues). Este repo destina-se a reportar e rastrear problemas com a Azure Service Fabric e a fazer pequenos pedidos de funcionalidades. **Não o utilize para reportar problemas no local.**
 

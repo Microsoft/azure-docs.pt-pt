@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/13/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: f4687a98bfb58db8ed5e8a853fa0db2207f435e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3723bfdad91fcbcb8c135c29c49d5eb9237c5b86
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87419653"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966479"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Tutorial: Permitir que a palavra-passe de autosserviço do Azure Ative Directory reponha a gravação para um ambiente no local
 
@@ -29,7 +29,7 @@ A writeback de palavra-passe pode ser usada para sincronizar alterações de pal
 >
 > Se a sua equipa de TI não tiver ativado a capacidade de redefinir a sua própria palavra-passe, contacte o seu helpdesk para obter assistência adicional.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Configure as permissões necessárias para a writeback de palavra-passe
@@ -127,7 +127,7 @@ Para ativar a gravação de palavra-passe em SSPR, complete os seguintes passos:
 
 1. Quando estiver pronto, **selecione Guardar**.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se já não pretender utilizar a funcionalidade de writeback SSPR que configuraste como parte deste tutorial, complete os seguintes passos:
 

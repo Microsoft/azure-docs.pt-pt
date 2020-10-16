@@ -12,10 +12,10 @@ ms.date: 07/31/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 5528607b0559dad246262748c83c9d359ee2144e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85385744"
 ---
 # <a name="migrate-an-owin-based-web-api-to-b2clogincom"></a>Migrar uma API web baseada em OWIN para b2clogin.com
@@ -107,7 +107,7 @@ Nesta secção, atualiza o código para especificar que ambos os pontos finais d
     };
     ```
 
-`TokenValidationParameters`é fornecido por MSAL.NET e é consumido pelo middleware OWIN na próxima secção de código em *Startup.Auth.cs*. Com vários emitentes válidos especificados, o pipeline de aplicação OWIN é dado conhecimento de que ambos os pontos finais simbólicos são emitentes válidos.
+`TokenValidationParameters` é fornecido por MSAL.NET e é consumido pelo middleware OWIN na próxima secção de código em *Startup.Auth.cs*. Com vários emitentes válidos especificados, o pipeline de aplicação OWIN é dado conhecimento de que ambos os pontos finais simbólicos são emitentes válidos.
 
 ```csharp
 app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
@@ -143,7 +143,7 @@ Depois (substituir `{your-b2c-tenant}` pelo nome do seu inquilino B2C):
 
 Quando as cordas do ponto final são construídas durante a execução da aplicação web, os pontos finais baseados em b2clogin.com são utilizados quando solicita tokens.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo apresentou um método de configurar uma API web implementando o middleware Microsoft OWIN (Katana) para aceitar tokens de vários pontos finais de emitentes. Como pode notar, existem várias outras cordas nos ficheiros *Web.Config* tanto do TaskService como do TaskWebApp que teriam de ser alterados se quiser construir e executar estes projetos contra o seu próprio inquilino. Você é bem-vindo a modificar os projetos apropriadamente se você quiser vê-los em ação, no entanto, uma passagem completa de fazê-lo está fora do âmbito deste artigo.
 

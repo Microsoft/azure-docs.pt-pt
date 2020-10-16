@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/10/2020
 ms.author: caya
 ms.openlocfilehash: c1bd41587e4f56fb0a7f3eb8285d301751f558d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84668105"
 ---
 # <a name="what-is-application-gateway-ingress-controller"></a>O que é o Controlador de Entrada de Gateway de Aplicação?
@@ -36,16 +36,16 @@ O AGIC é configurado através do recurso Kubernetes [Ingress,](https://kubernet
   - Apoio a sites públicos, privados e híbridos
   - Firewall de aplicação web integrada
 
-## <a name="difference-between-helm-deployment-and-aks-add-on"></a>Diferença entre a implantação do Helm e o Add-On AKS
+## <a name="difference-between-helm-deployment-and-aks-add-on"></a>Diferença entre a implantação do Helm e a Add-On AKS
 Há duas maneiras de implantar a AGIC para o seu cluster AKS. A primeira maneira é através de Helm; a segunda é através da AKS como um complemento. O principal benefício de implantar o AGIC como um addon AKS é que é muito mais simples do que implementar através do Helm. Para uma nova configuração, pode implementar um novo Gateway de Aplicações e um novo cluster AKS com AGIC ativado como um add-on numa linha em Azure CLI. O addon é também um serviço totalmente gerido, que proporciona benefícios adicionais, tais como atualizações automáticas e suporte acrescido. A AGIC implantada através do Helm não é suportada pela AKS, no entanto, o AGIC implantado como um addon AKS é suportado pela AKS. 
 
 O addon AGIC ainda é implantado como um casulo no cluster AKS do cliente, no entanto, existem algumas diferenças entre a versão de implementação Helm e a versão add-on da AGIC. Abaixo está uma lista de diferenças entre as duas versões: 
   - Os valores de implantação do leme não podem ser modificados no addon AKS:
-    - `verbosityLevel`será definido para 5 por padrão
-    - `usePrivateIp`serão definidos como falsos por defeito; isto pode ser substituído pela [anotação use-private-ip](ingress-controller-annotations.md#use-private-ip)
-    - `shared`não é suportado em add-on 
-    - `reconcilePeriodSeconds`não é suportado em add-on
-    - `armAuth.type`não é suportado em add-on
+    - `verbosityLevel` será definido para 5 por padrão
+    - `usePrivateIp` serão definidos como falsos por defeito; isto pode ser substituído pela [anotação use-private-ip](ingress-controller-annotations.md#use-private-ip)
+    - `shared` não é suportado em add-on 
+    - `reconcilePeriodSeconds` não é suportado em add-on
+    - `armAuth.type` não é suportado em add-on
   - A AGIC implantada via Helm suporta Os Orçamentos Proibidos, o que significa que a AGIC pode configurar o Gateway de aplicação especificamente para clusters AKS sem afetar outros backends existentes. O addon AGIC não suporta atualmente isto. 
   - Uma vez que o addon AGIC é um serviço gerido, os clientes serão automaticamente atualizados para a versão mais recente do add-on AGIC, ao contrário da AGIC implementada através da Helm, onde o cliente deve atualizar manualmente a AGIC. 
 
@@ -72,9 +72,9 @@ As tabelas que se seguem classificam quais os cenários que são atualmente supo
 |**1 AGIC**|N/D |N/D |
 |**2+ AGICs**|Deve usar a funcionalidade Dedestarget Proibido partilhado |N/D |
 
-## <a name="next-steps"></a>Próximos passos
-- [**Implantação do campo verde AKS Add-On**](tutorial-ingress-controller-add-on-new.md): Instruções sobre a instalação do addon AGIC, AKS e Application Gateway na infraestrutura de ardósia em branco.
-- [**Implementação AKS Add-On Brownfield**](tutorial-ingress-controller-add-on-existing.md): Instale o addon AGIC num cluster AKS com um Gateway de aplicação existente.
+## <a name="next-steps"></a>Passos seguintes
+- [**AKS Add-On Implantação de Greenfield**](tutorial-ingress-controller-add-on-new.md): Instruções sobre a instalação do addon AGIC, AKS e Application Gateway na infraestrutura de ardósia em branco.
+- [**AKS Add-On Implementação brownfield**](tutorial-ingress-controller-add-on-existing.md): Instale o addon AGIC num cluster AKS com um Gateway de aplicação existente.
 - [**Helm Greenfield Deployment**](ingress-controller-install-new.md): Instale o AGIC através do Helm, novo cluster AKS e novo Gateway de aplicações em infraestrutura de ardósia em branco.
 - [**Helm Brownfield Deployment**](ingress-controller-install-existing.md): Deploy AGIC através do Helm em um cluster AKS existente e Gateway de aplicação.
 

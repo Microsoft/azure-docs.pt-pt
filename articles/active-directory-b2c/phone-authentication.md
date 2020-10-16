@@ -12,10 +12,10 @@ ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 4a429314d4a992ea93f4c068203371cda769a4ff
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90029167"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Configurar inscrição no telefone e iniciar sôm-in com políticas personalizadas em Azure AD B2C
@@ -150,7 +150,7 @@ Por exemplo:
 GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+450334567890' and c/issuer eq 'contosob2c.onmicrosoft.com')
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode encontrar o pacote de arranque de política personalizado (e outros pacotes de arranque) do telefone no GitHub: [Azure-Samples/active-directy-b2c-custom-policy-starterpack/scenarios/phone-number-password][starter-pack-phone] Os ficheiros de política de arranque utilizam perfis técnicos de autenticação de vários fatores e transformações de reclamações de números de telefone:
 * [Defina um perfil técnico de autenticação multi-factor Azure](multi-factor-auth-technical-profile.md)

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/03/2020
 ms.openlocfilehash: 04def98108bf996a8f8cabe0ad36c022011aa533
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86080725"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Criar clusters HDInsight utilizando o Azure CLI
@@ -27,7 +27,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Azure CLI. Se ainda não instalou o Azure CLI, consulte [a Instalação do Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) para obter etapas.
+CLI do Azure. Se ainda não instalou o Azure CLI, consulte [a Instalação do Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) para obter etapas.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -134,7 +134,7 @@ Azure CLI. Se ainda não instalou o Azure CLI, consulte [a Instalação do Azure
 
     Pode levar vários minutos para o processo de criação do cluster estar concluído. Normalmente por volta das 15.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Depois de concluir o artigo, pode achar conveniente eliminar o cluster. Com o HDInsight, os seus dados são armazenados no Azure Storage, para que possa eliminar com segurança um cluster quando este não estiver a ser utilizado. Também é cobrado por um cluster HDInsight, mesmo quando não está a ser utilizado. Uma vez que as taxas para o cluster são muitas vezes mais do que os encargos de armazenamento, faz sentido económico apagar clusters quando não estão a ser utilizados.
 
@@ -165,7 +165,7 @@ az group delete \
 
 Caso se depare com problemas com a criação de clusters do HDInsight, veja [aceder aos requisitos de controlo](./hdinsight-hadoop-customize-cluster-linux.md#access-control).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que criou com sucesso um cluster HDInsight usando o Azure CLI, use o seguinte para aprender a trabalhar com o seu cluster:
 

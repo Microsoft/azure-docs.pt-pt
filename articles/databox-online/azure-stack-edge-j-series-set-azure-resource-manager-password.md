@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
 ms.openlocfilehash: df5fea8101834dae089ab97354c438363321a707
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90904489"
 ---
 # <a name="set-azure-resource-manager-password-on-azure-stack-edge-pro-gpu-device"></a>Definir palavra-passe do Gestor de Recursos Azure no dispositivo GPU Azure Stack Edge Pro
@@ -122,7 +122,7 @@ O procedimento para definir a palavra-passe pode ser diferente dependendo se uti
     $pass = ConvertTo-SecureString $password -AsPlainText -Force
     $key = ConvertTo-SecureString $cik -AsPlainText -Force
     ```
-    Utilize as cordas de segurança acima geradas como parâmetros no cmdlet Set-AzDataBoxEdgeUser para redefinir a palavra-passe. Utilize o mesmo grupo de recursos que utilizou ao criar o recurso Azure Stack Edge Pro/Data Box Gateway.
+    Utilize as cordas de segurança acima geradas como parâmetros no Set-AzDataBoxEdgeUser cmdlet para redefinir a palavra-passe. Utilize o mesmo grupo de recursos que utilizou ao criar o recurso Azure Stack Edge Pro/Data Box Gateway.
 
     ```azurepowershell
     Set-AzDataBoxEdgeUser -ResourceGroupName $resourceGroup -DeviceName $devicename -Name EdgeARMUser  -Password $pass -EncryptionKey $key

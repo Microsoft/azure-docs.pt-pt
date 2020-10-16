@@ -7,10 +7,10 @@ ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
 ms.openlocfilehash: 01021530c491fd25a199f32475c031a0e7f6cd0b
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89376643"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Gatilho de armazenamento da fila Azure para funções Azure
@@ -406,7 +406,7 @@ O gatilho da fila impede automaticamente que uma função processe uma mensagem 
 
 A [host.jsno](functions-host-json.md#queues) ficheiro contém definições que controlam o comportamento do gatilho da fila. Consulte a secçãohost.jsna secção [ de definições](functions-bindings-storage-queue-output.md#hostjson-settings) para obter informações sobre as definições disponíveis.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Escreva mensagens de armazenamento de bolhas (ligação de saída)](./functions-bindings-storage-blob-output.md)
 

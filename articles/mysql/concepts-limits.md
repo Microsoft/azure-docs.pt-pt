@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
 ms.openlocfilehash: 2c70e862364aea549c10c24a9dcc1c424c792993
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91652181"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitações na Base de Dados Azure para o MySQL

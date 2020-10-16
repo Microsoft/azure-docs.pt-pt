@@ -3,16 +3,16 @@ title: Detalhes da estrutura de isenção de políticas
 description: Descreve a definição de isenção de política utilizada pela Azure Policy para isentar os recursos da avaliação de iniciativas ou definições.
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1fd14d31824dc86dcd3788607030f28f978f5801
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: e6ced56c1dc65ca68998c5c58d3e985b63873e0b
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90968052"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950181"
 ---
 # <a name="azure-policy-exemption-structure"></a>Estrutura de isenção de política Azure
 
-A funcionalidade de isenções da Política Azure (pré-visualização) é utilizada para _isentar_ uma hierarquia de recursos ou um recurso individual da avaliação de iniciativas ou definições. Os recursos que estão _isentos_ contam para o cumprimento geral, mas não podem ser avaliados ou ter uma renúncia temporária. Para mais informações, consulte [o âmbito de aplicação da Política Azure.](./scope.md) As isenções da Política Azure apenas funcionam com [os modos gestor de recursos](./definition-structure.md#resource-manager-modes) e não funcionam com os **modos fornecedores de recursos**.
+A funcionalidade de isenções da Política Azure (pré-visualização) é utilizada para _isentar_ uma hierarquia de recursos ou um recurso individual da avaliação de iniciativas ou definições. Os recursos que estão _isentos_ contam para o cumprimento geral, mas não podem ser avaliados ou ter uma renúncia temporária. Para mais informações, consulte [o âmbito de aplicação da Política Azure.](./scope.md) As isenções da Política Azure apenas funcionam com [os modos gestor de recursos](./definition-structure.md#resource-manager-modes) e não funcionam com os [modos fornecedores de recursos](./definition-structure.md#resource-provider-modes).
 
 > [!IMPORTANT]
 > Esta funcionalidade é gratuita durante **a pré-visualização**. Para obter detalhes sobre os preços, consulte [os preços da Política Azure](https://azure.microsoft.com/pricing/details/azure-policy/). Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

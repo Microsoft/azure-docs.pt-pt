@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: troubleshooting
 ms.date: 3/18/2020
 ms.openlocfilehash: ca9a74763715c5c68526ff3213a14d2148f5ad30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83834310"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mariadb"></a>Como utilizar o EXPLAIN para o desempenho da consulta de perfil na Base de Dados Azure para a MariaDB
@@ -165,5 +165,5 @@ O EXPLAIN mostra agora que o MariaDB é capaz de utilizar o índice combinado pa
  
 A utilização de EXPLAIN e diferentes tipos de Índices pode aumentar significativamente o desempenho. Ter um índice em cima da mesa não significa necessariamente que a MariaDB possa usá-lo para as suas consultas. Valide sempre os seus pressupostos utilizando o EXPLAIN e otimize as suas consultas utilizando índices.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Para encontrar respostas de pares às suas perguntas mais preocupadas ou publicar uma nova pergunta/resposta, visite [o Microsoft Q&Uma página de perguntas](https://docs.microsoft.com/answers/topics/azure-database-mariadb.html) ou Stack [Overflow](https://stackoverflow.com/questions/tagged/azure-database-mariadb).

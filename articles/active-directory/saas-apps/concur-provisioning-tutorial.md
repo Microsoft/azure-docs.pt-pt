@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.openlocfilehash: 9e7ac5afb176e58ce47f918ddcbab742ecb90baf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317451"
 ---
 # <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>Tutorial: Conigure Concur para o fornecimento automático de utilizadores
@@ -48,7 +48,7 @@ Antes de configurar e ativar o serviço de fornecimento, tem de decidir quais os
 Esta secção guia-o através da ligação do seu AZure AD à conta de utilizador da Concur que fornece a API, e configura o serviço de fornecimento para criar, atualizar e desativar as contas de utilizador atribuídas em Concur com base na atribuição de utilizador e grupo em Azure AD.
 
 > [!Tip] 
-> Pode também optar por ativar um único sign-on baseado em SAML para Concur, seguindo as instruções fornecidas no [portal Azure](https://portal.azure.com). O único sinal pode ser configurado independentemente do fornecimento automático, embora estas duas características se elogiem mutuamente.
+> Pode também optar por ativar Sign-On única baseada em SAML para Concur, seguindo as instruções fornecidas no [portal Azure](https://portal.azure.com). O único sinal pode ser configurado independentemente do fornecimento automático, embora estas duas características se elogiem mutuamente.
 
 ### <a name="to-configure-user-account-provisioning"></a>Para configurar o provisionamento da conta de utilizador:
 

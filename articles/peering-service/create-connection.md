@@ -9,10 +9,10 @@ ms.date: 05/2/2020
 ms.author: derekol
 Customer intent: With Azure Peering service enhancing the customer connectivity to Microsoft cloud services .
 ms.openlocfilehash: f8f0ee71a8dd00498d868bb6dc11b3fa083df766
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91530223"
 ---
 # <a name="tutorial-create-a-peering-service-connection"></a>Tutorial: Criar uma conexão de serviço de peering
@@ -69,7 +69,7 @@ Selecione a elipse (...) ao lado do prefixo listado e selecione a opção **Elim
 ### <a name="delete-a-peering-service-connection"></a>Eliminar uma ligação de Serviço de Peering
 
 Na página **Todos os Recursos,** selecione a caixa de verificação no Serviço de Observação e selecione a opção **Eliminar** no topo da página.
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre a ligação do Serviço de Peering, consulte [a ligação do Serviço de Peering](connection.md).
 - Para saber mais sobre a telemetria de conexão peering Service, consulte [a telemetria de conexão peering service](connection-telemetry.md).

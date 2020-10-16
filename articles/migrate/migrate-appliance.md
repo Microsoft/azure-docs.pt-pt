@@ -4,10 +4,10 @@ description: Fornece um resumo do suporte para o aparelho Azure Migrate.
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: ac3c90f1c09d290d5112a0e0d7abc5218788caf7
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91450050"
 ---
 # <a name="azure-migrate-appliance"></a>Aplicação do Azure Migrate
@@ -180,7 +180,7 @@ Endereços IPv6 | vm. Guest.Net
 Ler a produção (MB por segundo) | net.received.average
 Produção de escrita (MB por segundo) | net.transmitted.average
 **Detalhes do caminho do inventário** | 
-Name | contentor. GetType(). Nome
+Nome | contentor. GetType(). Nome
 Tipo de objeto de criança | contentor. ChildType
 Detalhes de referência | contentor. Rio MoRef
 Detalhes dos pais | Contentor.Pai
@@ -227,7 +227,7 @@ Aqui estão os dados das funcionalidades que o aparelho recolhe de cada VM habil
 
 **Dados**  | **Cmdlet PowerShell** | **Propriedade**
 --- | --- | ---
-Name  | Get-WindowsFeature  | Name
+Nome  | Get-WindowsFeature  | Nome
 Tipo de Recurso | Get-WindowsFeature  | CaracterísticaType
 Principal  | Get-WindowsFeature  | Principal
 
@@ -237,7 +237,7 @@ Aqui está os metadados do servidor SQL que o aparelho recolhe a partir de VMs q
 
 **Dados**  | **Localização do registo**  | **Chave**
 --- | --- | ---
-Name  | HKLM:\SOFTWARE\Microsoft\Microsoft\Microsoft SQL Server\Instance Names\SQL  | instaladoInstance
+Nome  | HKLM:\SOFTWARE\Microsoft\Microsoft\Microsoft SQL Server\Instance Names\SQL  | instaladoInstance
 Edição  | HKLM:\SOFTWARE\Microsoft\Microsoft\Microsoft SQL Server \\ \<InstanceName> \Setup  | Edição 
 Service Pack  | HKLM:\SOFTWARE\Microsoft\Microsoft\Microsoft SQL Server \\ \<InstanceName> \Setup  | SP
 Versão  | HKLM:\SOFTWARE\Microsoft\Microsoft\Microsoft SQL Server \\ \<InstanceName> \Setup  | Versão 
@@ -248,7 +248,7 @@ Aqui estão os dados do sistema operativo que o aparelho recolhe cada VM habilit
 
 Dados  | Classe WMI  | Propriedade classe WMI
 --- | --- | ---
-Name  | Win32_operatingsystem  | Legenda
+Nome  | Win32_operatingsystem  | Legenda
 Versão  | Win32_operatingsystem  | Versão
 Arquitetura  | Win32_operatingsystem  | OsArchitecture
 
@@ -258,7 +258,7 @@ Aqui estão os dados da aplicação instalados que o aparelho recolhe de cada VM
 
 Dados  | Comando
 --- | --- 
-Name | rpm, dpkg-consulta, estalar
+Nome | rpm, dpkg-consulta, estalar
 Versão | rpm, dpkg-consulta, estalar
 Fornecedor | rpm, dpkg-consulta, estalar
 
@@ -268,7 +268,7 @@ Aqui estão os dados do sistema operativo que o aparelho recolhe cada VM habilit
 
 **Dados**  | **Comando** 
 --- | --- | ---
-Name <br/> versão | Recolhidos a partir de um ou mais dos seguintes ficheiros:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oráculo-liberação  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
+Nome <br/> versão | Recolhidos a partir de um ou mais dos seguintes ficheiros:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oráculo-liberação  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
 Arquitetura | uname
 
 
@@ -454,7 +454,7 @@ O aparelho é atualizado à medida que os agentes Azure Migrate que estão a tra
 ### <a name="turn-off-auto-update"></a>Desativar a atualização automática
 
 1. Na máquina que funciona o aparelho, abra o Editor de Registos.
-2. Navegue para **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**.
+2. Navegue até **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance. **
 3. Para desativar a atualização automática, crie uma chave de registo **AutoUpdate** com valor DWORD de 0.
 
     ![Definir chave de registo](./media/migrate-appliance/registry-key.png)
@@ -464,13 +464,13 @@ O aparelho é atualizado à medida que os agentes Azure Migrate que estão a tra
 
 Pode ligar a atualização automática utilizando qualquer um destes métodos:
 
-- Ao eliminar a chave de registo AutoUpdate de HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance.
+- Eliminando a chave de registo AutoUpdate de HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance.
 - Clique em **Ver os serviços** de aparelhos a partir das últimas verificações de atualização no painel **de pré-requisitos configurar** para ligar automaticamente.
 
 Para eliminar a chave de registo:
 
 1. Na máquina que funciona o aparelho, abra o Editor de Registos.
-2. Navegue para **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**.
+2. Navegue até **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance. **
 3. Elimine a chave de registo **AutoUpdate,** que foi previamente criada para desligar a atualização automática.
 
 Para ligar a partir do Gestor de Configuração do Aparelho, após a descoberta estar concluída:
@@ -522,7 +522,7 @@ Se estiver a executar uma versão mais antiga para qualquer um dos componentes, 
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba como](how-to-set-up-appliance-vmware.md) configurar o aparelho para VMware.
 - [Saiba como](how-to-set-up-appliance-hyper-v.md) configurar o aparelho para o Hyper-V.

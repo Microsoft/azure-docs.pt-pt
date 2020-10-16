@@ -10,12 +10,12 @@ metadata:
   author: cherylmc
   ms.author: cherylmc
   ms.date: 08/29/2019
-  ms.openlocfilehash: a60f7d2026bbfae2d52cffa3f3d4229d834631ae
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: b5412d949ddadb5b10e2027a10530c9b831f9ef3
+  ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "73498852"
+  ms.lasthandoff: 10/15/2020
+  ms.locfileid: "92078923"
 landingContent:
 - title: Sobre o Azure Bastion
   linkLists:
@@ -32,7 +32,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Criar um anfitrião do Bastion
-      url: bastion-create-host-portal.md
+      url: ./tutorial-create-host-portal.md
     - text: Ligar a uma máquina virtual (Linux)
       url: bastion-connect-vm-ssh.md
     - text: Ligar a uma máquina virtual (Windows)

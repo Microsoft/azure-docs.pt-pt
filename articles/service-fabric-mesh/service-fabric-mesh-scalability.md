@@ -6,10 +6,10 @@ ms.author: gwallace
 ms.date: 10/26/2018
 ms.topic: conceptual
 ms.openlocfilehash: 67b4b27a5d1faab3e6c156704d67a30b220ac54c
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91840188"
 ---
 # <a name="scaling-service-fabric-mesh-applications"></a>Aplicações de malha de tecido de serviço de escala

@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 02/06/2020
 ms.author: tagore
 ms.openlocfilehash: 8cfb20268d3c4d346c6a2ffba11549610a8042bf
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88510951"
 ---
 # <a name="errors-that-commonly-occur-during-classic-to-azure-resource-manager-migration"></a>Erros que ocorrem comumente durante a migração do Classic to Azure Resource Manager

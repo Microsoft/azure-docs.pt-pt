@@ -7,10 +7,10 @@ ms.date: 06/18/2020
 ms.author: mlearned
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 2cb6ed265d3e94c2c162381dfb80ba0c5427a71f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90888953"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Gerir piscinas de nó de sistema no Serviço Azure Kubernetes (AKS)
@@ -20,7 +20,7 @@ No Serviço Azure Kubernetes (AKS), os nós da mesma configuração são agrupad
 > [!Important]
 > Se executar uma única piscina de nó de sistema para o seu cluster AKS em ambiente de produção, recomendamos que use pelo menos três nós para a piscina de nós.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 * Precisa da versão 2.3.1 do Azure CLI ou posteriormente instalada e configurada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][install-azure-cli].
 

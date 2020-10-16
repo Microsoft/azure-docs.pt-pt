@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 62a6e8c9fdec3b30bd193e9887d7e0cb7926e73e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: f90c1e492d6da4f85fe86e4c5c76b89bdfaa4797
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243006"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078430"
 ---
 # <a name="generate-shared-access-signature"></a>Gerar assinatura de acesso compartilhado
 
-Este artigo mostra uma amostra de política de gestão da API Azure que demonstra como gerar [Assinatura de Acesso Partilhado](../../storage/common/storage-sas-overview.md) usando expressões e encaminhar o pedido para o armazenamento Azure com a política de reescrita-uri. Para definir ou editar um código de política, siga os passos descritos no [Conjunto ou edite uma política](../set-edit-policies.md). Para ver outros exemplos, consulte [as amostras de política.](../policy-samples.md)
+Este artigo mostra uma amostra de política de gestão da API Azure que demonstra como gerar [Assinatura de Acesso Partilhado](../../storage/common/storage-sas-overview.md) usando expressões e encaminhar o pedido para o armazenamento Azure com a política de reescrita-uri. Para definir ou editar um código de política, siga os passos descritos no [Conjunto ou edite uma política](../set-edit-policies.md). Para ver outros exemplos, consulte [as amostras de política.](../policy-reference.md)
 
 ## <a name="policy"></a>Política
 
@@ -35,4 +35,4 @@ Cole o código no bloco **de entrada.**
 Saiba mais sobre as políticas da APIM:
 
 + [Políticas de transformação](../api-management-transformation-policies.md)
-+ [Amostras de política](../policy-samples.md)
++ [Amostras de política](../policy-reference.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: d36c185272b7b67ffb8a21a77cc3a64f22d0df5a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 72cf5553bec5985ba0310b4a347b0d2c60da6924
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90888481"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090714"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Crie um ambiente de encenação em Azure Spring Cloud
 
@@ -22,7 +22,7 @@ Este artigo discute como configurar uma implementação de encenação usando o 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo pressupõe que já implementou a aplicação PiggyMetrics do nosso tutorial sobre o lançamento de [uma aplicação Azure Spring Cloud](spring-cloud-quickstart-launch-app-portal.md). A PiggyMetrics compreende três aplicações: "gateway", "serviço de conta" e "serviço auth".  
+Este artigo pressupõe que já implementou a aplicação PiggyMetrics do nosso tutorial sobre o lançamento de [uma aplicação Azure Spring Cloud](./spring-cloud-quickstart.md). A PiggyMetrics compreende três aplicações: "gateway", "serviço de conta" e "serviço auth".  
 
 Se quiser utilizar uma aplicação diferente para este exemplo, tem de fazer uma simples alteração numa parte virada para o público da aplicação.  Esta alteração diferencia a sua colocação de produção.
 

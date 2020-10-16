@@ -10,10 +10,10 @@ ms.date: 08/29/2017
 ms.author: robinsh
 ms.custom: amqp
 ms.openlocfilehash: 91527b5f2159a336e8339c6a128e8d61965292a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81732609"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>Dispositivo Azure IoT SDK para C – mais sobre ioTHubClient
@@ -271,7 +271,7 @@ Existem algumas opções que são comumente usadas:
 
 A opção de loteamento é importante. Por predefinição, a biblioteca ingressa eventos individualmente (um único evento é o que você passa para **IoTHubClient \_ LL \_ SendEventAsync).** Se a opção de lotear for **verdadeira,** a biblioteca recolhe o máximo de eventos que puder a partir do tampão (até ao tamanho máximo de mensagem que o IoT Hub aceitará).  O lote do evento é enviado para o IoT Hub numa única chamada HTTPS (os eventos individuais são agregados numa matriz JSON). Ativar o lote resulta tipicamente em grandes ganhos de desempenho, uma vez que está a reduzir as viagens de ida e volta da rede. Também reduz significativamente a largura de banda uma vez que está a enviar um conjunto de cabeçalhos HTTPS com um lote de eventos em vez de um conjunto de cabeçalhos para cada evento. A menos que tenha uma razão específica para fazer o contrário, normalmente vai querer ativar o lote.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo descreve em detalhe o comportamento da biblioteca **IoTHubClient** encontrada no **dispositivo Azure IoT SDK para C**. Com esta informação, deverá ter uma boa compreensão das capacidades da biblioteca **IoTHubClient.** O segundo artigo desta série é [O dispositivo Azure IoT SDK para C - Serializer,](iot-hub-device-sdk-c-serializer.md)que fornece detalhes semelhantes na biblioteca **de serializer.**
 

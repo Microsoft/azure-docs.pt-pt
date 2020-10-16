@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 4/13/2020
 ms.openlocfilehash: 69368500a99b47238e74a960fdd5381c0339430a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90905858"
 ---
 # <a name="configure-and-access-slow-query-logs-from-the-azure-portal"></a>Configurar e aceder a registos de consulta lenta a partir do portal Azure
@@ -40,7 +40,7 @@ Configure o acesso ao registo de consulta lenta MySQL.
 
 8. Selecione **Guardar**. 
 
-   :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="Screenshot de parâmetros de registo de consulta lenta e guardar.":::
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="Screenshot das opções de registos do Servidor":::
 
 A partir da página **'Parâmetros do Servidor',** pode voltar à lista de registos fechando a página.
 
@@ -53,7 +53,7 @@ Após o início do registo, pode ver uma lista de registos de consulta lenta dis
 
 3. Sob a secção **de Monitorização** na barra lateral, selecione **registos do Servidor**. A página mostra uma lista dos seus ficheiros de registo.
 
-   :::image type="content" source="./media/howto-configure-server-logs-in-portal/4-server-logs-list.png" alt-text="Screenshot da página de registos do Servidor, com lista de registos em destaque":::
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/4-server-logs-list.png" alt-text="Screenshot das opções de registos do Servidor":::
 
    > [!TIP]
    > A convenção de nomeação do registo é **mysql-slow-< o nome do seu servidor>-yyymmddh.log**. A data e hora utilizadas no nome do ficheiro é a hora em que o registo foi emitido. Os ficheiros de registo são rodados a cada 24 horas ou 7,5 GB, o que vier primeiro. 
@@ -62,23 +62,23 @@ Após o início do registo, pode ver uma lista de registos de consulta lenta dis
 
 5. Para descarregar ficheiros de registo individuais, selecione o ícone de seta para baixo ao lado de cada ficheiro de registo na linha de tabela.
 
-   :::image type="content" source="./media/howto-configure-server-logs-in-portal/5-download.png" alt-text="Screenshot da página de registos do Servidor, com ícone de seta em baixo realçado":::
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/5-download.png" alt-text="Screenshot das opções de registos do Servidor":::
 
 ## <a name="set-up-diagnostic-logs"></a>Configurar os registos de diagnóstico
 
 1. Sob a secção **de monitorização** na barra lateral, selecione **definições de diagnóstico**Adicione as  >  **definições de diagnóstico**.
 
-   :::image type="content" source="./media/howto-configure-server-logs-in-portal/add-diagnostic-setting.png" alt-text="Screenshot das opções de definições de diagnóstico":::
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/add-diagnostic-setting.png" alt-text="Screenshot das opções de registos do Servidor":::
 
 1. Forneça um nome de definição de diagnóstico.
 
 1. Especificar quais os dados que afundam para enviar os registos de consulta lenta (conta de armazenamento, centro de eventos ou espaço de trabalho Log Analytics).
 
 1. Selecione **MySqlSlowLogs** como o tipo de registo.
-:::image type="content" source="./media/howto-configure-server-logs-in-portal/configure-diagnostic-setting.png" alt-text="Screenshot das opções de configuração de definições de diagnóstico":::
+:::image type="content" source="./media/howto-configure-server-logs-in-portal/configure-diagnostic-setting.png" alt-text="Screenshot das opções de registos do Servidor":::
 
 1. Depois de configurar os sumidouros de dados para canalizar os registos de consulta lenta para, **selecione Save**.
-:::image type="content" source="./media/howto-configure-server-logs-in-portal/save-diagnostic-setting.png" alt-text="Screenshot das opções de configuração de definições de diagnóstico, com o Save em destaque":::
+:::image type="content" source="./media/howto-configure-server-logs-in-portal/save-diagnostic-setting.png" alt-text="Screenshot das opções de registos do Servidor":::
 
 1. Aceda aos registos de consulta lenta explorando-os nos sumidouros de dados configurados. Pode levar até 10 minutos para os registos aparecerem.
 

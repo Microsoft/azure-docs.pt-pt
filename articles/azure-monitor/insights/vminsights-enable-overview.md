@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/27/2020
-ms.openlocfilehash: 449979443577d22f8cc2ec35ec770dd1e107bb76
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4041b824d099edbefcc45c68163257ca69ddf7de
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998412"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995679"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Ativar o Monitor Azure para visão geral dos VMs
 
@@ -70,7 +70,7 @@ Se não tiver um espaço de trabalho log analytics, pode criar um utilizando um 
 * [CLI do Azure](../learn/quick-create-workspace-cli.md)
 * [PowerShell](../platform/powershell-workspace-configuration.md)
 * [Portal do Azure](../learn/quick-create-workspace.md)
-* [Azure Resource Manager](../platform/template-workspace-configuration.md)
+* [Azure Resource Manager](../samples/resource-manager-workspace.md)
 
 - Máquina virtual do Azure
 - Conjunto de escala de máquina virtual Azure
@@ -94,11 +94,11 @@ Consulte a seguinte lista de considerações sobre o apoio do Linux ao agente de
 ## <a name="supported-azure-arc-machines"></a>Máquinas Azure Arc suportadas
 O Azure Monitor para VMs está disponível para servidores ativados aZure Arc em regiões onde o serviço de extensão Arc está disponível. Deve estar a executar a versão 0.9 ou superior ao do Agente Arc.
 
-| Origem ligada | Suportado | Descrição |
+| Origem ligada | Suportado | Description |
 |:--|:--|:--|
-| Agentes do Windows | Sim | Juntamente com o [agente Log Analytics para windows,](../platform/log-analytics-agent.md)os agentes windows precisam do agente Dependency. Para obter mais informações, consulte [os sistemas operativos suportados.](../platform/agents-overview.md#supported-operating-systems) |
-| Agentes do Linux | Sim | Juntamente com o [agente Log Analytics para o Linux,](../platform/log-analytics-agent.md)os agentes Linux precisam do agente Desadependição. Para obter mais informações, consulte [os sistemas operativos suportados.](#supported-operating-systems) |
-| Grupo de gestão do System Center Operations Manager | Não | |
+| Agentes do Windows | Yes | Juntamente com o [agente Log Analytics para windows,](../platform/log-analytics-agent.md)os agentes windows precisam do agente Dependency. Para obter mais informações, consulte [os sistemas operativos suportados.](../platform/agents-overview.md#supported-operating-systems) |
+| Agentes do Linux | Yes | Juntamente com o [agente Log Analytics para o Linux,](../platform/log-analytics-agent.md)os agentes Linux precisam do agente Desadependição. Para obter mais informações, consulte [os sistemas operativos suportados.](#supported-operating-systems) |
+| Grupo de gestão do System Center Operations Manager | No | |
 
 ## <a name="agents"></a>Agentes
 O Azure Monitor para VMs requer que os dois agentes seguintes sejam instalados em cada máquina virtual ou escala de máquina virtual definida para ser monitorizada. Instalar estes agentes e ligá-los ao espaço de trabalho é o único requisito para embarcar no recurso.

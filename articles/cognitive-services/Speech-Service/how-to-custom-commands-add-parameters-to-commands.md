@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.openlocfilehash: 0ed237debc2395ed307658b2d57a541574f9478a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87284154"
 ---
 # <a name="add-parameters-to-commands"></a>Adicionar parâmetros aos comandos
@@ -54,14 +54,14 @@ Edite o comando **TurnOn** existente para ligar e desligar vários dispositivos.
        | ------------------ | ----------------| ---------------------------------------------------------------------|
        | Nome               | `OnOff`           | Um nome descritivo para parâmetro                                                                           |
        | É Global          | descontrolado       | Caixa de verificação indicando se um valor para este parâmetro é aplicado globalmente a todos os Comandos na aplicação|
-       | Obrigatório           | verificado         | Caixa de verificação indicando se é necessário um valor para este parâmetro antes de completar o Comando |
-       | Resposta para parâmetro requerido      |Editor simples >`On or Off?`      | Um pedido para pedir o valor deste parâmetro quando não se sabe |
+       | Necessário           | verificado         | Caixa de verificação indicando se é necessário um valor para este parâmetro antes de completar o Comando |
+       | Resposta para parâmetro requerido      |Editor simples > `On or Off?`      | Um pedido para pedir o valor deste parâmetro quando não se sabe |
        | Tipo               | Cadeia          | O tipo de parâmetro, como Número, Cadeia, Hora da Data ou Geografia   |
        | Configuração      | Aceitar valores de entrada predefinidos do catálogo interno | Para cordas, isto limita as entradas a um conjunto de valores possíveis |
        | Valores de entrada predefinidos     | `on`, `off`           | Conjunto de valores possíveis e seus pseudónimos         |
        
         
-   1. Para adicionar valores de entrada predefinidos, **selecione Adicione uma entrada predefinida** e na janela New **Item,** digite **o nome** conforme indicado na tabela acima. Neste caso, não estamos a usar pseudónimos, por isso podes deixá-lo em branco.
+   1. Para adicionar valores de entrada predefinidos, **selecione Adicione uma entrada predefinida** e na janela New **Item,**  digite **o nome** conforme indicado na tabela acima. Neste caso, não estamos a usar pseudónimos, por isso podes deixá-lo em branco.
    
       > [!div class="mx-imgBorder"]
       > ![Criar parâmetro](media/custom-commands/create-on-off-parameter.png)
@@ -77,8 +77,8 @@ Edite o comando **TurnOn** existente para ligar e desligar vários dispositivos.
        | ------------------ | --------------------- |
        | Nome               | `SubjectDevice`         |
        | É Global          | descontrolado             |
-       | Obrigatório           | verificado               |
-       | Resposta para parâmetro requerido     | Editor simples >`Which device do you want to control?`    | 
+       | Necessário           | verificado               |
+       | Resposta para parâmetro requerido     | Editor simples > `Which device do you want to control?`    | 
        | Tipo               | Cadeia                |          |
        | Configuração      | Aceitar valores de entrada predefinidos do catálogo interno | 
        | Valores de entrada predefinidos | `tv`, `fan`               |
@@ -90,9 +90,9 @@ Edite o comando **TurnOn** existente para ligar e desligar vários dispositivos.
 
 Para comandos com parâmetros, é útil adicionar frases de exemplo que cobrem todas as combinações possíveis. Por exemplo:
 
-* Informação completa do parâmetro -`turn {OnOff} the {SubjectDevice}`
-* Informação parcial do parâmetro -`turn it {OnOff}`
-* Sem informação sobre parâmetros -`turn something`
+* Informação completa do parâmetro - `turn {OnOff} the {SubjectDevice}`
+* Informação parcial do parâmetro - `turn it {OnOff}`
+* Sem informação sobre parâmetros - `turn something`
 
 Frases de exemplo com diferente grau de informação permitem que a aplicação de Comandos Personalizados resolva resoluções de um tiro e resoluções de várias voltas com informações parciais.
 
@@ -109,7 +109,7 @@ turn something
 Selecione **Guardar**.
 
 > [!TIP]
-> No Exemplo, o editor usa aparelhos encaracolados para se referir aos seus parâmetros. - `turn {OnOff} the {SubjectDevice}`Utilize o separador para a conclusão automática apoiado por parâmetros previamente criados.
+> No Exemplo, o editor usa aparelhos encaracolados para se referir aos seus parâmetros. - `turn {OnOff} the {SubjectDevice}` Utilize o separador para a conclusão automática apoiado por parâmetros previamente criados.
 
 ### <a name="modify-completion-rules-to-include-parameters"></a>Modificar as regras de conclusão para incluir parâmetros
 
@@ -150,8 +150,8 @@ Adicionar novo parâmetro **Temperatura** com a seguinte configuração
 | Configuração      | Valor sugerido     |
 | ------------------ | ----------------|
 | Nome               | `Temperature`           |
-| Obrigatório           | verificado         |
-| Resposta para parâmetro requerido      | Editor simples >`What temperature would you like?`
+| Necessário           | verificado         |
+| Resposta para parâmetro requerido      | Editor simples > `What temperature would you like?`
 | Tipo               | Número          |
 
 
@@ -169,7 +169,7 @@ Editar as regras de conclusão existentes de acordo com a seguinte configuraçã
 | Configuração      | Valor sugerido     |
 | ------------------ | ----------------|
 | Condições         | Parâmetro necessário > Temperatura           |
-| Ações           | Envie > de resposta à fala`Ok, setting temperature to {Temperature} degrees` |
+| Ações           | Envie > de resposta à fala `Ok, setting temperature to {Temperature} degrees` |
 
 ### <a name="try-it-out"></a>Experimente
 
@@ -187,8 +187,8 @@ Adicione um parâmetro chamado **DateTime** com a seguinte configuração.
    | Definição                           | Valor sugerido                     | 
    | --------------------------------- | ----------------------------------------|
    | Nome                              | `DateTime`                               |
-   | Obrigatório                          | verificado                                 |
-   | Resposta para parâmetro requerido   | Editor simples >`For what time?`            | 
+   | Necessário                          | verificado                                 |
+   | Resposta para parâmetro requerido   | Editor simples > `For what time?`            | 
    | Tipo                              | DateTime                                |
    | Predefinições de data                     | Se faltar a data de utilização hoje            |
    | Incumprimentos do tempo                     | Se falta tempo, use o início do dia     |
@@ -210,7 +210,7 @@ Editar as regras de conclusão existentes de acordo com a seguinte configuraçã
 
    | Definição    | Valor sugerido                               |
    | ---------- | ------------------------------------------------------- |
-   | Ações    | Enviar resposta de discurso -`Ok, alarm set for {DateTime}`  |
+   | Ações    | Enviar resposta de discurso - `Ok, alarm set for {DateTime}`  |
 
 
 ### <a name="try-it-out"></a>Experimente

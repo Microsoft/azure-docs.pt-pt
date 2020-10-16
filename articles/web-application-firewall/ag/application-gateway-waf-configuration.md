@@ -8,10 +8,10 @@ ms.date: 02/20/2020
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: ddf631601510e725d77cc391ad41192a47ab0cf1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84752478"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limites de tamanho e listas de exclusão de pedidos de Web Application Firewall
@@ -24,9 +24,9 @@ O Azure Application Gateway Web Application Firewall (WAF) fornece proteção pa
 
 As listas de exclusão da WAF permitem-lhe omitir determinados atributos de pedido de uma avaliação waf. Um exemplo comum são fichas inseridas no Ative Directory que são usadas para campos de autenticação ou palavra-passe. Tais atributos são propensos a conter caracteres especiais que podem desencadear um falso positivo das regras da WAF. Uma vez que um atributo é adicionado à lista de exclusão da WAF, não é considerado por nenhuma regra WAF configurada e ativa. As listas de exclusão são de âmbito global.
 
-Os seguintes atributos podem ser adicionados às listas de exclusão pelo nome. Os valores do campo escolhido não são avaliados contra as regras da WAF, mas os seus nomes ainda são (ver Exemplo 1 abaixo, o valor do cabeçalho do User-Agent está excluído da avaliação da WAF). As listas de exclusão removem a inspeção do valor do campo.
+Os seguintes atributos podem ser adicionados às listas de exclusão pelo nome. Os valores do campo escolhido não são avaliados contra as regras da WAF, mas os seus nomes ainda estão (ver Exemplo 1 abaixo, o valor do cabeçalho User-Agent está excluído da avaliação da WAF). As listas de exclusão removem a inspeção do valor do campo.
 
-* Cabeçalhos dos Pedidos
+* Pedido cabeçalhos
 * Solicitar Cookies
 * O nome de atributo de pedido (args) pode ser adicionado como elemento de exclusão, tais como:
 
@@ -100,6 +100,6 @@ O Firewall de Aplicação Web permite-lhe configurar limites de tamanho de pedid
 
 A WAF também oferece um botão configurável para ligar ou desligar a inspeção do corpo do pedido. Por predefinição, a inspeção do corpo de pedido está ativada. Se a inspeção do corpo do pedido for desligada, a WAF não avalia o conteúdo do corpo de mensagens HTTP. Nestes casos, a WAF continua a impor as regras da WAF em cabeçalhos, cookies e URI. Se a inspeção do corpo do pedido for desligada, então o campo de tamanho do corpo de pedido máximo não é aplicável e não pode ser definido. Desligar a inspeção do corpo de pedido permite que mensagens superiores a 128 KB sejam enviadas para a WAF, mas o corpo da mensagem não é inspecionado para obter vulnerabilidades.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de configurar as definições de WAF, pode aprender a visualizar os seus registos WAF. Para mais informações, consulte os [diagnósticos do Application Gateway](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).

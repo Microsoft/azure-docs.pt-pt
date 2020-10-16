@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sideeksh
 ms.openlocfilehash: 569af28f5773d843f49dd9c8143b45e308ae142e
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87420418"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Faça um exercício DR para Hiper-V VMs para um local secundário
@@ -143,7 +143,7 @@ Recomendamos que não faça um teste de falha na rede do site de recuperação d
 * Testes como este levam a tempo de inatividade para a sua aplicação de produção. Peça aos utilizadores da aplicação para não utilizarem a aplicação quando a broca DR estiver em andamento.  
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Depois de ter feito um exercício DR com sucesso, pode [executar um fracasso total](site-recovery-failover.md).
 
 

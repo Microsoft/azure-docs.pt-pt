@@ -12,10 +12,10 @@ ms.date: 09/22/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 10c460775bcb63028f03d0e8d0b1f7ed1507cdb4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91259463"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Configurar inscrição e inscrição com uma conta LinkedIn utilizando o Azure Ative Directory B2C

@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 12/07/2017
 ms.openlocfilehash: 700cc461563f145f58e02f7ed9a09b2899a4eb5b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91345827"
 ---
 # <a name="create-and-share-an-machine-learning-studio-classic-workspace"></a>Criar e partilhar um espaço de trabalho do Machine Learning Studio (clássico)
@@ -44,7 +44,7 @@ Para abrir um espaço de trabalho no Machine Learning Studio (clássico), tem de
 
      ![Criar um novo espaço de trabalho studio (clássico)](./media/create-workspace/create-new-workspace.png)
 
-5. Clique em **Create** (Criar).
+5. Clique em **Criar**.
 
    O Machine Learning está atualmente disponível num número limitado de regiões. Se a sua subscrição não incluir uma destas regiões, poderá ver a mensagem de erro: "Não tem subscrições nas regiões permitidas."  Para solicitar que uma região seja adicionada à sua subscrição, crie um novo pedido de suporte da Microsoft a partir do portal Azure, escolha **a Faturação** como o tipo de problema e siga as instruções para submeter o seu pedido.
 

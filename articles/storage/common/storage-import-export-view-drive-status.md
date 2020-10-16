@@ -9,10 +9,10 @@ ms.date: 05/17/2018
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 8110b98c055a211203fb937990e860fc8dea74f4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88520467"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Ver o estado das tarefas de Importação/Exportação do Azure
@@ -28,12 +28,12 @@ Pode acompanhar o estado das suas empresas de importação ou exportação a par
 
 Você vê um dos seguintes estatutos de trabalho dependendo de onde a sua unidade está no processo.
 
-| Estatuto do Trabalho | Description |
+| Estatuto do Trabalho | Descrição |
 |:--- |:--- |
 | Criação | Após a criação de um trabalho, o seu estado está definido para **criar.** Enquanto o trabalho está no estado **de Criação,** o serviço de Importação/Exportação assume que as unidades não foram enviadas para o centro de dados. Um trabalho pode permanecer neste estado por até duas semanas, após o qual é automaticamente apagado pelo serviço. |
 | Envio | Depois de enviar o seu pacote, deverá atualizar as informações de rastreio no portal Azure.  Ao fazê-lo, transforma o trabalho em estado **de transporte.** O trabalho permanece no estado **de transporte** por até duas semanas. 
 | Recebido | Depois de todas as unidades serem recebidas no centro de dados, o estado de trabalho está definido para **Recebido.** |
-| Transferência | Uma vez iniciada a transformação de pelo menos uma unidade, o estado de trabalho está definido para **a transferência.** Para mais informações, vá à [Drive States.](#view-drive-status) |
+| A transferir | Uma vez iniciada a transformação de pelo menos uma unidade, o estado de trabalho está definido para **a transferência.** Para mais informações, vá à [Drive States.](#view-drive-status) |
 | Empacotamento | Depois de todas as unidades terem concluído o processamento, o trabalho é colocado no estado **de Embalagem** até que as unidades sejam enviadas de volta para si. |
 | Concluído | Depois de todas as unidades forem enviadas de volta para si, se o trabalho tiver sido concluído sem erros, então o trabalho está definido para **Concluído**. O trabalho é automaticamente eliminado após 90 dias no estado **concluído.** |
 | Fechada | Depois de todas as unidades serem enviadas de volta para si, se houver erros durante o processamento do trabalho, o trabalho está definido para **fechado**. O trabalho é automaticamente apagado após 90 dias no estado **fechado.** |
@@ -44,12 +44,12 @@ O quadro abaixo descreve o ciclo de vida de uma unidade individual à medida que
 
 A tabela a seguir descreve cada estado que cada unidade de um trabalho pode passar.
 
-| Estado de condução | Description |
+| Estado de condução | Descrição |
 |:--- |:--- |
 | Especificado | Para um trabalho de importação, quando o trabalho é criado a partir do portal Azure, o estado inicial para uma unidade é **especificado**. Para um trabalho de exportação, uma vez que não é especificado qualquer unidade quando o trabalho é criado, o estado de unidade inicial é **recebido**. |
 | Recebido | A transição de unidade para o estado **recebido** quando o serviço de importação/exportação processou as unidades que foram recebidas da companhia de navegação para um trabalho de importação. Para um trabalho de exportação, o estado de condução inicial é o Estado **Recebido.** |
 | Nunca percebido | A unidade move-se para o estado **NeverReceived** quando o pacote para um trabalho chega, mas o pacote não contém a unidade. Uma unidade também se move para este estado se o datacenter ainda não recebeu o pacote, e o serviço recebeu a informação de envio há pelo menos duas semanas. |
-| Transferência | Uma unidade move-se para o estado **de Transfering** quando o serviço começa a transferir dados da unidade para o Azure Storage. |
+| A transferir | Uma unidade move-se para o estado **de Transfering** quando o serviço começa a transferir dados da unidade para o Azure Storage. |
 | Concluído | Uma unidade move-se para o estado **concluído** quando o serviço transferiu com sucesso todos os dados sem erros.
 | ConcluídoMoreInfo | Uma unidade move-se para o estado **CompletedMoreInfo** quando o serviço tem problemas enquanto copia dados de ou para a unidade. As informações podem incluir erros, avisos ou mensagens informativas sobre bolhas de sobreposição.
 | Back enviado | Uma unidade move-se para o estado **ShippedBack** quando foi enviado do centro de dados de volta para o endereço de retorno. |

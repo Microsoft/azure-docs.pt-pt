@@ -11,10 +11,10 @@ ms.custom: seodec18
 ms.date: 05/25/2018
 ms.reviewer: jmartens, mldocs
 ms.openlocfilehash: 6276d5c8d333f29c55720f2255f2cdf27e1e36cc
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91346024"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Ver e apagar dados de utilizadores no produto da Galeria Azure AI

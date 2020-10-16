@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 9e7386e21442b5a76aae656a36e2858b52ecef65
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87102917"
 ---
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
@@ -49,7 +49,7 @@ $snapshotConfig=New-AzSnapshotConfig -SourceUri $yourDisk.Id -Location $yourDisk
 New-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName -Snapshot $snapshotConfig 
 ```
 
-Pode identificar instantâneos incrementais do mesmo disco com `SourceResourceId` as propriedades e propriedades dos `SourceUniqueId` instantâneos. `SourceResourceId`é o ID de recursos Azure Resource Manager do disco-mãe. `SourceUniqueId`é o valor herdado da `UniqueId` propriedade do disco. Se eliminar um disco e criar um novo disco com o mesmo nome, o valor da `UniqueId` propriedade muda.
+Pode identificar instantâneos incrementais do mesmo disco com `SourceResourceId` as propriedades e propriedades dos `SourceUniqueId` instantâneos. `SourceResourceId` é o ID de recursos Azure Resource Manager do disco-mãe. `SourceUniqueId` é o valor herdado da `UniqueId` propriedade do disco. Se eliminar um disco e criar um novo disco com o mesmo nome, o valor da `UniqueId` propriedade muda.
 
 Pode utilizar `SourceResourceId` e criar uma lista de todos os `SourceUniqueId` instantâneos associados a um disco em particular. `<yourResourceGroupNameHere>`Substitua-o pelo seu valor e poderá utilizar o seguinte exemplo para listar as suas imagens incrementais existentes:
 

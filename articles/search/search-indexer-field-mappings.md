@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/11/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: a20b6509973c7dc7e54d2e4f702175ad61e88da8
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91532505"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Mapeamentos e transformações de campo usando indexantes de pesquisa cognitiva Azure
@@ -210,7 +210,7 @@ As bibliotecas .NET em Azure Cognitive Search assumem o quadro completo .NET, qu
 
 A tabela seguinte compara diferentes codificações base64 da `00>00?00` cadeia. Para determinar o processamento adicional necessário (se houver) para as suas funções base64, aplique a função de codificação da sua biblioteca na cadeia `00>00?00` e compare a saída com a saída prevista `MDA-MDA_MDA` .
 
-| Codificação | Saída de codificação Base64 | Processamento adicional após codificação da biblioteca | Processamento adicional antes da descodagem da biblioteca |
+| Encoding | Saída de codificação Base64 | Processamento adicional após codificação da biblioteca | Processamento adicional antes da descodagem da biblioteca |
 | --- | --- | --- | --- |
 | Base64 com estofamento | `MDA+MDA/MDA=` | Use caracteres seguros de URL e remova o estofamento | Use caracteres base64 padrão e adicione estofamento |
 | Base64 sem enchimento | `MDA+MDA/MDA` | Use caracteres seguros url | Use caracteres base64 padrão |

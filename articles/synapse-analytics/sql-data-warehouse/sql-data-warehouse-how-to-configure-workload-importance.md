@@ -12,10 +12,10 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 83170f4090909e3edcc163312383773d088d8c57
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85212127"
 ---
 # <a name="configure-workload-importance-in-azure-synapse-analytics"></a>Configure a importância da carga de trabalho no Azure Synapse Analytics
@@ -24,7 +24,7 @@ Definir importância no Sinapse SQL para Azure Synapse permite-lhe influenciar o
 
 ## <a name="create-a-workload-classifier-with-importance"></a>Criar um classificador de carga de trabalho com importância
 
-Muitas vezes, num cenário de armazém de dados, temos utilizadores, num sistema movimentado, que precisam de executar as suas consultas rapidamente.  O utilizador pode ser executivo da empresa que precisa de executar relatórios ou o utilizador pode ser um analista que executa uma consulta de adhoc. Para atribuir importância, cria-se um classificador de carga de trabalho e a importância é atribuída a uma consulta.  Os exemplos abaixo utilizam a sintaxe [do classificador de criar carga de trabalho](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para criar dois classificadores. `Membername`pode ser um único utilizador ou um grupo.  Para encontrar os utilizadores de armazém de dados existentes, corra:
+Muitas vezes, num cenário de armazém de dados, temos utilizadores, num sistema movimentado, que precisam de executar as suas consultas rapidamente.  O utilizador pode ser executivo da empresa que precisa de executar relatórios ou o utilizador pode ser um analista que executa uma consulta de adhoc. Para atribuir importância, cria-se um classificador de carga de trabalho e a importância é atribuída a uma consulta.  Os exemplos abaixo utilizam a sintaxe  [do classificador de criar carga de trabalho](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para criar dois classificadores. `Membername` pode ser um único utilizador ou um grupo.  Para encontrar os utilizadores de armazém de dados existentes, corra:
 
 ```sql
 Select name from sys.sysusers

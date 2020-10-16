@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.openlocfilehash: d885cc64eeebd4873ad5993b39b48845d1365c23
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90902758"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-azure-portal"></a>Reinicie a base de dados do Azure para o servidor MySQL utilizando o portal Azure
@@ -36,15 +36,15 @@ Os seguintes passos reiniciam o servidor MySQL:
 
 3. Clique **em Sim** para confirmar o reinício do servidor.
 
-   :::image type="content" source="./media/howto-restart-server-portal/3-restart-confirm.png" alt-text="Azure Database for MySQL - Recomece confirmar":::
+   :::image type="content" source="./media/howto-restart-server-portal/3-restart-confirm.png" alt-text="Base de Dados Azure para MySQL - Visão geral - Botão de reinício":::
 
 4. Observe que o estado do servidor muda para "Reiniciar".
 
-   :::image type="content" source="./media/howto-restart-server-portal/4-restarting-status.png" alt-text="Base de Dados Azure para MySQL - Recomeçamento do estado":::
+   :::image type="content" source="./media/howto-restart-server-portal/4-restarting-status.png" alt-text="Base de Dados Azure para MySQL - Visão geral - Botão de reinício":::
 
 5. Confirme que o reinício do servidor é bem sucedido.
 
-   :::image type="content" source="./media/howto-restart-server-portal/5-restart-success.png" alt-text="Azure Database for MySQL - Reiniciar o sucesso":::
+   :::image type="content" source="./media/howto-restart-server-portal/5-restart-success.png" alt-text="Base de Dados Azure para MySQL - Visão geral - Botão de reinício":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

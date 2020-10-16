@@ -7,14 +7,14 @@ ms.date: 01/30/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 9a6a56491a327d5d4eafc2c05dc2b54b137096b8
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: e3642a621253b79fdfcdd8cb2b648dee534c6758
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752070"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968690"
 ---
-# <a name="reduce-costs-with-azure-disks-reservation"></a>Reduzir custos com reserva de discos Azure
+# <a name="reduce-costs-with-azure-disks-reservation"></a>Reduzir custos com a Reserva de Discos do Azure
 
 Economize no seu uso de armazenamento de disco Azure com capacidade reservada. As reservas de armazenamento de disco Azure combinadas com as instâncias de máquina virtual reservadas Azure permitem-lhe baixar os custos totais da máquina virtual (VM). O desconto de reserva é aplicado automaticamente aos discos correspondentes no âmbito de reserva selecionado. Por causa desta aplicação automática, não precisa de atribuir uma reserva a um disco gerido para obter os descontos.
 
@@ -89,7 +89,7 @@ Depois de adquirir uma reserva, é automaticamente aplicada a quaisquer recursos
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
 
-Pode cancelar, trocar ou reembolsar reservas dentro de certas limitações. Para obter mais informações, veja [Trocas e reembolsos personalizados das Reservas do Azure](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
+Pode cancelar, trocar ou reembolsar reservas dentro de certas limitações. Para obter mais informações, veja [Trocas e reembolsos personalizados das Reservas do Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="expiration-of-a-reservation"></a>Expiração de uma reserva
 
@@ -104,4 +104,4 @@ Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://go.m
 ## <a name="next-steps"></a>Passos seguintes
 
 - [O que são as reservas do Azure?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
-- [Compreender como o desconto de reserva é aplicado ao Armazenamento de Discos do Azure](../cost-management-billing/reservations/understand-disk-reservations.md)
+- [Compreenda como o seu desconto de reserva é aplicado ao Azure Disk Storage](../cost-management-billing/reservations/understand-disk-reservations.md)

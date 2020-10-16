@@ -8,10 +8,10 @@ ms.date: 11/14/2019
 ms.author: ant
 ms.topic: conceptual
 ms.openlocfilehash: 6fa959b1c9ed021a97031ba03822ae89fbbb7bbb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82983079"
 ---
 # <a name="troubleshoot-web-application-firewall-waf-for-azure-application-gateway"></a>Firewall de aplicação web de resolução de problemas (WAF) para gateway de aplicação Azure
@@ -334,6 +334,6 @@ Para as firewalls de aplicação web v1, as seguintes métricas estão agora dis
      
 Para ativar as métricas, selecione o **separador Métricas** no portal e selecione uma das três métricas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Ver [como configurar firewall de aplicações web no Gateway de aplicações de aplicações.](tutorial-restrict-web-traffic-powershell.md)

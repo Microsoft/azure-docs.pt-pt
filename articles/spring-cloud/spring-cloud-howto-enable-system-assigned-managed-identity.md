@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/13/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: bff98ea3470110bc29f75361fb3a2adc685e2602
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1802708c3b9e15a2459f29d15da72f2dc1da1a4f
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90888577"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093995"
 ---
 # <a name="how-to-enable-system-assigned-managed-identity-for-azure-spring-cloud-application"></a>Como permitir a identidade gerida atribuída pelo sistema para a aplicação Azure Spring Cloud
 
@@ -23,7 +23,7 @@ Identidades geridas para recursos Azure fornecem uma identidade gerida automatic
 Este artigo mostra como ativar e desativar identidades geridas atribuídas pelo sistema para uma aplicação Azure Spring Cloud, utilizando o portal Azure e o CLI (disponível a partir da versão 0.2.4).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Se não está familiarizado com as identidades geridas para recursos Azure, consulte [a secção de visão geral](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Se não está familiarizado com as identidades geridas para recursos Azure, consulte [a secção de visão geral](../active-directory/managed-identities-azure-resources/overview.md).
 Vai precisar de uma instância da Nuvem de primavera de Azure. Siga o [Quickstart para implementar utilizando o Azure CLI](spring-cloud-quickstart.md).
 
 ## <a name="add-a-system-assigned-identity"></a>Adicionar uma identidade atribuída ao sistema
@@ -35,7 +35,7 @@ Para configurar uma identidade gerida no [portal Azure](https://portal.azure.com
 1. Crie uma aplicação no portal como normalmente faria. Navegue até ele no portal.
 2. Desloque-se até ao grupo **Definições** no painel de navegação esquerdo.
 3. Selecione **identidade**.
-4. Dentro do separador **Designado sistema,** **altere o Estado** para *ligar*. Clique em **Save** (Guardar).
+4. Dentro do separador **Designado sistema,** **altere o Estado** para *ligar*. Clique em **Guardar**.
 
  ![Identidade gerida no portal](./media/spring-cloud-managed-identity/identity-1.png)
 
@@ -59,9 +59,9 @@ az spring-cloud app identity assign -n app_name -s service_name -g resource_grou
 ## <a name="obtain-tokens-for-azure-resources"></a>Obter fichas para recursos Azure
 Uma aplicação pode usar a sua identidade gerida para obter fichas para aceder a outros recursos protegidos pelo Azure Ative Directory, como o Azure Key Vault. Estes tokens representam a aplicação que acede ao recurso, e não qualquer utilizador específico da aplicação.
 
-Poderá ser necessário [configurar o recurso-alvo para permitir o acesso a partir da sua aplicação.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/howto-assign-access-portal) Por exemplo, se você solicitar um token para aceder ao Key Vault, certifique-se de que adicionou uma política de acesso que inclui a identidade da sua aplicação. Caso contrário, as suas chamadas para Key Vault serão rejeitadas, mesmo que incluam o símbolo. Para saber mais sobre quais os recursos que suportam tokens do Azure Ative Directory, consulte [os serviços Azure que suportam a autenticação AD da Azure.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-azure-ad-authentication)
+Poderá ser necessário [configurar o recurso-alvo para permitir o acesso a partir da sua aplicação.](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md) Por exemplo, se você solicitar um token para aceder ao Key Vault, certifique-se de que adicionou uma política de acesso que inclui a identidade da sua aplicação. Caso contrário, as suas chamadas para Key Vault serão rejeitadas, mesmo que incluam o símbolo. Para saber mais sobre quais os recursos que suportam tokens do Azure Ative Directory, consulte [os serviços Azure que suportam a autenticação AD da Azure.](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)
 
-A Azure Spring Cloud partilha o mesmo ponto final para a aquisição de token com a Azure Virtual Machine. Recomendamos a utilização de Botas Java SDK ou de arranque de mola para adquirir um token.  Veja [como usar o token VM para](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token) vários exemplos de código e script e orientação sobre tópicos importantes, tais como manusear o token expiration e erros HTTP.
+A Azure Spring Cloud partilha o mesmo ponto final para a aquisição de token com a Azure Virtual Machine. Recomendamos a utilização de Botas Java SDK ou de arranque de mola para adquirir um token.  Veja [como usar o token VM para](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) vários exemplos de código e script e orientação sobre tópicos importantes, tais como manusear o token expiration e erros HTTP.
 
 Recomendado: utilize botas Java SDK ou boot boot para obter fichas.  Veja as amostras nos [próximos passos.](#next-steps)
 
@@ -88,4 +88,3 @@ az spring-cloud app identity remove -n app_name -s service_name -g resource_grou
 * [Access Azure Key Vault com identidades geridas no arranque da bota de primavera](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot-starter-keyvault-secrets/README.md#use-msi--managed-identities)
 * [Saiba mais sobre identidades geridas para recursos Azure](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
 * [Como usar identidades geridas com Java SDK](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)
-

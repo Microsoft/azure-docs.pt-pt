@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
 ms.openlocfilehash: b1b766e3cb337151c5ca9b35e2040a2a47124151
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91568536"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Atividades de ramificação e acorrentação num oleoduto da Azure Data Factory utilizando o portal Azure
@@ -151,7 +151,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 4. Selecione **V2** para a **versão**.
 5. Selecione a **localização** da fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 6. Selecione **Afixar ao dashboard**.     
-7. Clique em **Create** (Criar).      
+7. Clique em **Criar**.      
 8. No painel de instrumentos, vê-se o seguinte azulejo com estado: **Implantação da fábrica de dados**.
 
     ![Mosaico “implementar a fábrica de dados”](media/tutorial-control-flow-portal/deploying-data-factory.png)

@@ -1,16 +1,16 @@
 ---
-title: Desempenho do registo de resolução de problemas
+title: Resolver problemas de desempenho de registo
 description: Sintomas, causas e resolução de problemas comuns com o desempenho de um registo
 ms.topic: article
 ms.date: 08/11/2020
 ms.openlocfilehash: 414e3a92b8ebd4ff58528fc5e9ec4794471bd775
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88227475"
 ---
-# <a name="troubleshoot-registry-performance"></a>Desempenho do registo de resolução de problemas
+# <a name="troubleshoot-registry-performance"></a>Resolver problemas de desempenho de registo
 
 Este artigo ajuda-o a resolver problemas que poderá encontrar com o desempenho de um registo de contentores Azure. 
 
@@ -107,7 +107,7 @@ Links relacionados:
 * [FaQ do registo de contentores](container-registry-faq.md)
 * [Melhores práticas do Azure Container Registry](container-registry-best-practices.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não resolver o seu problema aqui, consulte as seguintes opções.
 

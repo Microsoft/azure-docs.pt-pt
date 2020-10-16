@@ -2,20 +2,20 @@
 title: Planeamento de rede e conexões para Serviços de Domínio AZure AD Microsoft Docs
 description: Conheça algumas das considerações e recursos de design de rede virtuais utilizados para a conectividade quando executar os Serviços de Domínio do Diretório Ativo Azure.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 6e2b3badcda872db3ddb1d237b813615a1332ad0
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.author: joflore
+ms.openlocfilehash: 4ced7331daa116e237d9628d12d16a67687db5b9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91396336"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968094"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Considerações de design de rede virtual e opções de configuração para serviços de domínio de diretório ativo Azure
 
@@ -91,7 +91,7 @@ Pode ativar a resolução de nomes utilizando reencaminhadores DENS condicional 
 
 Um domínio gerido cria alguns recursos de networking durante a implantação. Estes recursos são necessários para o funcionamento e gestão bem sucedidos do domínio gerido, e não devem ser configurados manualmente.
 
-| Recurso do Azure                          | Description |
+| Recurso do Azure                          | Descrição |
 |:----------------------------------------|:---|
 | Cartão de interface de rede                  | O Azure AD DS acolhe o domínio gerido em dois controladores de domínio (DCs) que funcionam no Windows Server como VMs Azure. Cada VM tem uma interface de rede virtual que se conecta à sua sub-rede de rede virtual. |
 | Endereço IP público padrão dinâmico      | O Azure AD DS comunica com o serviço de sincronização e gestão utilizando um endereço IP público SKU padrão. Para obter mais informações sobre endereços IP públicos, consulte [os tipos de endereços IP e os métodos de atribuição em Azure](../virtual-network/public-ip-addresses.md). |
@@ -108,11 +108,11 @@ Um [grupo de segurança de rede (NSG)](../virtual-network/security-overview.md) 
 
 São necessárias as seguintes regras do grupo de segurança da rede para que o domínio gerido forneça serviços de autenticação e gestão. Não edite ou elimine estas regras do grupo de segurança de rede para a sub-rede de rede virtual em que o seu domínio gerido é implantado.
 
-| Número da porta | Protocolo | Origem                             | Destino | Ação | Necessário | Objetivo |
+| Número da porta | Protocolo | Origem                             | Destino | Ação | Obrigatório | Objetivo |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
-| 443         | TCP      | AzureActiveDirectoryDomainServices | Qualquer         | Permitir  | Yes      | Sincronização com o seu inquilino AZure AD. |
-| 3389        | TCP      | Serra CorpNet                         | Qualquer         | Permitir  | Yes      | Gestão do seu domínio. |
-| 5986        | TCP      | AzureActiveDirectoryDomainServices | Qualquer         | Permitir  | Yes      | Gestão do seu domínio. |
+| 443         | TCP      | AzureActiveDirectoryDomainServices | Qualquer         | Permitir  | Sim      | Sincronização com o seu inquilino AZure AD. |
+| 3389        | TCP      | Serra CorpNet                         | Qualquer         | Permitir  | Sim      | Gestão do seu domínio. |
+| 5986        | TCP      | AzureActiveDirectoryDomainServices | Qualquer         | Permitir  | Sim      | Gestão do seu domínio. |
 
 É criado um equilibrador de carga padrão Azure que exige que estas regras sejam postas em prática. Este grupo de segurança de rede assegura o Azure AD DS e é necessário para que o domínio gerido funcione corretamente. Não apague este grupo de segurança de rede. O equilibrador de carga não funcionará corretamente sem ele.
 

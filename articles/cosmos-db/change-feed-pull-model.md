@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/09/2020
 ms.reviewer: sngun
 ms.openlocfilehash: b056c12f51c6e36a806f2bba0f5efe9ea9498798
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90015641"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Alterar modelo de puxar feed em Azure Cosmos DB
@@ -45,7 +45,7 @@ Aqui estão algumas diferenças fundamentais entre o processador de alimentaçã
 | Capacidade de reproduzir alterações passadas | Sim, com o modelo push | Sim, com o modelo pull|
 | Sondagem para futuras mudanças | Verifica automaticamente as alterações com base nas especificadas do utilizador `WithPollInterval` | Manual |
 | Mudanças de processo a partir de todo o contentor | Sim, e automaticamente paralizada através de múltiplos fios/máquina consumindo a partir do mesmo recipiente| Sim, e manualmente paralelo usando FeedTokens |
-| O processo muda a partir de apenas uma chave de partição | Não suportado | Yes|
+| O processo muda a partir de apenas uma chave de partição | Não suportado | Sim|
 | Nível de suporte | Disponível em Geral | Pré-visualizar |
 
 ## <a name="consuming-an-entire-containers-changes"></a>Consumir as mudanças de um contentor inteiro
@@ -179,7 +179,7 @@ FeedIterator<User> iteratorThatResumesFromLastPoint = container.GetChangeFeedIte
 
 Enquanto o contentor cosmos ainda existir, o símbolo de continuação de um FeedIterator nunca expira.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Visão geral do feed de mudança](change-feed.md)
 * [Utilização do processador change feed](change-feed-processor.md)

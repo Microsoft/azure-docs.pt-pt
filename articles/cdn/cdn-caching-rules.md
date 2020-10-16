@@ -14,10 +14,10 @@ ms.topic: how-to
 ms.date: 03/19/2019
 ms.author: allensu
 ms.openlocfilehash: 1f30943eb0cc72f677785d1228b47b65764c1e7d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84887861"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Controlar o comportamento da colocação em cache da CDN do Azure com as regras de colocação em cache
@@ -103,7 +103,7 @@ As regras globais e personalizadas de caching são processadas na seguinte ordem
    - Comportamento caching: **Definir se faltar**
    - Duração de validade da cache: 3 dias
 
-Quando estas regras são definidas, um pedido de _ &lt; nome de anfitrião &gt; _de ponto final .azureedge.net/home/index.html aciona a regra de caching personalizado #2, que está definido para: Definir se **faltar** e 3 dias. Portanto, se o *ficheiroindex.html* tiver ou os `Cache-Control` `Expires` cabeçalhos HTTP, eles são honrados; caso contrário, se estes cabeçalhos não estiverem definidos, o ficheiro fica em cache durante 3 dias.
+Quando estas regras são definidas, um pedido de _ &lt; nome de anfitrião &gt; _de ponto final .azureedge.net/home/index.html aciona a regra de caching personalizado #2, que está definido para: Definir se **faltar** e 3 dias. Portanto, se o * ficheiroindex.html* tiver ou os `Cache-Control` `Expires` cabeçalhos HTTP, eles são honrados; caso contrário, se estes cabeçalhos não estiverem definidos, o ficheiro fica em cache durante 3 dias.
 
 > [!NOTE] 
 > Os ficheiros que estão em cache antes de uma alteração de regras mantêm a definição de duração da cache de origem. Para repor as durações da cache, tem de [limpar o ficheiro](cdn-purge-endpoint.md). 
@@ -113,7 +113,7 @@ Quando estas regras são definidas, um pedido de _ &lt; nome de anfitrião &gt; 
 > - Para **o Azure CDN Standard dos** perfis Verizon, a propagação geralmente completa em 10 minutos.  
 >
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
-- [Como funciona a colocação em cache](cdn-how-caching-works.md)
+- [How caching works](cdn-how-caching-works.md) (Como funciona a colocação em cache)
 - [Tutorial: Definir regras de colocação em cache da CDN do Azure](cdn-caching-rules-tutorial.md)

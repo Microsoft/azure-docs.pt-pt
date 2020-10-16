@@ -16,10 +16,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c7cc4065297c35164f1e37b187c6280b3d3546ee
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91538845"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Cenários, limitações e questões conhecidas usando grupos para gerir o licenciamento no Azure Ative Directory
@@ -132,7 +132,7 @@ Pode utilizar um script PowerShell para verificar se os utilizadores têm uma li
 
 2. `Get-MsolAccountSku` pode ser usado para descobrir todas as licenças de produtos aprovisionadas na organização AZure AD.
 
-   ![Screenshot do cmdlet Get-Msolaccountsku](./media/licensing-group-advanced/get-msolaccountsku-cmdlet.png)
+   ![Screenshot do Get-Msolaccountsku cmdlet](./media/licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 
 3. Utilize o valor *AccountSkuId* para a licença que lhe interessa com [este script PowerShell](licensing-ps-examples.md#check-if-user-license-is-assigned-directly-or-inherited-from-a-group). Isto irá produzir uma lista de utilizadores que possuem esta licença com a informação sobre a forma como a licença é atribuída.
 
@@ -163,7 +163,7 @@ Aqui está um exemplo de recentes mudanças na licença de grupo, com detalhes:
 
 Quando uma licença muda num grupo, o Azure AD começará a aplicar as alterações a todos os utilizadores.
 
-1. Para ver quando os grupos começaram a processar, desa estale o filtro **de Atividade** para *começar a aplicar licença baseada no grupo aos utilizadores*. Note que o ator para a operação é *o Microsoft Azure AD Group-Based Licensing* - uma conta de sistema que é usada para executar todas as alterações de licença de grupo.
+1. Para ver quando os grupos começaram a processar, desa estale o filtro **de Atividade** para *começar a aplicar licença baseada no grupo aos utilizadores*. Note que o ator para a operação é *o Microsoft Azure AD Group-Based Licenciamento* - uma conta de sistema que é usada para executar todas as alterações de licença de grupo.
    >[!TIP]
    > Clique num item da lista para ver o campo *Propriedades Modificadas* - mostra as alterações de licença que foram recolhidas para processamento. Isto é útil se fez várias alterações a um grupo e não tem certeza de qual foi processado.
 
@@ -179,7 +179,7 @@ Quando uma licença muda num grupo, o Azure AD começará a aplicar as alteraç�
    > ```
 
 3. Para ver o registo completo de como um grupo foi processado, incluindo todas as alterações do utilizador, de definiu os seguintes filtros:
-   - **Iniciado por (Ator)**: "Licença baseada em grupo microsoft Azure Ad"
+   - **Iniciado por (Ator)**: "Microsoft Azure AD Group-Based Licenciamento"
    - **Intervalo de data** (opcional): gama personalizada para quando conhecer um grupo específico iniciado e terminado o processamento
 
 Esta saída da amostra mostra o início do processamento, todas as alterações resultantes do utilizador e o acabamento do processamento.
@@ -219,7 +219,7 @@ Se você usar o licenciamento baseado em grupo, é uma boa ideia familiarizar-se
 
   Como uma solução alternativa a este tipo de limitações, pode ir à lâmina do **Grupo** em Ad AZure e clicar em **Reprocessamento**. Este comando processa todos os utilizadores desse grupo e resolve os estados de erro, se possível.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre outros cenários para gestão de licenças através do licenciamento baseado no grupo, veja:
 

@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
 ms.openlocfilehash: 61a91ca8a51886c28beee77853d1ae67911e00e7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87081241"
 ---
 # <a name="how-to-annotate-data-sources-in-azure-data-catalog"></a>Como anotar fontes de dados no Catálogo de Dados do Azure
@@ -39,7 +39,7 @@ O Catálogo de Dados suporta os seguintes tipos de anotações:
 | Nome amigável |Nomes amigáveis podem ser fornecidos ao nível do ativo de dados, para tornar os ativos de dados mais facilmente compreendidos. Os nomes amigáveis são mais úteis quando o nome do objeto subjacente é enigmático, abreviado ou não significativo para os utilizadores. |
 | Descrição |As descrições podem ser fornecidas nos níveis de atributos/colunas. As descrições são anotações de texto curto de forma livre que descrevem a perspetiva do utilizador sobre o ativo dos dados ou a sua utilização. |
 | Tags (etiquetas de utilizador) |As etiquetas podem ser fornecidas nos níveis de atributos/colunas. As etiquetas de utilizador são etiquetas definidas pelo utilizador que podem ser usadas para categorizar ativos ou atributos de dados. |
-| Etiquetas (etiquetas glossárias) |As etiquetas podem ser fornecidas nos níveis de atributos/colunas. As etiquetas glossárias são termos glossários definidos centralmente que podem ser usados para categorizar ativos de dados ou atributos usando uma taxonomia de negócio comum. Para mais informações [consulte Como Configurar o Glossário de Negócios para Marcação Governada](data-catalog-how-to-business-glossary.md) |
+| Etiquetas (etiquetas glossárias) |As etiquetas podem ser fornecidas nos níveis de atributos/colunas. As etiquetas glossárias são termos glossários definidos centralmente que podem ser usados para categorizar ativos de dados ou atributos usando uma taxonomia de negócio comum. Para mais informações  [consulte Como Configurar o Glossário de Negócios para Marcação Governada](data-catalog-how-to-business-glossary.md) |
 | Especialistas |Os especialistas podem ser fornecidos ao nível do ativo de dados. Os especialistas identificam utilizadores ou grupos com perspetivas especializadas sobre os dados e podem servir como pontos de contacto para os utilizadores que descobrem as fontes de dados registadas e têm dúvidas que não são respondidas pelas anotações existentes. |
 | Pedir acesso |As informações de acesso ao pedido podem ser fornecidas ao nível do ativo dos dados. Esta informação é para os utilizadores que descobrem uma fonte de dados que ainda não têm permissões de acesso. Os utilizadores podem introduzir o endereço de e-mail do utilizador ou grupo que concede acesso, o URL do processo ou ferramenta a que os utilizadores precisam de ter acesso, ou podem introduzir o processo em si como texto. |
 | Documentação |A documentação pode ser fornecida ao nível do ativo dos dados. A documentação do ativo é uma rica informação de texto que pode incluir links e imagens, e que pode fornecer qualquer informação não transmitida através de descrições e tags. |
@@ -60,5 +60,5 @@ Assim como os metadados extraídos da fonte de dados durante o registo são adic
 ## <a name="summary"></a>Resumo
 Registar uma fonte de dados com o Data Catalog torna esses dados detetáveis copiando metadados estruturais e descritivos da fonte de dados para o serviço Catálogo. Uma vez registada uma fonte de dados, os utilizadores podem fornecer anotações para facilitar a descoberta e compreensão dentro do portal do Catálogo de Dados.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 * Começar com o tutorial do Catálogo de [Dados Azure](data-catalog-get-started.md) para detalhes passo a passo sobre como anotar fontes de dados.

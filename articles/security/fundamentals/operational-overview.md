@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
 ms.openlocfilehash: f3ec284de3d43e75bd0832b1d98bb9d319a7ca0e
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87925316"
 ---
 # <a name="azure-operational-security-overview"></a>Visão geral da segurança operacional do Azure
@@ -42,7 +42,7 @@ Pode consolidar dados a partir de uma variedade de fontes e combinar dados dos s
 
 [A Azure Automation](/azure/automation/automation-intro) fornece uma forma de automatizar o manual, de longa duração, propenso a erros e tarefas frequentemente repetidas que são normalmente executadas num ambiente de nuvem e empresa. Poupa tempo e aumenta a fiabilidade das tarefas administrativas. Ele até agenda estas tarefas para serem executadas automaticamente em intervalos regulares. Pode automatizar processos utilizando runbooks ou automatizar a gestão da configuração utilizando a Configuração do Estado Desejada.
 
-### <a name="backup"></a>Cópia de segurança
+### <a name="backup"></a>Backup
 
 [Azure Backup](/azure/backup/backup-introduction-to-azure-backup) é o serviço baseado no Azure que pode utilizar para fazer backup (ou proteger) e restaurar os seus dados na Cloud microsoft. O Azure Backup substitui a sua solução de backup existente no local ou fora do local por uma solução baseada na nuvem que seja fiável, segura e competitiva em termos de custos.
 
@@ -50,7 +50,7 @@ O Azure Backup oferece componentes que descarrega e implementa no computador ou 
 
 Para obter mais informações, consulte a [tabela de componentes de backup Azure](/azure/backup/backup-overview#what-can-i-back-up).
 
-### <a name="site-recovery"></a>Recuperação de sites
+### <a name="site-recovery"></a>Site Recovery
 
 [A Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery) proporciona continuidade de negócios orquestrando a replicação de máquinas virtuais e físicas no local para Azure, ou para um site secundário. Se o seu site principal não estiver disponível, falha na localização secundária para que os utilizadores possam continuar a trabalhar. Falhas quando os sistemas voltam a funcionar. Utilize o Centro de Segurança Azure para realizar uma deteção de ameaças mais inteligente e eficaz.
 
@@ -68,7 +68,7 @@ A Azure AD também inclui um conjunto completo de capacidades de gestão de [ide
 - [Gestão de palavras-passe personalizada](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/)
 - [Gestão de grupos de self-service](/azure/active-directory/active-directory-passwords-update-your-own-password)
 - [Gestão de conta privilegiada](/azure/active-directory/active-directory-privileged-identity-management-configure)
-- [Controlo de acesso baseado em funções Azure (Azure RBAC)](/azure/role-based-access-control/overview)
+- [Controlo de acesso baseado em funções do Azure (RBAC do Azure)](/azure/role-based-access-control/overview)
 - [Monitorização da utilização da aplicação](/azure/active-directory/connect-health/active-directory-aadconnect-health)
 - [Auditoria rica](/azure/active-directory/active-directory-reporting-activity-audit-logs)
 - [Monitorização e alerta de segurança](/azure/operations-management-suite/oms-security-responding-alerts)

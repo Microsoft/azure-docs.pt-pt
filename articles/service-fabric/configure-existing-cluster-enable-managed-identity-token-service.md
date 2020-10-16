@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.custom: sfrev
 ms.openlocfilehash: 722c507300cc5766d162f336f77f60293c5c90dc
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86257618"
 ---
 # <a name="configure-managed-identity-support-in-an-existing-service-fabric-cluster"></a>Configurar suporte de identidade gerido num cluster de tecido de serviço existente

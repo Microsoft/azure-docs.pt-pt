@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: chlound
 ms.openlocfilehash: 5a662119d9ccf95eac23785c5fe9a787da882531
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91537400"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>Utilizar segredos do Azure Key Vault em atividades de pipeline
@@ -69,6 +69,6 @@ Esta funcionalidade baseia-se na identidade gerida pela fábrica de dados.  Saib
 
     ![Expressão de código](media/how-to-use-azure-key-vault-secrets-pipeline-activities/usewebactivity.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender a usar o Azure Key Vault para armazenar credenciais para lojas de dados e computas, consulte [credenciais da Loja no Cofre da Chave Azure](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)

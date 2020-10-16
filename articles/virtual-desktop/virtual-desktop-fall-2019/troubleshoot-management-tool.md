@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 6f03284103b4a2aa6900bf1ba5c50a4688c50b0e
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88005487"
 ---
 # <a name="troubleshoot-the-windows-virtual-desktop-classic-management-tool"></a>Resolução de problemas da ferramenta de gestão virtual do Windows Desktop (clássico)

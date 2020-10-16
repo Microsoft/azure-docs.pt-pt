@@ -1,6 +1,6 @@
 ---
 title: Azure Firewall ameaça inteligência filtragem baseada em filtragem
-description: A filtragem baseada em inteligência de ameaça pode ser ativada para a sua firewall alertar e negar o tráfego de/para endereços e domínios IP maliciosos conhecidos.
+description: A filtragem baseada nas informações sobre ameaças pode ser ativada para a firewall para alertar e negar o tráfego de/para domínios e endereços IP maliciosos conhecidos.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 05/12/2020
 ms.author: victorh
 ms.openlocfilehash: e51cc8905a7b4a88bb7f7dabaf24bb30159ff86c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83655082"
 ---
 # <a name="azure-firewall-threat-intelligence-based-filtering"></a>Filtragem baseada em ameaças de Azure Firewall
 
-A filtragem baseada em inteligência de ameaça pode ser ativada para a sua firewall alertar e negar o tráfego de/para endereços e domínios IP maliciosos conhecidos. Os endereços e domínios IP são obtidos a partir do feed de Inteligência de Ameaça da Microsoft. [O Smart Security Graph](https://www.microsoft.com/security/operations/intelligence) alimenta a inteligência de ameaça da Microsoft e é usado por vários serviços, incluindo o Azure Security Center.<br>
+A filtragem baseada nas informações sobre ameaças pode ser ativada para a firewall para alertar e negar o tráfego de/para domínios e endereços IP maliciosos conhecidos. Os domínios e endereços IP são obtidos a partir do feed das Informações sobre Ameaças da Microsoft. [O Smart Security Graph](https://www.microsoft.com/security/operations/intelligence) alimenta a inteligência de ameaça da Microsoft e é usado por vários serviços, incluindo o Azure Security Center.<br>
 <br>
 
 :::image type="content" source="media/threat-intel/firewall-threat.png" alt-text="Inteligência de ameaça de firewall" border="false":::
@@ -27,7 +27,7 @@ Pode optar por registar um alerta quando uma regra é ativada, ou pode escolher 
 
 Por predefinição, a filtragem baseada em inteligência de ameaça é ativada no modo de alerta. Não é possível desativar esta funcionalidade ou alterar o modo até que a interface do portal fique disponível na sua região.
 
-:::image type="content" source="media/threat-intel/threat-intel-ui.png" alt-text="Interface do portal de filtragem baseada em inteligência de ameaça":::
+:::image type="content" source="media/threat-intel/threat-intel-ui.png" alt-text="Inteligência de ameaça de firewall":::
 
 ## <a name="logs"></a>Registos
 
@@ -51,7 +51,7 @@ O seguinte excerto de registo mostra uma regra desencadeada:
 
 - **Testes de entrada** - Pode esperar ver alertas sobre o tráfego de entrada se as regras de ADN forem configuradas na firewall. Isto é verdade mesmo que apenas fontes específicas sejam permitidas na regra do ADN e o tráfego seja negado de outra forma. A Azure Firewall não alerta em todos os scanners de portas conhecidos; apenas em scanners que são conhecidos por também se envolver em atividades maliciosas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Ver [amostras do Azure Firewall Log Analytics](log-analytics-samples.md)
 - Saiba como [implementar e configurar uma Firewall Azure](tutorial-firewall-deploy-portal.md)

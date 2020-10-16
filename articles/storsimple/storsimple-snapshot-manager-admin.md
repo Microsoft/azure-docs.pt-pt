@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2016
 ms.author: alkohli
 ms.openlocfilehash: 16d782c6a25d8d2d8e1323b7cb683f41d8c99649
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90054981"
 ---
 # <a name="use-storsimple-snapshot-manager-to-administer-your-storsimple-solution"></a>Utilize o StorSimple Snapshot Manager para administrar a sua solução StorSimple
@@ -55,10 +55,10 @@ Pode utilizar o StorSimple Snapshot Manager para monitorizar e gerir trabalhos d
 | Adicionar ou substituir um dispositivo<br>Ligar um dispositivo<br>Verificar grupos de volume importados<br>Atualizar dispositivos conectados<br>Autenticar um dispositivo<br>Ver detalhes do dispositivo<br>Excluir uma configuração do dispositivo<br>Alterar uma palavra-passe do dispositivo<br>Substitua um dispositivo falhado<br> |[Utilize o StorSimple Snapshot Manager para ligar e gerir dispositivos StorSimple](storsimple-snapshot-manager-manage-devices.md) |
 | Volumes de montagem<br>Ver informações sobre volumes<br>Apagar um volume<br>Volumes de rescan<br>Configurar e apoiar um volume básico<br>Configurar e apoiar um volume dinâmico espelhado |[Use StorSimple Snapshot Manager para visualizar e gerir volumes](storsimple-snapshot-manager-manage-volumes.md) |
 | Ver grupos de volume<br>Criar um grupo de volume<br>Apoiar um grupo de volume<br>Editar um grupo de volume<br>Excluir um grupo de volume |[Use storSimple Snapshot Manager para criar e gerir grupos de volume](storsimple-snapshot-manager-manage-volume-groups.md) |
-| Criar uma política de backup <br>Editar uma política de backup<br>Excluir uma política de backup |[Use storSimple Snapshot Manager para criar e gerir políticas de backup](storsimple-snapshot-manager-manage-backup-policies.md) |
+| Criar uma política de cópias de segurança <br>Editar uma política de backup<br>Excluir uma política de backup |[Use storSimple Snapshot Manager para criar e gerir políticas de backup](storsimple-snapshot-manager-manage-backup-policies.md) |
 | Ver e gerir trabalhos de backup programados<br>Ver e gerir trabalhos recentes de backup<br>Ver e gerir atualmente os trabalhos de backup |[Use storSimple Snapshot Manager para visualizar e gerir trabalhos de backup](storsimple-snapshot-manager-manage-backup-jobs.md) |
 | Restaurar um volume<br>Clone um grupo de volume ou volume<br>Eliminar uma cópia de segurança<br>Recuperar um ficheiro<br>Restaurar a base de dados StorSimple Snapshot Manager |[Use storSimple Snapshot Manager para gerir o catálogo de backup](storsimple-snapshot-manager-manage-backup-catalog.md) |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Baixar StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220).
 

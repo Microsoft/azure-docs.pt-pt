@@ -12,10 +12,10 @@ ms.author: daperlov
 manager: anandsub
 ms.custom: devx-track-python
 ms.openlocfilehash: 8c13e0e3f1cb8809a126b11409becd2211864c32
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87876551"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Monitorize programáticamente uma fábrica de dados Azure

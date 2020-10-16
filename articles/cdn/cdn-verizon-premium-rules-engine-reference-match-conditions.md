@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: allensu
 ms.openlocfilehash: efd6e6a93cd4ca79e6c4b6de69f8514e2d71b252
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84323319"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>Azure CDN da Verizon Premium regras condições de jogo do motor
@@ -28,7 +28,7 @@ Por exemplo, pode utilizar uma condição de correspondência para:
 
 ## <a name="match-conditions"></a><a name="top"></a>Condições de jogo
 
-* [Sempre](#always)
+* [Always](#always) (Sempre)
 * [Dispositivo](#device)
 * [Localização](#location)
 * [Origem](#origin)
@@ -43,7 +43,7 @@ Por exemplo, pode utilizar uma condição de correspondência para:
 
 Estas condições de correspondência destinam-se a identificar pedidos baseados no agente utilizador do cliente.
 
-| Name       | Objetivo                                                           |
+| Nome       | Objetivo                                                           |
 |------------|-------------------------------------------------------------------|
 | Nome da marca | Identifica os pedidos se a marca do dispositivo corresponde a: <br> **-** Valor específico[(Marca Literal)](https://docs.vdms.com/cdn/Content/HRE/M/D-Brand-Name-Literal.htm) <br> **-** Expressão regular[(Marca Regex)](https://docs.vdms.com/cdn/Content/HRE/M/D-Brand-Name-Regex.htm) <br> **-** Padrão específico[(Marca Marca Wildcard)](https://docs.vdms.com/cdn/Content/HRE/M/D-Brand-Name-Wildcard.htm) |
 | Dispositivo OS | Identifica os pedidos se o sistema operativo corresponde a: <br> **-** Valor específico[(Dispositivo OS Literal)](https://docs.vdms.com/cdn/Content/HRE/M/D-Device-OS-Literal.htm) <br> **-** Expressão regular[(Dispositivo OS Regex)](https://docs.vdms.com/cdn/Content/HRE/M/D-Device-OS-Regex.htm) <br> **-** Padrão específico[(Dispositivo OS Wildcard)](https://docs.vdms.com/cdn/Content/HRE/M/D-Device-OS-Wildcard.htm) |
@@ -77,7 +77,7 @@ Estas condições de correspondência destinam-se a identificar pedidos baseados
 
 Estas condições de correspondência destinam-se a identificar pedidos baseados na localização do solicitador.
 
-| Name       | Objetivo                                                           |
+| Nome       | Objetivo                                                           |
 |------------|-------------------------------------------------------------------|
 | [Número AS](https://docs.vdms.com/cdn/Content/HRE/M/AS-Number.htm) | Identifica pedidos originários de uma determinada rede. |
 | Nome da cidade | Identifica os pedidos por se tiverem origem numa cidade cujo nome corresponda a: <br> **-** Valor específico[(City Name Literal)](https://docs.vdms.com/cdn/Content/HRE/M/City-Name-Literal.htm) <br> **-** Expressão regular[(City Name Regex)](https://docs.vdms.com/cdn/Content/HRE/M/City-Name-Regex.htm) |
@@ -100,7 +100,7 @@ Ambas as condições de jogo fornecem a mesma capacidade. No entanto, recomendam
 
 Estas condições de correspondência são projetadas para identificar pedidos que apontam para o armazenamento de CDN ou um servidor de origem do cliente.
 
-| Name       | Objetivo                                                           |
+| Nome       | Objetivo                                                           |
 |------------|-------------------------------------------------------------------|
 | [Origem CDN](https://docs.vdms.com/cdn/Content/HRE/M/CDN-Origin.htm) | Identifica os pedidos de conteúdo armazenados no armazenamento de CDN. |
 | [Origem do Cliente](https://docs.vdms.com/cdn/Content/HRE/M/Customer-Origin.htm) | Identifica os pedidos de conteúdo armazenados num servidor específico de origem do cliente. |
@@ -111,7 +111,7 @@ Estas condições de correspondência são projetadas para identificar pedidos q
 
 Estas condições de correspondência são projetadas para identificar pedidos com base nas suas propriedades.
 
-| Name              | Objetivo                                                                |
+| Nome              | Objetivo                                                                |
 |-------------------|------------------------------------------------------------------------|
 | [Endereço IP do Cliente](https://docs.vdms.com/cdn/Content/HRE/M/Client-IP-Address.htm) | Identifica pedidos originários de um determinado endereço IP. |
 | Parâmetro de cookie  | Identifica um pedido através do facto de conter um cookie que corresponda a: <br> **-** Valor Específico[(Parâmetro de Cookie Literal)](https://docs.vdms.com/cdn/Content/HRE/M/Cookie-Parameter-Literal.htm) <br> **-** Expressão regular[(Cookie Parameter Regex](https://docs.vdms.com/cdn/Content/HRE/M/Cookie-Parameter-Regex.htm) <br> **-** Padrão específico[(Cookie Parameter Wildcard)](https://docs.vdms.com/cdn/Content/HRE/M/Cookie-Parameter-Wildcard.htm) |
@@ -125,7 +125,7 @@ Estas condições de correspondência são projetadas para identificar pedidos c
 
 ### <a name="url"></a><a name="url"></a>URL
 
-| Name              | Objetivo                                                                |
+| Nome              | Objetivo                                                                |
 |-------------------|------------------------------------------------------------------------|
 | Caminho do URL | Identifica os pedidos se o seu percurso relativo, incluindo o nome de ficheiro, corresponde a: <br> **-** Valor específico[(URL Path Literal)](https://docs.vdms.com/cdn/Content/HRE/M/URL-Path-Literal.htm) <br> **-** Expressão regular[(URL Path Regex)](https://docs.vdms.com/cdn/Content/HRE/M/URL-Path-Regex.htm) <br> **-** Padrão específico[(URL Path Wildcard)](https://docs.vdms.com/cdn/Content/HRE/M/URL-Path-Wildcard.htm) |
 | Diretório de Caminhos URL | Identifica os pedidos se o seu percurso relativo corresponde a: <br> **-** Valor específico[(URL Path Directory Literal)](https://docs.vdms.com/cdn/Content/HRE/M/URL-Path-Directory-Literal.htm) <br> **-** Padrão específico[(URL Path Directory Wildcard)](https://docs.vdms.com/cdn/Content/HRE/M/URL-Path-Directory-Wildcard.htm) |
@@ -138,7 +138,7 @@ Estas condições de correspondência são projetadas para identificar pedidos c
 
 Para as condições de jogo mais recentes, consulte a [documentação](https://docs.vdms.com/cdn/index.html#Quick_References/HRE_QR.htm#Conditio)do Verizon Rules Engine .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral da Rede de Entrega de Conteúdos Azure](cdn-overview.md)
 - [Referência do motor de regras](cdn-verizon-premium-rules-engine-reference.md)

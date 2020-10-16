@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
 ms.openlocfilehash: 49e82467cd5e9cef8100aa56016f778df3445f12
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91822395"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerir o ciclo de vida do Armazenamento de Blobs do Azure
@@ -243,7 +243,7 @@ Cada regra dentro da política tem vários parâmetros:
 
 | Nome do parâmetro | Tipo de parâmetro | Notas | Necessário |
 |----------------|----------------|-------|----------|
-| `name`         | String |Um nome de regra pode incluir até 256 caracteres alfanuméricos. O nome da regra é sensível a casos. Deve ser único dentro de uma política. | Verdadeiro |
+| `name`         | Cadeia |Um nome de regra pode incluir até 256 caracteres alfanuméricos. O nome da regra é sensível a casos. Deve ser único dentro de uma política. | Verdadeiro |
 | `enabled`      | Booleano | Um boolean opcional para permitir que uma regra seja temporariamente desativada. O valor predefinido é verdadeiro se não estiver definido. | Falso | 
 | `type`         | Um valor enum | O tipo válido atual é `Lifecycle` . | Verdadeiro |
 | `definition`   | Um objeto que define a regra do ciclo de vida | Cada definição é composta por um conjunto de filtros e um conjunto de ação. | Verdadeiro |

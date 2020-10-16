@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: tomfitz
 ms.openlocfilehash: 7580ac0650706d6aee49bbf0e8235e8c5dab33f4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87033360"
 ---
 # <a name="microsoftcommoninfobox-ui-element"></a>Microsoft.Common.InfoBox UI elemento
@@ -36,7 +36,7 @@ Um controlo que adiciona uma caixa de informação. A caixa contém textos impor
 }
 ```
 
-## <a name="sample-output"></a>Resultado da amostra
+## <a name="sample-output"></a>Saída de exemplo
 
 ```json
 "Nullam eros mi, mollis in sollicitudin non, tincidunt sed enim. Sed et felis metus, rhoncus ornare nibh. Ut at magna leo."

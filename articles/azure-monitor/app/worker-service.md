@@ -4,12 +4,12 @@ description: Monitorização de .NET Core/.NET Aplicações não-HTTP com Insigh
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/11/2020
-ms.openlocfilehash: 8156541a5b04a5db5f2ce683fd0e514c81e8b53e
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.openlocfilehash: 3d02b6e70d0832b92ae88db237b4c554b92e7f3b
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91840409"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91875075"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Pedidos de informação para aplicações de serviços de trabalhadores (aplicações não-HTTP)
 
@@ -44,7 +44,7 @@ Instruções específicas para cada tipo de aplicação são descritas nas segui
 
 ## <a name="net-core-30-worker-service-application"></a>.NET Core 3.0 pedido de serviço de trabalhador
 
-O exemplo completo é partilhado [aqui](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights)
+O exemplo completo é partilhado [aqui](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights)
 
 1. Baixar e instalar [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0)
 2. Crie um novo projeto de Serviço dos Trabalhadores, utilizando o novo modelo de projeto ou linha de comando do Visual Studio `dotnet new worker`
@@ -136,7 +136,7 @@ Tipicamente, `APPINSIGHTS_INSTRUMENTATIONKEY` especifica a chave de instrumenta�
 
 [Este](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio&view=aspnetcore-2.2&preserve-view=true) documento descreve como criar tarefas de fundo na aplica ASP.NET ção Core 2.1/2.2.
 
-O exemplo completo é partilhado [aqui](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/BackgroundTasksWithHostedService)
+O exemplo completo é partilhado [aqui](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerServiceSDK/BackgroundTasksWithHostedService)
 
 1. Instale o pacote [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) para a aplicação.
 2. Adicione `services.AddApplicationInsightsTelemetryWorkerService();` ao `ConfigureServices()` método, como neste exemplo:
@@ -223,7 +223,7 @@ Segue-se o código para `TimedHostedService` onde reside a lógica de tarefa de 
 
 Como mencionado no início deste artigo, o novo pacote pode ser usado para ativar a Telemetria Application Insights a partir de uma aplicação regular de consola. Este pacote tem como [`NetStandard2.0`](/dotnet/standard/net-standard) alvos , e assim pode ser utilizado para aplicações de consolas em .NET Core 2.0 ou superior, e .NET Framework 4.7.2 ou superior.
 
-O exemplo completo é partilhado [aqui](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/ConsoleAppWithApplicationInsights)
+O exemplo completo é partilhado [aqui](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerServiceSDK/ConsoleAppWithApplicationInsights)
 
 1. Instale o pacote [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) para a aplicação.
 
@@ -534,7 +534,7 @@ O visual Studio IDE está atualmente suportado apenas para aplicações core ASP
 
 ### <a name="can-i-enable-application-insights-monitoring-by-using-tools-like-status-monitor"></a>Posso ativar a monitorização de Insights de Aplicação utilizando ferramentas como o Status Monitor?
 
-Não. [Atualmente, o Monitor](./monitor-performance-live-website-now.md) de Estado e [o Monitor de Estado v2](./status-monitor-v2-overview.md) suportam ASP.NET apenas 4.x.
+N.º [Atualmente, o Monitor](./monitor-performance-live-website-now.md) de Estado e [o Monitor de Estado v2](./status-monitor-v2-overview.md) suportam ASP.NET apenas 4.x.
 
 ### <a name="if-i-run-my-application-in-linux-are-all-features-supported"></a>Se eu executar a minha candidatura no Linux, todas as funcionalidades são suportadas?
 
@@ -561,11 +561,11 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
 ## <a name="sample-applications"></a>Exemplos de aplicações
 
-[Aplicação de consola core .NET](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/ConsoleAppWithApplicationInsights) Utilize esta amostra se estiver a utilizar uma aplicação de consola escrita em .NET Core (2.0 ou superior) ou .NET Framework (4.7.2 ou superior)
+[Aplicação de consola core .NET](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerServiceSDK/ConsoleAppWithApplicationInsights) Utilize esta amostra se estiver a utilizar uma aplicação de consola escrita em .NET Core (2.0 ou superior) ou .NET Framework (4.7.2 ou superior)
 
-[ASP .NET Core tarefas de fundo com Os Serviços Hospedados](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/BackgroundTasksWithHostedService) Utilize esta amostra se estiver em Asp.Net Core 2.1/2.2 e criando tarefas de fundo de acordo com a orientação oficial [aqui](/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2&preserve-view=true)
+[ASP .NET Core tarefas de fundo com Os Serviços Hospedados](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerServiceSDK/BackgroundTasksWithHostedService) Utilize esta amostra se estiver em Asp.Net Core 2.1/2.2 e criando tarefas de fundo de acordo com a orientação oficial [aqui](/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2&preserve-view=true)
 
-[.NET Core 3.0 Serviço de Trabalhadores](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights) Utilize esta amostra se tiver uma aplicação de Serviço de Trabalhador .NET Core 3.0 de acordo com a orientação oficial [aqui](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio&view=aspnetcore-3.0&preserve-view=true#worker-service-template)
+[.NET Core 3.0 Serviço de Trabalhadores](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights) Utilize esta amostra se tiver uma aplicação de Serviço de Trabalhador .NET Core 3.0 de acordo com a orientação oficial [aqui](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio&view=aspnetcore-3.0&preserve-view=true#worker-service-template)
 
 ## <a name="open-source-sdk"></a>SDK de código aberto
 

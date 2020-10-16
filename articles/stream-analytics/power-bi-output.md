@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
 ms.openlocfilehash: aee5cb077604e5fc95647eca0e6570ea3582a785
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91822991"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Saída de Power BI da Azure Stream Analytics
@@ -56,7 +56,7 @@ Esta tabela cobre as conversões do tipo de dados do [Stream Analytics](https://
 De Stream Analytics | Para Power BI
 -----|-----
 bigint | Int64
-nvarchar(máx) | String
+nvarchar(máx) | Cadeia
 datetime | Datetime
 float | Double (Duplo)
 Matriz de registos | Tipo de corda, valor constante "IRecord" ou "IArray"
@@ -67,12 +67,12 @@ O Stream Analytics infere o esquema do modelo de dados com base no primeiro conj
 
 Evite a `SELECT *` consulta para evitar uma atualização dinâmica do esquema através de linhas. Além das potenciais implicações de desempenho, pode resultar na incerteza do tempo que os resultados demoram. Selecione os campos exatos que precisam de ser mostrados no painel Power BI. Além disso, os valores dos dados devem estar em conformidade com o tipo de dados escolhido.
 
-Anterior/corrente | Int64 | String | Datetime | Double (Duplo)
+Anterior/corrente | Int64 | Cadeia | Datetime | Double (Duplo)
 -----------------|-------|--------|----------|-------
 Int64 | Int64 | Cadeia | Cadeia | Double (Duplo)
 Double (Duplo) | Double (Duplo) | Cadeia | Cadeia | Double (Duplo)
 Cadeia | Cadeia | Cadeia | Cadeia | Cadeia 
-Datetime | Cadeia | Cadeia |  Datetime | String
+Datetime | Cadeia | Cadeia |  Datetime | Cadeia
 
 ## <a name="output-batch-size"></a>Tamanho do lote de saída
 

@@ -4,10 +4,10 @@ description: Aprenda agora a configurar o grupo Contas de Serviço Gerido (gMSA)
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.openlocfilehash: d34b4c6e11628b6a4843f8a9077ebf69c9e023fe
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260884"
 ---
 # <a name="set-up-gmsa-for-windows-containers-running-on-service-fabric"></a>Configurar gMSA para contentores Windows em execução em Tecido de Serviço

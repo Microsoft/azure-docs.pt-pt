@@ -18,10 +18,10 @@ ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
 ms.openlocfilehash: 53f10996a7f15e32261f151600163f41df4e58ca
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91666794"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-the-azure-cli"></a>Gerir a exfiltração de dados para contas de armazenamento de Azure com políticas de ponto final de serviço de rede virtual utilizando o Azure CLI
@@ -325,7 +325,7 @@ Criar uma pasta para um ponto de montagem:
 sudo mkdir /mnt/MyAzureFileShare1
 ```
 
-Monte a partilha de ficheiros Azure para o diretório que criou. Antes de executar o comando abaixo, *\<storage-account-key>* substitua-o pelo valor da *AccountKey* de **$saConnectionString1**.
+Monte a partilha de ficheiros Azure para o diretório que criou. Antes de executar o comando abaixo, *\<storage-account-key>* substitua-o pelo valor da *AccountKey* de **$saConnectionString 1**.
 
 ```bash
 sudo mount --types cifs //allowedstorageacc.file.core.windows.net/my-file-share /mnt/MyAzureFileShare1 --options vers=3.0,username=allowedstorageacc,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
@@ -343,7 +343,7 @@ sudo mkdir /mnt/MyAzureFileShare2
 
 Tente montar a parte de ficheiros Azure da conta de armazenamento *notallowedstorageaccc* para o diretório que criou. Este artigo pressupõe que implementou a versão mais recente do Ubuntu. Se estiver a utilizar versões anteriores do Ubuntu, consulte [o Mount on Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para obter instruções adicionais sobre a montagem de partilhas de ficheiros. 
 
-Antes de executar o comando abaixo, *\<storage-account-key>* substitua o valor da *AccountKey* de **$saConnectionString2**.
+Antes de executar o comando abaixo, *\<storage-account-key>* substitua o valor da *AccountKey* de **$saConnectionString 2**.
 
 ```bash
 sudo mount --types cifs //notallowedstorageacc.file.core.windows.net/my-file-share /mnt/MyAzureFileShare2 --options vers=3.0,username=notallowedstorageacc,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
@@ -353,7 +353,7 @@ O acesso é negado e você recebe um `mount error(13): Permission denied` erro, 
 
 Saia da sessão SSH para o *myVmPublic* VM.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, utilize [o grupo AZ para remover](/cli/azure) o grupo de recursos e todos os recursos que contém.
 
@@ -361,6 +361,6 @@ Quando já não for necessário, utilize [o grupo AZ para remover](/cli/azure) o
 az group delete --name myResourceGroup --yes
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aplicou uma política de ponto final de serviço sobre um ponto final de serviço de rede virtual Azure ao Azure Storage. Criou contas de Armazenamento Azure e acesso limitado à rede a determinadas contas de armazenamento (e assim negou outras) a partir de uma sub-rede de rede virtual. Para saber mais sobre as políticas de ponto final de serviço, consulte [a visão geral das políticas de pontos finais](virtual-network-service-endpoint-policies-overview.md)do Serviço .

@@ -2,19 +2,16 @@
 title: Azure Monitor Workbooks e Azure Resource Manager
 description: Simplificar relatórios complexos com livros de trabalho do Monitor Azure pré-construídos e personalizados implantados através de modelos de gestores de recursos Azure
 services: azure-monitor
-author: mrbullwinkle
-manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.author: mbullwin
-ms.openlocfilehash: e2463c2ea4044af0b20a1dee91b30870639dc7ce
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 77190b85da08d09cf05a02dcc5787f0c24229948
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86504925"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91929732"
 ---
 # <a name="programmatically-manage-workbooks"></a>Gerir programáticamente livros de trabalho
 
@@ -212,6 +209,6 @@ Os tipos de livros de trabalho especificam qual o tipo de galeria de livros que 
 ### <a name="limitations"></a>Limitações
 Por uma razão técnica, este mecanismo não pode ser utilizado para criar casos de livros na galeria de livros de _trabalho_ de Insights de Aplicação. Estamos a trabalhar para resolver esta limitação. Entretanto, recomendamos que utilize a galeria Do Guia de Resolução de Problemas (manualType: `tsg` ) para implementar livros relacionados com a Aplicação Insights.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Explore como os livros estão a ser usados para alimentar o novo [Azure Monitor para a experiência de armazenamento.](../insights/storage-insights-overview.md)

@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: fccdaaab121f315f1cb98b2b6ee3bffcb9ac2b3b
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 1809194ce551fc828389cc31f5c7d6f28a2cddd6
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653014"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972378"
 ---
 # <a name="dcsv2-series"></a>Série DCsv2
 
@@ -36,7 +36,7 @@ Os casos de uso de exemplo incluem: partilha de dados multipartidários confiden
 | Standard_DC4s_v2 | 4    | 16          | 200                    | 4              | 8000/64                                                                                               | 2  | 112                                          |
 | Standard_DC8_v2  | 8   | 32          | 400                    | 8              | 16000/128                                                                                         | 2   | 168                                         |
 
-- Os VMs da série DCsv2 são [de geração 2 VMs e apenas imagens](./linux/generation-2.md#creating-a-generation-2-vm) de `Gen2` suporte.
+- Os VMs da série DCsv2 são [de geração 2 VMs e apenas imagens](./generation-2.md#creating-a-generation-2-vm) de `Gen2` suporte.
 - Atualmente disponível nas regiões listadas [aqui.](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all)
 - Geração anterior de VMs de Computação Confidencial: [séries DC](sizes-previous-gen.md#preview-dc-series)
 - Criar DCsv2 VMs utilizando o [portal Azure](./linux/quick-create-portal.md) ou [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.acc-virtual-machine-v2?tab=overview)

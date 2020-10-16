@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: 4d0934dd30f9738e2a67d4aff23c96a48aaaa61b
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: d868a2d9bc88be7faea161779c35110f13e2b2ac
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89302847"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939074"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-azure-cli"></a>Quickstart: Criar um endereço IP público utilizando O Azure CLI
 
@@ -95,7 +95,7 @@ Utilize [a rede az public-ip criar](https://docs.microsoft.com/cli/azure/network
   az network public-ip create \
     --resource-group myResourceGroup \
     --name myBasicPublicIP \
-    --sku Standard
+    --sku Basic \
     --allocation-method Static
 ```
 Se for aceitável que o endereço IP se altere ao longo do tempo, a atribuição de IP **dinâmico** pode ser selecionada alterando o método de atribuição para 'Dynamic'.
@@ -106,7 +106,7 @@ Se for aceitável que o endereço IP se altere ao longo do tempo, a atribuição
 
 Para obter mais detalhes sobre as variáveis individuais listadas acima, consulte [Gerir os endereços IP públicos](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#create-a-public-ip-address).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Associar um [endereço IP público a uma Máquina Virtual.](https://docs.microsoft.com/azure/virtual-network/associate-public-ip-address-vm#azure-portal)
 - Saiba mais sobre [endereços IP públicos](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) em Azure.
 - Saiba mais sobre todas as [definições de endereços IP públicos](virtual-network-public-ip-address.md#create-a-public-ip-address).

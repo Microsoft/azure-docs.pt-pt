@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
 ms.openlocfilehash: 0138715e4c9df8ae05c9a3eade64d539eb7cdeda
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91756556"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Caracterização na aprendizagem automática de máquinas
@@ -47,7 +47,7 @@ Para experiências que configura com o Python SDK, pode ativar ou desativar a de
 
 A tabela seguinte mostra as definições aceites para `featurization` a [classe AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig):
 
-|Configuração de exibição | Description|
+|Configuração de exibição | Descrição|
 ------------- | ------------- |
 |`"featurization": 'auto'`| Especifica que, como parte do pré-processamento, [os guarda-dados e as etapas de exibição](#featurization) devem ser feitos automaticamente. Esta é a predefinição.|
 |`"featurization": 'off'`| Especifica que os passos de caracterização não devem ser feitos automaticamente.|
@@ -62,7 +62,7 @@ A tabela seguinte resume técnicas que são automaticamente aplicadas aos seus d
 > [!NOTE]
 > Se pretende exportar os seus modelos criados pela AutoML para um [modelo ONNX,](concept-onnx.md)apenas as opções de exibição indicadas com um asterisco ("*") são suportadas no formato ONNX. Saiba mais sobre [a conversão de modelos para ONNX](concept-automated-ml.md#use-with-onnx).
 
-|Etapas de exibição &nbsp;| Description |
+|Etapas de exibição &nbsp;| Descrição |
 | ------------- | ------------- |
 |**Largar altas características de cardinalidade ou nenhuma variação*** |Largue estas funcionalidades dos conjuntos de treino e validação. Aplica-se a características com todos os valores em falta, com o mesmo valor em todas as linhas, ou com elevado cardinalício (por exemplo, hashes, IDs ou GUIDs).|
 |**Imputar valores em falta*** |Para características numéricas, imputar com a média de valores na coluna.<br/><br/>Para características categóricas, imputar com o valor mais frequente.|

@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: how-to
 ms.date: 10/02/2020
 ms.openlocfilehash: 3f243a1a8d4f4b3ee4688ac3942debee5282a9a4
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761928"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Partilhar e receber dados da Base de Dados SQL do Azure e do Azure Synapse Analytics
@@ -77,7 +77,7 @@ Crie um recurso Azure Data Share num grupo de recursos Azure.
     | Subscrição | A sua subscrição | Selecione a subscrição Azure que pretende utilizar para a sua conta de partilha de dados.|
     | Grupo de recursos | *grupo de recursos de teste* | Utilize um grupo de recursos existente ou crie um novo grupo de recursos. |
     | Localização | *E.U.A. Leste 2* | Selecione uma região para a sua conta de partilha de dados.
-    | Name | *conta de datashare* | Especifique um nome para a sua conta de partilha de dados. |
+    | Nome | *conta de datashare* | Especifique um nome para a sua conta de partilha de dados. |
     | | |
 
 1. Selecione **Rever + criar**e, em seguida, **criar** para obter a sua conta de partilha de dados. O fornecimento de uma nova conta de partilha de dados normalmente demora cerca de 2 minutos ou menos. 
@@ -244,7 +244,7 @@ Quando partilha dados a partir de fonte SQL, os seguintes mapeamentos são usado
 | binary |Byte[] |
 | bit |Booleano |
 | char |String, Char[] |
-| data |DateTime |
+| date |DateTime |
 | Datetime |DateTime |
 | datetime2 |DateTime |
 | Datatimeoff |Início de execução de tempo de data |

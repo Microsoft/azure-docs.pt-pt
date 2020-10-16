@@ -4,10 +4,10 @@ description: Configurar manualmente a monitorização do Application Insights pa
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.openlocfilehash: d2e367e84aed7abac70d803f28d26070f7b0a85e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87323133"
 ---
 # <a name="create-an-application-insights-resource"></a>Criar um recurso do Application Insights
@@ -70,7 +70,7 @@ New-AzApplicationInsights [-ResourceGroupName] <String> [-Name] <String> [-Locat
 ```powershell
 New-AzApplicationInsights -Kind java -ResourceGroupName testgroup -Name test1027 -location eastus
 ```
-#### <a name="results"></a>Resultados
+#### <a name="results"></a>Results
 
 ```powershell
 Id                 : /subscriptions/{subid}/resourceGroups/testgroup/providers/microsoft.insights/components/test1027
@@ -103,7 +103,7 @@ Para aceder aos comandos de Pré-visualização Do CLI do Application Insights, 
  az extension add -n application-insights
 ```
 
-Se não executar o `az extension add` comando, verá uma mensagem de erro que diz:`az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
+Se não executar o `az extension add` comando, verá uma mensagem de erro que diz: `az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
 
 Agora pode executar o seguinte para criar o seu recurso Application Insights:
 
@@ -122,7 +122,7 @@ az monitor app-insights component create --app
 az monitor app-insights component create --app demoApp --location westus2 --kind web -g demoRg --application-type web
 ```
 
-#### <a name="results"></a>Resultados
+#### <a name="results"></a>Results
 
 ```azurecli
 az monitor app-insights component create --app demoApp --location eastus --kind web -g demoApp  --application-type web

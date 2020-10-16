@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: snehaa
 ms.openlocfilehash: c354c1c9dfacfcb6bf84f1140b58deca60c1874e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86109846"
 ---
 # <a name="scale-migration-of-vms"></a>Migração em escala de VMs 
@@ -67,6 +67,6 @@ Uma vez que o CSV esteja pronto, pode executar os seguintes passos para realizar
 ## <a name="how-to-migrate-to-managed-disks"></a>Como migrar para discos geridos?
 O script, por padrão, migra os VMs para discos geridos em Azure. Se a conta de armazenamento-alvo fornecida for uma conta de armazenamento premium, os discos geridos com prémios são criados após a migração. A conta de armazenamento de cache ainda pode ser uma conta padrão. Se a conta de armazenamento alvo for uma conta de armazenamento padrão, os discos padrão são criados após a migração. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba mais](../site-recovery/migrate-tutorial-on-premises-azure.md) sobre a migração de servidores para Azure usando a recuperação do site Azure

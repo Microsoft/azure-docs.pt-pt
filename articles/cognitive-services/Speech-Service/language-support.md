@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 483c29d4aed4102440b09f26fe6778709836145f
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 3b449913c9d1abbbec84f0ff77f7a1c1bc5321bf
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629833"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048462"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Suporte linguístico e de voz para o serviço de fala
 
@@ -154,7 +154,7 @@ Para obter mais informações sobre a disponibilidade regional, consulte [as reg
 | `en-CA` | Inglês (Canadá) | Mulheres | `en-CA-ClaraNeural` | Geral |
 | `en-GB` | Inglês (Reino Unido) | Mulheres | `en-GB-LibbyNeural` | Geral |
 | `en-GB` | Inglês (Reino Unido) | Mulheres | `en-GB-MiaNeural` | Geral |
-| `en-GB` <sup>Novo</sup> | Inglês (Reino Unido) | Homens | `En-GB-RyanNeural` | Geral |
+| `en-GB` <sup>Novo</sup> | Inglês (Reino Unido) | Homens | `en-GB-RyanNeural` | Geral |
 | `en-IE` <sup>Novo</sup> | Inglês irlandês (Irlanda) | Mulheres | `en-IE-EmilyNeural` | Geral |
 | `en-IN` | Inglês (Índia) | Mulheres | `en-IN-NeerjaNeural` | Geral |
 | `en-US` | Inglês (Estados Unidos) | Mulheres | `en-US-AriaNeural` | Geral, vários estilos de voz disponíveis |
@@ -311,7 +311,7 @@ Mais de 75 vozes padrão estão disponíveis em mais de 45 línguas e locais, qu
 A personalização de voz está disponível `de-DE` para, `en-GB` , , , , , , e `en-IN` `en-US` `es-MX` `fr-FR` `it-IT` `pt-BR` `zh-CN` . Selecione o local certo que corresponda aos dados de treino que tem para treinar um modelo de voz personalizado. Por exemplo, se os dados de gravação que tem forem falados em inglês com sotaque britânico, selecione `en-GB` .
 
 > [!NOTE]
-> Não apoiamos a formação de modelos bilingues em Custom Voice, exceto o bi-lingual chinês-inglês. Selecione "bilingue chinês-inglês" se quiser treinar uma voz chinesa que também sabe falar inglês. A formação de voz em todos os locais começa com um conjunto de dados de mais de 2.000 expressões, exceto para o `en-US` e onde você pode começar com qualquer tamanho de `zh-CN` dados de treino.
+> Não apoiamos a formação de modelos bilingues em Voz Personalizada, exceto para o Chinese-English bi-lingual. Selecione "bilingue chinês-inglês" se quiser treinar uma voz chinesa que também sabe falar inglês. A formação de voz em todos os locais começa com um conjunto de dados de mais de 2.000 expressões, exceto para o `en-US` e onde você pode começar com qualquer tamanho de `zh-CN` dados de treino.
 
 ## <a name="speech-translation"></a>Tradução de voz
 
@@ -399,7 +399,7 @@ Consulte a tabela seguinte para as línguas suportadas para as várias APIs de r
 
 | Região | Linguagem | Verificação dependente de texto | Verificação independente de texto | Identificação independente de texto |
 |----|----|----|----|----|
-| pt-PT | Inglês (E.U.A.) | sim | sim | sim |
+| en-PT | Inglês (E.U.A.) | sim | sim | sim |
 |zh-CN    |Chinês (mandarim, simplificado)|    n/a|    sim|    sim|
 |de-DE    |Alemão (Alemanha)    |n/a    |sim    |sim|
 |en-GB    |Inglês (Reino Unido)    |n/a    |sim    |sim|

@@ -8,10 +8,10 @@ ms.date: 06/19/2020
 ms.author: keferna
 author: keferna
 ms.openlocfilehash: 92fd4d629585ed465e2891be2dce1c1bdc8c88e6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87287934"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Unidade de teste do Gestor de Recursos Azure
@@ -72,10 +72,10 @@ Pode utilizar qualquer nome válido para os seus parâmetros; a unidade de teste
 
 | Tipo de metadados   | Tipo de parâmetro  | Descrição     | Valor da amostra    |
 |---|---|---|---|
-| **baseuri**     | cadeia          | Base URI do seu pacote de implantação| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
-| **nome de utilizador**    | cadeia          | Novo nome de utilizador aleatório.| administrador68876      |
+| **baseuri**     | string          | Base URI do seu pacote de implantação| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
+| **nome de utilizador**    | string          | Novo nome de utilizador aleatório.| administrador68876      |
 | **palavra-passe**    | cadeia segura    | Nova senha aleatória | Lp!ACS \^ 2kh     |
-| **id sessão**   | cadeia          | ID de sessão de test drive único (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
+| **id sessão**   | string          | ID de sessão de test drive único (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
 
 #### <a name="baseuri"></a>baseuri
 
@@ -122,7 +122,7 @@ A unidade de teste ini (test drive) inindo este parâmetro com um novo nome de u
 }
 ```
 
-Valor da amostra:`admin68876`
+Valor da amostra: `admin68876`
 
 Pode utilizar nomes de utilizador aleatórios ou constantes para a sua solução.
 
@@ -144,7 +144,7 @@ O test drive iniciona este parâmetro com uma nova senha aleatória:
 }
 ```
 
-Valor da amostra:`Lp!ACS^2kh`
+Valor da amostra:  `Lp!ACS^2kh`
 
 Pode utilizar senhas aleatórias ou constantes para a sua solução.
 
@@ -166,7 +166,7 @@ O test drive iniciona este parâmetro com um ID de sessão de unidade de teste �
 }
 ```
 
-Valor da amostra:`b8c8693e-5673-449c-badd-257a405a6dee`
+Valor da amostra: `b8c8693e-5673-449c-badd-257a405a6dee`
 
 Pode utilizar este parâmetro para identificar exclusivamente a sessão de test drive, se for necessário.
 

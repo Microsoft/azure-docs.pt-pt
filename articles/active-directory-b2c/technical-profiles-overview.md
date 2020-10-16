@@ -12,10 +12,10 @@ ms.date: 09/15/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 7417e2d39371066a5c5e8576040cbe22e7632043
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90562881"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Sobre perfis técnicos em políticas personalizadas Azure Ative Directory B2C

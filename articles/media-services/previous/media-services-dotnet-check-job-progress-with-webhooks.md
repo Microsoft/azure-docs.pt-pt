@@ -16,10 +16,10 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 24e4bf9940de0f7b0e851bdfdbd2d788757034e0
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89267739"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Utilize webhooks Azure para monitorizar notificações de emprego dos Media Services com .NET
@@ -64,7 +64,7 @@ Ao desenvolver funções de Media Services, é útil adicionar variáveis ambien
 
 A secção [de definições de aplicação](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) define parâmetros que são utilizados no webhook definido neste artigo. Adicione também os seguintes parâmetros às definições da aplicação. 
 
-|Name|Definição|Exemplo| 
+|Nome|Definição|Exemplo| 
 |---|---|---|
 |AssinaturaKey |Uma chave de assinatura.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
 |WebHookEndpoint | Um endereço de ponto final webhook. Uma vez criada a sua função webhook, pode copiar o URL a partir do link URL da **função Obter.** | https: \/ /juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g=.|

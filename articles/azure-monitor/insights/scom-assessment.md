@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/25/2018
 ms.openlocfilehash: 97d7d21374062462248e1b86f2bde2fef2d25331
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87326057"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimize your environment with the System Center Operations Manager Health Check (Preview) solution (Otimizar o ambiente com a solução Verificação de Estado de Funcionamento do System Center Operations Manager [Pré-visualização])
@@ -82,7 +82,7 @@ A conta Run As deve satisfazer os seguintes requisitos antes de prosseguir:
 4. Na página **Propriedades Gerais,** selecione **Windows** in the **Run As Account type:** list.
 5. Digite um nome de exibição na caixa de texto **do Nome do Visor** e digite opcionalmente uma descrição na caixa **Descrição** e, em seguida, clique em **Seguinte**.
 6. Na página **de Segurança de Distribuição,** selecione **Mais seguro**.
-7. Clique em **Create** (Criar).  
+7. Clique em **Criar**.  
 
 Agora que a conta Run As foi criada, precisa de direcionar os servidores de gestão no grupo de gestão e associado a uma execução pré-definida Como perfil para que os fluxos de trabalho sejam executados usando as credenciais.  
 
@@ -209,7 +209,7 @@ Veja as avaliações de conformidade resumidas para a sua infraestrutura e, em s
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Para ver recomendações para uma área de foco e tomar medidas corretivas
 1. Faça login no portal Azure em [https://portal.azure.com](https://portal.azure.com) .
-2. No portal do Azure, clique em **Mais serviços**, que se encontra no canto inferior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.
+2. No portal do Azure, clique em **Mais serviços**, que se encontra no canto inferior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione o **Log Analytics**.
 3. No painel de subscrições do Log Analytics, selecione um espaço de trabalho e, em seguida, clique no item do menu **de resumo do Espaço de Trabalho.**  
 4. Na página **'Visão Geral',** clique no azulejo **do Gestor de Operações do System Center.**
 5. Na página **'Health Check' do System Center Operations Manager,** reveja a informação sumária numa das lâminas da área de foco e, em seguida, clique numa para visualizar recomendações para essa área de foco.
@@ -268,7 +268,7 @@ Se tiver recomendações que pretende ignorar, pode criar um ficheiro de texto q
 - [Configure a regra do Gestor de Verificação de Saúde do Gestor de Operações do System Center](#configure-the-health-check-rule)
 
 
-*Há uma maneira de configurar com que frequência o cheque é executado?* Yes. Consulte [a configuração da frequência de funcionamento](#configure-the-run-frequency).
+*Há uma maneira de configurar com que frequência o cheque é executado?* Sim. Consulte [a configuração da frequência de funcionamento](#configure-the-run-frequency).
 
 *Se outro servidor for descoberto depois de eu ter adicionado a solução de Verificação de Saúde do Gestor de Operações do System Center, será verificado?* Sim, após a descoberta é verificado a partir daí, por defeito a cada sete dias.
 

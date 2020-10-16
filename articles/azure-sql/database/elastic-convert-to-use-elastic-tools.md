@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 95afd0b9117caca4b531c453417217d8a8de7c7f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91443480"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migrar as bases de dados existentes para escalar
@@ -154,9 +154,9 @@ Get-Mappings -ShardMap $ShardMap
 
 Uma vez concluída a configuração, pode começar a utilizar a biblioteca de clientes Elastic Database. Também pode utilizar [o encaminhamento dependente de dados](elastic-scale-data-dependent-routing.md) e [consulta multi-fragmentos](elastic-scale-multishard-querying.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Obtenha os scripts PowerShell a partir de scripts de ferramentas de [base de dados elásticas Azure SQL](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
+Obtenha os scripts PowerShell da [Azure SQL Database-Elastic scripts de ferramentas de base de dados](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
 As ferramentas também estão no GitHub: [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools).
 

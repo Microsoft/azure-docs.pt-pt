@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 141649f7620063b58134caaa878162f3a7e767e7
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: f2e17e99208d076d05132638b5161a284b73986f
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91739919"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018632"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrar a aplicação numa rede virtual do Azure
 
@@ -149,6 +149,10 @@ Três encargos estão relacionados com a utilização da funcionalidade de Integ
 * **Custos de gateway VPN**: Há um custo para o gateway de rede virtual que é necessário para a VPN ponto-a-local. Para obter mais informações, consulte [os preços da porta de entrada VPN.][VNETPricing]
 
 ## <a name="troubleshooting"></a>Resolução de problemas
+
+> [!NOTE]
+> A integração do VNET não é suportada para cenários Docker Compose no Serviço de Aplicações.
+>
 
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
 

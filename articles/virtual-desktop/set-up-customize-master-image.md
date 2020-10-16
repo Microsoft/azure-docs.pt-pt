@@ -7,10 +7,10 @@ ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 175b2268727364040640b319c24019bdf9b48df9
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89433709"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparar e personalizar uma imagem VHD principal
@@ -138,7 +138,7 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\
 
 ### <a name="include-additional-language-support"></a>Incluir suporte linguístico adicional
 
-Este artigo não abrange como configurar a linguagem e o apoio regional. Para obter mais informações, veja os seguintes artigos:
+Este artigo não abrange como configurar a linguagem e o apoio regional. Para obter mais informações, veja os artigos seguintes:
 
 - [Adicionar idiomas às imagens do Windows](/windows-hardware/manufacture/desktop/add-language-packs-to-windows/)
 - [Características a pedido](/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities/)
@@ -204,7 +204,7 @@ As seguintes instruções dir-lhe-ão como enviar a sua imagem principal para um
     > [!div class="mx-imgBorder"]
     > ![Uma imagem da notificação "imagem criada com sucesso".](media/1f41b7192824a2950718a2b7bb9e9d69.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que tem uma imagem, pode criar ou atualizar piscinas de anfitriões. Para saber mais sobre como criar e atualizar piscinas de anfitriões, consulte os seguintes artigos:
 

@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 7/22/2020
 ms.author: baanders
 ms.openlocfilehash: c2668bdda5002ebd2a34b8a2ffa5885263aec0c9
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88009671"
 ---
 É possível que a sua organização exija ações adicionais de proprietários/administradores de subscrição para configurar com sucesso um registo de aplicações (e assim, para terminar a criação de uma instância Azure Digital Twins utilizável). Os passos necessários podem variar dependendo das definições específicas da sua organização.
@@ -20,7 +20,7 @@ Aqui estão algumas atividades potenciais comuns que um Proprietário/administra
     :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/portal/grant-admin-consent.png" alt-text="Visão do portal do botão 'Conceder consentimento administrativo' sob permissões API":::
   - Se o consentimento tiver sido concedido com sucesso, a entrada para a Azure Digital Twins deve então mostrar um valor de *Estado* de _Concedido para **(a sua empresa)** _
    
-    :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/portal/granted-admin-consent-done.png" alt-text="Visão do portal do consentimento administrativo concedido à empresa ao abrigo de permissões da API":::
+    :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/portal/granted-admin-consent-done.png" alt-text="Visão do portal do botão 'Conceder consentimento administrativo' sob permissões API":::
 * Ativar o acesso do cliente público
 * Definir URLs de resposta específico para acesso web e desktop
 * Permitir fluxos implícitos de autenticação OAuth2

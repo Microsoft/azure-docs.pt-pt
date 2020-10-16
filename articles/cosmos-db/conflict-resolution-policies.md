@@ -8,10 +8,10 @@ ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
 ms.openlocfilehash: 49400ad0da86eddf7bbbd51dd92101084cdf1ee1
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91570099"
 ---
 # <a name="conflict-types-and-resolution-policies-when-using-multiple-write-regions"></a>Tipos de conflitos e políticas de resolução ao utilizar várias regiões de escrita

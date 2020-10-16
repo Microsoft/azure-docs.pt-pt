@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/27/2019
 ms.author: jeedes
 ms.openlocfilehash: e8b54d3a9f4a9b0fd74a1aabd2b5b696db213bab
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88516797"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-the-funding-portal"></a>Tutorial: Azure Ative Directy integração única (SSO) com o Portal do Financiamento

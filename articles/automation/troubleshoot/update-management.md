@@ -2,15 +2,15 @@
 title: Problemas com a Azure Automation Update Management
 description: Este artigo diz como resolver problemas e resolver problemas com a Azure Automation Update Management.
 services: automation
-ms.date: 09/30/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: c70d164325f536187c5ce99419bb41daaa9b1e88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d6a87d9b420ea394baaa21c87dff457e4c908d0
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91858409"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070338"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Resolver problemas da Gestão de Atualizações
 
@@ -486,6 +486,8 @@ Verifique se a conta do sistema leu o acesso à pasta **C:\ProgramData\Microsoft
 A janela de manutenção predefinida para atualizações é de 120 minutos. Pode aumentar a janela de manutenção para um máximo de 6 horas, ou 360 minutos.
 
 ### <a name="resolution"></a>Resolução
+
+Para entender por que isto ocorreu durante uma atualização executada após o início com sucesso, [verifique a saída](../update-management/update-mgmt-deploy-updates.md#view-results-of-a-completed-update-deployment) de trabalho da máquina afetada durante a execução. Pode encontrar mensagens de erro específicas das suas máquinas que possa pesquisar e tomar medidas.  
 
 Edite quaisquer implementações de atualização programadas e aumente a janela de manutenção.
 

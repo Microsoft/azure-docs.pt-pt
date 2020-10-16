@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: api-management
 author: vladvino
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 04/14/2020
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: 9ed918c841989cb50efa362251d09c0b655b7fc4
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: 5c36a541c9380596884252efcba4a9c0ca2be33f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89570231"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92082150"
 ---
 | Recurso | Limite |
 | ---------------------------------------------------------------------- | -------------------------- |
@@ -39,7 +39,7 @@ ms.locfileid: "89570231"
 <sup>2</sup> Por unidade, o tamanho da cache depende do nível de preços. Para ver os níveis de preços e os seus limites de escala, consulte [os preços da API Management](https://azure.microsoft.com/pricing/details/api-management/).<br/>
 <sup>3</sup> As ligações são agrizadas e reutilizadas, a menos que esteja explicitamente fechada na parte de trás.<br/>
 <sup>4</sup> Este limite é por unidade dos escalões Básico, Standard e Premium. O nível de Desenvolvedor está limitado a 1.024. Este limite não se aplica ao nível de Consumo.<br/>
-<sup>5</sup> Este limite aplica-se aos níveis Básico, Standard e Premium. No nível de consumo, o tamanho do documento de política é limitado a 4 KiB.<br/>
+<sup>5</sup> Este limite aplica-se aos níveis Básico, Standard e Premium. No nível de consumo, o tamanho do documento de política é limitado a 16 KiB.<br/>
 <sup>6</sup> Vários domínios personalizados são suportados apenas nos níveis Developer e Premium.<br/>
 <sup>7</sup> Os certificados de CA não são suportados no nível de Consumo.<br/>
 <sup>8</sup> Este limite aplica-se apenas ao nível de Consumo. Não há limites nestas categorias para outros níveis.<br/>

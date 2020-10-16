@@ -6,12 +6,12 @@ author: laurenhughes
 ms.topic: article
 ms.date: 09/21/2020
 ms.author: lahugh
-ms.openlocfilehash: 6a9567669445cb5aa94c1108051c961a216fabad
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ce51e76829c19def1c1603b1a88592d1e683ccae
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335607"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070644"
 ---
 # <a name="access-kubernetes-resources-from-the-azure-portal-preview"></a>Aceder aos recursos de Kubernetes a partir do portal Azure (Preview)
 
@@ -20,7 +20,7 @@ O portal Azure inclui um visualizador de recursos Kubernetes (pré-visualizaçã
 A vista de recursos de Kubernetes do portal Azure substitui o addon do [dashboard AKS][kubernetes-dashboard], que está definido para depreciação.
 
 >[!NOTE]
->A capabilty não é suportada em [clusters privados do Serviço Azure Kubernetes.](https://docs.microsoft.com/azure/aks/private-clusters)
+>A capabilty não é suportada em [clusters privados do Serviço Azure Kubernetes.](./private-clusters.md)
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -48,19 +48,19 @@ Neste exemplo, usaremos o nosso cluster AKS de amostra para implementar a aplica
 
 Uma vez adicionado o ficheiro YAML, o visualizador de recursos mostra ambos os serviços Kubernetes que foram criados: o serviço interno (azure-vote-back) e o serviço externo (azure-vote-front) para aceder à aplicação Azure Vote. O serviço externo inclui um endereço IP externo ligado para que possa facilmente ver a aplicação no seu navegador.
 
-:::image type="content" source="media/kubernetes-portal/portal-services.png" alt-text="Informações sobre a aplicação do Voto Azure apresentadas no portal Azure." lightbox="media/kubernetes-portal/portal-services.png":::
+:::image type="content" source="media/kubernetes-portal/portal-services.png" alt-text="Informações do pod kubernetes exibidas no portal Azure." lightbox="media/kubernetes-portal/portal-services.png":::
 
 ### <a name="monitor-deployment-insights"></a>Monitorar insights de implementação
 
 Os agrupamentos AKS com [monitor Azure para recipientes][enable-monitor] ativados podem visualizar rapidamente os insights de implantação. A partir da visão de recursos de Kubernetes, os utilizadores podem ver o estado ao vivo de implementações individuais, incluindo CPU e uso de memória, bem como a transição para o monitor Azure para obter informações mais aprofundadas. Aqui está um exemplo de insights de implantação de um cluster AKS de amostra:
 
-:::image type="content" source="media/kubernetes-portal/deployment-insights.png" alt-text="Insights de implementação apresentados no portal Azure." lightbox="media/kubernetes-portal/deployment-insights.png":::
+:::image type="content" source="media/kubernetes-portal/deployment-insights.png" alt-text="Informações do pod kubernetes exibidas no portal Azure." lightbox="media/kubernetes-portal/deployment-insights.png":::
 
 ## <a name="edit-yaml"></a>Editar YAML
 
 A vista de recursos de Kubernetes também inclui um editor YAML. Um editor YAML incorporado significa que pode atualizar ou criar serviços e implementações a partir do portal e aplicar alterações imediatamente.
 
-:::image type="content" source="media/kubernetes-portal/service-editor.png" alt-text="Editor yaml para um serviço Kubernetes exibido no portal Azure.":::
+:::image type="content" source="media/kubernetes-portal/service-editor.png" alt-text="Informações do pod kubernetes exibidas no portal Azure.":::
 
 Após a edição do YAML, as alterações são aplicadas selecionando **Review + save**, confirmando as alterações e, em seguida, economizando novamente.
 
@@ -82,7 +82,7 @@ Para aceder aos recursos de Kubernetes, você deve ter acesso ao cluster AKS, à
 
 Para os clusters existentes, poderá ser necessário ativar a vista de recursos de Kubernetes. Para ativar a visualização do recurso, siga as indicações no portal para o seu cluster.
 
-:::image type="content" source="media/kubernetes-portal/enable-resource-view.png" alt-text="Mensagem do portal Azure para ativar a visualização do recurso Kubernetes." lightbox="media/kubernetes-portal/enable-resource-view.png":::
+:::image type="content" source="media/kubernetes-portal/enable-resource-view.png" alt-text="Informações do pod kubernetes exibidas no portal Azure." lightbox="media/kubernetes-portal/enable-resource-view.png":::
 
 > [!TIP]
 > A funcionalidade AKS para [**gamas IP autorizadas pelo servidor API**](api-server-authorized-ip-ranges.md) pode ser adicionada para limitar o acesso do servidor API apenas ao ponto final público da firewall. Outra opção para estes clusters é a atualização `--api-server-authorized-ip-ranges` para incluir o acesso a um computador cliente local ou gama de endereços IP (a partir do qual o portal está a ser navegado). Para permitir este acesso, precisa do endereço IPv4 público do computador. Pode encontrar este endereço com o comando abaixo ou pesquisando "qual é o meu endereço IP" num navegador de Internet.

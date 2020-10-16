@@ -12,10 +12,10 @@ ms.date: 09/15/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: eca75ac4fefcf7164c247c4da4b58ccf7c03334c
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90564904"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico de sugestão de iD numa política personalizada do Azure Ative Directory B2C
@@ -34,7 +34,7 @@ Com id_token_hint, o emitente simbólico (uma app de partes dependentes ou um fo
 
 O id_token_hint deve ser um símbolo JWT válido. A tabela que se segue lista as reclamações que são obrigatórias. Reclamações adicionais são opcionais.
 
-| Name | Afirmação | Valor de exemplo | Description |
+| Nome | Afirmação | Valor de exemplo | Descrição |
 | ---- | ----- | ------------- | ----------- |
 | Audiência | `aud` | `a489fc44-3cc0-4a78-92f6-e413cd853eae` | Identifica o destinatário pretendido do token. Esta é uma cadeia arbitrária definida pelo emitente simbólico. Azure AD B2C valida este valor e rejeita o token se não corresponder.  |
 | Emissor | `iss` |`https://localhost` | Identifica o serviço de fichas de segurança (emitente simbólico). Este é um URI arbitrário definido pelo emitente simbólico. Azure AD B2C valida este valor e rejeita o token se não corresponder.  |
@@ -84,16 +84,16 @@ Os seguintes metadados são relevantes quando se utilizam a chave simétrica.
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| issuer | Yes | Identifica o serviço de fichas de segurança (emitente simbólico). Este valor deve ser idêntico ao `iss` pedido no âmbito da reclamação simbólica da JWT. | 
-| IdTokenAudience | Yes | Identifica o destinatário pretendido do token. Deve ser idêntico à `aud` alegação com a alegação simbólica do JWT. | 
+| issuer | Sim | Identifica o serviço de fichas de segurança (emitente simbólico). Este valor deve ser idêntico ao `iss` pedido no âmbito da reclamação simbólica da JWT. | 
+| IdTokenAudience | Sim | Identifica o destinatário pretendido do token. Deve ser idêntico à `aud` alegação com a alegação simbólica do JWT. | 
 
 Os seguintes metadados são relevantes quando se utiliza uma chave simétrica. 
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| METADADOS| Yes | Um URL que aponta para um documento de configuração do emitente simbólico, que também é conhecido como um ponto final de configuração bem conhecido do OpenID.   |
-| issuer | No | Identifica o serviço de fichas de segurança (emitente simbólico). Este valor pode ser usado para substituir o valor configurado nos metadados, e deve ser idêntico à `iss` reclamação dentro da reclamação simbólica do JWT. |  
-| IdTokenAudience | No | Identifica o destinatário pretendido do token. Este valor pode ser usado para substituir o valor configurado nos metadados, e deve ser idêntico à `aud` reclamação dentro da reclamação simbólica do JWT. |  
+| METADADOS| Sim | Um URL que aponta para um documento de configuração do emitente simbólico, que também é conhecido como um ponto final de configuração bem conhecido do OpenID.   |
+| issuer | Não | Identifica o serviço de fichas de segurança (emitente simbólico). Este valor pode ser usado para substituir o valor configurado nos metadados, e deve ser idêntico à `iss` reclamação dentro da reclamação simbólica do JWT. |  
+| IdTokenAudience | Não | Identifica o destinatário pretendido do token. Este valor pode ser usado para substituir o valor configurado nos metadados, e deve ser idêntico à `aud` reclamação dentro da reclamação simbólica do JWT. |  
 
 ## <a name="cryptographic-keys"></a>Chaves criptográficas
 
@@ -101,7 +101,7 @@ Ao utilizar uma chave simétrica, o elemento **CryptographicKeys** contém o seg
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| client_secret | Yes | A chave criptográfica que é usada para validar a assinatura simbólica JWT.|
+| client_secret | Sim | A chave criptográfica que é usada para validar a assinatura simbólica JWT.|
 
 
 ## <a name="how-to-guide"></a>Manual de instruções

@@ -4,10 +4,10 @@ description: Este artigo fornece informações sobre como usar Apache Spark com 
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.openlocfilehash: 8535b7dc81da8c46685e12c3861793b919296cb4
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90061585"
 ---
 # <a name="connect-your-apache-spark-application-with-azure-event-hubs"></a>Ligue a sua aplicação Apache Spark com Azure Event Hubs
@@ -92,7 +92,7 @@ df.writeStream
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre Os Centros de Eventos e Centros de Eventos para Kafka, consulte os seguintes artigos:  
 
 - [Espelhar um mediador de Kafka num hub de eventos](event-hubs-kafka-mirror-maker-tutorial.md)

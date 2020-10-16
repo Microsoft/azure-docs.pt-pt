@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: alkohli
 ms.openlocfilehash: ef95ca7b9f94690b607e37fbf5d9378c2f2bcfda
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85847287"
 ---
 # <a name="storsimple-8000-series-update-4-release-notes"></a>StorSimple 8000 Series Update 4 notas de lançamento
@@ -66,7 +66,7 @@ As seguintes melhorias chave e correções de erros foram feitas no Update 4.
 
 A tabela seguinte fornece um resumo das questões que foram corrigidas na Atualização 4.    
 
-| Não | Funcionalidade | Problema | Aplica-se ao dispositivo físico | Aplica-se a dispositivo virtual |
+| No | Destaque | Problema | Aplica-se ao dispositivo físico | Aplica-se a dispositivo virtual |
 | --- | --- | --- | --- | --- |
 | 1 |Ativação pós-falha |No lançamento anterior, após a falha, houve um problema relacionado com a limpeza observada no site do cliente. Esta questão é corrigida nesta versão. |Sim |Sim |
 | 2 |volumes afixados localmente |No lançamento anterior, havia uma questão de criação de volume relacionado para volumes fixados localmente que resultaria em falhas de criação de volume. Esta questão foi causada por raízes e corrigida nesta versão. |Sim |Não |

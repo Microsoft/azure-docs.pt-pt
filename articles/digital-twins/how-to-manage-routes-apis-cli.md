@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7365e4904bb8e1920e7d4c57c165e489f2ff302e
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 65e7a425fdf8ee1b253bcb696792b569b7195d4c
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540596"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047374"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gerir pontos finais e rotas em Azure Digital Twins (APIs e CLI)
 
@@ -44,7 +44,7 @@ Para ligar um ponto final à Azure Digital Twins, o tópico da grelha de eventos
 
 ### <a name="create-an-event-grid-endpoint"></a>Criar um ponto final de Grade de Eventos
 
-O exemplo a seguir mostra como criar um ponto final do tipo de grelha de evento usando o Azure CLI. Pode utilizar [a Azure Cloud Shell,](https://shell.azure.com)ou [instalar o CLI localmente.](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
+O exemplo a seguir mostra como criar um ponto final do tipo de grelha de evento usando o Azure CLI. Pode utilizar [a Azure Cloud Shell,](https://shell.azure.com)ou [instalar o CLI localmente.](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)
 
 Primeiro, criar um tópico de grelha de eventos. Pode utilizar o seguinte comando ou ver os passos mais detalhadamente visitando [a secção *de tópicos personalizados* ](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) dos eventos Event Grid *Custom.*
 
@@ -184,7 +184,7 @@ Os pontos finais e as rotas também podem ser geridos usando o CLI das Gémeas D
 
 [!INCLUDE [digital-twins-route-metrics](../../includes/digital-twins-route-metrics.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia sobre os diferentes tipos de mensagens de evento que pode receber:
 * [*Como fazer: Interpretar dados do evento*](how-to-interpret-event-data.md)

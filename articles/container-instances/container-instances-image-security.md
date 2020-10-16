@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.custom: ''
 ms.openlocfilehash: f49f115e10326887cf4d23406437467256b7df2e
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87922239"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Considerações de segurança para instâncias de contentores Azure

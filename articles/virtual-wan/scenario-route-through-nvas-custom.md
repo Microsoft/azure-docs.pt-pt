@@ -10,10 +10,10 @@ ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 ms.openlocfilehash: e1cf9faeab60264d491539256828151e496ade8f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91267504"
 ---
 # <a name="scenario-route-traffic-through-nvas---custom-preview"></a>Cenário: Tráfego de rotas através de NVAs - personalizado (Pré-visualização)
@@ -65,14 +65,14 @@ Assim, a nossa matriz de conectividade dá-nos três padrões distintos de conec
 
 Precisamos destas rotas estáticas para garantir que o tráfego VNet-to-branch e branch-to-VNet passe pela NVA no VNet de serviço (VNet 4):
 
-| Description | Tabela de rota | Rota estática              |
+| Descrição | Tabela de rota | Rota estática              |
 | ----------- | ----------- | ------------------------- |
 | Ramos    | RT_V2B      | 10.2.0.0/16 -> vnet4conn  |
 | Porta-vozes da NVA  | Predefinição     | 10.1.0.0/16 -> vnet4conn  |
 
 Agora o VIRTUAL WAN sabe para que ligação enviar os pacotes, mas a ligação precisa de saber o que fazer ao receber esses pacotes: É aqui que são utilizadas as tabelas de rota de ligação.
 
-| Description | Ligação | Rota estática            |
+| Descrição | Ligação | Rota estática            |
 | ----------- | ---------- | ----------------------- |
 | VNet2Branch | vnet4conn  | 10.2.0.0/16 -> 10.4.0.5 |
 | Branch2VNet | vnet4conn  | 10.1.0.0/16 -> 10.4.0.5 |
@@ -129,7 +129,7 @@ Para configurar o encaminhamento via NVA, aqui estão os passos a considerar:
 
 **Figura 2**
 
-:::image type="content" source="./media/routing-scenarios/nva-custom/figure-2.png" alt-text="Figura 2" lightbox="./media/routing-scenarios/nva-custom/figure-2.png":::
+:::image type="content" source="./media/routing-scenarios/nva-custom/figure-2.png" alt-text="Figura 1" lightbox="./media/routing-scenarios/nva-custom/figure-2.png":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

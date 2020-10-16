@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Criar uma definição de política personalizada'
 description: Neste tutorial, você elabora uma definição de política personalizada para a Azure Policy para impor regras de negócio personalizadas sobre os seus recursos Azure.
-ms.date: 06/16/2020
+ms.date: 10/05/2020
 ms.topic: tutorial
-ms.openlocfilehash: 72282cbc5ed1877cf3f61b792235e8dc2f72fffe
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 24058a2c8428d306c5e53a73393b0d98785831cf
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649832"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876299"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Criar uma definição de política personalizada
 
@@ -64,14 +64,17 @@ Existem muitas maneiras de determinar as propriedades de um recurso Azure. Vamos
 
 A [extensão do Código VS](../how-to/extension-for-vscode.md#search-for-and-view-resources) pode ser usada para navegar recursos no seu ambiente e ver as propriedades do Gestor de Recursos em cada recurso.
 
-### <a name="arm-templates"></a>Modelos de ARM
+### <a name="arm-templates"></a>Modelos do ARM
 
-Existem várias formas de olhar para um [modelo de Gestor de Recursos](../../../azure-resource-manager/templates/template-tutorial-use-template-reference.md) que inclui a propriedade que você está procurando gerir.
+Existem várias formas de olhar para um [ARM](../../../azure-resource-manager/templates/template-tutorial-use-template-reference.md) que inclui a propriedade que você está procurando gerir.
 
 #### <a name="existing-resource-in-the-portal"></a>Recurso existente no portal
 
 A forma mais simples de encontrar propriedades é olhar para um recurso existente do mesmo tipo. Os recursos já configurados com a configuração que pretende impor também fornecem o valor para comparar.
 Veja a página do **modelo de exportação** (em **Definições)** no portal Azure para esse recurso específico.
+
+> [!WARNING]
+> O modelo ARM exportado pelo portal Azure não pode ser ligado diretamente à `deployment` propriedade para um modelo ARM numa definição de política de [implementaçãoIfNotExists.](../concepts/effects.md#deployifnotexists)
 
 :::image type="content" source="../media/create-custom-policy-definition/export-template.png" alt-text="Screenshot da página do modelo de exportação num recurso existente no portal Azure." border="false":::
 
@@ -476,7 +479,7 @@ Neste tutorial conseguiu realizar com êxito as seguintes tarefas:
 > - Determinou o efeito de usar
 > - Compôs a definição de política
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Em seguida, use a sua definição de política personalizada para criar e atribuir uma política:
 

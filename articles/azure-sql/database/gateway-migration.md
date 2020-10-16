@@ -11,10 +11,10 @@ ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
 ms.openlocfilehash: ee55e0a66a0487291233713498f6eb541980dbba
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90004277"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database migração de tráfego para gateways mais recentes
@@ -124,6 +124,6 @@ As ligações efetuadas a partir de aplicações que utilizam o Controlador Micr
 
 Se a mitigação acima não funcionar, arquive um pedido de suporte para a Base de Dados SQL ou para a SQL Gestão de Instâncias utilizando o seguinte URL: https://aka.ms/getazuresupport
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [a Azure SQL Connectivity Architecture](connectivity-architecture.md)

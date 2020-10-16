@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: tanning
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e427a68751cc348a7b0024fb01402bd15ca87d2a
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90705729"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Resolução de problemas das configurações do roaming do estado da empresa no Diretório Ativo do Azure
@@ -90,7 +90,7 @@ Para uma resolução avançada de problemas, o Event Viewer pode ser usado para 
 
 ### <a name="sync-does-not-work-on-devices-that-have-apps-side-loaded-using-mdm-software"></a>O Sync não funciona em dispositivos que tenham apps carregadas lateralmente usando software MDM
 
-Afeta os dispositivos que executam a atualização de aniversário do Windows 10 (versão 1607). No Visualizador de Eventos sob os registos SettingSync-Azure, o Evento ID 6013 com erro 80070259 é frequentemente visto.
+Afeta os dispositivos que executam a atualização de aniversário do Windows 10 (versão 1607). No Espectador de Eventos sob os registos SettingSync-Azure, o ID do evento 6013 com erro 80070259 é frequentemente visto.
 
 **Ação recomendada**  
 Certifique-se de que o cliente windows 10 v1607 tem a Atualização Cumulativa de 23 de agosto de 2016[(KB3176934](https://support.microsoft.com/kb/3176934) OS Build 14393.82). 

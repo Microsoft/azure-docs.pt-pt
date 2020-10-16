@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 73373f788a4a87a36a800d69ffcdc646f4cd2084
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91249557"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Implementar o serviço StorSimple Device Manager para dispositivos da série StorSimple 8000
@@ -191,23 +191,23 @@ No portal Azure, apenas os dispositivos StorSimple que executam o Update 5.0 ou 
 
 | Operação                                                                                                                       | Suportado      |
 |---------------------------------------------------------------------------------------------------------------------------------|----------------|
-| Registar um dispositivo                                                                                                               | Yes            |
-| Configurar configurações de dispositivos como geral, rede e segurança                                                                | Yes            |
-| Digitalizar, descarregar e instalar atualizações                                                                                             | Yes            |
-| Dispositivo desativado                                                                                                               | Yes            |
-| Eliminar dispositivo                                                                                                                   | Yes            |
-| Criar, modificar e eliminar um recipiente de volume                                                                                   | No             |
-| Criar, modificar e apagar um volume                                                                                             | No             |
-| Criar, modificar e eliminar uma política de backup                                                                                      | No             |
-| Pegue uma cópia de segurança manual                                                                                                            | No             |
+| Registar um dispositivo                                                                                                               | Sim            |
+| Configurar configurações de dispositivos como geral, rede e segurança                                                                | Sim            |
+| Digitalizar, descarregar e instalar atualizações                                                                                             | Sim            |
+| Dispositivo desativado                                                                                                               | Sim            |
+| Eliminar dispositivo                                                                                                                   | Sim            |
+| Criar, modificar e eliminar um recipiente de volume                                                                                   | Não             |
+| Criar, modificar e apagar um volume                                                                                             | Não             |
+| Criar, modificar e eliminar uma política de backup                                                                                      | Não             |
+| Pegue uma cópia de segurança manual                                                                                                            | Não             |
 | Pegue um backup programado                                                                                                         | Não aplicável |
-| Restaurar a partir de um conjunto de backup                                                                                                        | No             |
-| Clone para um dispositivo em execução Atualização 3.0 e mais tarde <br> O dispositivo de origem encontra-se em execução antes do Update 3.0.                                | Yes            |
-| Clone para um dispositivo a executar versões antes do Update 3.0                                                                          | No             |
-| Falha como dispositivo de origem <br> (de uma versão em execução do dispositivo antes do Update 3.0 para um dispositivo em execução Update 3.0 e posterior)                                                               | Yes            |
-| Falha como dispositivo-alvo <br> (para um dispositivo que executa a versão do software antes do Update 3.0)                                                                                   | No             |
-| Limpe um alerta                                                                                                                  | Yes            |
-| Ver políticas de backup, catálogo de backup, volumes, recipientes de volume, gráficos de monitorização, empregos e alertas criados no portal clássico | Yes            |
+| Restaurar a partir de um conjunto de backup                                                                                                        | Não             |
+| Clone para um dispositivo em execução Atualização 3.0 e mais tarde <br> O dispositivo de origem encontra-se em execução antes do Update 3.0.                                | Sim            |
+| Clone para um dispositivo a executar versões antes do Update 3.0                                                                          | Não             |
+| Falha como dispositivo de origem <br> (de uma versão em execução do dispositivo antes do Update 3.0 para um dispositivo em execução Update 3.0 e posterior)                                                               | Sim            |
+| Falha como dispositivo-alvo <br> (para um dispositivo que executa a versão do software antes do Update 3.0)                                                                                   | Não             |
+| Limpe um alerta                                                                                                                  | Sim            |
+| Ver políticas de backup, catálogo de backup, volumes, recipientes de volume, gráficos de monitorização, empregos e alertas criados no portal clássico | Sim            |
 | Ligar e desligar controladores de dispositivos                                                                                              | Sim            |
 
 

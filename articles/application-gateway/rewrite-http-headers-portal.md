@@ -9,10 +9,10 @@ ms.date: 11/13/2019
 ms.author: absha
 ms.custom: mvc
 ms.openlocfilehash: 4626d40acc9ae84e7fcc5da16add0de7ffe6ffcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84807902"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Reescreva os cabeçalhos de pedido e resposta HTTP com gateway de aplicação Azure - portal Azure
@@ -21,7 +21,7 @@ Este artigo descreve como usar o portal Azure para configurar uma instância [SK
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Precisa de um exemplo de SKU do Gateway v2 para completar os passos deste artigo. Reescrevendo cabeçalhos não é suportado no V1 SKU. Se não tiver o V2 SKU, crie uma [instância SKU SKU do Gateway v2](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps) antes de começar.
 
@@ -49,7 +49,7 @@ Pode criar vários conjuntos de reescrita do cabeçalho HTTP e aplicar cada conj
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inscreva-se no [portal Azure](https://portal.azure.com/) com a sua conta Azure.
+Inicie sessão no [portal do Azure](https://portal.azure.com/) com a sua conta do Azure.
 
 ## <a name="configure-header-rewrite"></a>Reescrita do cabeçalho de configuração
 
@@ -91,7 +91,7 @@ Neste exemplo, vamos modificar um URL de reorientação reescrevendo o cabeçalh
 
    - Na lista de **tipos do cabeçalho,** selecione **Response**.
 
-   - Porque neste exemplo estamos a avaliar o cabeçalho de localização, que é um cabeçalho comum, selecione **Cabeçalho Comum** sob **o nome cabeçalho**.
+   - Porque neste exemplo estamos a avaliar o cabeçalho de localização, que é um cabeçalho comum, selecione  **Cabeçalho Comum** sob **o nome cabeçalho**.
 
    - Na lista **de cabeçalhos comuns,** selecione **Localização**.
 
@@ -99,7 +99,7 @@ Neste exemplo, vamos modificar um URL de reorientação reescrevendo o cabeçalh
 
    - Na lista **do Operador,** selecione **igual (=)**.
 
-   - Introduza um padrão de expressão regular. Neste exemplo, vamos usar o `(https?):\/\/.*azurewebsites\.net(.*)$` padrão.
+   - Introduza um padrão de expressão regular. Neste exemplo, vamos usar o  `(https?):\/\/.*azurewebsites\.net(.*)$` padrão.
 
    - Selecione **OK**.
 
@@ -129,6 +129,6 @@ Neste exemplo, vamos modificar um URL de reorientação reescrevendo o cabeçalh
 
    ![Reescrever a vista definida](media/rewrite-http-headers-portal/rewrite-set-list.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre como configurar alguns casos de uso comum, consulte [cenários comuns de reescrita do cabeçalho](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers).

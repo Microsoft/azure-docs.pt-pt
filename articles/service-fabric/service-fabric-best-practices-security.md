@@ -6,17 +6,17 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: 90ffd1c01411982f56aed3332c499aa0c10b8a94
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86257606"
 ---
 # <a name="azure-service-fabric-security"></a>Segurança do Azure Service Fabric 
 
 Para mais informações sobre [as melhores práticas da Azure Security,](../security/index.yml)reveja as [melhores práticas de segurança da Azure Service Fabric](../security/fundamentals/service-fabric-best-practices.md)
 
-## <a name="key-vault"></a>Key Vault
+## <a name="key-vault"></a>Cofre de Chaves
 
 [Azure Key Vault](../key-vault/index.yml) é o serviço de gestão de segredos recomendado para aplicações e clusters de tecido de serviço Azure.
 > [!NOTE]
@@ -171,7 +171,7 @@ Para permitir a identidade gerida atribuída pelo sistema durante a criação de
 ```
 Veja [o que são identidades geridas para recursos Azure?](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vmss.md#system-assigned-managed-identity)
 
-Se criou uma [identidade gerida atribuída ao utilizador,](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity)declare o seguinte recurso no seu modelo para atribuí-lo ao seu conjunto de escala de máquina virtual. `\<USERASSIGNEDIDENTITYNAME\>`Substitua-a pelo nome da identidade gerida atribuída pelo utilizador que criou:
+Se criou uma  [identidade gerida atribuída ao utilizador,](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity)declare o seguinte recurso no seu modelo para atribuí-lo ao seu conjunto de escala de máquina virtual. `\<USERASSIGNEDIDENTITYNAME\>`Substitua-a pelo nome da identidade gerida atribuída pelo utilizador que criou:
 
 ```json
 "identity": {

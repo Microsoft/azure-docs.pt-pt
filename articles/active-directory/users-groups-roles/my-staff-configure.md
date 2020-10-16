@@ -14,10 +14,10 @@ ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
 ms.openlocfilehash: da358ecb126dda21d18120bbe698fec234c85e4f
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88798963"
 ---
 # <a name="manage-your-users-with-my-staff-preview"></a>Gerir os seus utilizadores com o Meu Pessoal (pré-visualização)
@@ -32,7 +32,7 @@ A autenticação por SMS para os utilizadores é uma funcionalidade de pré-visu
 
 O meu pessoal baseia-se em unidades administrativas (UA), que são um contentor de recursos que podem ser utilizados para restringir o âmbito de controlo administrativo de uma missão. No My Staff, as UA são usadas para definir um subconjunto de utilizadores de uma organização, como uma loja ou departamento. Então, por exemplo, um gestor de equipa poderia ser atribuído a um papel cujo âmbito é uma ou mais AUs. No exemplo abaixo, foi-lhe atribuída a função de Administração de Autenticação, e as três AUs são o âmbito do papel. Para obter mais informações sobre unidades administrativas, consulte [a gestão de unidades administrativas no Diretório Ativo Azure.](directory-administrative-units.md)
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Para completar este artigo, precisa dos seguintes recursos e privilégios:
 

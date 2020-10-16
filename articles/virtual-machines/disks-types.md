@@ -9,10 +9,10 @@ ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: 7f274827e646ea0a7c0fd103983cfc566d699228
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91596786"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quais são os tipos de disco disponíveis no Azure?

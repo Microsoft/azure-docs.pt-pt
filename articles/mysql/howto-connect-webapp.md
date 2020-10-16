@@ -7,16 +7,16 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.openlocfilehash: deb99ea4f674c901974ca219a0e1bf831f5b4e51
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90905848"
 ---
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>Ligue um serviço de aplicações Azure existente à Base de Dados Azure para o servidor MySQL
 Este tópico explica como ligar um Serviço de Aplicações Azure existente à sua Base de Dados Azure para o servidor MySQL.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 Inicie sessão no [portal do Azure](https://portal.azure.com). Crie uma Base de Dados Azure para o servidor MySQL. Para obter mais informações, consulte [como criar a Base de Dados Azure para o servidor MySQL a partir do Portal](quickstart-create-mysql-server-database-using-azure-portal.md) ou Como criar a Base de [Dados Azure para o servidor MySQL utilizando o CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 Atualmente existem duas soluções para permitir o acesso de um Serviço de Aplicações Azure a uma Base de Dados Azure para o MySQL. Ambas as soluções envolvem a criação de regras de firewall ao nível do servidor.
@@ -29,18 +29,18 @@ A Azure Database for MySQL fornece segurança de acesso usando uma firewall para
    :::image type="content" source="./media/howto-connect-webapp/1-connection-security.png" alt-text="Portal Azure - clique em Connection Security":::
 
 2. Selecione **ON** in **Permitir o acesso aos serviços Azure**e, em seguida, **guardar**.
-   :::image type="content" source="./media/howto-connect-webapp/allow-azure.png" alt-text="Portal Azure - Permitir acesso ao Azure":::
+   :::image type="content" source="./media/howto-connect-webapp/allow-azure.png" alt-text="Portal Azure - clique em Connection Security":::
 
 ## <a name="solution-2---create-a-firewall-rule-to-explicitly-allow-outbound-ips"></a>Solução 2 - Criar uma regra de firewall para permitir explicitamente iPs de saída
 Pode adicionar explicitamente todos os IPs de saída do seu Serviço de Aplicações Azure.
 
 1. Na lâmina 'Propriedades de Serviço de Aplicações', consulte o seu **ENDEREÇO IP OUTBOUND**.
 
-   :::image type="content" source="./media/howto-connect-webapp/2_1-outbound-ip-address.png" alt-text="Portal Azure - Ver IPs de saída":::
+   :::image type="content" source="./media/howto-connect-webapp/2_1-outbound-ip-address.png" alt-text="Portal Azure - clique em Connection Security":::
 
 2. Na lâmina de segurança MySQL Connection, adicione IPs de saída um a um.
 
-   :::image type="content" source="./media/howto-connect-webapp/2_2-add-explicit-ips.png" alt-text="Portal Azure - Adicionar IPs explícitos":::
+   :::image type="content" source="./media/howto-connect-webapp/2_2-add-explicit-ips.png" alt-text="Portal Azure - clique em Connection Security":::
 
 3. Lembre-se de **guardar** as suas regras de firewall.
 

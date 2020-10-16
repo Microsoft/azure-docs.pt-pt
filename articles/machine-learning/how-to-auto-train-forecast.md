@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.custom: how-to, contperfq1
 ms.date: 08/20/2020
 ms.openlocfilehash: ce8ff8bedc6f6e4f99a940bbdb26bd3fafc930d8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91296778"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Treina automaticamente um modelo de previsão da série de tempo
@@ -128,7 +128,7 @@ A aprendizagem automática de máquinas tenta automaticamente diferentes modelos
 >[!Tip]
 > Os modelos tradicionais de regressão também são testados como parte do sistema de recomendação para as experiências de previsão. Consulte a [tabela de modelos suportada](how-to-configure-auto-train.md#supported-models) para a lista completa dos modelos. 
 
-Modelos| Description | Benefícios
+Modelos| Descrição | Benefícios
 ----|----|---
 Profeta (Pré-visualização)|O profeta trabalha melhor com séries temporéticas que têm fortes efeitos sazonais e várias estações de dados históricos. Para alavancar este modelo, instale-o localmente `pip install fbprophet` utilizando. | A precisão & rápida, robusta para fora, dados em falta e mudanças dramáticas nas suas séries de tempo.
 Auto-ARIMA (Pré-visualização)|A média móvel integrada autorregressiva (ARIMA) tem um melhor desempenho, quando os dados estão estacionários. Isto significa que as suas propriedades estatísticas como a média e a variação são constantes em todo o conjunto. Por exemplo, se atirares uma moeda, então a probabilidade de receberes cabeças é de 50%, independentemente de virares hoje, amanhã ou no próximo ano.| Ótimo para séries univariadas, uma vez que os valores passados são usados para prever os valores futuros.

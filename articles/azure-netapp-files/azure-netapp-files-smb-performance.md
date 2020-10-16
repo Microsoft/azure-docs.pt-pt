@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: b-juche
-ms.openlocfilehash: 6a7bf07359344e26280021a6a55eecc5b96b7a86
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 9a07c6ae48cdca68a95db7770d90076eb8f10f95
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653694"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91929461"
 ---
 # <a name="faqs-about-smb-performance-for-azure-netapp-files"></a>PERGUNTAS Frequentes sobre desempenho SMB para ficheiros Azure NetApp
 
@@ -39,7 +39,7 @@ Com o SMB Multichannel ativado, um cliente SMB3 estabelece múltiplas ligações
 
 ## <a name="which-windows-versions-support-smb-multichannel"></a>Quais as versões do Windows que suportam o SMB Multicanal?
 
-O Windows tem suportado o SMB Multichannel desde o Windows 2012 para permitir o melhor desempenho.  Consulte [o ImplementO SMB Multicanal](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn610980(v%3Dws.11)) e [os fundamentos do SMB Multicanal](https://blogs.technet.microsoft.com/josebda/2012/06/28/the-basics-of-smb-multichannel-a-feature-of-windows-server-2012-and-smb-3-0/) para obter mais detalhes. 
+O Windows tem suportado o SMB Multichannel desde o Windows 2012 para permitir o melhor desempenho.  Consulte [o ImplementO SMB Multicanal](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn610980(v%3Dws.11)) e [os fundamentos do SMB Multicanal](/archive/blogs/josebda/the-basics-of-smb-multichannel-a-feature-of-windows-server-2012-and-smb-3-0) para obter mais detalhes. 
 
 
 ## <a name="does-my-azure-virtual-machine-support-rss"></a>A minha máquina virtual Azure suporta RSS?
@@ -58,7 +58,7 @@ A funcionalidade SMB Multichannel permite a um cliente SMB3 estabelecer um conju
 
 ## <a name="should-i-configure-multiple-nics-on-my-client-for-smb"></a>Devo configurar vários NICs no meu cliente para a SMB?
 
-Não. O cliente SMB corresponderá à contagem de NIC devolvida pelo servidor SMB.  Cada volume de armazenamento é acessível a partir de um ponto final de armazenamento.  Isso significa que apenas um NIC será usado para qualquer relação SMB.  
+N.º O cliente SMB corresponderá à contagem de NIC devolvida pelo servidor SMB.  Cada volume de armazenamento é acessível a partir de um ponto final de armazenamento.  Isso significa que apenas um NIC será usado para qualquer relação SMB.  
 
 Como mostra a saída `Get-SmbClientNetworkInterace` abaixo, a máquina virtual tem 2 interfaces de rede --15 e 12.  Como mostrado sob o seguinte comando `Get-SmbMultichannelConnection` , apesar de existirem dois NICS com capacidade RSS, apenas a interface 12 é utilizada em conexão com a partilha SMB; a interface 15 não está em uso.
 
@@ -132,7 +132,7 @@ Depois de ter o tráfego de dados a funcionar nos seus volumes, pode monitorizar
 
 ## <a name="is-accelerated-networking-recommended"></a>Recomenda-se a rede acelerada?
 
-Para um desempenho máximo, recomenda-se que configuure [a rede acelerada sempre](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) que possível. Tenha em mente as seguintes considerações:  
+Para um desempenho máximo, recomenda-se que configuure [a rede acelerada sempre](../virtual-network/create-vm-accelerated-networking-powershell.md) que possível. Tenha em mente as seguintes considerações:  
 
 * O portal Azure permite o Networking Acelerado por padrão para máquinas virtuais que suportem esta funcionalidade.  No entanto, outros métodos de implantação, tais como as ferramentas de configuração Ansible e similares, não podem.  A falha na ativação da rede acelerada pode dificultar o desempenho de uma máquina.  
 * Se o Networking Acelerado não estiver ativado na interface de rede de uma máquina virtual devido à sua falta de suporte para um tipo ou tamanho de instância, permanecerá desativado com tipos de instância maiores. Vai precisar de intervenção manual nesses casos.

@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja
 ms.custom: aaddev
 ms.openlocfilehash: 73c4931533e3926086320531a0800a572d13808c
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89535777"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Como: Configurar termos de serviço e declaração de privacidade para uma aplicação

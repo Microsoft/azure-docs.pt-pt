@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.openlocfilehash: 3330b4d5df366a5e886157e875f40d7e370c7442
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91543201"
 ---
 # <a name="how-to-index-encrypted-blobs-using-blob-indexers-and-skillsets-in-azure-cognitive-search"></a>Como indexar bolhas encriptadas usando indexadores blob e skillsets em Azure Cognitive Search
@@ -168,7 +168,7 @@ Se estiver a utilizar o nível Livre, espera-se a seguinte mensagem: `"Could not
 
 Após a execução do indexante estar concluída, pode executar algumas consultas para verificar se os dados foram desencriptados e indexados com sucesso. Navegue para o seu serviço de Pesquisa Cognitiva Azure no portal e use o [explorador de pesquisa](search-explorer.md) para executar consultas sobre os dados indexados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que indexou com sucesso ficheiros encriptados, pode [iterar neste pipeline adicionando mais habilidades cognitivas](cognitive-search-defining-skillset.md). Isto permitir-lhe-á enriquecer e obter informações adicionais sobre os seus dados.
 

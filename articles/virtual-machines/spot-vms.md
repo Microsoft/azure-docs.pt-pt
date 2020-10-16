@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 66d62cde9ea17e73f561dfbce94eb3d3e7175b6d
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: b8e5c6b6b755134772cc8eaea3dab3af7f5346c9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91827843"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963368"
 ---
 # <a name="use-spot-vms-in-azure"></a>Use VMs spot em Azure
 
@@ -58,7 +58,7 @@ Os VM spot podem ser implantados em qualquer região, exceto microsoft Azure Chi
 Os [seguintes tipos de oferta](https://azure.microsoft.com/support/legal/offer-details/) são atualmente suportados:
 
 -   Contrato Enterprise
--   Pay-as-you-go
+-   Pay as you go
 -   Patrocinado
 - Para Provedor de Serviços cloud (CSP), contacte o seu parceiro
 
@@ -99,17 +99,17 @@ Você pode ver preços históricos e taxas de despejo por tamanho em uma região
 
 **Q:** Como é gerida a quota para os VMs spot?
 
-**A:** Spot VMs terá uma quota separada. A quota pontual será partilhada entre VMs e instâncias definidas em escala. Para obter mais informações, veja [Subscrição do Azure e limites de serviço, quotas e restrições](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+**A:** Spot VMs terá uma quota separada. A quota pontual será partilhada entre VMs e instâncias definidas em escala. Para obter mais informações, veja [Subscrição do Azure e limites de serviço, quotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 
 **Q:** Posso pedir uma quota adicional para o Spot?
 
-**A:** Sim, poderá submeter o pedido de aumento da sua quota de VMs spot através do [processo padrão de pedido de quota.](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests)
+**A:** Sim, poderá submeter o pedido de aumento da sua quota de VMs spot através do [processo padrão de pedido de quota.](../azure-portal/supportability/per-vm-quota-requests.md)
 
 
 **Q:** Onde posso fazer perguntas?
 
-**A:** Você pode postar e marcar a sua pergunta com `azure-spot` [q&A](https://docs.microsoft.com/answers/topics/azure-spot.html). 
+**A:** Você pode postar e marcar a sua pergunta com `azure-spot` [q&A](/answers/topics/azure-spot.html). 
 
 ## <a name="next-steps"></a>Passos seguintes
 Utilize o [CLI,](./linux/spot-cli.md) [portal,](spot-portal.md) [modelo ARM](./linux/spot-template.md)ou [PowerShell](./windows/spot-powershell.md) para implantar VMs spot.

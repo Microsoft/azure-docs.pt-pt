@@ -4,10 +4,10 @@ description: Saiba como publicar uma declaração de apoio interno a um laborat�
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 1c9920e6fe7fbfe2a8d0aeacb896150b342981b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85480478"
 ---
 # <a name="add-an-internal-support-statement-to-a-lab-in-azure-devtest-labs"></a>Adicione uma declaração de apoio interno a um laboratório em Azure DevTest Labs
@@ -57,6 +57,6 @@ Quando já não pretender mostrar esta mensagem de apoio aos utilizadores do lab
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * As declarações de suporte interno são normalmente usadas para fornecer informações de suporte que não mudam com frequência. Também pode aprender a [publicar um anúncio num laboratório para](devtest-lab-announcements.md) informar os utilizadores de alterações temporárias ou atualizações para o laboratório.
 * [Definir políticas e horários](devtest-lab-set-lab-policy.md) fornece informações sobre como pode aplicar outras restrições e convenções através da sua subscrição, utilizando políticas personalizadas.

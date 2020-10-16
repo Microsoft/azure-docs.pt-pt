@@ -12,10 +12,10 @@ ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 411fa207323a9bff6cfcc3b17769203c444dd844
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85388685"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Implementar políticas personalizadas com gasodutos Azure
@@ -131,7 +131,7 @@ Com o seu repositório inicializado e povoado com os seus ficheiros de política
 1. Selecione o separador **Variáveis.**
 1. Adicione as seguintes variáveis sob **variáveis pipeline** e desa estalem os seus valores conforme especificado:
 
-    | Name | Valor |
+    | Nome | Valor |
     | ---- | ----- |
     | `clientId` | **Identificação do pedido (cliente)** do pedido que registou anteriormente. |
     | `clientSecret` | O valor do segredo do **cliente** que criou anteriormente. <br /> Altere o tipo variável para **segredo** (selecione o ícone de bloqueio). |
@@ -207,12 +207,12 @@ Para testar o seu oleoduto de libertação:
 
 Deve ver um banner de notificação que diz que uma versão foi em fila. Para visualizar o seu estado, selecione o link no banner de notificação ou selecione-o na lista no separador **Versões.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre:
 
 * [Chamadas de serviço para serviço usando credenciais de cliente](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
-* [Serviços de DevOps do Azure](https://docs.microsoft.com/azure/devops/user-guide/?view=azure-devops)
+* [Azure DevOps Services](https://docs.microsoft.com/azure/devops/user-guide/?view=azure-devops)
 
 <!-- LINKS - External -->
 [devops]: https://docs.microsoft.com/azure/devops/?view=azure-devops

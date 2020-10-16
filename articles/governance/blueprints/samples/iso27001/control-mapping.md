@@ -1,14 +1,14 @@
 ---
 title: Controlos de amostras de plantas ISO 27001
-description: Controlo do mapeamento da amostra de planta ISO 27001. Cada controlo é mapeado para uma ou mais Políticas Azure que ajudam na avaliação.
+description: Controlo do mapeamento da amostra de planta ISO 27001. Cada controlo é mapeado para uma ou mais definições da Política Azure que ajudam na avaliação.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: a0d5b1118e1e063f7b4f8757e7d1b3935dc1a37c
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 6e72f8ca25939b1cad8b2a5dc5bd3fc5fc286027
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91535768"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91931959"
 ---
 # <a name="control-mapping-of-the-iso-27001-blueprint-sample"></a>Mapeamento de controlo da amostra de planta ISO 27001
 
@@ -17,7 +17,7 @@ O artigo seguinte detalha como o Azure Blueprints ISO 27001 mapeia a amostra de 
 Os seguintes mapeamentos são para os controlos **ISO 27001:2013.** Utilize a navegação no direito de saltar diretamente para um mapeamento de controlo específico. Muitos dos controlos mapeados são implementados com uma iniciativa [da Política Azure.](../../../policy/overview.md) Para rever a iniciativa completa, abra **a Política** no portal Azure e selecione a página **Definições.** Em seguida, encontre e selecione os ** \[ \] controlos iso 27001:2013 da Auditoria de Pré-visualização e implemente extensões VM específicas para apoiar os requisitos** de auditoria integrados na iniciativa política.
 
 > [!IMPORTANT]
-> Cada controlo abaixo está associado a uma ou mais definições [da Política Azure.](../../../policy/overview.md) Estas políticas podem ajudá-lo a avaliar o [cumprimento](../../../policy/how-to/get-compliance-data.md) do controlo; no entanto, muitas vezes não há um 1:1 ou um jogo completo entre um controlo e uma ou mais políticas. Como tal, **a Conformidade** na Política Azure refere-se apenas às próprias políticas; isto não garante que esteja totalmente em conformidade com todos os requisitos de um controlo. Além disso, a norma de conformidade inclui controlos que não são abordados por nenhuma definição da Política Azure neste momento. Portanto, o cumprimento da Política Azure é apenas uma visão parcial do seu estado de conformidade geral. As associações entre controlos e definições de Política Azure para esta amostra de projeto de conformidade podem mudar ao longo do tempo. Para ver a história da mudança, consulte o [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/iso27001/control-mapping.md).
+> Cada controlo abaixo está associado a uma ou mais definições [da Política Azure.](../../../policy/overview.md) Estas políticas podem ajudá-lo a avaliar o [cumprimento](../../../policy/how-to/get-compliance-data.md) do controlo; no entanto, muitas vezes não há um para um ou um jogo completo entre um controlo e uma ou mais políticas. Como tal, **a Conformidade** na Política Azure refere-se apenas às próprias políticas; isto não garante que esteja totalmente em conformidade com todos os requisitos de um controlo. Além disso, a norma de conformidade inclui controlos que não são abordados por nenhuma definição da Política Azure neste momento. Portanto, o cumprimento da Política Azure é apenas uma visão parcial do seu estado de conformidade geral. As associações entre controlos e definições de Política Azure para esta amostra de projeto de conformidade podem mudar ao longo do tempo. Para ver a história da mudança, consulte o [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/iso27001/control-mapping.md).
 
 ## <a name="a612-segregation-of-duties"></a>A.6.1.2 Segregação de funções
 
@@ -108,8 +108,7 @@ Este plano ajuda-o a impor senhas fortes atribuindo 10 definições [de Polític
 
 ## <a name="a1011-policy-on-the-use-of-cryptographic-controls"></a>A.10.1.1 Política sobre a utilização de controlos criptográficos
 
-Esta planta ajuda-o a impor a sua política sobre a utilização de controlos criptógrafos, atribuindo 13 definições [de Política Azure](../../../policy/overview.md) que impõem controlos criptógrafos específicos e auditam o uso de configurações criptográficas fracas.
-Compreender onde os seus recursos Azure podem ter configurações criptográficas não ideais pode ajudá-lo a tomar ações corretivas para garantir que os recursos são configurados de acordo com a sua política de segurança de informação. Especificamente, as políticas atribuídas por esta planta requerem encriptação para contas de armazenamento de bolhas e contas de armazenamento de lago de dados; requerer encriptação de dados transparentes nas bases de dados SQL; auditoria em falta de encriptação em contas de armazenamento, bases de dados SQL, discos de máquinas virtuais e variáveis de conta de automação; ligações inseguras de auditoria a contas de armazenamento, Apps de Função, Web App, API Apps e Redis Cache; encriptação de senha de máquina virtual fraca; e auditoria comunicação de tecido de serviço não encriptado.
+Esta planta ajuda-o a impor a sua política sobre a utilização de controlos criptógrafos, atribuindo 13 definições [de Política Azure](../../../policy/overview.md) que impõem controlos criptógrafos específicos e auditam o uso de configurações criptográficas fracas. Compreender onde os seus recursos Azure podem ter configurações criptográficas não ideais pode ajudá-lo a tomar ações corretivas para garantir que os recursos são configurados de acordo com a sua política de segurança de informação. Especificamente, as políticas atribuídas por esta planta requerem encriptação para contas de armazenamento de bolhas e contas de armazenamento de lago de dados; requerer encriptação de dados transparentes nas bases de dados SQL; auditoria em falta de encriptação em contas de armazenamento, bases de dados SQL, discos de máquinas virtuais e variáveis de conta de automação; ligações inseguras de auditoria a contas de armazenamento, Apps de Função, Web App, API Apps e Redis Cache; encriptação de senha de máquina virtual fraca; e auditoria comunicação de tecido de serviço não encriptado.
 
 - A App de função só deve estar acessível através do HTTPS
 - A Aplicação Web só deve ser acessível em HTTPS
@@ -193,7 +192,7 @@ O plano ajuda-o a garantir que a transferência de informação com os serviços
 - Apenas devem ser ativadas ligações seguras à sua Cache Azure para Redis
 - A transferência segura para contas de armazenamento deve ser ativada
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que reviu o mapeamento de controlo da planta ISO 27001, visite os seguintes artigos para aprender sobre a arquitetura e como implementar esta amostra:
 

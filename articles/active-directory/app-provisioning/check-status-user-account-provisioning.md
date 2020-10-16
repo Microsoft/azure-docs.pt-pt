@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/09/2018
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 2de6c07395a559085db237eb1bc7f885998860d0
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 3dcbb2567b9a92ea7d806acedb5d1cc6a31a966e
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235082"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069811"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutorial: Relatório sobre o provisionamento automático da conta de utilizador
 
@@ -29,7 +29,7 @@ Este artigo descreve como verificar o estado do provisionamento de postos de tra
 Os conectores de provisionamento são configurados e configurados através do [portal Azure,](https://portal.azure.com)seguindo a [documentação fornecida](../saas-apps/tutorial-list.md) para a aplicação suportada. Uma vez configurados e em funcionamento, os postos de trabalho de provisionamento podem ser comunicados através de um de dois métodos:
 
 * **Portal Azure** - Este artigo descreve principalmente a obtenção de informações de relatórios do [portal Azure,](https://portal.azure.com)que fornece simultaneamente um relatório sumário de provisionamento, bem como registos de auditoria de provisionamento detalhado para uma determinada aplicação.
-* **A API de Auditoria** - Azure Ative Directy também fornece uma API de Auditoria que permite a recuperação programática dos registos de auditoria de provisionamento detalhado. Consulte [a referência da API de auditoria do Azure Ative Directory](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) para documentação específica da utilização desta API. Embora este artigo não cubra especificamente a forma de utilizar a API, detalha os tipos de eventos de provisionamento que são registados no registo de auditoria.
+* **A API de Auditoria** - Azure Ative Directy também fornece uma API de Auditoria que permite a recuperação programática dos registos de auditoria de provisionamento detalhado. Consulte [a referência da API de auditoria do Azure Ative Directory](/graph/api/resources/directoryaudit) para documentação específica da utilização desta API. Embora este artigo não cubra especificamente a forma de utilizar a API, detalha os tipos de eventos de provisionamento que são registados no registo de auditoria.
 
 ### <a name="definitions"></a>Definições
 
@@ -71,5 +71,5 @@ Para obter orientações baseadas em cenários sobre como resolver o forneciment
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-* [Gestão do fornecimento de conta de utilizador para apps empresariais](configure-automatic-user-provisioning-portal.md)
+* [Gerir o aprovisionamento de contas de utilizador para Aplicações Empresariais](configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)

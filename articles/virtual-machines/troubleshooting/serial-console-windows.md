@@ -1,6 +1,6 @@
 ---
 title: Consola em série Azure para Windows Microsoft Docs
-description: Consola em série bidis para máquinas virtuais Azure e conjuntos de balança de máquinas virtuais usando um exemplo windows.
+description: Bi-Directional consola em série para máquinas virtuais Azure e conjuntos de balança de máquinas virtuais usando um exemplo windows.
 services: virtual-machines-windows
 documentationcenter: ''
 author: asinn826
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: c5c139cb94358d70d1f23b68f2a369adb953da08
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9cf3f9a1cd933526c5e376d232fa5acbc97fad47
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325985"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969726"
 ---
 # <a name="azure-serial-console-for-windows"></a>Consola em série Azure para Windows
 
@@ -163,7 +163,7 @@ Se um utilizador estiver ligado à consola em série e outro utilizador solicita
 ## <a name="accessibility"></a>Acessibilidade
 A acessibilidade é um foco chave para a consola em série Azure. Para tal, garantimos que a consola em série é acessível para pessoas com deficiência visual, ou que são difíceis de ouvir, bem como pessoas que podem não ser capazes de usar um rato.
 
-### <a name="keyboard-navigation"></a>Navegação do teclado
+### <a name="keyboard-navigation"></a>Navegação através do teclado
 Utilize a tecla **'Separador'** no teclado para navegar na interface da consola em série a partir do portal Azure. A sua localização será destacada no ecrã. Para deixar o foco da janela da consola em série, prima **Ctrl** + **F6** no seu teclado.
 
 ### <a name="use-the-serial-console-with-a-screen-reader"></a>Use a consola em série com um leitor de ecrã
@@ -189,7 +189,7 @@ Apenas são mostradas informações de saúde ao ligar-se a um VM do Windows| Es
 SAC não assume toda a área de Consola em Série no navegador | Este é um problema conhecido com o Windows e o emulador terminal. Estamos a acompanhar esta questão com ambas as equipas, mas por enquanto não há mitigação.
 Não é possível digitar na pontuação SAC se estiver ativada a depuragem do kernel. | RDP para VM e corre `bcdedit /debug {current} off` de uma ômissão de comando elevada. Se não conseguir pDR, pode, em vez disso, ligar o disco DE Azure a outro Azure VM e modificá-lo enquanto está ligado como um disco de dados em `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off` execução, trocando o disco de volta.
 Colar em PowerShell em SAC resulta num terceiro personagem se o conteúdo original tiver um carácter repetitivo. | Para uma solução alternativa, corra `Remove-Module PSReadLine` para descarregar o módulo PSReadLine da sessão atual. Esta ação não eliminará nem desinstalará o módulo.
-Algumas entradas de teclado produzem uma saída SAC estranha (por exemplo, **[A**, **[3~**). | As sequências de fuga [vT100](https://aka.ms/vtsequences) não são suportadas pelo pedido da SAC.
+Algumas entradas de teclado produzem uma saída SAC estranha (por exemplo, **[A**, **[3~**). | As sequências de fuga [vT100](/windows/console/console-virtual-terminal-sequences) não são suportadas pelo pedido da SAC.
 Colar cordas compridas não funciona. | A consola em série limita o comprimento das cordas coladas no terminal aos caracteres de 2048 para evitar sobrecargas na largura de banda da porta em série.
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
@@ -200,7 +200,7 @@ A. Fornecer feedback criando um problema gitHub em https://aka.ms/serialconsolef
 
 **Q. A consola em série suporta a cópia/pasta?**
 
-A. Sim. Utilize **ctrl** + **Shift** + **C** e **Ctrl** + **Shift** + **V** para copiar e colar no terminal.
+A. Yes. Utilize **ctrl** + **Shift** + **C** e **Ctrl** + **Shift** + **V** para copiar e colar no terminal.
 
 **Q. Quem pode ativar ou desativar a consola em série para a minha subscrição?**
 

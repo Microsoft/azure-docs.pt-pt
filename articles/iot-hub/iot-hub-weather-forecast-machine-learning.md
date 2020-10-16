@@ -11,10 +11,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 09/16/2020
 ms.author: robinsh
 ms.openlocfilehash: 8ba68e56d2475b1ff2fb3e63f291f76063ca62e7
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91777161"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning-studio-classic"></a>Previsão do tempo usando os dados do sensor do seu hub IoT no Azure Machine Learning Studio (clássico)

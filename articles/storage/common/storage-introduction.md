@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 1f335640eb37f51857fa295298d0a3ca91f2a370
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 337a4c1ba3e355c2ba1dd7ea6e34645112d1c7b1
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91714983"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091309"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Introdução aos principais serviços de armazenamento Azure
 
@@ -61,7 +61,7 @@ O armazenamento de blobs é ideal para:
 - Armazenamento de dados de cópia de segurança e restauro, recuperação após desastre e arquivo.
 - Armazenamento de dados para análise por um serviço no local ou alojado no Azure.
 
-Os Objetos no Armazenamento de blobs podem ser acedidos em qualquer local no mundo através de HTTP ou HTTPS. Os utilizadores ou aplicações de cliente podem aceder a blobs através de URLs, à [API REST do Armazenamento do Azure](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), ao [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), à [CLI do Azure](https://docs.microsoft.com/cli/azure/storage) ou a uma biblioteca de cliente do Armazenamento do Azure. As bibliotecas de clientes de armazenamento estão disponíveis para muitas linguagens, incluindo [.NET](/dotnet/api/overview/azure/storage?view=azure-dotnet), [Java](https://docs.microsoft.com/java/api/overview/azure/storage), [Node.js](https://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/), [PHP](https://azure.github.io/azure-storage-php/) e [Ruby](https://azure.github.io/azure-storage-ruby).
+Os Objetos no Armazenamento de blobs podem ser acedidos em qualquer local no mundo através de HTTP ou HTTPS. Os utilizadores ou aplicações de cliente podem aceder a blobs através de URLs, à [API REST do Armazenamento do Azure](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), ao [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), à [CLI do Azure](https://docs.microsoft.com/cli/azure/storage) ou a uma biblioteca de cliente do Armazenamento do Azure. As bibliotecas de clientes de armazenamento estão disponíveis para muitas linguagens, incluindo [.NET](/dotnet/api/overview/azure/storage), [Java](https://docs.microsoft.com/java/api/overview/azure/storage), [Node.js](https://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/), [PHP](https://azure.github.io/azure-storage-php/) e [Ruby](https://azure.github.io/azure-storage-ruby).
 
 Para obter mais informações sobre o armazenamento blob, consulte [Introdução ao armazenamento blob](../blobs/storage-blobs-introduction.md).
 
@@ -121,7 +121,7 @@ Todos os pedidos ao Azure Storage devem ser autorizados. O Azure Storage suporta
 
 Existem dois tipos básicos de encriptação disponíveis para os serviços de armazenamento principal. Para obter mais informações sobre segurança e encriptação, veja o [Guia de segurança do Armazenamento do Azure](../blobs/security-recommendations.md).
 
-### <a name="encryption-at-rest"></a>Encriptação inativa
+### <a name="encryption-at-rest"></a>Encriptação de dados inativos
 
 A encriptação Azure Storage protege e salvaguarda os seus dados para cumprir os seus compromissos de segurança organizacional e conformidade. O Azure Storage encripta automaticamente todos os dados antes de persistir na conta de armazenamento e desencripta-os antes da recuperação. A encriptação, desencriptação e os principais processos de gestão são transparentes para os utilizadores. Os clientes também podem optar por gerir as suas próprias chaves usando o Azure Key Vault. Para obter mais informações, consulte [a encriptação do Azure Storage para obter dados em repouso](storage-service-encryption.md).
 
@@ -173,9 +173,8 @@ Pode aceder a recursos numa conta de armazenamento por qualquer idioma que possa
 - [Cmdlets da CLI do Azure para Armazenamento](https://docs.microsoft.com/cli/azure/storage)
 - [Utilitário da Linha de Comandos do AzCopy](https://aka.ms/downloadazcopy)
 - O [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) é uma aplicação autónoma e gratuita da Microsoft, que lhe permite trabalhar visualmente com dados do Armazenamento do Azure no Windows, macOS e Linux.
-- [Ferramentas de cliente de armazenamento Azure](../storage-explorers.md)
-- [Ferramentas de Programação do Azure](https://azure.microsoft.com/tools/)
+- [Modelos de gestor de recursos Azure para armazenamento Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Para se levantar e funcionar com os principais serviços de Armazenamento Azure, consulte [Criar uma conta de armazenamento](storage-account-create.md).

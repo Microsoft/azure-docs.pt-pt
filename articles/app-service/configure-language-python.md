@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 10/06/2020
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python
-ms.openlocfilehash: df4b94702d14278a3279c504f52f46b922859db8
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: b489f7daebc9232088020948752c3792dca65095
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91822804"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018751"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configure uma aplicação Linux Python para o Azure App Service
 
@@ -92,6 +92,19 @@ Para obter mais informações sobre como o App Service funciona e constrói apli
 > [!NOTE]
 > Utilize sempre caminhos relativos em todos os scripts pré e pós-construção porque o recipiente de construção em que o Oryx funciona é diferente do recipiente de tempo de execução em que a aplicação funciona. Nunca confie na colocação exata da pasta do projeto da sua aplicação dentro do recipiente (por exemplo, que é colocada no *local/wwwroot).*
 
+## <a name="production-settings-for-django-apps"></a>Configurações de produção para apps django
+
+Para um ambiente de produção como o Azure App Service, as aplicações do Django devem seguir a lista de verificação de [implementação](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/) do Django (djangoproject.com).
+
+O quadro seguinte descreve as definições de produção relevantes para o Azure. Estas definições são definidas no ficheiro *setting.py* da aplicação.
+
+| Configuração de Django | Instruções para Azure |
+| --- | --- |
+| `SECRET_KEY` | Armazenar o valor numa definição de Serviço de Aplicações como descrito nas [definições de aplicações do Access como variáveis de ambiente.](#access-app-settings-as-environment-variables) Pode armazenar alternadamente [o valor como um "secrete" no Cofre da Chave Azure.](/azure/key-vault/secrets/quick-create-python) |
+| `DEBUG` | Crie uma `DEBUG` definição no Serviço de Aplicações com o valor 0 (falso), em seguida, carregue o valor como uma variável ambiental. No seu ambiente de desenvolvimento, crie uma `DEBUG` variável ambiental com o valor 1 (verdadeiro). |
+| `ALLOWED_HOSTS` | Na produção, o Django requer que inclua o URL da aplicação na `ALLOWED_HOSTS` variedade de *settings.py.* Pode recuperar este URL em tempo de execução com o código, `os.environ['WEBSITE_HOSTNAME']` . O Serviço de Aplicações define automaticamente a `WEBSITE_HOSTNAME` variável ambiental para o URL da aplicação. |
+| `DATABASES` | Defina as definições no Serviço de Aplicações para a ligação da base de dados e carregue-as como variáveis ambientais para povoar o [`DATABASES`](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DATABASES) dicionário. Pode armazenar alternadamente os valores (especialmente o nome de utilizador e a palavra-passe) como [segredos do Azure Key Vault](/azure/key-vault/secrets/quick-create-python). |
+
 ## <a name="container-characteristics"></a>Características do contentor
 
 Quando implementadas no Serviço de Aplicações, as aplicações Python funcionam dentro de um contentor Linux Docker que está definido no [repositório do Serviço de Aplicações Python GitHub.](https://github.com/Azure-App-Service/python) Pode encontrar as configurações de imagem dentro dos diretórios específicos da versão.
@@ -109,6 +122,8 @@ Este contentor tem as seguintes características:
 
     O * ficheirorequirements.txt* *deve* estar na raiz do projeto para a instalação de dependências. Caso contrário, o processo de construção relata o erro: "Não foi possível encontrar setup.py ou requirements.txt; Não a funcionar pip instalar." Se encontrar este erro, verifique a localização do seu ficheiro de requisitos.
 
+- O Serviço de Aplicações define automaticamente uma variável ambiental nomeada `WEBSITE_HOSTNAME` com o URL da aplicação web, tal como `msdocs-hello-world.azurewebsites.net` . Também define `WEBSITE_SITE_NAME` com o nome da sua app, como `msdocs-hello-world` . 
+   
 ## <a name="container-startup-process"></a>Processo de arranque de contentores
 
 Durante o arranque, o Serviço de Aplicações no contentor do Linux executa os seguintes passos:

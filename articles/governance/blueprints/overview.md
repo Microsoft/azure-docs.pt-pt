@@ -3,12 +3,12 @@ title: Descrição Geral do Azure Blueprints
 description: Compreenda como o serviço Azure Blueprints lhe permite criar, definir e implantar artefactos no seu ambiente Azure.
 ms.date: 09/30/2020
 ms.topic: overview
-ms.openlocfilehash: f2e3c23c9cb83d2cb58b1e8f69a2a470a6f36f6d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0dbf5ab54b694399c9d15cce84e8eca34a5d924e
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91614262"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91892732"
 ---
 # <a name="what-is-azure-blueprints"></a>O que é o Azure Blueprints?
 
@@ -25,7 +25,7 @@ O serviço do Azure Blueprints é apoiado pelo [Azure Cosmos DB](../../cosmos-db
 
 ## <a name="how-its-different-from-arm-templates"></a>Como é diferente dos modelos ARM
 
-O serviço foi concebido para ajudar na _configuração do ambiente_. Esta configuração consiste frequentemente num conjunto de grupos de recursos, políticas, atribuições de funções e implementações de modelos ARM. Uma planta é um pacote para juntar cada um destes tipos de _artefactos_ e permitir-lhe compor e ver esse pacote, incluindo através de um pipeline CI/CD. Por fim, cada um deles é atribuído a uma subscrição numa única operação que pode ser auditada e controlada.
+O serviço foi concebido para ajudar na _configuração do ambiente_. Esta configuração consiste frequentemente num conjunto de grupos de recursos, políticas, atribuições de funções e implementações de modelos ARM. Uma planta é um pacote para juntar cada um destes tipos de _artefactos_ e permitir-lhe compor e ver esse pacote, incluindo através de um pipeline de integração contínua e entrega contínua (CI/CD). Por fim, cada um deles é atribuído a uma subscrição numa única operação que pode ser auditada e controlada.
 
 Quase tudo o que pretende incluir para implantação em Azure Blueprints pode ser realizado com um modelo ARM. No entanto, um modelo ARM é um documento que não existe de forma nativa no Azure – cada um é armazenado localmente ou em controlo de origem. O modelo é utilizado para implementações de um ou mais recursos do Azure, mas assim que esses recursos são implementados, deixam de existir ligações ou relações ativas com o modelo.
 
@@ -126,10 +126,10 @@ Existem as seguintes limitações para determinados campos:
 
 |Objeto|Campo|Personagens permitidos|Um máximo de Comprimento|
 |-|-|-|-|
-|Planta|Name|letras, números, hífens e períodos|48|
+|Planta|Nome|letras, números, hífens e períodos|48|
 |Planta|Versão|letras, números, hífens e períodos|20|
-|Atribuição do esquema|Name|letras, números, hífens e períodos|90|
-|Artefacto de planta|Name|letras, números, hífens e períodos|48|
+|Atribuição do esquema|Nome|letras, números, hífens e períodos|90|
+|Artefacto de planta|Nome|letras, números, hífens e períodos|48|
 
 ## <a name="video-overview"></a>Descrição geral em vídeo
 

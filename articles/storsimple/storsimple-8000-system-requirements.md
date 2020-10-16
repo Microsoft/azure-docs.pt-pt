@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: 3032585c6f0a5cc6143eee06b12b6def50cd7cd0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80297714"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Software de série StorSimple 8000, alta disponibilidade e requisitos de networking
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
@@ -41,7 +41,7 @@ Os seguintes requisitos de software são para os clientes de armazenamento que a
 
 | Sistemas operativos suportados | Versão necessária | Requisitos/notas adicionais |
 | --- | --- | --- |
-| Windows Server |2008 R2 SP1, 2012, 2012 R2, 2016 |Os volumes StorSimple iSCSI são suportados para utilização apenas nos seguintes tipos de discos Windows:<ul><li>Volume simples no disco básico</li><li>Volume simples e espelhado no disco dinâmico</li></ul>Apenas os iniciadores iSCSI de software presentes no sistema operativo são suportados de forma nativa. Os iniciadores iSCSI de hardware não são suportados.<br></br>O Windows Server 2012 e 2016 são funcionalidades finas e ODX suportadas se estiver a utilizar um volume StorSimple iSCSI.<br><br>A StorSimple pode criar volumes pouco abastetados e totalmente abastetados. Não pode criar volumes parcialmente a provisionados.<br><br>Reformar um volume pouco abastecido pode demorar muito tempo. Recomendamos a eliminação do volume e, em seguida, a criação de um novo em vez de reformatar. No entanto, se ainda preferir reformar um volume:<ul><li>Executar o seguinte comando antes do reformat para evitar atrasos na recuperação do espaço: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Após a formatação estar concluída, utilize o seguinte comando para reesibilizar a recuperação do espaço:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Aplique o hotfix do Windows Server 2012 como descrito no [KB 2878635](https://support.microsoft.com/kb/2870270) no seu computador Windows Server.</li></ul></li></ul></ul> Se estiver a configurar o StorSimple Snapshot Manager ou o Adaptador StorSimple para o SharePoint, aceda aos [requisitos de Software para componentes opcionais](#software-requirements-for-optional-components). |
+| Windows Server |2008 R2 SP1, 2012, 2012 R2, 2016 |Os volumes StorSimple iSCSI são suportados para utilização apenas nos seguintes tipos de discos Windows:<ul><li>Volume simples no disco básico</li><li>Volume simples e espelhado no disco dinâmico</li></ul>Apenas os iniciadores iSCSI de software presentes no sistema operativo são suportados de forma nativa. Os iniciadores iSCSI de hardware não são suportados.<br></br>O Windows Server 2012 e 2016 são funcionalidades finas e ODX suportadas se estiver a utilizar um volume StorSimple iSCSI.<br><br>A StorSimple pode criar volumes pouco abastetados e totalmente abastetados. Não pode criar volumes parcialmente a provisionados.<br><br>Reformatar um volume mal aprovisionado pode demorar muito tempo. Recomendamos que elimine o volume e, em seguida, crie um novo em vez de o reformatar. No entanto, se preferir reformatar um volume:<ul><li>Execute o seguinte comando antes de o reformatar para evitar atrasos de recuperação de espaço:  <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Após a conclusão da formatação, utilize o seguinte comando para ativar novamente a recuperação de espaço: <br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Aplique o hotfix do Windows Server 2012 como descrito no [KB 2878635](https://support.microsoft.com/kb/2870270) no seu computador Windows Server.</li></ul></li></ul></ul> Se estiver a configurar o StorSimple Snapshot Manager ou o Adaptador StorSimple para o SharePoint, aceda aos [requisitos de Software para componentes opcionais](#software-requirements-for-optional-components). |
 | VMware ESX |5.5 e 6.0 |Suportado com VMware vSphere como cliente iSCSI. A funcionalidade de bloco VAAI é suportada com VMware vSphere em dispositivos StorSimple. |
 | Linux RHEL/CentOS |5, 6 e 7 |Suporte para clientes Linux iSCSI com versões de iniciador open-iSCSI 5, 6 e 7. |
 | Linux |SUSE Linux 11 | |
@@ -65,14 +65,14 @@ O seu dispositivo StorSimple é um dispositivo bloqueado. No entanto, as portas 
 
 | Porto nº<sup>1,2</sup> | Dentro ou fora | Âmbito portuário | Necessário | Notas |
 | --- | --- | --- | --- | --- |
-| TCP 80 (HTTP)<sup>3</sup> |Saída |WAN |No |<ul><li>A porta de saída é utilizada para o acesso à Internet para recuperar atualizações.</li><li>O representante da web de saída é configurável pelo utilizador.</li><li>Para permitir atualizações do sistema, esta porta também deve estar aberta para o controlador de IPs fixos.</li></ul> |
-| TCP 443 (HTTPS)<sup>3</sup> |Saída |WAN |Yes |<ul><li>A porta de saída é utilizada para aceder a dados na nuvem.</li><li>O representante da web de saída é configurável pelo utilizador.</li><li>Para permitir atualizações do sistema, esta porta também deve estar aberta para o controlador de IPs fixos.</li><li>Esta porta também é usada em ambos os controladores para recolha de lixo.</li></ul> |
+| TCP 80 (HTTP)<sup>3</sup> |Saída |WAN |Não |<ul><li>A porta de saída é utilizada para o acesso à Internet para recuperar atualizações.</li><li>O representante da web de saída é configurável pelo utilizador.</li><li>Para permitir atualizações do sistema, esta porta também deve estar aberta para o controlador de IPs fixos.</li></ul> |
+| TCP 443 (HTTPS)<sup>3</sup> |Saída |WAN |Sim |<ul><li>A porta de saída é utilizada para aceder a dados na nuvem.</li><li>O representante da web de saída é configurável pelo utilizador.</li><li>Para permitir atualizações do sistema, esta porta também deve estar aberta para o controlador de IPs fixos.</li><li>Esta porta também é usada em ambos os controladores para recolha de lixo.</li></ul> |
 | UDP 53 (DNS) |Saída |WAN |Em alguns casos; ver notas. |Esta porta só é necessária se estiver a utilizar um servidor DNS baseado na Internet. |
 | UDP 123 (NTP) |Saída |WAN |Em alguns casos; ver notas. |Esta porta só é necessária se estiver a utilizar um servidor NTP baseado na Internet. |
-| TCP 9354 |Saída |WAN |Yes |A porta de saída é utilizada pelo dispositivo StorSimple para comunicar com o serviço StorSimple Device Manager. |
-| 3260 (iSCSI) |Em |LAN |No |Esta porta é utilizada para aceder a dados sobre o iSCSI. |
-| 5985 |Em |LAN |No |A porta de entrada é utilizada pelo StorSimple Snapshot Manager para comunicar com o dispositivo StorSimple.<br>Esta porta também é utilizada quando liga remotamente ao Windows PowerShell para StorSimple em HTTP. |
-| 5986 |Em |LAN |No |Esta porta é utilizada quando liga remotamente ao Windows PowerShell para StorSimple em HTTPS. |
+| TCP 9354 |Saída |WAN |Sim |A porta de saída é utilizada pelo dispositivo StorSimple para comunicar com o serviço StorSimple Device Manager. |
+| 3260 (iSCSI) |Em |LAN |Não |Esta porta é utilizada para aceder a dados sobre o iSCSI. |
+| 5985 |Em |LAN |Não |A porta de entrada é utilizada pelo StorSimple Snapshot Manager para comunicar com o dispositivo StorSimple.<br>Esta porta também é utilizada quando liga remotamente ao Windows PowerShell para StorSimple em HTTP. |
+| 5986 |Em |LAN |Não |Esta porta é utilizada quando liga remotamente ao Windows PowerShell para StorSimple em HTTPS. |
 
 <sup>1</sup> Não é necessário abrir portas de entrada na Internet pública.
 
@@ -122,7 +122,7 @@ Recomendamos que estabeleça as suas regras de firewall para tráfego de saída,
 
 Uma métrica de encaminhamento está associada com as interfaces e o gateway que encaminham os dados para as redes especificadas. A métrica de encaminhamento é usada pelo protocolo de encaminhamento para calcular o melhor caminho para um determinado destino, se aprender que existem vários caminhos para o mesmo destino. Quanto mais baixa for a métrica de encaminhamento, maior a preferência.
 
-No contexto do StorSimple, se várias interfaces de rede e gateways estiverem configurados para canalizar o tráfego, as métricas de encaminhamento entrarão em jogo para determinar a ordem relativa em que as interfaces serão utilizadas. As métricas de encaminhamento não podem ser alteradas pelo utilizador. No entanto, pode utilizar o `Get-HcsRoutingTable` cmdlet para imprimir a tabela de encaminhamento (e métricas) no seu dispositivo StorSimple. Mais informações sobre o cmdlet Get-HcsRoutingTable em [resolução de problemas StorSimple .](storsimple-troubleshoot-deployment.md)
+No contexto do StorSimple, se várias interfaces de rede e gateways estiverem configurados para canalizar o tráfego, as métricas de encaminhamento entrarão em jogo para determinar a ordem relativa em que as interfaces serão utilizadas. As métricas de encaminhamento não podem ser alteradas pelo utilizador. No entanto, pode utilizar o `Get-HcsRoutingTable` cmdlet para imprimir a tabela de encaminhamento (e métricas) no seu dispositivo StorSimple. Mais informações sobre Get-HcsRoutingTable cmdlet na [resolução de problemas da implementação StorSimple](storsimple-troubleshoot-deployment.md).
 
 O algoritmo métrico de encaminhamento utilizado para a atualização 2 e versões posteriores pode ser explicado da seguinte forma.
 

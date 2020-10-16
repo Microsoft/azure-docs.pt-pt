@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
 ms.openlocfilehash: f39ad3cbc357575f735b963346c8a8b0cc95e7c8
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91442233"
 ---
 # <a name="tutorial-discover-vmware-vms-with-server-assessment"></a>Tutorial: Descubra VMware VMs com avaliação do servidor
@@ -266,7 +266,7 @@ A descoberta funciona da seguinte forma:
 - A descoberta de aplicações, funções e funcionalidades instaladas leva algum tempo. A duração depende do número de VMs descobertos. Para 500 VMs, leva aproximadamente uma hora para o inventário da aplicação aparecer no portal Azure Migrate.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Avaliar VMware VMs](tutorial-assess-vmware.md) para migração para VMs Azure.
 - [Reveja os dados](migrate-appliance.md#collected-data---vmware) que o aparelho recolhe durante a descoberta.

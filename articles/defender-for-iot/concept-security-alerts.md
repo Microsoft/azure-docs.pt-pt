@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 10/08/2020
 ms.author: v-ekrieg
 ms.openlocfilehash: c4c92bfa25d9c43d3c654fbd1f23e242effc7577
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91851208"
 ---
 # <a name="defender-for-iot-security-alerts"></a>Alertas de segurança do Defender para IoT

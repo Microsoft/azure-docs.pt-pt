@@ -10,10 +10,10 @@ ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.openlocfilehash: 5fce1a8e2f4dda8ea84cfd66aa9dc13768ab17e7
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86077090"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Use ferramentas do Data Lake para o Estúdio Visual ligar-se ao Azure HDInsight e executar consultas de Hive Apache
@@ -324,7 +324,7 @@ Para ver tarefas do Hive:
 
 * O script HQL que o Visual Studio cria está codificado, dependendo da configuração da região local do utilizador. O script não é executado corretamente se carregar o script para um cluster como um ficheiro binário.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a utilizar o pacote do Data Lake Tools para Visual Studio para ligar a clusters do HDInsight a partir do Visual Studio. Também aprendeu a executar uma consulta do Hive. 
 

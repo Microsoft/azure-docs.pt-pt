@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: dbf0bb9cae87a51eb6e0a4fb25c700ec6f423ff1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85476262"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>Governação da infraestrutura Azure DevTest Labs - Gerir custos e propriedade
@@ -52,5 +52,5 @@ Os membros da equipa de projeto/aplicação devem ser adicionados à função de
 Para mais informações, consulte o andaime da empresa Azure – documentação [prescritiva de governação de assinaturas.](/azure/architecture/cloud-adoption/appendix/azure-scaffold)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte [a política corporativa e a conformidade.](devtest-lab-guidance-governance-policy-compliance.md)

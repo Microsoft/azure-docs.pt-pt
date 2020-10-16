@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: references_regions
 ms.openlocfilehash: ef3fd6ce2a5be4f3d06a37b135e0f9cf0851effb
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87116701"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Como configurar a funcionalidade Dados Ao Vivo (pré-visualização)

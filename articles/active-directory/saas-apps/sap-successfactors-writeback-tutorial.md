@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: article
 ms.workload: identity
-ms.date: 08/05/2020
+ms.date: 10/14/2020
 ms.author: chmutali
-ms.openlocfilehash: 5ec06960e695abfa4bf004633b1f171214a5d29a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bbd274f6b039ef4492068d939c755ab279c2830a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91286655"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069994"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>Tutorial: Configure atribui write-back de Azure AD a SAP SuccessFactors
 O objetivo deste tutorial é mostrar os passos para anular atributos de Azure AD a SAP SuccessFactors Employee Central. 
@@ -324,13 +324,23 @@ Uma vez concluídas as configurações de aplicações do SuccessFactors, pode l
 
 1. No **separador Provisioning,** desa fixação do **Estado de Provisionamento** para **On**.
 
-2. Clique em **Save** (Guardar).
+1. Selecione **Âmbito**. Pode selecionar a partir de uma das seguintes opções: 
+   * **Sincronize todos os utilizadores e grupos**: Selecione esta opção se pretender escrever atributos mapeados de todos os utilizadores, desde Azure AD a SuccessFactors, sujeitos às regras de deteção definidas no Âmbito do Objeto fonte **de Mapeamentos.**  ->  **Source Object Scope** 
+   * **Sincronizar apenas utilizadores e grupos atribuídos**: Selecione esta opção se pretender rescrever atributos mapeados de apenas utilizadores que atribuiu a esta aplicação na opção de menu De gestão de **aplicações**  ->  **Manage**  ->  **e grupos.** Estes utilizadores também estão sujeitos às regras de deteção definidas no âmbito do objeto de **origem de mapeamentos.**  ->  **Source Object Scope**
 
-3. Esta operação iniciará a sincronização inicial, que pode demorar um número variável de horas dependendo de quantos utilizadores estão no inquilino successFactors. Pode verificar a barra de progresso para acompanhar o progresso do ciclo de sincronização. 
+   > [!div class="mx-imgBorder"]
+   > ![Selecione o âmbito de writeback](./media/sap-successfactors-inbound-provisioning/select-writeback-scope.png)
 
-4. A qualquer momento, consulte o **separador de registos** de auditoria no portal Azure para ver que ações o serviço de prestação de serviços executou. Os registos de auditoria listam todos os eventos de sincronização individuais realizados pelo serviço de fornecimento, tais como os utilizadores que estão a ser lidos a partir da Central dos Funcionários e posteriormente adicionados ou atualizados ao Ative Directory. 
+   > [!NOTE]
+   > A app de provisioning SuccessFactors Writeback não suporta a "atribuição de grupo". Apenas é suportada a "atribuição do utilizador". 
 
-5. Uma vez concluída a sincronização inicial, escreverá um relatório de resumo de auditoria no **separador Provisioning,** como mostrado abaixo.
+1. Clique em **Guardar**.
+
+1. Esta operação iniciará a sincronização inicial, que pode demorar um número variável de horas dependendo de quantos utilizadores estão no inquilino AZure AD e no âmbito definido para a operação. Pode verificar a barra de progresso para acompanhar o progresso do ciclo de sincronização. 
+
+1. A qualquer momento, consulte o **separador De provisionamento** no portal Azure para ver que ações o serviço de fornecimento executou. Os registos de fornecimento listam todos os eventos sincronizados individuais realizados pelo serviço de fornecimento. 
+
+1. Uma vez concluída a sincronização inicial, escreverá um relatório de resumo de auditoria no **separador Provisioning,** como mostrado abaixo.
 
    > [!div class="mx-imgBorder"]
    > ![Provisão de barras de progresso](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)

@@ -7,10 +7,10 @@ ms.date: 04/15/2017
 ms.author: harahma
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5f3f6238bb72704d13fef4a7171aeaebee5f9141
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708701"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Modelo de hospedagem de tecido de serviço Azure
@@ -174,7 +174,7 @@ No exemplo anterior, pode pensar-se que se o 'MyCodePackageA' registar tanto 'My
 
 A Service Fabric não suporta serviços fiáveis e, posteriormente, atores fiáveis que falsificam subprocessos. Um exemplo do motivo pelo qual o seu não suportado é [o CodePackageActivationContext](/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) não pode ser utilizado para registar um subprocesso não suportado, e as fichas de cancelamento são enviadas apenas para processos registados; resultando em todo o tipo de problemas, tais como falhas de upgrade, quando os subprocessos não fecham após o processo dos pais ter recebido um token de cancelamento.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 [Embale uma aplicação][a4] e prepare-a para ser implantada.
 
 [Implementar e remover aplicações][a5]. Este artigo descreve como usar o PowerShell para gerir instâncias de aplicação.

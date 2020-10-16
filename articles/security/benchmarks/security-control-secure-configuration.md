@@ -8,10 +8,10 @@ ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 347a63cc77c565d800328c19d1d543c2c9efafc0
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89400097"
 ---
 # <a name="security-control-secure-configuration"></a>Controlo de Segurança: Configuração Segura
@@ -199,6 +199,6 @@ Implementar o Scanner credencial para identificar credenciais dentro do código.
 - [Como configurar o Scanner Credencial](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Veja o próximo Controlo de Segurança:  [Defesa de Malware](security-control-malware-defense.md)

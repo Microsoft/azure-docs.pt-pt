@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 66e280f20109967f029a14e368fdb0aeea269aad
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91536618"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>Replicar dados na Base de Dados Azure para MariaDB
@@ -28,7 +28,7 @@ Os principais cenários a considerar usando a replicação de dados são:
 ### <a name="data-not-replicated"></a>Dados não replicados
 A base de dados do [*sistema mysql*](https://mariadb.com/kb/en/library/the-mysql-database-tables/) no servidor de origem não é replicada. As alterações nas contas e permissões no servidor de origem não são replicadas. Se criar uma conta no servidor de origem e esta conta precisar de aceder ao servidor de réplicas, então crie manualmente a mesma conta no lado do servidor de réplica. Para entender quais as tabelas contidas na base de dados do sistema, consulte a [documentação mariaDB](https://mariadb.com/kb/en/library/the-mysql-database-tables/).
 
-### <a name="requirements"></a>Requirements
+### <a name="requirements"></a>Requisitos
 - A versão do servidor de origem deve ser, pelo menos, a versão 10.2 do MariaDB.
 - As versões de servidor de origem e réplica devem ser as mesmas. Por exemplo, ambos devem ser a versão MariaDB 10.2.
 - Cada mesa deve ter uma chave primária.
@@ -39,8 +39,8 @@ A base de dados do [*sistema mysql*](https://mariadb.com/kb/en/library/the-mysql
 - Certifique-se de que a máquina que hospeda o servidor de origem permite o tráfego de entrada e saída na porta 3306.
 - Certifique-se de que o servidor de origem tem um **endereço IP público,** o DNS é acessível ao público ou tem um nome de domínio totalmente qualificado (FQDN).
 
-### <a name="other"></a>Outros
+### <a name="other"></a>Outro
 - A replicação de dados só é suportada nos níveis de preços otimizados para fins gerais e memória.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba como configurar a [replicação de dados.](howto-data-in-replication.md)

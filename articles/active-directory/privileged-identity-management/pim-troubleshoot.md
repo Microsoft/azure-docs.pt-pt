@@ -14,10 +14,10 @@ ms.date: 10/18/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b02b8f3b94d191c7439aadf5a56ec0e2a1c38e28
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88782503"
 ---
 # <a name="troubleshoot-a-problem-with-privileged-identity-management"></a>Resolver problemas com gestão de identidade privilegiada

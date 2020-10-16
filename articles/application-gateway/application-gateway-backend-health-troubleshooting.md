@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
 ms.openlocfilehash: 531a7fd8547130b4897f3dad0900e1c27fb7fe9a
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132046"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Problemas de saúde na resolução de problemas de saúde no Gateway de Aplicação
@@ -131,7 +131,7 @@ Verifique também se algum NSG/UDR/Firewall está bloqueando o acesso ao Ip e à
 
 **Solução:** Se receber este erro, siga estes passos:
 
-1.  Verifique se pode ligar-se ao servidor backend na porta mencionada nas definições HTTP utilizando um browser ou PowerShell. Por exemplo, executar o seguinte comando:`Test-NetConnection -ComputerName
+1.  Verifique se pode ligar-se ao servidor backend na porta mencionada nas definições HTTP utilizando um browser ou PowerShell. Por exemplo, executar o seguinte comando: `Test-NetConnection -ComputerName
     www.bing.com -Port 443`
 
 1.  Se a porta mencionada não for a porta desejada, insira o número de porta correto para o Gateway de aplicação para ligar ao servidor backend

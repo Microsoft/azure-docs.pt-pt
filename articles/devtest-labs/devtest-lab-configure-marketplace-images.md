@@ -4,10 +4,10 @@ description: Configure quais as imagens do Azure Marketplace podem ser usadas ao
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: a5158ed33bf253db1dbe0eb3232bc43d27ce15e7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86512440"
 ---
 # <a name="configure-azure-marketplace-image-settings-in-azure-devtest-labs"></a>Configurar configurações de imagem do Azure Marketplace em Azure DevTest Labs
@@ -38,7 +38,7 @@ Seguindo estes passos para especificar quais as imagens do Azure Marketplace que
      ![Pode especificar quais as imagens do Azure Marketplace que podem ser usadas como imagens base para VMs](./media/devtest-lab-configure-marketplace-images/select-marketplace-images.png)
 
 
-## <a name="troubleshoot"></a>Resolver Problemas
+## <a name="troubleshoot"></a>Resolução de problemas
 Se não conseguir encontrar uma imagem específica para ativar o laboratório, siga estes passos: 
 
 - Verifique se consegue ver a imagem enquanto cria um VM compute.
@@ -47,6 +47,6 @@ Se não conseguir encontrar uma imagem específica para ativar o laboratório, s
       
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Depois de configurar como as imagens do Azure Marketplace são permitidas ao criar um VM, o próximo passo é [adicionar um VM ao seu laboratório.](devtest-lab-add-vm.md)
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 940636a5e368a84aaaf0d4490bf874d56d3ddb6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a714368fc0508149714eaa42f4741e1042376c52
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78251897"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044960"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Tutorial: VMs de balanceamento de carga dentro de uma zona de disponibilidade com o Balanceador de Carga Standard através do portal do Azure
 
@@ -38,6 +38,10 @@ Este tutorial cria uma [instância do Balanceador de Carga Standard do Azure](ht
 Para obter mais informações sobre a utilização de zonas de disponibilidade com balanceador de carga [padrão, consulte as Zonas Padrão de Balançador de Carga e Disponibilidade](load-balancer-standard-availability-zones.md).
 
 Se preferir, utilize a [CLI do Azure](load-balancer-standard-public-zonal-cli.md) para concluir este tutorial.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+* Uma subscrição do Azure
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -222,11 +226,12 @@ As regras de balanceador de carga definem a forma como o tráfego é distribuíd
       ![Servidor Web do IIS](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 3. Para ver o balanceador de carga em ação, force a paragem da VM que é apresentada. Atualize o browser para ver o nome do outro servidor mostrado no browser.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não forem necessários, elimine o grupo de recursos, o balanceador de carga e todos os recursos relacionados. Selecione o grupo de recursos que contém o balanceador de carga. Em seguida, selecione **Eliminar**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre [o Balancer de Carga Padrão](load-balancer-standard-overview.md).
-- [Balançar VMs de equilíbrio em zonas de disponibilidade.](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+Avance para o próximo artigo para aprender a carregar VMs de equilíbrio em zonas de disponibilidade..
+> [!div class="nextstepaction"]
+> [Balancear carga de VMs por zonas de disponibilidade](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

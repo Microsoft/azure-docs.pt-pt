@@ -4,10 +4,10 @@ description: Execute recipientes init em Instâncias de Contentores Azure para e
 ms.topic: article
 ms.date: 06/01/2020
 ms.openlocfilehash: 5a729263ee632eb9227694ec8684eb6889c6324b
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85954286"
 ---
 # <a name="run-an-init-container-for-setup-tasks-in-a-container-group"></a>Executar um recipiente init para tarefas de configuração em um grupo de contentores
@@ -190,7 +190,7 @@ az container logs \
   --container-name hamlet
 ```
 
-Saída:
+Resultado:
 
 ```console
 [('HAMLET', 386), ('HORATIO', 127), ('CLAUDIUS', 120)]
@@ -203,17 +203,17 @@ az container logs \
   --container-name juliet
 ```
 
-Saída:
+Resultado:
 
 ```console
 [('ROMEO', 177), ('JULIET', 134), ('CAPULET', 119)]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Os recipientes init ajudam-no a executar tarefas de configuração e inicialização para os seus recipientes de aplicação. Para obter mais informações sobre a execução de recipientes baseados em tarefas, consulte [executar tarefas contentorizadas com políticas de reinício](container-instances-restart-policy.md).
 
-Azure Container Instances fornece outras opções para modificar o comportamento dos recipientes de aplicação. Os exemplos incluem:
+Azure Container Instances fornece outras opções para modificar o comportamento dos recipientes de aplicação. Alguns exemplos:
 
 * [Definir variáveis ambientais em instâncias de contentores](container-instances-environment-variables.md)
 * [Definir a linha de comando numa instância de contentor para anular a operação da linha de comando predefinido](container-instances-start-command.md)

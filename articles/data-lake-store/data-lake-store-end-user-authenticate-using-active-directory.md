@@ -8,10 +8,10 @@ ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: has-adal-ref
 ms.openlocfilehash: 0dd5d1da41c5fcc596e4c70f797e75c30997ce0b
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91578551"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autenticação de utilizador final com Azure Data Lake Storage Gen1 usando O Diretório Ativo Azure

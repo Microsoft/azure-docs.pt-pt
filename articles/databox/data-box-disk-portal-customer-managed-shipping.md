@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 05/20/2020
 ms.author: alkohli
 ms.openlocfilehash: c4b3479e5728c32e66bc40f950bc948bf61dce42
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91575168"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-disk-in-the-azure-portal"></a>Utilize o envio auto-gerido para o disco Azure Data Box no portal Azure

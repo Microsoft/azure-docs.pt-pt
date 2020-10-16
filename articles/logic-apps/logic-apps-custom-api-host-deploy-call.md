@@ -7,10 +7,10 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 05/13/2020
 ms.openlocfilehash: 7b4d00e8c0366d10fddafa66db699c1a59fd9ad7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83659784"
 ---
 # <a name="deploy-and-call-custom-apis-from-workflows-in-azure-logic-apps"></a>Implementar e chamar APIs personalizados de fluxos de trabalho em Azure Logic Apps
@@ -27,7 +27,7 @@ Antes de poder ligar para a API personalizada a partir de uma aplicação lógic
 
 2. No menu de aplicações que abre, em **API,** escolha **a definição API**. Desave o local de **definição de API** para o URL para o seu swagger.jsarquivado.
 
-   Normalmente, o URL aparece neste formato:`https://{name}.azurewebsites.net/swagger/docs/v1)`
+   Normalmente, o URL aparece neste formato: `https://{name}.azurewebsites.net/swagger/docs/v1)`
 
    ![Link para o documento Swagger para a sua API personalizada](./media/logic-apps-custom-api-deploy-call/custom-api-swagger-url.png)
 
@@ -49,6 +49,6 @@ Depois de configurar as propriedades de definição API e CORS, os gatilhos e a�
 
 *  Para chamar qualquer API, incluindo APIs que não tenha ou exponha um documento swagger, pode sempre criar um pedido com a [ação HTTP](../connectors/connectors-native-http.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Descrição geral do conector personalizado](../logic-apps/custom-connector-overview.md)

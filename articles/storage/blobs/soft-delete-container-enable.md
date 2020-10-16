@@ -10,10 +10,10 @@ ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 4b25458cc934097b5477c174ae7ecc47762e2929
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91280305"
 ---
 # <a name="enable-and-manage-soft-delete-for-containers-preview"></a>Ative e gere a eliminação suave para recipientes (pré-visualização)
@@ -86,7 +86,7 @@ Para ver recipientes comvidade no portal Azure, siga estes passos:
 1. Navegue na sua conta de armazenamento no portal Azure e veja a lista dos seus contentores.
 1. Alternar o interruptor de recipientes eliminados para incluir recipientes eliminados na lista.
 
-    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-list.png" alt-text="Screenshot mostrando como ver recipientes suaves eliminados no portal Azure":::
+    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-list.png" alt-text="Screenshot mostrando como permitir a eliminação suave do recipiente no portal Azure":::
 
 ## <a name="restore-a-soft-deleted-container"></a>Restaurar um recipiente de apagamento suave
 
@@ -95,7 +95,7 @@ Pode restaurar um recipiente desausação e o seu conteúdo dentro do período d
 1. Navegue na sua conta de armazenamento no portal Azure e veja a lista dos seus contentores.
 1. Exiba o menu de contexto para o recipiente que deseja restaurar e escolha **Undelete** no menu.
 
-    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-restore.png" alt-text="Screenshot mostrando como restaurar um recipiente de apagamento suave no portal Azure":::
+    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-restore.png" alt-text="Screenshot mostrando como permitir a eliminação suave do recipiente no portal Azure":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

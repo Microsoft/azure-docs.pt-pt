@@ -9,24 +9,23 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 683a3fc148d3521366beef4427e87200ea81a9f3
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: f90d84b5897175dbda0a24591893c4e41a06822a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91445732"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973585"
 ---
 # <a name="deploy-azure-sql-edge"></a>Implementar borda Azure SQL 
 
 Azure SQL Edge é um motor de base de dados relacional otimizado para implementações IoT e Azure IoT Edge. Fornece capacidades para criar uma camada de armazenamento e processamento de dados de alto desempenho para aplicações e soluções IoT. Este quickstart mostra-lhe como começar a criar um módulo Azure SQL Edge através do Azure IoT Edge utilizando o portal Azure.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/).
 * Inicie sessão no [portal do Azure](https://portal.azure.com/).
 * Criar um [Hub Azure IoT](../iot-hub/iot-hub-create-through-portal.md).
-* Registar um [dispositivo de borda IoT a partir do portal Azure](../iot-edge/how-to-register-device-portal.md).
-* Prepare o dispositivo IoT Edge para [implantar o módulo IoT Edge a partir do portal Azure](../iot-edge/how-to-deploy-modules-portal.md).
+* Criar um [dispositivo Azure IoT Edge](../iot-edge/how-to-install-iot-edge.md).
 
 > [!NOTE]   
 > Para implementar um Azure Linux VM como um dispositivo IoT Edge, consulte este [guia de arranque rápido](../iot-edge/quickstart-linux.md).
@@ -48,7 +47,7 @@ O Azure Marketplace é um mercado de aplicações e serviços online onde pode n
    |**Campo**  |**Descrição**  |
    |---------|---------|
    |Subscrição  |  A subscrição Azure sob a qual o IoT Hub foi criado |
-   |Hub IoT   |  Nome do Hub IoT onde o dispositivo IoT Edge está registado e, em seguida, selecione "Implementar para um dispositivo"|
+   |IoT Hub   |  Nome do Hub IoT onde o dispositivo IoT Edge está registado e, em seguida, selecione "Implementar para um dispositivo"|
    |Nome do dispositivo de borda IoT  |  Nome do dispositivo IoT Edge onde o SQL Edge seria implantado |
 
 4. Nos **Módulos De Conjunto no dispositivo:** página, clique no módulo Azure SQL Edge em **módulos IoT Edge**. O nome do módulo predefinido é definido para *AzureSQLEdge*. 

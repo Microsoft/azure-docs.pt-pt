@@ -12,10 +12,10 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 416e2c767b5afd40fea38e6f75fcd3f01440b49a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89255358"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Modelo de faturação para Azure Ative Directory B2C
@@ -78,7 +78,7 @@ Um inquilino deve estar ligado ao nível de preços adequado da Azure com base n
 
 Para alterar o seu nível de preços, siga estes passos.
 
-1. Inicie sessão no portal do Azure.
+1. Inicie sessão no Portal do Azure.
 
 2. Selecione o filtro **de subscrição Directory +** no menu superior e, em seguida, selecione o diretório que contém a subscrição Azure a que o seu inquilino Azure B2C está ligado *(não* selecione o inquilino Azure AD B2C em si).
 

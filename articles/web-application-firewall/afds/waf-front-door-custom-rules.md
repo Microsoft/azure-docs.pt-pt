@@ -8,10 +8,10 @@ services: web-application-firewall
 ms.date: 09/05/2019
 ms.author: victorh
 ms.openlocfilehash: 158bfe30bf48ee420be8efb9ff32fff0e555d9e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79475829"
 ---
 #  <a name="custom-rules-for-web-application-firewall-with-azure-front-door"></a>Regras personalizadas para firewall de aplicação web com porta frontal Azure
@@ -42,7 +42,7 @@ Você pode controlar o acesso com uma regra WAf personalizada que define um núm
     - Cookies
   - **Operador:**
     - Any: é frequentemente usado para definir a ação padrão se nenhuma regra for correspondida. Qualquer um é compatível com todos os operadores.
-    - Igual
+    - Equal
     - Contains
     - LessThan: restrição de tamanho
     - GreaterTh: restrição de tamanho
@@ -176,7 +176,7 @@ Pode construir uma regra personalizada que especifica restrições de tamanho em
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Configure uma política de Firewall de aplicação web usando a Azure PowerShell](waf-front-door-custom-rules-powershell.md) 
 - Saiba mais sobre [firewall de aplicação web com porta frontal](afds-overview.md)
 - Saiba como [criar um Front Door](../../frontdoor/quickstart-create-front-door.md).

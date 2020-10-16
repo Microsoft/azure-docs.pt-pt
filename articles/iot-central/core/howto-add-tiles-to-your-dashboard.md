@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: beeb771ea5053dd0ad867a7568aa64bbb2d0b4ed
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90985275"
 ---
 # <a name="configure-the-application-dashboard"></a>Configure o painel de aplicações
@@ -33,7 +33,7 @@ Depois de selecionar **Editar** ou **Novo,** o painel de instrumentos está no m
 1. Selecione um ou mais dispositivos no **dropdown dos Dispositivos** para mostrar no azulejo. Agora vê a telemetria, propriedades e comandos disponíveis dos dispositivos.
 1. Selecione **Temperatura** na secção de telemetria e, em seguida, selecione **Adicionar azulejo**. O azulejo agora mostra no painel de instrumentos onde pode alterar a visualização, redimensionar o azulejo e configurá-lo:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Adicione um azulejo de telemetria de temperatura ao tablier":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Painel de aplicações com base no modelo de aplicação personalizado":::
 
 Quando terminar de adicionar e personalizar azulejos no painel de instrumentos, **selecione Save**.
 
@@ -56,7 +56,7 @@ A tabela a seguir descreve os diferentes tipos de azulejos que pode adicionar a 
 | Markdown         | Os azulejos de marcação são azulejos clicáveis que exibem um texto de posição e descrição formatado com marcação. O URL pode ser um link relativo para outra página na aplicação, ou um link absoluto para um site externo.|
 | Imagem            | Os azulejos de imagem exibem uma imagem personalizada e podem ser clicáveis. O URL pode ser um link relativo para outra página na aplicação, ou um link absoluto para um site externo.|
 | Etiqueta            | Os azulejos da etiqueta exibem texto personalizado num painel de instrumentos. Pode escolher o tamanho do texto. Utilize um azulejo de etiqueta para adicionar informações relevantes ao painel de instrumentos tais descrições, detalhes de contacto ou ajuda.|
-| de palavras            | Os azulejos de contagem mostram o número de dispositivos num grupo de dispositivos.|
+| Contagem            | Os azulejos de contagem mostram o número de dispositivos num grupo de dispositivos.|
 | Mapa              | Os azulejos do mapa exibem a localização de um ou mais dispositivos num mapa. Também pode exibir até 100 pontos do histórico de localização de um dispositivo. Por exemplo, pode apresentar a rota amostrada de onde um dispositivo esteve na última semana.|
 | KPI              |  Os azulejos KPI apresentam valores de telemetria agregados para um ou mais dispositivos durante um período de tempo. Por exemplo, pode usá-lo para mostrar a temperatura máxima e a pressão alcançada para um ou mais dispositivos durante a última hora.|
 | Gráfico de linhas       | Os azulejos de gráfico de linha traçam um ou mais valores de telemetria agregados para um ou mais dispositivos durante um período de tempo. Por exemplo, pode apresentar um gráfico de linha para traçar a temperatura média e a pressão de um ou mais dispositivos durante a última hora.|
@@ -75,23 +75,23 @@ Para os azulejos que exibem valores agregados, selecione o ícone de engrenagem 
 
 Para gráficos de linha, gráficos de barras e gráficos de tortas, você pode personalizar a cor dos diferentes valores de telemetria. Selecione o ícone da paleta ao lado da telemetria que pretende personalizar:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/color-customization.png" alt-text="Alterar a cor de um valor de telemetria":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/color-customization.png" alt-text="Painel de aplicações com base no modelo de aplicação personalizado":::
 
 Para azulejos que apresentem propriedades de cordas ou valores de telemetria, pode escolher como exibir o texto. Por exemplo, se o dispositivo armazenar um URL numa propriedade de cadeia, pode exibi-lo como um link clicável. Se o URL referenciar uma imagem, pode tornar a imagem num último valor ou azulejo de propriedade conhecido. Para alterar a forma como uma corda aparece, na configuração do azulejo selecione o ícone de engrenagem ao lado do tipo de telemetria ou propriedade:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="Mude como uma corda aparece num azulejo":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="Painel de aplicações com base no modelo de aplicação personalizado":::
 
 Para **um KPI**numérico, **Último Valor Conhecido,** e azulejos **de propriedade** pode utilizar formatação condicional para personalizar a cor do azulejo com base no seu valor atual. Para adicionar formatação condicional, selecione **Configurar** no azulejo e, em seguida, selecione o ícone **de formatação condicional** ao lado do valor para personalizar:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-1.png" alt-text="Screenshot mostrando como encontrar a opção de configuração para um azulejo e, em seguida, o ícone de formatação condicional":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-1.png" alt-text="Painel de aplicações com base no modelo de aplicação personalizado":::
 
 Adicione as suas regras de formatação condicional:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Screenshot mostrando regras de formatação condicional para fluxo médio. Há três regras - menos 20 é verde, menos de 50 é amarelo, e qualquer coisa acima de 50 é vermelho":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Painel de aplicações com base no modelo de aplicação personalizado":::
 
 A imagem que se segue mostra o efeito da regra de formatação condicional:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Screenshot mostrando a cor de fundo amarelo no azulejo de fluxo de água médio. O número no azulejo é 40.84":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Painel de aplicações com base no modelo de aplicação personalizado":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

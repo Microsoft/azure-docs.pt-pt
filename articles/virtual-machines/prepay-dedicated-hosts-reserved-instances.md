@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: 919ff7474dd64cfe3005975beb4cab6f77c177ce
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d7af95b9fe2f6d31faa239985f8e8165fd968372
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825264"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978599"
 ---
 # <a name="save-costs-with-azure-dedicated-host-reservations"></a>Poupe custos com reservas de anfitriões dedicados Azure
 
-Quando se comprometer com uma instância reservada de Anfitriões Dedicados Azure, pode economizar dinheiro. O desconto de reserva é aplicado automaticamente ao número de anfitriões dedicados em execução que correspondem ao âmbito e atributos da reserva. Você não precisa atribuir uma reserva a um anfitrião dedicado para obter os descontos. Uma compra de instância reservada cobre apenas a parte computacional do seu uso e inclui custos de licenciamento de software. Consulte a [visão geral dos anfitriões dedicados a Azure para máquinas virtuais.](./windows/dedicated-hosts.md)
+Quando se comprometer com uma instância reservada de Anfitriões Dedicados Azure, pode economizar dinheiro. O desconto de reserva é aplicado automaticamente ao número de anfitriões dedicados em execução que correspondem ao âmbito e atributos da reserva. Você não precisa atribuir uma reserva a um anfitrião dedicado para obter os descontos. Uma compra de instância reservada cobre apenas a parte computacional do seu uso e inclui custos de licenciamento de software. Consulte a [visão geral dos anfitriões dedicados a Azure para máquinas virtuais.](./dedicated-hosts.md)
 
 ## <a name="determine-the-right-dedicated-host-sku-before-you-buy"></a>Determine o anfitrião dedicado direito SKU antes de comprar
 
@@ -129,7 +129,7 @@ Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
 
 - [O que são as reservas do Azure?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
 
-- [Utilizar o Azure Dedicated Host](./windows/dedicated-hosts.md)
+- [Utilizar o Azure Dedicated Host](./dedicated-hosts.md)
 
 - [Preços do Dedicated Hosts](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/)
 
@@ -143,4 +143,4 @@ Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
 
 - [Custos de software Windows não incluídos nas reservas](../cost-management-billing/reservations/reserved-instance-windows-software-costs.md)
 
-- [Azure Reservations no programa Fornecedor de Soluções Cloud (CSP) do Centro de Parceiros](/partner-center/azure-reservations)
+- [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](/partner-center/azure-reservations) (Reservas do Azure no programa Fornecedor de Soluções Cloud (CSP) do Centro de Parceiros)

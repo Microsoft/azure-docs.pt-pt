@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: b1bd0ff28906f35ddc56afbd0287bbe29879deb4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: eb5e5cc97b13d8eb8e671501e9b16479ba59642a
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91438937"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999298"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
-A Azure Security está em desenvolvimento ativo e recebe melhorias continuamente. Para se manter atualizado com os desenvolvimentos mais recentes, esta página fornece-lhe informações sobre:
+O Centro de Segurança está em desenvolvimento ativo e recebe melhorias de forma contínua. Para se manter atualizado com os desenvolvimentos mais recentes, esta página fornece-lhe informações sobre novas funcionalidades, correções de bugs e funcionalidades preprecadas.
 
-- Novas funcionalidades
-- Correções de erros
-- Funcionalidade preterida
+Esta página é atualizada com frequência, por isso revisite-a com frequência. 
 
-Esta página é atualizada regularmente, por isso revisite-a com frequência. Se procura itens com mais de seis meses, vai encontrá-los no Arquivo para o [que há de novo no Azure Security Center.](release-notes-archive.md)
+> [!TIP]
+> Se procura itens com mais de seis meses, vai encontrá-los no Arquivo para o [que há de novo no Azure Security Center.](release-notes-archive.md)
+
 
 
 ## <a name="september-2020"></a>Setembro de 2020
@@ -387,7 +387,7 @@ Ao implementar uma solução de avaliação de vulnerabilidades, o Security Cent
 
 A partir desta atualização, a verificação foi removida e agora pode implementar ferramentas de avaliação de vulnerabilidades para máquinas 'personalizadas' Windows e Linux. As imagens personalizadas são aquelas que modificou a partir das predefinições do mercado.
 
-Embora agora possa implementar a extensão integrada de avaliação de vulnerabilidade (alimentada por Qualys) em muitas mais máquinas, o suporte só está disponível se estiver a utilizar um SISTEMA listado no [Deploy o scanner integrado de vulnerabilidade para VMs de nível padrão](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-vulnerability-scanner-to-your-vms)
+Embora agora possa implementar a extensão integrada de avaliação de vulnerabilidade (alimentada por Qualys) em muitas mais máquinas, o suporte só está disponível se estiver a utilizar um SISTEMA listado no [Deploy o scanner integrado de vulnerabilidade para VMs de nível padrão](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines)
 
 Saiba mais sobre o [scanner de vulnerabilidade integrado para máquinas virtuais (requer Azure Defender)](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner).
 
@@ -553,10 +553,10 @@ As políticas podem ser encontradas na política de Azure:
 
 |Objetivo  |Política  |ID de política  |
 |---------|---------|---------|
-|Exportação contínua para centro de eventos|[Implementar exportação para Centro de Eventos para alertas e recomendações do Centro de Segurança Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)|cdfcce10-4578-4ecd-9703-530938e4abcb|
-|Exportação contínua para log analytics espaço de trabalho|[Implementar exportação para log analytics espaço de trabalho para alertas e recomendações do Centro de Segurança Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|
-|Automatização do fluxo de trabalho para alertas de segurança|[Implementar alertas de automatização de fluxos de trabalho para alertas do Centro de Segurança Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff1525828-9a90-4fcf-be48-268cdd02361e)|f1525828-9a90-4fcf-be48-268cdd02361e|
-|Automatização do fluxo de trabalho para recomendações de segurança|[Implementar recomendações do Workflow Automation for Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f73d6ab6c-2475-4850-afd6-43795f3492ef)|73d6ab6c-2475-4850-afd6-43795f3492ef|
+|Exportação contínua para centro de eventos|[Implementar a exportação no Hub de Eventos para alertas e recomendações do Centro de Segurança do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)|cdfcce10-4578-4ecd-9703-530938e4abcb|
+|Exportação contínua para log analytics espaço de trabalho|[Implementar a exportação na área de trabalho do Log Analytics para alertas e recomendações do Centro de Segurança do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|
+|Automatização do fluxo de trabalho para alertas de segurança|[Implementar a Automatização do Fluxo de Trabalho para os alertas do Centro de Segurança do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff1525828-9a90-4fcf-be48-268cdd02361e)|f1525828-9a90-4fcf-be48-268cdd02361e|
+|Automatização do fluxo de trabalho para recomendações de segurança|[Implementar a Automatização do Fluxo de Trabalho para as recomendações do Centro de Segurança do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f73d6ab6c-2475-4850-afd6-43795f3492ef)|73d6ab6c-2475-4850-afd6-43795f3492ef|
 ||||
 
 Começa com [modelos de automatização de fluxos de trabalho.](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation)

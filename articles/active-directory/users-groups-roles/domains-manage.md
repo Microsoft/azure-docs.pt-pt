@@ -15,10 +15,10 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48f924cef12db974faae8fb8ed73f01ff8c9a3f8
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90056256"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gerir nomes de domínio personalizados no seu Diretório Ativo Azure
@@ -73,7 +73,7 @@ Tem de alterar ou eliminar qualquer recurso no seu diretório AD Azure antes de 
 
 Pode **forçar o Nome de** Domínio no [Azure AD Admin Center](https://aad.portal.azure.com) ou utilizar a Microsoft [Graph API](/graph/api/domain-forcedelete?view=graph-rest-beta). Estas opções usam uma operação assíncronea e atualizam todas as referências do nome de domínio personalizado como " user@contoso.com " ao nome de domínio padrão inicial, como " user@contoso.onmicrosoft.com ." 
 
-Para ligar para o **ForceDelete** no portal Azure, deve certificar-se de que existem menos de 1000 referências ao nome de domínio, e quaisquer referências em que o Exchange é o serviço de fornecimento devem ser atualizadas ou removidas no [Centro de Administração de Intercâmbio.](https://outlook.office365.com/ecp/) Isto inclui grupos de segurança ativados por correio e listas distribuídas; para obter mais informações, consulte [remover grupos de segurança via correio](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups). Além disso, a operação **ForceDelete** não terá sucesso se um dos seguintes for verdadeiro:
+Para ligar para o **ForceDelete** no portal Azure, deve certificar-se de que existem menos de 1000 referências ao nome de domínio, e quaisquer referências em que o Exchange é o serviço de fornecimento devem ser atualizadas ou removidas no [Centro de Administração de Intercâmbio.](https://outlook.office365.com/ecp/) Isto inclui Grupos de Segurança exchange Mail-Enabled e listas distribuídas; para obter mais informações, consulte [remover grupos de segurança via correio](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups). Além disso, a operação **ForceDelete** não terá sucesso se um dos seguintes for verdadeiro:
 
 * Adquiriu um domínio através dos serviços de subscrição de domínio microsoft 365
 * Você é um parceiro que administra em nome de outra organização de clientes
@@ -92,7 +92,7 @@ Um erro é devolvido quando:
 ### <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 **P: Porque é que a supressão de domínio está a falhar com um erro que diz que tenho grupos dominados por Exchange neste nome de domínio?** <br>
-**A:** Hoje em dia, certos grupos como os grupos de Segurança Via-Mail e as listas distribuídas são a provisionados pela Exchange e precisam de ser limpos manualmente no [Exchange Admin Center (EAC)](https://outlook.office365.com/ecp/). Pode haver ProxyAddresses persistentes que dependem do nome de domínio personalizado e terão de ser atualizados manualmente para outro nome de domínio. 
+**A:** Hoje em dia, certos grupos como Mail-Enabled Grupos de Segurança e listas distribuídas são a provisionados pela Exchange e precisam de ser limpos manualmente no [Exchange Admin Center (EAC)](https://outlook.office365.com/ecp/). Pode haver ProxyAddresses persistentes que dependem do nome de domínio personalizado e terão de ser atualizados manualmente para outro nome de domínio. 
 
 **P: Estou registado como administrador \@ contoso.com mas não posso apagar o nome de domínio "contoso.com"?**<br>
 **A:** Não é possível fazer referência ao nome de domínio personalizado que está a tentar eliminar no nome da sua conta de utilizador. Certifique-se de que a conta Dedução Global está a utilizar o nome de domínio inicial (.onmicrosoft.com) tais como admin@contoso.onmicrosoft.com . Inscreva-se com uma conta de Administrador Global diferente que, como admin@contoso.onmicrosoft.com ou outro nome de domínio personalizado, como "fabrikam.com" onde a conta está admin@fabrikam.com .
@@ -113,7 +113,7 @@ A maioria das tarefas de gestão para nomes de domínio no Azure Ative Directory
 * [Utilizar o PowerShell para gerir nomes de domínio em Azure AD](/powershell/module/azuread/?view=azureadps-2.0#domains)
 * [Tipo de recurso de domínio](/graph/api/resources/domain?view=graph-rest-1.0)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Adicionar nomes de domínio personalizados](../fundamentals/add-custom-domain.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)
 * [Remova grupos de segurança habilitados por correio de Exchange no Exchange Admin Center em um nome de domínio personalizado em Azure AD](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups)

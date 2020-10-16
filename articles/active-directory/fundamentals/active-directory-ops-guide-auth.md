@@ -12,10 +12,10 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: 178c54b9726f21775603d67cb0911237aa4caf01
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90601369"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guia de referência de operações de gestão de autenticação ativa do Azure Ative Directory
@@ -105,7 +105,7 @@ Para melhor compreender as suas opções de autenticação, consulte [Escolha o 
 
 ### <a name="programmatic-usage-of-credentials"></a>Uso programático de credenciais
 
-Os scripts AD do AD que utilizam o PowerShell ou aplicações que utilizam a API do Gráfico microsoft requerem autenticação segura. A má gestão credencial que executa esses scripts e ferramentas aumenta o risco de roubo de credenciais. Se estiver a utilizar scripts ou aplicações que se baseiem em palavras-passe ou pedidos de palavra-passe codificados, deve primeiro rever as palavras-passe em ficheiros config ou código fonte, em seguida, substituir essas dependências e utilizar identidades geridas do Azure, Autenticação Integrada ou [certificados](../reports-monitoring/tutorial-access-api-with-certificates.md) sempre que possível. Para aplicações em que as soluções anteriores não são possíveis, considere a utilização [do Cofre da Chave Azure](https://azure.microsoft.com/services/key-vault/).
+Os scripts AD do AD que utilizam o PowerShell ou aplicações que utilizam a API do Gráfico microsoft requerem autenticação segura. A má gestão credencial que executa esses scripts e ferramentas aumenta o risco de roubo de credenciais. Se estiver a utilizar scripts ou aplicações que se baseiem em palavras-passe ou pedidos de palavra-passe codificados, deve primeiro rever as palavras-passe em ficheiros config ou código fonte, em seguida, substituir essas dependências e utilizar identidades geridas Integrated-Windows Azure, Integrated-Windows Autenticação ou [certificados](../reports-monitoring/tutorial-access-api-with-certificates.md) sempre que possível. Para aplicações em que as soluções anteriores não são possíveis, considere a utilização [do Cofre da Chave Azure](https://azure.microsoft.com/services/key-vault/).
 
 Se determinar que existem princípios de serviço com credenciais de senha e não tem a certeza de como essas credenciais de senha são protegidas por scripts ou aplicações, contacte o proprietário da aplicação para entender melhor os padrões de utilização.
 
@@ -115,7 +115,7 @@ A Microsoft também recomenda que contacte os proprietários de aplicações par
 
 ### <a name="on-premises-authentication"></a>Autenticação no local
 
-A autenticação federada com autenticação integrada do Windows (IWA) ou a autenticação gerida sem emenda (SSO) com sincronização de hash de palavra-passe ou autenticação pass-through é a melhor experiência do utilizador quando dentro da rede corporativa com controladores de domínio de linha de visão para as instalações. Minimiza a fadiga da origem da credencial e reduz o risco de os utilizadores serem vítimas de ataques de phishing. Se já estiver a utilizar a autenticação gerida pela nuvem com PHS ou PTA, mas os utilizadores ainda precisam de escrever a sua palavra-passe ao autenticar no local, então deve implementar imediatamente [o SSO sem emenda](../hybrid/how-to-connect-sso.md). Por outro lado, se atualmente está federado com planos para eventualmente migrar para a autenticação gerida pela nuvem, então deve implementar o SSO sem emenda como parte do projeto de migração.
+A autenticação federada com autenticação integrada do Windows (IWA) ou a autenticação gerida sem emenda Sign-On (SSO) com sincronização de hash de palavra-passe ou autenticação pass-through é a melhor experiência do utilizador quando dentro da rede corporativa com controladores de domínio de linha de visão para as instalações. Minimiza a fadiga da origem da credencial e reduz o risco de os utilizadores serem vítimas de ataques de phishing. Se já estiver a utilizar a autenticação gerida pela nuvem com PHS ou PTA, mas os utilizadores ainda precisam de escrever a sua palavra-passe ao autenticar no local, então deve implementar imediatamente [o SSO sem emenda](../hybrid/how-to-connect-sso.md). Por outro lado, se atualmente está federado com planos para eventualmente migrar para a autenticação gerida pela nuvem, então deve implementar o SSO sem emenda como parte do projeto de migração.
 
 ### <a name="device-trust-access-policies"></a>Políticas de acesso de confiança do dispositivo
 

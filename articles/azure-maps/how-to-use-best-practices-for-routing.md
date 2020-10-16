@@ -8,27 +8,26 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 1c108c79cafb591dced6f6be0dd5c1b353ddac45
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 13c7178b4a0866066dc74e409f8f4bfcd21a23f4
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086407"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91874599"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Melhores práticas para o serviço Azure Maps Route
 
 As APIs da Rota e da Matriz de Rotas no [Serviço de Rota](https://docs.microsoft.com/rest/api/maps/route) de Mapas Azure podem ser utilizadas para calcular os horários estimados de chegada (ETAs) para cada rota solicitada. As APIs da Rota consideram fatores como informações de tráfego em tempo real e dados históricos de tráfego, como as velocidades típicas da estrada no dia da semana e hora do dia solicitados. As APIs devolvem as rotas mais curtas ou rápidas disponíveis para vários destinos de cada vez em sequência ou em ordem otimizada, com base no tempo ou na distância. Os utilizadores também podem solicitar rotas especializadas e detalhes para caminhantes, ciclistas e veículos comerciais como camiões. Neste artigo, partilharemos as melhores práticas para ligar para o Azure Maps [Route Service](https://docs.microsoft.com/rest/api/maps/route), e aprenderá como:
 
-> [!div class="checklist"]
-> * Escolha entre as ApIs de Rota e a API de Encaminhamento De Matriz
-> * Solicite tempos de viagem históricos e previstos, com base em dados de tráfego em tempo real e históricos
-> * Solicite detalhes da rota, como tempo e distância, para todo o percurso e cada etapa do percurso
-> * Rota de pedido para um veículo comercial, como um caminhão
-> * Solicite informações de tráfego ao longo de uma rota, como engarrafamentos e informações sobre portagens
-> * Solicite uma rota que consista em uma ou mais paragens (pontos de passagem)
-> * Otimize uma rota de uma ou mais paragens para obter a melhor ordem para visitar cada paragem (waypoint)
-> * Otimize rotas alternativas utilizando pontos de apoio. Por exemplo, oferecer rotas alternativas que passam por um posto de carregamento de veículos elétricos.
-> * Utilize o [Serviço de Rota](https://docs.microsoft.com/rest/api/maps/route) com o Azure Maps Web SDK
+ * Escolha entre as ApIs de Rota e a API de Encaminhamento De Matriz
+ * Solicitar tempos de viagem históricos e previstos, com base nos dados de tráfego históricos e em tempo real
+ * Solicite detalhes da rota, como tempo e distância, para todo o percurso e cada etapa do percurso
+ * Rota de pedido para um veículo comercial, como um caminhão
+ * Solicite informações de tráfego ao longo de uma rota, como engarrafamentos e informações sobre portagens
+ * Solicite uma rota que consista em uma ou mais paragens (pontos de passagem)
+ * Otimize uma rota de uma ou mais paragens para obter a melhor ordem para visitar cada paragem (waypoint)
+ * Otimize rotas alternativas utilizando pontos de apoio. Por exemplo, oferecer rotas alternativas que passam por um posto de carregamento de veículos elétricos.
+ * Utilize o [Serviço de Rota](https://docs.microsoft.com/rest/api/maps/route) com o Azure Maps Web SDK
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -205,7 +204,7 @@ Esta opção pode ser usada para colorir as secções ao renderizar o mapa, como
 
 ![Secções coloridas renderizadas no mapa](media/how-to-use-best-practices-for-routing/show-traffic-sections-img.png)
 
-## <a name="calculate-and-optimize-a-multi-stop-route"></a>Calcular e otimizar uma rota multi-stop
+## <a name="calculate-and-optimize-a-multi-stop-route"></a>Calcular e otimizar uma rota com várias paragens
 
 A Azure Maps fornece atualmente duas formas de otimização de rotas:
 
@@ -282,7 +281,7 @@ O Azure Maps Web SDK fornece um [módulo de serviço.](https://docs.microsoft.co
 Para saber mais, consulte:
 
 > [!div class="nextstepaction"]
-> [Serviço de Rota Azure Maps](https://docs.microsoft.com/rest/api/maps/route)
+> [Serviço de itinerários do Azure Maps](https://docs.microsoft.com/rest/api/maps/route)
 
 > [!div class="nextstepaction"]
 > [Como utilizar o módulo de Serviço](https://docs.microsoft.com/azure/azure-maps/how-to-use-services-module)

@@ -4,10 +4,10 @@ description: Especifique que uma implementação falhada deve voltar para uma im
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.openlocfilehash: 206c794996f58a4c5b6982c551ae50128ed4f5eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79460148"
 ---
 # <a name="rollback-on-error-to-successful-deployment"></a>Rollback no erro para implantação bem sucedida
@@ -113,7 +113,7 @@ Para recolocar uma implantação específica se a implementação atual falhar, 
 
 A implantação especificada deve ter sido bem sucedida.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para lançar o seu serviço com segurança para mais de uma região, consulte [o Gestor de Implantação do Azure](deployment-manager-overview.md).
 - Para especificar como lidar com os recursos que existem no grupo de recursos mas não estão definidos no modelo, consulte os [modos de implementação do Gestor de Recursos Azure](deployment-modes.md).

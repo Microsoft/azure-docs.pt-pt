@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: fe9a50b5557e6165835abf1df67f7486c260c1c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84195925"
 ---
 # <a name="move-data-to-and-from-sql-server-using-azure-data-factory"></a>Mover dados de e para o SQL Server usando a Azure Data Factory
@@ -74,12 +74,12 @@ Cria um serviço de tipo ligado **OnPremisesSqlServer** para ligar uma base de d
 
 A tabela seguinte fornece descrição para elementos JSON específicos do serviço ligado ao SQL Server.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | tipo |A propriedade tipo deve ser definida para: **OnPremisesSqlServer**. |Sim |
 | conexãoStragem |Especifique a informação de ligação Desaquipeia as informações necessárias para ligar à base de dados do SQL Server utilizando a autenticação SQL ou a autenticação do Windows. |Sim |
 | gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar à base de dados do SQL Server. |Sim |
-| o nome de utilizador |Especifique o nome do utilizador se estiver a utilizar a Autenticação do Windows. Exemplo: **nome de utilizador do nome \\ de domínio**. |Não |
+| nome de utilizador |Especifique o nome do utilizador se estiver a utilizar a Autenticação do Windows. Exemplo: **nome de utilizador do nome \\ de domínio**. |Não |
 | palavra-passe |Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. |Não |
 
 Pode encriptar credenciais utilizando o cmdlet **New-AzDataFactoryEncryptValue** e usá-las na cadeia de ligação, como mostrado no exemplo seguinte (Propriedade**Criptografada)**
@@ -131,7 +131,7 @@ Para obter uma lista completa de secções & propriedades disponíveis para defi
 
 A secção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados na loja de dados. A secção **typeProperties** para o conjunto de dados do tipo **SqlServerTable** tem as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | tableName |Nome da tabela ou visualização na página da Base de Dados do Servidor SQL a que o serviço ligado se refere. |Sim |
 
@@ -663,7 +663,7 @@ O mapeamento é o mesmo que o Mapeamento do Tipo de Dados do Servidor SQL para A
 | Datatimeoff |Início de execução de tempo de data |
 | Decimal |Decimal |
 | Atributo FILESTREAM (varbinário(máx)) |Byte[] |
-| Float |Double |
+| Float |Double (Duplo) |
 | image |Byte[] |
 | int |Int32 |
 | dinheiro |Decimal |

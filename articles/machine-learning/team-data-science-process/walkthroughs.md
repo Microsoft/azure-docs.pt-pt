@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 76027275d6f0b838ed6fbb7275086f190701d286
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89439832"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Walkthroughs executando o processo de ciência de dados de equipa
@@ -36,7 +36,7 @@ Aqui estão breves descrições do que estes exemplos walkthrough fornecem nas r
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para uma discussão dos componentes-chave que compõem o Processo de Ciência de Dados de Equipa, consulte [a visão geral do Processo de Ciência de Dados da Equipa.](overview.md)
 

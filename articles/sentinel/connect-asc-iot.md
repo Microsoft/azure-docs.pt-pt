@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/07/2020
 ms.author: yelevin
 ms.openlocfilehash: 822d0c742bbd54b5bab0c69e82652743584a0696
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89659613"
 ---
 # <a name="connect-your-data-from-azure-defender-formerly-azure-security-center-for-iot-to-azure-sentinel"></a>Ligue os seus dados do Azure Defender (anteriormente Azure Security Center) para IoT a Azure Sentinel 
@@ -63,7 +63,7 @@ SecurityAlert | where ProductName == "Azure Defender for IoT"
 Depois de ligar um Hub IoT, os dados do hub estão disponíveis no Azure Sentinel aproximadamente 15 minutos depois.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste documento, aprendeu a ligar o Azure Defender para dados IoT ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)

@@ -8,10 +8,10 @@ ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
 ms.openlocfilehash: 9ea98df4b6cd8572412e7082b451feac3736919c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87327077"
 ---
 # <a name="application-insights-log-based-metrics"></a>Métricas baseadas em registos de insights de aplicação
@@ -79,7 +79,7 @@ A métrica *dos testes de Disponibilidade* reflete a contagem dos testes web rea
 
 |Unidade de medida|Agregações apoiadas|Dimensões suportadas|
 |---|---|---|---|---|---|
-|de palavras|de palavras|Localização de execução, nome de teste, resultado do teste|
+|Contagem|Contagem|Localização de execução, nome de teste, resultado do teste|
 
 ```Kusto
 availabilityResults
@@ -184,7 +184,7 @@ Esta métrica reflete o número de exceções lançadas do seu código de aplica
 
 |Unidade de medida|Agregações apoiadas|Dimensões pré-agregadas|Notas|
 |---|---|---|---|
-|de palavras|de palavras|Nenhum|A versão baseada em log utiliza a agregação **de Soma**|
+|Contagem|Contagem|Nenhum|A versão baseada em log utiliza a agregação **de Soma**|
 
 ```Kusto
 exceptions
@@ -199,7 +199,7 @@ O número de chamadas de dependência falhadas.
 
 |Unidade de medida|Agregações apoiadas|Dimensões pré-agregadas|Notas|
 |---|---|---|---|
-|de palavras|de palavras|Nenhum|A versão baseada em log utiliza a agregação **de Soma**|
+|Contagem|Contagem|Nenhum|A versão baseada em log utiliza a agregação **de Soma**|
 
 ```Kusto
 dependencies
@@ -214,7 +214,7 @@ Sempre que regista uma exceção ao Application Insights, há uma chamada para o
 
 |Unidade de medida|Agregações apoiadas|Dimensões pré-agregadas|Notas|
 |---|---|---|---|
-|de palavras|de palavras|Nome de função em nuvem, instância de função em nuvem, tipo de dispositivo|A versão baseada em log utiliza a agregação **de Soma**|
+|Contagem|Contagem|Nome de função em nuvem, instância de função em nuvem, tipo de dispositivo|A versão baseada em log utiliza a agregação **de Soma**|
 
 ```Kusto
 exceptions
@@ -228,7 +228,7 @@ A contagem de pedidos de servidor rastreados que foram marcados como *falhados*.
 
 |Unidade de medida|Agregações apoiadas|Dimensões pré-agregadas|Notas|
 |---|---|---|---|
-|de palavras|de palavras|Instância de função em nuvem, nome de função cloud, tráfego real ou sintético, Desempenho do pedido, código de resposta|A versão baseada em log utiliza a agregação **de Soma**|
+|Contagem|Contagem|Instância de função em nuvem, nome de função cloud, tráfego real ou sintético, Desempenho do pedido, código de resposta|A versão baseada em log utiliza a agregação **de Soma**|
 
 ```Kusto
 requests
@@ -243,7 +243,7 @@ Esta métrica mostra o número de exceções do servidor.
 
 |Unidade de medida|Agregações apoiadas|Dimensões pré-agregadas|Notas|
 |---|---|---|---|
-|de palavras|de palavras|Nome de papel em nuvem, instância de papel em nuvem|A versão baseada em log utiliza a agregação **de Soma**|
+|Contagem|Contagem|Nome de papel em nuvem, instância de papel em nuvem|A versão baseada em log utiliza a agregação **de Soma**|
 
 ```Kusto
 exceptions
@@ -361,7 +361,7 @@ Consumo de CPU por *todos os* processos em execução na instância do servidor 
 |Percentagem|Média, Min, Max|Instância de papel em nuvem
 
 >[!NOTE]
-> A métrica do tempo do processador não está disponível para as aplicações hospedadas nos Serviços de Aplicações Azure. Utilize a métrica [do CPU do processo](#process-cpu-performancecountersprocesscpupercentage) para acompanhar a utilização do CPU das aplicações web hospedadas nos Serviços de Aplicações.
+> A métrica do tempo do processador não está disponível para as aplicações hospedadas nos Serviços de Aplicações Azure. Utilize a métrica  [do CPU do processo](#process-cpu-performancecountersprocesscpupercentage) para acompanhar a utilização do CPU das aplicações web hospedadas nos Serviços de Aplicações.
 
 ```Kusto
 performanceCounters

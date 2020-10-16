@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/15/2020
+ms.date: 10/14/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 48831a9482087dbeed0952cc30fcbc9c14fbaed0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bca960100ee0c9d7e2a779dc86030fc59949dca5
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91715627"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055975"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Configurar a replicação do objeto para bolhas de bloco
 
@@ -349,6 +349,49 @@ az storage account or-policy create \
 
 ---
 
+## <a name="check-the-replication-status-of-a-blob"></a>Verifique o estado de replicação de uma bolha
+
+Pode verificar o estado de replicação de uma bolha na conta de origem utilizando o portal Azure, PowerShell ou Azure CLI. As propriedades de replicação de objetos não são povoadas até que a replicação tenha concluído ou falhado.
+
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+
+Para verificar o estado de replicação de uma bolha na conta de origem no portal Azure, siga estes passos:
+
+1. Navegue para a conta de origem no portal Azure.
+1. Localize o recipiente que inclui a bolha de origem.
+1. Selecione a bolha para exibir as suas propriedades. Se a bolha tiver sido replicada com sucesso, verá na secção **de replicação** do Objeto que o estado está definido para *completo*. O ID da política de replicação e o ID para a réplica de objetos que regem a regra para este recipiente também estão listados.
+
+:::image type="content" source="media/object-replication-configure/check-replication-status-source.png" alt-text="Screenshot mostrando regras de replicação no portal Azure":::
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Para verificar o estado de replicação de uma bolha na conta de origem com a PowerShell, obtenha o valor da propriedade **replication ReplicationStatus** de replicação do objeto, como mostrado no exemplo seguinte. Lembre-se de substituir valores em suportes angulares por seus próprios valores:
+
+```powershell
+$ctxSrc = (Get-AzStorageAccount -ResourceGroupName $rgname `
+    -StorageAccountName $srcAccountName).Context
+$blobSrc = Get-AzStorageBlob -Container $srcContainerName1 `
+    -Context $ctxSrc `
+    -Blob <blob-name>
+$blobSrc.BlobProperties.ObjectReplicationSourceProperties[0].Rules[0].ReplicationStatus
+```
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Para verificar o estado de replicação de uma bolha na conta de origem com o Azure CLI, obtenha o valor da propriedade do **estado** de replicação do objeto, como mostra o seguinte exemplo:
+
+```azurecli
+az storage blob show \
+    --account-name <source-account-name> \
+    --container-name <source-container-name> \
+    --name <source-blob-name> \
+    --query 'objectReplicationSourceProperties[].rules[].status' \
+    --output tsv \
+    --auth-mode login
+```
+
+---
+
 ## <a name="remove-a-replication-policy"></a>Remover uma política de replicação
 
 Para remover uma política de replicação e as suas regras associadas, utilize o portal Azure, PowerShell ou CLI.
@@ -396,7 +439,7 @@ az storage account or-policy delete \
 
 ---
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral da replicação do objeto](object-replication-overview.md)
 - [Ativar e gerir a versão blob](versioning-enable.md)

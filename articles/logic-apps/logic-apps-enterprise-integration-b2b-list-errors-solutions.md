@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/02/2017
 ms.openlocfilehash: 6400cfe7e524dcc16e08c2bba7dfba4a62d00b2e
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86232564"
 ---
 # <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>Erros e soluções B2B para Apps Azure Logic
@@ -31,7 +31,7 @@ Este artigo ajuda-o a resolver erros que podem ocorrer em cenários de Aplicaç�
 
 **Descrição do erro**: Nenhum acordo encontrado com identidades: 'AS2Identity'::'Partner1' e 'AS2Identity':'Partner3'
 
-**Ação do utilizador**: AS2-From ou AS2-To configurado para acordo. Corrija os cabeçalhos "AS2-From" ou "AS2-To" da mensagem AS2 ou o acordo para combinar os IDs AS2 nos cabeçalhos de mensagens AS2 com configurações de acordo.
+**Ação do utilizador**: AS2-From inválidos ou AS2-To configurados para acordo. Corrija os cabeçalhos "AS2-From" ou "AS2-To" da mensagem AS2 ou o acordo para combinar os IDs AS2 nos cabeçalhos de mensagens AS2 com configurações de acordo.
 
 ## <a name="as2"></a>AS2
 
@@ -39,7 +39,7 @@ Este artigo ajuda-o a resolver erros que podem ocorrer em cenários de Aplicaç�
 
 **Descrição do erro**: Cabeçalhos AS2 inválidos. Um dos cabeçalhos "AS2-To" ou "AS2-From" está vazio.
 
-**Ação do utilizador**: Recebeu-se uma mensagem AS2 que não continha o AS2-From ou AS2-To ou ambos os cabeçalhos. Verifique os cabeçalhos AS2-From e AS2-To da mensagem AS2-To e corrija-os com base na configuração do acordo.
+**Ação do utilizador**: Recebeu-se uma mensagem AS2 que não continha o AS2-From ou AS2-To ou ambos os cabeçalhos. Verifique os AS2-From de mensagens AS2 e AS2-To cabeçalhos e corrija-os com base na configuração do acordo.
 
 ### <a name="missing-as2-message-body-and-headers"></a>Corpo e cabeçalhos de mensagem AS2 desaparecidos    
 

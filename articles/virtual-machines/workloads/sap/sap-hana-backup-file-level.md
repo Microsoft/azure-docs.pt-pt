@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
 ms.openlocfilehash: 183273e6f93bbfda8ed4e5fe913192994a0b6ce2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87833390"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>SAP HANA Azure Backup no nível de ficheiro
@@ -43,7 +43,7 @@ Pode-se colocar VHDs dedicados para backups SAP HANA numa conta de armazenamento
 
 ## <a name="azure-blobxfer-utility-details"></a>Detalhes de utilidade de blobxfer Azure
 
-Para armazenar diretórios e ficheiros no armazenamento Azure, pode-se utilizar CLI ou PowerShell, ou desenvolver uma ferramenta utilizando um dos [SDKs Azure](https://azure.microsoft.com/downloads/). Existe também um utilitário pronto a usar, o AzCopy, para copiar dados para o armazenamento Azure. (ver [dados de transferência com o utilitário de linha de comando AzCopy).](../../../storage/common/storage-use-azcopy-v10.md)
+Para armazenar diretórios e ficheiros no armazenamento Azure, pode-se utilizar CLI ou PowerShell, ou desenvolver uma ferramenta utilizando um dos [SDKs Azure](https://azure.microsoft.com/downloads/). Existe também um utilitário pronto a usar, o AzCopy, para copiar dados para o armazenamento Azure. (ver [dados de transferência com o Utilitário AzCopy Command-Line).](../../../storage/common/storage-use-azcopy-v10.md)
 
 Portanto, o blobxfer foi usado para copiar ficheiros de backup SAP HANA. É de código aberto, utilizado por muitos clientes em ambientes de produção, e disponível no [GitHub.](https://github.com/Azure/blobxfer) Esta ferramenta permite copiar dados diretamente para o armazenamento de blob Azure ou para a partilha de ficheiros Azure. Também oferece uma gama de funcionalidades úteis, como o haxixe md5, ou paralelismo automático ao copiar um diretório com vários ficheiros.
 

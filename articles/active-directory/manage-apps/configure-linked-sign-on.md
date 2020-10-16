@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/30/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 67cb8d6bf6dd61fb5ba7aec70a79078cbe2b8b13
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 49191ffc0033559f0668a5330b8c91643dee39d3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91597836"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073976"
 ---
 # <a name="understand-linked-sign-on"></a>Compreender o sinal de inscrição ligado
 
@@ -31,11 +31,11 @@ Alguns cenários comuns em que a opção de ligação é valiosa incluem:
  
  A opção **Linked** não fornece funcionalidade de inscrição através de credenciais AZure AD. Mas, ainda pode utilizar algumas das outras funcionalidades das aplicações da **Enterprise.** Por exemplo, pode usar registos de auditoria e adicionar um logotipo personalizado e nome de aplicação.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Para aumentar rapidamente o conhecimento, caminhe pela [série quickstart](view-applications-portal.md) sobre gestão de aplicações. No arranque rápido, onde configurar um único sign-on, também encontrará a opção **Linked.** 
 
-A opção **Linked** não fornece funcionalidade de inscrição através do Azure AD. A opção simplesmente define a localização para onde os utilizadores serão enviados quando selecionarem a aplicação nas [Minhas Apps](https://myapps.microsoft.com/) ou no launcher da aplicação Microsoft 365.
+A opção **Linked** não fornece funcionalidade de inscrição através do Azure AD. A opção simplesmente define a localização para onde os utilizadores serão enviados quando selecionarem a aplicação nas [Minhas Apps](https://myapps.microsoft.com/) ou no launcher da aplicação Microsoft 365.  Como o sin-in não fornece funcionalidade de acesso a dado através do Azure AD, o Acesso Condicional não está disponível para aplicações configuradas com um único sinal ligado.
 
 > [!IMPORTANT] 
 > Existem alguns cenários em que a opção **de inscrição única** não estará na navegação para uma aplicação em **aplicações da Enterprise.** 

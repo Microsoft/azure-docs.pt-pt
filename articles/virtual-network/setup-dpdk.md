@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: labattul
 ms.openlocfilehash: 622b7e629a7f5fea77afc18ec5121fe3466716ed
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87387562"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Configurar o DPDK numa máquina virtual Linux
@@ -45,8 +45,8 @@ São suportadas as seguintes distribuições do Mercado Azure:
 | Ubuntu 16.04 | 4.15.0-1014-azure+           | 
 | Ubuntu 18.04 | 4.15.0-1014-azure+           |
 | SLES 15 SP1  | 4.12.14-8.19-azure+          | 
-| RHEL 7.5     | 3.10.0-862.11.6.6.el7.x86_64+  | 
-| CentOS 7.5   | 3.10.0-862.11.6.6.el7.x86_64+  | 
+| RHEL 7.5     | 3.10.0-862.11.6.el7.x86_64+  | 
+| CentOS 7.5   | 3.10.0-862.11.6.el7.x86_64+  | 
 
 **Suporte personalizado de kernel**
 

@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 04184a658ae1efd03afd3e920818eb5317bc7553
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88008598"
 ---
 # <a name="tutorial-create-a-host-pool-in-windows-virtual-desktop-classic"></a>Tutorial: Criar uma piscina de anfitriões no Windows Virtual Desktop (clássico)
@@ -56,7 +56,7 @@ Para executar o Azure Marketplace oferecendo uma nova piscina de anfitriões:
 
 Depois disso, siga as instruções na secção seguinte para introduzir as informações para os separadores apropriados.
 
-### <a name="basics"></a>Informações básicas
+### <a name="basics"></a>Noções básicas
 
 Aqui está o que se faz para o **separador Básico:**
 
@@ -65,7 +65,7 @@ Aqui está o que se faz para o **separador Básico:**
 1. Selecione uma **Região**.
 1. Insira um nome para a piscina de anfitriões que é única dentro do inquilino virtual do Windows Desktop.
 1. Selecione **o tipo de ambiente de trabalho**. Se selecionar **Personal**, cada utilizador que se conecta a esta piscina de anfitrião está permanentemente atribuído a uma máquina virtual.
-1. Insira os utilizadores que podem iniciar seducação nos clientes do Windows Virtual Desktop e aceder a um ambiente de trabalho. Use uma lista separada por vírgulas. Por exemplo, se quiser atribuir `user1@contoso.com` e `user2@contoso.com` aceder, insira*`user1@contoso.com,user2@contoso.com`*
+1. Insira os utilizadores que podem iniciar seducação nos clientes do Windows Virtual Desktop e aceder a um ambiente de trabalho. Use uma lista separada por vírgulas. Por exemplo, se quiser atribuir `user1@contoso.com` e `user2@contoso.com` aceder, insira *`user1@contoso.com,user2@contoso.com`*
 1. Para **a localização dos metadados de serviço,** selecione a mesma localização que a rede virtual que tem conectividade com o servidor Ative Directory.
 
    >[!IMPORTANT]

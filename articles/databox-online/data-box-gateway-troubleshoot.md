@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 03/20/2019
 ms.author: alkohli
 ms.openlocfilehash: e5280805090a83245e287c0b15a1735ee41e934e
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91741810"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Resolução de problemas do Azure Data Box Gateway

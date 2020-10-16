@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Criar ligações ExpressRoute utilizando Azure Virtual WAN
+title: 'Tutorial: Criar ligações ExpressRoute utilizando Azure Virtual WAN'
 description: Neste tutorial, aprenda a usar a Azure Virtual WAN para criar ligações ExpressRoute a ambientes Azure e no local.
 services: virtual-wan
 author: cherylmc
@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.date: 10/07/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 50b86c4c86391b6ffdee18cdadbdddbdff8642a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d880be6cbc37b273258075e6efc7a98d3478384
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841140"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92054819"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Tutorial: Criar uma associação ExpressRoute usando Azure Virtual WAN
 
 Este tutorial mostra-lhe como usar o WAN Virtual para se conectar aos seus recursos em Azure sobre um circuito ExpressRoute. Para obter mais informações sobre os recursos VIRTUAIS WAN e Virtual WAN, consulte a [Visão Geral do WAN Virtual.](virtual-wan-about.md)
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar uma WAN Virtual
@@ -30,7 +30,7 @@ Neste tutorial, ficará a saber como:
 > * Alterar o tamanho do gateway
 > * Anuncie uma rota predefinida
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de iniciar a configuração, verifique se cumpre os seguintes critérios:
 
@@ -153,6 +153,17 @@ Se quiser que o hub virtual Azure anuncie a rota padrão 0.0.0.0/0 para os seus 
 
    ![Propagar a rota padrão](./media/virtual-wan-expressroute-portal/defaultroute2.png "Propagar a rota padrão")
 
+## <a name="clean-up-resources"></a><a name="cleanup"></a>Limpar recursos
+
+Quando já não precisar desses recursos, pode utilizar [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para remover o grupo de recursos e todos os recursos que o mesmo contém. Substitua "myResourceGroup" pelo nome do grupo de recursos e execute o seguinte comando do PowerShell:
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name myResourceGroup -Force
+```
+
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre a WAN Virtual, veja a página [Virtual WAN Overview](virtual-wan-about.md) (Descrição Geral da WAN Virtual).
+Em seguida, para saber mais sobre O WAN Virtual, consulte:
+
+> [!div class="nextstepaction"]
+> * [FAQ da WAN Virtual](virtual-wan-faq.md)

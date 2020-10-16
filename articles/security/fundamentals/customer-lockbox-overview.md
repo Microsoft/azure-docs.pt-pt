@@ -1,5 +1,5 @@
 ---
-title: Lockbox do cliente para Microsoft Azure
+title: Sistema de Proteção de Dados do Cliente para o Microsoft Azure
 description: Visão geral técnica do Bloqueio do Cliente para o Microsoft Azure, que fornece controlo sobre o acesso do fornecedor de nuvem quando a Microsoft pode precisar de aceder aos dados dos clientes.
 author: TerryLanfear
 ms.service: security
@@ -9,26 +9,26 @@ ms.author: terrylan
 manager: rkarlin
 ms.date: 09/15/2020
 ms.openlocfilehash: 52cb5ac5423aac0599ba2827667ee670dde286a5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331663"
 ---
-# <a name="customer-lockbox-for-microsoft-azure"></a>Lockbox do cliente para Microsoft Azure
+# <a name="customer-lockbox-for-microsoft-azure"></a>Sistema de Proteção de Dados do Cliente para o Microsoft Azure
 
 > [!NOTE]
 > Para utilizar esta funcionalidade, a sua organização deve ter um [plano de suporte Azure](https://azure.microsoft.com/support/plans/) com um nível mínimo de **Desenvolvedor.**
 
-O Lockbox do Cliente para o Microsoft Azure fornece uma interface para os clientes reverem e aprovarem ou rejeitarem os pedidos de acesso aos dados dos clientes. É utilizado nos casos em que um engenheiro da Microsoft precisa de aceder aos dados dos clientes durante um pedido de suporte.
+O Sistema de Proteção de Dados do Cliente para o Microsoft Azure proporciona uma interface para os clientes reverem e aprovarem ou rejeitarem pedidos de acesso a dados do cliente. É utilizado nos casos em que um engenheiro da Microsoft precisa de aceder aos dados do cliente durante um pedido de suporte.
 
 Este artigo cobre a forma como os pedidos do Customer Lockbox são iniciados, rastreados e armazenados para posteriores revisões e auditorias.
 
-O Lockbox do cliente está agora geralmente disponível e atualmente está ativado para acesso remoto ao ambiente de trabalho a máquinas virtuais.
+O Sistema de Proteção de Dados do Cliente está agora disponível para o público geral e atualmente ativado para o acesso de ambiente de trabalho remoto a máquinas virtuais.
 
 ## <a name="supported-services-and-scenarios-in-preview"></a>Serviços e cenários apoiados na pré-visualização
 
-Os seguintes serviços estão agora em pré-visualização para o Lockbox do cliente:
+Os seguintes serviços estão atualmente em pré-visualização para o Sistema de Proteção de Dados do Cliente:
 
 - Gestão de API
 - Serviço de Aplicações do Azure
@@ -46,9 +46,9 @@ Os seguintes serviços estão agora em pré-visualização para o Lockbox do cli
 - Azure Monitor
 - Storage do Azure
 - BD SQL do Azure
-- Transferências de assinaturas Azure
+- Transferências de subscrição do Azure
 - Azure Synapse Analytics
-- Máquinas virtuais (agora também abrangendo o acesso a despejos de memória e discos geridos)
+- Máquinas virtuais (agora também abrangem o acesso a informações do estado da memória e discos geridos)
 
 Para ativar o Bloqueio do Cliente para estas ofertas de pré-visualização para a sua organização, inscreva-se no [Customer Lockbox para pré-visualização pública Azure](https://aka.ms/customerlockbox/insiderprogram).
 
@@ -56,19 +56,19 @@ Para ativar o Bloqueio do Cliente para estas ofertas de pré-visualização para
 
 Os seguintes serviços e cenários estão atualmente em disponibilidade geral para o Lockbox do Cliente.
 
-### <a name="remote-desktop-access-to-virtual-machines"></a>Acesso remoto ao ambiente de trabalho a máquinas virtuais
+### <a name="remote-desktop-access-to-virtual-machines"></a>Acesso ao ambiente de trabalho remoto para máquinas virtuais
 
-O Lockbox do cliente está atualmente ativado para pedidos de acesso remoto ao ambiente de trabalho a máquinas virtuais. São suportadas as seguintes cargas de trabalho:
-- Plataforma como serviço (PaaS) - Azure Cloud Services (função web e papel dos trabalhadores)
-- Infraestrutura como serviço (IaaS) - Windows e Linux (apenas Gestor de Recursos Azure)
-- Conjunto de escala de máquina virtual - Windows e Linux
+O Sistema de Proteção de Dados do Cliente está atualmente ativado para pedidos de acesso de ambiente de trabalho remoto a máquinas virtuais. As seguintes cargas de trabalho são suportadas:
+- Plataforma como serviço (PaaS) – Serviços Cloud do Azure (função da Web e função de trabalho)
+- Infraestrutura como serviço (IaaS) – Windows e Linux (apenas o Azure Resource Manager)
+- Conjunto de dimensionamento de máquinas virtuais – Windows e Linux
 
 > [!NOTE]
-> As instâncias iaaS Classic não são suportadas pelo Lockbox do Cliente. Se tiver cargas de trabalho em casos clássicos do IaaS, recomendamos que as emigres de modelos de implementação Classic para Resource Manager. Para obter instruções, consulte [a migração suportada pela Plataforma de recursos IaaS do clássico para o Azure Resource Manager.](../../virtual-machines/windows/migration-classic-resource-manager-overview.md)
+> As instâncias iaaS Classic não são suportadas pelo Lockbox do Cliente. Se tiver cargas de trabalho em casos clássicos do IaaS, recomendamos que as emigres de modelos de implementação Classic para Resource Manager. Para obter instruções, veja [Migração suportada por plataforma dos recursos IaaS clássicos para o Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 #### <a name="detailed-audit-logs"></a>Registos de auditoria detalhados
 
-Para cenários que envolvam acesso remoto ao ambiente de trabalho, pode utilizar registos de eventos do Windows para rever as ações tomadas pelo engenheiro da Microsoft. Considere usar o Azure Security Center para recolher os seus registos de eventos e copiar os dados para o seu espaço de trabalho para análise. Para mais informações, consulte [a recolha de dados no Centro de Segurança Azure.](../../security-center/security-center-enable-data-collection.md)
+Para cenários que envolvem o acesso ao ambiente de trabalho remoto, pode utilizar registos de eventos do Windows para rever as ações executadas pelo engenheiro da Microsoft. Considere utilizar o Centro de Segurança do Azure para recolher os registos de eventos e copiar os dados para a área de trabalho para análise. Para obter mais informações, veja [Recolha de dados no Centro de Segurança do Azure](../../security-center/security-center-enable-data-collection.md).
 
 ## <a name="workflow"></a>Fluxo de trabalho
 
@@ -125,27 +125,27 @@ Para efeitos de auditoria, as ações tomadas neste fluxo de trabalho são regis
 
 ## <a name="auditing-logs"></a>Registos de auditoria
 
-Os registos do Bloqueio do Cliente são armazenados em registos de atividade. No portal Azure, selecione **Registos de Atividade para** visualizar informações de auditoria relacionadas com pedidos de Bloqueio de Clientes. Pode filtrar para ações específicas, tais como:
-- **Negar pedido de lockbox**
-- **Criar pedido de lockbox**
-- **Aprovar pedido lockbox**
+Os registos do Sistema de Proteção de Dados do Cliente são armazenados nos registos de atividade. No portal Azure, selecione **Registos de Atividade para** visualizar informações de auditoria relacionadas com pedidos de Bloqueio de Clientes. Pode filtrar ações específicas, como:
+- **Recusar o Pedido do Sistema de Proteção de Dados**
+- **Criar o Pedido do Sistema de Proteção de Dados**
+- **Aprovar o Pedido do Sistema de Proteção de Dados**
 - **Expiração do pedido de bloqueio**
 
 Em forma de exemplo:
 
 ![Azure Customer Lockbox - registos de atividade](./media/customer-lockbox-overview/customer-lockbox-activitylogs.png)
 
-## <a name="customer-lockbox-integration-with-azure-security-benchmark"></a>Integração do Lockbox do cliente com benchmark de segurança Azure
+## <a name="customer-lockbox-integration-with-azure-security-benchmark"></a>Integração do Sistema de Proteção de Dados do Cliente com a Referência de Segurança do Azure
 
 Introduzimos um novo controlo de base[(3.13)](../benchmarks/security-control-identity-access-control.md#313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios)no Azure Security Benchmark que cobre a aplicabilidade do Lockbox do Cliente. Os clientes podem agora aproveitar o benchmark para rever a aplicabilidade do Customer Lockbox para um serviço.
 
 ## <a name="exclusions"></a>Exclusões
 
-Os pedidos de bloqueio do cliente não são desencadeados nos seguintes cenários de suporte à engenharia:
+Os pedidos do Sistema de Proteção de Dados do Cliente não são acionados nos seguintes cenários de suporte de engenharia:
 
-- Um engenheiro da Microsoft precisa de fazer uma atividade que caia fora dos procedimentos operacionais padrão. Por exemplo, para recuperar ou restaurar serviços em cenários inesperados ou imprevisíveis.
+- Um engenheiro da Microsoft precisa de realizar uma atividade que está fora dos procedimentos operacionais padrão. Por exemplo, para recuperar ou restaurar serviços em cenários inesperados ou imprevisíveis.
 
-- Um engenheiro da Microsoft acede à plataforma Azure como parte da resolução de problemas e inadvertidamente tem acesso aos dados dos clientes. Por exemplo, a Equipa de Rede Azure executa a resolução de problemas que resulta numa captura de pacotes num dispositivo de rede. No entanto, se o cliente encriptar os dados enquanto este se encontrava em trânsito, o engenheiro não consegue ler os dados.
+- Um engenheiro da Microsoft acede à plataforma do Azure como parte da resolução de problemas e, inadvertidamente, tem acesso aos dados do cliente. Por exemplo, a Equipa de Rede do Azure executa a resolução de problemas que resulta numa captura de pacotes num dispositivo de rede. No entanto, se o cliente encriptou os dados enquanto estavam em trânsito, o engenheiro não poderá ler os dados.
 
 ## <a name="next-steps"></a>Passos seguintes
 

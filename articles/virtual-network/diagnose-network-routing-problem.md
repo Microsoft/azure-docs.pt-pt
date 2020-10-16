@@ -16,17 +16,17 @@ ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: kumud
 ms.openlocfilehash: 1c23244707179e05c63ed44b5915e58eefd3f4a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84705054"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Diagnosticar um problema de encaminhamento de máquinas virtuais
 
 Neste artigo, aprende-se a diagnosticar um problema de encaminhamento visualizando as rotas que são eficazes para uma interface de rede numa máquina virtual (VM). O Azure cria várias rotas predefinidas para cada sub-rede de rede virtual. Pode sobrepor as rotas padrão da Azure definindo rotas numa tabela de rotas e, em seguida, associando a tabela de rotas a uma sub-rede. A combinação de rotas que cria, as rotas padrão do Azure e quaisquer rotas propagadas a partir da sua rede no local através de um gateway Azure VPN (se a sua rede virtual estiver ligada à sua rede no local) através do protocolo gateway fronteiriço (BGP), são as rotas eficazes para todas as interfaces de rede numa sub-rede. Se não estiver familiarizado com conceitos de rede virtual, interface de rede ou encaminhamento, consulte [a visão geral da rede virtual,](virtual-networks-overview.md) [a interface da rede](virtual-network-network-interface.md)e a [visão geral do encaminhamento](virtual-networks-udr-overview.md).
 
-## <a name="scenario"></a>Scenario
+## <a name="scenario"></a>Cenário
 
 Tenta-se ligar-se a um VM, mas a ligação falha. Para determinar por que não consegue ligar-se ao VM, pode visualizar as rotas eficazes para uma interface de rede utilizando o [portal](#diagnose-using-azure-portal)Azure , [PowerShell](#diagnose-using-powershell)ou o [Azure CLI](#diagnose-using-azure-cli).
 
@@ -85,7 +85,7 @@ Na saída anterior, o nome da interface de rede é *myVMNic1*.
 
 ## <a name="diagnose-using-azure-cli"></a>Diagnosticar usando O Azure CLI
 
-Pode executar os comandos que seguem na [Azure Cloud Shell,](https://shell.azure.com/bash)ou executando o CLI a partir do seu computador. Este artigo requer a versão Azure CLI 2.0.32 ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli). Se estiver a executar o Azure CLI localmente, também precisa de correr `az login` e entrar em Azure com uma conta que tenha as [permissões necessárias.](virtual-network-network-interface.md#permissions)
+Pode executar os comandos que seguem na  [Azure Cloud Shell,](https://shell.azure.com/bash)ou executando o CLI a partir do seu computador. Este artigo requer a versão Azure CLI 2.0.32 ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli). Se estiver a executar o Azure CLI localmente, também precisa de correr `az login` e entrar em Azure com uma conta que tenha as [permissões necessárias.](virtual-network-network-interface.md#permissions)
 
 Obtenha as rotas eficazes para uma interface de rede com [a az network nic show-effective route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table). O exemplo a seguir obtém as rotas eficazes para uma interface de rede chamada *myVMNic1* que está num grupo de recursos chamado *myResourceGroup:*
 
@@ -137,7 +137,7 @@ Considere os seguintes pontos ao resolver problemas de comunicação:
 * Se estiver a forçar o tráfego [de túneis](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para um dispositivo no local através de um gateway VPN, ou NVA, poderá não conseguir ligar-se a um VM a partir da internet, dependendo da configuração do encaminhamento para os dispositivos. Confirme que o encaminhamento configurado para o tráfego das rotas do dispositivo para um endereço IP público ou privado para o VM.
 * Utilize a capacidade de resolução de problemas de [ligação](../network-watcher/network-watcher-connectivity-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Observador de Rede para determinar as causas do encaminhamento, filtragem e in-OS dos problemas de comunicação de saída.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre todas as tarefas, propriedades e configurações para uma [tabela de rotas e rotas.](manage-route-table.md)
 - Saiba mais sobre todos os [próximos tipos de lúpulo, rotas do sistema e como a Azure seleciona uma rota.](virtual-networks-udr-overview.md)

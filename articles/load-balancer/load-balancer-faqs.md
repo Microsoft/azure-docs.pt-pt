@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
 ms.openlocfilehash: 2b547dbc8671481275952f4c3eae5683e9e3a06c
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86207540"
 ---
 # <a name="load-balancer-frequently-asked-questions"></a>Balanceador de Carga frequentemente fez perguntas
@@ -25,7 +25,7 @@ Para ambos os tipos, o Azure oferece um SKU Básico e SKU Standard que têm dife
 Consulte a [atualização do](upgrade-basic-standard.md) artigo Basic para Standard para obter um script automatizado e orientação sobre a atualização de um SKU do Balancer de Carga.
 
  ## <a name="what-are-the-different-load-balancing-options-in-azure"></a>Quais são as diferentes opções de equilíbrio de carga em Azure?
-Consulte o [guia de tecnologia do balanceador](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) de carga para os serviços de equilíbrio de carga disponíveis e utilizações recomendadas para cada um.
+Consulte o [guia de tecnologia do balanceador](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview)  de carga para os serviços de equilíbrio de carga disponíveis e utilizações recomendadas para cada um.
 
 ## <a name="where-can-i-find-load-balancer-arm-templates"></a>Onde posso encontrar modelos arm balanceador de carga?
 Consulte a [lista de modelos de arranque rápido do Azure Load Balancer](https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers#quickstart-templates) para modelos ARM de implementações comuns.
@@ -37,7 +37,7 @@ As regras da NAT são usadas para especificar um recurso de backend para encamin
 O endereço IP virtual para o anfitrião marcado como o Balanceador de Carga da infraestrutura Azure, onde as Sondas de Saúde Azure são originárias. Ao configurar casos de backend, devem permitir que o tráfego deste endereço IP responda com sucesso às sondas de saúde. Esta regra não interage com o acesso ao frontend do balanceador de carga. Se não estiver a utilizar o Balançador de Carga Azure, pode anular esta regra. Pode saber mais sobre etiquetas de serviço [aqui.](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags)
 
 ## <a name="can-i-use-global-vnet-peering-with-basic-load-balancer"></a>Posso usar o VNET Global a espreitar com o Balanceador de Carga Básica?
-Não. O Balancer de Carga Básica não suporta o olhar global do VNET. Em vez disso, pode utilizar um Balanceador de Carga Padrão. Consulte a [atualização do](upgrade-basic-standard.md) artigo Basic para Standard para uma atualização sem emenda.
+N.º O Balancer de Carga Básica não suporta o olhar global do VNET. Em vez disso, pode utilizar um Balanceador de Carga Padrão. Consulte a [atualização do](upgrade-basic-standard.md) artigo Basic para Standard para uma atualização sem emenda.
 
 ## <a name="how-can-i-discover-the-public-ip-that-an-azure-vm-uses"></a>Como posso descobrir o IP público que um Azure VM utiliza?
 

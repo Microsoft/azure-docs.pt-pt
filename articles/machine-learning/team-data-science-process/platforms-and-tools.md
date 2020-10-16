@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 37faf5d8e6292844245f475d9fcf0f832a0cca10
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89440002"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plataformas e ferramentas para projetos de ciência de dados
@@ -83,7 +83,7 @@ Apache Hive é um sistema de armazém de dados para Hadoop, que permite a resumo
 
 A Colmeia permite-lhe projetar estrutura em dados em grande parte não estruturados. Depois de definir a estrutura, pode usar a Hive para consultar esses dados num cluster Hadoop sem ter de usar, ou mesmo saber, Java ou MapReduce. O HiveQL (a linguagem de consulta de Colmeia) permite-lhe escrever consultas com declarações semelhantes a T-SQL.
 
-Para os cientistas de dados, a Hive pode executar Funções Definidas pelo Utilizador Python (UDFs) em consultas de Hive para processar registos. Esta capacidade alarga consideravelmente a capacidade das consultas de Hive na análise de dados. Especificamente, permite que os cientistas de dados conduzam engenharia de recursos escaláveis em línguas que estão mais familiarizadas: o HIVEQL e o Python semelhantes ao SQL. 
+Para os cientistas de dados, a Hive pode executar As Funções User-Defined Python (UDFs) em consultas de Colmeia para processar registos. Esta capacidade alarga consideravelmente a capacidade das consultas de Hive na análise de dados. Especificamente, permite que os cientistas de dados conduzam engenharia de recursos escaláveis em línguas que estão mais familiarizadas: o HIVEQL e o Python semelhantes ao SQL. 
 
 Para obter mais informações sobre clusters de colmeia Azure HDInsight, consulte [Use Hive e HiveQL com Hadoop em HDInsight](../../hdinsight/hadoop/hdinsight-use-hive.md). Para aprender a construir uma solução de ciência de dados escalável de ponta a ponta com clusters de colmeia azure HDInsight, consulte [o Processo de Ciência de Dados da Equipa em ação: utilizando clusters HDInsight Hadoop](hive-walkthrough.md).
 
@@ -149,7 +149,7 @@ Se estiver a utilizar máquinas Linux (CentOS) para executar os comandos git, te
 1. Cole a chave ssh copiada na caixa de texto e guarde.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 São também fornecidas caminhadas completas de ponta a ponta que demonstram todos os passos no processo para **cenários específicos.** Estão listados e ligados com descrições de miniaturas no tópico [Exemplo.](walkthroughs.md) Ilustram como combinar ferramentas e serviços de nuvem, no local, num fluxo de trabalho ou oleoduto para criar uma aplicação inteligente. 
 

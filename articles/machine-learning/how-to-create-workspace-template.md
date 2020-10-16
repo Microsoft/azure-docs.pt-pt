@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: 20fa52febaa42850609f3f793d6f4aa4ae2704a6
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 1978cfe6ea117a0d30df938c9e4ba1aeb48314fc
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91626331"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057846"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Use um modelo de Gestor de Recursos Azure para criar um espaço de trabalho para a aprendizagem de máquinas Azure
 
@@ -31,13 +31,6 @@ Para obter mais informações, consulte [Implementar uma aplicação com o model
 * Uma **subscrição do Azure**. Se não tiver uma, experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
 * Para utilizar um modelo a partir de um CLI, você precisa de [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) ou do [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
-
-* Alguns cenários exigem que abra um bilhete de apoio. Estes cenários são:
-
-    * __Private Link viabilização espaço de trabalho com uma chave gerida pelo cliente (CMK)__
-    * __Registo de contentores Azure para o espaço de trabalho por trás da sua rede virtual__
-
-    Para obter mais informações, consulte [Gerir e aumentar as quotas.](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)
 
 * Alguns cenários exigem que abra um bilhete de apoio. Estes cenários são:
 

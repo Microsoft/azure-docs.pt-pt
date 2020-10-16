@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.date: 07/14/2020
 ms.topic: conceptual
 ms.openlocfilehash: 9b7da2fcc1310f03f894e048089658f25be3a149
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708854"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-postgresql---single-server"></a>Ligação do Serviço Azure Kubernetes e base de dados Azure para PostgreSQL - Servidor Único
@@ -48,5 +48,5 @@ Um pooler de ligação minimiza o custo e o tempo associados à criação e ence
 Existem vários poolers de conexão que pode usar com PostgreSQL. Um deles é [PgBouncer.](https://pgbouncer.github.io/) No Registo de Contentores da Microsoft, fornecemos um PgBouncer leve e contentorizado que pode ser usado num sidecar para juntar ligações de AKS a Azure Database para PostgreSQL. Visite a página do [estivador](https://hub.docker.com/r/microsoft/azureossdb-tools-pgbouncer/) para aprender a aceder e usar esta imagem. 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 -  [Criar um cluster do Azure Kubernetes Service](../aks/kubernetes-walkthrough.md)

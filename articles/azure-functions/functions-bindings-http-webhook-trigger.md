@@ -7,10 +7,10 @@ ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
 ms.openlocfilehash: 6466647056535635b67cd53012d051f11e9b484c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91323316"
 ---
 # <a name="azure-functions-http-trigger"></a>Azure Funções HTTP Trigger
@@ -539,7 +539,7 @@ Os atributos não são suportados pela Python.
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `HttpTrigger` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 | **tipo** | n/a| Necessário - deve ser definido para `httpTrigger` . |
 | **direção** | n/a| Necessário - deve ser definido para `in` . |

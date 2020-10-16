@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 02/10/2020
 ms.openlocfilehash: 5569e7e3a33c4f1bbbd3214e742b0cb889c65e31
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86040780"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Análise de sentimento do Twitter em tempo real no Azure Stream Analytics
@@ -161,7 +161,7 @@ Agora que os eventos de tweet estão a ser transmitidos em tempo real a partir d
    |Alias de entrada| *TwitterStream* | Insira um pseudónimo para a entrada. |
    |Subscrição  | \<Your subscription\> |  Selecione a subscrição do Azure que pretende utilizar. |
    |Espaço de nomes do hub de eventos | *asa-twitter-eventhub* |
-   |O nome do hub de eventos | *socialtwitter-eh* | Escolha *a utilização existente.* Em seguida, selecione o Centro de Eventos que criou.|
+   |Nome do Hub de Eventos | *socialtwitter-eh* | Escolha *a utilização existente.* Em seguida, selecione o Centro de Eventos que criou.|
    |Tipo de compressão de eventos| GZip | O tipo de compressão de dados.|
 
    Deixe os valores predefinidos restantes e **selecione Guardar**.
@@ -227,7 +227,7 @@ Uma entrada de trabalho, consulta e saída são especificados. Está pronto para
 ## <a name="get-support"></a>Obter suporte
 Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)

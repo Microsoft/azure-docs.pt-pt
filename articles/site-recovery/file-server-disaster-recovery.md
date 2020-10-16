@@ -9,10 +9,10 @@ ms.date: 07/31/2019
 ms.author: sharrai
 ms.custom: mvc
 ms.openlocfilehash: 1c88a7e78d37556f0f1f89e16154dc1808f24323
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89425522"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Utilizar o Azure Site Recovery para proteger um servidor de ficheiros 
@@ -66,10 +66,10 @@ Uma vez que a replicação do Site Recovery não depende da aplicação, espera-
 
 | Origem  |Para um site secundário  |Para o Azure
 |---------|---------|---------|
-|Azure|  -|Yes|
-|Hyper-V|  Yes  |Yes
-|VMware  |Yes|  Yes
-|Servidor físico|  Yes  |Yes
+|Azure|  -|Sim|
+|Hyper-V|  Sim  |Sim
+|VMware  |Sim|  Sim
+|Servidor físico|  Sim  |Sim
  
 
 > [!IMPORTANT]

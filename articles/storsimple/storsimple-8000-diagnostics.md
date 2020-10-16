@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: ca674f38b5c327123bc1d13dd284f84f614881b4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91300450"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Utilize a Ferramenta de Diagnóstico StorSimple para resolver problemas de dispositivos da série 8000
@@ -414,11 +414,11 @@ Controller0>
 
 Aqui está uma tabela que descreve para que os vários parâmetros do Windows PowerShell no mapa de informações do sistema. 
 
-| Parâmetro PowerShell    | Description  |
+| Parâmetro PowerShell    | Descrição  |
 |-------------------------|------------------|
 | ID da Instância             | Cada controlador tem um identificador único ou um GUID associado a ele.|
-| Name                    | O nome amigável do dispositivo configurado através do portal Azure durante a implementação do dispositivo. O nome padrão amigável é o número de série do dispositivo. |
-| Modelação                   | O modelo do seu dispositivo da série StorSimple 8000. O modelo pode ser 8100 ou 8600.|
+| Nome                    | O nome amigável do dispositivo configurado através do portal Azure durante a implementação do dispositivo. O nome padrão amigável é o número de série do dispositivo. |
+| Modelo                   | O modelo do seu dispositivo da série StorSimple 8000. O modelo pode ser 8100 ou 8600.|
 | SerialNumber            | O número de série do dispositivo é atribuído na fábrica e tem 15 caracteres de comprimento. Por exemplo, 8600-SHX0991003G44HT indica:<br> 8600 - É o modelo do dispositivo.<br>SHX – É o local de fabrico.<br> 0991003 - É um produto específico. <br> G44HT- os últimos 5 dígitos são incrementados para criar números de série únicos. Isto pode não ser um conjunto sequencial.|
 | TimeZone                | O fuso horário do dispositivo configurado no portal Azure durante a implantação do dispositivo.|
 | CurrentController       | O controlador a que está ligado através da interface Windows PowerShell do seu dispositivo StorSimple.|
@@ -440,6 +440,6 @@ Aqui está uma tabela que descreve para que os vários parâmetros do Windows Po
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Aprenda a [sintaxe do cmdlet Invoke-HcsDiagnostics](https://technet.microsoft.com/library/mt795371.aspx).
+* Aprenda a [sintaxe do Invoke-HcsDiagnostics cmdlet](https://technet.microsoft.com/library/mt795371.aspx).
 
 * Saiba mais sobre como [resolver problemas](storsimple-troubleshoot-deployment.md) de implementação no seu dispositivo StorSimple.

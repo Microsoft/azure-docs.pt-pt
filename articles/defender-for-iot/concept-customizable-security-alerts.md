@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 03/04/2020
 ms.author: mlottner
 ms.openlocfilehash: 5a5b9182081e267f8e20cb0818202b9cb5ecd904
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939530"
 ---
 # <a name="defender-for-iot-customizable-security-alerts"></a>Defender alertas de segurança personalizáveis IoT
@@ -32,20 +32,20 @@ A seguinte lista de alertas Defender para IoT é definível por si com base no s
 
 | Gravidade | Nome do alerta | Origem de dados | Descrição | Remediação sugerida|
 |---|---|---|---|---|
-| Baixo      | Alerta personalizado - número de mensagens de nuvem para dispositivo no protocolo AMQP está fora da gama permitida          | Hub IoT     | O número de mensagens de nuvem para dispositivo (protocolo AMQP) dentro de uma janela de tempo específica está fora do alcance atualmente configurado e admissível.||
-| Baixo      | Alerta personalizado - número de mensagens de dispositivo rejeitadas no protocolo AMQP está fora do alcance permitido | Hub IoT     | Número de mensagens de nuvem para dispositivo (protocolo AMQP) rejeitado pelo dispositivo, dentro de uma janela de tempo específica está fora da gama atualmente configurada e admissível.||
-| Baixo      | Alerta personalizado - número de mensagens em nuvem no protocolo AMQP está fora da gama permitida      | Hub IoT     | A quantidade de dispositivo para mensagens em nuvem (protocolo AMQP) dentro de uma janela de tempo específica está fora do alcance atualmente configurado e permitido.|   |
-| Baixo      | Alerta personalizado - número de invocações de método direto está fora do alcance permitido | Hub IoT     | A quantidade de método direto invoca dentro de uma janela de tempo específica está fora do alcance atualmente configurado e admissível.||
-| Baixo      | Alerta personalizado - o número de uploads de ficheiros está fora do alcance permitido | Hub IoT     | A quantidade de uploads de ficheiros dentro de uma janela de tempo específica está fora do alcance atualmente configurado e admissível.| |
-| Baixo      | Alerta personalizado - número de mensagens de nuvem para dispositivo no protocolo HTTP está fora do alcance permitido | Hub IoT     | A quantidade de nuvem para mensagens de dispositivo (protocolo HTTP) numa janela de tempo não está na gama permitida configurada                                  |
-| Baixo      | Alerta personalizado - número de nuvem rejeitada para mensagens de dispositivo no protocolo HTTP não está na gama permitida | Hub IoT     | A quantidade de nuvem para mensagens de dispositivo (protocolo HTTP) dentro de uma janela de tempo específica está fora do alcance atualmente configurado e permitido. |
-| Baixo      | Alerta personalizado - número de mensagens de dispositivo para cloud no protocolo HTTP está fora do alcance permitido | Hub IoT| A quantidade de dispositivo para mensagens em nuvem (protocolo HTTP)dentro de uma janela de tempo específica está fora do alcance atualmente configurado e permitido.|    |
-| Baixo      | Alerta personalizado - número de mensagens de nuvem para dispositivo no protocolo MQTT está fora da gama permitida | Hub IoT     | A quantidade de nuvem para mensagens de dispositivo (protocolo MQTT) dentro de uma janela de tempo específica está fora do alcance atualmente configurado e permitido.|   |
-| Baixo      | Alerta personalizado - número de mensagens de dispositivo rejeitadas no protocolo MQTT está fora do alcance permitido | Hub IoT     | A quantidade de nuvem para mensagens de dispositivo (protocolo MQTT) rejeitada pelo dispositivo dentro de uma janela de tempo específica está fora da gama atualmente configurada e admissível. |
-| Baixo      | Alerta personalizado - número de mensagens de dispositivo para cloud no protocolo MQTT está fora da gama permitida          | Hub IoT     | A quantidade de dispositivo para mensagens em nuvem (protocolo MQTT) dentro de uma janela de tempo específica está fora da gama atualmente configurada e admissível.|
-| Baixo      | Alerta personalizado - número de purgas de fila de comando está fora do alcance permitido                               | Hub IoT     | A quantidade de purgas de fila de comando dentro de uma janela de tempo específica está fora do alcance atualmente configurado e admissível.||
-| Baixo      | Alerta personalizado - número de atualizações gémeas do módulo está fora da gama permitida                                       | Hub IoT     | A quantidade de duas atualizações do módulo dentro de uma janela de tempo específica está fora da gama atualmente configurada e admissível.|
-| Baixo      | Alerta personalizado - número de operações não autorizadas está fora do alcance permitido  | Hub IoT     | A quantidade de operações não autorizadas dentro de um intervalo de tempo específico está fora do alcance atualmente configurado e admissível.|
+| Baixo      | Alerta personalizado - número de mensagens de nuvem para dispositivo no protocolo AMQP está fora da gama permitida          | IoT Hub     | O número de mensagens de nuvem para dispositivo (protocolo AMQP) dentro de uma janela de tempo específica está fora do alcance atualmente configurado e admissível.||
+| Baixo      | Alerta personalizado - número de mensagens de dispositivo rejeitadas no protocolo AMQP está fora do alcance permitido | IoT Hub     | Número de mensagens de nuvem para dispositivo (protocolo AMQP) rejeitado pelo dispositivo, dentro de uma janela de tempo específica está fora da gama atualmente configurada e admissível.||
+| Baixo      | Alerta personalizado - número de mensagens em nuvem no protocolo AMQP está fora da gama permitida      | IoT Hub     | A quantidade de dispositivo para mensagens em nuvem (protocolo AMQP) dentro de uma janela de tempo específica está fora do alcance atualmente configurado e permitido.|   |
+| Baixo      | Alerta personalizado - número de invocações de método direto está fora do alcance permitido | IoT Hub     | A quantidade de método direto invoca dentro de uma janela de tempo específica está fora do alcance atualmente configurado e admissível.||
+| Baixo      | Alerta personalizado - o número de uploads de ficheiros está fora do alcance permitido | IoT Hub     | A quantidade de uploads de ficheiros dentro de uma janela de tempo específica está fora do alcance atualmente configurado e admissível.| |
+| Baixo      | Alerta personalizado - número de mensagens de nuvem para dispositivo no protocolo HTTP está fora do alcance permitido | IoT Hub     | A quantidade de nuvem para mensagens de dispositivo (protocolo HTTP) numa janela de tempo não está na gama permitida configurada                                  |
+| Baixo      | Alerta personalizado - número de nuvem rejeitada para mensagens de dispositivo no protocolo HTTP não está na gama permitida | IoT Hub     | A quantidade de nuvem para mensagens de dispositivo (protocolo HTTP) dentro de uma janela de tempo específica está fora do alcance atualmente configurado e permitido. |
+| Baixo      | Alerta personalizado - número de mensagens de dispositivo para cloud no protocolo HTTP está fora do alcance permitido | IoT Hub| A quantidade de dispositivo para mensagens em nuvem (protocolo HTTP)dentro de uma janela de tempo específica está fora do alcance atualmente configurado e permitido.|    |
+| Baixo      | Alerta personalizado - número de mensagens de nuvem para dispositivo no protocolo MQTT está fora da gama permitida | IoT Hub     | A quantidade de nuvem para mensagens de dispositivo (protocolo MQTT) dentro de uma janela de tempo específica está fora do alcance atualmente configurado e permitido.|   |
+| Baixo      | Alerta personalizado - número de mensagens de dispositivo rejeitadas no protocolo MQTT está fora do alcance permitido | IoT Hub     | A quantidade de nuvem para mensagens de dispositivo (protocolo MQTT) rejeitada pelo dispositivo dentro de uma janela de tempo específica está fora da gama atualmente configurada e admissível. |
+| Baixo      | Alerta personalizado - número de mensagens de dispositivo para cloud no protocolo MQTT está fora da gama permitida          | IoT Hub     | A quantidade de dispositivo para mensagens em nuvem (protocolo MQTT) dentro de uma janela de tempo específica está fora da gama atualmente configurada e admissível.|
+| Baixo      | Alerta personalizado - número de purgas de fila de comando está fora do alcance permitido                               | IoT Hub     | A quantidade de purgas de fila de comando dentro de uma janela de tempo específica está fora do alcance atualmente configurado e admissível.||
+| Baixo      | Alerta personalizado - número de atualizações gémeas do módulo está fora da gama permitida                                       | IoT Hub     | A quantidade de duas atualizações do módulo dentro de uma janela de tempo específica está fora da gama atualmente configurada e admissível.|
+| Baixo      | Alerta personalizado - número de operações não autorizadas está fora do alcance permitido  | IoT Hub     | A quantidade de operações não autorizadas dentro de um intervalo de tempo específico está fora do alcance atualmente configurado e admissível.|
 |
 
 ## <a name="agent-alerts-available-for-customization"></a>Alertas de agente disponíveis para personalização

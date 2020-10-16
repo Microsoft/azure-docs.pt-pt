@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.reviewer: hux
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 175c9efd02665bf0212d7078a2ec2767ed1be6b9
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91850987"
 ---
 # <a name="utilize-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Utilize tags de índice blob (pré-visualização) para gerir e encontrar dados sobre o armazenamento do Azure Blob

@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
 ms.openlocfilehash: 37181246a20044f16414735e2247fa90fc36433b
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90530527"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migrar VMware VMs para Azure (sem agente)
@@ -18,7 +18,7 @@ Este artigo mostra-lhe como migrar vMware VMs para Azure, utilizando a ferrament
 Este tutorial é o terceiro de uma série que demonstra como avaliar e migrar VMware VMs para Azure. 
 
 > [!NOTE]
-> Os tutoriais mostram-lhe o caminho de implantação mais simples para um cenário para que possa configurar rapidamente uma prova de conceito. Os tutoriais usam opções padrão sempre que possível e não mostram todas as definições e caminhos possíveis. 
+> Os tutoriais mostram-lhe o caminho de implantação mais simples para um cenário para que possa configurar rapidamente uma prova de conceito. Os tutoriais utilizam opções predefinidas sempre que possível e não mostram todas as definições e caminhos possíveis. 
 
 
 Neste tutorial, ficará a saber como:

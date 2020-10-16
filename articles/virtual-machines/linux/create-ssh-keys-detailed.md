@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 07/31/2020
 ms.author: cynthn
 ms.openlocfilehash: 34a84ed333172ea0931c529d2dbeee1b774ae8c5
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87513197"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Etapas detalhadas: Criar e gerir chaves SSH para autenticação num Linux VM em Azure
@@ -33,7 +33,7 @@ Se não pretender utilizar as teclas SSH, pode configurar o seu VM Linux para ut
 
 ## <a name="generate-keys-with-ssh-keygen"></a>Gerar chaves com ssh-keygen
 
-Para criar as teclas, um comando preferido é `ssh-keygen` , que está disponível com utilitários OpenSSH no Azure Cloud Shell, um hospedeiro macOS ou Linux, e Windows 10. `ssh-keygen`faz uma série de perguntas e, em seguida, escreve uma chave privada e uma chave pública correspondente. 
+Para criar as teclas, um comando preferido é `ssh-keygen` , que está disponível com utilitários OpenSSH no Azure Cloud Shell, um hospedeiro macOS ou Linux, e Windows 10. `ssh-keygen` faz uma série de perguntas e, em seguida, escreve uma chave privada e uma chave pública correspondente. 
 
 Por predefinição, as chaves SSH são mantidas no diretório `~/.ssh`.  Se não tiver um diretório `~/.ssh`, o comando `ssh-keygen` cria-o por si com as permissões corretas.
 
@@ -62,17 +62,17 @@ ssh-keygen \
 
 `ssh-keygen` = o programa utilizado para criar as chaves
 
-`-m PEM`= formato da chave como PEM
+`-m PEM` = formato da chave como PEM
 
-`-t rsa`= tipo de chave para criar, neste caso no formato RSA
+`-t rsa` = tipo de chave para criar, neste caso no formato RSA
 
-`-b 4096`= o número de bits na chave, neste caso 4096
+`-b 4096` = o número de bits na chave, neste caso 4096
 
 `-C "azureuser@myserver"` = um comentário acrescentado ao final do ficheiro da chave pública para o identificar facilmente. Normalmente, um endereço de e-mail é usado como comentário, mas use o que funcionar melhor para a sua infraestrutura.
 
-`-f ~/.ssh/mykeys/myprivatekey`= o nome de ficheiro do ficheiro de chave privada, se optar por não utilizar o nome predefinido. Um ficheiro de chave pública correspondente anexado `.pub` é gerado no mesmo diretório. O diretório tem de existir.
+`-f ~/.ssh/mykeys/myprivatekey` = o nome de ficheiro do ficheiro de chave privada, se optar por não utilizar o nome predefinido. Um ficheiro de chave pública correspondente anexado `.pub` é gerado no mesmo diretório. O diretório tem de existir.
 
-`-N mypassphrase`= uma frase-passe adicional utilizada para aceder ao ficheiro de chave privada. 
+`-N mypassphrase` = uma frase-passe adicional utilizada para aceder ao ficheiro de chave privada. 
 
 ### <a name="example-of-ssh-keygen"></a>Exemplo de ssh-keygen
 

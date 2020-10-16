@@ -12,10 +12,10 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere,asteen
 ms.openlocfilehash: 0cd20d7a11bcffe9937537e3681199757a52bee5
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89181719"
 ---
 # <a name="how-to-use-self-service-application-access"></a>Como utilizar o acesso a aplicações self-service
@@ -37,7 +37,7 @@ Através desta funcionalidade, pode:
 
 ## <a name="enable-self-service-application-access-to-allow-users-to-find-their-own-applications"></a>Permitir o acesso a aplicações self-service para permitir que os utilizadores encontrem as suas próprias aplicações
 
-O acesso a aplicações self-service é uma ótima forma de permitir que os utilizadores se auto-descubram, permitindo opcionalmente ao grupo empresarial aprovar o acesso a essas aplicações. Pode permitir que o grupo empresarial gere as credenciais atribuídas a esses utilizadores para o signo único da palavra-passe nas aplicações a partir da sua página my Apps.
+O acesso a aplicações self-service é uma ótima forma de permitir que os utilizadores se auto-descubram, permitindo opcionalmente ao grupo empresarial aprovar o acesso a essas aplicações. Pode permitir que o grupo empresarial gere as credenciais atribuídas a esses utilizadores para Single-Sign password nas aplicações a partir da sua página My Apps.
 
 Para permitir o acesso de aplicações self-service a uma aplicação, siga os passos abaixo:
 1. Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como **Administrador Global.**

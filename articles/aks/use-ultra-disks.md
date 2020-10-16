@@ -5,17 +5,17 @@ services: container-service
 ms.topic: article
 ms.date: 07/10/2020
 ms.openlocfilehash: 3f15f075604c104b467af289f6f5d4b92dc12659
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89420868"
 ---
 # <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Utilize discos ultra Azure no Serviço Azure Kubernetes (pré-visualização)
 
 [Os discos Azure ultra](../virtual-machines/disks-enable-ultra-ssd.md) oferecem alta produção, alta produção de IOPS e armazenamento consistente de disco de baixa latência para as suas aplicações imponentes. Um dos principais benefícios dos discos ultra é a capacidade de alterar dinamicamente o desempenho do SSD juntamente com as suas cargas de trabalho sem a necessidade de reiniciar os nós de agente. Os discos ultra são adequados para cargas de trabalho intensivas de dados.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Esta funcionalidade só pode ser definida no tempo de criação de cluster ou de criação de piscinas de nó.
 
@@ -219,7 +219,7 @@ Events:
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre discos ultra, consulte [o Uso de discos ultra Azure](../virtual-machines/disks-enable-ultra-ssd.md).
 - Para obter mais informações sobre as melhores práticas de armazenamento, consulte [as melhores práticas de armazenamento e backups no Serviço Azure Kubernetes (AKS)][operator-best-practices-storage]

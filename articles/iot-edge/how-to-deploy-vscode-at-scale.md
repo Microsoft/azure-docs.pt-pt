@@ -9,16 +9,16 @@ ms.date: 1/8/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 92540c57179ae0198f78b588681167fe48097362
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7f6e90edc0503326dc9dbb06abfcf59fa2d51e1e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82134367"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043821"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-visual-studio-code"></a>Implementar módulos IoT Edge em escala usando Código de Estúdio Visual
 
-Pode criar uma **implementação automática IoT Edge** utilizando o Código do Estúdio Visual para gerir as implementações em curso para muitos dispositivos ao mesmo tempo. As implementações automáticas para ioT Edge fazem parte da funcionalidade automática de [gestão](/azure/iot-hub/iot-hub-automatic-device-management) do dispositivo do IoT Hub. As implementações são processos dinâmicos que permitem implantar vários módulos em vários dispositivos. Também pode acompanhar o estado e a saúde dos módulos e fazer alterações quando necessário.
+Pode criar uma **implementação automática IoT Edge** utilizando o Código do Estúdio Visual para gerir as implementações em curso para muitos dispositivos ao mesmo tempo. As implementações automáticas para ioT Edge fazem parte da funcionalidade automática de [gestão](../iot-hub/iot-hub-automatic-device-management.md) do dispositivo do IoT Hub. As implementações são processos dinâmicos que permitem implantar vários módulos em vários dispositivos. Também pode acompanhar o estado e a saúde dos módulos e fazer alterações quando necessário.
 
 Para obter mais informações, consulte [as configurações automáticas Understand IoT Edge para dispositivos individuais ou à escala.](module-deployment-monitoring.md)
 
@@ -27,7 +27,10 @@ Neste artigo, configura o Código do Estúdio Visual e a extensão IoT. Em segui
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um [hub IoT](../iot-hub/iot-hub-create-through-portal.md) na sua assinatura Azure.
-* Um [dispositivo IoT Edge](how-to-register-device.md#register-with-visual-studio-code) com o tempo de execução IoT Edge instalado.
+* Um ou mais dispositivos IoT Edge.
+
+  Se não tiver um dispositivo IoT Edge configurado, pode criar um numa máquina virtual Azure. Siga os passos num dos artigos de arranque rápido para [criar um dispositivo Linux virtual](quickstart-linux.md) ou criar um dispositivo Virtual [Windows](quickstart.md).
+
 * [Visual Studio Code](https://code.visualstudio.com/).
 * [Ferramentas Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview) para Código de Estúdio Visual.
 
@@ -57,13 +60,16 @@ Para implementar módulos utilizando o Código do Estúdio Visual, guarde o mani
 
 Aqui está um manifesto básico de implantação com um módulo como exemplo:
 
+>[!NOTE]
+>Este manifesto de implantação da amostra utiliza a versão 1.1 do esquema para o agente e o hub IoT Edge. A versão 1.1 do Schema foi lançada juntamente com a versão 1.0.10 do IoT Edge e permite funcionalidades como a ordem de arranque do módulo e a priorização da rota.
+
 ```json
 {
   "content": {
     "modulesContent": {
       "$edgeAgent": {
         "properties.desired": {
-          "schemaVersion": "1.0",
+          "schemaVersion": "1.1",
           "runtime": {
             "type": "docker",
             "settings": {
@@ -92,7 +98,7 @@ Aqui está um manifesto básico de implantação com um módulo como exemplo:
           },
           "modules": {
             "SimulatedTemperatureSensor": {
-              "version": "1.0",
+              "version": "1.1",
               "type": "docker",
               "status": "running",
               "restartPolicy": "always",

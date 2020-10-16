@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: b35268cd8d36901f750225713407c5392e5c429e
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: ec38e0849b7f4c1a0ca98d75d4c6c82908c1e16e
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91759174"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945381"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-c"></a>Quickstart: Interaja com um dispositivo IoT Plug and Play que está ligado à sua solução (C#)
 
@@ -34,7 +34,7 @@ Para completar este arranque rápido no Windows, necessita do seguinte software 
 
 Se tiver concluído [o Quickstart: Ligue uma aplicação de dispositivo IoT Plug e Play de amostra que está a decorrer no Windows to IoT Hub (C#),](quickstart-connect-device-csharp.md)já clonou o repositório.
 
-Clone as amostras do repositório Microsoft Azure IoT SDK para .NET GitHub. Abra um pedido de comando numa pasta à sua escolha. Executar o seguinte comando para clonar as [amostras de IoT microsoft Azure para o](https://github.com/Azure-Samples/azure-iot-samples-csharp) repositório .NET GitHub:
+Clone as amostras do repositório Azure IoT para o repositório C# GitHub. Abra um pedido de comando numa pasta à sua escolha. Executar o seguinte comando para clonar as [amostras de IoT microsoft Azure para o](https://github.com/Azure-Samples/azure-iot-samples-csharp) repositório .NET GitHub:
 
 ```cmd
 git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
@@ -48,14 +48,13 @@ Neste arranque rápido, utilize um dispositivo termóstato de amostra que está 
 
 1. No Estúdio Visual, navegue para **Project > Thermostat Properties > Debug**. Em seguida, adicione as seguintes variáveis ambientais ao projeto:
 
-    | Name | Valor |
+    | Nome | Valor |
     | ---- | ----- |
     | IOTHUB_DEVICE_SECURITY_TYPE | DPS |
     | IOTHUB_DEVICE_DPS_ENDPOINT | global.azure-devices-provisioning.net |
     | IOTHUB_DEVICE_DPS_ID_SCOPE | O valor que fez notar quando completou [Configurar o seu ambiente](set-up-environment.md) |
     | IOTHUB_DEVICE_DPS_DEVICE_ID | my-pnp-dispositivo |
     | IOTHUB_DEVICE_DPS_DEVICE_KEY | O valor que fez notar quando completou [Configurar o seu ambiente](set-up-environment.md) |
-
 
 1. Agora pode construir a amostra no Visual Studio e executá-la em modo de depurar.
 
@@ -74,16 +73,16 @@ Neste arranque rápido, utilize uma solução de IoT de amostra em C# para inter
 
 1. No Estúdio Visual, navegue para **Project > Thermostat Properties > Debug**. Em seguida, adicione as seguintes variáveis ambientais ao projeto:
 
-    | Name | Valor |
+    | Nome | Valor |
     | ---- | ----- |
     | IOTHUB_DEVICE_ID | my-pnp-dispositivo |
     | IOTHUB_CONNECTION_STRING | O valor que fez notar quando completou [Configurar o seu ambiente](set-up-environment.md) |
 
 1. Agora pode construir a amostra no Visual Studio e executá-la em modo de depurar.
 
-### <a name="get-digital-twin"></a>Obter twin digital
+### <a name="get-device-twin"></a>Obter dispositivo twin
 
-O seguinte corte de código mostra como a aplicação de serviço recupera o gémeo digital:
+O seguinte corte de código mostra como a aplicação de serviço recupera o dispositivo twin:
 
 ```C#
 // Get a Twin and retrieves model Id set by Device client
@@ -92,7 +91,7 @@ s_logger.LogDebug($"Model Id of this Twin is: {twin.ModelId}");
 ```
 
 > [!NOTE]
-> Esta amostra utiliza o **Microsoft.Azure.Devices.Client;** espaço de nome do cliente de **serviço IoT Hub**. Para saber mais sobre como recuperar o ID do modelo, consulte o [guia do desenvolvedor.](concepts-developer-guide-service.md)
+> Esta amostra utiliza o **microsoft.Azure.Devices.Client** namespace do **cliente de serviço IoT Hub**. Para saber mais sobre as APIs, incluindo as gémeas digitais API, consulte o [guia de desenvolvedores de serviços.](concepts-developer-guide-service.md)
 
 Este código gera a seguinte saída:
 
@@ -101,7 +100,7 @@ Este código gera a seguinte saída:
       Model Id of this Twin is: dtmi:com:example:Thermostat;1
 ```
 
-O seguinte corte de código mostra como usar um *patch* para atualizar propriedades através do twin digital:
+O seguinte corte de código mostra como usar um *patch* para atualizar propriedades através do dispositivo twin:
 
 ```C#
 // Update the twin
@@ -157,7 +156,7 @@ Este código gera a seguinte saída do dispositivo quando o serviço chama o `ge
       Command: MaxMinReport since 21/09/2020 11:25:58: maxTemp=32, minTemp=32, avgTemp=32, startTime=21/09/2020 11:25:59, endTime=21/09/2020 11:26:04
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, aprendeu a ligar um dispositivo IoT Plug e Play a uma solução IoT. Para saber mais sobre os modelos ioT Plug e Play, consulte:
 

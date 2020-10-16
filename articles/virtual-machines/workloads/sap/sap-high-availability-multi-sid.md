@@ -17,10 +17,10 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d6945be2d9a5d7cd56556c7d89998b21efe26d80
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91314084"
 ---
 # <a name="create-a-high-availability-sap-netweaver-multi-sid-configuration"></a>Criar uma configuração multi-SID SAP NetWeaver de alta disponibilidade

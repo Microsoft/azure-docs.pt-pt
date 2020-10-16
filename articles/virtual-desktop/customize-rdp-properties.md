@@ -3,15 +3,15 @@ title: Personalize propriedades RDP com PowerShell - Azure
 description: Como personalizar propriedades RDP para windows Virtual Desktop com cmdlets PowerShell.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 09/04/2020
+ms.date: 10/09/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7c4bda1ecf28e964db6ba672157790114affe650
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86e3422cbd1cbf92a0d0d218267001c934403753
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462229"
+ms.locfileid: "91930701"
 ---
 # <a name="customize-remote-desktop-protocol-rdp-properties-for-a-host-pool"></a>Personalize propriedades do Protocolo de Ambiente de Trabalho Remoto (RDP) para uma piscina de anfitriões
 
@@ -28,8 +28,8 @@ Os ficheiros RDP têm as seguintes propriedades por padrão:
 
 |Propriedade RDP|No ambiente de trabalho|Como Um RemoteApp|
 |---|---|---|
-|Modo multi-monitor|Ativado|N/D|
-|Redirecionamentos de unidade ativados|Unidades, pranchetas, impressoras, portas COM, dispositivos USB e smartcards|Unidades, pranchetas e impressoras|
+|Modo multi-monitor|Desativado|Ativado|
+|Redirecionamentos de unidade ativados|Unidades, pranchetas, impressoras, portas COM e cartões inteligentes|Unidades, pranchetas e impressoras|
 |Modo áudio remoto|Jogue localmente|Jogue localmente|
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -45,8 +45,9 @@ Para configurar propriedades RDP no portal Azure:
 3. Em Serviços, selecione **Windows Virtual Desktop**.
 4. Na página de Ambiente de Trabalho Virtual do Windows, selecione **as piscinas de anfitriões** no menu do lado esquerdo do ecrã.
 5. Selecione **o nome da piscina de anfitrião** que pretende atualizar.
-6. Selecione **Propriedades** no menu no lado esquerdo do ecrã.
-7. No separador **Propriedades,** aceda às **definições de RDP** para começar a editar as propriedades RDP. As propriedades devem estar num formato separado de pontos e vírgulas como os exemplos powerShell.
+6. Selecione **Propriedades RDP** no menu no lado esquerdo do ecrã.
+7. Desa parte da propriedade que deseja.
+   - Em alternativa, pode abrir o separador **Advanced** e adicionar as suas propriedades RDP num formato separado de pontos de venda, como os exemplos PowerShell nas seguintes secções.
 8. Quando terminar, **selecione Guardar** para guardar as suas alterações.
 
 As próximas secções dir-lhe-ão como editar as propriedades RDP personalizadas manualmente no PowerShell.

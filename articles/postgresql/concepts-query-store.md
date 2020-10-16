@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.openlocfilehash: 7b6c8faafac34ada664ddfadebf8d71a16c73fa7
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91710537"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorize o desempenho com a Loja de Consultas
@@ -90,7 +90,7 @@ As seguintes opções estão disponíveis para configurar parâmetros da Loja de
 
 | **Parâmetro** | **Descrição** | **Predefinição** | **Intervalo**|
 |---|---|---|---|
-| pg_qs.consulta_capture_mode | Conjuntos que declarações são rastreadas. | nenhum | ninguém, em cima, todos os |
+| pg_qs.consulta_capture_mode | Conjuntos que declarações são rastreadas. | nenhuma | ninguém, em cima, todos os |
 | pg_qs.max_consulta_text_length | Define o comprimento máximo de consulta que pode ser guardado. Consultas mais longas serão truncadas. | 6000 | 100 - 10K |
 | pg_qs.retenção_period_in_days | Define o período de retenção. | 7 | 1 - 30 |
 | pg_qs.track_utility | Define se os comandos de utilidade são rastreados | em | em, fora |
@@ -99,7 +99,7 @@ As seguintes opções aplicam-se especificamente às estatísticas de espera.
 
 | **Parâmetro** | **Descrição** | **Predefinição** | **Intervalo**|
 |---|---|---|---|
-| pgms_wait_sampling.consulta_capture_mode | Conjuntos que declarações são rastreadas para estatísticas de espera. | nenhum | nenhum, todos os|
+| pgms_wait_sampling.consulta_capture_mode | Conjuntos que declarações são rastreadas para estatísticas de espera. | nenhuma | nenhum, todos os|
 | Pgms_wait_sampling.history_period | Desa ajuste a frequência, em milissegundos, em que os eventos de espera são amostrados. | 100 | 1-600000 |
 
 > [!NOTE] 
@@ -253,6 +253,6 @@ As tabelas seguintes descrevem os campos para os dois tipos de troncos. Dependen
 - [Leia réplicas](concepts-read-replicas.md) replicam dados da Loja de Consultas a partir do servidor primário. Isto significa que a Loja de Consultas de uma réplica de uma réplica não fornece estatísticas sobre consultas executadas na réplica de leitura.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [cenários onde a Loja de Consultas pode ser especialmente útil.](concepts-query-store-scenarios.md)
 - Saiba mais sobre [as melhores práticas para a utilização da Loja de Consultas.](concepts-query-store-best-practices.md)

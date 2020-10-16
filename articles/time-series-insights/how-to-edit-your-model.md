@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18
 ms.openlocfilehash: cac4234d5bd93de8b059ea53a4697dae1bf5c64c
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91667884"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-gen2"></a>Modelação de dados em Azure Time Series Insights Gen2
@@ -167,7 +167,7 @@ Para começar, selecione a vista **modelo** a partir da vista do explorador Azur
 
 1. Confirme a eliminação selecionando **Delete**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre o Modelo série de tempo, leia [modelação de dados](./concepts-model-overview.md).
 

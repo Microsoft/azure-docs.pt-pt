@@ -14,10 +14,10 @@ ms.author: curtand
 ms.reviewer: kexia
 metadata ms.custom: contperfq1
 ms.openlocfilehash: 3d95ad4aa100b0a185bde015dfe34d747fc77ec9
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89322607"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Problemas comuns com a verificação de dois fatores e a conta escolar ou profissional
@@ -109,7 +109,7 @@ Passos opcionais:
 
 ## <a name="im-having-problems-signing-in-on-my-mobile-device-while-traveling"></a>Estou com problemas em iniciar sessão no meu dispositivo móvel enquanto viajava.
 
-Pode ser mais difícil utilizar um método de verificação relacionado com dispositivos móveis, como uma mensagem de texto, enquanto estiver num local internacional. Também é possível que o seu dispositivo móvel possa causar incorrer em taxas de roaming. Para esta situação, recomendamos que utilize a aplicação Microsoft Authenticator, com a opção de ligar a um hot spot Wi-Fi. Para obter mais informações sobre como configurar a aplicação Microsoft Authenticator no seu dispositivo móvel, consulte o Download e instale o artigo [da aplicação Microsoft Authenticator.](user-help-auth-app-download-install.md)
+Pode ser mais difícil utilizar um método de verificação relacionado com dispositivos móveis, como uma mensagem de texto, enquanto estiver num local internacional. Também é possível que o seu dispositivo móvel possa causar incorrer em taxas de roaming. Para esta situação, recomendamos que utilize a aplicação Microsoft Authenticator, com a opção de ligar a um Wi-Fi ponto quente. Para obter mais informações sobre como configurar a aplicação Microsoft Authenticator no seu dispositivo móvel, consulte o Download e instale o artigo [da aplicação Microsoft Authenticator.](user-help-auth-app-download-install.md)
 
 ## <a name="i-cant-get-my-app-passwords-to-work"></a>Não consigo que as minhas palavras-passe funcionem.
 

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/20/2020
 ms.openlocfilehash: 32ad92b333eda8cd429303177dba160f0b58af54
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91445539"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-to-understand-application-components"></a>Utilize a funcionalidade Mapa do Monitor Azure para VMs para entender os componentes da aplicação
@@ -132,7 +132,7 @@ O seletor **do Grupo** devolve subscrições, grupos de recursos, [grupos de com
 
 Por predefinição, o mapa mostra os últimos 30 minutos. Se quiser ver como as dependências pareciam no passado, pode consultar intervalos históricos de tempo de até uma hora. Para executar a consulta, utilize o seletor **TimeRange.** Você pode fazer uma consulta, por exemplo, durante um incidente ou para ver o estado antes de uma mudança.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para identificar estrangulamentos, verifique o desempenho e compreenda a utilização global dos seus VMs, consulte o estado de desempenho do [Azure Monitor para VMs](vminsights-performance.md). 
 

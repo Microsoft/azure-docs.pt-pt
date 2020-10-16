@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5d026cd94ba5e51b64a136359ffc76fb59efef2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84727913"
 ---
 # <a name="using-a-group-to-manage-access-to-saas-applications"></a>Utilizar um grupo para gerir o acesso a aplicações SaaS
@@ -39,7 +39,7 @@ Utilizando o Azure Ative Directory (Azure AD) com um plano de licença Azure AD 
 6. Selecione quantos grupos ou utilizadores quiser, clique em seguida, clique ou toque **Selecione** para adicioná-los à lista **de Atribuição de Adicionar.** Pode também atribuir uma função a um utilizador nesta fase.
 7. Selecione **Atribuir** para atribuir os utilizadores ou grupos à aplicação de empresa selecionada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Estes artigos fornecem informações adicionais acerca do Azure Active Directory.
 
 * [Gerir o acesso aos recursos com grupos do Azure Active Directory](../fundamentals/active-directory-manage-groups.md)

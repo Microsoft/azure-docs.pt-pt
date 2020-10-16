@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 6772150338dd0d172f2f100c2aa8cae7175b18d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd659ebd74b67a036c189cae763205e6b0371f7c
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051304"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058170"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Tutorial: Desenvolver uma aplicação web core MVC ASP.NET com a Azure Cosmos DB utilizando .NET SDK
 
@@ -214,19 +214,19 @@ Assim que completar estes passos, feche todos os *documentos cshtml* no Visual S
 
 ### <a name="declare-and-initialize-services"></a><a name="initialize-services"></a>Declarar e inicializar serviços
 
-Primeiro, vamos adicionar uma classe que contém a lógica para ligar e usar Azure Cosmos DB. Para este tutorial, vamos encapsular esta lógica numa classe chamada `CosmosDBService` e numa interface chamada `ICosmosDBService` . Este serviço faz as operações da CRUD. Também lê operações de feed, tais como listar itens incompletos, criar, editar e eliminar os itens.
+Primeiro, vamos adicionar uma classe que contém a lógica para ligar e usar Azure Cosmos DB. Para este tutorial, vamos encapsular esta lógica numa classe chamada `CosmosDbService` e numa interface chamada `ICosmosDbService` . Este serviço faz as operações da CRUD. Também lê operações de feed, tais como listar itens incompletos, criar, editar e eliminar os itens.
 
 1. No **Solution Explorer,** clique com o botão direito do seu projeto e selecione **Adicionar**  >  **Nova Pasta**. Nomeie os *Serviços de*pasta .
 
-1. Clique com o botão **Add**direito na pasta **Serviços,** selecione  >  **Add Class**. Nomeie a nova classe *CosmosDBService* e **selecione Add**.
+1. Clique com o botão **Add**direito na pasta **Serviços,** selecione  >  **Add Class**. Nomeie a nova classe *CosmosDbService* e **selecione Add**.
 
-1. Substitua o conteúdo da *CosmosDBService.cs* pelo seguinte código:
+1. Substitua o conteúdo da *CosmosDbService.cs* pelo seguinte código:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/CosmosDbService.cs":::
 
-1. Clique com o botão **Add**direito na pasta **Serviços,** selecione  >  **Add Class**. Nomeie a nova classe *ICosmosDBService* e selecione **Add**.
+1. Clique com o botão **Add**direito na pasta **Serviços,** selecione  >  **Add Class**. Nomeie a nova classe *ICosmosDbService* e selecione **Add**.
 
-1. Adicione o seguinte código à classe *ICosmosDBService:*
+1. Adicione o seguinte código à classe *ICosmosDbService:*
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/ICosmosDbService.cs":::
 

@@ -6,10 +6,10 @@ ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.topic: how-to
 ms.date: 08/02/2017
 ms.openlocfilehash: 717ad8bfaa9ddfcfa5775654408601ca13d3a636
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91282617"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Utilizar o Browser de Tarefas e o Visualizador de Tarefas do Azure Data Lake Analytics

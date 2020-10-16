@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 06/21/2018
 ms.author: allensu
 ms.openlocfilehash: d716b026159311c12341c30a8c32d5a9ecc6fa3f
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87432748"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Utilização de Azure CDN com SAS
@@ -58,7 +58,7 @@ Esta opção é a mais simples e utiliza um único token SAS, que é passado de 
 
 2. Depois de configurar o SAS na sua conta de armazenamento, tem de utilizar o token SAS com os URLs do servidor de ponta e origem cdN para aceder ao ficheiro. 
    
-   O URL de ponta CDN resultante tem o seguinte formato:`https://<endpoint hostname>.azureedge.net/<container>/<file>?sv=<SAS token>`
+   O URL de ponta CDN resultante tem o seguinte formato: `https://<endpoint hostname>.azureedge.net/<container>/<file>?sv=<SAS token>`
 
    Por exemplo:   
    ```
@@ -90,7 +90,7 @@ Esta opção está disponível apenas para **Azure CDN Premium a partir de** per
    ![Regra de reescrita de URL CDN - regra de ](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
     ![ reescrita de URL cdn esquerda - direita](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
-2. Após a nova regra ficar ativa, qualquer pessoa pode aceder a ficheiros no recipiente especificado no ponto final da CDN, independentemente de estarem a utilizar um token SAS no URL. Aqui está o formato:`https://<endpoint hostname>.azureedge.net/<container>/<file>`
+2. Após a nova regra ficar ativa, qualquer pessoa pode aceder a ficheiros no recipiente especificado no ponto final da CDN, independentemente de estarem a utilizar um token SAS no URL. Aqui está o formato: `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
    Por exemplo:   
    `https://sasstoragedemo.azureedge.net/container1/demo.jpg`
@@ -141,7 +141,7 @@ Como os parâmetros SAS não são visíveis para a Azure CDN, a Azure CDN não p
 | Endereços IP permitidos | Opcional. Se estiver a utilizar **o Azure CDN da Verizon,** pode definir este parâmetro para as gamas definidas no [Azure CDN a partir de Verizon Edge Server IP Ranges](/azure/cdn/cdn-pop-list-api). Se estiver a utilizar **o Azure CDN da Akamai,** não é possível definir o parâmetro de gama IP porque os endereços IP não são estáticos.|
 | Protocolos permitidos | O protocolo permitiu um pedido feito com a conta SAS. Recomenda-se a definição HTTPS.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a SAS, consulte os seguintes artigos:
 - [Utilizar assinaturas de acesso partilhado (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)

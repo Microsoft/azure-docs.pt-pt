@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/12/2018
 ms.author: allensu
 ms.openlocfilehash: 4154c6a1e739f935022271e7a101f39d3ee5c500
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84343025"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Cabeçalhos X-EC-Debug HTTP para motor de regras Azure CDN
@@ -70,7 +70,7 @@ O cabeçalho X-EC-Debug informa informações sobre o código de estado da cache
 Os termos utilizados na sintaxe do cabeçalho de resposta acima são definidos da seguinte forma:
 - StatusCode: Indica como o conteúdo solicitado foi tratado pelo CDN, que é representado através de um código de estado de cache.
     
-    O código de estado TCP_DENIED pode ser reportado em vez de NENHUM quando um pedido não autorizado é negado devido à Autenticação Baseada em Token. No entanto, o código de estado DES continuará a ser utilizado ao visualizar relatórios do Estado da Cache ou dados de registo bruto.
+    O código de estado TCP_DENIED pode ser reportado em vez de NENHUM quando um pedido não autorizado é negado devido a Token-Based Autenticação. No entanto, o código de estado DES continuará a ser utilizado ao visualizar relatórios do Estado da Cache ou dados de registo bruto.
 
 - Plataforma: Indica a plataforma na qual o conteúdo foi solicitado. Os seguintes códigos são válidos para este campo:
 
@@ -106,7 +106,7 @@ O termo utilizado na sintaxe do cabeçalho de resposta acima é definido da segu
 Valor  | Descrição
 -------| --------
 SIM    | Indica que o conteúdo solicitado era elegível para o caching.
-NO     | Indica que o conteúdo solicitado não era elegível para o caching. Este estatuto pode dever-se a uma das seguintes razões: <br /> - Configuração específica do cliente: Uma configuração específica da sua conta pode impedir que os servidores pop caching um ativo. Por exemplo, o Rules Engine pode impedir que um ativo seja cached, permitindo a funcionalidade Cache bypass para pedidos de qualificação.<br /> - Cabeçalhos de resposta cache: Os cabeçalhos cache-control e expira do ativo solicitado podem impedir que os servidores POP o cache.
+NO     | Indica que o conteúdo solicitado não era elegível para o caching. Este estatuto pode dever-se a uma das seguintes razões: <br /> - Customer-Specific Configuração: Uma configuração específica da sua conta pode impedir que os servidores pop caching um ativo. Por exemplo, o Rules Engine pode impedir que um ativo seja cached, permitindo a funcionalidade Cache bypass para pedidos de qualificação.<br /> - Cabeçalhos de resposta cache: Os cabeçalhos Cache-Control e expira do ativo solicitado podem impedir que os servidores POP o cache.
 DESCONHECIDO | Indica que os servidores não foram capazes de avaliar se o ativo solicitado era cacheable. Este estado ocorre normalmente quando o pedido é negado devido à autenticação baseada em fichas.
 
 ### <a name="sample-response-header"></a>Cabeçalho de resposta da amostra
@@ -115,7 +115,7 @@ O seguinte cabeçalho de resposta da amostra indica se o conteúdo solicitado po
 
 `X-EC-Debug: x-ec-check-cacheable: YES`
 
-## <a name="cache-key-response-header"></a>Cabeçalho de resposta cache-chave
+## <a name="cache-key-response-header"></a>cabeçalho de resposta Cache-Key
 O `X-EC-Debug: x-ec-cache-key` cabeçalho de resposta indica a cache-chave física associada ao conteúdo solicitado. Um cache-chave físico consiste num caminho que identifica um ativo para efeitos de cache. Por outras palavras, os servidores verificarão uma versão em cache de um ativo de acordo com o seu caminho, tal como definido pela sua cache-key.
 
 Esta cache-key física começa com um corte duplo para a frente (//) seguido pelo protocolo utilizado para solicitar o conteúdo (HTTP ou HTTPS). Este protocolo é seguido pelo caminho relativo para o ativo solicitado, que começa com o ponto de acesso ao conteúdo (por exemplo, _/000001/_).
@@ -147,7 +147,7 @@ O `X-EC-Debug` cabeçalho de resposta informa informações do estado de cache n
 
 Os termos utilizados na sintaxe do cabeçalho de resposta acima são definidos da seguinte forma:
 
-- MASeconds: Indica a idade máxima (em segundos) definida pelos cabeçalhos cache-control do conteúdo solicitado.
+- MASeconds: Indica a idade máxima (em segundos) definida pelos cabeçalhos Cache-Control do conteúdo solicitado.
 
 - MATimePeriod: Converte o valor da idade máxima (isto é, MASeconds) para o equivalente aproximado de uma unidade maior (por exemplo, dias). 
 

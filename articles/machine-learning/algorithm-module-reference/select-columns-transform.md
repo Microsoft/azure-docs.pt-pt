@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: b3a0b904d65e6597c058ccf05ec837696e9ca20e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/10/2020
+ms.openlocfilehash: 14f08502f35afdc8a9a2cdc741b539b5f9cca712
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893619"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945601"
 ---
 # <a name="select-columns-transform"></a>Selecionar Transformação de Colunas
 
@@ -46,13 +46,19 @@ Este cenário pressupõe que pretende utilizar a seleção de funcionalidades pa
 
    *Não ligue o conjunto de dados de entrada.* Em vez disso, adicione o módulo [De Transformação Aplicar](apply-transformation.md) e ligue a saída da transformação da seleção de recursos.
 
+   A estrutura do gasoduto deve ser a seguinte:
+
+   > [!div class="mx-imgBorder"]
+   > ![Gasoduto de amostra](media/module/filter-based-feature-selection-score.png)
+
    > [!IMPORTANT]
    > Não pode esperar aplicar a [Seleção de Recursos Baseados em Filtros](filter-based-feature-selection.md) no conjunto de dados de pontuação e obter os mesmos resultados. Como a seleção de recursos é baseada em valores, pode escolher um conjunto diferente de colunas, o que faria com que a operação de pontuação falhasse.
+    
 7. Envie o oleoduto.
 
 Este processo de poupança e, em seguida, aplicação de uma seleção de colunas garante que o mesmo esquema de dados está disponível para treino e pontuação.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

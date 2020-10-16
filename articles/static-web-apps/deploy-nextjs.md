@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
 ms.custom: devx-track-js
-ms.openlocfilehash: 554a7504e4e72eb2b2921c56e535343398cfa8b6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 835ee926de776b7a25295485d18ce25f883a2c5f
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333652"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951167"
 ---
 # <a name="deploy-server-rendered-nextjs-websites-on-azure-static-web-apps-preview"></a>Implementar sites de Next.js renderizados por servidores na pré-visualização de aplicações web estáticas do Azure
 
@@ -63,7 +63,7 @@ Navegue `http://localhost:3000` para abrir a app, onde deverá ver o seguinte si
 
 Ao clicar numa estrutura/biblioteca, deverá ver uma página de detalhes sobre o item selecionado:
 
-:::image type="content" source="media/deploy-nextjs/start-nextjs-details.png" alt-text="Página Detalhes":::
+:::image type="content" source="media/deploy-nextjs/start-nextjs-details.png" alt-text="Início Next.js app":::
 
 ## <a name="generate-a-static-website-from-nextjs-build"></a>Gere um site estático a partir de Next.js construir
 
@@ -73,7 +73,7 @@ Quando constrói um site Next.js `npm run build` utilizando, a aplicação é co
 
     ```javascript
     module.exports = {
-      exportTrailingSlash: true,
+      trailingSlash: true,
       exportPathMap: function() {
         return {
           '/': { page: '/' }
@@ -146,7 +146,7 @@ Os passos a seguir mostram como ligar a app que acabou de empurrar para GitHub p
 1. Na *Região,* escolha uma região mais próxima de si.
 1. Selecione **Free** a partir do drop-down SKU.
 
-   :::image type="content" source="media/deploy-nextjs/create-static-web-app.png" alt-text="Criar aplicativo web estático":::
+   :::image type="content" source="media/deploy-nextjs/create-static-web-app.png" alt-text="Início Next.js app":::
 
 ### <a name="add-a-github-repository"></a>Adicione um repositório GitHub
 
@@ -157,7 +157,7 @@ A nova conta Static Web Apps precisa de acesso ao repositório com a sua aplica�
 1. Encontre e selecione o nome do repositório que criou anteriormente.
 1. Escolha **o mestre** como ramo da queda do *Ramo.*
 
-   :::image type="content" source="media/deploy-nextjs/connect-github.png" alt-text="Ligar o GitHub":::
+   :::image type="content" source="media/deploy-nextjs/connect-github.png" alt-text="Início Next.js app":::
 
 ### <a name="configure-the-build-process"></a>Configure o processo de construção
 
@@ -165,7 +165,7 @@ A azure Static Web Apps é construído para realizar automaticamente tarefas com
 
 1. Clique no separador **'Construir'** para configurar a pasta de saída estática.
 
-   :::image type="content" source="media/deploy-nextjs/build-tab.png" alt-text="Construir separador":::
+   :::image type="content" source="media/deploy-nextjs/build-tab.png" alt-text="Início Next.js app":::
 
 2. Digite na caixa *de texto de localização do artefacto* da App. **out**
 
@@ -195,7 +195,7 @@ Volte ao terminal e executar o seguinte comando `git pull origin master` .
 
 Navegue para o site recém-implantado e clique num dos logótipos da estrutura ou da biblioteca. Em vez de obter uma página de detalhes, obtém uma página de erro 404.
 
-:::image type="content" source="media/deploy-nextjs/404-in-production.png" alt-text="404 em rotas dinâmicas":::
+:::image type="content" source="media/deploy-nextjs/404-in-production.png" alt-text="Início Next.js app":::
 
 A razão deste erro deve-se Next.js apenas gerou a página inicial com base na configuração da aplicação.
 
@@ -207,7 +207,7 @@ A razão deste erro deve-se Next.js apenas gerou a página inicial com base na c
    const data = require('./utils/projectsData');
 
    module.exports = {
-     exportTrailingSlash: true,
+     trailingSlash: true,
      exportPathMap: async function () {
        const { projects } = data;
        const paths = {
@@ -231,7 +231,7 @@ A razão deste erro deve-se Next.js apenas gerou a página inicial com base na c
 
 2. Empurre as novas alterações para o seu repositório GitHub e aguarde alguns minutos enquanto o GitHub Actions volta a construir o seu site. Após a construção estar concluída, o erro 404 desaparece.
 
-   :::image type="content" source="media/deploy-nextjs/404-in-production-fixed.png" alt-text="404 em rotas dinâmicas fixas":::
+   :::image type="content" source="media/deploy-nextjs/404-in-production-fixed.png" alt-text="Início Next.js app":::
 
 > [!div class="nextstepaction"]
 > [Configurar um domínio personalizado](custom-domain.md)

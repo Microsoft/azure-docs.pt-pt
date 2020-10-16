@@ -13,7 +13,7 @@ ms.openlocfilehash: 133b565bc54feaf49a2fec9dd0056ca8e7ef43f7
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91857729"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticação e autorização para âncoras espaciais Azure

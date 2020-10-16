@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/26/2020
 ms.author: apimpm
 ms.openlocfilehash: b560b02544eeb96167e68ed305d4d9942d2b1e0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82232977"
 ---
 # <a name="self-hosted-gateway-overview"></a>Descrição geral do gateway autoalojado
@@ -55,7 +55,7 @@ A seguinte funcionalidade encontrada nos gateways geridos não está **disponív
 - Renegociação do certificado de cliente. Isto significa que, para a [autenticação](api-management-howto-mutual-certificates-for-clients.md) do certificado de cliente para trabalhar, os consumidores de API devem apresentar os seus certificados como parte do aperto de mão TLS inicial. Para garantir isso, ative a definição do certificado de cliente de negociação ao configurar um nome de anfitrião personalizado de gateway auto-hospedado.
 - Cache embutido. Consulte este [documento](api-management-howto-cache-external.md) para saber sobre a utilização de cache externo em gateways auto-hospedados.
 
-## <a name="connectivity-to-azure"></a>Conectividade com Azure
+## <a name="connectivity-to-azure"></a>Conectividade ao Azure
 
 Gateways auto-hospedados requerem conectividade TCP/IP de saída para Azure na porta 443. Cada gateway auto-hospedado deve ser associado a um único serviço de Gestão API e é configurado através do seu plano de gestão. Gateway auto-hospedado usa conectividade para Azure para:
 

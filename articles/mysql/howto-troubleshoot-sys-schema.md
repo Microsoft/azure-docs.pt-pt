@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/30/2020
 ms.openlocfilehash: 62a34a2dba459c6f65729cd5c6804378ee7f8b52
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90902778"
 ---
 # <a name="how-to-use-sys_schema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Como utilizar sys_schema para afinação de desempenho e manutenção de bases de dados em Azure Database for MySQL
@@ -37,23 +37,23 @@ Agora vamos olhar para alguns padrões de uso comuns da sys_schema. Para começa
 
 IO é a operação mais cara na base de dados. Podemos descobrir a latência média da IO consultando a *visão sys.user_summary_by_file_io.* Com o padrão de 125 GB de armazenamento a provisionado, a minha latência IO é de cerca de 15 segundos.
 
-:::image type="content" source="./media/howto-troubleshoot-sys-schema/io-latency-125GB.png" alt-text="io latência: 125 GB":::
+:::image type="content" source="./media/howto-troubleshoot-sys-schema/io-latency-125GB.png" alt-text="pontos de vista sobre sys_schema":::
 
 Como a Base de Dados Azure para o MySQL escala IO no que diz respeito ao armazenamento, depois de aumentar o meu armazenamento a provisionado para 1 TB, a minha latência IO reduz para 571 ms.
 
-:::image type="content" source="./media/howto-troubleshoot-sys-schema/io-latency-1TB.png" alt-text="io latência: 1TB":::
+:::image type="content" source="./media/howto-troubleshoot-sys-schema/io-latency-1TB.png" alt-text="pontos de vista sobre sys_schema":::
 
 ### <a name="sysschema_tables_with_full_table_scans"></a>*sys.schema_tables_with_full_table_scans*
 
 Apesar de um planeamento cuidadoso, muitas consultas ainda podem resultar em exames de mesa completos. Para obter informações adicionais sobre os tipos de índices e como otimizá-los, pode consultar este artigo: [Como resolver problemas](./howto-troubleshoot-query-performance.md)no desempenho da consulta . As tomografias completas são intensivas em recursos e degradam o desempenho da sua base de dados. A maneira mais rápida de encontrar mesas com a tomografia completa é consultar a vista *sys.schema_tables_with_full_table_scans.*
 
-:::image type="content" source="./media/howto-troubleshoot-sys-schema/full-table-scans.png" alt-text="tomografias de mesa completas":::
+:::image type="content" source="./media/howto-troubleshoot-sys-schema/full-table-scans.png" alt-text="pontos de vista sobre sys_schema":::
 
 ### <a name="sysuser_summary_by_statement_type"></a>*sys.user_summary_by_statement_type*
 
 Para resolver problemas de desempenho na base de dados, pode ser benéfico identificar os eventos que ocorram dentro da sua base de dados, e usar a vista *sys.user_summary_by_statement_type* pode apenas fazer o truque.
 
-:::image type="content" source="./media/howto-troubleshoot-sys-schema/summary-by-statement.png" alt-text="resumo por declaração":::
+:::image type="content" source="./media/howto-troubleshoot-sys-schema/summary-by-statement.png" alt-text="pontos de vista sobre sys_schema":::
 
 Neste exemplo, a Azure Database for MySQL passou 53 minutos a lavar o registo de consulta slog 44579 vezes. É muito tempo e muitos iOs. Pode reduzir esta atividade desativar o seu registo de consulta lenta ou diminuir a frequência do portal Azure de login de consulta lenta.
 
@@ -66,7 +66,7 @@ Neste exemplo, a Azure Database for MySQL passou 53 minutos a lavar o registo de
 
 A piscina tampão InnoDB reside na memória e é o principal mecanismo de cache entre o DBMS e o armazenamento. O tamanho do conjunto de tampão InnoDB está ligado ao nível de desempenho e não pode ser alterado a menos que seja escolhido um produto diferente SKU. Tal como acontece com a memória no seu sistema operativo, as páginas antigas são trocadas para dar espaço a dados mais frescos. Para saber quais as tabelas que consomem a maior parte da memória do buffer pool InnoDB, pode consultar a *vista sys.innodb_buffer_stats_by_table.*
 
-:::image type="content" source="./media/howto-troubleshoot-sys-schema/innodb-buffer-status.png" alt-text="Estado do tampão InnoDB":::
+:::image type="content" source="./media/howto-troubleshoot-sys-schema/innodb-buffer-status.png" alt-text="pontos de vista sobre sys_schema":::
 
 No gráfico acima, é evidente que, para além das tabelas e vistas do sistema, cada tabela na base de dados mysqldatabase033, que acolhe um dos meus sites WordPress, ocupa 16 KB, ou 1 página, de dados na memória.
 
@@ -74,9 +74,9 @@ No gráfico acima, é evidente que, para além das tabelas e vistas do sistema, 
 
 Os índices são ótimas ferramentas para melhorar o desempenho da leitura, mas incorrem em custos adicionais para inserções e armazenamento. *Sys.schema_unused_indexes* e *sys.schema_redundant_indexes* fornecer informações sobre índices não reutilizados ou duplicados.
 
-:::image type="content" source="./media/howto-troubleshoot-sys-schema/unused-indexes.png" alt-text="índices não reutilizados":::
+:::image type="content" source="./media/howto-troubleshoot-sys-schema/unused-indexes.png" alt-text="pontos de vista sobre sys_schema":::
 
-:::image type="content" source="./media/howto-troubleshoot-sys-schema/redundant-indexes.png" alt-text="índices redundantes":::
+:::image type="content" source="./media/howto-troubleshoot-sys-schema/redundant-indexes.png" alt-text="pontos de vista sobre sys_schema":::
 
 ## <a name="conclusion"></a>Conclusão
 

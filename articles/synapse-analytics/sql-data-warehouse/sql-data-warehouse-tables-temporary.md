@@ -11,10 +11,10 @@ ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 61cc351470c0446b58d83d2d7f9c998d959c3649
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85414407"
 ---
 # <a name="temporary-tables-in-synapse-sql-pool"></a>Mesas temporárias na piscina Synapse SQL
@@ -98,7 +98,7 @@ GROUP BY
 ```
 
 > [!NOTE]
-> `CTAS`é um comando poderoso e tem a vantagem adicional de ser eficiente na sua utilização do espaço de log de transações. 
+> `CTAS` é um comando poderoso e tem a vantagem adicional de ser eficiente na sua utilização do espaço de log de transações. 
 > 
 > 
 
@@ -231,7 +231,7 @@ A piscina SQL impõe algumas limitações na implementação de tabelas temporá
 
 Além disso, as vistas não podem ser criadas em mesas temporárias.  As tabelas temporárias só podem ser criadas com distribuição de haxixe ou rodapé redondo.  A distribuição de mesa temporária replicada não é suportada. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o desenvolvimento de tabelas, consulte as tabelas de Design utilizando o artigo [de recursos Synapse SQL.](sql-data-warehouse-tables-overview.md)
 

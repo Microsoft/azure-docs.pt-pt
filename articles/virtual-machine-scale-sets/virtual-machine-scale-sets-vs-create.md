@@ -10,10 +10,10 @@ ms.date: 09/09/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: 2db281f1b3278e37deca8486971a7f7a83f85ccf
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86503086"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Como criar um conjunto de escala de máquina virtual com estúdio visual
@@ -34,7 +34,7 @@ Para começar a implantar conjuntos de escala de máquina virtual no Estúdio Vi
 >[!NOTE]
 >Este artigo utiliza o Visual Studio 2019 com [a Azure SDK 2.8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/).
 
-## <a name="create-a-project"></a>Criar um Projeto<a name="creating-a-project"></a> 
+## <a name="create-a-project"></a>Criar um Projeto <a name="creating-a-project"></a> 
 
 1. Abra o Estúdio Visual e selecione **Criar um novo projeto.**
 
@@ -82,7 +82,7 @@ Implemente o modelo do Gestor de Recursos Azure para criar o recurso Conjunto de
 
    ![A saída mostra resultados](media/virtual-machine-scale-sets-vs-create/deployment-output.png)
 
-## <a name="explore-your-virtual-machine-scale-set"></a>Explore o seu conjunto de escala de máquina virtual<a name="exploring-your-virtual-machine-scale-set"></a>
+## <a name="explore-your-virtual-machine-scale-set"></a>Explore o seu conjunto de escala de máquina virtual <a name="exploring-your-virtual-machine-scale-set"></a>
 
 Selecione **Ver**  >  **Cloud Explorer** para ver o novo Conjunto de Escala de Máquina Virtual. Utilize **Refresh All**, se necessário.
 
@@ -92,6 +92,6 @@ Selecione **Ver**  >  **Cloud Explorer** para ver o novo Conjunto de Escala de M
 
  O portal fornece a melhor maneira de gerir a sua infraestrutura Azure com um navegador web. O Azure Resource Explorer fornece uma maneira fácil de explorar e depurar recursos Azure. O Azure Resource Explorer oferece a visualização de exemplo e também mostra comandos PowerShell para os recursos que está a ver.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Uma vez implementado com sucesso os Conjuntos de Escala de Máquina Virtual através do Visual Studio, poderá personalizar ainda mais o seu projeto de acordo com os seus requisitos de aplicação. Por exemplo, configurar a autoescala adicionando um recurso **Insights.** Pode adicionar infraestruturas ao seu modelo, como máquinas virtuais autónomas, ou implementar aplicações usando a extensão de script personalizada. Bons modelos de exemplo podem ser encontrados no [repositório GitHub dos Modelos De Quickstart Azure.](https://github.com/Azure/azure-quickstart-templates) Procurar `vmss`.

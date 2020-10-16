@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: d68e5335fff0341d8808e581061519977e1bb517
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 905ca5fd92a09b209bf099bfac0862132ec679a4
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543283"
+ms.locfileid: "91875601"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sectigo-certificate-manager"></a>Tutorial: Integração do Diretório Ativo Azure com o Gestor de Certificados sectigo
 
-Neste tutorial, aprende-se a integrar o Sectigo Certificate Manager com o Azure Ative Directory (Azure AD).
+Neste tutorial, aprende-se a integrar o Sectigo Certificate Manager (também chamado SCM) com o Azure Ative Directory (Azure AD).
 
 Integrar o Sectigo Certificate Manager com a Azure AD dá-lhe os seguintes benefícios:
 
@@ -35,7 +35,10 @@ Para obter mais informações sobre software como integração de aplicações d
 Para configurar a integração AZure AD com o Sectigo Certificate Manager, precisa dos seguintes itens:
 
 * Uma assinatura AD Azure. Se não tiver uma subscrição AD Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-* Assinatura do Sectigo Certificate Manager com um único sinal ativado.
+* Conta de Sectigo Certificate Manager.
+
+> [!NOTE]
+> Sectigo executa várias instâncias de Sectigo Certificate Manager. O principal exemplo de Sectigo Certificate Manager é  **https: \/ /cert-manager.com**, e este URL é usado neste tutorial.  Se a sua conta estiver num caso diferente, deve ajustar os URLs em conformidade.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -99,47 +102,45 @@ Nesta secção, configurar o Azure AD com o Sectigo Certificate Manager no porta
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
-1. No painel **de configuração básico do SAML,** para configurar o *modo iniciado pelo IDP,* complete os seguintes passos:
+1. Na secção **de Configuração Básica SAML** completam os seguintes passos:
 
-    1. Na caixa **do identificador,** insira um destes URLs:
-       * https: \/ /cert-manager.com/shibboleth
-       * https: \/ /hard.cert-manager.com/shibboleth
+    1. Na caixa **identifier (Entity ID),** para a instância principal do Gestor de Certificados de Sectigo, **insira https: \/ /cert-manager.com/shibboleth**.
 
-    1. Na caixa **URL de resposta,** insira um destes URLs:
-        * https: \/ /cert-manager.com/Shibboleth.sso/SAML2/POST
-        * https: \/ /hard.cert-manager.com/Shibboleth.sso/SAML2/POST
+    1. Na caixa **URL de resposta,** para a instância principal do Gestor de Certificados de Sectigo, **insira https: \/ /cert-manager.com/Shibboleth.sso/SAML2/POST**.
+        
+    > [!NOTE]
+    > Embora, em geral, o **URL de inscrição** seja obrigatório para *o modo iniciado pelo SP,* não é necessário fazer login no Sectigo Certificate Manager.        
+
+1. Opcionalmente, na secção **de Configuração Básica SAML,** para configurar o *modo iniciado pelo IDP* e permitir o trabalho do **Teste,** completar os seguintes passos:
 
     1. Selecione **Definir URLs adicionais**.
 
-    1. Na caixa **de Retransmissão do Estado,** insira um destes URLs:
-       * https: \/ /cert-manager.com/customer/SSLSupport/idp
-       * https: \/ /hard.cert-manager.com/customer/SSLSupport/idp
+    1. Na caixa **'Retransmissão State',** insira o URL específico do cliente do Sectigo Certificate Manager. Para a instância principal do Gestor de Certificados de Sectigo, **insira https: \/ /cert-manager.com/customer/ \<customerURI\> /idp**.
 
     ![Sectigo Certificate Manager domínio e URLs informações únicas de inscrição](common/idp-relay.png)
 
-1.  Para configurar a aplicação no *modo iniciado pelo SP,* complete os seguintes passos:
+1. Na secção **Atributos & Reclamações** do Utilizador, complete os seguintes passos:
 
-    * Na **caixa de sinalização na** url, insira um destes URLs:
-      * https: \/ /cert-manager.com/Shibboleth.sso/Login
-      * https: \/ /hard.cert-manager.com/Shibboleth.sso/Login
+    1. Eliminar todas as **reclamações adicionais.**
+    
+    1. **Selecione Adicionar nova reclamação** e adicionar as seguintes quatro reclamações:
+    
+        | Name | Espaço de Nomes | Origem | Atributo de origem | Descrição |
+        | --- | --- | --- | --- | --- |
+        | nome eduPersonPrincipal | vazio | Atributo | user.userprincipalname | Deve coincidir com o campo **IdP Person ID** em Sectigo Certificate Manager para Administrações. |
+        | correio | vazio | Atributo | user.mail | Necessário |
+        | nomeDado | vazio | Atributo | user.givenname | Opcional |
+        | sn | vazio | Atributo | utilizador.sobrenome | Opcional |
 
-      ![Sectigo Certificate Manager domínio e URLs informações únicas de inscrição](common/both-signonurl.png)
+       ![Sectigo Certificate Manager - Adicione quatro novas reclamações](media/sectigo-certificate-manager-tutorial/additional-claims.png)
 
-1. Na **configuração single Sign-On com painel SAML,** na secção certificado de assinatura **SAML,** selecione **Download** ao lado do **Certificado (Base64)**. Selecione uma opção de descarregamento com base nos seus requisitos. Guarde o certificado no seu computador.
+1. Na secção **certificado de assinatura SAML,** selecione **Descarregue** ao lado **do Metadados da Federação XML**. Guarde o ficheiro XML no seu computador.
 
-    ![A opção de descarregamento do Certificado (Base64)](common/certificatebase64.png)
-
-1. Na secção **'set up Sectigo Certificate Manager',** copie os seguintes URLs com base nos seus requisitos:
-
-    * URL de Inicio de Sessão
-    * Identificador de Azure Ad
-    * Logout URL
-
-    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+    ![A opção de descarregamento de metadados XML da Federação](common/metadataxml.png)
 
 ### <a name="configure-sectigo-certificate-manager-single-sign-on"></a>Configure Sectigo Certificate Manager único sign-on
 
-Para configurar um único sinal no lado do Gestor de Certificados de Sectigo, envie o ficheiro certificado descarregado (Base64) e os URLs relevantes que copiou do portal Azure para a equipa de suporte do [Sectigo Certificate Manager](https://sectigo.com/support). A equipa de apoio do Sectigo Certificate Manager utiliza as informações que lhes envia para garantir que a ligação de sinalização única SAML seja corretamente definida em ambos os lados.
+Para configurar um único sinal no lado do Gestor de Certificados de Sectigo, envie o ficheiro XML da Federação descarregada para a equipa de suporte do [Sectigo Certificate Manager](https://sectigo.com/support). A equipa de apoio do Sectigo Certificate Manager utiliza as informações que lhes envia para garantir que a ligação de sinalização única SAML seja corretamente definida em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 
@@ -159,7 +160,7 @@ Nesta secção, cria-se um utilizador de teste chamado Britta Simon no portal Az
   
     1. Na caixa **do nome do utilizador,** **introduza brittasimon \@ \<your-company-domain> . \<extension\> ** Por exemplo, ** \@ brittasimon contoso.com**.
 
-    1. Selecione a caixa **de verificação de senha show.** Anota o valor que é apresentado na **caixa de palavra-passe.**
+    1. Selecione a caixa **de verificação de senha show.** Grave o valor que é apresentado na **caixa de palavra-passe.**
 
     1. Selecione **Criar**.
 
@@ -167,7 +168,7 @@ Nesta secção, cria-se um utilizador de teste chamado Britta Simon no portal Az
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
-Nesta secção, você concede a Britta Simon acesso ao Sectigo Certificate Manager para que ela possa usar a Azure single sign-on.
+Nesta secção, você concede a Britta Simon acesso ao Sectigo Certificate Manager para que o utilizador possa usar a Azure um único sinal de inscrição.
 
 1. No portal Azure, selecione **aplicações Enterprise**  >  **Todas as aplicações**  >  **Sectigo Certificate Manager**.
 
@@ -197,9 +198,19 @@ Nesta secção, cria-se um utilizador chamado Britta Simon em Sectigo Certificat
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
-Nesta secção, testa a configuração de um único sinal de Azure AD utilizando o portal My Apps.
+Nesta secção, testa a configuração de um único sinal de inscrição Azure.
 
-Depois de configurar um único s-on, quando selecionar **o Sectigo Certificate Manager** no portal My Apps, é automaticamente inscrito no Sectigo Certificate Manager. Para obter mais informações sobre o portal My Apps, consulte [o Access e utilize aplicações no portal My Apps.](../user-help/my-apps-portal-end-user-access.md)
+#### <a name="test-from-sectigo-certificate-manager-sp-initiated-single-sign-on"></a>Teste do Gestor de Certificados de Sectigo (santil-on único iniciado pelo SP)
+
+Navegue pelo URL específico do cliente (para a instância principal do Gestor de Certificados de Sectigo, https: \/ /cert-manager.com/customer/ \<customerURI\> /, e selecione o botão abaixo **ou inscreva-se com**.  Se configurar corretamente, será automaticamente inscrito no Sectigo Certificate Manager.
+
+#### <a name="test-from-azure-single-sign-on-configuration-idp-initiated-single-sign-on"></a>Teste a partir da configuração de um único sinal de Azure (sinal único iniciado pelo IDP)
+
+No painel de integração da aplicação **Sectigo Certificate Manager,** selecione **single sign-on** e selecione o botão **De teste.**  Se configurar corretamente, será automaticamente inscrito no Sectigo Certificate Manager.
+
+#### <a name="test-by-using-the-my-apps-portal-idp-initiated-single-sign-on"></a>Teste utilizando o portal My Apps (iniciação única iniciada pelo IDP)
+
+Selecione **Sectigo Certificate Manager** no portal My Apps.  Se configurar corretamente, será automaticamente inscrito no Sectigo Certificate Manager. Para obter mais informações sobre o portal My Apps, consulte [o Access e utilize aplicações no portal My Apps.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

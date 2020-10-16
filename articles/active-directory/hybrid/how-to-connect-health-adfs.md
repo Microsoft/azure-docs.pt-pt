@@ -19,10 +19,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 26fdf202cb9bcacee94c83578432f7a399f90a0c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91306281"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Monitorizar o AD FS utilizando o Azure AD Connect Health
@@ -108,7 +108,7 @@ O gráfico fornece as seguintes informações:
 
 O relatório disponibiliza as seguintes informações:
 
-| Item de Relatório | Description |
+| Item de Relatório | Descrição |
 | --- | --- |
 | ID de Utilizador |Mostra o ID de utilizador que foi utilizado. Este valor é o que o utilizador escreveu, que, em alguns casos, é o ID errado que está a ser utilizado. |
 | Tentativas Falhadas |Mostra o n.º total de tentativas falhadas para esse ID de utilizador específico. A tabela está ordenada por ordem descendente do maior número de tentativas falhadas. |

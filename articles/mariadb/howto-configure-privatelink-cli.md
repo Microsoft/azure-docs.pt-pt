@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: a8f94c34281adbe274ad70425850e2ade4dc94ea
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87833234"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>Criar e gerir o Link Privado para Azure Database para MariaDB utilizando o CLI
@@ -133,7 +133,7 @@ az network private-dns record-set a add-record --record-set-name mydemoserver --
 
 Ligue-se ao *myVm VM* da internet da seguinte forma:
 
-1. Na barra de pesquisa do portal, insira *o myVm*.
+1. Na barra de pesquisa do portal, introduza *myVm*.
 
 1. Selecione o botão **Ligar**. Depois de selecionar o botão **Ligar,** **o Connect à máquina virtual** abre-se.
 
@@ -150,7 +150,7 @@ Ligue-se ao *myVm VM* da internet da seguinte forma:
 
 1. Selecione **OK**.
 
-1. Poderá receber um aviso de certificado durante o processo de início de sessão. Se receber um aviso de certificado, selecione **Sim** ou **Continue**.
+1. Poderá receber um aviso de certificado durante o processo de início de sessão. Se recebeu um aviso de certificado, selecione **Sim** ou **Continuar**.
 
 1. Assim que o ambiente de trabalho em VM aparecer, minimize-o para voltar ao seu ambiente de trabalho local.  
 
@@ -160,7 +160,7 @@ Ligue-se ao *myVm VM* da internet da seguinte forma:
 
 2. Introduza  `nslookup mydemoserver.privatelink.mariadb.database.azure.com`. 
 
-    Receberá uma mensagem semelhante a esta:
+    Irá receber uma mensagem semelhante a esta:
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
@@ -176,7 +176,7 @@ Ligue-se ao *myVm VM* da internet da seguinte forma:
     | Definição | Valor |
     | ------- | ----- |
     | Nome da Ligação| Selecione o nome de ligação da sua escolha.|
-    | Nome de anfitrião | Selecione *mydemoserver.privatelink.mariadb.database.azure.com* |
+    | Hostname (Nome do anfitrião) | Selecione *mydemoserver.privatelink.mariadb.database.azure.com* |
     | Nome de utilizador | Insira o nome de utilizador como *username@servername* o fornecido durante a criação do servidor MariaDB. |
     | Palavra-passe | Introduza uma palavra-passe fornecida durante a criação do servidor MariaDB. |
     ||

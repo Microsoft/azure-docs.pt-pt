@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
 ms.openlocfilehash: b72f1fd64cca0fa77ebc486670a512c5228e1146
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541480"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publique a sua app ativa e treinada para um ponto final de encenação ou produção
@@ -88,7 +88,7 @@ As correções à ortografia são feitas antes da previsão da expressão do uti
 
 O priming da fala é o processo de utilização do envio do modelo LUIS aos serviços de fala antes da conversão do texto para a fala. Isto permite que o serviço de fala forneça conversão de fala com mais precisão para o seu modelo. Isto permite que os pedidos e respostas do bot Speech e LUIS numa chamada, fazendo uma chamada de discurso e recebendo de volta uma resposta LUIS. Proporciona menos latência em geral.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Consulte [As teclas](./luis-how-to-azure-subscription.md) de gestão para adicionar teclas à chave de subscrição Azure ao LUIS e como definir a tecla Bing Spell Check e incluir todas as intenções nos resultados.
 * Consulte [Train e teste a sua aplicação](luis-interactive-test.md) para obter instruções sobre como testar a sua aplicação publicada na consola de teste.

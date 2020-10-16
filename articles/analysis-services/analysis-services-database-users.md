@@ -8,12 +8,12 @@ ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 8ccd9120937148043590d30232acd6b556b09dc6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 56f98d41fc73cdd2be0923de66a5af09c875a050
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015277"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013598"
 ---
 # <a name="manage-database-roles-and-users"></a>Gerir funções de base de dados e utilizadores
 
@@ -26,7 +26,7 @@ As permissões de funções incluem:
 *  **Processo** - Os utilizadores podem ligar e executar operações de processo na base de dados e analisar dados de bases de dados de modelos.
 *  **Ler** - Os utilizadores podem utilizar uma aplicação do cliente para ligar e analisar dados de bases de dados de modelos.
 
-Ao criar um projeto de modelo tabular, cria funções e adiciona utilizadores ou grupos a essas funções utilizando role manager em projetos de Estúdio Visual com Serviços de Análise. Quando implementado num servidor, utilize o SQL Server Management Studio (SSMS), [os serviços de análise PowerShell cmdlets](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)ou [o Language scripting do modelo tabular](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (TMSL) para adicionar ou remover funções e membros do utilizador.
+Ao criar um projeto de modelo tabular, cria funções e adiciona utilizadores ou grupos a essas funções utilizando role manager em projetos de Estúdio Visual com Serviços de Análise. Quando implementado num servidor, utilize o SQL Server Management Studio (SSMS), [os serviços de análise PowerShell cmdlets](/analysis-services/powershell/analysis-services-powershell-reference)ou [o Language scripting do modelo tabular](/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (TMSL) para adicionar ou remover funções e membros do utilizador.
 
 Ao adicionar um **grupo de segurança,** utilize `obj:groupid@tenantid` .
 
@@ -42,7 +42,7 @@ Ao adicionar um **grupo de segurança,** utilize `obj:groupid@tenantid` .
   
 4.  Selecione uma das seguintes permissões:  
   
-    |Permissão|Descrição|  
+    |Permissão|Description|  
     |----------------|-----------------|  
     |**Nenhuma**|Os membros não podem ler ou modificar o esquema do modelo e não podem consultar dados.|  
     |**Ler**|Os membros podem consultar dados (com base em filtros de linha) mas não podem modificar o esquema do modelo.|  
@@ -71,7 +71,7 @@ Para adicionar funções e utilizadores a uma base de dados de modelos implement
 
 3. Selecione uma permissão.
 
-   |Permissão|Descrição|  
+   |Permissão|Description|  
    |----------------|-----------------|  
    |**Controlo total (Administrador)**|Os membros podem modificar o esquema do modelo, processar e consultar todos os dados.| 
    |**Process database**|Os membros podem executar Processo e Processo Todas as operações. Não é possível modificar o esquema do modelo e não pode consultar dados.|  
@@ -85,7 +85,7 @@ Para adicionar funções e utilizadores a uma base de dados de modelos implement
 
 ## <a name="to-add-roles-and-users-by-using-a-tmsl-script"></a>Para adicionar funções e utilizadores utilizando um script TMSL
 
-Pode executar um script TMSL na janela XMLA em SSMS ou utilizando o PowerShell. Utilize o comando [CreateOrReplace](https://docs.microsoft.com/analysis-services/tmsl/createorreplace-command-tmsl) e o objeto [Roles.](https://docs.microsoft.com/analysis-services/tmsl/roles-object-tmsl)
+Pode executar um script TMSL na janela XMLA em SSMS ou utilizando o PowerShell. Utilize o comando [CreateOrReplace](/analysis-services/tmsl/createorreplace-command-tmsl) e o objeto [Roles.](/analysis-services/tmsl/roles-object-tmsl)
 
 **Guião TMSL de amostra**
 
@@ -119,13 +119,13 @@ Nesta amostra, um utilizador externo B2B e um grupo são adicionados à função
 
 ## <a name="to-add-roles-and-users-by-using-powershell"></a>Adicionar funções e utilizadores utilizando o PowerShell
 
-O módulo [SqlServer](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) fornece cmdlets de gestão de bases de dados específicos de tarefas e o cmdlet Invoke-ASCmd de propósito geral que aceita uma consulta ou script de script de script de modelo tabular (TMSL). Os cmdlets seguintes são utilizados para gerir funções de base de dados e utilizadores.
+O módulo [SqlServer](/analysis-services/powershell/analysis-services-powershell-reference) fornece cmdlets de gestão de bases de dados específicos de tarefas e o cmdlet de Invoke-ASCmd de uso geral que aceita uma consulta ou script de Script de Script de Modelo Tabular (TMSL). Os cmdlets seguintes são utilizados para gerir funções de base de dados e utilizadores.
   
 |Cmdlet|Descrição|
 |------------|-----------------| 
-|[Membro do Add-Role](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Adicione um membro a uma função de base de dados.| 
-|[Membro de remoção de rolemember](https://docs.microsoft.com/powershell/module/sqlserver/remove-rolemember)|Remova um membro de uma função de base de dados.|   
-|[Invocar-ASCmd](https://docs.microsoft.com/powershell/module/sqlserver/invoke-ascmd)|Execute um script TMSL.|
+|[Membro do Add-Role](/powershell/module/sqlserver/Add-RoleMember)|Adicione um membro a uma função de base de dados.| 
+|[Membro de remoção de rolemember](/powershell/module/sqlserver/remove-rolemember)|Remova um membro de uma função de base de dados.|   
+|[Invocar-ASCmd](/powershell/module/sqlserver/invoke-ascmd)|Execute um script TMSL.|
 
 ## <a name="row-filters"></a>Filtros de linha  
 
@@ -151,5 +151,4 @@ Os filtros de linha aplicam-se às linhas especificadas e linhas relacionadas. Q
 
   [Gerir administradores de servidores](analysis-services-server-admins.md)   
   [Gerir o Azure Analysis Services com o PowerShell](analysis-services-powershell.md)  
-  [Referência da linguagem de script do modelo tabular (TMSL)](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference)
-
+  [Referência da linguagem de script do modelo tabular (TMSL)](/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference)

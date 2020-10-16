@@ -3,12 +3,12 @@ title: Analise o vídeo ao vivo com o Live Video Analytics no IoT Edge e Azure C
 description: Aprenda a usar a Visão Personalizada para construir um modelo contentorizado que possa detetar um caminhão de brinquedo e usar a capacidade de extensibilidade de IA do Live Video Analytics no IoT Edge (LVA) para implantar o modelo na borda para detetar camiões de brinquedos a partir de um stream de vídeo ao vivo.
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 5da3186e64dd369dc57a0d5d1b635fc082158765
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: e77521765156a13f0675602ffd0b39f78d8957bb
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91804151"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016796"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Tutorial: Analise vídeo ao vivo com vídeo ao vivo analíticos em IoT Edge e Azure Custom Vision
 
@@ -32,12 +32,12 @@ Este tutorial mostra-lhe como:
 Recomenda-se que leia os seguintes artigos antes de começar: 
 
 * [Análise de vídeo ao vivo na visão geral do IoT Edge](overview.md)
-* [Visão Personalizada Azure](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/home)
+* [Visão Personalizada Azure](../../cognitive-services/custom-vision-service/overview.md)
 * [Análise de vídeo ao vivo na terminologia IoT Edge](terminology.md)
 * [Conceitos de gráficos de mídia](media-graph-concept.md)
 * [Live Video Analytics sem gravação de vídeo](analyze-live-video-concept.md)
 * [Executando vídeo ao vivo analytics com o seu próprio modelo](use-your-model-quickstart.md)
-* [Tutorial: Desenvolvimento de um módulo IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-develop-for-linux)
+* [Tutorial: Desenvolvimento de um módulo IoT Edge](../../iot-edge/tutorial-develop-for-linux.md)
 * [Como editar a implementação.*.template.jsem](https://github.com/microsoft/vscode-azure-iot-edge/wiki/How-to-edit-deployment.*.template.json)
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -56,25 +56,25 @@ Os pré-requisitos para este tutorial são:
 
 ## <a name="review-the-sample-video"></a>Reveja o vídeo da amostra
 
-Este tutorial usa um ficheiro [de vídeo de inferência de carro de brinquedo](https://lvamedia.blob.core.windows.net/public/t2.mkv/) para simular um fluxo ao vivo. Pode examinar o vídeo através de uma aplicação como o [leitor de mídia VLC](https://www.videolan.org/vlc/). Selecione Ctrl+N e, em seguida, cole um link para o [vídeo de inferência](https://lvamedia.blob.core.windows.net/public/t2.mkv) do carro de brinquedo para iniciar a reprodução. Ao ver o vídeo nota que no marcador de 36 segundos aparece um caminhão de brinquedo no vídeo. O modelo personalizado foi treinado para detetar este caminhão de brinquedo específico. Neste tutorial, você usará live video analytics no IoT Edge para detetar tais caminhões de brinquedo e publicar eventos de inferência associados ao IoT Edge Hub.
+Este tutorial usa um ficheiro [de vídeo de inferência de carro de brinquedo](https://lvamedia.blob.core.windows.net/public/t2.mkv) para simular um fluxo ao vivo. Pode examinar o vídeo através de uma aplicação como o [leitor de mídia VLC](https://www.videolan.org/vlc/). Selecione Ctrl+N e, em seguida, cole um link para o [vídeo de inferência](https://lvamedia.blob.core.windows.net/public/t2.mkv) do carro de brinquedo para iniciar a reprodução. Ao ver o vídeo nota que no marcador de 36 segundos aparece um caminhão de brinquedo no vídeo. O modelo personalizado foi treinado para detetar este caminhão de brinquedo específico. Neste tutorial, você usará live video analytics no IoT Edge para detetar tais caminhões de brinquedo e publicar eventos de inferência associados ao IoT Edge Hub.
 
 ## <a name="overview"></a>Descrição geral
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/custom-vision-tutorial/topology-custom-vision.svg" alt-text="Visão personalizada":::
 
-Este diagrama mostra como os sinais fluem neste tutorial. Um [módulo de borda](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simula uma câmara IP que hospeda um servidor de Protocolo de Streaming em Tempo Real (RTSP). Um nó [de origem RTSP](media-graph-concept.md#rtsp-source) puxa o feed de vídeo deste servidor e envia quadros de vídeo para o nó do [processador do processador da taxa de fotogramas.](media-graph-concept.md#frame-rate-filter-processor) Este processador limita a taxa de fotogramas do fluxo de vídeo que atinge o nó [do processador de extensão HTTP.](media-graph-concept.md#http-extension-processor)
-O nó de extensão HTTP desempenha o papel de um representante. Converte os quadros de vídeo para o tipo de imagem especificado. Em seguida, transmite a imagem sobre REST para outro módulo de borda que executa um modelo de IA atrás de um ponto final HTTP. Neste exemplo, este módulo de borda é o modelo de detetor de caminhões de brinquedo construído utilizando a Visão Personalizada. O nó do processador de extensão HTTP recolhe os resultados de deteção e publica eventos no nó [de pia IoT Hub.](media-graph-concept.md#iot-hub-message-sink) O nó envia então esses eventos para [ioT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-glossary#iot-edge-hub).
+Este diagrama mostra como os sinais fluem neste tutorial. Um [módulo de borda](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simula uma câmara IP que hospeda um servidor Real-Time de Protocolo de Streaming (RTSP). Um nó [de origem RTSP](media-graph-concept.md#rtsp-source) puxa o feed de vídeo deste servidor e envia quadros de vídeo para o nó do [processador do processador da taxa de fotogramas.](media-graph-concept.md#frame-rate-filter-processor) Este processador limita a taxa de fotogramas do fluxo de vídeo que atinge o nó [do processador de extensão HTTP.](media-graph-concept.md#http-extension-processor)
+O nó de extensão HTTP desempenha o papel de um representante. Converte os quadros de vídeo para o tipo de imagem especificado. Em seguida, transmite a imagem sobre REST para outro módulo de borda que executa um modelo de IA atrás de um ponto final HTTP. Neste exemplo, este módulo de borda é o modelo de detetor de caminhões de brinquedo construído utilizando a Visão Personalizada. O nó do processador de extensão HTTP recolhe os resultados de deteção e publica eventos no nó [de pia IoT Hub.](media-graph-concept.md#iot-hub-message-sink) O nó envia então esses eventos para [ioT Edge Hub](../../iot-edge/iot-edge-glossary.md#iot-edge-hub).
 
 ## <a name="build-and-deploy-a-custom-vision-toy-detection-model"></a>Construa e implemente um modelo de deteção de brinquedos de visão personalizada 
 
 Como o nome Custom Vision sugere, pode alavancar para construir o seu próprio detetor de objetos personalizado ou classificador na nuvem. Fornece uma interface simples, fácil de usar e intuitiva para construir modelos de visão personalizados que podem ser implantados na nuvem ou na borda através de contentores. 
 
-Para construir um detetor de caminhões de brinquedo, recomendamos que siga este detetor de objetos de visão personalizada através do [artigo de arranque rápido](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector) do portal web .
+Para construir um detetor de caminhões de brinquedo, recomendamos que siga este detetor de objetos de visão personalizada através do [artigo de arranque rápido](../../cognitive-services/custom-vision-service/get-started-build-detector.md) do portal web .
 
 Notas adicionais:
  
-* Para este tutorial, não utilize as imagens de amostra fornecidas na [secção de pré-requisitos](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector#prerequisites)do artigo de início rápido . Em vez disso, aproveitamos um determinado conjunto de imagens para construir um modelo de visão personalizada do detetor de [brinquedos,](https://lvamedia.blob.core.windows.net/public/ToyCarTrainingImages.zip) sugerimos que use estas imagens quando lhe é pedido que [escolha as suas imagens](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector#choose-training-images) de treino no arranque rápido.
+* Para este tutorial, não utilize as imagens de amostra fornecidas na [secção de pré-requisitos](../../cognitive-services/custom-vision-service/get-started-build-detector.md#prerequisites)do artigo de início rápido . Em vez disso, aproveitamos um determinado conjunto de imagens para construir um modelo de visão personalizada do detetor de [brinquedos,](https://lvamedia.blob.core.windows.net/public/ToyCarTrainingImages.zip) sugerimos que use estas imagens quando lhe é pedido que [escolha as suas imagens](../../cognitive-services/custom-vision-service/get-started-build-detector.md#choose-training-images) de treino no arranque rápido.
 * Na secção de imagem de marcação do arranque rápido, certifique-se de que está a marcar o caminhão de brinquedo visto na imagem com a etiqueta – "caminhão de entrega".
 
 Uma vez terminado, se o modelo estiver pronto de acordo com a sua satisfação, pode exportá-lo para um recipiente Docker utilizando o botão Exportação no separador Performance. Certifique-se de que escolhe o Linux como tipo de plataforma de contentores. Esta é a plataforma em que o contentor vai funcionar. A máquina em que descarrega o recipiente pode ser o Windows ou o Linux. As instruções que se seguem basearam-se no ficheiro do contentor descarregado numa máquina Windows.
@@ -176,7 +176,7 @@ A próxima série de chamadas limpa recursos:
     
 ## <a name="interpret-the-results"></a>Interpretar os Resultados
 
-Quando executou o gráfico de mídia, os resultados do nó do processador de extensão HTTP passam pelo nó da pia IoT Hub para o hub IoT. As mensagens que vê na janela OUTPUT contêm uma secção do corpo e uma secção de aplicações. Para obter mais informações, consulte [Criar e ler mensagens IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+Quando executou o gráfico de mídia, os resultados do nó do processador de extensão HTTP passam pelo nó da pia IoT Hub para o hub IoT. As mensagens que vê na janela OUTPUT contêm uma secção do corpo e uma secção de aplicações. Para obter mais informações, consulte [Criar e ler mensagens IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 Nas seguintes mensagens, o módulo Live Video Analytics define as propriedades da aplicação e o conteúdo do corpo.
 
@@ -303,7 +303,7 @@ Note o seguinte nas mensagens acima:
 * "body" contém dados sobre o evento de análise. Neste caso, o evento é um evento de Inferência e, portanto, o corpo contém uma série de inferências chamadas "previsões".
 * A secção "previsões" contém uma lista de previsões onde o caminhão de entrega de brinquedos (tag=caminhão de entrega) é encontrado na moldura. Como se lembraria, o caminhão de entrega é a etiqueta personalizada que forneceu ao seu modelo personalizado treinado para o caminhão de brinquedo e o modelo está a inferenizar e identificar o caminhão de brinquedo no vídeo de entrada com diferentes pontuações de confiança de probabilidade.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se pretende experimentar os outros tutoriais ou quickstarts, deve manter os recursos criados. Caso contrário, vá ao portal Azure, navegue pelos seus grupos de recursos, selecione o grupo de recursos sob o qual executou este tutorial e elimine todos os recursos.
 
@@ -312,7 +312,6 @@ Se pretende experimentar os outros tutoriais ou quickstarts, deve manter os recu
 Rever desafios adicionais para utilizadores avançados:
 
 * Utilize uma [câmara IP](https://en.wikipedia.org/wiki/IP_camera) que tenha suporte para RTSP em vez de utilizar o simulador RTSP. Pode pesquisar por câmaras IP que suportem RTSP na página de produtos [conformantes ONVIF.](https://www.onvif.org/conformant-products/) Procure dispositivos em conformidade com os perfis G, S ou T.
-* Utilize um dispositivo Linux AMD64 ou x64 em vez de um VM Azure Linux. Este dispositivo deve estar na mesma rede que a câmara IP. Pode seguir as instruções no [tempo de funcionamento do Azure IoT Edge no Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux). 
+* Utilize um dispositivo Linux AMD64 ou x64 em vez de um VM Azure Linux. Este dispositivo deve estar na mesma rede que a câmara IP. Pode seguir as instruções no [tempo de funcionamento do Azure IoT Edge no Linux](../../iot-edge/how-to-install-iot-edge-linux.md). 
 
-Em seguida, registe o dispositivo com o Azure IoT Hub seguindo as instruções no [Implementar o seu primeiro módulo IoT Edge num dispositivo Linux virtual](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).
-
+Em seguida, registe o dispositivo com o Azure IoT Hub seguindo as instruções no [Implementar o seu primeiro módulo IoT Edge num dispositivo Linux virtual](../../iot-edge/quickstart-linux.md).

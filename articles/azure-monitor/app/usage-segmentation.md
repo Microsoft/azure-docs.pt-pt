@@ -7,10 +7,10 @@ ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: d11b12ba37d543ec21985c52c4ffb3399bfc56d1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87323524"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Utilizadores, sessões e análise de eventos em Insights de Aplicações
@@ -61,7 +61,7 @@ A secção **Meet, os seus utilizadores,** mostra informações sobre cinco util
 - Se já envia eventos personalizados ou vistas de página, explore as ferramentas de Utilização para saber como os utilizadores usam o seu serviço.
     - [Funis](usage-funnels.md)
     - [Retenção](usage-retention.md)
-    - [Fluxos do Utilizador](usage-flows.md)
+    - [Fluxos de Utilizador](usage-flows.md)
     - [Livros](../platform/workbooks-overview.md)
     - [Adicionar contexto de utilizador](usage-send-user-context.md)
 

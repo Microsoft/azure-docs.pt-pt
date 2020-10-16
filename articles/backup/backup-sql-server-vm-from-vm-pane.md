@@ -4,10 +4,10 @@ description: Neste artigo, aprenda a fazer o back bases de dados do SQL Server e
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.openlocfilehash: 4f4ea202ee96e93a621c8dd0025c9ebc8b8d445d
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88891662"
 ---
 # <a name="back-up-a-sql-server-from-the-vm-pane"></a>Apoie um Servidor SQL a partir do painel VM
@@ -46,7 +46,7 @@ Pode ativar a cópia de segurança no seu SQL Server VM a partir do painel **de 
 
     ![Escolher uma política de cópias de segurança](./media/backup-sql-server-vm-from-vm-pane/backup-policy.png)
 
-4. Selecione **Ativar Cópia de Segurança**. A operação pode demorar alguns minutos a ser concluída.
+4. Selecione **Ativar Backup**. A operação pode demorar alguns minutos a ser concluída.
 
     ![Selecione ativar a cópia de segurança](./media/backup-sql-server-vm-from-vm-pane/enable-backup.png)
 

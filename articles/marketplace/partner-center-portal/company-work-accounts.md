@@ -8,10 +8,10 @@ author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 05/30/2019
 ms.openlocfilehash: 246fbcd9bc72683e41489daf105f174f9380c029
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91400269"
 ---
 # <a name="company-work-accounts-and-partner-center"></a>Contas de trabalho da empresa e Partner Center

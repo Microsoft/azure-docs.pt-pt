@@ -4,15 +4,15 @@ description: Saiba como implementar o Azure File Sync, do início ao fim, utiliz
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/19/2018
+ms.date: 10/14/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: eda6e6b5ef2b68c55bf1f7f6ceb30bb6aea21d67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 012b5c76a025e6dc6ae1fbd5aedddf9ea3d2a4f0
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91856352"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057829"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementar Azure File Sync
 Utilize o Azure File Sync para centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos dados localmente, incluindo SMB, NFS e FTPS. Podes ter o número de caches que precisares em todo o mundo.
@@ -418,6 +418,7 @@ No painel **Adicionar ponto final de servidor**, introduza as informações segu
 - **Caminho**: O caminho do Servidor do Windows a ser sincronizado como parte do grupo de sincronização.
 - **Cloud Tiering**: Um interruptor para ativar ou desativar o nível da nuvem. Com o tiering de nuvem, os ficheiros pouco utilizados ou acedidos podem ser hierárquicos para ficheiros Azure.
 - **Volume Espaço Livre**: A quantidade de espaço livre para reservar no volume em que se encontra o ponto final do servidor. Por exemplo, se o espaço livre de volume estiver definido para 50% num volume que tenha um único ponto final do servidor, cerca de metade da quantidade de dados é tiered para Azure Files. Independentemente de o tiering de nuvem estar ativado, a sua partilha de ficheiros Azure tem sempre uma cópia completa dos dados do grupo de sincronização.
+- **Modo de descarregamento inicial**: Esta é uma seleção opcional, a começar pela versão 11 do agente, que pode ser útil quando existem ficheiros na partilha de ficheiros Azure, mas não no servidor. Tal situação pode existir, por exemplo, se criar um ponto final do servidor para adicionar outro servidor de filial a um grupo de sincronização ou quando recuperar um servidor falhado. Se o tiering da nuvem estiver ativado, o padrão é apenas recordar o espaço de nome, sem conteúdo de ficheiro inicialmente. Isto é útil se você acredita que os pedidos de acesso ao utilizador devem decidir que conteúdo de ficheiro é recolhido para o servidor. Se o tiering da nuvem for desativado, o padrão é que o espaço de identificação será descarregado primeiro e, em seguida, os ficheiros serão recolhidos com base no último tempo de marcação modificado até que a capacidade local seja atingida. No entanto, pode alterar o modo de descarregamento inicial apenas para o espaço de nome. Um terceiro modo só pode ser utilizado se o nível da nuvem for desativado para este ponto final do servidor. Este modo evita recordar primeiro o espaço de nome. Os ficheiros só aparecerão no servidor local se tiverem a oportunidade de descarregar totalmente. Este modo é útil se, por exemplo, uma aplicação requer que os ficheiros completos estejam presentes e não puder tolerar ficheiros hierárquicos no seu espaço de nome.
 
 Para adicionar o ponto final do servidor, **selecione Criar**. Os seus ficheiros são agora mantidos sincronizados através da sua partilha de ficheiros Azure e do Windows Server. 
 
@@ -428,6 +429,8 @@ Execute os seguintes comandos PowerShell para criar o ponto final do servidor, e
 $serverEndpointPath = "<your-server-endpoint-path>"
 $cloudTieringDesired = $true
 $volumeFreeSpacePercentage = <your-volume-free-space>
+# Optional property. Choose from: [NamespaceOnly] default when cloud tiering is enabled. [NamespaceThenModifiedFiles] default when cloud tiering is disabled. [AvoidTieredFiles] only available when cloud tiering is disabled.
+$initialDownloadPolicy = NamespaceOnly
 
 if ($cloudTieringDesired) {
     # Ensure endpoint path is not the system volume
@@ -444,14 +447,16 @@ if ($cloudTieringDesired) {
         -ServerResourceId $registeredServer.ResourceId `
         -ServerLocalPath $serverEndpointPath `
         -CloudTiering `
-        -VolumeFreeSpacePercent $volumeFreeSpacePercentage
+        -VolumeFreeSpacePercent $volumeFreeSpacePercentage `
+        -InitialDownloadPolicy $initialDownloadPolicy
 } else {
     # Create server endpoint
     New-AzStorageSyncServerEndpoint `
         -Name $registeredServer.FriendlyName `
         -SyncGroup $syncGroup `
         -ServerResourceId $registeredServer.ResourceId `
-        -ServerLocalPath $serverEndpointPath
+        -ServerLocalPath $serverEndpointPath `
+        -InitialDownloadPolicy $initialDownloadPolicy
 }
 ```
 
@@ -478,6 +483,7 @@ az storagesync sync-group server-endpoint create --resource-group myResourceGrou
                                                  --cloud-tiering on \
                                                  --volume-free-space-percent 85 \
                                                  --tier-files-older-than-days 15 \
+                                                 --initial-download-policy NamespaceOnly [OR] NamespaceThenModifiedFiles [OR] AvoidTieredFiles
                                                  --offline-data-transfer on \
                                                  --offline-data-transfer-share-name myfilesharename \
 
@@ -569,6 +575,40 @@ O número máximo predefinido de instantâneos VSS por volume (64) bem como o ho
 
 Se as imagens de 64 VSS por volume não forem a definição correta, pode [alterar esse valor através de uma chave de registo](https://docs.microsoft.com/windows/win32/backup/registry-keys-for-backup-and-restore#maxshadowcopies).
 Para que o novo limite produza efeitos, é necessário reencaminhar o cmdlet para permitir a compatibilidade da versão anterior em todos os volumes previamente ativados, com a bandeira da Força a ter em conta o novo número máximo de instantâneos VSS por volume. Isto resultará num número recém-calculado de dias compatíveis. Por favor, note que esta alteração só produzirá efeito em ficheiros recém-hierarquizados e substituirá quaisquer personalizações no calendário VSS que possa ter feito.
+
+<a id="proactive-recall"></a>
+## <a name="proactively-recall-new-and-changed-files-from-an-azure-file-share"></a>Recorde-se proativamente novos e alterados ficheiros a partir de uma partilha de ficheiros Azure
+
+Com a versão 11 do agente, um novo modo fica disponível num ponto final do servidor. Este modo permite que as empresas distribuídas globalmente tenham a cache do servidor numa região remota pré-povoada mesmo antes de os utilizadores locais acederem a quaisquer ficheiros. Quando ativado num ponto final do servidor, este modo fará com que este servidor revoe ficheiros que foram criados ou alterados na partilha de ficheiros Azure.
+
+### <a name="scenario"></a>Cenário
+
+Uma empresa globalmente distribuída tem sucursais nos EUA e na Índia. De manhã (hora dos EUA) os trabalhadores da informação criam uma nova pasta e novos ficheiros para um novo projeto e trabalham o dia todo nele. O Azure File Sync sincronizará pastas e ficheiros para a partilha de ficheiros Azure (ponto final da nuvem). Os trabalhadores da informação na Índia continuarão a trabalhar no projeto no seu timezone. Quando chegam de manhã, o servidor local Azure File Sync, na Índia, precisa de ter estes novos ficheiros disponíveis localmente, de modo a que a equipa da Índia possa trabalhar eficientemente a partir de uma cache local. Permitir este modo impede que o acesso inicial do ficheiro seja mais lento devido à recolha a pedido e permite que o servidor relembrá-lo de forma proactiva assim que estes foram alterados ou criados na partilha de ficheiros Azure.
+
+> [!IMPORTANT]
+> É importante perceber que as mudanças de rastreio na partilha de ficheiros Azure que, de perto, no servidor podem aumentar o tráfego e a conta da Azure. Se os ficheiros recolhidos para o servidor não forem realmente necessários localmente, então a recolha desnecessária para o servidor pode ter consequências negativas. Utilize este modo quando souber que pré-povoar a cache num servidor com alterações recentes na nuvem terá um efeito positivo nos utilizadores ou aplicações que utilizam os ficheiros desse servidor.
+
+### <a name="enable-a-server-endpoint-to-proactively-recall-what-changed-in-an-azure-file-share"></a>Ativar um ponto final do servidor para recordar proativamente o que mudou numa partilha de ficheiros Azure
+
+# <a name="portal"></a>[Portal](#tab/proactive-portal)
+
+1. No [portal Azure](https://portal.azure.com/), vá ao seu Serviço de Sincronização de Armazenamento, selecione o grupo de sincronização correto e, em seguida, identifique o ponto final do servidor para o qual pretende rastrear de perto as alterações na partilha de ficheiros Azure (ponto final da nuvem).
+1. Na secção de nivelamento de nuvens, encontre o tópico "Azure file share download". Verá o modo atualmente selecionado e poderá alterá-lo para rastrear as alterações da partilha de ficheiros Azure de forma mais próxima e proactivamente relembrá-las para o servidor.
+
+:::image type="content" source="media/storage-sync-files-deployment-guide/proactive-download.png" alt-text="Uma imagem que mostra o comportamento de descarregamento de ficheiros Azure para um ponto final do servidor atualmente em vigor e um botão para abrir um menu que permite alterá-lo.":::
+
+# <a name="powershell"></a>[PowerShell](#tab/proactive-powershell)
+
+Pode modificar as propriedades do ponto final do servidor em PowerShell através do [cmdlet Set-AzStorageSyncServerEndpoint.](https://docs.microsoft.com/powershell/module/az.storagesync/set-azstoragesyncserverendpoint)
+
+```powershell
+# Optional parameter. Default: "UpdateLocallyCachedFiles", alternative behavior: "DownloadNewAndModifiedFiles"
+$recallBehavior = "DownloadNewAndModifiedFiles"
+
+Set-AzStorageSyncServerEndpoint -InputObject <PSServerEndpoint> -LocalCacheMode $recallBehavior
+```
+
+---
 
 ## <a name="migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync"></a>Migrar uma implantação de replicação DFS (DFS-R) para Azure File Sync
 Para migrar uma implementação DFS-R para Azure File Sync:

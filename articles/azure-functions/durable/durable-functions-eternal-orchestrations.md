@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: azfuncdf
 ms.openlocfilehash: 34c70f4305ebb2c45757d982ab558aea6450003f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86506371"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Orquestrações eternas em Funções Duradouras (Funções Azure)
@@ -156,7 +156,7 @@ Se uma função de orquestrador tiver eventualmente de ser completada, então tu
 
 Se uma função orquestradora estiver num loop infinito e precisar de ser interrompida, utilize o `TerminateAsync` método (.NET), `terminate` (JavaScript) ou `terminate` (Python) da ligação do cliente da [orquestração](durable-functions-bindings.md#orchestration-client) para o impedir. Para mais informações, consulte [Gestão de Exemplos.](durable-functions-instance-management.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba como implementar orquestrações singleton](durable-functions-singletons.md)

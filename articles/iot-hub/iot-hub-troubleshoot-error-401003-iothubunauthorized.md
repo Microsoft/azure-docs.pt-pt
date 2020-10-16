@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: f46d41c8287d03cbe9582ed560244cbd85cdeeaa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81759588"
 ---
 # <a name="401003-iothubunauthorized"></a>401003 IoTHubUnauthorized
@@ -42,7 +42,7 @@ Os pedidos ao IoT Hub falham com uma das seguintes mensagens de erro:
 
 ### <a name="cause-1"></a>Causa 1
 
-Para o MQTT, alguns SDKs confiam no IoT Hub para emitir a desconexão quando o token SAS expirar para saber quando o refrescar. Então 
+Para o MQTT, alguns SDKs confiam no IoT Hub para emitir a desconexão quando o token SAS expirar para saber quando o refrescar. Desta forma, 
 
 1. O símbolo SAS expira
 1. IoT Hub nota a expiração e desliga o dispositivo com **401003 IoTHubUnautized**
@@ -56,13 +56,13 @@ IoT Hub não podia autenticar o cabeçalho, regra ou chave do auth.
 
 ## <a name="solution"></a>Solução
 
-### <a name="solution-1"></a>Solução 1
+### <a name="solution-1"></a>Solução 1
 
 Não é necessária qualquer ação se utilizar o IoT SDK para ligação utilizando a cadeia de ligação do dispositivo. IoT SDK regenera o novo token para reconectar-se na expiração do token SAS. 
 
 Se o volume de erros for uma preocupação, mude para o C SDK, que renova o token SAS antes de expirar. Além disso, para AMQP o token SAS pode refrescar-se sem desconexão.
 
-### <a name="solution-2"></a>Solução 2
+### <a name="solution-2"></a>Solução 2
 
 Em geral, a mensagem de erro apresentada deve explicar como corrigir o erro. Se por alguma razão não tiver acesso ao detalhe da mensagem de erro, certifique-se de que:
 
@@ -70,6 +70,6 @@ Em geral, a mensagem de erro apresentada deve explicar como corrigir o erro. Se 
 - A credencial de autorização está bem formada para o protocolo que utiliza. Para saber mais, consulte [o controlo de acesso do IoT Hub.](iot-hub-devguide-security.md)
 - A regra de autorização utilizada tem a autorização para a operação solicitada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para facilitar a autenticação ao IoT Hub, recomendamos a utilização de [SDKs Azure IoT](iot-hub-devguide-sdks.md).

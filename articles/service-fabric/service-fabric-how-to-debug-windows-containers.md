@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 02/14/2019
 ms.author: mikhegn
 ms.openlocfilehash: 3e6e7785278b182cebb21115a70f35ade52303c3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86247256"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>Como: Debug Recipientes Windows em Tecido de Serviço Azure usando Visual Studio 2019
@@ -28,7 +28,7 @@ Com o Visual Studio 2019, pode depurar aplicações .NET em contentores como ser
 1. Para apoiar a resolução de DNS entre contentores, terá de configurar o seu cluster de desenvolvimento local, utilizando o nome da máquina. Estes passos também são necessários se pretender dirigir-se aos serviços através do representante inverso.
    1. Open PowerShell como administrador
    2. Navegue para a pasta de configuração do Cluster SDK, normalmente `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup` .
-   3. Executar o script`DevClusterSetup.ps1`
+   3. Executar o script `DevClusterSetup.ps1`
 
       ``` PowerShell
         C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1

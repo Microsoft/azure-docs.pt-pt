@@ -3,14 +3,14 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 09/21/2020
+ms.date: 10/07/2020
 ms.author: aahi
-ms.openlocfilehash: 9a7846d1a63ee0b3042bbea473babffbe52f06a6
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: f0e4c8b832b17ee97b6e97aaf94640aaad7aa8db
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91779435"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977849"
 ---
 <a name="HOLTop"></a>
 
@@ -117,30 +117,31 @@ Estes snippets de código mostram-lhe como fazer as seguintes tarefas com a bibl
 
 * [Autenticar o cliente](#authenticate-the-client)
 * [Análise de Sentimentos](#sentiment-analysis)
-* [Deteção linguística](#language-detection)
+* [Mineração de opinião](#opinion-mining)
+* [Deteção de idioma](#language-detection)
 * [Reconhecimento de entidade nomeada](#named-entity-recognition-ner) 
 * [Reconhecimento de informação pessoalmente identificável](#personally-identifiable-information-recognition) 
 * [Ligação de entidades](#entity-linking)
-* [Extração de frase-chave](#key-phrase-extraction)
+* [Extração de expressões-chave](#key-phrase-extraction)
 
 
 # <a name="version-30"></a>[Versão 3.0](#tab/version-3)
 
 * [Autenticar o cliente](#authenticate-the-client)
 * [Análise de Sentimentos](#sentiment-analysis)
-* [Deteção linguística](#language-detection)
+* [Deteção de idioma](#language-detection)
 * [Reconhecimento de entidade nomeada](#named-entity-recognition-ner) 
 * [Ligação de entidades](#entity-linking)
-* [Extração de frase-chave](#key-phrase-extraction)
+* [Extração de expressões-chave](#key-phrase-extraction)
 
 # <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
 * [Autenticar o cliente](#authenticate-the-client)
 * [Análise de Sentimentos](#sentiment-analysis)
-* [Deteção linguística](#language-detection)
+* [Deteção de idioma](#language-detection)
 * [Reconhecimento de entidade nomeada](#named-entity-recognition-ner) 
 * [Ligação de entidades](#entity-linking)
-* [Extração de frase-chave](#key-phrase-extraction)
+* [Extração de expressões-chave](#key-phrase-extraction)
 
 ---
 
@@ -485,7 +486,7 @@ Document ID: 3 , Language: Chinese_Simplified
 > Na `3.1` versão: 
 > * A ligação da entidade é um pedido separado do que o NER.
 
-Criar uma nova função chamada `entity_recognition_example` que leva o cliente como argumento, em seguida, chama a `recognize_entities()` função e itera através dos resultados. O objeto de resposta devolvido conterá a lista de entidades detetadas `entity` se for bem sucedido, e um se `error` não. Para cada entidade detetada, imprima a sua categoria e sub-categoria, se existir.
+Criar uma nova função chamada `entity_recognition_example` que leva o cliente como argumento, em seguida, chama a `recognize_entities()` função e itera através dos resultados. O objeto de resposta devolvido conterá a lista de entidades detetadas `entity` se for bem sucedido, e um se `error` não. Para cada entidade detetada, imprima a sua categoria e Sub-Category se existir.
 
 ```python
 def entity_recognition_example(client):
@@ -609,7 +610,7 @@ Linked Entities:
 
 ### <a name="personally-identifiable-information-recognition"></a>Reconhecimento de informação pessoalmente identificável
 
-Criar uma nova função chamada `pii_recognition_example` que leva o cliente como argumento, em seguida, chama a `recognize_pii_entities()` função e itera através dos resultados. O objeto de resposta devolvido conterá a lista de entidades detetadas `entity` se for bem sucedido, e um se `error` não. Para cada entidade detetada, imprima a sua categoria e sub-categoria, se existir.
+Criar uma nova função chamada `pii_recognition_example` que leva o cliente como argumento, em seguida, chama a `recognize_pii_entities()` função e itera através dos resultados. O objeto de resposta devolvido conterá a lista de entidades detetadas `entity` se for bem sucedido, e um se `error` não. Para cada entidade detetada, imprima a sua categoria e Sub-Category se existir.
 
 ```python
 def pii_recognition_example(client):
@@ -653,7 +654,7 @@ Entity: 555-555-5555
 > Na `3.0` versão: 
 > * A ligação da entidade é um pedido separado do que o NER.
 
-Criar uma nova função chamada `entity_recognition_example` que leva o cliente como argumento, em seguida, chama a `recognize_entities()` função e itera através dos resultados. O objeto de resposta devolvido conterá a lista de entidades detetadas `entity` se for bem sucedido, e um se `error` não. Para cada entidade detetada, imprima a sua categoria e sub-categoria, se existir.
+Criar uma nova função chamada `entity_recognition_example` que leva o cliente como argumento, em seguida, chama a `recognize_entities()` função e itera através dos resultados. O objeto de resposta devolvido conterá a lista de entidades detetadas `entity` se for bem sucedido, e um se `error` não. Para cada entidade detetada, imprima a sua categoria e Sub-Category se existir.
 
 ```python
 def entity_recognition_example(client):

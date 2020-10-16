@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 09/11/2020
 ms.author: jushiman
 ms.openlocfilehash: 55cbc5db534dd1b05f91a24e0104b1f2dc110547
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90532707"
 ---
 # <a name="preview-maintenance-control-for-azure-virtual-machine-scale-sets"></a>Pré-visualização: Controlo de manutenção para conjuntos de balanças de máquinas virtuais Azure 
@@ -22,7 +22,7 @@ O controlo de manutenção permite-lhe decidir quando aplicar atualizações aos
 
 As configurações de manutenção funcionam em assinaturas e grupos de recursos.
 
-Todo o fluxo de trabalho resume-se a estes passos: 
+Todo o fluxo de trabalho se resume a estes passos: 
 - Criar uma configuração de manutenção.
 - Associar uma balança de máquina virtual definida a uma configuração de manutenção.
 - Ativar as atualizações automáticas de SO.

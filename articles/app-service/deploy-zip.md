@@ -6,10 +6,10 @@ ms.date: 08/12/2019
 ms.reviewer: sisirap
 ms.custom: seodec18
 ms.openlocfilehash: e2959403d2e5db38d03013e798fe299d56837227
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88962116"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Implemente a sua aplicação para o Azure App Service com um ficheiro ZIP ou WAR

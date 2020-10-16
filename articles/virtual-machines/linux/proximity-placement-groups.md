@@ -8,13 +8,13 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2019
 ms.author: cynthn
 ms.openlocfilehash: ee172203d6aa54b4b539356835f8a6bf2d21bad3
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87288418"
 ---
-# <a name="deploy-vms-to-proximity-placement-groups-using-azure-cli"></a>Implementar VMs para grupos de colocação de proximidade usando O Azure CLI
+# <a name="deploy-vms-to-proximity-placement-groups-using-azure-cli"></a>Implementar VMs em grupos de colocação por proximidade com a CLI do Azure
 
 Para obter VMs o mais próximo possível, alcançando a menor latência possível, deve implantá-los dentro de um [grupo de colocação de proximidade](co-location.md#proximity-placement-groups).
 

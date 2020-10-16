@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: b826c986a0af26bb79fb0823e4e8626f0165d460
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86250028"
 ---
 # <a name="azure-api-management-page-controls"></a>Controlos de página da AZure API
@@ -47,7 +47,7 @@ Para obter mais informações sobre o trabalho com modelos, consulte [como perso
 -   [subscreva botão](#subscribe-button)  
 -   [subscrição-cancelamento](#subscription-cancel)  
   
-##  <a name="app-actions"></a><a name="app-actions"></a>ações de aplicações  
+##  <a name="app-actions"></a><a name="app-actions"></a> ações de aplicações  
  O `app-actions` controlo fornece uma interface de utilizador para interagir com aplicações na página de perfil do utilizador no portal do desenvolvedor.  
   
  ![controlo de ações&#45;de aplicações](./media/api-management-page-controls/APIM-app-actions-control.png "Controlo de ações de aplicações da APIM")  
@@ -69,7 +69,7 @@ Para obter mais informações sobre o trabalho com modelos, consulte [como perso
   
 -   [Aplicações](api-management-user-profile-templates.md#Applications)  
   
-##  <a name="basic-signin"></a><a name="basic-signin"></a>signin básico  
+##  <a name="basic-signin"></a><a name="basic-signin"></a> signin básico  
  O `basic-signin` controlo fornece um controlo para a recolha de informações de inscrição do utilizador na página de inscrição no portal do desenvolvedor.  
   
  ![controlo básico&#45;signin](./media/api-management-page-controls/APIM-basic-signin-control.png "Controlo básico de sinalização APIM")  
@@ -88,7 +88,7 @@ Para obter mais informações sobre o trabalho com modelos, consulte [como perso
   
 -   [Iniciar sessão](api-management-page-templates.md#SignIn)  
   
-##  <a name="paging-control"></a><a name="paging-control"></a>controlo de paging  
+##  <a name="paging-control"></a><a name="paging-control"></a> controlo de paging  
  A `paging-control` funcionalidade de paging fornece funcionalidade sonora nas páginas do portal do programador que exibem uma lista de itens.  
   
  ![controlo de paging](./media/api-management-page-controls/APIM-paging-control.png "Controlo de paging APIM")  
@@ -111,7 +111,7 @@ Para obter mais informações sobre o trabalho com modelos, consulte [como perso
   
 -   [Lista de produtos](api-management-product-templates.md#ProductList)  
   
-##  <a name="providers"></a><a name="providers"></a>fornecedores  
+##  <a name="providers"></a><a name="providers"></a> fornecedores  
  O `providers` controlo fornece um controlo para a seleção de fornecedores de autenticação na página de inscrição no portal do desenvolvedor.  
   
  ![controlo dos fornecedores](./media/api-management-page-controls/APIM-providers-control.png "Controlo de fornecedores da APIM")  
@@ -130,7 +130,7 @@ Para obter mais informações sobre o trabalho com modelos, consulte [como perso
   
 -   [Iniciar sessão](api-management-page-templates.md#SignIn)  
   
-##  <a name="search-control"></a><a name="search-control"></a>controlo de pesquisa  
+##  <a name="search-control"></a><a name="search-control"></a> controlo de pesquisa  
  A `search-control` funcionalidade de pesquisa fornece funcionalidades de pesquisa em páginas do portal do desenvolvedor que exibem uma lista de itens.  
   
  ![controlo de pesquisa](./media/api-management-page-controls/APIM-search-control.png "Controlo de pesquisa da APIM")  
@@ -151,7 +151,7 @@ Para obter mais informações sobre o trabalho com modelos, consulte [como perso
   
 -   [Lista de produtos](api-management-product-templates.md#ProductList)  
   
-##  <a name="sign-up"></a><a name="sign-up"></a>inscrever-se  
+##  <a name="sign-up"></a><a name="sign-up"></a> inscrever-se  
  O `sign-up` controlo fornece um controlo para a recolha de informações de perfil do utilizador na página de inscrição no portal do desenvolvedor.  
   
  ![assinar&#45;até o controlo](./media/api-management-page-controls/APIM-sign-up-control.png "Controlo de inscrição da APIM")  
@@ -170,7 +170,7 @@ Para obter mais informações sobre o trabalho com modelos, consulte [como perso
   
 -   [Registar-me](api-management-page-templates.md#SignUp)  
   
-##  <a name="subscribe-button"></a><a name="subscribe-button"></a>subscreva botão  
+##  <a name="subscribe-button"></a><a name="subscribe-button"></a> subscreva botão  
  O `subscribe-button` sistema fornece um controlo para a subscrição de um utilizador a um produto.  
   
  ![subscrever&#45;controlo de botões](./media/api-management-page-controls/APIM-subscribe-button-control.png "Controlo de botões de subscrição APIM")  
@@ -189,7 +189,7 @@ Para obter mais informações sobre o trabalho com modelos, consulte [como perso
   
 -   [Produto](api-management-product-templates.md#Product)  
   
-##  <a name="subscription-cancel"></a><a name="subscription-cancel"></a>subscrição-cancelamento  
+##  <a name="subscription-cancel"></a><a name="subscription-cancel"></a> subscrição-cancelamento  
  O `subscription-cancel` controlo fornece um controlo para cancelar uma subscrição de um produto na página de perfil do utilizador no portal do desenvolvedor.  
   
  ![subscrição&#45;cancelar controlo](./media/api-management-page-controls/APIM-subscription-cancel-control.png "Controlo de cancelamento de subscrição da APIM")  

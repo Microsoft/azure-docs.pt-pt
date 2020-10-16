@@ -1,5 +1,5 @@
 ---
-title: Lojas de dados suportadas em Azure Data Share
+title: Armazenamentos de dados suportados no Azure Data Share
 description: Saiba mais sobre as lojas de dados que são suportadas para a utilização do Azure Data Share.
 ms.service: data-share
 author: jifems
@@ -7,13 +7,13 @@ ms.author: jife
 ms.topic: conceptual
 ms.date: 08/14/2020
 ms.openlocfilehash: bb8b13e1141a8cb4610e15ed693e28042dd20d72
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89259018"
 ---
-# <a name="supported-data-stores-in-azure-data-share"></a>Lojas de dados suportadas em Azure Data Share
+# <a name="supported-data-stores-in-azure-data-share"></a>Armazenamentos de dados suportados no Azure Data Share
 
 O Azure Data Share fornece partilha de dados aberta e flexível, incluindo a capacidade de partilhar de e para diferentes lojas de dados. Os fornecedores de dados podem partilhar dados de um tipo de loja de dados, e os seus consumidores de dados podem escolher em que datas armazenam os dados para receber dados. 
 

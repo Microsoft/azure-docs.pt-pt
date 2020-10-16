@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 68ddea6c58bfff5e82643acc947ac1e7de76d699
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88141045"
 ---
 # <a name="account-management-overview"></a>Descrição geral da gestão de contas
@@ -34,7 +34,7 @@ Pode controlar o acesso ao portal CloudSimple para o pessoal de operações de s
 
 Todos os utilizadores que tenham o papel **de proprietário** e **colaborador** na subscrição têm acesso ao portal CloudSimple.  Ao aceder ao portal, o utilizador é criado na conta CloudSimple.  Pode desativar o acesso ao portal CloudSimple para utilizadores específicos a partir da página Contas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Ver resumo da conta](account.md)
 * [Ver lista de utilizadores](users.md)

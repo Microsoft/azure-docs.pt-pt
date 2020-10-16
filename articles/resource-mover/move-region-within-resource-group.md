@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: raynew
 ms.openlocfilehash: 716928761d23c2cf04ebcc72e253ad7884408065
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90061852"
 ---
 # <a name="move-resources-across-regions-from-resource-group"></a>Mover recursos através das regiões (do grupo de recursos)
@@ -144,7 +144,7 @@ Para comprometer e terminar o processo de mudança:
 > [!NOTE]
 > Depois de cometer o movimento, o grupo de recursos de origem encontra-se num estado *pendente de origem Delete.*
 
-## <a name="modify-target-settings"></a>Modificar as definições de alvo
+## <a name="modify-target-settings"></a>Modificar as definições de destino
 
 Se não quiser mover um recurso de origem, pode fazer qualquer um dos seguintes:
 
@@ -264,7 +264,7 @@ Eliminar da seguinte forma:
     - O nome da conta de armazenamento de cache é ```resmovecache<guid>```
     - O nome do cofre ```ResourceMove-<sourceregion>-<target-region>-GUID``` é.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 
 [Conheça](about-move-process.md) o processo de mudança.

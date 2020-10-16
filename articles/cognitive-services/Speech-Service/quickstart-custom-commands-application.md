@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.openlocfilehash: 05b47a786fe845460177b66b5bd54cdb140c246e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87289413"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>Criar um assistente de voz com os Comandos Personalizados
@@ -101,7 +101,7 @@ Antes de poder aceder a esta aplicação a partir de fora do Speech Studio, tem 
 ### <a name="update-prediction-luis-resource"></a>Atualizar previsão de recurso LUIS
 
 
-1. Selecione **Definições** no painel esquerdo e selecione **os recursos LUIS** no painel central.
+1. Selecione **Definições** no painel esquerdo e selecione  **os recursos LUIS** no painel central.
 1. Selecione um recurso de previsão ou crie um selecionando **Criar novo recurso**.
 1. Selecione **Guardar**.
     
@@ -113,7 +113,7 @@ Antes de poder aceder a esta aplicação a partir de fora do Speech Studio, tem 
 
 ### <a name="publish-the-application"></a>Publicar a aplicação
 
-Selecione **Publicar** em cima do painel direito. Uma vez concluída a publicação, aparecerá uma nova janela. Note o valor da chave **de ID** de aplicação e **de recursos** de fala a partir do mesmo. Você precisará destes dois valores para poder aceder à aplicação a partir de fora do Speech Studio.
+Selecione  **Publicar** em cima do painel direito. Uma vez concluída a publicação, aparecerá uma nova janela. Note o valor da chave **de ID** de aplicação e **de recursos** de fala a partir do mesmo. Você precisará destes dois valores para poder aceder à aplicação a partir de fora do Speech Studio.
 
 Em alternativa, também pode obter estes valores selecionando **definições**  >  **secções gerais.**
 

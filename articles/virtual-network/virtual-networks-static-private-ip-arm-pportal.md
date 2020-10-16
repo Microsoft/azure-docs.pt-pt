@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2020
 ms.author: kumud
 ms.openlocfilehash: c8fdba59a8d31c064745c7a1904204359b386a7f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84707859"
 ---
 # <a name="configure-a-private-ip-address-for-a-vm-using-the-azure-portal"></a>Configure um endereço IP privado para um VM utilizando o portal Azure
@@ -56,10 +56,10 @@ Para criar um VM chamado *DNS01* na sub-rede *FrontEnd* de uma rede virtual cham
     | **Subscrição** | A sua subscrição atual |
     | **Grupo de recursos** | **TestRG** (selecione da lista de abandono) |
     | **Nome da máquina virtual** | *DNS01* |
-    | **Região** | **(EUA) Leste dos EUA** |
+    | **Região** | **(EUA) E.U.A Leste** |
     | **Imagem** | **Windows Server 2019 Datacenter** |
     | **Tamanho** | **Tamanho VM** de **B1ls,** **Oferta** de **Standard** |
-    | **Nome de utilizador** | O nome de utilizador da sua conta de administrador |
+    | **Nome de Utilizador** | O nome de utilizador da sua conta de administrador |
     | **Palavra-passe** | A palavra-passe para o nome de utilizador da sua conta de administrador |
     | **Confirmar palavra-passe** | A senha de novo |
 
@@ -128,6 +128,6 @@ De dentro do sistema operativo de um VM, não deve atribuir estáticamente o IP 
 
 Além disso, nunca deve atribuir manualmente o endereço IP *público* atribuído a uma máquina virtual Azure dentro do sistema operativo da máquina virtual.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a gestão das [definições de endereço IP](virtual-network-network-interface-addresses.md).

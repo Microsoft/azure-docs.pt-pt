@@ -12,10 +12,10 @@ ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: a5e69fe855f0c1e99dc3672425d9aeea13d4e827
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89297795"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing Web Search API estrutura de resposta e tipos de resposta  
@@ -476,10 +476,10 @@ O seguinte mostra como Bing usa a sugestão ortográfica.
 
 ![Bing exemplo de sugestão ortográfica](./media/cognitive-services-bing-web-api/bing-web-spellingsuggestion.GIF)  
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Passos seguintes  
 
 * Reveja a documentação de estrangulamento do pedido de [revisão.](throttling-requests.md)  
 
-## <a name="see-also"></a>Veja também  
+## <a name="see-also"></a>Consulte também  
 
 * [Bing Web Search API referência](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)

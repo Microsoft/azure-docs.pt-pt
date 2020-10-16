@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 745aeb9844f1abad075d34b34735563200ea618b
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90054947"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a>Use storSimple Snapshot Manager para criar e gerir políticas de backup
@@ -27,18 +27,18 @@ Uma política de backup cria um calendário para fazer backup de dados de volume
 
 Este tutorial explica como:
 
-* Criar uma política de backup
+* Criar uma política de cópias de segurança
 * Editar uma política de backup
 * Excluir uma política de backup
 
-## <a name="create-a-backup-policy"></a>Criar uma política de backup
+## <a name="create-a-backup-policy"></a>Criar uma política de cópias de segurança
 Utilize o seguinte procedimento para criar uma nova política de backup.
 
 #### <a name="to-create-a-backup-policy"></a>Para criar uma política de backup
 1. Clique no ícone do ambiente de trabalho para iniciar o StorSimple Snapshot Manager.
 2. No painel **de âmbito,** clique com o botão direito políticas de **backup**e clique em Criar Política **de Backup**.
 
-    ![Criar uma política de backup](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_BU_policy.png)
+    ![Criar uma política de cópias de segurança](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_BU_policy.png)
 
     Aparece a caixa de diálogo **Create a Policy.**
 
@@ -91,6 +91,6 @@ Utilize o seguinte procedimento para eliminar uma política de backup.
 
     ![Eliminar confirmação da política de backup](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Delete_BU_policy.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba como [utilizar o StorSimple Snapshot Manager para administrar a sua solução StorSimple](storsimple-snapshot-manager-admin.md).
 * Saiba como [utilizar o StorSimple Snapshot Manager para visualizar e gerir trabalhos de backup.](storsimple-snapshot-manager-manage-backup-jobs.md)

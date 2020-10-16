@@ -1,13 +1,13 @@
 ---
-title: Implementar para o botão Azure
+title: Botão Implementar no Azure
 description: Utilize o botão para implementar os modelos do Gestor de Recursos Azure a partir de um repositório GitHub.
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.openlocfilehash: 9fe69eba2a91bf19e0662ae071c222905c348666
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87079447"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Use um botão de implementação para implementar modelos do repositório GitHub
@@ -24,7 +24,7 @@ Para adicionar o botão à sua página web ou repositório, utilize a seguinte i
 
 A imagem aparece como:
 
-![Implementar para o botão Azure](https://aka.ms/deploytoazurebutton)
+![Botão Implementar no Azure](https://aka.ms/deploytoazurebutton)
 
 ## <a name="create-url-for-deploying-template"></a>Criar URL para implementar o modelo
 

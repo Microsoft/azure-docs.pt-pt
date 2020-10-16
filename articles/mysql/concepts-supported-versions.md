@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/3/2020
 ms.openlocfilehash: 4d5b858e2384ffc7dd531444aaff17ca3739b408
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84337704"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Banco de dados Azure suportado para versões de servidor MySQL
@@ -47,6 +47,6 @@ O serviço gere automaticamente a correção para atualizações de versões de 
 
 Atualmente, não há suporte para as atualizações das versões principais e secundárias. Por exemplo, não há suporte para a atualização do MySQL 5.6 para o MySQL 5.7. Se quiser atualizar da 5.6 para a 5.7, efetue [uma captura e um restauro](./concepts-migrate-dump-restore.md) para um servidor que foi criado com a nova versão do motor.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações sobre quotas e limitações específicas de recursos com base no seu **nível de serviço,** consulte [os níveis de serviço](./concepts-pricing-tiers.md)

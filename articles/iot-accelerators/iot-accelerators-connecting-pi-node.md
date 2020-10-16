@@ -10,10 +10,10 @@ ms.date: 01/24/2018
 ms.author: dobett
 ms.custom: mqtt, devx-track-js
 ms.openlocfilehash: 46f8f811e7d1a019fa332cd289892d110531c84d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91261554"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Ligue o seu dispositivo Raspberry Pi ao acelerador de solução de monitorização remota (Node.js)

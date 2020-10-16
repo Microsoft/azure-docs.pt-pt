@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
 ms.openlocfilehash: 544625fe9fd2dbd87ad7330d7277494cbfbe6eb9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90891099"
 ---
 # <a name="create-certificates-for-your-azure-stack-edge-pro-using-azure-stack-hub-readiness-checker-tool"></a>Crie certificados para o seu Azure Stack Edge Pro utilizando a ferramenta Azure Stack Hub Readiness Checker 
@@ -73,7 +73,7 @@ Utilize estes passos para preparar os certificados do dispositivo Azure Stack Ed
     
 4. Para criar um pedido de certificado, forneça as seguintes informações. Se estiver a gerar um certificado VPN, algumas destas entradas não se aplicam. 
     
-    |Entrada |Descrição  |
+    |Input |Descrição  |
     |---------|---------|
     |`OutputRequestPath`|O caminho do arquivo no seu cliente local onde deseja que os pedidos de certificado sejam criados.        |
     |`DeviceName`|O nome do seu dispositivo na página **dispositivos** na UI web local do seu dispositivo. <br> Este campo não é necessário para um certificado VPN.         |

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 71fd33388cb1bdf7c87c44fb3273c6850122a0cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74847854"
 ---
 # <a name="azure-ad-password-protection-agent-version-history"></a>Histórico da versão do agente de proteção de passwords Azure AD
@@ -34,14 +34,14 @@ Data de lançamento: 3/22/2019
 
 Data de lançamento: 3/13/2019
 
-* Os cmdlets Get-AzureADPasswordProtectionProxy e Get-AzureADPasswordProtectionDCAgent reportam agora a versão do software e o atual inquilino do Azure com as seguintes limitações:
+* Os Get-AzureADPasswordProtectionProxy e Get-AzureADPasswordProtectionDCAgent cmdlets reportam agora a versão de software e o atual inquilino do Azure com as seguintes limitações:
   * A versão de software e os dados do inquilino Azure só estão disponíveis para agentes de DC e proxies que executam a versão 1.2.116.0 ou posterior.
   * Os dados do inquilino azul não podem ser comunicados até que tenha ocorrido um re-registo (ou renovação) do representante ou da floresta.
 * O serviço Proxy agora requer que .NET 4.7 esteja instalado.
   * .NET 4.7 já deve ser instalado num Servidor Windows totalmente atualizado. Se não for esse o caso, descarregue e execute o instalador encontrado no [instalador offline .NET Framework 4.7 para o Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
   * Nos sistemas Server Core poderá ser necessário passar a bandeira /q para o instalador .NET 4.7 para que tenha sucesso.
 * O serviço Proxy agora suporta a atualização automática. A atualização automática utiliza o serviço Microsoft Azure AD Connect Agent Updater, instalado lado a lado com o serviço Proxy. A atualização automática é on por defeito.
-* A atualização automática pode ser ativada ou desativada utilizando o cmdlet De configuração de proteção de códigos de acesso. A definição atual pode ser consultada utilizando o cmdlet Get-AzureADPasswordProtectionProxyConfiguration.
+* A atualização automática pode ser ativada ou desativada utilizando o Set-AzureADPasswordProtectionProxyConfiguration cmdlet. A definição atual pode ser consultada utilizando o Get-AzureADPasswordProtectionProxyConfiguration cmdlet.
 * O binário de serviço para o serviço de agente de DC foi renomeado para AzureADPasswordProtectionDCAgent.exe.
 * O binário de serviço para o serviço Proxy foi renomeado para AzureADPasswordProtectionProxy.exe. As regras de firewall podem ter de ser modificadas em conformidade se uma firewall de terceiros estiver em uso.
   * NOTA: se um ficheiro config de procuração em http estiver a ser utilizado numa instalação anterior da Proxy, terá de ser renomeado (de *proxyservice.exe.config* para *AzureADPasswordProtectionProxy.exe.config) *após esta atualização.
@@ -55,11 +55,11 @@ Data de lançamento: 2/1/2019
 Alterações:
 
 * O agente DC e o serviço de procuração são agora suportados no Server Core. Os requisitos do Mininimum OS são inalterados de antes: Windows Server 2012 para agentes DC e Windows Server 2012 R2 para proxies.
-* Os cmdlets de autenticação AzureADPasswordProxy e Register-AzureADPasswordProtectionForest suportam agora os modos de autenticação Azure baseados em códigos de dispositivo.
-* O Get-AzureADPasswordProtectionDCAgent ignorará os pontos de ligação de serviço mutilados e/ou inválidos. Isto corrige o bug onde os controladores de domínio às vezes aparecem várias vezes na saída.
-* O cmdlet Get-AzureADPasswordProtectionSummaryReport ignorará os pontos de ligação de serviço mutilados e/ou inválidos. Isto corrige o bug onde os controladores de domínio às vezes aparecem várias vezes na saída.
+* Os Register-AzureADPasswordProtectionProxy e Register-AzureADPasswordProtectionForest cmdlets suportam agora os modos de autenticação Azure baseados em código de dispositivo.
+* O Get-AzureADPasswordProtectionDCAgent cmdlet ignorará os pontos de ligação de serviço mutilados e/ou inválidos. Isto corrige o bug onde os controladores de domínio às vezes aparecem várias vezes na saída.
+* O Get-AzureADPasswordProtectionSummaryReport cmdlet ignorará os pontos de ligação de serviço mutilados e/ou inválidos. Isto corrige o bug onde os controladores de domínio às vezes aparecem várias vezes na saída.
 * O módulo Proxy powershell está agora registado a partir de %ProgramFiles%\WindowsPowerShell\Modules. A variável ambiente PSModulePath da máquina já não é modificada.
-* Um novo cmdlet Get-AzureADPasswordProtectionProxy foi adicionado para ajudar na descoberta de proxies registados numa floresta ou domínio.
+* Foi adicionado um novo Get-AzureADPasswordProtectionProxy cmdlet para ajudar na descoberta de proxies registados numa floresta ou domínio.
 * O agente DC utiliza uma nova pasta na partilha sysvol para replicar políticas de palavra-passe e outros ficheiros.
 
    Localização da pasta antiga:
@@ -110,8 +110,8 @@ Data de lançamento: 8/17/2018
 
 Correções:
 
-* Register-AzureADPasswordProtectionProxy and Register-AzureADPasswordProtectionForest suporta agora a autenticação de vários fatores
-* Registro-AzureADPasswordProtectionProxy requer um controlador de domínio WS2012 ou posterior no domínio para evitar erros de encriptação.
+* Register-AzureADPasswordProtectionProxy e Register-AzureADPasswordProtectionForest agora suportam a autenticação de vários fatores
+* Register-AzureADPasswordProtectionProxy requer um controlador de domínio WS2012 ou posterior no domínio para evitar erros de encriptação.
 * O serviço de agente dc é mais fiável sobre a solicitação de uma nova política de senha da Azure no arranque.
 * O serviço de agente DC solicitará uma nova política de senha a partir de Azure a cada hora, se necessário, mas irá agora fazê-lo numa hora de início selecionada aleatoriamente.
 * O serviço de agente DC deixará de causar um atraso indefinido no novo anúncio de DC quando instalado num servidor antes da sua promoção como réplica.
@@ -134,6 +134,6 @@ Data de lançamento: 6/15/2018
 
 Lançamento inicial de pré-visualização pública
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Implementar proteção de senha Azure Ad](howto-password-ban-bad-on-premises-deploy.md)

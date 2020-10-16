@@ -4,10 +4,10 @@ description: Monitorização do desempenho da aplicação para aplicações Java
 ms.topic: conceptual
 ms.date: 03/29/2020
 ms.openlocfilehash: 08e5b68ea5e5ec63531bb4f9c6b4483e9afbb9bc
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91370039"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Java aplicação codificada monitorizando Azure Monitor Application Insights - visualização pública
@@ -134,13 +134,13 @@ O quadro abaixo representa os tipos de telemetria personalizados atualmente supo
 
 |                     | Micrometer | Log4j, logback, JUL | 2.x SDK |
 |---------------------|------------|---------------------|---------|
-| **Eventos Personalizados**   |            |                     |  Yes    |
-| **Métricas Personalizadas**  |  Yes       |                     |  Yes    |
-| **Dependências**    |            |                     |  Yes    |
-| **Exceções**      |            |  Yes                |  Yes    |
-| **Vistas de página**      |            |                     |  Yes    |
-| **Pedidos**        |            |                     |  Yes    |
-| **Rastreios**          |            |  Yes                |  Yes    |
+| **Eventos Personalizados**   |            |                     |  Sim    |
+| **Métricas Personalizadas**  |  Sim       |                     |  Sim    |
+| **Dependências**    |            |                     |  Sim    |
+| **Exceções**      |            |  Sim                |  Sim    |
+| **Vistas de página**      |            |                     |  Sim    |
+| **Pedidos**        |            |                     |  Sim    |
+| **Rastreios**          |            |  Sim                |  Sim    |
 
 Não estamos a planear lançar um SDK com o Application Insights 3.0 neste momento.
 

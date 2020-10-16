@@ -12,10 +12,10 @@ ms.author: bonova
 ms.reviewer: sstein, vanto
 ms.date: 08/14/2020
 ms.openlocfilehash: c98e377ec216bea6c1d4a96b15b3741aa52672e0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91618160"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>O que é Azure SQL Managed Instance?
@@ -217,7 +217,7 @@ Algumas diferenças fundamentais:
 - Existem apenas cópias de segurança automatizadas e restauro pontual. Os clientes podem iniciar `copy-only` cópias de segurança que não interferem com a cadeia automática de backup.
 - Especificar os caminhos físicos completos não é suportado, por isso todos os cenários correspondentes têm de ser suportados de forma diferente: O RESTORE DB não suporta com movimento, o CREATE DB não permite caminhos físicos, o BULK INSERT funciona apenas com bolhas Azure, etc.
 - SQL Managed Instance suporta [a autenticação AZure AD](../database/authentication-aad-overview.md) como uma alternativa em nuvem à autenticação do Windows.
-- A SQL Managed Instance gere automaticamente grupos de ficheiros XTP e ficheiros para bases de dados que contenham objetos OLTP de memória.
+- A SQL Managed Instance gere automaticamente grupos de ficheiros XTP e ficheiros para bases de dados que contenham In-Memory objetos OLTP.
 - A SQL Managed Instance suporta os Serviços de Integração de Servidores SQL (SSIS) e pode hospedar um catálogo SSIS (SSISDB) que armazena pacotes SSIS, mas são executados num runtime gerido de integração Azure-SSIS (IR) na Azure Data Factory. Ver [Create Azure-SSIS IR na Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). Para comparar as funcionalidades SSIS, consulte [compare a Base de Dados SQL com a SQL Managed Instance](../../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance).
 
 ### <a name="administration-features"></a>Características da administração

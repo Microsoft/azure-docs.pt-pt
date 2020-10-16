@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d7eed3e06ab42671d9674ad3893a88dfe9817e22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85360185"
 ---
 # <a name="troubleshoot-azure-ad-connectivity-with-the-adconnectivitytool-powershell-module"></a>Resolução de problemas A ligação AD AD com o módulo ADConnectivityTool PowerShell
@@ -54,7 +54,7 @@ Depois de o Azure AD Connect ter sido instalado, qualquer uma das funções do m
 
 Pode encontrar informações de referência sobre as funções na [Referência ADConnectivityTools](reference-connect-adconnectivitytools.md)
 
-### <a name="start-connectivityvalidation"></a>Início-ConectividadeValidação
+### <a name="start-connectivityvalidation"></a>Start-ConnectivityValidation
 
 Vamos chamar esta função porque **só** pode ser chamada manualmente uma vez que o ADConnectivityTool.psm1 tenha sido importado para o PowerShell. 
 

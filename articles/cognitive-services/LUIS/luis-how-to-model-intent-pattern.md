@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
 ms.openlocfilehash: 914ca77b18d0469c3ea926848be4c60aab04c9c6
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91539109"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Como adicionar padrões para melhorar a precisão da previsão
@@ -109,7 +109,7 @@ A barra de ferramentas contextual acima da lista de padrões permite-lhe:
 * Remover entidade ou filtro de intenção
 * Adicione o padrão da expressão existente na página de intenção ou entidade
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Aprenda a [construir um padrão](luis-tutorial-pattern.md) com um padrão.qualquer e papéis com um tutorial.
 * Aprenda a [treinar](luis-how-to-train.md) a sua aplicação.

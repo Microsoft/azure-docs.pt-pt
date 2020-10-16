@@ -4,10 +4,10 @@ description: Conheça diferentes cenários para utilizar capacidades de reivindi
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 73ed3c0b94a66f5d17b5c8e2561c65bb48579aa1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85476534"
 ---
 # <a name="use-claim-capabilities-in-azure-devtest-labs"></a>Utilize capacidades de reclamação em Azure DevTest Labs
@@ -40,5 +40,5 @@ Existem dois casos em que as capacidades de reclamação/não reclamação podem
 
 Existem algumas ressalvas para o uso de máquinas reivindicaíveis, mais comummente em torno de ter acesso à máquina. Se a máquina for de domínio, então o utilizador alegando que a máquina já terá acesso, normalmente é feito através da concessão de acesso a um grupo que engloba todos os utilizadores em laboratório quando o VM é criado. Se a máquina não estiver unida ao domínio, o artefacto **reset VM Password** no repositório público terá de ser executado para adicionar o utilizador como administrador.  Os artefactos podem ser aplicados mesmo depois de a máquina ter sido iniciada ou reclamada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Ver o seguinte artigo: [Criar e gerir VMs reclamais em Azure DevTest Labs](devtest-lab-add-claimable-vm.md)

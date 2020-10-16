@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 03/10/2020
 ms.openlocfilehash: be7e4a641e5b5ac2ef755037142cfd8063d66b5d
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448881"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Insight de desempenho de consulta para base de dados Azure SQL
@@ -276,6 +276,6 @@ A aplicação destas definições irá eventualmente fazer com que a Loja de Con
     ALTER DATABASE [YourDB] SET QUERY_STORE CLEAR;
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Considere usar [o Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md) para monitorização avançada do desempenho de uma grande frota de bases de dados individuais e agalhadas, piscinas elásticas, instâncias geridas e bases de dados de casos.

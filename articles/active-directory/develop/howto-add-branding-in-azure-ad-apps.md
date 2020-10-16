@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: arielgo, jiml
 ms.custom: aaddev, signin_art
 ms.openlocfilehash: 3ee59226853f4ea5aabf57a8866ba014aa874774
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90706205"
 ---
 # <a name="branding-guidelines-for-applications"></a>Diretrizes de imagem corporativa para aplicações

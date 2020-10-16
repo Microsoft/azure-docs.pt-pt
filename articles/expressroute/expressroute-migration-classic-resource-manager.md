@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: duau
 ms.openlocfilehash: ac6fe619fc1c65b9ced18227d08cde50997eb7d7
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89395286"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>Migrar redes virtuais associadas à ExpressRoute do clássico ao Gestor de Recursos
 
 Este artigo explica como migrar redes virtuais associadas ao ExpressRoute do modelo clássico de implementação para o modelo de implementação do Azure Resource Manager depois de mover o circuito ExpressRoute. 
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -81,7 +81,7 @@ Esta secção descreve os passos a seguir para migrar uma rede virtual, gateway 
    Move-AzureVirtualNetwork -Abort $vnetName
    ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Migração suportada por plataforma dos recursos IaaS clássicos para o Azure Resource Manager](../virtual-machines/windows/migration-classic-resource-manager-overview.md)
 * [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-deep-dive.md) (Análise detalhada técnica sobre a migração suportada por plataforma da clássica para Azure Resource Manager)
 * [FAQs: Migração suportada por plataformas de recursos iaas do clássico para o Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-faq.md)

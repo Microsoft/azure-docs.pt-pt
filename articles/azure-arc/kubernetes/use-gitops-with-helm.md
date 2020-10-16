@@ -9,10 +9,10 @@ ms.author: mlearned
 description: Utilize GitOps com Leme para uma configuração de cluster ativada pelo Arco Azure (Pré-visualização)
 keywords: GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, contentores
 ms.openlocfilehash: eea81d458ac6631c4a023134b3198e4cdb04526e
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541616"
 ---
 # <a name="deploy-helm-charts-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Implementar gráficos de leme usando GitOps em Arc ativado cluster Kubernetes (Preview)
@@ -21,7 +21,7 @@ Helm é uma ferramenta de embalagem de código aberto que o ajuda a instalar e g
 
 Este artigo mostra-lhe como configurar e usar Helm com Azure Arc habilitado Kubernetes.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo pressupõe que você tem um Azure Arc existente habilitado cluster ligado Kubernetes. Se precisar de um cluster ligado, consulte o [arranque rápido](./connect-cluster.md)do cluster .
 
@@ -135,6 +135,6 @@ Executar o seguinte comando e navegar `localhost:8080` para o seu navegador para
 kubectl port-forward -n arc-k8s-demo svc/arc-k8s-demo 8080:8080
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Use a política do Azure para governar a configuração do cluster](./use-azure-policy.md)

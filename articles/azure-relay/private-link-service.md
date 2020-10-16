@@ -4,10 +4,10 @@ description: Saiba como integrar o Azure Relay com o Azure Private Link Service
 ms.date: 09/24/2020
 ms.topic: article
 ms.openlocfilehash: 10d82fe8e272ed18dcc339830dfef0f71d4b2ddb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91263882"
 ---
 # <a name="integrate-azure-relay-with-azure-private-link-preview"></a>Integre o Relé Azure com Link Privado Azure (Pré-visualização)
@@ -152,7 +152,7 @@ Quando criar um ponto final privado, a ligação tem de ser aprovada. Se o recur
 
 Existem quatro estados de provisionamento:
 
-| Ação de serviço | Estado de ponto final privado do consumidor de serviço | Description |
+| Ação de serviço | Estado de ponto final privado do consumidor de serviço | Descrição |
 |--|--|--|
 | Nenhum | Pendente | A ligação é criada manualmente e está pendente de aprovação do proprietário do espaço de identificação Azure Relay. |
 | Aprovar | Aprovado | A ligação foi aprovada automaticamente ou manualmente e está pronta a ser utilizada. |
@@ -236,7 +236,7 @@ Aliases:  <namespace-name>.servicebus.windows.net
 ### <a name="limitations"></a>Limitações 
 - Número máximo de pontos finais privados por espaço de nome do Azure Relay: 64.
 - Número máximo de espaços de nomes Azure Relay com pontos finais privados por subscrição: 64.
-- As regras do Grupo de Segurança de Rede (NSG) e as rotas definidas pelo utilizador não se aplicam ao Ponto Final Privado. Para mais informações, consulte [o serviço Azure Private Link: Limitações](../private-link/private-link-service-overview.md#limitations)
+- As regras do Grupo de Segurança de Rede (NSG) e User-Defined Rotas não se aplicam ao Private Endpoint. Para mais informações, consulte [o serviço Azure Private Link: Limitações](../private-link/private-link-service-overview.md#limitations)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: bac17073650736df9ec48e951290852e082e9417
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87542998"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>Quadro de Segurança: Auditoria e RegistoS Registados / Mitigações 
@@ -28,7 +28,7 @@ ms.locfileid: "87542998"
 | --------------- | ------- |
 | **Dynamics CRM**    | <ul><li>[Identifique entidades sensíveis na sua solução e implemente a auditoria de mudança](#sensitive-entities)</li></ul> |
 | **Aplicação Web** | <ul><li>[Certifique-se de que a auditoria e a exploração madeireira são aplicadas na aplicação](#auditing)</li><li>[Certifique-se de que a rotação e separação de registos estão no lugar](#log-rotation)</li><li>[Certifique-se de que a aplicação não regista dados confidenciais do utilizador](#log-sensitive-data)</li><li>[Certifique-se de que os ficheiros de auditoria e de registo têm acesso restrito](#log-restricted-access)</li><li>[Certifique-se de que os Eventos de Gestão de Utilizadores estão registados](#user-management)</li><li>[Certifique-se de que o sistema tem defesas incorporadas contra o uso indevido](#inbuilt-defenses)</li><li>[Ativar o registo de diagnósticos para aplicações web no Azure App Service](#diagnostics-logging)</li></ul> |
-| **Base de Dados** | <ul><li>[Certifique-se de que a auditoria de login está ativada no SQL Server](#identify-sensitive-entities)</li><li>[Ativar a deteção de ameaças no Azure SQL](#threat-detection)</li></ul> |
+| **Base de dados** | <ul><li>[Certifique-se de que a auditoria de login está ativada no SQL Server](#identify-sensitive-entities)</li><li>[Ativar a deteção de ameaças no Azure SQL](#threat-detection)</li></ul> |
 | **Armazenamento do Azure** | <ul><li>[Use a Azure Storage Analytics para auditar o acesso ao Azure Storage](#analytics)</li></ul> |
 | **WCF** | <ul><li>[Implementar registos suficientes](#sufficient-logging)</li><li>[Implementar o tratamento suficiente da falha de auditoria](#audit-failure-handling)</li></ul> |
 | **API Web** | <ul><li>[Certifique-se de que a auditoria e o registo de madeira são aplicados na API Web](#logging-web-api)</li></ul> |
@@ -40,7 +40,7 @@ ms.locfileid: "87542998"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dynamics CRM | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -51,7 +51,7 @@ ms.locfileid: "87542998"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -62,7 +62,7 @@ ms.locfileid: "87542998"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -73,7 +73,7 @@ ms.locfileid: "87542998"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -84,7 +84,7 @@ ms.locfileid: "87542998"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -95,7 +95,7 @@ ms.locfileid: "87542998"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -106,7 +106,7 @@ ms.locfileid: "87542998"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -117,7 +117,7 @@ ms.locfileid: "87542998"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | EnvironmentType - Azure |
 | **Referências**              | N/D  |
@@ -128,7 +128,7 @@ ms.locfileid: "87542998"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [Configure Login Auditing](https://msdn.microsoft.com/library/ms175850.aspx) (Configurar a Auditoria de Início de Sessão) |
@@ -139,7 +139,7 @@ ms.locfileid: "87542998"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | SQL Azure |
 | **Atributos**              | Versão SQL - V12 |
 | **Referências**              | [Começar com deteção de ameaças de base de dados SQL](https://azure.microsoft.com/documentation/articles/sql-database-threat-detection-get-started/)|
@@ -161,7 +161,7 @@ ms.locfileid: "87542998"
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | .NET Framework |
 | **Atributos**              | N/D  |
 | **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Reino fortificado](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_logging) |
@@ -190,7 +190,7 @@ Segue-se uma configuração de exemplo com auditoria ativada
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | .NET Framework |
 | **Atributos**              | N/D  |
 | **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Reino fortificado](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_audit_failure_handling) |
@@ -217,7 +217,7 @@ Configure o WCF para notificar o programa sempre que não puder escrever para um
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -228,7 +228,7 @@ Configure o WCF para notificar o programa sempre que não puder escrever para um
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway de campo IoT | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
@@ -239,7 +239,7 @@ Configure o WCF para notificar o programa sempre que não puder escrever para um
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway de nuvem IoT | 
-| **Fase SDL**               | Compilação |  
+| **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [Introdução ao acompanhamento das operações do IoT Hub](https://azure.microsoft.com/documentation/articles/iot-hub-operations-monitoring/) |

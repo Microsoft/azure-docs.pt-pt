@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 6282e159a537eb3b9bf5d9a44c7498f3f1db0019
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 032f35fcf5ff661f5a0bfb59be191ffae93272a0
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88550729"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944494"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-happyfox"></a>Tutorial: Integração do Azure Ative Directory com a HappyFox
 
@@ -132,19 +132,19 @@ Para configurar o Azure AD single sign-on com happyFox, execute os seguintes pas
 
 2. Navegue para **Gerir,** clique no separador **Integrações.**
 
-    ![Configurar Sign-On Individuais](./media/happyfox-tutorial/header.png) 
+    ![Screenshot que mostra a página "Gerir" com o separador "Integrações" selecionado.](./media/happyfox-tutorial/header.png) 
 
 3. No separador Integrações, clique em **Configurar** em **Integração SAML** para abrir o sinal único nas definições.
 
-    ![Configurar Sign-On Individuais](./media/happyfox-tutorial/configure.png)
+    ![Screenshot que mostra a definição "S A M L Integration" com a ação "configurar" selecionada.](./media/happyfox-tutorial/configure.png)
 
 4. Dentro da secção de configuração SAML, cole o valor URL do **Login,** que copiou do portal Azure para a caixa de texto **SSO Target URL.**
 
-    ![Configurar Sign-On Individuais](./media/happyfox-tutorial/targeturl.png)
+    ![Screenshot que mostra a secção "S A M L Configuration" com a caixa de texto "S O Target U R L" realçada.](./media/happyfox-tutorial/targeturl.png)
 
 5. Abra o certificado descarregado do portal Azure no bloco de notas e cole o seu conteúdo na secção **IdP Signature.**
 
-    ![Configurar Sign-On Individuais](./media/happyfox-tutorial/cert.png)
+    ![Screenshot que mostra a secção "I d P Signature" realçada.](./media/happyfox-tutorial/cert.png)
 
 6. Clique no botão **Guardar Definições.**
 

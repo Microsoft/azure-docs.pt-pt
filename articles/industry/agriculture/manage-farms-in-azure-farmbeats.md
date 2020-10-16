@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 09144c4c35ab911b60931849807123608f2c3cdd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85847477"
 ---
 # <a name="manage-farms"></a>Gerir terrenos agrícolas
@@ -33,7 +33,7 @@ Utilize os passos seguintes:
 
 Aqui estão as duas formas de definir um limite agrícola:
 
-1. **Marca no Mapa**: Utilize a ferramenta de controlo do mapa para desenhar e marcar o limite da quinta. Para marcar os limites, ![ o Project Farm Beats marca os ](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) limites exatos.
+1. **Marca no Mapa**: Utilize a ferramenta de controlo do mapa para desenhar e marcar o limite da quinta. Para marcar os limites,  ![ o Project Farm Beats marca os ](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) limites exatos.
 
     ![Project Farm Beats](./media/create-farms-in-azure-farmbeats/create-farm-mark-on-map-1.png)
 
@@ -77,6 +77,6 @@ A página **Farms** apresenta uma lista de quintas criadas. Utilize os seguintes
     > Quando se apaga uma quinta, os dispositivos e mapas associados à quinta não são eliminados. Qualquer informação sobre a fazenda associada ao dispositivo e mapas não será relevante. Pode continuar a visualizar dispositivos, telemetria e mapas a partir do serviço FarmBeats.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que criou a sua quinta, aprenda a [obter dados de sensores](get-sensor-data-from-sensor-partner.md) fluindo para a sua fazenda.

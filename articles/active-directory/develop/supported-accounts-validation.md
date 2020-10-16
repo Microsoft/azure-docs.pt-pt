@@ -11,10 +11,10 @@ ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
 ms.openlocfilehash: e794e277f6731c7b6e57a4710eea437f65be0340
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87336349"
 ---
 # <a name="validation-differences-by-supported-account-types-signinaudience"></a>Diferenças de validação por tipos de conta suportados (signInAudience)
@@ -43,7 +43,7 @@ Consulte a tabela seguinte para as diferenças de validação de vários imóvei
 | Âmbitos definidos por esta API ( `oauth2Permissions` ) | Comprimento máximo do nome do âmbito de 120 caracteres <br><br> Sem limite* no número de âmbitos definidos | Comprimento máximo do nome do âmbito de 120 caracteres <br><br> Sem limite* no número de âmbitos definidos |  Comprimento máximo do nome do âmbito de 40 caracteres <br><br> Máximo de 100 âmbitos definidos | 
 | Pedidos de cliente autorizados `preAuthorizedApplications` () | Sem limite* | Sem limite* | Máximo total de 500 <br><br> Máximo de 100 aplicações de cliente definidas <br><br> Máximo de 30 âmbitos definidos por cliente | 
 | appRoles | Suportado <br> Sem limite* | Suportado <br> Sem limite* | Não suportado | 
-| Logout URL | http://localhosté permitido <br><br> Comprimento máximo de 255 caracteres | http://localhosté permitido <br><br> Comprimento máximo de 255 caracteres | <br><br> https://localhosté permitido, http://localhost falha para MSA <br><br> Comprimento máximo de 255 caracteres <br><br> O regime HTTP não é permitido <br><br> Wildcards não são suportados | 
+| Logout URL | http://localhost é permitido <br><br> Comprimento máximo de 255 caracteres | http://localhost é permitido <br><br> Comprimento máximo de 255 caracteres | <br><br> https://localhost é permitido, http://localhost falha para MSA <br><br> Comprimento máximo de 255 caracteres <br><br> O regime HTTP não é permitido <br><br> Wildcards não são suportados | 
 
 *Existe um limite global de cerca de 1000 itens em todas as propriedades de recolha no objeto da aplicação
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7726a0f1acb8f7fde2b491979d478badeca1b384
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e79055c3dbc710be23a82eede98e1b55b17e10d5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400386"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978025"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Linha de segurança Azure para Máquinas Virtuais do Windows
 
@@ -32,7 +32,7 @@ Para obter mais informações, consulte [a visão geral da Azure Security Baseli
 
 Em alternativa, se tiver uma caixa de utilização específica para uma firewall centralizada, o Azure Firewall também pode ser usado para satisfazer esses requisitos.
 
-* [Redes virtuais e máquinas virtuais em Azure](./network-overview.md)
+* [Redes virtuais e máquinas virtuais em Azure](../network-overview.md)
 
 * [Como criar uma Rede Virtual](../../virtual-network/quick-create-portal.md)
 
@@ -80,7 +80,7 @@ Pode utilizar o acesso da Rede Just In Time do Azure Security Center para limita
 
 * [Como implantar a Firewall do Azure](../../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Compreender a Azure Security Center Integrada Desespionagem de Ameaças](../../security-center/threat-protection.md)
+* [Compreender a Azure Security Center Integrada Desespionagem de Ameaças](../../security-center/azure-defender.md)
 
 * [Compreender o Hardenive de Rede Adaptável do Centro de Segurança Azure](../../security-center/security-center-adaptive-network-hardening.md)
 
@@ -146,7 +146,7 @@ Pode utilizar o acesso da Rede Just In Time do Azure Security Center para limita
 
 * [Como configurar e gerir a Política de Azure](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Amostras da Política Azure para networking](/azure/governance/policy/samples/#network)
+* [Amostras da Política Azure para networking](../../governance/policy/samples/built-in-policies.md#network)
 
 * [Como criar uma Planta Azure](../../governance/blueprints/create-blueprint-portal.md)
 
@@ -180,7 +180,7 @@ Utilize a Política Azure para validar (e/ou remediar) configurações para recu
 
 * [Como configurar e gerir a Política de Azure](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Amostras da Política Azure para networking](/azure/governance/policy/samples/#network)
+* [Amostras da Política Azure para networking](../../governance/policy/samples/built-in-policies.md#network)
 
 **Monitorização do Centro de Segurança Azure**: Não Disponível
 
@@ -252,7 +252,7 @@ Se a sua organização quiser reter os dados de registo de eventos de segurança
 
 **Orientação**: Certifique-se de que quaisquer contas de armazenamento ou espaços de trabalho do Log Analytics utilizados para armazenar registos de máquinas virtuais tem o período de retenção de registo definido de acordo com as normas de conformidade da sua organização.
 
-* [Como monitorizar máquinas virtuais em Azure](./monitor.md)
+* [Como monitorizar máquinas virtuais em Azure](../../azure-monitor/insights/monitor-vm-azure.md)
 
 * [Como configurar o período de retenção do espaço de trabalho do Log Analytics](../../azure-monitor/platform/manage-cost-storage.md)
 
@@ -458,7 +458,7 @@ Em alternativa, pode permitir e a bordo dados de Azure Sentinel ou um SIEM de te
 
 * [Como realizar consultas personalizadas no Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
 
-* [Como monitorizar máquinas virtuais em Azure](./monitor.md)
+* [Como monitorizar máquinas virtuais em Azure](../../azure-monitor/insights/monitor-vm-azure.md)
 
 **Monitorização do Centro de Segurança Azure**: Não Disponível
 
@@ -508,7 +508,7 @@ Em alternativa, pode permitir e a bordo dados de Azure Sentinel ou um SIEM de te
 
 * [Como criar subscrições adicionais do Azure](../../cost-management-billing/manage/create-subscription.md)
 
-* [Como criar Grupos de Gestão](../../governance/management-groups/create.md)
+* [Como criar Grupos de Gestão](../../governance/management-groups/create-management-group-portal.md)
 
 * [Como criar e usar Tags](../../azure-resource-manager/management/tag-resources.md)
 
@@ -610,7 +610,7 @@ A Microsoft utiliza o protocolo De Segurança da Camada de Transporte (TLS) para
 
 **Orientação**: Siga as recomendações do Azure Security Center sobre a realização de avaliações de vulnerabilidade nas suas Máquinas Virtuais Azure. Utilize a solução recomendada para a Azure Security ou para a realização de avaliações de vulnerabilidade para as suas máquinas virtuais.
 
-* [Como implementar recomendações de avaliação de vulnerabilidade do Azure Security Center](../../security-center/security-center-vulnerability-assessment-recommendations.md)
+* [Como implementar recomendações de avaliação de vulnerabilidade do Azure Security Center](../../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -692,7 +692,7 @@ A Microsoft utiliza o protocolo De Segurança da Camada de Transporte (TLS) para
 
 * [Como criar subscrições adicionais do Azure](../../cost-management-billing/manage/create-subscription.md)
 
-* [Como criar Grupos de Gestão](../../governance/management-groups/create.md)
+* [Como criar Grupos de Gestão](../../governance/management-groups/create-management-group-portal.md)
 
 * [Como criar e usar Tags](../../azure-resource-manager/management/tag-resources.md)
 
@@ -775,7 +775,7 @@ Além de utilizar o Change Tracking para monitorização de aplicações de soft
 
 * [Como configurar e gerir a Política de Azure](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Como negar um tipo específico de recurso com a Política Azure](/azure/governance/policy/samples/not-allowed-resource-types)
+* [Como negar um tipo específico de recurso com a Política Azure](../../governance/policy/samples/index.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -817,13 +817,13 @@ Além de utilizar o Change Tracking para monitorização de aplicações de soft
 
 **Orientação**: As aplicações de alto risco implementadas no seu ambiente Azure podem ser isoladas utilizando rede virtual, sub-rede, subscrições, grupos de gestão, etc. e suficientemente protegidas com um Azure Firewall, Web Application Firewall (WAF) ou um grupo de segurança de rede (NSG).
 
-* [Redes virtuais e máquinas virtuais em Azure](./network-overview.md)
+* [Redes virtuais e máquinas virtuais em Azure](../network-overview.md)
 
 * [Visão geral do Azure Firewall](../../firewall/overview.md)
 
 * [Visão geral do Firewall de Aplicação Web](../../web-application-firewall/overview.md)
 
-* [Descrição geral da segurança de rede](../../virtual-network/security-overview.md)
+* [Descrição geral da segurança de rede](../../virtual-network/network-security-groups-overview.md)
 
 * [Visão geral da Rede Virtual Azure](../../virtual-network/virtual-networks-overview.md)
 
@@ -969,7 +969,7 @@ Para a maioria dos cenários, os modelos VM base da Microsoft combinados com a C
 
 **Orientação**: Utilize a Identidade de Serviço Gerido em conjunto com o Azure Key Vault para simplificar e garantir uma gestão secreta para as suas aplicações em nuvem.
 
-* [Como integrar-se com identidades geridas pela Azure](../../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
+* [Como integrar-se com Azure-Managed Identidades](../../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
 * [Como criar um Cofre-Chave](../../key-vault/secrets/quick-create-portal.md)
 
@@ -1089,7 +1089,7 @@ Se estiver a utilizar a encriptação do disco Azure, pode restaurar o Azure VM 
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: Garantir a proteção das cópias de segurança e das chaves geridas pelo cliente
 
-**Orientação**: Quando faz cópia de segurança os discos geridos pelo Azure com backup Azure, os VMs são encriptados em repouso com encriptação do serviço de armazenamento (SSE). O Azure Backup também pode fazer backup de VMs Azure que são encriptados usando Azure Disk Encryption. A encriptação do disco Azure integra-se com chaves de encriptação BitLocker (BEKs), que são salvaguardadas num cofre-chave como segredos. A encriptação do disco Azure também se integra com chaves de encriptação chave Azure Key Vault (KEKs). Ativar a eliminação suave no cofre de chaves para proteger as chaves contra a eliminação acidental ou maliciosa.
+**Orientação**: Quando faz cópia de segurança os discos geridos pelo Azure com backup Azure, os VMs são encriptados em repouso com encriptação do serviço de armazenamento (SSE). O Azure Backup também pode fazer backup de VMs Azure que são encriptados usando Azure Disk Encryption. A encriptação do disco Azure integra-se com chaves de encriptação BitLocker (BEKs), que são salvaguardadas num cofre-chave como segredos. A encriptação do disco Azure também se integra com chaves de encriptação chave Azure Key Vault (KEKs). Ativar Soft-Delete no Cofre de Chaves para proteger as chaves contra a eliminação acidental ou maliciosa.
 
 * [Excluir suave para VMs](../../backup/soft-delete-virtual-machines.md)
 
@@ -1189,7 +1189,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [referência de segurança Azure](../../security/benchmarks/overview.md)
 - Saiba mais sobre [as linhas de base de segurança da Azure](../../security/benchmarks/security-baselines-overview.md)

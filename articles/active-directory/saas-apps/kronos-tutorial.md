@@ -15,7 +15,7 @@ ms.openlocfilehash: 61241f361be3a9a60c8125f891525a078954afdf
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91858087"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kronos"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Kronos

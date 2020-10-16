@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: memildin
 ms.openlocfilehash: 19e9a33350b6a1a67986dc35a372f737e45ab39a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90906398"
 ---
 # <a name="prevent-misconfigurations-with-enforcedeny-recommendations"></a>Prevenir configurações erradas com recomendações de Aplicação/Negação
@@ -41,18 +41,18 @@ Isto pode ser encontrado no topo da página de detalhes de recursos para recomen
     > [!TIP]
     > Pode utilizar os três pontos no final da linha para alterar uma única subscrição, ou utilizar as caixas de verificação para selecionar várias subscrições ou grupos e, em seguida, selecionar **Alterar para Negar**.
 
-    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-prevent-resource-creation.png" alt-text="Definir a margem de manobra para a Política Azure negar":::
+    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-prevent-resource-creation.png" alt-text="Página de recomendação com botão Deny realçado":::
 
 
 ## <a name="enforce-a-secure-configuration"></a>Impor uma configuração segura
 
 1. Abra a recomendação de que irá implementar uma implementação de modelo para se novos recursos não satisfazê-lo, e selecione o botão **Enforce** no topo da página.
 
-    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-button.png" alt-text="Página de recomendação com botão De aplicação realçado":::
+    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-button.png" alt-text="Página de recomendação com botão Deny realçado":::
 
     O painel de configuração abre-se com todas as opções de configuração de política. 
 
-    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-config.png" alt-text="Impor opções de configuração":::
+    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-config.png" alt-text="Página de recomendação com botão Deny realçado":::
 
 1. Desa esta vista, nome de atribuição e outras opções relevantes.
 

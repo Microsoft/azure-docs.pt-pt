@@ -7,10 +7,10 @@ author: mrbullwinkle
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.openlocfilehash: 90743a213092aacfa10139c12f47bc11faf0d86d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86498717"
 ---
 # <a name="troubleshooting-workbook-based-insights"></a>Insights baseados em livros de resolução de problemas
@@ -70,6 +70,6 @@ Para alterar o nome de um passo no seu livro de trabalho guardado, selecione edi
 ![Selecione editar na parte inferior de um passo de livro para abrir as definições ](./media/storage-insights-overview/fqa-edit.png)
  ![ Nas definições selecione a engrenagem na parte inferior, para ser capaz de alterar o nome do passo](./media/storage-insights-overview/fqa-change-name.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre os cenários que os livros de trabalho são projetados para apoiar, como autorizar novos e personalizar relatórios existentes, e mais através da revisão [de relatórios de criar relatórios interativos com os livros de trabalho do Azure Monitor.](../platform/workbooks-overview.md)

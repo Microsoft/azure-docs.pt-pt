@@ -4,10 +4,10 @@ description: Aprenda a integrar ambientes Azure DevTest Labs nos seus oleodutos 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: be726b2a3f67fd3dada4fdc3cf794922a3c18d06
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85483028"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Integrar ambientes nos seus oleodutos Azure DevOps CI/CD
@@ -18,7 +18,7 @@ Este artigo mostra como criar e implantar um ambiente, em seguida, apagar o ambi
 - Criar um Ambiente
 - Eliminar um Ambiente
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 Antes de poder integrar o seu pipeline CI/CD com a Azure DevTest Labs, instale a extensão [de tarefas Azure DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) a partir do Visual Studio Marketplace. 
 
 ## <a name="create-and-configure-the-lab-for-environments"></a>Criar e configurar o laboratório para ambientes
@@ -53,8 +53,8 @@ A próxima fase da implantação consiste em criar o ambiente a utilizar para fi
 4. Para **o nome do modelo,** selecione o nome do ambiente que guardou para o seu repositório de código fonte*. 
 5. O **Nome do Laboratório,** **Nome do Repositório**e **Nome do Modelo** são as representações amigáveis dos IDs de recursos Azure. Introduzir manualmente o nome amigável provocará falhas, utilize as listas de espera para selecionar as informações.
 6. Para **o Nome do Ambiente,** insira um nome para identificar exclusivamente o caso do ambiente dentro do laboratório.  Deve ser único dentro do laboratório.
-7. O **Arquivo de Parâmetros** e os **Parâmetros**permitem que os parâmetros personalizados sejam transmitidos ao ambiente. Ambos podem ser utilizados para definir os valores dos parâmetros. Para este exemplo, utilizar-se-á a secção Parâmetros. Utilize os nomes das variáveis que definiu no ambiente, por exemplo:`-administratorLogin "$(administratorLogin)" -administratorLoginPassword "$(administratorLoginPassword)" -databaseName "$(databaseName)" -cacheSKUCapacity 1`
-8. As informações dentro do modelo de ambiente podem ser transmitidas na secção de saída do modelo. Consulte **Criar variáveis de saída com base na saída do modelo de ambiente** para que outras tarefas possam utilizar os dados. `$(Reference name.Output Name)`é o padrão a seguir. Por exemplo, se o Nome de Referência fosse DTL e o nome de saída no modelo fosse a localização, a variável seria `$(DTL.location)` .
+7. O **Arquivo de Parâmetros** e os **Parâmetros**permitem que os parâmetros personalizados sejam transmitidos ao ambiente. Ambos podem ser utilizados para definir os valores dos parâmetros. Para este exemplo, utilizar-se-á a secção Parâmetros. Utilize os nomes das variáveis que definiu no ambiente, por exemplo: `-administratorLogin "$(administratorLogin)" -administratorLoginPassword "$(administratorLoginPassword)" -databaseName "$(databaseName)" -cacheSKUCapacity 1`
+8. As informações dentro do modelo de ambiente podem ser transmitidas na secção de saída do modelo. Consulte **Criar variáveis de saída com base na saída do modelo de ambiente** para que outras tarefas possam utilizar os dados. `$(Reference name.Output Name)` é o padrão a seguir. Por exemplo, se o Nome de Referência fosse DTL e o nome de saída no modelo fosse a localização, a variável seria `$(DTL.location)` .
 
 ## <a name="delete-the-environment"></a>Apagar o ambiente
 A fase final é eliminar o Ambiente que implementou na sua instância Azure DevTest Labs. Normalmente, apagaria o ambiente depois de executar as tarefas de dev ou executar os testes de que necessita nos recursos utilizados.
@@ -67,7 +67,7 @@ Na definição de desbloqueio, **selecione Adicionar tarefas**, e, em seguida, n
     3. Para **nome ambiente,** insira o nome do ambiente a remover.
 2. Insira um nome para a definição de libertação e, em seguida, guarde-o.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos: 
 - [Crie ambientes multi-VM com modelos de Gestor de Recursos](devtest-lab-create-environment-from-arm.md).
 - Modelos quickstart Resource Manager para automação de DevTest Labs do [repositório GitHub da DevTest Labs](https://github.com/Azure/azure-quickstart-templates).

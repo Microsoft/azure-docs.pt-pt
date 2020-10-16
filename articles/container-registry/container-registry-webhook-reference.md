@@ -4,10 +4,10 @@ description: Referência para a carga útil JSON para pedidos de webhook num reg
 ms.topic: article
 ms.date: 03/05/2019
 ms.openlocfilehash: 8354ef9db24d5825238155ac567d5d829f9b0d7f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74455971"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Referência webhook do registo de contentores Azure
@@ -158,7 +158,7 @@ Webhook desencadeado quando um repositório de imagem ou manifesto é eliminado.
 |[alvo](#delete_target)|Tipo Complexo|O alvo do evento que desencadeou o evento webhook.|
 |[pedido](#delete_request)|Tipo Complexo|O pedido que gerou o evento webhook.|
 
-### <a name="target"></a><a name="delete_target"></a>alvo
+### <a name="target"></a><a name="delete_target"></a> alvo
 
 |Elemento|Tipo|Descrição|
 |------------------|----------|-----------|
@@ -166,7 +166,7 @@ Webhook desencadeado quando um repositório de imagem ou manifesto é eliminado.
 |`digest`|String|A digestão do conteúdo, tal como definido pela Especificação API HTTP do Registo V2.|
 |`repository`|String|O nome do repositório.|
 
-### <a name="request"></a><a name="delete_request"></a>pedido
+### <a name="request"></a><a name="delete_request"></a> pedido
 
 |Elemento|Tipo|Descrição|
 |------------------|----------|-----------|
@@ -219,7 +219,7 @@ Webhook desencadeado quando um gráfico de Helm ou repositório é eliminado.
 |`action`|String|A ação que desencadeou o evento webhook.|
 |[alvo](#chart_delete_target)|Tipo Complexo|O alvo do evento que desencadeou o evento webhook.|
 
-### <a name="target"></a><a name="chart_delete_target"></a>alvo
+### <a name="target"></a><a name="chart_delete_target"></a> alvo
 
 |Elemento|Tipo|Descrição|
 |------------------|----------|-----------|
@@ -256,6 +256,6 @@ Exemplo O comando [CLI do Azure](/cli/azure/acr) que desencadeia o webhook do ev
 az acr helm delete wordpress --version 5.4.0 --name MyRegistry
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Usando webhooks de registo de contentores Azure](container-registry-webhook.md)

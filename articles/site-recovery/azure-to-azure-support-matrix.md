@@ -4,12 +4,12 @@ description: Resume o apoio à recuperação de desastres dos VMs do Azure para 
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: 786947a03440cc837f9d104d43e8061c80a0844c
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 390dba92091a9e419bcd7a8f0e8e83f65597305e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803097"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045334"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para recuperação após desastre de VMs do Azure entre regiões do Azure
 
@@ -247,6 +247,7 @@ Geração 2 (bota UEFI) | Suportado
 Discos NVMe | Não suportado
 Discos partilhados do Azure | Não suportado
 Opção de transferência segura | Suportado
+Escreva discos ativados pelo acelerador | Não suportado
 
 >[!IMPORTANT]
 > Para evitar problemas de desempenho, certifique-se de que segue a escalabilidade do disco VM e os alvos de desempenho para Os VMs [do Linux](../virtual-machines/linux/disk-scalability-targets.md) ou [do Windows.](../virtual-machines/windows/disk-scalability-targets.md) Se utilizar as definições predefinidas, a Recuperação do Site cria os discos e contas de armazenamento necessários, com base na configuração de origem. Se personalizar e selecionar as suas próprias definições, siga a escalabilidade do disco e os alvos de desempenho para os seus VMs de origem.
@@ -273,7 +274,7 @@ Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou superior |20 MB/s | 1684 GB po
 **Definição** | **Suporte** | **Detalhes**
 --- | --- | ---
 NIC | Número máximo suportado para um tamanho VM Azure específico | Os NICs são criados quando o VM é criado durante o failover.<br/><br/> O número de NICs no VM de failover depende do número de NICs na fonte VM quando a replicação foi ativada. Se adicionar ou remover um NIC depois de permitir a replicação, não afeta o número de NICs no VM replicado após a falha. <br/><br/> A ordem dos NICs após a falha não é garantida como a ordem original. <br/><br/> Pode renomear OS NICs na região alvo com base nas convenções de nomeação da sua organização. O renomeamento do NIC é suportado com recurso ao PowerShell.
-Balanceador de Carga de Externo | Não suportado | O balanceador de carga público/internet não é suportado pela recuperação do site Azure.
+Balanceador de Carga de Externo | Não suportado | Pode configurar equilibradores de carga público/internet na região primária. No entanto, os equilibradores de carga público/internet não são suportados pela Recuperação do Sítio Azure na região DR.
 Equilibrador de carga interna | Suportado | Associe o equilibrador de carga pré-configurado utilizando um script Azure Automation num plano de recuperação.
 Endereço IP público | Suportado | Associe um endereço IP público existente com o NIC. Ou, crie um endereço IP público e associe-o ao NIC utilizando um script Azure Automation num plano de recuperação.
 NSG em NIC | Suportado | Associe o NSG ao NIC utilizando um script Azure Automation num plano de recuperação.

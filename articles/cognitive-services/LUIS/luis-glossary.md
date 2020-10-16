@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/08/2020
 ms.openlocfilehash: 0f17e489cabb047ca2e9f0ad7406c34cd292e556
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91309494"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossário de compreensão linguística do vocabulário e conceitos comuns
@@ -194,7 +194,7 @@ Em LUIS, [rotula-se](label-entity-example-utterance.md) uma palavra ou frase no 
 
 Consulte a definição para [aplicação (app)](#application-app).
 
-## <a name="model"></a>Modelação
+## <a name="model"></a>Modelo
 
 Um modelo (aprendido com máquina) é uma função que faz uma previsão sobre os dados de entrada. No LUIS, referimo-nos a classificadores de intenção e extratores de entidades genericamente como "modelos", e referimo-nos a uma coleção de modelos que são treinados, publicados e consultados em conjunto como uma "app".
 

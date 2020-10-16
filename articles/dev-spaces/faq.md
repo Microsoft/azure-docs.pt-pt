@@ -5,14 +5,16 @@ ms.date: 01/28/2020
 ms.topic: conceptual
 description: Encontre respostas para algumas das perguntas comuns sobre Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: 739cfdb4f930d384e180ffd0f3ce2311cd41c70a
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 9870ba52424f6f59cc908e4d70bf1560f7d69165
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207989"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970304"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Perguntas frequentes sobre Azure Dev Spaces
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
 
 Isto aborda perguntas frequentes sobre Azure Dev Spaces.
 

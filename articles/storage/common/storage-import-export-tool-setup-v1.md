@@ -9,10 +9,10 @@ ms.date: 01/15/2017
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: e03601bc929354a69e7f9027db5ac9b7697c3c82
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90054080"
 ---
 # <a name="setting-up-the-azure-importexport-tool-v1"></a>Criação da Ferramenta de Importação/Exportação Azure v1
@@ -247,7 +247,7 @@ Examples:
         es\drama /dstdir:movies/drama/ /skipwrite
 ```  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Preparar as unidades de disco rígido para uma tarefa de importação](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
 * [Pré-visualização do uso do Drive para um trabalho de exportação](../storage-import-export-tool-previewing-drive-usage-export-v1.md)   

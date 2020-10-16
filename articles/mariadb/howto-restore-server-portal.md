@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/30/2020
 ms.openlocfilehash: 6d050a8bd351617a6ab567243c5b1ef8d9f93ded
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86115915"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-portal"></a>Como fazer backup e restaurar um servidor na Base de Dados Azure para MariaDB usando o portal Azure
@@ -89,7 +89,7 @@ Se configurar o servidor para cópias de segurança geograficamente redundantes,
 
 3. Selecione **Backup** como **fonte de dados**. Esta ação carrega uma redução que fornece uma lista de servidores que têm cópias de segurança geo redundantes ativadas.
    
-   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="Selecione fonte de dados.":::
+   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="Navegue para a Base de Dados Azure para MariaDB.":::
     
    > [!NOTE]
    > Quando um servidor é criado pela primeira vez, pode não estar imediatamente disponível para restauro geo. Pode levar algumas horas para que os metadados necessários sejam povoados.
@@ -97,21 +97,21 @@ Se configurar o servidor para cópias de segurança geograficamente redundantes,
 
 4. Selecione o **dropdown de backup.**
    
-   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore-backup.png" alt-text="Selecione o dropdown de reserva.":::
+   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore-backup.png" alt-text="Navegue para a Base de Dados Azure para MariaDB.":::
 
 5. Selecione o servidor de origem para restaurar a partir de.
    
-   :::image type="content" source="./media/howto-restore-server-portal/5-select-backup.png" alt-text="Selecione backup.":::
+   :::image type="content" source="./media/howto-restore-server-portal/5-select-backup.png" alt-text="Navegue para a Base de Dados Azure para MariaDB.":::
 
 6. O servidor irá predefinir para valores para o número de **vCores**, Período de **Retenção de Cópia**de Segurança , **Opção de Redundância de Backup,** **Versão do Motor**e **credenciais de administração**. Selecione **Continuar**. 
    
-   :::image type="content" source="./media/howto-restore-server-portal/6-accept-backup.png" alt-text="Continue com reforços.":::
+   :::image type="content" source="./media/howto-restore-server-portal/6-accept-backup.png" alt-text="Navegue para a Base de Dados Azure para MariaDB.":::
 
 7. Preencha o resto do formulário com as suas preferências. Pode selecionar qualquer **localização.**
 
     Depois de selecionar a localização, pode selecionar o **servidor Configure** para atualizar a **Geração computacional** (se disponível na região escolhida), número de **vCores,** Período de **Retenção de Backup**e **Opção de Redundância de Backup**. A alteração **do nível de preços** (Final básico, geral ou otimizado da memória) ou o tamanho do **armazenamento** durante a restauração não é suportado.
 
-   :::image type="content" source="./media/howto-restore-server-portal/7-create.png" alt-text="Preencher formulário."::: 
+   :::image type="content" source="./media/howto-restore-server-portal/7-create.png" alt-text="Navegue para a Base de Dados Azure para MariaDB."::: 
 
 8. Selecione **Review + crie** para rever as suas seleções. 
 
@@ -121,7 +121,7 @@ O novo servidor criado pela geo restauro tem o mesmo nome de login de administra
 
 O novo servidor criado durante uma restauração não possui os pontos finais do serviço VNet que existiam no servidor original. Estas regras têm de ser configuradas separadamente para este novo servidor. As regras de firewall do servidor original são restauradas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre as [cópias](concepts-backup.md) de segurança do serviço
 - Saiba mais [sobre réplicas](concepts-read-replicas.md)
 - Saiba mais sobre opções [de continuidade de negócios](concepts-business-continuity.md)

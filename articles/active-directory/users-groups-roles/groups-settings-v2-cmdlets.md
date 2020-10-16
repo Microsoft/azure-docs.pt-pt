@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c00c89e5f81bcb142c50e5f3438c1af2d72a9de5
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90056222"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Azure Ative Directory versão 2 cmdlets para gestão de grupos
@@ -76,7 +76,7 @@ Agora pode começar a usar os cmdlets AzureAD para gerir grupos no seu diretóri
 
 ## <a name="retrieve-groups"></a>Grupos de recuperação
 
-Para recuperar os grupos existentes do seu diretório, utilize o cmdlet Get-AzureADGroups. 
+Para recuperar os grupos existentes do seu diretório, utilize o Get-AzureADGroups cmdlet. 
 
 Para recuperar todos os grupos do diretório, utilize o cmdlet sem parâmetros:
 
@@ -138,7 +138,7 @@ Pode procurar um grupo específico utilizando o parâmetro do filtro. Este parâ
 
 ## <a name="create-groups"></a>Criar grupos
 
-Para criar um novo grupo no seu diretório, utilize o cmdlet New-AzureADGroup. Este cmdlet cria um novo grupo de segurança chamado "Marketing":
+Para criar um novo grupo no seu diretório, use o New-AzureADGroup cmdlet. Este cmdlet cria um novo grupo de segurança chamado "Marketing":
 
 ```powershell
     PS C:\Windows\system32> New-AzureADGroup -Description "Marketing" -DisplayName "Marketing" -MailEnabled $false -SecurityEnabled $true -MailNickName "Marketing"
@@ -146,7 +146,7 @@ Para criar um novo grupo no seu diretório, utilize o cmdlet New-AzureADGroup. E
 
 ## <a name="update-groups"></a>Grupos de atualização
 
-Para atualizar um grupo existente, utilize o cmdlet Set-AzureADGroup. Neste exemplo, estamos a mudar a propriedade DisplayName do grupo "Administradores Intune". Primeiro, estamos a encontrar o grupo usando o cmdlet e filtro Get-AzureADGroup usando o atributo DisplayName:
+Para atualizar um grupo existente, utilize o Set-AzureADGroup cmdlet. Neste exemplo, estamos a mudar a propriedade DisplayName do grupo "Administradores Intune". Primeiro, estamos a encontrar o grupo usando o cmdlet Get-AzureADGroup e o filtro usando o atributo DisplayName:
 
 ```powershell
     PS C:\Windows\system32> Get-AzureADGroup -Filter "DisplayName eq 'Intune Administrators'"
@@ -207,7 +207,7 @@ Para eliminar grupos do seu diretório, utilize o cmdlet Remove-AzureADGroup da 
 
 ### <a name="add-members"></a>Adicionar membros
 
-Para adicionar novos membros a um grupo, utilize o cmdlet Add-AzureADGroupMember. Este comando adiciona um membro ao grupo de Administradores Intune que usamos no exemplo anterior:
+Para adicionar novos membros a um grupo, utilize o Add-AzureADGroupMember cmdlet. Este comando adiciona um membro ao grupo de Administradores Intune que usamos no exemplo anterior:
 
 ```powershell
     PS C:\Windows\system32> Add-AzureADGroupMember -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
@@ -217,7 +217,7 @@ O parâmetro ObjectId é o ObjectID do grupo ao qual queremos adicionar um membr
 
 ### <a name="get-members"></a>Obter membros
 
-Para obter os membros existentes de um grupo, utilize o cmdlet Get-AzureADGroupMember, como neste exemplo:
+Para obter os membros existentes de um grupo, use o Get-AzureADGroupMember cmdlet, como neste exemplo:
 
 ```powershell
     PS C:\Windows\system32> Get-AzureADGroupMember -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df
@@ -230,7 +230,7 @@ Para obter os membros existentes de um grupo, utilize o cmdlet Get-AzureADGroupM
 
 ### <a name="remove-members"></a>Remover membros
 
-Para remover o membro que adicionámos anteriormente ao grupo, utilize o cmdlet Remove-AzureADGroupMember, como é mostrado aqui:
+Para remover o membro que anteriormente adicionámos ao grupo, use o Remove-AzureADGroupMember cmdlet, como é mostrado aqui:
 
 ```powershell
     PS C:\Windows\system32> Remove-AzureADGroupMember -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -MemberId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
@@ -238,7 +238,7 @@ Para remover o membro que adicionámos anteriormente ao grupo, utilize o cmdlet 
 
 ### <a name="verify-members"></a>Verificar membros
 
-Para verificar as adesões de grupo de um utilizador, utilize o Select-AzureADGroupIdsUserIsMemberOf cmdlet. Este cmdlet toma como parâmetros o ObjectId do utilizador para o qual verificar os membros do grupo, e uma lista de grupos para os quais verificar os membros. A lista de grupos deve ser fornecida sob a forma de uma variável complexa do tipo "Microsoft.Open.AzureAD.Model.GroupIdsForMembershipCheck", pelo que primeiro temos de criar uma variável com esse tipo:
+Para verificar os membros do grupo de um utilizador, utilize o Select-AzureADGroupIdsUserIsMemberOf cmdlet. Este cmdlet toma como parâmetros o ObjectId do utilizador para o qual verificar os membros do grupo, e uma lista de grupos para os quais verificar os membros. A lista de grupos deve ser fornecida sob a forma de uma variável complexa do tipo "Microsoft.Open.AzureAD.Model.GroupIdsForMembershipCheck", pelo que primeiro temos de criar uma variável com esse tipo:
 
 ```powershell
     PS C:\Windows\system32> $g = new-object Microsoft.Open.AzureAD.Model.GroupIdsForMembershipCheck
@@ -260,7 +260,7 @@ Agora, se quisermos verificar as filiações em grupo de um utilizador com Objec
     https://graph.windows.net/85b5ff1e-0402-400c-9e3c-0f9e965325d1/$metadata#Collection(Edm.String)             {31f1ff6c-d48c-4f8a-b2e1-abca7fd399df}
 ```
 
-O valor devolvido é uma lista de grupos dos quais este utilizador é membro. Também pode aplicar este método para verificar a adesão de Contactos, Grupos ou Principais de Serviço para uma determinada lista de grupos, utilizando Select-AzureADGroupIdsContactIsMemberOf, Select-AzureADGroupIdsGroupIsMemberOf ou Select-AzureADGroupIdsServicePrincipalIsMemberOf, Select-AzureADGroupIdsGroupIsMemberOf
+O valor devolvido é uma lista de grupos dos quais este utilizador é membro. Também pode aplicar este método para verificar a adesão de Contactos, Grupos ou Principais de Serviço para uma determinada lista de grupos, utilizando Select-AzureADGroupIdsContactIsMemberOf, Select-AzureADGroupIdsGroupIsMemberOf ou Select-AzureADGroupIdsServicePrincipalIsMemberOf
 
 ## <a name="disable-group-creation-by-your-users"></a>Desativar a criação de grupo pelos seus utilizadores
 
@@ -282,7 +282,7 @@ Para desativar a criação de grupos para utilizadores não administrativos:
   
 ## <a name="manage-owners-of-groups"></a>Gerir proprietários de grupos
 
-Para adicionar os proprietários a um grupo, utilize o cmdlet Add-AzureADGroupOwner:
+Para adicionar os proprietários a um grupo, utilize o Add-AzureADGroupOwner cmdlet:
 
 ```powershell
     PS C:\Windows\system32> Add-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
@@ -290,7 +290,7 @@ Para adicionar os proprietários a um grupo, utilize o cmdlet Add-AzureADGroupOw
 
 O parâmetro ObjectId é o ObjectID do grupo ao qual queremos adicionar um proprietário, e o -RefObjectId é o ObjectID do utilizador ou principal de serviço que queremos adicionar como proprietário do grupo.
 
-Para recuperar os proprietários de um grupo, utilize o cmdlet Get-AzureADGroupOwner:
+Para recuperar os proprietários de um grupo, utilize o Get-AzureADGroupOwner cmdlet:
 
 ```powershell
     PS C:\Windows\system32> Get-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df
@@ -304,7 +304,7 @@ O cmdlet devolve a lista de proprietários (utilizadores e principais serviços)
                           e831b3fd-77c9-49c7-9fca-de43e109ef67 User
 ```
 
-Se pretender remover um proprietário de um grupo, utilize o cmdlet Remove-AzureADGroupOwner:
+Se quiser retirar um proprietário de um grupo, utilize o Remove-AzureADGroupOwner cmdlet:
 
 ```powershell
     PS C:\Windows\system32> remove-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -OwnerId e831b3fd-77c9-49c7-9fca-de43e109ef67
@@ -336,7 +336,7 @@ Para mais detalhes, consulte a documentação para o [serviço de sincronizaçã
 
 A writeback do grupo Microsoft 365 é uma funcionalidade de pré-visualização pública do Azure Ative Directory (Azure AD) e está disponível com qualquer plano de licença AZure AD pago. Para obter algumas informações legais sobre pré-visualizações, consulte [Termos Complementares de Utilização para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode encontrar mais documentação do Azure Ative Directory PowerShell na [Azure Ative Directory Cmdlets](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
 

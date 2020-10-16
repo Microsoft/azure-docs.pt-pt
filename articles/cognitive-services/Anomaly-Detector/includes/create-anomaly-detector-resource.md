@@ -2,18 +2,18 @@
 title: Suporte de contentor
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/10/2020
-ms.author: aahi
-ms.openlocfilehash: 8f93e0ffe74ade79059fc845788faf36ab5b4f13
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.author: mbullwin
+ms.openlocfilehash: e896ac5f4625d36060d713d66fa885f8b24756f1
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "91025017"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014749"
 ---
 ## <a name="create-an-anomaly-detector-resource"></a>Criar um recurso de detetor de anomalias
 
@@ -34,7 +34,7 @@ ms.locfileid: "91025017"
 
     |Separador de recursos no Portal|Definição|Valor|
     |--|--|--|
-    |**Descrição Geral**|Ponto final|Copie o ponto final. Parece-se com `https://westus2.api.cognitive.microsoft.com/`|
+    |**Descrição geral**|Ponto final|Copie o ponto final. Parece-se com `https://westus2.api.cognitive.microsoft.com/`|
     |**Chaves**|Chave de API|Copiar 1 das duas chaves. É uma corda de 32 caracteres alfanuméricos sem espaços ou traços, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` .|
 
 

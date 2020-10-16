@@ -4,10 +4,10 @@ description: Saiba como ativar uma imagem licenciada em Azure DevTest Labs usand
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: e2b6e495be2257548782143517f5a970b424860c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91276361"
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Ativar uma imagem licenciada no seu laboratório em Azure DevTest Labs

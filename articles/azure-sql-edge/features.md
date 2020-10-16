@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
 ms.openlocfilehash: 646ce94587a9aa1bb8fd20a28b84658994b25cf1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90886529"
 ---
 # <a name="supported-features-of-azure-sql-edge"></a>Características suportadas do Azure SQL Edge 
@@ -52,7 +52,7 @@ O Azure SQL Edge suporta apenas o motor da base de dados. Não inclui suporte pa
 Além de suportar um subconjunto de funcionalidades do SQL Server no Linux, o Azure SQL Edge inclui suporte para as seguintes novas funcionalidades: 
 
 - O streaming SQL, que é baseado no mesmo motor que alimenta o Azure Stream Analytics, fornece capacidades de streaming de dados em tempo real em Azure SQL Edge. 
-- A chamada de função T-SQL `Date_Bucket` para análise de dados da Série Tempo.
+- A função T-SQL `Date_Bucket` exige Time-Series análise de dados.
 - Capacidades de aprendizagem automática através do tempo de funcionação ONNX, incluído com o motor SQL.
 
 ## <a name="unsupported-features"></a>Funcionalidades não suportadas
@@ -92,7 +92,7 @@ A lista seguinte inclui o SQL Server 2019 em funcionalidades linux que não são
 | **Agente do SQL Server** |  Subsistemas: CmdExec, PowerShell, Queue Reader, SSIS, SSAS e SSRS. |
 | &nbsp; | Os alertas. |
 | &nbsp; | Conseguiu reforços. |
-| **Elevada Disponibilidade** | Sempre em grupos de disponibilidade.  |
+| **Alta Disponibilidade** | Sempre em grupos de disponibilidade.  |
 | &nbsp; | Grupos básicos de disponibilidade. |
 | &nbsp; | Sempre na instância de cluster de failover. |
 | &nbsp; | Espelhamento da base de dados. |

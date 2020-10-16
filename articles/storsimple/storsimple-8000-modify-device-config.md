@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: d0e13f8e66e6035c22c9c2323b9653c5c4a81671
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a08ddae1d10cc8b26f3aa7ee85e731c2cea15f93
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514670"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962892"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>Utilize o serviço StorSimple Device Manager para modificar a configuração do seu dispositivo StorSimple
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Overview (Descrição geral)
 
 A secção **de definições do dispositivo do** portal Azure na lâmina **Definições** contém todos os parâmetros do dispositivo que pode reconfigurar num dispositivo StorSimple que é gerido por um serviço StorSimple Device Manager. Este tutorial explica como pode utilizar a lâmina **De Definições** para executar as seguintes tarefas ao nível do dispositivo:
 
@@ -44,7 +44,7 @@ Pode utilizar o portal Azure para alterar o nome do dispositivo e atribuir-lhe u
 
 É atribuído um nome padrão a um dispositivo StorSimple que esteja ligado ao serviço StorSimple Device Manager. O nome padrão normalmente reflete o número de série do dispositivo. Por exemplo, um nome de dispositivo padrão com 15 caracteres, como 8600-SHX0991003G44HT, indica o seguinte:
 
-* **8600** - Indica o modelo do dispositivo.
+* **8600**  - Indica o modelo do dispositivo.
 * **SHX** – Indica o local de fabrico.
 * **0991003** - Indica um produto específico.
 * **G44HT**- Os últimos 5 dígitos são incrementados para criar números de série únicos. Isto pode não ser um conjunto sequencial.
@@ -61,7 +61,7 @@ Uma descrição do dispositivo geralmente ajuda a identificar o proprietário e 
 
 O seu dispositivo deve sincronizar o tempo para autenticar com o seu fornecedor de serviços de armazenamento em nuvem. Utilize a lâmina **de definição geral** do seu dispositivo para modificar as definições de tempo do dispositivo.
 
-![Descrição do dispositivo em configurações gerais](./media/storsimple-8000-modify-device-config/modify-general-settings2.png)
+![Descrição do dispositivo nas definições gerais 2](./media/storsimple-8000-modify-device-config/modify-general-settings2.png)
 
  Selecione o seu fuso horário a partir da lista de drop-down. Pode especificar até dois servidores do Protocolo de Tempo de Rede (NTP):
 
@@ -165,7 +165,7 @@ Execute os seguintes passos para trocar ou reatribuir os VIPs para qualquer uma 
 1. Limpe o endereço IP para ambas as interfaces.
 2. Após a apuração dos endereços IP, atribua os novos endereços IP às respetivas interfaces.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [configurar o MPIO para o seu dispositivo StorSimple](storsimple-8000-configure-mpio-windows-server.md).
 * Saiba como [utilizar o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).

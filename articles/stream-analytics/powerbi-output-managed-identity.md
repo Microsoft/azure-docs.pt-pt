@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/10/2020
 ms.openlocfilehash: 85925369da8fec83a613226fe248b396fd88105a
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89613421"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>Utilize identidade gerida para autenticar o seu trabalho Azure Stream Analytics para Power BI
@@ -221,7 +221,7 @@ Abaixo estão as limitações desta característica:
 
 - [A Identidade Atribuída ao Utilizador](../active-directory/managed-identities-azure-resources/overview.md) não é suportada. Isto significa que não pode entrar no seu próprio principal de serviço para ser usado pelo seu trabalho stream Analytics. O diretor de serviço deve ser gerado pela Azure Stream Analytics.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Integração do painel power BI com Azure Stream Analytics](./stream-analytics-power-bi-dashboard.md)
 * [Compreender as saídas do Azure Stream Analytics](./stream-analytics-define-outputs.md)

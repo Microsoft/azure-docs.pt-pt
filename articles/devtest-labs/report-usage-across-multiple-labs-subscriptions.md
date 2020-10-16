@@ -4,10 +4,10 @@ description: Saiba como reportar o uso da Azure DevTest Labs em vários laborat�
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 1d2663113e929145308f5a5712b968f3551668c2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87287272"
 ---
 # <a name="report-azure-devtest-labs-usage-across-multiple-labs-and-subscriptions"></a>Reportar o uso da Azure DevTest Labs em vários laboratórios e subscrições
@@ -73,7 +73,7 @@ Utilize uma ferramenta de visualização de dados à sua escolha para ligar ao s
 
 Pode utilizar [a Azure Data Factory](https://azure.microsoft.com/services/data-factory/) para criar, ligar e gerir os seus recursos dentro de uma única interface de localização. Se for necessário um maior controlo, o recurso individual pode ser criado dentro de um único grupo de recursos e gerido independentemente do serviço Data Factory.  
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 Uma vez que o sistema é configurado e os dados estão movendo-se para o armazenamento a longo prazo, o próximo passo é chegar a questões que os dados precisam de responder. Por exemplo: 
 

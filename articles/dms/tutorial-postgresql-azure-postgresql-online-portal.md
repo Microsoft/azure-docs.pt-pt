@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 04/11/2020
-ms.openlocfilehash: 1f8f7c4ea051ff583b3e8f88e0331642cdf9f19a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e424d41a7b4c1d9394e789c60b60a6fa86a69c5
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91291545"
+ms.locfileid: "91893786"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-portal"></a>Tutorial: Migrar PostgreSQL para Azure DB para PostgreSQL on-line usando DMS através do portal Azure
 
@@ -281,7 +281,7 @@ Depois de concluída a Carga completa inicial, as bases de dados são marcadas c
 
     ![Tela de corte completa](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-complete-cutover.png)
 
-3. Quando o estado de migração da base de dados mostrar **concluído,** ligue as suas aplicações à nova instância-alvo da Base de Dados Azure para PostgreSQL.
+3. Quando o estado de migração da base de dados mostrar **concluído,** [recrie as sequências](https://wiki.postgresql.org/wiki/Fixing_Sequences) (se aplicável) e ligue as suas aplicações à nova instância-alvo da Base de Dados Azure para PostgreSQL.
 
 ## <a name="next-steps"></a>Passos seguintes
 

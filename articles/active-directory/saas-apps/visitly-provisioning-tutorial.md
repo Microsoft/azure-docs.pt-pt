@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
 ms.openlocfilehash: 15031a3e139265410179baa13db9ed3f1b41cf17
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88531808"
 ---
 # <a name="tutorial-configure-visitly-for-automatic-user-provisioning"></a>Tutorial: Configurar Visita visitly para fornecimento automático de utilizadores
@@ -104,11 +104,11 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![O link Visitly na lista de Aplicações](common/all-applications.png)
 
-3. Selecione o **separador Provisioning.**
+3. Selecione o separador **Aprovisionamento**.
 
-    ![Separador de provisionamento](common/provisioning.png)
+    ![Separador Aprovisionamento](common/provisioning.png)
 
-4. Desa ajuste o **modo de provisionamento** para **automático**.
+4. Defina o **Modo de Aprovisionamento** como **Automático**.
 
     ![Modo de Provisionamento definido para Automático](common/provisioning-automatic.png)
 
@@ -138,7 +138,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 12. Defina os utilizadores ou grupos que pretende prever ao Visitly, escolhendo os valores pretendidos no **Âmbito** na secção **Definições.**
 
-    ![Âmbito de provisionamento](common/provisioning-scope.png)
+    ![Âmbito de Aprovisionamento](common/provisioning-scope.png)
 
 13. Quando estiver pronto para a provisão, **selecione Save**.
 
@@ -159,4 +159,4 @@ Visitly não suporta eliminações duras. Tudo é macio apenas apagar.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
+* [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../app-provisioning/check-status-user-account-provisioning.md)

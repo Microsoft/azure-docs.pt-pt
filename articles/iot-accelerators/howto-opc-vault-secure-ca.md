@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 01213cd4d04783d0d877b4565493f06fa3718f8d
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: f54467c03a67797d52ac499ca9ba455c0f75e240
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91399640"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071460"
 ---
 # <a name="run-the-opc-vault-certificate-management-service-securely"></a>Executar o serviço de gestão de certificados OPC Vault de forma segura
 
@@ -97,7 +97,7 @@ Todos os sistemas devem ser monitorizados e atualizados continuamente com as mai
 Subscreva ou implemente um controlo de segurança adequado. Por exemplo, subscreva uma solução central de monitorização (como o Azure Security Center ou a solução de monitorização Microsoft 365) e configufique-a adequadamente para garantir que os eventos de segurança sejam transmitidos à solução de monitorização.
 
 > [!IMPORTANT]
-> Por predefinição, o serviço OPC Vault é implantado com [a Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/devops) como solução de monitorização. A adição de uma solução de segurança como [o Azure Security Center](https://azure.microsoft.com/services/security-center/) é altamente recomendada.
+> Por predefinição, o serviço OPC Vault é implantado com [a Azure Application Insights](../azure-monitor/app/devops.md) como solução de monitorização. A adição de uma solução de segurança como [o Azure Security Center](https://azure.microsoft.com/services/security-center/) é altamente recomendada.
 
 ### <a name="assess-the-security-of-open-source-software-components"></a>Avaliar a segurança dos componentes de software de código aberto
 
@@ -145,7 +145,7 @@ Forneça um conjunto exaustivo de todos os certificados emitidos nos últimos 12
 
 ### <a name="document-the-standard-operating-procedure-for-securely-deleting-cryptographic-keys"></a>Documentar o procedimento de operação padrão para eliminar de forma segura as chaves criptográficas
 
-Durante a vida de um AC, a eliminação das chaves só pode acontecer raramente. É por isso que nenhum utilizador tem o Certificado de Cofre chave Eliminar o direito atribuído, e por que não existem APIs expostos para apagar um certificado de CA emitente. O procedimento de funcionamento padrão manual para eliminar de forma segura as chaves criptográficas da autoridade de certificação só está disponível acedendo diretamente ao Cofre-Chave no portal Azure. Também pode eliminar o grupo de certificados no Key Vault. Para garantir a eliminação imediata, desative a funcionalidade [de eliminação suave do Cofre de Chaves.](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
+Durante a vida de um AC, a eliminação das chaves só pode acontecer raramente. É por isso que nenhum utilizador tem o Certificado de Cofre chave Eliminar o direito atribuído, e por que não existem APIs expostos para apagar um certificado de CA emitente. O procedimento de funcionamento padrão manual para eliminar de forma segura as chaves criptográficas da autoridade de certificação só está disponível acedendo diretamente ao Cofre-Chave no portal Azure. Também pode eliminar o grupo de certificados no Key Vault. Para garantir a eliminação imediata, desative a funcionalidade [de eliminação suave do Cofre de Chaves.](../key-vault/general/soft-delete-overview.md)
 
 ## <a name="certificates"></a>Certificados
 

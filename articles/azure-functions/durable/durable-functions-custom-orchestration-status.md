@@ -5,17 +5,17 @@ ms.topic: conceptual
 ms.date: 07/10/2020
 ms.author: azfuncdf
 ms.openlocfilehash: bb5c6ee15a5a445b4b762bd9eaf8919e1396f8ce
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87081836"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Estado de orquestração personalizada em Funções Duradouras (Funções Azure)
 
 O estado de orquestração personalizada permite-lhe definir um valor de estado personalizado para a sua função de orquestrador. Este estado é fornecido através da [HTTP GetStatus API](durable-functions-http-api.md#get-instance-status) ou da [ `GetStatusAsync` API](durable-functions-instance-management.md#query-instances) no cliente da orquestração.
 
-## <a name="sample-use-cases"></a>Casos de utilização de amostras
+## <a name="sample-use-cases"></a>Exemplos de casos de utilização
 
 > [!NOTE]
 > As amostras que se seguem mostram como usar a funcionalidade de estado personalizado em C#, JavaScript e Python. Os exemplos C# são escritos para Funções Duráveis 2.x e não são compatíveis com Funções Duráveis 1.x. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [das versões Funções Duradouras.](durable-functions-versions.md)
@@ -53,7 +53,7 @@ public static string SayHello([ActivityTrigger] string name)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-`E1_HelloSequence`função orquestradora:
+`E1_HelloSequence` função orquestradora:
 
 ```javascript
 const df = require("durable-functions");
@@ -73,7 +73,7 @@ module.exports = df.orchestrator(function*(context){
 });
 ```
 
-`E1_SayHello`função de atividade:
+`E1_SayHello` função de atividade:
 
 ```javascript
 module.exports = async function(context, name) {
@@ -82,7 +82,7 @@ module.exports = async function(context, name) {
 ```
 # <a name="python"></a>[Python](#tab/python)
 
-### <a name="e1_hellosequence-orchestrator-function"></a>`E1_HelloSequence`Função orquestradora
+### <a name="e1_hellosequence-orchestrator-function"></a>`E1_HelloSequence` Função orquestradora
 ```python
 import azure.functions as func
 import azure.durable_functions as df
@@ -102,7 +102,7 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 main = df.Orchestrator.create(orchestrator_function)
 ```
 
-### <a name="e1_sayhello-activity-function"></a>`E1_SayHello`Função de atividade
+### <a name="e1_sayhello-activity-function"></a>`E1_SayHello` Função de atividade
 ```python
 def main(name: str) -> str:
     return f"Hello {name}!"
@@ -249,7 +249,7 @@ public static void Run(
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-#### <a name="cityrecommender-orchestrator"></a>`CityRecommender`orquestrador
+#### <a name="cityrecommender-orchestrator"></a>`CityRecommender` orquestrador
 
 ```javascript
 const df = require("durable-functions");
@@ -284,7 +284,7 @@ module.exports = df.orchestrator(function*(context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-#### <a name="cityrecommender-orchestrator"></a>`CityRecommender`orquestrador
+#### <a name="cityrecommender-orchestrator"></a>`CityRecommender` orquestrador
 
 ```python
 import azure.functions as func

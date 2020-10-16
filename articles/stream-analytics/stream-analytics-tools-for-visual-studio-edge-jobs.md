@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: 44b84c03dd9c070fd7ca3764a0dc50e8caa9e1fc
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86045166"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Desenvolver trabalhos stream Analytics Edge usando ferramentas de Estúdio Visual
@@ -119,7 +119,7 @@ A janela de vista de emprego proporciona-lhe operações como refrescar o trabal
 
 ![Diagrama de trabalho e outras opções no Estúdio Visual](./media/stream-analytics-tools-for-visual-studio-edge-jobs/job-diagram-and-other-options.png) 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Mais informações sobre Azure IoT Edge](../iot-edge/about-iot-edge.md)
 * [ASA no tutorial IoT Edge](../iot-edge/tutorial-deploy-stream-analytics.md)

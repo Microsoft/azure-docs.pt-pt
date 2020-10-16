@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: de481abd82b4fc7dd2eae3763f82b8dd96cc14a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b24d3aa9b5071a69e3e3fb866dc5ba2ac3e57b19
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84266530"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950946"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Tutorial: Encomende um disco de caixa de dados Azure
 
@@ -72,7 +72,7 @@ Tome os seguintes passos para encomendar o Disco de Caixa de Dados.
   
 4. Selecione **Data Box Disk**. A capacidade máxima da solução para uma encomenda única de 5 discos é 35 TB. Pode criar várias encomendas para tamanhos de dados maiores.
 
-     ![Selecionar a opção Data Box Disk](media/data-box-disk-deploy-ordered/select-data-box-sku-zoom.png)
+     ![Selecione a opção de disco de caixa de dados 2](media/data-box-disk-deploy-ordered/select-data-box-sku-zoom.png)
 
 5. Em **Encomenda**, especifique os **Detalhes da encomenda**. Introduza ou selecione as seguintes informações.
 

@@ -8,10 +8,10 @@ author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
 ms.openlocfilehash: fb3a3ab5339186d8fa4e347d9d13e66940457f8a
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91710724"
 ---
 # <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicações do Azure
@@ -20,7 +20,7 @@ Este artigo explica os passos e considerações para a criação de uma nova ofe
 
 Antes de poder publicar uma nova oferta de aplicação Azure, [crie uma conta de marketplace comercial no Partner Center](create-account.md) e certifique-se de que a sua conta está inscrita no programa de marketplace comercial.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Projetar, construir e testar as ofertas de aplicações Azure requer conhecimento técnico tanto da plataforma Azure como das tecnologias usadas para construir a oferta. A sua equipa de engenharia deve ter conhecimento das seguintes tecnologias da Microsoft:
 
@@ -72,7 +72,7 @@ Escolha um ou ambos os seguintes ambientes de script para ajudar a gerir a sua a
 
 Recomendamos adicionar as seguintes ferramentas ao seu ambiente de desenvolvimento:
 
-* [Explorador do Storage do Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+* [Explorador de Armazenamento do Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Código do Estúdio Visual](https://code.visualstudio.com/) com as seguintes extensões:
     * Extensão: [Ferramentas do gestor de recursos Azure](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     * Extensão: [Embelezamento](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -202,7 +202,7 @@ Aqui está um exemplo de como a informação de oferta aparece no Azure Marketpl
 3. Ligações úteis
 4. Capturas de ecrã
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>Nome
 
 O nome que introduzir aqui será mostrado aos clientes como o título da sua listagem de oferta. Este campo é pré-povoado com o texto que inseriu para **o pseudónimo Oferta** quando criou a oferta, mas pode alterar este valor. Este nome pode ser comercializado (e pode incluir símbolos de marca registada ou de direitos autorais). O nome não pode ter mais de 50 caracteres e não pode incluir emojis.
 
@@ -600,6 +600,6 @@ O passo **de validação manual** no processo de publicação representa uma rev
 
 Se tiver erros numa ou mais das etapas de publicação, corrija-as antes de voltar a publicar a sua oferta.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 * [Atualizar uma oferta existente no Marketplace Comercial](./update-existing-offer.md)

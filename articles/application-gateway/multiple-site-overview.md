@@ -8,17 +8,17 @@ ms.date: 07/20/2020
 ms.author: surmb
 ms.topic: conceptual
 ms.openlocfilehash: 53f6f37454de886934a483b40daad24204958baf
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87474330"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Alojamento de vários sites do Gateway de Aplicação
 
-O alojamento de vários sites permite-lhe configurar mais do que uma aplicação web na mesma porta de entrada de uma aplicação. Permite-lhe configurar uma topologia mais eficiente para as suas implementações, adicionando até 100 websites a um gateway de aplicações. Cada site pode ser direcionado para o seu próprio agrupamento de back-end. Por exemplo, três domínios, contoso.com, fabrikam.com e adatum.com, apontam para o endereço IP do gateway de aplicações. Criaria três ouvintes multi-locais e configuraria cada ouvinte para a respetiva definição de porta e protocolo. 
+O alojamento de vários sites permite-lhe configurar mais do que uma aplicação web na mesma porta de entrada de uma aplicação. Permite-lhe configurar uma topologia mais eficiente para as implementações ao adicionar até 100 sites a um gateway de aplicação. Cada site pode ser direcionado para o seu próprio agrupamento de back-end. Por exemplo, três domínios, contoso.com, fabrikam.com e adatum.com, apontam para o endereço IP do gateway de aplicação. Teria de criar três serviços de escuta com vários sites e configurar cada serviço de escuta para a respetiva definição de porta e protocolo. 
 
-Também pode definir nomes de anfitriões wildcard num ouvinte multi-site e até 5 nomes de anfitriões por ouvinte. Para saber mais, consulte [os nomes dos anfitriões wildcard no ouvinte.](#wildcard-host-names-in-listener-preview)
+Além disso, pode definir nomes de anfitrião de caráter universal num serviço de escuta com vários sites e até cinco nomes de anfitrião por serviço de escuta. Para saber mais, consulte [os nomes dos anfitriões wildcard no ouvinte.](#wildcard-host-names-in-listener-preview)
 
 :::image type="content" source="./media/multiple-site-overview/multisite.png" alt-text="Gateway de aplicação multi-site":::
 
@@ -35,7 +35,7 @@ O Application Gateway permite o encaminhamento baseado no anfitrião utilizando 
 
 Utilizando um personagem wildcard no nome do anfitrião, pode combinar vários nomes de anfitriões num único ouvinte. Por exemplo, `*.contoso.com` pode combinar `ecom.contoso.com` com, assim como por `b2b.contoso.com` `customer1.b2b.contoso.com` diante. Usando uma variedade de nomes de anfitrião, você pode configurar mais do que um nome de anfitrião para um ouvinte, para encaminhar pedidos para uma piscina de backend. Por exemplo, um ouvinte pode conter `contoso.com, fabrikam.com` que aceitará pedidos para ambos os nomes dos anfitriões.
 
-:::image type="content" source="./media/multiple-site-overview/wildcard-listener-diag.png" alt-text="Ouvinte wildcard":::
+:::image type="content" source="./media/multiple-site-overview/wildcard-listener-diag.png" alt-text="Gateway de aplicação multi-site":::
 
 >[!NOTE]
 > Esta funcionalidade está em pré-visualização e está disponível apenas para Standard_v2 e WAF_v2 SKU de Application Gateway. Para saber mais sobre pré-visualizações, consulte [os termos de utilização aqui.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
@@ -50,16 +50,16 @@ Em [Azure CLI,](tutorial-multiple-sites-cli.md)deve utilizar `--host-names` em v
 
 ### <a name="allowed-characters-in-the-host-names-field"></a>Personagens permitidos no campo dos nomes dos anfitriões:
 
-* `(A-Z,a-z,0-9)`- caracteres alfanuméricos
-* `-`- hífen ou menos
-* `.`- período como delimiter
-*   `*`- pode combinar com vários caracteres na gama permitida
-*   `?`- pode combinar com um único personagem na gama permitida
+* `(A-Z,a-z,0-9)` - caracteres alfanuméricos
+* `-` - hífen ou menos
+* `.` - período como delimiter
+*   `*` - pode combinar com vários caracteres na gama permitida
+*   `?` - pode combinar com um único personagem na gama permitida
 
 ### <a name="conditions-for-using-wildcard-characters-and-multiple-host-names-in-a-listener"></a>Condições para a utilização de caracteres wildcard e vários nomes de anfitriões num ouvinte:
 
 *   Só pode mencionar até 5 nomes de anfitriões num único ouvinte
-*   Asterisco `*` só pode ser mencionado uma vez num componente de um nome de estilo de domínio ou nome de anfitrião. Por exemplo, componente1 *.component2.component3.* `(*.contoso-*.com)`é válido.
+*   Asterisco `*` só pode ser mencionado uma vez num componente de um nome de estilo de domínio ou nome de anfitrião. Por exemplo, componente1 *.component2.component3.* `(*.contoso-*.com)` é válido.
 *   Só pode haver até dois asteriscos `*` num nome de hospedeiro. Por exemplo, `*.contoso.*` é válido e é `*.contoso.*.*.com` inválido.
 *   Só pode haver um máximo de 4 caracteres wildcard num nome de anfitrião. Por `????.contoso.com` exemplo, `w??.contoso*.edu.*` são válidos, mas `????.contoso.*` inválidos.
 *   A utilização de asterisco `*` e ponto de interrogação `?` juntos num componente de um nome de hospedeiro `*?` `?*` (ou ) é `**` inválida. Por exemplo, `*?.contoso.com` e `**.contoso.com` são inválidos.

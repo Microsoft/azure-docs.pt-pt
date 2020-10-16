@@ -4,10 +4,10 @@ description: Conheça o projeto de candidatura que acabou de criar no Visual Stu
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.openlocfilehash: e8fc105657bda6114851f4819be4658926ad621c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75349400"
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>A sua aplicação de Tecido de Serviço e os próximos passos
@@ -58,7 +58,7 @@ A sua aplicação pode conter informações sensíveis, tais como cadeias de lig
 ## <a name="learn-about-the-application-lifecycle"></a>Conheça o ciclo de vida da aplicação
 Tal como acontece com outras plataformas, uma aplicação de Tecido de Serviço geralmente passa pelas seguintes fases: design, desenvolvimento, teste, implementação, upgrade, manutenção e remoção. [Este artigo](service-fabric-application-lifecycle.md) fornece uma visão geral das APIs e como são usadas pelas diferentes funções ao longo das fases do ciclo de vida da aplicação Service Fabric.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Criar um cluster Windows em Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 - Visualize o seu cluster, incluindo aplicações implementadas e layout físico, com [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 - [Versão e atualização dos seus serviços](service-fabric-application-upgrade-tutorial.md)

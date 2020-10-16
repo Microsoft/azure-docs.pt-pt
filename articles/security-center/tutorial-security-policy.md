@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: db1b73e36a4917f1a10754424b472284094b563e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 22885d9d29bfbfc008b668889f7813ece1df8918
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894570"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945754"
 ---
 # <a name="working-with-security-policies"></a>Trabalhar com políticas de segurança
 
@@ -46,7 +46,7 @@ Para ver as suas políticas de segurança no Centro de Segurança:
 
 1. No painel do **Centro de Segurança,** selecione **a política de segurança.**
 
-    ![O painel Gestão de Políticas](./media/security-center-policies/security-center-policy-mgt.png)
+    :::image type="content" source="./media/security-center-policies/security-center-policy-mgt.png" alt-text="A página de gestão de políticas&quot;:::
 
    No ecrã de gestão de **políticas,** pode ver o número de grupos de gestão, subscrições e espaços de trabalho, bem como a estrutura do seu grupo de gestão.
 
@@ -57,7 +57,7 @@ Para ver as suas políticas de segurança no Centro de Segurança:
    ![página de política](./media/tutorial-security-policy/security-policy-page.png)
 
     > [!NOTE]
-    > Se houver um rótulo "MG Herdado" ao lado da sua política de incumprimento, significa que a apólice foi atribuída a um grupo de gestão e herdada pela subscrição que está a ver.
+    > Se houver um rótulo &quot;MG Herdado" ao lado da sua política de incumprimento, significa que a apólice foi atribuída a um grupo de gestão e herdada pela subscrição que está a ver.
 
 
 1. Escolha entre as opções disponíveis nesta página:
@@ -68,8 +68,19 @@ Para ver as suas políticas de segurança no Centro de Segurança:
 
     1. Para visualizar e editar a política predefinitiva, **selecione Ver política eficaz** e proceda como descrito abaixo. 
 
-       ![tela de política](./media/security-center-policies/policy-screen.png)
-       
+        :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="A página de gestão de políticas&quot;:::
+
+   No ecrã de gestão de **políticas,** pode ver o número de grupos de gestão, subscrições e espaços de trabalho, bem como a estrutura do seu grupo de gestão.
+
+1. Selecione o grupo de subscrição ou gestão cujas políticas pretende ver.
+
+1. Aparece a página de política de segurança para esse grupo de subscrição ou gestão. Mostra as políticas disponíveis e atribuídas.
+
+   ![página de política](./media/tutorial-security-policy/security-policy-page.png)
+
+    > [!NOTE]
+    > Se houver um rótulo &quot;MG Herdado":::
+
        Este ecrã **de política de segurança** reflete as ações tomadas pelas políticas atribuídas no grupo de subscrição ou gestão que selecionou.
        
        * Utilize os links no topo para abrir uma **atribuição** de política que se aplica no grupo de subscrição ou gestão. Estes links permitem-lhe aceder à atribuição e editar ou desativar a apólice. Por exemplo, se vir que uma determinada atribuição de políticas está efetivamente a negar a proteção do ponto final, use o link para editar ou desativar a política.
@@ -86,7 +97,7 @@ Para ver as suas políticas de segurança no Centro de Segurança:
 
 Pode editar políticas de segurança através do portal Azure Policy, através da REST API ou utilizando o Windows PowerShell.
 
-O Security Center utiliza o Controlo de Acesso Baseado em Funções (RBAC), que fornece funções incorporadas que pode atribuir a utilizadores, grupos e serviços do Azure. Quando os utilizadores abrem o Centro de Segurança, vêem apenas informações relacionadas com os recursos a que podem aceder. O que significa que os utilizadores são atribuídos ao papel de *proprietário,* *contribuinte*ou *leitor* à subscrição do recurso. Há também duas funções específicas do Centro de Segurança:
+O Security Center utiliza Role-Based Access Control (RBAC), que fornece funções incorporadas que pode atribuir a utilizadores, grupos e serviços do Azure. Quando os utilizadores abrem o Centro de Segurança, vêem apenas informações relacionadas com os recursos a que podem aceder. O que significa que os utilizadores são atribuídos ao papel de *proprietário,* *contribuinte*ou *leitor* à subscrição do recurso. Há também duas funções específicas do Centro de Segurança:
 
 - **Leitor de segurança**: Tem direito a visualizar itens do Centro de Segurança, tais como recomendações, alertas, política e saúde. Não posso fazer mudanças.
 - **Administrador de segurança**: Tem os mesmos direitos de visão que *o leitor de segurança.* Também pode atualizar a política de segurança e dispensar alertas.
@@ -128,11 +139,10 @@ Para obter mais informações sobre recomendações, consulte [recomendações d
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Este artigo explicava as políticas de segurança. Para obter informações relacionadas, consulte os seguintes artigos:
 
-* Para obter instruções sobre como definir políticas usando o PowerShell, consulte [Quickstart: Criar uma atribuição de política para identificar recursos não conformes utilizando o módulo Azure PowerShell](../governance/policy/assign-policy-powershell.md)
-
-* Para obter instruções sobre como editar uma política de segurança na Política Azure, consulte [Criar e gerir políticas para impor o cumprimento](../governance/policy/tutorials/create-and-manage.md).
-
-* Para obter instruções sobre como definir uma política entre subscrições ou grupos de Gestão usando a Política Azure, consulte [o que é a Política Azure?](../governance/policy/overview.md)
+- [Saiba como definir políticas usando o PowerShell](../governance/policy/assign-policy-powershell.md) - 
+- [Saiba como editar uma política de segurança na Política Azure](../governance/policy/tutorials/create-and-manage.md) - 
+- [Saiba como definir uma política entre subscrições ou grupos de Gestão utilizando a Política Azure.](../governance/policy/overview.md)
+- [Saiba como ativar o Centro de Segurança em todas as subscrições de um grupo de gestão](onboard-management-group.md)

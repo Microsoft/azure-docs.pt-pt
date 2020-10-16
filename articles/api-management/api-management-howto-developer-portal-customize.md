@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/05/2020
 ms.author: apimpm
-ms.openlocfilehash: 345b4950e25f48eb1a48c5e583908d0f771771ba
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 3ceb8fd154e8ad533f4bf6bc9eb0ec3900749f8b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206238"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075370"
 ---
 # <a name="access-and-customize-developer-portal"></a>Aceder e personalizar portal de desenvolvedores
 
 O portal do desenvolvedor é um website gerado automaticamente e totalmente personalizável com a documentação das suas APIs. É onde os consumidores da API podem descobrir as suas APIs, aprender a usá-las e solicitar acesso.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Aceda à versão gerida do portal do programador
@@ -131,7 +131,7 @@ Depois de publicar o portal, pode aceder-lhe no mesmo URL que o painel administr
 É necessário ativar o CORS (partilha de recursos de origem cruzada) nas suas APIs para permitir que os visitantes do seu portal testem as APIs através da consola interativa incorporada. Consulte [este artigo de documentação](api-management-howto-developer-portal.md#cors) para mais detalhes.
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Otimize e poupe nos gastos na nuvem](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+- [Otimize e poupe nos gastos na nuvem](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 Saiba mais sobre o portal de desenvolvedores:
 

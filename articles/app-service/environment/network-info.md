@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/27/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 0dfcf74ef07ff2bde7921860c6e13a59b0ccf023
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 7c5fa5ae54c7aea520a2346cba8feca294585b0d
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962541"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91875738"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerações sobre a rede para um Ambiente de Serviço de Aplicações #
 
@@ -161,7 +161,7 @@ As entradas necessárias num NSG, para que um ASE funcione, são para permitir o
 * UDP a todos os IPs no porto 53
 * UDP a todos os IPs no porto 123
 * TCP para todos os IPs nos portos 80.443
-* TCP para a marca de serviço IP AzureSQL nas portas 1433
+* TCP para a etiqueta de serviço IP `Sql` nas portas 1433
 * TCP para todos os IPs no porto 12000
 * para a sub-rede ASE em todas as portas
 

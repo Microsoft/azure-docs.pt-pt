@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: azure
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 ms.openlocfilehash: 513bde930f9c7c8892164c50c3866ff6e948ed4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84763878"
 ---
 # <a name="spot-quota-increase-limits-for-all-vm-series"></a>Quota à vista: Aumentar os limites para todas as séries VM

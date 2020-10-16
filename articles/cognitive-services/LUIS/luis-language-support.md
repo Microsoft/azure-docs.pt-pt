@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
 ms.openlocfilehash: e377f910e1c1ddda864ea312b40fe3608c166376
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541395"
 ---
 # <a name="language-and-region-support-for-luis"></a>Apoio linguístico e regional ao LUIS
@@ -28,7 +28,7 @@ Se precisar de uma aplicação de clientes LUIS multi-idiomas, como um chatbot, 
 
 LUIS compreende expressões nas seguintes línguas:
 
-| Linguagem |Região  |  Domínio pré-construído | Entidade pré-construída | Recomendações da lista de frases | **[Análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentimento e<br>Palavras-chave)|
+| Idioma |Região  |  Domínio pré-construído | Entidade pré-construída | Recomendações da lista de frases | **[Análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentimento e<br>Palavras-chave)|
 |--|--|:--:|:--:|:--:|:--:|
 | Inglês (Estados Unidos) |`en-US` | ✔ | ✔  |✔|✔|
 | Árabe (pré-visualização - árabe moderno padrão) |`ar-AR`|-|-|-|-|
@@ -82,7 +82,7 @@ As línguas híbridas combinam palavras de duas culturas como o inglês e o chin
 ## <a name="tokenization"></a>Tokenização
 Para realizar machine learning, LUIS quebra uma expressão em [fichas baseadas](luis-glossary.md#token) na cultura.
 
-|Linguagem|  cada espaço ou caráter especial | nível de caráter|palavras compostas
+|Idioma|  cada espaço ou caráter especial | nível de caráter|palavras compostas
 |--|:--:|:--:|:--:|
 |Árabe|✔|||
 |Chinês||✔||

@@ -12,10 +12,10 @@ ms.author: sachinp
 ms.reviewer: sstein
 ms.date: 07/28/2020
 ms.openlocfilehash: 72d50cadcc9b0f913c66f00ebc16d5e12a39de70
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619105"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Limites de recursos para piscinas elásticas utilizando o modelo de compra DTU
@@ -51,7 +51,7 @@ Para o mesmo número de DTUs, os recursos fornecidos a uma piscina elástica pod
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
 | Armazenamento incluído por piscina (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
 | Armazenamento máximo por conjunto (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
-| Armazenamento Max In-Memory OLTP por piscina (GB) | N/D | N/D | N/D | N/D | N/D | N/D | N/D | N/D |
+| Max In-Memory armazenamento OLTP por piscina (GB) | N/D | N/D | N/D | N/D | N/D | N/D | N/D | N/D |
 | DBs max por piscina <sup>1</sup> | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | Trabalhadores máximos simultâneos (pedidos) por piscina <sup>2</sup> | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
 | Sessões concorrentes max por piscina <sup>2</sup> | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
@@ -70,7 +70,7 @@ Para o mesmo número de DTUs, os recursos fornecidos a uma piscina elástica pod
 |:---|---:|---:|---:| ---: | ---: | ---: |
 | Armazenamento incluído por piscina (GB) <sup>1</sup> | 50 | 100 | 200 | 300 | 400 | 800 |
 | Armazenamento máximo por conjunto (GB) | 500 | 750 | 1024 | 1280 | 1536 | 2048 |
-| Armazenamento Max In-Memory OLTP por piscina (GB) | N/D | N/D | N/D | N/D | N/D | N/D |
+| Max In-Memory armazenamento OLTP por piscina (GB) | N/D | N/D | N/D | N/D | N/D | N/D |
 | DBs max por piscina <sup>2</sup> | 100 | 200 | 500 | 500 | 500 | 500 |
 | Trabalhadores máximos simultâneos (pedidos) por piscina <sup>3</sup> | 100 | 200 | 400 | 600 | 800 | 1600 |
 | Sessões concorrentes max por piscina <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
@@ -91,7 +91,7 @@ Para o mesmo número de DTUs, os recursos fornecidos a uma piscina elástica pod
 |:---|---:|---:|---:| ---: | ---: |
 | Armazenamento incluído por piscina (GB) <sup>1</sup> | 1200 | 1600 | 2000 | 2500 | 3.000 |
 | Armazenamento máximo por conjunto (GB) | 2560 | 3072 | 3584 | 4096 | 4096 |
-| Armazenamento Max In-Memory OLTP por piscina (GB) | N/D | N/D | N/D | N/D | N/D |
+| Max In-Memory armazenamento OLTP por piscina (GB) | N/D | N/D | N/D | N/D | N/D |
 | DBs max por piscina <sup>2</sup> | 500 | 500 | 500 | 500 | 500 |
 | Trabalhadores máximos simultâneos (pedidos) por piscina <sup>3</sup> | 2400 | 3200 | 4000 | 5000 | 6000 |
 | Sessões concorrentes max por piscina <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
@@ -112,7 +112,7 @@ Para o mesmo número de DTUs, os recursos fornecidos a uma piscina elástica pod
 |:---|---:|---:|---:| ---: | ---: |
 | Armazenamento incluído por piscina (GB) <sup>1</sup> | 250 | 500 | 750 | 1024 | 1536 |
 | Armazenamento máximo por conjunto (GB) | 1024 | 1024 | 1024 | 1024 | 1536 |
-| Armazenamento Max In-Memory OLTP por piscina (GB) | 1 | 2 | 4 | 10 | 12 |
+| Max In-Memory armazenamento OLTP por piscina (GB) | 1 | 2 | 4 | 10 | 12 |
 | DBs max por piscina <sup>2</sup> | 50 | 100 | 100 | 100 | 100 |
 | Trabalhadores máximos simultâneos por piscina (pedidos) <sup>3</sup> | 200 | 400 | 800 | 1600 | 2400 |
 | Sessões concorrentes max por piscina <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
@@ -133,7 +133,7 @@ Para o mesmo número de DTUs, os recursos fornecidos a uma piscina elástica pod
 |:---|---:|---:|---:| ---: | ---: |
 | Armazenamento incluído por piscina (GB) <sup>1</sup> | 2048 | 2560 | 3072 | 3548 | 4096 |
 | Armazenamento máximo por conjunto (GB) | 2048 | 2560 | 3072 | 3548 | 4096|
-| Armazenamento Max In-Memory OLTP por piscina (GB) | 16 | 20 | 24 | 28 | 32 |
+| Max In-Memory armazenamento OLTP por piscina (GB) | 16 | 20 | 24 | 28 | 32 |
 | DBs max por piscina <sup>2</sup> | 100 | 100 | 100 | 100 | 100 |
 | Trabalhadores máximos simultâneos (pedidos) por piscina <sup>3</sup> | 3200 | 4000 | 4800 | 5600 | 6400 |
 | Sessões concorrentes max por piscina <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |

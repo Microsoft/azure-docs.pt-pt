@@ -12,10 +12,10 @@ ms.author: daperlov
 manager: jroth
 ms.reviewer: maghan
 ms.openlocfilehash: a0b5fa16658d3e354bcb4f90ad998997fc844a84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83832797"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Definir atividade variável na fábrica de dados Azure
@@ -25,7 +25,7 @@ Utilize a atividade de Variável Definida para definir o valor de uma variável 
 
 ## <a name="type-properties"></a>Tipo de propriedades
 
-Propriedade | Descrição | Necessário
+Propriedade | Descrição | Obrigatório
 -------- | ----------- | --------
 name | Nome da atividade em pipeline | sim
 descrição | Texto descrevendo o que a atividade faz | não
@@ -96,7 +96,7 @@ Abaixo está um exemplo deste padrão:
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre uma atividade de fluxo de controlo relacionada suportada pela Data Factory: 
 
 - [Acrescentar a Atividade Variável](control-flow-append-variable-activity.md)

@@ -10,10 +10,10 @@ ms.date: 05/29/2018
 ms.reviewer: avverma
 ms.custom: avverma
 ms.openlocfilehash: ac42fe3265163a5a967524fe11063803c9ca91d3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87080595"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Escalar automaticamente uma escala de máquina virtual definida no portal Azure
@@ -46,11 +46,11 @@ Se a exigência da aplicação aumentar, a carga sobre as instâncias de VM no c
     | *Agregação do tempo*     | Define a forma como as métricas recolhidas devem ser agregadas para análise.                                                | Média        |
     | *Nome métrico*          | A métrica de desempenho para monitorizar e aplicar ações ao conjunto de dimensionamento.                                                   | Percentagem da CPU |
     | *Estatística do intervalo de agregação* | Define como as métricas recolhidas em cada vez que os grãos devem ser agregados para análise.                             | Média        |
-    | *Operador*             | Operador utilizado para comparar os dados de métrica relativamente ao limiar.                                                     | Maior que   |
+    | *Operador*             | Operador utilizado para comparar os dados de métrica relativamente ao limiar.                                                     | Maior do que   |
     | *Limiar*            | A percentagem que faz com que a regra da autoescala desencadeie uma ação.                                                 | 70             |
     | *Duration*             | A quantidade de tempo monitorizado antes dos valores de métrica e limiar serem comparados. Não inclui período de arrefecimento.                                   | 10 minutos     |
     | *Operação*            | Define se a balança definida deve escalar para cima ou para baixo quando a regra se aplica e por que incremento.                        | Aumentar por cento em |
-    | *Contagem de instâncias*       | A percentagem de instâncias de VM deve ser alterada quando a regra for acionada.                                            | 20             |
+    | *Contagem de exemplos*       | A percentagem de instâncias de VM deve ser alterada quando a regra for acionada.                                            | 20             |
     | *Repouso (minutos)*  | A quantidade de tempo de espera antes de a regra ser aplicada novamente para que as ações de dimensionamento automático tenham tempo de entrar em vigor. | 5 minutos      |
 
     Os exemplos a seguir mostram uma regra criada no portal Azure que corresponde a estas configurações:
@@ -70,10 +70,10 @@ Se a exigência da aplicação aumentar, a carga sobre as instâncias de VM no c
     
     | Parâmetro              | Explicação                                                                                                          | Valor          |
     |------------------------|----------------------------------------------------------------------------------------------------------------------|----------------|
-    | *Operador*             | Operador utilizado para comparar os dados de métrica relativamente ao limiar.                                                      | Menor que   |
+    | *Operador*             | Operador utilizado para comparar os dados de métrica relativamente ao limiar.                                                      | Menor do que   |
     | *Limiar*            | A percentagem que faz com que a regra da autoescala desencadeie uma ação.                                                 | 30             |
     | *Operação*            | Define se o conjunto de escala deve escalar para cima ou para baixo quando a regra se aplica e por que incremento                         | Diminuir por cento em |
-    | *Contagem de instâncias*       | A percentagem de instâncias de VM deve ser alterada quando a regra for acionada.                                             | 20             |
+    | *Contagem de exemplos*       | A percentagem de instâncias de VM deve ser alterada quando a regra for acionada.                                             | 20             |
 
 3. Para criar a regra, **selecione Adicionar**
 

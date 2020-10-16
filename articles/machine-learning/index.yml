@@ -13,12 +13,12 @@ metadata:
   ms.author: jmartens
   ms.date: 09/21/2020
   ms.custom: contperfq1
-  ms.openlocfilehash: 935476812e93a79be5e1cdb4d4d38a07d15e1935
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 444929b8fe7be180f3dcd1988cd12beea3fcf54b
+  ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91296591"
+  ms.lasthandoff: 10/15/2020
+  ms.locfileid: "92070321"
 landingContent:
 - title: 'Introdução: Primeiro o código'
   linkLists:
@@ -76,3 +76,11 @@ landingContent:
       url: https://docs.microsoft.com/rest/api/azureml/
     - text: CLI de Aprendizagem automática
       url: https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
+- title: Looking for Studio (clássico)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Página de destino do Studio (clássico)
+      url: /classic/
+    - text: Studio (clássico) vs estúdio
+      url: overview-what-is-machine-learning-studio.md

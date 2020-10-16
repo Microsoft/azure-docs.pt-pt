@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 2e6efc08cb7d38a856098395aff363d9d7ec2bab
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91442981"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-an-appropriate-database"></a>Utilize o encaminhamento dependente de dados para encaminhar uma consulta para uma base de dados apropriada
@@ -25,7 +25,7 @@ ms.locfileid: "91442981"
 
 A aplicação não necessita de rastrear várias cadeias de ligação ou localizações DB associadas a diferentes fatias de dados no ambiente desosseado. Em vez disso, o [Shard Map Manager](elastic-scale-shard-map-management.md) abre ligações às bases de dados corretas quando necessário, com base nos dados do mapa de fragmentos e no valor da chave de fragmentos que é o alvo do pedido da aplicação. A chave é tipicamente a *customer_id*, *tenant_id*, *date_key*, ou algum outro identificador específico que é um parâmetro fundamental do pedido de base de dados.
 
-Para obter mais informações, consulte [o Servidor SQL de Escala com o Encaminhamento Dependente de Dados](https://technet.microsoft.com/library/cc966448.aspx).
+Para obter mais informações, consulte [o Servidor SQL de Escala com Data-Dependent Encaminhamento](https://technet.microsoft.com/library/cc966448.aspx).
 
 ## <a name="download-the-client-library"></a>Descarregue a biblioteca do cliente
 
@@ -118,7 +118,7 @@ O **método OpenConnectionForKeyAsync** [(Java](/java/api/com.microsoft.azure.el
 
 Uma das melhores práticas no desenvolvimento de aplicações de acesso a dados na nuvem é garantir que as falhas transitórias são apanhadas pela app, e que as operações são novamente experimentadas várias vezes antes de lançar um erro. O tratamento transitório de falhas para aplicações em nuvem é discutido no Tratamento transitório de falhas[(Java](/java/api/com.microsoft.azure.elasticdb.core.commons.transientfaulthandling), [.NET](https://docs.microsoft.com/previous-versions/msp-n-p/dn440719(v=pandp.60))).
 
-O manuseamento de falhas transitórias pode coexistir naturalmente com o padrão de encaminhamento dependente de dados. O requisito-chave é voltar a tentar todo o pedido de acesso aos dados, incluindo o bloco **de utilização** que obteve a ligação de encaminhamento dependente de dados. O exemplo anterior pode ser reescrito da seguinte forma.
+O manuseamento de falhas transitórias pode coexistir naturalmente com o padrão de encaminhamento Data-Dependent. O requisito-chave é voltar a tentar todo o pedido de acesso aos dados, incluindo o bloco **de utilização** que obteve a ligação de encaminhamento dependente de dados. O exemplo anterior pode ser reescrito da seguinte forma.
 
 ### <a name="example---data-dependent-routing-with-transient-fault-handling"></a>Exemplo - encaminhamento dependente de dados com tratamento de falhas transitórias
 
@@ -175,7 +175,7 @@ Os pacotes necessários para implementar o manuseamento de falhas transitórias 
 
 As propriedades transacionais são garantidas para todas as operações locais a um fragmento. Por exemplo, as transações submetidas através de encaminhamento dependente de dados executam no âmbito do fragmento-alvo para a ligação. Neste momento, não existem capacidades para a inscrição de múltiplas ligações numa transação, pelo que não existem garantias transacionais para operações realizadas em fragmentos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para desprender um fragmento, ou para voltar a colocar um fragmento, consulte [utilizar a classe RecoveryManager para corrigir problemas de mapa de fragmentos](elastic-database-recovery-manager.md).
 

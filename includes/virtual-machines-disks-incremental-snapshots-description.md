@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 4f40a821a0a639fa117dc0844146f28d887166e1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87102910"
 ---
 As imagens incrementais são backups pontuais para discos geridos que, quando tirados, consistem apenas nas alterações desde o último instantâneo. Quando restaura um disco a partir de uma imagem incremental, o sistema reconstrói o disco completo, o que representa o ponto de cópia de segurança do disco quando o instantâneo incremental foi tirado. Esta nova capacidade para instantâneos de disco geridos permite potencialmente que sejam mais rentáveis, uma vez que, a menos que escolha, não tem de armazenar todo o disco com cada instantâneo individual. Tal como os instantâneos completos, os instantâneos incrementais podem ser usados para criar um disco gerido completo ou um instantâneo completo.

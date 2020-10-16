@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: f77e996e83819b78bb9ab4484b9a1d3653a97560
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88140977"
 ---
 # <a name="activity-management-overview"></a>Visão geral da gestão da atividade
@@ -36,6 +36,6 @@ As tarefas rastreiam qualquer operação do utilizador que leve mais de 30 segun
 
 Os registos de auditoria acompanham as operações dos utilizadores. Os registos de auditoria contêm os parâmetros fornecidos para a operação pelo utilizador.  Pode utilizar registos de auditoria para monitorizar a atividade do utilizador para todos os utilizadores.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Ver o resumo da conta](account.md)

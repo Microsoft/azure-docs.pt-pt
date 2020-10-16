@@ -1,6 +1,6 @@
 ---
 title: Administradores de subscrição clássicos do Azure
-description: Descreve como adicionar ou alterar as funções de Coadministrador e Administrador de Serviço do Azure e como ver o Administrador de Conta.
+description: Descreve como adicionar ou alterar as funções de administrador de Co-Administrator e de serviço do Azure e como ver o Administrador de Conta.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,30 +15,30 @@ ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 76b41e25a95f23b66edfbd4715037074537221f9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87076442"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores de subscrição clássicos do Azure
 
 A Microsoft recomenda que você gere o acesso aos recursos Azure usando o controlo de acesso baseado em funções Azure (Azure RBAC). No entanto, se ainda estiver a utilizar o modelo clássico de implementação, terá de utilizar uma função clássica de administrador de subscrição: Administrador de Serviço e Coadministrador. Para obter mais informações, consulte [Azure Resource Manager vs. design clássico](../azure-resource-manager/management/deployment-models.md).
 
-Este artigo descreve como adicionar ou alterar as funções de Coadministrador e Administrador de Serviço, e como ver o Administrador de Conta.
+Este artigo descreve como adicionar ou alterar as funções de administrador de Co-Administrator e de serviço e como ver o Administrador de Conta.
 
 ## <a name="add-a-co-administrator"></a>Adicionar um Coadministrador
 
 > [!TIP]
-> Só precisa de adicionar um Coadministrador se o utilizador precisar de gerir as implementações clássicas do Azure utilizando o [Módulo PowerShell de Gestão de Serviços Azure](/powershell/module/servicemanagement/azure.service). Se o utilizador utilizar apenas o portal Azure para gerir os recursos clássicos, não necessitará de adicionar o administrador clássico para o utilizador.
+> Só precisa de adicionar um Co-Administrator se o utilizador precisar de gerir as implementações clássicas do Azure utilizando o [Módulo PowerShell de Gestão de Serviços Azure](/powershell/module/servicemanagement/azure.service). Se o utilizador utilizar apenas o portal Azure para gerir os recursos clássicos, não necessitará de adicionar o administrador clássico para o utilizador.
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) como Administrador de Serviço ou Coadministrador.
 
 1. Abra [Subscrições](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selecione uma subscrição.
 
-    Os coadministradores só podem ser atribuídos no âmbito da subscrição.
+    Co-Administrators só podem ser atribuídos no âmbito da subscrição.
 
-1. Clique em **Controlo de acesso (IAM)**.
+1. Clique em **Controlo de acesso (IAM)** .
 
 1. Clique no separador **Administradores Clássicos.**
 
@@ -52,7 +52,7 @@ Este artigo descreve como adicionar ou alterar as funções de Coadministrador e
 
     ![Screenshot que adiciona coadministrador](./media/classic-administrators/add-coadmin.png)
 
-## <a name="add-a-guest-user-as-a-co-administrator"></a>Adicione um utilizador convidado como Coadministrador
+## <a name="add-a-guest-user-as-a-co-administrator"></a>Adicione um utilizador convidado como Co-Administrator
 
 Para adicionar um utilizador convidado como Coadministrador, siga os mesmos passos que na secção anterior [adicionar um Coadministrador.](#add-a-co-administrator) O utilizador convidado deve cumprir os seguintes critérios:
 
@@ -62,11 +62,11 @@ Para obter mais informações sobre como adicionar um utilizador convidado ao se
 
 ### <a name="differences-for-guest-users"></a>Diferenças para os utilizadores convidados
 
-Os utilizadores convidados que tenham sido atribuídos o papel de Coadministrador podem ver algumas diferenças em comparação com os utilizadores membros com a função de Coadministrador. Considere o seguinte cenário:
+Os utilizadores convidados que tenham sido designados Co-Administrator papel podem ver algumas diferenças em comparação com os utilizadores membros com o papel Co-Administrator. Considere o seguinte cenário:
 
 - O Utilizador A com uma conta AD Azure (trabalho ou conta escolar) é um Administrador de Serviço para uma subscrição do Azure.
 - O utilizador B tem uma conta Microsoft.
-- O Utilizador A atribui a função de Coadministrador ao utilizador B.
+- O utilizador A atribui a função Co-Administrator ao utilizador B.
 - O utilizador B pode fazer quase tudo, mas não consegue registar aplicações ou procurar utilizadores no diretório AZure AD.
 
 Seria de esperar que o utilizador B conseguisse tudo. A razão para esta diferença é que a conta Microsoft é adicionada à subscrição como utilizador convidado em vez de um utilizador membro. Os utilizadores convidados têm diferentes permissões por defeito em Azure AD em comparação com os utilizadores membros. Por exemplo, os utilizadores de membros podem ler outros utilizadores em AZure AD e os utilizadores convidados não podem. Os utilizadores membros podem registar novos principais serviços em Azure AD e os utilizadores convidados não podem.
@@ -77,17 +77,17 @@ Note que os [papéis incorporados do Azure](../role-based-access-control/built-i
 
 Para obter informações que comparem utilizadores de membros e utilizadores [convidados, consulte quais são as permissões padrão do utilizador no Azure Ative Directory?](../active-directory/fundamentals/users-default-permissions.md)
 
-## <a name="remove-a-co-administrator"></a>Remover um Coadministrador
+## <a name="remove-a-co-administrator"></a>Remova um Co-Administrator
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) como Administrador de Serviço ou Coadministrador.
 
 1. Abra [Subscrições](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selecione uma subscrição.
 
-1. Clique em **Controlo de acesso (IAM)**.
+1. Clique em **Controlo de acesso (IAM)** .
 
 1. Clique no separador **Administradores Clássicos.**
 
-1. Adicione uma marca de verificação ao lado do Coadministrador que pretende remover.
+1. Adicione uma marca de verificação ao lado da Co-Administrator pretende remover.
 
 1. Clique em **Remover**.
 
@@ -125,8 +125,8 @@ Só pode haver um Administrador de Serviço por Subscrição Azure. A alteraçã
 
 | Conta de Administrador de Conta | Pode alterar o Administrador de Serviço para uma conta Microsoft diferente? | Pode alterar o Administrador de Serviço para uma conta AD Azure no mesmo diretório? | Pode alterar o Administrador de Serviço para uma conta AD Azure num diretório diferente? |
 | --- | --- | --- | --- |
-| Conta Microsoft | Yes | Não | Não |
-| Conta do Azure AD | Sim | Sim | No |
+| Conta Microsoft | Sim | Não | Não |
+| Conta do Azure AD | Sim | Sim | Não |
 
 Se o Administrador de Conta for uma conta AD Azure, pode alterar o Administrador de Serviço para uma conta AD Azure no mesmo diretório, mas não num diretório diferente. Por exemplo, abby@contoso.com pode alterar o Administrador de Serviço para , mas não pode alterar o Administrador de Serviço para a bob@contoso.com menos que tenha uma presença no john@notcontoso.com john@notcontoso.com diretório contoso.com.
 
@@ -151,5 +151,5 @@ Siga estes passos para ver o Administrador de Conta.
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Compreender as diferentes funções](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [Adicione ou remova atribuições de funções Azure usando o portal Azure](../role-based-access-control/role-assignments-portal.md)
+* [Adicionar ou remover atribuições de funções do Azure com o portal do Azure](../role-based-access-control/role-assignments-portal.md)
 * [Adicionar ou alterar administradores de subscrição do Azure](../cost-management-billing/manage/add-change-subscription-administrator.md)

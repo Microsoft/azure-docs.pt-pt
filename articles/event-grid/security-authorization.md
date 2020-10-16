@@ -4,10 +4,10 @@ description: Descreve o Azure Event Grid e respetivos conceitos.
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 09317b310a5934d27b82d265ec7f9b276135f882
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86119094"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>Autorizar o acesso aos recursos da Grade de Eventos
@@ -185,17 +185,17 @@ Se estiver a usar um manipulador de eventos que não seja um WebHook (como um ce
 Tem de ter a permissão **Microsoft.EventGrid/EventSubscriptions/Write** no recurso que é a fonte do evento. Precisa desta permissão porque está a escrever uma nova subscrição no âmbito do recurso. O recurso necessário difere com base no facto de estar a subscrever um tópico do sistema ou um tópico personalizado. Ambos os tipos são descritos nesta secção.
 
 ### <a name="system-topics-azure-service-publishers"></a>Tópicos do sistema (editores de serviços Azure)
-Para tópicos do sistema, precisa de permissão para escrever uma nova subscrição de eventos no âmbito da publicação de recursos do evento. O formato do recurso é:`/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
+Para tópicos do sistema, precisa de permissão para escrever uma nova subscrição de eventos no âmbito da publicação de recursos do evento. O formato do recurso é: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
 
-Por exemplo, para subscrever um evento numa conta de armazenamento chamada **myacct,** precisa da permissão microsoft.EventGrid/EventSubscriptions/Write on:`/subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct`
+Por exemplo, para subscrever um evento numa conta de armazenamento chamada **myacct,** precisa da permissão microsoft.EventGrid/EventSubscriptions/Write on: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct`
 
 ### <a name="custom-topics"></a>Tópicos personalizados
-Para tópicos personalizados, você precisa de permissão para escrever uma nova subscrição de evento no âmbito do tópico da grelha de eventos. O formato do recurso é:`/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
+Para tópicos personalizados, você precisa de permissão para escrever uma nova subscrição de evento no âmbito do tópico da grelha de eventos. O formato do recurso é: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
 
-Por exemplo, para subscrever um tópico personalizado chamado **mytopic,** precisa da permissão microsoft.EventGrid/EventSubscriptions/Write em:`/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
+Por exemplo, para subscrever um tópico personalizado chamado **mytopic,** precisa da permissão microsoft.EventGrid/EventSubscriptions/Write em: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para uma introdução à Grade de Eventos, consulte [Sobre a Grelha de Eventos](overview.md)

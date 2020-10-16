@@ -3,12 +3,12 @@ title: PCI-DSS v3.2.1 controlos de amostras de plantas
 description: Controlo do mapeamento da norma de segurança de dados da indústria de cartões de pagamento v3.2.1 amostra de planta para Azure Policy e Azure RBAC.
 ms.date: 08/19/2020
 ms.topic: sample
-ms.openlocfilehash: 3d7bdd62dcc5b65b0978444e74013d289f03ed6a
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: c634e8cc64f6376251e2cd07725c5c5a643b27c7
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91541650"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91931432"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Mapeamento de controlo da amostra de planta PCI-DSS v3.2.1
 
@@ -17,7 +17,7 @@ O artigo seguinte detalha como o Azure Blueprints PCI-DSS v3.2.1 blueprint mapas
 Os seguintes mapeamentos são para os controlos **PCI-DSS v3.2.1:2018.** Utilize a navegação no direito de saltar diretamente para um mapeamento de controlo específico. Muitos dos controlos mapeados são implementados com uma iniciativa [da Política Azure.](../../../policy/overview.md) Para rever a iniciativa completa, abra **a Política** no portal Azure e selecione a página **Definições.** Em seguida, encontre e selecione os ** \[ \] controlos PCI de pré-visualização v3.2.1:2018 e implemente extensões VM específicas para apoiar os requisitos** de auditoria integrados na iniciativa política.
 
 > [!IMPORTANT]
-> Cada controlo abaixo está associado a uma ou mais definições [da Política Azure.](../../../policy/overview.md) Estas políticas podem ajudá-lo a avaliar o [cumprimento](../../../policy/how-to/get-compliance-data.md) do controlo; no entanto, muitas vezes não há um 1:1 ou um jogo completo entre um controlo e uma ou mais políticas. Como tal, **a Conformidade** na Política Azure refere-se apenas às próprias políticas; isto não garante que esteja totalmente em conformidade com todos os requisitos de um controlo. Além disso, a norma de conformidade inclui controlos que não são abordados por nenhuma definição da Política Azure neste momento. Portanto, o cumprimento da Política Azure é apenas uma visão parcial do seu estado de conformidade geral. As associações entre controlos e definições de Política Azure para esta amostra de projeto de conformidade podem mudar ao longo do tempo. Para ver a história da mudança, consulte o [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/pci-dss-3.2.1/control-mapping.md).
+> Cada controlo abaixo está associado a uma ou mais definições [da Política Azure.](../../../policy/overview.md) Estas políticas podem ajudá-lo a avaliar o [cumprimento](../../../policy/how-to/get-compliance-data.md) do controlo; no entanto, muitas vezes não há um para um ou um jogo completo entre um controlo e uma ou mais políticas. Como tal, **a Conformidade** na Política Azure refere-se apenas às próprias políticas; isto não garante que esteja totalmente em conformidade com todos os requisitos de um controlo. Além disso, a norma de conformidade inclui controlos que não são abordados por nenhuma definição da Política Azure neste momento. Portanto, o cumprimento da Política Azure é apenas uma visão parcial do seu estado de conformidade geral. As associações entre controlos e definições de Política Azure para esta amostra de projeto de conformidade podem mudar ao longo do tempo. Para ver a história da mudança, consulte o [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/pci-dss-3.2.1/control-mapping.md).
 
 ## <a name="132-and-134-boundary-protection"></a>1.3.2 e 1.3.4 Proteção das Fronteiras
 
@@ -122,7 +122,7 @@ Este projeto ajuda-o a gerir e controlar a sua rede, atribuindo definições [da
 - Localizações permitidas
 - Locais permitidos para grupos de recursos
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que reviu o mapeamento de controlo do projeto PCI-DSS v3.2.1, visite os seguintes artigos para saber mais sobre a visão geral e como implementar esta amostra:
 

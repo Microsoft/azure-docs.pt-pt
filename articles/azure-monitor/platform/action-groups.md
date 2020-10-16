@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 7937b412b1eb3f311f0212f19c4eb9fc7782459d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 534e78018d19ff496dc4d2b3b54a3d0b3c46cf0f
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91327736"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093757"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerir grupos de ações no portal do Azure
 Um grupo de ação é uma coleção de preferências de notificação definidas pelo proprietário de uma subscrição Azure. Os alertas Azure Monitor e Service Health utilizam grupos de ação para notificar os utilizadores de que foi desencadeado um alerta. Vários alertas podem utilizar o mesmo grupo de ação ou diferentes grupos de ação, dependendo dos requisitos do utilizador. Pode configurar até 2.000 grupos de ação numa subscrição.
@@ -159,7 +159,7 @@ A ação Action Groups Webhook permite-lhe aproveitar o Azure Ative Directory pa
     > [!NOTE]
     > Você deve ser um membro da função de [Administrador de Aplicação AD Azure](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles) para executar este script.
     
-    - Modifique a chamada connect-AzureAD do script PowerShell para utilizar o seu ID do inquilino Azure.
+    - Modifique a chamada de Connect-AzureAD do script PowerShell para usar o seu ID do inquilino Azure.
     - Modifique a variável $myAzureADApplicationObjectId do script PowerShell para utilizar o ID do objeto da sua aplicação AD Azure.
     - Executar o script modificado.
     
@@ -287,7 +287,32 @@ Para receber atualizações sobre alterações a estes endereços IP, recomendam
 
 Você pode ter um número limitado de ações Webhook em um Grupo de Ação.
 
+### <a name="service-tag"></a>Etiqueta de serviço
+Uma etiqueta de serviço representa um grupo de prefixos de endereço IP de um determinado serviço Azure. A Microsoft gere os prefixos de endereços englobados pela etiqueta de serviço e atualiza automaticamente a etiqueta de serviço à medida que os endereços mudam, minimizando a complexidade das atualizações frequentes às regras de segurança da rede para um ActionGroup.
 
+1. No portal Azure, no âmbito da pesquisa dos Serviços Azure para *o Grupo de Segurança da Rede.*
+2. Clique em **Adicionar** e crie um Grupo de Segurança de Rede.
+
+   1. Adicione o Nome do Grupo de Recursos e, em seguida, introduza *detalhes de instância*.
+   1. Clique em **'Rever + Criar'** e, em seguida, clique em *Criar.*
+   
+   :::image type="content" source="media/action-groups/action-group-create-security-group.png" alt-text="Exemplo sobre como criar um Grupo de Segurança de Rede."border="true":::
+
+3. Vá ao Grupo de Recursos e, em seguida, clique no *Grupo de Segurança da Rede* que criou.
+
+    1. Selecione *Regras de Segurança de Entrada*.
+    1. Clique em **Adicionar**.
+    
+    :::image type="content" source="media/action-groups/action-group-add-service-tag.png" alt-text="Exemplo sobre como adicionar uma etiqueta de serviço."border="true":::
+
+4. Uma nova janela abrir-se-á no painel direito.
+    1.  Selecione Fonte: **Tag de serviço**
+    1.  Etiqueta de serviço de origem: **ActionGroup**
+    1.  Clique em **Adicionar**.
+    
+    :::image type="content" source="media/action-groups/action-group-service-tag.png" alt-text="Exemplo sobre como adicionar etiqueta de serviço."border="true":::
+
+A utilização **da Tag de Serviço** para o ActionGroup ajuda a minimizar a complexidade das atualizações frequentes nos endereços IP.
 
 ## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre [o comportamento do alerta por SMS.](./alerts-sms-behavior.md)  

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/28/2019
 ms.author: duau
 ms.openlocfilehash: d6e63ad5781b0b8d6f46aee1cb88373721bb9dfc
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89397904"
 ---
 # <a name="designing-for-high-availability-with-expressroute"></a>Projetar para alta disponibilidade com ExpressRoute
@@ -80,7 +80,7 @@ Uma Zona de Disponibilidade numa região de Azure é uma combinação de um dom�
 
 O ExpressRoute apoia o BFD em relação ao espreitamento privado. O BFD reduz o tempo de deteção da falha na rede Layer 2 entre o Microsoft Enterprise Edge (MSEEs) e os seus vizinhos BGP no lado do local de cerca de 3 minutos (padrão) para menos de um segundo. O tempo de deteção de falhas rápidas ajuda a acelerar a recuperação da falha. Para saber mais, consulte [configure BFD sobre ExpressRoute][BFD].
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, discutimos como projetar para a alta disponibilidade de uma conectividade do circuito ExpressRoute. Um ponto de observação do circuito ExpressRoute é fixado a uma localização geográfica e, portanto, pode ser impactado por uma falha catastrófica que afeta toda a localização. 
 

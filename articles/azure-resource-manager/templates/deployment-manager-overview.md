@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
 ms.openlocfilehash: 8b950fdc36fe3fbea1ce9436bdd7f7372c64c055
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91333210"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Permitir práticas de implementação seguras com O Gestor de Implementação Azure (visualização pública)

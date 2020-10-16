@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: sstein
 ms.date: 09/03/2020
 ms.openlocfilehash: bd393a897052dd0bd49851eee424c99ad1fcfb1f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319432"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>Use réplicas apenas de leitura para descarregar cargas de trabalho de consulta apenas de leitura
@@ -85,7 +85,7 @@ Quando ligados a uma réplica apenas de leitura, as Vistas de Gestão Dinâmica 
 
 As vistas comumente utilizadas são:
 
-| Name | Objetivo |
+| Nome | Objetivo |
 |:---|:---|
 |[sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Fornece métricas de utilização de recursos durante a última hora, incluindo CPU, IO de dados e utilização de gravação de registos em relação aos limites objetivos do serviço.|
 |[sys.dm_os_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)| Fornece estatísticas de espera agregadas para a instância do motor da base de dados. |

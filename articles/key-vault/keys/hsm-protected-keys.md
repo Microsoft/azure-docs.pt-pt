@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 05/29/2020
 ms.author: ambapat
 ms.openlocfilehash: 33249da6772d146de3e5e7351bc82c203674ddff
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90532142"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Importar chaves protegidas por HSM para o Key Vault
@@ -35,7 +35,7 @@ A transferência de chaves protegidas pelo HSM para o Key Vault é suportada atr
 |---|---|---|---|
 |[nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure)|Fabricante,<br/>HSM como serviço|<ul><li>nShield família de HSMs</li><li>nShield como um serviço</ul>|**Método 1:** [nCipher BYOK](hsm-protected-keys-ncipher.md) (com forte atestado para importação de chaves e validação de HSM)<br/>**Método 2:** [Utilizar o novo método BYOK](hsm-protected-keys-byok.md) |
 |Thales|Fabricante|<ul><li>Família Luna HSM 7 com a versão 7.3 ou mais recente</li></ul>| [Use o novo método BYOK](hsm-protected-keys-byok.md)|
-|Fortanix|Fabricante,<br/>HSM como serviço|<ul><li>Serviço de Gestão de Chaves auto-defendido (SDKMS)</li><li>Equinix SmartKey</li></ul>|[Use o novo método BYOK](hsm-protected-keys-byok.md)|
+|Fortanix|Fabricante,<br/>HSM como serviço|<ul><li>Self-Defending Serviço de Gestão de Chaves (SDKMS)</li><li>Equinix SmartKey</li></ul>|[Use o novo método BYOK](hsm-protected-keys-byok.md)|
 |Rio Marvell|Fabricante|Todos os HSMs de LiquidSecurity com<ul><li>Versão firmware 2.0.4 ou posterior</li><li>Versão firmware 3.2 ou mais recente</li></ul>|[Use o novo método BYOK](hsm-protected-keys-byok.md)|
 |Criptomático|ISV (Sistema de Gestão de Chaves empresariais)|Múltiplas marcas e modelos HSM, incluindo<ul><li>nCipher</li><li>Thales</li><li>Rio Utimaco</li></ul>Consulte [o site Cryptomathic para mais detalhes](https://www.cryptomathic.com/azurebyok)|[Use o novo método BYOK](hsm-protected-keys-byok.md)|
 

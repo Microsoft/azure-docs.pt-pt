@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 08/27/2020
 ms.custom: references_regions
 ms.openlocfilehash: c7ed1a8fceeddecb942edb541c6112492a6e5a2d
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91410453"
 ---
 # <a name="tutorial-deploy-a-service-fabric-managed-cluster-preview"></a>Tutorial: Implementar um cluster gerido por tecido de serviço (pré-visualização)
@@ -65,9 +65,9 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 ## <a name="deploy-a-service-fabric-managed-cluster"></a>Implementar um cluster gerido por tecido de serviço
 
-### <a name="create-a-service-fabric-managed-cluster"></a>Criar um cluster gerido por Tecido de Serviço
+### <a name="create-a-service-fabric-managed-cluster"></a>Criar um cluster gerido do Service Fabric
 
-Neste passo, irá criar um cluster gerido por Tecido de Serviço utilizando o comando New-AzServiceFabricManagedCluster PowerShell. O exemplo a seguir cria um cluster chamado myCluster no grupo de recursos chamado myResourceGroup. Este grupo de recursos foi criado no passo anterior na região leste2.
+Neste passo, irá criar um cluster gerido por Tecido de Serviço utilizando o comando powerShell New-AzServiceFabricManagedCluster. O exemplo a seguir cria um cluster chamado myCluster no grupo de recursos chamado myResourceGroup. Este grupo de recursos foi criado no passo anterior na região leste2.
 
 Para este passo, forneça os seus próprios valores para os seguintes parâmetros:
 

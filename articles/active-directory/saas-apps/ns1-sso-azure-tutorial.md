@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/12/2020
 ms.author: jeedes
 ms.openlocfilehash: d0fee044506a9a19e09478ef8d70b3719ecc167a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88554265"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ns1-sso-for-azure"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com NS1 SSO para Azure
@@ -94,7 +94,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     > [!NOTE]
     > O valor URL de resposta não é real. Atualizar valor URL de resposta com o URL de resposta real. Contacte o [SSO NS1 para obter](mailto:techops@nsone.net) o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-1. A aplicação NS1 SSO for Azure espera as afirmações do SAML num formato específico. Configure os seguintes pedidos para este pedido. Pode gerir os valores destes atributos a partir da secção **Atributos & Reclamações** do Utilizador na página de integração da aplicação. Na **configuração de um único registo com** a página SAML, selecione o ícone de lápis para abrir a caixa de diálogo atributos do **utilizador.**
+1. A aplicação NS1 SSO for Azure espera as afirmações do SAML num formato específico. Configure os seguintes pedidos para este pedido. Pode gerir os valores destes atributos a partir da secção **Atributos & Reclamações** do Utilizador na página de integração da aplicação. Na **configuração single Sign-On com** a página SAML, selecione o ícone de lápis para abrir a caixa de diálogo atributos do **utilizador.**
 
     ![Screenshot de atributos de utilizador & Seção reivindicações, com ícone de lápis em destaque](./media/ns1-sso-for-azure-tutorial/attribute-edit-option.png)
 

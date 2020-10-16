@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 162ad87f79109cf38d3d0013608812155c6988a7
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86252254"
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Visão geral do ciclo de vida dos serviços fiáveis
@@ -37,7 +37,7 @@ O ciclo de vida de um serviço apátrida é simples. Aqui está a ordem dos acon
 
 1. O serviço é construído.
 2. Depois, paralelamente, acontecem duas coisas:
-    - `StatelessService.CreateServiceInstanceListeners()`é invocado e quaisquer ouvintes devolvidos são abertos. `ICommunicationListener.OpenAsync()`é chamado em cada ouvinte.
+    - `StatelessService.CreateServiceInstanceListeners()` é invocado e quaisquer ouvintes devolvidos são abertos. `ICommunicationListener.OpenAsync()` é chamado em cada ouvinte.
     - O método do serviço `StatelessService.RunAsync()` chama-se.
 3. Se estiver presente, o método do serviço `StatelessService.OnOpenAsync()` é chamado. Esta chamada é uma sobreposição incomum, mas está disponível. As tarefas de inicialização de serviço alargadas podem ser iniciadas neste momento.
 
@@ -53,7 +53,7 @@ Tenha em mente que não há ordem entre as chamadas para criar e abrir os ouvint
 Para encerrar um serviço apátrida, segue-se o mesmo padrão, apenas ao contrário:
 
 1. Paralelamente:
-    - Todos os ouvintes abertos estão fechados. `ICommunicationListener.CloseAsync()`é chamado em cada ouvinte.
+    - Todos os ouvintes abertos estão fechados. `ICommunicationListener.CloseAsync()` é chamado em cada ouvinte.
     - O sinal de cancelamento passado `RunAsync()` é cancelado. Uma verificação da propriedade do token de cancelamento `IsCancellationRequested` retorna verdadeira, e se for chamada, o método do token `ThrowIfCancellationRequested` lança um `OperationCanceledException` .
 2. Depois de `CloseAsync()` terminar em cada ouvinte e também `RunAsync()` terminar, o método do serviço é `StatelessService.OnCloseAsync()` chamado, se presente.  O OnCloseAsync é chamado quando a instância de serviço apátrida vai ser graciosamente encerrada. Isto pode ocorrer quando o código do serviço está a ser atualizado, a instância de serviço está a ser movida devido ao equilíbrio de carga, ou é detetada uma falha transitória. É incomum `StatelessService.OnCloseAsync()` sobrepor-se, mas pode ser usado para fechar recursos com segurança, parar o processamento de antecedentes, terminar a poupança de estado externo ou fechar as ligações existentes.
 3. Após `StatelessService.OnCloseAsync()` acabamentos, o objeto de serviço é destruído.
@@ -62,10 +62,10 @@ Para encerrar um serviço apátrida, segue-se o mesmo padrão, apenas ao contrá
 Os serviços estatais têm um padrão semelhante aos serviços apátridas, com algumas mudanças. Para iniciar um serviço estatal, a ordem dos eventos é a seguinte:
 
 1. O serviço é construído.
-2. `StatefulServiceBase.OnOpenAsync()`é chamado. Esta chamada não é geralmente ultrapassada no serviço.
+2. `StatefulServiceBase.OnOpenAsync()` é chamado. Esta chamada não é geralmente ultrapassada no serviço.
 3. As seguintes coisas acontecem em paralelo:
-    - `StatefulServiceBase.CreateServiceReplicaListeners()`é invocado. 
-      - Se o serviço for um serviço primário, todos os ouvintes devolvidos são abertos. `ICommunicationListener.OpenAsync()`é chamado em cada ouvinte.
+    - `StatefulServiceBase.CreateServiceReplicaListeners()` é invocado. 
+      - Se o serviço for um serviço primário, todos os ouvintes devolvidos são abertos. `ICommunicationListener.OpenAsync()` é chamado em cada ouvinte.
       - Se o serviço for um serviço secundário, apenas os ouvintes marcados como `ListenOnSecondary = true` estão abertos. Ter ouvintes abertos em secundários é menos comum.
     - Se o serviço for atualmente um Primário, o método do serviço `StatefulServiceBase.RunAsync()` é chamado.
 4. Depois de todas as chamadas do ouvinte da réplica `OpenAsync()` terminarem e `RunAsync()` são chamadas, `StatefulServiceBase.OnChangeRoleAsync()` é chamado. Esta chamada não é geralmente ultrapassada no serviço.
@@ -79,7 +79,7 @@ Os serviços estatais têm um padrão semelhante aos serviços apátridas, com a
 Tal como os serviços apátridas, os eventos do ciclo de vida durante a paralisação são os mesmos que durante o arranque, mas invertidos. Quando um serviço estatal está a ser encerrado, ocorrem os seguintes eventos:
 
 1. Paralelamente:
-    - Todos os ouvintes abertos estão fechados. `ICommunicationListener.CloseAsync()`é chamado em cada ouvinte.
+    - Todos os ouvintes abertos estão fechados. `ICommunicationListener.CloseAsync()` é chamado em cada ouvinte.
     - O sinal de cancelamento passado `RunAsync()` é cancelado. Uma verificação da propriedade do token de cancelamento `IsCancellationRequested` retorna verdadeira, e se for chamada, o método do token `ThrowIfCancellationRequested` lança um `OperationCanceledException` .
 2. Depois de `CloseAsync()` terminar em cada ouvinte e também `RunAsync()` terminar, o serviço é `StatefulServiceBase.OnChangeRoleAsync()` chamado. Esta chamada não é geralmente ultrapassada no serviço.
 
@@ -96,7 +96,7 @@ Enquanto um serviço estatal está em execução, apenas as réplicas primárias
 Para a réplica primária que é despromostes, o Service Fabric precisa desta réplica para parar de processar mensagens e desistir de qualquer trabalho de fundo que esteja a fazer. Como resultado, este passo parece que foi quando o serviço é encerrado. Uma diferença é que o serviço não é destruído ou fechado porque permanece como secundário. As seguintes APIs são chamadas:
 
 1. Paralelamente:
-    - Todos os ouvintes abertos estão fechados. `ICommunicationListener.CloseAsync()`é chamado em cada ouvinte.
+    - Todos os ouvintes abertos estão fechados. `ICommunicationListener.CloseAsync()` é chamado em cada ouvinte.
     - O sinal de cancelamento passado `RunAsync()` é cancelado. Uma verificação da propriedade do token de cancelamento `IsCancellationRequested` retorna verdadeira, e se for chamada, o método do token `ThrowIfCancellationRequested` lança um `OperationCanceledException` .
 2. Depois de `CloseAsync()` terminar em cada ouvinte e também `RunAsync()` terminar, o serviço é `StatefulServiceBase.OnChangeRoleAsync()` chamado. Esta chamada não é geralmente ultrapassada no serviço.
 
@@ -104,7 +104,7 @@ Para a réplica primária que é despromostes, o Service Fabric precisa desta r�
 Da mesma forma, o Service Fabric precisa da réplica secundária que é promovida para começar a ouvir mensagens no fio e iniciar quaisquer tarefas de fundo que precise de completar. Como resultado, este processo parece que foi quando o serviço é criado, exceto que a réplica em si já existe. As seguintes APIs são chamadas:
 
 1. Paralelamente:
-    - `StatefulServiceBase.CreateServiceReplicaListeners()`é invocado e quaisquer ouvintes devolvidos são abertos. `ICommunicationListener.OpenAsync()`é chamado em cada ouvinte.
+    - `StatefulServiceBase.CreateServiceReplicaListeners()` é invocado e quaisquer ouvintes devolvidos são abertos. `ICommunicationListener.OpenAsync()` é chamado em cada ouvinte.
     - O método do serviço `StatefulServiceBase.RunAsync()` chama-se.
 2. Depois de todas as chamadas do ouvinte da réplica `OpenAsync()` terminarem e `RunAsync()` são chamadas, `StatefulServiceBase.OnChangeRoleAsync()` é chamado. Esta chamada não é geralmente ultrapassada no serviço.
 
@@ -124,7 +124,7 @@ Lidar com as exceções que vêm da utilização do `ReliableCollections` em con
   - Se um serviço `RunAsync()` sair, lançando alguma exceção inesperada, isto constitui uma falha. O objeto de serviço é desligado e um erro de saúde é reportado.
   - Embora não exista um limite de tempo para regressar destes métodos, perde-se imediatamente a capacidade de escrever para a Reliable Collections e, portanto, não pode concluir nenhum trabalho real. Recomendamos que regresse o mais rápido possível ao receber o pedido de cancelamento. Se o seu serviço não responder a estas chamadas API num período de tempo razoável, a Service Fabric pode encerrar à força o seu serviço. Normalmente isto só acontece durante as atualizações de aplicações ou quando um serviço está a ser eliminado. Este tempo limite é de 15 minutos por defeito.
   - Falhas no `OnCloseAsync()` caminho resultam na `OnAbort()` chamada, que é uma oportunidade de última oportunidade para o serviço limpar e libertar quaisquer recursos que tenham reclamado. Isto é geralmente chamado quando uma falha permanente é detetada no nó, ou quando o Tecido de Serviço não consegue gerir de forma fiável o ciclo de vida da instância de serviço devido a falhas internas.
-  - `OnChangeRoleAsync()`é chamada quando a réplica de serviço imponente está mudando de papel, por exemplo para primária ou secundária. Réplicas primárias recebem o estado de escrita (são permitidas a criar e escrever para Coleções Fiáveis). As réplicas secundárias recebem o estado de leitura (só podem ler-se das coleções fiáveis existentes). A maioria dos trabalhos num serviço estatal é realizada na réplica primária. Réplicas secundárias podem realizar validação apenas de leitura, geração de relatórios, mineração de dados ou outros trabalhos apenas de leitura.
+  - `OnChangeRoleAsync()` é chamada quando a réplica de serviço imponente está mudando de papel, por exemplo para primária ou secundária. Réplicas primárias recebem o estado de escrita (são permitidas a criar e escrever para Coleções Fiáveis). As réplicas secundárias recebem o estado de leitura (só podem ler-se das coleções fiáveis existentes). A maioria dos trabalhos num serviço estatal é realizada na réplica primária. Réplicas secundárias podem realizar validação apenas de leitura, geração de relatórios, mineração de dados ou outros trabalhos apenas de leitura.
 
 ## <a name="next-steps"></a>Passos seguintes
 - [Introdução a Serviços Fiáveis](service-fabric-reliable-services-introduction.md)

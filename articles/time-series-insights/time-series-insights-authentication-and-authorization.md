@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18, has-adal-ref
 ms.openlocfilehash: 7408e3fb279536f61dd2e5cf1858476da57219d4
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91665820"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticação e autorização para API do Azure Time Series Insights
@@ -157,10 +157,10 @@ Os parâmetros de cadeia de consulta de URL opcionais incluem a definição de u
 
 | Parâmetro de consulta opcional | Descrição | Versão |
 | --- |  --- | --- |
-| `timeout=<timeout>` | Tempo de tempo do lado do servidor para a execução do pedido HTTP. Aplicável apenas aos [Eventos De Ambiente](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability) e [Obter ApIs agregados ambientais.](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-api) O valor de tempo limite deve estar no formato de duração ISO 8601, por `"PT20S"` exemplo, e deve estar na gama `1-30 s` . O valor predefinido é `30 s` . | Gen1 |
+| `timeout=<timeout>` | Tempo de tempo do lado do servidor para a execução do pedido HTTP. Aplicável apenas aos [Eventos De Ambiente](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability) e [Obter ApIs agregados ambientais.](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-api) O valor de tempo limite deve estar no formato de duração ISO 8601, por `"PT20S"` exemplo, e deve estar na gama `1-30 s` . O valor predefinido é `30 s`. | Gen1 |
 | `storeType=<storeType>` | Para ambientes Gen2 com loja quente ativada, a consulta pode ser executada no `WarmStore` ou `ColdStore` . Este parâmetro na consulta define em que loja a consulta deve ser executada. Se não estiver definida, a consulta será executada na loja de frio. Para consultar a loja quente, **o storeType** precisa de ser configurado para `WarmStore` . Se não estiver definida, a consulta será executada contra a loja de frio. | Gen2 |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 * Para o código de amostra que chama a Gen1 Azure Time Series Insights API, leia [os dados da Consulta Gen1 utilizando C#](./time-series-insights-query-data-csharp.md).
 

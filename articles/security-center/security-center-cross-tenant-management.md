@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
 ms.openlocfilehash: 7700e151a49dbfbad452927ba4a308651a0b584a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84782817"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Gestão de inquilinos cruzados no Centro de Segurança
@@ -28,7 +28,7 @@ A gestão de inquilinos transversais permite-lhe visualizar e gerir a postura de
 
 - Equipas de segurança de organizações com vários inquilinos podem ver e gerir a sua postura de segurança a partir de um único local.
 
-## <a name="set-up-cross-tenant-management"></a>Criar gestão de inquilinos cruzados
+## <a name="set-up-cross-tenant-management"></a>Configurar a gestão de múltiplos inquilinos
 
 Crie uma gestão de inquilinos cruzados delegando o acesso aos recursos dos inquilinos geridos ao seu próprio inquilino usando [a gestão de recursos delegados da Azure.](../lighthouse/concepts/azure-delegated-resource-management.md)
 
@@ -52,7 +52,7 @@ As opiniões e as ações são basicamente as mesmas. Eis alguns exemplos:
 
 - **Gerir funcionalidades avançadas**de defesa em nuvem e muito mais : Gerir os vários serviços de proteção de ameaças, tais como [acesso vm just-in-time (JIT),](security-center-just-in-time.md) [Hardening de Rede Adaptativa,](security-center-adaptive-network-hardening.md) [controlos de aplicações adaptativos](security-center-adaptive-application.md), e muito mais.
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Este artigo explica como funciona a gestão de inquilinos cruzados no Centro de Segurança. Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
 * [Fortaleça a sua postura de segurança com o Azure Security Center](security-center-monitoring.md) - Aprenda a monitorizar a saúde dos seus recursos Azure.

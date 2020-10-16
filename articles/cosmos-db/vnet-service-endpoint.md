@@ -8,10 +8,10 @@ ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
 ms.openlocfilehash: 10f2b44d00361885778a523109a8fcb05dabe9dd
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91574352"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Aceder ao Azure Cosmos DB a partir de redes virtuais (VNet)

@@ -8,10 +8,10 @@ ms.date: 07/22/2019
 author: mingshen-ms
 ms.author: mingshen
 ms.openlocfilehash: 1a645a333db9b24005639f4adbb2913a2b887b66
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89055673"
 ---
 # <a name="marketplace-insights-dashboard-in-partner-center"></a>Painel de insights de mercado no Partner Center

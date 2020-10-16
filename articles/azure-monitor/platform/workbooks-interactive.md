@@ -2,19 +2,17 @@
 title: Livros do Azure Monitor com parâmetros personalizados
 description: Simplificar relatórios complexos com livros de trabalho parametrizados pré-construídos e personalizados
 services: azure-monitor
-author: mrbullwinkle
 manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/20/2020
-ms.author: mbullwin
-ms.openlocfilehash: 33da3cd8a72bb4d93011c348db65c5b4d9e687ed
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: ee71082b96d41f9bad7fb54a70d308c24dec5b57
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461468"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91932044"
 ---
 # <a name="interactive-workbooks"></a>Livros Interativos
 
@@ -45,13 +43,13 @@ Por exemplo, um utilizador pode ter uma grelha que mostra uma lista de pedidos e
     | order by AllRequests desc
     ```
 
-5. `Run query`para ver os resultados
+5. `Run query` para ver os resultados
 6. Selecione o ícone _Definições Avançadas_ no rodapé de consulta (o ícone parece uma engrenagem). Isto abre o painel de configurações avançados.
 7. Verifique a definição: `When an item is selected, export a parameter` .
 8. Na definição que verificou, selecione *Add Parâmetro* e preencha-o com as informações abaixo.
-    1. Campo para exportar:`Request`
-    2. Nome do parâmetro:`SelectedRequest`
-    3. Valor predefinido:`All requests`
+    1. Campo para exportar: `Request`
+    2. Nome do parâmetro: `SelectedRequest`
+    3. Valor predefinido: `All requests`
 9. Selecionar Guardar
 
     ![Screenshot mostrando o editor avançado com configurações para campos de exportação como parâmetros.](./media/workbooks-interactive/export-parameters-add.png)
@@ -64,7 +62,7 @@ Por exemplo, um utilizador pode ter uma grelha que mostra uma lista de pedidos e
     | where name == '{SelectedRequest}' or 'All Requests' == '{SelectedRequest}'
     | summarize ['{SelectedRequest}'] = count() by bin(timestamp, 1h)
     ```
-13. `Run query`para ver os resultados.
+13. `Run query` para ver os resultados.
 14. Alterar _visualização_ para `Area chart` .
 15. Escolha uma linha para selecionar na primeira grelha. Note como o gráfico de área abaixo filtra para o pedido selecionado.
 
@@ -99,12 +97,12 @@ Os livros permitem que os autores adicionem interatividade através de um tipo e
     | order by Count desc
     ```
 
-5. `Run query`para ver os resultados
+5. `Run query` para ver os resultados
 6. Selecione _Definições de colunas_ para abrir o painel de definições.
 7. Na secção _Colunas,_ conjunto:
-    1. _Amostra_ - Renderização de Colunas: `Link` , Vista a abrir: , Etiqueta de `Cell Details` Ligação:`Sample`
-    2. _Contagem_ - Renderizador de Colunas: `Bar` , Paleta de cores: , Valor `Blue` mínimo:`0`
-    3. _Pedido_ - Renderizador de Colunas:`Automatic`
+    1. _Amostra_ - Renderização de Colunas: `Link` , Vista a abrir: , Etiqueta de `Cell Details` Ligação: `Sample`
+    2. _Contagem_ - Renderizador de Colunas: `Bar` , Paleta de cores: , Valor `Blue` mínimo: `0`
+    3. _Pedido_ - Renderizador de Colunas: `Automatic`
     4. _Selecione Guardar e Fechar_ para aplicar alterações
 
     ![Screenshot do separador da definição da coluna.](./media/workbooks-interactive/column-settings.png)
@@ -118,8 +116,8 @@ Os livros permitem que os autores adicionem interatividade através de um tipo e
 | Ação de ligação | Ação ao clique |
 |:------------- |:-------------|
 | `Generic Details` | Mostra os valores da linha num separador de contexto de grelha de propriedade |
-| `Cell Details` | Mostra o valor da célula num separador de contexto de grelha de propriedade. Útil quando a célula contém um tipo dinâmico com informação (por exemplo, json com propriedades de pedido como localização, instância de função, etc.). |
-| `Cell Details` | Mostra o valor da célula num separador de contexto de grelha de propriedade. Útil quando a célula contém um tipo dinâmico com informação (por exemplo, json com propriedades de pedido como localização, instância de função, etc.). |
+| `Cell Details` | Mostra o valor do telemóvel num separador de contexto de grelha de propriedade. Útil quando a célula contém um tipo dinâmico com informações (por exemplo, json com propriedades de pedido como localização, instância de função, etc.). |
+| `Cell Details` | Mostra o valor do telemóvel num separador de contexto de grelha de propriedade. Útil quando a célula contém um tipo dinâmico com informações (por exemplo, json com propriedades de pedido como localização, instância de função, etc.). |
 | `Custom Event Details` | Abre os detalhes de pesquisa de Insights de Aplicação com o ID do evento personalizado na `itemId` célula |
 | `* Details` | Semelhante a Detalhes de Eventos Personalizados, exceto dependências, exceções, visualizações de página, pedidos e vestígios. |
 | `Custom Event User Flows` | Abre a experiência Application Insights User Flows apostada no nome do evento personalizado na célula |
@@ -137,30 +135,30 @@ O livro permite que os utilizadores façam com que certos controlos apareçam ou
 1. Siga os passos na secção [de interatividade de Configuração na](#setting-up-interactivity-on-grid-row-click) secção de clique sonoro da grelha para configurar dois controlos interativos.
 2. Adicione um novo parâmetro no topo:
     1. Nome: `ShowDetails`
-    2. Tipo de parâmetro:`Drop down`
-    3. Necessário:`checked`
-    4. Obtenha dados de:`JSON`
-    5. Entrada JSON:`["Yes", "No"]`
+    2. Tipo de parâmetro: `Drop down`
+    3. Necessário: `checked`
+    4. Obtenha dados de: `JSON`
+    5. Entrada JSON: `["Yes", "No"]`
     6. Poupe para cometer alterações.
 
     ![Depois de selecionar o botão de parâmetro de adicionar, é apresentado o painel de parâmetros de edição.](./media/workbooks-interactive/edit-parameter.png)
 
-3. Definir o valor do parâmetro para`Yes`
+3. Definir o valor do parâmetro para `Yes`
 
     ![Acima do botão de edição feito é a queda que lhe permitirá definir o valor do parâmetro](./media/workbooks-interactive/set-parameter.png)
 
 4. No controlo de consultas com o gráfico de área, selecione o ícone _Definições Avançadas_ (ícone de engrenagem)
-5. Verifique a definição`Make this item conditionally visible`
-    1. Este item é visível se `ShowDetails` o valor do `equals` parâmetro`Yes`
+5. Verifique a definição `Make this item conditionally visible`
+    1. Este item é visível se `ShowDetails` o valor do `equals` parâmetro `Yes`
 6. Selecione _'Editar'_ para cometer alterações.
 7. Selecione _'Editar'_ na barra de ferramentas do livro para entrar no modo de leitura.
 8. Mude o valor do parâmetro `ShowDetails` para `No` . Note que o gráfico abaixo desaparece.
 
-A imagem abaixo mostra o caso visível onde `ShowDetails` está`Yes`
+A imagem abaixo mostra o caso visível onde `ShowDetails` está `Yes`
 
 ![Screenshot mostrando a visibilidade condicional onde o gráfico é visível](./media/workbooks-interactive/interactivity-conditional-visibility-visible.png)
 
-A imagem abaixo mostra o caso escondido onde `ShowDetails` está`No`
+A imagem abaixo mostra o caso escondido onde `ShowDetails` está `No`
 
 ![Screenshot mostrando a visibilidade condicional onde o gráfico está escondido](./media/workbooks-interactive/interactivity-conditional-visibility-invisible.png)
 

@@ -9,10 +9,10 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 12/10/2019
 ms.openlocfilehash: c0e35b94b4322d9273e5793c85792eb2bbd34d05
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91536074"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Criar e configurar clusters de pacotes de segurança empresarial em Azure HDInsight
@@ -159,7 +159,7 @@ Criar um administrador de inquilino do Ative Directory.
     |Propriedade |Descrição |
     |---|---|
     |Nome de utilizador|`fabrikamazureadmin`Insira na caixa de texto. A partir da lista de drop-down de nome de domínio, selecione `hdifabrikam.com`|
-    |Name| Introduza `fabrikamazureadmin`.|
+    |Nome| Introduza `fabrikamazureadmin`.|
 
     **Palavra-passe**
     1. Selecione **Deixe-me criar a palavra-passe.**
@@ -186,7 +186,7 @@ Criar um administrador de inquilino do Ative Directory.
 
 1. A partir do controlador de domínio, baixe [o Microsoft Azure Ative Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594).
 
-1. Abra o ficheiro executável que descarregou e concorde com os termos da licença. **Selecione Continuar**.
+1. Abra o ficheiro executável que descarregou e concorde com os termos da licença. Selecione **Continuar**.
 
 1. **Selecione Utilize as definições expressas**.
 
@@ -358,7 +358,7 @@ Verifique se o certificado está instalado na loja **pessoal** do computador:
         | Protocolo | Qualquer |
         | Ação | Permitir |
         | Prioridade | \<Desired number> |
-        | Name | Port_LDAP_636 |
+        | Nome | Port_LDAP_636 |
 
     ![A caixa de diálogo "Adicionar regra de segurança de entrada"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
 
@@ -424,6 +424,6 @@ Este passo requer os seguintes pré-requisitos:
 
 Se puder iniciar sômpa com esta conta, configura o seu cluster ESP corretamente para sincronizar com o seu caso ative diretório no local.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia [Uma introdução à segurança apache Hadoop com ESP.](hdinsight-security-overview.md)

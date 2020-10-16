@@ -9,12 +9,12 @@ ms.subservice: keys
 ms.topic: quickstart
 ms.date: 03/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4ebd3cc605b396f72d063f3fc506df9020ec3a5f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3cea28fa278bb699a7fb5aaa0c79bf1e71f59ac1
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87061008"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940502"
 ---
 # <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-azure-powershell"></a>Quickstart: set and recuperar uma chave do Azure Key Vault usando Azure PowerShell
 
@@ -69,7 +69,7 @@ Digite os comandos abaixo para criar um **chamado ExemploKey** :
 Add-AzKeyVaultKey -VaultName 'Contoso-Vault2' -Name 'ExampleKey' -Destination 'Software'
 ```
 
-Agora pode fazer referência a esta chave que adicionou ao Azure Key Vault utilizando o seu URI. Use **https://Contoso-Vault2.vault.azure.net/keys/ExampleKey** para obter a versão atual. 
+Agora pode fazer referência a esta chave que adicionou ao Azure Key Vault utilizando o seu URI. Use **' https://Contoso-Vault2.vault.azure.net/keys/ExampleKey para** obter a versão atual. 
 
 Para ver a chave previamente armazenada:
 
@@ -79,7 +79,7 @@ Get-AzKeyVaultKey -VaultName 'Contoso-Vault2' -KeyName 'ExampleKey'
 
 Criaste um Cofre-Chave, armazenaste uma chave e recuperaste-a.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Outros inícios rápidos e tutoriais desta coleção têm por base este início rápido. Se quiser continuar a trabalhar com os inícios rápidos e tutoriais subsequentes, pode manter estes recursos.
 Quando já não é necessário, pode utilizar o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos relacionados. Pode eliminar os recursos da seguinte forma:

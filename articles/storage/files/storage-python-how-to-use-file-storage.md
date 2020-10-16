@@ -8,12 +8,12 @@ ms.date: 10/08/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-python
-ms.openlocfilehash: 11c31b9ce3c5a8d8fba18d8e7c46ac38b0559aec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bef69037fad8bf8ee9537e90f26ca967560b9d2
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91856318"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876102"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Programar para os Ficheiros do Azure com Python
 
@@ -95,7 +95,7 @@ from azure.storage.file import FileService
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-O `FileService` objeto permite-lhe trabalhar com ações, diretórios e ficheiros. O código a seguir cria um `FileService` objeto utilizando o nome da conta de armazenamento e a chave da conta. Substitua `<myaccount>` e `<mykey>` pelo nome e a chave da conta.
+O objeto [FileService](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true) permite-lhe trabalhar com ações, diretórios e ficheiros. O código a seguir cria um `FileService` objeto utilizando o nome da conta de armazenamento e a chave da conta. Substitua `<myaccount>` e `<mykey>` pelo nome e a chave da conta.
 
 ```python
 file_service = FileService(account_name='myaccount', account_key='mykey')
@@ -113,7 +113,7 @@ O exemplo de código a seguir utiliza um objeto [ShareClient](/azure/developer/p
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-O seguinte exemplo de código usa um `FileService` objeto para criar a partilha se não existir.
+O exemplo de código a seguir utiliza um objeto [FileService](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true) para criar a partilha se esta não existir.
 
 ```python
 file_service.create_share('myshare')
@@ -153,7 +153,7 @@ O método seguinte envia o conteúdo do ficheiro especificado para o diretório 
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-Uma partilha de ficheiros Azure contém, no mínimo, um diretório de raiz onde os ficheiros podem residir. Para criar um ficheiro e carregar dados, utilize o `create_file_from_path` `create_file_from_stream` , ou `create_file_from_bytes` `create_file_from_text` métodos. São métodos de alto nível que realizam o chunking necessário quando o tamanho dos dados excede 64 MB.
+Uma partilha de ficheiros Azure contém, no mínimo, um diretório de raiz onde os ficheiros podem residir. Para criar um ficheiro e carregar dados, utilize os [create_file_from_path](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#create-file-from-path-share-name--directory-name--file-name--local-file-path--content-settings-none--metadata-none--validate-content-false--progress-callback-none--max-connections-2--file-permission-none--smb-properties--azure-storage-file-models-smbproperties-object---timeout-none-), [create_file_from_stream,](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#create-file-from-stream-share-name--directory-name--file-name--stream--count--content-settings-none--metadata-none--validate-content-false--progress-callback-none--max-connections-2--timeout-none--file-permission-none--smb-properties--azure-storage-file-models-smbproperties-object--) [create_file_from_bytes](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#create-file-from-bytes-share-name--directory-name--file-name--file--index-0--count-none--content-settings-none--metadata-none--validate-content-false--progress-callback-none--max-connections-2--timeout-none--file-permission-none--smb-properties--azure-storage-file-models-smbproperties-object--)ou [métodos create_file_from_text.](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#create-file-from-text-share-name--directory-name--file-name--text--encoding--utf-8---content-settings-none--metadata-none--validate-content-false--timeout-none--file-permission-none--smb-properties--azure-storage-file-models-smbproperties-object--) São métodos de alto nível que realizam o chunking necessário quando o tamanho dos dados excede 64 MB.
 
 `create_file_from_path` carrega o conteúdo de um ficheiro a partir do caminho especificado e `create_file_from_stream` envia o conteúdo de um ficheiro/stream já aberto. `create_file_from_bytes` carrega uma matriz de bytes e `create_file_from_text` carrega o valor de texto especificado usando a codificação especificada (predefinições para UTF-8).
 
@@ -181,7 +181,7 @@ Para listar os ficheiros e diretórios numa subdiretória, utilize o método [li
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-Para listar os ficheiros e diretórios numa ação, utilize o método ** \_ de \_ listas e \_ ficheiros.** Este método devolve um gerador. O código seguinte produz o **nome** de cada ficheiro e diretório numa partilha para a consola.
+Para listar os ficheiros e diretórios numa ação, utilize o método [list_directories_and_files.](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#list-directories-and-files-share-name--directory-name-none--num-results-none--marker-none--timeout-none--prefix-none--snapshot-none-) Este método devolve um gerador. O código seguinte produz o **nome** de cada ficheiro e diretório numa partilha para a consola.
 
 ```python
 generator = file_service.list_directories_and_files('myshare')
@@ -203,7 +203,7 @@ O exemplo a seguir demonstra a utilização `download_file` para obter o conteú
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-Para descarregar dados de um ficheiro, `get_file_to_path` `get_file_to_stream` `get_file_to_bytes` utilize, ou `get_file_to_text` . São métodos de alto nível que realizam o chunking necessário quando o tamanho dos dados excede 64 MB.
+Para descarregar dados de um ficheiro, utilize [get_file_to_path,](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#get-file-to-path-share-name--directory-name--file-name--file-path--open-mode--wb---start-range-none--end-range-none--validate-content-false--progress-callback-none--max-connections-2--timeout-none--snapshot-none-) [get_file_to_stream,](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#get-file-to-stream-share-name--directory-name--file-name--stream--start-range-none--end-range-none--validate-content-false--progress-callback-none--max-connections-2--timeout-none--snapshot-none-) [get_file_to_bytes](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#get-file-to-bytes-share-name--directory-name--file-name--start-range-none--end-range-none--validate-content-false--progress-callback-none--max-connections-2--timeout-none--snapshot-none-)ou [get_file_to_text](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#get-file-to-text-share-name--directory-name--file-name--encoding--utf-8---start-range-none--end-range-none--validate-content-false--progress-callback-none--max-connections-2--timeout-none--snapshot-none-). São métodos de alto nível que realizam o chunking necessário quando o tamanho dos dados excede 64 MB.
 
 O exemplo que se segue demonstra a `get_file_to_path` utilização para descarregar o conteúdo do ficheiro **myfile** e armazená-lo no ficheiro *out-sunset.png.*
 
@@ -313,7 +313,7 @@ Para eliminar um ficheiro, ligue [para delete_file](/azure/developer/python/sdk/
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-Para eliminar um ficheiro, ligue `delete_file` .
+Para eliminar um ficheiro, ligue [para delete_file](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#delete-file-share-name--directory-name--file-name--timeout-none-).
 
 ```python
 file_service.delete_file('myshare', None, 'myfile')

@@ -4,10 +4,10 @@ description: Saiba mais sobre o suporte para avaliação de Hiper-V com avaliaç
 ms.topic: conceptual
 ms.date: 06/14/2020
 ms.openlocfilehash: 16eeb0822a8d598c74ab5118fbd39bda84186db0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91318182"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Matriz de suporte para avaliação de Hiper-V
@@ -23,7 +23,7 @@ Para configurar a avaliação do Hiper-V VM, cria um projeto Azure Migrate e adi
 --- | ---
 **Limites de avaliação** | Você pode descobrir e avaliar até 35.000 VMs Hiper-V em um único [projeto Azure Migrate](migrate-support-matrix.md#azure-migrate-projects).
 **Limites do projeto** | Pode criar vários projetos numa subscrição do Azure. Além dos VMs Hiper-V, um projeto pode incluir VMware VMs e servidores físicos, até os limites de avaliação para cada um.
-**Descoberta** | O aparelho Azure Migrate pode descobrir até 5000 VMs Hiper-V.<br/><br/> O aparelho pode ligar até 300 anfitriões Hiper-V.
+**Deteção** | O aparelho Azure Migrate pode descobrir até 5000 VMs Hiper-V.<br/><br/> O aparelho pode ligar até 300 anfitriões Hiper-V.
 **Avaliação** | Pode adicionar até 35.000 máquinas num único grupo.<br/><br/> Pode avaliar até 35.000 VMs numa única avaliação para um grupo.
 
 [Saiba mais](concepts-assessment-calculation.md) sobre avaliações.

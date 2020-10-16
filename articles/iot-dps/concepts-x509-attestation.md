@@ -7,16 +7,16 @@ ms.date: 09/14/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 911f819343f675ebe0a2604d912e6e26aa646eb5
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 3e06c79b9cbd5643d119974a4ed8628ea1b1cd4f
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90533064"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096764"
 ---
 # <a name="x509-certificate-attestation"></a>Atestado de certificado X.509
 
-Este artigo apresenta uma visão geral dos conceitos envolvidos no provisionamento de dispositivos que utilizam atestado de certificado X.509. Este artigo é relevante para todas as personalidades envolvidas na obtenção de um dispositivo pronto para implantação.
+Este artigo apresenta uma visão geral dos conceitos do Serviço de Provisionamento de Dispositivos (DPS) envolvidos no provisionamento de dispositivos que utilizam atestado de certificado X.509. Este artigo é relevante para todas as personalidades envolvidas na obtenção de um dispositivo pronto para implantação.
 
 Os certificados X.509 podem ser armazenados num módulo de segurança de hardware HSM.
 
@@ -44,21 +44,57 @@ Um certificado de raiz é um certificado X.509 auto-assinado que representa uma 
 
 Um certificado intermédio é um certificado X.509, assinado pelo certificado raiz (ou por outro certificado intermédio com o certificado raiz na sua cadeia). O último certificado intermédio de uma cadeia é utilizado para assinar o certificado de folha. Um certificado intermédio também pode ser referido como um certificado intermédio de CA.
 
+##### <a name="why-are-intermediate-certs-useful"></a>Por que os certificados intermédios são úteis?
+Os certificados intermédios são utilizados de várias maneiras. Por exemplo, os certificados intermédios podem ser usados para agrupar dispositivos por linhas de produtos, clientes que compram dispositivos, divisões da empresa ou fábricas. 
+
+Imagine que a Contoso é uma grande empresa com a sua própria Infraestrutura de Chaves Públicas (PKI) usando o certificado raiz chamado *ContosoRootCert*. Cada subsidiária da Contoso tem o seu próprio certificado intermédio assinado pela *ContosoRootCert.* Cada subsidiária utilizará então o seu certificado intermédio para assinar os seus certificados de folha para cada dispositivo. Neste cenário, Contoso pode utilizar um único caso DPS onde *ContosoRootCert* foi verificado com [prova de posse](./how-to-verify-certificates.md). Podem ter um grupo de inscrições para cada subsidiária. Desta forma, cada filial individual não terá de se preocupar com a verificação dos certificados.
+
+
 ### <a name="end-entity-leaf-certificate"></a>Certificado "folha" de entidade final
 
 O certificado de folha, ou certificado de entidade final, identifica o titular do certificado. Possui o certificado de raiz na sua cadeia de certificados, bem como certificados zero ou mais intermédios. O certificado de folha não é utilizado para assinar quaisquer outros certificados. Identifica exclusivamente o dispositivo ao serviço de fornecimento e é por vezes referido como o certificado do dispositivo. Durante a autenticação, o dispositivo utiliza a chave privada associada a este certificado para responder a um desafio de posse do serviço.
 
-Os certificados folha utilizados com uma [inscrição individual](./concepts-service.md#individual-enrollment) têm a obrigação de que o **Nome do Sujeito** deve ser definido para o ID de inscrição individual. Os certificados de folha utilizados com uma entrada [de grupo de inscrição](./concepts-service.md#enrollment-group) devem ter o **Nome do Sujeito** definido para o ID do dispositivo pretendido que será indicado nos **Registos** de Registo para o dispositivo autenticado no grupo de inscrição.
+Os certificados folha utilizados com uma [inscrição individual](./concepts-service.md#individual-enrollment) têm a obrigação de que o **Nome do Sujeito** deve ser definido para o ID de inscrição individual. Os certificados de folha utilizados com uma entrada [de grupo de inscrição](./concepts-service.md#enrollment-group) devem ter o **Nome de Sujeito** definido para o ID do dispositivo pretendido que será mostrado nos **Registos** de Registo para o dispositivo autenticado no grupo de inscrição.
 
 Para saber mais, consulte [dispositivos autenticadores assinados com certificados X.509 CA](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
 
 ## <a name="controlling-device-access-to-the-provisioning-service-with-x509-certificates"></a>Controlo do acesso do dispositivo ao serviço de fornecimento com certificados X.509
 
-O serviço de fornecimento expõe dois tipos de inscrição que pode utilizar para controlar o acesso a dispositivos que utilizam o mecanismo de atestado X.509:  
+O serviço de fornecimento expõe dois tipos de matrícula que pode utilizar para controlar o acesso ao dispositivo com o mecanismo de atestado X.509:  
 
 - As entradas individuais de [inscrição](./concepts-service.md#individual-enrollment) são configuradas com o certificado do dispositivo associado a um dispositivo específico. Estas entradas controlam as inscrições para dispositivos específicos.
 - As inscrições em grupo de [inscrição](./concepts-service.md#enrollment-group) estão associadas a um certificado de CA intermédio ou raiz específico. Estas inscrições controlam as inscrições para todos os dispositivos que possuam esse certificado intermédio ou raiz na sua cadeia de certificados. 
 
+#### <a name="dps-device-chain-requirements"></a>Requisitos da cadeia de dispositivos DPS
+
+Quando um dispositivo está a tentar [registar-se](how-to-verify-certificates.md)através de DPS utilizando um grupo de matrículas, o dispositivo deve enviar a cadeia de certificados do certificado de folha para um certificado verificado com prova de posse . Caso contrário, a autenticação falhará.
+
+Por exemplo, se apenas o certificado raiz for verificado e um certificado intermédio for enviado para o grupo de inscrição, o dispositivo deve apresentar a cadeia de certificados do certificado de folha todo o caminho até o certificado de raiz verificado. Esta cadeia de certificados incluiria quaisquer certificados intermédios. A autenticação falhará se o DPS não conseguir atravessar a cadeia de certificados para um certificado verificado.
+
+Por exemplo, considere uma empresa que utilize a seguinte corrente de dispositivo para um dispositivo.
+
+![Cadeia de certificados de dispositivo de exemplo](./media/concepts-x509-attestation/example-device-cert-chain.png) 
+
+Apenas o certificado de raiz é verificado, e o certificado *intermédio2* é carregado no grupo de inscrição.
+
+![Raiz de exemplo verificada](./media/concepts-x509-attestation/example-root-verified.png) 
+
+Se o dispositivo enviar apenas a seguinte corrente do dispositivo durante o fornecimento, a autenticação falhará. Porque o DPS não pode tentar a autenticação assumindo a validade do certificado *intermédio1*
+
+![Cadeia de certificados de falha de exemplo](./media/concepts-x509-attestation/example-fail-cert-chain.png) 
+
+Se o dispositivo enviar toda a cadeia do dispositivo da seguinte forma durante o fornecimento, então o DPS pode tentar a autenticação do dispositivo.
+
+![Cadeia de certificados de dispositivo de exemplo](./media/concepts-x509-attestation/example-device-cert-chain.png) 
+
+
+
+
+> [!NOTE]
+> Os certificados intermédios também podem ser verificados com [prova de posse](how-to-verify-certificates.md)..
+
+
+#### <a name="dps-order-of-operations-with-certificates"></a>Ordem de operações de DPS com certificados
 Quando um dispositivo se conecta ao serviço de fornecimento, o serviço prioriza entradas de inscrição mais específicas em vez de inscrições menos específicas. Ou seja, se existir uma inscrição individual para o dispositivo, o serviço de prestação de serviços aplica essa entrada. Se não houver inscrição individual para o dispositivo e um grupo de inscrição para o primeiro certificado intermédio na cadeia de certificados do dispositivo, o serviço aplica essa entrada, e assim por diante, até à raiz. O serviço aplica a primeira entrada aplicável que encontra, de modo a que:
 
 - Se a primeira inscrição encontrada estiver ativada, o serviço fornece o dispositivo.

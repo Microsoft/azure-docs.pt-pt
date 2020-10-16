@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 3a3f461941bfcd5091ebb14818bac05d6844b3fe
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: cb36366143286c05603a8d14b5ad56ebb6544bda
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706354"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070389"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planeie a aplicação de RH em nuvem para o provisionamento do utilizador do Azure Ative Directory
 
@@ -31,7 +31,7 @@ A Azure AD utiliza esta integração para permitir os seguintes fluxos de trabal
 - **Escreva de volta para a aplicação hr em nuvem:** Escreva os endereços de e-mail e os atributos de nome de utilizador do Azure AD de volta para a aplicação hr na nuvem.
 
 > [!NOTE]
-> Este plano de implementação mostra-lhe como implementar os fluxos de trabalho de aplicações de RH em nuvem com o fornecimento de utilizadores AZure AD. Para obter informações sobre como implementar o fornecimento automático de utilizadores a software como aplicações de serviço (SaaS), consulte [Planear uma implementação automática de provisionamento do utilizador](https://aka.ms/deploymentplans/provisioning).
+> Este plano de implementação mostra-lhe como implementar os fluxos de trabalho de aplicações de RH em nuvem com o fornecimento de utilizadores AZure AD. Para obter informações sobre como implementar o fornecimento automático de utilizadores a software como aplicações de serviço (SaaS), consulte [Planear uma implementação automática de provisionamento do utilizador](./plan-auto-user-provisioning.md).
 
 ## <a name="enabled-hr-scenarios"></a>Cenários de RH habilitados
 
@@ -73,7 +73,7 @@ Esta capacidade de provisionamento de TI orientado por RH oferece os seguintes b
 - **Abordar a conformidade e a governação:** O Azure AD suporta registos de auditoria nativos para pedidos de provisionamento de utilizadores realizados por aplicações de sistemas de origem e alvo. Com a auditoria, é possível rastrear quem tem acesso às aplicações a partir de um único ecrã.
 - **Gerir o custo:** O provisionamento automático reduz os custos evitando ineficiências e erros humanos associados ao provisionamento manual. Reduz a necessidade de soluções de fornecimento de utilizadores desenvolvidas por medida construídas ao longo do tempo utilizando plataformas antigas e desatualizadas.
 
-### <a name="licensing"></a>Licenciamento
+### <a name="licensing"></a>Licensing
 
 Para configurar a aplicação de HR em nuvem para a integração de fornecimento de utilizadores Azure AD, você precisa de uma [licença Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) válida e uma licença para a aplicação de HR em nuvem, como Workday ou SuccessFactors.
 
@@ -126,7 +126,7 @@ Considere as suas necessidades organizacionais enquanto determina a estratégia 
 
 ### <a name="engage-the-right-stakeholders"></a>Envolver as partes interessadas certas
 
-Quando os projetos tecnológicos falham, normalmente fazem-no devido a expectativas desajustadas sobre o impacto, os resultados e as responsabilidades. Para evitar estas armadilhas, [certifique-se de que está a envolver as partes interessadas certas.](https://aka.ms/deploymentplans) Certifique-se também de que as funções das partes interessadas no projeto são bem compreendidas. Documente as partes interessadas e os seus contributos e contas do projeto.
+Quando os projetos tecnológicos falham, normalmente fazem-no devido a expectativas desajustadas sobre o impacto, os resultados e as responsabilidades. Para evitar estas armadilhas, [certifique-se de que está a envolver as partes interessadas certas.](../fundamentals/active-directory-deployment-plans.md) Certifique-se também de que as funções das partes interessadas no projeto são bem compreendidas. Documente as partes interessadas e os seus contributos e contas do projeto.
 
 Inclua um representante da organização de RH que pode fornecer inputs sobre os processos comerciais de RH existentes e a identidade do trabalhador, além dos requisitos de processamento de dados de trabalho.
 
@@ -255,7 +255,7 @@ Também pode [personalizar os mapeamentos de atributos predefinidos,](../app-pro
 
 Por predefinição, a aplicação de conector de provisionamento mapeia o estado do perfil do utilizador HR para o estado da conta de utilizador em Ative Directory ou Azure AD para determinar se permite ou desativa a conta do utilizador.
 
-Quando iniciar o processo Joiners-Leavers, reúna os seguintes requisitos.
+Quando iniciar o processo de Joiners-Leavers, reúna os seguintes requisitos.
 
 | Processo | Requisitos |
 | - | - |
@@ -378,7 +378,7 @@ O Azure AD pode fornecer informações adicionais sobre o uso do utilizador e sa
 
 Após um [ciclo inicial](../app-provisioning/how-provisioning-works.md#initial-cycle)bem sucedido, o serviço de fornecimento de AD AZure continua a executar indefinidamente atualizações incrementais consecutivas, em intervalos definidos nos tutoriais específicos de cada aplicação, até que ocorra um dos seguintes eventos:
 
-- O serviço está parado manualmente. Um novo ciclo inicial é desencadeado através da utilização do [portal Azure](https://portal.azure.com/) ou do comando API apropriado do [Microsoft Graph.](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+- O serviço está parado manualmente. Um novo ciclo inicial é desencadeado através da utilização do [portal Azure](https://portal.azure.com/) ou do comando API apropriado do [Microsoft Graph.](/graph/api/resources/synchronization-overview)
 - Um novo ciclo inicial é desencadeado devido a uma alteração nos mapeamentos de atributos ou filtros de deteção.
 - O processo de provisionamento entra em quarentena devido a uma elevada taxa de erro. Fica em quarentena por mais de quatro semanas, altura em que é automaticamente desativada.
 
@@ -416,6 +416,6 @@ Para resolver problemas que possam surgir durante o provisionamento, consulte os
 ### <a name="next-steps"></a>Passos seguintes
 
 - [Expressãos de escrita para mapeamentos de atributos](functions-for-customizing-application-data.md)
-- [Visão geral da API de sincronização AZure AD](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+- [Visão geral da API de sincronização AZure AD](/graph/api/resources/synchronization-overview)
 - [Ignorar a eliminação das contas de utilizador que ficam fora de alcance](skip-out-of-scope-deletions.md)
 - [Azure AD Connect Provisioning Agent: O histórico de lançamento da versão](provisioning-agent-release-version-history.md)

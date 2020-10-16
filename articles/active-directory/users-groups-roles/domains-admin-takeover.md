@@ -15,10 +15,10 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6a7dcb1d24f3c1ff848e3393687b04d79d28058
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90054709"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Assumir um diretório não gerido como administrador no Azure Active Directory
@@ -140,7 +140,7 @@ cmdlet | Utilização
    ```powershell
    Get-MsolDomain
    ```
-3. Executar o cmdlet Get-MsdomainVerificationDns para criar um desafio:
+3. Executar o Get-MsolDomainVerificationDns cmdlet para criar um desafio:
    ```powershell
    Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
    ```
@@ -154,7 +154,7 @@ cmdlet | Utilização
    MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
    ```
 5. No seu espaço público de nomes DNS, crie um registo DNS txt que contenha o valor que copiou no passo anterior. O nome para este registo é o nome do domínio principal, por isso, se criar este registo de recursos utilizando a função DNS do Windows Server, deixe o nome Record em branco e cole o valor na caixa de Texto.
-6. Executar o cmdlet Confirm-MsolDomain para verificar o desafio:
+6. Executar o Confirm-MsolDomain cmdlet para verificar o desafio:
   
    ```powershell
    Confirm-MsolDomain –DomainName *your_domain_name* –ForceTakeover Force
@@ -168,7 +168,7 @@ cmdlet | Utilização
 
 Um desafio bem sucedido devolve-lhe o pedido sem um erro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Adicionar um nome de domínio personalizado ao Azure AD](../fundamentals/add-custom-domain.md)
 * [Como instalar e configurar o Azure PowerShell](/powershell/azure/)

@@ -9,15 +9,15 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 07/22/2019
 ms.openlocfilehash: c270e9865aff30184ea236f56ab20ede78c5d577
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86075455"
 ---
 # <a name="create-an-apache-spark-machine-learning-pipeline"></a>Criar um pipeline de machine learning do Apache Spark
 
-A biblioteca de machine learning escalável da Apache Spark (MLlib) traz capacidades de modelação para um ambiente distribuído. O pacote Spark [`spark.ml`](https://spark.apache.org/docs/latest/ml-pipeline.html) é um conjunto de APIs de alto nível construído em DataFrames. Estes APIs ajudam-no a criar e afinar os oleodutos práticos de aprendizagem automática.  *A aprendizagem de máquinas* de faísca refere-se a esta API baseada em Dados MLlib, e não ao antigo gasoduto baseado em RDD API.
+A biblioteca de machine learning escalável da Apache Spark (MLlib) traz capacidades de modelação para um ambiente distribuído. O pacote Spark [`spark.ml`](https://spark.apache.org/docs/latest/ml-pipeline.html) é um conjunto de APIs de alto nível construído em DataFrames. Estes APIs ajudam-no a criar e afinar os oleodutos práticos de aprendizagem automática.  *A aprendizagem de máquinas*  de faísca refere-se a esta API baseada em Dados MLlib, e não ao antigo gasoduto baseado em RDD API.
 
 Um pipeline de machine learning (ML) é um fluxo de trabalho completo combinando vários algoritmos de aprendizagem automática juntos. Pode haver muitos passos necessários para processar e aprender com os dados, requerendo uma sequência de algoritmos. Os oleodutos definem os estágios e a encomenda de um processo de aprendizagem automática. Em MLlib, as fases de um oleoduto são representadas por uma sequência específica de PipelineStages, onde um Transformador e um Estimador executam tarefas.
 
@@ -29,7 +29,7 @@ Cada instância apátrida de um Transformador ou um Estimador tem o seu próprio
 
 ## <a name="pipeline-example"></a>Exemplo do gasoduto
 
-Para demonstrar uma utilização prática de um gasoduto ML, este exemplo utiliza o ficheiro de dados da amostra `HVAC.csv` que vem pré-carregado no armazenamento predefinido para o seu cluster HDInsight, seja o Azure Storage ou o Data Lake Storage. Para ver o conteúdo do ficheiro, navegue para o `/HdiSamples/HdiSamples/SensorSampleData/hvac` diretório. `HVAC.csv`contém um conjunto de tempos com os sistemas de AVAC *(aquecimento, ventilação e ar condicionado)* em vários edifícios. O objetivo é treinar o modelo nos dados, e produzir uma temperatura prevista para um determinado edifício.
+Para demonstrar uma utilização prática de um gasoduto ML, este exemplo utiliza o ficheiro de dados da amostra `HVAC.csv` que vem pré-carregado no armazenamento predefinido para o seu cluster HDInsight, seja o Azure Storage ou o Data Lake Storage. Para ver o conteúdo do ficheiro, navegue para o `/HdiSamples/HdiSamples/SensorSampleData/hvac` diretório. `HVAC.csv` contém um conjunto de tempos com os sistemas de AVAC *(aquecimento, ventilação e ar condicionado)* em vários edifícios. O objetivo é treinar o modelo nos dados, e produzir uma temperatura prevista para um determinado edifício.
 
 O seguinte código:
 
@@ -81,7 +81,7 @@ training = documents.toDF()
 Este gasoduto de exemplo tem três fases: `Tokenizer` e `HashingTF` (ambos Transformadores) e `Logistic Regression` (um Estimador).  Os dados extraídos e analisados no `training` DataFrame fluem através do pipeline quando `pipeline.fit(training)` são chamados.
 
 1. Na primeira fase, `Tokenizer` divide a coluna de entrada `SystemInfo` (composta pelo identificador do sistema e valores de idade) numa `words` coluna de saída. Esta nova `words` coluna é adicionada ao DataFrame. 
-2. O segundo `HashingTF` estágio, converte a nova `words` coluna em vetores de recurso. Esta nova `features` coluna é adicionada ao DataFrame. Estas duas primeiras etapas são Transformers. 
+2. O segundo `HashingTF` estágio, converte a nova `words` coluna em vetores de recurso. Esta nova  `features` coluna é adicionada ao DataFrame. Estas duas primeiras etapas são Transformers. 
 3. A terceira `LogisticRegression` fase, é um estimador, e assim o oleoduto chama o `LogisticRegression.fit()` método para produzir um `LogisticRegressionModel` . 
 
 ```python
@@ -132,6 +132,6 @@ only showing top 20 rows
 
 O `model` objeto pode agora ser usado para fazer previsões. Para obter a amostra completa desta aplicação de machine learning e instruções passo a passo para executá-la, consulte aplicações de [aprendizagem automática Build Apache Spark no Azure HDInsight](apache-spark-ipython-notebook-machine-learning.md).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 * [Data Science usando Scala e Apache Spark em Azure](../../machine-learning/team-data-science-process/scala-walkthrough.md)

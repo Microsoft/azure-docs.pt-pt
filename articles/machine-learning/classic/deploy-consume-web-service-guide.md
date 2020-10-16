@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/19/2017
 ms.openlocfilehash: 52404aa1514dc3189305117181408e25e233fce8
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362406"
 ---
 # <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio (clássico) Web Services: Implantação e consumo
@@ -89,7 +89,7 @@ Consulte os seguintes artigos e código de amostra para mais detalhes:
 
 ### <a name="from-the-azure-machine-learning-web-services-ui-testing"></a>A partir do Azure Machine Learning Web Services UI (Teste)
 
-Pode testar o seu serviço web a partir do portal Azure Machine Learning Web Services. Isto inclui testar as interfaces do serviço de resposta a pedidos (RRS) e do serviço de execução de lotes (BES).
+Pode testar o seu serviço web a partir do portal Azure Machine Learning Web Services. Isto inclui testar as interfaces de serviço Request-Response (RRS) e serviço de execução de lotes (BES).
 
 * [Implementar um serviço Web novo](deploy-a-machine-learning-web-service.md)
 * [Implementar um serviço Web do Azure Machine Learning](deploy-a-machine-learning-web-service.md)

@@ -8,18 +8,17 @@ ms.author: mbaldwin
 ms.date: 09/04/2020
 ms.topic: how-to
 ms.service: key-vault
-ms.subservice: general
-ms.openlocfilehash: 00799f7c5239bfd744268f7353e1bac6cb038294
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 1a6ec20d860a409bbe7d3114c54e1e46a75968a0
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89483342"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970117"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticação de serviço-a-serviço para Azure Key Vault usando .NET
 
 > [!NOTE]
-> **Microsoft.Azure.Services.AppAuthentication** já não é recomendado para usar com o novo Key Vault SDK. É substituído por nova biblioteca de identidade Azure **DefaultAzureCredentis** disponíveis para .NET, Java, TypeScript e Python e deve ser usado para todos os novos desenvolvimentos. Mais informações podem ser encontradas aqui: [Autenticação e a Azure SDK](https://devblogs.microsoft.com/azure-sdk/authentication-and-the-azure-sdk/).
+> **Microsoft.Azure.Services.AppAuthentication** já não é recomendado para usar com o novo Key Vault SDK. É substituído por uma nova **biblioteca de clientes Azure Identity** disponível para .NET, Java, TypeScript e Python e deve ser utilizado para todo o novo desenvolvimento. Mais informações podem ser encontradas aqui: [Autenticação para Key Vault em código](https://docs.microsoft.com/azure/key-vault/general/developers-guide#azure-identity-client-libraries).
 
 Para autenticar o Azure Key Vault, precisa de uma credencial Azure Ative Directory (Azure AD), seja um segredo partilhado ou um certificado.
 

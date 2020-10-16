@@ -9,10 +9,10 @@ ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 07/16/2020
 ms.openlocfilehash: 84c2ad3a24d944db6a55f3f21e8a2a0c4084d033
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87099631"
 ---
 # <a name="create-alerts-for-azure-cosmos-db-using-azure-monitor"></a>Criar alertas para a Azure Cosmos DB usando o Azure Monitor
@@ -83,7 +83,7 @@ Esta secção mostra como criar um alerta quando recebe um código de estado HTT
 
    * Forneça um nome para a sua ação e selecione **e-mail/SMS mensagem/Push/Voice** como o **Tipo de Ação**. A imagem que se segue mostra os detalhes do tipo de ação:
 
-     :::image type="content" source="./media/create-alerts/configure-alert-action-type.png" alt-text="Configurar o tipo de ação, como a notificação por e-mail para receber o alerta":::
+     :::image type="content" source="./media/create-alerts/configure-alert-action-type.png" alt-text="Configure a lógica de receber alertas para pedidos de taxa limitada/429":::
 
 1. Preencha a secção **de detalhes da regra de alerta:**
 

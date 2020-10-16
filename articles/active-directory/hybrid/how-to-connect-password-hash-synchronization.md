@@ -16,10 +16,10 @@ search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c16882f35c9ca79644cd2b51ce4cd88bba516ed2
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89652068"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementar a sincronização hash de palavras-passe com a sincronização do Azure AD Connect
@@ -113,7 +113,7 @@ Uma vez ativado, o AZure AD não vai a cada utilizador sincronizado para remover
 
 Recomenda-se ativar o EnforceCloudPasswordPolicyForPasswordSyncedUsers, antes de permitir a sincronização de haxixe de palavra-passe, de modo a que a sincronização inicial dos hashes de palavra-passe não adicione o `DisablePasswordExpiration` valor ao atributo PasswordPolicies para os utilizadores.
 
-A política de senha AD Azure predefinida requer que os utilizadores alterem as suas palavras-passe a cada 90 dias. Se a sua política em AD também for de 90 dias, as duas políticas devem coincidir. No entanto, se a política de AD não for de 90 dias, pode atualizar a política de senha AD Azure para combinar utilizando o comando Set-MsolPasswordPolicy PowerShell.
+A política de senha AD Azure predefinida requer que os utilizadores alterem as suas palavras-passe a cada 90 dias. Se a sua política em AD também for de 90 dias, as duas políticas devem coincidir. No entanto, se a política de AD não for de 90 dias, pode atualizar a política de senha AD Azure para combinar utilizando o comando powerShell Set-MsolPasswordPolicy.
 
 A Azure AD suporta uma política de expiração de senha separada por domínio registado.
 
@@ -231,7 +231,7 @@ Para obter informações sobre segurança e FIPS, consulte [a sincronização de
 ## <a name="troubleshoot-password-hash-synchronization"></a>Sincronização de hash de palavra-passe de resolução de problemas
 Se tiver problemas com a sincronização de hash de palavra-passe, consulte [a sincronização de hash da palavra-passe de resolução de problemas](tshoot-connect-password-hash-synchronization.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Azure AD Connect sincronização: Personalizar opções de sincronização](how-to-connect-sync-whatis.md)
 * [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md)
 * [Obtenha um plano de implementação passo a passo para migrar da ADFS para a sincronização de hash password](https://aka.ms/authenticationDeploymentPlan)

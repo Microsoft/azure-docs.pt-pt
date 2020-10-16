@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ad0111f9be8c0b981093618be7296d0ec7f90e30
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8c698cdf5b26cb1682eec2828922517cf4272275
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326546"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048445"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gerir um gráfico de gémeos digitais usando relacionamentos
 
@@ -74,7 +74,7 @@ Pode até criar múltiplos casos do mesmo tipo de relação entre os mesmos dois
 
 ## <a name="list-relationships"></a>Relações de lista
 
-Para aceder à lista de relacionamentos para um dado gémeo no gráfico, pode utilizar:
+Para aceder à lista de relações **de saída** provenientes de um dado gémeo no gráfico, pode utilizar:
 
 ```csharp
 await client.GetRelationshipsAsync(id);
@@ -110,11 +110,11 @@ public async Task<List<BasicRelationship>> FindOutgoingRelationshipsAsync(string
 
 Pode usar as relações recuperadas para navegar para outros gémeos no seu gráfico. Para isso, leia o `target` campo a partir da relação que é devolvida, e use-o como ID para a sua próxima chamada para `GetDigitalTwin` . 
 
-### <a name="find-relationships-to-a-digital-twin"></a>Encontre relacionamentos com um gémeo digital
+### <a name="find-incoming-relationships-to-a-digital-twin"></a>Encontre relacionamentos de entrada para um gémeo digital
 
-A Azure Digital Twins também tem uma API para encontrar todas as relações recebidas com um dado gémeo. Isto é frequentemente útil para a navegação inversa, ou quando elimina um gémeo.
+A Azure Digital Twins também tem uma API para encontrar todas as relações **recebidas** com um dado gémeo. Isto é frequentemente útil para a navegação inversa, ou quando elimina um gémeo.
 
-A amostra de código anterior focava-se em encontrar relações de saída. O exemplo a seguir é semelhante, mas encontra relações recebidas. Também os apaga assim que forem encontrados.
+A amostra de código anterior focava-se em encontrar relações de saída de um gémeo. O exemplo a seguir é estruturado da mesma forma, mas encontra relações *de entrada* com o gémeo.
 
 Note que as `IncomingRelationship` chamadas não devolvem todo o corpo da relação.
 
@@ -237,7 +237,7 @@ Em casos práticos de utilização, as hierarquias gémeas serão muitas vezes c
 
 Considere a seguinte tabela de dados, descrevendo um conjunto de gémeos digitais e relações a criar.
 
-| Modelação    | ID | Principal | Nome da relação | Outros dados |
+| Modelo    | ID | Principal | Nome da relação | Outros dados |
 | --- | --- | --- | --- | --- |
 | chão    | Piso01 | | | … |
 | sala    | Sala10 | Piso01 | contains | … |
@@ -247,7 +247,7 @@ Considere a seguinte tabela de dados, descrevendo um conjunto de gémeos digitai
 | sala    | Sala21 | Piso02 | contains | … |
 | sala    | Sala22 | Piso02 | contains | … |
 
-O código que se segue utiliza a [API do Gráfico microsoft](https://docs.microsoft.com/graph/overview) para ler uma folha de cálculo e construir um gráfico gémeo Azure Digital Twins a partir dos resultados.
+O código que se segue utiliza a [API do Gráfico microsoft](/graph/overview) para ler uma folha de cálculo e construir um gráfico gémeo Azure Digital Twins a partir dos resultados.
 
 ```csharp
 var range = msftGraphClient.Me.Drive.Items["BuildingsWorkbook"].Workbook.Worksheets["Building"].usedRange;

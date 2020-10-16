@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: dd4a02ffdc062ed1940d35ca64e02a5e0a88a248
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91333329"
 ---
 # <a name="read-and-write-spatial-data"></a>Ler e escrever dados espaciais
@@ -29,7 +29,7 @@ A tabela abaixo lista os formatos de ficheiros espaciais suportados para operaç
 | KML               | ✓  |  ✓  |
 | KMZ               | ✓  |  ✓  |
 | CSV espacial       | ✓  |  ✓  |
-| Texto bem conhecido   | ✓  |  ✓  |
+| texto de Well-Known   | ✓  |  ✓  |
 
 Estas próximas secções delineiam todas as diferentes ferramentas para ler e escrever dados espaciais utilizando o módulo IO espacial.
 
@@ -41,7 +41,7 @@ Ao ler um ficheiro comprimido, seja como um fecho ou um KMZ, será desapertado e
 
 O resultado da função de leitura é um `SpatialDataSet` objeto. Este objeto estende a classe GeoJSON FeatureCollection. Pode facilmente ser passado para um `DataSource` as-é para tornar as suas características num mapa. O `SpatialDataSet` não só contém informações sobre as características, como também pode incluir sobreposições de terra KML, métricas de processamento e outros detalhes, tal como descritos no quadro seguinte.
 
-| Nome da propriedade | Tipo | Description | 
+| Nome da propriedade | Tipo | Descrição | 
 |---------------|------|-------------|
 | `bbox` | `BoundingBox` | Caixa de limitação de todos os dados do conjunto de dados. |
 | `features` | `Feature[]` | GeoJSON possui dentro do conjunto de dados. |
@@ -123,26 +123,26 @@ atlas.io.read(data, {
 );
 ```
 
-## <a name="read-and-write-well-known-text-wkt"></a>Ler e escrever Texto Bem Conhecido (WKT)
+## <a name="read-and-write-well-known-text-wkt"></a>Ler e escrever Well-Known Texto (WKT)
 
 [Bem Conhecido Texto](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry) (WKT) é um padrão de Consórcio Geoespacial Aberto (OGC) para representar geometrias espaciais como texto. Muitos sistemas geoespaciais suportam wKT, como Azure SQL e Azure PostgreSQL usando o plugin PostGIS. Como a maioria dos padrões de OGC, as coordenadas são formatadas como "latitude de longitude" para alinhar com a convenção "x y". Como exemplo, um ponto de longitude -110 e latitude 45 pode ser escrito como `POINT(-110 45)` usando o formato WKT.
 
 Texto bem conhecido pode ser lido usando a `atlas.io.ogc.WKT.read` função, e escrito usando a `atlas.io.ogc.WKT.write` função.
 
-## <a name="examples-of-reading-and-writing-well-known-text-wkt"></a>Exemplos de leitura e escrita de texto bem conhecido (WKT)
+## <a name="examples-of-reading-and-writing-well-known-text-wkt"></a>Exemplos de leitura e escrita Well-Known Texto (WKT)
 
 O código que se segue mostra como ler a conhecida cadeia de texto `POINT(-122.34009 47.60995)` e torná-la no mapa usando uma camada de bolha.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Ler texto bem conhecido' src='//codepen.io/azuremaps/embed/XWbabLd/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte o <a href='https://codepen.io/azuremaps/pen/XWbabLd/'>texto bem conhecido da</a> Pen Read by Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Ler Well-Known Texto' src='//codepen.io/azuremaps/embed/XWbabLd/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a Pen <a href='https://codepen.io/azuremaps/pen/XWbabLd/'>Read Well-Known Text</a> by Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 O código que se segue demonstra a leitura e a escrita de textos bem conhecidos para trás e para a frente.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Ler e escrever Texto Bem Conhecido' src='//codepen.io/azuremaps/embed/JjdyYav/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a Leitura da Caneta <a href='https://codepen.io/azuremaps/pen/JjdyYav/'>e escreva Texto Bem Conhecido</a> por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Ler e escrever Well-Known Texto' src='//codepen.io/azuremaps/embed/JjdyYav/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a <a href='https://codepen.io/azuremaps/pen/JjdyYav/'>Pen Read e escreva Well-Known Texto</a> por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="read-and-write-gml"></a>Ler e escrever GML

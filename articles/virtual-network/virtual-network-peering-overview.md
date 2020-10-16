@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
 ms.openlocfilehash: 61617777efa8241c93b2b5ffe42fc1d914b6ebcf
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91531875"
 ---
 # <a name="virtual-network-peering"></a>Peering de rede virtual
@@ -76,7 +76,7 @@ O trânsito de gateway entre redes virtuais criados através de diferentes model
 
 Quando se percorre redes virtuais que partilham uma única ligação Azure ExpressRoute, o tráfego entre eles passa pela relação de espreitar. O tráfego usa a rede de espinha dorsal Azure. Pode continuar a utilizar gateways locais em cada rede virtual para ligar ao circuito no local. Caso contrário, pode utilizar um gateway partilhado e configurar o trânsito para a conectividade no local.
 
-## <a name="troubleshoot"></a>Resolver Problemas
+## <a name="troubleshoot"></a>Resolução de problemas
 
 Para confirmar que as redes virtuais são espreitadas, pode verificar rotas eficazes. Verifique as rotas de uma interface de rede em qualquer sub-rede de uma rede virtual. Se um peering de rede virtual existe, todas as sub-redes na rede virtual têm rotas com o tipo de salto seguinte *VNet peering*, para cada espaço de endereços em cada virtual rede peered. Para obter mais informações, consulte [diagnosticar um problema de encaminhamento de máquinas virtuais](diagnose-network-routing-problem.md).
 
@@ -106,7 +106,7 @@ Gateway Transit é uma propriedade que permite a uma rede virtual utilizar uma p
 >[!NOTE]
 > Uma versão anterior deste documento declarou que as taxas de observação da rede virtual não seriam aplicadas no VNet falado (ou VNet não de gateway) com o Gateway Transit. Reflete agora preços precisos na página de preços.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Pode criar um espreitamento entre duas redes virtuais. As redes podem pertencer à mesma subscrição, diferentes modelos de implementação na mesma subscrição ou subscrições diferentes. Conclua um tutorial para um dos cenários seguintes:
 

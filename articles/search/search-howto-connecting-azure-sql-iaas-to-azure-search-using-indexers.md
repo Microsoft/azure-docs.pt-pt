@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: ec1e74c6a029ab0f8defc3ae783c9e974f387289
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: a13f78b6aa4fc3cb6f6777c76bc762ec565624fc
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922978"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951320"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-server-on-an-azure-vm"></a>Configure uma ligação de um indexante de pesquisa cognitiva Azure para SQL Server em um VM Azure
 
@@ -63,7 +63,7 @@ Não é incomum configurar o NSG e a correspondente Lista de Controlo de Acesso 
 Os links abaixo fornecem instruções sobre a configuração NSG para implementações VM. Utilize estas instruções para a ACL um ponto final de pesquisa cognitiva Azure com base no seu endereço IP.
 
 > [!NOTE]
-> Para obter antecedentes, veja [o que é um Grupo de Segurança de Rede?](../virtual-network/security-overview.md)
+> Para obter antecedentes, veja [o que é um Grupo de Segurança de Rede?](../virtual-network/network-security-groups-overview.md)
 > 
 > 
 

@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Instalação personalizada | Microsoft Docs'
-description: Este documento fornece detalhes sobre as opções de instalação personalizada do Azure AD Connect. Utilize estas instruções para instalar o Active Directory através do Azure AD Connect.
+title: Personalize uma instalação do Azure Ative Directory Connect
+description: Este artigo explica as opções de instalação personalizadas para Azure AD Connect. Utilize estas instruções para instalar o Active Directory através do Azure AD Connect.
 services: active-directory
 keywords: o que é o Azure AD Connect, instale o Active Directory, componentes precisos para o Azure AD
 documentationcenter: ''
@@ -14,415 +14,452 @@ ms.date: 09/10/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db10f53033e305aa2306bce230e7880140f35189
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 3afeadff71bd373354b891bd6690d94d28fc0805
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91578292"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096356"
 ---
-# <a name="custom-installation-of-azure-ad-connect"></a>Instalação personalizada do Azure AD Connect
-As **definições Azure** AD Connect Custom são utilizadas quando pretender mais opções para a instalação.  Por exemplo, se tiver várias florestas ou se quiser configurar características opcionais. São utilizadas em todos os casos em que a opção [**instalação rápida**](how-to-connect-install-express.md) não satisfaz a sua implementação ou topologia.
+# <a name="custom-installation-of-azure-active-directory-connect"></a>Instalação personalizada do Azure Ative Directory Connect
+Utilize *definições personalizadas* no Azure Ative Directory (Azure AD) Ligue-se quando quiser mais opções para a instalação. Utilize estas definições, por exemplo, se tiver várias florestas ou se pretender configurar funcionalidades opcionais. Utilize configurações personalizadas em todos os casos em que a [instalação expressa](how-to-connect-install-express.md) não satisfaça as suas necessidades de implantação ou topologia.
 
-Antes de começar a instalar o Azure AD Connect, certifique-se de que [transferiu o Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771) e concluiu os pré-requisitos indicados em [Azure AD Connect: Hardware e pré-requisitos](how-to-connect-install-prerequisites.md). Certifique-se também de que tem disponíveis as contas necessárias, conforme descrito em [Contas e permissões do Azure AD Connect](reference-connect-accounts-permissions.md).
+Pré-requisitos:
+- [Baixar Azure Ad Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
+- Complete os passos pré-requisitos em [Azure AD Connect: Hardware e pré-requisitos](how-to-connect-install-prerequisites.md). 
+- Certifique-se de que tem as contas descritas nas [contas e permissões do Azure AD Connect](reference-connect-accounts-permissions.md).
 
-## <a name="custom-settings-installation-of-azure-ad-connect"></a>Instalação de definições personalizadas do Azure AD Connect
+## <a name="custom-installation-settings"></a>Configurações de instalação personalizadas 
 
-### <a name="express-settings"></a>Definições Rápidas
-Nesta página, clique em **Personalizar** para iniciar uma instalação de definições personalizadas.  O restante deste documento guia-o através dos vários ecrãs de assistente para a instalação personalizada.  Pode utilizar os links abaixo para navegar rapidamente para as informações para um determinado ecrã de assistente.
+Para configurar uma instalação personalizada para Azure AD Connect, procure nas páginas de assistente que as seguintes secções descrevem.
 
-- [Instalar os componentes necessários](#install-required-components)
-- [S-in do utilizador](#user-sign-in)
+### <a name="express-settings"></a>Definições rápidas
+Na página **Definições Expressas,** selecione **Personalizar** para iniciar uma instalação de configurações personalizadas.  O resto deste artigo guia-o através do processo de instalação personalizado. Utilize os seguintes links para obter rapidamente a informação para uma determinada página:
+
+- [Componentes necessários](#install-required-components)
+- [Inscrição do utilizador](#user-sign-in)
 - [Ligar ao Azure AD](#connect-to-azure-ad)
-- [Páginas na secção Sincronização](#pages-under-the-sync-section)
+- [Sincronização](#sync-pages)
 
 ### <a name="install-required-components"></a>Instalar os componentes necessários
-Quando instalar os serviços de sincronização, pode deixar a secção de configuração opcional desmarcada e o Azure AD Connect configura tudo automaticamente. Configura uma instância SQL Server 2012 Express LocalDB, cria os grupos apropriados e atribui permissões. Se desejar alterar os predefinidos, pode usá-lo, verificando as caixas apropriadas.  O quadro abaixo fornece um resumo destas opções e ligações a informações adicionais. 
+Quando instalar os serviços de sincronização, pode deixar a secção de configuração opcional não ser selecionada. O Azure AD Connect configura tudo automaticamente. Configura uma instância SQL Server 2012 Express LocalDB, cria os grupos apropriados e atribui permissões. Se quiser alterar os predefinidos, limpe as caixas apropriadas.  O quadro seguinte resume estas opções e fornece links para informações adicionais. 
 
-![Componentes necessários](./media/how-to-connect-install-custom/requiredcomponents2.png)
+![Screenshot mostrando seleções opcionais para os componentes de instalação necessários no Azure AD Connect.](./media/how-to-connect-install-custom/requiredcomponents2.png)
 
-| Configuração opcional | Descrição |
+| Configuração opcional | Description |
 | --- | --- |
 |Especifique um local de instalação personalizado| Permite-lhe alterar o caminho de instalação predefinido para Azure AD Connect.|
-| Utilizar um SQL Server existente |Permite-lhe especificar o nome do SQL Server e o nome da instância. Escolha esta opção se já tiver um servidor de base de dados que pretende utilizar. Introduza o nome da instância, seguido de uma vírgula e do número de porta em **Nome da Instância**, caso o SQL Server não tenha a navegação ativada.  Em seguida, especifique o nome da base de dados Azure AD Connect.  Os seus privilégios SQL determinam se será criada uma nova base de dados ou se o seu administrador SQL deve criar a base de dados com antecedência.  Se tiver permissões SQL SA, consulte [como instalar utilizando uma base de dados existente.](how-to-connect-install-existing-database.md)  Se tiver sido delegada permissões (DBO) consulte [instalar Azure AD Connect com permissões de administrador delegadas sql](how-to-connect-install-sql-delegation.md). |
-| Utilizar uma conta de serviço existente |Por predefinição, o Azure AD Connect utiliza uma conta de serviço virtual para ser utilizada pelos serviços de sincronização. Se utilizar um servidor do SQL remoto ou um proxy que exija a autenticação, tem de utilizar uma **conta de serviço gerido** ou utilizar uma conta de serviço no domínio e conhecer a palavra-passe. Nesses casos, introduza a conta a utilizar. Certifique-se de que o utilizador que está a executar a instalação é um SA no SQL Server, para possa ser criado um início sessão para a conta de serviço.  Consulte [as contas e permissões do Azure AD Connect](reference-connect-accounts-permissions.md#adsync-service-account). </br></br>Com a compilação mais recente, o aprovisionamento da base de dados pode agora ser realizado fora de banda pelo administrador SQL e, em seguida, instalado pelo administrador do Azure AD Connect com direitos de proprietário da base de dados.  Para obter mais informações, veja [Instalar o Azure AD Connect com permissões de administrador do SQL delegado](how-to-connect-install-sql-delegation.md).|
-| Especificar grupos de sincronização personalizados |Por predefinição, o Azure AD Connect cria quatro grupos locais no servidor quando são instalados os serviços de sincronização. Estes grupos são: grupo Administradores, grupo Operadores, grupo Procura e grupo Reposição de Palavra-passe. Pode especificar aqui os seus próprios grupos. Os grupos têm de ser locais no servidor e não podem estar localizados no domínio. |
-|Definições de sincronização de importações (pré-visualização)|Permite-lhe importar configurações de outras versões do Azure AD Connect.  Para obter mais informações consulte [as definições de configuração de ligação Azure AD importando e exportando](how-to-connect-import-export-config.md).|
+| Utilizar um SQL Server existente |Permite especificar o nome e o nome do servidor SQL. Escolha esta opção se já tiver um servidor de base de dados que pretende utilizar. Por **exemplo,** insira o nome da instância, uma vírgula e o número de porta se a sua instância SQL Server não tiver navegação ativada.  Em seguida, especifique o nome da base de dados Azure AD Connect.  Os seus privilégios SQL determinam se uma nova base de dados pode ser criada ou se o seu administrador SQL deve criar a base de dados com antecedência.  Se tiver permissões de administrador do SQL Server (SA), consulte [instalar o Azure AD Connect utilizando uma base de dados existente](how-to-connect-install-existing-database.md).  Se tiver permissões delegadas (DBO), consulte [instalar o Azure AD Connect utilizando permissões de administrador delegadas da SQL](how-to-connect-install-sql-delegation.md). |
+| Utilizar uma conta de serviço existente |Por predefinição, o Azure AD Connect fornece uma conta de serviço virtual para os serviços de sincronização. Se utilizar uma instância remota do SQL Server ou utilizar um representante que exija autenticação, pode utilizar uma conta de *serviço gerida* ou uma conta de serviço protegida por palavra-passe no domínio. Nesses casos, insira a conta que pretende utilizar. Para executar a instalação, precisa de ser um SA em SQL para que possa criar credenciais de inscrição para a conta de serviço. Para mais informações, consulte [as contas e permissões do Azure AD Connect](reference-connect-accounts-permissions.md#adsync-service-account). </br></br>Utilizando a mais recente construção, o administrador sql pode agora providenciar a base de dados fora da banda. Em seguida, o administrador AZURE AD Connect pode instalá-lo com os direitos do proprietário da base de dados.  Para obter mais informações, consulte [instalar o Azure AD Connect utilizando permissões de administrador delegadas sql](how-to-connect-install-sql-delegation.md).|
+| Especificar grupos de sincronização personalizados |Por predefinição, quando os serviços de sincronização são instalados, o Azure AD Connect cria quatro grupos que são locais para o servidor. Estes grupos são Administradores, Operadores, Navegação e Redefinição de Password. Pode especificar aqui os seus próprios grupos. Os grupos devem ser locais no servidor. Não podem estar no domínio. |
+|Definições de sincronização de importações (pré-visualização)|Permite-lhe importar configurações de outras versões do Azure AD Connect.  Para obter mais informações, consulte [as definições de configuração de Ligação AD Azure Ad importando e exportando](how-to-connect-import-export-config.md).|
 
 ### <a name="user-sign-in"></a>Início de sessão do utilizador
-Depois de instalar os componentes necessários, é-lhe pedido que selecione o método de início de sessão único dos utilizadores. A tabela seguinte fornece uma breve descrição das opções disponíveis. Para obter uma descrição completa dos métodos de início de sessão, consulte [Início de sessão do utilizador](plan-connect-user-signin.md).
+Depois de instalar os componentes necessários, selecione o método de inscrição único dos seus utilizadores. A tabela que se segue descreve brevemente as opções disponíveis. Para obter uma descrição completa dos métodos de início de sessão, consulte [Início de sessão do utilizador](plan-connect-user-signin.md).
 
-![Screenshot que mostra a página "User'in" com "Password Hash Synchronization" selecionada.](./media/how-to-connect-install-custom/usersignin4.png)
+![Screenshot que mostra a página "User's Entrar". A opção "Sincronização de Hash password" é selecionada.](./media/how-to-connect-install-custom/usersignin4.png)
 
-| Opção Início de Sessão Único | Descrição |
+| Opção de inscrição única | Description |
 | --- | --- |
-| Sincronização hash de palavra-passe |Os utilizadores são capazes de iniciar sôms nos serviços de cloud da Microsoft, como o Microsoft 365, utilizando a mesma palavra-passe que usam na sua rede de acesso. As palavras-passe dos utilizadores são sincronizadas para o Azure AD como um hash de palavra-passe e a autenticação ocorre na nuvem. Para obter mais informações, veja [Password hash synchronization (Sincronização hash de palavra-passe)](how-to-connect-password-hash-synchronization.md). |
-|Autenticação pass-through|Os utilizadores são capazes de iniciar sôms nos serviços de cloud da Microsoft, como o Microsoft 365, utilizando a mesma palavra-passe que usam na sua rede de acesso.  A palavra-passe dos utilizadores é transmitida para o controlador de domínio do Active Directory no local para ser validada.
-| Federação com o AD FS |Os utilizadores são capazes de iniciar sôms nos serviços de cloud da Microsoft, como o Microsoft 365, utilizando a mesma palavra-passe que usam na sua rede de acesso.  Os utilizadores serão redirecionados para a respetiva instância do AD FS no local para iniciarem sessão e a autenticação ocorre no local. |
-| Federação com o PingFederate|Os utilizadores são capazes de iniciar sôms nos serviços de cloud da Microsoft, como o Microsoft 365, utilizando a mesma palavra-passe que usam na sua rede de acesso.  Os utilizadores serão redirecionados para a respetiva instância do PingFederate no local para iniciarem sessão, e a autenticação ocorre no local. |
-| Não configurar |Nenhuma funcionalidade de início de sessão de utilizador é instalada e configurada. Escolha esta opção se já tiver instalado um servidor de federação de terceiros ou outra solução existente. |
-|Ativar o Início de sessão Único|Esta opção está disponível com sincronização de hash de palavras-passe e autenticação pass-through, e proporciona uma experiência de início de sessão único para utilizadores de ambiente de trabalho na rede da empresa. Veja [Início de sessão único](how-to-connect-sso.md) para obter mais informações. </br>Nota para clientes do AD FS: esta opção não está disponível porque o AD FS já oferece o mesmo nível de início de sessão único.</br>
+| Sincronização de hash de palavra-passe |Os utilizadores podem iniciar sômposições nos serviços de cloud da Microsoft, como o Microsoft 365, utilizando a mesma palavra-passe que utilizam na sua rede de acesso. As palavras-passe do utilizador são sincronizadas com a Azure AD como um hash de senha. A autenticação ocorre na nuvem. Para obter mais informações, consulte [a sincronização de hash password](how-to-connect-password-hash-synchronization.md). |
+|Autenticação pass-through|Os utilizadores podem iniciar sômposições nos serviços de cloud da Microsoft, como o Microsoft 365, utilizando a mesma palavra-passe que utilizam na sua rede de acesso.  As palavras-passe do utilizador são validadas através do controlador de domínio ative diretório no local.
+| Federação com o AD FS |Os utilizadores podem iniciar sômposições nos serviços de cloud da Microsoft, como o Microsoft 365, utilizando a mesma palavra-passe que utilizam na sua rede de acesso.  Os utilizadores são redirecionados para o seu local Azure Directory Federation Services (AD FS) para iniciar seduca. A autenticação ocorre no local. |
+| Federação com o PingFederate|Os utilizadores podem iniciar sômposições nos serviços de cloud da Microsoft, como o Microsoft 365, utilizando a mesma palavra-passe que utilizam na sua rede de acesso.  Os utilizadores são redirecionados para as suas situações de PingFederate no local para iniciar seduca. A autenticação ocorre no local. |
+| Não configurar |Nenhuma função de insição do utilizador está instalada ou configurada. Escolha esta opção se já tiver um servidor de federação de terceiros ou outra solução no lugar. |
+|Ativar um único sinal|Esta opção está disponível tanto com a sincronização de haxixe de palavra-passe como com a autenticação pass-through. Proporciona uma única experiência de inscrição para utilizadores de desktop em redes corporativas. Para obter mais informações, consulte ['S'S.'](how-to-connect-sso.md) </br></br>**Nota:** Para os clientes AD FS, esta opção não está disponível. A AD FS já oferece o mesmo nível de inscrição única.</br>
 
 ### <a name="connect-to-azure-ad"></a>Ligar ao Azure AD
-No ecrã Ligar ao Azure AD, introduza uma conta de administrador global e a palavra-passe. Se tiver selecionado **Federação com o AD FS** na página anterior, não inicie sessão com uma conta num domínio que pretenda ativar para federação. Uma das recomendações é utilizar uma conta no domínio predefinido **onmicrosoft.com**, incluído com o inquilino do Azure AD.
+Na página **Connect to Azure AD,** insira uma conta de administração global e senha. Se selecionou **a Federação com FS AD** na página anterior, não faça sônio com uma conta que esteja num domínio que pretende ativar para a federação. 
 
-Esta conta é utilizada apenas para criar uma conta de serviço no Azure AD e deixa de ser utilizada uma vez concluído o assistente.  
-![Início de Sessão de Utilizador](./media/how-to-connect-install-custom/connectaad.png)
+Você pode querer usar uma conta no domínio *de onmicrosoft.com* padrão, que vem com o seu inquilino AZURE AD. Esta conta é utilizada apenas para criar uma conta de serviço no Azure AD. Não é usado depois do fim da instalação.
+  
+![Screenshot mostrando a página "Connect to Azure AD".](./media/how-to-connect-install-custom/connectaad.png)
 
-Se a conta de administrador global tiver a MFA ativada, terá de fornecer novamente a palavra-passe no pop-up início de sessão e completar o desafio MFA. O desafio pode ser fornecer um código de verificação ou uma chamada telefónica.  
-![Início de Sessão de Utilizador no MFA](./media/how-to-connect-install-custom/connectaadmfa.png)
+Se a sua conta de administração global tiver a autenticação multifactor ativada, forneça novamente a palavra-passe na janela de entrada e terá de completar o desafio de autenticação multifactor. O desafio pode ser um código de verificação ou um telefonema.  
 
-A conta de administrador global também pode ter a opção [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md) ativada.
+![Screenshot mostrando a página "Connect to Azure AD". Um campo de autenticação multifactor solicita ao utilizador um código.](./media/how-to-connect-install-custom/connectaadmfa.png)
 
-Se receber um erro e tiver problemas com a conectividade, veja [Resolver problemas de conectividade](tshoot-connect-connectivity.md).
+A conta global de administração também pode ter [uma gestão de identidade privilegiada](../privileged-identity-management/pim-getting-started.md) habilitada.
 
-## <a name="pages-under-the-sync-section"></a>Páginas na secção Sincronização
+Se vir um erro ou tiver problemas de conectividade, consulte [problemas de conectividade de resolução de problemas](tshoot-connect-connectivity.md).
+
+## <a name="sync-pages"></a>Páginas sincronizadas
+
+As secções seguintes descrevem as páginas na secção **Sync.**
 
 ### <a name="connect-your-directories"></a>Ligar os diretórios
-Para ligar ao seu serviço do Active Directory Domain Services, o Azure AD Connect precisa do nome da floresta e das credenciais de uma conta com permissões suficientes.
+Para se ligar aos Serviços de Domínio do Diretório Ativo (Azure AD DS), o Azure AD Connect necessita do nome da floresta e credenciais de uma conta que tenha permissões suficientes.
 
 ![Screenshot que mostra a página "Conecte os seus diretórios".](./media/how-to-connect-install-custom/connectdir01.png)
 
-Depois de introduzir o nome da floresta e de clicar em **Adicionar Diretório**, é apresentada uma caixa de diálogo de pop-up que mostra as opções seguintes:
+Depois de introduzir o nome da floresta e selecionar  **Add Diretório,** aparece uma janela. A tabela a seguir descreve as suas opções.
 
 | Opção | Descrição |
 | --- | --- |
-| Criar conta nova | Selecione esta opção se quiser que o assistente do Azure AD Connect crie a conta do AD DS de que precisa para ligar à floresta do AD durante a sincronização de diretórios. Se esta opção estiver selecionada, introduza o nome de utilizador e a palavra-passe de uma conta de administrador empresarial. O assistente do Azure AD Connect vai utilizar a conta de administrador empresarial indicada para criar a conta do AD DS necessária. Pode introduzir a parte do domínio no formato NetBios ou FQDN, ou seja, FABRIKAM\administrator ou fabrikam.com\administrator. |
-| Utilizar conta existente | Selecione esta opção se quiser indicar uma conta do AD DS existente para ser utilizada com o Azure AD Connect para ligar à floresta do AD durante a sincronização de diretórios. Pode introduzir a parte do domínio no formato NetBios ou FQDN, ou seja, FABRIKAM\syncuser ou fabrikam.com\syncuser. Esta conta pode ser uma conta de utilizador normal, porque precisa apenas das permissões de leitura predefinidas. No entanto, dependendo do seu cenário, poderá precisar de mais permissões. Para obter mais informações, veja [Azure AD Connect Accounts and permissions](reference-connect-accounts-permissions.md#create-the-ad-ds-connector-account) (Contas e permissões do Azure AD Connet). |
+| Criar conta nova | Crie a conta Azure AD DS que o Azure AD Connect necessita para se ligar à floresta de Diretório Ativo durante a sincronização do diretório. Depois de selecionar esta opção, insira o nome de utilizador e a palavra-passe para uma conta administrada da empresa.  O Azure AD Connect utiliza a conta de administração da empresa fornecida para criar a conta AZure AD DS necessária. Pode introduzir a parte de domínio no formato NetBIOS ou no formato FQDN. Ou seja, insira *FABRIKAM\administrador* ou *fabrikam.com\administrator*. |
+| Utilizar conta existente | Forneça uma conta Azure AD DS existente que o Azure AD Connect pode usar para ligar à floresta de Diretório Ativo durante a sincronização do diretório. Pode introduzir a parte de domínio no formato NetBIOS ou no formato FQDN. Ou seja, *insira FABRIKAM\syncuser* ou *fabrikam.com\syncuser*. Esta conta pode ser uma conta de utilizador regular porque necessita apenas das permissões de leitura por defeito. Mas dependendo do seu cenário, pode precisar de mais permissões. Para mais informações, consulte [as contas e permissões do Azure AD Connect](reference-connect-accounts-permissions.md#create-the-ad-ds-connector-account). |
 
-![Ligar o Diretório](./media/how-to-connect-install-custom/connectdir02.png)
-
-#### <a name="enterprise-admin-and-domain-admin-accounts-not-supported"></a>Contas de administração de empresas e de administração de domínio não suportadas
-A partir da construção 1.4.18.0 já não é suportado para usar uma conta Enterprise Admin ou uma conta de Administração de Domínio como conta AD DS Connector.  Se tentar introduzir uma conta que seja administradora de uma empresa ou administrador de domínio ao especificar a **utilização da conta existente,** receberá o seguinte erro:
-
-  **"Não é permitida a utilização de uma conta de administrador de Empresa ou domínio para a sua conta de floresta de AD.  Deixe o Azure AD Connect criar a conta para si ou especificar uma conta de sincronização com as permissões corretas.  &lt;Saiba mais &gt; "**
-
-### <a name="azure-ad-sign-in-configuration"></a>Configuração do início de sessão do Azure AD
-Esta página permite-lhe rever os domínios UPN presentes no AD DS no local e que foram verificados no Azure AD. Esta página também lhe permite configurar o atributo a utilizar para userPrincipalName.
-
-![Domínios não verificados](./media/how-to-connect-install-custom/aadsigninconfig2.png)  
-Reveja todos os domínios marcados como **Não Adicionado** e **Não Verificado**. Certifique-se de que os domínios que utiliza foram verificados no Azure AD. Quando tiver verificado os domínios, clique no símbolo de atualização. Para obter mais informações, consulte [Adicionar e verificar o domínio](../fundamentals/add-custom-domain.md)
-
-**UserPrincipalName** - O utilizador do atributoPrincipalName é o atributo que os utilizadores usam quando fazem súmico a AD e Microsoft 365. O domínio utilizado, também conhecido como sufixo UPN, deve ser verificado no Azure AD para que os utilizadores possam ser sincronizados. A Microsoft recomenda que mantenha o atributo predefinido userPrincipalName. Se este atributo não for encaminhável e não puder ser verificado, é possível selecionar outro atributo. Pode, por exemplo, selecionar o correio eletrónico como o atributo que contém o ID de início de sessão. A utilização de um atributo diferente de userPrincipalName é conhecida como **ID Alternativo**. O valor do atributo ID Alternativo tem de seguir a norma RFC822. Pode ser utilizado um ID alternativo na sincronização de hash de palavra-passe, autenticação pass-through e federação. O atributo não pode ser definido no Active Directory como com múltiplos valores, mesmo se tiver apenas um valor único. Para obter mais informações sobre o ID Alternativo, consulte o tópico [de perguntas frequentemente questionado.](./how-to-connect-pta-faq.md#does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname)
+![Screenshot mostrando a página "Connect Directory" e a janela da conta florestal A D, onde pode optar por criar uma nova conta ou usar uma conta existente.](./media/how-to-connect-install-custom/connectdir02.png)
 
 >[!NOTE]
-> Ao ativar a Autenticação Pass-through tem de ter, pelo menos, um domínio verificado para continuar através do assistente.
+> A partir da construção 1.4.18.0, não é possível utilizar uma conta administrada ou administração de domínio como conta de conector Azure AD DS. Quando seleciona **Utilizar a conta existente**, se tentar introduzir uma conta administrada da empresa ou uma conta de administração de domínio, vê o seguinte erro: "Não é permitida a utilização de uma conta de administrador de Empresa ou de Domínio para a sua conta de floresta de AD. Deixe o Azure AD Connect criar a conta para si ou especificar uma conta de sincronização com as permissões corretas."
+>
+
+### <a name="azure-ad-sign-in-configuration"></a>Configuração do início de sessão do Azure AD
+Na página **de configuração de inscrição AD Azure,** reveja os domínios do nome principal do utilizador (UPN) nas instalações Azure AD DS. Estes domínios da UPN foram verificados em Azure AD. Nesta página, configura o atributo a utilizar para o nome de utilizadorPrincipal.
+
+![Screenshot mostrando domínios não verificados na página "Azure A D's sign-in".](./media/how-to-connect-install-custom/aadsigninconfig2.png)  
+
+Reveja todos os domínios marcados como **Não Adicionados** ou **Não Verificados**. Certifique-se de que os domínios utilizados foram verificados no Azure AD. Depois de verificar os seus domínios, selecione o ícone de atualização circular. Para obter mais informações, consulte [Adicionar e verificar o domínio](../fundamentals/add-custom-domain.md).
+
+Os utilizadores utilizam o atributo *userPrincipalName* quando fazem sedudas para Azure AD e Microsoft 365. O Azure AD deve verificar os domínios, também conhecidos como sufixo UPN, antes de os utilizadores serem sincronizados. A Microsoft recomenda que mantenha o utilizador predefinido PrencipalName. 
+
+Se o atributo userPrincipalName não for exequível e não puder ser verificado, então pode selecionar outro atributo. Pode, por exemplo, selecionar o e-mail como o atributo que detém o ID de inscrição. Quando utiliza um atributo diferente do nome do utilizadorPrincipalName, é conhecido como um *ID alternativo*. 
+
+O valor do atributo de ID alternativo deve seguir a norma RFC 822. Você pode usar um ID alternativo com sincronização de haxixe de palavra-passe, autenticação de passagem e federação. No Ative Directory, o atributo não pode ser definido como multivalorizado, mesmo que tenha apenas um único valor. Para obter mais informações sobre o ID alternativo, consulte [a autenticação pass-through: Perguntas frequentes](./how-to-connect-pta-faq.md#does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname).
+
+>[!NOTE]
+> Quando ativar a autenticação de passagem, deve ter pelo menos um domínio verificado para continuar através do processo de instalação personalizado.
 
 > [!WARNING]
-> A utilização de um ID alternativo não é compatível com todas as cargas de trabalho do Microsoft 365. Para obter mais informações, veja [Configurar ID de Início de Sessão Alternativo](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
->
+> Os IDs alternativos não são compatíveis com todas as cargas de trabalho do Microsoft 365. Para obter mais informações, consulte [configurar identificações alternativas de inscrição.](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)
 >
 
 ### <a name="domain-and-ou-filtering"></a>Filtragem de domínios e de UOs
-Por predefinição, todos os domínios e UOs são sincronizados. Se houver domínios ou UOs que não pretende sincronizar com o Azure AD, pode anular a seleção destes domínios e UOs.  
-![Filtragem de DomainOU](./media/how-to-connect-install-custom/domainoufiltering.png)  
-Esta página no assistente está a configurar filtragem baseada no domínio ou em UO. Se pretender efetuar alterações, consulte [filtragem baseada em domínio](how-to-connect-sync-configure-filtering.md#domain-based-filtering) e [filtragem baseada em UO](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering) antes de efetuar estas alterações. Algumas UOs são essenciais para a funcionalidade e devem estar selecionadas.
+Por predefinição, todos os domínios e unidades organizacionais (OUs) são sincronizados. Se não quiser sincronizar alguns domínios ou OUs a AD Azure, pode limpar as seleções apropriadas.  
 
-Se utilizar a filtragem baseada em UO com uma versão do Azure AD Connect anterior à 1.1.524.0, as novas UOs adicionadas mais tarde são sincronizados por predefinição. Se quiser optar pelo comportamento em que as UOs não são sincronizadas, pode configurar essa opção mais tarde, depois de o assistente terminar a [filtragem baseada em UO](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering). Na versão 1.1.524.0 ou posterior do Azure AD Connect, pode indicar se quer que as UOs novas sejam sincronizadas ou não.
+![Screenshot mostrando a página de filtragem Domain e O U.](./media/how-to-connect-install-custom/domainoufiltering.png)  
 
-Se planeia utilizar a [filtragem baseada em grupo](#sync-filtering-based-on-groups), certifique-se de que a UO com o grupo é incluída e não é filtrada com filtragem de UO. A filtragem de UO é avaliado antes da filtragem baseada em grupo.
+Esta página configura a filtragem baseada em domínios e baseada em OU. Se planeia fazer alterações, consulte [a filtragem baseada em domínio](how-to-connect-sync-configure-filtering.md#domain-based-filtering) e a [filtragem baseada em OU.](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering) Algumas OUs são essenciais para a funcionalidade, por isso deve deixá-las selecionadas.
 
-Também é possível que alguns domínios não estejam acessíveis devido a restrições de firewall. Estes domínios estão desmarcados por predefinição e têm um aviso.  
-![Domínios inacessíveis](./media/how-to-connect-install-custom/unreachable.png)  
-Se vir este aviso, certifique-se de que estes domínios são de facto inacessível e que o aviso é esperado.
+Se utilizar a filtragem baseada em OU com uma versão Azure AD Connect com mais de 1.1.524.0, as novas OUs são sincronizadas por padrão. Se não quiser que as novas OUs sejam sincronizadas, então pode ajustar o comportamento padrão após o passo [de filtragem baseado em U.](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering) Para a Azure AD Connect 1.1.524.0 ou mais tarde, pode indicar se pretende que as novas OUs sejam sincronizadas.
+
+Se pretender utilizar [a filtragem baseada em grupo, certifique-se](#sync-filtering-based-on-groups)de que o OU com o grupo está incluído e não é filtrado utilizando a filtragem da OU. A filtragem da U é avaliada antes da filtragem baseada em grupo ser avaliada.
+
+Também é possível que alguns domínios sejam inacessíveis devido às restrições de firewall. Estes domínios não são selecionados por defeito, e apresentam um aviso.  
+
+![Screenshot mostrando domínios inacessíveis.](./media/how-to-connect-install-custom/unreachable.png)  
+
+Se vir este aviso, certifique-se de que estes domínios são de facto inacessíveis e que o aviso é esperado.
 
 ### <a name="uniquely-identifying-your-users"></a>Identificar os utilizadores de forma exclusiva
 
+Na página de Identificação dos **utilizadores,** escolha como identificar os utilizadores nos seus diretórios no local e como identificá-los utilizando o atributo SourceAnchor.
+
 #### <a name="select-how-users-should-be-identified-in-your-on-premises-directories"></a>Selecione a forma como os utilizadores devem ser identificados nos seus diretórios no local
-A funcionalidade Correspondência entre florestas permite-lhe definir o modo como são representados no Azure AD os utilizadores das florestas do AD DS. Um utilizador pode ser representado apenas uma vez em todas as florestas ou ter uma combinação de contas ativadas e desativadas. O utilizador também pode ser representado como um contacto em algumas florestas.
+Ao utilizar a funcionalidade *Matching across forests,* pode definir como os utilizadores das suas florestas AZure AD DS estão representados no Azure AD. Um utilizador pode ser representado apenas uma vez em todas as florestas ou pode ter uma combinação de contas ativadas e desativadas. O utilizador também pode ser representado como um contacto em algumas florestas.
 
-![Exclusivo](./media/how-to-connect-install-custom/unique2.png)
-
-| Definições | Descrição |
-| --- | --- |
-| [Os utilizadores são representados apenas uma vez em todas as florestas](plan-connect-topologies.md#multiple-forests-single-azure-ad-tenant) |Todos os utilizadores são criados como objetos individuais no Azure AD. Os objetos não estão associados no metaverso. |
-| [Atributo de correio](plan-connect-topologies.md#multiple-forests-single-azure-ad-tenant) |Esta opção associa utilizadores e contactos se o atributo de correio tiver o mesmo valor em florestas diferentes. Utilize esta opção quando os contactos foram criados utilizando GALSync. Se esta opção for escolhida, os objetos de Utilizador cujo atributo Mail não estiver preenchido não será sincronizados com o Azure AD. |
-| [ObjectSID e msExchangeMasterAccountSID / msRTCSIP-OriginatorSid](plan-connect-topologies.md#multiple-forests-single-azure-ad-tenant) |Esta opção associa um utilizador ativado numa floresta conta a um utilizador desativado numa floresta de recursos. No Exchange, esta configuração é conhecida como uma caixa de correio ligada. Também pode ser utilizada esta opção se utilizar apenas o Lync e o Exchange não estiver presente na floresta de recursos. |
-| sAMAccountName e MailNickName |Esta opção associa atributos em que se espera que o ID de início de sessão do utilizador possa ser encontrado. |
-| Um atributo específico |Esta opção permite-lhe selecionar o seu próprio atributo. Se esta opção for escolhida, os objetos de Utilizador cujo atributo (selecionado) não estiver preenchido não serão sincronizados com o Azure AD. **Limitação:** Apenas os atributos que já podem ser encontrados no metaverso estão disponíveis para esta opção." |
-
-#### <a name="select-how-users-should-be-identified-with-azure-ad---source-anchor"></a>Selecione a forma como os utilizadores devem ser identificados com o Azure AD - Âncora de Origem
-O atributo sourceAnchor é imutável durante o ciclo de vida de um objeto de utilizador. É a chave primária da ligação do utilizador no local com o utilizador no Azure AD.
+![Screenshot mostrando a página onde pode identificar exclusivamente os seus utilizadores.](./media/how-to-connect-install-custom/unique2.png)
 
 | Definições | Descrição |
 | --- | --- |
-| Permitir que seja o Azure a gerir a âncora de por mim | Selecione esta opção se pretender que o Azure AD escolha o atributo por si. Se selecionar esta opção, o assistente do Azure AD Connect aplica a lógica de seleção do atributo sourceAnchor descrita na secção do artigo [Azure AD Connect: Criar conceitos com o ms-DS-ConsistencyGuid como sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). O assistente apresenta o atributo que foi escolhido como o atributo de Âncora de Origem depois de a Instalação personalizada estar concluída. |
-| Um atributo específico | Selecione esta opção se pretender especificar um atributo do AD existente como o atributo sourceAnchor. |
+| [Os utilizadores são representados apenas uma vez em todas as florestas](plan-connect-topologies.md#multiple-forests-single-azure-ad-tenant) |Todos os utilizadores são criados como objetos individuais no Azure AD. Os objetos não estão unidos no metaverso. |
+| [Atributo de correio](plan-connect-topologies.md#multiple-forests-single-azure-ad-tenant) |Esta opção associa utilizadores e contactos se o atributo de correio tiver o mesmo valor em florestas diferentes. Utilize esta opção quando os seus contactos foram criados utilizando o GALSync. Se escolher esta opção, os objetos do utilizador cujo atributo de correio está despovoado não são sincronizados com a Azure AD. |
+| [ObjectSID e msExchangeMasterAccountSID/ msRTCSIP-OriginatorSID](plan-connect-topologies.md#multiple-forests-single-azure-ad-tenant) |Esta opção associa um utilizador ativado numa floresta conta a um utilizador desativado numa floresta de recursos. No Exchange, esta configuração é conhecida como uma caixa de correio ligada. Pode usar esta opção se utilizar apenas a Lync e se o Exchange não estiver presente na floresta de recursos. |
+| Atributos SAMAccountName e MailNickName |Esta opção junta-se a atributos em que se espera que o ID de inscrição para o utilizador seja encontrado. |
+| Escolha um atributo específico |Esta opção permite-lhe selecionar o seu próprio atributo. Se escolher esta opção, os objetos do utilizador cujo atributo (selecionado) é despovoado não são sincronizados com Azure AD. **Limitação:** Apenas os atributos que já estão no metaverso estão disponíveis para esta opção. |
 
-Uma vez que o atributo não pode ser alterado, terá de planear um bom atributo para utilizar. Um bom candidato é objectGUID. Este atributo não é alterado, a menos que a conta de utilizador seja movida entre florestas/domínios. Evite atributos que se alteram quando uma pessoa se casa ou muda de atribuições. Não é possível utilizar atributos com um @-sign, sendo assim o e-mail e userPrincipalName não podem ser utilizados. O atributo é também sensível a maiúsculas e minúsculas, por isso, ao mover um objeto entre florestas, certifique-se de que preserva as maiúsculas/minúsculas. Os atributos binários são codificados em base64, mas outros tipos de atributo permanecem no seu estado não codificado. Em cenários de federação e em algumas interfaces do Azure AD, este atributo é também conhecido como immutableID. Poderá encontrar mais informações acerca da âncora de origem no artigo [Conceitos de design](plan-connect-design-concepts.md#sourceanchor).
+#### <a name="select-how-users-should-be-identified-by-using-a-source-anchor"></a>Selecione como os utilizadores devem ser identificados usando uma âncora de origem
+O atributo *SourceAnchor* é imutável durante o tempo de vida de um objeto do utilizador. É a chave primária que liga o utilizador no local com o utilizador em Azure AD.
+
+| Definições | Descrição |
+| --- | --- |
+| Deixe Azure gerir a âncora de origem | Selecione esta opção se pretender que o Azure AD escolha o atributo por si. Se selecionar esta opção, o Azure AD Connect aplica a lógica de seleção de atributos sourceAnchor descrita na [Utilização de Ms-DS-ConsistênciaGuid como fonteAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). Após o acabamento da instalação personalizada, vê qual o atributo escolhido como atributo origemAnchor. |
+| Escolha um atributo específico | Selecione esta opção se quiser especificar um atributo AD existente como o atributo SourceAnchor. |
+
+Como o atributo SourceAnchor não pode ser alterado, tem de escolher um atributo apropriado. Um bom candidato é objectGUID. Este atributo não é alterado a menos que a conta de utilizador seja movida entre florestas ou domínios. Não escolha atributos que possam mudar quando uma pessoa se casa ou muda de atribuições. 
+
+Não pode utilizar atributos que incluam um sinal (@), por isso não pode usar e-mail e userPrincipalName. O atributo também é sensível a casos, por isso, quando mover um objeto entre as florestas, certifique-se de preservar maiúsculas e minúsculas. Os atributos binários são codificados pela Base64, mas outros tipos de atributos permanecem no seu estado não codificado. 
+
+Em cenários de federação e algumas interfaces AD AZure, o atributo sourceAnchor também é conhecido como *imutávelID*. 
+
+Para obter mais informações sobre a âncora de origem, consulte [os conceitos de Design.](plan-connect-design-concepts.md#sourceanchor)
 
 ### <a name="sync-filtering-based-on-groups"></a>Filtragem de sincronização baseada em grupos
-A filtragem na funcionalidade de grupos permite-lhe sincronizar apenas um pequeno subconjunto de objetos para uma implementação piloto. Para utilizar esta funcionalidade, crie um grupo para este efeito no Active Directory no local. Em seguida, adicione os utilizadores e grupos que devem ser sincronizados com o Azure AD como membros diretos. Pode adicionar e remover posteriormente utilizadores deste grupo para manter a lista de objetos que deve estar presente no Azure AD. Todos os objetos que pretende sincronizar têm de ser membros diretos do grupo. Os utilizadores, grupos, contactos e computadores/dispositivos têm de ser todos membros diretos. A associação a grupos aninhados não é resolvida. Ao adicionar um grupo como membro, só é adicionado o grupo em si e não os seus membros.
+A função filtragem em grupo permite sincronizar apenas um pequeno subconjunto de objetos para um piloto. Para utilizar esta funcionalidade, crie um grupo para o efeito no seu caso no local do Ative Directory. Em seguida, adicione os utilizadores e grupos que devem ser sincronizados com o Azure AD como membros diretos. Mais tarde, pode adicionar utilizadores ou remover utilizadores deste grupo para manter a lista de objetos que devem estar presentes no Azure AD. 
 
-![Filtragem de sincronização](./media/how-to-connect-install-custom/filter2.png)
+Todos os objetos que pretende sincronizar devem ser membros diretos do grupo. Os utilizadores, grupos, contactos e computadores ou dispositivos devem ser membros diretos. A adesão ao grupo não está resolvida. Quando se adiciona um grupo como membro, apenas o próprio grupo é adicionado. Os seus membros não são adicionados.
+
+![Screenshot mostrando a página onde pode escolher como filtrar utilizadores e dispositivos.](./media/how-to-connect-install-custom/filter2.png)
 
 > [!WARNING]
-> Esta funcionalidade destina-se apenas a suportar uma implementação piloto. Não a utilize numa implementação de produção autêntica.
->
+> Esta funcionalidade destina-se a suportar apenas uma implantação piloto. Não o uses numa produção completa.
 >
 
-Numa implementação de produção autêntica, será difícil manter um único grupo com todos os objetos a sincronizar. Deve utilizar, em vez disso, um dos métodos descritos em [Configurar filtragem](how-to-connect-sync-configure-filtering.md).
+Numa produção completa, seria difícil manter um único grupo e todos os seus objetos para sincronizar. Em vez da função filtragem em grupos, utilize um dos métodos descritos na [filtragem Configure](how-to-connect-sync-configure-filtering.md).
 
-### <a name="optional-features"></a>Funcionalidades Opcionais
-Este ecrã permite-lhe selecionar as funcionalidades opcionais para os seus cenários específicos.
+### <a name="optional-features"></a>Funcionalidades opcionais
+Na página seguinte, pode selecionar funcionalidades opcionais para o seu cenário.
 
 >[!WARNING]
->As versões **1.0.8641.0** e mais antigas do Azure AD Connect dependem do serviço de Controlo de Acesso do Azure para a repetição de escrita de palavras-passe.  Este serviço será descontinuada a **7 de novembro de 2018**.  Se estiver a utilizar qualquer uma destas versões do Azure AD Connect e tiver ativado a repetição de escrita de palavras-passe, os utilizadores poderão perder a capacidade de alterar ou repor as palavras-passe quando o serviço for descontinuado. A repetição de escrita de palavras-passe com estas versões do Azure AD Connect não será suportada.
+>As versões Azure AD Connect 1.0.8641.0 e anteriormente dependem do Serviço de Controlo de Acesso Azure para a gravação de passwords.  Este serviço foi reformado a 7 de novembro de 2018.  Se utilizar alguma destas versões do Azure AD Connect e tiver ativado a gravação da palavra-passe, os utilizadores poderão perder a capacidade de alterar ou redefinir as suas palavras-passe quando o serviço for retirado. Estas versões do Azure AD Connect não suportam a gravação de palavras-passe.
 >
->Para obter mais informações sobre o serviço de Controlo de Acesso do Azure, veja [Como: migrar do Serviço de Controlo de Acesso do Microsoft Azure](../azuread-dev/active-directory-acs-migration.md)
+>Para mais informações, consulte [Migrar do Serviço de Controlo de Acesso Azure.](../azuread-dev/active-directory-acs-migration.md)
 >
->Para transferir a versão mais recente do Azure AD Connect, clique [aqui](https://www.microsoft.com/download/details.aspx?id=47594).
+>Se pretender utilizar a gravação da palavra-passe, descarregue a [versão mais recente do Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
 
- ![Funcionalidades opcionais](./media/how-to-connect-install-custom/optional2a.png)
+![Screenshot mostrando a página "Funcionalidades Opcionais".](./media/how-to-connect-install-custom/optional2a.png)
 
 > [!WARNING]
-> Se tiver atualmente o DirSync ou o Azure AD Sync ativo, não ative nenhuma das funcionalidades de repetição de escrita no Azure AD Connect.
+> Se o Azure AD Sync ou a Sincronização Direta (DirSync) estiverem ativos, não ative quaisquer funcionalidades de writeback no Azure AD Connect.
 
 
 
-| Funcionalidades Opcionais | Descrição |
+| Funcionalidades opcionais | Description |
 | --- | --- |
-| Implementação Híbrida do Exchange |A funcionalidade De Implementação Híbrida exchange permite a coexistência de caixas de correio Exchange tanto no local como na Microsoft 365. O Azure AD Connect está a sincronizar um conjunto específico de [atributos](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) do Azure AD para o diretório no local. |
-| Pastas Públicas de Correio do Exchange | A funcionalidade Pastas Públicas de Correio do Exchange permite-lhe sincronizar objetos de Pastas Públicas ativadas para correio do seu Active Directory no local para o Azure AD. |
-| Aplicação Azure AD e filtragem de atributos |Ao ativar a aplicação Azure AD e a filtragem de atributos, o conjunto de atributos sincronizados pode ser personalizado. Esta opção adiciona mais duas páginas de configuração ao assistente. Para obter mais informações, consulte [Aplicação Azure AD e filtragem de atributos](#azure-ad-app-and-attribute-filtering). |
-| Sincronização de hash de palavra-passe |Se tiver selecionado a federação como solução de início de sessão, poderá ativar esta opção. A sincronização de hash de palavras-passe pode ser utilizada como uma opção de cópia de segurança. Para obter mais informações, consulte [Sincronização de hash de palavras-passe](how-to-connect-password-hash-synchronization.md). </br></br>Se tiver selecionado a Autenticação Pass-through, esta opção também poderá ser ativada para assegurar o suporte para clientes legados e como uma opção de cópia de segurança. Para obter mais informações, consulte [Sincronização de hash de palavras-passe](how-to-connect-password-hash-synchronization.md).|
-| Repetição de escrita de palavras-passe |Ao ativar a repetição de escrita de palavras-passe, as alterações de palavras-passe com origem no Azure AD são reescritas no diretório no local. Para mais informações, consulte [Introdução à gestão de palavras-passe](../authentication/tutorial-enable-sspr.md) |
-| Repetição de escrita do grupo |Se utilizar a funcionalidade **Grupos Microsoft 365,** pode ter estes grupos representados no seu Ative Directory no local. Esta opção só está disponível se tiver o Exchange presente no Active Directory no local. Para mais informações consulte [o writeback do grupo Azure AD Connect](how-to-connect-group-writeback.md)|
-| Repetição de escrita do dispositivo |Permite-lhe escrever objetos de dispositivo em Azure AD para o seu Diretório Ativo no local para cenários de acesso condicional. Para mais informações, consulte [Ativar a repetição de escrita do dispositivo no Azure AD Connect](how-to-connect-device-writeback.md). |
-| Sincronização de atributos de extensões de diretórios |Ao ativar a sincronização de atributos de extensões de diretórios, os atributos especificados são sincronizados com o Azure AD. Para obter mais informações, consulte [Extensões de diretórios](how-to-connect-sync-feature-directory-extensions.md). |
+| Implementação híbrida de troca |A funcionalidade de implementação híbrida Exchange permite a coexistência de caixas de correio Exchange tanto no local como na Microsoft 365. O Azure AD Connect sincroniza um conjunto específico de [atributos](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) do Azure AD de volta ao seu diretório no local. |
+| Trocar pastas públicas de correio | A funcionalidade de pastas públicas Exchange mail permite sincronizar objetos de pastas públicas ativados por correio a partir do seu caso de Ative Directory para Azure AD. |
+| Aplicação Azure AD e filtragem de atributos |Ao ativar a aplicação AD AD e a filtragem de atributos Azure, pode adaptar o conjunto de atributos sincronizados. Esta opção adiciona mais duas páginas de configuração ao assistente. Para obter mais informações, consulte [Aplicação Azure AD e filtragem de atributos](#azure-ad-app-and-attribute-filtering). |
+| Sincronização de hash de palavra-passe |Se selecionar a federação como solução de entrada, pode ativar a sincronização do hash de palavra-passe. Então pode usá-lo como uma opção de reserva.  </br></br>Se selecionou a autenticação pass-through, pode ativar esta opção para garantir suporte a clientes antigos e fornecer uma cópia de segurança.</br></br> Para obter mais informações, consulte [a sincronização de hash password](how-to-connect-password-hash-synchronization.md).|
+| Repetição de escrita de palavras-passe |Utilize esta opção para garantir que as alterações de palavra-passe originárias do AZure AD sejam escritas de volta para o seu diretório no local. Para mais informações, consulte [Introdução à gestão de palavras-passe](../authentication/tutorial-enable-sspr.md) |
+| Repetição de escrita do grupo |Se utilizar o Microsoft 365 Groups, poderá representar grupos no seu caso no local do Ative Directory. Esta opção só está disponível se tiver o Exchange no seu local de instância do Ative Directory. Para obter mais informações, consulte [a gravação do grupo Azure AD Connect](how-to-connect-group-writeback.md).|
+| Repetição de escrita do dispositivo |Para cenários de acesso condicional, utilize esta opção para escrever objetos de dispositivo em Azure AD para a sua instância no local do Ative Directory. Para mais informações, consulte [Ativar a repetição de escrita do dispositivo no Azure AD Connect](how-to-connect-device-writeback.md). |
+| Sincronização de atributos de extensões de diretórios |Selecione esta opção para sincronizar atributos especificados para Azure AD. Para obter mais informações, consulte [Extensões de diretórios](how-to-connect-sync-feature-directory-extensions.md). |
 
 ### <a name="azure-ad-app-and-attribute-filtering"></a>Aplicação Azure AD e filtragem de atributos
-Se pretender limitar os atributos a sincronizar com o Azure AD, comece por selecionar os serviços que está a utilizar. Se efetuar alterações de configuração nesta página, um novo serviço terá de ser explicitamente selecionado executando novamente o assistente de instalação.
+Se pretende limitar os atributos de sincronização ao AD Azure, comece por selecionar os serviços que utiliza. Se alterar as seleções desta página, terá de selecionar explicitamente um novo serviço repetindo o assistente de instalação.
 
-![Aplicações de funcionalidades opcionais](./media/how-to-connect-install-custom/azureadapps2.png)
+![Screenshot mostrando funcionalidades opcionais de aplicações Azure A D.](./media/how-to-connect-install-custom/azureadapps2.png)
 
-Com base nos serviços selecionados no passo anterior, esta página mostra todos os atributos que são sincronizados. Esta lista é uma combinação de todos os tipos de objetos que estão a ser sincronizados. Se existirem alguns atributos específicos que não precisa de sincronizar, pode anular a sua seleção.
+Com base nos serviços selecionados no passo anterior, esta página mostra todos os atributos que estão sincronizados. Esta lista é uma combinação de todos os tipos de objetos que estão sendo sincronizados. Se precisar de alguns atributos para não se manter insincronizado, pode limpar a seleção desses atributos.
 
-![Atributos de funcionalidades opcionais](./media/how-to-connect-install-custom/azureadattributes2.png)
+![Screenshot mostrando características opcionais de atributos Azure A D.](./media/how-to-connect-install-custom/azureadattributes2.png)
 
 > [!WARNING]
-> A remoção de atributos pode afetar a funcionalidade. Para obter as melhores práticas e recomendações, consulte [tributos sincronizados](reference-connect-sync-attributes-synchronized.md#attributes-to-synchronize).
->
+> Remover atributos pode afetar a funcionalidade. Para obter boas práticas e recomendações, consulte [Atributos para sincronizar.](reference-connect-sync-attributes-synchronized.md#attributes-to-synchronize)
 >
 
 ### <a name="directory-extension-attribute-sync"></a>Sincronização de atributos de Extensões de Diretórios
-Pode expandir o esquema no Azure AD com atributos personalizados adicionados através da organização ou outros atributos no Active Directory. Para utilizar esta funcionalidade, selecione **Sincronização de atributos de extensão de diretórios** na página **Funcionalidades Opcionais**. Pode selecionar nesta página mais atributos para sincronizar.
+Pode estender o esquema em Azure AD utilizando atributos personalizados que a sua organização adicionou ou utilizando outros atributos no Ative Directory. Para utilizar esta função, na página **Funcionalidades Opcionais,** selecione **Sincronização de atributos de extensão de diretório**. Na página Extensões do **Diretório,** pode selecionar mais atributos para sincronizar.
 
 >[!NOTE]
->A caixa Atributos disponíveis é sensível às maiúsculas e minúsculas.
+>O campo **Atributos Disponíveis** é sensível a casos.
 
-![Extensões de diretórios](./media/how-to-connect-install-custom/extension2.png)
+![Screenshot mostrando a página "Extensões do Diretório".](./media/how-to-connect-install-custom/extension2.png)
 
 Para obter mais informações, consulte [Extensões de diretórios](how-to-connect-sync-feature-directory-extensions.md).
 
-### <a name="enabling-single-sign-on-sso"></a>Ativar o Início de sessão único (SSO)
-A configuração do início de sessão único para utilização com a Sincronização de Palavras-passe ou a Autenticação Pass-through é um processo simples, que só precisa de executar uma vez para cada floresta que está a ser sincronizada com o Azure AD. A configuração envolve dois passos da seguinte forma:
+### <a name="enabling-single-sign-on"></a>Habilitando um único sinal
+Na página **de assinatura única,** configurar um único sinal para utilização com sincronização de palavra-passe ou autenticação pass-through. Faça este passo uma vez por cada floresta que está sendo sincronizada com Azure AD. A configuração envolve dois passos:
 
-1.  Criar a conta de computador necessária no seu Active Directory no local.
-2.  Configurar a zona da intranet das máquinas cliente para suportar o início de sessão único.
+1.  Crie a conta de computador necessária no seu caso no local do Ative Directory.
+2.  Configure a zona intranet das máquinas cliente para suportar uma única sação.
 
 #### <a name="create-the-computer-account-in-active-directory"></a>Criar a conta de computador no Active Directory
-Para cada floresta que tenha sido adicionada no Azure AD Connect, terá de fornecer credenciais de Administrador de Domínio para que a conta de computador possa ser criada em cada floresta. As credenciais só são utilizadas para criar a conta e não são armazenadas nem utilizadas para qualquer outra operação. Adicione simplesmente as credenciais na página **Ativar o Início de sessão único** do assistente do Azure AD Connect, conforme apresentado abaixo:
+Para cada floresta que foi adicionada no Azure AD Connect, é necessário fornecer credenciais de administrador de domínio para que a conta de computador possa ser criada em cada floresta. As credenciais são usadas apenas para criar a conta. Não são armazenados ou usados para qualquer outra operação. Adicione as credenciais na página **de inscrição única** ativa, como mostra a seguinte imagem.
 
-![Ativar o Início de sessão único](./media/how-to-connect-install-custom/enablesso.png)
+![Screenshot mostrando a página "Ativar um único sinal de insusitado". As credenciais da floresta são adicionadas.](./media/how-to-connect-install-custom/enablesso.png)
 
 >[!NOTE]
->Pode ignorar uma floresta específica se não quiser utilizar o Início de sessão único nessa floresta.
+>Podes saltar florestas onde não queiras usar uma única sposição.
 
-#### <a name="configure-the-intranet-zone-for-client-machines"></a>Configurar a Zona da Intranet para máquinas cliente
-Para garantir que o cliente se inscreve automaticamente na zona intranet, é necessário garantir que o URL faz parte da zona intranet. Tal garante que o computador associado ao domínio enviará automaticamente um pedido de suporte de Kerberos para o Azure AD quando estiver ligado à rede empresarial.
-Num computador que tem as ferramentas de gestão de Política de Grupo.
+#### <a name="configure-the-intranet-zone-for-client-machines"></a>Configurar a zona intranet para máquinas clientes
+Para garantir que o cliente assina automaticamente na zona intranet, certifique-se de que o URL faz parte da zona intranet. Este passo garante que o computador ligado ao domínio envia automaticamente um bilhete Kerberos para a Azure AD quando está ligado à rede corporativa.
 
-1.  Abrir as Ferramentas de Gestão da Política de Grupo
-2.  Edite a Política de grupo que será aplicada a todos os utilizadores. Por exemplo, a Política de Domínio Predefinida.
-3.  Navegue até **Configuração de Utilizador\Modelos Administrativos\Componentes do Windows\Internet Explorer\Painel de Controlo da Internet\Página de Segurança** e selecione **Site para a Lista de Atribuições de Zona** de acordo com a imagem abaixo.
-4.  Ativar a apólice e inserir um nome de valor `https://autologon.microsoftazuread-sso.com` e valor na caixa de `1` diálogo.
-5.  Deve ter um aspeto semelhante ao seguinte:  
-![Zonas da Intranet](./media/how-to-connect-install-custom/sitezone.png)
+Num computador que dispõe de ferramentas de gestão de Políticas de Grupo:
 
-6.  Clique **em Ok** duas vezes.
+1.  Abra as ferramentas de gestão da Política de Grupo.
+2.  Editar a política de grupo que será aplicada a todos os utilizadores. Por exemplo, a política de domínio predefinido.
+3.  Aceda à **configuração do utilizador**  >  **Modelos Administrativos**  >  **Windows Componentes**Internet  >  **Explorer**Internet  >  **Control Panel**  >  **Security Page**. Em seguida, selecione **Site para a Lista de Atribuição de Zonas**.
+4.  Habilitar a política. Em seguida, na caixa de diálogo, introduza um nome de valor `https://autologon.microsoftazuread-sso.com` e valor de `1` . A sua configuração deve parecer a seguinte imagem.
+  
+    ![Screenshot mostrando zonas intranet.](./media/how-to-connect-install-custom/sitezone.png)
+
+6.  Selecione **OK** duas vezes.
 
 ## <a name="configuring-federation-with-ad-fs"></a>Configurar a federação com o AD FS
-Configurar o AD FS com o Azure AD Connect é simples e exige apenas alguns cliques. É necessário o seguinte antes da configuração.
+Pode configurar AD FS com Azure AD Connect em apenas alguns cliques. Antes de começar, precisa:
 
-* Um servidor Windows Server 2012 R2 ou posterior para o servidor de federação com a gestão remota ativada
-* Um servidor Windows Server 2012 R2 ou posterior para o servidor Proxy de Aplicação Web com a gestão remota ativada
-* Um certificado TLS/SSL para o nome de serviço da federação que pretende utilizar (por exemplo, sts.contoso.com)
+* Windows Server 2012 R2 ou mais tarde para o servidor da federação. A gestão remota deve ser ativada.
+* Windows Server 2012 R2 ou mais tarde para o servidor Proxy da Aplicação Web. A gestão remota deve ser ativada.
+* Um certificado TLS/SSL para o nome de serviço da federação que pretende utilizar (por exemplo, sts.contoso.com).
 
 >[!NOTE]
 >Pode atualizar um certificado TLS/SSL para a sua quinta AD FS utilizando o Azure AD Connect, mesmo que não o utilize para gerir a confiança da sua federação.
 
-### <a name="ad-fs-configuration-pre-requisites"></a>Pré-requisitos de configuração do AD FS
-Para configurar o farm do AD FS com o Azure AD Connect, certifique-se de que o WinRM está ativado nos servidores remotos. Certifique-se de que concluiu as outras tarefas nos [pré-requisitos de federação](how-to-connect-install-prerequisites.md#prerequisites-for-federation-installation-and-configuration). Além disso, verifique também os requisitos de portas listados na [Tabela 3 – Servidores do Azure AD Connect e de Federação/WAP](reference-connect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap).
+### <a name="ad-fs-configuration-prerequisites"></a>Pré-requisitos de configuração AD FS
+Para configurar a sua fazenda AD FS utilizando o Azure AD Connect, certifique-se de que o WinRM está ativado nos servidores remotos. Certifique-se de que completou as outras tarefas na [Federação pré-requisitos.](how-to-connect-install-prerequisites.md#prerequisites-for-federation-installation-and-configuration) Certifique-se também de que segue os requisitos das portas que estão listados na tabela de [servidores AZure AD Connect e Federation/WAP.](reference-connect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap)
 
 ### <a name="create-a-new-ad-fs-farm-or-use-an-existing-ad-fs-farm"></a>Criar um novo farm do AD FS ou utilizar um existente
-Pode utilizar um farm do AD FS existente ou pode optar por criar um novo. Se optar por criar um novo, é-lhe exigido que forneça o certificado TLS/SSL. Se o certificado TLS/SSL estiver protegido por uma palavra-passe, é solicitado a palavra-passe.
+Você pode usar uma fazenda AD FS existente ou criar uma nova. Se optar por criar um novo, deve fornecer o certificado TLS/SSL. Se o certificado TLS/SSL estiver protegido por uma palavra-passe, é solicitado que forneça a palavra-passe.
 
-![Farm do AD FS](./media/how-to-connect-install-custom/adfs1.png)
+![Screenshot mostrando a página "A D F S Farm"](./media/how-to-connect-install-custom/adfs1.png)
 
-Se optar por utilizar um farm do AD FS existente, é direcionado diretamente para a configuração da relação de confiança entre o AD FS e o Azure AD.
+Se optar por utilizar uma quinta AD FS existente, consulte a página onde pode configurar a relação de confiança entre a AD FS e a Azure AD.
 
 >[!NOTE]
->O Azure AD Connect pode servir para gerir apenas um farm do AD FS. Se tiver confiança de federação existente com o Azure AD configurado no farm do AD FS selecionado, a confiança será recriada novamente a partir do zero pelo Azure AD Connect.
+>Você pode usar Azure AD Connect para gerir apenas uma fazenda AD FS. Se você tem um fundo de federação existente onde Azure AD está configurado na fazenda AD FS selecionada, Azure AD Connect recria a confiança do zero.
 
 ### <a name="specify-the-ad-fs-servers"></a>Especificar os servidores do AD FS
-Introduza os servidores em que pretende instalar o AD FS. Pode adicionar um ou mais servidores com base nas suas necessidades de planeamento da capacidade. Associe todos os servidores do AD FS (não necessários para servidores WAP) ao Active Directory antes de efetuar esta configuração. A Microsoft recomenda a instalação de um único servidor do AD FS para implementações de teste e piloto. Em seguida, adicione e implemente mais servidores para satisfazer as suas necessidades de dimensionamento, executando novamente o Azure AD Connect após a configuração inicial.
+Especifique os servidores onde pretende instalar O FS AD. Pode adicionar um ou mais servidores, dependendo das suas necessidades de capacidade. Antes de configurar esta configuração, junte todos os servidores AD FS ao Ative Directory. Este passo não é necessário para os servidores Proxy da Aplicação Web. 
+
+A Microsoft recomenda a instalação de um único servidor do AD FS para implementações de teste e piloto. Após a configuração inicial, pode adicionar e implementar mais servidores para atender às suas necessidades de escala, executando novamente o Azure AD Connect.
 
 > [!NOTE]
-> Certifique-se de que todos os servidores estão associados a um domínio do AD antes de efetuar esta configuração.
->
+> Antes de configurar esta configuração, certifique-se de que todos os seus servidores estão unidos a um domínio AD Azure.
 >
 
-![Servidores do AD FS](./media/how-to-connect-install-custom/adfs2.png)
+
+![Screenshot mostrando a página "Servidores da Federação".](./media/how-to-connect-install-custom/adfs2.png)
 
 ### <a name="specify-the-web-application-proxy-servers"></a>Especificar os servidores Proxy de Web Apps
-Introduza os servidores que pretende ter como servidores proxy de Web Apps. O servidor proxy da aplicação Web está implementado na rede de perímetro (com acesso à extranet) e suporta pedidos de autenticação da extranet. Pode adicionar um ou mais servidores com base nas suas necessidades de planeamento da capacidade. A Microsoft recomenda a instalação de um único servidor proxy de aplicação Web para implementações de teste e piloto. Em seguida, adicione e implemente mais servidores para satisfazer as suas necessidades de dimensionamento, executando novamente o Azure AD Connect após a configuração inicial. Recomenda-se ter um número equivalente de servidores proxy para satisfazer a autenticação da intranet.
+Especifique os seus servidores Proxy de aplicação web. O servidor Proxy da Aplicação Web é implantado na rede do seu perímetro, virado para a extranet. Suporta pedidos de autenticação da extranet. Pode adicionar um ou mais servidores, dependendo das suas necessidades de capacidade. 
+
+A Microsoft recomenda a instalação de um único servidor Proxy de aplicação web para implementações de testes e pilotos. Após a configuração inicial, pode adicionar e implementar mais servidores para atender às suas necessidades de escala, executando novamente o Azure AD Connect. Recomendamos que tenha um número equivalente de servidores proxy para satisfazer a autenticação da intranet.
 
 > [!NOTE]
-> <li> Se a conta utilizada não for um administrador local nos servidores WAP, ser-lhe-ão pedidas as credenciais de administrador.</li>
-> <li> Antes de executar este passo, certifique-se de que existe conectividade HTTP/HTTPS entre o servidor do Azure AD Connect e o servidor Proxy de Web Apps.</li>
-> <li> Certifique-se de que existe conectividade HTTP/HTTPS entre o Servidor de Web Apps e o servidor do AD FS, para permitir a passagem de pedidos de autenticação.</li>
+> - Se a conta que utiliza não for um administrador local nos servidores Proxy da Aplicação Web, então é solicitado para obter credenciais de administração.
+> - Antes de especificar os servidores Proxy da Aplicação Web, certifique-se de que existe conectividade HTTP/HTTPS entre o servidor Azure AD Connect e o servidor Proxy da Aplicação Web.
+> - Certifique-se de que existe conectividade HTTP/HTTPS entre o Servidor de Aplicações Web e o servidor AD FS para permitir que os pedidos de autenticação fluam.
 >
 
-![Aplicação Web](./media/how-to-connect-install-custom/adfs3.png)
 
-É-lhe pedido que introduza as credenciais para que o servidor de Web Apps possa estabelecer uma ligação segura ao servidor do AD FS. Estas credenciais têm de pertencer a um administrador local no servidor do AD FS.
+![Screenshot mostrando a página de servidores Proxy da Aplicação Web.](./media/how-to-connect-install-custom/adfs3.png)
 
-![Proxy](./media/how-to-connect-install-custom/adfs4.png)
+É-lhe pedido que introduza credenciais para que o servidor de aplicações web possa estabelecer uma ligação segura ao servidor AD FS. Estas credenciais devem ser para uma conta de administrador local no servidor AD FS.
+
+![Screenshot mostrando a página "Credenciais". As credenciais do administrador são inseridas no campo do nome de utilizador e no campo da palavra-passe.](./media/how-to-connect-install-custom/adfs4.png)
 
 ### <a name="specify-the-service-account-for-the-ad-fs-service"></a>Especifique a conta de serviço para o serviço do AD FS
-O serviço do AD FS requer uma conta de serviço de domínio para autenticar utilizadores e pesquisar informações sobre utilizadores no Active Directory. Pode suportar dois tipos de contas de serviço:
+O serviço AD FS requer uma conta de serviço de domínio para autenticar os utilizadores e procurar informações do utilizador no Ative Directory. Pode suportar dois tipos de contas de serviço:
 
-* **Conta de Serviço Gerida de Grupo** – introduzida nos Serviços de Domínio do Active Directory com o Windows Server 2012. Este tipo de conta fornece serviços, como o AD FS, uma conta única sem necessidade de atualizar regularmente a palavra-passe de conta. Utilize esta opção se já tiver controladores de domínio do Windows Server 2012 no domínio a que pertencem os servidores do AD FS.
-* **Conta de Utilizador de Domínio** – este tipo de conta requer uma palavra-passe e a atualização regular da palavra-passe, quando a palavra-passe é alterada ou expira. Utilize esta opção apenas se não tiver controladores de domínio do Windows Server 2012 no domínio a que pertencem os servidores do AD FS.
+* **Conta de serviço gerida pelo grupo**: Este tipo de conta foi introduzido em DS AD pelo Windows Server 2012. Este tipo de conta fornece serviços como AD FS. É uma única conta na qual não precisa de atualizar a palavra-passe regularmente. Utilize esta opção se já tiver controladores de domínio do Windows Server 2012 no domínio a que pertencem os servidores do AD FS.
+* **Conta de utilizador de domínio**: Este tipo de conta requer que forneça uma palavra-passe e a atualize regularmente quando expirar. Utilize esta opção apenas quando não tiver controladores de domínio do Windows Server 2012 no domínio a que os seus servidores AD FS pertencem.
 
-Se tiver selecionado a Conta de Serviço Gerida de Grupo e esta funcionalidade nunca tiver sido utilizada no Active Directory, ser-lhe-ão pedidas as credenciais de Administrador de Empresa. Estas credenciais são utilizadas para iniciar o armazenamento de chaves e ativar a funcionalidade no Active Directory.
+Se selecionou **Criar uma conta de serviço gerida por grupo** e esta funcionalidade nunca tiver sido utilizada no Ative Directory, insira as credenciais de administração da empresa. Estas credenciais são utilizadas para iniciar o armazenamento de chaves e ativar a funcionalidade no Active Directory.
 
 > [!NOTE]
-> O Azure AD Connect efetua uma verificação para detetar se o serviço AD FS já está registado como um SPN no domínio.  O AD DS não permitirá o registo de SPNs duplicados em simultâneo.  Se for encontrado um SPN duplicado, não poderá continuar até o SPN ser removido.
+> O Azure AD Connect verifica se o serviço AD FS já está registado como nome principal de serviço (SPN) no domínio.  O Azure AD DS não permite que as SPNs duplicadas sejam registadas ao mesmo tempo.  Se for encontrada uma SPN duplicada, não pode prosseguir até que o SPN seja removido.
 
-![Conta de Serviço do AD FS](./media/how-to-connect-install-custom/adfs5.png)
+![Screenshot mostrando a página "A D F S service account".](./media/how-to-connect-install-custom/adfs5.png)
 
-### <a name="select-the-azure-ad-domain-that-you-wish-to-federate"></a>Selecionar o domínio do Azure AD que pretende federar
-Esta configuração é utilizada para configurar a relação de federação entre o AD FS e o Azure AD. Configura o AD FS para emitir tokens de segurança para o Azure AD e configura o Azure AD para confiar nos tokens desta instância específica do AD FS. Esta página permite-lhe apenas configurar um domínio único na instalação inicial. Pode configurar mais domínios posteriormente, executando novamente o Azure AD Connect.
+### <a name="select-the-azure-ad-domain-that-you-want-to-federate"></a>Selecione o domínio AD A Azul que pretende federar
+Utilize a página **de Domínio AZure AD** para configurar a relação da federação entre AD FS e Azure AD. Aqui, você configura AD FS para fornecer fichas de segurança ao Azure AD. Você também configura Azure AD para confiar nos tokens deste caso AD FS. 
 
-![Screenshot que mostra a página "Azure AD Domain".](./media/how-to-connect-install-custom/adfs6.png)
+Nesta página, pode configurar apenas um único domínio na instalação inicial. Pode configurar mais domínios posteriormente, executando novamente o Azure AD Connect.
+
+![Screenshot que mostra a página "Azure A D Domain".](./media/how-to-connect-install-custom/adfs6.png)
 
 ### <a name="verify-the-azure-ad-domain-selected-for-federation"></a>Verificar o domínio do Azure AD selecionado para federação
-Quando seleciona o domínio a ser federado, o Azure AD Connect fornece-lhe as informações necessárias para verificar um domínio não verificado. Consulte [Adicionar e verificar o domínio](../fundamentals/add-custom-domain.md) para saber como utilizar estas informações.
+Quando seleciona o domínio que pretende federar, o Azure AD Connect fornece informações que pode utilizar para verificar um domínio não verificado. Para obter mais informações, consulte [Adicionar e verificar o domínio](../fundamentals/add-custom-domain.md).
 
-![Domínio do Azure AD](./media/how-to-connect-install-custom/verifyfeddomain.png)
+![Screenshot mostrando a página "Azure A D Domain", incluindo informações que pode usar para verificar o domínio.](./media/how-to-connect-install-custom/verifyfeddomain.png)
 
 > [!NOTE]
-> O AD Connect tenta verificar o domínio durante a fase de configuração. Se continuar a configurar sem adicionar os registos DNS necessários, o assistente não conseguirá concluir a configuração.
+> O Azure AD Connect tenta verificar o domínio durante a fase de configuração. Se não adicionar os registos necessários do Sistema de Nome de Domínio (DNS), a configuração não pode ser concluída.
 >
->
+
 
 ## <a name="configuring-federation-with-pingfederate"></a>Configurar a federação com o PingFederate
-Configurar o PingFederate com o Azure AD Connect é simples e exige apenas alguns cliques. No entanto, são precisos os seguintes pré-requisitos.
-- PingFederate 8.4 ou superior.  Para mais informações consulte [a Integração pingFederate com o Azure Ative Directory e o Microsoft 365](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html)
-- Um certificado TLS/SSL para o nome de serviço da federação que pretende utilizar (por exemplo, sts.contoso.com)
+Pode configurar PingFederate com Azure AD Connect em apenas alguns cliques. São necessários os seguintes pré-requisitos:
+- PingFederate 8.4 ou mais tarde.  Para obter mais informações, consulte [a integração do PingFederate com o Azure Ative Directory e o Microsoft 365](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html).
+- Um certificado TLS/SSL para o nome de serviço da federação que pretende utilizar (por exemplo, sts.contoso.com).
 
 ### <a name="verify-the-domain"></a>Verificar o domínio
-Depois de selecionar a Federação com PingFederate, ser-lhe-á pedido para verificar o domínio que pretende federar.  Selecione o domínio na caixa da lista pendente.
+Depois de optar por criar uma federação utilizando o PingFederate, é-lhe pedido que verifique o domínio que pretende federar.  Selecione o domínio do menu suspenso.
 
-![Screenshot que mostra o "Azure AD Domain" com o domínio de exemplo "contoso.com" selecionado.](./media/how-to-connect-install-custom/ping1.png)
+![Screenshot que mostra a página "Azure A D Domain". O domínio de exemplo "contoso.com" é selecionado.](./media/how-to-connect-install-custom/ping1.png)
 
 ### <a name="export-the-pingfederate-settings"></a>Exportar as definições do PingFederate
 
 
-O PingFederate tem de ser configurado como o servidor de federação para cada domínio federado do Azure.  Clique no botão Exportar Definições e partilhe estas informações com o seu administrador do PingFederate.  O administrador do servidor de federação irá atualizar a configuração e, em seguida, irá fornecer o URL e número de porta do servidor PingFederate, para que o Azure AD Connect possa verificar as definições de metadados.  
+Configure PingFederate como o servidor da federação para cada domínio federado de Azure.  Selecione **Definições de Exportação** para partilhar esta informação com o seu administrador PingFederate.  O administrador do servidor da federação atualiza a configuração e, em seguida, fornece o URL do servidor PingFederate e o número de porta para que o Azure AD Connect possa verificar as definições de metadados.  
 
-![Verificar Domínio](./media/how-to-connect-install-custom/ping2.png)
+![Screenshot mostrando a página "Definições PingFederate". O botão "Definições de exportação" aparece perto do topo da página.](./media/how-to-connect-install-custom/ping2.png)
 
-Contacte o administrador de PingFederate para resolver quaisquer problemas de validação.  Segue-se um exemplo de um servidor PingFederate que não tem uma relação de confiança válida com o Azure:
+Contacte o administrador de PingFederate para resolver quaisquer problemas de validação.  A imagem a seguir mostra informações sobre um servidor PingFederate que não tem uma relação de confiança válida com o Azure.
 
-![Confiança](./media/how-to-connect-install-custom/ping5.png)
+![Screenshot mostrando informações do servidor: O servidor PingFederate foi encontrado, mas a ligação do fornecedor de serviços para Azure está desaparecida ou desativada.](./media/how-to-connect-install-custom/ping5.png)
 
 
 
 
 ### <a name="verify-federation-connectivity"></a>Verificar a conectividade da federação
-O Azure AD Connect irá tentar validar os pontos finais de autenticação obtidos dos metadados do PingFederate no passo anterior.  O Azure AD Connect tentará primeiro resolver os pontos finais com os servidores DNS locais.  Em seguida, irá tentar resolver os pontos finais com um fornecedor DNS externo.  Contacte o administrador de PingFederate para resolver quaisquer problemas de validação.  
+O Azure AD Connect tenta validar os pontos finais de autenticação que obtém dos metadados PingFederate no passo anterior.  Azure AD Connect tenta resolver os pontos finais utilizando os servidores DNS locais.  Em seguida, tenta resolver os pontos finais utilizando um fornecedor externo de DNS.  Contacte o administrador de PingFederate para resolver quaisquer problemas de validação.  
 
-![Verificar a Conectividade](./media/how-to-connect-install-custom/ping3.png)
+![Screenshot mostrando a página "Verificar conectividade".](./media/how-to-connect-install-custom/ping3.png)
 
-### <a name="verify-federation-login"></a>Verificar o início de sessão na federação
-Por fim, pode verificar o fluxo de início de sessão federado recém configurado, ao iniciar sessão no domínio federado. Quando for bem-sucedido, a federação com o PingFederate foi configurada com êxito.
-![Verificar início de sessão](./media/how-to-connect-install-custom/ping4.png)
+### <a name="verify-federation-sign-in"></a>Verificar o s-in da federação
+Por fim, pode verificar o fluxo de início de sessão federado recém configurado, ao iniciar sessão no domínio federado. Se o seu sinal-in for bem sucedido, então a federação com PingFederate está configurada com sucesso.
+
+![Screenshot mostrando a página "Verificar o login federado". Uma mensagem na parte inferior indica um início de sção bem sucedido.](./media/how-to-connect-install-custom/ping4.png)
 
 ## <a name="configure-and-verify-pages"></a>Páginas de configuração e verificação
-A configuração ocorre nesta página.
+A configuração ocorre na página **Configure.**
 
 > [!NOTE]
-> Antes de prosseguir com a instalação e se tiver configurado a federação, certifique-se de que configurou a [Resolução de nomes dos servidores de federação](how-to-connect-install-prerequisites.md#name-resolution-for-federation-servers).
+> Se configurar a federação, certifique-se de que também configura a [resolução de nome para servidores da federação](how-to-connect-install-prerequisites.md#name-resolution-for-federation-servers) antes de continuar a instalação.
 >
->
 
 
-![Preparado para configurar](./media/how-to-connect-install-custom/readytoconfigure2.png)
 
-### <a name="staging-mode"></a>Modo de teste
-É possível configurar um novo servidor de sincronização em paralelo, com modo de teste. É apenas suportado para ter um servidor de sincronização a exportar para um diretório na nuvem. Mas se pretender mover de outro servidor, por exemplo um a executar o DirSync, pode ativar o Azure AD Connect no modo de teste. Uma vez ativado, o motor de sincronização importa e sincroniza os dados normalmente, mas não exporta nada para o Azure AD ou o AD. A sincronização de palavras-passe de funcionalidades e a repetição de escrita de palavras-passe estão desativadas no modo de teste.
+![Screenshot mostrando a página "Pronto para configurar".](./media/how-to-connect-install-custom/readytoconfigure2.png)
 
-![Modo de teste](./media/how-to-connect-install-custom/stagingmode.png)
+### <a name="use-staging-mode"></a>Use o modo de preparação
+É possível configurar um novo servidor de sincronização em paralelo com o modo de paragem. Se quiser utilizar esta configuração, apenas um servidor de sincronização pode exportar para um diretório na nuvem. Mas se quiser mover-se de outro servidor, por exemplo, um servidor que executa o DirSync, então pode ativar o Azure AD Connect no modo de fase. 
 
-No modo de teste, é possível efetuar as alterações necessárias no motor de sincronização e rever o que está prestes a ser exportado. Quando lhe parecer que a configuração está boa, execute novamente o assistente de instalação e desative o modo de teste. Os dados são exportados para o Azure AD deste servidor. Não se esqueça de desativar ao mesmo tempo o outro servidor para que haja apenas um servidor a exportar ativamente.
+Quando ativa a configuração da montagem, o motor de sincronização importa e sincroniza os dados normalmente. Mas não exporta dados para a Azure AD ou Diretório Ativo. No modo de fase, a função de sincronização de palavra-passe e a função de desativação da palavra-passe são desativadas.
+
+![Screenshot mostrando a opção "Ativar o modo de preparação".](./media/how-to-connect-install-custom/stagingmode.png)
+
+No modo de preparação, pode fazer as alterações necessárias ao motor de sincronização e rever o que será exportado. Quando lhe parecer que a configuração está boa, execute novamente o assistente de instalação e desative o modo de teste. 
+
+Os dados são agora exportados para Azure AD a partir do servidor. Não se esqueça de desativar ao mesmo tempo o outro servidor para que haja apenas um servidor a exportar ativamente.
 
 Para obter mais informações, consulte [Modo de teste](how-to-connect-sync-staging-server.md).
 
 ### <a name="verify-your-federation-configuration"></a>Verificar a configuração de federação
-O Azure AD Connect verifica as definições de DNS quando clica no botão Verificar.
+A Azure AD Connect verifica as definições de DNS quando seleciona o botão **Verificar.** Verifica as seguintes definições:
 
-**Verificações de conectividade de intranet**
+* **Conectividade intranet**
+    * Resolver a federação FQDN: Azure AD Connect verifica se o DNS pode resolver a federação FQDN para garantir a conectividade. Se o Azure AD Connect não conseguir resolver o FQDN, então a verificação falha. Para completar a verificação, certifique-se de que está presente um registo DNS para o serviço da federação FQDN.
+    * DNS Um registo: Azure AD Connect verifica se o seu serviço de federação tem um registo A. Na ausência de um registo A, a verificação falha. Para completar a verificação, crie um registo A (não um registo CNAME) para a sua federação FQDN.
+* **Conectividade extranet**
+    * Resolver a federação FQDN: Azure AD Connect verifica se o DNS pode resolver a federação FQDN para garantir a conectividade.
 
-* Resolver FQDN de federação: o Azure AD Connect verifica se o FQDN de federação pode ser resolvido pelo DNS para garantir a conectividade. Se o Azure AD Connect não conseguir resolver o FQDN, a verificação irá falhar. Certifique-se de que um registo DNS está presente no FQDN de serviço de federação para concluir a verificação com êxito.
-* Registo A de DNS: o Azure AD Connect verifica se existe um registo A para o seu serviço de federação. Na ausência de um registo A, a verificação irá falhar. Crie um registo A, em vez de um registo CNAME, para o seu FQDN de federação, para que seja concluído com êxito.
+      ![Screenshot mostrando a página "Instalação completa".](./media/how-to-connect-install-custom/completed.png)
 
-**Verificações de conectividade de extranet**
+      ![Screenshot mostrando a página "Instalação completa". Uma mensagem indica que a configuração intranet foi verificada.](./media/how-to-connect-install-custom/adfs7.png)
 
-* Resolver FQDN de federação: o Azure AD Connect verifica se o FQDN de federação pode ser resolvido pelo DNS para garantir a conectividade.
+Para validar a autenticação de ponta a ponta, efetue manualmente um ou mais dos seguintes testes:
 
-![Concluído](./media/how-to-connect-install-custom/completed.png)
+* Quando a sincronização terminar, no Azure AD Connect, utilize a tarefa adicional de **login federada** para verificar a autenticação de uma conta de utilizador no local que escolher.
+* A partir de uma máquina de domínio na intranet, certifique-se de que pode iniciar sôm no navegador. Ligue-se a https://myapps.microsoft.com . Em seguida, utilize a sua conta de login para verificar a inscrição. A conta de administrador da Azure AD DS incorporada não está sincronizada e não pode usá-la para verificação.
+* Certifique-se de que pode iniciar sôms a partir de um dispositivo na extranet. Numa máquina doméstica ou num dispositivo móvel, ligue-se a https://myapps.microsoft.com . Então forneça as suas credenciais.
+* Valide o início de sessão de cliente avançado. Ligue-se a https://testconnectivity.microsoft.com . Em seguida, selecione **Office**  >  **365 Office 365 Single Sign-On Test**.
 
-![Verificação](./media/how-to-connect-install-custom/adfs7.png)
+## <a name="troubleshoot"></a>Resolução de problemas
+Esta secção contém informações de resolução de problemas que pode utilizar se tiver algum problema durante a instalação do Azure AD Connect.
 
-Para validar a autenticação ponto a ponto com êxito, deve efetuar manualmente um, ou mais, dos seguintes testes:
+Quando personalizar uma instalação Azure AD Connect, na página **de componentes necessários,** pode selecionar **Utilize um servidor SQL existente**. Pode ver o seguinte erro: "A base de dados ADSync já contém dados e não pode ser substituída. Por favor, remova a base de dados existente e tente novamente."
 
-* Assim que a sincronização estiver concluída, utilize a tarefa adicional Verificar início de sessão federado no Azure AD Connect para verificar a autenticação de uma conta de utilizador no local à sua escolha.
-* Confirme que pode iniciar sessão a partir de um browser num computador associado ao domínio na intranet: ligue-se a https://myapps.microsoft.com e verifique o início de sessão com a sua conta com sessão iniciada. A conta de administrador do AD DS incorporada não está sincronizada e não pode ser utilizada para a verificação.
-* Confirme que pode iniciar sessão a partir de um dispositivo da extranet. Numa máquina de uso doméstico ou num dispositivo móvel, ligue-se a https://myapps.microsoft.com e forneça as credenciais.
-* Valide o início de sessão de cliente avançado. Ligue-se a https://testconnectivity.microsoft.com, escolha o separador **Office 365** e escolha o **Teste de Início de Sessão Único do Office 365**.
+![Screenshot que mostra a página "Instalar componentes necessários". Aparece um erro na parte inferior da página.](./media/how-to-connect-install-custom/error1.png)
 
-## <a name="troubleshooting"></a>Resolução de problemas
-A secção seguinte contém resoluções de problemas e informações que pode utilizar caso se depare com problemas ao instalar o Azure AD Connect.
+Você vê este erro porque uma base de dados chamada *ADSync* já existe na instância SQL do SQL Server que especificou.
 
-### <a name="the-adsync-database-already-contains-data-and-cannot-be-overwritten"></a>“A base de dados ADSync já contém dados e não pode ser substituída”
-Quando instalar o Azure AD Connect e selecionar a opção **Utilize um servidor SQL existente** na página de componentes **necessários,** poderá encontrar um erro que indique que a base **de dados ADSync já contém dados e não pode ser substituída. Por favor, retire a base de dados existente e tente novamente.**
+Normalmente, vê este erro depois de ter desinstalado o Azure AD Connect.  A base de dados não é eliminada do computador que executa o SQL Server quando desinstala o Azure AD Connect.
 
-![Screenshot que mostra a página "Instalar componentes necessários".](./media/how-to-connect-install-custom/error1.png)
+Para resolver este problema:
 
-Isto deve-se ao facto de já haver uma base de dados com o nome **ADSync** na instância do SQL do SQL Server, que especificou nas caixas de texto abaixo.
+1. Verifique a base de dados ADSync que o Azure AD Connect utilizou antes de ser desinstalado. Certifique-se de que a base de dados já não está a ser utilizada.
 
-Geralmente, isto ocorre depois de ter desinstalado o Azure AD Connect.  Quando desinstala, a base de dados não é eliminada do SQL Server.
+2. A fazer o reforço da base de dados.
 
-Para corrigir este problema, verifique primeiro que a base de dados **ADSync** que o Azure AD Connect utilizou antes da desinstalação já não está a ser utilizada.
+3. Eliminar a base de dados:
+    1. Utilize **o Microsoft SQL Server Management Studio** para ligar à instância SQL. 
+    1. Encontre a base de **dados ADSync** e clique com o botão direito.
+    1. No menu de contexto, selecione **Delete**.
+    1. Selecione **OK** para eliminar a base de dados.
 
-Depois, recomenda-se que crie uma cópia de segurança da base de dados antes de a eliminar.
+![Screenshot mostrando Microsoft SQL Server Management Studio. É selecionado um D Sync.](./media/how-to-connect-install-custom/error2.png)
 
-Por fim, tem de eliminá-la.  Para tal, pode utilizar o **Microsoft SQL Server Management Studio** e ligar à instância do SQL. Localize a base de dados **ADSync**, clique com o botão direito na mesma e selecione **Eliminar**, no menu de contexto.  Em seguida, clique no botão **OK** para eliminar.
-
-![Erro](./media/how-to-connect-install-custom/error2.png)
-
-Depois de eliminar a base de dados **ADSync**, pode clicar no botão **instalar** para repetir a instalação.
+Depois de eliminar a base de dados ADSync, selecione **Instalar** para voltar a tentar a instalação.
 
 ## <a name="next-steps"></a>Passos seguintes
-Uma vez concluída a instalação, termine e inicie novamente sessão no Windows antes de utilizar o Synchronization Service Manager ou Editor de Regras de Sincronização.
+Após o fim da instalação, assine fora do Windows. Em seguida, inscreva-se novamente antes de utilizar o Gestor de Serviços de Sincronização ou o Editor de Regras de Sincronização.
 
-Agora que já tem o Azure AD Connect instalado, pode [verificar a instalação e atribuir licenças](how-to-connect-post-installation.md).
+Agora que instalou o Azure AD Connect, pode [verificar a instalação e atribuir licenças](how-to-connect-post-installation.md).
 
-Saiba mais acerca destas funcionalidades que foram ativadas com a instalação: [Impedir eliminações acidentais](how-to-connect-sync-feature-prevent-accidental-deletes.md) e [Azure AD Connect Health](how-to-connect-health-sync.md).
+Para obter mais informações sobre as funcionalidades que ativou durante a instalação, consulte [Prevenir as eliminações acidentais](how-to-connect-sync-feature-prevent-accidental-deletes.md) e [a Azure AD Connect Health](how-to-connect-health-sync.md).
 
-Saiba mais acerca destes tópicos comuns: [agendador e como acionar a sincronização](how-to-connect-sync-feature-scheduler.md).
-
-Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).
+Para obter mais informações sobre outros tópicos comuns, consulte [a sincronização Azure AD Connect: Scheduler](how-to-connect-sync-feature-scheduler.md) e [Integre as suas identidades no local com a Azure AD](whatis-hybrid-identity.md).

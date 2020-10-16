@@ -13,10 +13,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 6985107dd8f13e26875cf5ea7428b3280d00cea1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85367262"
 ---
 # <a name="yaml-configuration-options-to-customize-the-build-tasks"></a>Opções de configuração YAML para personalizar as tarefas de construção
@@ -27,7 +27,7 @@ Este artigo lista todas as opções de configuração YAML disponíveis em cada 
 
 | **DigitType**      | **Tipo**     | **Aplicável**            | **Necessário** | **Valor Predefinido**             | **Opções (para picklists)**                                   | **Descrição**                                                                                                                                                                                                                                                                                                                            |
 |------------|---------------|-----------------------|----------|---------------------------|----------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| DigitType | pickList | sempre | Verdadeiro | Básica | Básico, Personalizado | 
+| DigitType | pickList | sempre | Verdadeiro | Básico | Básico, Personalizado | 
 | ScanType | pickList | DigiteType = Básico | Verdadeiro | Personalizados | CustomScan, FullSystemScan, QuickScan, YourConfiguredScan | O tipo de digitalização a utilizar para a varredura antiMalware.
 | FileDirPath | filePath | ScanType = CustomScan | Verdadeiro | $(Build.StagingDirectory) |  | Indica que o ficheiro ou o diretório devem ser digitalizados.
 | Desativar a remediação | boolean | ScanType = CustomScan | Falso | true |  | Quando verificado: 1) As exclusões de ficheiros são ignoradas. 2) Os ficheiros de arquivo são digitalizados. 3) As ações não são aplicadas após a deteção. 4) As entradas de registo de eventos não são escritas após a deteção. 5) As deteções da varredura personalizada não são apresentadas na interface do utilizador. 6) A saída da consola mostrará a lista de deteções a partir da varredura personalizada.
@@ -43,7 +43,7 @@ Este artigo lista todas as opções de configuração YAML disponíveis em cada 
 
 | **DigitType**      | **Tipo**     | **Aplicável**            | **Necessário** | **Valor Predefinido**             | **Opções (para picklists)**                                   | **Descrição**                                                                                                                                                                                                                                                                                                                            |
 |------------|---------------|-----------------------|----------|---------------------------|----------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| DigitType | pickList | sempre | Verdadeiro | Básica | Básico, CommandLine | 
+| DigitType | pickList | sempre | Verdadeiro | Básico | Básico, CommandLine | 
 | argumentos | string | DigitType = Linha de Comando | Verdadeiro |  |  | Argumentos de linha de comando Padrão BinSkim para executar. O caminho de saída será removido e substituído.<br>Para obter mais detalhes sobre os argumentos da linha de comando para esta ferramenta, introduza **ajuda** no campo Arguments e execute a tarefa de construção.
 | Função | pickList | DigiteType = Básico | Verdadeiro | analisar | analisar, despejar, exportarConfig, exportar regras | 
 | Analisar oTarget | filePath | DigitType = Função de && Básica = analisar | Verdadeiro | $(Build.ArtifactStagingDirectory) \* .dll;<br>$(Build.ArtifactStagingDirectory) \* .exe |  | Um ou mais especificadores para um ficheiro, diretório ou padrão de filtro que se resolve a um ou mais binários para analisar. (';' lista separada)
@@ -59,14 +59,14 @@ Este artigo lista todas as opções de configuração YAML disponíveis em cada 
 | DumpTarget | filePath | DigitType = Função de && Básica = despejo | Verdadeiro | $(Build.ArtifactStagingDirectory) |  | Um ou mais especificadores para um ficheiro, diretório ou padrão de filtro que se resolve a um ou mais binários para analisar. (';' lista separada)
 | DespejoRecurse | boolean | DigitType = Função de && Básica = despejo | Falso | true |  | Recurse em subdiretivas ao avaliar os argumentos dos especificadores de ficheiros.
 | DumpVerbose | boolean | DigitType = Função de && Básica = despejo | Falso | true |  | Emite saída de verboso. O relatório global resultante destina-se a fornecer provas adequadas para cenários de conformidade.
-| ferramentaVersão | pickList | sempre | Falso | Últimas | 1.5.0, ÚltimaPreRelease | A versão da ferramenta a funcionar.
+| ferramentaVersão | pickList | sempre | Falso | Mais Recente | 1.5.0, ÚltimaPreRelease | A versão da ferramenta a funcionar.
 
 ## <a name="credential-scanner-task"></a>Tarefa do Scanner Credencial
 
 | **DigitType**      | **Tipo**     | **Aplicável**            | **Necessário** | **Valor Predefinido**             | **Opções (para picklists)**                                   | **Descrição**                                                                                                                                                                                                                                                                                                                            |
 |------------|---------------|-----------------------|----------|---------------------------|----------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | outputFormat | pickList | sempre | Falso | pre | csv, pre, tsv | O formato de saída do ficheiro de resultados do Scanner Credencial.
-| ferramentaVersão | pickList | sempre | Falso | Últimas | 1.27.7, ÚltimaPreRelease | A versão da ferramenta a funcionar.
+| ferramentaVersão | pickList | sempre | Falso | Mais Recente | 1.27.7, ÚltimaPreRelease | A versão da ferramenta a funcionar.
 | scanFolder | filePath | sempre | Falso | $(Build.SourcesDirectory) |  | A pasta do seu repositório para procurar credenciais.
 | pesquisadoresFileType | pickList | sempre | Falso | Predefinição | Personalizado, Padrão, Padrão ECustom | Opções para localizar o ficheiro dos pesquisadores utilizado para digitalização.
 | pesquisadoresFile | filePath | pesquisadoresFileType == pesquisadores personalizados OUFileType == DefaultAndCustom | Falso |  |  | O ficheiro de configuração dos pesquisadores do Scanner credencial de verificações a executar. Vários valores podem ser incluídos e utilizados fornecendo uma lista separada de vírgulas de caminhos para ficheiros de pesquisadores do Scanner Credencial.
@@ -87,9 +87,9 @@ Este artigo lista todas as opções de configuração YAML disponíveis em cada 
 | msBuildArchitecture | pickList | utilizadorProvideBuildInfo == msBuildInfo | Verdadeiro | x86 | DotNetCore, x64, x86 | A arquitetura MSBuild. Nota: Se as chamadas de comando de construção **dotnet.exe construir,** escolha a opção **Via .NET Core.**
 | msBuildCommandline | string | utilizadorProvideBuildInfo == msBuildInfo | Verdadeiro |  |  | O comando completo de construção para compilar a sua solução ou projetos.<br/><br/>Notas: O comando deve começar com um caminho completo para **MSBuild.exe** ou **dotnet.exe**.<br/>O comando será executado com $(Build.SourcesDirectory) como diretório de trabalho.
 | rulesetName | pickList | sempre | Falso | Recomendado | Personalizado, Nenhum, Recomendado, Obrigatório | Um chamado ruleset para usar.<br/><br/>Se `Ruleset Configured In Your Visual Studio Project File(s)` for escolhido, serão utilizados os ruleset pré-configurados nos seus ficheiros de projeto VS. Se `Custom` for escolhido, pode ser definida uma opção de caminho de regras personalizada.
-| rulesetVersão | pickList | rulesetName == Regras or necessárias Nome de natal == Recomendado | Falso | Últimas | 8.0, 8.1, 8.2, ÚltimaPreRelease | A versão do ruleset SDL escolhido.
+| rulesetVersão | pickList | rulesetName == Regras or necessárias Nome de natal == Recomendado | Falso | Mais Recente | 8.0, 8.1, 8.2, ÚltimaPreRelease | A versão do ruleset SDL escolhido.
 | customRuleset | string | rulesetName = Personalizado | Falso |  |  | Um caminho acessível para um ruleset para usar. Caminhos relativos serão normalizados até à raiz do repositório de origem `$(Build.SourcesDirectory)` .<br/><br/>Se o conjunto de regras especificar `Rules` com `Actions` definido `Error` para, a tarefa de construção falhará. Para utilizar um ruleset que faça isso, por favor, verifique `Continue on error` na tarefa de construção `Control Options` .
-| microsoftAnalyzersVersão | pickList | sempre | Falso | Últimas | 2.9.3, 2.9.4, 2.9.6, ÚltimaPreRelease | A versão do pacote [Microsoft.CodeAnalysis.FxCopAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.FxCopAnalyzers) para executar.
+| microsoftAnalyzersVersão | pickList | sempre | Falso | Mais Recente | 2.9.3, 2.9.4, 2.9.6, ÚltimaPreRelease | A versão do pacote [Microsoft.CodeAnalysis.FxCopAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.FxCopAnalyzers) para executar.
 | supressãoFileForCompilerWarnings | filePath | sempre | Falso |  |  | Um ficheiro de supressões para suprimir os avisos do compilador C# e VB.<br/><br/>Um ficheiro de texto simples com cada identificação de aviso lista uma linha separada.<br/>Para advertências do compilador, especifique apenas a parte numérica do identificador de aviso. Por exemplo, 1018 suprimirá cS1018, e CA1501 irá suprimir CA1501.<br/><br/>Um caminho relativo de arquivo será anexado à raiz do repositório de origem ( `$(Build.SourcesDirectory)` ).
 
 ## <a name="tslint-task"></a>Tarefa TSLint
@@ -162,6 +162,6 @@ Este artigo lista todas as opções de configuração YAML disponíveis em cada 
 | VstsConsole | boolean | sempre | Falso | true |  | Escreva resultados para a Consola de Pipeline.
 | ToolLogsNotFoundAction | picklist | sempre | Verdadeiro | Standard | Erro, Nenhum, Padrão, Aviso | A ação a tomar quando não forem encontrados registos de uma ferramenta selecionada (ou qualquer ferramenta se todas as Ferramentas forem verificadas), o que implica que a ferramenta não foi executada.<br/><br/>**Opções:**<br/>**Nenhuma:** A mensagem é escrita para o fluxo de saída verboso acessível apenas definindo o sistema variável VSTS.debug para **verdadeiro**. **system.debug**<br/>**Standard:** (Padrão) Escreve uma mensagem de saída padrão que não foram encontrados registos para a ferramenta.<br/>**Aviso:** Escreve uma mensagem de aviso amarela de que não foram encontrados registos para a ferramenta, que aparece na página de resumo da construção como aviso.<br/>**Erro:** Escreve uma mensagem de erro vermelha e lança uma exceção, quebrando a construção. Utilize esta opção para garantir, com as opções individuais da ferramenta, quais as ferramentas que são utilizadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se tiver mais perguntas sobre a extensão de Análise de Código de Segurança e as ferramentas oferecidas, consulte a [nossa página de PERGUNTAS Frequentes.](security-code-analysis-faq.md)

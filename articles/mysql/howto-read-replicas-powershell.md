@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 8/24/2020
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: e9c8ce7519c6e2c84ef47fc78897c4b67b89e56a
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541021"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-powershell"></a>Como criar e gerir réplicas de leitura na Base de Dados Azure para o MySQL usando o PowerShell
@@ -57,7 +57,7 @@ O `New-AzMySqlReplica` comando requer os seguintes parâmetros:
 | Definição | Valor de exemplo | Descrição  |
 | --- | --- | --- |
 | ResourceGroupName |  myResourceGroup |  O grupo de recursos onde o servidor de réplica é criado.  |
-| Name | mydemoreplicaserver | O nome do novo servidor de réplica que é criado. |
+| Nome | mydemoreplicaserver | O nome do novo servidor de réplica que é criado. |
 
 Para criar uma réplica de leitura de região cruzada, utilize o parâmetro **Localização.** O exemplo a seguir cria uma réplica na região **oeste dos EUA.**
 
@@ -107,7 +107,7 @@ Para eliminar um servidor de origem, pode executar o `Remove-AzMySqlServer` cmdl
 Remove-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Reinicie a base de dados do Azure para o servidor MySQL utilizando o PowerShell](howto-restart-server-powershell.md)

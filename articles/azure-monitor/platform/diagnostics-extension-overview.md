@@ -1,5 +1,5 @@
 ---
-title: Visão geral da extensão do Azure Diagnostics
+title: Descrição geral da extensão do Diagnóstico do Azure
 description: Utilize diagnósticos Azure para depuração, medição de desempenho, monitorização, análise de tráfego em serviços na nuvem, máquinas virtuais e tecido de serviço
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
@@ -7,17 +7,17 @@ author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
 ms.openlocfilehash: 6201a4e0551f0f75dde65b2bc4b8b560a0f5ea20
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87008001"
 ---
-# <a name="azure-diagnostics-extension-overview"></a>Visão geral da extensão do Azure Diagnostics
+# <a name="azure-diagnostics-extension-overview"></a>Descrição geral da extensão do Diagnóstico do Azure
 A extensão Azure Diagnostics é um [agente no Azure Monitor](agents-overview.md) que recolhe dados de monitorização do sistema operativo convidado de recursos compute da Azure, incluindo máquinas virtuais. Este artigo fornece uma visão geral da extensão do Azure Diagnostics, incluindo funcionalidade específica que suporta e opções de instalação e configuração. 
 
 > [!NOTE]
-> A extensão Azure Diagnostics é um dos agentes disponíveis para recolher dados de monitorização do sistema operativo de recursos computatórios dos hóspedes. Consulte [a visão geral dos agentes do Monitor Azure](agents-overview.md) para obter uma descrição dos diferentes agentes e orientações sobre a seleção dos agentes adequados para os seus requisitos.
+> A extensão Azure Diagnostics é um dos agentes disponíveis para recolher dados de monitorização do sistema operativo de recursos computatórios dos hóspedes. Consulte [a visão geral dos agentes do Monitor Azure ](agents-overview.md) para obter uma descrição dos diferentes agentes e orientações sobre a seleção dos agentes adequados para os seus requisitos.
 
 ## <a name="primary-scenarios"></a>Cenários principais
 Os cenários primários abordados pela extensão do diagnóstico são:
@@ -44,7 +44,7 @@ As tabelas que se seguem listam os dados que podem ser recolhidos pela extensão
 
 ### <a name="windows-diagnostics-extension-wad"></a>Extensão de diagnóstico do Windows (WAD)
 
-| Origem de Dados | Descrição |
+| Origem de dados | Descrição |
 | --- | --- |
 | Registos do Evento Windows   | Eventos do registo de eventos do Windows. |
 | Contadores de desempenho | Valores numéricos que medem o desempenho de diferentes aspetos do sistema operativo e cargas de trabalho. |
@@ -59,7 +59,7 @@ As tabelas que se seguem listam os dados que podem ser recolhidos pela extensão
 
 ### <a name="linux-diagnostics-extension-lad"></a>Extensão de diagnóstico linux (LAD)
 
-| Origem de Dados | Descrição |
+| Origem de dados | Descrição |
 | --- | --- |
 | Syslog | Eventos enviados para o sistema de registo de eventos Linux.   |
 | Contadores de desempenho  | Valores numéricos que medem o desempenho de diferentes aspetos do sistema operativo e cargas de trabalho. |

@@ -12,12 +12,12 @@ ms.date: 10/07/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: no local, Docker, contentor
-ms.openlocfilehash: 0ba479e8c73cb7b0f397f39124ec32d7b9afbf4f
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: c26c69a0f6cbf0f9f658d3b7a32cce99319767b4
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91813275"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91930446"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Instale e execute os recipientes Docker para as APIs do serviço de fala 
 
@@ -176,7 +176,7 @@ Todas as tags, com exceção `latest` das marcas, são no seguinte formato e sã
 A seguinte etiqueta é um exemplo do formato:
 
 ```
-2.4.0-amd64-en-us-preview
+2.5.0-amd64-en-us-preview
 ```
 
 Para todos os locais suportados do recipiente **discurso-a-texto,** consulte [as etiquetas de imagem discurso-a-texto](../containers/container-image-tags.md#speech-to-text).

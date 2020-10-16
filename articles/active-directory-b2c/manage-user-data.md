@@ -12,10 +12,10 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ms.openlocfilehash: b7cc772e2a2e44a72af5e47a794c8b0f36aa9786
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85387648"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Gerir os dados dos utilizadores no Azure Ative Directory B2C
@@ -57,6 +57,6 @@ No exemplo seguinte de um fluxo de dados de exportação, as etapas descritas co
 3. A aplicação recupera a atividade de auditoria do utilizador. A Microsoft Graph API fornece os dados do evento à aplicação.
 4. A aplicação agrega os dados e coloca-os à disposição do utilizador.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber como gerir a forma como os utilizadores acedem à sua aplicação, consulte [Gerir o acesso ao utilizador.](manage-user-access.md)

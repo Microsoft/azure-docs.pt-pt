@@ -13,10 +13,10 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 02/22/2019
 ms.openlocfilehash: 156a4c74eea24b20c28df88be85cb32c0ebe2981
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91617645"
 ---
 # <a name="determine-required-subnet-size--range-for-azure-sql-managed-instance"></a>Determinar o tamanho da sub-rede necessária & gama para Azure SQL Gestded Instance

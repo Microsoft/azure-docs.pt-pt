@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: normesta
 ms.openlocfilehash: 6d90b4b68f1f9f4a0fcd20c1d371a32759449fab
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91711391"
 ---
 | Propriedade | Descrição |
@@ -29,7 +29,7 @@ ms.locfileid: "91711391"
 |**solicitaçãoMd5** | O valor do cabeçalho **Content-MD5** ou do cabeçalho **x-ms-conteúdo-md5** no pedido. O valor de haxixe MD5 especificado neste campo representa o conteúdo do pedido. Por exemplo: `788815fd0198be0d275ad329cafd1830`. <br>Este campo pode estar vazio.  |
 |**servidorMd5** | O valor do haxixe MD5 calculado pelo serviço de armazenamento. Por exemplo: `3228b3cf1069a5489b298446321f8521`. <br>Este campo pode estar vazio.  |
 |**última Hora DaModified** | O último tempo modificado (LMT) para o objeto devolvido.  Por exemplo: `Tuesday, 09-Aug-11 21:13:26 GMT`. <br>Este campo está vazio para operações que podem devolver vários objetos. |
-|**condiçõesUs** | Uma lista separada de pares de valores-chave que representam uma condição. As condições podem ser qualquer uma das seguintes: <li> If-Modificado-Desde <li> Se-Não modificada-Desde <li> Se-Match <li> Se-Nenhum-Match  <br> Por exemplo: `If-Modified-Since=Friday, 05-Aug-11 19:11:54 GMT`. |
+|**condiçõesUs** | Uma lista separada de pares de valores-chave que representam uma condição. As condições podem ser qualquer uma das seguintes: <li> If-Modificado-Desde <li> Se-Não modificada-Desde <li> If-Match <li> Se-Nenhum-Match  <br> Por exemplo: `If-Modified-Since=Friday, 05-Aug-11 19:11:54 GMT`. |
 |**contentLengthHeader** | O valor do cabeçalho content-length para o pedido enviado para o serviço de armazenamento. Se o pedido tiver sido bem sucedido, este valor é igual ao pedido DoCorp. Se um pedido não for bem sucedido, este valor pode não ser igual ao pedido Dosize, ou pode estar vazio. |
 |**tlsVersion** | A versão TLS utilizada no âmbito do pedido. Por exemplo: `TLS 1.2`. |
 |**smbTreeConnectID** | A árvore do Bloco de Mensagens do Servidor (SMB) **ConnectId** estabelecida na hora de ligação à árvore. Por exemplo: `0x3` |

@@ -10,10 +10,10 @@ ms.author: rolyon
 ms.date: 09/22/2020
 ms.custom: generated
 ms.openlocfilehash: ade4a6b791a8aca963a056800bd8c58767aeb766
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91400099"
 ---
 # <a name="azure-resource-provider-operations"></a>Operações de fornecedor de recursos Azure
@@ -121,7 +121,7 @@ Clique no nome do fornecedor de recursos na tabela seguinte para ver a lista de 
 | [Microsoft.DevTestLab](#microsoftdevtestlab) |
 | [Microsoft.LabServices](#microsoftlabservices) |
 | [Microsoft.VisualStudio](#microsoftvisualstudio) |
-| **Migrate** |
+| **Migrar** |
 | [Microsoft.Migrate](#microsoftmigrate) |
 | [Microsoft.OffAzure](#microsoftoffazure) |
 | **Monitorizar** |
@@ -1421,7 +1421,7 @@ Serviço Azure: [Caixa de Dados Azure](../databox/index.yml)
 > | Microsoft.DataBox/operations/read | Listar ou obter as Operações |
 > | **DataAction** | **Descrição** |
 > | Microsoft.DataBox/register/action | Fornecedor de registo Microsoft.Databox |
-> | Microsoft.DataBox/unregister/action | Un-Register Provider Microsoft.Databox |
+> | Microsoft.DataBox/unregister/action | Un-Register Fornecedor Microsoft.Databox |
 > | Microsoft.DataBox/jobs/cancel/action | Cancela uma ordem em andamento. |
 > | Microsoft.DataBox/jobs/bookShipmentPickUp/action | Permite reservar uma recolha para envios de devolução. |
 > | Microsoft.DataBox/jobs/listCredentials/action | Lista as credenciais não encriptadas relacionadas com a encomenda. |
@@ -5053,8 +5053,8 @@ Serviço Azure: [Serviços Cognitivos](../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/NewsSearch/categorysearch/action | Devoluções de notícias para uma categoria fornecida. |
 > | Microsoft.CognitiveServices/accounts/NewsSearch/search/action | Obtenha notícias relevantes para uma determinada consulta. |
 > | Microsoft.CognitiveServices/accounts/NewsSearch/trendingtopics/action | Obtenha tópicos de tendência identificados por Bing. Estes são os mesmos tópicos mostrados no banner na parte inferior da página inicial de Bing. |
-> | Microsoft.CognitiveServices/accounts/QnAMaker/root/action | Criador de FAQ |
-> | Microsoft.CognitiveServices/accounts/QnAMaker.v2/root/action | Criador de FAQ |
+> | Microsoft.CognitiveServices/accounts/QnAMaker/root/action | QnA Maker |
+> | Microsoft.CognitiveServices/accounts/QnAMaker.v2/root/action | QnA Maker |
 > | Microsoft.CognitiveServices/accounts/QnAMaker.v2/alterações/read | Faça o download de alterações a partir do tempo de execução. |
 > | Microsoft.CognitiveServices/accounts/QnAMaker.v2/alterações/write | Substitua os dados de alterações. |
 > | Microsoft.CognitiveServices/accounts/QnAMaker.v2/endpointkeys/read | Obtém chaves de ponto final para um ponto final |
@@ -5667,7 +5667,7 @@ Serviço Azure: [API Management](../api-management/index.yml)
 > | Microsoft.ApiManagement/service/policyDscriptions/read | Lista todas as descrições políticas. |
 > | Microsoft.ApiManagement/service/policySnippets/read | Lista todos os cortes de política. |
 > | Microsoft.ApiManagement/service/portalSettings/read | Lista uma coleção de configurações do portal. ou obter iniciar definições para o Portal ou obter definições de inscrição para o Portal ou obter definições de delegação para o Portal. |
-> | Microsoft.ApiManagement/service/portalSettings/write | Atualizar as definições de Iniciar sposição. ou Criar ou atualizar as definições de iniciar sessão. ou Atualizar Definições de Inscrição ou Atualização Descreva as definições ou atualização das definições da Delegação. ou Criar ou atualizar as definições da delegação. |
+> | Microsoft.ApiManagement/service/portalSettings/write | Atualizar Sign-In definições. ou Criar ou atualizar as definições Sign-In. ou Atualizar Definições de Inscrição ou Atualização Descreva as definições ou atualização das definições da Delegação. ou Criar ou atualizar as definições da delegação. |
 > | Microsoft.ApiManagement/service/portalSettings/listSecrets/action | Obtém a chave de validação das definições da delegação do portal. ou obter conteúdo de conteúdo de mídia blob container uri. |
 > | Microsoft.ApiManagement/service/products/read | Lista uma recolha de produtos na instância de serviço especificada. ou obtém os detalhes do produto especificados pelo seu identificador. |
 > | Microsoft.ApiManagement/service/products/write | Cria ou Atualiza um produto. ou atualizar os detalhes do produto existentes. |
@@ -6287,8 +6287,8 @@ Serviço Azure: Azure Ative Directory
 > | microsoft.aadiam/diagnosticsettings/read | Ler uma definição de diagnóstico |
 > | microsoft.aadiam/diagnosticsettings/delete | Apagar uma definição de diagnóstico |
 > | microsoft.aadiam/diagnosticsettingscategories/read | Ler uma categoria de definição de diagnóstico |
-> | microsoft.aadiam/metricDefinitions/read | Leitura definições métricas de nível de inquilino |
-> | microsoft.aadiam/metrics/read | Métricas de Nível de Inquilino |
+> | microsoft.aadiam/metricDefinitions/read | Definições métricas de Tenant-Level leitura |
+> | microsoft.aadiam/metrics/read | Métricas de Tenant-Level leitura |
 > | microsoft.aadiam/privateLinkForAzureAD/read | Ler Definição de Política de Ligação Privada |
 > | microsoft.aadiam/privateLinkForAzureAD/write | Criar e atualizar a definição de política de ligação privada |
 > | microsoft.aadiam/privateLinkForAzureAD/delete | Eliminar definição de política de ligação privada |
@@ -6867,7 +6867,7 @@ Serviço Azure: [Azure DevOps](https://docs.microsoft.com/azure/devops/)
 > | Microsoft.VisualStudio/Project/Delete | Excluir Projeto |
 > | Microsoft.VisualStudio/Project/Read | Projeto ler |
 
-## <a name="migrate"></a>Migrate
+## <a name="migrate"></a>Migrar
 
 ### <a name="microsoftmigrate"></a>Microsoft.Migrate
 

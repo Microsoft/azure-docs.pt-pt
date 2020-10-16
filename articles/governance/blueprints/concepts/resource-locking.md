@@ -3,12 +3,12 @@ title: Compreender o bloqueio de recursos
 description: Saiba mais sobre as opções de bloqueio nas Plantas Azure para proteger os recursos ao atribuir uma planta.
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8ac5c918a3c370b9d8e88800e05f83e585550e3c
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 01f69cbfebe203407287392c2433181396b541b2
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91744020"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92095999"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Compreender o bloqueio de recursos em Azure Blueprints
 
@@ -39,7 +39,7 @@ Esta medida de segurança protege a consistência da planta definida e do ambien
 
 ### <a name="assign-at-management-group"></a>Atribuir no grupo de gestão
 
-Uma opção adicional para impedir que os proprietários de subscrição retirem uma atribuição de projeto é atribuir o projeto a um grupo de gestão. Neste cenário, **apenas os proprietários** do grupo de gestão têm as permissões necessárias para remover a atribuição do projeto.
+A única opção para impedir que os proprietários de subscrições retirem uma atribuição de projeto é atribuir o projeto a um grupo de gestão. Neste cenário, **apenas os proprietários** do grupo de gestão têm as permissões necessárias para remover a atribuição do projeto.
 
 Para atribuir o projeto a um grupo de gestão em vez de uma subscrição, a chamada de API REST muda para se parecer com isto:
 

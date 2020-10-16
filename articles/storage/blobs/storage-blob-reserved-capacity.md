@@ -1,19 +1,20 @@
 ---
-title: Otimizar os custos para o armazenamento blob com capacidade reservada - Azure Storage
+title: Otimizar os custos do Armazenamento de blobs com a capacidade reservada
+titleSuffix: Azure Storage
 description: Saiba mais sobre a compra da Azure Storage reservada capacidade para economizar custos em blob de bloco e recursos Azure Data Lake Storage Gen2.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 10/08/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: c06bbc412a51fc919b862aeb3f62ec58feec89cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf96906b0dab9a94febe83468f813c7cae0675b0
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84259206"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91874820"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Otimizar os custos do Armazenamento de blobs com a capacidade reservada
 
@@ -29,7 +30,7 @@ As secções seguintes descrevem os termos de uma reserva de armazenamento Azure
 
 ### <a name="reservation-capacity"></a>Capacidade de reserva
 
-Você pode comprar a capacidade reservada a Azure Storage em unidades de 100 TB e 1 PB por mês para um período de um ano ou três anos.
+Você pode comprar a capacidade reservada a Azure Storage em unidades de 100 TiB e 1 PiB por mês para um período de um ano ou três anos.
 
 ### <a name="reservation-scope"></a>Âmbito de reserva
 
@@ -62,7 +63,7 @@ Para adquirir a capacidade reservada:
 
 Ao adquirir uma reserva de Armazenamento Azure, deve escolher a região, o nível de acesso e a opção de redundância para a reserva. A sua reserva é válida apenas para os dados armazenados naquela região, nível de acesso e redundância. Por exemplo, suponha que você compra uma reserva de dados em EUA West para o nível quente usando armazenamento redundante de zona (ZRS). Não é possível utilizar a mesma reserva para dados no Us East, dados no nível de arquivo ou dados em armazenamento geo-redundante (GRS). No entanto, pode adquirir outra reserva para as suas necessidades adicionais.  
 
-As reservas estão disponíveis hoje para blocos de 100 TB ou 1 PB, com descontos mais elevados para 1 blocos PB. Ao adquirir uma reserva no portal Azure, a Microsoft poderá fornecer-lhe recomendações baseadas no seu uso anterior para ajudar a determinar que reserva deve comprar.
+As reservas estão disponíveis hoje para 100 blocos TiB ou 1 PiB, com descontos mais elevados para 1 blocos PiB. Ao adquirir uma reserva no portal Azure, a Microsoft poderá fornecer-lhe recomendações baseadas no seu uso anterior para ajudar a determinar que reserva deve comprar.
 
 ## <a name="purchase-azure-storage-reserved-capacity"></a>Comprar Capacidade reservada para armazenamento Azure
 
@@ -83,10 +84,10 @@ Siga estes passos para adquirir a capacidade reservada:
    |**Âmbito**   |  Indica quantas subscrições podem usar o benefício de faturação associado à reserva. Também controla a forma como a reserva é aplicada a subscrições específicas. <br/><br/> Se selecionar **Shared,** o desconto de reserva é aplicado à capacidade de Armazenamento Azure em qualquer subscrição dentro do seu contexto de faturação. O contexto de faturação baseia-se na forma como se inscreveu no Azure. Para os clientes empresariais, o âmbito partilhado é a inscrição e inclui todas as subscrições dentro da inscrição. Para os clientes pay-as-you-go, o âmbito partilhado inclui todas as subscrições individuais com taxas pay-as-you-go criadas pelo administrador da conta.  <br/><br/>  Se selecionar **uma subscrição única,** o desconto de reserva é aplicado à capacidade de Armazenamento Azure na subscrição selecionada. <br/><br/> Se selecionar **um grupo de recursos único,** o desconto de reserva é aplicado à capacidade de Armazenamento Azure na subscrição selecionada e ao grupo de recursos selecionado dentro dessa subscrição. <br/><br/> Pode alterar o âmbito da reserva depois de comprar a reserva.  |
    |**Subscrição**  | A subscrição que é usada para pagar a reserva de armazenamento Azure. O método de pagamento na subscrição selecionada é utilizado para cobrar os custos. A subscrição deve ser um dos seguintes tipos: <br/><br/>  Acordo de Empresa (números de oferta: MS-AZR-0017P ou MS-AZR-0148P): Para uma subscrição da Enterprise, os encargos são deduzidos do saldo de compromisso monetário da inscrição ou cobrados como excesso. <br/><br/> Subscrição individual com taxas pay-as-you-go (números de oferta: MS-AZR-0003P ou MS-AZR-0023P): Para uma subscrição individual com taxas pay-as-you-go, os encargos são cobrados no cartão de crédito ou método de pagamento de fatura na subscrição.    |
    | **Região** | A região onde a reserva está em vigor. |
-   | **Escalão de acesso** | O nível de acesso onde está em vigor a reserva. As opções incluem *Hot,* *Cool*ou *Archive*. Para obter mais informações sobre os níveis de acesso, consulte [o armazenamento Azure Blob: níveis de acesso quentes, frescos e de arquivo.](storage-blob-storage-tiers.md) |
+   | **Camada de acesso** | O nível de acesso onde está em vigor a reserva. As opções incluem *Hot,* *Cool*ou *Archive*. Para obter mais informações sobre os níveis de acesso, consulte [o armazenamento Azure Blob: níveis de acesso quentes, frescos e de arquivo.](storage-blob-storage-tiers.md) |
    | **Redundância** | A opção de despedimento para a reserva. As opções incluem *LRS*, *ZRS,* *GRS,* *GZRS,* *RA-GRS*e *RA-GZRS*. Para obter mais informações sobre as opções de despedimento, consulte [a redundância do Azure Storage](../common/storage-redundancy.md). |
    | **Frequência de faturação** | Indica com que frequência a conta é faturada para a reserva. As opções incluem *Mensal ou* *Inicial.* |
-   | **Tamanho** | A região onde a reserva está em vigor. |
+   | **Tamanho** | A quantidade de capacidade de reserva. |
    |**Termo**  | Um ano ou três anos.   |
 
 1. Depois de selecionar os parâmetros para a sua reserva, o portal Azure apresenta o custo. O portal também mostra a percentagem de descontos sobre a faturação paga.

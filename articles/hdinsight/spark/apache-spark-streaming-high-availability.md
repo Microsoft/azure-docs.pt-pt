@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
 ms.openlocfilehash: 2ec0bf460a73f95e18e2e9221e8cbd8d4e14ff77
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86086216"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>Criar empregos de streaming Apache Spark de alta disponibilidade com YARN
@@ -21,7 +21,7 @@ ms.locfileid: "86086216"
 
 O Spark Streaming cria trabalhos de longa duração durante os quais é capaz de aplicar transformações aos dados e, em seguida, empurrar os resultados para sistemas de ficheiros, bases de dados, dashboards e consola. O Spark Streaming processa micro-lotes de dados, recolhendo primeiro um lote de eventos ao longo de um intervalo de tempo definido. Em seguida, o lote é enviado para processamento e saída. Os intervalos de tempo do lote são tipicamente definidos em frações de segundo.
 
-![Streaming de Faíscas](./media/apache-spark-streaming-high-availability/apache-spark-streaming.png)
+![Transmissão em fluxo do Spark](./media/apache-spark-streaming-high-availability/apache-spark-streaming.png)
 
 ## <a name="dstreams"></a>DStreams
 
@@ -117,10 +117,10 @@ Para resumir, utilizando o checkpoint + RECETORES WAL + confiáveis, poderá for
     // to be able to recover on restart, store all offsets in an external database
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Visão geral do fluxo de faíscas de Apache Spark](apache-spark-streaming-overview.md)
 * [Crie empregos em streaming de Faíscas Apache Com processamento de eventos exatamente uma vez](apache-spark-streaming-exactly-once.md)
 * [Empregos de streaming apache spark de longa duração em YARN](https://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/)
 * [Streaming Estruturado: Semântica Tolerante a Falhas](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics)
-* [Streams descrentes: um modelo tolerante a falhas para processamento de fluxo escalável](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf)
+* [Streams discretizados: um modelo Fault-Tolerant para processamento de fluxo escalável](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf)

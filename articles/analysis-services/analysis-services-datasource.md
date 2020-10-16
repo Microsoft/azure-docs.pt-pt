@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b99ac957c9c5030b484b244223847be4aa53a39d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 174ad4692d043390e6773a98e31f0985d75c8e2e
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749083"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018819"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Data sources supported in Azure Analysis Services (Origens de dados suportadas no Azure Analysis Services)
 
@@ -22,15 +22,15 @@ As fontes de dados e conectores mostrados no Get Data ou no Table Import Wizard 
 
 |Origem de dados  |Dentro da memória  |DirectQuery  |Notas |
 |---------|---------|---------|---------|
-|Base de Dados SQL do Azure      |   Yes      |    Yes      |<sup>[2,](#azprovider)</sup> <sup> [3](#azsqlmanaged)</sup>|
-|Azure Synapse Analytics (SQL DW)      |   Yes      |   Yes       |<sup>[2](#azprovider)</sup>|
-|Armazenamento de Blobs do Azure      |   Sim       |    No      | <sup>[1](#tab1400a)</sup> |
-|Armazenamento de Tabelas do Azure     |   Sim       |    No      | <sup>[1](#tab1400a)</sup>|
-|Azure Cosmos DB     |  Sim        |  No        |<sup>[1](#tab1400a)</sup> |
-|Azure Data Lake Store Gen1      |   Sim       |    No      |<sup>[1](#tab1400a)</sup> |
-|Azure Data Lake Store Gen2       |   Sim       |    No      |<sup>[1,](#tab1400a)</sup> <sup> [5](#gen2)</sup>|
-|Azure HDInsight HDFS    |     Sim     |   No       |<sup>[1](#tab1400a)</sup> |
-|Azure HDInsight Spark     |   Sim       |   No       |<sup>[1,](#tab1400a)</sup> <sup> [4](#databricks)</sup>|
+|Base de Dados SQL do Azure      |   Sim      |    Sim      |<sup>[2,](#azprovider)</sup> <sup> [3](#azsqlmanaged)</sup>|
+|Azure Synapse Analytics (SQL DW)      |   Sim      |   Sim       |<sup>[2](#azprovider)</sup>|
+|Armazenamento de Blobs do Azure      |   Yes       |    Não      | <sup>[1](#tab1400a)</sup> |
+|Armazenamento de Tabelas do Azure     |   Sim       |    Não      | <sup>[1](#tab1400a)</sup>|
+|Azure Cosmos DB     |  Sim        |  Não        |<sup>[1](#tab1400a)</sup> |
+|Azure Data Lake Store Gen1      |   Sim       |    Não      |<sup>[1](#tab1400a)</sup> |
+|Azure Data Lake Store Gen2       |   Sim       |    Não      |<sup>[1,](#tab1400a)</sup> <sup> [5](#gen2)</sup>|
+|Azure HDInsight HDFS    |     Yes     |   Não       |<sup>[1](#tab1400a)</sup> |
+|Azure HDInsight Spark     |   Sim       |   Não       |<sup>[1,](#tab1400a)</sup> <sup> [4](#databricks)</sup>|
 ||||
 
 **Notas:**
@@ -46,40 +46,40 @@ As fontes de dados e conectores mostrados no Get Data ou no Table Import Wizard 
 |Origem de dados | Dentro da memória | DirectQuery |Notas   |
 |  --- | --- | --- | --- |
 |Base de Dados do Access     |  Yes | Não |  |
-|Active Directory     |  Yes | No | <sup>[6](#tab1400b)</sup>  |
-|Analysis Services     |  Sim | No |  |
-|Sistema de Plataformas analíticas     |  Sim | No |  |
-|Ficheiro CSV  |Sim | No |  |
-|Dynamics 365     |  Sim | No | <sup>[6](#tab1400b)</sup> |
-|Livro do Excel     |  Sim | No |  |
-|Troca      |  Sim | No | <sup>[6](#tab1400b)</sup> |
-|Pasta      |Sim | No | <sup>[6](#tab1400b)</sup> |
-|IBM Informix  |Sim | No |  |
-|Documento JSON      |  Sim | No | <sup>[6](#tab1400b)</sup> |
-|Linhas do binário      | Sim | No | <sup>[6](#tab1400b)</sup> |
+|Active Directory     |  Yes | Não | <sup>[6](#tab1400b)</sup>  |
+|Analysis Services     |  Sim | Não |  |
+|Sistema de Plataformas analíticas     |  Sim | Não |  |
+|Ficheiro CSV  |Sim | Não |  |
+|Dynamics 365     |  Yes | Não | <sup>[6](#tab1400b)</sup> |
+|Livro do Excel     |  Sim | Não |  |
+|Troca      |  Yes | Não | <sup>[6](#tab1400b)</sup> |
+|Pasta      |Sim | Não | <sup>[6](#tab1400b)</sup> |
+|IBM Informix  |Sim | Não |  |
+|Documento JSON      |  Sim | Não | <sup>[6](#tab1400b)</sup> |
+|Linhas do binário      | Sim | Não | <sup>[6](#tab1400b)</sup> |
 |Base de Dados MySQL     | Yes | Não |  |
-|Feed OData      |  Yes | No | <sup>[6](#tab1400b)</sup> |
+|Feed OData      |  Yes | Não | <sup>[6](#tab1400b)</sup> |
 |Consulta ODBC     | Sim | Não |  |
-|OLEDB     |   Sim | No |  |
-|Oracle  | Sim  |Yes  | <sup>[9](#oracle)</sup> |
-|Base de Dados PostgreSQL   | Yes | No | <sup>[6](#tab1400b)</sup> |
-|Objetos do Salesforce|  Sim | No | <sup>[6](#tab1400b)</sup> |
-|Relatórios do Salesforce |Sim | No | <sup>[6](#tab1400b)</sup> |
-|SAP HANA     |  Sim | No |  |
-|SAP Business Warehouse    |  Sim | No | <sup>[6](#tab1400b)</sup> |
-|Lista do SharePoint      |   Sim | No | <sup>[6](#tab1400b)</sup>, <sup> [11](#filesSP)</sup> |
+|OLEDB     |   Yes | Não |  |
+|Oracle  | Sim  |Sim  | <sup>[9](#oracle)</sup> |
+|Base de Dados PostgreSQL   | Yes | Não | <sup>[6](#tab1400b)</sup> |
+|Objetos do Salesforce|  Sim | Não | <sup>[6](#tab1400b)</sup> |
+|Relatórios do Salesforce |Sim | Não | <sup>[6](#tab1400b)</sup> |
+|SAP HANA     |  Sim | Não |  |
+|SAP Business Warehouse    |  Yes | Não | <sup>[6](#tab1400b)</sup> |
+|Lista do SharePoint      |   Sim | Não | <sup>[6](#tab1400b)</sup>, <sup> [11](#filesSP)</sup> |
 |SQL Server |Sim   | Yes  | <sup>[7,](#sqlim)</sup> <sup> [8](#instgw)</sup> |
-|Armazém de dados do sql server |Yes   | Yes  | <sup>[7,](#sqlim)</sup> <sup> [8](#instgw)</sup> |
+|Armazém de dados do sql server |Sim   | Yes  | <sup>[7,](#sqlim)</sup> <sup> [8](#instgw)</sup> |
 |Base de Dados Sybase     |  Yes | Não |  |
-|Teradata | Yes  | Yes  | <sup>[10](#teradata)</sup> |
-|Ficheiro TXT  |Sim | No |  |
-|Mesa XML    |  Sim | No | <sup>[6](#tab1400b)</sup> |
+|Teradata | Sim  | Yes  | <sup>[10](#teradata)</sup> |
+|Ficheiro TXT  |Sim | Não |  |
+|Mesa XML    |  Yes | Não | <sup>[6](#tab1400b)</sup> |
 | | | |
 
 **Notas:**  
 <a name="tab1400b">6</a> - Tabular 1400 e apenas modelos mais altos.  
 <a name="sqlim">7</a> - Quando especificado como fonte de dados *do fornecedor* em modelos tabulares 1200 e mais altos, especifique o Controlador DB do Microsoft OLE para o SQL Server MSOLEDBSQL (recomendado), o SQL Server Native Client 11.0 ou .NET Framework Data Provider para o SQL Server.  
-<a name="instgw">8</a> - Se especificar o MSOLEDBSQL como fornecedor de dados, poderá ser necessário descarregar e instalar o [Controlador DB do Microsoft OLE para](https://docs.microsoft.com/sql/connect/oledb/oledb-driver-for-sql-server) o SQL Server no mesmo computador que o gateway de dados no local.  
+<a name="instgw">8</a> - Se especificar o MSOLEDBSQL como fornecedor de dados, poderá ser necessário descarregar e instalar o [Controlador DB do Microsoft OLE para](/sql/connect/oledb/oledb-driver-for-sql-server) o SQL Server no mesmo computador que o gateway de dados no local.  
 <a name="oracle">9</a> - Para modelos tabulares 1200, ou como fonte de dados *do fornecedor* nos modelos tabulares de 1400+ especifique o Oracle Data Provider para .NET. Se especificado como uma fonte de dados estruturada, certifique-se de que permite o [fornecedor gerido pela Oracle](#enable-oracle-managed-provider).   
 <a name="teradata">10</a> - Para modelos tabulares 1200, ou como fonte de dados *do fornecedor* nos modelos tabulares de 1400+ especifique o Fornecedor de Dados teradata para .NET.  
 <a name="filesSP">11</a> - Os ficheiros nas instalações do SharePoint não são suportados.

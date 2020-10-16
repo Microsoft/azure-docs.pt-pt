@@ -4,10 +4,10 @@ description: Live Video Analytics on IoT Edge expõe vários métodos diretos. O
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: ed7cec7b8513044c2bf9b24600b8d9f42a485aae
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87091832"
 ---
 # <a name="direct-methods"></a>Métodos diretos
@@ -112,7 +112,7 @@ Erro de validações detalhadas, como validações de módulos de gráfico, são
 
 Este método direto recupera uma topologia de gráfico único.
 
-#### <a name="request"></a>Pedido
+#### <a name="request"></a>Pedir
 
 ```
 {
@@ -160,7 +160,7 @@ Aspectos-chave:
     * Os parâmetros removidos não são referenciados por nenhum gráfico
 * Atualizações de topologia não são permitidas se houver gráficos ativos
 
-#### <a name="request"></a>Pedido
+#### <a name="request"></a>Pedir
 
 ```
 {
@@ -204,7 +204,7 @@ Erros gerais do servidor   |Gama 500  ||
 
 Elimina uma topologia de um único gráfico.
 
-#### <a name="request"></a>Pedido
+#### <a name="request"></a>Pedir
 
 ```
 {
@@ -239,7 +239,7 @@ Elimina uma topologia de um único gráfico.
 
 Recupera uma lista de todas as topologias de gráficos que correspondem aos critérios do filtro.
 
-#### <a name="request"></a>Pedido
+#### <a name="request"></a>Pedir
 
 ```
 {
@@ -295,7 +295,7 @@ Recupera uma lista de todas as topologias de gráficos que correspondem aos crit
 
 Recupera uma única instância de gráfico:
 
-#### <a name="request"></a>Pedido
+#### <a name="request"></a>Pedir
 
 ```
 {
@@ -342,7 +342,7 @@ Aspectos-chave:
 * As atualizações de instâncias de gráfico são parcialmente restritas enquanto o gráfico não está no estado "Inativo".
 * As atualizações de instâncias de gráfico não são permitidas em gráficos ativos.
 
-#### <a name="request"></a>Pedido
+#### <a name="request"></a>Pedir
 
 ```
 {
@@ -391,7 +391,7 @@ Aspectos-chave:
 
 * Apenas gráficos desativados podem ser eliminados.
 
-#### <a name="request"></a>Pedido
+#### <a name="request"></a>Pedir
 
 ```
 {
@@ -427,7 +427,7 @@ Aspectos-chave:
 Isto é semelhante ao GraphTopologyList. Permite a utilização para enumerar as instâncias do gráfico.
 Recupera uma lista de todos os casos de gráficos que correspondem aos critérios do filtro.
 
-#### <a name="request"></a>Pedido
+#### <a name="request"></a>Pedir
 
 ```
 {
@@ -493,7 +493,7 @@ Aspectos-chave
     * Iniciar um gráfico no estado de "Ativação" comporta-se da mesma forma que se o gráfico foi desativado (isto é: blocos de chamadas até que o gráfico seja ativado)
     * Ativar um gráfico no estado "Ative" regressa imediatamente com sucesso.
 
-#### <a name="request"></a>Pedido
+#### <a name="request"></a>Pedir
 
 ```
 {
@@ -542,7 +542,7 @@ Aspectos-chave:
     * Desativar um gráfico sobre o estado de "Desativar" comporta-se da mesma forma que se o gráfico fosse desativado (isto é: blocos de chamadas até que o gráfico seja desativado)
     * Desativar um gráfico no estado "Inativo" regressa imediatamente com sucesso.
 
-#### <a name="request"></a>Pedido
+#### <a name="request"></a>Pedir
 
 ```
 {

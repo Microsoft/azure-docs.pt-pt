@@ -6,12 +6,12 @@ ms.subservice: shared-capabilities
 ms.date: 01/13/2020
 ms.topic: conceptual
 ms.custom: has-adal-ref
-ms.openlocfilehash: 39085aa7967ffeac3416b61f32146ac023b46dfe
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 0a3cff616f814b8e5209b15f9d3f7439533452ca
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186661"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071766"
 ---
 # <a name="manage-connections-in-azure-automation"></a>Gerir ligações na Azure Automation
 
@@ -31,9 +31,9 @@ Quando criar uma ligação, deve especificar um tipo de ligação. O tipo de lig
 
 A Azure Automation disponibiliza os seguintes tipos de ligação incorporados:
 
-* `Azure`- Representa uma ligação usada para gerir recursos clássicos.
-* `AzureServicePrincipal`- Representa uma ligação utilizada pela conta Azure Run As.
-* `AzureClassicCertificate`- Representa uma ligação utilizada pela conta clássica Azure Run As.
+* `Azure` - Representa uma ligação usada para gerir recursos clássicos.
+* `AzureServicePrincipal` - Representa uma ligação utilizada pela conta Azure Run As.
+* `AzureClassicCertificate` - Representa uma ligação utilizada pela conta clássica Azure Run As.
 
 Na maioria dos casos, não precisa de criar um recurso de ligação porque é criado quando cria uma [conta Run As](manage-runas-account.md).
 
@@ -54,7 +54,7 @@ O cmdlet interno na tabela seguinte é utilizado para aceder a ligações nos se
 
 |Cmdlet Interno|Descrição|
 |---|---|
-|`Get-AutomationConnection` | Recupera os valores dos diferentes campos na ligação e devolve-os como um [haxixe.](https://go.microsoft.com/fwlink/?LinkID=324844) Em seguida, pode utilizar este haxixe com os comandos apropriados na configuração do runbook ou DSC.|
+|`Get-AutomationConnection` | Recupera os valores dos diferentes campos na ligação e devolve-os como um [haxixe.](/powershell/module/microsoft.powershell.core/about/about_hash_tables) Em seguida, pode utilizar este haxixe com os comandos apropriados na configuração do runbook ou DSC.|
 
 >[!NOTE]
 >Evite utilizar variáveis com o `Name` parâmetro de `Get-AutomationConnection` . A utilização de variáveis neste caso pode complicar a descoberta de dependências entre runbooks ou configurações DSC e ativos de conexão no momento do design.

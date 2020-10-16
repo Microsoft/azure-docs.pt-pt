@@ -2,19 +2,17 @@
 title: Parâmetros de recursos de livros do Azure Monitor
 description: Aprenda a usar parâmetros de recursos para permitir a recolha de recursos em livros de trabalho. Utilize os parâmetros de recurso para definir o âmbito a partir do qual os dados são retirados.
 services: azure-monitor
-author: mrbullwinkle
 manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.author: mbullwin
-ms.openlocfilehash: a4d4e095e065e9f505ba1b9b46f0d31fb1783eb2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0d16844315ce0adefcac9dc815640d4444df28b
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "90972853"
+ms.locfileid: "91932333"
 ---
 # <a name="workbook-resource-parameters"></a>Parâmetros de recursos do livro
 

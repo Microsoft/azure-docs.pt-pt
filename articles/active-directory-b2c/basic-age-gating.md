@@ -11,10 +11,10 @@ ms.date: 11/13/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 6bd93f9062f8446ce20436a7a04e2054aaf5be71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85386136"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Ativar a idade gating em Azure Ative Directory B2C
@@ -33,19 +33,19 @@ A idade envolve dois valores de idade: a idade em que alguém já não é consid
 
 | País/Região | Nome país/região | Idade de consentimento menor | Idade menor |
 | -------------- | ------------------- | ----------------- | --------- |
-| Predefinição | Nenhuma | Nenhuma | 18 |
-| AE | Emirados Árabes Unidos | Nenhuma | 21 |
+| Predefinição | Nenhum | Nenhum | 18 |
+| AE | Emirados Árabes Unidos | Nenhum | 21 |
 | AT | Áustria | 14 | 18 |
 | BE | Bélgica | 14 | 18 |
 | BG | Bulgária | 16 | 18 |
-| BH | Barém | Nenhuma | 21 |
-| CM | Camarões | Nenhuma | 21 |
+| BH | Barém | Nenhum | 21 |
+| CM | Camarões | Nenhum | 21 |
 | CY | Chipre | 16 | 18 |
 | CZ | República Checa | 16 | 18 |
 | DE | Alemanha | 16 | 18 |
 | DK | Dinamarca | 16 | 18 |
 | EE | Estónia | 16 | 18 |
-| EG | Egito | Nenhuma | 21 |
+| EG | Egito | Nenhum | 21 |
 | ES | Espanha | 13 | 18 |
 | FR | França | 16 | 18 |
 | GB | Reino Unido | 13 | 18 |
@@ -59,18 +59,18 @@ A idade envolve dois valores de idade: a idade em que alguém já não é consid
 | LU | Luxemburgo | 16 | 18 |
 | LV | Letónia | 16 | 18 |
 | MT | Malta | 16 | 18 |
-| ND | Namíbia | Nenhuma | 21 |
+| ND | Namíbia | Nenhum | 21 |
 | NL | Países Baixos | 16 | 18 |
 | PL | Polónia | 13 | 18 |
 | PT | Portugal | 16 | 18 |
 | RO | Roménia | 16 | 18 |
 | SE | Suécia | 13 | 18 |
-| SG | Singapura | Nenhuma | 21 |
+| SG | Singapura | Nenhum | 21 |
 | SI | Eslovénia | 16 | 18 |
 | SK | Eslováquia | 16 | 18 |
-| DT | Chade | Nenhuma | 21 |
-| TH | Tailândia | Nenhuma | 20 |
-| TW | Taiwan | Nenhuma | 20 |
+| DT | Chade | Nenhum | 21 |
+| TH | Tailândia | Nenhum | 20 |
+| TW | Taiwan | Nenhum | 20 |
 | EUA | Estados Unidos da América | 13 | 18 |
 
 ## <a name="age-gating-options"></a>Opções de gating idade

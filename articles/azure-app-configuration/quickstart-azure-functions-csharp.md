@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: b62bf900e3e7859437b10b7b45801ee0dc575282
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 24620351cdd831ec5079e1f37726b2aa65339205
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767769"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075863"
 ---
 # <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>Quickstart: Criar uma app Azure Functions com Configuração de Aplicações Azure
 
@@ -114,13 +114,13 @@ Neste arranque rápido, incorpora o serviço de Configuração de Aplicações A
 
     ![Quickstart Function lançar local](./media/quickstarts/dotnet-core-function-launch-local.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste quickstart, criou uma nova loja de Configuração de Aplicações e utilizou-a com uma aplicação Azure Functions através do fornecedor de Configuração de [Aplicações.](https://go.microsoft.com/fwlink/?linkid=2074664) Para aprender a configurar a sua app Azure Functions para atualizar dinamicamente as definições de configuração, continue para o próximo tutorial.
+Neste quickstart, criou uma nova loja de Configuração de Aplicações e utilizou-a com uma aplicação Azure Functions através do fornecedor de Configuração de [Aplicações.](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration) Para aprender a configurar a sua app Azure Functions para atualizar dinamicamente as definições de configuração, continue para o próximo tutorial.
 
 > [!div class="nextstepaction"]
 > [Ativar a configuração dinâmica](./enable-dynamic-configuration-azure-functions-csharp.md)

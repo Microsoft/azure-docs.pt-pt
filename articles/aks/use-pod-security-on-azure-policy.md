@@ -5,18 +5,18 @@ services: container-service
 ms.topic: article
 ms.date: 09/22/2020
 author: jluk
-ms.openlocfilehash: fd4f79e0cae5028e4bbaa8a4f5115d5a767dcf54
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: a1fafdf1db29917982bbf136de45237459712bcd
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91368860"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073466"
 ---
-# <a name="secure-pods-with-azure-policy"></a>Cápsulas seguras com política Azure
+# <a name="secure-pods-with-azure-policy"></a>Proteger pods com o Azure Policy
 
 Para melhorar a segurança do seu cluster AKS, pode controlar as funções que as cápsulas são concedidas e se alguma coisa está a correr contra a política da empresa. Este acesso é definido através de políticas incorporadas fornecidas pelo [Azure Policy Add-on for AKS][kubernetes-policy-reference]. Ao fornecer um controlo adicional sobre os aspetos de segurança da especificação da sua cápsula, como privilégios de raiz, permite uma maior adesão e visibilidade à segurança do que é implantado no seu cluster. Se uma cápsula não cumprir as condições especificadas na apólice, a Azure Policy pode não permitir que a cápsula inicie ou sinalize uma violação. Este artigo mostra-lhe como usar a Política Azure para limitar a implantação de cápsulas em AKS.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 
@@ -336,7 +336,7 @@ Para obter mais informações sobre a limitação do tráfego da rede de [cápsu
 [policy-recommendations]: ../governance/policy/concepts/policy-for-kubernetes.md
 [policy-limitations]: ../governance/policy/concepts/policy-for-kubernetes.md?#limitations
 [kubernetes-policy-reference]: ../governance/policy/concepts/policy-for-kubernetes.md
-[policy-samples]: policy-samples.md#microsoftcontainerservice
+[policy-samples]: ./policy-reference.md#microsoftcontainerservice
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli

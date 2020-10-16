@@ -8,10 +8,10 @@ ms.date: 07/01/2020
 author: parthpandyaMSFT
 ms.author: parthp
 ms.openlocfilehash: 96a11caa93a925731ad2f24ac860b21301a29cdf
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708191"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Criar uma conta de mercado comercial no Partner Center
@@ -24,7 +24,7 @@ Para publicar as suas ofertas no [Azure Marketplace](https://azuremarketplace.mi
 >[!IMPORTANT]
 >Se tivesse uma conta no Portal do Parceiro Cloud (CPP), mudámo-la para o Partner Center; não precisa criar uma nova conta. Para mais informações, consulte [para as editoras que se mudaram do Portal do Parceiro Cloud.](#for-publishers-who-moved-from-the-cloud-partner-portal)
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Para criar uma conta no Partner Center, certifique-se de que tem:
 
@@ -188,7 +188,7 @@ Utilizadores adicionais do mesmo inquilino do Azure Ative Directory podem adicio
 
 Depois de concluído este processo, pode gerir a editora recém-criada indo para a conta de marketplace comercial que está listada no painel esquerdo. Se não vir a conta do mercado comercial, refresque a página. A nova editora aparece na lista dos **Editores.**
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - [O que é o mercado comercial da Microsoft?](../overview.md)
 - [Gerir a sua conta de mercado comercial no Partner Center](./manage-account.md)

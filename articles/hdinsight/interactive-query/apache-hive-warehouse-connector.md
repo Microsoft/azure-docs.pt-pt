@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
 ms.openlocfilehash: 24968511d038b2cea41a59187c0a361684c6720e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86511896"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-hive-warehouse-connector-in-azure-hdinsight"></a>Integre a Faísca Apache e a Colmeia Apache com o Conector do Armazém da Colmeia em Azure HDInsight
@@ -78,7 +78,7 @@ O Conector do Armazém da Colmeia necessita de aglomerados separados para cargas
     |`spark.datasource.hive.warehouse.load.staging.dir`|`wasbs://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp`. <br> Coloque-se num diretório adequado compatível com HDFS. Se tiver dois clusters diferentes, o diretório de encenação deve ser uma pasta no diretório de encenação da conta de armazenamento do cluster LLAP para que a HiveServer2 tenha acesso ao mesmo.  `STORAGE_ACCOUNT_NAME`Substitua-o pelo nome da conta de armazenamento utilizada pelo cluster e `STORAGE_CONTAINER_NAME` pelo nome do recipiente de armazenamento. |
     |`spark.sql.hive.hiveserver2.jdbc.url`| O valor que obteve anteriormente da **HiveServer2 Interactive JDBC URL** |
     |`spark.datasource.hive.warehouse.metastoreUri`| O valor que obteve anteriormente da **hive.metastore.uris**. |
-    |`spark.security.credentials.hiveserver2.enabled`|`true`para o modo de cluster YARN e `false` para o modo cliente YARN. |
+    |`spark.security.credentials.hiveserver2.enabled`|`true` para o modo de cluster YARN e `false` para o modo cliente YARN. |
     |`spark.hadoop.hive.zookeeper.quorum`| O valor que obteve anteriormente de **hive.zookeeper.qurum**. |
     |`spark.hadoop.hive.llap.daemon.service.hosts`| O valor que obteve anteriormente de **hive.llap.daemon.service.hosts**. |
 
@@ -224,7 +224,7 @@ kinit USERNAME
 
     ![mesa de demonstração depois de aplicar a política ranger](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-after-ranger-policy.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Operações do HWC e do Apache Spark](./apache-hive-warehouse-connector-operations.md)
 * [Utilizar uma Consulta Interativa com o HDInsight](./apache-interactive-query-get-started.md).

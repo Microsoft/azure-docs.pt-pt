@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
 ms.openlocfilehash: 7676f4aeeb9485ce5e3a702027884bc54d79a863
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87387324"
 ---
 # <a name="use-synapse-studio-to-monitor-your-workspace-pipeline-runs"></a>Use o Synapse Studio para monitorizar as suas corridas de gasodutos de espaço de trabalho
@@ -50,6 +50,6 @@ Por exemplo, pode filtrar a vista para ver apenas o gasoduto correr para o gasod
 
 Para ver detalhes sobre o seu percurso de gasoduto, selecione o curso do gasoduto. Em seguida, ver a atividade funciona associada à corrida do gasoduto. Se o oleoduto ainda estiver a funcionar, pode monitorizar o progresso. 
   
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre aplicações de monitorização, consulte o artigo [de aplicações monitor Apache Spark.](how-to-monitor-spark-applications.md) 

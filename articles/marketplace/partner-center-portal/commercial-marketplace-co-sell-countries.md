@@ -8,13 +8,13 @@ author: palanis-MSFT
 ms.author: palanis
 ms.date: 08/27/2019
 ms.openlocfilehash: e8d952c76fa71cb57d2edd7c9aa361c7249e0622
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86105137"
 ---
-# <a name="co-sell-country-and-region-codes"></a>Co-vender códigos de país e de região
+# <a name="co-sell-country-and-region-codes"></a>Códigos de país e região de venda conjunta
 
 Utilize estes códigos de país/região de duas letras ao [fornecer informações de contacto na página de co-venda da sua oferta.](commercial-marketplace-co-sell.md)
 
@@ -275,6 +275,6 @@ Se um contacto abranger mais de um País/Região, insira cada um dos dois códig
 | Zimbabué                            | ZW        |
 |   |   |   |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a [opção de co-venda no Partner Center.](./commercial-marketplace-co-sell.md)

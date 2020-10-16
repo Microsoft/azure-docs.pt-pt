@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/14/2017
 ms.author: seanmck
 ms.openlocfilehash: 793a8f291be4fcca6fad19d486849253dddc089f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84754505"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Implemente a sua primeira aplicação para Cloud Foundry no Microsoft Azure
@@ -133,7 +133,7 @@ cf scale -i 2 hello-spring-cloud
 Executar o `cf app` comando na aplicação mostra que cloud Foundry está a criar outro exemplo da aplicação. Uma vez iniciada a aplicação, a Cloud Foundry começa automaticamente a carregar o tráfego de equilíbrio.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Leia a documentação da Cloud Foundry][cloudfoundry-docs]
 - [Configurar o plugin de serviços Azure DevOps para Cloud Foundry][vsts-plugin]

@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: A sua primeira consulta de portal'
 description: Neste arranque rápido, siga os passos para executar a sua primeira consulta a partir do portal Azure usando o Azure Resource Graph Explorer.
-ms.date: 08/10/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 4d68366005ad6379669d29fb8264f78d1b8f4972
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b5f5203b3842ebc3edbd97bca1ca3c101f47e397
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88056385"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057387"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Quickstart: Executar a sua primeira consulta de gráfico de recurso usando O Explorador de Gráficos de Recursos Azure
 
@@ -51,7 +51,7 @@ O navegador schema é uma ótima maneira de descobrir propriedades para uso em c
 
 ## <a name="create-a-chart-from-the-resource-graph-query"></a>Criar um gráfico a partir da consulta de gráfico de recurso
 
-Depois de executar a última consulta acima, se selecionar o **separador Charts,** obtém uma mensagem de que "o conjunto de resultados não é compatível com uma visualização de gráficos de tartes". As consultas que listam resultados não podem ser feitas num gráfico, mas consultas que fornecem contagens de recursos podem. Utilizando a [consulta de amostra - Conte máquinas virtuais por tipo DE,](./samples/starter.md#count-os)vamos criar uma visualização a partir da consulta de Gráfico de Recurso.
+Depois de executar a consulta anterior, se selecionar o **separador Charts,** obtém uma mensagem de que "o conjunto de resultados não é compatível com uma visualização de gráficos de tartes". As consultas que listam resultados não podem ser feitas num gráfico, mas consultas que fornecem contagens de recursos podem. Utilizando a [consulta de amostra - Conte máquinas virtuais por tipo DE,](./samples/starter.md#count-os)vamos criar uma visualização a partir da consulta de Gráfico de Recurso.
 
 1. Na **parte da janela de consulta 1,** introduza a seguinte consulta e selecione **consulta de execução**.
 
@@ -67,7 +67,7 @@ Depois de executar a última consulta acima, se selecionar o **separador Charts,
 
 ## <a name="pin-the-query-visualization-to-a-dashboard"></a>Fixar a visualização de consulta a um painel de instrumentos
 
-Quando tiver resultados de uma consulta que pode ser visualizada, essa visualização de dados pode então ser fixada a um dos seus dashboards. Depois de executar a consulta acima, siga estes passos:
+Quando tiver resultados de uma consulta que pode ser visualizada, essa visualização de dados pode então ser fixada a um dos seus dashboards. Depois de executar a consulta anterior, siga estes passos:
 
 1. **Selecione Guardar** e fornecer o nome "VMs by OS Type". Em seguida, **selecione Guarde** na parte inferior do painel direito.
 

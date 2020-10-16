@@ -4,10 +4,10 @@ description: Este artigo mostra-lhe como pode utilizar automaticamente a atualiz
 ms.topic: how-to
 ms.date: 09/15/2020
 ms.openlocfilehash: 0a72cc991e768a7bed01762d984cc56238ae0ad0
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90984682"
 ---
 # <a name="automatically-update-messaging-units-of-an-azure-service-bus-namespace"></a>Atualizar automaticamente as unidades de mensagens de um espaço de nomes do Azure Service Bus 
@@ -45,7 +45,7 @@ Esta definição permite-lhe definir um número fixo de unidades de mensagens pa
 1. Para **a definição de unidades de mensagens,** selecione o número de unidades de mensagens da lista de recuos.
 1. **Selecione Guarde** na barra de ferramentas para guardar a definição. 
 
-    :::image type="content" source="./media/automate-update-messaging-units/manual-scale.png" alt-text="Unidades de mensagens de escala manual":::       
+    :::image type="content" source="./media/automate-update-messaging-units/manual-scale.png" alt-text="Espaço de nome de ônibus de serviço - página de escala":::       
 
 
 ## <a name="custom-autoscale---default-condition"></a>Autoescala personalizada - Condição padrão
@@ -64,14 +64,14 @@ O procedimento a seguir mostra como adicionar uma condição para aumentar autom
 1. Selecione **Escala com base numa métrica** para o modo **escala**. 
 1. **Selecione + Adicione uma regra**. 
 
-    :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-add-rule-link.png" alt-text="Padrão - escala baseada numa métrica":::    
+    :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-add-rule-link.png" alt-text="Espaço de nome de ônibus de serviço - página de escala":::    
 1. Na página **da regra escala,** siga estes passos:
     1. Selecione uma métrica da lista de drop-down de **nome métrico.** Neste exemplo, é **CPU.** 
     1. Selecione um operador e valores de limiar. Neste exemplo, são **maiores do que** **75** para o **limiar métrico desencadear uma ação de escala.** 
     1. Selecione uma **operação** na secção **Ação.** Neste exemplo, está definido para **Aumentar.** 
     1. Em seguida, **selecione Adicionar**
     
-        :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-75.png" alt-text="Padrão - escalone se o uso do CPU for superior a 75%":::       
+        :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-75.png" alt-text="Espaço de nome de ônibus de serviço - página de escala":::       
 
         > [!NOTE]
         > A funcionalidade de autoescala aumenta as unidades de mensagens para o espaço de nome se o uso global do CPU for superior a 75% neste exemplo. Os incrementos são feitos de 1 a 2, 2 a 4 e 4 a 8. 
@@ -81,13 +81,13 @@ O procedimento a seguir mostra como adicionar uma condição para aumentar autom
     1. Selecione uma **operação** na secção **Ação.** Neste exemplo, está definido para **Diminuir.** 
     1. Em seguida, **selecione Adicionar** 
 
-        :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-25.png" alt-text="Padrão - escala em se o uso do CPU for inferior a 25%":::       
+        :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-25.png" alt-text="Espaço de nome de ônibus de serviço - página de escala":::       
 
         > [!NOTE]
         > A funcionalidade de autoescala diminui as unidades de mensagens para o espaço de nome se o uso global do CPU for inferior a 25% neste exemplo. Os decrementos são feitos de 8 a 4, 4 a 2, e 2 a 1. 
 1. Desafine o número **mínimo** e **máximo** e **predefinido** das unidades de mensagens.
 
-    :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-based.png" alt-text="Regra padrão baseada numa métrica":::
+    :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-based.png" alt-text="Espaço de nome de ônibus de serviço - página de escala":::
 1. **Selecione Guarde** na barra de ferramentas para guardar a definição de escala automática. 
         
 ### <a name="scale-to-specific-number-of-messaging-units"></a>Escala para número específico de unidades de mensagens
@@ -98,7 +98,7 @@ Siga estes passos para configurar a regra para escalar o espaço de nome para ut
 1. Selecione **escala para unidades de mensagens específicas** para **o modo escala**. 
 1. Para **as unidades de mensagens,** selecione o número de unidades de mensagens predefinidos. 
 
-    :::image type="content" source="./media/automate-update-messaging-units/default-scale-messaging-units.png" alt-text="Padrão - escala para unidades de mensagens específicas":::       
+    :::image type="content" source="./media/automate-update-messaging-units/default-scale-messaging-units.png" alt-text="Espaço de nome de ônibus de serviço - página de escala":::       
 
 ## <a name="custom-autoscale---additional-conditions"></a>Autoescala personalizada - condições adicionais
 A secção anterior mostra-lhe como adicionar uma condição predefinida para a definição de autoescala. Esta secção mostra-lhe como adicionar mais condições à definição de autoescala. Para estas condições adicionais de não-incumprimento, pode definir um horário com base em dias específicos de uma semana ou num intervalo de datas. 
@@ -107,7 +107,7 @@ A secção anterior mostra-lhe como adicionar uma condição predefinida para a 
 1. Na página **de definição de definição de escala automática,** selecione **escala automática personalizada** para a escolha de como escalar a sua opção de **recurso.** 
 1. **Selecione Adicione uma condição de escala** sob o bloco **Predefinido.** 
 
-    :::image type="content" source="./media/automate-update-messaging-units/add-scale-condition-link.png" alt-text="Personalizado - adicione uma ligação de condição de escala":::    
+    :::image type="content" source="./media/automate-update-messaging-units/add-scale-condition-link.png" alt-text="Espaço de nome de ônibus de serviço - página de escala":::    
 1. Especifique um **nome** para a condição. 
 1. Confirme se a Escala com base numa opção **métrica** é selecionada. 
 1. **Selecione + Adicione uma regra** para adicionar uma regra para aumentar as unidades de mensagens quando o uso geral do CPU for superior a 75%. Siga os passos da secção [de condição predefinido.](#custom-autoscale---default-condition) 
@@ -115,26 +115,26 @@ A secção anterior mostra-lhe como adicionar uma condição predefinida para a 
 6. Também pode definir um **horário** com uma condição personalizada (mas não na condição predefinida). Pode especificar datas de início e fim para a condição (ou) selecionar dias específicos (segunda, terça-feira e assim por diante.) de uma semana. 
     1. Se selecionar **Especifique as datas de início/fim**, selecione o **Timezone**, **Data de início e hora** e **fim** (como mostrado na imagem seguinte) para que a condição esteja em vigor. 
 
-       :::image type="content" source="./media/automate-update-messaging-units/custom-min-max-default.png" alt-text="Valores mínimos, máximos e predefinidos para o número de unidades de mensagens":::
+       :::image type="content" source="./media/automate-update-messaging-units/custom-min-max-default.png" alt-text="Espaço de nome de ônibus de serviço - página de escala":::
     1. Se selecionar **Repetir dias específicos,** selecione os dias da semana, o timezone, a hora de início e a hora de fim quando a condição deve ser aplicada. 
 
-        :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days.png" alt-text="Repita dias específicos":::
+        :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days.png" alt-text="Espaço de nome de ônibus de serviço - página de escala":::
   
 ### <a name="scale-to-specific-number-of-messaging-units"></a>Escala para número específico de unidades de mensagens
 1. Na página **de definição de definição de escala automática,** selecione **escala automática personalizada** para a escolha de como escalar a sua opção de **recurso.** 
 1. **Selecione Adicione uma condição de escala** sob o bloco **Predefinido.** 
 
-    :::image type="content" source="./media/automate-update-messaging-units/add-scale-condition-link.png" alt-text="Personalizado - adicione uma ligação de condição de escala":::    
+    :::image type="content" source="./media/automate-update-messaging-units/add-scale-condition-link.png" alt-text="Espaço de nome de ônibus de serviço - página de escala":::    
 1. Especifique um **nome** para a condição. 
 2. Selecione a escala para a opção **unidades de mensagens específicas** para **o modo escala**. 
 1. Selecione o número de **unidades de mensagens** da lista de recuos. 
 6. Para o **horário**, especifique as datas de início e fim para a condição (ou) selecione dias específicos (segunda, terça-feira, e assim por diante.) de uma semana e horários. 
     1. Se selecionar **Especifique as datas de início/fim**, selecione o **Timezone**, **Data e hora** de início e data e hora de **fim** para a condição estar em vigor. 
     
-    :::image type="content" source="./media/automate-update-messaging-units/scale-specific-messaging-units-start-end-dates.png" alt-text="escala para unidades de mensagens específicas - datas de início e fim":::        
+    :::image type="content" source="./media/automate-update-messaging-units/scale-specific-messaging-units-start-end-dates.png" alt-text="Espaço de nome de ônibus de serviço - página de escala":::        
     1. Se selecionar **Repetir dias específicos,** selecione os dias da semana, o timezone, a hora de início e a hora de fim quando a condição deve ser aplicada.
     
-    :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days-2.png" alt-text="escala para unidades de mensagens específicas - repita dias específicos":::
+    :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days-2.png" alt-text="Espaço de nome de ônibus de serviço - página de escala":::
 
 > [!IMPORTANT]
 > Para saber mais sobre como funcionam as definições de autoescala, especialmente como escolhe um perfil ou condição e avalia várias regras, consulte [as definições de Definições de Autoescala](../azure-monitor/platform/autoscale-understanding-settings.md).          

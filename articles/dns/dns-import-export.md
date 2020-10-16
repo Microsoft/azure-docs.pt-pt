@@ -9,10 +9,10 @@ ms.date: 7/30/2020
 ms.author: rohink
 ms.topic: how-to
 ms.openlocfilehash: 8f17d7f32d774cac283ec335c372e8f68d50931f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87424227"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importar e exportar um ficheiro de zona DNS com a CLI do Azure
@@ -69,9 +69,9 @@ az network dns zone import -g <resource group> -n <zone name> -f <zone file name
 
 Valores:
 
-* `<resource group>`é o nome do grupo de recursos para a zona em Azure DNS.
-* `<zone name>`é o nome da zona.
-* `<zone file name>`é o caminho/nome do ficheiro de zona a importar.
+* `<resource group>` é o nome do grupo de recursos para a zona em Azure DNS.
+* `<zone name>` é o nome da zona.
+* `<zone file name>` é o caminho/nome do ficheiro de zona a importar.
 
 Se uma zona com este nome não existir no grupo de recursos, é criada para si. Se a zona já existir, os recordes importados são fundidos com os recordes existentes. 
 
@@ -163,9 +163,9 @@ az network dns zone export -g <resource group> -n <zone name> -f <zone file name
 
 Valores:
 
-* `<resource group>`é o nome do grupo de recursos para a zona em Azure DNS.
-* `<zone name>`é o nome da zona.
-* `<zone file name>`é o caminho/nome do ficheiro de zona a exportar.
+* `<resource group>` é o nome do grupo de recursos para a zona em Azure DNS.
+* `<zone name>` é o nome da zona.
+* `<zone file name>` é o caminho/nome do ficheiro de zona a exportar.
 
 Tal como acontece com a importação de zona, primeiro tem de iniciar seduca, escolher a sua subscrição e configurar o CLI Azure para utilizar o modo Gestor de Recursos.
 
@@ -177,7 +177,7 @@ Para exportar a zona de DNS existente **contoso.com** no grupo de recursos **myr
 az network dns zone export -g myresourcegroup -n contoso.com -f contoso.com.txt
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [gerir recordes e registos](dns-getstarted-create-recordset-cli.md) na sua zona de DNS.
 

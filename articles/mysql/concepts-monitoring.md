@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 8/13/2020
 ms.openlocfilehash: 9e1bd3f555873503aa1f6ed9c804aced3620fb9e
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91627521"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitorização na Base de Dados Azure para o MySQL
@@ -34,9 +34,9 @@ Estas métricas estão disponíveis para Azure Database para MySQL:
 |serverlog_storage_usage|Armazenamento de registo de servidor utilizado|Bytes|A quantidade de armazenamento de registo de servidor em uso.|
 |serverlog_storage_limit|Limite de armazenamento de registo de servidor|Bytes|O armazenamento máximo de registo de registo do servidor para este servidor.|
 |storage_limit|Limite de armazenamento|Bytes|O armazenamento máximo para este servidor.|
-|active_connections|Ligações Ativas|de palavras|O número de ligações ativas ao servidor.|
-|connections_failed|Ligações com Falhas|de palavras|O número de ligações falhadas ao servidor.|
-|seconds_behind_master|Atraso de replicação em segundos|de palavras|O número de segundos em que o servidor de réplica está a atrasar-se contra o servidor de origem. (Não aplicável aos servidores de nível básico)|
+|active_connections|Ligações Ativas|Contagem|O número de ligações ativas ao servidor.|
+|connections_failed|Ligações com Falhas|Contagem|O número de ligações falhadas ao servidor.|
+|seconds_behind_master|Atraso de replicação em segundos|Contagem|O número de segundos em que o servidor de réplica está a atrasar-se contra o servidor de origem. (Não aplicável aos servidores de nível básico)|
 |network_bytes_egress|Saída da Rede|Bytes|Rede para fora através de ligações ativas.|
 |network_bytes_ingress|Entrada na Rede|Bytes|Rede Em através de ligações ativas.|
 |backup_storage_used|Armazenamento de backup usado|Bytes|A quantidade de armazenamento de reserva usado. Esta métrica representa a soma de armazenamento consumida por todas as cópias de segurança completas da base de dados, cópias de segurança diferenciais e cópias de segurança de registo mantidas com base no período de retenção de backup definido para o servidor. A frequência das cópias de segurança é gerida e explicada no [artigo de conceitos](concepts-backup.md). Para o armazenamento geo-redundante, o uso de armazenamento de backup é o dobro do armazenamento localmente redundante.|

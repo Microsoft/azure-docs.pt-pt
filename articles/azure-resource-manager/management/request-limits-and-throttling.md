@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/24/2020
 ms.custom: seodec18
 ms.openlocfilehash: 4d387749261747eb9ea1ea26629ade4fe8729856
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80239368"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitação dos pedidos do Resource Manager
@@ -80,7 +80,7 @@ Alguns fornecedores de recursos devolvem 429 para reportar um problema temporár
 
 Pode determinar o número de pedidos restantes examinando os cabeçalhos de resposta. Os pedidos de leitura devolvem um valor no cabeçalho para o número de pedidos restantes de leitura. Os pedidos de escrita incluem um valor para o número de pedidos de escrita restantes. A tabela a seguir descreve os cabeçalhos de resposta que pode examinar para estes valores:
 
-| Cabeçalho de resposta | Description |
+| Cabeçalho de resposta | Descrição |
 | --- | --- |
 | x-ms-ratelimit-restante-subscrição-reads |A subscrição lê as leituras restantes. Este valor é devolvido em operações de leitura. |
 | x-ms-ratelimit-restante-subscrição-writes |A subscrição de âmbito escreve o restante. Este valor é devolvido em operações de escrita. |
@@ -103,7 +103,7 @@ Por exemplo, em **C#**, obtém-se o valor do cabeçalho a partir de um objeto **
 response.Headers.GetValues("x-ms-ratelimit-remaining-subscription-reads").GetValue(0)
 ```
 
-Em **PowerShell,** obtém-se o valor do cabeçalho a partir de uma operação Invoke-WebRequest.
+Em **PowerShell,** recupera o valor do cabeçalho de uma operação Invoke-WebRequest.
 
 ```powershell
 $r = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/{guid}/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders

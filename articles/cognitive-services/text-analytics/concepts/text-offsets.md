@@ -12,10 +12,10 @@ ms.date: 03/09/2020
 ms.author: aahi
 ms.reviewer: jdesousa
 ms.openlocfilehash: 14fd7c2b034077d818d1a1224d3c4c12a7fc07bc
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88855649"
 ---
 # <a name="text-offsets-in-the-text-analytics-api-output"></a>Compensações de texto na saída da API de Análise de Texto
@@ -50,10 +50,10 @@ Começando pela versão API 3.1-preview.1, todos os pontos finais da API API de 
 
 Se o `stringIndexType` pedido corresponder ao ambiente de programação de eleição, a extração de sub-cordas pode ser feita utilizando métodos de sublagem ou fatias padrão. 
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 * [Descrição geral da Análise de Texto](../overview.md)
-* [Análise de sentimento](../how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [Análise de sentimentos](../how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [Reconhecimento de entidades](../how-tos/text-analytics-how-to-entity-linking.md)
 * [Detetar idioma](../how-tos/text-analytics-how-to-keyword-extraction.md)
 * [Reconhecimento linguístico](../how-tos/text-analytics-how-to-language-detection.md)

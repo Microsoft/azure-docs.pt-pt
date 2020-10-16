@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 06/05/2020
 ms.openlocfilehash: f9f239ea69aaf71e591a447feb300c13a45ba1a4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907855"
 ---
 # <a name="latent-dirichlet-allocation-module"></a>Módulo de atribuição de Dirichlet Latent
@@ -105,7 +105,7 @@ Este módulo requer um conjunto de dados que contenha uma coluna de texto, crua 
 
 10. Envie o oleoduto. O módulo LDA usa o teorema de Bayes para determinar que tópicos podem estar associados a palavras individuais. As palavras não estão exclusivamente associadas a tópicos ou grupos. Em vez disso, cada n-gram tem uma probabilidade aprendida de ser associado a qualquer uma das classes descobertas.
 
-## <a name="results"></a>Resultados
+## <a name="results"></a>Results
 
 O módulo tem duas saídas:
 
@@ -184,23 +184,23 @@ Após a cálculo dos índices de termo, uma medida de semelhança baseada na dis
 |Nome|Tipo|Intervalo|Opcional|Predefinição|Descrição|  
 |----------|----------|-----------|--------------|-------------|-----------------|  
 |Colunas-alvo(s)|Seleção de Colunas||Necessário|CadeiaFeature|Nome ou índice da coluna-alvo.|  
-|Número de tópicos para modelar|Integer (Número inteiro)|[1;1000]|Necessário|5|Modele a distribuição do documento contra os tópicos N.|  
-|N-gramas|Integer (Número inteiro)|[1;10]|Necessário|2|Ordem de N-gramas gerada durante o haxixe.|  
+|Número de tópicos para modelar|Número inteiro|[1;1000]|Necessário|5|Modele a distribuição do documento contra os tópicos N.|  
+|N-gramas|Número inteiro|[1;10]|Necessário|2|Ordem de N-gramas gerada durante o haxixe.|  
 |Normalizar|Booleano|Verdadeiro ou Falso|Necessário|true|Normalizar a saída para as probabilidades.  O conjunto de dados transformado será P (tópico&#124;documento) e a matriz de tópicos de recurso será P (palavra&#124;tópico).|  
 |Mostrar todas as opções|Booleano|Verdadeiro ou Falso|Necessário|Falso|Apresenta parâmetros adicionais específicos para a LDA online de aprendizagem de scikit.|  
 |Parâmetro rho|Float|[0.00001;1.0]|Aplica-se quando a caixa de verificação **de todas as opções** é selecionada|0.01|Distribuição prévia de palavras-tópico.|  
 |Parâmetro alfa|Float|[0.00001;1.0]|Aplica-se quando a caixa de verificação **de todas as opções** é selecionada|0.01|Distribuição prévia de tópico de documento.|  
-|Número estimado de documentos|Integer (Número inteiro)|[1;int. MaxValue]|Aplica-se quando a caixa de verificação **de todas as opções** é selecionada|1000|Número estimado de documentos. Corresponde ao `total_samples` parâmetro.|  
-|Tamanho do lote|Integer (Número inteiro)|[1;1024]|Aplica-se quando a caixa de verificação **de todas as opções** é selecionada|32|Tamanho do lote.|  
-|Valor inicial da iteração utilizado no calendário de atualização da taxa de aprendizagem|Integer (Número inteiro)|[0;int. MaxValue]|Aplica-se quando a caixa de verificação **de todas as opções** é selecionada|0|Valor inicial que diminui a taxa de aprendizagem para iterações precoces. Corresponde ao `learning_offset` parâmetro.|  
+|Número estimado de documentos|Número inteiro|[1;int. MaxValue]|Aplica-se quando a caixa de verificação **de todas as opções** é selecionada|1000|Número estimado de documentos. Corresponde ao `total_samples` parâmetro.|  
+|Tamanho do lote|Número inteiro|[1;1024]|Aplica-se quando a caixa de verificação **de todas as opções** é selecionada|32|Tamanho do lote.|  
+|Valor inicial da iteração utilizado no calendário de atualização da taxa de aprendizagem|Número inteiro|[0;int. MaxValue]|Aplica-se quando a caixa de verificação **de todas as opções** é selecionada|0|Valor inicial que diminui a taxa de aprendizagem para iterações precoces. Corresponde ao `learning_offset` parâmetro.|  
 |Potência aplicada à iteração durante as atualizações|Float|[0.0;1.0]|Aplica-se quando a caixa de verificação **de todas as opções** é selecionada|0,5|Potência aplicada à contagem de iteração para controlar a taxa de aprendizagem. Corresponde ao `learning_decay` parâmetro. |  
-|Número de iterações de formação|Integer (Número inteiro)|[1;1024]|Aplica-se quando a caixa de verificação **de todas as opções** é selecionada|25|Número de iterações de treino.|  
+|Número de iterações de formação|Número inteiro|[1;1024]|Aplica-se quando a caixa de verificação **de todas as opções** é selecionada|25|Número de iterações de treino.|  
 |Construir dicionário de ngramas|Booleano|Verdadeiro ou Falso|Aplica-se quando a caixa de verificação **de todas as opções** *não* é selecionada|Verdadeiro|Constrói um dicionário de ngramas antes de computar a LDA. Útil para inspeção e interpretação de modelos.|  
-|Tamanho máximo do dicionário de ngram|Integer (Número inteiro)|[1;int. MaxValue]|Aplica-se quando a opção **Construir dicionário de ngramas** é **verdadeiro**|20 000|Tamanho máximo do dicionário ngramas. Se o número de fichas na entrada exceder este tamanho, poderão ocorrer colisões.|  
-|Número de bits para usar para hashing de recurso.|Integer (Número inteiro)|[1;31]|Aplica-se quando a caixa de verificação **de todas as opções** *não* é selecionada e construir dicionário **de ngramas** é **falso**|12|Número de bits para usar para hashing de recurso.| 
+|Tamanho máximo do dicionário de ngram|Número inteiro|[1;int. MaxValue]|Aplica-se quando a opção **Construir dicionário de ngramas** é **verdadeiro**|20 000|Tamanho máximo do dicionário ngramas. Se o número de fichas na entrada exceder este tamanho, poderão ocorrer colisões.|  
+|Número de bits para usar para hashing de recurso.|Número inteiro|[1;31]|Aplica-se quando a caixa de verificação **de todas as opções** *não* é selecionada e construir dicionário **de ngramas** é **falso**|12|Número de bits para usar para hashing de recurso.| 
 |Construir dicionário de ngramas antes da LDA|Booleano|Verdadeiro ou Falso|Aplica-se quando a caixa de verificação **de todas as opções** é selecionada|Verdadeiro|Constrói um dicionário de ngramas antes da LDA. Útil para inspeção e interpretação de modelos.|  
-|Número máximo de ngramas no dicionário|Integer (Número inteiro)|[1;int. MaxValue]|Aplica-se quando a caixa de verificação de **todas as opções** é selecionada e a opção **Construir dicionário de ngramas** é **verdadeiro**|20 000|Tamanho máximo do dicionário. Se o número de fichas na entrada exceder este tamanho, poderão ocorrer colisões.|  
-|Número de bits de haxixe|Integer (Número inteiro)|[1;31]|Aplica-se quando a caixa de verificação **de todas as opções** é selecionada e a opção **Construir dicionário de ngramas** é **falso**|12|Número de bits a utilizar durante o hashing da funcionalidade.|   
+|Número máximo de ngramas no dicionário|Número inteiro|[1;int. MaxValue]|Aplica-se quando a caixa de verificação de **todas as opções** é selecionada e a opção **Construir dicionário de ngramas** é **verdadeiro**|20 000|Tamanho máximo do dicionário. Se o número de fichas na entrada exceder este tamanho, poderão ocorrer colisões.|  
+|Número de bits de haxixe|Número inteiro|[1;31]|Aplica-se quando a caixa de verificação **de todas as opções** é selecionada e a opção **Construir dicionário de ngramas** é **falso**|12|Número de bits a utilizar durante o hashing da funcionalidade.|   
 
 
 ## <a name="next-steps"></a>Passos seguintes

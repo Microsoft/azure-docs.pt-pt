@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.openlocfilehash: b1ad4ead83c9e07966f921a5b192f2791838e6ef
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91530566"
 ---
 # <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Ligue e indexe o conteúdo Azure SQL usando um indexador de pesquisa cognitiva Azure
@@ -178,7 +178,7 @@ A Azure Cognitive Search usa **indexação incremental** para evitar ter que rei
 ### <a name="sql-integrated-change-tracking-policy"></a>Política integrada de rastreio de alterações DA SQL
 Se a sua base de dados SQL suportar o rastreio de [alterações,](/sql/relational-databases/track-changes/about-change-tracking-sql-server)recomendamos a utilização **da Política integrada de rastreio de alterações SQL.** Esta é a política mais eficiente. Além disso, permite que a Azure Cognitive Search identifique linhas eliminadas sem ter de adicionar uma coluna explícita de "soft delete" à sua mesa.
 
-#### <a name="requirements"></a>Requirements 
+#### <a name="requirements"></a>Requisitos 
 
 + Requisitos de versão da base de dados:
   * SQL Server 2012 SP3 e mais tarde, se estiver a utilizar o SQL Server em VMs Azure.
@@ -214,7 +214,7 @@ Ao utilizar a política integrada de rastreio de alterações SQL, não especifi
 
 Esta política de deteção de alterações baseia-se numa coluna de "marca de água elevada" que captura a versão ou hora em que uma linha foi atualizada pela última vez. Se estiver a usar uma vista, deve usar uma política de marca de água elevada. A coluna de alta marca de água deve satisfazer os seguintes requisitos.
 
-#### <a name="requirements"></a>Requirements 
+#### <a name="requirements"></a>Requisitos 
 
 * Todos os inserções especificam um valor para a coluna.
 * Todas as atualizações para um item também alteram o valor da coluna.
@@ -360,7 +360,7 @@ Não diretamente. Não recomendamos nem apoiamos uma ligação direta, pois isso
 
 **P: Posso utilizar o indexador Azure SQL com bases de dados que não o SQL Server em funcionamento em IaaS em Azure?**
 
-Não. Não apoiamos este cenário, porque não testámos o indexante com bases de dados que não o SQL Server.  
+N.º Não apoiamos este cenário, porque não testámos o indexante com bases de dados que não o SQL Server.  
 
 **P: Posso criar vários indexadores em execução num horário?**
 

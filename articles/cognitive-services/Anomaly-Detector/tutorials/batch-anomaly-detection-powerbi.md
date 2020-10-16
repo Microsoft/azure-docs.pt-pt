@@ -3,19 +3,19 @@ title: 'Tutorial: Visualizar anomalias usando deteção de lotes e Power BI'
 titleSuffix: Azure Cognitive Services
 description: Saiba como utilizar o Detetor de Anomalias API e o Power BI para visualizar anomalias ao longo dos dados da série de tempo.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 09/10/2020
-ms.author: aahi
-ms.openlocfilehash: a44655571099d936b34a4233bc12fa099e5bc338
-ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
+ms.author: mbullwin
+ms.openlocfilehash: 887e7432151569eb07e3c9256c7f126e7f884d54
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91660960"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017629"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Tutorial: Visualizar anomalias usando deteção de lotes e Power BI
 
@@ -172,7 +172,7 @@ Aplique cores no seu gráfico clicando na ferramenta **Formato** e nas **cores d
 
 ![Uma imagem do gráfico final](../media/tutorials/final-chart.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 >[Deteção de anomalias em streaming com Azure Databricks](anomaly-detection-streaming-databricks.md)

@@ -15,10 +15,10 @@ ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d845c1fbefd5c9a6119d089824eba6cc35228a3e
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90055814"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteção de acesso privilegiado para implementações híbridas e na cloud no Azure AD
@@ -322,7 +322,7 @@ A integração de registos Azure permite-lhe integrar registos brutos dos seus r
 
 * Registos de atividades Azure
 * Alertas do Centro de Segurança do Azure
-* Registos de recursos Azure
+* Registos de recursos do Azure
 
 ### <a name="additional-steps-for-organizations-managing-access-to-other-cloud-apps-via-azure-ad"></a>Medidas adicionais para organizações que gerem o acesso a outras aplicações em nuvem através do Azure AD
 
@@ -464,7 +464,7 @@ Para obter mais informações sobre como o Microsoft Office 365 lida com inciden
 
 **Resposta:** Utilize contas não privilegiadas para todos os utilizadores e a maioria dos administradores. Comece por desenvolver uma pegada da organização para determinar quais as poucas contas de administrador que devem ser privilegiadas. E monitor para utilizadores administrativos recém-criados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Microsoft Trust Center for Product Security](https://www.microsoft.com/trustcenter/security) – Funcionalidades de segurança dos produtos e serviços da Microsoft na nuvem
 

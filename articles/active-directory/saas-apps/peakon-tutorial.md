@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: a7e385b40911e1adf4e5142de4fb627334baee4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 08d9c2f1676c0a04e9cd191b64c41af276521b3d
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543750"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996098"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-peakon"></a>Tutorial: Integração do Diretório Ativo Azure com Peakon
 
@@ -110,7 +110,7 @@ Para configurar o Azure AD single sign-on com Peakon, execute os seguintes passo
 
 5. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    ![Informações de sign-on de Domínio Peakon e URLs](common/metadata-upload-additional-signon.png)
+    ![Screenshot que mostra o "set adicional U R Ls" selecionado com a caixa de texto "Sing on U R L" realçada.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL:  `https://app.peakon.com/login`
 

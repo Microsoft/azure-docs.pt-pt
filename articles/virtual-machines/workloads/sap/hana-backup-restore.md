@@ -14,10 +14,10 @@ ms.date: 10/16/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 79ef279423c524f0d409815e7ae163aa699f5428
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87082210"
 ---
 # <a name="backup-and-restore-on-sap-hana-on-azure"></a>Backup e restauro em SAP HANA em Azure
@@ -178,7 +178,7 @@ A configuração do conjunto de ferramentas snapshot é descrita em "Config file
 
 #### <a name="test-connectivity-with-sap-hana"></a>Testar conectividade com SAP HANA
 
-Depois de colocar todos os dados de configuração no ficheiro *HANABackupCustomerDetails.txt,* verifique se as configurações estão corretas para os dados da instância HANA. Utilize o script `testHANAConnection` , que é independente de uma configuração de escala SAP HANA ou de escala.
+Depois de colocar todos os dados de configuração no ficheiro *HANABackupCustomerDetails.txt, * verifique se as configurações estão corretas para os dados da instância HANA. Utilize o script `testHANAConnection` , que é independente de uma configuração de escala SAP HANA ou de escala.
 
 Para obter mais informações, consulte "Verifique a conectividade com o SAP HANA - testHANAConnection" em [ferramentas instantâneas da Microsoft para SAP HANA em Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 

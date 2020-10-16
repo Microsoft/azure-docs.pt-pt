@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: how-to
 ms.date: 09/30/2020
 ms.openlocfilehash: 1120a3636b7ce24dde0d33c213f9063f910123c4
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91530634"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Gerir os recursos de aprendizagem automática Azure com a extensão do código VS (pré-visualização)
@@ -424,6 +424,6 @@ Além de criar e eliminar implementações, pode visualizar e editar as definiç
         - Um ficheiro de configuração para a sua implantação aparece no editor. Se estiver satisfeito com a sua configuração, **selecione Save and continue** ou abra a paleta de comando VS Code **(Ver > Paleta de Comando)** e **digite Azure ML: Save and Continue**.
     - Para visualizar as definições de configuração da implementação, selecione **Ver as propriedades do serviço**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Treine um modelo de classificação de imagem](tutorial-train-deploy-image-classification-model-vscode.md) com a extensão do Código VS.

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/19/2020
 ms.openlocfilehash: 177b79e0a33f4d43d07da9d0dea26df40e2ef11e
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88723865"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Regras de recolha de dados no Azure Monitor (pré-visualização)

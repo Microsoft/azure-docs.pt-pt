@@ -4,10 +4,10 @@ description: Descreve como criar um grupo de recursos num modelo de Gestor de Re
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.openlocfilehash: 0673ea5260c7312395acde8a62b5d457657b9793
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91729122"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Criar grupos de recursos e recursos ao nível de subscrição
@@ -56,7 +56,7 @@ Para gerir a sua subscrição, utilize:
 * [orçamentos](/azure/templates/microsoft.consumption/budgets)
 * [Alterar perfil de análise](/azure/templates/microsoft.changeanalysis/profile)
 * [apoiarPlanTypes](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
-* [tags](/azure/templates/microsoft.resources/tags)
+* [etiquetas](/azure/templates/microsoft.resources/tags)
 
 Outros tipos suportados incluem:
 

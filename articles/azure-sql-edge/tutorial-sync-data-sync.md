@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: 5830cedfdce54c4cd91eb60a5cd2145309e965b0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90904118"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-sql-database-by-using-sql-data-sync"></a>Tutorial: Sincronizar dados da SQL Edge para a Azure SQL Database utilizando o SQL Data Sync
@@ -26,7 +26,7 @@ Uma vez que o SQL Edge é construído nas versões mais recentes do [SQL Server 
 
 Este tutorial requer um computador Windows configurado com o [Agente de Sincronização de Dados para Azure SQL Data Sync](../azure-sql/database/sql-data-sync-agent-overview.md).
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 * Criar uma base de dados na Base de Dados Azure SQL. Para obter informações sobre como criar uma base de dados utilizando o portal Azure, consulte [criar uma única base de dados na Base de Dados Azure SQL](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal).
 

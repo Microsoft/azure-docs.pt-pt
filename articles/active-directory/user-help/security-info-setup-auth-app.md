@@ -12,10 +12,10 @@ ms.topic: end-user-help
 ms.date: 02/13/2019
 ms.author: curtand
 ms.openlocfilehash: 133e6b533a3d87ef519d0f586ea59db1bbce28b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83744490"
 ---
 # <a name="set-up-the-microsoft-authenticator-app-as-your-verification-method"></a>Configurar a app Microsoft Authenticator como o seu método de verificação
@@ -156,7 +156,7 @@ Tem opções adicionais para saber como a sua organização o contacta para veri
     >[!Note]
     >Se algumas destas opções estão em falta, é mais provável porque a sua organização não permite esses métodos. Se for esse o caso, terá de escolher um método disponível ou contactar o seu administrador para obter mais ajuda.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Iniciar sing-in utilizando a aplicação Microsoft Authenticator, seguindo os passos [no Signo na utilização de um artigo de verificação ou informação de segurança em duas etapas.](security-info-setup-signin.md)
 

@@ -17,10 +17,10 @@ ms.date: 03/19/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 498e6d9e38468b126dbe10e0d0f59f54f1816ff0
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89261047"
 ---
 # <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>Saiba como os clientes passam fichas para o serviço de entrega chave Azure Media Services

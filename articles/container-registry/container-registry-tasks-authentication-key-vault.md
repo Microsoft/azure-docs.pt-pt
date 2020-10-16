@@ -4,10 +4,10 @@ description: Configure uma Tarefa de Registo de Contentores Azure (Tarefa ACR) p
 ms.topic: article
 ms.date: 07/06/2020
 ms.openlocfilehash: 0bc43f958a14016146160a06372af0b36a9fff75
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86058134"
 ---
 # <a name="external-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Autenticação externa numa tarefa ACR utilizando uma identidade gerida pelo Azure 
@@ -18,7 +18,7 @@ Neste artigo, aprende-se a permitir uma identidade gerida numa tarefa que acede 
 
 Para criar os recursos Azure, este artigo requer que você execute a versão Azure CLI 2.0.68 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli].
 
-## <a name="scenario-overview"></a>Descrição geral do cenário
+## <a name="scenario-overview"></a>Scenario overview (Descrição geral do cenário)
 
 A tarefa do exemplo diz as credenciais do Docker Hub armazenadas num cofre de chaves Azure. As credenciais são para uma conta Docker Hub com permissões de escrita (push) para um repositório privado do Docker Hub. Para ler as credenciais, configura a tarefa com uma identidade gerida e atribui-lhe permissões apropriadas. A tarefa associada à identidade constrói uma imagem, e assina em Docker Hub para empurrar a imagem para o repo privado. 
 
@@ -218,7 +218,7 @@ Run ID: cf24 was successful after 15s
 
 Para confirmar que a imagem é empurrada, verifique a etiqueta `cf24` (neste exemplo) no repo privado do Docker Hub.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [como permitir uma identidade gerida numa tarefa ACR](container-registry-tasks-authentication-managed-identity.md).
 * Consulte a [referência ACR Tasks YAML](container-registry-tasks-reference-yaml.md)

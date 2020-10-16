@@ -1,25 +1,18 @@
 ---
 title: Conceber e implementar uma base de dados da Oracle no Azure Microsoft Docs
 description: Desenhe e implemente uma base de dados Oracle no seu ambiente Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: dbakevlar
-manager: ''
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.openlocfilehash: 70de7363634cee2790a40ecf056134cf002c762d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.reviewer: cynthn
+ms.openlocfilehash: 9ccf7ddb44a25ec123f13b5d7b6cdb5354b63778
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91274712"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996632"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Conceça e implemente uma base de dados oracle em Azure
 
@@ -49,7 +42,7 @@ O quadro que se segue enumera algumas das diferenças entre uma implementação 
 | **Redes** |LAN/WAN  |SDN (rede definida por software)|
 | **Grupo de segurança** |Ferramentas de restrição IP/porta |[Grupo de Segurança de Rede (NSG)](https://azure.microsoft.com/blog/network-security-groups) |
 | **Resiliência** |MTBF (tempo médio entre falhas) |MTTR (tempo médio para a recuperação)|
-| **Manutenção planeada** |Remendos/upgrades|[Conjuntos de disponibilidade](../../windows/infrastructure-example.md) (patching/upgrades geridos pelo Azure) |
+| **Manutenção planeada** |Remendos/upgrades|[Conjuntos de disponibilidade](/previous-versions/azure/virtual-machines/windows/infrastructure-example) (patching/upgrades geridos pelo Azure) |
 | **Recurso** |Dedicada  |Partilhado com outros clientes|
 | **Regiões** |Datacenters |[Pares de região](../../regions.md#region-pairs)|
 | **Armazenamento** |DISCOS SAN/Físicos |[Armazenamento gerido pelo Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
@@ -230,7 +223,7 @@ Depois de configurar e configurar o seu ambiente Azure, o próximo passo é prot
 - [Configurar Oracle ASM](configure-oracle-asm.md)
 - [Configurar o Oracle Data Guard](configure-oracle-dataguard.md)
 - [Configure Portão Dourado oráculo](configure-oracle-golden-gate.md)
-- [Apoio e recuperação da Oráculo](oracle-backup-recovery.md)
+- [Apoio e recuperação da Oráculo](./oracle-overview.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

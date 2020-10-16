@@ -4,10 +4,10 @@ description: Faça fila com uma tarefa ACR para construir uma imagem usando um m
 ms.topic: article
 ms.date: 04/22/2020
 ms.openlocfilehash: 7ad40d2e925d5e1443af9bce4115d45b0e8c06e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82927773"
 ---
 # <a name="run-acr-tasks-using-resource-manager-templates"></a>Executar tarefas ACR usando modelos de gestor de recursos
@@ -73,7 +73,7 @@ az acr repository show-tags \
   --repository helloworld-node --output table
 ```
 
-Saída:
+Resultado:
 
 ```console
 Result
@@ -221,7 +221,7 @@ az acr repository show-tags \
   --repository helloworld-node --output table
 ```
 
-Saída:
+Resultado:
 
 ```console
 Result
@@ -233,7 +233,7 @@ basetask
 
 Para visualizar o registo de execução, consulte os passos na [secção anterior](#view-run-log).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
  * Veja mais exemplos de modelo no [repo ACR GitHub](https://github.com/Azure/acr/tree/master/docs/tasks/run-as-deployment).
  * Para obter detalhes sobre as propriedades do modelo, consulte a referência do modelo para execuções de [tarefas](/azure/templates/microsoft.containerregistry/2019-06-01-preview/registries/taskruns) e [tarefas](/azure/templates/microsoft.containerregistry/2019-06-01-preview/registries/tasks).

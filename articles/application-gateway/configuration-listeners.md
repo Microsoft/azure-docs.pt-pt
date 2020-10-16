@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
 ms.openlocfilehash: ef2ff8924cd8a92c5d2d2e5dd9da6bb74fad1a14
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89653224"
 ---
 # <a name="application-gateway-listener-configuration"></a>Configuração do ouvinte do Gateway de Aplicação
@@ -93,6 +93,6 @@ Configura a política TLS para controlar as versões do protocolo TLS. Pode conf
 
 Depois de criar um ouvinte, associá-lo a uma regra de encaminhamento de pedidos. Esta regra determina como os pedidos recebidos no ouvinte são encaminhados para a parte de trás.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba mais sobre as regras de encaminhamento de pedidos](configuration-request-routing-rules.md).

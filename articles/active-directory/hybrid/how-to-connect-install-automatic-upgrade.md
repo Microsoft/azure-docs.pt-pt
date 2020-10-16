@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9c8dcc8766b21551f3cd62289805fe735ef0f333
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317621"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: atualização automática
@@ -43,7 +43,7 @@ O estado atual da atualização automática pode ser visualizado com o cmdlet Po
 | Suspenso |Definido apenas pelo sistema. O sistema não é **atualmente** elegível para receber atualizações automáticas. |
 | Desativado |A atualização automática está desativada. |
 
-Pode alterar entre **Ativado** e **Desativado** com `Set-ADSyncAutoUpgrade` . Apenas o sistema deve definir o estado **suspenso**.  Antes de 1.1.750.0, o cmdlet Set-ADSyncAutoUpgrade bloquearia a auto-actualização se o estado de atualização automática fosse definido para suspenso. Esta funcionalidade mudou agora para não bloquear o AutoUpgrade.
+Pode alterar entre **Ativado** e **Desativado** com `Set-ADSyncAutoUpgrade` . Apenas o sistema deve definir o estado **suspenso**.  Antes de 1.1.750.0, o Set-ADSyncAutoUpgrade cmdlet bloquearia o Auto-upgrade se o estado de atualização automática fosse definido para suspenso. Esta funcionalidade mudou agora para não bloquear o AutoUpgrade.
 
 A atualização automática está a utilizar o Azure AD Connect Health para a infraestrutura de upgrade. Para o upgrade automático para funcionar, certifique-se de que abriu os URLs no seu servidor proxy para **Azure AD Connect Health,** conforme documentado nos [intervalos de URLs e endereço IP do Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
@@ -71,7 +71,7 @@ Agora pode ver os registos associados ao estado de atualização automática.
 
 O código de resultados tem um prefixo com uma visão geral do estado.
 
-| Prefixo do código de resultados | Description |
+| Prefixo do código de resultados | Descrição |
 | --- | --- |
 | Success |A instalação foi atualizada com sucesso. |
 | UpgradeAborted |Uma condição temporária parou a atualização. Será novamente julgado e a expectativa é que tenha sucesso mais tarde. |
@@ -79,7 +79,7 @@ O código de resultados tem um prefixo com uma visão geral do estado.
 
 Aqui está uma lista das mensagens mais comuns que encontra. Não enumera todos, mas a mensagem de resultados deve ser clara com o problema.
 
-| Mensagem de Resultados | Description |
+| Mensagem de Resultados | Descrição |
 | --- | --- |
 | **UpgradeAborted** | |
 | UpgradeAbortedCouldNotSetUpgradeMarker |Não podia escrever ao registo. |

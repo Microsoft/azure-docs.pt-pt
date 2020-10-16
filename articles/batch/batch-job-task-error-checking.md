@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 03/10/2019
 ms.author: markscu
 ms.openlocfilehash: ece0f1473b3c453ca5506f06b7ef094533d146aa
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85964333"
 ---
 # <a name="job-and-task-error-checking"></a>Verificação de erros de trabalho e de tarefa
@@ -82,6 +82,6 @@ Devido às piscinas e aos nós de piscina frequentemente sendo efémeros, com os
 ### <a name="output-file-failures"></a>Falhas nos ficheiros de saída
 Em cada upload de ficheiros, o Batch escreve dois ficheiros de registo para o nó de computação `fileuploadout.txt` e `fileuploaderr.txt` . Pode examinar estes ficheiros de registo para saber mais sobre uma falha específica. Nos casos em que o upload do ficheiro nunca foi tentado, por exemplo porque a tarefa em si não podia ser executada, então estes ficheiros de registo não existirão.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Verifique se a sua aplicação implementa uma verificação completa de erros; pode ser fundamental para detetar e diagnosticar rapidamente problemas.

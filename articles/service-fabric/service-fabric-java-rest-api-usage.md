@@ -7,10 +7,10 @@ ms.date: 11/27/2017
 ms.custom: devx-track-java
 ms.author: rapatchi
 ms.openlocfilehash: 24ee4a3d8109626bf93e01fbd10c00140762c9c6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87324629"
 ---
 # <a name="azure-service-fabric-java-client-apis"></a>Azure Service Fabric Java Client APIs
@@ -40,7 +40,7 @@ Siga os passos abaixo mencionados para gerar o código do cliente Service Fabric
     npm install -g autorest
     ```
 
-3. O repositório [de óculos de repouso-api-api-de-forcado](https://github.com/Azure/azure-rest-api-specs) e clone na sua máquina local e vá para a localização clonada a partir do terminal da sua máquina.
+3. O repositório [de óculos de repouso-api-api-de-forcado](https://github.com/Azure/azure-rest-api-specs)  e clone na sua máquina local e vá para a localização clonada a partir do terminal da sua máquina.
 
 
 4. Vá ao local mencionado abaixo na sua repo clonada.
@@ -63,7 +63,7 @@ Siga os passos abaixo mencionados para gerar o código do cliente Service Fabric
     autorest --input-file=servicefabric.json --java --output-folder=java-rest-api-code --namespace=servicefabricrest
     ```
    
-   O seguinte comando toma ``servicefabric.json`` o ficheiro de especificações como entrada e gera código java cliente na ``java-rest-api-     code`` pasta e encerra o código no espaço de ``servicefabricrest`` nome. Após este passo, encontraria duas pastas ``models`` , ``implementation`` e dois ficheiros e ``ServiceFabricClientAPIs.java`` ``package-info.java`` gerados na ``java-rest-api-code`` pasta.
+   O seguinte comando toma ``servicefabric.json`` o ficheiro de especificações como entrada e gera código java cliente na ``java-rest-api-     code`` pasta e encerra o código no espaço de  ``servicefabricrest`` nome. Após este passo, encontraria duas pastas ``models`` , ``implementation`` e dois ficheiros e ``ServiceFabricClientAPIs.java`` ``package-info.java`` gerados na ``java-rest-api-code`` pasta.
 
 
 ## <a name="include-and-use-the-generated-client-in-your-project"></a>Incluir e utilizar o cliente gerado no seu projeto

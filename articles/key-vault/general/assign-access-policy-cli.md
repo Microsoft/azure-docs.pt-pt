@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 32a323e8cc56a8c45b18737bb55ebe19d4be27c0
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89381251"
 ---
 # <a name="assign-a-key-vault-access-policy"></a>Atribuir uma política de acesso ao Cofre de Chaves
@@ -73,7 +73,7 @@ az keyvault set-policy --name myKeyVault --object-id <object-id> --secret-permis
 
 Só é necessário incluir `--secret-permissions` , e ao atribuir `--key-permissions` `--certificate-permissions` permissões a esses tipos específicos. Os valores admissíveis para `<secret-permissions>` `<key-permissions>` , e são `<certificate-permissions>` dados na documentação [de definição de keyvault az.](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Segurança do Cofre Azure Key: Gestão de identidade e acesso](overview-security.md#identity-and-access-management)
 - [Prenda o cofre da chave.](secure-your-key-vault.md)

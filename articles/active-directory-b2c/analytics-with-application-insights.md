@@ -12,10 +12,10 @@ ms.date: 04/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 67ea7324419d86fa5b5c23a2f0aa5f8c057495d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85385982"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Acompanhe o comportamento do utilizador no Azure Ative Directory B2C usando Insights de Aplicação
@@ -111,7 +111,7 @@ Os perfis técnicos podem ser considerados funções no Quadro de Experiência d
 | AppInsights-UserSignUp | Grava um `UserSignUp` evento quando o utilizador ativa a opção de inscrição numa viagem de inscrição/inscrição. |
 | AppInsights-SignInComplete | Grava um `SignInComplete` evento com sucesso na conclusão de uma autenticação, quando um token foi enviado para a aplicação da parte de gestão. |
 
-Adicione os perfis ao *ficheiroTrustFrameworkExtensions.xml* do pacote inicial. Adicione estes elementos ao elemento **ClaimsProviders:**
+Adicione os perfis ao * ficheiroTrustFrameworkExtensions.xml* do pacote inicial. Adicione estes elementos ao elemento **ClaimsProviders:**
 
 ```xml
 <ClaimsProvider>
@@ -217,7 +217,7 @@ Imediatamente após o `SendClaims` passo de orquestração, `AppInsights-SignInC
 
 ## <a name="upload-your-file-run-the-policy-and-view-events"></a>Faça upload do seu ficheiro, execute a política e veja eventos
 
-Guarde e carre fique *no*TrustFrameworkExtensions.xmlficheiro. Em seguida, ligue para a política do partido em gestão da sua aplicação ou use **Run Now** no portal Azure. Em segundos, os seus eventos estão disponíveis em Application Insights.
+Guarde e carre fique * no *TrustFrameworkExtensions.xmlficheiro. Em seguida, ligue para a política do partido em gestão da sua aplicação ou use **Run Now** no portal Azure. Em segundos, os seus eventos estão disponíveis em Application Insights.
 
 1. Abra o recurso **Application Insights** no seu inquilino Azure Ative Directory.
 2. Selecione **Eventos de Utilização**  >  **Events**.
@@ -239,6 +239,6 @@ Adicione tipos de reclamações e eventos à sua viagem de utilizador para se ad
 <InputClaim ClaimTypeReferenceId="language" PartnerClaimType="{property:language}" DefaultValue="{Culture:RFC5646}" />
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre o perfil técnico [da Application Insights](application-insights-technical-profile.md) na referência IEF. 

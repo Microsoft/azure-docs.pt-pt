@@ -1,14 +1,14 @@
 ---
 title: Obter alterações do recurso
 description: Entenda como encontrar quando um recurso foi alterado, obter uma lista das propriedades que mudaram, e avaliar os diffs.
-ms.date: 08/10/2020
+ms.date: 10/14/2020
 ms.topic: how-to
-ms.openlocfilehash: 02dfd2b8b66cd09be39a44166a0fd62bb13c8395
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: bab51ac7b55e2a838d98b46a09289f2cc19bfde3
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056572"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057574"
 ---
 # <a name="get-resource-changes"></a>Obter alterações do recurso
 
@@ -279,7 +279,7 @@ A resposta é semelhante a este exemplo:
 }
 ```
 
-**antes de Snapshot** e **afterSnapshot** cada dar o tempo que o instantâneo foi tirado e as propriedades naquele momento. A mudança aconteceu em algum momento entre estas fotos. Olhando para o exemplo acima, podemos ver que a propriedade que mudou foi **suportaHttpsTrafficOnly.**
+**antes de Snapshot** e **afterSnapshot** cada dar o tempo que o instantâneo foi tirado e as propriedades naquele momento. A mudança aconteceu em algum momento entre estas fotos. Olhando para o exemplo anterior, podemos ver que a propriedade que mudou foi **suportahttpsTrafficOnly.**
 
 Para comparar os resultados, utilize a propriedade **alterações** em **recursosChanges** ou avalie a parte de **conteúdo** de cada instantâneo em **recursosChangeDetails** para determinar a diferença. Se compararmos os instantâneos, a **hora da hora** mostra sempre uma diferença, apesar de ser esperada.
 

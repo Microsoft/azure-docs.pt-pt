@@ -5,13 +5,13 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
-ms.date: 06/13/2018
-ms.openlocfilehash: d37aa275a07586738bf7416cee6611bdc8284df3
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.date: 10/09/2020
+ms.openlocfilehash: 9545dd1480b9d16285d936787cf37fc087e882e1
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88004764"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92000056"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>Como configurar o agrupamento Redis para um Premium Azure Cache para Redis
 O Azure Cache para Redis tem diferentes ofertas de cache, que proporcionam flexibilidade na escolha do tamanho e funcionalidades da cache, incluindo características de nível Premium, tais como clustering, persistência e suporte de rede virtual. Este artigo descreve como configurar o agrupamento numa cache Azure premium para o exemplo de Redis.
@@ -31,19 +31,51 @@ Em Azure, o cluster Redis é oferecido como um modelo primário/réplica onde ca
 ## <a name="clustering"></a>Clustering
 O agrupamento está ativado na **Cache New Azure para lâmina Redis** durante a criação da cache. 
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
+1. Para criar uma cache premium, inscreva-se no [portal Azure](https://portal.azure.com) e selecione **Criar um recurso.** Para além de criar caches no Portal do Azure, pode também criá-las com os modelos do Resource Manager, o PowerShell ou a CLI do Azure. Para obter mais informações sobre a criação de uma Cache Azure para Redis, consulte [Criar uma cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
-O agrupamento está configurado na lâmina do **Redis Cluster.**
+    :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Criar recurso.":::
+   
+2. Na página **Nova,** selecione **Bases de Dados** e, em seguida, selecione **Azure Cache para Redis**.
 
-![Clustering][redis-cache-clustering]
+    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Criar recurso.":::
 
-Pode ter até 10 fragmentos no aglomerado. Clique **em Ativado** e deslize o slider ou escreva um número entre 1 e 10 para **a contagem de fragmentos** e clique **em OK**.
+3. Na página **New Redis Cache,** configufique as definições para a sua nova cache premium.
+   
+   | Definição      | Valor sugerido  | Descrição |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **Nome DNS** | Introduza um nome globalmente exclusivo. | O nome da cache deve ser uma cadeia entre 1 e 63 caracteres que contenha apenas números, letras ou hífenes. O nome deve começar e terminar com um número ou letra, e não pode conter hífenes consecutivos. O nome de *anfitrião* do seu caso de cache será * \<DNS name> .redis.cache.windows.net*. | 
+   | **Subscrição** | Drop-down e selecione a sua subscrição. | A subscrição sob a qual criar este novo Azure Cache para a instância Redis. | 
+   | **Grupo de recursos** | Drop-down e selecione um grupo de recursos, ou **selecione Criar novo** e introduza um novo nome de grupo de recursos. | Nome para o grupo de recursos para criar o seu cache e outros recursos. Ao colocar todos os recursos da sua aplicação num único grupo de recursos, pode facilmente geri-los ou eliminá-los em conjunto. | 
+   | **Localização** | Drop-down e selecione um local. | Selecione uma [região](https://azure.microsoft.com/regions/) perto de outros serviços que utilizarão o seu cache. |
+   | **Tipo cache** | Drop-down e selecione um cache premium para configurar funcionalidades premium. Para mais detalhes, consulte [a Cache Azure para obter preços de Redis](https://azure.microsoft.com/pricing/details/cache/). |  O escalão de preço determina o tamanho, o desempenho e as funcionalidades que estão disponíveis para a cache. Para mais informações, consulte [Azure Cache para ver visão geral do Redis](cache-overview.md). |
 
-Cada fragmento é um par de cache primário/réplica gerido por Azure, e o tamanho total da cache é calculado multiplicando o número de fragmentos pelo tamanho da cache selecionado no nível de preços. 
+4. Selecione o **separador 'Rede'** ou clique no botão **'Rede'** na parte inferior da página.
 
-![Clustering][redis-cache-clustering-selected]
+5. No **separador 'Rede',** selecione o seu método de conectividade. Para instâncias de cache premium, pode ligar publicamente, através de endereços IP públicos ou pontos finais de serviço, ou em particular, usando um ponto final privado.
 
-Uma vez criada a cache, liga-se a ele e utiliza-se como uma cache não agrupada, e o Redis distribui os dados através dos fragmentos de Cache. Se os diagnósticos [estiverem ativados,](cache-how-to-monitor.md#enable-cache-diagnostics)as métricas são capturadas separadamente para cada fragmento e podem ser [vistas](cache-how-to-monitor.md) na Cache Azure para lâmina Redis. 
+6. Selecione o **Seguinte: Separador avançado** ou clique no **seguinte: Botão avançado** na parte inferior da página.
+
+7. No separador **Avançado** para uma instância de cache premium, configurar as definições para a porta não-TLS, clustering e persistência de dados. Para ativar o agrupamento, clique em **Ativar**.
+
+    :::image type="content" source="media/cache-how-to-premium-clustering/redis-cache-clustering.png" alt-text="Criar recurso.":::
+
+    Pode ter até 10 fragmentos no aglomerado. Depois de clicar em **Ativar**, deslize o slider ou escreva um número entre 1 e 10 para **a contagem de fragmentos** e clique **em OK**.
+
+    Cada fragmento é um par de cache primário/réplica gerido por Azure, e o tamanho total da cache é calculado multiplicando o número de fragmentos pelo tamanho da cache selecionado no nível de preços.
+
+    :::image type="content" source="media/cache-how-to-premium-clustering/redis-cache-clustering-selected.png" alt-text="Criar recurso.":::
+
+    Uma vez criada a cache, liga-se a ele e utiliza-se como uma cache não agrupada, e o Redis distribui os dados através dos fragmentos de Cache. Se os diagnósticos [estiverem ativados,](cache-how-to-monitor.md#enable-cache-diagnostics)as métricas são capturadas separadamente para cada fragmento e podem ser [vistas](cache-how-to-monitor.md) na Cache Azure para lâmina Redis. 
+
+8. Selecione o **separador Seguinte: Tags** ou clique no botão **Seguinte: Tags** na parte inferior da página.
+
+9. Opcionalmente, no separador **Tags, insira** o nome e o valor se desejar categorizar o recurso. 
+
+10. Selecione **Review + criar**. É levado para o separador 'Rever +' onde o Azure valida a sua configuração.
+
+11. Depois de aparecer a mensagem de validação verde, selecione **Criar**.
+
+Demora um pouco para a cache criar. Pode monitorizar o progresso na cache Azure para a página Redis **Overview.**   Quando **o Estado**aparece como    **Running,** a cache está pronta a ser utilizada. 
 
 > [!NOTE]
 > 
@@ -62,7 +94,7 @@ Para alterar o tamanho do cluster numa cache premium de execução com o cluster
 
 Para alterar o tamanho do cluster, utilize o slider ou escreva um número entre 1 e 10 na caixa de texto **de contagem de fragmentos** e clique **em OK** para guardar.
 
-Aumentar o tamanho do cluster aumenta a potência máxima e o tamanho da cache. Aumentar o tamanho do cluster não aumenta o máximo. ligações disponíveis para os clientes.
+Aumentar o tamanho do cluster aumenta a potência máxima e o tamanho da cache. Aumentar o tamanho do cluster não aumenta as ligações máximas disponíveis para os clientes.
 
 > [!NOTE]
 > Escalar um cluster executa o comando [MIGRATE,](https://redis.io/commands/migrate) que é um comando caro, por isso, para o mínimo impacto, considere executar esta operação durante horas não-pico. Durante o processo de migração, verá um pico na carga do servidor. Escalar um cluster é um processo de execução longo e o tempo de duração dependerá do número de chaves e do tamanho dos valores associados a essas teclas.

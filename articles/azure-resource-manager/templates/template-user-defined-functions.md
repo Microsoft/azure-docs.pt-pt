@@ -4,10 +4,10 @@ description: Descreve como definir e usar funções definidas pelo utilizador nu
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: 69f4e98d389cc8dbe5cd3f4b628189676c501106
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84672940"
 ---
 # <a name="user-defined-functions-in-azure-resource-manager-template"></a>Funções definidas pelo utilizador no modelo do Gestor de Recursos Azure
@@ -104,7 +104,7 @@ Ao definir uma função de utilizador, existem algumas restrições:
 * Os parâmetros para a função não podem ter valores predefinidos.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para conhecer as propriedades disponíveis para funções definidas pelo utilizador, consulte [a estrutura e sintaxe dos modelos do Gestor de Recursos Azure](template-syntax.md).
 * Para obter uma lista das funções disponíveis do modelo, consulte as [funções do modelo do Gestor de Recursos Azure](template-functions.md).

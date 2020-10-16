@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 10/30/2019
 ms.author: v-erkel
 ms.openlocfilehash: ff7b15a36c5ef19a1fa6ffdca7697dd6ba97c29f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87092359"
 ---
 # <a name="azure-hpc-cache-data-ingest---parallel-copy-script-method"></a>Azure HPC Cache data ingestão - método de script de cópia paralelo

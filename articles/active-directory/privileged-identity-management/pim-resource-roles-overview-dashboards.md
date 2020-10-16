@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e95eaa5b0e86a7470fc48edc23b2dbfb47e4b10c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84743733"
 ---
 # <a name="use-a-resource-dashboard-to-perform-an-access-review-in-privileged-identity-management"></a>Utilize um painel de recursos para realizar uma revisão de acesso na Gestão de Identidade Privilegiada
@@ -41,6 +41,6 @@ De um lado do gráfico de ativações, dois gráficos exibem a distribuição de
 
 Abaixo dos gráficos estão listados o número de utilizadores e grupos com novas atribuições de funções ao longo dos últimos 30 dias, e funções ordenadas por atribuições totais em ordem descendente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Inicie uma revisão de acesso para funções de recursos Azure na Gestão de Identidade Privilegiada](pim-resource-roles-start-access-review.md)

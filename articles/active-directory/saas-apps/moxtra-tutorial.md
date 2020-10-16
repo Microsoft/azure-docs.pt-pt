@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 7fffe58dfdb63da28edc19c19b56b576f4fbadd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 132da93bcb1e8138b63361cdb448c05b985cdf27
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88544048"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940910"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-moxtra"></a>Tutorial: Azure Ative Directory integração única (SSO) com Moxtra
 
@@ -156,11 +156,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 2. Na barra de ferramentas à esquerda, clique na **Consola de Admin > S.A. 'Sign-on' único SAML**e, em seguida, clique em **New**.
    
-    ![Configurar Sign-On Individuais](./media/moxtra-tutorial/tutorial_moxtra_06.png) 
+    ![O Screenshot mostra a página de sign-on single SAML com a opção de criar um novo SEML Single Sign-on.](./media/moxtra-tutorial/tutorial_moxtra_06.png) 
 
 3. Na página **SAML,** execute os seguintes passos:
    
-    ![Configurar Sign-On Individuais](./media/moxtra-tutorial/tutorial_moxtra_08.png)   
+    ![A screenshot mostra a página SAML onde pode introduzir os valores descritos.](./media/moxtra-tutorial/tutorial_moxtra_08.png)   
  
     a. Na caixa de texto **Name,** digite um nome para a sua configuração (por exemplo: *SAML*). 
   
@@ -191,7 +191,7 @@ O objetivo desta secção é criar um utilizador chamado B.simon em Moxtra.
 
 1. Na barra de ferramentas à esquerda, clique na **Consola de Admin > Gestão do Utilizador**, e, em seguida, Adicione o **Utilizador**.
    
-    ![Configurar Sign-On Individuais](./media/moxtra-tutorial/tutorial_moxtra_10.png) 
+    ![A screenshot mostra a página de Gestão do Utilizador com o Utilizador Adicionar selecionado.](./media/moxtra-tutorial/tutorial_moxtra_10.png) 
 
 1. No diálogo **do Utilizador Adicionar,** execute os seguintes passos:
   

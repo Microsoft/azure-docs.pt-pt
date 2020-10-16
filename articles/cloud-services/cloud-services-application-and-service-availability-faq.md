@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: d7a2596d4f6a8aa9fb4c95dfb5a3ccab7d7206f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2707c5a6cb110d30b85b765f6c8b144e8cca7abe
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461311"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074724"
 ---
 # <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de aplicação e disponibilidade de serviços para serviços em nuvem Azure: Perguntas frequentes (PERGUNTAS Frequentes)
 
@@ -33,7 +33,7 @@ Aproximadamente uma vez por mês, a Microsoft lança uma nova versão guest OS p
 
 Para obter detalhes completos sobre as recentes atualizações do Guest OS, consulte [os lançamentos do Azure Guest OS e a matriz de compatibilidade SDK](cloud-services-guestos-update-matrix.md).
 
-Para obter informações úteis sobre reinícios e ponteiros para detalhes técnicos das atualizações do Guest and Host OS, consulte o blog MSDN post [Role Instance Restarts Devido às atualizações do OS](https://docs.microsoft.com/archive/blogs/kwill/role-instance-restarts-due-to-os-upgrades).
+Para obter informações úteis sobre reinícios e ponteiros para detalhes técnicos das atualizações do Guest and Host OS, consulte o blog MSDN post [Role Instance Restarts Devido às atualizações do OS](/archive/blogs/kwill/role-instance-restarts-due-to-os-upgrades).
 
 ## <a name="why-does-the-first-request-to-my-cloud-service-after-the-service-has-been-idle-for-some-time-take-longer-than-usual"></a>Porque é que o primeiro pedido para o meu serviço de nuvem depois do serviço estar inativo há algum tempo demora mais do que o habitual?
 Quando o Web Server recebe o primeiro pedido, primeiro recompensa o código e, em seguida, processa o pedido. É por isso que o primeiro pedido demora mais do que os outros. Por padrão, o pool de aplicações é encerrado em casos de inatividade do utilizador. O pool de aplicações também recicla por padrão a cada 1.740 minutos (29 horas).

@@ -8,10 +8,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 06/23/2017
 ms.openlocfilehash: 6f2af2eed8aa01f35e1813bcd910f3ea22e2a335
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87128850"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Começar com u-SQL em Azure Data Lake Analytics
@@ -56,8 +56,8 @@ Note o ponto de interrogação ao lado do tipo de dados no `Duration` campo. Sig
 ### <a name="key-concepts"></a>Conceitos-chave
 
 * **Variáveis de linha**: Cada expressão de consulta que produz um conjunto de linha pode ser atribuída a uma variável. U-SQL segue o padrão de nomeação variável T-SQL `@searchlog` (, por exemplo) no script.
-* A palavra-chave **EXTRACT** lê dados de um ficheiro e define o esquema na leitura. `Extractors.Tsv`é um extrator U-SQL incorporado para ficheiros de valor separados por separados. Pode desenvolver extratores personalizados.
-* O **OUTPUT** escreve dados de um conjunto de linhas para um ficheiro. `Outputters.Csv()`é um outputter U-SQL incorporado para criar um ficheiro de valor separado em vírgula. Pode desenvolver outputters personalizados.
+* A palavra-chave **EXTRACT** lê dados de um ficheiro e define o esquema na leitura. `Extractors.Tsv` é um extrator U-SQL incorporado para ficheiros de valor separados por separados. Pode desenvolver extratores personalizados.
+* O **OUTPUT** escreve dados de um conjunto de linhas para um ficheiro. `Outputters.Csv()` é um outputter U-SQL incorporado para criar um ficheiro de valor separado em vírgula. Pode desenvolver outputters personalizados.
 
 ### <a name="file-paths"></a>Caminhos de arquivo
 

@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
 ms.openlocfilehash: 02ec24677519902c299babb72e089f75dcf8b34b
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91443037"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Implementar um serviço de fusão dividida para mover dados entre bases de dados de fragmentos
@@ -23,19 +23,19 @@ ms.locfileid: "91443037"
 
 A ferramenta de fusão dividida permite mover dados entre bases de dados de fragmentos. Ver [dados em movimento entre bases de dados de nuvem escalonadas](elastic-scale-overview-split-and-merge.md)
 
-## <a name="download-the-split-merge-packages"></a>Descarregue os pacotes Split-Merge
+## <a name="download-the-split-merge-packages"></a>Descarregue os pacotes de Split-Merge
 
 1. Descarregue a versão mais recente do NuGet a partir do [NuGet.](https://docs.nuget.org/docs/start-here/installing-nuget)
 
 1. Abra um pedido de comando e navegue para o diretório onde descarregou nuget.exe. O download inclui comandos PowerShell.
 
-1. Descarregue o mais recente pacote Split-Merge no diretório atual com o comando abaixo:
+1. Descarregue o mais recente pacote de Split-Merge para o diretório atual com o comando abaixo:
 
    ```cmd
    nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge
    ```  
 
-Os ficheiros são colocados num diretório chamado **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** onde *x.x.xxx.x* reflete o número da versão. Encontre os ficheiros de serviço de fusão dividida no sub-directório **de serviço\splitmerge\service** e nos scripts PowerShell split-Merge (e dlls clientes necessários) no sub-directório **de conteúdo\splitmerge\powershell.**
+Os ficheiros são colocados num diretório chamado **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** onde *x.x.xxx.x* reflete o número da versão. Encontre os ficheiros de serviço de fusão dividida no sub-directório **de serviço\splitmerge\service** e no Split-Merge scripts PowerShell (e dlls de clientes necessários) no sub-directório **de conteúdo\splitmerge\powershell.**
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -47,15 +47,15 @@ Os ficheiros são colocados num diretório chamado **Microsoft.Azure.SqlDatabase
 
 1. Crie um Serviço Azure Cloud para o seu serviço Split-Merge.
 
-## <a name="configure-your-split-merge-service"></a>Configure o seu serviço Split-Merge
+## <a name="configure-your-split-merge-service"></a>Configure o seu serviço de Split-Merge
 
-### <a name="split-merge-service-configuration"></a>Configuração de serviço split-Merge
+### <a name="split-merge-service-configuration"></a>Split-Merge configuração de serviço
 
-1. Na pasta em que descarregou os conjuntos Split-Merge, crie uma cópia do ficheiro *ServiceConfiguration.Template.cscfg* que enviou ao lado do *SplitMergeService.cspkg* e rebatizá-lo *ServiceConfiguration.cscfg*.
+1. Na pasta em que descarregou os conjuntos de Split-Merge, crie uma cópia do ficheiro *ServiceConfiguration.Template.cscfg* que enviou ao lado do *SplitMergeService.cspkg* e rebatizá-lo *ServiceConfiguration.cscfg*.
 
 1. Open *ServiceConfiguration.cscfg* em um editor de texto como Visual Studio que valida entradas como o formato de impressões digitais de certificado.
 
-1. Crie uma nova base de dados ou escolha uma base de dados existente para servir como base de dados de estado para operações split-merge e recuperar a cadeia de ligação dessa base de dados.
+1. Crie uma nova base de dados ou escolha uma base de dados existente para servir como base de dados de estado para operações de Split-Merge e recuperar a cadeia de ligação dessa base de dados.
 
    > [!IMPORTANT]
    > Neste momento, a base de dados de estado deve utilizar a colagem latina (SQL \_ Latin1 \_ General \_ CP1 \_ CI \_ AS). Para obter mais informações, consulte [o Nome de Colagem do Windows (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx).
@@ -168,7 +168,7 @@ Se o seu papel de trabalhador não estiver online, mas o seu papel na web for be
 
 ### <a name="connect-with-a-web-browser"></a>Conecte-se com um navegador web
 
-Determine o ponto final web do seu serviço Split-Merge. Pode encontrar isso no portal indo para a **visão geral** do seu serviço em nuvem e olhando para o URL do **site** no lado direito. Substitua **http://** por **https://** uma vez que as definições de segurança predefinidos desativam o ponto de terminação HTTP. Carregue a página para este URL no seu navegador.
+Determine o ponto final web do seu serviço de Split-Merge. Pode encontrar isso no portal indo para a **visão geral** do seu serviço em nuvem e olhando para o URL do **site** no lado direito. Substitua **http://** por **https://** uma vez que as definições de segurança predefinidos desativam o ponto de terminação HTTP. Carregue a página para este URL no seu navegador.
 
 ### <a name="test-with-powershell-scripts"></a>Teste com scripts PowerShell
 
@@ -214,13 +214,13 @@ Os ficheiros de script incluídos são:
      </tr>
    <tr>
        <th rowspan="4">ExecuteSampleSplitMerge.ps1 </th>
-       <td>1. Envia um pedido dividido para o frontend-Merge Service, que divide metade dos dados do primeiro fragmento para o segundo fragmento.</td>
+       <td>1. Envia um pedido dividido para o frontend web do Serviço Split-Merge, que divide metade dos dados do primeiro fragmento para o segundo fragmento.</td>
      </tr>
      <tr>
        <td>2. Sondagem o frontend web para o estado do pedido de divisão e aguarda até que o pedido termine.</td>
      </tr>
      <tr>
-       <td>3. Envia um pedido de fusão para o frontend do Serviço split-Merge, que move os dados do segundo fragmento de volta para o primeiro fragmento.</td>
+       <td>3. Envia um pedido de fusão para o frontend web do Serviço Split-Merge, que move os dados do segundo fragmento de volta para o primeiro fragmento.</td>
      </tr>
      <tr>
        <td>4. Sondagem o frontend web para o estado do pedido de fusão e aguarda até que o pedido esteja concluído.</td>
@@ -229,14 +229,14 @@ Os ficheiros de script incluídos são:
 
 ## <a name="use-powershell-to-verify-your-deployment"></a>Utilize o PowerShell para verificar a sua implantação
 
-1. Abra uma nova janela PowerShell e navegue para o diretório onde descarregou o pacote Split-Merge e, em seguida, navegue no diretório "powershell".
+1. Abra uma nova janela PowerShell e navegue para o diretório onde descarregou o pacote de Split-Merge e, em seguida, navegue no diretório "powershell".
 
 2. Crie um servidor (ou escolha um servidor existente) onde o gestor de mapas de fragmentos e fragmentos serão criados.
 
    > [!NOTE]
-   > O *SetupSampleSplitMergeEnvironment.ps1* script cria todas estas bases de dados no mesmo servidor por padrão para manter o script simples. Isto não é uma restrição do próprio Serviço de Fusão Dividida.
+   > O *SetupSampleSplitMergeEnvironment.ps1* script cria todas estas bases de dados no mesmo servidor por padrão para manter o script simples. Isto não é uma restrição do próprio Serviço de Split-Merge.
 
-   Será necessário um login de autenticação SQL com acesso de leitura/escrita aos DBs para que o serviço Split-Merge mova dados e atualize o mapa de fragmentos. Uma vez que o Serviço split-merge funciona na nuvem, não suporta atualmente a Autenticação Integrada.
+   Será necessário um login de autenticação SQL com acesso de leitura/escrita aos DBs para que o serviço Split-Merge mova dados e atualize o mapa de fragmentos. Uma vez que o Serviço Split-Merge funciona na nuvem, não suporta atualmente autenticação integrada.
 
    Certifique-se de que o servidor está configurado para permitir o acesso a partir do endereço IP da máquina que executa estes scripts. Pode encontrar esta definição no servidor SQL / Firewalls e redes virtuais / endereços IP do Cliente.
 

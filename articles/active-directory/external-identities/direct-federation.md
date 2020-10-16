@@ -1,6 +1,6 @@
 ---
 title: Federação direta com um fornecedor de identidade para b2B - Azure AD
-description: Federar diretamente com um fornecedor de identidade SAML ou WS-Fed para que os hóspedes possam iniciar sação nas suas aplicações AD AZure
+description: Federar diretamente com um SAML ou WS-Fed fornecedor de identidade para que os hóspedes possam iniciar sação nas suas aplicações AD AZure
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 78ad8761d3a4ff3e3cdab9dee5f50b469ff840fd
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87909556"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federação direta com FS AD e fornecedores de terceiros para utilizadores convidados (pré-visualização)
@@ -24,7 +24,7 @@ ms.locfileid: "87909556"
 > [!NOTE]
 >  A federação direta é uma funcionalidade de pré-visualização pública do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Este artigo descreve como criar uma federação direta com outra organização para a colaboração B2B. Pode criar uma federação direta com qualquer organização cujo fornecedor de identidade (IdP) apoie o protocolo SAML 2.0 ou WS-Fed.
+Este artigo descreve como criar uma federação direta com outra organização para a colaboração B2B. Pode criar uma federação direta com qualquer organização cujo fornecedor de identidade (IdP) suporte o protocolo SAML 2.0 ou WS-Fed.
 Quando configurar uma federação direta com o IdP de um parceiro, novos utilizadores convidados desse domínio podem usar a sua própria conta organizacional gerida pelo IdP para se inscreverem no seu inquilino Azure AD e começar a colaborar consigo. Não há necessidade de o utilizador convidado criar uma conta AD Azure separada.
 > [!NOTE]
 > Os utilizadores convidados da federação direta devem inscrever-se através de um link que inclua o contexto do inquilino (por `https://myapps.microsoft.com/?tenantid=<tenant id>` `https://portal.azure.com/<tenant id>` exemplo, ou, no caso de um domínio verificado, `https://myapps.microsoft.com/\<verified domain>.onmicrosoft.com` ). As ligações diretas a aplicações e recursos também funcionam desde que incluam o contexto do inquilino. Os utilizadores diretos da federação não conseguem assinar o uso de pontos finais comuns que não têm contexto de inquilino. Por exemplo, utilizar `https://myapps.microsoft.com` `https://portal.azure.com` , ou `https://teams.microsoft.com` resultará num erro.
@@ -83,11 +83,11 @@ Não, a funcionalidade [de código de acesso de e-mail](one-time-passcode.md) um
 Em primeiro lugar, a sua organização parceira precisa de configurar o seu fornecedor de identidade com as reivindicações necessárias e confiar nas confianças das partes. 
 
 > [!NOTE]
-> Para ilustrar como configurar um fornecedor de identidade para a federação direta, usaremos os Serviços da Federação de Diretórios Ativos (AD FS) como exemplo. Consulte o artigo [Configure a Federação Direta com AD FS,](direct-federation-adfs.md)que dá exemplos de como configurar a AD FS como um SAML 2.0 ou provedor de identidade WS-Fed em preparação para a federação direta.
+> Para ilustrar como configurar um fornecedor de identidade para a federação direta, usaremos os Serviços da Federação de Diretórios Ativos (AD FS) como exemplo. Consulte o artigo [Configurar federação direta com AD FS,](direct-federation-adfs.md)que dá exemplos de como configurar a AD FS como um SAML 2.0 ou WS-Fed fornecedor de identidade em preparação para federação direta.
 
 ### <a name="saml-20-configuration"></a>Configuração SAML 2.0
 
-O Azure AD B2B pode ser configurado para federar com fornecedores de identidade que utilizam o protocolo SAML com requisitos específicos listados abaixo. Para obter mais informações sobre a criação de uma confiança entre o seu fornecedor de identidade SAML e a AD Azure, consulte utilizar um Fornecedor de [Identidade SAML 2.0 (IdP) para uma única Sposição](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-saml-idp).  
+O Azure AD B2B pode ser configurado para federar com fornecedores de identidade que utilizam o protocolo SAML com requisitos específicos listados abaixo. Para obter mais informações sobre a criação de uma confiança entre o seu fornecedor de identidade SAML e a AD Azure, consulte utilizar um Fornecedor de  [Identidade SAML 2.0 (IdP) para uma única Sposição](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-saml-idp).  
 
 > [!NOTE]
 > O domínio-alvo da federação direta não deve ser verificado em Azure AD. O domínio URL de autenticação deve coincidir com o domínio alvo ou deve ser o domínio de um fornecedor de identidade permitido. Consulte a secção [Limitações](#limitations) para mais detalhes. 
@@ -101,7 +101,7 @@ Atributos necessários para a resposta SAML 2.0 do IdP:
 |---------|---------|
 |Serviço De Afirmação     |`https://login.microsoftonline.com/login.srf`         |
 |Audiência     |`urn:federation:MicrosoftOnline`         |
-|Emissor     |O emitente URI do IdP parceiro, por exemplo`http://www.example.com/exk10l6w90DHM0yi...`         |
+|Emissor     |O emitente URI do IdP parceiro, por exemplo `http://www.example.com/exk10l6w90DHM0yi...`         |
 
 
 Reclamações necessárias para o token SAML 2.0 emitido pelo IdP:
@@ -111,15 +111,15 @@ Reclamações necessárias para o token SAML 2.0 emitido pelo IdP:
 |Formato NameID     |`urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`         |
 |endereço de e-mail     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
 
-### <a name="ws-fed-configuration"></a>Configuração WS-Fed 
-O Azure AD B2B pode ser configurado para federar com fornecedores de identidade que usam o protocolo WS-Fed com alguns requisitos específicos, conforme listado abaixo. Atualmente, os dois fornecedores da WS-Fed foram testados para compatibilidade com a Azure AD incluem AD FS e Shibboleth. Para obter mais informações sobre a criação de uma confiança entre um fornecedor compatível com a WS-Fed com a Azure AD, consulte o "StS Integration Paper using WS Protocols" disponível nos [Docs de Compatibilidade do Fornecedor de Identidade AZure AD](https://www.microsoft.com/download/details.aspx?id=56843).
+### <a name="ws-fed-configuration"></a>WS-Fed configuração 
+O Azure AD B2B pode ser configurado para federar com fornecedores de identidade que usam o protocolo WS-Fed com alguns requisitos específicos, conforme listado abaixo. Atualmente, os dois fornecedores de WS-Fed foram testados para compatibilidade com a Azure AD incluem AD FS e Shibboleth. Para obter mais informações sobre a criação de uma confiança entre uma parte WS-Fed fornecedor conforme com a Azure AD, consulte o "StS Integration Paper using WS Protocols" disponível nos [Docs de Compatibilidade do Fornecedor de Identidade Azure AD](https://www.microsoft.com/download/details.aspx?id=56843).
 
 > [!NOTE]
 > O domínio-alvo da federação direta não deve ser verificado em Azure AD. O domínio URL de autenticação deve coincidir quer com o domínio alvo quer com o domínio de um fornecedor de identidade permitido. Consulte a secção [Limitações](#limitations) para mais detalhes. 
 
-#### <a name="required-ws-fed-attributes-and-claims"></a>Atributos e reclamações exigidos da WS-Fed
+#### <a name="required-ws-fed-attributes-and-claims"></a>Atributos e reclamações de WS-Fed necessários
 
-As tabelas a seguir mostram requisitos para atributos e alegações específicas que devem ser configurados no fornecedor de identidade WS-Fed de terceiros. Para criar uma federação direta, os seguintes atributos devem ser recebidos na mensagem WS-Fed do fornecedor de identidade. Estes atributos podem ser configurados ligando-os ao ficheiro XML do serviço de segurança online ou introduzindo-os manualmente.
+As tabelas a seguir mostram requisitos para atributos e alegações específicos que devem ser configurados no fornecedor de identidade WS-Fed de terceiros. Para criar uma federação direta, os seguintes atributos devem ser recebidos na mensagem WS-Fed do fornecedor de identidade. Estes atributos podem ser configurados ligando-os ao ficheiro XML do serviço de segurança online ou introduzindo-os manualmente.
 
 Atributos exigidos na mensagem WS-Fed do IdP:
  
@@ -127,9 +127,9 @@ Atributos exigidos na mensagem WS-Fed do IdP:
 |---------|---------|
 |PassivoRequestorEndpoint     |`https://login.microsoftonline.com/login.srf`         |
 |Audiência     |`urn:federation:MicrosoftOnline`         |
-|Emissor     |O emitente URI do IdP parceiro, por exemplo`http://www.example.com/exk10l6w90DHM0yi...`         |
+|Emissor     |O emitente URI do IdP parceiro, por exemplo `http://www.example.com/exk10l6w90DHM0yi...`         |
 
-Reclamações necessárias para o token WS-Fed emitido pelo IdP:
+Reclamações necessárias para o WS-Fed ficha emitida pelo IdP:
 
 |Atributo  |Valor  |
 |---------|---------|
@@ -148,7 +148,7 @@ Em seguida, você vai configurar a federação com o fornecedor de identidade co
 2. Selecione **Identidades Externas**  >  **Todos os fornecedores de identidade**.
 3. Selecione e, em seguida, selecione **Novo IdP SAML/WS-Fed**.
 
-    ![Screenshot mostrando botão para adicionar um novo IdP SAML ou WS-Fed](media/direct-federation/new-saml-wsfed-idp.png)
+    ![Screenshot mostrando botão para adicionar um novo SAML ou WS-Fed IdP](media/direct-federation/new-saml-wsfed-idp.png)
 
 4. Na página **New SAML/WS-Fed IdP,** no âmbito **do protocolo de fornecedor de identidade,** selecione **SAML** ou **WS-FED**.
 

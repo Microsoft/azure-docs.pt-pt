@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 0701e9c6428283d45cf4b4a2e24c8de99d9a286b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89265903"
 ---
 # <a name="azure-media-services-telemetry"></a>Telemetria Azure Media Services  
@@ -81,7 +81,7 @@ PartitionKey|{iD da conta}_{iD da entidade}|e49bef329c29495f9b9570989682069d_644
 RowKey|{segundos para meia-noite}_{valor aleatório}|01688_00199<br/><br/>A tecla de linha começa com o número de segundos à meia-noite para permitir consultas de estilo top n dentro de uma partição. Para mais informações, consulte [este](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern) artigo. 
 Timestamp|Data/Hora|Marca de tempo automática da tabela Azure 2016-09-09T22:43:42.241Z
 Tipo|O tipo de entidade que fornece dados de telemetria|Canal/StreamingEndpoint/Arquivo<br/><br/>O tipo de evento é apenas um valor de corda.
-Name|O nome do evento de telemetria|ChannelHeartbeat/StreamingEndpointRequestLog
+Nome|O nome do evento de telemetria|ChannelHeartbeat/StreamingEndpointRequestLog
 Tempo observado|A hora em que ocorreu o evento de telemetria (UTC)|2016-09-09T22:42:36.924Z<br/><br/>O tempo observado é fornecido pela entidade que envia a telemetria (por exemplo, um canal). Pode haver problemas de sincronização de tempo entre componentes, pelo que este valor é aproximado
 ServiceID|{iD serviço}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 Propriedades específicas da entidade|Conforme definido pelo evento|StreamName: stream1, Bitrate 10123, ...<br/><br/>As propriedades restantes são definidas para o tipo de evento dado. O conteúdo da tabela Azure é par de valores-chave.  (isto é, diferentes linhas na tabela têm diferentes conjuntos de propriedades).
@@ -102,7 +102,7 @@ PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab701
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Marca de tempo automático da Tabela Azure 2016-09-09T22:43:42.241Z
 Tipo|Tipo|StreamingEndpoint
-Name|Name|StreamingEndpointRequestLog
+Nome|Nome|StreamingEndpointRequestLog
 Tempo observado|Tempo observado|2016-09-09T22:42:36.924Z
 ServiceID|ID de Serviço|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 Nome do Anfitrião|Nome de anfitrião do ponto final|builddemoserver.origin.mediaservices.windows.net
@@ -120,8 +120,8 @@ Propriedade|Valor|Exemplos/notas
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Marca de tempo automática da tabela Azure 2016-09-09T22:43:42.241Z
-Tipo|Tipo|Canal
-Name|Name|ChannelHeartbeat
+Tipo|Tipo|Channel
+Nome|Nome|ChannelHeartbeat
 Tempo observado|Tempo observado|2016-09-09T22:42:36.924Z
 ServiceID|ID de Serviço|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 TrackType|Tipo de vídeo/áudio/texto de faixa|vídeo/áudio
@@ -146,7 +146,7 @@ PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab701
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Marca de tempo automática da tabela Azure 2016-09-09T22:43:42.241Z
 Tipo|Tipo|Arquivo
-Name|Name|ArchiveHeartbeat
+Nome|Nome|ArchiveHeartbeat
 Tempo observado|Tempo observado|2016-09-09T22:42:36.924Z
 ServiceID|ID de Serviço|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 ManifestoName|Url do programa|activo-eb149703-ed0a-483c-91c4-e4066e72cce3/a0a5cfbf-71ec-4bd2-8c01-a92a2b38c9ba.ism

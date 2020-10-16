@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: cherylmc
 ms.openlocfilehash: 660c346669c684921164f6488647f589492c7416
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90006623"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Criar uma ligação Site a Site no portal do Azure
@@ -31,7 +31,7 @@ Uma ligação de gateway de VPN de Site para Site é utilizada para ligar a sua 
 
 ![Diagrama da ligação de Gateway de Rede de VPNs em vários sites](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site-to-site-diagram.png)
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Antes de iniciar a configuração, verifique se cumpre os seguintes critérios:
 
@@ -137,7 +137,7 @@ Pode adicionar mais ligações, desde que nenhum desses espaços de endereços s
 3. Se estiver a ligar através de Site a Site e ainda não tiver criado um gateway de rede local para o site ao qual se quer ligar, pode criar um novo.
 4. Especifique a chave partilhada que pretende utilizar e clique em **OK** para criar a ligação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre o BGP, veja a [Descrição Geral do BGP](vpn-gateway-bgp-overview.md) e [Como configurar o BGP](vpn-gateway-bgp-resource-manager-ps.md).
 * Para obter informações sobre túneis forçados, consulte [sobre o túnel forçado.](vpn-gateway-forced-tunneling-rm.md)

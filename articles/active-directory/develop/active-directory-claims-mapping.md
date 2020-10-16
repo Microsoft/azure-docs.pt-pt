@@ -14,10 +14,10 @@ ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.openlocfilehash: 4fca84c8e5aa562572792968d0438a61be5ab91b
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90601474"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como: Personalizar reclamações emitidas em fichas para uma aplicação específica num inquilino (Preview)
@@ -44,7 +44,7 @@ Uma política de mapeamento de reclamações é um tipo de objeto **de política
 
 Há certos conjuntos de afirmações que definem como e quando são usadas em fichas.
 
-| Conjunto de reclamações | Description |
+| Conjunto de reclamações | Descrição |
 |---|---|
 | Conjunto de reclamação do núcleo | Estão presentes em todos os símbolos, independentemente da política. Estas alegações também são consideradas restritas, e não podem ser modificadas. |
 | Conjunto básico de reclamação | Inclui as reclamações que são emitidas por padrão para tokens (além do conjunto de reclamações principais). Pode omitir ou modificar reclamações básicas utilizando as políticas de mapeamento de reclamações. |
@@ -285,7 +285,7 @@ O elemento ID identifica qual o imóvel na fonte que fornece o valor para a recl
 
 #### <a name="table-3-valid-id-values-per-source"></a>Quadro 3: Valores de identificação válidos por fonte
 
-| Origem | ID | Description |
+| Origem | ID | Descrição |
 |-----|-----|-----|
 | Utilizador | surname | Nome da família |
 | Utilizador | givenname | Nome Próprio |
@@ -362,7 +362,7 @@ Com base no método escolhido, espera-se um conjunto de entradas e saídas. Defi
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Quadro 4: Métodos de transformação e entradas e saídas esperadas
 
-|TransformaçãoMethod|Entrada esperada|Resultado esperado|Description|
+|TransformaçãoMethod|Entrada esperada|Resultado esperado|Descrição|
 |-----|-----|-----|-----|
 |Associar|string1, string2, separador|outputClaim|Junta cordas de entrada utilizando um separador no meio. Por exemplo: string1:" foo@bar.com " " " " " string2:"sandbox", separador:"." resulta em outputClaim:" foo@bar.com.sandbox|
 |ExtratoMailPrefixo|E-mail ou UPN|corda extraída|ExtensãoTribu 1-15 ou quaisquer outras extensões de Esquema que estejam a armazenar um valor de endereço DE UPN ou e-mail para o utilizador, por johndoe@contoso.com exemplo. Extrai a parte local de um endereço de e-mail. Por exemplo: mail:" foo@bar.com " resulta em saídaClaim:"foo". Se não \@ houver sinal, a cadeia de entrada original é devolvida como está.|
@@ -388,7 +388,7 @@ Com base no método escolhido, espera-se um conjunto de entradas e saídas. Defi
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Quadro 5: Atributos permitidos como fonte de dados para SAML NameID
 
-|Origem|ID|Description|
+|Origem|ID|Descrição|
 |-----|-----|-----|
 | Utilizador | correio|Endereço de E-mail|
 | Utilizador | nome do utilizadorprincipal|Nome Principal de Utilizador|
@@ -531,7 +531,7 @@ Neste exemplo, cria-se uma política que emite uma reivindicação personalizada
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 - Para saber como personalizar as reclamações emitidas no token SAML através do portal Azure, consulte [Como: Personalizar reclamações emitidas no token SAML para aplicações empresariais](active-directory-saml-claims-customization.md)
 - Para saber mais sobre os atributos de extensão, consulte [utilizando atributos de extensão de esquema de diretório em sinistros](active-directory-schema-extensions.md).

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4afc5e554e72fc2ab78173368930b2e5317bce7
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 71900bc3741c25299402e31057ea2237cd0a4637
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718922"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965153"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Registo combinado de informações de segurança para a visão geral do Azure Ative Directory
 
@@ -51,18 +51,18 @@ Se quiser forçar uma língua específica, pode adicionar `?lng=<language>` ao f
 
 O registo combinado suporta os seguintes métodos e ações de autenticação:
 
-| Método | Registar | Alterar | Eliminar |
+| Método | Registar | Alterar | Delete |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | Sim (máximo de 5) | Não | Yes |
-| Outra aplicação autenticadora | Sim (máximo de 5) | Não | Yes |
-| Ficha de hardware | No | Não | Yes |
-| Telefone | Yes | Yes | Yes |
-| Telefone alternativo | Yes | Yes | Yes |
-| Telefone do escritório | No | No | No |
-| E-mail | Yes | Yes | Yes |
-| Perguntas de segurança | Sim | Não | Yes |
-| Palavras-passe da aplicação | Sim | Não | Yes |
-| Chaves de segurança FIDO2<br />*Modo gerido apenas a partir da página [de informações de Segurança](https://mysignins.microsoft.com/security-info)*| Yes | Yes | Yes |
+| Microsoft Authenticator | Sim (máximo de 5) | Não | Sim |
+| Outra aplicação autenticadora | Sim (máximo de 5) | Não | Sim |
+| Ficha de hardware | Não | Não | Sim |
+| Telefone | Sim | Sim | Sim |
+| Telefone alternativo | Sim | Sim | Sim |
+| Telefone do escritório | Não | Não | Não |
+| E-mail | Sim | Sim | Sim |
+| Perguntas de segurança | Sim | Não | Sim |
+| Palavras-passe da aplicação | Sim | Não | Sim |
+| Chaves de segurança FIDO2<br />*Modo gerido apenas a partir da página [de informações de Segurança](https://mysignins.microsoft.com/security-info)*| Sim | Sim | Sim |
 
 > [!NOTE]
 > As palavras-passe da aplicação estão disponíveis apenas para utilizadores que tenham sido aplicados para autenticação multi-factor. As palavras-passe da aplicação não estão disponíveis para utilizadores que estejam habilitados para autenticação multi-factor através de uma política de Acesso Condicional.

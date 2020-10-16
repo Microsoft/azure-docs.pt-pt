@@ -7,12 +7,12 @@ ms.date: 07/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: b63e1c0bba4d6ac250119c2ac0d9a1cd0e4ee362
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6dfd63f92b8c420a3c5281ee2962b211b8779dd1
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91577021"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045062"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-running-on-windows-to-iot-hub-java"></a>Quickstart: Conecte uma aplicação de dispositivo IoT Plug e Play de amostra que está a decorrer no Windows to IoT Hub (Java)
 
@@ -26,7 +26,7 @@ Este quickstart mostra-lhe como construir uma aplicação de dispositivo IoT Plu
 
 Para completar este arranque rápido no Windows, instale o seguinte software no ambiente local do Windows:
 
-* Kit de Desenvolvimento Java SE 8. Em [Java, suporte a longo prazo para Azure e Azure Stack,](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true)sob **suporte a longo prazo,** selecione Java **8**.
+* Kit de Desenvolvimento Java SE 8. Em [Java, suporte a longo prazo para Azure e Azure Stack,](/java/azure/jdk/?preserve-view=true&view=azure-java-stable)sob **suporte a longo prazo,** selecione Java **8**.
 * [Apache Maven 3](https://maven.apache.org/download.cgi).
 
 ## <a name="download-the-code"></a>Transferir o código
@@ -119,4 +119,4 @@ Date since = new Gson().fromJson(jsonRequest, Date.class);
 Neste arranque rápido, aprendeu a ligar um dispositivo IoT Plug e Play a um hub IoT. Para saber mais sobre como construir uma solução que interage com os seus dispositivos IoT Plug e Play, consulte:
 
 > [!div class="nextstepaction"]
-> [Como fazer: Ligar e interagir com um dispositivo](howto-develop-solution.md)
+> [Como fazer: Ligar e interagir com um dispositivo](./quickstart-service-node.md)

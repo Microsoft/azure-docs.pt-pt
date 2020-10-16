@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: 481efd488993b610812f6756ac2e3de44908f604
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a8855dd4dea3aef6597c7d611ade0c0aa7673929
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91262472"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973568"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-nodejs"></a>Quickstart: Gere uma miniatura utilizando a API e o Node.js
 
@@ -61,7 +61,7 @@ const request = require('request').defaults({ encoding: null });
 let subscriptionKey = process.env['COMPUTER_VISION_SUBSCRIPTION_KEY'];
 let endpoint = process.env['COMPUTER_VISION_ENDPOINT']
 
-var uriBase = endpoint + 'vision/v3.0/generateThumbnail';
+var uriBase = endpoint + 'vision/v3.1/generateThumbnail';
 
 const imageUrl = 'https://upload.wikimedia.org/wikipedia/commons/9/94/Bloodhound_Puppy.jpg';
 

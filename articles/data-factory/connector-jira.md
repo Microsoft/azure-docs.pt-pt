@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: jingwang
 ms.openlocfilehash: ddf752fc78c8c6bb2d7e7a57178b9cf2d719b810
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81418206"
 ---
 # <a name="copy-data-from-jira-using-azure-data-factory"></a>Copiar dados da Jira utilizando a Azure Data Factory
@@ -45,16 +45,16 @@ As seguintes secções fornecem detalhes sobre propriedades que são usadas para
 
 As seguintes propriedades são suportadas para o serviço ligado à Jira:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | O tipo de propriedade deve ser definido para: **Jira** | Yes |
-| anfitrião | O endereço IP ou o nome de anfitrião do serviço Jira. (por exemplo, jira.example.com)  | Yes |
-| porta | A porta TCP que o servidor Jira utiliza para ouvir as ligações do cliente. O valor predefinido é de 443 se estiver ligado através de HTTPS, ou 8080 se estiver ligado através de HTTP.  | No |
-| o nome de utilizador | O nome de utilizador que utiliza para aceder ao Serviço Jira.  | Yes |
-| palavra-passe | A palavra-passe correspondente ao nome de utilizador que forneceu no campo do nome de utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
-| useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados usando HTTPS. O valor predefinido é true.  | No |
-| useHostVerification | Especifica se deve exigir que o nome do anfitrião no certificado do servidor corresponda ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é true.  | No |
-| usePeerVerificação | Especifica se deve verificar a identidade do servidor ao ligar o TLS. O valor predefinido é true.  | No |
+| tipo | O tipo de propriedade deve ser definido para: **Jira** | Sim |
+| anfitrião | O endereço IP ou o nome de anfitrião do serviço Jira. (por exemplo, jira.example.com)  | Sim |
+| porta | A porta TCP que o servidor Jira utiliza para ouvir as ligações do cliente. O valor predefinido é de 443 se estiver ligado através de HTTPS, ou 8080 se estiver ligado através de HTTP.  | Não |
+| nome de utilizador | O nome de utilizador que utiliza para aceder ao Serviço Jira.  | Sim |
+| palavra-passe | A palavra-passe correspondente ao nome de utilizador que forneceu no campo do nome de utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
+| useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados usando HTTPS. O valor predefinido é true.  | Não |
+| useHostVerification | Especifica se deve exigir que o nome do anfitrião no certificado do servidor corresponda ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é true.  | Não |
+| usePeerVerificação | Especifica se deve verificar a identidade do servidor ao ligar o TLS. O valor predefinido é true.  | Não |
 
 **Exemplo:**
 
@@ -82,9 +82,9 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados da Jira, defina a propriedade tipo do conjunto de dados para **jiraObject**. As seguintes propriedades são suportadas:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **JiraObject** | Yes |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **JiraObject** | Sim |
 | tableName | O nome da mesa. | Não (se for especificada "consulta" na fonte de atividade) |
 
 **Exemplo**
@@ -112,9 +112,9 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados da Jira, desagrafe o tipo de origem na atividade de cópia para **JiraSource**. As seguintes propriedades são suportadas na secção fonte de **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **JiraSource** | Yes |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **JiraSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

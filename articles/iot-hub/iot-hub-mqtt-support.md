@@ -14,10 +14,10 @@ ms.custom:
 - 'Role: Cloud Development'
 - contperfq1
 ms.openlocfilehash: 720d8f3b1f3d13427cda56ee68596d190ac40dc7
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91767312"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunique com o seu hub IoT usando o protocolo MQTT
@@ -50,7 +50,7 @@ Quando um dispositivo está ligado a um hub IoT, os SDKs do dispositivo fornecem
 
 O quadro seguinte contém ligações a amostras de código para cada idioma suportado e especifica o parâmetro a utilizar para estabelecer uma ligação ao Hub IoT utilizando o MQTT ou o MQTT sobre o protocolo de Tomadas Web.
 
-| Linguagem | Parâmetro do protocolo MQTT | MQTT sobre o parâmetro do protocolo de tomadas web
+| Idioma | Parâmetro do protocolo MQTT | MQTT sobre o parâmetro do protocolo de tomadas web
 | --- | --- | --- |
 | [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) | azure-iot-device-mqtt. Mqtt | azure-iot-device-mqtt. MqttWs |
 | [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol.](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol?view=azure-java-stable) MQTT | IotHubClientProtocol.MQTT_WS |
@@ -77,7 +77,7 @@ device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectio
 
 De forma a garantir que uma ligação cliente/IoT Hub permanece viva, tanto o serviço como o cliente enviam regularmente um sinal *de manutenção-vivo* um para o outro. O cliente que utiliza o IoT SDK envia uma conservação viva no intervalo definido nesta tabela abaixo:
 
-|Linguagem  |Intervalo padrão de manter vivo  |Configurável  |
+|Idioma  |Intervalo padrão de manter vivo  |Configurável  |
 |---------|---------|---------|
 |Node.js     |   180 segundos      |     Não    |
 |Java     |    230 segundos     |     Não    |

@@ -6,13 +6,13 @@ ms.topic: reference
 ms.date: 07/22/2020
 ms.subservice: metrics
 ms.openlocfilehash: ca6acb97e52123a0663d988b3f217d305bce2c4b
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87131689"
 ---
-# <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>Métricas da plataforma Azure Monitor exportáveis através de Definições de Diagnóstico
+# <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>Métricas da plataforma do Azure Monitor exportáveis através de Definições de Diagnóstico
 
 O Azure Monitor fornece [métricas da plataforma](data-platform-metrics.md) por padrão sem configuração. Fornece várias formas de interagir com as métricas da plataforma, incluindo cartografá-las no portal, acessá-las através da API REST, ou questioná-las usando PowerShell ou CLI. Consulte [as métricas suportadas](metrics-supported.md) para uma lista completa das métricas da plataforma atualmente disponíveis com o pipeline métrico consolidado do Azure Monitor. Para consultar e aceder a estas métricas, utilize a [versão api 2018-01-01](/rest/api/monitor/metricdefinitions). Outras métricas podem estar disponíveis no portal ou usando APIs legados.
 
@@ -218,10 +218,10 @@ Segue-se uma lista das métricas cujo comportamento mudou.
 | Microsoft.Insights/Componentes | performanceCounters/excepçõesPerSecond |  Taxa de exceção  | 
 | Microsoft.Insights/Componentes | pageVers/contagem |  Vistas da página  | 
 | Microsoft.Insights/Componentes | exceções/contagem |  Exceções  | 
-| Microsoft.Kusto/Clusters | StreamingIngestResults |  Resultado do streaming inger  | 
-| Microsoft.Kusto/Clusters | StreamingIngestDuration |  Duração do Streaming Ingest  | 
-| Microsoft.Kusto/Clusters | StreamingIngestDataRate |  Taxa de dados de ingestão de streaming  | 
-| Microsoft.Kusto/Clusters | SteamingIngestRequestRate |  Taxa de pedido de ingestão de streaming  | 
+| Microsoft.Kusto/Clusters | StreamingIngestResults |  Resultado da Ingestão de Transmissão em Fluxo  | 
+| Microsoft.Kusto/Clusters | StreamingIngestDuration |  Duração da Ingestão de Transmissão em Fluxo  | 
+| Microsoft.Kusto/Clusters | StreamingIngestDataRate |  Velocidade dos Dados na Ingestão de Transmissão em Fluxo  | 
+| Microsoft.Kusto/Clusters | SteamingIngestRequestRate |  Velocidade dos Pedidos na Ingestão de Transmissão em Fluxo  | 
 | Microsoft.Kusto/Clusters | Queriaduração |  Duração da consulta  | 
 | Microsoft.Kusto/Clusters | KeepAlive |  Mantenha-se vivo  | 
 | Microsoft.Kusto/Clusters | IngestionVolumeInMB |  Volume de ingestão (em MB)  | 
@@ -372,7 +372,7 @@ Segue-se uma lista das métricas cujo comportamento mudou.
 | Microsoft.Sql/managedInstances | avg_cpu_percent |  Percentagem média de CPU  | 
 | Microsoft.Sql/servidores | dtu_used |  DTU usado  | 
 | Microsoft.Sql/servidores | dtu_consumption_percent |  Percentagem de DTU  | 
-| Microsoft.Sql/servidores/bases de dados | xtp_storage_percent |  Por cento de armazenamento em memória OLTP  | 
+| Microsoft.Sql/servidores/bases de dados | xtp_storage_percent |  In-Memory por cento de armazenamento OLTP  | 
 | Microsoft.Sql/servidores/bases de dados | workers_percent |  Percentagem de trabalhadores  | 
 | Microsoft.Sql/servidores/bases de dados | sessions_percent |  Percentagem de sessões  | 
 | Microsoft.Sql/servidores/bases de dados | physical_data_read_percent |  Percentagem de ES de Dados  | 
@@ -388,7 +388,7 @@ Segue-se uma lista das métricas cujo comportamento mudou.
 | Microsoft.Sql/servidores/bases de dados | connection_failed |  Ligações com Falhas  | 
 | Microsoft.Sql/servidores/bases de dados | cache_hit_percent |  Percentagem de impacto de cache  | 
 | Microsoft.Sql/servidores/bases de dados | blocked_by_firewall |  Bloqueado por Firewall  | 
-| Microsoft.Sql/servidores/elásticos | xtp_storage_percent |  Por cento de armazenamento em memória OLTP  | 
+| Microsoft.Sql/servidores/elásticos | xtp_storage_percent |  In-Memory por cento de armazenamento OLTP  | 
 | Microsoft.Sql/servidores/elásticos | workers_percent |  Percentagem de trabalhadores  | 
 | Microsoft.Sql/servidores/elásticos | sessions_percent |  Percentagem de sessões  | 
 | Microsoft.Sql/servidores/elásticos | physical_data_read_percent |  Percentagem de ES de Dados  | 
@@ -416,7 +416,7 @@ Segue-se uma lista das métricas cujo comportamento mudou.
 | Microsoft.Web/hostingEnvironments/multiRolePools | CpuPercentage |  Percentagem de CPU  | 
 | Microsoft.Web/hostingEnvironments/multiRolePools | BytesSent |  Data out  | 
 | Microsoft.Web/hostingEnvironments/multiRolePools | BytesReceived |  Dados em  | 
-| Microsoft.Web/hostingEnvironments/multiRolePools | Média De Respostas |  Tempo médio de resposta  | 
+| Microsoft.Web/hostingEnvironments/multiRolePools | AverageResponseTime |  Tempo médio de resposta  | 
 | Microsoft.Web/hostingEnvironments/multiRolePools | Ativarequests |  Pedidos Ativos  | 
 | Microsoft.Web/hostingEnvironments/workerPools | TrabalhadoresUsed |  Trabalhadores Usados  | 
 | Microsoft.Web/hostingEnvironments/workerPools | TrabalhadoresTotal |  Total de Trabalhadores  | 
@@ -472,7 +472,7 @@ Segue-se uma lista das métricas cujo comportamento mudou.
 | Microsoft.Web/sites | Horário do Cpu |  Hora do CPU  | 
 | Microsoft.Web/sites | BytesSent |  Data out  | 
 | Microsoft.Web/sites | BytesReceived |  Dados em  | 
-| Microsoft.Web/sites | Média De Respostas |  Tempo médio de resposta  | 
+| Microsoft.Web/sites | AverageResponseTime |  Tempo médio de resposta  | 
 | Microsoft.Web/sites | Média MemoryWorkingSet |  Conjunto de trabalho de memória média  | 
 | Microsoft.Web/sites | AppConnections |  Ligações  | 
 | Microsoft.Web/sites/slots | TotalAppDomainsUnloaded |  Total de domínios de aplicações descarregados  | 
@@ -509,7 +509,7 @@ Segue-se uma lista das métricas cujo comportamento mudou.
 | Microsoft.Web/sites/slots | Horário do Cpu |  Hora do CPU  | 
 | Microsoft.Web/sites/slots | BytesSent |  Data out  | 
 | Microsoft.Web/sites/slots | BytesReceived |  Dados em  | 
-| Microsoft.Web/sites/slots | Média De Respostas |  Tempo médio de resposta  | 
+| Microsoft.Web/sites/slots | AverageResponseTime |  Tempo médio de resposta  | 
 | Microsoft.Web/sites/slots | Média MemoryWorkingSet |  Conjunto de trabalho de memória média  | 
 | Microsoft.Web/sites/slots | AppConnections |  Ligações  | 
 | Microsoft.Sql/servidores/bases de dados | cpu_percent | Percentagem de CPU | 
@@ -520,7 +520,7 @@ Segue-se uma lista das métricas cujo comportamento mudou.
 | Microsoft.Sql/servidores/bases de dados | connection_failed | Ligações com Falhas | 
 | Microsoft.Sql/servidores/bases de dados | blocked_by_firewall | Bloqueado por Firewall | 
 | Microsoft.Sql/servidores/bases de dados | impasse | Impasses | 
-| Microsoft.Sql/servidores/bases de dados | xtp_storage_percent | Por cento de armazenamento em memória OLTP | 
+| Microsoft.Sql/servidores/bases de dados | xtp_storage_percent | In-Memory por cento de armazenamento OLTP | 
 | Microsoft.Sql/servidores/bases de dados | workers_percent | Percentagem de trabalhadores | 
 | Microsoft.Sql/servidores/bases de dados | sessions_percent | Percentagem de sessões | 
 | Microsoft.Sql/servidores/bases de dados | dtu_used | DTU usado | 
@@ -545,7 +545,7 @@ Segue-se uma lista das métricas cujo comportamento mudou.
 | Microsoft.Sql/servidores/elásticos | workers_percent | Percentagem de trabalhadores | 
 | Microsoft.Sql/servidores/elásticos | sessions_percent | Percentagem de sessões | 
 | Microsoft.Sql/servidores/elásticos | eDTU_used | eDTU usado | 
-| Microsoft.Sql/servidores/elásticos | xtp_storage_percent | Por cento de armazenamento em memória OLTP | 
+| Microsoft.Sql/servidores/elásticos | xtp_storage_percent | In-Memory por cento de armazenamento OLTP | 
 | Microsoft.Sql/servidores | dtu_consumption_percent | Percentagem de DTU | 
 | Microsoft.Sql/servidores | dtu_used | DTU usado | 
 | Microsoft.Sql/managedInstances | avg_cpu_percent | Percentagem média de CPU | 

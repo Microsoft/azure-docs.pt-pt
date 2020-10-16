@@ -8,10 +8,10 @@ author: deborahc
 ms.author: dech
 ms.custom: devx-track-python, devx-track-java, contperfq1
 ms.openlocfilehash: 068b316eaa92a1e781df0b9945133a26fa0b88a2
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91445280"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs-apps"></a>Exporte os certificados emuladores Azure Cosmos DB para uso com aplicativos Java, Python e Node.js
@@ -102,7 +102,7 @@ Pode forçar a regeneração dos certificados do emulador selecionando **dados d
 
 Se instalou o certificado na loja de certificados Java ou os utilizou noutro local, tem de os importar novamente utilizando os certificados atuais. A sua aplicação não pode ligar-se ao emulador local até atualizar os certificados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Utilize parâmetros de linha de comando e comandos PowerShell para controlar o emulador](emulator-command-line-parameters.md)
 * [Problemas de depurar com o emulador](troubleshoot-local-emulator.md)

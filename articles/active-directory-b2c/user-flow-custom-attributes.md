@@ -12,10 +12,10 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 1d631c47225fac7d8a95541313593333a1399e07
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87115953"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Defina atributos personalizados no Azure Ative Directory B2C
@@ -40,7 +40,7 @@ ms.locfileid: "87115953"
 5. Fornecer um **Nome** para o atributo personalizado (por exemplo, "ShoeSize")
 6. Escolha um **tipo de dados.** Apenas **String,** **Boolean**e **Int** estão disponíveis.
 7. Opcionalmente, introduza uma **Descrição** para fins informativos.
-8. Clique em **Create** (Criar).
+8. Clique em **Criar**.
 
 O atributo personalizado está agora disponível na lista de **atributos** do Utilizador e para utilização nos fluxos do seu utilizador. Um atributo personalizado só é criado na primeira vez que é utilizado em qualquer fluxo de utilizador, e não quando o adiciona à lista de **atributos**do Utilizador .
 
@@ -48,8 +48,8 @@ O atributo personalizado está agora disponível na lista de **atributos** do Ut
 
 1. No seu inquilino Azure AD B2C, selecione **fluxos de utilizador**.
 1. Selecione a sua política (por exemplo, "B2C_1_SignupSignin") para abri-la.
-1. Selecione **os atributos do Utilizador** e, em seguida, selecione o atributo personalizado (por exemplo, "ShoeSize"). Clique em **Save** (Guardar).
+1. Selecione **os atributos do Utilizador** e, em seguida, selecione o atributo personalizado (por exemplo, "ShoeSize"). Clique em **Guardar**.
 1. Selecione **as reclamações de aplicação** e, em seguida, selecione o atributo personalizado.
-1. Clique em **Save** (Guardar).
+1. Clique em **Guardar**.
 
 Uma vez criado um novo utilizador utilizando um fluxo de utilizador que utiliza o atributo personalizado recém-criado, o objeto pode ser consultado no [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Em alternativa, pode utilizar a função [de fluxo do utilizador Run](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows) no fluxo do utilizador para verificar a experiência do cliente. Deverá agora ver **o ShoeSize** na lista de atributos recolhidos durante a jornada de inscrição e vê-lo no token enviado de volta para a sua aplicação.

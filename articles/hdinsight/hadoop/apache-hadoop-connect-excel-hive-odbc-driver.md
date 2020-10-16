@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/22/2020
 ms.openlocfilehash: b5499a8c4fd6ee200ca0fac800c8c17c92a1cc0c
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86087848"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Ligar o Excel ao Apache Hadoop no Azure HDInsight com o controlador ODBC Hive da Microsoft
@@ -94,9 +94,9 @@ Os seguintes passos descrevem a forma de importar dados de uma tabela de Colmeia
 
     ![Navegador HDInsight Excel Hive ODBC](./media/apache-hadoop-connect-excel-hive-odbc-driver/hdinsight-hive-odbc-navigator.png "Navegador HDInsight Excel Hive ODBC")
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, aprendeu a usar o controlador ODBC da Microsoft Hive para recuperar dados do Serviço HDInsight para o Excel. Da mesma forma, pode obter dados do Serviço HDInsight para a Base de Dados SQL. Também é possível enviar dados para um Serviço HDInsight. Para saber mais, consulte:
+Neste artigo, aprendeu a usar o controlador ODBC da Microsoft Hive para recuperar dados do Serviço HDInsight para o Excel. Da mesma forma, pode obter dados do Serviço HDInsight para a Base de Dados SQL. Também é possível enviar dados para um Serviço HDInsight. Para saber mais, veja:
 
 * [Visualizar os dados da Apache Hive com o Microsoft Power BI em Azure HDInsight](apache-hadoop-connect-hive-power-bi.md).
 * [Visualizar dados de hive de consulta interativa com Power BI em Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).

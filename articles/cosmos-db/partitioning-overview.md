@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.openlocfilehash: aa7d67cd6bd1bd422bd257b75ac5bde3bd534d7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85481838"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Criação de partições no Azure Cosmos DB
@@ -48,7 +48,7 @@ Selecionar a sua chave de partição é uma escolha de design simples mas import
 Para **todos os** recipientes, a sua chave de partição deve:
 
 * Seja um imóvel que tenha um valor que não muda. Se uma propriedade é a sua chave de partição, não pode atualizar o valor dessa propriedade.
-* Tenha uma grande cardinalidade. Por outras palavras, a propriedade deve ter uma ampla gama de valores possíveis.
+* Ter uma cardinalidade elevada. Por outras palavras, a propriedade deve ter uma ampla gama de valores possíveis.
 * Spread request unit (RU) consumo e armazenamento de dados uniformemente em todas as divisórias lógicas. Isto garante até mesmo o consumo de RU e distribuição de armazenamento através das suas divisórias físicas.
 
 Se necessitar [de transações acid de vários itens](database-transactions-optimistic-concurrency.md#multi-item-transactions) em Azure Cosmos DB, terá de utilizar [procedimentos ou gatilhos armazenados](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures). Todos os procedimentos e gatilhos armazenados com base em JavaScript são traçados para uma única partição lógica.
@@ -84,7 +84,7 @@ Algumas coisas a ter em conta ao selecionar o *ID* do item como chave de partiç
 * Se tiver um recipiente de leitura pesado que tenha [muitas divisórias físicas,](partition-data.md#physical-partitions)as consultas serão mais eficientes se tiverem um filtro de igualdade com o *ID do artigo.*
 * Não é possível executar procedimentos armazenados ou gatilhos através de múltiplas divisórias lógicas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [a partição e a escala horizontal em Azure Cosmos DB](partition-data.md).
 * Conheça a [produção a provisionada em Azure Cosmos DB](request-units.md).

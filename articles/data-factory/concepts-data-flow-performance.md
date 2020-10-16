@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 08/12/2020
-ms.openlocfilehash: 4a78e966d420591ebe7a9607777158cf17ddf698
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: a6f2c16730a9140fdbd1710a3aa0df0ee91795d6
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91370883"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91874837"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mapeamento de dados flui desempenho e guia de afinação
 
@@ -260,6 +260,10 @@ Se utilizar valores literais nas suas condições de união ou tiver vários jog
 #### <a name="sorting-before-joins"></a>Ordenar antes de aderir
 
 Ao contrário da fusão em ferramentas como a SSIS, a transformação de junção não é uma operação de fusão obrigatória. As chaves de junção não requerem triagem antes da transformação. A equipa da Azure Data Factory não recomenda a utilização de transformações do Sort no mapeamento dos fluxos de dados.
+
+### <a name="window-transformation-performance"></a>Desempenho da transformação da janela
+
+A [transformação da Janela](data-flow-window.md) partilha os seus dados por valor nas colunas que seleciona como parte da cláusula nas ```over()``` definições de transformação. Há uma série de funções agregadas e analíticas muito populares que estão expostas na transformação do Windows. No entanto, se o seu caso de utilização for gerar uma janela sobre todo o conjunto de dados para efeitos de classificação ou número de ```rank()``` ```rowNumber()``` linha, recomenda-se que utilize a [transformação de Rank](data-flow-rank.md) e a transformação da [Chave de Substituição](data-flow-surrogate-key.md). Estas transformações terão um melhor desempenho novamente operações completas de conjunto de dados utilizando essas funções.
 
 ### <a name="repartitioning-skewed-data"></a>Repartição de dados distorcidos
 

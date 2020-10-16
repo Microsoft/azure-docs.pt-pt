@@ -9,10 +9,10 @@ ms.date: 03/19/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: e85dc8c079205484db9b7b7c43a0086f69feb3be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80059947"
 ---
 ## <a name="create-a-self-signed-root-certificate"></a><a name="rootcert"></a>Criar um certificado de raiz auto-assinado
@@ -36,7 +36,7 @@ Cada computador cliente que se ligue uma VNet por Ponto a Site tem de ter um cer
 
 Os passos seguintes acompanham-no através da geração de um certificado de cliente a partir de um certificado de raiz auto-assinado. Pode gerar vários certificados de cliente a partir do mesmo certificado de raiz. Quando gera certificados de cliente utilizando os passos abaixo, o certificado de cliente é automaticamente instalado no computador que usou para gerar o certificado. Se quiser instalar um certificado de cliente noutro computador cliente, pode exportar o certificado.
 
-Os exemplos usam o cmdlet New-SelfSignedCertificate para gerar um certificado de cliente que expira num ano. Para obter informações adicionais sobre parâmetros, tais como a definição de um valor de validade diferente para o certificado do cliente, consulte [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
+Os exemplos usam o New-SelfSignedCertificate cmdlet para gerar um certificado de cliente que expira num ano. Para obter informações adicionais sobre parâmetros, tais como a definição de um valor de validade diferente para o certificado do cliente, consulte [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
 ### <a name="example-1---powershell-console-session-still-open"></a>Exemplo 1 - Sessão de consola PowerShell ainda aberta
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: bdaf1261e9945aa862157f7e43a44387e14d3657
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7f52bd94a0286ea50d09ab7c77dce339e8a3ebf3
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764048"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089371"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Criar programáticamente dashboards Azure
 
@@ -35,7 +35,7 @@ Quaisquer que sejam as ferramentas que utilizar, para criar um dashboard program
 
 A forma mais prática de construir este documento JSON é usar o portal Azure. Pode adicionar e posicionar interativamente os seus azulejos. Em seguida, exporte o JSON e crie um modelo a partir do resultado para posterior utilização em scripts, programas e ferramentas de implementação.
 
-## <a name="create-a-dashboard"></a>Create a dashboard (Criar um dashboard)
+## <a name="create-a-dashboard"></a>Criar um dashboard
 
 Para criar um dashboard, selecione **Dashboard** a partir do menu do [portal Azure](https://portal.azure.com) e, em seguida, selecione **Novo painel de instrumentos**.
 
@@ -55,7 +55,7 @@ Depois de configurar o painel de instrumentos, o próximo passo é publicar o pa
 
 ![partilhando um dashboard](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-A seleção **do Share** leva-o a escolher a subscrição e o grupo de recursos para onde publicar. Deve ter acesso ao grupo de subscrição e recursos que escolher. Para obter mais informações, consulte [Adicionar ou remover atribuições de funções utilizando o Azure RBAC e o portal Azure](../role-based-access-control/role-assignments-portal.md).
+A seleção **do Share** leva-o a escolher a subscrição e o grupo de recursos para onde publicar. Deve ter acesso ao grupo de subscrição e recursos que escolher. Para obter mais informações, veja [Utilizar o portal do Azure para adicionar ou remover atribuições de funções do Azure](../role-based-access-control/role-assignments-portal.md).
 
 ![fazer alterações na partilha e no acesso](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 
@@ -78,13 +78,13 @@ Para publicar este dashboard para qualquer máquina virtual no futuro, paramese 
 Existem duas abordagens para as APIs que criam recursos em Azure:
 
 * As APIs imperativas criam um recurso de cada vez. Para mais informações, consulte [Recursos.](/rest/api/resources/resources)
-* Um sistema de implementação baseado em modelo que cria múltiplos recursos dependentes com uma única chamada API. Para obter mais informações, consulte [implementar recursos com modelos de Gestor de Recursos e Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
+* Um sistema de implementação baseado em modelo que cria múltiplos recursos dependentes com uma única chamada API. Para obter mais informações, consulte  [implementar recursos com modelos de Gestor de Recursos e Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md).
 
 A implementação baseada no modelo suporta a parametrização e a templário. Utilizamos esta abordagem neste artigo.
 
 ## <a name="programmatically-create-a-dashboard-from-your-template-using-a-template-deployment"></a>Criar programáticamente um dashboard a partir do seu modelo usando uma implementação de modelo
 
-O Azure oferece a capacidade de orquestrar a implantação de múltiplos recursos. Cria-se um modelo de implantação que expressa o conjunto de recursos a implementar e as relações entre eles.  O formato JSON de cada recurso é o mesmo que se estivesse a criá-los um a um. A diferença é que a linguagem do modelo adiciona alguns conceitos como variáveis, parâmetros, funções básicas, e muito mais. Esta sintaxe estendida só é suportada no contexto de uma implementação do modelo. Não funciona se usado com as APIs imperativas discutidas anteriormente. Para obter mais informações, [consulte a estrutura e sintaxe dos modelos do Gestor de Recursos Azure](../azure-resource-manager/resource-group-authoring-templates.md).
+O Azure oferece a capacidade de orquestrar a implantação de múltiplos recursos. Cria-se um modelo de implantação que expressa o conjunto de recursos a implementar e as relações entre eles.  O formato JSON de cada recurso é o mesmo que se estivesse a criá-los um a um. A diferença é que a linguagem do modelo adiciona alguns conceitos como variáveis, parâmetros, funções básicas, e muito mais. Esta sintaxe estendida só é suportada no contexto de uma implementação do modelo. Não funciona se usado com as APIs imperativas discutidas anteriormente. Para obter mais informações, [consulte a estrutura e sintaxe dos modelos do Gestor de Recursos Azure](../azure-resource-manager/templates/template-syntax.md).
 
 A parametrização deve ser feita utilizando a sintaxe do parâmetro do modelo.  Você substitui todas as instâncias do ID de recursos que encontramos anteriormente, como mostrado aqui.
 
@@ -125,7 +125,7 @@ Declare metadados de modelo necessários e os parâmetros no topo do modelo JSON
 Uma vez configurado o seu modelo, desloque-o utilizando qualquer um dos seguintes métodos:
 
 * [APIs REST](/rest/api/resources/deployments)
-* [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+* [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 * [CLI do Azure](/cli/azure/group/deployment#az-group-deployment-create)
 * [A página de implementação do modelo do portal Azure](https://portal.azure.com/#create/Microsoft.Template)
 

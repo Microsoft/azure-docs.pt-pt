@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/30/2020
 ms.openlocfilehash: 407160a5c315844003db4c5e371a03e6e25d2694
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91630938"
 ---
 # <a name="configure-network-virtual-appliance-in-azure-hdinsight"></a>Configurar aparelho virtual de rede em Azure HDInsight

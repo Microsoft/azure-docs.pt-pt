@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: alkohli
 ms.openlocfilehash: dec354767875d91c6062cdfbb0009e857dbe2636
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90056556"
 ---
 # <a name="update-your-storsimple-8000-series-device"></a>Atualize o seu dispositivo StorSimple 8000 Series
@@ -119,7 +119,7 @@ Os seguintes procedimentos explicam como utilizar o Windows PowerShell para o St
 ## <a name="what-happens-to-updates-if-you-perform-a-factory-reset-of-the-device"></a>O que acontece com as atualizações se efetuar um reset de fábrica do dispositivo?
 Se um dispositivo for reiniciado para as definições de fábrica, todas as atualizações são perdidas. Depois de o dispositivo de reset de fábrica estar registado e configurado, terá de instalar manualmente atualizações através do portal clássico Azure e/ou Do Windows PowerShell para storSimple. Para obter mais informações sobre o reset da fábrica, consulte [redefinir o dispositivo para as definições predefinidos da fábrica](storsimple-8000-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre [a utilização do Windows PowerShell para storSimple para administrar o seu dispositivo StorSimple](storsimple-windows-powershell-administration.md).
 * Saiba mais sobre [a utilização do serviço StorSimple Manager para administrar o seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 

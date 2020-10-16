@@ -17,10 +17,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7afcd3bfe16775d5c99100278eda81da739b8d22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764490"
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>Aceda às suas aplicações no local através do Microsoft Teams
@@ -53,7 +53,7 @@ Assim que publicar a aplicação através do Application Proxy, informe os seus 
 
 Uma vez que um membro de uma equipa adiciona a conta, aparece para todos no canal. Todos os utilizadores que tenham acesso à aplicação têm acesso único com as credenciais que utilizam para as Equipas da Microsoft. Qualquer utilizadores que não tenham acesso à app podem ver o separador em Equipas, mas estão bloqueados até que lhes dê permissões para a app no local e para a versão publicada do portal Azure da aplicação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [publicar no local sites SharePoint](application-proxy-integrate-with-sharepoint-server.md) com Application Proxy.
 - Configure as suas aplicações para utilizar [domínios personalizados](application-proxy-configure-custom-domain.md) para o seu URL externo.

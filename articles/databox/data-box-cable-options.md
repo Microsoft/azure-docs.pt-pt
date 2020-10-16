@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 10/24/2018
 ms.author: alkohli
 ms.openlocfilehash: bab81809f42c9afa3d2c701398fa5ff8ffc2800d
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91744173"
 ---
 # <a name="cabling-options-for-your-azure-data-box"></a>Opções de cablagem do Azure Data Box

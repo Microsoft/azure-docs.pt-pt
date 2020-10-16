@@ -5,14 +5,14 @@ author: djpmsft
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/05/2020
+ms.date: 10/13/2020
 ms.author: daperlov
-ms.openlocfilehash: 483e26cf4044b909c8d7923cfd74bd6fcf871e2a
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 5e846ed02d1a0ac22c9c9479f3367800d1dc9dd2
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905310"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042597"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Formato comum do modelo de dados na Fábrica de Dados Azure
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -37,7 +37,7 @@ A tabela abaixo lista as propriedades suportadas por uma fonte de MDL. Pode edit
 
 | Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Formato | Formato deve ser`cdm` | sim | `cdm` | formato |
+| Formato | Formato deve ser `cdm` | sim | `cdm` | formato |
 | Formato de metadados | Onde a entidade se refere aos dados está localizada. Se utilizar a versão 1.0 do CDM, escolha manifesto. Se utilizar uma versão CDM antes do 1.0, escolha model.jsligado. | Sim | `'manifest'` ou `'model'` | manifestoType |
 | Localização da raiz: recipiente | Nome do recipiente da pasta CDM | sim | String | sistema de ficheiros |
 | Localização da raiz: caminho da pasta | Localização da pasta raiz da pasta CDM | sim | String | folderPath |
@@ -51,6 +51,8 @@ A tabela abaixo lista as propriedades suportadas por uma fonte de MDL. Pode edit
 | Pasta Corpus | a localização raiz do corpus | Sim, se usar manifesto | String | corpusPath |
 | Entidade corpus | Caminho para referência de entidade | sim | String | entidade |
 | Não permita que não encontrem ficheiros | Se for verdade, um erro não é jogado se nenhum ficheiro for encontrado | não | `true` ou `false` | ignoreNoFilesFound |
+
+Se a definição de entidade que pretende utilizar na sua transformação Source estiver localizada no mesmo diretório que a sua pasta de dados, pode desmarcar "Use entity from corpus" e simplesmente digitar na entidade da entidade que pretende utilizar como referência da sua entidade.
 
 ### <a name="sink-settings"></a>Configurações do lavatório
 
@@ -114,7 +116,7 @@ A tabela abaixo lista as propriedades suportadas por um lavatório CDM. Pode edi
 
 | Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Formato | Formato deve ser`cdm` | sim | `cdm` | formato |
+| Formato | Formato deve ser `cdm` | sim | `cdm` | formato |
 | Localização da raiz: recipiente | Nome do recipiente da pasta CDM | sim | String | sistema de ficheiros |
 | Localização da raiz: caminho da pasta | Localização da pasta raiz da pasta CDM | sim | String | folderPath |
 | Arquivo manifesto: Caminho da entidade | Caminho da pasta da entidade dentro da pasta raiz | não | String | entidadePata |
@@ -127,7 +129,7 @@ A tabela abaixo lista as propriedades suportadas por um lavatório CDM. Pode edi
 | Entidade corpus | Caminho para referência de entidade | sim | String | entidade |
 | Caminho da partição | Local onde a partição será escrita | não | String | partitionPath |
 | Limpe a pasta | Se a pasta de destino for apurada antes de escrever | não | `true` ou `false` | truncato |
-| Tipo de formato | Escolha especificar o formato parquet | não | `parquet`se especificado | subformat |
+| Tipo de formato | Escolha especificar o formato parquet | não | `parquet` se especificado | subformat |
 | Delimitador de colunas | Se escrever ao DelimitedText, como delimitar colunas | Sim, se escrever ao DelimitedText | String | columnDelimiter |
 | Primeira linha como cabeçalho | Se utilizar o DelimitedText, se os nomes das colunas são adicionados como cabeçalho | não | `true` ou `false` | columnNamesAsHeader |
 

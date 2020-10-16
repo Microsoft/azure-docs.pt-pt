@@ -1,5 +1,5 @@
 ---
-title: Utilizar a WAN Virtual do Azure para criar uma ligação ponto a site ao Azure | Microsoft Docs
+title: 'Tutorial: Use Azure Virtual WAN para criar uma ligação ponto-a-local ao Azure'
 description: Neste tutorial, vai aprender a utilizar uma WAN Virtual do Azure para criar uma ligação VPN ponto a site ao Azure.
 services: virtual-wan
 author: cherylmc
@@ -7,18 +7,18 @@ ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 10/06/2020
 ms.author: cherylmc
-ms.openlocfilehash: 84f8563a6b03f10f4cbc647426c350d9fac52780
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d03d0267ff4fb16042d5cc2016e87139b88281a
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812689"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056587"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>Tutorial: Criar uma ligação VPN do utilizador utilizando a Azure Virtual WAN
 
 Este tutorial mostra como utilizar a WAN Virtual para se ligar aos seus recursos no Azure através de uma ligação VPN IPsec/IKE (IKEv2) ou OpenVPN. Este tipo de ligação exige a configuração de um cliente no computador cliente. Para mais informações sobre o VIRTUAL WAN, consulte a [Visão Geral do WAN Virtual](virtual-wan-about.md)
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar uma WAN
@@ -30,7 +30,7 @@ Neste tutorial, ficará a saber como:
 
 ![Diagrama da WAN Virtual](./media/virtual-wan-about/virtualwanp2s.png)
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [Before beginning](../../includes/virtual-wan-before-include.md)]
 
@@ -72,7 +72,7 @@ Utilize o perfil transferido para configurar os clientes de acesso remoto. O pro
 1. Na página **'Visão Geral',** cada ponto no mapa representa um hub.
 1. Na secção **Hubs e conexões,** pode ver o estado do hub, site, região, estado de ligação VPN e bytes dentro e fora.
 
-## <a name="clean-up-resources"></a><a name="cleanup"></a>Limpar os recursos
+## <a name="clean-up-resources"></a><a name="cleanup"></a>Limpar recursos
 
 Quando já não precisar desses recursos, pode utilizar [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para remover o grupo de recursos e todos os recursos que o mesmo contém. Substitua "myResourceGroup" pelo nome do grupo de recursos e execute o seguinte comando do PowerShell:
 
@@ -82,4 +82,7 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre a WAN Virtual, veja a página [Virtual WAN Overview](virtual-wan-about.md) (Descrição Geral da WAN Virtual).
+Em seguida, para saber mais sobre O WAN Virtual, consulte:
+
+> [!div class="nextstepaction"]
+> * [FAQ da WAN Virtual](virtual-wan-faq.md)

@@ -2,19 +2,19 @@
 title: Requisitos de esquema de dados
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: include
 ms.date: 09/10/2020
-ms.author: aahi
-ms.openlocfilehash: 33bc52d3c334919a9e93d9666a24d85e3fe158b4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.author: mbullwin
+ms.openlocfilehash: c754efef02cdad6edbf047c5de9f1af6d758f137
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91376522"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043217"
 ---
 Metrics Monitor é um serviço de deteção, diagnóstico e análise de anomalias em séries de tempo. Como serviço alimentado por IA, utiliza os seus dados para treinar o modelo utilizado. O serviço aceita tabelas de dados agregados com as seguintes colunas:
 

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.custom: devx-track-csharp, fasttrack-edit
 ms.openlocfilehash: 239d1da028a06d4272ed9b22b624413394aa142f
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88213000"
 ---
 # <a name="monitor-azure-functions"></a>Monitorizar as Funções do Azure
@@ -724,7 +724,7 @@ az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
 --setting-names SCALE_CONTROLLER_LOGGING_ENABLED
 ```
 
-## <a name="disable-built-in-logging"></a>Desativar a exploração madeireira incorporada
+## <a name="disable-built-in-logging"></a>Desativar o registo integrado
 
 Quando ativar o Application Insights, desative a exploração madeireira incorporada que utiliza o Azure Storage. O registo embutida é útil para testes com cargas de trabalho leves, mas não se destina a uma utilização de produção de alta carga. Para monitorização da produção, recomendamos a Application Insights. Se a exploração madeireira incorporada for utilizada na produção, o registo de registos pode estar incompleto devido ao estrangulamento no Azure Storage.
 

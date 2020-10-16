@@ -14,10 +14,10 @@ ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: aa6d4edc4348fa850eeb7e8d91ce0791ee4c7170
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91336416"
 ---
 # <a name="output-metadata"></a>Metadados de saída
@@ -51,7 +51,7 @@ Cada AssetFile físico pode conter nele zero ou mais vídeos faixas intercaladas
 
 | Nome | Descrição |
 | --- | --- |
-| **Id**<br /> Necessário |Índice baseado em zero desta pista de vídeo. **Nota:**  Este **Id** não é necessariamente o TrackID usado num ficheiro MP4. <br /><br />Exemplo: `"Id": 1`|
+| **ID**<br /> Necessário |Índice baseado em zero desta pista de vídeo. **Nota:**  Este **Id** não é necessariamente o TrackID usado num ficheiro MP4. <br /><br />Exemplo: `"Id": 1`|
 | **FourCC**<br />Necessário | Código de vídeo Código FourCC que é reportado por ffmpeg.  <br /><br />Exemplo: `"FourCC": "avc1"`|
 | **Perfil** |Perfil H264 (apenas aplicável ao código H264).  <br /><br />Exemplo: `"Profile": "High"` |
 | **Nível** |Nível H264 (apenas aplicável ao código H264).  <br /><br />Exemplo: `"Level": "3.2"`|
@@ -69,9 +69,9 @@ Cada ActivoFile físico pode conter nele zero ou mais faixas de áudio intercala
 
 | Nome  | Descrição |
 | --- | --- |
-| **Id**<br />Necessário  |Índice baseado em zero desta faixa de áudio. **Nota:**  Este não é necessariamente o TrackID usado num ficheiro MP4.  <br /><br />Exemplo: `"Id": 2`|
+| **ID**<br />Necessário  |Índice baseado em zero desta faixa de áudio. **Nota:**  Este não é necessariamente o TrackID usado num ficheiro MP4.  <br /><br />Exemplo: `"Id": 2`|
 | **Codec**  |Cadeia de codec de faixa de áudio.  <br /><br />Exemplo: `"Codec": "aac"`|
-| **Linguagem**|Exemplo: `"Language": "eng"`|
+| **Idioma**|Exemplo: `"Language": "eng"`|
 | **Channels** (Canais)<br />Necessário|Número de canais de áudio.  <br /><br />Exemplo: `"Channels": 2`|
 | **AmostragemRate**<br />Necessário |Taxa de amostragem de áudio em amostras/seg ou Hz.  <br /><br />Exemplo: `"SamplingRate": 48000`|
 | **Bitrate**<br />Necessário |Taxa média de bits de áudio em bits por segundo, calculada a partir do AssetFile. Conta apenas a carga de fluxo elementar, e não inclui a sobrecarga da embalagem.  <br /><br />Exemplo: `"Bitrate": 128041`|

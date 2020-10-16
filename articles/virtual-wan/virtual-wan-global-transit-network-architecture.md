@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
 ms.openlocfilehash: 63a9c3a6c23d78411c04250359dac3c3aacde2ba
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88212705"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Arquitetura global de rede de trânsito e WAN Virtual

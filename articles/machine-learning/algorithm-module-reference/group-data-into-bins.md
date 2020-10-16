@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/19/2020
-ms.openlocfilehash: de9f4517d134b4a42603291110c6b19f69403412
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/13/2020
+ms.openlocfilehash: 392cb9b4c2ded1b98b79ce8dcd780ac59e96b78a
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907031"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998477"
 ---
 # <a name="group-data-into-bins-module"></a>Dados do grupo no módulo Bins
 
@@ -44,7 +44,8 @@ O módulo Des de Grupo em Bins suporta múltiplas opções para a recolha de dad
 
 O diagrama seguinte mostra a distribuição de valores numéricos antes e depois de se ligar ao método *quantiles.* Note que, em comparação com os dados brutos à esquerda, os dados foram ligados e transformados numa escala unit-normal.  
 
-Pode encontrar um [exemplo do resultado desta corrida](https://ml.azure.com/visualinterface/authoring/Normal/87270db9-4651-448e-bd28-8ef7428084dc?wsid=%2Fsubscriptions%2Fe9b2ec51-5c94-4fa8-809a-dc1e695e4896%2Fresourcegroups%2Fmodule-ws-rg%2Fworkspaces%2Fmodule-prerelease-119&flight=cm&tid=72f988bf-86f1-41af-91ab-2d7cd011db47&smtendpoint=https%3A%2F%2Fsmt-test1.azureml-test.net)ao gasoduto .
+> [!div class="mx-imgBorder"]
+> ![Visualização do resultado](media/module/group-data-into-bins-result-example.png)
 
 Como há tantas formas de agrupar dados, todos personalizáveis, recomendamos que experimente com diferentes métodos e valores. 
 
@@ -65,6 +66,9 @@ Como há tantas formas de agrupar dados, todos personalizáveis, recomendamos qu
     - **Arestas personalizadas**: Pode especificar os valores que começam cada caixote. O valor da borda é sempre o limite inferior do caixote. 
     
       Por exemplo, assuma que quer agrupar valores em dois caixotes. Um terá valores superiores a 0, e um terá valores inferiores ou iguais a 0. Neste caso, para as bordas do caixote do lixo, introduz-se **0** na **lista de bordas de contentores separadas pela Vírgula.** A saída do módulo será 1 e 2, indicando o índice de caixa para cada valor de linha. Note que a lista de valor separada por vírgula deve estar numa ordem ascendente, tais como 1, 3, 5, 7.
+    
+    > [!Note]
+    > O modo *Entropy MDL* é definido em Studio (clássico) e não há nenhum pacote de código aberto correspondente que possa ser alavancado para suportar no Designer ainda.        
 
 4. Se estiver a utilizar os modos de ligação **Quantiles** e **Equal Width,** utilize a opção **Número de caixotes** para especificar quantos caixotes, ou *quânticos,* pretende criar.
 
@@ -103,7 +107,7 @@ Como há tantas formas de agrupar dados, todos personalizáveis, recomendamos qu
 
 11. Envie o oleoduto.
 
-## <a name="results"></a>Resultados
+## <a name="results"></a>Results
 
 O módulo Dese de Grupo em Bins devolve um conjunto de dados no qual cada elemento foi ligado de acordo com o modo especificado. 
 

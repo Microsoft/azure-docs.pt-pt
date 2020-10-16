@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: ramamill
 ms.openlocfilehash: 14f0eaee1ede4da3b80ddd94d5c915438e97f8f4
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90530068"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Sobre o serviço de Mobilidade de VMware VMs e servidores físicos
@@ -85,15 +85,15 @@ Durante uma instalação push do serviço mobility, são executadas as seguintes
 
 1. Monitorize a instalação em **"Installation Progress".** Depois de concluída a instalação, **selecione Proceder à Configuração** para registar o serviço com o servidor de configuração.
 
-    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility3.png" alt-text="Página de registo do serviço de mobilidade.":::
+    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility3.png" alt-text="Página de opções de instalação do serviço de mobilidade.":::
 
 1. Nos **Detalhes do Servidor de Configuração**, especifique o endereço IP e a frase de passe que configura.
 
-    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility4.png" alt-text="Página de registo do serviço de mobilidade.":::
+    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility4.png" alt-text="Página de opções de instalação do serviço de mobilidade.":::
 
 1. **Selecione Registar-se** para terminar a inscrição.
 
-    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility5.png" alt-text="Página final do registo do serviço de mobilidade.":::
+    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility5.png" alt-text="Página de opções de instalação do serviço de mobilidade.":::
 
 ## <a name="install-the-mobility-service-using-command-prompt"></a>Instale o serviço de Mobilidade utilizando o pedido de comando
 

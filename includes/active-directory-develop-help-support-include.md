@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: celested
 ms.openlocfilehash: f4abe0b4fb70726da4ede3d4b05f5214f549bf41
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83680327"
 ---
 ## <a name="help-and-support"></a>Ajuda e suporte

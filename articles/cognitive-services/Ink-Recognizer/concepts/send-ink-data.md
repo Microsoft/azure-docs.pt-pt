@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: aahi
 ms.openlocfilehash: 8665e27b6b7c43bce7d749d9bfe0a2f815a0f46d
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89051105"
 ---
 # <a name="send-ink-data-to-the-ink-recognizer-api"></a>Enviar dados de tinta digital para a API do Reconhecedor de Tinta Digital 

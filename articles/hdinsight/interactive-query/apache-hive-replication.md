@@ -11,7 +11,7 @@ ms.openlocfilehash: af74392b3368a25e5d238f774292c80de5f91c65
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91857746"
 ---
 # <a name="how-to-use-apache-hive-replication-in-azure-hdinsight-clusters"></a>Como utilizar a replicação da Colmeia Apache em clusters Azure HDInsight

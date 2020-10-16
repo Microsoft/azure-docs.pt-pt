@@ -5,20 +5,22 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Aprenda a resolver problemas e resolva problemas comuns ao ativar e utilizar espaços Azure Dev
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: d697a11f3087c31a49d9b88e99b18bab686a2b59
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 5d8bf69d456bca2a88b8aa2031d5ef0ba20f7c30
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90981069"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979126"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Azure Dev Spaces resolução de problemas
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
 
 Este guia contém informações sobre problemas comuns que poderá ter ao utilizar espaços Azure Dev.
 
 Se tiver algum problema ao utilizar o Azure Dev Spaces, crie um [problema no repositório Azure Dev Spaces GitHub](https://github.com/Azure/dev-spaces/issues).
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Para resolver os problemas de forma mais eficaz, pode ajudar a criar registos mais detalhados para revisão.
 
@@ -502,7 +504,7 @@ Para atualizar a função Azure do utilizador para o controlador:
     * Para *Função*, selecione *Contribuinte* ou *Proprietário*.
     * Para *atribuir acesso a*, selecione *utilizador, grupo ou principal de serviço Azure.*
     * Para *obter o seguinte,* procure no utilizador que pretenda obter permissões.
-1. Clique em *Save* (Guardar).
+1. Clique em *Guardar*.
 
 ### <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>Resolução de nomes DNS falha para um URL público associado a um serviço Dev Spaces
 

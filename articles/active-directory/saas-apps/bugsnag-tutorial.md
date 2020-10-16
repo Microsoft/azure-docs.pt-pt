@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 8f5a8abf4272cf90691e60f97416023a76252e41
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91740552"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bugsnag"></a>Tutorial: Integração do Diretório Ativo Azure com o Bugsnag
@@ -94,7 +94,7 @@ Para configurar o Azure AD com bugsnag, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -113,11 +113,11 @@ Para configurar o Azure AD com bugsnag, execute os seguintes passos:
 
     Na caixa de texto **URL de inscrição,** escreva como:  `https://app.bugsnag.com/user/identity_provider`
 
-6. Na **configuração de um único sinal com página SAML,** na secção certificado de assinatura **SAML,** clique no botão de cópia para copiar o **Url de metadados da Federação de Aplicações** e guarde-o no seu computador.
+6. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** clique no botão de cópia para copiar o **Url de Metadados da Federação de Aplicações** e guarde-o no seu computador.
 
     ![O link de descarregamento de certificado](common/copy-metadataurl.png)
 
-### <a name="configure-bugsnag-single-sign-on"></a>Configurar bugsnag único sinal-on
+### <a name="configure-bugsnag-single-sign-on"></a>Configurar bugsnag single Sign-On
 
 Para configurar um único sinal no lado **do Bugsnag,** é necessário enviar o **Url de Metadados da Federação de Aplicações** para a [equipa de suporte do Bugsnag](mailto:support@bugsnag.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 

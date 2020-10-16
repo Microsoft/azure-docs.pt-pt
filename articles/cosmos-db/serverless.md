@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.openlocfilehash: ef681f861a14fbbf86e7e350441d05f84fc95f58
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88757902"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB sem servidor (Pré-visualização)

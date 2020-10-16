@@ -13,12 +13,12 @@ ms.date: 07/09/2020
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: identityplatformtop40
-ms.openlocfilehash: 831af87159b909ca744839d2997aa2b70cbc72e3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e63d2cac97a16674c4e2e880f94373b0af1510de
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91627130"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056417"
 ---
 # <a name="what-is-the-microsoft-identity-platform"></a>O que é a plataforma de identidades da Microsoft?
 
@@ -74,8 +74,7 @@ Saiba como a autenticação central e os conceitos AD do Azure se aplicam à pla
 
 [Azure AD B2B](../external-identities/what-is-b2b.md) - Convide os utilizadores externos para o seu inquilino Azure AD como utilizadores "convidados" e atribua permissões de autorização enquanto utilizam as suas credenciais existentes para autenticação.
 
-> [!TIP]
-> Procura documentação da *plataforma de desenvolvimento do Azure Ative Directory (v1.0)* ? Consulte o [Diretório Ativo Azure para programadores (v1.0) visão geral](../azuread-dev/v1-overview.md).
+[Azure Ative Directory para desenvolvedores (v1.0)](../azuread-dev/v1-overview.md) - Mostrado aqui para programadores com aplicações existentes que usam o ponto final v1.0 mais antigo. **Não** utilize v1.0 para novos projetos.
 
 ## <a name="next-steps"></a>Passos seguintes
 

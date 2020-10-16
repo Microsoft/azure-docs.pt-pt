@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.openlocfilehash: a8d79deb55a5693978569f5e3a940a03897efb80
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91824831"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-idrive"></a>Tutorial: Integração do Azure Ative Directory com o IDrive
@@ -93,7 +93,7 @@ Para configurar o Azure AD com o IDrive, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -107,7 +107,7 @@ Para configurar o Azure AD com o IDrive, execute os seguintes passos:
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL:   `https://www.idrive.com/idrive/login/loginForm`
 
-6. Na **configuração de 'Sessão's single com página SAML,** na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Raw)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+6. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Raw)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificateraw.png)
 
@@ -121,7 +121,7 @@ Para configurar o Azure AD com o IDrive, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-idrive-single-sign-on"></a>Configurar iDrive single sign-on
+### <a name="configure-idrive-single-sign-on"></a>Configurar Sign-On single IDrive
 
 Para configurar um único sinal no lado **do IDrive,** é necessário enviar o **Certificado (Raw)** descarregado e URLs copiados apropriados do portal Azure para a equipa de [suporte do IDrive.](https://www.idrive.com/support) Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 

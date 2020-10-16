@@ -7,10 +7,10 @@ ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: f7bfa15b12618715bf0d911e4b4927a1fa327107
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91539134"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Métricas baseadas no registo e pré-agregadas no Application Insights
@@ -69,7 +69,7 @@ Ingerir métricas em Application Insights, quer baseadas em registos ou pré-agr
 
 Selecionar o Enable alerting sobre a opção [de dimensões métricas personalizadas](#custom-metrics-dimensions-and-pre-aggregation) para armazenar todas as dimensões das métricas pré-agregadas na loja métrica, pode gerar custos **adicionais** com base nos [preços das Métricas Personalizadas](https://azure.microsoft.com/pricing/details/monitor/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Alerta em tempo real](../platform/alerts-metric-near-real-time.md)
 * [GetMetric e TrackValue](./api-custom-events-metrics.md#getmetric)

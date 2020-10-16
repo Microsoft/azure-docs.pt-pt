@@ -7,10 +7,10 @@ ms.date: 06/30/2017
 ms.custom: devx-track-java
 ms.author: pakunapa
 ms.openlocfilehash: d53d20510db70d81aab796efab48de40c880bb3a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87316129"
 ---
 # <a name="service-remoting-in-java-with-reliable-services"></a>Remoing de serviço em Java com Serviços Fiáveis
@@ -26,7 +26,7 @@ Para serviços que não estejam ligados a um determinado protocolo de comunicaç
 A criação de um remoing para um serviço é feita em dois passos simples:
 
 1. Crie uma interface para o seu serviço implementar. Esta interface define os métodos disponíveis para uma chamada de procedimento remoto no seu serviço. Os métodos devem ser métodos assíncronos de retorno de tarefas. A interface deve implementar `microsoft.serviceFabric.services.remoting.Service` para sinalizar que o serviço tem uma interface de remoting.
-2. Utilize um ouvinte de remoing ao seu serviço. Esta é uma `CommunicationListener` implementação que fornece capacidades de remoing. `FabricTransportServiceRemotingListener`pode ser usado para criar um ouvinte de remoing usando o protocolo de transporte de remoing predefinido.
+2. Utilize um ouvinte de remoing ao seu serviço. Esta é uma `CommunicationListener` implementação que fornece capacidades de remoing. `FabricTransportServiceRemotingListener` pode ser usado para criar um ouvinte de remoing usando o protocolo de transporte de remoing predefinido.
 
 Por exemplo, o seguinte serviço apátrida expõe um único método para obter "Hello World" sobre uma chamada de procedimento remoto.
 
@@ -86,7 +86,7 @@ A criação de ServiceProxy é uma operação leve, para que possa criar quantas
 ### <a name="serviceproxyfactory-lifetime"></a>Vida útil da procuração de serviço
 [FabricServiceProxyFactory](/java/api/microsoft.servicefabric.services.remoting.client.fabricserviceproxyfactory) é uma fábrica que cria procuração para diferentes interfaces de remoting. Se utilizar a API `ServiceProxyBase.create` para criar procuração, então a estrutura cria um `FabricServiceProxyFactory` .
 É útil criar um manualmente quando é necessário anular as propriedades [do ServiceRemotingClientFactory.](/java/api/microsoft.servicefabric.services.remoting.client.serviceremotingclientfactory)
-A fábrica é uma operação cara. `FabricServiceProxyFactory`mantém cache de clientes de comunicação.
+A fábrica é uma operação cara. `FabricServiceProxyFactory` mantém cache de clientes de comunicação.
 A melhor prática é cache `FabricServiceProxyFactory` o máximo possível.
 
 ## <a name="remoting-exception-handling"></a>Tratamento de Exceções de Remoting

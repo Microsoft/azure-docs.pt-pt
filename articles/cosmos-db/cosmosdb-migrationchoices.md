@@ -6,18 +6,18 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/01/2020
-ms.openlocfilehash: 4de6d4ba019af75b0f6179b2794ddb6c1e35e0c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38129c920b422babfedf5d40bb362c7552f6f712
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90030077"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951966"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>Opções para migrar os seus dados no local ou na nuvem para Azure Cosmos DB
 
 Pode carregar dados de várias fontes de dados para a Azure Cosmos DB. Uma vez que a Azure Cosmos DB suporta várias APIs, os alvos podem ser qualquer uma das APIs existentes. Seguem-se alguns cenários em que migra dados para a Azure Cosmos DB:
 
-* Mover dados de um contentor Azure Cosmos para outro contentor na mesma base de dados ou numa base de dados diferente.s
+* Mover dados de um contentor Azure Cosmos para outro recipiente na mesma base de dados ou em bases de dados diferentes.
 * Deslocar dados entre recipientes dedicados a recipientes de base de dados partilhados.
 * Mover dados de uma conta Azure Cosmos localizada na região1 para outra conta Azure Cosmos na mesma ou numa região diferente.
 * Mover dados de uma fonte como o armazenamento de blob Azure, um ficheiro JSON, base de dados Oracle, Couchbase, DynamoDB para Azure Cosmos DB.

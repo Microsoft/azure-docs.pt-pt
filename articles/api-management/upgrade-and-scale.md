@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 93c686fb2688a7a8ae71d8156e6e5c7915d6c604
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 626f5b67905e5dd89cf8f12460bc2378451614de
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205769"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078311"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Atualizar e escalar uma instância de gestão da API Azure  
 
@@ -33,7 +33,7 @@ O preço de cada unidade e as funcionalidades disponíveis (por exemplo, implant
 
 Para seguir os passos deste artigo, deve:
 
-+ Tenha uma subscrição ativa do Azure.
++ Ter uma subscrição ativa do Azure.
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -84,4 +84,4 @@ Se estiver a escalar de ou para o nível de Desenvolvedor, haverá tempo de inat
 
 - [Como implementar uma instância de serviço da Gestão de API do Azure em várias regiões do Azure](api-management-howto-deploy-multi-region.md)
 - [Como escalar automaticamente uma instância de serviço da API Azure](api-management-howto-autoscale.md)
-- [Otimize e poupe nos gastos na nuvem](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+- [Otimize e poupe nos gastos na nuvem](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

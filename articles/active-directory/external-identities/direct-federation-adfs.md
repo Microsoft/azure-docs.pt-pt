@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1b3d7c47ff0a2c533bf12a67958a913b22915f75
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87909565"
 ---
 # <a name="example-direct-federation-with-active-directory-federation-services-ad-fs-preview"></a>Exemplo: Federação direta com Serviços da Federação de Diretórios Ativos (AD FS) (pré-visualização)
@@ -24,10 +24,10 @@ ms.locfileid: "87909565"
 > [!NOTE]
 > A federação direta é uma funcionalidade de pré-visualização pública do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Este artigo descreve como criar uma [federação direta](direct-federation.md) usando os Serviços da Federação de Diretório Ativo (AD FS) como um SAML 2.0 ou um fornecedor de identidade WS-Fed. Para apoiar a federação direta, certos atributos e reclamações devem ser configurados no fornecedor de identidade. Para ilustrar como configurar um fornecedor de identidade para a federação direta, usaremos os Serviços da Federação de Diretórios Ativos (AD FS) como exemplo. Vamos mostrar como criar a AD FS tanto como fornecedor de identidade SAML como como fornecedor de identidade da WS-Fed.
+Este artigo descreve como criar uma [federação direta](direct-federation.md) utilizando os Serviços da Federação de Diretório Ativo (AD FS) como um SAML 2.0 ou WS-Fed fornecedor de identidade. Para apoiar a federação direta, certos atributos e reclamações devem ser configurados no fornecedor de identidade. Para ilustrar como configurar um fornecedor de identidade para a federação direta, usaremos os Serviços da Federação de Diretórios Ativos (AD FS) como exemplo. Vamos mostrar como configurar o AD FS tanto como fornecedor de identidade SAML como como um fornecedor de identidade WS-Fed.
 
 > [!NOTE]
-> Este artigo descreve como configurar a AD FS tanto para SAML como WS-Fed para fins de ilustração. Para integrações diretas da federação onde o fornecedor de identidade é AD FS, recomendamos a utilização da WS-Fed como protocolo. 
+> Este artigo descreve como configurar a AD FS tanto para SAML como WS-Fed para fins de ilustração. Para integrações diretas da federação em que o fornecedor de identidade é AD FS, recomendamos a utilização WS-Fed como protocolo. 
 
 ## <a name="configure-ad-fs-for-saml-20-direct-federation"></a>Configure AD FS para federação direta SAML 2.0
 O Azure AD B2B pode ser configurado para federar com fornecedores de identidade que utilizam o protocolo SAML com requisitos específicos listados abaixo. Para ilustrar os passos de configuração DO SAML, esta secção mostra como configurar o AD FS para SAML 2.0. 
@@ -38,7 +38,7 @@ Para criar uma federação direta, os seguintes atributos devem ser recebidos na
 |---------|---------|
 |Serviço De Afirmação     |`https://login.microsoftonline.com/login.srf`         |
 |Audiência     |`urn:federation:MicrosoftOnline`         |
-|Emissor     |O emitente URI do IdP parceiro, por exemplo`http://www.example.com/exk10l6w90DHM0yi...`         |
+|Emissor     |O emitente URI do IdP parceiro, por exemplo `http://www.example.com/exk10l6w90DHM0yi...`         |
 
 As seguintes alegações devem ser configuradas no token SAML 2.0 emitido pelo fornecedor de identidade:
 
@@ -51,7 +51,7 @@ As seguintes alegações devem ser configuradas no token SAML 2.0 emitido pelo f
 
 A secção seguinte ilustra como configurar os atributos e alegações necessários usando AD FS como exemplo de um fornecedor de identidade SAML 2.0.
 
-### <a name="before-you-begin"></a>Before you begin
+### <a name="before-you-begin"></a>Antes de começar
 
 Um servidor AD FS já deve ser configurado e funcionando antes de iniciar este procedimento. Para obter ajuda na configuração de um servidor AD FS, consulte [Criar uma instância AD FS 3.0 de teste numa máquina virtual Azure](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed).
 
@@ -102,8 +102,8 @@ Um servidor AD FS já deve ser configurado e funcionando antes de iniciar este p
 4. A janela **'Regras de Reclamação de Edição'** apresentará as novas regras. Clique em **Aplicar**. 
 5. Clique em **OK**. O servidor AD FS está agora configurado para federação direta utilizando o protocolo SAML 2.0.
 
-## <a name="configure-ad-fs-for-ws-fed-direct-federation"></a>Configure AD FS para federação direta da WS-Fed 
-O Azure AD B2B pode ser configurado para federar com fornecedores de identidade que usam o protocolo WS-Fed com os requisitos específicos listados abaixo. Atualmente, os dois fornecedores da WS-Fed foram testados para compatibilidade com a Azure AD incluem AD FS e Shibboleth. Aqui, usaremos os Serviços da Federação de Diretórios Ativos (AD FS) como um exemplo do fornecedor de identidade da WS-Fed. Para obter mais informações sobre a criação de uma confiança entre um fornecedor compatível com a WS-Fed com a Azure AD, descarregue os Docs de Compatibilidade do Fornecedor de Identidade Azure AD.
+## <a name="configure-ad-fs-for-ws-fed-direct-federation"></a>Configure AD FS para WS-Fed federação direta 
+O Azure AD B2B pode ser configurado para federar com fornecedores de identidade que utilizem o protocolo WS-Fed com os requisitos específicos listados abaixo. Atualmente, os dois fornecedores de WS-Fed foram testados para compatibilidade com a Azure AD incluem AD FS e Shibboleth. Aqui, usaremos os Serviços da Federação de Diretórios Ativos (AD FS) como um exemplo do provedor de identidade WS-Fed. Para obter mais informações sobre a criação de uma confiança entre uma parte WS-Fed fornecedor compatível com a Azure AD, descarregue os Docs de Compatibilidade do Fornecedor de Identidade Azure AD.
 
 Para criar uma federação direta, os seguintes atributos devem ser recebidos na mensagem WS-Fed do fornecedor de identidade. Estes atributos podem ser configurados ligando-os ao ficheiro XML do serviço de segurança online ou introduzindo-os manualmente. Passo 12 na [Criação de um teste AD FS exemplos](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed) como encontrar os pontos finais AD FS ou como gerar o seu URL de metadados, por exemplo `https://fs.iga.azure-test.net/federationmetadata/2007-06/federationmetadata.xml` .
  
@@ -111,9 +111,9 @@ Para criar uma federação direta, os seguintes atributos devem ser recebidos na
 |---------|---------|
 |PassivoRequestorEndpoint     |`https://login.microsoftonline.com/login.srf`         |
 |Audiência     |`urn:federation:MicrosoftOnline`         |
-|Emissor     |O emitente URI do IdP parceiro, por exemplo`http://www.example.com/exk10l6w90DHM0yi...`         |
+|Emissor     |O emitente URI do IdP parceiro, por exemplo `http://www.example.com/exk10l6w90DHM0yi...`         |
 
-Reclamações necessárias para o token WS-Fed emitido pelo IdP:
+Reclamações necessárias para o WS-Fed ficha emitida pelo IdP:
 
 |Atributo  |Valor  |
 |---------|---------|
@@ -122,7 +122,7 @@ Reclamações necessárias para o token WS-Fed emitido pelo IdP:
 
 A secção seguinte ilustra como configurar os atributos e alegações necessários usando AD FS como um exemplo de um fornecedor de identidade WS-Fed.
 
-### <a name="before-you-begin"></a>Before you begin
+### <a name="before-you-begin"></a>Antes de começar
 Um servidor AD FS já deve ser configurado e funcionando antes de iniciar este procedimento. Para obter ajuda na configuração de um servidor AD FS, consulte [Criar uma instância AD FS 3.0 de teste numa máquina virtual Azure](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed).
 
 

@@ -11,10 +11,10 @@ ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: dba43c9e9b214a1ad077a2a15bdf014e057bb04e
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88869886"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Apoio linguístico natural aos Serviços Cognitivos do Azure
@@ -35,7 +35,7 @@ Estes Serviços Cognitivos são agnósticos linguísticos e não têm limitaçõ
 * [Reconhecedor de Tinta Digital (Pré-visualização)](./ink-recognizer/language-support.md)
 * [Indexador de Vídeos](https://docs.microsoft.com/azure/media-services/video-indexer/language-identification-model#guidelines-and-limitations)
 
-## <a name="language"></a>Linguagem
+## <a name="language"></a>Idioma
 
 * [Leitura Avançada](./immersive-reader/language-support.md)
 * [Compreensão de Idiomas (LUIS)](./luis/luis-supported-languages.md)
@@ -49,7 +49,7 @@ Estes Serviços Cognitivos são agnósticos linguísticos e não têm limitaçõ
 * [Serviço de Fala:Texto-a-Voz](./speech-service/supported-languages.md#text-to-speech)
 * [Serviço de Fala: Tradução da Fala](./speech-service/supported-languages.md#speech-translation)
 
-## <a name="search"></a>Pesquisar
+## <a name="search"></a>Pesquisa
 
 * [Pesquisa Personalizada do Bing](./bing-custom-search/supported-countries-markets.md)
 * [Pesquisa de Imagens do Bing](./bing-image-search/supported-countries-markets.md)
@@ -57,13 +57,13 @@ Estes Serviços Cognitivos são agnósticos linguísticos e não têm limitaçõ
 * [Sugestão Automática do Bing](./Bing-Autosuggest/bing-autosuggest-supported-languages.md)
 * [Verificação Ortográfica do Bing](./bing-spell-check/bing-spell-check-supported-languages.md)
 * [Pesquisa Visual do Bing](./bing-visual-search/supported-countries-markets.md)
-* [Pesquisa na Web do Bing](./bing-web-search/supported-countries-markets.md)
+* [Pesquisa na Web de Bing](./bing-web-search/supported-countries-markets.md)
 
 ## <a name="decision"></a>Decisão
 
 * [Content Moderator](./content-moderator/text-moderation-api-languages.md)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 * [O que são os Serviços Cognitivos?](welcome.md)
 * [Criar uma conta](cognitive-services-apis-create-account.md)

@@ -16,10 +16,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e78efd71943332e8a40e5b44b6b78f88e516649a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84759968"
 ---
 # <a name="remove-personal-data-for-azure-active-directory-application-proxy"></a>Remover dados pessoais para Proxy de Aplicação de Diretório Ativo Azure
@@ -79,6 +79,6 @@ Uma opção para garantir que os registos do conector não contêm dados pessoai
 
 ![Mostra um corte de código com o código realçado para remover](./media/application-proxy-remove-personal-data/01.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter uma visão geral do Application Proxy, consulte [como fornecer acesso remoto seguro a aplicações no local.](application-proxy.md)

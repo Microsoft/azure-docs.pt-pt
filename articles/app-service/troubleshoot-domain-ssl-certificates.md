@@ -9,10 +9,10 @@ ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: 1cefb5a7b554b9a477f6a51eab3b22b0e8f55378
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88958444"
 ---
 # <a name="troubleshoot-domain-and-tlsssl-certificate-problems-in-azure-app-service"></a>Domínio de resolução de problemas e problemas de certificadoS TLS/SSL no Serviço de Aplicações Azure
@@ -306,7 +306,7 @@ Quando compra um domínio, não é cobrado por um período de cinco dias, durant
 
 **Posso utilizar o domínio em outra aplicação do Azure App Service na minha subscrição?**
 
-Yes. Ao aceder aos Domínios Personalizados e à lâmina TLS no portal Azure, vê os domínios que adquiriu. Pode configurar a sua aplicação para utilizar qualquer um desses domínios.
+Sim. Ao aceder aos Domínios Personalizados e à lâmina TLS no portal Azure, vê os domínios que adquiriu. Pode configurar a sua aplicação para utilizar qualquer um desses domínios.
 
 **Posso transferir um domínio de uma subscrição para outra subscrição?**
 

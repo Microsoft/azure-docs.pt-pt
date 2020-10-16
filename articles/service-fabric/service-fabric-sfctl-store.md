@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: af5399be44d2946775622598c5c1db3d8355f7cd
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86257075"
 ---
 # <a name="sfctl-store"></a>sfctl store
@@ -19,7 +19,7 @@ Efetue operações básicas de nível de ficheiro na loja de imagens de cluster.
 
 |Comando|Descrição|
 | --- | --- |
-| eliminação | Elimina o conteúdo da loja de imagens existente. |
+| delete | Elimina o conteúdo da loja de imagens existente. |
 | raiz-info | Obtém a informação de conteúdo na raiz da loja de imagens. |
 | estatística | Obtém a informação de conteúdo da loja de imagens. |
 

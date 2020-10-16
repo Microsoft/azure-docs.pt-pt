@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
 ms.openlocfilehash: 6c07ab4b18c017bd29723d2640129b8e67374e3c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87837385"
 ---
 # <a name="migrate-your-apps-and-solutions-from-biztalk-services-to-azure-logic-apps"></a>Migrar as suas apps e soluções dos Serviços BizTalk para a Azure Logic Apps
@@ -32,7 +32,7 @@ A BizTalk Services é constituída por dois subserviços:
 
 Esta tabela mapeia as capacidades dos Serviços BizTalk para as Aplicações Lógicas.
 
-| Serviços BizTalk   | Logic Apps            | Objetivo                      |
+| Serviços BizTalk   | Aplicações Lógicas            | Objetivo                      |
 | ------------------ | --------------------- | ---------------------------- |
 | Conector          | Conector             | Enviar e receber dados   |
 | Bridge             | Aplicação Lógica             | Processador de pipeline           |
@@ -59,7 +59,7 @@ Por predefinição, cada ponte tem um ponto final HTTP, que está configurado co
 
 ## <a name="xml-processing-and-bridges"></a>Processamento e pontes XML
 
-Nos Serviços BizTalk, uma ponte é análoga a um gasoduto de processamento. Uma ponte pode pegar nos dados recebidos de um conector, fazer algum trabalho com os dados, e enviar os resultados para outro sistema. A Logic Apps faz o mesmo suportando os mesmos padrões de interação baseados em pipeline que os Serviços BizTalk e fornecendo outros padrões de integração. A [Ponte de Resposta a Pedidos XML](/previous-versions/azure/hh689781(v=azure.100)) nos Serviços BizTalk é conhecida como um oleoduto VETER, que consiste em etapas que executam estas tarefas:
+Nos Serviços BizTalk, uma ponte é análoga a um gasoduto de processamento. Uma ponte pode pegar nos dados recebidos de um conector, fazer algum trabalho com os dados, e enviar os resultados para outro sistema. A Logic Apps faz o mesmo suportando os mesmos padrões de interação baseados em pipeline que os Serviços BizTalk e fornecendo outros padrões de integração. A [Ponte Request-Reply XML](/previous-versions/azure/hh689781(v=azure.100)) nos Serviços BizTalk é conhecida como um oleoduto VETER, que consiste em etapas que executam estas tarefas:
 
 * (V) Validar
 * (E) Enriquecer
@@ -71,7 +71,7 @@ Esta imagem mostra como o processamento é dividido entre pedido e resposta, o q
 
 ![Screenshot que mostra como o processamento é dividido entre pedido e resposta.](media/logic-apps-move-from-mabs/xml-request-reply.png)
 
-Além disso, uma ponte de ida xml adiciona fases de Decode e Encode no início e no fim do processamento. A ponte Pass-Through contém um único estágio de Enriquecimento.
+Além disso, uma ponte de One-Way XML adiciona fases de Decode e Encode no início e no fim do processamento. A ponte Pass-Through contém um único estágio de Enriquecimento.
 
 ### <a name="message-processing-decoding-and-encoding"></a>Processamento de mensagens, descodição e codificação
 

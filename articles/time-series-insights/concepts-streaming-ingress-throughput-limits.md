@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
 ms.openlocfilehash: 4d1d071a36531ed5f159543e33e9ac043160cd70
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91650770"
 ---
 # <a name="streaming-ingestion-throughput-limits"></a>Limites de produção de ingestão de streaming
@@ -28,7 +28,7 @@ Azure Time Series Insights Gen2 streaming de dados limitações de ingresss são
 
 Em geral, as taxas de entrada são vistas como o fator do número de dispositivos que estão na sua organização, frequência de emissões de eventos e o tamanho de cada evento:
 
-* **Número de dispositivos** × **Frequência de emissão de eventos** × **Tamanho de cada evento**.
+* **Número de dispositivos** × **frequência de emissão de eventos** × **tamanho de cada evento**.
 
 Por padrão, a Azure Time Series Insights Gen2 pode ingerir dados de entrada a uma taxa de **até 1 megabyte por segundo (MBps) por Azure Time Series Insights Gen2 ambiente**. Existem limitações adicionais [por partição do hub.](./concepts-streaming-ingress-throughput-limits.md#hub-partitions-and-per-partition-limits)
 

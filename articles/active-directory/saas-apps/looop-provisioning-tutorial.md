@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
 ms.openlocfilehash: 2f3657feb5a68600e4eb2d7bcaa4891a398c2682
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91850698"
 ---
 # <a name="tutorial-configure-looop-for-automatic-user-provisioning"></a>Tutorial: Configure Looop para o fornecimento automático de utilizadores

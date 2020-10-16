@@ -4,10 +4,10 @@ description: Saiba como pode utilizar a Caixa de Dados do Azure para semear dado
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.openlocfilehash: 5a4aeebeddcca4adcac511c7c225c8809dd29c93
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89180937"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Backup Azure backup offline usando Azure Data Box
@@ -302,7 +302,7 @@ A partir do servidor está a tentar configurar para cópia de segurança offline
 
 4. No servidor, abra o registo introduzindo **o regedit** na janela de execução.
 
-5. Vá ao *registo Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackProvider.* Clique com o botão direito **CloudBackupProvider**e adicione um novo valor de corda com o nome `AzureADAppCertThumbprint_<Azure User Id>` .
+5. Vá ao * registoComputer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider.* Clique com o botão direito **CloudBackupProvider**e adicione um novo valor de corda com o nome `AzureADAppCertThumbprint_<Azure User Id>` .
 
     >[!NOTE]
     > Para obter o ID do utilizador Azure, execute uma destas ações:

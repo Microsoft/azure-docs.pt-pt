@@ -12,10 +12,10 @@ ms.author: moslake
 ms.reviewer: sstein
 ms.date: 9/17/2020
 ms.openlocfilehash: 2d317ac2543289aca3a0741b424f71a2e903c74d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91321412"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database sem servidor
@@ -133,7 +133,7 @@ A autoresuming é desencadeada se alguma das seguintes condições for verdadeir
 |Autenticação e autorização|Iniciar sessão|
 |Deteção de ameaças|Ativar/desativar definições de deteção de ameaças no nível da base de dados ou do servidor.<br>Modificar as definições de deteção de ameaças na base de dados ou no nível do servidor.|
 |Deteção e classificação de dados|Adicionar, modificar, eliminar ou visualizar rótulos de sensibilidade|
-|Auditing (Auditoria)|A ver registos de auditoria.<br>Atualizar ou visualizar a política de auditoria.|
+|Auditoria|A ver registos de auditoria.<br>Atualizar ou visualizar a política de auditoria.|
 |Máscara de dados|Adicionar, modificar, eliminar ou ver regras de mascaramento de dados|
 |Encriptação de dados transparente|Ver estado ou estado de encriptação de dados transparentes|
 |Avaliação de vulnerabilidades|Exames ad hoc e exames periódicos se ativados|

@@ -1,6 +1,6 @@
 ---
 title: Azure Maps Glossary Microsoft Docs
-description: Um glossário de termos comumente usados associados a Azure Maps, Serviços baseados em localização e SIG.
+description: Um glossário de termos comumente usados associados a Azure Maps, Location-Based Services e GIS.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 09/18/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 4c3e6216c172b0ba1273fea1690c030a05f4c456
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 831fc28711a181d45a8c69e3f46056604b30649e
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83742217"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089473"
 ---
 # <a name="glossary"></a>Glossário
 
@@ -53,11 +53,11 @@ A lista que se segue descreve palavras comuns usadas com os serviços Azure Maps
 
 <a name="azure-location-based-services-lbs"></a>**Azure Location Based Services (LBS)**: O nome anterior de Azure Maps quando estava em pré-visualização.
 
-<a name="azure-active-directory"></a>**Azure Ative Directory (Azure AD)**: Azure AD é o serviço de gestão de identidade e acesso baseado na nuvem da Microsoft. A integração Azure Maps AD está atualmente disponível em pré-visualização para todas as APIs do Azure Maps. A Azure AD suporta o controlo de acesso baseado em funções (RBAC) para permitir o acesso de grãos finos aos recursos do Azure Maps. Para saber mais sobre a integração Azure Maps AD, consulte [Azure Maps e AZure AD](azure-maps-authentication.md) e [Gerir a autenticação em Azure Maps.](how-to-manage-authentication.md)
+<a name="azure-active-directory"></a>**Azure Ative Directory (Azure AD)**: Azure AD é o serviço de gestão de identidade e acesso baseado na nuvem da Microsoft. A integração Azure Maps AD está atualmente disponível em pré-visualização para todas as APIs do Azure Maps. A Azure AD suporta o controlo de acesso baseado em funções Azure (Azure RBAC) para permitir o acesso de grãos finos aos recursos do Azure Maps. Para saber mais sobre a integração Azure Maps AD, consulte [Azure Maps e AZure AD](azure-maps-authentication.md) e [Gerir a autenticação em Azure Maps.](how-to-manage-authentication.md)
 
 <a name="azure-maps-key"></a>**Tecla Azure Maps**: Consulte [a autenticação da chave partilhada.](#shared-key-authentication)
 
-## <a name="b"></a>B
+## <a name="b"></a>N
 
 <a name="base-map"></a>**Mapa base**: A parte de uma aplicação de mapa que exibe informações de referência de fundo, tais como estradas, marcos e fronteiras políticas.
 

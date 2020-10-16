@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 7117ffcbaf4eba8d83a6e968f4fed7422673610b
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: ab83344f779f93107b59ca28348da3a66f1efc1a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87844245"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076866"
 ---
 # <a name="api-management-policy-expressions"></a>Expressões políticas de gestão da API
 Este artigo discute a sintaxe das expressões políticas em C# 7. Cada expressão tem acesso à variável de [contexto](api-management-policy-expressions.md#ContextVariables) implicitamente fornecida e a um [subconjunto](api-management-policy-expressions.md#CLRTypes) permitido de tipos de quadros .NET.
@@ -33,12 +33,12 @@ Para obter mais informações:
 - Para descarregar as declarações de política, consulte as [amostras/políticas de gestão da API](https://github.com/Azure/api-management-samples/tree/master/policies) GitHub.
 
 
-## <a name="syntax"></a><a name="Syntax"></a>Sintaxe
+## <a name="syntax"></a><a name="Syntax"></a> Sintaxe
 As expressões de declaração única são incluídas, `@(expression)` onde está uma declaração de expressão `expression` C# bem formada.
 
 As expressões multi-afirmações são incluídas em `@{expression}` . Todos os caminhos de código dentro de expressões multi-afirmações devem terminar com uma `return` declaração.
 
-## <a name="examples"></a><a name="PolicyExpressionsExamples"></a>Exemplos
+## <a name="examples"></a><a name="PolicyExpressionsExamples"></a> Exemplos
 
 ```
 @(true)
@@ -71,7 +71,7 @@ As expressões podem ser usadas como valores de atributos ou valores de texto em
 > [!IMPORTANT]
 > Quando se utiliza expressões políticas, só há uma verificação limitada das expressões políticas quando a política é definida. As expressões são executadas pelo gateway no tempo de execução, quaisquer exceções geradas por expressões políticas resultam num erro de tempo de execução.
 
-## <a name="net-framework-types-allowed-in-policy-expressions"></a><a name="CLRTypes"></a>.NET Tipos-quadro permitidos em expressões políticas
+## <a name="net-framework-types-allowed-in-policy-expressions"></a><a name="CLRTypes"></a> .NET Tipos-quadro permitidos em expressões políticas
 A tabela que se segue lista os tipos de quadros .NET e os seus membros que são permitidos em expressões políticas.
 
 |Tipo|Membros apoiados|
@@ -156,7 +156,7 @@ A tabela que se segue lista os tipos de quadros .NET e os seus membros que são 
 |System.Security.Cryptography.SymmetricAlgorithm|Todos|
 |System.Security.Cryptography.X509Certificates.PublicKey|Todos|
 |System.Security.Cryptography.X509Certificates.RSACertificateExtensions|Todos|
-|System.Security.Cryptography.X509Certificates.X500DistinguishedName|Nome|
+|System.Security.Cryptography.X509Certificates.X500DistinguishedName|Name|
 |System.Security.Cryptography.X509Certificates.X509Certificate|Todos|
 |System.Security.Cryptography.X509Certificates.X509Certificate2|Todos|
 |System.Security.Cryptography.X509Certificates.X509ContentType|Todos|
@@ -205,7 +205,7 @@ A tabela que se segue lista os tipos de quadros .NET e os seus membros que são 
 |System.Xml. Linq.XText|Todos|
 |System.Xml.XmlNodeType|Todos|
 
-## <a name="context-variable"></a><a name="ContextVariables"></a>Variável de contexto
+## <a name="context-variable"></a><a name="ContextVariables"></a> Variável de contexto
 Uma variável nomeada `context` está implicitamente disponível em todas as [expressões](api-management-policy-expressions.md#Syntax)políticas. Os seus membros fornecem informações pertinentes ao `\request` . Todos os `context` membros são apenas leitura.
 
 |Variável de contexto|Métodos, propriedades e valores de parâmetros permitidos|
@@ -253,4 +253,4 @@ Para obter mais informações sobre as políticas, consulte:
 + [Políticas em Gestão de API](api-management-howto-policies.md)
 + [Transformar APIs](transform-api.md)
 + [Referência política](./api-management-policies.md) para uma lista completa de declarações políticas e suas definições
-+ [Amostras de política](policy-samples.md)
++ [Amostras de política](./policy-reference.md)

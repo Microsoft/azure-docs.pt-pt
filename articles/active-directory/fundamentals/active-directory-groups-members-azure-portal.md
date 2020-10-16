@@ -14,10 +14,10 @@ ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fbb7b7da4ed5268e66260e48d6367bbe02f0845a
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87797581"
 ---
 # <a name="add-or-remove-group-members-using-azure-active-directory"></a>Adicionar ou remover membros do grupo usando o Azure Ative Directory
@@ -31,7 +31,7 @@ Utilizando o Azure Ative Directory, pode continuar a adicionar e remover membros
 
 3. A partir da página **Grupos - Todos os grupos,** procure e selecione o grupo a que pretende adicionar o membro. Neste caso, use o nosso grupo anteriormente criado, **a política do MDM - West**.
 
-    ![Grupos-Todos os grupos página, nome de grupo destacado](media/active-directory-groups-members-azure-portal/group-all-groups-screen.png)
+    ![Groups-All página de grupos, nome de grupo em destaque](media/active-directory-groups-members-azure-portal/group-all-groups-screen.png)
 
 4. Na página **Descrição Geral da Política MDM - Oeste**, selecione **Membros** na área **Gerir**.
 

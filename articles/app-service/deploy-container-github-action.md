@@ -7,12 +7,12 @@ ms.date: 10/03/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: github-actions-azure
-ms.openlocfilehash: dc8b5e75b4feed886f843e7a516cc18429afec11
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: 3a5e319115c124551c05f2ac5aa393ba19596d0d
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91728493"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893361"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Implementar um recipiente personalizado para o Serviço de Aplicações utilizando ações do GitHub
 
@@ -25,7 +25,7 @@ Para um fluxo de trabalho do serviço de aplicações Azure, o ficheiro tem trê
 |Section  |Tarefas  |
 |---------|---------|
 |**Autenticação** | 1. Recupere um perfil principal de serviço ou publique o perfil. <br /> 2. Criar um segredo do GitHub. |
-|**Compilar** | 1. Criar o ambiente. <br /> 2. Construa a imagem do recipiente. |
+|**Construir** | 1. Criar o ambiente. <br /> 2. Construa a imagem do recipiente. |
 |**Implementar** | 1. Desdobre a imagem do recipiente. |
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -138,10 +138,6 @@ Defina segredos para usar com a ação de Login do Docker.
 
 O exemplo a seguir mostra parte do fluxo de trabalho que constrói uma imagem Node.JS Docker. Utilize [o Docker Login](https://github.com/azure/docker-login) para iniciar sessão num registo privado de contentores. Este exemplo utiliza o Registo do Contentor Azure, mas a mesma ação funciona para outros registos. 
 
-# <a name="publish-profile"></a>[Publicar perfil](#tab/publish-profile)
-
-Este exemplo mostra como construir uma imagem Node.JS Docker usando um perfil de publicação para autenticação.
-
 
 ```yaml
 name: Linux Container Node Workflow
@@ -191,41 +187,6 @@ jobs:
         docker build . -t mycontainer.azurecr.io/myapp:${{ github.sha }}
         docker push mycontainer.azurecr.io/myapp:${{ github.sha }}     
 ```
-# <a name="service-principal"></a>[Diretor de serviços](#tab/service-principal)
-
-Este exemplo mostra como construir uma imagem Node.JS Docker usando um principal de serviço para autenticação. 
-
-```yaml
-on: [push]
-
-name: Linux_Container_Node_Workflow
-
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-    # checkout the repo
-    - name: 'Checkout GitHub Action' 
-      uses: actions/checkout@master
-
-    - name: 'Login via Azure CLI'
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}   
-    - uses: azure/docker-login@v1
-      with:
-        login-server: mycontainer.azurecr.io
-        username: ${{ secrets.REGISTRY_USERNAME }}
-        password: ${{ secrets.REGISTRY_PASSWORD }}  
-    - run: |
-        docker build . -t mycontainer.azurecr.io/myapp:${{ github.sha }}
-        docker push mycontainer.azurecr.io/myapp:${{ github.sha }}      
-    - name: Azure logout
-      run: |
-        az logout
-```
-
----
 
 ## <a name="deploy-to-an-app-service-container"></a>Implementar para um recipiente de Serviço de Aplicações
 
@@ -237,7 +198,7 @@ Para implementar a sua imagem num recipiente personalizado no Serviço de Aplica
 | **perfil de publicação** | (Opcional) Publique conteúdos de ficheiros de perfil com segredos de implementação da Web |
 | **imagens** | Nome de imagem de recipiente totalmente qualificado. Por exemplo, "myregistry.azurecr.io/nginx:latest" ou "python:3.7.2-alpine/". Para cenário de vários contentores podem ser fornecidos vários nomes de imagem de contentores (separados multi-linhas) |
 | **nome slot** | (Opcional) Introduza uma ranhura existente que não seja a ranhura de produção |
-| **ficheiro de configuração** | (Opcional) Caminho do ficheiro Docker-Compose |
+| **ficheiro de configuração** | (Opcional) Caminho do arquivo Docker-Compose |
 
 # <a name="publish-profile"></a>[Publicar perfil](#tab/publish-profile)
 

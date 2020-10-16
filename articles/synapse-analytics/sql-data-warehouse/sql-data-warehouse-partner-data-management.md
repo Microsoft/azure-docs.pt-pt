@@ -12,10 +12,10 @@ ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 8f2e41779e72d565e24b67fd8b18afd87a112e62
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91542105"
 ---
 # <a name="azure-synapse-analytics-data-management-partners"></a>Parceiros de gestão de dados Azure Synapse Analytics
@@ -36,7 +36,7 @@ Este artigo destaca as empresas parceiras da Microsoft com ferramentas e soluç�
 | ![SqlDBM](./media/sql-data-warehouse-partner-data-management/sqldbm-logo.png) |**SqlDBM**<br>SqlDBM é uma Ferramenta de Modelação de Dados baseada na Nuvem que lhe oferece uma maneira fácil e conveniente de desenvolver a sua base de dados em qualquer lugar em qualquer navegador. Tudo ao mesmo tempo que incorpora quaisquer regras e objetos de base de dados necessários, tais como chaves de base de dados, esquemas, índices, restrições de colunas e relacionamentos. |[Página do produto](http://sqldbm.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/sqldbm1583438206845.sqldbm-data-modeling-tool?tab=Overview)<br>|
 | ![Teleran](./media/sql-data-warehouse-partner-data-management/teleran-logo.jpg) |**Teleran**<br>O Controlo de Consultas da Teleran impede que consultas inadequadas e mal formadas cheguem à Sinapse e desperdiçem recursos computatéricos. Envia mensagens inteligentes aos utilizadores de análise que os orientam para uma maior eficiência interagem com os dados. O objetivo é garantir bons resultados de negócio sem aumentar desnecessariamente os custos da Azure. A Teleran Usage Analysis fornece uma análise da atividade de utilizador, aplicação, consulta e utilização de dados. Permite-te ter sempre a imagem completa do que se está a passar. Permite-lhe melhorar o serviço, aumentar a produtividade do negócio e otimizar os custos de consumo da Sinapse. |[Página do produto](https://teleran.com/azure-synapse-optimization-cost-control/)<br>|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre outros parceiros, consulte [parceiros de Business Intelligence,](sql-data-warehouse-partner-business-intelligence.md) [parceiros de Integração de Dados](sql-data-warehouse-partner-data-integration.md)e [machine learning e parceiros de IA.](sql-data-warehouse-partner-machine-learning-ai.md)
 
 

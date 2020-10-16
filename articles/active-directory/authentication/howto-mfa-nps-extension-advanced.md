@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/11/2018
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7dab1d9e46aec64cc3c0fda9e8e6ba503f696b0
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 3a9156f84e5189b38a2c15f257bd6a47ac3db130
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716763"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91964405"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Opções de configuração avançada para a extensão NPS para Multi-Factor Authentication
 
@@ -32,9 +32,9 @@ Para configurar iDs de login alternativos, vá `HKLM\SOFTWARE\Microsoft\AzureMfa
 
 | Nome | Tipo | Valor predefinido | Descrição |
 | ---- | ---- | ------------- | ----------- |
-| LDAP_ALTERNATE_LOGINID_ATTRIBUTE | string | Vazio | Designe o nome do atributo Ative Directory que pretende utilizar em vez da UPN. Este atributo é utilizado como o atributo AlternateLoginId. Se este valor de registo for definido para um [atributo de Diretório Ativo válido](/windows/win32/adschema/attributes-all) (por exemplo, nome de correio ou visualização), então o valor do atributo é utilizado no lugar da UPN do utilizador para autenticação. Se este valor de registo estiver vazio ou não estiver configurado, então o AlternateLoginId é desativado e o UPN do utilizador é utilizado para a autenticação. |
+| LDAP_ALTERNATE_LOGINID_ATTRIBUTE | cadeia | Vazio | Designe o nome do atributo Ative Directory que pretende utilizar em vez da UPN. Este atributo é utilizado como o atributo AlternateLoginId. Se este valor de registo for definido para um [atributo de Diretório Ativo válido](/windows/win32/adschema/attributes-all) (por exemplo, nome de correio ou visualização), então o valor do atributo é utilizado no lugar da UPN do utilizador para autenticação. Se este valor de registo estiver vazio ou não estiver configurado, então o AlternateLoginId é desativado e o UPN do utilizador é utilizado para a autenticação. |
 | LDAP_FORCE_GLOBAL_CATALOG | boolean | Falso | Utilize esta bandeira para forçar a utilização do Catálogo Global para pesquisas LDAP ao procurar AlternateLoginId. Configure um controlador de domínio como catálogo global, adicione o atributo AlternateLoginId ao Catálogo Global e, em seguida, ative esta bandeira. <br><br> Se LDAP_LOOKUP_FORESTS estiver configurado (não vazio), **esta bandeira é aplicada como verdadeira,** independentemente do valor da definição do registo. Neste caso, a extensão NPS requer que o Catálogo Global seja configurado com o atributo AlternateLoginId para cada floresta. |
-| LDAP_LOOKUP_FORESTS | string | Vazio | Forneça uma lista separada de florestas semi-cólon para procurar. Por exemplo, *contoso.com;foobar.com*. Se este valor de registo for configurado, a extensão NPS pesquisa iterativamente todas as florestas na ordem em que foram listadas, e devolve o primeiro valor AlternativoLoginId bem sucedido. Se este valor de registo não estiver configurado, o lookup AlternateLoginId está confinado ao domínio atual.|
+| LDAP_LOOKUP_FORESTS | cadeia | Vazio | Forneça uma lista separada de florestas semi-cólon para procurar. Por exemplo, *contoso.com;foobar.com*. Se este valor de registo for configurado, a extensão NPS pesquisa iterativamente todas as florestas na ordem em que foram listadas, e devolve o primeiro valor AlternativoLoginId bem sucedido. Se este valor de registo não estiver configurado, o lookup AlternateLoginId está confinado ao domínio atual.|
 
 Para resolver problemas com IDs de login alternativos, utilize os passos recomendados para [erros de identificação de login alternativos](howto-mfa-nps-extension-errors.md#alternate-login-id-errors).
 
@@ -46,7 +46,7 @@ Para configurar uma lista permitida por IP, vá `HKLM\SOFTWARE\Microsoft\AzureMf
 
 | Nome | Tipo | Valor predefinido | Descrição |
 | ---- | ---- | ------------- | ----------- |
-| IP_WHITELIST | string | Vazio | Forneça uma lista separada de endereços IP separados do ponto de separo. Inclua os endereços IP das máquinas de origem dos pedidos de serviço, como o servidor NAS/VPN. As gamas e sub-redes IP não são suportadas. <br><br> Por exemplo, *10.0.0.1;10.0.0.2;10.0.0.3*.
+| IP_WHITELIST | cadeia | Vazio | Forneça uma lista separada de endereços IP separados do ponto de separo. Inclua os endereços IP das máquinas de origem dos pedidos de serviço, como o servidor NAS/VPN. As gamas e sub-redes IP não são suportadas. <br><br> Por exemplo, *10.0.0.1;10.0.0.2;10.0.0.3*.
 
 > [!NOTE]
 > Esta chave de registo não é criada por padrão pelo instalador e aparece um erro no registo AuthZOptCh quando o serviço é reiniciado. Este erro no registo pode ser ignorado, mas se esta chave de registo for criada e deixada vazia se não for necessário, a mensagem de erro não volta.

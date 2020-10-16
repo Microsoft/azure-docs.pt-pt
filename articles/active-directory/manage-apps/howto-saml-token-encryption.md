@@ -16,10 +16,10 @@ ms.author: kenwith
 ms.reviewer: paulgarn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 779d1b73f45f9be5b4bd00d546987b7c1e0b6a43
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84763351"
 ---
 # <a name="how-to-configure-azure-ad-saml-token-encryption"></a>Como: Configurar Azure AD SAML encriptação simbólica
@@ -55,7 +55,7 @@ Para configurar a encriptação do símbolo SAML, siga estes passos:
 
 Pode adicionar o certificado público à configuração da sua aplicação dentro do portal Azure.
 
-1. Vá ao [portal Azure.](https://portal.azure.com)
+1. Aceda ao [portal do Azure](https://portal.azure.com).
 
 1. Vá ao **Azure Ative Directory > Enterprise applications** blade e, em seguida, selecione a aplicação para a quais deseja configurar encriptação simbólica.
 
@@ -217,7 +217,7 @@ Quando configurar um keyCredential utilizando o Gráfico, o PowerShell ou no man
     }  
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Descubra [como a Azure AD utiliza o protocolo SAML](../develop/active-directory-saml-protocol-reference.md)
 * Aprenda o formato, as características de segurança e o conteúdo dos [tokens SAML em Azure AD](../develop/reference-saml-tokens.md)

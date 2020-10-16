@@ -4,10 +4,10 @@ description: Saiba como criar um modelo de Gestor de Recursos para um cluster de
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.openlocfilehash: b028b5c1f32733146c071e50b24202e5bad945c0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260487"
 ---
 # <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Crie um modelo de gestor de recursos de cluster de tecido de serviço
@@ -24,7 +24,7 @@ Antes de implantar um cluster de produção para executar cargas de trabalho de 
 ## <a name="create-the-resource-manager-template"></a>Criar o modelo do Resource Manager
 Os modelos do Gestor de Recursos da Amostra estão disponíveis nas [amostras do Azure no GitHub.](https://github.com/Azure-Samples/service-fabric-cluster-templates) Estes modelos podem ser usados como ponto de partida para o seu modelo de cluster.
 
-Este artigo utiliza o modelo de exemplo [de cluster seguro de cinco nós][service-fabric-secure-cluster-5-node-1-nodetype] e os parâmetros do modelo. Faça *o downloadazuredeploy.js* eazuredeploy.parameters.js*no* seu computador e abra ambos os ficheiros no seu editor de texto favorito.
+Este artigo utiliza o modelo de exemplo [de cluster seguro de cinco nós][service-fabric-secure-cluster-5-node-1-nodetype] e os parâmetros do modelo. Faça * o downloadazuredeploy.js* eazuredeploy.parameters.js* no* seu computador e abra ambos os ficheiros no seu editor de texto favorito.
 
 > [!NOTE]
 > Para as nuvens nacionais (Governo Azure, Azure China, Azure Germany), também deve adicionar o seguinte `fabricSettings` ao seu modelo: `AADLoginEndpoint` e `AADTokenEndpointFormat` `AADCertEndpointFormat` .

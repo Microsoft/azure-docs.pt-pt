@@ -8,10 +8,10 @@ ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: f4687add8fdd55c8084a7180a6e0a3bffd9751b1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91715148"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Linha de base de segurança Azure para armazenamento Azure
@@ -960,7 +960,7 @@ Também pode pré-digitalizar qualquer conteúdo para malware antes de enviar pa
 
 Também pode permitir que a automatização Azure tire fotos regulares das bolhas.
 
-- [Compreender a redundância de armazenamento Azure e os acordos de nível de serviço](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
+- [Compreender os acordos de redundância e Service-Level de armazenamento da Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 
 - [Criar um instantâneo de uma bolha](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob)
 
@@ -990,7 +990,7 @@ As chaves geridas /fornecidas pelo cliente podem ser apoiadas dentro do Cofre da
 
 **Orientação**: Execute periodicamente a restauração de dados dos seus certificados de cofre chave, chaves, contas de armazenamento gerido e segredos, com os seguintes comandos PowerShell: 
 
-Restaurar-AzKeyVaultCertificate restore-AzKeyVaultKey restore-AzKeyVaagedstorageAccount restore-azKeyVaultSecret 
+Restore-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedStorageAccount Restore-AzKeyVaultSecret 
 
 - [Como restaurar certificados de cofre chave](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0)
 
@@ -1113,7 +1113,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte o [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
 - Saiba mais sobre [as Linhas de Base de Segurança Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

@@ -14,10 +14,10 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 85f5269c3c2616070b826ecc38735c31617db537
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85477554"
 ---
 # <a name="prompt-behavior-in-msaljs-interactive-requests"></a>Comportamento rápido em MSAL.js pedidos interativos
@@ -48,6 +48,6 @@ Os seguintes valores rápidos podem ser passados quando autenticados com Azure A
 
 **nenhum:** Este valor garantirá que o utilizador não vê qualquer solicitação interativa. Recomenda-se não passar este valor a métodos interativos em MSAL.js pois pode ter comportamentos inesperados. Em vez disso, use o `acquireTokenSilent` método para obter chamadas silenciosas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia mais sobre o `prompt` parâmetro no protocolo de [concessão implícita OAuth 2.0](v2-oauth2-implicit-grant-flow.md) que MSAL.js utiliza a biblioteca.

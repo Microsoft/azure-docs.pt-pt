@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: 42aa51fdd3b0da5a0d438ba46b39bada159aeba6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 429d0b9c3a118061d713484a7db3aca376a24d04
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611476"
+ms.locfileid: "91873188"
 ---
 # <a name="tutorial-create-a-blazor-server-app-that-uses-the-microsoft-identity-platform-for-authentication"></a>Tutorial: Criar uma aplicação Blazor Server que utiliza a plataforma de identidade da Microsoft para autenticação
 
@@ -84,7 +84,7 @@ No seu navegador, navegue para `https://localhost:5001` , e faça login usando u
 
 ## <a name="retrieving-data-from-microsoft-graph"></a>Recuperar dados do Microsoft Graph
 
-[O Microsoft Graph](/graph/overview) oferece uma gama de APIs que fornecem acesso aos dados microsoft 365 dos seus utilizadores. Ao utilizar a plataforma de identidade da Microsoft como fornecedor de identidade para a sua aplicação, tem acesso mais fácil a estas informações, uma vez que o Microsoft Graph suporta diretamente os tokens emitidos pela plataforma de identidade da Microsoft. Nesta secção, o código de adicionar pode exibir o assinado nos e-mails do utilizador na página "recolher dados" da aplicação.
+[O Microsoft Graph](/graph/overview) oferece uma gama de APIs que fornecem acesso aos dados microsoft 365 dos seus utilizadores. Ao utilizar a plataforma de identidade da Microsoft como fornecedor de identidade para a sua aplicação, tem acesso mais fácil a estas informações, uma vez que o Microsoft Graph suporta diretamente os tokens emitidos pela plataforma de identidade da Microsoft. Nesta secção, adicione código para exibir os e-mails assinados no utilizador na página "recolher dados" da aplicação.
 
 Antes de começar, faça login na sua app uma vez que irá fazer alterações nas permissões necessárias, e o seu token atual não funcionará. Se ainda não o fez, volte a executar a sua aplicação e selecione **Iniciar sessão** antes de atualizar o código abaixo.
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: da4f9fd9fd4305029f42dbe63326c8782d22d907
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: baeeeae54829fad7378df597965eec5ba2039d20
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825451"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972820"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>Anexar um disco de dados a um Windows VM com PowerShell
 
@@ -117,4 +117,4 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Também pode implementar discos geridos utilizando modelos. Para obter mais informações, consulte [a utilização de discos geridos nos modelos do Gestor de Recursos Azure](using-managed-disks-template-deployments.md) ou o [modelo de arranque rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk) para a implementação de vários discos de dados.
+Também pode implementar discos geridos utilizando modelos. Para obter mais informações, consulte [a utilização de discos geridos nos modelos do Gestor de Recursos Azure](../using-managed-disks-template-deployments.md) ou o [modelo de arranque rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk) para a implementação de vários discos de dados.

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: f8e787b8a94987e7d68e12a0e4e69f4c63e21e19
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87320583"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Telemetria métrica: Modelo de dados de Insights de Aplicação
@@ -41,7 +41,7 @@ Nome da métrica que gostaria de ver no portal Application Insights e UI.
 
 Valor único para medição. Soma de medições individuais para a agregação.
 
-## <a name="count"></a>de palavras
+## <a name="count"></a>Contagem
 
 Peso métrico da métrica agregada. Não deve ser definido para uma medição.
 
@@ -49,7 +49,7 @@ Peso métrico da métrica agregada. Não deve ser definido para uma medição.
 
 Valor mínimo da métrica agregada. Não deve ser definido para uma medição.
 
-## <a name="max"></a>Máx
+## <a name="max"></a>Máx.
 
 Valor máximo da métrica agregada. Não deve ser definido para uma medição.
 

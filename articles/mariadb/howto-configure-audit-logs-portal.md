@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/24/2020
 ms.openlocfilehash: 30ca62305c325943e17ee574873cfbbbaee97f77
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86113042"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-portal"></a>Configurar e aceder a registos de auditoria no portal Azure
@@ -67,7 +67,7 @@ Ativar e configurar a sessão de registo de auditoria.
 
 1. Aceda aos registos de auditoria explorando-os nos sumidouros de dados que configura. Pode levar até 10 minutos para os registos aparecerem.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [os registos de auditoria](concepts-audit-logs.md) na Base de Dados Azure para MariaDB
 - Saiba como configurar os registos de auditoria no [Azure CLI](howto-configure-audit-logs-cli.md)

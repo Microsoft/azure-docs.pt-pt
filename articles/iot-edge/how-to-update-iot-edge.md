@@ -9,12 +9,12 @@ ms.date: 06/22/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ee00425da89391e5228f2d48b49ca85426066f1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7cde23372f6a3af0320e2d48c78a0d7fe69a2600
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85299012"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045708"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Atualizar o daemon de segurança e o tempo de execução do IoT Edge
 
@@ -117,7 +117,7 @@ Se pretender atualizar para uma versão específica do daemon de segurança, enc
 >[!NOTE]
 >O `-OfflineInstallationPath` parâmetro procura um ficheiro chamado **Microsoft-Azure-IoTEdge.cab** no diretório fornecido. A partir da versão IoT Edge 1.0.9-rc4, existem dois ficheiros .cab disponíveis para usar, um para dispositivos AMD64 e outro para ARM32. Faça o download do ficheiro correto para o seu dispositivo e, em seguida, mude o nome do ficheiro para remover o sufixo de arquitetura.
 
-Para obter mais informações sobre opções de atualização, utilize o comando `Get-Help Update-IoTEdge -full` ou consulte todos os [parâmetros de instalação](how-to-install-iot-edge-windows.md#all-installation-parameters).
+Para obter mais informações sobre opções de atualização, utilize o comando ou consulte o `Get-Help Update-IoTEdge -full` [script PowerShell para IoT Edge no Windows](reference-windows-scripts.md).
 
 ## <a name="update-the-runtime-containers"></a>Atualizar os recipientes de tempo de execução
 
@@ -194,7 +194,7 @@ Dois componentes são utilizados para atualizar um dispositivo IoT Edge:
 
 3. Se o ficheiro .cab que descarregou tiver um sufixo de arquitetura, mude o nome do ficheiro para apenas **Microsoft-Azure-IoTEdge.cab**.
 
-4. Para atualizar com componentes offline, [ponto fonte](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_scripts?view=powershell-7#script-scope-and-dot-sourcing) da cópia local do script PowerShell. Em seguida, use o `-OfflineInstallationPath` parâmetro como parte do comando e forneça o caminho absoluto para o `Update-IoTEdge` diretório de ficheiros. Por exemplo,
+4. Para atualizar com componentes offline, [ponto fonte](/powershell/module/microsoft.powershell.core/about/about_scripts?view=powershell-7#script-scope-and-dot-sourcing) da cópia local do script PowerShell. Em seguida, use o `-OfflineInstallationPath` parâmetro como parte do comando e forneça o caminho absoluto para o `Update-IoTEdge` diretório de ficheiros. Por exemplo,
 
    ```powershell
    . <path>\IoTEdgeSecurityDaemon.ps1
@@ -213,10 +213,7 @@ Como pré-visualizações, as versões de lançamento dos candidatos não estão
 
 Utilize as secções deste artigo para aprender a atualizar um dispositivo IoT Edge para uma versão específica dos módulos de segurança ou de tempo de execução.
 
-Se estiver a instalar o IoT Edge numa nova máquina, utilize as seguintes ligações para aprender a instalar uma versão específica dependendo do sistema operativo do dispositivo:
-
-* [Linux](how-to-install-iot-edge-linux.md#install-runtime-using-release-assets)
-* [Windows](how-to-install-iot-edge-windows.md#offline-or-specific-version-installation)
+Se estiver a instalar o IoT Edge, em vez de atualizar uma instalação existente, utilize os passos na [instalação de versão offline ou específica](how-to-install-iot-edge.md#offline-or-specific-version-installation).
 
 ## <a name="next-steps"></a>Passos seguintes
 

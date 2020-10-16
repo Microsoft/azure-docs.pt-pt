@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: deb64aa0c344e818b5fd85ca1a161293fd35d6f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be9f2163813d1dc52a593c110fa4cef9b561614e
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554012"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995411"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>Tutorial: Integração do Diretório Ativo Azure com Percolate
 
@@ -103,7 +103,7 @@ Para configurar o Azure AD com Percolate, tome estes passos:
 
 5. Se pretender configurar a aplicação no modo iniciado pelo SP, selecione **Definir URLs adicionais** e, na caixa **URL signo,** insira: **https://percolate.com/app/login**
 
-   ![Informações de súmis de domínio percolate e URLs únicas](common/metadata-upload-additional-signon.png)
+   ![Screenshot que mostra "Definir U R Ls adicionais" selecionado com a caixa de texto "Sign on U R L" realçada.](common/metadata-upload-additional-signon.png)
 6. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** selecione o ícone **Copy** para copiar o Url **de Metadados da Federação de Aplicações**. Salve esta URL.
 
     ![Copiar o URL de metadados da Federação de Aplicações](common/copy-metadataurl.png)
@@ -184,7 +184,7 @@ Nesta secção, você permitirá que Britta Simon use Azure AD um único sinal d
 
 3. No painel esquerdo, selecione **Utilizadores e grupos:**
 
-    ![Selecionar Utilizadores e grupos](common/users-groups-blade.png)
+    ![Screenshot que mostra "Utilizadores e grupos" selecionados a partir do painel esquerdo.](common/users-groups-blade.png)
 
 4. **Selecione Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** na caixa de diálogo **'Adicionar Atribuição'.**
 

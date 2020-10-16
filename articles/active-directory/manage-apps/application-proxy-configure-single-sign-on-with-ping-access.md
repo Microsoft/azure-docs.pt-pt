@@ -17,13 +17,13 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 512aed93906968b14f7c6a13e08f74bbeb2f5f31
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87431086"
 ---
-# <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticação baseada em cabeçalho para um único sign-on com Application Proxy e PingAccess
+# <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticação baseada em cabeçalho para início de sessão único com o Proxy de Aplicações e PingAccess
 
 Azure Ative Directory (Azure AD) Application Proxy estabeleceu uma parceria com o PingAccess para que os seus clientes AD Azure possam aceder a mais das suas aplicações. O PingAccess expande as [ofertas existentes](application-proxy.md) de Procuração de Aplicações para incluir um único acesso de acesso a aplicações que utilizam cabeçalhos para autenticação.
 
@@ -231,7 +231,7 @@ Esses passos ajudam-no a instalar o PingAccess e a criar uma conta PingAccess (s
 
 Quando completar todos estes passos, a sua candidatura deve estar a funcionar. Para testá-lo, abra um navegador e navegue para o URL externo que criou quando publicou a aplicação no Azure. Inscreva-se na conta de teste que atribuiu à aplicação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configure PingAccess para Azure AD para proteger aplicações publicadas usando o Microsoft Azure AD Application Proxy](https://support.pingidentity.com/s/document-item?bundleId=pingaccess-52&topicId=agents/azure/pa_c_PAAzureSolutionOverview.html)
 - [Inscrição única para aplicações no Azure Ative Directory](what-is-single-sign-on.md)

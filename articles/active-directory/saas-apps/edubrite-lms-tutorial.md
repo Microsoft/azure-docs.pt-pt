@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.openlocfilehash: d753aef3c7cd855b1ab137e85a233a1bca27c25a
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91826782"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edubrite-lms"></a>Tutorial: Integração do Diretório Ativo Azure com EduBrite LMS
@@ -95,7 +95,7 @@ Para configurar o Azure AD com EduBrite LMS, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -116,7 +116,7 @@ Para configurar o Azure AD com EduBrite LMS, execute os seguintes passos:
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Contacte [a equipa de suporte do cliente EduBrite LMS](mailto:support@edubrite.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-6. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+6. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -130,7 +130,7 @@ Para configurar o Azure AD com EduBrite LMS, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-edubrite-lms-single-sign-on"></a>Configurar EduBrite LMS Single Sign-On
+### <a name="configure-edubrite-lms-single-sign-on"></a>Configure EduBrite LMS Single Sign-On
 
 Para configurar um único sinal no lado **EduBrite LMS,** é necessário enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para a equipa de [suporte EduBrite LMS](mailto:support@edubrite.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 

@@ -9,17 +9,17 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: 577340e485550e84941a33d82b58aa6ff1c933d3
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90983670"
 ---
 # <a name="configure-azure-firewall-in-a-virtual-wan-hub"></a>Configure Azure Firewall em um hub VIRTUAL WAN
 
 Um **hub seguro** é um hub Azure Virtual WAN com Azure Firewall. Este artigo percorre os passos para converter um hub WAN virtual para um hub seguro, instalando o Azure Firewall diretamente a partir das páginas do portal Azure Virtual WAN.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Os passos deste artigo assumem que já implementou um WAN virtual com um ou mais hubs.
 

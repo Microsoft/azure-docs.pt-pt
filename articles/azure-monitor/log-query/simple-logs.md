@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 09/12/2019
 ms.openlocfilehash: 4926e18aa6b00fe36608843ea5253903ace774e2
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90089113"
 ---
 # <a name="simple-logs-experience-in-azure-monitor-preview"></a>Experiência de Logs simples no Azure Monitor (Pré-visualização)

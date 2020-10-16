@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 4889ecd02be1b8f59c30550b7813ed5e5935f20f
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88924699"
 ---
 #   <a name="text-translation-cognitive-skill"></a>Habilidade cognitiva de tradução de texto
@@ -148,7 +148,7 @@ Se fornecer um código linguístico não suportado para o idioma ou para a líng
 Se o seu texto estiver vazio, será produzido um aviso.
 Se o seu texto for superior a 50.000 caracteres, apenas os primeiros 50.000 caracteres serão traduzidos e um aviso será emitido.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)

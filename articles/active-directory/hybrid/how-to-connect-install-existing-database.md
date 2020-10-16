@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a8324b82a05d7e78772e0b0b6de3a9bfaa183411
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91265396"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Instalar o Azure AD Connect com uma base de dados ADSync existente
@@ -96,7 +96,7 @@ Utilize a tabela abaixo para verificar quaisquer passos adicionais necessários.
 |-----|-----|
 |Sincronização de hash de palavra-passe| as definições de sincronização de hash de palavra-passe e de writeback de password estão totalmente restauradas para versões do Azure AD Connect a partir de 1.2.65.0.  Se restaurar usando uma versão mais antiga do Azure AD Connect, reveja as definições de opção de sincronização para estas funcionalidades para garantir que correspondem ao seu servidor de sincronização ativo.  Não devem ser necessários outros passos de configuração.|
 |Federação com o AD FS|As autenticações Azure continuarão a utilizar a política AD FS configurada para o seu servidor de sincronização ativo.  Se utilizar o Azure AD Connect para gerir a sua quinta AD FS, poderá alterar opcionalmente o método de inscrição para a federação AD FS, preparando-se para que o seu servidor de espera se torne a instância de sincronização ativa.   Se as opções do dispositivo estiverem ativadas no servidor de sincronização ativa, configure essas opções neste servidor executando a tarefa "Configurar opções do dispositivo".|
-|Autenticação pass-through e placa de trabalho único|Atualize o sinal no método para corresponder à configuração do seu servidor de sincronização ativo.  Se isto não for seguido antes de promover o servidor para a autenticação primária, a autenticação pass-through juntamente com o Seamless Single Sign on será desativada e o seu inquilino poderá ficar bloqueado se não tiver sincronização de haxixe de palavra-passe como sinal de back-up na opção. Note também que quando ativar a autenticação pass-through no modo de preparação, um novo agente de autenticação será instalado, registado e executado como um agente de alta disponibilidade que aceitará assinar nos pedidos.|
+|Autenticação pass-through e Sign-On de trabalho simples|Atualize o sinal no método para corresponder à configuração do seu servidor de sincronização ativo.  Se isto não for seguido antes de promover o servidor para a autenticação primária, a autenticação pass-through juntamente com o Seamless Single Sign on será desativada e o seu inquilino poderá ficar bloqueado se não tiver sincronização de haxixe de palavra-passe como sinal de back-up na opção. Note também que quando ativar a autenticação pass-through no modo de preparação, um novo agente de autenticação será instalado, registado e executado como um agente de alta disponibilidade que aceitará assinar nos pedidos.|
 |Federação com o PingFederate|As autenticações Azure continuarão a utilizar a política PingFederate configurada para o seu servidor de sincronização ativa.  Pode alterar opcionalmente o método de inscrição para PingFederate em preparação para o seu servidor de espera tornando-se a instância de sincronização ativa.  Este passo pode ser adiado até que você precise de federar domínios adicionais com PingFederate.|
 
 ## <a name="next-steps"></a>Passos seguintes

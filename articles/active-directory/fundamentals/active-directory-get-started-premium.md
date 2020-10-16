@@ -14,10 +14,10 @@ ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 425809339cf4c468293801460fdeb79d9e467968
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89565604"
 ---
 # <a name="sign-up-for-azure-active-directory-premium-editions"></a>Inscrever-se nas edições Premium do Azure Active Directory
@@ -97,5 +97,5 @@ Depois de as suas licenças compradas serem aprovisionadas no diretório, recebe
 
 Normalmente, o processo de ativação demora apenas alguns minutos e, em seguida, pode utilizar o inquilino do Microsoft Azure AD. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Agora que tem o Azure AD Premium, pode [personalizar o seu domínio](add-custom-domain.md), adicionar a sua [imagem corporativa](customize-branding.md), [criar um inquilino](active-directory-access-create-new-tenant.md) e [adicionar grupos](active-directory-groups-create-azure-portal.md) e [utilizadores](add-users-azure-active-directory.md).

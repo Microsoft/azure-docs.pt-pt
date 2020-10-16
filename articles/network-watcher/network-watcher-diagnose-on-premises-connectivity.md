@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 632a1eb7b7ac53bd3d7df3f2722d6e53277c7926
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84738758"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnosticar conectividade no local através de gateways VPN
@@ -29,7 +29,7 @@ Com a funcionalidade de resolução de problemas do Azure Network Watcher, é ca
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="scenario"></a>Scenario
+## <a name="scenario"></a>Cenário
 
 Pretende configurar uma ligação site-to-site entre Azure e no local usando o FortiGate como o VPN Gateway no local. Para alcançar este cenário, seria necessário a seguinte configuração:
 
@@ -44,7 +44,7 @@ Um dos passos críticos de configuração é configurar os parâmetros de comuni
 
 ### <a name="ike-phase-1-setup"></a>Configuração da fase 1 do IKE
 
-| **Propriedade** | **PolicyBased** | **Gateway VPN routeBased e Standard ou High-Performance** |
+| **Propriedade** | **PolicyBased** | **RouteBased e Standard ou High-Performance gateway VPN** |
 | --- | --- | --- |
 | Versão do IKE |IKEv1 |IKEv2 |
 | Grupo Diffie-Hellman |Grupo 2 (1024 bits) |Grupo 2 (1024 bits) |
@@ -80,7 +80,7 @@ A funcionalidade de resolução de problemas do Azure Network Watcher permite-lh
 
 ### <a name="gateway"></a>Gateway
 
-| Tipo de Falha | Razão | Registar|
+| Tipo de Falha | Razão | Registo|
 |---|---|---|
 | NoFault | Quando não é detetado nenhum erro. |Sim|
 | GatewayNotFound | Não é possível encontrar Gateway ou Gateway não está a ser a provisionado. |Não|
@@ -95,7 +95,7 @@ A funcionalidade de resolução de problemas do Azure Network Watcher permite-lh
 
 ### <a name="connection"></a>Ligação
 
-| Tipo de Falha | Razão | Registar|
+| Tipo de Falha | Razão | Registo|
 |---|---|---|
 | NoFault | Quando não é detetado nenhum erro. |Sim|
 | GatewayNotFound | Não é possível encontrar Gateway ou Gateway não está a ser a provisionado. |Não|

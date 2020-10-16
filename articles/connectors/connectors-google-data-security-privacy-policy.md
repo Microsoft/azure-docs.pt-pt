@@ -7,10 +7,10 @@ ms.reviewer: divswa, logicappspm
 ms.topic: conceptual
 ms.date: 06/05/2020
 ms.openlocfilehash: 2a5204be638f108b40e431b148c9cb97788c4a52
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91400762"
 ---
 # <a name="data-security-and-privacy-policies-for-google-connectors-in-azure-logic-apps"></a>Políticas de segurança de dados e privacidade para conectores google em Azure Logic Apps

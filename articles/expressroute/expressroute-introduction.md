@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: overview
 ms.date: 10/05/2020
 ms.author: duau
-ms.openlocfilehash: ee690a73907eca3bcd577cf2d983c8abc5409925
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 5de3d61f5b671f5ed6685e6cdee25be951fab69e
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743068"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071885"
 ---
 # <a name="what-is-azure-expressroute"></a>O que é o Azure ExpressRoute?
 O ExpressRoute permite-lhe estender as suas redes no local para a nuvem da Microsoft através de uma ligação privada com a ajuda de um fornecedor de conectividade. Com o ExpressRoute, pode estabelecer ligações aos serviços de cloud da Microsoft, como o Microsoft Azure e o Microsoft 365.
@@ -36,7 +36,7 @@ Para obter mais informações, consulte as [ExpressRoute FAQ (FAQs do ExpressRou
 ## <a name="features"></a>Funcionalidades
 
 ### <a name="layer-3-connectivity"></a>Conectividade de Camada 3
-A Microsoft utiliza o BGP, um protocolo de encaminhamento dinâmico padrão da indústria. Para trocar rotas entre a sua rede no local, as suas instâncias em Azure e endereços públicos da Microsoft. Estabelecemos várias sessões BGP com a sua rede para diferentes perfis de tráfego. Pode obter mais detalhes no artigo [Circuitos ExpressRoute e domínios de encaminhamento](expressroute-circuit-peerings.md).
+A Microsoft utiliza o BGP, um protocolo de encaminhamento dinâmico padrão da indústria para trocar rotas entre a sua rede no local, as instâncias no Azure e os endereços públicos da Microsoft. Estabelecemos várias sessões BGP com a sua rede para diferentes perfis de tráfego. Pode obter mais detalhes no artigo [Circuitos ExpressRoute e domínios de encaminhamento](expressroute-circuit-peerings.md).
 
 ### <a name="redundancy"></a>Redundância
 Cada circuito ExpressRoute consiste em duas ligações a dois routers de borda microsoft Enterprise (MSEEs) numa [Localização ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-locations#expressroute-locations) a partir do fornecedor de conectividade/borda da sua rede. A Microsoft necessita de uma ligação BGP dupla a partir do fornecedor de conectividade/periferia da sua rede – um para cada MSEE. Pode optar por não implementar dispositivos redundantes/circuitos Ethernet na sua parte. No entanto, os fornecedores de conectividade utilizam dispositivos redundantes para verificar que as ligações são entregues à Microsoft de forma redundante. Uma configuração de conectividade redundante de Camada 3 é um requisito para que o nosso [SLA](https://azure.microsoft.com/support/legal/sla/) seja válido.
@@ -112,7 +112,7 @@ Pode escolher um modelo de faturação que funciona melhor para si. Escolha entr
 ## <a name="faq"></a>FAQ
 Para perguntas mais frequentes sobre o ExpressRoute, veja [FAQ do ExpressRoute](expressroute-faqs.md).
 
-## <a name="whats-new"></a><a name="new"></a>O que há de novo?
+## <a name="whats-new"></a><a name="new"></a>Novidades
 
 Subscreva o feed RSS e veja as últimas atualizações da funcionalidade ExpressRoute na página [Azure Updates.](https://azure.microsoft.com/updates/?category=networking&query=ExpressRoute)
 

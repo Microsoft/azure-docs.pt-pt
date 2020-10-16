@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0403fe3cf0bf8cfaf9c722edadbecd2fee61cb46
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90056290"
 ---
 # <a name="roles-you-cant-manage-in-privileged-identity-management"></a>Funções que não pode gerir na Gestão de Identidade Privilegiada
@@ -42,7 +42,7 @@ Apoiamos todas as funções da Microsoft 365 na experiência do portal AD Roles 
 > [!NOTE]
 > Os utilizadores elegíveis para a função de administrador do SharePoint, a função de administrador do dispositivo e quaisquer funções que tentem aceder ao Microsoft Security and Compliance Center podem sofrer atrasos de até algumas horas após a ativação da sua função. Estamos a trabalhar com essas equipas para resolver os problemas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atribuir funções de Azure AD em Gestão de Identidade Privilegiada](pim-how-to-add-role-to-user.md)
 - [Atribuir funções de recursos da Azure na Gestão de Identidade Privilegiada](pim-resource-roles-assign-roles.md)

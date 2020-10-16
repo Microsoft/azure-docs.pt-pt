@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 4bf33db28d68b600d860a132027e5be440377b34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0484eb919a9de11b64dcc3334c5a9a942d875ca6
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460291"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075132"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>Problemas comuns que fazem com que as funções reciclem
 Este artigo discute algumas das causas comuns dos problemas de implantação e fornece dicas de resolução de problemas para ajudá-lo a resolver estes problemas. Uma indicação de que existe um problema com uma aplicação é quando a instância de função não começa, ou ciclos entre os estados de inicialização, ocupados e de paragem.
@@ -63,11 +63,11 @@ DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
 Para desempenhar uma função web no âmbito do TLS, deve certificar-se de que o seu certificado de gestão exportado inclui a chave privada. Se utilizar o *Gestor de Certificados* do Windows para exportar o certificado, certifique-se de selecionar **Sim** para **exportar a opção chave privada.** O certificado deve ser exportado no formato PFX, que é o único formato atualmente suportado.
 
 ## <a name="next-steps"></a>Passos seguintes
-Veja mais [artigos de resolução de problemas](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) para serviços na nuvem.
+Veja mais [artigos de resolução de problemas](../index.yml?product=cloud-services&tag=top-support-issue) para serviços na nuvem.
 
-Veja mais cenários de reciclagem de papéis na [série de blogs de Kevin Williamson.](https://docs.microsoft.com/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data)
+Veja mais cenários de reciclagem de papéis na [série de blogs de Kevin Williamson.](/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data)
 
-[RoleEntryPoint]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx
-[OnStart]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx
-[OnStop]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
-[Correr]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx
+[RoleEntryPoint]: /previous-versions/azure/reference/ee758619(v=azure.100)
+[OnStart]: /previous-versions/azure/reference/ee772851(v=azure.100)
+[OnStop]: /previous-versions/azure/reference/ee772844(v=azure.100)
+[Executar]: /previous-versions/azure/reference/ee772746(v=azure.100)

@@ -15,10 +15,10 @@ ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: f746cc654934464d907c6ad669eb7470e4dcaeeb
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88117741"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Chamadas de serviço para serviço que utilizam a identidade de utilizador delegada no fluxo On-Behalf-Of
@@ -144,8 +144,8 @@ Um pedido de sinal de acesso de serviço ao serviço com um certificado contém 
 | grant_type |obrigatório | O tipo de pedido simbólico. Um pedido da OBO utiliza um token de acesso JWT, pelo que o valor deve ser **urna:ietf:params:oauth:grant-type:jwt-bearer**. |
 | afirmação |obrigatório | O valor do símbolo utilizado no pedido. |
 | client_id |obrigatório | O ID da aplicação atribuído ao serviço de chamadas durante o registo com a Azure AD. Para encontrar o ID da aplicação no portal Azure, selecione **Ative Directory**, escolha o diretório e, em seguida, selecione o nome da aplicação. |
-| client_assertion_type |obrigatório |O valor deve ser`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |obrigatório | Um Token Web JSON que cria e assina com o certificado que registou como credenciais para a sua aplicação. Consulte [as credenciais de certificado](../develop/active-directory-certificate-credentials.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) para saber sobre o formato de afirmação e sobre como registar o seu certificado.|
+| client_assertion_type |obrigatório |O valor deve ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |obrigatório | Um Token Web JSON que cria e assina com o certificado que registou como credenciais para a sua aplicação. Consulte  [as credenciais de certificado](../develop/active-directory-certificate-credentials.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) para saber sobre o formato de afirmação e sobre como registar o seu certificado.|
 | recurso |obrigatório | A aplicação ID URI do serviço recetor (recurso seguro). Para encontrar a aplicação ID URI no portal Azure, selecione **Ative Directory** e escolha o diretório. Selecione o nome da aplicação, escolha **Todas as definições**e, em seguida, selecione **Propriedades**. |
 | requested_token_use |obrigatório | Especifica como o pedido deve ser processado. No fluxo em nome do be, o valor deve ser **on_behalf_of**. |
 | scope |obrigatório | Uma lista de âmbitos separados para o pedido simbólico. Para o OpenID Connect, o **âmbito de abertura** deve ser especificado.|
@@ -282,10 +282,10 @@ A resposta contém um token SAML codificado em UTF8 e Base64url.
 - expires_in: 3296
 - ext_expires_in: 0
 - expires_on: 1529627844
-- recurso:`https://api.contoso.com`
-- access_token:\<SAML assertion\>
+- recurso: `https://api.contoso.com`
+- access_token: \<SAML assertion\>
 - issued_token_type: urna:ietf:params:oauth:token-type:saml2
-- refresh_token:\<Refresh token\>
+- refresh_token: \<Refresh token\>
 
 ## <a name="client-limitations"></a>Limitações do cliente
 

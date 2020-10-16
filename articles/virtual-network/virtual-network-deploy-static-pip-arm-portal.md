@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: allensu
 ms.openlocfilehash: 9e06e4079a5118e0aa9dedb1fca719f0b28e5716
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448633"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-portal"></a>Criar uma máquina virtual com um endereço IP público estático utilizando o portal Azure
@@ -79,7 +79,7 @@ Quando já não for necessário, elimine o grupo de recursos e todos os recursos
 2. Selecione **Eliminar grupo de recursos**.
 3. Introduza *myResourceGroup* em **ESCREVER O NOME DO GRUPO DE RECURSOS:** e selecione **Eliminar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [endereços IP públicos](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) em Azure
 - Saiba mais sobre todas as [definições de endereços IP públicos](virtual-network-public-ip-address.md#create-a-public-ip-address)

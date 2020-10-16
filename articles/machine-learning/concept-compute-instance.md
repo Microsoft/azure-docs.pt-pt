@@ -10,10 +10,10 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
 ms.openlocfilehash: f32783b18b5454164567910aa369739d025b8be0
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91826908"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>O que é uma instância de computação do Azure Machine Learning?

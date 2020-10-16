@@ -17,10 +17,10 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 96106cc1d9f9040f98c7d9201f05b4cff87af7e5
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91449823"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Adicione uma organização conectada na gestão de direitos AD Azure
@@ -155,7 +155,7 @@ Apenas os utilizadores de organizações conectadas configuradas podem solicitar
 > [!NOTE]
 > Como parte do lançamento desta nova funcionalidade, todas as organizações ligadas criadas antes do dia 09/09/20 foram **consideradas configuradas.** Se tinha um pacote de acesso que permitisse aos utilizadores de qualquer organização inscreverem-se, deverá rever a sua lista de organizações conectadas que foram criadas antes dessa data para garantir que nenhuma delas está mal categorizada como **configurada.**  Um administrador pode atualizar a propriedade **do Estado** conforme apropriado. Para obter orientação, consulte [Atualizar uma organização conectada](#update-a-connected-organization).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Gerir o acesso dos utilizadores externos](./entitlement-management-external-users.md)
 - [Regule o acesso aos utilizadores que não estão no seu diretório](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)

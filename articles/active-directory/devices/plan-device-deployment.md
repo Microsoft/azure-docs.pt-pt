@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60d3e3c174ad9a3372df084cac9eb67270779298
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: bf30570f10f176c47aed0f99127e03a027eff775
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563901"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093094"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planeie a sua implantação de dispositivos Azure Ative Directory
 
@@ -62,7 +62,7 @@ Considere as suas necessidades organizacionais enquanto determina a estratégia 
 
 ### <a name="engage-the-right-stakeholders"></a>Envolver as partes interessadas certas
 
-Quando os projetos tecnológicos falham, normalmente fazem-no devido a expectativas desajustadas no impacto, resultados e responsabilidades. Para evitar estas armadilhas, [certifique-se de que está a envolver as partes interessadas certas](https://aka.ms/deploymentplans) e que as partes interessadas no projeto são bem compreendidas. 
+Quando os projetos tecnológicos falham, normalmente fazem-no devido a expectativas desajustadas no impacto, resultados e responsabilidades. Para evitar estas armadilhas, [certifique-se de que está a envolver as partes interessadas certas](../fundamentals/active-directory-deployment-plans.md) e que as partes interessadas no projeto são bem compreendidas. 
 
 Para este plano, adicione as seguintes partes interessadas à sua lista:
 

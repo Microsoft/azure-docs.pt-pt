@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
 ms.openlocfilehash: 45b9c158aca85d62b02d65282876d5e40129878f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87081071"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Gerir os clusters HDInsight utilizando a API Apache Ambari REST
@@ -214,11 +214,11 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 
 O valor de retorno é semelhante a um dos seguintes exemplos:
 
-* `wasbs://CONTAINER@ACCOUNTNAME.blob.core.windows.net`- Este valor indica que o cluster está a utilizar uma conta de Armazenamento Azure para armazenamento predefinido. O `ACCOUNTNAME` valor é o nome da conta de armazenamento. A `CONTAINER` parte é o nome do recipiente blob na conta de armazenamento. O recipiente é a raiz do armazenamento compatível com HDFS para o cluster.
+* `wasbs://CONTAINER@ACCOUNTNAME.blob.core.windows.net` - Este valor indica que o cluster está a utilizar uma conta de Armazenamento Azure para armazenamento predefinido. O `ACCOUNTNAME` valor é o nome da conta de armazenamento. A `CONTAINER` parte é o nome do recipiente blob na conta de armazenamento. O recipiente é a raiz do armazenamento compatível com HDFS para o cluster.
 
-* `abfs://CONTAINER@ACCOUNTNAME.dfs.core.windows.net`- Este valor indica que o cluster está a utilizar a Azure Data Lake Storage Gen2 para armazenamento predefinido. Os `ACCOUNTNAME` `CONTAINER` valores e valores têm os mesmos significados que para o Azure Storage mencionado anteriormente.
+* `abfs://CONTAINER@ACCOUNTNAME.dfs.core.windows.net` - Este valor indica que o cluster está a utilizar a Azure Data Lake Storage Gen2 para armazenamento predefinido. Os `ACCOUNTNAME` `CONTAINER` valores e valores têm os mesmos significados que para o Azure Storage mencionado anteriormente.
 
-* `adl://home`- Este valor indica que o cluster está a utilizar a Azure Data Lake Storage Gen1 para armazenamento predefinido.
+* `adl://home` - Este valor indica que o cluster está a utilizar a Azure Data Lake Storage Gen1 para armazenamento predefinido.
 
     Para encontrar o nome da conta de armazenamento do Data Lake, utilize os seguintes exemplos:
 

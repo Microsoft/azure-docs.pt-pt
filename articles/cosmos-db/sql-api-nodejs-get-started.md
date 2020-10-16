@@ -10,10 +10,10 @@ ms.date: 04/20/2020
 ms.author: dech
 ms.custom: devx-track-js
 ms.openlocfilehash: 68a2d354c45820bc9f2b291701deb9066a745235
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91297883"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Tutorial: Criar uma aplicação de consola Node.js com o SDK de JavaScript para gerir os dados da API SQL do Azure Cosmos DB

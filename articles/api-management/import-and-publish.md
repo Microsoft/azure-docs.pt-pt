@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: apimpm
 ms.openlocfilehash: 9ff64f57e61002101b4e2c560bdcd91863cc461e
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91626979"
 ---
 # <a name="tutorial-import-and-publish-your-first-api"></a>Tutorial: Importe e publique a sua primeira API

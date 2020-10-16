@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 3b1f13fd1ce8bedcbe58385d4cee321f1d1405df
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86505524"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Utilize ações de autoescalação para enviar notificações de alerta de email e webhook no Azure Monitor
@@ -58,7 +58,7 @@ Ao utilizar o modelo REST API ou Resource Manager, inclua o elemento de notifica
 
 | Campo | Obrigatório? | Descrição |
 | --- | --- | --- |
-| operação |sim |valor deve ser "Escala" |
+| operation |sim |valor deve ser "Escala" |
 | sendToSubscriptionAdministrator |sim |valor deve ser "verdadeiro" ou "falso" |
 | sendToSubscriptionCoAdministrators |sim |valor deve ser "verdadeiro" ou "falso" |
 | personalEmails |sim |valor pode ser nulo [] ou cadeia de e-mails |
@@ -102,7 +102,7 @@ Quando a notificação de escala automática é gerada, os seguintes metadados s
 | Campo | Obrigatório? | Descrição |
 | --- | --- | --- |
 | status |sim |O estado que indica que uma ação de autoescala foi gerada |
-| operação |sim |Para um aumento de casos, será "Scale out" e, para uma diminuição de casos, será "Scale In" |
+| operation |sim |Para um aumento de casos, será "Scale out" e, para uma diminuição de casos, será "Scale In" |
 | contexto |sim |O contexto de ação de autoescala |
 | carimbo de data/hora |sim |Carimbo de tempo quando a ação de autoescala foi desencadeada |
 | ID |Sim |ID do gestor de recursos da definição de autoescala |

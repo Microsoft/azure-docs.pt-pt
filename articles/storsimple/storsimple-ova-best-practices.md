@@ -15,15 +15,15 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: bdf69a9ff7b3260b47042f296a47826e3c52387b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81460652"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Práticas recomendadas da Matriz Virtual do StorSimple
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 [!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
@@ -121,7 +121,7 @@ Por isso, recomendamos que:
 * Certifique-se de que a sua matriz virtual está na sua própria unidade organizacional (OU) para o Ative Directory.
 * Certifique-se de que nenhum objeto de política de grupo (GPOs) é aplicado na sua matriz virtual. Pode bloquear a herança para garantir que a matriz virtual (nó de criança) não herda automaticamente quaisquer GPOs do progenitor. Para mais informações, vá para bloquear a [herança.](https://technet.microsoft.com/library/cc731076.aspx)
 
-### <a name="networking"></a>Rede
+### <a name="networking"></a>Redes
 A configuração de rede para a sua matriz virtual é feita através da UI web local. Uma interface de rede virtual é ativada através do hipervisor no qual a matriz virtual é a provisionada. Utilize a página [Definições de Rede](storsimple-virtual-array-deploy3-fs-setup.md) para configurar o endereço IP, sub-rede e gateway de interface de rede virtual.  Também pode configurar o servidor dSNS primário e secundário, as definições de tempo e as definições de procuração opcionais para o seu dispositivo. A maior parte da configuração da rede é uma configuração única. Reveja os [requisitos de rede StorSimple](storsimple-ova-system-requirements.md#networking-requirements) antes de implementar o array virtual.
 
 Ao implementar a sua matriz virtual, recomendamos que siga estas boas práticas:
@@ -149,7 +149,7 @@ Utilize as seguintes recomendações para contas de armazenamento associadas à 
   
   * Recomendamos que o crie na região mais próxima da filial remota onde o seu StorSimple Virtual Array é implantado para minimizar as latências.
   * Tenha em mente que não pode mover uma conta de armazenamento em diferentes regiões. Além disso, não é possível mover um serviço através de subscrições.
-  * Utilize uma conta de armazenamento que implemente a redundância entre os datacenters. O armazenamento geo-redundante (GRS), o armazenamento redundante da zona (ZRS) e o armazenamento localmente redundante (LRS) são todos suportados para utilização com a sua matriz virtual. Para obter mais informações sobre os diferentes tipos de contas de armazenamento, aceda à [replicação de armazenamento Azure](../storage/common/storage-redundancy.md).
+  * Utilize uma conta de armazenamento que implemente a redundância entre os datacenters. Geo-Redundant Armazenamento (GRS), Armazenamento Redundante de Zona (ZRS) e Armazenamento LocalMente Redundante (LRS) são todos suportados para uso com a sua matriz virtual. Para obter mais informações sobre os diferentes tipos de contas de armazenamento, aceda à [replicação de armazenamento Azure](../storage/common/storage-redundancy.md).
 
 ### <a name="shares-and-volumes"></a>Ações e volumes
 Para o seu StorSimple Virtual Array, pode provisturar ações quando esta é configurada como um servidor de ficheiros e volumes quando configurado como um servidor iSCSI. As melhores práticas para a criação de ações e volumes estão relacionadas com o tamanho e o tipo configurados.
@@ -287,6 +287,6 @@ Podem ser necessários vários conjuntos virtuais para dar conta de um conjunto 
 * Se implementar várias matrizes virtuais, recomendamos que, do ponto de vista do equilíbrio de carga, distribua a matriz por diferentes anfitriões hipervisores.
 * Várias matrizes virtuais (quando configuradas como um servidor de ficheiros ou um servidor iSCSI) podem ser implantadas num espaço de nome do sistema de ficheiros distribuído. Para etapas detalhadas, aceda à [solução de espaço de nome do sistema de ficheiros distribuído com o Guia de Implementação de Armazenamento em Nuvem Híbrida](https://www.microsoft.com/download/details.aspx?id=45507). A replicação distribuída do sistema de ficheiros não é recomendada para utilização com a matriz virtual. 
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 Saiba como [administrar o seu StorSimple Virtual Array](storsimple-virtual-array-manager-service-administration.md) através do serviço StorSimple Manager.
 

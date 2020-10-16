@@ -8,12 +8,12 @@ ms.date: 06/09/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 4844f3e34a6b49559affbb4d4ed7bc5b5e38e538
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1f7ecf960ae94fae4d829e73daf051b9062e478d
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050368"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018199"
 ---
 # <a name="move-analysis-services-to-a-different-region"></a>Mover serviços de análise para uma região diferente
 
@@ -88,7 +88,7 @@ Para exportar um modelo com o portal do Azure:
 
 Para exportar um modelo utilizando o PowerShell:
 
-1. Inscreva-se na sua subscrição Azure com o comando [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) e siga as instruções no ecrã:
+1. Inscreva-se na sua subscrição Azure com o comando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) e siga as instruções no ecrã:
 
    ```azurepowershell-interactive
    Connect-AzAccount
@@ -177,7 +177,7 @@ Para modificar o modelo:
 
 #### <a name="regions"></a>Regiões
 
-Para obter regiões de Azure, consulte [as localizações de Azure.](https://azure.microsoft.com/global-infrastructure/locations/) Para obter regiões usando PowerShell, executar o comando [Get-AzLocation.](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0)
+Para obter regiões de Azure, consulte [as localizações de Azure.](https://azure.microsoft.com/global-infrastructure/locations/) Para obter regiões usando PowerShell, executar o comando [Get-AzLocation.](/powershell/module/az.resources/get-azlocation?view=azps-1.8.0)
 
 ```azurepowershell-interactive
    Get-AzLocation | format-table 
@@ -199,7 +199,7 @@ Para implementar um novo recurso de servidor numa região diferente, utilizará 
 
 5. Selecione **Construa o seu próprio modelo no editor.**
 
-6. Selecione **carregar o ficheiro**, e, em seguida, siga as instruções para carregar atemplate.js**no** ficheiro que exportou e modificou.
+6. Selecione **carregar o ficheiro**, e, em seguida, siga as instruções para carregar atemplate.js** no** ficheiro que exportou e modificou.
 
 7. Verifique se o editor de modelo mostra as propriedades corretas para o seu novo servidor-alvo.
 
@@ -278,7 +278,7 @@ Opcional: Depois de restaurar a base de dados do modelo, processe o modelo e as 
 
 Opcional: [O ALM Toolkit](http://alm-toolkit.com/) é uma ferramenta *de código aberto* para comparar e gerir bases de dados de dados *e* serviços de análise de power bi. Utilize o conjunto de ferramentas para ligar as bases de dados de servidores de origem e alvo e comparar. Se a migração da sua base de dados for bem sucedida, os objetos-modelo terão a mesma definição. 
 
-:::image type="content" source="media/move-between-regions/alm-toolkit.png" alt-text="ALM Toolkit":::
+:::image type="content" source="media/move-between-regions/alm-toolkit.png" alt-text="Obter SAS":::
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -301,4 +301,4 @@ Remove-AzAnalysisServicesServer -Name "myserver" -ResourceGroupName "myResourceG
 ---
 
 > [!NOTE]
-> Depois de completar um movimento de região, recomenda-se que o seu novo servidor-alvo utilize um recipiente de armazenamento na mesma região para cópias de segurança, em vez do contentor de armazenamento na região do servidor de origem. 
+> Depois de completar um movimento de região, recomenda-se que o seu novo servidor-alvo utilize um recipiente de armazenamento na mesma região para cópias de segurança, em vez do contentor de armazenamento na região do servidor de origem.

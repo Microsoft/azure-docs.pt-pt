@@ -1,25 +1,18 @@
 ---
 title: Visão geral de um cenário de recuperação de desastres da Oracle no seu ambiente Azure Microsoft Docs
 description: Um cenário de recuperação de desastres para uma base de dados Oracle Database 12c no seu ambiente Azure
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: dbakevlar
-manager: ''
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.openlocfilehash: 5a162c0683a953399b48aaf627bbff5bc674e9dd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.reviewer: cynthn
+ms.openlocfilehash: fe93ada343e83d61526b6b899429d9e2b7b745d3
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91274566"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996176"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Recuperação de desastres para uma base de dados Oracle Database 12c em ambiente Azure
 
@@ -100,7 +93,7 @@ Segue-se um resumo da configuração do Azure:
 - [Conceça e implemente uma base de dados da Oracle em Azure](oracle-design.md)
 - [Configurar o Oracle Data Guard](configure-oracle-dataguard.md)
 - [Configure Portão Dourado oráculo](configure-oracle-golden-gate.md)
-- [Apoio e recuperação da Oráculo](oracle-backup-recovery.md)
+- [Apoio e recuperação da Oráculo](./oracle-overview.md)
 
 
 ## <a name="next-steps"></a>Passos seguintes

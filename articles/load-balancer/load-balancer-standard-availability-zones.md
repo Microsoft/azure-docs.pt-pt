@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
 ms.openlocfilehash: 541aa7da3e804931c1793e455bcbfca83c809dae
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89669177"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Balanceador de Carga Standard e Zonas de Disponibilidade
@@ -153,7 +153,7 @@ Os seus recursos em zonas não afetadas por falhas estarão disponíveis. A sua 
 
 Reveja [os padrões de design em nuvem Azure](https://docs.microsoft.com/azure/architecture/patterns/) para melhorar a resiliência da sua aplicação a cenários de falha.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [As Zonas de Disponibilidade](../availability-zones/az-overview.md)
 - Saiba mais sobre o [Balanceador de Carga Standard](load-balancer-standard-overview.md)
 - Saiba como [carregar VMs de equilíbrio dentro de uma zona usando um Balanceador de Carga Padrão com um frontend zonal](load-balancer-standard-public-zonal-cli.md)

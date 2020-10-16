@@ -4,10 +4,10 @@ description: Descreve como ativar o backup quando cria um Azure VM com Azure Bac
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.openlocfilehash: ad81300545686d61f42cdd8684e502c937b4fd43
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89377340"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Ativar a cópia de segurança quando cria uma VM do Azure
@@ -79,13 +79,13 @@ Após a criação do VM, faça o seguinte:
 1. Nas propriedades VM, selecione **Backup**. O estado de VM é cópia de segurança inicial pendente até que a cópia de segurança inicial seja executado.
 2. **Selecione Backup agora** para executar uma cópia de segurança a pedido.
 
-    ![Faça uma cópia de segurança a pedido](./media/backup-during-vm-creation/run-backup.png)
+    ![Executar uma cópia de segurança a pedido](./media/backup-during-vm-creation/run-backup.png)
 
 ## <a name="use-a-resource-manager-template-to-deploy-a-protected-vm"></a>Utilize um modelo de Gestor de Recursos para implementar um VM protegido
 
 Os passos anteriores explicam como usar o portal Azure para criar uma máquina virtual e protegê-la num cofre dos Serviços de Recuperação. Para implementar rapidamente um ou mais VMs e protegê-los num cofre dos Serviços de Recuperação, consulte o modelo [Implementar um VM do Windows e ativar a cópia de segurança](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que protegeste o teu VM, aprende a geri-los e a restaurá-los.
 

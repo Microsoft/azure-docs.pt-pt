@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: stewu
 ms.openlocfilehash: f5e6f6601a563a387476e4e2eaf353c8bef384ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85504700"
 ---
 # <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-storage-gen1"></a>Orientação de afinação de desempenho para usar PowerShell com Azure Data Lake Storage Gen1
@@ -96,7 +96,7 @@ Pode continuar a otimizar estas definições, alterando a **PerFileThreadCount**
 
 * **Erros de limitação**: poderá ver erros de limitação se a simultaneidade for demasiado elevada. Se vir erros de limitação, deverá reduzir a simultaneidade ou contactar a Microsoft.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Use Azure Data Lake Storage Gen1 para grandes requisitos de dados](data-lake-store-data-scenarios.md) 
 * [Proteger dados no Armazenamento do Data Lake Ger1](data-lake-store-secure-data.md)

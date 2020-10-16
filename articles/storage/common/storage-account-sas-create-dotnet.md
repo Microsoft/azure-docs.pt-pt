@@ -11,18 +11,18 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 102248882e1ec123ee74eedd74730c12a991fb86
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d2c21d85d1b88f33ff696ba1d230d34bbd6945d1
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021192"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091683"
 ---
 # <a name="create-an-account-sas-with-net"></a>Criar uma conta SAS com .NET
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-Este artigo mostra como usar a chave da conta de armazenamento para criar uma conta SAS com a biblioteca de [clientes Azure Storage para .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
+Este artigo mostra como usar a chave da conta de armazenamento para criar uma conta SAS com a biblioteca de [clientes Azure Storage para .NET](/dotnet/api/overview/azure/storage).
 
 ## <a name="create-an-account-sas"></a>Create an account SAS (Criar uma SAS de conta)
 

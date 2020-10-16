@@ -3,14 +3,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: include
-ms.date: 09/19/2019
+ms.date: 09/30/2019
 ms.author: alkohli
-ms.openlocfilehash: a23b0b2c71207bf84a4938d54a78a62efb6cbcbd
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ca7b83d24f2416b224963559361faf5a7775cd0d
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "71172688"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631546"
 ---
 Quando a Microsoft receber e analisar o dispositivo, o estado da encomenda será atualizado para **Received (Recebido)** . O dispositivo, em seguida, passa pela verificação física para verificar os danos ou sinais de adulteração.
 
@@ -20,7 +20,7 @@ Quando a cópia for concluída, o estado da encomenda será atualizado para **Co
 
 Confirme se os dados foram carregados para o Azure antes de os eliminar da origem. Os dados podem estar:
 
-- Na(s) conta(s) do Armazenamento do Microsoft Azure. Quando copia os dados para o Data Box, consoante o tipo, os dados são carregados para um dos seguintes caminhos na sua conta de Armazenamento do Azure.
+- Na(s) conta(s) do Armazenamento do Microsoft Azure. Quando copia os dados para o Data Box, os dados são carregados para um dos seguintes caminhos na sua conta de Armazenamento do Azure:
 
   - Para blobs de blocos e blobs de páginas: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
   - Para Ficheiros do Azure: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
@@ -37,7 +37,7 @@ Confirme se os dados foram carregados para o Azure antes de os eliminar da orige
 
         ![Disco gerido anexado aos grupos de recursos](media/data-box-verify-upload-return/managed-disks-resource-group.png)
 
-    - Se copiou um VHDX ou um VHD dinâmico/diferencial, o VHDX/VHD será carregado para a conta de armazenamento de teste como um blob de páginas, mas a conversão do VHD em disco gerido falhará. Aceda à **Conta de armazenamento > Blobs** de teste e, em seguida, selecione o contentor apropriado – SSD Standard, HDD Standard ou SSD Premium. Os VHDs são carregados como blobs de páginas na conta de armazenamento de teste.
+    - Se copiou um VHDX ou um VHD dinâmico ou diferencial, o VHDX ou VHD será carregado para a conta de armazenamento de teste como um blob de páginas, mas a conversão do VHD num disco gerido falhará. Aceda à **Conta de armazenamento > Blobs** de teste e selecione o contentor apropriado – SSD Standard, HDD Standard ou SSD Premium. Os VHDs são carregados como blobs de páginas na conta de armazenamento de teste e acrescidos de custos.
 
 
 ## <a name="erasure-of-data-from-data-box"></a>Eliminação de dados do Data Box

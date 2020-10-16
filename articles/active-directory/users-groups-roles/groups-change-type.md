@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 381ee08f44ad8fb4dade9b6229f5a5925cf2b6b7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91325866"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Alterar a adesão do grupo estático à dinâmica no Azure Ative Directory

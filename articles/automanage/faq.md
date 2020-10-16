@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.openlocfilehash: 003f97c99de7dd4be79e820e822b6071f45ed146
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91714969"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Perguntas frequentes para Azure Automanage para VMs
@@ -113,7 +113,7 @@ Se vir o estado como *Falhado,* pode resolver problemas de resolução através 
 Pode arquivar um [bilhete de caso de suporte técnico.](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) Para a opção **Serviço,** procure e selecione *Automanagem* sob a secção *de Monitorização e Gestão.*
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Tente ativar a auto-produção de máquinas virtuais no portal Azure.
 

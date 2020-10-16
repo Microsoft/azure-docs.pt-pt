@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 09/28/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d0df2199a2afdbea1ee1c6c543df324e9fe3cc3e
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 02755c164e72e3149497ee8e3c1fdc19141fd54f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450765"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973636"
 ---
-# <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>Volumes NFS v4.1 em Ficheiros Azure NetApp para SAP HANA
+# <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>Volumes NFS v4.1 no Azure NetApp Files para SAP HANA
 
 O Azure NetApp Files fornece ações NFS nativas que podem ser usadas para **volumes /hana/shared,** **/hana/data**, e **/hana/log** volumes. A utilização de ações NFS baseadas em ANF para os volumes **/hana/data** e **/hana/log** requer a utilização do protocolo v4.1 NFS. O protocolo NFS v3 não é suportado para a utilização de **/hana/data** e **/hana/log** volumes ao basear as ações na ANF. 
 
@@ -130,8 +130,8 @@ O "volume de registo"**(/hana/log)** é utilizado para escrever o registo de red
 O mesmo se aplica ao volume a que utiliza, escrever cópias de dados HANA completas.  
  
 
-## <a name="backup"></a>Backup
-Além de cópias de segurança de streaming e serviço Azure Back a cópia de segurança das bases de dados SAP HANA, conforme descrito no guia de backup do [artigo Backup para SAP HANA em Máquinas Virtuais Azure,](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)o Azure NetApp Files abre a possibilidade de realizar cópias de segurança instantâneas baseadas em armazenamento. 
+## <a name="backup"></a>Cópia de segurança
+Além de cópias de segurança de streaming e serviço Azure Back a cópia de segurança das bases de dados SAP HANA, conforme descrito no guia de backup do [artigo Backup para SAP HANA em Máquinas Virtuais Azure,](./sap-hana-backup-guide.md)o Azure NetApp Files abre a possibilidade de realizar cópias de segurança instantâneas baseadas em armazenamento. 
 
 O SAP HANA suporta:
 
@@ -192,7 +192,7 @@ Por exemplo, se uma imagem diária deve ser sincronizada no recipiente de bolhas
 root # > azcopy sync '/hana/data/SID/mnt00001/.snapshot' 'https://azacsnaptmytestblob01.blob.core.windows.net/abc?sv=2021-02-02&ss=bfqt&srt=sco&sp=rwdlacup&se=2021-02-04T08:25:26Z&st=2021-02-04T00:25:26Z&spr=https&sig=abcdefghijklmnopqrstuvwxyz' --recursive=true --delete-destination=true
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Leia o artigo:
 
-- [SAP HANA alta disponibilidade para máquinas virtuais Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview)
+- [SAP HANA alta disponibilidade para máquinas virtuais Azure](./sap-hana-availability-overview.md)

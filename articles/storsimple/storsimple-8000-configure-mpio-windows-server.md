@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/26/2018
 ms.author: alkohli
 ms.openlocfilehash: cc88d5b7a458c3666cdb4469d7021917d27115f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514337"
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Configure o Multipato I/O para o seu dispositivo StorSimple
@@ -66,7 +66,7 @@ Para instalar esta função no anfitrião do Windows Server, preencha o seguinte
    5. Na página **'Selecione',** selecione **Multipath I/O**e clique em **Seguinte**.
    
        ![Adicionar papéis e funcionalidades Assistente 5](./media/storsimple-configure-mpio-windows-server/IC741000.png)
-   6. Na página **de seleções de instalação Confirmar,** confirme a seleção e, em seguida, selecione **Reinicie automaticamente o servidor de destino, se necessário,** como mostrado abaixo. Clique **em Instalar**.
+   6. Na página **de seleções de instalação Confirmar,** confirme a seleção e, em seguida, selecione **Reinicie automaticamente o servidor de destino, se necessário,** como mostrado abaixo. Clique em **Install** (Instalar).
    
        ![Adicionar papéis e funcionalidades Assistente 8](./media/storsimple-configure-mpio-windows-server/IC741001.png)
    7. É notificado quando a instalação estiver concluída. Clique em **Fechar** para fechar o assistente.
@@ -188,7 +188,7 @@ O procedimento a seguir descreve como adicionar sessões quando um dispositivo S
 11. Depois de adicionar as sessões desejadas (caminhos), na caixa de diálogo **iSCSI Initiator Properties,** selecione o alvo e clique em **Propriedades**. No separador Sessões da caixa de diálogo **Properties,** note os identificadores de quatro sessões que correspondem às possíveis permutações de caminhos. Para cancelar uma sessão, selecione a caixa de verificação ao lado de um identificador de sessão e, em seguida, clique em **Desligar**.
 12. Para visualizar os dispositivos apresentados dentro das sessões, selecione o **separador Dispositivos.** Para configurar a política do MPIO para um dispositivo selecionado, clique em **MPIO**. Aparece a caixa de diálogo detalhes do **dispositivo.** No separador **MPIO,** pode selecionar as definições adequadas da Política de Equilíbrio de **Carga.** Também pode ver o tipo de percurso **Ativo** ou **Standby.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [a utilização do serviço StorSimple Device Manager para modificar a configuração do dispositivo StorSimple](storsimple-8000-modify-device-config.md).
 

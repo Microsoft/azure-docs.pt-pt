@@ -4,10 +4,10 @@ description: Saiba como configurar um aparelho Azure Migrate com um script
 ms.topic: article
 ms.date: 04/16/2020
 ms.openlocfilehash: 6b0637019e40308cf40dcdbb4dc78512a8aa91e8
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91438926"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Configurar um aparelho com um script
@@ -26,7 +26,7 @@ O script configura o aparelho Azure Migrate numa máquina física ou VM existent
 
 - A máquina que funcionará como aparelho deve satisfazer os seguintes requisitos de hardware e so:
 
-Cenário | Requirements
+Cenário | Requisitos
 --- | ---
 VMware | Windows Server 2016, com 32 GB de memória, oito vCPUs, cerca de 80 GB de armazenamento de disco
 Hyper-V | Windows Server 2016, com 16 GB de memória, oito vCPUs, cerca de 80 GB de armazenamento de disco
@@ -129,7 +129,7 @@ Para executar o script:
 
 Certifique-se de que o aparelho pode ligar-se aos URLs Azure para a nuvem [pública.](migrate-appliance.md#public-cloud-urls)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de colocar o aparelho, é necessário configurá-lo pela primeira vez e registá-lo com o projeto Azure Migrate.
 

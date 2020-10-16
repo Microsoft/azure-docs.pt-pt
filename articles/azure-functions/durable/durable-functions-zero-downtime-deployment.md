@@ -7,10 +7,10 @@ ms.date: 10/10/2019
 ms.author: azfuncdf
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 11bbc30179cc27f4799b1fd2869cb312dfa34473
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87093073"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Implementação de tempo de inatividade zero para funções duradouras
@@ -54,7 +54,7 @@ Utilize o seguinte procedimento para configurar este cenário.
 
 1. Para cada slot, crie uma nova configuração de aplicações, por exemplo, `DurableManagementStorage` . Desa couuser o seu valor à cadeia de ligação de diferentes contas de armazenamento. Estas contas de armazenamento são utilizadas pela extensão funções duráveis para [uma execução fiável](./durable-functions-orchestrations.md). Utilize uma conta de armazenamento separada para cada ranhura. Não marque esta definição como uma definição de ranhura de implantação.
 
-1. Nahost.jsda sua aplicação de função [na secção DuraableTask do ficheiro](durable-functions-bindings.md#hostjson-settings), especifique como o nome da `azureStorageConnectionStringName` definição de aplicação que criou no passo 3.
+1. Nahost.jsda sua aplicação de função [ na secção DuraableTask do ficheiro](durable-functions-bindings.md#hostjson-settings), especifique como o nome da `azureStorageConnectionStringName` definição de aplicação que criou no passo 3.
 
 O diagrama seguinte mostra a configuração descrita de slots de implantação e contas de armazenamento. Neste cenário de pré-desafectação potencial, a versão 2 de uma aplicação de função encontra-se em execução na ranhura de produção, enquanto a versão 1 permanece na ranhura de preparação.
 
@@ -162,7 +162,7 @@ O router monitoriza o estado das orquestrações na versão 1.0.1 e remove as ap
 
 ### <a name="tracking-store-settings"></a>Definições de loja de rastreio
 
-Cada aplicação de função deve usar filas de agendamento separadas, possivelmente em contas de armazenamento separadas. Se quiser consultar todas as instâncias de orquestração em todas as versões da sua aplicação, pode partilhar instâncias e tabelas de história através das suas aplicações de função. Pode partilhar tabelas configurando as `trackingStoreConnectionStringName` definições e `trackingStoreNamePrefix` as definições no ficheirohost.jsno ficheiro [de definições](durable-functions-bindings.md#host-json) para que todas utilizem os mesmos valores.
+Cada aplicação de função deve usar filas de agendamento separadas, possivelmente em contas de armazenamento separadas. Se quiser consultar todas as instâncias de orquestração em todas as versões da sua aplicação, pode partilhar instâncias e tabelas de história através das suas aplicações de função. Pode partilhar tabelas configurando as `trackingStoreConnectionStringName` definições e `trackingStoreNamePrefix` as definições no ficheirohost.jsno ficheiro [ de definições](durable-functions-bindings.md#host-json) para que todas utilizem os mesmos valores.
 
 Para obter mais informações, consulte [Gerir casos em Funções Duradouras em Azure](durable-functions-instance-management.md).
 

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
 ms.openlocfilehash: 2bc056620ff964747dfd83e7525cb5bfd2eb8e52
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91449143"
 ---
 # <a name="front-door-routing-methods"></a>Métodos de encaminhamento da porta da frente
@@ -83,7 +83,7 @@ A duração do cookie é igual à da sessão do utilizador, pois, atualmente, o 
 > - A resposta contém um ```Authorization``` cabeçalho que não expirou.
 > - A resposta tem um código de estado HTTP 302.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
 - Saiba [como funciona o Front Door](front-door-routing-architecture.md).

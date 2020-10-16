@@ -1,14 +1,14 @@
 ---
 title: Como trabalhar com os seus grupos de gestão - Azure Governance
 description: Saiba como ver, manter, atualizar e eliminar a hierarquia do seu grupo de gestão.
-ms.date: 08/10/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 82eeb2520815ddac69d27ddccd58c842c3e33deb
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 4ce265084662fb7a83f902e046d6e079abff9a48
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91531042"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058102"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerir os seus recursos com grupos de gestão
 
@@ -119,7 +119,7 @@ Você pode ver qualquer grupo de gestão em que tenha um papel de Azure direto o
 
 1. Selecione **Todos os**  >  **grupos de gestão de serviços**.
 
-1. A página da hierarquia do grupo de gestão vai carregar. Esta página é onde você pode explorar todos os grupos de gestão e subscrições a que você tem acesso. A seleção do nome de grupo leva-o a um nível na hierarquia. A navegação funciona da mesma forma que um explorador de ficheiros.
+1. A página da hierarquia do grupo de gestão vai carregar. Esta página é onde você pode explorar todos os grupos de gestão e subscrições a que você tem acesso. A seleção do nome de grupo leva-o a um nível mais baixo na hierarquia. A navegação funciona da mesma forma que um explorador de ficheiros.
 
 1. Para ver os detalhes do grupo de gestão, selecione o link **(detalhes)** ao lado do título do grupo de gestão. Se este link não estiver disponível, não tem permissões para ver esse grupo de gestão.
 
@@ -127,7 +127,7 @@ Você pode ver qualquer grupo de gestão em que tenha um papel de Azure direto o
 
 ### <a name="view-in-powershell"></a>Vista em PowerShell
 
-Utilize o comando Get-AzManagementGroup para recuperar todos os grupos. Consulte os módulos [Az.Resources](/powershell/module/az.resources/Get-AzManagementGroup) para obter a lista completa dos comandos get PowerShell do grupo de gestão.  
+Usas o comando Get-AzManagementGroup para recuperar todos os grupos. Consulte os módulos [Az.Resources](/powershell/module/az.resources/Get-AzManagementGroup) para obter a lista completa dos comandos get PowerShell do grupo de gestão.  
 
 ```azurepowershell-interactive
 Get-AzManagementGroup
@@ -211,7 +211,7 @@ Se estás a fazer a ação de movimento, precisas:
 
 **Exceção**: Se o objetivo ou o grupo de gestão parental existente for o grupo de gestão Root, os requisitos de permissões não se aplicam. Uma vez que o grupo de gestão Root é o local de aterragem padrão para todos os novos grupos de gestão e subscrições, você não precisa de permissões nele para mover um item.
 
-Se a função do Proprietário na subscrição for herdada do grupo de gestão atual, os seus alvos de movimento são limitados. Só pode mover a subscrição para outro grupo de gestão onde tem a função De Proprietário. Não pode movê-lo para um grupo de gestão onde é um contribuinte porque perderia a propriedade da subscrição. Se você está diretamente designado para o papel de Proprietário para a subscrição (não herdado do grupo de gestão), você pode movê-lo para qualquer grupo de gestão onde você é um contribuinte.
+Se a função do Proprietário na subscrição for herdada do grupo de gestão atual, os seus alvos de movimento são limitados. Só pode mover a subscrição para outro grupo de gestão onde tem a função De Proprietário. Não pode mover a subscrição para um grupo de gestão onde é apenas um contribuinte porque perderia a propriedade da subscrição. Se você está diretamente designado para o papel proprietário para a subscrição, você pode movê-lo para qualquer grupo de gestão onde você é um contribuinte.
 
 Para ver que permissões tem no portal Azure, selecione o grupo de gestão e, em seguida, selecione **IAM**. Para saber mais sobre os papéis do Azure, consulte [o controlo de acesso baseado em funções do Azure (Azure RBAC)](../../role-based-access-control/overview.md).
 
@@ -304,7 +304,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
 
 ### <a name="move-management-groups-in-powershell"></a>Grupos de gestão de movimentos em PowerShell
 
-Utilize o comando Update-AzManagementGroup no PowerShell para mover um grupo de gestão sob um grupo diferente.
+Use o comando Update-AzManagementGroup em PowerShell para mover um grupo de gestão sob um grupo diferente.
 
 ```azurepowershell-interactive
 $parentGroup = Get-AzManagementGroup -GroupName ContosoIT
@@ -345,11 +345,11 @@ O mesmo percurso de âmbito é utilizado quando se recupera uma definição de p
 GET https://management.azure.com/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming?api-version=2019-09-01
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre os grupos de gestão, veja:
 
-- [Criar grupos de gestão para organizar recursos do Azure](./create.md)
+- [Criar grupos de gestão para organizar recursos do Azure](./create-management-group-portal.md)
 - [Como alterar, eliminar ou gerir os seus grupos de gestão](./manage.md)
 - [Rever os grupos de gestão no Módulo de Recursos do Azure PowerShell](/powershell/module/az.resources#resources)
 - [Rever os grupos de gestão na API REST](/rest/api/resources/managementgroups)

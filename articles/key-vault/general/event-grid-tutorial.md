@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 10/25/2019
 ms.author: mbaldwin
 ms.openlocfilehash: d7bb697879f40b45c886cd90bbb1e34906d35f66
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90530510"
 ---
 # <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid"></a>Receber e responder às notificações chave do cofre com a Azure Event Grid

@@ -2,14 +2,14 @@
 author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/10/2020
+ms.date: 10/15/2020
 ms.author: erhopf
-ms.openlocfilehash: be62cb9cd9f9e603e60006d5482b59ed37a516ff
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ee88a7cc187644c89aca5656df9ab9ae48a5a056
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87375751"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096917"
 ---
 1. Inicie o Eclipse.
 

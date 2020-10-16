@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/14/2020
 tags: connectors
 ms.openlocfilehash: f005bdfa5643ea187fb2973cac065563c4cc2ee6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91292460"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Chamar pontos finais de serviço através de HTTP ou HTTPS a partir do Azure Logic Apps
@@ -104,11 +104,11 @@ Esta ação incorporada faz uma chamada HTTP para o URL especificado para um pon
 
 Aqui está mais informações sobre as saídas de um gatilho http ou ação, que devolve esta informação:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 |----------|------|-------------|
 | `headers` | Objeto JSON | Os cabeçalhos do pedido |
 | `body` | Objeto JSON | O objeto com o conteúdo do corpo do pedido |
-| `status code` | Integer (Número inteiro) | O código de estado do pedido |
+| `status code` | Número inteiro | O código de estado do pedido |
 |||
 
 | Código de estado | Description |

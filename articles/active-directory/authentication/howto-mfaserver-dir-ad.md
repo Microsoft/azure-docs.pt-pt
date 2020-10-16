@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 866fa7333565a1875984aa5640d2028b6e399df1
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: f9d8970387982e293d3c8495079e7529fac2ccaa
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949546"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966938"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integração de diretórios entre o Servidor MFA do Azure e o Active Directory
 
@@ -51,7 +51,7 @@ A tabela seguinte descreve as definições de configuração de LDAP.
 
 | Funcionalidade | Descrição |
 | --- | --- |
-| Server |Introduza o nome do anfitrião ou endereço IP do servidor que executa o diretório LDAP.  Também pode ser especificado um servidor de cópia de segurança, separado por ponto e vírgula. <br>Nota: Quando o Tipo de Ligação é SSL (TLS), é necessário um nome de hospedeiro totalmente qualificado. |
+| Servidor |Introduza o nome do anfitrião ou endereço IP do servidor que executa o diretório LDAP.  Também pode ser especificado um servidor de cópia de segurança, separado por ponto e vírgula. <br>Nota: Quando o Tipo de Ligação é SSL (TLS), é necessário um nome de hospedeiro totalmente qualificado. |
 | DN Base |Introduza o nome único do objeto de diretório base a partir do qual são iniciadas todas as consultas de diretório.  Por exemplo, dc=abc,dc=com. |
 | Tipo de enlace - Consultas |Selecione o tipo de enlace adequado para utilizar quando se vincula a procurar no diretório LDAP.  Este serve para importações, sincronização e resolução de nomes de utilizador. <br><br>  Anónimo - é feito um enlace anónimo.  DN do Enlace e Palavra-passe do Enlace não são utilizados.  Só funciona se o diretório LDAP permitir o enlace anónimo e as permissões permitirem a consulta dos registos e atributos adequados.  <br><br> Simples - o DN do Enlace e a Palavra-passe do Enlace são transmitidos como texto simples para vincular ao diretório LDAP.  Só deve ser utilizada para fins de teste, para verificar se é possível aceder ao servidor e se a conta de enlace tem o acesso adequado. Depois de ter sido instalado o certificado adequado, opte por utilizar SSL.  <br><br> SSL - o DN do Enlace e a Palavra-passe do Enlace são encriptados com SSL para se vincularem ao diretório LDAP.  Instale localmente um certificado em que o diretório LDAP confie.  <br><br> Windows - o DN do Enlace e a Palavra-passe do Enlace são utilizados para ligar em segurança a um controlador de domínio do Active Directory ou ao diretório de ADAM.  Se o campo Nome de utilizador do enlace for deixado em branco, a conta do utilizador com sessão iniciada é utilizada para o enlace. |
 | Tipo de enlace - Autenticações |Selecione o tipo de enlace adequado para utilizar quando efetuar a autenticação do enlace de LDAP.  Veja as descrições dos tipos de enlace em Tipo de enlace - Consultas.  Por exemplo, esta ação permite a utilização do enlace Anónimo para consultas enquanto o enlace de SSL serve para proteger as autenticações de enlace de LDAP. |
@@ -103,7 +103,7 @@ Os atributos podem ser introduzidos manualmente e não precisam de corresponder 
 | Número de telemóvel |Introduza o nome de atributo do atributo que contém o número de telemóvel num registo de utilizador.  A predefinição é mobile. |
 | Fax |Introduza o nome de atributo do atributo que contém o número de fax num registo de utilizador.  A predefinição é facsimileTelephoneNumber. |
 | Número de IP |Introduza o nome de atributo do atributo que contém o número de telefone de IP num registo de utilizador.  A predefinição é ipPhone. |
-| Personalizar |Introduza o nome de atributo do atributo que contém um número de telefone personalizado num registo de utilizador.  A predefinição é blank. |
+| Personalizado |Introduza o nome de atributo do atributo que contém um número de telefone personalizado num registo de utilizador.  A predefinição é blank. |
 | Extensão |Introduza o nome de atributo do atributo que contém a extensão de número de telemóvel num registo de utilizador.  O valor do campo de extensão é utilizado como a extensão apenas do número de telefone principal.  A predefinição é blank. <br><br>Se o atributo Extensão não for especificado, as extensões podem ser incluídas como parte do atributo de telefone. Neste caso, preceda a extensão com um “x”, para que seja analisada corretamente.  Por exemplo, 555-123-4567 x890 resultaria em 555-123-4567 como o número de telefone e 890 como a extensão. |
 | Botão Restaurar Predefinições |Clique no botão **Restaurar Predefinições** para voltar a colocar todos os atributos nos valores predefinidos.  As predefinições devem funcionar corretamente com o esquema normal do Active Directory ou do ADAM. |
 

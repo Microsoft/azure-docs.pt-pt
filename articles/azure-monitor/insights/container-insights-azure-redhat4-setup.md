@@ -3,12 +3,12 @@ title: Configure Azure Red Hat OpenShift v4.x com Monitor Azure para contentores
 description: Este artigo descreve como configurar a monitorização para um cluster Kubernetes com o Azure Monitor que está hospedado na versão 4 ou mais tarde do Azure Red Hat OpenShift.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 63db888419ee691e83ea456fcd7fc28a4d9909fe
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: e9f31d1b71122c53a67dc40af31d33255e2e98d8
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91620329"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994541"
 ---
 # <a name="configure-azure-red-hat-openshift-v4x-with-azure-monitor-for-containers"></a>Configure Azure Red Hat OpenShift v4.x com Monitor Azure para recipientes
 
@@ -41,7 +41,7 @@ O Monitor Azure para contentores suporta a monitorização do Azure Red Hat Open
 
 - Uma [área de trabalho do Log Analytics](../platform/design-logs-deployment.md).
 
-    O Azure Monitor para contentores suporta um espaço de trabalho Log Analytics nas regiões listadas nos Produtos Azure [por região.](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor) Para criar o seu próprio espaço de trabalho, pode ser criado através do [Azure Resource Manager,](../platform/template-workspace-configuration.md)através do [PowerShell,](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)ou no [portal Azure.](../learn/quick-create-workspace.md)
+    O Azure Monitor para contentores suporta um espaço de trabalho Log Analytics nas regiões listadas nos Produtos Azure [por região.](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor) Para criar o seu próprio espaço de trabalho, pode ser criado através do [Azure Resource Manager,](../samples/resource-manager-workspace.md)através do [PowerShell,](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)ou no [portal Azure.](../learn/quick-create-workspace.md)
 
 - Para ativar e aceder às funcionalidades no Azure Monitor para contentores, é necessário ter, no mínimo, um papel *de Azure Contribute* na subscrição do Azure e uma função [*de Contribuinte Log Analytics*](../platform/manage-access.md#manage-access-using-azure-permissions) no espaço de trabalho Log Analytics, configurado com monitor Azure para contentores.
 

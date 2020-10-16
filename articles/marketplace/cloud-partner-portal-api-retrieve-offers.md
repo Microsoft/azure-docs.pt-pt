@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 39d07751c708d5555799ecbb3b3bc66d3f44f43a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87271965"
 ---
 # <a name="retrieve-offers"></a>Obter ofertas
@@ -27,7 +27,7 @@ Recupera uma lista resumida de ofertas sob um espaço de nome de editor.
 
 | **Nome**         |  **Descrição**                         |  **Tipo de dados** |
 | -------------    |  ------------------------------------    |  -----------   |
-|  publisherId     | Identificador de editor, por exemplo`contoso` |   Cadeia    |
+|  publisherId     | Identificador de editor, por exemplo `contoso` |   Cadeia    |
 |  api-version     | Última versão da API                    |    Date        |
 |  |  |
 
@@ -77,10 +77,10 @@ Recupera uma lista resumida de ofertas sob um espaço de nome de editor.
 
 | **Código**  |  **Descrição**                                                                                                   |
 | -------   |  ----------------------------------------------------------------------------------------------------------------- |
-|  200      | `OK`- O pedido foi processado com sucesso e todas as ofertas sob a editora foram devolvidas ao cliente.  |
-|  400      | `Bad/Malformed request`- O corpo de resposta a erros pode conter mais informações.                                    |
-|  403      | `Forbidden`- O cliente não tem acesso ao espaço de nome especificado.                                          |
-|  404      | `Not found`- A entidade especificada não existe.                                                                 |
+|  200      | `OK` - O pedido foi processado com sucesso e todas as ofertas sob a editora foram devolvidas ao cliente.  |
+|  400      | `Bad/Malformed request` - O corpo de resposta a erros pode conter mais informações.                                    |
+|  403      | `Forbidden` - O cliente não tem acesso ao espaço de nome especificado.                                          |
+|  404      | `Not found` - A entidade especificada não existe.                                                                 |
 |  |  |
 
 ### <a name="offer-status"></a>Estado da Oferta

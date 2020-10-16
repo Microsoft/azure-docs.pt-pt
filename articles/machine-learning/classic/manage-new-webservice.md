@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
 ms.openlocfilehash: caaf8e25cdf43602fda8fc72caf7d16b7b56c06a
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361896"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Gerir um serviço web utilizando o portal Azure Machine Learning Studio (clássico) Web Services
@@ -73,8 +73,8 @@ Clique no **separador DASHBOARD.**
 A partir do painel de instrumentos, pode visualizar o uso geral do seu serviço Web durante um período de tempo. Pode selecionar o período para visualizar a partir do menu de entrega do período no canto superior direito das tabelas de utilização. O painel de instrumentos mostra as seguintes informações:
 
 * **Pedidos Ao longo do tempo** apresenta um gráfico de passo do número de pedidos durante o período de tempo selecionado. Pode ajudar a identificar se está a experimentar picos de uso.
-* **Pedidos de Resposta** a Pedidos exibem o número total de chamadas de Resposta a Pedidos que o serviço recebeu durante o período de tempo selecionado e quantas delas falharam.
-* **O Tempo Médio de Computação de Resposta de Pedido** apresenta uma média do tempo necessário para executar os pedidos recebidos.
+* **Pedidos de Resposta** a Pedidos exibem o número total de chamadas Request-Response que o serviço recebeu durante o período de tempo selecionado e quantas delas falharam.
+* **O tempo de Request-Response computacional** médio apresenta uma média do tempo necessário para executar os pedidos recebidos.
 * **Os Pedidos** de Lote exibem o número total de Pedidos de Lote que o serviço recebeu ao longo do período de tempo selecionado e quantos deles falharam.
 * **A Média de Latência** do Trabalho apresenta uma média do tempo necessário para executar os pedidos recebidos.
 * **Os erros** mostram o número agregado de erros ocorridos nas chamadas para o serviço web.
@@ -89,7 +89,7 @@ Pode atualizar as seguintes propriedades:
 * **O título** permite-lhe introduzir um título para o serviço Web
 * **As teclas** permitem-lhe rodar as suas teclas API primárias e secundárias.
 * **A chave da conta de armazenamento** permite-lhe atualizar a chave para a conta de armazenamento associada às alterações do serviço Web. 
-* **Ativar os dados da amostra** permite-lhe fornecer dados de amostra que pode utilizar para testar o serviço de Resposta a Pedidos. Se criou o serviço web no Machine Learning Studio (clássico), os dados da amostra são retirados dos dados utilizados para treinar o seu modelo. Se criou o serviço programáticamente, os dados são retirados dos dados de exemplo fornecidos como parte do pacote JSON.
+* **Ativar os dados da amostra** permite-lhe fornecer dados de amostra que pode utilizar para testar o serviço Request-Response. Se criou o serviço web no Machine Learning Studio (clássico), os dados da amostra são retirados dos dados utilizados para treinar o seu modelo. Se criou o serviço programáticamente, os dados são retirados dos dados de exemplo fornecidos como parte do pacote JSON.
 
 ### <a name="managing-billing-plans"></a>Gestão de planos de faturação
 Clique na opção de menu **Planos** a partir da página quickstart dos serviços web. Também pode clicar no plano associado a um serviço Web específico para gerir esse plano.
@@ -140,8 +140,8 @@ Clique no **separador DASHBOARD.**
 A partir do painel de instrumentos, pode visualizar o uso geral do seu serviço Web durante um período de tempo. Pode selecionar o período para visualizar a partir do menu de entrega do período no canto superior direito das tabelas de utilização. O painel de instrumentos mostra as seguintes informações:
 
 * **Pedidos Ao longo do tempo** apresenta um gráfico de passo do número de pedidos durante o período de tempo selecionado. Pode ajudar a identificar se está a experimentar picos de uso.
-* **Pedidos de Resposta** a Pedidos exibem o número total de chamadas de Resposta a Pedidos que o serviço recebeu durante o período de tempo selecionado e quantas delas falharam.
-* **O Tempo Médio de Computação de Resposta de Pedido** apresenta uma média do tempo necessário para executar os pedidos recebidos.
+* **Pedidos de Resposta** a Pedidos exibem o número total de chamadas Request-Response que o serviço recebeu durante o período de tempo selecionado e quantas delas falharam.
+* **O tempo de Request-Response computacional** médio apresenta uma média do tempo necessário para executar os pedidos recebidos.
 * **Os Pedidos** de Lote exibem o número total de Pedidos de Lote que o serviço recebeu ao longo do período de tempo selecionado e quantos deles falharam.
 * **A Média de Latência** do Trabalho apresenta uma média do tempo necessário para executar os pedidos recebidos.
 * **Os erros** mostram o número agregado de erros ocorridos nas chamadas para o serviço web.
@@ -154,6 +154,6 @@ Pode atualizar as seguintes propriedades:
 
 * **A descrição** permite-lhe introduzir uma descrição para o serviço Web. A descrição é um campo obrigatório.
 * **O registo** de registo permite-lhe ativar ou desativar a sessão de registo de erros no ponto final. Para obter mais informações sobre o Registo registador, consulte [Ativar o registo de serviços web de Machine Learning](web-services-logging.md).
-* **Ativar os dados da amostra** permite-lhe fornecer dados de amostra que pode utilizar para testar o serviço de Resposta a Pedidos. Se criou o serviço web no Machine Learning Studio (clássico), os dados da amostra são retirados dos dados utilizados para treinar o seu modelo. Se criou o serviço programáticamente, os dados são retirados dos dados de exemplo fornecidos como parte do pacote JSON.
+* **Ativar os dados da amostra** permite-lhe fornecer dados de amostra que pode utilizar para testar o serviço Request-Response. Se criou o serviço web no Machine Learning Studio (clássico), os dados da amostra são retirados dos dados utilizados para treinar o seu modelo. Se criou o serviço programáticamente, os dados são retirados dos dados de exemplo fornecidos como parte do pacote JSON.
 
 

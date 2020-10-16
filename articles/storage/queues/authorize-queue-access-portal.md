@@ -12,10 +12,10 @@ ms.reviewer: ozguns
 ms.subservice: queues
 ms.custom: contperfq1
 ms.openlocfilehash: 2593f1b7ea4cfabe0243fe6f830d718896e68473
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91715514"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-in-the-azure-portal"></a>Escolha como autorizar o acesso aos dados da fila no portal Azure
@@ -37,7 +37,7 @@ Para aceder aos dados da fila com a chave de acesso à conta, tem de ter uma fun
 Quando tenta aceder aos dados da fila no portal Azure, o portal verifica primeiro se lhe foi atribuída uma função com **o Microsoft.Storage/storageAccounts/listkeys/action**. Se lhe foi atribuído um papel com esta ação, então o portal utiliza a chave de conta para aceder aos dados da fila. Se não lhe foi atribuído um papel com esta ação, então o portal tenta aceder aos dados utilizando a sua conta AZure AD.
 
 > [!NOTE]
-> As funções clássicas de administrador de subscrição Administrador e Coadministrador incluem o equivalente à função de [Gestor](../../role-based-access-control/built-in-roles.md#owner) de Recursos Azure. A função **'Proprietário'** inclui todas as ações, incluindo o **Microsoft.Storage/storageAccounts/listkeys/action,** para que um utilizador com uma destas funções administrativas também possa aceder aos dados da fila com a chave da conta. Para obter mais informações, consulte [as funções de administrador de subscrição clássica, funções de Azure e funções de administrador da AD Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> As funções clássicas de administrador de subscrição Administrador de serviço e Co-Administrator incluem o equivalente à função de [Gestor](../../role-based-access-control/built-in-roles.md#owner) de Recursos Azure. A função **'Proprietário'** inclui todas as ações, incluindo o **Microsoft.Storage/storageAccounts/listkeys/action,** para que um utilizador com uma destas funções administrativas também possa aceder aos dados da fila com a chave da conta. Para obter mais informações, consulte [as funções de administrador de subscrição clássica, funções de Azure e funções de administrador da AD Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ### <a name="use-your-azure-ad-account"></a>Use a sua conta AZure AD
 
@@ -92,7 +92,7 @@ Para mudar para a utilização da chave de acesso à conta, clique no link real�
 
 As filas não estão listadas no portal se não tiver acesso às chaves da conta. Clique no link **'Conta de Utilizador AD' Azure** para utilizar novamente a sua conta Azure AD para autenticação.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - [Autenticar acesso a bolhas e filas Azure usando o Azure Ative Directory](../common/storage-auth-aad.md)
 - [Utilize o portal Azure para atribuir uma função Azure para acesso a dados de bolhas e filas](../common/storage-auth-aad-rbac-portal.md)

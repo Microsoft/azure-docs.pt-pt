@@ -7,10 +7,10 @@ ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.service: stream-analytics
 ms.openlocfilehash: 56d7527eebb91bd09895f6cd0238721574df1015
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86037329"
 ---
 # <a name="azure-stream-analytics-data-error-codes"></a>Códigos de erro de dados do Azure Stream Analytics
@@ -75,7 +75,7 @@ Pode utilizar registos de atividades e registos de recursos para ajudar a depura
 
 * **Causa:** Stream Analytics não pode escrever eventos(s) para a Base de Dados SQL devido a problemas nos dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Resolver problemas em ligações de entrada](stream-analytics-troubleshoot-input.md)
 * [Resolução de problemas Saídas Azure Stream Analytics](stream-analytics-troubleshoot-output.md)

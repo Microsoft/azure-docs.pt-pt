@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 9d0bfdf4719b4c3a92a0632a1edda63324d700e5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7323ae611431e1d91fd1a8471914be388fcc4712
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072040"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019516"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Azure Media Services fragmentou a especificação de ingestão ao vivo mp4 
 
@@ -39,7 +39,7 @@ O seguinte diagrama mostra a arquitetura de alto nível do serviço de streaming
 ![ingerir fluxo][image1]
 
 ## <a name="3-bitstream-format--iso-14496-12-fragmented-mp4"></a>3. Formato Bitstream – ISO 14496-12 MP4 fragmentado
-O formato de fio para streaming vivo discutido neste documento baseia-se em [ISO-14496-12]. Para obter uma explicação detalhada do formato e extensões fragmentadas de MP4, tanto para ficheiros vídeo-on-demand como para ingestão de streaming ao vivo, consulte [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).
+O formato de fio para streaming vivo discutido neste documento baseia-se em [ISO-14496-12]. Para obter uma explicação detalhada do formato e extensões fragmentadas de MP4, tanto para ficheiros vídeo-on-demand como para ingestão de streaming ao vivo, consulte [[MS-SSTR]](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251).
 
 ### <a name="live-ingest-format-definitions"></a>Definições de formato de ingestão ao vivo
 A lista que se segue descreve definições de formato especial que se aplicam à ingestão ao vivo nos Serviços de Media Azure:
@@ -70,7 +70,7 @@ Aqui estão os requisitos detalhados:
 1. Se o pedido HTTP POST terminar ou sair com um erro TCP antes do fim do fluxo, o codificante MUST emitiu um novo pedido DEM utilizando uma nova ligação e segue os requisitos anteriores. Adicionalmente, o codificante MUST reencamina os dois fragmentos de MP4 anteriores para cada faixa no fluxo, e retoma sem introduzir uma descontinuidade na linha temporal dos meios de comunicação. Reencaendendo os dois últimos fragmentos de MP4 para cada faixa garante que não há perda de dados. Por outras palavras, se um fluxo contiver tanto um áudio como uma faixa de vídeo, e o atual pedido de POST falhar, o codificante deve voltar a ligar e reenexá-los os dois últimos fragmentos para a faixa de áudio, que foram previamente enviados com sucesso, e os dois últimos fragmentos para a pista de vídeo, que foram previamente enviados com sucesso, para garantir que não há perda de dados. O codificader MUST mantém um tampão "para a frente" de fragmentos de mídia, que reencaminha quando reconecta.
 
 ## <a name="5-timescale"></a>5. Calendário
-[[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx) descreve a utilização da escala de tempo para **SmoothStreamingMedia** (Secção 2.2.2.1), **StreamElement** (Secção 2.2.2.3), **StreamFragmentElement** (Secção 2.2.2.6) e **LiveSMIL** (Secção 2.2.7.3.1). Se o valor do calendário não estiver presente, o valor predefinido utilizado é de 10.000.000 (10 MHz). Embora a especificação do formato De Streaming Suave não bloqueie o uso de outros valores de escala de tempo, a maioria das implementações codificadores usam este valor padrão (10 MHz) para gerar dados de ingestão de streaming suave. Devido à funcionalidade [Azure Media Dynamic Packaging,](./previous/media-services-dynamic-packaging-overview.md) recomendamos que utilize um calendário de 90 KHz para streams de vídeo e 44.1 KHz ou 48.1 KHz para streams de áudio. Se forem utilizados valores de calendário diferentes para diferentes fluxos, o calendário de nível de fluxo DEVE ser enviado. Para mais informações, consulte [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).     
+[[MS-SSTR]](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251) descreve a utilização da escala de tempo para **SmoothStreamingMedia** (Secção 2.2.2.1), **StreamElement** (Secção 2.2.2.3), **StreamFragmentElement** (Secção 2.2.2.6) e **LiveSMIL** (Secção 2.2.7.3.1). Se o valor do calendário não estiver presente, o valor predefinido utilizado é de 10.000.000 (10 MHz). Embora a especificação do formato De Streaming Suave não bloqueie o uso de outros valores de escala de tempo, a maioria das implementações codificadores usam este valor padrão (10 MHz) para gerar dados de ingestão de streaming suave. Devido à funcionalidade [Azure Media Dynamic Packaging,](./previous/media-services-dynamic-packaging-overview.md) recomendamos que utilize um calendário de 90 KHz para streams de vídeo e 44.1 KHz ou 48.1 KHz para streams de áudio. Se forem utilizados valores de calendário diferentes para diferentes fluxos, o calendário de nível de fluxo DEVE ser enviado. Para mais informações, consulte [[MS-SSTR]](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251).     
 
 ## <a name="6-definition-of-stream"></a>6. Definição de "fluxo"
 Stream é a unidade básica de operação em ingestão ao vivo para compor apresentações ao vivo, lidar com o streaming failover, e cenários de redundância. O fluxo é definido como um bitstream mp4 único e fragmentado que pode conter uma única faixa ou várias faixas. Uma apresentação ao vivo completa pode conter um ou mais streams, dependendo da configuração dos codificadores ao vivo. Os exemplos a seguir ilustram várias opções de utilização de streams para compor uma apresentação ao vivo completa.

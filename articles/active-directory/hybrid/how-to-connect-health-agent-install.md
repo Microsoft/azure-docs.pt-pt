@@ -18,17 +18,17 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 51f9043dcf329e4f3f23ddb930e53cfdfa2f107a
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91631652"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalação do Agente do Azure AD Connect Health
 
 Este documento descreve a instalação e a configuração dos Agentes do Azure AD Connect Health. Pode transferir os agentes de [aqui](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent).
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 
 A tabela seguinte é uma lista de requisitos para utilizar o Azure AD Connect Health.
 
@@ -323,7 +323,7 @@ Tem as seguintes opções para configurar o Agente do Azure AD Connect Health pa
 
 > [!NOTE]
 > Para que as definições de proxy sejam atualizadas, têm de ser reiniciados todos os serviços do Agente do Azure AD Connect Health. Execute o seguinte comando:<br />
-> Reiniciar serviço AzureADConnectHealth*
+> Restart-Service AzureADConnectHealth*
 >
 >
 

@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 10/27/2016
 ms.author: duau
 ms.openlocfilehash: 431eaff9da95063648d3e80acb54be9cc5c25bc5
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89393073"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Utilizar serviços de balanceamento de carga no Azure
@@ -207,7 +207,7 @@ Agora configuramos o endereço IP e a porta frontal do balanceador de carga nas 
 
 ![Painel de navegação do balanceador de carga "Frontend IP pool"](./media/traffic-manager-load-balancing-azure/s5-ilb-frontend-ippool.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Descrição Geral do Gestor de Tráfego](traffic-manager-overview.md)
 * [Descrição geral do Gateway de Aplicação](../application-gateway/application-gateway-introduction.md)

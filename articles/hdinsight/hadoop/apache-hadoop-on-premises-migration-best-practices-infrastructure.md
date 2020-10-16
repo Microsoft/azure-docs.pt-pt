@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
 ms.openlocfilehash: b9f7e93af61dbcf306f7d6eb105cb113412a423a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86083105"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrar para as instalações apache Hadoop clusters para Azure HDInsight - melhores práticas de infraestrutura
@@ -101,7 +101,7 @@ O HDInsight fornece scripts pré-escritos para instalar os seguintes componentes
 
 As ações de script também podem ser publicadas no Azure Marketplace como uma aplicação HDInsight.
 
-Para obter mais informações, veja os seguintes artigos:
+Para obter mais informações, veja os artigos seguintes:
 
 - [Instalar aplicações Apache Hadoop de terceiros em HDInsight](../hdinsight-apps-install-applications.md)
 - [Personalize clusters HDInsight usando ações de script](../hdinsight-hadoop-customize-cluster-linux.md)
@@ -172,7 +172,7 @@ O HDInsight pode ser adicionado a uma nova rede virtual Azure ou existente. Se o
 > [!Note]  
 > HdInsight não suporta atualmente a escavação forçada. O túnel forçado é uma definição de sub-rede que força o tráfego de saída da Internet a um dispositivo de inspeção e registo. Remova o túnel forçado antes de instalar o HDInsight numa sub-rede ou crie uma nova sub-rede para o HDInsight. O HDInsight também não suporta restringir a conectividade da rede de saída.
 
-Para obter mais informações, veja os seguintes artigos:
+Para obter mais informações, veja os artigos seguintes:
 
 - [Visão geral das redes virtuais do Azure](../../virtual-network/virtual-networks-overview.md)
 - [Expandir o Azure HDInsight com uma Rede Virtual do Azure](../hdinsight-plan-virtual-network-deployment.md)
@@ -181,7 +181,7 @@ Para obter mais informações, veja os seguintes artigos:
 
 O HDInsight suporta [pontos finais de serviço de rede virtuais,](../../virtual-network/virtual-network-service-endpoints-overview.md)que lhe permitem ligar-se de forma segura ao Azure Blob Storage, Azure Data Lake Storage Gen2, Cosmos DB e bases de dados SQL. Ao permitir um Ponto de Serviço para Azure HDInsight, o tráfego flui através de uma rota segura a partir de dentro do centro de dados Azure. Com este nível de segurança melhorado na camada de rede, pode bloquear as grandes contas de armazenamento de dados nas suas redes virtuais especificadas (VNETs) e ainda utilizar clusters HDInsight de forma perfeita para aceder e processar esses dados.
 
-Para obter mais informações, veja os seguintes artigos:
+Para obter mais informações, veja os artigos seguintes:
 
 - [Pontos finais de serviço de rede virtual](../../virtual-network/virtual-network-service-endpoints-overview.md)
 - [Aumentar a segurança HDInsight com pontos finais de serviço](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)
@@ -196,6 +196,6 @@ O HDInsight pode ser ligado à rede no local utilizando redes virtuais Azure e u
 
 Para mais informações, consulte o artigo [Connect HDInsight para a sua rede no local](../connect-on-premises-network.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia o artigo seguinte nesta série: [Armazenamento das melhores práticas para a migração de Azure HDInsight Hadoop](apache-hadoop-on-premises-migration-best-practices-storage.md).

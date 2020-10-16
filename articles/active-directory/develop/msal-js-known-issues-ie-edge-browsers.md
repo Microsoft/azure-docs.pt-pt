@@ -14,10 +14,10 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 2a471504b88791b5bfb6ce6cc7c81d60bfbe5028
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83772085"
 ---
 # <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-msaljs"></a>Problemas conhecidos nos navegadores Internet Explorer e Microsoft Edge (MSAL.js)
@@ -67,5 +67,5 @@ Existem casos em que os popups são bloqueados no IE ou no Microsoft Edge, por e
 
 Como uma **solução alternativa**, os desenvolvedores terão de permitir popups no IE e Microsoft Edge antes de começarem a usar a sua app para evitar este problema.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre [a utilização MSAL.js no Internet Explorer.](msal-js-use-ie-browser.md)

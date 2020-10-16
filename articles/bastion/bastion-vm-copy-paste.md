@@ -2,21 +2,21 @@
 title: 'Copiar e colar de e para uma máquina virtual: Azure Bastion'
 description: Neste artigo, aprenda como copiar e colar de e para um Azure VM usando Bastion.
 services: bastion
-author: charwen
+author: cherylmc
 ms.service: bastion
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.author: charwen
-ms.openlocfilehash: 6835c5e1ecbf0fc99a14754d17bb6e6380eda6c8
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.author: cherylmc
+ms.openlocfilehash: 50f7906992aa19daa205a30f71ce21456bafe558
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91445356"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079161"
 ---
 # <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>Copiar e colar a uma máquina virtual: Azure Bastion
 
-Este artigo ajuda-o a copiar e colar texto de e para máquinas virtuais quando utilizar O Azure Bastion. Antes de trabalhar com um VM, certifique-se de que seguiu os passos para [criar um hospedeiro de bastião.](bastion-create-host-portal.md) Em seguida, ligue-se ao VM com o que pretende trabalhar utilizando o [RDP](bastion-connect-vm-rdp.md) ou [o SSH](bastion-connect-vm-ssh.md).
+Este artigo ajuda-o a copiar e colar texto de e para máquinas virtuais quando utilizar O Azure Bastion. Antes de trabalhar com um VM, certifique-se de que seguiu os passos para [criar um hospedeiro de bastião.](./tutorial-create-host-portal.md) Em seguida, ligue-se ao VM com o que pretende trabalhar utilizando o [RDP](bastion-connect-vm-rdp.md) ou [o SSH](bastion-connect-vm-ssh.md).
 
 Para os navegadores que suportam o avançado acesso API daBoard, pode copiar e colar texto entre o seu dispositivo local e a sessão remota da mesma forma que copia e cola entre aplicações no seu dispositivo local. Para outros navegadores, pode utilizar a paleta de ferramentas de acesso à área de transferência de Bastion.
 
@@ -58,6 +58,6 @@ Depois de ligar à máquina virtual utilizando o [portal Azure, ](https://portal
 
    ![pasta](./media/bastion-vm-manage/local2.png)
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia as [FAQ do Bastião.](bastion-faq.md)

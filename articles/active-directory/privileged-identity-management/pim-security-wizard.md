@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ff5d15ef66b597fdf56fefe90f35cbf122bb093f
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91534442"
 ---
 # <a name="discovery-and-insights-preview-for-azure-ad-roles-formerly-security-wizard"></a>Discovery and Insights (pré-visualização) para os papéis de Azure AD (anteriormente Assistente de Segurança)
@@ -65,7 +65,7 @@ Além disso, mantenha as atribuições de funções permanentes se um utilizador
 
     ![Opções adicionais de Insights para eliminar os principais dos serviços de acesso e revisão permanentes ](./media/pim-security-wizard/new-preview-page-service-principals.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atribuir funções de Azure AD em Gestão de Identidade Privilegiada](pim-how-to-add-role-to-user.md)
 - [Conceder acesso a outros administradores para gerir a Gestão de Identidade Privilegiada](pim-how-to-give-access-to-pim.md)

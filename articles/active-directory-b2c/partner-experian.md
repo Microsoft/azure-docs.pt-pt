@@ -12,10 +12,10 @@ ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: a88894bb7462e9ac3afd16d69ae820dd98543a5f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91259378"
 ---
 # <a name="tutorial-for-configuring-experian-with-azure-active-directory-b2c"></a>Tutorial para configurar Experian com Azure Ative Directory B2C
@@ -58,7 +58,7 @@ O seguinte diagrama de arquitetura mostra a implementação.
 
 ![screenshot para experian-arquitetura-diagrama](media/partner-experian/experian-architecture-diagram.png)
 
-|Passo | Description |
+|Passo | Descrição |
 |:-----| :-----------|
 | 1. | O utilizador chega a uma página de login. O utilizador seleciona a inscrição para criar uma nova conta e introduz informações na página. Azure AD B2C recolhe os atributos do utilizador.
 | 2. | Azure AD B2C chama a API de camada média e transmite os atributos do utilizador.

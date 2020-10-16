@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: 1afa5df20c9bcbf63f8ad9f527e54f622eba3d19
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/10/2020
+ms.openlocfilehash: f4a7f5581703ae6932f3b40e62085fed76f5e6f2
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893787"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945707"
 ---
 # <a name="filter-based-feature-selection"></a>Seleção de funcionalidades baseadas em filtro
 
@@ -36,7 +36,7 @@ Normalmente, usa-se apenas as colunas com as melhores pontuações para construi
 
 ## <a name="how-to-choose-a-feature-selection-metric"></a>Como escolher uma métrica de seleção de recursos
 
-O módulo de seleção de recursos baseado em filtros fornece uma variedade de métricas para avaliar o valor da informação em cada coluna. Esta secção fornece uma descrição geral de cada métrica, e como é aplicada. Pode encontrar requisitos adicionais para a utilização de cada métrica nas [notas técnicas](#technical-notes) e nas [instruções](#how-to-configure-filter-based-feature-selection) para configurar cada módulo.
+O módulo de seleção de recursos Filter-Based fornece uma variedade de métricas para avaliar o valor da informação em cada coluna. Esta secção fornece uma descrição geral de cada métrica, e como é aplicada. Pode encontrar requisitos adicionais para a utilização de cada métrica nas [notas técnicas](#technical-notes) e nas [instruções](#how-to-configure-filter-based-feature-selection) para configurar cada módulo.
 
 -   **Correlação pearson**  
 
@@ -52,11 +52,11 @@ O módulo de seleção de recursos baseado em filtros fornece uma variedade de m
 > [!TIP]
 > Se precisar de uma opção diferente para o método de seleção de funcionalidades personalizadas, utilize o módulo [Executar Script R.](execute-r-script.md) 
 
-## <a name="how-to-configure-filter-based-feature-selection"></a>Como configurar a seleção de funcionalidades baseadas em filtros
+## <a name="how-to-configure-filter-based-feature-selection"></a>Como configurar a seleção de recursos Filter-Based
 
 Escolhe-se uma métrica estatística padrão. O módulo calcula a correlação entre um par de colunas: a coluna de etiqueta e uma coluna de características.
 
-1.  Adicione o módulo de seleção de recursos baseado em filtro ao seu oleoduto. Pode encontrá-lo na categoria **de Seleção de Recursos** no designer.
+1.  Adicione o módulo de seleção de recursos Filter-Based ao seu oleoduto. Pode encontrá-lo na categoria **de Seleção de Recursos** no designer.
 
 2. Conecte um conjunto de dados de entrada que contenha pelo menos duas colunas que são funcionalidades potenciais.  
 
@@ -90,10 +90,16 @@ Escolhe-se uma métrica estatística padrão. O módulo calcula a correlação e
 
     - Se especificar menos colunas de resultados do que as colunas de características, as características são classificadas por pontuação descendente. Apenas as características superiores são devolvidas. 
 
-7.  Envie o pipeline ou selecione o módulo de seleção de funções baseada no filtro e, em seguida, selecione **Executar selecionado**.
+7.  Envie o oleoduto.
 
+> [!IMPORTANT]
+> Se vai utilizar a **Seleção de Recursos Baseados** em Filtros em inferência, tem de utilizar [o Select Columns Transform](./select-columns-transform.md) para armazenar o resultado selecionado e aplicar a [Transformação](./apply-transformation.md) para aplicar a transformação selecionada para o conjunto de dados de pontuação.
+>
+> Consulte a seguinte imagem para construir o seu pipeline, para garantir que as seleções de colunas são as mesmas para o processo de pontuação.
+> [!div class="mx-imgBorder"]
+> ![Gasoduto de amostra](media/module/filter-based-feature-selection-score.png)
 
-## <a name="results"></a>Resultados
+## <a name="results"></a>Results
 
 Após o processamento estar concluído:
 
@@ -133,7 +139,7 @@ Se utilizar a correlação Pearson numa característica numérica e num rótulo 
 -   Se uma coluna designada como coluna de recurso tiver todos os valores em falta, o módulo atribui uma pontuação zero.   
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
 

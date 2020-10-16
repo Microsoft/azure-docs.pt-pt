@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
 ms.openlocfilehash: cff2e918c7b67f6d3bccb9b56366cbf034ed1bb5
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89300107"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gerir o acesso a dados de registo e áreas de trabalho no Azure Monitor
@@ -308,7 +308,7 @@ Por vezes, os registos personalizados provêm de fontes que não estão diretame
 * Os proprietários do espaço de trabalho são tratados como qualquer outro utilizador para o controlo de acesso por mesa.
 * Recomendamos atribuir funções a grupos de segurança em vez de utilizadores individuais para reduzir o número de atribuições. Isto também o ajudará a usar as ferramentas de gestão do grupo existentes para configurar e verificar o acesso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Consulte [a visão geral](./log-analytics-agent.md) do agente Do Log Analytics para recolher dados de computadores no seu datacenter ou noutro ambiente em nuvem.
 

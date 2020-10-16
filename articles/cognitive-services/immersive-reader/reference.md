@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
 ms.openlocfilehash: dbd5724797fdaf44d147d2f29362b1e5092728dd
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761554"
 ---
 # <a name="immersive-reader-javascript-sdk-reference-v11"></a>Referência SDK do leitor imersivo JavaScript (v1.1)
@@ -115,7 +115,7 @@ renderButtons(options?: RenderButtonsOptions): void;
 
 #### <a name="renderbuttons-parameters"></a>renderAmetões De Botões
 
-| Nome | Tipo | Description |
+| Nome | Tipo | Descrição |
 | ---- | ---- |------------ |
 | `options` | [renderAs opções de Botões](#renderbuttons-options) | Opções para configurar certos comportamentos da função renderbuttons. Opcional. |
 
@@ -131,7 +131,7 @@ Opções para a prestação dos botões Imersivos Reader.
 
 #### <a name="renderbuttons-options-parameters"></a>renderButtons Parâmetros de opções
 
-| Definição | Tipo | Description |
+| Definição | Tipo | Descrição |
 | ------- | ---- | ----------- |
 | elementos | HTMLDivElement[] | Elementos para tornar os botões Imersivos do Leitor dentro |
 
@@ -156,7 +156,7 @@ Contém a resposta da chamada para `ImmersiveReader.launchAsync` . Note que uma 
 
 #### <a name="launchresponse-parameters"></a>Lançar Parâmetros de Resposta
 
-| Definição | Tipo | Description |
+| Definição | Tipo | Descrição |
 | ------- | ---- | ----------- |
 | contentor | HTMLDivElement | Elemento HTML que contém o iframe imivemero reader. |
 | sessionId | Cadeia | Identificador globalmente único para esta sessão, usado para depurar. |
@@ -174,14 +174,14 @@ Contém informações sobre um erro.
 
 #### <a name="error-parameters"></a>Parâmetros de erro
 
-| Definição | Tipo | Description |
+| Definição | Tipo | Descrição |
 | ------- | ---- | ----------- |
 | code | Cadeia | Um de um conjunto de códigos de erro. Ver [códigos de erro](#error-codes). |
 | message | Cadeia | Representação legível pelo erro. |
 
 #### <a name="error-codes"></a>Códigos de erro
 
-| Código | Description |
+| Código | Descrição |
 | ---- | ----------- |
 | BadArgument | O argumento fornecido é inválido, ver `message` parâmetro do [Erro](#error). |
 | Tempo Limite | O Leitor Imersivo não conseguiu carregar dentro do intervalo especificado. |
@@ -205,7 +205,7 @@ Contém o conteúdo a ser mostrado no Leitor Imersivo.
 
 #### <a name="content-parameters"></a>Parâmetros de conteúdo
 
-| Nome | Tipo | Description |
+| Nome | Tipo | Descrição |
 | ---- | ---- |------------ |
 | título | String | Texto do título mostrado no topo do Leitor Imersivo (opcional) |
 | pedaços | [Pedaço[]](#chunk) | Matriz de pedaços |
@@ -240,7 +240,7 @@ Um único pedaço de dados, que será passado para o conteúdo do Leitor Imersiv
 
 #### <a name="chunk-parameters"></a>Parâmetros de pedaços
 
-| Nome | Tipo | Description |
+| Nome | Tipo | Descrição |
 | ---- | ---- |------------ |
 | conteúdo | Cadeia | A cadeia que contém o conteúdo enviado ao Leitor Imersivo. |
 | Lang | Cadeia | Linguagem do texto, o valor está no formato iETF BCP 47 imposições, por exemplo, en, es-ES. A linguagem será detetada automaticamente se não for especificada. Veja [Supported Languages](#supported-languages) (Idiomas Suportados). |
@@ -269,7 +269,7 @@ Default value: "text/plain"
 
 #### <a name="supported-mime-types"></a>Tipos de MIME suportados
 
-| Tipo de MIME | Description |
+| Tipo de MIME | Descrição |
 | --------- | ----------- |
 | texto/planície | Texto simples. |
 | text/html | Conteúdo HTML. [Saiba mais](#html-support)|
@@ -305,7 +305,7 @@ Contém propriedades que configuram certos comportamentos do Leitor Imersivo.
 
 #### <a name="options-parameters"></a>Parâmetros de opções
 
-| Nome | Tipo | Description |
+| Nome | Tipo | Descrição |
 | ---- | ---- |------------ |
 | uiLang | Cadeia | Idioma da UI, o valor está no formato iETF BCP 47 imposições, por exemplo, en, es-ES. Predefinições no idioma do navegador se não for especificado. |
 | tempo limite | Número | Duração (em milissegundos) antes [do lançamentoAsync](#launchasync) falha com um erro de tempo limite (por defeito é 15000 ms). Este intervalo aplica-se apenas ao lançamento inicial da página Reader, onde o sucesso é observado quando a página Reader abre e o girador começa. Não deve ser necessário um ajuste do tempo limite. |
@@ -390,7 +390,7 @@ type ReadAloudOptions = {
 
 #### <a name="readaloudoptions-parameters"></a>Parâmetros de ReadAloudOptions
 
-| Nome | Tipo | Description |
+| Nome | Tipo | Descrição |
 | ---- | ---- |------------ |
 | voz | Cadeia | Voz, "Feminino" ou "Macho". Note que nem todas as línguas apoiam ambos os sexos. |
 | velocidade | Número | Velocidade de reprodução, deve ser entre 0,5 e 2,5, inclusive. |
@@ -429,7 +429,7 @@ type TranslationOptions = {
 
 #### <a name="translationoptions-parameters"></a>Parâmetros de Opções de Tradução
 
-| Nome | Tipo | Description |
+| Nome | Tipo | Descrição |
 | ---- | ---- |------------ |
 | language | Cadeia | Define a língua de tradução, o valor está no formato iETF BCP 47 imposição de tag, por exemplo, fr-FR, es-MX, zh-Hans-CN. É necessário ativar automaticamente a tradução de palavras ou documentos. |
 | autoEnableDocumentTranslation | Booleano | Traduza automaticamente todo o documento. |
@@ -457,7 +457,7 @@ type DisplayOptions = {
 
 #### <a name="displayoptions-parameters"></a>Parâmetros displayOptions
 
-| Nome | Tipo | Description |
+| Nome | Tipo | Descrição |
 | ---- | ---- |------------ |
 | textSize | Número | Define o tamanho do texto escolhido. |
 | aumentar O espaçamento | Booleano | Define se o espaçamento do texto é alternado dentro ou fora. |
@@ -491,7 +491,7 @@ enum CookiePolicy { Disable, Enable }
 
 #### <a name="settings-parameters"></a>Parâmetros de definição
 
-| Definição | Tipo | Description |
+| Definição | Tipo | Descrição |
 | ------- | ---- | ----------- |
 | textSize | Número | Define o tamanho do texto escolhido. |
 | fonteFamily | Cadeia | Define a fonte escolhida ("Calibri", "ComicSans" ou "Sitka"). |
@@ -526,7 +526,7 @@ Quando a formatação estiver ativada, o seguinte conteúdo será prestado como 
 | --------- | ----------- |
 | Estilos de fonte | Arrojado, Itálico, Sublinhado, Código, Strikethrough, Superscript, Subscript |
 | Listas não ordenadas | Disco, Círculo, Quadrado |
-| Listas ordenadas | Decimal, Superior Alfa, Inferior-Alfa, Superior-Romano, Inferior-Romano |
+| Listas ordenadas | Decimal, Superior Alfa, Alfa Inferior, Superior-Romano, Lower-Roman |
 
 As etiquetas não suportadas serão comparadas. Imagens e tabelas não são suportadas atualmente.
 

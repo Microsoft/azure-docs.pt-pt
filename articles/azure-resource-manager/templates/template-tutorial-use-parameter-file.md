@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: de72f9f32a3b08ad1742ee2055efce5b93cab899
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90069514"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-arm-template"></a>Tutorial: Use ficheiros de parâmetros para implementar o seu modelo ARM

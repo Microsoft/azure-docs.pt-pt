@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: rohogue
 ms.openlocfilehash: a6630a04f3811aae0b75bc378a66e8a05e4f8203
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91650447"
 ---
 # <a name="open-a-support-ticket-for-the-azure-fxt-edge-filer"></a>Abra um bilhete de apoio para o Azure FXT Edge Filer

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 6e3d87d613db63e05ddee47d43aead779eca75c3
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: e71325246b69f501ec8af91c59cb4f042180542c
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91628014"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999650"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Configuração de DNS do Ponto Final Privado do Azure
 
@@ -117,7 +117,7 @@ Este modelo pode ser estendido a várias redes virtuais espreitadas que estão a
 > Para esta configuração é necessária uma única zona privada de DNS. Criar várias zonas com o mesmo nome para diferentes redes virtuais precisaria de operações manuais para fundir os registos DNS.
 
 > [!IMPORTANT]
-> se estiver a utilizar um ponto final privado num modelo de hub-e-spoke a partir de uma subscrição diferente, reutilizámos a mesma zona privada de DNS no centro.
+> se estiver a utilizar um ponto final privado num modelo de hub-and-spoke a partir de uma subscrição diferente, reutilizámos a mesma zona privada de DNS no centro.
 
 Neste cenário, há um [hub e falou](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) topologia em rede com as redes de fala partilhando um ponto final privado comum, e todas as redes virtuais faladas estão ligadas à mesma zona privada de DNS. 
 

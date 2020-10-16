@@ -15,10 +15,10 @@ ms.date: 09/02/2020
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8d147d2c094923e971e52e1dbfe3f7a19776d38c
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89463656"
 ---
 # <a name="azure-ad-connect-health-instructions-for-data-retrieval"></a>Azure AD Ligar instruções de saúde para a recuperação de dados

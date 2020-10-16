@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/05/2019
 ms.author: rohink
 ms.openlocfilehash: 9d183f2da7b916b1547fa1f81aa877b1b5488b41
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91308440"
 ---
 # <a name="azure-private-dns-faq"></a>FAQ do DNS Privado do Azure
@@ -30,7 +30,7 @@ Sim. As Zonas Privadas são apoiadas para a resolução de DNS entre redes virtu
 
 ## <a name="is-connectivity-to-the-internet-from-virtual-networks-required-for-private-zones"></a>A conectividade com a internet a partir de redes virtuais é necessária para zonas privadas?
 
-Não. Zonas privadas funcionam juntamente com redes virtuais. Utiliza-os para gerir domínios para máquinas virtuais ou outros recursos dentro e fora das redes virtuais. A conectividade na Internet não é necessária para a resolução de nomes.
+N.º Zonas privadas funcionam juntamente com redes virtuais. Utiliza-os para gerir domínios para máquinas virtuais ou outros recursos dentro e fora das redes virtuais. A conectividade na Internet não é necessária para a resolução de nomes.
 
 ## <a name="can-the-same-private-zone-be-used-for-several-virtual-networks-for-resolution"></a>A mesma zona privada pode ser utilizada para várias redes virtuais para resolução?
 
@@ -66,7 +66,7 @@ Sim. Para desvincular uma rede virtual ligada de uma zona privada, atualiza a zo
 
 ## <a name="what-happens-when-we-delete-a-linked-virtual-network-thats-linked-to-a-private-zone-do-we-have-to-manually-update-the-private-zone-to-unlink-the-virtual-network-as-a-linked-virtual-network-from-the-zone"></a>O que acontece quando apagamos uma rede virtual ligada que está ligada a uma zona privada? Temos de atualizar manualmente a zona privada para desvincular a rede virtual como uma rede virtual ligada da zona?
 
-Não. Quando elimina uma rede virtual ligada sem desvincular primeiro de uma zona privada, a sua operação de eliminação tem sucesso e os links para a zona DNS são automaticamente limpos.
+N.º Quando elimina uma rede virtual ligada sem desvincular primeiro de uma zona privada, a sua operação de eliminação tem sucesso e os links para a zona DNS são automaticamente limpos.
 
 ## <a name="will-dns-resolution-by-using-the-default-fqdn-internalcloudappnet-still-work-even-when-a-private-zone-for-example-privatecontosocom-is-linked-to-a-virtual-network"></a>A resolução do DNS utilizando o FQDN predefinido (internal.cloudapp.net) ainda funciona mesmo quando uma zona privada (por exemplo, private.contoso.com) está ligada a uma rede virtual?
 
@@ -74,7 +74,7 @@ Sim. As Zonas Privadas não substituem a zona de internal.cloudapp.net fornecida
 
 ## <a name="will-the-dns-suffix-on-virtual-machines-within-a-linked-virtual-network-be-changed-to-that-of-the-private-zone"></a>Será que o sufixo DNS em máquinas virtuais dentro de uma rede virtual ligada será alterado para o da zona privada?
 
-Não. O sufixo DNS nas máquinas virtuais da sua rede virtual ligada permanece como o sufixo padrão fornecido pelo Azure ("*.internal.cloudapp.net"). Pode alterar manualmente este sufixo DNS nas suas máquinas virtuais para o da zona privada.
+N.º O sufixo DNS nas máquinas virtuais da sua rede virtual ligada permanece como o sufixo padrão fornecido pelo Azure ("*.internal.cloudapp.net"). Pode alterar manualmente este sufixo DNS nas suas máquinas virtuais para o da zona privada.
 Para obter orientações sobre como alterar este sufixo [consulte-se Use DNS dinâmico para registar nomes de anfitriões no seu próprio servidor DNS](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-ddns#windows-clients)
 
 ## <a name="what-are-the-usage-limits-for-azure-dns-private-zones"></a>Quais são os limites de utilização para as zonas privadas Azure DNS?

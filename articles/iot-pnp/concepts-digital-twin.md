@@ -1,5 +1,5 @@
 ---
-title: Compreenda ioT Plug e Jogue gémeos digitais
+title: Compreender os duplos digitais Plug and Play do IoT
 description: Entenda como ioT Plug e Play usa gémeos digitais
 author: prashmo
 ms.author: prashmo
@@ -7,14 +7,14 @@ ms.date: 07/17/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5d5ffe4e7d92530f18e278382ab3637c3326e57c
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: ea523045875e0abc9e14924c7bb388ea2cfcc2db
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91578058"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046473"
 ---
-# <a name="understand-iot-plug-and-play-digital-twins"></a>Compreenda ioT Plug e Jogue gémeos digitais
+# <a name="understand-iot-plug-and-play-digital-twins"></a>Compreender os duplos digitais Plug and Play do IoT
 
 Um dispositivo IoT Plug and Play implementa um modelo descrito pelo esquema [digital Twins Definition Language (DTDL).](https://github.com/Azure/opendigitaltwins-dtdl) Um modelo descreve o conjunto de componentes, propriedades, comandos e mensagens de telemetria que um determinado dispositivo pode ter. Um twin de dispositivo e um gémeo digital são inicializados da primeira vez que um dispositivo IoT Plug e Play se conecta a um hub IoT.
 
@@ -22,7 +22,7 @@ IoT Plug and Play utiliza a versão DTDL 2. Para obter mais informações sobre 
 
 A DTDL não é exclusiva da IoT Plug and Play. Outros serviços IoT, como [a Azure Digital Twins,](../digital-twins/overview.md)usam-no para representar ambientes inteiros, como edifícios e redes de energia. Para saber mais, consulte [Os modelos gémeos em Azure Digital Twins.](../digital-twins/concepts-models.md)
 
-Este artigo descreve como os componentes e propriedades estão representados nas secções *desejadas* e *reportadas* de um dispositivo gémeo. Também descreve como estes conceitos mapeiam para o gémeo digital correspondente.
+Este artigo descreve como os componentes e propriedades estão representados nas secções *desejadas* e *reportadas* de um dispositivo gémeo. Também descreve como estes conceitos são mapeados para o duplo digital correspondente.
 
 O dispositivo de ficha e reprodução IoT neste artigo que implementa [o modelo do Controlador de Temperatura](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) com componente do [termóstato.](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json)
 
@@ -131,7 +131,7 @@ As propriedades são campos de dados que representam o estado de uma entidade (c
 
 #### <a name="read-only-property"></a>Propriedade só de leitura
 
-Esquema:
+Schema:
 
 ```json
 {
@@ -307,11 +307,11 @@ Os seguintes snippets mostram a representação JSON lado a lado do `thermostat1
 
 ## <a name="digital-twin-apis"></a>APIs gémeos digitais
 
-A Azure Digital Twins vem equipado com **Get Digital Twin,** **Update Digital Twin,** **Invoke Component Command** e **Invoke Command** para gerir o dispositivo digital twin. Pode utilizar as [APIs REST](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin) diretamente ou através de um [SDK de serviço](../iot-pnp/libraries-sdks.md).
+A Azure Digital Twins vem equipado com **Get Digital Twin,** **Update Digital Twin,** **Invoke Component Command** e **Invoke Command** para gerir o dispositivo digital twin. Pode utilizar as [APIs REST](/rest/api/iothub/service/digitaltwin) diretamente ou através de um [SDK de serviço](../iot-pnp/libraries-sdks.md).
 
-## <a name="digital-twin-change-events"></a>Eventos digitais de mudança de gémeos
+## <a name="digital-twin-change-events"></a>Eventos de alteração de duplos digitais
 
-Quando os eventos digitais de mudança de gémeos são ativados, um evento é desencadeado sempre que o valor atual ou desejado do componente ou da propriedade muda. Os eventos digitais de mudança de gémeos são gerados no formato [JSON Patch.](http://jsonpatch.com/) Os eventos correspondentes são gerados no formato twin do dispositivo se os eventos de mudança dupla estiverem ativados.
+Quando os eventos de alteração de duplos digitais estão ativados, é acionado um evento sempre que o valor atual ou desejado do componente ou da propriedade é alterado. Os eventos digitais de mudança de gémeos são gerados no formato [JSON Patch.](http://jsonpatch.com/) Os eventos correspondentes são gerados no formato twin do dispositivo se os eventos de mudança dupla estiverem ativados.
 
 Para aprender a permitir o encaminhamento para eventos de dispositivos e gémeos digitais, consulte [o encaminhamento de mensagens IoT Hub para enviar mensagens dispositivo-a-nuvem para diferentes pontos finais](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events). Para compreender o formato da mensagem, consulte [Criar e ler mensagens IoT Hub](../iot-hub/iot-hub-devguide-messages-construct.md).
 
@@ -383,5 +383,5 @@ Agora que aprendeu sobre gémeos digitais, aqui estão alguns recursos adicionai
 
 - [Como usar IoT Plug e Play APIs digitais twin](howto-manage-digital-twin.md)
 - [Interagir com um dispositivo a partir da sua solução](quickstart-service-node.md)
-- [IoT Digital Twin REST API](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
+- [IoT Digital Twin REST API](/rest/api/iothub/service/digitaltwin)
 - [Explorador de Azure IoT](howto-use-iot-explorer.md)

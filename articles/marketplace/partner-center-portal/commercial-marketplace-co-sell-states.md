@@ -8,10 +8,10 @@ author: palanis-MSFT
 ms.author: palanis
 ms.date: 09/02/2020
 ms.openlocfilehash: 44f06773eec965fad610da1a4286bdf224e3a88b
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89321485"
 ---
 # <a name="co-sell-state-and-province-codes-in-azure-marketplace"></a>Co-vender códigos estatais e de província no Azure Marketplace
@@ -113,6 +113,6 @@ Este artigo lista os códigos de estado e província disponíveis ao fornecer in
 | Território do Norte                  |  AU-NT    |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a [opção de co-venda no Partner Center.](./commercial-marketplace-co-sell.md)

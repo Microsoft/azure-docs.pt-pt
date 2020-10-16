@@ -14,17 +14,17 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fc512bf664857129377d2eb928ff025d1c5f659b
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89321179"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Adicione o seu nome de domínio personalizado usando o portal Azure Ative Directory
 
 Cada novo inquilino da AD AZure vem com um nome de domínio inicial, * \<domainname> .onmicrosoft.com*. Não é possível alterar ou apagar o nome de domínio inicial, mas pode adicionar os nomes da sua organização. A adição de nomes de domínio personalizados ajuda-o a criar nomes de utilizadores familiares aos seus utilizadores, como *alain \@ contoso.com*.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Antes de poder adicionar um nome de domínio personalizado, crie o seu nome de domínio com um registo de domínio. Para um registrador de domínio acreditado, consulte [os registos acreditados da ICANN.](https://www.icann.org/registrar-reports/accredited-list.html)
 
@@ -108,7 +108,7 @@ Se a Azure AD não puder verificar um nome de domínio personalizado, experiment
 
 - **Certifique-se de não ter nenhum inquilino de Bi de energia não gerido.** Se os seus utilizadores ativaram o Power BI através de uma inscrição de self-service e criaram um inquilino não gerido para a sua organização, deve assumir a gestão como administrador interno ou externo, utilizando o PowerShell. Para obter mais informações, veja [Take over an unmanaged directory as administrator in Azure Active Directory](../users-groups-roles/domains-admin-takeover.md) (Assumir um diretório não gerido como administrador no Azure Active Directory).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Adicione outro administrador global ao seu diretório. Para obter mais informações, consulte [Como atribuir funções e administradores.](active-directory-users-assign-role-azure-portal.md)
 

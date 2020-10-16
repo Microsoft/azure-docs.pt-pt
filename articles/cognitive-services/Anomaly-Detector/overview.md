@@ -3,21 +3,21 @@ title: O que é a API do Detetor de Anomalias?
 titleSuffix: Azure Cognitive Services
 description: Utilize os algoritmos da API do Detetor de Anomalias para aplicar a deteção de anomalias nos dados da série de tempo.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
 ms.date: 09/22/2020
-ms.author: aahi
+ms.author: mbullwin
 keywords: deteção de anomalias, aprendizagem automática, algoritmos
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 2e48c189df23ed94cd54e1bc9097b7d9709c9ed3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9b540f2e04ae8533a00f79d05e220d99964d9a34
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91319321"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016608"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>O que é a API do Detetor de Anomalias?
 

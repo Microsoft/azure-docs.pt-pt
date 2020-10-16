@@ -8,10 +8,10 @@ ms.date: 03/04/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: aaa3a6d128fe7dd466f6f60ab515f05fa38ba63b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84690381"
 ---
 # <a name="monitor-server-metrics"></a>Monitorizar as métricas do servidor
@@ -37,7 +37,7 @@ Para realizar diagnósticos mais aprofundados, rastrear o desempenho e identific
 
 Utilize esta tabela para determinar quais as métricas melhores para o seu cenário de monitorização. Apenas métricas da mesma unidade podem ser mostradas no mesmo gráfico.
 
-|Metric|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|
+|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Descrição|
 |---|---|---|---|---|
 |ComandoPoolJobQueueLength|Comprimento da fila de trabalho da piscina de comando|Contagem|Média|Número de empregos na fila da piscina de fios de comando.|
 |Correntes Deconhecões|Ligação: Ligações atuais|Contagem|Média|Número atual de ligações ao cliente estabelecidas.|
@@ -87,7 +87,7 @@ Utilize esta tabela para determinar quais as métricas melhores para o seu cená
 |TotalConnectionFailures|Falhas totais de ligação|Contagem|Média|Tentativas de ligação falhadas totais.|
 |TotalConnectionRequests|Total de pedidos de conexão|Contagem|Média|Pedidos de ligação total. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Visão geral do Monitor Azure](../azure-monitor/overview.md)      
 [Começando com a Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md)      
 [Métricas em AZure Monitor REST API](/rest/api/monitor/metrics)

@@ -14,10 +14,10 @@ ms.custom:
 - mqtt
 - devx-track-js
 ms.openlocfilehash: e398138f12c38e5235a0004679d9574dbde607db
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91446882"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-nodejs"></a>Envie mensagens nuvem-para-dispositivo com IoT Hub (Node.js)
@@ -200,7 +200,7 @@ Pode agora executar as aplicações.
    > Para simplificar, este tutorial não implementa nenhuma política de retenção. No código de produção, deve implementar políticas de reequipante (como o backoff exponencial), como sugerido no artigo, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
    >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a enviar e receber mensagens cloud-to-device.
 

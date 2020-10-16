@@ -9,10 +9,10 @@ ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
 ms.openlocfilehash: f5028abadbe5600058c83a144d0095aee1278fe6
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86042084"
 ---
 # <a name="diving-deeper-into-cloud-init"></a>Mergulhar mais profundamente na nuvem
@@ -71,10 +71,10 @@ Ao a provisionar com cloud-init, existem 5 fases de arranque, que configuram o p
 5. [Fase Final cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#final): Nesta fase final, serão executados os módulos em `cloud_final_modules` , listados em /etc/cloud/cloud.cfg. Aqui os módulos que precisam de ser executados tardiamente no processo de arranque, como instalações de pacotes e scripts de execução etc. 
 
    -   Durante esta fase, você pode executar scripts colocando-os nos diretórios em `/var/lib/cloud/scripts` :
-   - `per-boot`- scripts dentro deste diretório, executados em cada reboot
-   - `per-instance`- scripts dentro deste diretório executado quando uma nova instância é inicialmente iniciado
-   - `per-once`- os scripts dentro deste diretório só funcionam uma vez
+   - `per-boot` - scripts dentro deste diretório, executados em cada reboot
+   - `per-instance` - scripts dentro deste diretório executado quando uma nova instância é inicialmente iniciado
+   - `per-once` - os scripts dentro deste diretório só funcionam uma vez
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Resolução de problemas na nuvem.](cloud-init-troubleshooting.md)

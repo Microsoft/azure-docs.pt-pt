@@ -4,20 +4,24 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 07/31/2020
 ms.author: rgarcia
-ms.openlocfilehash: c4a03f2701b94821cfc8c1f6d585b1a87ee8bfea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e085c122c196de735cae26a4ea2f04b2da73899
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358823"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971439"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, confirme que tem:
+Antes de começar este tutorial, certifique-se de ter encontrado os seguintes pré-requisitos:
 
 * Leia a visão geral das [âncoras espaciais de Azure](../articles/spatial-anchors/overview.md).
-* Complete um dos [Quickstarts de 5 minutos,](../articles/spatial-anchors/index.yml)garantindo que conheça todos os pré-requisitos listados no seu quickstart escolhido. **Nota:** Os quickstarts Android/NDK e iOS/Swift não mostram atualmente as capacidades explicadas neste tutorial.
-* Conhecimento básico no <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a> se quiser utilizar o Android ou <a href="https://developer.apple.com/arkit/" target="_blank">o ARKit</a> se quiser utilizar o iOS.
-* Um computador Windows no qual <a href="https://www.visualstudio.com/downloads/" target="_blank">o Visual Studio 2017</a> ou mais tarde é instalado com a ASP.NET e a carga de trabalho **de desenvolvimento web.**
+* Complete um dos [arranques rápidos de 5 minutos.](../articles/spatial-anchors/index.yml) 
+  > [!NOTE]
+  > Os quickstarts Android/NDK e iOS/Swift não mostram atualmente as capacidades explicadas neste tutorial.
+* Um conhecimento básico de qualquer um dos dois:
+  *  <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a> se estiver a usar Android.
+  *  <a href="https://developer.apple.com/arkit/" target="_blank">ARKit</a> se estiver a usar o iOS.
+* Um computador Windows com <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> ou mais tarde, e a ASP.NET e a carga de trabalho **de desenvolvimento web.**
 * O [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download).
-* Um ou mais dispositivos (HoloLens, HoloLens 2, iOS ou Android) para implementar e executar uma aplicação.
+* Um ou mais dos seguintes dispositivos para implementar e executar uma aplicação: HoloLens, HoloLens 2, iOS ou Android.

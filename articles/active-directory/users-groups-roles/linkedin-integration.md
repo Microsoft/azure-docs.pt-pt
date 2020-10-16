@@ -14,10 +14,10 @@ ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d27cd30d6543d967cca2648597854a06f8ea4eb7
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90053978"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Integrar ligações de conta LinkedIn no Azure Ative Directory
@@ -101,7 +101,7 @@ Para utilizar o grupo a partir do segundo passo como grupo selecionado nas liga�
 
 Esta política de grupo afeta apenas as aplicações do Office 2016 para um computador local. Se os utilizadores desativarem o LinkedIn nas suas aplicações office 2016, ainda podem ver as funcionalidades do LinkedIn no Microsoft 365.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Consentimento do utilizador e partilha de dados para o LinkedIn](linkedin-user-consent.md)
 

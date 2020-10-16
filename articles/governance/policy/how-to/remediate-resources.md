@@ -1,14 +1,14 @@
 ---
 title: Identificar recursos em não conformidade
 description: Este guia acompanha-o através da reparação de recursos que não estão em conformidade com as políticas da Política Azure.
-ms.date: 09/22/2020
+ms.date: 10/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 3b2d145322be8b70e096e49be892018952519cf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76d2e57c1b5df965c81c88506ff2c2f70b2cb1f8
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269850"
+ms.locfileid: "91876333"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Remediar recursos não conformes com a Política Azure
 
@@ -17,7 +17,7 @@ Os recursos que não sejam compatíveis com uma **política de implantaçãoIfNo
 ## <a name="how-remediation-security-works"></a>Como funciona a segurança da reparação
 
 Quando a Política Azure executa o modelo na definição de política **doIfNotExists,** fá-lo utilizando uma [identidade gerida](../../../active-directory/managed-identities-azure-resources/overview.md).
-A Azure Policy cria uma identidade gerida para cada atribuição, mas deve ter detalhes sobre quais as funções a conceder a identidade gerida. Se a identidade gerida faltar, este erro é apresentado durante a atribuição da apólice ou uma iniciativa. Ao utilizar o portal, a Azure Policy concede automaticamente à identidade gerida as funções listadas assim que a atribuição começa. Ao utilizar o SDK, as funções devem ser concedidas manualmente à identidade gerida. A _localização_ da identidade gerida não afeta o seu funcionamento com a Política Azure.
+A Azure Policy cria uma identidade gerida para cada atribuição, mas deve ter detalhes sobre quais as funções a conceder a identidade gerida. Se faltar a identidade gerida, é apresentado um erro durante a atribuição da apólice ou de uma iniciativa. Ao utilizar o portal, a Azure Policy concede automaticamente à identidade gerida as funções listadas assim que a atribuição começa. Ao utilizar o SDK, as funções devem ser concedidas manualmente à identidade gerida. A _localização_ da identidade gerida não afeta o seu funcionamento com a Política Azure.
 
 :::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="Screenshot de uma política de implementaçãoIfNotExists que está faltando uma permissão definida sobre a identidade gerida." border="false":::
 

@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.openlocfilehash: 30b4256b37dc3329801a730192e25f7c24a45594
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540915"
 ---
 # <a name="add-contributors-to-your-app"></a>Adicione colaboradores à sua app
@@ -92,7 +92,7 @@ Se o administrador inquilino apenas quer que certos utilizadores utilizem o LUIS
 Saiba mais sobre os utilizadores de diretórios ativos da Azure e o consentimento:
 * [Restringir a sua aplicação](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) a um conjunto de utilizadores
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Aprenda [a usar versões](luis-how-to-manage-versions.md) para controlar o ciclo de vida da sua aplicação.
 * Compreenda os conceitos, incluindo o [recurso de autoria](luis-how-to-azure-subscription.md#authoring-key) e [os contribuintes](luis-how-to-azure-subscription.md#contributions-from-other-authors) nesse recurso.

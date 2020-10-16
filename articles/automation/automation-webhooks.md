@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4338bc4a11b785b27f6316748f9cbc4eeaaddbea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: db4f49c1b788cd7a55fd6fbbd48f845f2c94d757
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015107"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073534"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>Iniciar um runbook a partir de um webhook
 
@@ -89,7 +89,7 @@ Considere as seguintes estratégias:
 
 * Peça ao livro de aplicação para realizar alguma validação de uma condição externa quando receber um pedido webhook. Por exemplo, considere um livro de corridas que é chamado pelo GitHub sempre que há um novo compromisso com um repositório GitHub. O livro pode ligar-se ao GitHub para validar que ocorreu um novo compromisso antes de continuar.
 
-* A Azure Automation suporta tags de serviço de rede virtual Azure, especificamente [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). Pode utilizar tags de serviço para definir controlos de acesso à rede em [grupos de segurança](../virtual-network/security-overview.md#security-rules) de rede ou [Azure Firewall](../firewall/service-tags.md) e desencadear webhooks a partir da sua rede virtual. As etiquetas de serviço podem ser utilizadas no lugar de endereços IP específicos quando cria regras de segurança. Ao especificar o nome da etiqueta de serviço **GuestAndHybridManagement** no campo de origem ou destino apropriado de uma regra, pode permitir ou negar o tráfego para o serviço Dem automação. Esta etiqueta de serviço não suporta permitir um maior controlo granular limitando as gamas IP a uma região específica.
+* A Azure Automation suporta tags de serviço de rede virtual Azure, especificamente [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). Pode utilizar tags de serviço para definir controlos de acesso à rede em [grupos de segurança](../virtual-network/network-security-groups-overview.md#security-rules) de rede ou [Azure Firewall](../firewall/service-tags.md) e desencadear webhooks a partir da sua rede virtual. As etiquetas de serviço podem ser utilizadas no lugar de endereços IP específicos quando cria regras de segurança. Ao especificar o nome da etiqueta de serviço **GuestAndHybridManagement**  no campo de origem ou destino apropriado de uma regra, pode permitir ou negar o tráfego para o serviço Dem automação. Esta etiqueta de serviço não suporta permitir um maior controlo granular limitando as gamas IP a uma região específica.
 
 ## <a name="create-a-webhook"></a>Criar um webhook
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: harshacs
 ms.openlocfilehash: 123a68885346062b9e8a53b8d5066204b6b20f5e
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89568783"
 ---
 # <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>Ligue-se aos VMs Azure após a queda do local 
@@ -165,5 +165,5 @@ Neste cenário, o Azure VM obtém um novo endereço IP após o failover. Para co
 
 A Recuperação do Site irá agora honrar estas definições e garantir que a máquina virtual em falha está ligada ao recurso selecionado através do endereço IP correspondente, se estiver disponível na gama IP alvo. Neste cenário, não há necessidade de falhar toda a sub-rede. Será necessária uma atualização DNS para atualizar registos de máquinas falhadas para apontar para o novo endereço IP da máquina virtual.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Saiba como](site-recovery-active-directory.md) replicar no local o Ative Directory e o DNS para Azure.

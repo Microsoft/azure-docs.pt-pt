@@ -11,10 +11,10 @@ ms.date: 09/23/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: f2046614f3665a699d02c76210676fb32f99fc73
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91288924"
 ---
 # <a name="use-stored-procedures-in-synapse-sql"></a>Utilize procedimentos armazenados em SQL de Sinapse

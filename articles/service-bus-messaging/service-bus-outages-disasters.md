@@ -4,10 +4,10 @@ description: Estes artigos fornecem técnicas para proteger as aplicações cont
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 4f3ff89e3ec59ad4445ab0b7ee7eeb45d18fa3b8
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88065629"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Melhores práticas para proteger aplicações de indisponibilidades e de desastres do Service Bus
@@ -19,9 +19,9 @@ Uma paralisação é definida como a indisponibilidade temporária da Azure Serv
 Um desastre é definido como a perda permanente de uma unidade de escala de autocarro de serviço ou datacenter. O datacenter pode ou não voltar a estar disponível. Normalmente, um desastre causa a perda de algumas ou todas as mensagens ou outros dados. Exemplos de desastres são incêndios, inundações ou terramotos.
 
 ## <a name="protecting-against-outages-and-disasters---service-bus-premium"></a>Proteção contra interrupções e desastres - Service Bus Premium
-Os conceitos de Alta Disponibilidade e Recuperação de Desastres são integrados no nível Azure Service Bus Premium, tanto na mesma região (via Zonas de Disponibilidade) como em diferentes regiões (via Recuperação de Geo-Desastres).
+Os conceitos de Alta Disponibilidade e Recuperação de Desastres são integrados no nível Azure Service Bus Premium, tanto na mesma região (via Zonas de Disponibilidade) como em diferentes regiões (via Geo-Disaster Recovery).
 
-### <a name="geo-disaster-recovery"></a>Recuperação de Geo-Desastres
+### <a name="geo-disaster-recovery"></a>Recuperação Geo-Disaster
 
 Service Bus Premium suporta a recuperação de geo-desastres, ao nível do espaço de nome. Para mais informações, consulte [a recuperação de geo-desastres de autocarros da Azure Service.](service-bus-geo-dr.md) A funcionalidade de recuperação de desastres, disponível apenas para o [Premium SKU,](service-bus-premium-messaging.md) implementa a recuperação de desastres de metadados e baseia-se em espaços de nomes de recuperação de desastres primários e secundários.
 

@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.openlocfilehash: 26df3c49e44dd79d87a1e0a982ceb8133f425447
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87423325"
 ---
 # <a name="partitioning-in-azure-cosmos-db-cassandra-api"></a>Partição em Azure Cosmos DB Cassandra API
@@ -58,7 +58,7 @@ Neste projeto, definimos o `id` campo como a chave primária. A chave primária 
 
 ## <a name="compound-primary-key"></a>Chave primária composta
 
-Apache Cassandra também tem um conceito `compound keys` de. Um composto `primary key` é composto por mais de uma coluna; a primeira coluna é a , e `partition key` quaisquer colunas adicionais são a `clustering keys` . A sintaxe para a `compound primary key` é mostrada abaixo:
+Apache Cassandra também tem um conceito  `compound keys` de. Um composto `primary key` é composto por mais de uma coluna; a primeira coluna é a , e `partition key` quaisquer colunas adicionais são a `clustering keys` . A sintaxe para a `compound primary key` é mostrada abaixo:
 
 ```shell
 PRIMARY KEY (partition_key_column_name, clustering_column_name [, ...])
@@ -110,7 +110,7 @@ CREATE TABLE uprofile.user (
    PRIMARY KEY ((firstname, lastname), id) );
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [a partição e a escala horizontal em Azure Cosmos DB](partition-data.md).
 * Conheça a [produção a provisionada em Azure Cosmos DB](request-units.md).

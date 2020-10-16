@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 8dfc69bf251a811363426a3aeca7379d18458b47
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: a08756a1e3153aa69bd0e79dc23e88d4bf211e5d
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91667236"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950691"
 ---
 # <a name="tutorial-add-paging-to-search-results-using-the-net-sdk"></a>Tutorial: Adicione paging aos resultados da pesquisa usando o .NET SDK
 
@@ -25,7 +25,7 @@ Neste tutorial, ficará a saber como:
 > * Estenda a sua app com paging numerado
 > * Estenda a sua app com scrolling infinito
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Overview (Descrição geral)
 
 Este tutorial sobrepõe um sistema de paging num projeto previamente criado descrito no tutorial da [sua primeira aplicação de pesquisa.](tutorial-csharp-create-first-app.md)
 
@@ -304,7 +304,7 @@ Tenha a solução básica de página de pesquisa aberta.
     }
     ```
 
-1. O método **RunQueryAsync,** introduzido na lição anterior, necessita de modificação para resolver o erro de sintaxe. Utilizamos os campos **Skip,** **Size**e **IncludeTotalCount** da classe [**SearchOptions**](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchoptions) para solicitar apenas uma página de resultados, a partir da definição **Skip.** Também precisamos calcular as variáveis de paging para a nossa visão. Substitua todo o método pelo seguinte código.
+1. O método **RunQueryAsync,** introduzido na lição anterior, necessita de modificação para resolver o erro de sintaxe. Utilizamos os campos **Skip,** **Size**e **IncludeTotalCount** da classe [**SearchOptions**](/dotnet/api/azure.search.documents.searchoptions) para solicitar apenas uma página de resultados, a partir da definição **Skip.** Também precisamos calcular as variáveis de paging para a nossa visão. Substitua todo o método pelo seguinte código.
 
     ```csharp
     private async Task<ActionResult> RunQueryAsync(SearchData model, int page, int leftMostPage)
@@ -614,7 +614,7 @@ Considere os seguintes takeaways deste projeto:
 * Uma característica chave do scrolling infinito é que os resultados são anexados a uma página existente, não substituindo essa página, que é eficiente.
 * O armazenamento temporário persiste por apenas uma chamada, e precisa ser reposto para sobreviver a chamadas adicionais.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 A paging é fundamental para uma experiência de pesquisa. Com a paging bem coberta, o próximo passo é melhorar ainda mais a experiência do utilizador, adicionando pesquisas de tipo à frente.
 

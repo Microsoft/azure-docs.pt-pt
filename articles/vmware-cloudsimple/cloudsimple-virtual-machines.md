@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 6f9be035978667287b8b88ec1bb64b3882b0f929
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88141981"
 ---
 # <a name="cloudsimple-virtual-machines-overview"></a>Visão geral das máquinas virtuais CloudSimple
@@ -35,7 +35,7 @@ As máquinas virtuais CloudSimple do portal Azure fornecem um mecanismo de self-
   * Repor VM
 * Eliminar VM
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [consumir VMware VMs em Azure](quickstart-create-vmware-virtual-machine.md)
 * Saiba como mapear a [sua subscrição do Azure](azure-subscription-mapping.md)

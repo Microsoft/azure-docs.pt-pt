@@ -3,12 +3,12 @@ title: Como consultar registos do Azure Monitor para contentores Microsoft Docs
 description: O Azure Monitor para contentores recolhe métricas e dados de registo e este artigo descreve os registos e inclui consultas de amostra.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 2f0e9848ffbf7584d75b5e994e49379186a69641
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a540ae828b14f231b3b327b714876550cc744a7e
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91254895"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994020"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Como consultar registos do Azure Monitor para contentores
 
@@ -110,5 +110,4 @@ A saída apresenta resultados semelhantes ao seguinte exemplo:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-O Monitor Azure para contentores não inclui um conjunto de alertas predefinidos. Reveja os [alertas de desempenho da Create com o Azure Monitor para que os recipientes](container-insights-alerts.md) aprendam a criar alertas recomendados para alta utilização de CPU e memória para suportar os seus DevOps ou processos e procedimentos operacionais. 
-
+O Monitor Azure para contentores não inclui um conjunto de alertas predefinidos. Reveja os [alertas de desempenho da Create com o Azure Monitor para que os recipientes](./container-insights-log-alerts.md) aprendam a criar alertas recomendados para alta utilização de CPU e memória para suportar os seus DevOps ou processos e procedimentos operacionais.

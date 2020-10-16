@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/14/2020
 ms.openlocfilehash: 7f21d3ed3d5e71c2f87777316e7584011490043a
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91757780"
 ---
 # <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>Criar e explorar conjunto de dados de aprendizagem automática Azure com rótulos

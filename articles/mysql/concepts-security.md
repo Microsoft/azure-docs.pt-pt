@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 5caed64beb43cbb1e884a3dde6bc0052c617f83e
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89378785"
 ---
 # <a name="security-in-azure-database-for-mysql"></a>Segurança na Base de Dados do Azure para MySQL
@@ -38,7 +38,7 @@ As regras de firewall IP concedem acesso a servidores com base no endereço IP o
 Os pontos finais do serviço de rede virtual estendem a sua conectividade de rede virtual sobre a espinha dorsal do Azure. Utilizando regras de rede virtuais, pode ativar a sua Base de Dados Azure para o servidor MySQL para permitir ligações a partir de sub-redes selecionadas numa rede virtual. Para obter mais informações, consulte a [visão geral](concepts-data-access-and-security-vnet.md)do ponto final do serviço de rede virtual .
 
 ### <a name="private-ip"></a>IP privado
-O Private Link permite-lhe ligar-se à sua Base de Dados Azure para o MySQL em Azure através de um ponto final privado. O Azure Private Link essencialmente traz serviços Azure dentro da sua Rede Virtual privada (VNet). Os recursos PaaS podem ser acedidos usando o endereço IP privado como qualquer outro recurso no VNet. Para mais informações,consulte a [visão geral](concepts-data-access-security-private-link.md) do link privado
+O Private Link permite-lhe ligar-se à sua Base de Dados Azure para o MySQL em Azure através de um ponto final privado. O Azure Private Link essencialmente traz os serviços do Azure dentro da sua Rede Privada Virtual (VNet). Os recursos de PaaS podem ser acedidos através do endereço IP privado, como qualquer outro recurso na VNet. Para mais informações,consulte a [visão geral](concepts-data-access-security-private-link.md) do link privado
 
 ## <a name="access-management"></a>Gestão de acesso
 
@@ -52,5 +52,5 @@ Pode optar pela [Advanced Threat Protection](concepts-data-access-and-security-t
 [O registo de auditoria](concepts-audit-logs.md) está disponível para acompanhar a atividade nas suas bases de dados. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Ativar regras de firewall para [IPs](concepts-firewall-rules.md) ou [redes virtuais](concepts-data-access-and-security-vnet.md)

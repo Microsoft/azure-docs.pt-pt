@@ -14,10 +14,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6c39fd6ceb9e5623d2b857ce8196ef29e73d78a
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91542313"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Utilize grupos de nuvem para gerir atribuições de funções no Azure Ative Directory (pré-visualização)
@@ -72,7 +72,7 @@ Estamos a resolver estas questões.
 
 A utilização desta funcionalidade requer que tenha uma licença Azure AD Premium P1 disponível na sua organização Azure AD. Para utilizar também a Gestão de Identidade Privilegiada para ativação de funções just-in-time requer que você tenha uma licença Azure AD Premium P2 disponível. Para encontrar a licença certa para os seus requisitos, consulte [Comparar as funcionalidades geralmente disponíveis dos planos Free and Premium.](../fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar um grupo ao qual se pode atribuir funções](roles-groups-create-eligible.md)
 - [Atribuir um papel a um grupo atribuível a funções](roles-groups-assign-role.md)

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/15/2020
 ms.openlocfilehash: 3aa4a1917711f8997c282ba577c33e7a7f94472b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88932887"
 ---
 # <a name="create-a-basic-search-index-in-azure-cognitive-search"></a>Criar um índice básico de pesquisa em Azure Cognitive Search
@@ -242,7 +242,7 @@ A imagem a seguir ilustra padrões de armazenamento de índices resultantes de v
 
 ![Tamanho do índice com base na seleção de atributos](./media/search-what-is-an-index/realestate-index-size.png "Tamanho do índice com base na seleção de atributos")
 
-Embora estas variantes de índice sejam artificiais, podemos referir-nos a elas para comparações amplas de como os atributos afetam o armazenamento. A definição "recuperável" aumenta o tamanho do índice? Não. Adicionar campos a um **indicador aumenta** o tamanho do índice? Yes.
+Embora estas variantes de índice sejam artificiais, podemos referir-nos a elas para comparações amplas de como os atributos afetam o armazenamento. A definição "recuperável" aumenta o tamanho do índice? N.º Adicionar campos a um **indicador aumenta** o tamanho do índice? Sim.
 
 Os índices que suportam filtro e classificação são proporcionalmente maiores do que os índices que suportam apenas a pesquisa completa de texto. Isto porque filtrar e classificar as operações para obter correspondências exatas, exigindo a presença de cordas de texto verbatim. Em contraste, os campos pes pesjáveis que suportam consultas de texto completo usam índices invertidos, que são povoados com termos simbólicos que consomem menos espaço do que documentos inteiros. 
 

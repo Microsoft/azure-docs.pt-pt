@@ -1,26 +1,18 @@
 ---
 title: Azure Monitor para Soluções SAP e arquitetura Microsoft Docs
 description: Este artigo fornece respostas a perguntas frequentes sobre monitor Azure para soluções SAP
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
-manager: juergent
-editor: ''
-tags: azure-resource-manager
-keywords: ''
-ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.openlocfilehash: 8d97c713dfec574a8ef7f3f0dde4701ddea0e98b
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.reviewer: cynthn
+ms.openlocfilehash: d9730324b2557c8f0bb203f7badbd00e0e7e704e
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669010"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994263"
 ---
 # <a name="azure-monitor-for-sap-solutions-preview"></a>Monitor Azure para soluções SAP (pré-visualização)
 
@@ -110,7 +102,7 @@ Seguem-se os principais destaques da arquitetura:
 ## <a name="pricing"></a>Preços
 O Azure Monitor for SAP Solutions é um produto gratuito (sem taxa de licença). Os clientes são responsáveis pelo pagamento do custo dos componentes subjacentes no grupo de recursos geridos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Conheça os fornecedores e crie o seu primeiro recurso Azure Monitor para soluções SAP.
  - Saiba mais sobre [Fornecedores](./azure-monitor-providers.md)

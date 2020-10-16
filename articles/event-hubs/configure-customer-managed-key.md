@@ -4,16 +4,16 @@ description: Este artigo fornece informações sobre como configurar a sua próp
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 18a59b74897b074fea9ee56947c78635f2a3509d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86537263"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configure as chaves geridas pelo cliente para encriptar os dados do Azure Event Hubs em repouso utilizando o portal Azure
 O Azure Event Hubs fornece encriptação de dados em repouso com a Encriptação do Serviço de Armazenamento Azure (Azure SSE). O Event Hubs conta com o Azure Storage para armazenar os dados e, por padrão, todos os dados que são armazenados com o Azure Storage são encriptados utilizando as teclas geridas pela Microsoft. 
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 O Azure Event Hubs suporta agora a opção de encriptar dados em repouso com as teclas geridas pela Microsoft ou com teclas geridas pelo cliente (Bring Your Own Key – BYOK). Esta funcionalidade permite-lhe criar, rodar, desativar e revogar o acesso às teclas geridas pelo cliente que são utilizadas para encriptar os dados do Azure Event Hubs em repouso.
 
 Ativar a função BYOK é um processo de configuração de uma única vez no seu espaço de nome.
@@ -26,7 +26,7 @@ Pode utilizar o Azure Key Vault para gerir as suas chaves e auditar o uso da cha
 Este artigo mostra como configurar um cofre-chave com chaves geridas pelo cliente utilizando o portal Azure. Para aprender a criar um cofre-chave utilizando o portal Azure, consulte [Quickstart: set and retrieve a secret from Azure Key Vault using the Azure Portal](../key-vault/secrets/quick-create-portal.md).
 
 > [!IMPORTANT]
-> A utilização de chaves geridas pelo cliente com a Azure Event Hubs requer que o cofre-chave tenha duas propriedades necessárias configuradas. São: **Soft Delete** and **Do Not Purpur**. Estas propriedades são ativadas por padrão quando cria um novo cofre chave no portal Azure. No entanto, se necessitar de ativar estas propriedades num cofre de chaves existente, deve utilizar o PowerShell ou o Azure CLI.
+> A utilização de chaves geridas pelo cliente com a Azure Event Hubs requer que o cofre-chave tenha duas propriedades necessárias configuradas. São:  **Soft Delete** and **Do Not Purpur**. Estas propriedades são ativadas por padrão quando cria um novo cofre chave no portal Azure. No entanto, se necessitar de ativar estas propriedades num cofre de chaves existente, deve utilizar o PowerShell ou o Azure CLI.
 
 ## <a name="enable-customer-managed-keys"></a>Ativar chaves geridas pelo cliente
 Para ativar as chaves geridas pelo cliente no portal Azure, siga estes passos:
@@ -103,7 +103,7 @@ Todos os registos são armazenados no formato JavaScript Object Notation (JSON).
 | keyVault | Nome completo do cofre da chave. |
 | key | O nome-chave que é usado para encriptar o espaço de nomes do Event Hubs. |
 | versão | A versão da chave a ser usada. |
-| operação | A operação que é feita na chave do cofre. Por exemplo, desativar/ativar a chave, embrulhar ou desembrulhar |
+| operation | A operação que é feita na chave do cofre. Por exemplo, desativar/ativar a chave, embrulhar ou desembrulhar |
 | code | O código que está associado à operação. Exemplo: Código de erro, 404 significa que a chave não foi encontrada. |
 | message | Qualquer mensagem de erro associada à operação |
 
@@ -223,9 +223,9 @@ Esta secção mostra-lhe como criar um espaço de nome Azure Event Hubs com iden
 
     > [!NOTE]
     > Substitua os seguintes valores: 
-    > - `<EventHubsClusterName>`- Nome do seu cluster De Centros de Eventos    
-    > - `<EventHubsNamespaceName>`- Nome do seu espaço de nomes de Centros de Eventos
-    > - `<Location>`- Localização do seu espaço de nomes de Centros de Eventos
+    > - `<EventHubsClusterName>` - Nome do seu cluster De Centros de Eventos    
+    > - `<EventHubsNamespaceName>` - Nome do seu espaço de nomes de Centros de Eventos
+    > - `<Location>` - Localização do seu espaço de nomes de Centros de Eventos
 
     ```json
     {
@@ -360,11 +360,11 @@ Neste passo, irá atualizar o espaço de nomes do Event Hubs com informações d
 
     > [!NOTE]
     > Substitua os seguintes valores: 
-    > - `<EventHubsClusterName>`- Nome do seu cluster De Eventos Hubs.        
-    > - `<EventHubsNamespaceName>`- Nome do seu espaço de nomes de Centros de Eventos
-    > - `<Location>`- Localização do seu espaço de nomes de Centros de Eventos
-    > - `<KeyVaultName>`- Nome do seu cofre
-    > - `<KeyName>`- Nome da chave no cofre da chave
+    > - `<EventHubsClusterName>` - Nome do seu cluster De Eventos Hubs.        
+    > - `<EventHubsNamespaceName>` - Nome do seu espaço de nomes de Centros de Eventos
+    > - `<Location>` - Localização do seu espaço de nomes de Centros de Eventos
+    > - `<KeyVaultName>` - Nome do seu cofre
+    > - `<KeyName>` - Nome da chave no cofre da chave
 
     ```json
     {
@@ -395,7 +395,7 @@ Neste passo, irá atualizar o espaço de nomes do Event Hubs com informações d
     New-AzResourceGroupDeployment -Name UpdateEventHubNamespaceWithEncryption -ResourceGroupName {MyRG} -TemplateFile ./UpdateEventHubClusterAndNamespace.json -TemplateParameterFile ./UpdateEventHubClusterAndNamespaceParams.json 
     ```
 
-## <a name="troubleshoot"></a>Resolver Problemas
+## <a name="troubleshoot"></a>Resolução de problemas
 Como uma boa prática, ative sempre os registos como mostrados na secção anterior. Ajuda a rastrear as atividades quando a encriptação BYOK está ativada. Também ajuda a descodi o problema.
 
 Seguem-se os códigos de erros comuns a procurar quando a encriptação BYOK estiver ativada.
@@ -415,7 +415,7 @@ Seguem-se os códigos de erros comuns a procurar quando a encriptação BYOK est
 > [!IMPORTANT]
 > Para ativar o Geo-DR num espaço de nome que está a usar a encriptação BYOK, o espaço de nome secundário para emparelhamento deve estar num cluster dedicado e deve ter um sistema atribuído à identidade gerida ativada nele. Para saber mais, consulte [Identidades Geridas para Recursos Azure.](../active-directory/managed-identities-azure-resources/overview.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
 - [Descrição geral dos Event Hubs](event-hubs-about.md)
 - [Visão geral do cofre de chaves](../key-vault/general/overview.md)

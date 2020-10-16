@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 93b418a2bc4e1b03370b1bb86bd7da95255db0b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb8374802e7ec2596dc5f65a2acaf739b12dc164
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552395"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995967"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-people"></a>Tutorial: Azure Ative Directory integração única (SSO) com pessoas
 
@@ -142,11 +142,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
    
 4. No menu do lado esquerdo, clique em **Definições**.
 
-    ![Configurar Sign-On Individuais](./media/people-tutorial/tutorial_people_001.png)
+    ![Screenshot que mostra o menu do lado esquerdo com "Definições" selecionadas.](./media/people-tutorial/tutorial_people_001.png)
 
 5. Clique **na Empresa**.
 
-    ![Configurar Sign-On Individuais](./media/people-tutorial/tutorial_people_002.png)
+    ![Screenshot que mostra "Empresa" selecionada a partir do menu "Definições".](./media/people-tutorial/tutorial_people_002.png)
 
 6. No **ficheiro de metadados SAML 'Sign On único'** do upload, clique em **procurar** para carregar o ficheiro de metadados descarregado.
 

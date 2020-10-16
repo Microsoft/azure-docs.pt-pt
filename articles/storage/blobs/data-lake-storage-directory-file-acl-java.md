@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.openlocfilehash: d538625785020b2d3ab39b88c3c7a0ddcf18bfc8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91249608"
 ---
 # <a name="use-java-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Use a Java para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2
@@ -393,7 +393,7 @@ static public void ListFilesInDirectory(DataLakeFileSystemClient fileSystemClien
 }
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 * [Documentação de referência da API](/java/api/overview/azure/storage-file-datalake-readme)
 * [Pacote (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake)

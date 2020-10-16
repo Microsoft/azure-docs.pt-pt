@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
 ms.openlocfilehash: 351503db52e4c62414cd5dcbae1f750032a37eb7
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91542279"
 ---
 # <a name="azure-api-management-faqs"></a>FaQs de gestão da Azure API

@@ -4,10 +4,10 @@ description: Este modelo de dados faz referência ao Modo Específico de Recurso
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.openlocfilehash: c2c5d37596be104c4b1dc7e865586a4728a27bae
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91569598"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Modelo de dados para eventos de diagnóstico de backup Azure
@@ -38,9 +38,9 @@ Esta tabela fornece informações sobre entidades de backup fundamentais, tais c
 | BackupManagementServerOSVersion   | Texto          | Versão OS do Servidor de Gestão de Cópias de Segurança                   |
 | BackupManagementServerVersion     | Texto          | Versão do Servidor de Gestão de Cópias de Segurança                      |
 | ÚltimaRecoveryPointLocation       | Texto          | Localização do último ponto de recuperação para o item de backup    |
-| ÚltimaRecoveryPointTime           | Data e Hora      | Data do último ponto de recuperação para o item de backup   |
+| ÚltimaRecoveryPointTime           | DateTime      | Data do último ponto de recuperação para o item de backup   |
 | Mais antigoRecoveryPointLocation       | Texto          | Localização do ponto de recuperação mais antigo para o item de backup    |
-| Mais antigoRecoveryPointTime           | Data e Hora      | Data do último ponto de recuperação para o item de backup   |
+| Mais antigoRecoveryPointTime           | DateTime      | Data do último ponto de recuperação para o item de backup   |
 | PolicyUniqueId                    | Texto          | ID único para identificar a política                             |
 | Nome ProtetorContainerFriendlyName    | Texto          | Nome amigável do servidor protegido                        |
 | Proteção DaLocação        | Texto          | Se o Contentor Protegido está localizado no local ou em Azure |
@@ -74,7 +74,7 @@ Esta tabela fornece detalhes sobre campos relacionados com alerta.
 | Categoria                       | Texto          | Categoria de dados de diagnóstico empurrados para registos do Monitor Azure - AddonAzureBackupAlerts |
 | Código de Alerta                      | Texto          | Código para identificar de forma única um tipo de alerta                     |
 | AlertaConsolidaçãoStatus       | Texto          | Identifique se o alerta é um alerta consolidado ou não         |
-| AlertOccurrenceDateTime        | Data e Hora      | Data e hora em que o alerta foi criado                     |
+| AlertOccurrenceDateTime        | DateTime      | Data e hora em que o alerta foi criado                     |
 | Alerta Elevado                  | Texto          | Tipo de entidade em que o alerta é levantado                        |
 | Alertaseverity                  | Texto          | Gravidade do alerta. Por exemplo, Critical                 |
 | AlertaStatus                    | Texto          | Estado do alerta. Por exemplo, Ative                     |
@@ -130,12 +130,12 @@ Esta tabela fornece detalhes sobre campos relacionados com o emprego.
 | JobFailureCode                 | Texto          | Cadeia de código de falha por causa da falha de trabalho    |
 | JobOperation                   | Texto          | Operação para que trabalho é executado por exemplo, Backup, Restaurar, Configurar Backup |
 | JobOperationSubType            | Texto          | Sub tipo de operação de trabalho. Por exemplo, 'Log', no caso do Trabalho de Backup de Registo |
-| Tempo de TrabalhoStartDate               | Data e Hora      | Data e hora quando o trabalho começou a correr                       |
+| Tempo de TrabalhoStartDate               | DateTime      | Data e hora quando o trabalho começou a correr                       |
 | Estado da Tarefa                      | Texto          | Estado do trabalho acabado, por exemplo, Concluído, Falhado   |
 | JobUniqueId                    | Texto          | ID único para identificar o trabalho                                |
 | ProtectedContainerUniqueId     | Texto          | Identificador único do servidor protegido associado ao trabalho |
 | RecuperaçãoJobDestination         | Texto          | Destino de um trabalho de recuperação, onde os dados são recuperados   |
-| RecuperaçãoJobRPDateTime          | Data e Hora      | A data, hora em que o ponto de recuperação que está a ser recuperado foi criado |
+| RecuperaçãoJobRPDateTime          | DateTime      | A data, hora em que o ponto de recuperação que está a ser recuperado foi criado |
 | RecuperaçãoJobLocation            | Texto          | O local onde o ponto de recuperação que está a ser recuperado foi armazenado |
 | RecoveryLocationType           | Texto          | Tipo de Localização de Recuperação                                |
 | SchemaVersão                  | Texto          | Versão atual do esquema, por exemplo **V2**            |

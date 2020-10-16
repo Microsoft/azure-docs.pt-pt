@@ -6,32 +6,32 @@ ms.topic: include
 ms.date: 01/22/2020
 ms.author: trbye
 ms.openlocfilehash: d97a1bf00d722414bedda4be79adc0c26d02c751
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81422140"
 ---
 ## <a name="speech-modes"></a>Modos de fala
 
 **Interativo**
 - Destinado a cenários de comando e controlo.
-- Tem um tempo de segmentação fora do valor de X.
-- No final de uma expressão reconhecida, o serviço para de processar áudio a partir desse pedido de identificação e termina a volta. A ligação não está fechada.
-- O limite máximo para reconhecimento é de 20 anos.
-- Chamada típica de `RecognizeOnceAsync`carbono para invocar é .
+- Tem um valor de tempo de segmentação de X.
+- No final de uma expressão reconhecida, o serviço deixa de processar áudio a partir desse ID de pedido e termina a curva. A ligação não está fechada.
+- O limite máximo para o reconhecimento é de 20.
+- A chamada típica de carbono para invocar `RecognizeOnceAsync` é.
 
 **Conversação**
-- Destinado a reconhecimentos de maior execução.
-- Tem um tempo de segmentação fora do valor de Y. (Y!= X)
+- Destinado a reconhecimentos mais longos.
+- Tem um valor de tempo de segmentação de Y. (Y!= X)
 - Processará várias expressões completas sem terminar a volta.
 - Acabará com a volta por muito silêncio.
-- O carbono continuará com um novo pedido de identificação e reprodução de áudio conforme necessário.
+- O carbono continuará com um novo ID de pedido e reproduzir o áudio conforme necessário.
 - O serviço desligar-se-á à força após 10 minutos de reconhecimento da fala.
-- O carbono reconectar-se-á e reproduzirá áudio não reconhecido.
-- Invocado em `StartContinuousRecognition`Carbono com .
+- O carbono reconectará e reproduzirá áudio não reconhecido.
+- Invocado em Carbono `StartContinuousRecognition` com.
 
 **Ditado**
 - Permite que os utilizadores especifiquem a pontuação falando-a.
-- Invocado em Carbono `EnableDictation` especificando `SpeechConfig` sobre o objeto independentemente da chamada da API que inicia o reconhecimento.
-- O<sup>1º</sup> agrupamento `speech.fragment` partidário devolve mensagens para resultados intermédios, as mensagens de devolução `speech.hypothesis` do<sup>3º</sup> partido.
+- Invocado em Carbono especificando `EnableDictation` no `SpeechConfig` objeto independentemente da chamada da API que inicia o reconhecimento.
+- O agrupamento de<sup>1ª</sup> festa devolve `speech.fragment` mensagens para resultados intermédios, as mensagens de retorno<sup>do 3º</sup> `speech.hypothesis` partido.

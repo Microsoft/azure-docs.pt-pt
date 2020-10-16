@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/25/2019
 tags: connectors
 ms.openlocfilehash: 5348ade1ba6eec6cbd360849411b4520cb3c2b19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74787341"
 ---
 # <a name="delay-running-the-next-action-in-azure-logic-apps"></a>Atrasar a execução da próxima ação em Azure Logic Apps
@@ -53,7 +53,7 @@ Aqui estão algumas formas de usar estas ações:
    | Propriedade | Nome JSON | Necessário | Tipo | Descrição |
    |----------|-----------|----------|------|-------------|
    | Contagem | count | Sim | Número inteiro | O número de unidades de tempo para atrasar |
-   | Unidade | unit | Sim | String | A unidade de tempo, por exemplo: `Second` , , , , `Minute` `Hour` `Day` `Week` ou`Month` |
+   | Unidade | unit | Sim | String | A unidade de tempo, por exemplo: `Second` , , , , `Minute` `Hour` `Day` `Week` ou `Month` |
    ||||||
 
 1. Adicione quaisquer outras ações que queira executar no seu fluxo de trabalho.
@@ -78,14 +78,14 @@ Aqui estão algumas formas de usar estas ações:
 
    | Propriedade | Nome JSON | Necessário | Tipo | Descrição |
    |----------|-----------|----------|------|-------------|
-   | Carimbo de data/hora | carimbo de data/hora | Sim | String | A data e hora de fim para retomar o fluxo de trabalho utilizando este formato: <p>YYYY-MM-DDThh:mm:ssZ <p>Assim, por exemplo, se quiser 18 de setembro de 2017 às 14:00, especifique "2017-09-18T14:00:00Z". <p>**Nota:** Este formato de tempo deve seguir a [especificação de hora de data ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de hora de data UTC,](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)mas sem uma [compensação UTC](https://en.wikipedia.org/wiki/UTC_offset). Sem fuso horário, deve adicionar a letra "Z" no final sem espaços. Este "Z" refere-se ao [tempo náutico](https://en.wikipedia.org/wiki/Nautical_time)equivalente. |
+   | Timestamp | carimbo de data/hora | Sim | String | A data e hora de fim para retomar o fluxo de trabalho utilizando este formato: <p>YYYY-MM-DDThh:mm:ssZ <p>Assim, por exemplo, se quiser 18 de setembro de 2017 às 14:00, especifique "2017-09-18T14:00:00Z". <p>**Nota:** Este formato de tempo deve seguir a [especificação de hora de data ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de hora de data UTC,](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)mas sem uma [compensação UTC](https://en.wikipedia.org/wiki/UTC_offset). Sem fuso horário, deve adicionar a letra "Z" no final sem espaços. Este "Z" refere-se ao [tempo náutico](https://en.wikipedia.org/wiki/Nautical_time)equivalente. |
    ||||||
 
 1. Adicione quaisquer outras ações que queira executar no seu fluxo de trabalho.
 
 1. Quando terminar, guarde a sua aplicação lógica.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar, programar e executar tarefas e fluxos de trabalho recorrentes com o gatilho de Recorrência](../connectors/connectors-native-recurrence.md)
 * [Conectores para as Logic Apps](../connectors/apis-list.md)

@@ -5,10 +5,10 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/11/2020
 ms.openlocfilehash: 3757d6c16a762a0f76f4718f117da93322af074c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91252821"
 ---
 # <a name="use-powershell-to-create-a-custom-role-in-a-lab-in-azure-devtest-labs"></a>Use o PowerShell para criar um papel personalizado num laboratório em Azure DevTest Labs

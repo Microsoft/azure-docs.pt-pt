@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: cshoe
 ms.openlocfilehash: 79aebf7ed80fea370ff7a5d5cc40911da4144414
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91537706"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>Executar manualmente uma função não acionada por HTTP
@@ -79,7 +79,7 @@ Abra o Carteiro e siga estes passos:
 
     :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-logs.png" alt-text="Localize a chave principal para copiar." border="true":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Estratégias para testar o seu código nas Funções do Azure](./functions-test-a-function.md)
 - [Grelha de evento de função Azure desencadeia depuração local](./functions-debug-event-grid-trigger-local.md)

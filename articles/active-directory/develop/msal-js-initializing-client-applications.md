@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 5af5d3a88262792f4b32e2ce3d8143ac680f083a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87027041"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Inicialize as aplicações do cliente utilizando MSAL.js
@@ -107,9 +107,9 @@ Invoque [o handleRedirectPromise][msal-js-handleredirectpromise] quando a sua ap
 
 Há três resultados possíveis da promessa:
 
-- `.then`é invocado e `tokenResponse` é verdade: A aplicação está a regressar de uma operação de redirecionamento que foi bem sucedida.
-- `.then`é invocado e `tokenResponse` é falso `null` (): O pedido não regressa de uma operação de redirecionamento.
-- `.catch`é invocado: A aplicação está a regressar de uma operação de redirecionamento e houve um erro.
+- `.then` é invocado e `tokenResponse` é verdade: A aplicação está a regressar de uma operação de redirecionamento que foi bem sucedida.
+- `.then` é invocado e `tokenResponse` é falso `null` (): O pedido não regressa de uma operação de redirecionamento.
+- `.catch` é invocado: A aplicação está a regressar de uma operação de redirecionamento e houve um erro.
 
 ## <a name="initialize-msaljs-1x-apps"></a>Inicialize MSAL.js aplicações 1.x
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: amgowda
 ms.openlocfilehash: b4b6c04a1e35031387a006b6350ebf6cbe502fee
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90997903"
 ---
 # <a name="frequently-asked-questions-about-confidential-computing-nodes-on-azure-kubernetes-service-aks"></a>Perguntas frequentes sobre nós de computação confidencial no Serviço Azure Kubernetes (AKS)
@@ -39,7 +39,7 @@ Sim. O suporte Azure é fornecido durante a pré-visualização. Não existe um 
 
 ## <a name="can-i-inject-post-install-scriptscustomize-drivers-to-the-nodes-provisioned-by-aks"></a>Posso injetar scripts/personalizar os scripts para os Nós a provisionados pela AKS? 
 
-Não. [Os nós de computação confidencial baseados no motor AKS suportam](https://github.com/Azure/aks-engine/blob/master/docs/topics/sgx.md) nós de computação confidenciais que permitem instalações personalizadas.
+N.º [Os nós de computação confidencial baseados no motor AKS suportam](https://github.com/Azure/aks-engine/blob/master/docs/topics/sgx.md) nós de computação confidenciais que permitem instalações personalizadas.
 
 ## <a name="should-i-be-using-a-docker-base-image-to-get-started-on-enclave-applications"></a>Devo usar uma imagem base do Docker para começar com aplicações de enclave? 
 
@@ -112,7 +112,7 @@ Sim. O Azure CLI também pode ser usado como uma alternativa, como [documentado 
 
 ## <a name="can-we-change-the-current-intel-sgx-dcap-diver-version-on-aks"></a>Podemos alterar a versão atual do mergulhador Intel SGX DCAP na AKS? 
 
-Não. Para realizar quaisquer instalações personalizadas, recomendamos que escolha as implementações [de nós de trabalho de computação confidencial aks-engine.](https://github.com/Azure/aks-engine/blob/master/docs/topics/sgx.md) 
+N.º Para realizar quaisquer instalações personalizadas, recomendamos que escolha as implementações [de nós de trabalho de computação confidencial aks-engine.](https://github.com/Azure/aks-engine/blob/master/docs/topics/sgx.md) 
 
 ## <a name="what-version-of-kubernetes-do-you-support-and-recommend"></a>Que versão de Kubernetes apoia e recomenda? 
 

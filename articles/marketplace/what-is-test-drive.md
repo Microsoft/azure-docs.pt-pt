@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 06/19/2020
 ms.openlocfilehash: bd3b77f80a414dd3db1d5106929fa0e215e34c1f
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88121872"
 ---
 # <a name="what-is-a-test-drive"></a>O que é uma versão de teste?

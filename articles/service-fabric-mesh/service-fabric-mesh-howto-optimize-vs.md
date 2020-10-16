@@ -6,10 +6,10 @@ ms.author: gwallace
 ms.date: 11/29/2018
 ms.topic: conceptual
 ms.openlocfilehash: aa7a959128d3bcdfcce67d3abeac245975339a9f
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91840307"
 ---
 # <a name="optimize-visual-studio-performance-for-service-fabric-mesh-projects"></a>Otimizar o desempenho do Estúdio Visual para projetos de malha de tecido de serviço

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/18/2020
 ms.author: allensu
 ms.openlocfilehash: 20e20968b6367e0a8c0131d6e7e8d15e56c06d63
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91363227"
 ---
 # <a name="how-to-protect-private-dns-zones-and-records"></a>Como proteger zonas e registos privados de DNS

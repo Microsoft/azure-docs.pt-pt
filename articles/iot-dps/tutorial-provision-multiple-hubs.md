@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: 6cca34774038156cfb01e872e751338c1c96efaa
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91316005"
 ---
 # <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>Tutorial: Dispositivos de provisão através de hubs IoT equilibrados em carga
@@ -55,7 +55,7 @@ Siga estes passos para definir a política de alocação:
 
 1. Para definir a política de alocação, na página do Serviço Aprovisionamento de Dispositivos, clique em **Gerir política de alocação**.
 2. Defina a política de alocação para **Distribuição ponderada uniformemente**.
-3. Clique em **Save** (Guardar).
+3. Clique em **Guardar**.
 
 ## <a name="link-the-new-iot-hub-to-the-device-provisioning-service"></a>Ligar o novo hub IoT ao Serviço Aprovisionamento de Dispositivos
 
@@ -65,7 +65,7 @@ Ligar o Serviço Aprovisionamento de Dispositivos e o Hub IoT para que o Serviç
 2. Na página do Serviço Aprovisionamento de Dispositivos, clique em **Hubs IoT ligados**.
 3. Clique em **Adicionar**.
 4. Na página **Adicionar ligação ao hub IoT**, utilize os botões de opção para especificar se o hub IoT associado se encontra na subscrição atual ou numa subscrição diferente. Em seguida, escolha o nome do hub IoT na caixa **hub IoT**.
-5. Clique em **Save** (Guardar).
+5. Clique em **Guardar**.
 
 Neste tutorial, ficou a saber como:
 

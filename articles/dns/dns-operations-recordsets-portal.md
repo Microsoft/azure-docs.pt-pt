@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 10/6/2018
 ms.author: rohink
 ms.openlocfilehash: 111d94db1cbec658daabfb1a4c38c8160d6f50b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84696836"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Gerir registos de DNS e recordes utilizando o portal Azure
@@ -107,7 +107,7 @@ Note que isto se aplica apenas ao recorde NS estabelecido no ápice da zona. Out
 
 Não é possível eliminar os conjuntos de registos SOA e NS no ápice da zona (nome = " \@ ") que são criados automaticamente quando a zona é criada. São apagados automaticamente quando elimina a zona.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre o Azure DNS, consulte a visão geral do [Azure DNS](dns-overview.md).
 * Para obter mais informações sobre a automatização de DNS, consulte [criar zonas DNS e gravar conjuntos utilizando o .NET SDK](dns-sdk.md).

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 06/03/2020
 ms.custom: seodec18
 ms.openlocfilehash: 4c13df8b537d701400a22cd2871e7f8362f02455
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84417281"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quotas e limites do serviço Batch
@@ -131,7 +131,7 @@ Os lotes na Configuração de Máquina Virtual implantados numa rede virtual Azu
 
 Estes recursos são atribuídos na subscrição que contém a rede virtual fornecida ao criar o pool batch. Estes recursos estão limitados pelas [quotas de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md) da subscrição. Se planeia grandes implantações de piscinas numa rede virtual, verifique as quotas da subscrição para estes recursos. Se necessário, solicite um aumento no portal Azure selecionando **o suporte Help +**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar uma conta Azure Batch utilizando o portal Azure](batch-account-create-portal.md).
 * Conheça o fluxo de trabalho do [serviço Batch e os recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.

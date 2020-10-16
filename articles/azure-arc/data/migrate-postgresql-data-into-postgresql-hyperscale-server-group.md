@@ -11,10 +11,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 521fd61f18d6673e21c23dbca4cfc12d2ee4bf0b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939644"
 ---
 # <a name="migrate-postgresql-database-to-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Migrar a base de dados PostgreSQL para O Arco Azure ativado grupo de servidores de hiperescala pós-SQL
@@ -53,20 +53,20 @@ Considere a seguinte configuração:
 
 - **Destino:**  
     Um servidor Postgres em execução em um ambiente Azure Arc e nomeado postgres01. É da versão 12. Não tem nenhuma base de dados, exceto a base de dados padrão dos Postgres.  
-    :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination.jpg" alt-text="Destino migratório":::
+    :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination.jpg" alt-text="de origem migrate":::
 
 
 ### <a name="take-a-backup-of-the-source-database-on-premises"></a>Faça uma cópia de segurança da base de dados de origem nas instalações
 
-:::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup.jpg" alt-text="Migrar-source-backup":::
+:::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup.jpg" alt-text="de origem migrate":::
 
 Configure-o:
 1. Dê-lhe um nome de ficheiro: **MySourceBackup**
 2. Desafie o formato para **Custom** 
- :::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup2.jpg" alt-text="Migração Personalizada-fonte-configuração de backup":::
+ :::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup2.jpg" alt-text="de origem migrate":::
 
 A cópia de segurança completa com sucesso:  
-:::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup3.jpg" alt-text="Migração-fonte-backup-completa":::
+:::image type="content" source="media/postgres-hyperscale/Migrate-PG-Source-Backup3.jpg" alt-text="de origem migrate":::
 
 ### <a name="create-an-empty-database-on-the-destination-system-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Crie uma base de dados vazia no sistema de destino no seu grupo de servidores de hiperescala pós-escala do Arco Azure
 
@@ -98,17 +98,17 @@ Vamos nomear a base de dados de destino **RESTORED_MyOnPremPostgresDB**
 :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbcreate.jpg" alt-text="Migração-destino-db-create"lightbox="media/postgres-hyperscale/migrate-pg-destination-dbcreate.jpg":::
 
 ### <a name="restore-the-database-in-your-arc-setup"></a>Restaurar a base de dados na sua configuração Arc
-:::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore.jpg" alt-text="Migratre-db-restore":::
+:::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore.jpg" alt-text="de origem migrate":::
 
 Configure a restauração:
 1. Aponte para o ficheiro que contém a cópia de segurança para restaurar: **MySourceBackup**
 2. Mantenha o formato definido para **Personalizado ou alcatrão** 
-    :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore2.jpg" alt-text="Migrar-db-restaurar-configure":::
+    :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore2.jpg" alt-text="de origem migrate":::
 
 3. Clique **em Restaurar**.  
 
    A restauração é um sucesso.  
-   :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore3.jpg" alt-text="Migrar-db-restauro-concluído":::
+   :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestore3.jpg" alt-text="de origem migrate":::
 
 ### <a name="verify-that-the-database-was-successfully-restored-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Verifique se a base de dados foi restaurada com sucesso no seu grupo de servidores de hiperescala PostgreSQL ativado
 
@@ -118,20 +118,7 @@ Utilizar qualquer um dos seguintes métodos:
 
 Expanda a instância postgres hospedada na sua configuração Azure Arc. Verá a tabela na base de dados que restaurou e quando selecionar os dados mostra a mesma linha que tem no local:
 
-   :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestoreverif.jpg" alt-text="Migração-db-restauração-verificação":::
-
-**De dentro da `psql` sua configuração Azure Arc:**  
-
-Dentro da sua configuração Arc pode utilizar `psql` para ligar à sua instância Postgres, definir o contexto da base de dados e consultar os `RESTORED_MyOnPremPostgresDB` dados:
-
-1. Enuda os pontos finais para ajudar na sua cadeia de `psql` ligação:
-
-   ```console
-   azdata arc postgres endpoint list -n postgres01
-   [
-     {
-       "Description": "PostgreSQL Instance",
-       "Endpoint": "postgresql://postgres:<replace with password>@12.345.123.456:1234"
+   :::image type="content" source="media/postgres-hyperscale/migrate-pg-destination-dbrestoreverif.jpg" alt-text="de origem migrate"
      },
      {
        "Description": "Log Search Dashboard",
@@ -194,4 +181,4 @@ Dentro da sua configuração Arc pode utilizar `psql` para ligar à sua instânc
 
 > *Nestes documentos, ignore as secções **Iniciar sessão no portal Azure**e **Criar uma Base de Dados Azure para Postgres - Hiperescala (Citus)**. Implemente os passos restantes na sua implantação do Arco Azure. Estas secções são específicas da Base de Dados Azure para a Hiperescala Pós-SQL (Citus) oferecida como um serviço PaaS na nuvem Azure, mas as outras partes dos documentos são diretamente aplicáveis à sua Hiperescala Pós-Altura pós-SQL ativada pelo Arco Azure.
 
-- [Dimensione a sua Base de Dados de Azure para o grupo de servidores de hiperescala PostgreSQL](scale-out-postgresql-hyperscale-server-group.md)
+- [Aumentar horizontalmente o grupo de servidores de Hyperscale da Base de Dados do Azure para PostgreSQL](scale-out-postgresql-hyperscale-server-group.md)

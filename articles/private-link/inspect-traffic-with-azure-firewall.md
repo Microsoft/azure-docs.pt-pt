@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
 ms.openlocfilehash: 734d52dadbb849925303febb0d3d1195bbddb0df
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89236760"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Utilize a Firewall Azure para inspecionar o tráfego destinado a um ponto final privado
@@ -55,7 +55,7 @@ Para obter mais informações sobre os encargos relacionados com ligações com 
 
 ## <a name="scenario-2-hub-and-spoke-architecture---shared-virtual-network-for-private-endpoints-and-virtual-machines"></a>Cenário 2: Hub e arquitetura falada - Rede virtual partilhada para pontos finais privados e máquinas virtuais
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/shared-spoke.png" alt-text="Pontos finais privados e máquinas virtuais na mesma Rede Virtual" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/shared-spoke.png" alt-text="Rede Virtual Dedicada para Pontos Finais Privados" border="true":::
 
 Este cenário é implementado quando:
 
@@ -78,7 +78,7 @@ Para obter mais informações sobre os encargos relacionados com ligações com 
 
 ## <a name="scenario-3-single-virtual-network"></a>Cenário 3: Rede virtual única
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="Rede virtual única" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="Rede Virtual Dedicada para Pontos Finais Privados" border="true":::
 
 Há algumas limitações à implementação: uma migração para um centro e arquitetura falada não é possível. Aplicam-se as mesmas considerações que no cenário 2. Neste cenário, os encargos de observação da rede virtual não se aplicam.
 
@@ -87,7 +87,7 @@ Há algumas limitações à implementação: uma migração para um centro e arq
 
 ## <a name="scenario-4-on-premises-traffic-to-private-endpoints"></a>Cenário 4: Tráfego no local para pontos finais privados
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/on-premises.png" alt-text="Tráfego no local para pontos finais privados" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/on-premises.png" alt-text="Rede Virtual Dedicada para Pontos Finais Privados" border="true":::
 
 Esta arquitetura pode ser implementada se tiver conectividade configurada com a sua rede no local usando: 
 
@@ -174,22 +174,22 @@ Substitua os seguintes parâmetros nos passos com as informações abaixo:
     | Grupo de recursos | Selecione **myResourceGroup**. Criou este grupo de recursos na secção anterior.  |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira **o myVM**. |
-    | Região | Selecione **(EUA) South Central US**. |
+    | Region | Selecione **(EUA) South Central US**. |
     | Opções de disponibilidade | Deixar o incumprimento **Não é necessário um despedimento de infraestrutura**. |
     | Imagem | Selecione **Ubuntu Server 18.04 LTS - Gen1**. |
     | Tamanho | Selecione **Standard_B2s**. |
     | **Conta de administrador** |  |
     | Tipo de autenticação | Selecione **palavra-passe**. |
     | Nome de utilizador | Insira um nome de utilizador à sua escolha. |
-    | Palavra-passe | Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/linux/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | Palavra-passe | Introduza uma palavra-passe à sua escolha. A palavra-passe deve ter pelo menos 12 caracteres de comprimento e satisfazer os [requisitos de complexidade definidos](../virtual-machines/linux/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Confirmar Palavra-passe | Reentre na senha. |
-    | **Regras da porta de entrada** |  |
+    | **Regras portuárias de entrada** |  |
     | Portas de entrada públicas | Selecione **Nenhuma**. |
     |||
 
 3. Selecione **Seguinte: Discos**.
 
-4. Em **Criar uma máquina virtual - Discos,** deixar as predefinições e selecionar **Seguinte: Networking**.
+4. Em **Criar uma máquina virtual – Discos**, mantenha as predefinições e selecione **Seguinte: Redes**.
 
 5. Na **Criação de uma máquina virtual - Networking,** selecione estas informações:
 
@@ -199,16 +199,16 @@ Substitua os seguintes parâmetros nos passos com as informações abaixo:
     | Sub-rede | Selecione **VMSubnet (10.1.0.0/24)**.|
     | IP público | Deixe o **padrão (novo) myVm-ip**. |
     | Portas de entrada públicas | Selecione **Deixe as portas selecionadas.** |
-    | Selecione portas de entrada | Selecione **SSH**.|
+    | Selecione as portas de entrada | Selecione **SSH**.|
     ||
 
-6. Selecione **Rever + criar**. É levado para a página **'Rever +' onde** o Azure valida a sua configuração.
+6. Selecione **Rever + criar**. Acedeu à página **Rever + criar**, onde o Azure valida a sua configuração.
 
-7. Quando vir a mensagem **de validação passada,** selecione **Criar**.
+7. Quando vir a mensagem **A validação passou**, selecione **Criar**.
 
 ## <a name="deploy-the-firewall"></a>Implementar a Firewall
 
-1. No menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**.
+1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**.
 
 2. Digite **firewall** na caixa de pesquisa e prima **Enter**.
 
@@ -223,16 +223,16 @@ Substitua os seguintes parâmetros nos passos com as informações abaixo:
     | Grupo de recursos | Selecione **myResourceGroup**.  |
     | **Detalhes da instância** |  |
     | Name | Insira **myAzureFirewall**. |
-    | Região | Selecione **South Central US**. |
+    | Region | Selecione **South Central US**. |
     | Zona de disponibilidade | Deixe o padrão **Nenhum**. |
     | Escolher uma rede virtual    |    Selecione **Utilização existente**.    |
     | Rede virtual    |    Selecione **myAzFwVNet**.    |
     | Endereço IP público    |    **Selecione Adicionar novo** e em nome insira **myFirewall-ip**.    |
     | Túnel forçado    | Deixe o **desativado predefinido**.    |
     |||
-5. Selecione **Rever + criar**. É levado para a página **'Rever +' onde** o Azure valida a sua configuração.
+5. Selecione **Rever + criar**. Acedeu à página **Rever + criar**, onde o Azure valida a sua configuração.
 
-6. Quando vir a mensagem **de validação passada,** selecione **Criar**.
+6. Quando vir a mensagem **A validação passou**, selecione **Criar**.
 
 ## <a name="enable-firewall-logs"></a>Ativar registos de firewall
 
@@ -274,19 +274,19 @@ Nesta secção, cria-se uma Base de Dados SQL privada.
     | Grupo de recursos | Selecione **myResourceGroup**. Criou este grupo de recursos na secção anterior.|
     | **Detalhes da base de dados** |  |
     | Nome da base de dados  | Insira **a minha base de dados.**  |
-    | Server | Selecione **Criar novo** e introduza as informações abaixo.    |
+    | Servidor | Selecione **Criar novo** e introduza as informações abaixo.    |
     | Nome do servidor | **Insira o mydbserver**. Se este nome for tomado, insira um nome único.   |
     | Início de sessão de administrador do servidor | Insira o nome da sua escolha. |
     | Palavra-passe    |    Introduza uma palavra-passe à sua escolha.    |
-    | Confirmar Palavra-passe | Senha de reentrada    |
+    | Confirmar Palavra-passe | Reintroduza a palavra-passe    |
     | Localização    | Selecione **(EUA) South Central US**.    |
     | Quer usar a piscina elástica SQL    | Deixe o **nº**padrão . |
     | Computação e armazenamento | Deixe o padrão **De propósito geral Gen5, 2 vCores, 32 GB de armazenamento**. |
     |||
 
-3. Selecione **Rever + criar**. É levado para a página **'Rever +' onde** o Azure valida a sua configuração.
+3. Selecione **Rever + criar**. Acedeu à página **Rever + criar**, onde o Azure valida a sua configuração.
 
-4. Quando vir a mensagem **de validação passada,** selecione **Criar**.
+4. Quando vir a mensagem **A validação passou**, selecione **Criar**.
 
 ## <a name="create-private-endpoint"></a>Criar ponto final privado
 
@@ -309,7 +309,7 @@ Nesta secção, cria-se um ponto final privado para a base de dados Azure SQL na
     | Grupo de recursos | Selecione **myResourceGroup**. |
     | **Detalhes da instância** | |
     | Name | Insira **o SQLPrivateEndpoint**. |
-    | Região | Selecione **(EUA) South Central US.** |
+    | Region | Selecione **(EUA) South Central US.** |
 
 6. Selecione o **separador Recursos** ou selecione **Seguinte: Recurso** na parte inferior da página.
 
@@ -321,7 +321,7 @@ Nesta secção, cria-se um ponto final privado para a base de dados Azure SQL na
     | Subscrição | Selecione a sua subscrição. |
     | Tipo de recurso | Selecione **Microsoft.Sql/servidores**. |
     | Recurso | Selecione **mydbserver** ou o nome do servidor que criou no passo anterior.
-    | Sub-recurso-alvo | Selecione **sqlServer**. |
+    | Recurso secundário de destino | Selecione **sqlServer**. |
 
 8. Selecione o **separador Configuração** ou selecione **Seguinte: Configuração** na parte inferior da página.
 
@@ -333,7 +333,7 @@ Nesta secção, cria-se um ponto final privado para a base de dados Azure SQL na
     | Rede virtual | Selecione **myPEVnet**. |
     | Sub-rede | Selecione **PrivateEndpointSubnet**. |
     | **Integração privada de DNS** | |
-    | Integrar-se com a zona privada de DNS | Selecione **Sim**. |
+    | Integrar com zona DNS privada | Selecione **Sim**. |
     | Subscrição | Selecione a sua subscrição. |
     | Zonas DNS Privadas | Deixe o **privatelink.database.windows.net**padrão . |
 
@@ -374,7 +374,7 @@ Nesta secção, vamos ligar as redes virtuais **myVMVNet** e **myPEVNet** ao **m
     | Permitir tráfego reencaminhado da rede virtual remota para o myAzFwVNet    | Selecione **Ativado**. |
     | Permitir o tráfego reencaminhado do myAzFwVNet para a rede virtual remota | Selecione **Ativado**. |
     | **Configurar as definições de trânsito de gateway** | |
-    | Permitir o trânsito de gateway | Deixar sem controlo |
+    | Permitir o trânsito de gateway | Deixe esta opção desmarcada |
     |||
 
 4. Selecione **OK**.
@@ -400,7 +400,7 @@ Nesta secção, vamos ligar as redes virtuais **myVMVNet** e **myPEVNet** ao **m
     | Permitir tráfego reencaminhado da rede virtual remota para o myAzFwVNet    | Selecione **Ativado**. |
     | Permitir o tráfego reencaminhado do myAzFwVNet para a rede virtual remota | Selecione **Ativado**. |
     | **Configurar as definições de trânsito de gateway** | |
-    | Permitir o trânsito de gateway | Deixar sem controlo |
+    | Permitir o trânsito de gateway | Deixe esta opção desmarcada |
 
 7. Selecione **OK**.
 
@@ -461,12 +461,12 @@ Esta regra permite a comunicação através da firewall que criamos nos passos a
     | Ação | Insira **Permitir**. |
     | **Regras** |  |
     | **Etiquetas FQDN** | |
-    | Name  | Deixe em branco.  |
+    | Nome  | Deixe em branco.  |
     | Tipo de origem | Deixe o **endereço IP**predefinido .    |
     | Origem | Deixe em branco. |
     | Etiquetas FQDN | Deixe o **padrão 0 selecionado**. |
     | **FQDNs alvo** | |
-    | Name | Insira **o SQLPrivateEndpoint**.    |
+    | Nome | Insira **o SQLPrivateEndpoint**.    |
     | Tipo de origem | Deixe o **endereço IP**predefinido . |
     | Origem | Insira **10.1.0.0/16**. |
     | Protocolo: Porto | Insira **mssql:1433**. |
@@ -483,7 +483,7 @@ Nesta secção, criaremos uma tabela de rotas com uma rota personalizada.
 
 A rota envia o tráfego da sub-rede **myVM** para o espaço de endereço da rede virtual **myPEVNet,** através do Azure Firewall.
 
-1. No menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**.
+1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**.
 
 2. Digite **a tabela de rota** na caixa de pesquisa e prima **Enter**.
 
@@ -497,13 +497,13 @@ A rota envia o tráfego da sub-rede **myVM** para o espaço de endereço da rede
     | Subscrição | Selecione a sua subscrição. |
     | Grupo de recursos | Selecione **myResourceGroup**.  |
     | **Detalhes da instância** |  |
-    | Região | Selecione **South Central US**. |
-    | Name | Insira **VMsubnet-to-AzureFirewall**. |
+    | Region | Selecione **South Central US**. |
+    | Nome | Insira **VMsubnet-to-AzureFirewall**. |
     | Rotas de gateway de propagação | Selecione **Não**. |
 
-5. Selecione **Rever + criar**. É levado para a página **'Rever +' onde** o Azure valida a sua configuração.
+5. Selecione **Rever + criar**. Acedeu à página **Rever + criar**, onde o Azure valida a sua configuração.
 
-6. Quando vir a mensagem **de validação passada,** selecione **Criar**.
+6. Quando vir a mensagem **A validação passou**, selecione **Criar**.
 
 7. Assim que a implementação estiver concluída, **selecione Vá para o recurso**.
 
@@ -561,7 +561,7 @@ Ligue-se ao **myVm VM** da internet da seguinte forma:
 
 Nesta secção, você ligará em privado à Base de Dados SQL usando o ponto final privado.
 
-1. Inserir `nslookup mydbserver.database.windows.net`
+1. Introduza `nslookup mydbserver.database.windows.net`
     
     Receberá uma mensagem semelhante a abaixo:
 

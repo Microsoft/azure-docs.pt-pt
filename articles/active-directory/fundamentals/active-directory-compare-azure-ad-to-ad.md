@@ -1,5 +1,5 @@
 ---
-title: Compare o Diretório Ativo com o Azure Ative Directory
+title: Comparação entre o Active Directory e o Azure Active Directory
 description: Este documento compara os Serviços de Domínio do Diretório Ativo (ADDS) ao Azure Ative Directory (AD). Ele descreve conceitos-chave em ambas as soluções de identidade e explica como é diferente ou similar.
 services: active-directory
 author: martincoetzer
@@ -12,13 +12,13 @@ ms.subservice: fundamentals
 ms.date: 02/26/2020
 ms.author: martinco
 ms.openlocfilehash: e71ed9655c7b195fea8a2eeeaa76d8a28717637f
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89318561"
 ---
-# <a name="compare-active-directory-to-azure-active-directory"></a>Compare o Diretório Ativo com o Azure Ative Directory
+# <a name="compare-active-directory-to-azure-active-directory"></a>Comparação entre o Active Directory e o Azure Active Directory
 
 O Azure Ative Directory é a próxima evolução das soluções de gestão de identidade e acesso para a nuvem. A Microsoft introduziu os Ative Directory Domain Services no Windows 2000 para dar às organizações a capacidade de gerir vários componentes e sistemas de infraestrutura no local utilizando uma única identidade por utilizador.
 
@@ -36,17 +36,17 @@ A maioria dos administradores de TI estão familiarizados com os conceitos de Se
 | Gestão credencial| As credenciais no Ative Directory baseiam-se em palavras-passe, autenticação de certificados e autenticação de smartcard. As palavras-passe são geridas usando políticas de palavra-passe baseadas no comprimento da palavra-passe, na expiração e na complexidade.|O Azure AD utiliza [uma proteção](../authentication/concept-password-ban-bad.md) inteligente de senha para nuvem e no local. A proteção inclui bloqueio inteligente e bloquear frases de senha comuns e personalizadas e substituições. </br>O Azure AD aumenta significativamente a segurança [através da autenticação de vários fatores](../authentication/concept-mfa-howitworks.md) e tecnologias [sem palavras-passe,](../authentication/concept-authentication-passwordless.md) como o FIDO2. </br>O Azure AD reduz os custos de suporte fornecendo aos utilizadores um sistema [de reset de senha de autosserviço.](../authentication/concept-sspr-howitworks.md) |
 | **Aplicações**|||
 | Aplicativos de infraestrutura|O Ative Directy forma a base para muitos componentes de infraestruturas no local, por exemplo, DNS, DHCP, IPSec, WiFi, NPS e acesso VPN|Num novo mundo em nuvem, o Azure AD, é o novo plano de controlo para aceder a apps versus confiar em controlos de rede. Quando os utilizadores autenticarem,[o acesso condicional (CA)](../conditional-access/overview.md), controlará quais os utilizadores, terão acesso às quais as aplicações em condições exigidas.|
-| Aplicativos tradicionais e legados| A maioria das aplicações no local usam LDAP, Autenticação Integrada no Windows (NTLM e Kerberos) ou autenticação baseada em cabeçalho para controlar o acesso aos utilizadores.| O Azure AD pode fornecer acesso a este tipo de aplicações no local usando agentes de procuração de [aplicações AD AZure](../manage-apps/application-proxy.md) que executam no local. Utilizando este método, o Azure AD pode autenticar utilizadores do Ative Directory no local usando Kerberos enquanto migra ou precisa de coexistir com aplicações antigas. |
+| Aplicativos tradicionais e legados| A maioria das aplicações no local usam LDAP, Windows-Integrated Authentication (NTLM e Kerberos), ou autenticação baseada em cabeçalho para controlar o acesso aos utilizadores.| O Azure AD pode fornecer acesso a este tipo de aplicações no local usando agentes de procuração de [aplicações AD AZure](../manage-apps/application-proxy.md) que executam no local. Utilizando este método, o Azure AD pode autenticar utilizadores do Ative Directory no local usando Kerberos enquanto migra ou precisa de coexistir com aplicações antigas. |
 | Aplicações SaaS|O Ative Directory não suporta aplicações SaaS de forma nativa e requer sistema de federação, como AD FS.|As aplicações SaaS que suportam a autenticação OAuth2, SAML e WS \* podem ser integradas para utilizar a Azure AD para autenticação. |
 | Aplicativos de linha de negócios (LOB) com autenticação moderna|As organizações podem usar FS AD com Ative Directory para apoiar aplicações LOB que requerem autenticação moderna.| As aplicações LOB que requerem autenticação moderna podem ser configuradas para usar a Azure AD para autenticação. |
 | Serviços mid-tier/Daemon|Os serviços que funcionam em ambientes no local normalmente utilizam contas de serviçoS AD ou contas de serviço geridas (gMSA) para executar. Estas aplicações herdarão então as permissões da conta de serviço.| A Azure AD fornece [identidades geridas](../managed-identities-azure-resources/index.yml) para executar outras cargas de trabalho na nuvem. O ciclo de vida destas identidades é gerido pela Azure AD e está ligado ao fornecedor de recursos não pode ser usado para outros fins para obter acesso backdoor.|
 | **Dispositivos**|||
-| Móvel|O Ative Directory não suporta dispositivos móveis sem soluções de terceiros.| A solução de gestão de dispositivos móveis da Microsoft, a Microsoft Intune, está integrada com o Azure AD. O Microsoft Intune fornece informações do estado do dispositivo ao sistema de identidade para avaliar durante a autenticação. |
+| Telemóvel|O Ative Directory não suporta dispositivos móveis sem soluções de terceiros.| A solução de gestão de dispositivos móveis da Microsoft, a Microsoft Intune, está integrada com o Azure AD. O Microsoft Intune fornece informações do estado do dispositivo ao sistema de identidade para avaliar durante a autenticação. |
 | Computadores de trabalho do Windows|O Ative Directory fornece a capacidade de se juntar a dispositivos Windows para geri-los usando a Política de Grupo, o Gestor de Configuração do Centro de Sistema ou outras soluções de terceiros.|Os dispositivos Windows podem ser [associados ao Azure AD](../devices/index.yml). O acesso condicional pode verificar se um dispositivo é Azure AD unido como parte do processo de autenticação. Os dispositivos Windows também podem ser geridos com [o Microsoft Intune](/intune/what-is-intune). Neste caso, o acesso condicional irá considerar se um dispositivo está em conformidade (por exemplo, patches de segurança atualizados e assinaturas de vírus) antes de permitir o acesso às apps.|
 | Servidores Windows| O Ative Directory oferece fortes capacidades de gestão para servidores Windows no local utilizando a Política de Grupo ou outras soluções de gestão.| As máquinas virtuais dos servidores windows em Azure podem ser geridas com [serviços de domínio AD AD Azure](../../active-directory-domain-services/index.yml). [As identidades geridas](../managed-identities-azure-resources/index.yml) podem ser utilizadas quando os VMs precisam de acesso ao diretório ou recursos do sistema de identidade.|
 | Cargas de trabalho Linux/Unix|O Ative Directory não suporta de forma nativa o não-Windows sem soluções de terceiros, embora as máquinas Linux possam ser configuradas para autenticar com o Ative Directory como um reino Kerberos.|Os VMs Linux/Unix podem usar [identidades geridas](../managed-identities-azure-resources/index.yml) para aceder ao sistema de identidade ou recursos. Algumas organizações migram estas cargas de trabalho para tecnologias de contentores em nuvem, que também podem usar identidades geridas.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [O que é o Azure Active Directory?](./active-directory-whatis.md)
 - [Compare os serviços de domínio do diretório ativo auto-geridos, o Azure Ative Directory e os serviços de domínio do diretório ativo geridos a Azure Ative Directory](../../active-directory-domain-services/compare-identity-solutions.md)

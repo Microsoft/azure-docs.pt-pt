@@ -7,10 +7,10 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 05/30/2018
 ms.openlocfilehash: 9006a22c588a7f1456585d40da0b4345145c6d05
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132488"
 ---
 # <a name="configure-user-access-to-job-information-to-job-information-in-azure-data-lake-analytics"></a>Configure o acesso do utilizador à informação de trabalho em Azure Data Lake Analytics 
@@ -19,7 +19,7 @@ No Azure Data Lake Analytics, pode utilizar várias contas de utilizadores ou di
 
 Para que esses mesmos utilizadores possam ver as informações detalhadas do trabalho, os utilizadores precisam de ser capazes de ler o conteúdo das pastas de trabalho. As pastas de trabalho estão localizadas no `/system/` diretório. 
 
-Se as permissões necessárias não forem configuradas, o utilizador poderá ver um erro:`Graph data not available - You don't have permissions to access the graph data.` 
+Se as permissões necessárias não forem configuradas, o utilizador poderá ver um erro: `Graph data not available - You don't have permissions to access the graph data.` 
 
 ## <a name="configure-user-access-to-job-information"></a>Configure o acesso dos utilizadores à informação do trabalho
 

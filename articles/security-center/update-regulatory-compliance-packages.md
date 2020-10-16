@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 306a4773563b829ecad09a021f6763192e8246f5
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: adac0d460753f24d06bffc72f9b2b38c2a3306d7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91445857"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078107"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personalizar o conjunto de padrões no seu painel de conformidade regulamentar
 
@@ -85,7 +85,32 @@ Os seguintes passos explicam como adicionar um pacote para monitorizar o seu cum
 
     [![Painel de conformidade regulamentar mostrando o antigo e novo Azure CIS](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-benchmark-small.png)](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-benchmark.png#lightbox)
 
-## <a name="next-steps"></a>Próximos passos
+
+## <a name="removing-a-standard-from-your-dashboard"></a>Remover um padrão do seu painel
+
+Se algum dos padrões regulamentares fornecidos não for relevante para a sua organização, é um processo simples para simplesmente removê-los da UI. Isto permite-lhe personalizar ainda mais o painel de conformidade regulamentar, e focar-se apenas nos padrões que lhe são aplicáveis.
+
+Para remover uma norma:
+
+1. A partir do menu do Security Center, selecione **a política de segurança.**
+
+1. Selecione a subscrição relevante a partir da qual pretende remover uma norma.
+
+    > [!NOTE]
+    > Pode remover um padrão de uma subscrição, mas não de um grupo de gestão. 
+
+    A página da política de segurança abre. Para a subscrição selecionada, mostra a política de incumprimento, a indústria e os padrões regulamentares, e quaisquer iniciativas personalizadas que tenha criado.
+
+    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard.png" alt-text="Remoção de uma norma regulamentar do seu painel de conformidade regulamentar no Azure Security Center":::
+
+1. Para a norma que pretende remover, selecione **Desativar**. Aparece uma janela de confirmação.
+
+    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard-confirm.png" alt-text="Remoção de uma norma regulamentar do seu painel de conformidade regulamentar no Azure Security Center":::
+
+1. Selecione **Sim**. O padrão será removido. 
+
+
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a **adicionar pacotes de conformidade** para monitorizar o cumprimento de normas adicionais. 
 

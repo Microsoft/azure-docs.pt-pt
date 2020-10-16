@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: amverma
 ms.openlocfilehash: ccc9df8078bb7fec8be7d72b0ae18ed416bb10ca
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87097834"
 ---
 # <a name="infiniband-driver-extension-for-windows"></a>Extensão do controlador infiniband para windows
@@ -69,9 +69,9 @@ O JSON seguinte mostra o esquema para a extensão.
 
 ### <a name="properties"></a>Propriedades
 
-| Name | Valor / Exemplo | Tipo de Dados |
+| Nome | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | data |
+| apiVersion | 2015-06-15 | date |
 | publicador | Microsoft.HpcCompute | string |
 | tipo | InfiniBandDriverWindows | string |
 | typeHandlerVersion | 1.2 | int |
@@ -149,7 +149,7 @@ O exemplo a seguir instala a mais recente extensão 1.2 InfiniBandDriverWindows 
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e apoio
 
-### <a name="troubleshoot"></a>Resolução de Problemas
+### <a name="troubleshoot"></a>Resolução de problemas
 
 Os dados sobre o estado das extensões podem ser recuperados a partir do portal Azure, e utilizando a Azure PowerShell e a Azure CLI. Para ver o estado de implantação das extensões para um determinado VM, executar o seguinte comando.
 

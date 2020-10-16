@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fd33845c331f907dbd5720ac92c6b1c627f01873
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89318414"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Guia de implementação de funcionalidades do Azure Active Directory
@@ -41,7 +41,7 @@ Informações adicionais sobre o licenciamento podem ser encontradas nas seguint
 
 Nesta fase, os administradores permitem funcionalidades de segurança de base para criar uma fundação mais segura e fácil de usar em Azure AD antes de importar ou criar contas normais de utilizador. Esta fase fundamental garante que está num estado mais seguro desde o início e que os seus utilizadores finais só têm de ser introduzidos em novos conceitos uma vez.
 
-| Tarefa | Detalhe | Licença requerida |
+| Tarefa | Detalhes | Licença requerida |
 | ---- | ------ | ---------------- |
 | [Designar mais do que um administrador global](../users-groups-roles/directory-emergency-access.md) | Atribua pelo menos duas contas de administrador global permanente apenas na nuvem para utilização em caso de emergência. Estas contas não são usadas diariamente e devem ter senhas longas e complexas. | Azure AD Gratuito |
 | [Utilizar funções administrativas não globais sempre que possível](../users-groups-roles/directory-assign-admin-roles.md) | Dê aos seus administradores apenas o acesso que precisam para apenas as áreas a que precisam de acesso. Nem todos os administradores precisam de ser administradores globais. | Azure AD Gratuito |
@@ -63,7 +63,7 @@ Nesta fase, os administradores permitem funcionalidades de segurança de base pa
 
 Em seguida, adicionamos à fundação estabelecida na fase 1, importando os nossos utilizadores e permitindo a sincronização, planejando o acesso dos hóspedes, e preparando-se para apoiar funcionalidades adicionais.
 
-| Tarefa | Detalhe | Licença requerida |
+| Tarefa | Detalhes | Licença requerida |
 | ---- | ------ | ---------------- |
 | [Instalar o Azure AD Connect](../hybrid/how-to-connect-install-select-installation.md) | Prepare-se para sincronizar os utilizadores do seu diretório existente no local até à nuvem. | Azure AD Gratuito |
 | [Implementar sincronização de hash de palavra-passe](../hybrid/how-to-connect-password-hash-synchronization.md) | Sincronizar os hashes de palavra-passe para permitir que as alterações de palavras-passe sejam replicadas, a deteção e reparação de palavras-passe erradas e a fuga de relatórios de credenciais. | Azure AD Gratuito |
@@ -79,7 +79,7 @@ Em seguida, adicionamos à fundação estabelecida na fase 1, importando os noss
 
 À medida que continuamos a construir nas fases anteriores, identificamos candidaturas candidatas para migração e integração com a AZure AD e completamos a configuração dessas aplicações.
 
-| Tarefa | Detalhe | Licença requerida |
+| Tarefa | Detalhes | Licença requerida |
 | ---- | ------ | ---------------- |
 | Identifique as suas aplicações | Identifique aplicações em uso na sua organização: no local, aplicações SaaS na nuvem e outras aplicações de linha de negócio. Determine se estas aplicações podem e devem ser geridas com Azure AD. | Sem licença necessária |
 | [Integrar candidaturas de SaaS apoiadas na galeria](../manage-apps/add-application-portal.md) | A Azure AD tem uma galeria que contém milhares de aplicações pré-integradas. Algumas das aplicações que a sua organização utiliza provavelmente estão na galeria acessível diretamente a partir do portal Azure. | Azure AD Gratuito |
@@ -89,7 +89,7 @@ Em seguida, adicionamos à fundação estabelecida na fase 1, importando os noss
 
 A fase 4 vê os administradores a impor princípios de privilégios mínimos para a administração, a completar as suas primeiras revisões de acesso e a permitir a automatização de tarefas comuns do ciclo de vida do utilizador.
 
-| Tarefa | Detalhe | Licença requerida |
+| Tarefa | Detalhes | Licença requerida |
 | ---- | ------ | ---------------- |
 | [Impor o uso da Gestão de Identidade Privilegiada](../privileged-identity-management/pim-security-wizard.md) | Remova as funções administrativas das contas normais do dia-a-dia do utilizador. Tornar os utilizadores administrativos elegíveis para utilizarem o seu papel após uma verificação de autenticação multi-factor, fornecendo uma justificação do negócio ou solicitando a aprovação dos aprovadores designados. | Azure AD Premium P2 |
 | [Complete uma revisão de acesso para funções de diretório AZure AD em PIM](../privileged-identity-management/pim-how-to-start-security-review.md) | Trabalhe com as suas equipas de segurança e liderança para criar uma política de revisão de acesso para rever o acesso administrativo com base nas políticas da sua organização. | Azure AD Premium P2 |
@@ -97,7 +97,7 @@ A fase 4 vê os administradores a impor princípios de privilégios mínimos par
 | [Implementar provisão de aplicações baseadas em grupo](../manage-apps/what-is-access-management.md) | Utilize o fornecimento de gestão de acesso baseado em grupo para provisão automática de utilizadores para aplicações SaaS. |  |
 | [Automatizar o fornecimento e desprovisionamento dos utilizadores](../app-provisioning/user-provisioning.md) | Remova os passos manuais do ciclo de vida da conta do seu funcionário para evitar o acesso não autorizado. Sincronizar identidades da sua fonte de verdade (Sistema HR) para Azure AD. |  |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Detalhes de licenciamento e preços da AZure AD](https://azure.microsoft.com/pricing/details/active-directory/)
 

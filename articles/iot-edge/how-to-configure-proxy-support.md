@@ -10,12 +10,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - contperfq1
-ms.openlocfilehash: e6c85ba79c21c9a8120feebc02477506eb93d2e5
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: ae0c4c69cf500fb352cc889e068888084d1d8f8b
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500373"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045963"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configurar um dispositivo IoT Edge para comunicar através de um servidor proxy
 
@@ -25,7 +25,7 @@ Este artigo percorre os seguintes quatro passos para configurar e, em seguida, g
 
 1. [**Instale o tempo de execução IoT Edge no seu dispositivo**](#install-the-runtime-through-a-proxy)
 
-   Os scripts de instalação IoT Edge retiram pacotes e ficheiros da internet, pelo que o seu dispositivo necessita de comunicar através do servidor proxy para fazer esses pedidos. Para dispositivos Windows, o script de instalação também fornece uma opção [de instalação offline.](how-to-install-iot-edge-windows.md#offline-or-specific-version-installation)
+   Os scripts de instalação IoT Edge retiram pacotes e ficheiros da internet, pelo que o seu dispositivo necessita de comunicar através do servidor proxy para fazer esses pedidos. Para dispositivos Windows, o script de instalação também fornece uma opção de instalação offline.
 
    Este passo é um processo único para configurar o dispositivo IoT Edge quando o configurar pela primeira vez. As mesmas ligações também são necessárias quando atualiza o tempo de funcionação do IoT Edge.
 
@@ -65,7 +65,7 @@ Quer o seu dispositivo IoT Edge seja executado no Windows ou linux, tem de acede
 
 ### <a name="linux-devices"></a>Dispositivos Linux
 
-Se estiver a instalar o tempo de funcionamento do IoT Edge num dispositivo Linux, configurge o gestor de pacotes para passar pelo seu servidor proxy para aceder ao pacote de instalação. Por exemplo, [Configurar apta a utilizar um http-proxy](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). Assim que o seu gestor de pacotes estiver configurado, siga as instruções no [tempo de funcionamento do Azure IoT Edge no Linux,](how-to-install-iot-edge-linux.md) como de costume.
+Se estiver a instalar o tempo de funcionamento do IoT Edge num dispositivo Linux, configurge o gestor de pacotes para passar pelo seu servidor proxy para aceder ao pacote de instalação. Por exemplo, [Configurar apta a utilizar um http-proxy](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). Uma vez configurado o seu gestor de pacotes, siga as instruções no tempo de [funcionamento do Azure IoT Edge,](how-to-install-iot-edge.md) como de costume.
 
 ### <a name="windows-devices"></a>Dispositivos Windows
 
@@ -73,13 +73,13 @@ Se estiver a instalar o tempo de funcionamento do IoT Edge num dispositivo Windo
 
 Os seguintes passos demonstram um exemplo de uma instalação de janelas utilizando o `-proxy` argumento:
 
-1. O comando Invoke-WebRequest necessita de informações proxy para aceder ao script do instalador. Em seguida, o comando Implementar-IoTEdge necessita da informação proxy para descarregar os ficheiros de instalação.
+1. O comando Invoke-WebRequest precisa de informação por procuração para aceder ao script do instalador. Em seguida, o comando Deploy-IoTEdge precisa da informação proxy para descarregar os ficheiros de instalação.
 
    ```powershell
    . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; Deploy-IoTEdge -proxy <proxy URL>
    ```
 
-2. O comando Initialize-IoTEdge não precisa de passar pelo servidor proxy, pelo que o segundo passo requer apenas informações de procuração para Invoke-WebRequest.
+2. O comando Initialize-IoTEdge não precisa de passar pelo servidor proxy, por isso o segundo passo requer apenas informações de procuração para Invoke-WebRequest.
 
    ```powershell
    . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; Initialize-IoTEdge
@@ -93,7 +93,7 @@ $proxyCredential = (Get-Credential).GetNetworkCredential()
 Deploy-IoTEdge -InvokeWebRequestParameters @{ '-Proxy' = '<proxy URL>'; '-ProxyCredential' = $proxyCredential }
 ```
 
-Para obter mais informações sobre parâmetros de procuração, consulte [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest). Para obter mais informações sobre as opções de instalação do Windows, incluindo a instalação offline, consulte [o tempo de execução do Azure IoT Edge no Windows](how-to-install-iot-edge-windows.md).
+Para obter mais informações sobre parâmetros de procuração, consulte [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest). Para obter mais informações sobre os parâmetros de instalação do Windows, consulte [os scripts PowerShell para IoT Edge no Windows](reference-windows-scripts.md).
 
 ## <a name="configure-the-daemons"></a>Configure os daemons
 
@@ -108,7 +108,7 @@ Uma vez que Moby é construído sobre Docker, consulte a documentação do Docke
 Escolha o artigo que se aplica ao seu sistema operativo do dispositivo IoT Edge:
 
 * [Configure Docker daemon em Linux](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy) O daemon Moby nos dispositivos Linux mantém o nome Docker.
-* [Configure daemon Docker no Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon#proxy-configuration) O daemon Moby nos dispositivos Windows chama-se iotedge-moby. Os nomes são diferentes porque é possível executar tanto o Docker Desktop como o Moby em paralelo num dispositivo Windows.
+* [Configure daemon Docker no Windows](/virtualization/windowscontainers/manage-docker/configure-docker-daemon#proxy-configuration) O daemon Moby nos dispositivos Windows chama-se iotedge-moby. Os nomes são diferentes porque é possível executar tanto o Docker Desktop como o Moby em paralelo num dispositivo Windows.
 
 ### <a name="iot-edge-daemon"></a>Daemon IoT Edge
 
@@ -271,7 +271,7 @@ Se incluiu a variável ambiente **UpstreamProtocol** no ficheiro confige.yaml no
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre os papéis do tempo de [execução IoT Edge](iot-edge-runtime.md).
 

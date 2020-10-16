@@ -8,10 +8,10 @@ author: navits09
 ms.author: navits
 ms.date: 04/02/2020
 ms.openlocfilehash: 2f34723bec6dc2212f8897eca849e6535d737fc8
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91397424"
 ---
 # <a name="power-bi-app-creation-overview"></a>Visão geral da criação de aplicativos Power BI
@@ -42,7 +42,7 @@ Estes são os principais passos de publicação:
 7. Depois de certificada, reveja a app no seu ambiente de teste e liberte-a. Isto irá listá-lo no AppSource ("vai ao vivo").
 8. No Power BI, envie o pacote para a produção. Para mais detalhes, consulte [gerir a versão da aplicação Power BI](https://docs.microsoft.com/power-bi/service-template-apps-create#manage-the-template-app-release).
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Reveja os links abaixo, que fornecem modelos, dicas e amostras.
 

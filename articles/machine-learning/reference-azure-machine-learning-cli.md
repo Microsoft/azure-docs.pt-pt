@@ -11,10 +11,10 @@ author: jpe316
 ms.date: 06/22/2020
 ms.custom: seodec18
 ms.openlocfilehash: 50ac8ede9f8272d6956d1ac29e57a9c26d2c0bd9
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708276"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Instale & utilize a extensão CLI para aprendizagem automática Azure
@@ -506,7 +506,7 @@ Os seguintes comandos demonstram como registar um modelo treinado e, em seguida,
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aks-deploy-config.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 * [Referência de comando para a extensão CLI de aprendizagem automática](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest&preserve-view=true).
 

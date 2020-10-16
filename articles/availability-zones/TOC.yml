@@ -3,11 +3,11 @@
     - name: Página de funcionalidades do Azure Resiliency
       href: 'https://azure.microsoft.com/features/resiliency'
     - name: Conceber aplicações resilientes para o Azure
-      href: 'https://docs.microsoft.com/azure/architecture/resiliency/'
+      href: /azure/architecture/resiliency/
 - name: Elevada Disponibilidade
   items:
     - name: Elevada disponibilidade para aplicações do Azure
-      href: 'https://docs.microsoft.com/azure/architecture/resiliency/high-availability-azure-applications'
+      href: /azure/architecture/resiliency/high-availability-azure-applications
     - name: Regiões e Zonas de Disponibilidade
       href: az-overview.md
     - name: Documentação sobre as Zonas de Disponibilidade
@@ -39,34 +39,34 @@
             - name: Balanceador de Carga Standard e Zonas de Disponibilidade
               href: ../load-balancer/load-balancer-standard-availability-zones.md
             - name: Criar um Balanceador de Carga público com redundância de zona
-              href: ../load-balancer/load-balancer-get-started-internet-az-portal.md
+              href: ../load-balancer/quickstart-load-balancer-standard-public-portal.md
               items:
                 - name: Criar um Standard Balanceador de Carga público com redundância de zona (PowerShell)
-                  href: ../load-balancer/load-balancer-get-started-internet-az-powershell.md
+                  href: ../load-balancer/quickstart-load-balancer-standard-public-powershell.md
                 - name: Criar um Balanceador de Carga Standard público com redundância de zona (CLI)
-                  href: ../load-balancer/load-balancer-get-started-internet-az-cli.md
+                  href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md
             - name: Criar um Balanceador de Carga Standard público zonal
-              href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-portal.md
+              href: ../load-balancer/quickstart-load-balancer-standard-public-portal.md
               items:
                 - name: Criar um Balanceador de Carga Standard público zonal (PowerShell)
-                  href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-powershell.md
+                  href: ../load-balancer/quickstart-load-balancer-standard-public-powershell.md
                 - name: Criar um Balanceador de Carga Standard público redundante zonal (CLI)
-                  href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-cli.md
+                  href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md
             - name: Balancear carga de VMs por zonas de disponibilidade
-              href: ../load-balancer/load-balancer-standard-public-availability-zones-portal.md
+              href: ../load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal.md
               items:
                 - name: Balancear carga de VMs por zonas de disponibilidade com o Azure (CLI)
-                  href: ../load-balancer/load-balancer-standard-public-zone-redundant-cli.md
+                  href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md
         - name: Endereço IP público
           href: ../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address
         - name: SQL Database
           items:
             - name: Zonas de disponibilidade com base de dados SQL
-              href: ../sql-database/sql-database-high-availability.md#zone-redundant-configuration
+              href: ../azure-sql/database/high-availability-sla.md#zone-redundant-configuration
         - name: Armazenamento
           items:
             - name: Armazenamento com redundância entre zonas
-              href: ../storage/common/storage-redundancy-zrs.md
+              href: ../storage/common/storage-redundancy.md
         - name: Hubs de Eventos
           items:
             - name: Recuperação após desastre geográfica dos Hubs de Eventos
@@ -102,11 +102,11 @@
 - name: Recuperação Após Desastre
   items:
     - name: Utilizar o Azure Site Recovery
-      href: 'https://docs.microsoft.com/azure/site-recovery/'
+      href: ../site-recovery/index.yml
 - name: Azure Backup
   items:
     - name: Utilizar o Azure Backup
-      href: 'https://docs.microsoft.com/azure/backup/'
+      href: ../backup/index.yml
 - name: Recursos
   items:
     - name: Mapa do Azure

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: jehollan
 ms.openlocfilehash: eab0a54d30f2cd2829779dbfc6081445f5be0a71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83648855"
 ---
 # <a name="azure-functions-on-kubernetes-with-keda"></a>Funções Azure em Kubernetes com KEDA
@@ -84,7 +84,7 @@ A KEDA tem suporte para os seguintes gatilhos da Função Azure:
 Pode utilizar funções Azure que expõem os gatilhos HTTP, mas a KEDA não as gere diretamente.  Pode alavancar o gatilho KEDA prometheus para [escalar as funções HTTP Azure de 1 a *n* instâncias](https://dev.to/anirudhgarg_99/scale-up-and-down-a-http-triggered-function-app-in-kubernetes-using-keda-4m42).
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter mais informações, consulte os seguintes recursos:
+Para obter mais informações, veja os seguintes recursos:
 
 * [Criar uma função usando uma imagem personalizada](functions-create-function-linux-custom-image.md)
 * [Criar código e testar as Funções do Azure localmente](functions-develop-local.md)

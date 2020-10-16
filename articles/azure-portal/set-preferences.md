@@ -10,13 +10,13 @@ ms.topic: how-to
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: 20ed84a87486f1095a90e012368b1f56d6426c8e
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88205703"
 ---
-# <a name="manage-azure-portal-settings-and-preferences"></a>Gerir configurações e preferências do portal Azure
+# <a name="manage-azure-portal-settings-and-preferences"></a>Gerir as definições e as preferências do portal do Azure
 
 Pode alterar as definições predefinidas do portal Azure para satisfazer as suas preferências. A maioria das definições estão disponíveis no menu **Definições** no cabeçalho de página global.
 
@@ -33,7 +33,7 @@ Pode alterar a subscrição que abre por predefinição quando iniciar sediçõe
 
 1. Selecione as subscrições que pretende como as subscrições predefinidos quando lançar o portal. 
 
-    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="Selecione as subscrições que pretende como as subscrições predefinidos quando lançar o portal."::: 
+    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="Filtrar a lista de recursos por subscrição."::: 
 
 
 ## <a name="choose-your-default-view"></a>Escolha a sua vista padrão 

@@ -12,10 +12,10 @@ ms.reviewer: ozgun
 ms.subservice: blobs
 ms.custom: contperfq1
 ms.openlocfilehash: a4c32877ddb260e90fb4121b16a9b318616c2a4d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91715827"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-data-in-the-azure-portal"></a>Escolha como autorizar o acesso aos dados blob no portal Azure
@@ -39,7 +39,7 @@ Para aceder aos dados blob com a chave de acesso à conta, tem de ter uma funç�
 Quando tenta aceder aos dados blob no portal Azure, o portal verifica primeiro se lhe foi atribuída uma função com **o Microsoft.Storage/storageAcounts/listkeys/action**. Se lhe foi atribuído um papel com esta ação, então o portal utiliza a chave de conta para aceder aos dados blob. Se não lhe foi atribuído um papel com esta ação, então o portal tenta aceder aos dados utilizando a sua conta AZure AD.
 
 > [!NOTE]
-> As funções clássicas de administrador de subscrição Administrador e Coadministrador incluem o equivalente à função de [Gestor](../../role-based-access-control/built-in-roles.md#owner) de Recursos Azure. A função **'Proprietário'** inclui todas as ações, incluindo a **Microsoft.Storage/storageAccounts/listkeys/action,** para que um utilizador com uma destas funções administrativas também possa aceder aos dados blob com a chave da conta. Para obter mais informações, consulte [as funções de administrador de subscrição clássica, funções de Azure e funções de administrador da AD Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> As funções clássicas de administrador de subscrição Administrador de serviço e Co-Administrator incluem o equivalente à função de [Gestor](../../role-based-access-control/built-in-roles.md#owner) de Recursos Azure. A função **'Proprietário'** inclui todas as ações, incluindo a **Microsoft.Storage/storageAccounts/listkeys/action,** para que um utilizador com uma destas funções administrativas também possa aceder aos dados blob com a chave da conta. Para obter mais informações, consulte [as funções de administrador de subscrição clássica, funções de Azure e funções de administrador da AD Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ### <a name="use-your-azure-ad-account"></a>Use a sua conta AZure AD
 
@@ -108,7 +108,7 @@ Para especificar como autorizar uma operação de upload de bolhas, siga estes p
 
     :::image type="content" source="media/authorize-blob-access-portal/auth-blob-upload.png" alt-text="Screenshot mostrando como navegar para os dados blob no portal Azure":::
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - [Autenticar acesso a bolhas e filas Azure usando o Azure Ative Directory](../common/storage-auth-aad.md)
 - [Utilize o portal Azure para atribuir uma função Azure para acesso a dados de bolhas e filas](../common/storage-auth-aad-rbac-portal.md)

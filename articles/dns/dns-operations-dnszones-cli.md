@@ -13,10 +13,10 @@ ms.date: 02/27/2017
 ms.author: rohink
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: ff1abd48282a4ec9278d7182fea286178b5bd3ca
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87495918"
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>Como gerir as Zonas DNS em Azure DNS usando o Azure CLI
@@ -37,7 +37,7 @@ Este guia trata especificamente das zonas públicas de DNS. Para obter informaç
 
 ## <a name="set-up-azure-cli-for-azure-dns"></a>Configurar CLI do Azure para o Azure DNS
 
-### <a name="before-you-begin"></a>Before you begin
+### <a name="before-you-begin"></a>Antes de começar
 
 Antes de iniciar a configuração, verifique se tem os seguintes itens.
 

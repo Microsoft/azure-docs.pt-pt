@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/04/2020
 ms.author: yelevin
 ms.openlocfilehash: 63a9a6dc9f052c01a7440f616f0baeaab083ad73
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91843078"
 ---
 # <a name="tutorial-visualize-and-monitor-your-data"></a>Tutorial: Visualizar e monitorizar os seus dados

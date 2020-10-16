@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/24/2020
 ms.openlocfilehash: 8e46e9b323657b747fd73bad3b25ed66390f3aa9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324336"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>Copiar funcionalidades de otimização do desempenho da atividade
@@ -150,10 +150,10 @@ Configure a **definição de definição de ativação** na atividade de cópia 
 
 | Propriedade | Descrição | Valor predefinido | Necessário |
 | --- | --- | --- | --- |
-| permitir A marcação |Especifique se pretende copiar dados através de uma loja de encenação provisória. |Falso |No |
+| permitir A marcação |Especifique se pretende copiar dados através de uma loja de encenação provisória. |Falso |Não |
 | linkedServiceName |Especifique o nome de um [armazenamento Azure Blob](connector-azure-blob-storage.md#linked-service-properties) ou serviço ligado ao [Azure Data Lake Storage Gen2,](connector-azure-data-lake-storage.md#linked-service-properties) que se refere à instância de Armazenamento que utiliza como uma loja de paragem provisória. |N/D |Sim, quando **ativar A definição de marcação** está definida para TRUE |
-| caminho |Especifique o caminho que pretende conter os dados encenados. Se não fornecer um caminho, o serviço cria um recipiente para armazenar dados temporários. |N/D |No |
-| permitir a compressão |Especifica se os dados devem ser comprimidos antes de serem copiados para o destino. Esta definição reduz o volume de dados que são transferidos. |Falso |No |
+| caminho |Especifique o caminho que pretende conter os dados encenados. Se não fornecer um caminho, o serviço cria um recipiente para armazenar dados temporários. |N/D |Não |
+| permitir a compressão |Especifica se os dados devem ser comprimidos antes de serem copiados para o destino. Esta definição reduz o volume de dados que são transferidos. |Falso |Não |
 
 >[!NOTE]
 > Se utilizar cópia encenada com compressão ativada, o principal de serviço ou a autenticação MSI para o serviço de ligação blob de paragem não é suportado.

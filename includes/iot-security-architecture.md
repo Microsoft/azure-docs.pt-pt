@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: a2eafd6bb34b897f3492ddcffd6841f0fabc4ca7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73034551"
 ---
 Ao conceber um sistema, é importante compreender as potenciais ameaças a esse sistema, e adicionar defesas apropriadas em conformidade, uma vez que o sistema é projetado e arquitetado. É importante projetar o produto desde o início com a segurança em mente porque entender como um intruso pode ser capaz de comprometer um sistema ajuda a garantir que as mitigações apropriadas estão em vigor desde o início.
@@ -265,7 +265,7 @@ As superfícies de controlo físico intermédio são aquelas em que a lógica qu
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-Para obter mais informações, veja os seguintes artigos:
+Para obter mais informações, veja os artigos seguintes:
 
 * [Ferramenta de modelação de ameaças SDL](https://www.microsoft.com/sdl/adopt/threatmodeling.aspx)
 * [Microsoft Azure IoT arquitetura de referência](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)

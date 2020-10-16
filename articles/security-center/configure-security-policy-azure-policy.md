@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 11/04/2019
 ms.author: memildin
 ms.openlocfilehash: 6fcfed585aece4fd57c085e0c9f6fdcd6cbeae74
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448361"
 ---
 # <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>Configure uma política de segurança na Política Azure usando a API REST
@@ -128,13 +128,13 @@ Este exemplo mostra-lhe como remover uma atribuição:
 |Grupos de segurança de rede |Monitore o acesso à rede permissiva no Centro de Segurança Azure |networkSecurityGroupsMonitoringEffect| 
 |Configurações de segurança |Monitorize vulnerabilidades de SO no Centro de Segurança Azure |sistemaConfigurationsMonitoringEffect| 
 |Proteção de ponto final |Monitor que falta proteção de ponto final no Centro de Segurança Azure |endpointProtectionMonitoringEffect |
-|Disk encryption (Encriptação de discos) |Monitor de discos VM não encriptados no Centro de Segurança Azure |diskEncryptionMonitoringEffect|
+|Encriptação de disco |Monitor de discos VM não encriptados no Centro de Segurança Azure |diskEncryptionMonitoringEffect|
 |Avaliação de vulnerabilidades |Monitorizar vulnerabilidades VM no Centro de Segurança Azure |vulnerabilidadeAssessmentMonitoringEffect|
 |Firewall de aplicação Web |Monitorize aplicação web desprotegida no Centro de Segurança Azure |webApplicationFirewallMonitoringEffect |
 |Firewall da próxima geração |Monitorize pontos finais de rede desprotegidos no Centro de Segurança Azure| |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para outros materiais relacionados, consulte os seguintes artigos: 
 

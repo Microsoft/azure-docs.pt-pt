@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.openlocfilehash: 378c21a6904acad16847bb32955e4bc091e587df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84465495"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Como utilizar o armazenamento blob do iOS
@@ -86,7 +86,7 @@ Se estiver a utilizar o Swift, terá de criar um cabeçalho de ponte e importar 
 
 1. Crie um ficheiro de cabeçalho `Bridging-Header.h` e adicione a declaração de importação acima.
 2. Vá ao separador *Definições de Construção* e procure *o cabeçalho de ponte Objective-C*.
-3. Clique duas vezes no campo do Cabeçalho de *Ponte Objective-C* e adicione o caminho ao seu ficheiro de cabeçalho:`ProjectName/Bridging-Header.h`
+3. Clique duas vezes no campo do Cabeçalho de *Ponte Objective-C* e adicione o caminho ao seu ficheiro de cabeçalho: `ProjectName/Bridging-Header.h`
 4. Construa o projeto (⌘+B) para verificar se o cabeçalho de ponte foi captado pela Xcode.
 5. Comece a usar a biblioteca diretamente em qualquer ficheiro Swift, não há necessidade de declarações de importação.
 
@@ -385,7 +385,7 @@ O exemplo a seguir mostra como apagar um recipiente.
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a usar o Blob Storage do iOS, siga estas ligações para saber mais sobre a biblioteca iOS e o serviço de Armazenamento.
 

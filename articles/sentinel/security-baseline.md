@@ -9,10 +9,10 @@ ms.date: 09/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 25571db967608c238bccb1ab44f75a0a163803d5
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90020374"
 ---
 # <a name="azure-security-baseline-for-azure-sentinel"></a>Linha de segurança Azure para Azure Sentinel
@@ -551,13 +551,13 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: Garantir a proteção das cópias de segurança e das chaves geridas pelo cliente
 
-**Orientação**: Ative a eliminação suave no cofre da chave para proteger as chaves contra a eliminação acidental ou maliciosa. No caso de um utilizador revogar a chave de encriptação, quer eliminando-a quer removendo-a para o Azure Sentinel, dentro de uma hora, o Azure Sentinel honrará a mudança e comportar-se-á como se os dados já não estivessem disponíveis. Neste momento, qualquer operação realizada que utilize recursos de armazenamento persistentes, tais como ingestão de dados, alterações persistentes de configuração e criação de incidentes, será impedida. Os dados previamente armazenados não serão eliminados, mas permanecerão inacessíveis. Os dados inacessíveis são regidos pela política de retenção de dados e serão purgados de acordo com essa política.
+**Orientação**: Ative Soft-Delete no Cofre de Chaves para proteger as chaves contra a eliminação acidental ou maliciosa. No caso de um utilizador revogar a chave de encriptação, quer eliminando-a quer removendo-a para o Azure Sentinel, dentro de uma hora, o Azure Sentinel honrará a mudança e comportar-se-á como se os dados já não estivessem disponíveis. Neste momento, qualquer operação realizada que utilize recursos de armazenamento persistentes, tais como ingestão de dados, alterações persistentes de configuração e criação de incidentes, será impedida. Os dados previamente armazenados não serão eliminados, mas permanecerão inacessíveis. Os dados inacessíveis são regidos pela política de retenção de dados e serão purgados de acordo com essa política.
 
 A única operação possível após a revogação ou eliminação da chave de encriptação é a eliminação da conta.
 
 Se o acesso for restaurado após a revogação, o Azure Sentinel restabelecerá o acesso aos dados dentro de uma hora.
 
-- [Como permitir o Soft-Delete no Cofre da Chave](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Como permitir Soft-Delete em Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
 - [Compreenda as chaves geridas pelo cliente em Azure Sentinel](customer-managed-keys.md)
 
@@ -653,7 +653,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [referência de segurança Azure](/azure/security/benchmarks/overview)
 - Saiba mais sobre [as linhas de base de segurança da Azure](/azure/security/benchmarks/security-baselines-overview)

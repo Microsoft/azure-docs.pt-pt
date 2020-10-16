@@ -4,10 +4,10 @@ description: Descreve como implantar recursos no âmbito do inquilino num modelo
 ms.topic: conceptual
 ms.date: 09/24/2020
 ms.openlocfilehash: 48b3fbcedb119ae699624e79f83297f4ecbc9ede
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91372396"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Criar recursos ao nível dos inquilinos

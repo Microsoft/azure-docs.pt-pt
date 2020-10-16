@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 09/30/2020
 ms.custom: mvc
 ms.openlocfilehash: bf2ea5c7ea0c2f3ae90f9d98d8009915d5ced6f8
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91576289"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Tutorial: Implementar e utilizar o Azure Container Registry
@@ -24,7 +24,7 @@ O Registo de Contentores Azure (ACR) é um registo privado para imagens de conte
 
 Em tutoriais adicionais, este exemplo de ACR é integrado com um cluster Kubernetes em AKS, e uma aplicação é implementada a partir da imagem.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 No [tutorial anterior][aks-tutorial-prepare-app], foi criada uma imagem de contentor para uma aplicação de Votação simples do Azure. Se não tiver criado a imagem de aplicação de Votação do Azure, regresse ao [Tutorial 1 – Criar imagens de contentor][aks-tutorial-prepare-app].
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
 ms.custom: references_regions
-ms.openlocfilehash: c4908373035b1a3148cd77db513f4e6bd23a50d7
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 8a8d434fca7cab4432f38fc64093cf1fe060bd5f
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540732"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019091"
 ---
 # <a name="refresh-with-logic-apps"></a>Atualizar com o Logic Apps
 
@@ -114,7 +114,7 @@ Selecione as horas desejadas.
 
 Salve a App Lógica.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Amostras](analysis-services-samples.md)  
-[API REST](https://docs.microsoft.com/rest/api/analysisservices/servers)
+[API REST](/rest/api/analysisservices/servers)

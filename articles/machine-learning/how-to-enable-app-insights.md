@@ -12,10 +12,10 @@ ms.date: 09/15/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 ms.openlocfilehash: a36f69c9956dd05c5fbd85d7e37b90c0b1e4c21e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90897656"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorize e recolha dados dos pontos finais do serviço web ML

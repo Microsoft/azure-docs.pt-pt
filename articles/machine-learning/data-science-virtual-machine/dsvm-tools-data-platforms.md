@@ -11,10 +11,10 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.openlocfilehash: 83c0fd796b7527c6f5e396a813def984b88ee9ac
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89440359"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Plataformas de dados suportadas na Máquina Virtual da Ciência de Dados
@@ -31,7 +31,7 @@ As seguintes ferramentas da plataforma de dados são suportadas no DSVM.
 | Edições DSVM suportadas      | Windows 2016: SQL Server 2017, Windows 2019: SQL Server 2019      |
 | Usos típicos      | <ul><li>Desenvolvimento rápido localmente com conjunto de dados mais pequeno</li><li>Executar in-database R</li></ul> |
 | Ligações a amostras      | <ul><li>Uma pequena amostra de um conjunto de dados da cidade de Nova Iorque é carregada na base de dados SQL:<br/>  `nyctaxi`</li><li>A amostra do Jupyter que mostra o Microsoft Machine Learning Server e a análise in-database pode ser encontrada em:<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`</li></ul> |
-| Ferramentas relacionadas no DSVM       | <ul><li>SQL Server Management Studio</li><li>Condutores ODBC/JDBC</li><li>pyodbc, RODBC</li><li>Apache Drill</li></ul> |
+| Ferramentas relacionadas no DSVM       | <ul><li>O SQL Server Management Studio</li><li>Condutores ODBC/JDBC</li><li>pyodbc, RODBC</li><li>Apache Drill</li></ul> |
 
 > [!NOTE]
 > A SQL Server Developer Edition só pode ser utilizada para fins de desenvolvimento e teste. Precisa de uma licença ou de um dos VMs do SQL Server para executá-la em produção.

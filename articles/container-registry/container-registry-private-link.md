@@ -4,10 +4,10 @@ description: Crie um ponto final privado num registo de contentores e permita o 
 ms.topic: article
 ms.date: 10/01/2020
 ms.openlocfilehash: 793003edea853922f78b36f0dc1a6e35205cdadb
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91743646"
 ---
 # <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>Conecte-se privadamente a um registo de contentores Azure usando a Azure Private Link
@@ -213,7 +213,7 @@ Crie um link privado quando criar um registo ou adicionar um link privado a um r
     | ------- | ----- |
     | Subscrição | Selecione a sua subscrição. |
     | Grupo de recursos | Insira o nome de um grupo existente ou crie um novo.|
-    | Name | Introduza um nome exclusivo. |
+    | Nome | Introduza um nome exclusivo. |
     | Subresource |Selecione **registo**|
     | **Redes** | |
     | Rede virtual| Selecione a rede virtual onde a sua máquina virtual está implantada, como *o myDockerVMVNET*. |
@@ -389,7 +389,7 @@ O ponto final privado neste exemplo integra-se com uma zona privada de DNS assoc
 
 O link privado suporta cenários adicionais de configuração de DNS que utilizam a zona privada, incluindo com soluções DE DNS personalizadas. Por exemplo, pode ter uma solução DE DNS personalizada implantada na rede virtual, ou no local de uma rede que liga à rede virtual utilizando um gateway VPN. Para resolver o FQDN público do registo para o endereço IP privado nestes cenários, é necessário configurar um reencaminhador de nível de servidor para o serviço Azure DNS (168.63.129.16). As opções e passos de configuração exata dependem das redes existentes e do DNS. Por exemplo, consulte [a configuração do DNS do Ponto Final Privado Azure](../private-link/private-endpoint-dns.md).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se criou todos os recursos Azure no mesmo grupo de recursos e já não precisa deles, pode eliminar opcionalmente os recursos utilizando um único comando [de eliminação do grupo AZ:](/cli/azure/group)
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/7/2020
 ms.subservice: alerts
 ms.openlocfilehash: e5f78c8b58cc3100d746957094ddfd9bab2b29fe
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91813224"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica com um modelo do Resource Manager

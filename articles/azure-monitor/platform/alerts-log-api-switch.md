@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.subservice: alerts
 ms.openlocfilehash: 868a8eb6cf38d471eb9dc1f47c903404d05ffc0c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91294518"
 ---
 # <a name="upgrade-to-the-current-log-alerts-api-from-legacy-log-analytics-alert-api"></a>Upgrade para o atual Log Alertas API do legado Log Analytics Alert API

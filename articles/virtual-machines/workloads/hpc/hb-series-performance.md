@@ -2,18 +2,17 @@
 title: Desempenho do tamanho vm da série HB
 description: Saiba mais sobre os resultados dos testes de desempenho para tamanhos VM da série HB em Azure.
 author: vermagit
-manager: gwallace
 ms.service: virtual-machines
-ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 09/09/2020
 ms.author: amverma
-ms.openlocfilehash: 34e9ef3ab46f2ce11500aa87db9676635d3e9b4f
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.reviewer: cynthn
+ms.openlocfilehash: 2267dc23e2f886d87342fc22c3b12a03e8df6a86
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90016287"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994852"
 ---
 # <a name="hb-series-virtual-machine-sizes"></a>Tamanhos de máquina virtual da série HB
 
@@ -22,7 +21,7 @@ Vários testes de desempenho foram executados em tamanhos da série HB. Seguem-s
 | Carga de trabalho                                        | HB                    |
 |-------------------------------------------------|-----------------------|
 | STREAM Triad                                    | 260 GB/s (32-33 GB/s por CCX)  |
-| Linpack de alto desempenho (HPL)                  | 1.000 GigaFLOPS (Rpeak), 860 GigaFLOPS (Rmax) |
+| High-Performance Linpack (HPL)                  | 1.000 GigaFLOPS (Rpeak), 860 GigaFLOPS (Rmax) |
 | Latência RDMA & largura de banda                        | 1.27 microsegundos, 99,1 Gb/s   |
 | FIO no NVMe SSD local                           | 1.7 leituras DE 1,0 GB/s      |  
 | IOR em 4 * Azure Premium SSD (P30 Discos Geridos, RAID0)**  | 725 leituras de MB/s, 780 MB/writes   |
@@ -46,7 +45,7 @@ Vários testes de desempenho foram executados em tamanhos da série HB. Seguem-s
 ./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw
 ```
 
-:::image type="content" source="./media/bandwidth-hb.png" alt-text="Largura de banda mpi em Azure HB.":::
+:::image type="content" source="./media/bandwidth-hb.png" alt-text="Latência mpi em Azure HB.":::
 
 
 ## <a name="mellanox-perftest"></a>Mellanox Perftest
@@ -57,7 +56,7 @@ O [pacote Mellanox Perftest](https://community.mellanox.com/s/article/perftest-p
 numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia sobre os últimos anúncios e alguns exemplos e resultados da High Performance Computing (HPC) nos [Blogs comunitários da Azure Compute Tech.](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute)
 - Para uma visão arquitetónica de nível superior da execução das cargas de trabalho do HPC, consulte [a High Performance Computing (HPC) em Azure](/azure/architecture/topics/high-performance-computing/).

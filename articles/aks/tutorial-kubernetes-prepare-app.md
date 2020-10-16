@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 09/30/2020
 ms.custom: mvc
 ms.openlocfilehash: 15bf29c676c4ca41fc2d005f3500a89ed6b9c380
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91576341"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Tutorial: Preparar uma aplicação para o Azure Kubernetes Service (AKS)
@@ -27,7 +27,7 @@ Depois de concluída, a aplicação seguinte é executada no seu ambiente de des
 
 Em tutoriais adicionais, a imagem do contentor é enviada para um registo de contentores Azure e depois implantada num cluster AKS.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Este tutorial pressupõe conhecimentos básicos dos principais conceitos do Docker, como contentores, imagens de contentor e comandos do `docker`. Para obter noções básicas sobre os contentores, veja [Introdução ao Docker][docker-get-started].
 

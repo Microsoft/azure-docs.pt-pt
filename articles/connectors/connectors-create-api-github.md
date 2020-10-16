@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/02/2018
 tags: connectors
 ms.openlocfilehash: b67d2e860e8c69f6f2f43441144ef2f60ed3a104
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75378454"
 ---
 # <a name="monitor-and-manage-your-github-repo-by-using-azure-logic-apps"></a>Monitorize e gere o seu gitHub repo utilizando apps Azure Logic
@@ -37,6 +37,6 @@ Depois de criar a ligação, pode executar as ações e ouvir os gatilhos descri
 
 Para obter detalhes técnicos sobre gatilhos, ações e limites, descritos pela descrição openAPI (anteriormente Swagger) do conector, consulte a [página de referência do conector](/connectors/github/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [outros conectores de Apps Lógicas](../connectors/apis-list.md)

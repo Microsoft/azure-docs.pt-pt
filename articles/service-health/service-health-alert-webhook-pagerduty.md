@@ -4,10 +4,10 @@ description: Receba notificações personalizadas sobre eventos de saúde de ser
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.openlocfilehash: 5c70af2ad2ded919cda0b174705d1d3245eac627
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87091543"
 ---
 # <a name="send-azure-service-health-alerts-with-pagerduty-using-webhooks"></a>Envie alertas de saúde do serviço Azure com pagerDuty usando webhooks
@@ -27,7 +27,7 @@ Este artigo mostra-lhe como configurar notificações de saúde do serviço Azur
 
     a. **Tipo de Integração**: Microsoft Azure
 
-    b. **Nome de integração**:\<Name\>
+    b. **Nome de integração**: \<Name\>
 
     ![As "Definições de Integração" no PagerDuty](./media/webhook-alerts/pagerduty-integration-settings.png)
 

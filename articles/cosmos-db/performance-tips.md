@@ -8,10 +8,10 @@ ms.date: 06/26/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: efedfb9701d12548b80eccda9cd2aa29bc644ac2
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91802145"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Sugestões de desempenho para o Azure Cosmos DB e SDK de .NET v2

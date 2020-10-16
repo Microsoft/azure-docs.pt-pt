@@ -11,10 +11,10 @@ ms.subservice: files
 services: storage
 tags: ''
 ms.openlocfilehash: 1c50f54491e0284005c4b762b0c4b35a8460f5ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85511973"
 ---
 # <a name="azure-file-share--failed-to-delete-files-from-azure-file-share"></a>Partilha de ficheiros do Azure – falha ao eliminar ficheiros da partilha de ficheiros do Azure
@@ -88,8 +88,8 @@ Para fechar uma pega aberta, utilize o seguinte comando:
 # Close-AzStorageFileHandle -Context $Context -ShareName "FileShareName" -Path 'New folder/test.zip' -CloseAll
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Resolução de problemas Ficheiros Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Resolução de problemas Ficheiros Azure em Linux](storage-troubleshoot-linux-file-connection-problems.md)
-* [Resolver problemas da Sincronização de Ficheiros do Azure](storage-sync-files-troubleshoot.md)
+* [Resolver problemas do Azure File Sync](storage-sync-files-troubleshoot.md)

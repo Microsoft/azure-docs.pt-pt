@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
 ms.openlocfilehash: 62c052f2293c670b43f1c77363c8bbbcc03d0de2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514278"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Configure o proxy web para o seu dispositivo StorSimple
@@ -143,7 +143,7 @@ Se as definições de procuração web estiverem configuradas incorretamente, as
 |:--- |:--- |:--- |:--- |
 | 1. |0x80070001 |O comando é executado a partir do controlador passivo e não é capaz de comunicar com o controlador ativo. |Executar o comando no controlador ativo. Para executar o comando a partir do controlador passivo, tem de fixar a conectividade de controlador passivo para controlador ativo. Tem de ativar o Microsoft Support se esta conectividade estiver quebrada. |
 | 2. |0x800710dd - O identificador de operação não é válido |As definições proxy não são suportadas no StorSimple Cloud Appliance. |As definições proxy não são suportadas no StorSimple Cloud Appliance. Estes só podem ser configurados num dispositivo físico StorSimple. |
-| 3. |0x80070057 - Parâmetro inválido |Um dos parâmetros previstos para as definições de procuração não é válido. |O URI não é fornecido em formato correto. Utilize o seguinte formato:`http://<IP address or FQDN of the web proxy server>:<TCP port number>` |
+| 3. |0x80070057 - Parâmetro inválido |Um dos parâmetros previstos para as definições de procuração não é válido. |O URI não é fornecido em formato correto. Utilize o seguinte formato: `http://<IP address or FQDN of the web proxy server>:<TCP port number>` |
 | 4. |0x800706ba - Servidor RPC não disponível |A causa principal é uma das seguintes:</br></br>O aglomerado não está de pé. </br></br>O serviço datapath não está a funcionar.</br></br>O comando é executado a partir do controlador passivo e não é capaz de comunicar com o controlador ativo. |Insaem o Microsoft Support para garantir que o cluster está em funcionamento e o serviço datapath está em execução.</br></br>Executar o comando a partir do controlador ativo. Se pretender executar o comando a partir do controlador passivo, deve certificar-se de que o controlador passivo pode comunicar com o controlador ativo. Tem de ativar o Microsoft Support se esta conectividade estiver quebrada. |
 | 5. |0x800706be - Chamada RPC falhou |O aglomerado está em baixo. |Engate o Microsoft Support para garantir que o cluster está em cima. |
 | 6. |0x8007138f - Recurso de cluster não encontrado |O recurso de cluster de serviço de plataforma não é encontrado. Isto pode acontecer quando a instalação não foi adequada. |Pode ser necessário fazer um reset de fábrica no seu dispositivo. Pode ser necessário criar um recurso de plataforma. Contacte o Suporte da Microsoft para saber quais os próximos passos. |

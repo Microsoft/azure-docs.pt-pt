@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 020208a8b67d248c02fc659d4dc48fa22d333839
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80298811"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisitos de sistema da Matriz Virtual StorSimple
 
 [!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Este artigo descreve os requisitos importantes do sistema para o seu Microsoft Azure StorSimple Virtual Array e para os clientes de armazenamento que acedem à matriz. Recomendamos que reveja as informações cuidadosamente antes de implementar o seu sistema StorSimple e, em seguida, volte a fazê-lo conforme necessário durante a implementação e posterior funcionamento.
 
@@ -91,13 +91,13 @@ A tabela que se segue lista as portas que precisam de ser abertas na sua firewal
 
 | **Porto nº<sup>1</sup>** | **Dentro ou fora** | **Âmbito portuário** | **Necessário** | **Notas** |
 | --- | --- | --- | --- | --- |
-| TCP 80 (HTTP) |Saída |WAN |No |A porta de saída é utilizada para o acesso à Internet para recuperar atualizações. <br></br>O representante da web de saída é configurável pelo utilizador. |
-| TCP 443 (HTTPS) |Saída |WAN |Yes |A porta de saída é utilizada para aceder a dados na nuvem. <br></br>O representante da web de saída é configurável pelo utilizador. |
+| TCP 80 (HTTP) |Saída |WAN |Não |A porta de saída é utilizada para o acesso à Internet para recuperar atualizações. <br></br>O representante da web de saída é configurável pelo utilizador. |
+| TCP 443 (HTTPS) |Saída |WAN |Sim |A porta de saída é utilizada para aceder a dados na nuvem. <br></br>O representante da web de saída é configurável pelo utilizador. |
 | UDP 53 (DNS) |Saída |WAN |Em alguns casos; ver notas. |Esta porta só é necessária se estiver a utilizar um servidor DNS baseado na Internet. <br></br> Note que se implementar um servidor de ficheiros, recomendamos a utilização do servidor DNS local. |
 | UDP 123 (NTP) |Saída |WAN |Em alguns casos; ver notas. |Esta porta só é necessária se estiver a utilizar um servidor NTP baseado na Internet.<br></br> Note que se implementar um servidor de ficheiros, recomendamos sincronizar o tempo com os seus controladores de domínio ative directory. |
-| TCP 80 (HTTP) |Em |LAN |Yes |Este é o porto de entrada para ui local no dispositivo StorSimple para gestão local. <br></br> Note que aceder ao UI local sobre HTTP irá redirecionar automaticamente para HTTPS. |
-| TCP 443 (HTTPS) |Em |LAN |Yes |Este é o porto de entrada para ui local no dispositivo StorSimple para gestão local. |
-| TCP 3260 (iSCSI) |Em |LAN |No |Esta porta é utilizada para aceder a dados sobre o iSCSI. |
+| TCP 80 (HTTP) |Em |LAN |Sim |Este é o porto de entrada para ui local no dispositivo StorSimple para gestão local. <br></br> Note que aceder ao UI local sobre HTTP irá redirecionar automaticamente para HTTPS. |
+| TCP 443 (HTTPS) |Em |LAN |Sim |Este é o porto de entrada para ui local no dispositivo StorSimple para gestão local. |
+| TCP 3260 (iSCSI) |Em |LAN |Não |Esta porta é utilizada para aceder a dados sobre o iSCSI. |
 
 <sup>1</sup> Não é necessário abrir portas de entrada na Internet pública.
 

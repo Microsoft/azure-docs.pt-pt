@@ -4,12 +4,12 @@ description: Saiba como criar e gerir várias piscinas de nó para um cluster no
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: 128b8d07a3fb18ecd70f6ce5a37f41ad0fdd3db1
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 024b7adb254980ec87084b4794a9ced3eaea95eb
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563182"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074520"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Criar e gerir múltiplos conjuntos de nós para um cluster no Azure Kubernetes Service (AKS)
 
@@ -20,7 +20,7 @@ No Serviço Azure Kubernetes (AKS), os nós da mesma configuração são agrupad
 
 Este artigo mostra-lhe como criar e gerir várias piscinas de nó num cluster AKS.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Precisa da versão Azure CLI 2.2.0 ou posteriormente instalada e configurada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][install-azure-cli].
 
@@ -148,7 +148,7 @@ az aks nodepool add \
 ## <a name="upgrade-a-node-pool"></a>Atualizar uma piscina de nó
 
 > [!NOTE]
-> As operações de atualização e escala num cluster ou num agrupamento de nónão não podem ocorrer simultaneamente, se se tentar um erro ser devolvido. Em vez disso, cada tipo de operação deve ser preenchido no recurso-alvo antes do pedido seguinte sobre esse mesmo recurso. Leia mais sobre isso no nosso [guia de resolução de problemas.](https://aka.ms/aks-pending-upgrade)
+> As operações de atualização e escala num cluster ou num agrupamento de nónão não podem ocorrer simultaneamente, se se tentar um erro ser devolvido. Em vez disso, cada tipo de operação deve ser preenchido no recurso-alvo antes do pedido seguinte sobre esse mesmo recurso. Leia mais sobre isso no nosso [guia de resolução de problemas.](./troubleshooting.md#im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-upgraded-or-has-failed-upgrade)
 
 Os comandos nesta secção explicam como atualizar uma única piscina de nós específico. A relação entre a atualização da versão Kubernetes do plano de controlo e a piscina de nós são explicadas na [secção abaixo](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
@@ -796,7 +796,7 @@ Pode localizar os IPs públicos para os seus nóns de várias formas:
 az vmss list-instance-public-ips -g MC_MyResourceGroup2_MyManagedCluster_eastus -n YourVirtualMachineScaleSetName
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Neste artigo, criou um cluster AKS que inclui nós baseados em GPU. Para reduzir custos desnecessários, pode querer eliminar o *gpunodepool*, ou todo o cluster AKS.
 
@@ -818,7 +818,7 @@ Também pode eliminar o cluster adicional que criou para o cenário de piscinas 
 az group delete --name myResourceGroup2 --yes --no-wait
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [piscinas de nó de sistema.][use-system-pool]
 

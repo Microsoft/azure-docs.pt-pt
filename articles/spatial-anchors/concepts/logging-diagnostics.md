@@ -9,12 +9,12 @@ ms.date: 02/22/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: da941aa8b616fffeb2e283480c2a1e2f9cf7a093
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 45d345e8d8dbe45ecb4873904f31141111827647
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89003121"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097359"
 ---
 # <a name="logging-and-diagnostics-in-azure-spatial-anchors"></a>Registo e diagnósticos em Âncoras Espaciais Azure
 
@@ -43,9 +43,9 @@ Há duas chamadas de interesse para o utilizador. A amostra que se segue mostra 
 
 Estas chamadas de eventos são fornecidas para processar registos e erros da sessão:
 
-- [LogLevel](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.loglevel): Especifica o nível de detalhe para os eventos a receber a partir do tempo de funcionamento.
-- [OnLogDebug](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.onlogdebug): Fornece eventos padrão de registo de depurg.
-- [Erro](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.error): Fornece eventos de registo que o tempo de execução considera serem erros.
+- [LogLevel](/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.loglevel): Especifica o nível de detalhe para os eventos a receber a partir do tempo de funcionamento.
+- [OnLogDebug](/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.onlogdebug): Fornece eventos padrão de registo de depurg.
+- [Erro](/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.error): Fornece eventos de registo que o tempo de execução considera serem erros.
 
 ## <a name="diagnostics-logging"></a>Registo de diagnósticos
 

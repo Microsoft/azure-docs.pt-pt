@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
 ms.openlocfilehash: f6c47d4cbfe6311333d95b07c0553afa2b3bb15c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87287736"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar um servidor de configuração
@@ -42,7 +42,7 @@ Deve ter um utilizador com uma das seguintes permissões definidas no Azure Ativ
     - Verifique se a função de desenvolvedor de aplicações é atribuída ao utilizador. Caso contrário, utilize um utilizador com esta permissão ou contacte um [administrador para ativar a permissão](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md#assign-roles).
     
 2. Se a função de desenvolvedor de aplicações não puder ser atribuída, certifique-se de que o registo da bandeira das **aplicações** é definido como **verdadeiro** para o utilizador criar uma identidade. Para ativar estas permissões:
-    - Inicie sessão no portal do Azure.
+    - Inicie sessão no Portal do Azure.
     - Aceda às definições do Utilizador **do Diretório Ativo Azure**  >  **User settings**.
     - Nos **registos da App,** **os utilizadores podem registar aplicações,** selecione **Sim.**
 
@@ -92,7 +92,7 @@ Deve ter um utilizador com uma das seguintes permissões definidas no Azure Ativ
 Se pretender adicionar um NIC adicional ao servidor de configuração, adicione-o antes de registar o servidor no cofre. Adicionar mais adaptadores não é suportado após o registo.
 
 1. No inventário do vSphere Client, clique na VM com o botão direito do rato e selecione **Editar Definições**.
-2. Em **Hardware**, selecione **Adicionar** > **Adaptador Ethernet**. Em seguida, selecione **Seguinte**.
+2. Em **Hardware**, selecione **Adicionar** > **Adaptador Ethernet**. e selecione **Seguinte**.
 3. Selecione um tipo de adaptador e uma rede.
 4. Para ligar o NIC virtual quando o VM estiver ligado, selecione **Connect on-on**. Em seguida, selecione **Next**  >  **Finish**  >  **OK**.
 
@@ -102,7 +102,7 @@ Se pretender adicionar um NIC adicional ao servidor de configuração, adicione-
 2. A VM arranca para uma experiência de instalação do Windows Server 2016. Aceite o contrato de licença e introduza uma palavra-passe de administrador.
 3. Após a conclusão da instalação, inicie sessão na VM como administrador.
 4. A primeira vez que iniciar seduca, dentro de poucos segundos, a ferramenta de configuração de recuperação do local Azure começa.
-5. Introduza um nome que será utilizado para registar o servidor de configuração no Site Recovery. Em seguida, selecione **Seguinte**.
+5. Introduza um nome que será utilizado para registar o servidor de configuração no Site Recovery. e selecione **Seguinte**.
 6. A ferramenta verifica se a VM pode ligar ao Azure. Depois de a ligação estar estabelecida, selecione **Iniciar sessão** para iniciar sessão na sua subscrição do Azure.</br>
     a. As credenciais têm de ter acesso ao cofre no qual pretende registar o servidor de configuração.</br>
     b. Certifique-se de que a conta de utilizador escolhida tem permissão para criar uma aplicação no Azure. Para ativar as permissões necessárias, siga as diretrizes da secção [Azure Ative Directory requirements](#azure-active-directory-permission-requirements).
@@ -123,8 +123,8 @@ Se pretender adicionar um NIC adicional ao servidor de configuração, adicione-
 
     |Cenário   |Passos a seguir  |
     |---------|---------|
-    |Posso descarregar e instalar o MySQL manualmente?     |  Yes. Descarregue a aplicação MySQL, coloque-a na pasta **C:\Temp\ASRSetup**e, em seguida, instale manualmente. Depois de aceitar os termos e selecionar **Descarregar e instalar,** o portal diz *que já está instalado.* Pode passar ao próximo passo.       |
-    |Posso evitar o download do MySQL online?     |   Yes. Coloque a aplicação do instalador MySQL na pasta **C:\Temp\ASRSetup**. Aceite os termos, selecione **Descarregar e instalar,** e o portal utiliza o instalador que adicionou para instalar a aplicação. Após o fim da instalação, proceda ao passo seguinte.    |
+    |Posso descarregar e instalar o MySQL manualmente?     |  Sim. Descarregue a aplicação MySQL, coloque-a na pasta **C:\Temp\ASRSetup**e, em seguida, instale manualmente. Depois de aceitar os termos e selecionar **Descarregar e instalar,** o portal diz *que já está instalado.* Pode passar ao próximo passo.       |
+    |Posso evitar o download do MySQL online?     |   Sim. Coloque a aplicação do instalador MySQL na pasta **C:\Temp\ASRSetup**. Aceite os termos, selecione **Descarregar e instalar,** e o portal utiliza o instalador que adicionou para instalar a aplicação. Após o fim da instalação, proceda ao passo seguinte.    |
     |Quero descarregar e instalar o MySQL através da Recuperação do Site Azure.    |  Aceite o contrato de licença e selecione **Baixar e instalar.** Após o fim da instalação, proceda ao passo seguinte.       |
 
 5. Na **configuração do aparelho validado,** os pré-requisitos são verificados antes de continuar.
@@ -154,13 +154,13 @@ Consulte o nosso [artigo de resolução de problemas](vmware-azure-troubleshoot-
 
 * Posso utilizar o VM onde o servidor de configuração está instalado para diferentes finalidades?
 
-    Não. Utilize o VM para o único fim do servidor de configuração. Certifique-se de que segue todas as especificações mencionadas nos [Pré-requisitos](#prerequisites) para uma gestão eficiente da recuperação de desastres.
+    N.º Utilize o VM para o único fim do servidor de configuração. Certifique-se de que segue todas as especificações mencionadas nos [Pré-requisitos](#prerequisites) para uma gestão eficiente da recuperação de desastres.
 * Posso trocar o cofre já registado no servidor de configuração com um cofre recém-criado?
 
-    Não. Depois de um cofre ser registado no servidor de configuração, não pode ser alterado.
+    N.º Depois de um cofre ser registado no servidor de configuração, não pode ser alterado.
 * Posso usar o mesmo servidor de configuração para proteger máquinas físicas e virtuais?
 
-    Yes. O mesmo servidor de configuração pode ser usado para replicar máquinas físicas e virtuais. No entanto, a máquina física só pode ser ressartada para um VMware VM.
+    Sim. O mesmo servidor de configuração pode ser usado para replicar máquinas físicas e virtuais. No entanto, a máquina física só pode ser ressartada para um VMware VM.
 * Qual é o propósito de um servidor de configuração e onde é usado?
 
     Para saber mais sobre o servidor de configuração e as suas funcionalidades, consulte [a arquitetura de replicação VMware para Azure](vmware-azure-architecture.md).
@@ -172,17 +172,17 @@ Consulte o nosso [artigo de resolução de problemas](vmware-azure-troubleshoot-
     Para descarregar a palavra-passe, consulte [Gerir o servidor de configuração para obter a recuperação de desastres VMware VM](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase).
 * Posso mudar a frase?
 
-    Não. Não altere a palavra-passe do servidor de configuração. Uma mudança na palavra-passe quebra a replicação de máquinas protegidas e leva a um estado crítico de saúde.
+    N.º Não altere a palavra-passe do servidor de configuração. Uma mudança na palavra-passe quebra a replicação de máquinas protegidas e leva a um estado crítico de saúde.
 * Onde posso baixar as chaves de registo do cofre?
 
     No **Cofre de Serviços de Recuperação**, selecione **Gerir**  >  servidores de configuração da**infraestrutura de**  >  **recuperação do local**. Em **Servers**, selecione Baixar a **chave de registo** para descarregar o ficheiro de credenciais do cofre.
 * Posso clonar um servidor de configuração existente e usá-lo para orquestração de replicação?
 
-    Não. A utilização de um componente do servidor de configuração clonado não é suportada. A clonagem de um servidor de processo de escala também é um cenário não suportado. Os componentes de recuperação do local de clonagem afetam as replicações em curso.
+    N.º A utilização de um componente do servidor de configuração clonado não é suportada. A clonagem de um servidor de processo de escala também é um cenário não suportado. Os componentes de recuperação do local de clonagem afetam as replicações em curso.
 
 * Posso alterar o IP de um servidor de configuração?
 
-    Não. Não altere o endereço IP de um servidor de configuração. Certifique-se de que todos os IPs atribuídos ao servidor de configuração são IPs estáticos e não IPs DHCP.
+    N.º Não altere o endereço IP de um servidor de configuração. Certifique-se de que todos os IPs atribuídos ao servidor de configuração são IPs estáticos e não IPs DHCP.
 * Posso configurar um servidor de configuração no Azure?
 
     Configurar um servidor de configuração num ambiente no local com uma linha de visão direta com v-Center e para minimizar as latências de transferência de dados. Pode realizar cópias de segurança programadas do servidor de configuração para [fins de falha](vmware-azure-manage-configuration-server.md#failback-requirements).

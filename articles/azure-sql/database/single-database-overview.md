@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/08/2019
 ms.openlocfilehash: 8f92fe8e4a4ebbc2d970bf28e415859249b9f67c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84343324"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>O que é uma única base de dados na Base de Dados Azure SQL?
@@ -57,7 +57,7 @@ A SQL Database fornece uma gama de funcionalidades de [segurança e conformidade
 > [!IMPORTANT]
 > A Azure SQL Database foi certificada contra uma série de normas de conformidade. Para mais informações, consulte o [Microsoft Azure Trust Center,](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)onde pode encontrar a lista mais atual de certificações de conformidade da Base de Dados SQL.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para começar rapidamente com uma única base de dados, comece com o [guia quickstart da base de dados single](quickstart-content-reference-guide.md).
 - Para saber sobre a migração de uma base de dados do SQL Server para Azure, consulte [a Migração para a Base de Dados SQL Azure](migrate-to-database-from-sql-server.md).

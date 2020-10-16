@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: cb44d977407a7e854603e6bbacf3591752b109c2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87271948"
 ---
 # <a name="retrieve-operations"></a>Obter operações
@@ -33,7 +33,7 @@ Recupera todas as operações da oferta ou para obter uma operação específica
 
 |  **Nome**          |      **Descrição**                                                                                           | **Tipo de dados** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
-|  publisherId       |  Identificador de editor, por exemplo`Contoso`                                                                   |  Cadeia       |
+|  publisherId       |  Identificador de editor, por exemplo `Contoso`                                                                   |  Cadeia       |
 |  offerId           |  Identificar oferta                                                                                              |  Cadeia       |
 |  operationId       |  GUID que identifica exclusivamente a operação na oferta. A operaçãoId pode ser recuperada utilizando esta API, e também é devolvida no cabeçalho HTTP da resposta para qualquer operação de longa duração, como a [Oferta Editorial](./cloud-partner-portal-api-publish-offer.md) API.  |   GUID   |
 |  api-version       | Última versão da API |    Date      |
@@ -172,7 +172,7 @@ Recupera todas as operações da oferta ou para obter uma operação específica
 |  **Nome**                    |  **Descrição**                                                                                  |
 |  --------------------        |  ------------------------------------------------------------------------------------------------ |
 |  ID                          | GUID que identifica exclusivamente a operação                                                       |
-|  submissãoType              | Identifica o tipo de operação que está a ser reportada para a oferta, por exemplo`Publish/GoLive`      |
+|  submissãoType              | Identifica o tipo de operação que está a ser reportada para a oferta, por exemplo `Publish/GoLive`      |
 |  createdDateTime             | Data da UTC quando a operação foi criada                                                       |
 |  últimaActionDateTime          | Data da UTC quando a última atualização foi feita sobre a operação                                       |
 |  status                      | Estado da operação, também `not started` \| `running` \| `failed` \| `completed` . . Só uma operação pode ter estatuto `running` de cada vez. |
@@ -196,8 +196,8 @@ Recupera todas as operações da oferta ou para obter uma operação específica
 
 | **Código**  |   **Descrição**                                                                                  |
 |  -------- |   -------------------------------------------------------------------------------------------------|
-|  200      | `OK`- O pedido foi processado com sucesso e as operações solicitadas foram devolvidas.        |
-|  400      | `Bad/Malformed request`- O corpo de resposta a erros pode conter mais informações.                    |
-|  403      | `Forbidden`- O cliente não tem acesso ao espaço de nome especificado.                          |
-|  404      | `Not found`- A entidade especificada não existe.                                                 |
+|  200      | `OK` - O pedido foi processado com sucesso e as operações solicitadas foram devolvidas.        |
+|  400      | `Bad/Malformed request` - O corpo de resposta a erros pode conter mais informações.                    |
+|  403      | `Forbidden` - O cliente não tem acesso ao espaço de nome especificado.                          |
+|  404      | `Not found` - A entidade especificada não existe.                                                 |
 |  |  |

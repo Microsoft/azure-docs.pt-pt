@@ -9,10 +9,10 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.openlocfilehash: 6a4f8b99be564779b350bff2ab5b37f3c7ccc6f2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87020984"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>Como utilizar o Armazenamento de Filas a partir do C++
@@ -172,7 +172,7 @@ std::wcout << U("Changed message content: ") << changed_message.content_as_strin
 ```
 
 ## <a name="how-to-de-queue-the-next-message"></a>Como: De-fila a próxima mensagem
-O código remove uma mensagem da fila em dois passos. Quando **ligas para get_message,** recebes a próxima mensagem numa fila. Uma mensagem devolvida **de get_message** torna-se invisível a qualquer outra mensagem de leitura de código desta fila. Para terminar de remover a mensagem da fila, também deve **chamádelete_message**. Este processo de dois passos da remoção de uma mensagem garante que se o código não conseguir processar uma mensagem devido a uma falha de hardware ou software, outra instância do seu código poderá obter a mesma mensagem e tentar novamente. O seu código chama **delete_message** logo após o processo da mensagem.
+O código remove uma mensagem da fila em dois passos. Quando **ligas para get_message,** recebes a próxima mensagem numa fila. Uma mensagem devolvida **de get_message** torna-se invisível a qualquer outra mensagem de leitura de código desta fila. Para terminar de remover a mensagem da fila, também deve **chamá delete_message**. Este processo de dois passos da remoção de uma mensagem garante que se o código não conseguir processar uma mensagem devido a uma falha de hardware ou software, outra instância do seu código poderá obter a mesma mensagem e tentar novamente. O seu código chama **delete_message** logo após o processo da mensagem.
 
 ```cpp
 // Retrieve storage account from connection-string.

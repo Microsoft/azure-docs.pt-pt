@@ -4,12 +4,12 @@ description: Monitorização do desempenho da aplicação para serviços de apli
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: 36f6ad4c248b3de54de5de0893410e9b13df0c26
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: e326f9764147b882a5009c53b9f13a3c3bd0bfc1
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91759463"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91875613"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorizar o desempenho do Serviço de Aplicações do Azure
 
@@ -61,11 +61,11 @@ Existem duas formas de permitir a monitorização de aplicações para os Servi�
         
 | Dados | .NET Coleção Básica | .NET Coleção recomendada |
 | --- | --- | --- |
-| Adiciona tendências de utilização da CPU, memória e E/S |Yes |Yes |
-| Recolhe tendências de utilização e permite a correlação dos resultados de disponibilidade para transações | Yes |Yes |
-| Recolhe exceções sem processamento pelo processo anfitrião | Yes |Yes |
-| Melhora a precisão das métricas de APM sob carga, quando é utilizada a amostragem | Yes |Yes |
-| Correlaciona os microsserviços entre limites de pedidos/dependências | Não (apenas capacidades APM de instância única) |Yes |
+| Adiciona tendências de utilização da CPU, memória e E/S |Sim |Sim |
+| Recolhe tendências de utilização e permite a correlação dos resultados de disponibilidade para transações | Sim |Sim |
+| Recolhe exceções sem processamento pelo processo anfitrião | Sim |Sim |
+| Melhora a precisão das métricas de APM sob carga, quando é utilizada a amostragem | Sim |Sim |
+| Correlaciona os microsserviços entre limites de pedidos/dependências | Não (apenas capacidades APM de instância única) |Sim |
 
 3. Para configurar configurações como amostragem, que poderia controlar previamente através do ficheiro applicationinsights.config pode agora interagir com essas mesmas definições através de definições de Aplicação com um prefixo correspondente. 
 
@@ -75,7 +75,7 @@ Existem duas formas de permitir a monitorização de aplicações para os Servi�
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
-As seguintes versões de .NET Core são suportadas: ASP.NET Core 2.0, ASP.NET Core 2.1, ASP.NET Core 2.2, ASP.NET Core 3.0
+As seguintes versões de .NET Core são suportadas: ASP.NET Core 2.1, ASP.NET Core 2.2, ASP.NET Core 3.0, ASP.NET Core 3.1
 
 O quadro completo de aplicações baseadas em .NET Core, autossuficientes e linux não são atualmente **suportados** com monitorização baseada em agente/extensão. ([A instrumentação manual](./asp-net-core.md) via código funcionará em todos os cenários anteriores.)
 
@@ -90,7 +90,7 @@ O quadro completo de aplicações baseadas em .NET Core, autossuficientes e linu
 
      ![Instrumente a sua aplicação Web](./media/azure-web-apps/create-resource-01.png)
 
-2. Depois de especificar que recurso utilizar, pode escolher como pretende que o Application Insights recolha dados por plataforma para a sua aplicação. .NET Core oferece **coleção recomendada** ou **desativada** para .NET Core 2.0, 2.1, 2.2 e 3.0.
+2. Depois de especificar que recurso utilizar, pode escolher como pretende que o Application Insights recolha dados por plataforma para a sua aplicação. .NET Core oferece **coleção recomendada** ou **desativada** para ASP.NET Core 2.1, 2.2, 3.0 e 3.1.
 
     ![Escolha opções por plataforma](./media/azure-web-apps/choose-options-new-net-core.png)
 
@@ -359,8 +359,8 @@ Abaixo está o nosso guia de resolução de problemas passo a passo para monitor
 
     ![Screenshot da página de https://yoursitename.scm.azurewebsites/applicationinsights resultados](./media/azure-web-apps/app-insights-sdk-status.png)
 
-    * Confirme que o `Application Insights Extension Status` é `Pre-Installed Site Extension, version 2.8.12.1527, is running.`
-        * Se não estiver em funcionamento, siga as [instruções de monitorização do Application Insights](#enable-application-insights)
+    * Confirme que o `Application Insights Extension Status` é `Pre-Installed Site Extension, version 2.8.12.1527, is running.` 
+    * Se não estiver em funcionamento, siga as [instruções de monitorização do Application Insights](#enable-application-insights)
 
     * Confirme que a fonte de estado existe e parece: `Status source D:\home\LogFiles\ApplicationInsights\status\status_RD0003FF0317B6_4248_1.json`
         * Se não houver um valor semelhante, significa que a aplicação não está atualmente em execução ou não está suportada. Para garantir que a aplicação está em execução, tente visitar manualmente os pontos finais url/aplicação da aplicação, o que permitirá que as informações de tempo de execução fiquem disponíveis.
@@ -406,6 +406,10 @@ Os sites PHP e WordPress não são suportados. Atualmente, não existe um SDK/ag
 ### <a name="connection-string-and-instrumentation-key"></a>Chave de ligação e instrumentação
 
 Quando se utiliza uma monitorização codificada, é necessário apenas o fio de ligação. No entanto, recomendamos ainda a definição da chave de instrumentação para preservar a retrocompatibilidade com versões mais antigas do SDK quando estiver a ser executada a instrumentação manual.
+
+## <a name="release-notes"></a>Notas de versão
+
+Para obter as últimas atualizações e correções de erro [consulte as notas de lançamento](./web-app-extension-release-notes.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Run the profiler on your live app](./profiler.md) (Executar o gerador de perfis na sua aplicação publicada).

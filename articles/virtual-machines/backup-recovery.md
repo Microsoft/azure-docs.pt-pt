@@ -6,12 +6,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 8/03/2020
 ms.author: cynthn
-ms.openlocfilehash: bb1abb5b94653893e131c09af6de1625b0bc7998
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: c56adc852b504d3a0663a9607b3472cb3348e7a5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87554852"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972361"
 ---
 # <a name="backup-and-restore-options-for-linux-virtual-machines-in-azure"></a>Opções de backup e restauro para máquinas virtuais Linux em Azure
 
@@ -32,7 +32,7 @@ A Azure Site Recovery protege os seus VMs de um cenário de grande desastre, qua
 
 Pode executar exercícios de recuperação de desastres com falhas nos testes a pedido, sem afetar as cargas de trabalho de produção ou a replicação em curso. Crie planos de recuperação para orquestrar o failover e o failback de toda a aplicação em execução em vários VMs. A funcionalidade do plano de recuperação está integrada com os runbooks de automação Azure.
 
-Pode começar replicando [as suas máquinas virtuais.](https://aka.ms/a2a-getting-started) 
+Pode começar replicando [as suas máquinas virtuais.](../site-recovery/azure-to-azure-quickstart.md) 
 
 ## <a name="managed-snapshots"></a>Instantâneos geridos 
 
@@ -45,5 +45,5 @@ Para obter mais informações sobre a criação de instantâneos, consulte:
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Pode experimentar o Azure Backup seguindo o tutorial "Back up Windows virtual machines" para [Linux](./linux/tutorial-backup-vms.md) ou [Windows](./windows/tutorial-backup-vms.md).

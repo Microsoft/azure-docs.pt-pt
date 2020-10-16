@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: d9699103f5e13301cce408d2e54f0e15780e0a35
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88716899"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutorial: Dimensionar um cluster do Service Fabric no Azure
@@ -807,7 +807,7 @@ az group deployment create --resource-group sfclustertutorialgroup --template-fi
 Depois de criar um cluster de Tecido de Serviço, pode escalar um cluster horizontalmente removendo um tipo de nó (conjunto de balança de máquina virtual) e todos os seus nós. Pode escalar o cluster a qualquer momento, mesmo quando as cargas de trabalho estão a funcionar no cluster. À medida que o cluster escala, as suas aplicações também escalam automaticamente.
 
 > [!WARNING]
-> Não é aconselhável utilizar o Remove-AzServiceFabricNodeType para remover um nó de um cluster de produção. É um comando perigoso, uma vez que elimina o recurso de escala de máquina virtual por trás do tipo de nó. 
+> Não é aconselhável utilizar Remove-AzServiceFabricNodeType para remover um nó de um aglomerado de produção. É um comando perigoso, uma vez que elimina o recurso de escala de máquina virtual por trás do tipo de nó. 
 
 Para remover o tipo de nó, executar o [cmdlet Remove-AzServiceFabricNodeType.](/powershell/module/az.servicefabric/remove-azservicefabricnodetype)  O tipo de nó deve ser nível de [durabilidade][durability]  prateado ou dourado O cmdlet elimina o conjunto de escalas associado ao tipo de nó e demora algum tempo a ser concluído.  Em seguida, executar o cmdlet [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) em cada um dos nós para remover, que elimina o estado do nó e remove os nós do cluster. Se houver serviços nos nós, então os serviços são transferidos para outro nó. Se o gestor do cluster não conseguir encontrar um nó para a réplica/serviço, então a operação está atrasada/bloqueada.
 

@@ -10,12 +10,12 @@ metadata:
   author: DCtheGeek
   ms.author: dacoulte
   ms.date: 09/30/2020
-  ms.openlocfilehash: b407d2ced754297b4b61738b58f91f18f820907a
-  ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+  ms.openlocfilehash: fce9674e9ad21f51344b3ea249849e1474c40ee4
+  ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/30/2020
-  ms.locfileid: "91598312"
+  ms.lasthandoff: 10/14/2020
+  ms.locfileid: "92054836"
 landingContent:
 - title: Acerca do Azure Policy
   linkLists:
@@ -133,6 +133,8 @@ landingContent:
       url: /rest/api/resources/policyassignments
     - text: REST (Definições)
       url: /rest/api/resources/policydefinitions
+    - text: REST (Isenções)
+      url: /rest/api/resources/policyexemptions
     - text: REST (Iniciativas)
       url: /rest/api/resources/policysetdefinitions
     - text: Modelos do Resource Manager

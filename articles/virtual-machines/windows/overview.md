@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4e955a51906f160264fc4e81f263fe7677be91de
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8a42711bba8f77070e2b30a9b07d29d5b5095945
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88589627"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973891"
 ---
 # <a name="windows-virtual-machines-in-azure"></a>Máquinas virtuais do Windows no Azure
 
@@ -69,7 +69,7 @@ O Azure cobra um [preço por hora](https://azure.microsoft.com/pricing/details/v
 A subscrição tem [limites de quota](../../azure-resource-manager/management/azure-subscription-service-limits.md) predefinidos num local que pode afetar a implementação de muitas VMs para o seu projeto. O limite atual numa base por subscrição é de 20 VMs por região. Os limites podem ser aumentados ao [preencher um pedido de suporte a pedir um aumento](../../azure-portal/supportability/resource-manager-core-quotas-request.md)
 
 ### <a name="operating-system-disks-and-images"></a>Discos do sistema operativo e imagens
-As máquinas virtuais utilizam [discos rígidos virtuais (VHDs)](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para armazenar o seu sistema operativo (OS) e dados. Os VHDs também são utilizados para as imagens que pode escolher para instalar um SO. 
+As máquinas virtuais utilizam [discos rígidos virtuais (VHDs)](../managed-disks-overview.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) para armazenar o seu sistema operativo (OS) e dados. Os VHDs também são utilizados para as imagens que pode escolher para instalar um SO. 
 
 O Azure oferece muitas [imagens do marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images%3Bwindows&page=1) para utilizar com diversas versões e tipos de sistemas operativos do Windows Server. A imagens do marketplace são identificadas pelo publicador da imagem, oferta, sku e versão (normalmente, a versão especificada é a mais recente). Apenas os sistemas operativos de 64 bits são suportados. Para obter mais informações sobre os sistemas operativos convidados suportados, as funções e funcionalidades, veja [Microsoft server software support for Microsoft Azure virtual machines](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) (Suporte do software do servidor da Microsoft para máquinas virtuais do Microsoft Azure).
 

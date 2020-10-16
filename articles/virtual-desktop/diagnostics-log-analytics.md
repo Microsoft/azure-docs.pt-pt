@@ -7,10 +7,10 @@ ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: a3fccc934fafd8ff7db2cffbd6ba641329ba8de2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89006810"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Utilize o Log Analytics para a funcionalidade de diagnóstico
@@ -18,7 +18,7 @@ ms.locfileid: "89006810"
 >[!IMPORTANT]
 >Este conteúdo aplica-se ao Windows Virtual Desktop com objetos de ambiente de trabalho virtuais do Windows, gestor de recursos do Azure. Se estiver a utilizar o Windows Virtual Desktop (clássico) sem objetos Azure Resource Manager, consulte [este artigo](./virtual-desktop-fall-2019/diagnostics-log-analytics-2019.md).
 
-O Windows Virtual Desktop utiliza [o Azure Monitor](../azure-monitor/overview.md) para monitorização e alertas como muitos outros serviços Azure. Isto permite que os administradores identifiquem problemas através de uma única interface. O serviço cria registos de atividades tanto para as ações de utilizador como para ações administrativas. Cada registo de atividades insere-se nas seguintes categorias:
+O Windows Virtual Desktop utiliza [o Azure Monitor](../azure-monitor/overview.md) para monitorização e alertas como muitos outros serviços Azure. Isto permite aos administradores identificarem problemas através de uma única interface. O serviço cria registos de atividades tanto para as ações de utilizador como para ações administrativas. Cada registo de atividades insere-se nas seguintes categorias:
 
 - Atividades de Gestão:
     - Acompanhe se as tentativas de alterar objetos de ambiente de trabalho virtuais do Windows utilizando APIs ou PowerShell são bem sucedidas. Por exemplo, alguém pode criar com sucesso uma piscina de anfitriões usando o PowerShell?
@@ -91,7 +91,7 @@ Pode aceder aos espaços de trabalho do Log Analytics no portal Azure ou no Azur
 
 ### <a name="access-log-analytics-on-a-log-analytics-workspace"></a>Acesso Log Analytics em um espaço de trabalho Log Analytics
 
-1. Inicie sessão no portal do Azure.
+1. Inicie sessão no Portal do Azure.
 
 2. Procure por **Log Analytics espaço de trabalho**.
 

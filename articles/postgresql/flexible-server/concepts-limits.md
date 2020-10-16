@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 30c2da4ac750375c66b92cdca552e1a51a8dbc40
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940400"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Limites na Base de Dados Azure para PostgreSQL - Servidor Flexível
@@ -29,7 +29,7 @@ O número máximo de ligações por nível de preços e vCores são mostrados ab
 | **Rebentado**        |        |             |                 |                      |
 | B1ms                 | 1      | 2 GiB       | 50              | 47                   |
 | B2s                  | 2      | 4 GiB       | 100             | 97                   |
-| **Finalidade Geral**  |        |             |                 |                      |
+| **Fins Gerais**  |        |             |                 |                      |
 | D2s_v3               | 2      | 8 GiB       | 214             | 211                  |
 | D4s_v3               | 4      | 16 GiB      | 429             | 426                  |
 | D8s_v3               | 8      | 32 GiB      | 859             | 856                  |
@@ -66,7 +66,7 @@ Uma ligação PostgreSQL, mesmo inativa, pode ocupar cerca de 10 MB de memória.
 
 - Atualmente, a migração automatizada entre as principais versões do motor da base de dados não é suportada. Se quiser fazer o upgrade para a próxima versão principal, faça uma [lixeira e restaure-a](../howto-migrate-using-dump-and-restore.md) num servidor que foi criado com a nova versão do motor.
 
-### <a name="networking"></a>Rede
+### <a name="networking"></a>Redes
 
 - Atualmente, a deslocação para dentro e para fora do VNET não é suportada.
 - A combinação do acesso público com a implantação dentro de um VNET não é atualmente suportada.
@@ -75,7 +75,7 @@ Uma ligação PostgreSQL, mesmo inativa, pode ocupar cerca de 10 MB de memória.
 
 ### <a name="high-availability"></a>Elevada disponibilidade
 
-- O HA de zona-redundante não é atualmente suportado para servidores Burstable.
+- Zone-Redundant HA não é suportado para servidores Burstable.
 - O endereço IP do servidor de base de dados muda quando o seu servidor falha no standby HA. Certifique-se de que utiliza o registo DNS em vez do endereço IP do servidor.
 
 ### <a name="availability-zones"></a>Zonas de disponibilidade

@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: d04311fce81d147a0830918aee1d4a2a9c0808d4
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88923403"
 ---
 # <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>Visão geral da linguagem OData `$filter` `$orderby` para, e `$select` em Azure Cognitive Search
@@ -46,7 +46,7 @@ As expressões OData variam de simples a altamente complexas, mas todas partilha
 
 ## <a name="field-paths"></a>Caminhos de campo
 
-O seguinte EBNF[(Formulário Backus-Naur Estendido)](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)define a gramática dos caminhos de campo.
+O seguinte EBNF[(Formulário Backus-Naur Alargado)](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)define a gramática dos caminhos de campo.
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -135,7 +135,7 @@ Por exemplo, uma frase com um apóstrofo nãoformado como "O carro de Alice" ser
 
 ### <a name="constants-syntax"></a>Sintaxe de constantes
 
-O seguinte EBNF[(Formulário Backus-Naur Estendido)](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)define a gramática para a maioria das constantes mostradas na tabela acima. A gramática para tipos geo-espaciais pode ser encontrada em [funções geo-espaciais OData em Azure Cognitive Search](search-query-odata-geo-spatial-functions.md).
+O seguinte EBNF[(Formulário Backus-Naur Alargado)](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)define a gramática para a maioria das constantes mostradas na tabela acima. A gramática para tipos geo-espaciais pode ser encontrada em [funções geo-espaciais OData em Azure Cognitive Search](search-query-odata-geo-spatial-functions.md).
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -211,7 +211,7 @@ Os caminhos de campo e as constantes são a parte mais básica de uma expressão
 
 No entanto, a maior parte do tempo você precisará de expressões mais complexas que se referem a mais de um campo e constante. Estas expressões são construídas de diferentes formas dependendo do parâmetro.
 
-O seguinte EBNF[(Formulário Backus-Naur Estendido)](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)define a gramática para os **parâmetros $filter**, **$orderby**e **$select.** Estes são construídos a partir de expressões mais simples que se referem a caminhos de campo e constantes:
+O seguinte EBNF[(Formulário Backus-Naur Alargado)](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)define a gramática para os **parâmetros $filter**, **$orderby**e **$select.** Estes são construídos a partir de expressões mais simples que se referem a caminhos de campo e constantes:
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -239,7 +239,7 @@ Os **parâmetros $filter**, **$orderby**e **$select** são explorados mais detal
 - [OData $orderby sintaxe na pesquisa cognitiva de Azure](search-query-odata-orderby.md)
 - [OData $select sintaxe na pesquisa cognitiva do Azure](search-query-odata-select.md)
 
-## <a name="see-also"></a>Ver também  
+## <a name="see-also"></a>Consulte também  
 
 - [Navegação facetada em Pesquisa Cognitiva Azure](search-faceted-navigation.md)
 - [Filtros em Pesquisa Cognitiva Azure](search-filters.md)

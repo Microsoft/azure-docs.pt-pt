@@ -8,10 +8,10 @@ author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.date: 08/07/2020
 ms.openlocfilehash: 34af52b32d9e31ad003c5e95e288f88b157a944a
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91710622"
 ---
 # <a name="create-a-managed-service-offer"></a>Criar uma oferta de Serviço Gerido
@@ -90,7 +90,7 @@ Aqui está um exemplo de como a oferta de informação aparece no portal Azure:
 3. Ligações úteis
 4. Capturas de ecrã
 
-### <a name="name"></a>Name
+### <a name="name"></a>Nome
 
 O nome que introduzir aqui será mostrado aos clientes como o título da sua listagem de oferta. Este campo é pré-povoado com o texto que inseriu para **o pseudónimo Oferta** quando criou a oferta, mas pode alterar este valor. Este nome pode ser comercializado (e pode incluir símbolos de marca registada ou de direitos autorais). O nome não pode ter mais de 50 caracteres e não pode incluir emojis.
 
@@ -266,7 +266,7 @@ Quando um cliente implementar a sua oferta, poderá delegar subscrições ou gru
 
 Pode [publicar uma versão atualizada da sua oferta a](update-existing-offer.md) qualquer momento. Por exemplo, pode querer adicionar uma nova definição de papel a uma oferta publicada anteriormente. Quando o fizer, os clientes que já adicionaram a oferta verão um ícone na página de fornecedores de [**Serviços**](../../lighthouse/how-to/view-manage-service-providers.md) no portal Azure que lhes permite saber que uma atualização está disponível. Cada cliente poderá rever as alterações e decidir se pretende atualizar para a nova versão.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atualizar uma oferta existente no Marketplace Comercial](./update-existing-offer.md)
 - [Saiba mais sobre o Farol de Azure](../../lighthouse/overview.md)

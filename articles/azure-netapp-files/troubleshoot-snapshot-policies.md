@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 09/23/2020
 ms.author: b-juche
 ms.openlocfilehash: 6ba8b18876bdae2754a6a772ce3909ff2f5a71b7
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91651009"
 ---
 # <a name="troubleshoot-snapshot-policies"></a>Resolver problemas das políticas de instantâneo

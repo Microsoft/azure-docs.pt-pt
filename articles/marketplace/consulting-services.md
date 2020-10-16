@@ -8,10 +8,10 @@ ms.date: 06/08/2020
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.openlocfilehash: 25f110f27ec9ac55420f624b5eea4555e482e7f4
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708361"
 ---
 # <a name="consulting-service-offers"></a>Ofertas de serviços de consultoria
@@ -169,7 +169,7 @@ Aqui estão algumas dicas de Markdown:
 * Adicione uma rutura de linha após cada direção.
 * Para formatação **ousada,** adicione um asterisco duplo \* \* (), sem espaço, no início e no fim de uma palavra ou série de palavras (por exemplo, escreva \* \* conteúdo para \* \* formatar uma palavra como **conteúdo).**
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - [Cresça o seu negócio em nuvem com o Azure Marketplace.](https://azuremarketplace.microsoft.com/sell)
 - [Criar uma oferta de serviço de consultoria](./partner-center-portal/create-consulting-service-offer.md)

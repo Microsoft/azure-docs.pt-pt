@@ -4,12 +4,12 @@ description: Saiba mais sobre encriptação no resto do seu registo de contentor
 ms.topic: article
 ms.date: 09/30/2020
 ms.custom: ''
-ms.openlocfilehash: 7b4b3fd21421ba1e371bd27d8224c1f2aa34b7be
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: 6eaae5266277a6a65c7cecaa761b75e3a41ebe87
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91620346"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940672"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Registo encriptado usando uma chave gerida pelo cliente
 
@@ -114,7 +114,7 @@ az keyvault set-policy \
   --key-permissions get unwrapKey wrapKey
 ```
 
-Em alternativa, utilize [o Azure RBAC para Key Vault](../key-vault/general/rbac-guide.md) (pré-visualização) para atribuir permissões à identidade para aceder ao cofre da chave. Por exemplo, atribua o papel de encriptação do serviço crypto do cofre de chave à identidade utilizando o comando [de criação de função az:](/cli/azure/az/role/assigment#az-role-assignment-create)
+Em alternativa, utilize [o Azure RBAC para Key Vault](../key-vault/general/rbac-guide.md) (pré-visualização) para atribuir permissões à identidade para aceder ao cofre da chave. Por exemplo, atribua o papel de encriptação do serviço crypto do cofre de chave à identidade utilizando o comando [de criação de função az:](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create)
 
 ```azurecli 
 az role assignment create --assignee $identityPrincipalID \
@@ -515,7 +515,7 @@ Para aceder a um cofre de chaves configurado com uma firewall key Vault, o regis
 
 Depois de completar os passos anteriores, rode a chave para uma nova chave no cofre da chave atrás de uma firewall. Para etapas, consulte [a tecla Rotativa](#rotate-key) neste artigo.
 
-## <a name="troubleshoot"></a>Resolver Problemas
+## <a name="troubleshoot"></a>Resolução de problemas
 
 ### <a name="removing-user-assigned-identity"></a>Remoção da identidade atribuída ao utilizador
 

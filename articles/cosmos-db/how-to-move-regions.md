@@ -8,10 +8,10 @@ ms.custom: subject-moving-resources
 ms.date: 09/12/2020
 ms.author: mjbrown
 ms.openlocfilehash: b34bc81f48b806b1016fbbd19d3ebc8bfef908c2
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90090538"
 ---
 # <a name="move-an-azure-cosmos-db-account-to-another-region"></a>Mover uma conta DB Azure Cosmos para outra região

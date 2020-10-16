@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d7c02e413fdaa54db431cdac7a3cf7af0bddeb98
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331901"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>O processo de ciência de dados da equipa em ação: usando o SQL Server
@@ -431,7 +431,7 @@ plt.scatter(df1['passenger_count'], df1['trip_distance'])
 
 ![#8 do enredo][8]
 
-### <a name="sub-sampling-the-data-in-sql"></a>Sub-amostragem dos dados em SQL
+### <a name="sub-sampling-the-data-in-sql"></a>Sub-Sampling os Dados em SQL
 Ao preparar dados para a construção de modelos no [Azure Machine Learning Studio,](https://studio.azureml.net)pode decidir sobre **a consulta SQL para utilizar diretamente no módulo de Dados de Importação** ou persistir os dados projetados e amostrados numa nova tabela, que poderá utilizar no módulo De [Dados de Importação][import-data] com um simples SELECT * FROM <o seu novo nome de mesa ** \_ \_ \_>**.
 
 Nesta secção, criaremos uma nova tabela para conter os dados amostrados e projetados. Um exemplo de uma consulta direta de SQL para a construção de modelos é fornecido na [secção de Exploração de Dados e Engenharia de Recursos na secção SQL Server.](#dbexplore)

@@ -5,13 +5,13 @@ ms.topic: how-to
 ms.date: 02/28/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: 7674c2151922d26e069b5cd285cb311d7a18fa98
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87852808"
 ---
-# <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" />Gerir e configurar projetos em Pré-visualização de Cadernos Azure
+# <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" /> Gerir e configurar projetos em Pré-visualização de Cadernos Azure
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
@@ -30,7 +30,7 @@ O painel de instrumentos do projeto em Azure Notebooks permite-lhe gerir ficheir
 
 A Azure Notebooks inicia a máquina virtual subjacente sempre que executar um caderno ou outro ficheiro. O servidor guarda automaticamente ficheiros e desliga-se após 60 minutos de inatividade. Também pode parar o servidor a qualquer momento com o comando **'Desligar'** (atalho de teclado: h).
 
-## <a name="compute-tier"></a>Nível de computação
+## <a name="compute-tier"></a>Escalão de computação
 
 Por padrão, os projetos funcionam no nível **de Computação Livre,** que está limitado a 4GB de memória e 1GB de dados para prevenir abusos. Pode contornar estas limitações e aumentar a potência de computação utilizando uma máquina virtual diferente que a provisionou numa subscrição do Azure. Para obter mais informações, consulte [Como utilizar máquinas virtuais da Ciência de Dados.](use-data-science-virtual-machine.md)
 
@@ -127,7 +127,7 @@ Para adicionar um passo, selecione primeiro **+ Adicione,** em seguida, selecion
 
 A informação que então projeta depende do tipo de operação que escolheu:
 
-- **Requirements.txt**: Na segunda lista de drop-down, selecione um ficheiro *requirements.txt* que já está no projeto. Em seguida, selecione uma versão Python da terceira lista de drop-down que aparece. Ao utilizar um ficheiro *requirements.txt,* o Azure Notebooks funciona `pip install -r` com o ficheiro *requirements.txt* ao iniciar um servidor de portátil. Não é necessário instalar explicitamente pacotes a partir do próprio caderno.
+- **Requirements.txt**: Na segunda lista de drop-down, selecione um ficheiro *requirements.txt* que já está no projeto. Em seguida, selecione uma versão Python da terceira lista de drop-down que aparece. Ao utilizar um ficheiro *requirements.txt, * o Azure Notebooks funciona `pip install -r` com o ficheiro *requirements.txt* ao iniciar um servidor de portátil. Não é necessário instalar explicitamente pacotes a partir do próprio caderno.
 
 - **Script de concha**: Na segunda lista de drop-down, selecione um script de concha de bash no projeto (normalmente um ficheiro com a extensão *.sh)* que contém quaisquer comandos que deseje executar para inicializar o ambiente.
 
@@ -190,4 +190,4 @@ Também pode utilizar o comando a partir de uma célula de código num caderno P
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Como: Trabalhar com ficheiros de dados do projeto](work-with-project-data-files.md)
-- [Aceder a dados da cloud num bloco de notas](access-data-resources-jupyter-notebooks.md)
+- [Aceda aos dados da nuvem de acesso em um caderno](access-data-resources-jupyter-notebooks.md)

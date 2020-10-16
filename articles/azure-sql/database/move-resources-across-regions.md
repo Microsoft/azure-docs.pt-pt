@@ -13,10 +13,10 @@ ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 06/25/2019
 ms.openlocfilehash: 0b78419f4fb37bb96e2c71c89f740a35914ccede
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91446385"
 ---
 # <a name="move-resources-to-new-region---azure-sql-database--azure-sql-managed-instance"></a>Mover recursos para a nova região - Azure SQL Database & Azure SQL Managed Instance
@@ -193,6 +193,6 @@ Uma vez terminada a mudança, retire os recursos da região de origem para evita
 1. Eliminar a instância gerida pela fonte utilizando [remove-AzSqlInstance](/powershell/module/az.sql/remove-azsqlinstance).
 1. Remova quaisquer recursos adicionais no grupo de recursos, tais como o cluster virtual, a rede virtual e o grupo de segurança.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Gerencie](manage-data-after-migrating-to-database.md) a sua base de dados depois de ter sido migrada.

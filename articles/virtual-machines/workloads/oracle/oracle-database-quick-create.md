@@ -1,25 +1,18 @@
 ---
 title: Criar uma base de dados Oráculo num VM Azure Microsoft Docs
 description: Obtenha rapidamente uma base de dados Oracle Database 12c em funcionamento no seu ambiente Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: dbakevlar
-manager: ''
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: quickstart
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 10/05/2020
 ms.author: kegorman
-ms.openlocfilehash: 31743fd292bb45ee7107bc17f7d5dc43db8ed3f0
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.reviewer: cynthn
+ms.openlocfilehash: 557091652702a6cc313456ed2468d9620e02abf8
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91728289"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996210"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Criar uma Base de Dados Oráculo num VM Azure
 

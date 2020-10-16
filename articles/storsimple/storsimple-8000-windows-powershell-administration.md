@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: bba3666fbce6a8ea591654d1abdad319f1e0857c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86999522"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Utilizar o Windows PowerShell para StorSimple para administrar o seu dispositivo
@@ -157,8 +157,8 @@ Segue-se uma breve descrição dos tipos de Ajuda para esta interface Windows Po
 
 ### <a name="to-get-help-for-a-cmdlet"></a>Para obter ajuda para um cmdlet
 
-* Para obter ajuda para qualquer cmdlet ou função, utilize o seguinte comando:`Get-Help <cmdlet-name>`
-* Para obter ajuda on-line para qualquer cmdlet, utilize o cmdlet anterior com o `-Online` parâmetro:`Get-Help <cmdlet-name> -Online`
+* Para obter ajuda para qualquer cmdlet ou função, utilize o seguinte comando: `Get-Help <cmdlet-name>`
+* Para obter ajuda on-line para qualquer cmdlet, utilize o cmdlet anterior com o `-Online` parâmetro: `Get-Help <cmdlet-name> -Online`
 * Para obter ajuda total, pode utilizar o `–Full` parâmetro e, por exemplo, utilizar o `–Examples` parâmetro.
 
 ### <a name="to-update-help"></a>Para atualizar a Ajuda
@@ -167,7 +167,7 @@ Pode atualizar facilmente a Ajuda na interface Windows PowerShell. Execute os se
 
 #### <a name="to-update-cmdlet-help"></a>Para atualizar a ajuda do cmdlet
 1. Iniciar o Windows PowerShell com a **opção executar como** administrador.
-2. Na solicitação de comando, escreva:`Update-Help`
+2. Na solicitação de comando, escreva:  `Update-Help`
 3. Os ficheiros de ajuda atualizados serão instalados.
 4. Depois de instalados os ficheiros de ajuda, escreva: `Get-Help Get-Command` . Isto apresentará uma lista de cmdlets para os quais a Ajuda está disponível.
 

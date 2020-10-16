@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/20/2020
 ms.openlocfilehash: fff8638a819511f84f15c52ad0695cdd5759f971
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89086217"
 ---
 # <a name="move-azure-event-grid-domains-to-another-region"></a>Mover os domínios da Grelha de Eventos Azure para outra região
@@ -31,16 +31,16 @@ Aqui estão os passos de alto nível abrangidos por este artigo:
 ## <a name="prepare"></a>Preparação
 Para começar, exporte um modelo de Gestor de Recursos para o domínio. 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na barra de pesquisa, digite **Os Domínios da Grelha de Eventos**e selecione **Os Domínios** da Grelha de Eventos na lista de resultados. 
 
     :::image type="content" source="./media/move-domains-across-regions/search-domains.png" alt-text="Procure e selecione domínios de Grade de Eventos":::
 3. Selecione o **domínio** que pretende exportar para um modelo de Gestor de Recursos. 
 
-    :::image type="content" source="./media/move-domains-across-regions/select-domain.png" alt-text="Selecione o domínio":::   
+    :::image type="content" source="./media/move-domains-across-regions/select-domain.png" alt-text="Procure e selecione domínios de Grade de Eventos":::   
 4. Na página de **Domínio da grelha de evento,** selecione o modelo de **exportação** em **Definições** no menu esquerdo e, em seguida, selecione **Descarregue** na barra de ferramentas. 
 
-    :::image type="content" source="./media/move-domains-across-regions/export-template-download.png" alt-text="Modelo de exportação -> Download" lightbox="./media/move-domains-across-regions/export-template-download.png":::   
+    :::image type="content" source="./media/move-domains-across-regions/export-template-download.png" alt-text="Procure e selecione domínios de Grade de Eventos" lightbox="./media/move-domains-across-regions/export-template-download.png":::   
 
     > [!IMPORTANT]
     > Os tópicos de domínio e domínio são exportados. As assinaturas para tópicos de domínio não são exportadas. Por isso, é necessário criar subscrições para tópicos de domínio depois de mover tópicos de domínio. 
@@ -73,7 +73,7 @@ Implemente o modelo para criar os tópicos de domínio e domínio na região alv
     1. Para o nome de **domínio,** insira um novo nome para o domínio. 
     1. Selecione **Rever + criar**. 
     
-        :::image type="content" source="./media/move-domains-across-regions/deploy-template.png" alt-text="Implementar modelo":::        
+        :::image type="content" source="./media/move-domains-across-regions/deploy-template.png" alt-text="Procure e selecione domínios de Grade de Eventos":::        
     1. Após a validação do modelo ter sido bem sucedida, **selecione Criar** na parte inferior da página para implementar o recurso. 
     1. Depois de a implementação ter sucesso, selecione **Ir para o grupo de recursos** para navegar para a página do grupo de recursos. Confirme que há um domínio no grupo de recursos. Selecione o domínio. Confirme que existem tópicos de domínio no domínio. 
 

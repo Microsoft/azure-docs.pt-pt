@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/20/2020
 ms.custom: contperfq1
 ms.openlocfilehash: 092757728e791f60616d9dceca43e109e7f0019e
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88757817"
 ---
 # <a name="data-storage-optimization-for-apache-spark"></a>Otimização de armazenamento de dados para Apache Spark
@@ -57,11 +57,11 @@ Quando criar um novo cluster Spark, pode selecionar o Azure Blob Storage ou o Az
 
 | Store Type | Sistema de Ficheiros | Velocidade | Transitório | Casos de Utilização |
 | --- | --- | --- | --- | --- |
-| Armazenamento de Blobs do Azure | **wasb:**//url/ | **Standard** | Yes | Aglomerado transitório |
-| Armazenamento Azure Blob (seguro) | **wasbs:**//url/ | **Standard** | Yes | Aglomerado transitório |
-| Azure Data Lake Storage Gen2| **abfs:**//url/ | **Mais rápido** | Yes | Aglomerado transitório |
-| Azure Data Lake Storage Gen 1| **adl:**//url/ | **Mais rápido** | Yes | Aglomerado transitório |
-| HDFs locais | **hdfs:**//url/ | **Mais rápido** | No | Cluster interativo 24/7 |
+| Armazenamento de Blobs do Azure | **wasb:**//url/ | **Standard** | Sim | Aglomerado transitório |
+| Armazenamento Azure Blob (seguro) | **wasbs:**//url/ | **Standard** | Sim | Aglomerado transitório |
+| Azure Data Lake Storage Gen2| **abfs:**//url/ | **Mais rápido** | Sim | Aglomerado transitório |
+| Azure Data Lake Storage Gen 1| **adl:**//url/ | **Mais rápido** | Sim | Aglomerado transitório |
+| HDFs locais | **hdfs:**//url/ | **Mais rápido** | Não | Cluster interativo 24/7 |
 
 Para obter uma descrição completa das opções de armazenamento, consulte opções de [armazenamento compare para utilização com clusters Azure HDInsight](../hdinsight-hadoop-compare-storage-options.md).
 

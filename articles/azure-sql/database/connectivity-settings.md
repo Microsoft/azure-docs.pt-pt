@@ -10,10 +10,10 @@ ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 07/06/2020
 ms.openlocfilehash: a3ceb78a85546e5e75c4c484f131b67ff7fc9249
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91824155"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Definições de Conectividade do SQL do Azure

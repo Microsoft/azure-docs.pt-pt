@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: kenwith
-ms.openlocfilehash: 666c4e52ed521c169ff80b33e2ab0e83b13e4d03
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 159a473b2b164d1f0692864e26f6127d9faf8287
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91266705"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069879"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizar o fornecimento de produtos de fornecimento de mapeamentos de atributos para aplicações SaaS no Azure Ative Directory
 
@@ -55,7 +55,7 @@ Existem quatro tipos de mapeamento diferentes suportados:
 - **Direto** – o atributo alvo é povoado com o valor de um atributo do objeto ligado em Azure AD.
 - **Constante** – o atributo alvo é preenchido com uma cadeia específica especificada.
 - **Expressão** - o atributo alvo é povoado com base no resultado de uma expressão semelhante ao script.
-  Para obter mais informações, consulte [a escrita de expressões para atribuir mapeamentos em Diretório Ativo Azure](../app-provisioning/functions-for-customizing-application-data.md).
+  Para obter mais informações, consulte [a Escrita Expressões para Attribute-Mappings no Diretório Ativo Azure](../app-provisioning/functions-for-customizing-application-data.md).
 - **Nenhum** - o atributo alvo é deixado sem modificação. No entanto, se o atributo alvo estiver sempre vazio, é preenchido com o valor padrão que especifica.
 
 Juntamente com estes quatro tipos básicos, os mapeamentos de atributos personalizados suportam o conceito de uma atribuição de valor **padrão** opcional. A atribuição de valor predefinido garante que um atributo alvo é povoado com um valor se não houver um valor em Ad Azure ou no objeto alvo. A configuração mais comum é deixar este em branco.
@@ -129,7 +129,7 @@ Ao editar a lista de atributos suportados, são fornecidas as seguintes propried
 - **Multi-valor?** - Se o atributo suporta vários valores.
 - **Caso exato?** - Se os valores dos atributos são avaliados de forma sensível a casos.
 - **Expressão API** - Não utilize, a menos que seja instruído pela documentação de um conector específico de provisionamento (como o Workday).
-- **Atributo de objeto referenciado** - Se for um atributo do tipo referência, este menu permite selecionar a tabela e atribuir na aplicação-alvo que contém o valor associado ao atributo. Por exemplo, se tiver um atributo chamado "Departamento" cujo valor armazenado referencia um objeto numa tabela separada de "Departamentos", escolherá "Departments.Name". As tabelas de referência e os campos de ID primários suportados para uma determinada aplicação são pré-configurados e atualmente não podem ser editados usando o portal Azure, mas podem ser editados usando a [API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes)do Gráfico microsoft .
+- **Atributo de objeto referenciado** - Se for um atributo do tipo referência, este menu permite selecionar a tabela e atribuir na aplicação-alvo que contém o valor associado ao atributo. Por exemplo, se tiver um atributo chamado "Departamento" cujo valor armazenado referencia um objeto numa tabela separada de "Departamentos", escolherá "Departments.Name". As tabelas de referência e os campos de ID primários suportados para uma determinada aplicação são pré-configurados e atualmente não podem ser editados usando o portal Azure, mas podem ser editados usando a [API](/graph/api/resources/synchronization-configure-with-custom-target-attributes)do Gráfico microsoft .
 
 #### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>Provisionando um atributo de extensão personalizada a uma aplicação compatível com o SCIM
 O SCIM RFC define um esquema de utilizador e grupo principal, ao mesmo tempo que permite extensões ao esquema para atender às necessidades da sua aplicação. Para adicionar um atributo personalizado a uma aplicação SCIM:
@@ -321,7 +321,7 @@ A seleção desta opção forçará efetivamente a ressincronização de todos o
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Automatizar o Provisionamento/Desprovisionamento do Utilizador para aplicações SaaS](user-provisioning.md)
-- [Expressãos de escrita para atributos-mapeamentos](../app-provisioning/functions-for-customizing-application-data.md)
-- [Filtros de deteção para o provisionamento do utilizador](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)
+- [Expressãos de escrita para atributos-mapeamentos](functions-for-customizing-application-data.md)
+- [Filtros de deteção para o provisionamento do utilizador](define-conditional-rules-for-provisioning-user-accounts.md)
 - [Utilizar o SCIM para ativar o aprovisionamento automático de utilizadores e grupos do Azure Active Directory a aplicações](use-scim-to-provision-users-and-groups.md)
 - [Lista de Tutoriais sobre Como Integrar Aplicações SaaS](../saas-apps/tutorial-list.md)

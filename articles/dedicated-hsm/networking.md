@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbaldwin
 ms.openlocfilehash: 3764b261b491c660da16d7989be20742fead1fbf
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91359159"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Rede HSM dedicada Azure
@@ -39,7 +39,7 @@ Antes de a provisionar um dispositivo HSM dedicado, os clientes terão primeiro 
 
 ### <a name="subnets"></a>Sub-redes
 
-Sub-redes segmentam a rede virtual em espaços de endereço separados utilizáveis pelos recursos Azure que coloca neles. Os HSMs dedicados são implantados numa sub-rede na rede virtual. Cada dispositivo HSM dedicado que seja implantado na sub-rede do cliente receberá um endereço IP privado a partir desta sub-rede. A sub-rede em que o dispositivo HSM é implantado precisa de ser explicitamente delegada no serviço: Microsoft.HardwareSecurityModules/DEDICADOHSMs. Isto concede determinadas permissões ao serviço HSM para implantação na sub-rede. A delegação aos HSMs dedicados impõe certas restrições políticas à sub-rede. Os Grupos de Segurança de Rede (NSGs) e as Rotas Definidas pelo Utilizador (UDRs) não são atualmente suportados em sub-redes delegadas. Como resultado, uma vez que uma sub-rede é delegada em HSMs dedicados, ele só pode ser usado para implantar recursos HSM. A implantação de quaisquer outros recursos do cliente na sub-rede falhará.
+Sub-redes segmentam a rede virtual em espaços de endereço separados utilizáveis pelos recursos Azure que coloca neles. Os HSMs dedicados são implantados numa sub-rede na rede virtual. Cada dispositivo HSM dedicado que seja implantado na sub-rede do cliente receberá um endereço IP privado a partir desta sub-rede. A sub-rede em que o dispositivo HSM é implantado precisa de ser explicitamente delegada no serviço: Microsoft.HardwareSecurityModules/DEDICADOHSMs. Isto concede determinadas permissões ao serviço HSM para implantação na sub-rede. A delegação aos HSMs dedicados impõe certas restrições políticas à sub-rede. Os Grupos de Segurança de Rede (NSGs) e User-Defined Rotas (UDRs) não são atualmente suportados em sub-redes delegadas. Como resultado, uma vez que uma sub-rede é delegada em HSMs dedicados, ele só pode ser usado para implantar recursos HSM. A implantação de quaisquer outros recursos do cliente na sub-rede falhará.
 
 
 ### <a name="expressroute-gateway"></a>Gateway ExpressRoute
@@ -89,7 +89,7 @@ Para aplicações distribuídas globalmente ou para cenários de falha regional 
 
 - [Perguntas mais frequentes](faq.md)
 - [Suportabilidade](supportability.md)
-- [Alta disponibilidade](high-availability.md)
+- [Elevada disponibilidade](high-availability.md)
 - [Segurança Física](physical-security.md)
 - [Monitorização](monitoring.md)
 - [Arquitetura de implantação](deployment-architecture.md)

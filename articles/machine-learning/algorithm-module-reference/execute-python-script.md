@@ -11,10 +11,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/29/2020
 ms.openlocfilehash: de372b9800f4b76b42624b30f05848bc570ae6e7
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91450120"
 ---
 # <a name="execute-python-script-module"></a>Execute o módulo de script python
@@ -150,7 +150,7 @@ O módulo de script execute python contém o código Python de amostra que pode 
 
     Todos os dados e códigos são carregados numa máquina virtual, e executados usando o ambiente python especificado.
 
-## <a name="results"></a>Resultados
+## <a name="results"></a>Results
 
 Os resultados de quaisquer cálculos pelo código Python incorporado devem ser fornecidos como `pandas.DataFrame` , que é automaticamente convertido para o formato de conjunto de dados Azure Machine Learning. Em seguida, pode utilizar os resultados com outros módulos na tubagem.
 
@@ -272,6 +272,6 @@ Os pacotes pré-instalados são:
 -    werkzeug==0.16.1
 -    roda==0.34.2
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

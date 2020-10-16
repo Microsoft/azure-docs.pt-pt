@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3179bb294678ee030218e67dafa1c69dcf5d77a0
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90056273"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Atribuir etiquetas de sensibilidade a grupos Microsoft 365 no Azure Ative Directory
@@ -114,7 +114,7 @@ A opção de etiqueta de sensibilidade só é apresentada para grupos quando tod
 
 1. As etiquetas são publicadas no Microsoft 365 Compliance Center para esta organização AZure AD.
 1. A funcionalidade está ativada, o EnableMIPLabels está definido para True a partir do módulo Azure AD PowerShell.
-1. Os Lables são sincronizados com o AD Azure com o cmdlet Execut-AzureAdLabelSync no módulo PowerShell de conformidade & de segurança.
+1. Os Lables são sincronizados com o Azure AD com o cmdlet Execute-AzureAdLabelSync no módulo PowerShell de conformidade & de segurança.
 1. O grupo é um grupo Microsoft 365.
 1. A organização tem uma licença ativa do Azure Ative Directory Premium P1.
 1. O atual utilizador inscrito tem privilégios suficientes para atribuir etiquetas. O utilizador deve ser administrador global, administrador de grupo ou proprietário do grupo.
@@ -144,7 +144,7 @@ Como uma boa prática, não recomendamos que altere as definições de grupo par
 
 Se tiver de fazer uma alteração, utilize um [script Azure AD PowerShell](https://github.com/microsoftgraph/powershell-aad-samples/blob/master/ReassignSensitivityLabelToO365Groups.ps1) para aplicar manualmente atualizações aos grupos impactados. Este método assegura que todos os grupos existentes impõem a nova definição.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Utilize etiquetas de sensibilidade com as equipas da Microsoft, grupos Microsoft 365 e sites SharePoint](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites)
 - [Atualizar grupos após a alteração da política do rótulo manualmente com o script Azure AD PowerShell](https://github.com/microsoftgraph/powershell-aad-samples/blob/master/ReassignSensitivityLabelToO365Groups.ps1)

@@ -6,12 +6,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: 90becfb79973ba45851b0e30384b0f05a7b887e3
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: a427fbc6fad1566ae10e11b61de981aded32e64a
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962252"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92000272"
 ---
 # <a name="tutorial-deploy-an-aspnet-app-to-azure-with-azure-sql-database"></a>Tutorial: Implementar uma app ASP.NET para a Azure com base de dados Azure SQL
 
@@ -65,20 +65,18 @@ No **Explorador de Soluções**, clique com o botão direito do rato no projeto 
 
 ![Publicar a partir do Explorador de Soluções](./media/app-service-web-tutorial-dotnet-sqldatabase/solution-explorer-publish.png)
 
-Certifique-se de que o **Serviço de Aplicações do Microsoft Azure** está selecionado e clique em **Publicar**.
+Selecione **Azure** como alvo, clique em seguida e certifique-se de que **o Azure App Service (Windows)** está selecionado e clique novamente no próximo.
 
 ![Publicar a partir da página de descrição geral do projeto](./media/app-service-web-tutorial-dotnet-sqldatabase/publish-to-app-service.png)
 
-A publicação abre o diálogo **Create App Service,** que o ajuda a criar todos os recursos Azure de que necessita para executar a sua aplicação ASP.NET em Azure.
-
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Na caixa de diálogo **Criar Serviço de Aplicações**, clique em **Adicionar uma conta** e inicie sessão na sua subscrição do Azure. Se já tiver sessão iniciada numa conta Microsoft, confirme que esta inclui a sua subscrição do Azure. Se a subscrição do Azure não estiver na conta Microsoft em que tem sessão iniciada, clique nesta para adicionar a conta correta.
+No diálogo **Publicar,** clique em **Adicionar uma conta** do gestor de conta e, em seguida, iniciar seduca na subscrição do Azure. Se já tiver sessão iniciada numa conta Microsoft, confirme que esta inclui a sua subscrição do Azure. Se a subscrição do Azure não estiver na conta Microsoft em que tem sessão iniciada, clique nesta para adicionar a conta correta.
+
+![Iniciar sessão no Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/sign-in-azure.png)
 
 > [!NOTE]
 > Se já tiver sessão iniciada, não selecione ainda **Criar**.
-
-![Iniciar sessão no Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/sign-in-azure.png)
 
 ### <a name="configure-the-web-app-name"></a>Configurar o nome da aplicação Web
 
@@ -112,15 +110,20 @@ Pode manter o nome da aplicação Web gerado ou alterá-lo para outro nome exclu
    |**Localização**| Europa Ocidental | [Regiões do Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
    |**Tamanho**| Gratuito | [Escalões de preço](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
+3. O **diálogo publicar** mostra os recursos que configuraste. Clique em **Concluir**.
+
+   ![os recursos que criou](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
+
+
 ### <a name="create-a-server"></a>Criar um servidor
 
 Antes de criar uma base de dados, precisa de um [servidor SQL lógico.](../azure-sql/database/logical-servers.md) Um servidor lógico sql é uma construção lógica que contém um grupo de bases de dados geridos como um grupo.
 
-1. Clique em **Criar uma Base de Dados SQL**.
+1. Clique **em Configurar** ao lado da Base de Dados do Servidor SQL em **Serviços Conectados**.
 
    ![Criar uma Base de Dados SQL](media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
 
-2. Na caixa de diálogo **Configurar Base de Dados SQL**, clique em **Nova** junto a **SQL Server**.
+2. No diálogo **Azure SQL Database,** clique em **Novo** ao lado **do Servidor de Bases de Dados**.
 
    É gerado um nome de servidor exclusivo. Este nome é usado como parte do URL padrão para o seu servidor, `<server_name>.database.windows.net` . Deve ser único em todos os servidores do Azure SQL. Pode alterar o nome do servidor, mas, para este tutorial, mantenha o valor gerado.
 
@@ -128,28 +131,31 @@ Antes de criar uma base de dados, precisa de um [servidor SQL lógico.](../azure
 
    Memorize o nome de utilizador e a palavra-passe. Precisa deles para gerir o servidor mais tarde.
 
+   ![Criar servidor](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
+
    > [!IMPORTANT]
    > Embora a palavra-passe nas cadeias de ligação esteja ocultada (no Visual Studio e também no Serviço de Aplicações), o facto de ser mantida algures aumenta a superfície de ataque da sua aplicação. O Serviço de Aplicações pode utilizar [identidades de serviço geridas](overview-managed-identity.md) para eliminar este risco ao remover a necessidade de manter segredos na configuração do código ou da aplicação. Para obter mais informações, veja [Passos seguintes](#next-steps).
-
-   ![Criar servidor](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 
 4. Clique em **OK**. Não feche já a caixa de diálogo **Configurar Base de Dados SQL**.
 
 ### <a name="create-a-database-in-azure-sql-database"></a>Criar uma base de dados na Base de Dados Azure SQL
 
-1. Na caixa de diálogo **Configurar Base de Dados SQL**:
+1. No diálogo **Azure SQL Database:**
 
    * Mantenha o **Nome da Base de Dados** predefinido gerado.
-   * Em **Nome da Cadeia de Ligação**, escreva *MyDbConnection*. Este nome tem de corresponder à cadeia de ligação que é referenciada em *Models/MyDatabaseContext.cs*.
-   * Selecione **OK**.
+   * Selecione **Criar**.
 
     ![Base de dados configure](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
 
-2. A caixa de diálogo **Criar Serviço de Aplicações** mostra os recursos que configurou. Clique em **Criar**.
+2. Na **ligação base de dados, o nome de cadeia**, digite _MyDbConnection_. Este nome tem de corresponder à cadeia de ligação que é referenciada em _Models/MyDatabaseContext.cs_.
 
-   ![os recursos que criou](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
+3. Introduza o nome de utilizador e a palavra-passe do Administrador utilizados no [Criar um ponto](#create-a-server) de servidor 3 no nome de utilizador e palavra-passe da Base de Dados, respectivamente.
 
-Quando o assistente concluir a criação dos recursos do Azure, publica a aplicação ASP.NET no Azure. O seu browser é iniciado com o URL para a aplicação implementada.
+    ![Cadeia de ligação de base de dados de configuração](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-connection.png)
+
+4. Selecione **Concluir**.
+
+Assim que o assistente terminar de criar os recursos Azure, clique em **Publicar** para implementar a sua aplicação ASP.NET para o Azure. O seu browser é iniciado com o URL para a aplicação implementada.
 
 Adicione alguns itens a fazer.
 

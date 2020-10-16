@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: ec83778d034cfc512582eddf79995412dad405c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84710733"
 ---
 # <a name="exchange-peering-walkthrough"></a>Instruções de peering do Exchange
@@ -50,6 +50,6 @@ Quando um perscruto de Troca estiver definido para desprovisionamento, você ver
 > [!NOTE]
 > Se executar o cmdlet PowerShell para apagar o persto de Troca quando o estado de ligação estiver ProvisioningStarted ou ProvisioningCompleted, a operação falhará.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [pré-requisitos para configurar olhando com a Microsoft](prerequisites.md).

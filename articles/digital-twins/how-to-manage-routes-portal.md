@@ -8,10 +8,10 @@ ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 8549fba2071ce98b206b3babe073137817aa3145
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91252838"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gerir pontos finais e rotas em Azure Digital Twins (portal)
@@ -37,7 +37,7 @@ Pode encontrar estes detalhes no [portal Azure](https://portal.azure.com) depois
 
 Selecione a sua instância a partir dos resultados para ver a página de detalhes para o seu exemplo:
 
-:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Screenshot dos detalhes da instância ADT." border="false":::
+:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Screenshot da barra de pesquisa do portal Azure." border="false":::
 
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Criar um ponto final para a Azure Digital Twins
 
@@ -62,11 +62,11 @@ Na página *'Criar'* que se abre, pode criar um ponto final de grelha de _evento
 
 Em seguida, crie o seu ponto final batendo _Save_.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Screenshot de criar um ponto final do tipo Desferição de Grelha de Eventos.":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Screenshot da barra de pesquisa do portal Azure.":::
 
 Pode verificar se o ponto final foi criado com sucesso, verificando o ícone de notificação na barra de portal Azure superior: 
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="Screenshot da notificação para verificar a criação do ponto final." border="false":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="Screenshot da barra de pesquisa do portal Azure." border="false":::
 
 Também pode ver o ponto final que foi criado de volta na página *Endpoints* para a sua instância Azure Digital Twins.
 
@@ -88,7 +88,7 @@ Na página *'Criar'* que se abre, pode criar um ponto final do Tipo _Event Hub_ 
 
 Em seguida, crie o seu ponto final batendo _Save_.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub.png" alt-text="Screenshot de criar um ponto final de tipo Event Hubs.":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub.png" alt-text="Screenshot da barra de pesquisa do portal Azure.":::
 
 Pode verificar se o ponto final foi criado com sucesso, verificando o ícone de notificação na barra de portal Azure superior. 
 
@@ -110,7 +110,7 @@ Na página *'Criar'* que se abre, pode criar um ponto final do tipo _Service Bus
 
 Em seguida, crie o seu ponto final batendo _Save_.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-service-bus.png" alt-text="Screenshot de criar um ponto final do tipo Service Bus.":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-service-bus.png" alt-text="Screenshot da barra de pesquisa do portal Azure.":::
 
 Pode verificar se o ponto final foi criado com sucesso, verificando o ícone de notificação na barra de portal Azure superior. 
 
@@ -149,7 +149,7 @@ Na página de rota de *eventos* Create que se abre, escolha no mínimo:
 
 Para que o percurso seja ativado, também deve adicionar um filtro de rota de **eventos** de pelo menos `true` . (Deixar o valor padrão de `false` irá criar a rota, mas nenhum evento será enviado para ele.) Para isso, alternar o interruptor para o _editor Avançado_ para o ativar e escrever na `true` caixa *Filtro.*
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Screenshot de criar rota de eventos para o seu exemplo." lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Screenshot da barra de pesquisa do portal Azure." lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
 
 Quando terminar, premir o botão _Guardar_ para criar a sua rota de evento.
 
@@ -175,7 +175,7 @@ Para utilizar os filtros básicos, expanda a opção _de tipos de Eventos_ e sel
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-1.png" alt-text="Screenshot de criar uma rota de evento com um filtro básico. Selecionando as caixas de verificação dos eventos.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-1.png" alt-text="Screenshot da barra de pesquisa do portal Azure.":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -185,7 +185,7 @@ Isto irá preencher automaticamente a caixa de texto do filtro com o texto do fi
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-2.png" alt-text="Screenshot de criar uma rota de evento com um filtro básico. Mostrar o texto do filtro auto-povoado após a seleção dos eventos.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-2.png" alt-text="Screenshot da barra de pesquisa do portal Azure.":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -199,7 +199,7 @@ Para criar uma rota de eventos com opções avançadas de filtro, altere o inter
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-advanced.png" alt-text="Screenshot de criar uma rota de evento com um filtro avançado.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-advanced.png" alt-text="Screenshot da barra de pesquisa do portal Azure.":::
     :::column-end:::
     :::column:::
     :::column-end:::

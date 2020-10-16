@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: a96a62d7bb93f0ede6b16008dc844ad7f1a8c8d2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86517302"
 ---
 # <a name="implement-dynamic-styling-for-creator-indoor-maps"></a>Implementar estilo dinâmico para mapas interiores do Criador
@@ -66,7 +66,7 @@ Na próxima secção, vamos definir o *estado* de ocupação para `UNIT26` `true
 
  Vamos agora atualizar o estado dos dois escritórios, `UNIT26` `UNIT27` e:
 
-1. Na aplicação Do Carteiro, selecione **New**. Na janela **Criar Novo,** selecione **Request**. Insira um **nome De pedido** e selecione uma coleção. Clique em **Guardar**
+1. Na aplicação Do Carteiro, selecione **New**. Na janela **Criar Novo,** selecione **Request**. Insira um **nome De pedido** e selecione uma coleção. Clicar em **Guardar**
 
 2. Utilize a [API dos Estados de Atualização de Funcionalidades](https://docs.microsoft.com/rest/api/maps/featurestate/updatestatespreview) para atualizar o estado. Passe a identificação do estado, e `UNIT26` para uma das duas unidades. Apecir a sua chave de subscrição Azure Maps. Aqui está a URL de um pedido **de POST** para atualizar o estado:
 
@@ -108,7 +108,7 @@ A aplicação web que abriu anteriormente num browser deve agora refletir o esta
 
 ![Quarto livre em verde e quarto ocupado em vermelho](./media/indoor-map-dynamic-styling/room-state.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais lendo:
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 841bc3ae4fbddb376ea4da8141bf4df3f895c4dc
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89269561"
 ---
 # <a name="deploy-a-secure-azure-managed-workstation"></a>Implementar uma estação de trabalho segura e gerida pelo Azure
@@ -29,7 +29,7 @@ Selecione um perfil antes de implementar a solução. Pode utilizar vários perf
 > [!NOTE]
 > Aplique qualquer um dos perfis necessários pelas suas necessidades. Pode passar para outro perfil atribuindo-o no Microsoft Intune.
 
-| Perfil | Baixa | Melhorada | Alto | Especializada | Protegido | Isolado |
+| Perfil | Baixo | Melhorada | Alto | Especializada | Protegido | Isolado |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Utilizador em Azure AD | Sim | Sim | Sim | Sim | Sim | Sim |
 | Gerido por intune | Sim | Sim | Sim | Sim | Sim | Sim |
@@ -129,7 +129,7 @@ Do portal Azure:
 
 Estes passos permitem-lhe gerir qualquer dispositivo com o Intune. Para obter mais informações, consulte [Intune Quickstart: Configurar a inscrição automática para dispositivos Windows 10](/Intune/quickstart-setup-auto-enrollment). Cria políticas de configuração e conformidade intune num passo futuro.
 
-#### <a name="azure-ad-conditional-access"></a>Acesso condicional Azure Ad
+#### <a name="azure-ad-conditional-access"></a>Acesso Condicional do Azure AD
 
 O Acesso Condicional AZURE AD pode ajudar a restringir tarefas administrativas privilegiadas a dispositivos compatíveis. Os membros predefinidos do grupo **Secure Workstation Users** são obrigados a realizar a autenticação de vários fatores ao iniciar sessão em aplicações na nuvem. Uma boa prática é excluir da apólice as contas de acesso de emergência. Para obter mais informações, consulte [Gerir as contas de acesso de emergência em Azure AD](../users-groups-roles/directory-emergency-access.md).
 

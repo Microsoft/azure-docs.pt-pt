@@ -4,10 +4,10 @@ description: Saiba mais sobre o suporte para avaliação do servidor físico com
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.openlocfilehash: dffa95fe717f8588f56b9dee60ede8bbf44aceb9
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89660351"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Matriz de suporte para avaliação do servidor físico 
@@ -24,7 +24,7 @@ Para avaliar servidores físicos, cria um projeto Azure Migrate e adiciona a fer
 --- | ---
 **Limites de avaliação** | Você pode descobrir e avaliar até 35.000 servidores físicos em um único [projeto Azure Migrate](migrate-support-matrix.md#azure-migrate-projects).
 **Limites do projeto** | Pode criar vários projetos numa subscrição do Azure. Além dos servidores físicos, um projeto pode incluir VMware VMs e Hiper-VMs, até os limites de avaliação para cada um.
-**Descoberta** | O aparelho Azure Migrate pode descobrir até 1000 servidores físicos.
+**Deteção** | O aparelho Azure Migrate pode descobrir até 1000 servidores físicos.
 **Avaliação** | Pode adicionar até 35.000 máquinas num único grupo.<br/><br/> Pode avaliar até 35.000 máquinas numa única avaliação.
 
 [Saiba mais](concepts-assessment-calculation.md) sobre avaliações.
@@ -72,6 +72,6 @@ O quadro seguinte resume os requisitos portuários para avaliação.
 **Conectividade Internet** | Se as máquinas não estiverem ligadas à internet, é necessário instalar o gateway Do Log Analytics nelas.
 **Azure Government** | A análise da dependência baseada em agentes não é suportada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Prepare-se para a avaliação do servidor físico.](tutorial-prepare-physical.md)

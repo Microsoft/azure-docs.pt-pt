@@ -8,16 +8,16 @@ ms.date: 10/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 97926d5bdf3123ae50714d36ad0234872f67aa96
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 30eb19e418292e74989be81d94ed684c917f6971
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90908303"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088640"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Use rastreio distribuído com Azure Spring Cloud
 
-Com as ferramentas de rastreio distribuídas em Azure Spring Cloud, você pode facilmente depurar e monitorizar problemas complexos. A Azure Spring Cloud integra [a Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) com os Insights de [Aplicação](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)da Azure. Esta integração fornece uma poderosa capacidade de rastreio distribuído a partir do portal Azure.
+Com as ferramentas de rastreio distribuídas em Azure Spring Cloud, você pode facilmente depurar e monitorizar problemas complexos. A Azure Spring Cloud integra [a Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) com os Insights de [Aplicação](../azure-monitor/app/app-insights-overview.md)da Azure. Esta integração fornece uma poderosa capacidade de rastreio distribuído a partir do portal Azure.
 
 ::: zone pivot="programming-language-csharp"
 Neste artigo, você aprende a permitir que uma aplicação .NET Core Steeltoe utilize o rastreio distribuído.
@@ -144,15 +144,15 @@ Se já construiu e implementou uma aplicação, pode modificar a taxa de amostra
 
 ## <a name="view-the-application-map"></a>Ver o mapa de aplicações
 
-Volte à página **de rastreio distribuído** e selecione Ver mapa de **aplicações.** Reveja a representação visual das definições de aplicação e monitorização. Para saber como utilizar o mapa de aplicações, consulte o [Mapa de Aplicações: Aplicações distribuídas por triagem.](https://docs.microsoft.com/azure/azure-monitor/app/app-map)
+Volte à página **de rastreio distribuído** e selecione Ver mapa de **aplicações.** Reveja a representação visual das definições de aplicação e monitorização. Para saber como utilizar o mapa de aplicações, consulte o [Mapa de Aplicações: Aplicações distribuídas por triagem.](../azure-monitor/app/app-map.md)
 
 ## <a name="use-search"></a>Use a pesquisa
 
-Utilize a função de pesquisa para consultar outros itens específicos de telemetria. Na página **de rastreio distribuído,** selecione **Search**. Para obter mais informações sobre como utilizar a função de pesquisa, consulte ['Pesquisar em Insights de Aplicação'.](https://docs.microsoft.com/azure/azure-monitor/app/diagnostic-search)
+Utilize a função de pesquisa para consultar outros itens específicos de telemetria. Na página **de rastreio distribuído,** selecione **Search**. Para obter mais informações sobre como utilizar a função de pesquisa, consulte ['Pesquisar em Insights de Aplicação'.](../azure-monitor/app/diagnostic-search.md)
 
 ## <a name="use-application-insights"></a>Utilizar insights de aplicações
 
-O Application Insights fornece capacidades de monitorização para além do mapa de aplicações e da função de pesquisa. Procure o nome do portal Azure e, em seguida, abra uma página de Insights de Aplicação para encontrar informações de monitorização. Para obter mais informações sobre como utilizar estas ferramentas, consulte [as consultas de registo do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language).
+O Application Insights fornece capacidades de monitorização para além do mapa de aplicações e da função de pesquisa. Procure o nome do portal Azure e, em seguida, abra uma página de Insights de Aplicação para encontrar informações de monitorização. Para obter mais informações sobre como utilizar estas ferramentas, consulte [as consultas de registo do Azure Monitor](/azure/data-explorer/kusto/query/).
 
 ## <a name="disable-application-insights"></a>Insights de aplicações para desativação
 

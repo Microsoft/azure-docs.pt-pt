@@ -9,10 +9,10 @@ ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 2bf3dda6e3d99b5ed67298343f5238d304df7e2b
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86187375"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Utilizar módulos na Automatização do Azure
@@ -54,7 +54,7 @@ A automatização não importa automaticamente o módulo Raiz Az em quaisquer co
 | AzureRM.Sql | 1.0.3 |
 | AzureRM.Storage | 1.0.3 |
 | ComputerManagementDsc | 5.0.0.0 |
-| GPRegistryPolicyParser | 0,2 |
+| GPRegistryPolicyParser | 0.2 |
 | Microsoft.PowerShell.Core | 0 |
 | Microsoft.PowerShell.Diagnostics |  |
 | Microsoft.PowerShell.Management |  |
@@ -144,7 +144,7 @@ Pode importar os módulos Az no portal Azure. Lembre-se de importar apenas os m�
 
     ![Screenshot de módulos de importação na sua conta de Automação](../media/modules/import-module.png)
 
-Você também pode fazer esta importação através da [PowerShell Gallery,](https://www.powershellgallery.com)procurando o módulo para importar. Quando encontrar o módulo, selecione-o e escolha o **separador Automação Azure.** Selecione **Implementar para Azure Automation**.
+Você também pode fazer esta importação através da [PowerShell Gallery,](https://www.powershellgallery.com)procurando o módulo para importar. Quando encontrar o módulo, selecione-o e escolha o **separador Azure Automation.** **Selecione Implementar para a Azure Automation**.
 
 ![Screenshot de módulos de importação diretamente da PowerShell Gallery](../media/modules/import-gallery.png)
 
@@ -242,7 +242,7 @@ Uma forma mais fácil e melhor de abordar este comportamento é passando diretam
   }
   ```
 
-Pode ativar um comportamento semelhante para os seus cmdlets, permitindo-lhes aceitar um objeto de ligação diretamente como parâmetro, em vez de apenas campos de ligação para parâmetros. Normalmente, pretende-se um parâmetro definido para cada um, para que um utilizador que não esteja a utilizar a Automatização possa ligar para os seus cmdlets sem construir um haxixe para funcionar como objeto de ligação. O conjunto de parâmetros `UserAccount` é utilizado para passar as propriedades do campo de ligação. `ConnectionObject`permite-lhe passar a ligação diretamente.
+Pode ativar um comportamento semelhante para os seus cmdlets, permitindo-lhes aceitar um objeto de ligação diretamente como parâmetro, em vez de apenas campos de ligação para parâmetros. Normalmente, pretende-se um parâmetro definido para cada um, para que um utilizador que não esteja a utilizar a Automatização possa ligar para os seus cmdlets sem construir um haxixe para funcionar como objeto de ligação. O conjunto de parâmetros `UserAccount` é utilizado para passar as propriedades do campo de ligação. `ConnectionObject` permite-lhe passar a ligação diretamente.
 
 ### <a name="output-type"></a>Tipo de saída
 

@@ -8,10 +8,10 @@ ms.date: 08/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 83cc1b2fd0936d814e4a31714fecfdea7ccce988
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89225671"
 ---
 # <a name="azure-security-baseline-for-azure-dns"></a>Linha de segurança Azure para Azure DNS
@@ -260,7 +260,7 @@ Pode agilizar este processo criando definições de diagnóstico para contas de 
 
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4.6: Utilizar o Azure RBAC para gerir o acesso aos recursos
 
-**Orientação**: O Controlo de Acesso Baseado em Funções (Azure RBAC) permite uma gestão de acessos finos para utilizadores, grupos e recursos da Azure. Com o Azure RBAC, pode conceder o nível de acesso de que os utilizadores precisam. 
+**Orientação**: O Azure Role-Based Access Control (Azure RBAC) permite uma gestão de acessos finos para utilizadores, grupos e recursos da Azure. Com o Azure RBAC, pode conceder o nível de acesso de que os utilizadores precisam. 
 
 No Azure DNS, existe o papel de Contribuinte da Zona DNS, bem como nível de zona e nível recorde Azure RBAC. Também é possível construir os seus próprios papéis Azure personalizados para fornecer um controlo mais fino.
 

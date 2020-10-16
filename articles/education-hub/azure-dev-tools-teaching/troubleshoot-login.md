@@ -8,10 +8,10 @@ ms.service: azure-education
 ms.subservice: education-hub
 ms.date: 06/30/2020
 ms.openlocfilehash: 276ab2cc1d79235c00ce1bb50ff9b648bb1de6ea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87097681"
 ---
 # <a name="troubleshooting-student-login-issues"></a>Problemas de resolução de problemas de login de estudante
@@ -39,16 +39,16 @@ Se um estudante tiver uma conta Microsoft existente (por exemplo, Xbox), pode li
 
 1. Clique **em Gerir como se inscreve na Microsoft.** Pedir-lhe-ão que verifique a sua identidade. Será enviado um código de segurança por e-mail.
 
-    :::image type="content" source="media/troubleshoot-accounts/manage-sign-in.png" alt-text="Faça o sinal." border="false":::
+    :::image type="content" source="media/troubleshoot-accounts/manage-sign-in.png" alt-text="Assine a mensagem de erro." border="false":::
 
 1. Introduza o código de segurança enviado por e-mail.
 
-    :::image type="content" source="media/troubleshoot-accounts/sign-in-enter-code.png" alt-text="Introduza o código de entrada!" border="false":::
+    :::image type="content" source="media/troubleshoot-accounts/sign-in-enter-code.png" alt-text="Assine a mensagem de erro." border="false":::
 
 1. Clique **em Adicionar e-mail** à sua conta e insira o seu endereço de e-mail da universidade.
 Da próxima vez que iniciar seduca, pode usar o seu endereço de e-mail da universidade para aceder às suas Ferramentas de Ensino Azure Dev.
 
-    :::image type="content" source="media/troubleshoot-accounts/manage-sign-in-add-email.png" alt-text="Gerencie a forma como se inscreve na Microsoft." border="false":::
+    :::image type="content" source="media/troubleshoot-accounts/manage-sign-in-add-email.png" alt-text="Assine a mensagem de erro." border="false":::
 
 ## <a name="next-steps"></a>Passos seguintes
 - [FAQ](program-faq.md)

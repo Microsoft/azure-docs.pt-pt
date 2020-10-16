@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/30/2020
 ms.openlocfilehash: f89635a74b82cfc34d55a662de8f7372aabd3162
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708140"
 ---
 # <a name="azure-database-for-postgresql-videos"></a>Base de Dados Azure para vídeos PostgreSQL

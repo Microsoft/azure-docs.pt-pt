@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: efbe8bc24b430716da46601ed073300e4c79cca7
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 6b7d670f5e38968fa6592e323ede075abf687435
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743731"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939022"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>Níveis de desempenho para discos geridos (pré-visualização)
 
@@ -58,7 +58,7 @@ Para obter informações sobre faturação, consulte [preços de disco geridos](
 
 ## <a name="regional-availability"></a>Disponibilidade regional
 
-A capacidade de ajustar o nível de desempenho de um disco gerido está atualmente disponível apenas em SSDs premium na região dos EUA. 
+A capacidade de ajustar o nível de desempenho de um disco gerido está atualmente disponível apenas em SSDs premium nos EUA 2, South Central US, West Central US, Austrália Regiões do Sudeste da Austrália.
 
 ## <a name="create-an-empty-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>Criar um disco de dados vazio com um nível superior ao nível de base
 

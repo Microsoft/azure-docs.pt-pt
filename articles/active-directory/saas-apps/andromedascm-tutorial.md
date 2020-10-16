@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.openlocfilehash: d1e2b91b46bee761c7feb1000920d5ae1e65ba4c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91713618"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-andromeda"></a>Tutorial: Integração do Diretório Ativo Azure com Andromeda
@@ -74,7 +74,7 @@ Para um único sinal de trabalho, é necessário estabelecer uma relação de li
 Para configurar e testar o Azure AD com Andromeda, tem de completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o Sign-On Único de Andromeda](#configure-andromeda-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure o Sign-On Único da Andromeda](#configure-andromeda-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Andromeda test user](#create-andromeda-test-user)** - para ter uma contraparte de Britta Simon em Andromeda que está ligada à representação AZure AD do utilizador.
@@ -94,7 +94,7 @@ Para configurar o Azure AD com Andromeda, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -113,9 +113,9 @@ Para configurar o Azure AD com Andromeda, execute os seguintes passos:
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<tenantURL>.ngcxpress.com/SAMLLogon.aspx`
 
     > [!NOTE]
-    > Estes valores não são reais. Irá atualizar o valor com o identificador real, URL de resposta e URL de inscrição, que é explicado mais tarde no tutorial.
+    > Estes valores não são reais. Irá atualizar o valor com o identificador real, URL de resposta e URL Sign-On, que é explicado mais tarde no tutorial.
 
-6. A aplicação Andromeda espera as afirmações DOL num formato específico. Configure os seguintes pedidos para este pedido. Pode gerir os valores destes atributos a partir da secção **Atributos** do Utilizador na página de integração de aplicações. Na **configuração de 'Sessão's Single's com página SAML,** clique em **Editar** o botão Editar para abrir o diálogo **de atributos do utilizador.**
+6. A aplicação Andromeda espera as afirmações DOL num formato específico. Configure os seguintes pedidos para este pedido. Pode gerir os valores destes atributos a partir da secção **Atributos** do Utilizador na página de integração de aplicações. Na **configuração single Sign-On com** a página SAML, clique no botão **Editar** para abrir o diálogo **de Atributos do Utilizador.**
 
     ![A screenshot mostra atributos do utilizador como dado nome utilizador.givenname e emailaddress user.mail.](common/edit-attribute.png)
 
@@ -124,7 +124,7 @@ Para configurar o Azure AD com Andromeda, execute os seguintes passos:
 
 7. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** edite as alegações utilizando o **ícone Editar** ou adicione as alegações utilizando **adicionar uma nova alegação** para configurar o atributo de ficha SAML como mostrado na imagem acima e executar os seguintes passos: 
 
-    | Name | Atributo de origem|
+    | Nome | Atributo de origem|
     | ------ | -----------|
     | papel        | Papel específico da aplicação |
     | tipo        | Tipo de Aplicação |
@@ -151,7 +151,7 @@ Para configurar o Azure AD com Andromeda, execute os seguintes passos:
 
     exemplo, Clique em **Guardar**.
 
-8. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+8. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 

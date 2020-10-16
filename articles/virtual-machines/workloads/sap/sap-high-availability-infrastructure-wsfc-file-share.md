@@ -17,10 +17,10 @@ ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 14ffcbf2e111e052f4b45259b0b25664049d3b3d
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88855371"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Prepare a infraestrutura Azure para a alta disponibilidade do SAP utilizando um cluster de failover do Windows e uma partilha de ficheiros para as instâncias SAP ASCS/SCS
@@ -239,7 +239,7 @@ Antes de iniciar a instalação, reveja o seguinte artigo:
 | Nome da rede de cluster | sofs-cl | 10.0.6.13 | n/a |
 | Nome de anfitrião global DA SAP | sapglobal | Use IPs de todos os nós de cluster | n/a |
 
-**Tabela 3**: Cluster de servidor de ficheiros de escala
+**Tabela 3**: Scale-Out conjunto de servidores de ficheiros
 
 
 ## <a name="deploy-vms-for-an-sap-ascsscs-cluster-a-database-management-system-dbms-cluster-and-sap-application-server-instances"></a>Implementar VMs para um cluster SAP ASCS/SCS, um cluster de sistema de gestão de bases de dados (DBMS) e instâncias do Servidor de Aplicações SAP
@@ -259,9 +259,9 @@ Para preparar a infraestrutura Azure, complete o seguinte:
 * Ao utilizar o Windows Server 2016, recomendamos que configuure [Azure Cloud Witness][deploy-cloud-witness].
 
 
-## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>Implemente manualmente o cluster do servidor de ficheiros de escala 
+## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>Implemente manualmente o cluster do servidor de ficheiros Scale-Out 
 
-Pode implementar manualmente o cluster do Servidor de Ficheiros de Escala do Microsoft, conforme descrito no blog [Storage Spaces Direct in Azure,][ms-blog-s2d-in-azure]executando o seguinte código:  
+Pode implementar manualmente o cluster Do Servidor de Ficheiros Microsoft Scale-Out, conforme descrito no blog [Storage Spaces Direct in Azure,][ms-blog-s2d-in-azure]executando o seguinte código:  
 
 
 ```powershell
@@ -294,25 +294,25 @@ $SAPGlobalHostName = "sapglobal"
 Add-ClusterScaleOutFileServerRole -Name $SAPGlobalHostName
 ```
 
-## <a name="deploy-scale-out-file-server-automatically"></a>Implementar o Servidor de Ficheiros de Escala automaticamente
+## <a name="deploy-scale-out-file-server-automatically"></a>Implementar Scale-Out Servidor de Ficheiros automaticamente
 
-Também pode automatizar a implementação do Scale-Out File Server utilizando modelos de Gestor de Recursos Azure num ambiente de rede virtual e ative existente.
+Também pode automatizar a implementação do Scale-Out File Server utilizando modelos de Gestor de Recursos Azure numa rede virtual existente e ambiente de Diretório Ativo.
 
 > [!IMPORTANT]
-> Recomendamos que tenha três ou mais nós de cluster para o Servidor de Ficheiros Scale-Out com espelhamento de três vias.
+> Recomendamos que tenha três ou mais nós de cluster para Scale-Out Servidor de Ficheiros com espelhamento de três vias.
 >
-> No modelo de Gestor de Recursos do Servidor de Blocos de Escala UI, tem de especificar a contagem de VM.
+> No modelo UI do Gestor de Recursos do Servidor de Ficheiros Scale-Out, tem de especificar a contagem de VM.
 >
 
 ### <a name="use-managed-disks"></a>Utilizar discos geridos
 
-O modelo do Gestor de Recursos Azure para implantar o Servidor de Ficheiros Scale-Out com espaços de armazenamento Direct e Discos Geridos Azure está disponível no [GitHub][arm-sofs-s2d-managed-disks].
+O modelo de Gestor de Recursos Azure para implantar Scale-Out Servidor de Ficheiros com espaços de armazenamento Direct e Discos Geridos Azure está disponível no [GitHub][arm-sofs-s2d-managed-disks].
 
 Recomendamos que utilize Discos Geridos.
 
-![Figura 1: Ecrã de UI para modelo de gestor de recursos de servidor de ficheiros scale-out com discos geridos][sap-ha-guide-figure-8010]
+![Figura 1: Ecrã de UI para Scale-Out modelo de gestor de recursos do servidor de ficheiros com discos geridos][sap-ha-guide-figure-8010]
 
-_**Figura 1**: Ecrã UI para modelo de gestor de recursos de servidor de ficheiros scale-out com discos geridos_
+_**Figura 1**: Ecrã de UI para Scale-Out modelo de gestor de recursos do servidor de ficheiros com discos geridos_
 
 No modelo, faça o seguinte:
 1. Na caixa **Vm Count,** introduza uma contagem mínima de **2**.
@@ -322,17 +322,17 @@ No modelo, faça o seguinte:
 
 ### <a name="use-unmanaged-disks"></a>Use discos não geridos
 
-O modelo do Gestor de Recursos Azure para implantar o Servidor de Ficheiros Scale-Out com espaços de armazenamento Direct e Discos Não Geridos Azure está disponível no [GitHub][arm-sofs-s2d-non-managed-disks].
+O modelo de Gestor de Recursos Azure para implantar Scale-Out Servidor de Ficheiros com Espaços de Armazenamento Direto e Discos Não Geridos Azure está disponível no [GitHub][arm-sofs-s2d-non-managed-disks].
 
-![Figura 2: Ecrã de UI para o modelo de Gestor de Recursos Azure do Servidor de Ficheiros De Escala sem discos geridos][sap-ha-guide-figure-8011]
+![Figura 2: Ecrã de UI para o modelo de gestor de recursos do Scale-Out File Server Azure sem discos geridos][sap-ha-guide-figure-8011]
 
-_**Figura 2**: Ecrã UI para o modelo de Gestor de Recursos Azure do Servidor de Ficheiros De Escala sem discos geridos_
+_**Figura 2**: Ecrã de UI para o modelo de gestor de recursos do Scale-Out File Server Azure sem discos geridos_
 
 Na caixa **'Tipo de Conta de Armazenamento',** selecione **Premium Storage**. Todas as outras definições são as mesmas que as configurações para discos geridos.
 
 ## <a name="adjust-cluster-timeout-settings"></a>Ajustar as definições de tempo de intervalo do cluster
 
-Depois de instalar com sucesso o cluster do Servidor de Ficheiros escalado pelo Windows, adapte os limiares de tempo para a deteção por falhas nas condições do Azure. Os parâmetros a alterar são documentados nos [limiares da rede de clusters de falha de sintonização][tuning-failover-cluster-network-thresholds]. Assumindo que os seus VMs agrupados estão na mesma sub-rede, altere os seguintes parâmetros para estes valores:
+Depois de ter instalado com sucesso o conjunto do Servidor de Ficheiros Windows Scale-Out, adapte os limiares de tempo para a deteção por falhas nas condições do Azure. Os parâmetros a alterar são documentados nos [limiares da rede de clusters de falha de sintonização][tuning-failover-cluster-network-thresholds]. Assumindo que os seus VMs agrupados estão na mesma sub-rede, altere os seguintes parâmetros para estes valores:
 
 - SameSubNetDelay = 2000
 - SameSubNetThreshold = 15

@@ -12,10 +12,10 @@ ms.date: 09/03/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 35b1f57a2361c5a4360e2ff1944b93e767168799
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91259395"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico OAuth2 numa política personalizada do Azure Ative Directory B2C
@@ -79,26 +79,26 @@ O perfil técnico também devolve alegações que não são devolvidas pelo forn
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| client_id | Yes | O identificador de aplicação do fornecedor de identidade. |
-| IdTokenAudience | No | O público do id_token. Se especificado, a Azure AD B2C verifica se o token está numa reclamação devolvida pelo fornecedor de identidade e é igual à especificada. |
-| authorization_endpoint | Yes | O URL do ponto final de autorização de acordo com o RFC 6749. |
-| AccessTokenEndpoint | Yes | O URL do ponto final simbólico de acordo com o RFC 6749. |
-| ReclamaçõesEndpoint | Yes | O URL do ponto final de informação do utilizador de acordo com RFC 6749. |
-| AccessTokenResponseFormat | No | O formato da chamada de ponto final de acesso. Por exemplo, o Facebook requer um método HTTP GET, mas a resposta do token de acesso está no formato JSON. |
-| Outros RequestQueryParameters | No | Parâmetros de consulta de pedido adicionais. Por exemplo, pode querer enviar parâmetros adicionais ao seu fornecedor de identidade. Pode incluir vários parâmetros utilizando o delimiter de vírgula. |
-| ClaimsEndpointAccessTokenName | No | O nome do parâmetro de cadeia de consulta de acesso. As alegações de alguns fornecedores de identidade suportam o pedido GET HTTP. Neste caso, o token do portador é enviado utilizando um parâmetro de cadeia de consulta em vez do cabeçalho de autorização. |
-| ClaimsEndpointFormatName | No | O nome do parâmetro de cadeia de consulta de formato. Por exemplo, pode definir o nome como `format` neste ponto final de reclamações do LinkedIn `https://api.linkedin.com/v1/people/~?format=json` . |
-| ClaimsEndpointFormat | No | O valor do parâmetro de cadeia de consulta de formato. Por exemplo, pode definir o valor como `json` neste ponto final de reclamações do LinkedIn `https://api.linkedin.com/v1/people/~?format=json` . |
-| ProviderName | No | O nome do fornecedor de identidade. |
-| response_mode | No | O método que o fornecedor de identidade utiliza para enviar o resultado de volta para Azure AD B2C. Valores possíveis: `query` `form_post` (padrão), ou `fragment` . |
-| scope | No | O âmbito do pedido que é definido de acordo com a especificação do fornecedor de identidade OAuth2. Como, `openid` `profile` `email` e. |
-| HttpBinding | No | A ligação HTTP esperada ao token de acesso e reclama pontos finais simbólicos. Valores possíveis: `GET` ou `POST` .  |
-| Nome de RespostaErrorCodeParamName | No | O nome do parâmetro que contém a mensagem de erro devolvida em HTTP 200 (Ok). |
-| ExtraParamsInAccessTokenEndpointResponse | No | Contém os parâmetros extra que podem ser devolvidos na resposta do **AccessTokenEndpoint** por alguns fornecedores de identidade. Por exemplo, a resposta do **AccessTokenEndpoint** contém um parâmetro extra, como `openid` , que é um parâmetro obrigatório para além do access_token numa cadeia de **pedidos claimsEndpoint.** Vários nomes de parâmetros devem ser escapados e separados pela vírgula '', delimiter. |
-| ExtraParamsInClaimsEndpointRequest | No | Contém os parâmetros adicionais que podem ser devolvidos no pedido **claimsEndpoint** por alguns fornecedores de identidade. Vários nomes de parâmetros devem ser escapados e separados pela vírgula '', delimiter. |
-| IncluirClaimResolvingInClaimsHandling  | No | Para pedidos de entradas e saídas, especifica se a [resolução de sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` , ou `false`   (predefinição). Se pretender utilizar uma reclamação no perfil técnico, desa um pouco `true` para . |
-| ResolveJsonPathsInJsonTokens  | No | Indica se o perfil técnico resolve os caminhos do JSON. Valores possíveis: `true` , ou `false` (predefinição). Utilize estes metadados para ler dados a partir de um elemento JSON aninhado. Em um [OutputClaim](technicalprofiles.md#outputclaims), desapedaça `PartnerClaimType` o elemento de caminho JSON que pretende obter. Por exemplo: `firstName.localized` ou `data.0.to.0.email` . .|
-|token_endpoint_auth_method| No| Especifica como a Azure AD B2C envia o cabeçalho de autenticação para o ponto final simbólico. Valores possíveis: `client_secret_post` (padrão) e `client_secret_basic` (visualização pública). Para mais informações, consulte [a secção de autenticação do cliente OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
+| client_id | Sim | O identificador de aplicação do fornecedor de identidade. |
+| IdTokenAudience | Não | O público do id_token. Se especificado, a Azure AD B2C verifica se o token está numa reclamação devolvida pelo fornecedor de identidade e é igual à especificada. |
+| authorization_endpoint | Sim | O URL do ponto final de autorização de acordo com o RFC 6749. |
+| AccessTokenEndpoint | Sim | O URL do ponto final simbólico de acordo com o RFC 6749. |
+| ReclamaçõesEndpoint | Sim | O URL do ponto final de informação do utilizador de acordo com RFC 6749. |
+| AccessTokenResponseFormat | Não | O formato da chamada de ponto final de acesso. Por exemplo, o Facebook requer um método HTTP GET, mas a resposta do token de acesso está no formato JSON. |
+| Outros RequestQueryParameters | Não | Parâmetros de consulta de pedido adicionais. Por exemplo, pode querer enviar parâmetros adicionais ao seu fornecedor de identidade. Pode incluir vários parâmetros utilizando o delimiter de vírgula. |
+| ClaimsEndpointAccessTokenName | Não | O nome do parâmetro de cadeia de consulta de acesso. As alegações de alguns fornecedores de identidade suportam o pedido GET HTTP. Neste caso, o token do portador é enviado utilizando um parâmetro de cadeia de consulta em vez do cabeçalho de autorização. |
+| ClaimsEndpointFormatName | Não | O nome do parâmetro de cadeia de consulta de formato. Por exemplo, pode definir o nome como `format` neste ponto final de reclamações do LinkedIn `https://api.linkedin.com/v1/people/~?format=json` . |
+| ClaimsEndpointFormat | Não | O valor do parâmetro de cadeia de consulta de formato. Por exemplo, pode definir o valor como `json` neste ponto final de reclamações do LinkedIn `https://api.linkedin.com/v1/people/~?format=json` . |
+| ProviderName | Não | O nome do fornecedor de identidade. |
+| response_mode | Não | O método que o fornecedor de identidade utiliza para enviar o resultado de volta para Azure AD B2C. Valores possíveis: `query` `form_post` (padrão), ou `fragment` . |
+| scope | Não | O âmbito do pedido que é definido de acordo com a especificação do fornecedor de identidade OAuth2. Como, `openid` `profile` `email` e. |
+| HttpBinding | Não | A ligação HTTP esperada ao token de acesso e reclama pontos finais simbólicos. Valores possíveis: `GET` ou `POST` .  |
+| Nome de RespostaErrorCodeParamName | Não | O nome do parâmetro que contém a mensagem de erro devolvida em HTTP 200 (Ok). |
+| ExtraParamsInAccessTokenEndpointResponse | Não | Contém os parâmetros extra que podem ser devolvidos na resposta do **AccessTokenEndpoint** por alguns fornecedores de identidade. Por exemplo, a resposta do **AccessTokenEndpoint** contém um parâmetro extra, como `openid` , que é um parâmetro obrigatório para além do access_token numa cadeia de **pedidos claimsEndpoint.** Vários nomes de parâmetros devem ser escapados e separados pela vírgula '', delimiter. |
+| ExtraParamsInClaimsEndpointRequest | Não | Contém os parâmetros adicionais que podem ser devolvidos no pedido **claimsEndpoint** por alguns fornecedores de identidade. Vários nomes de parâmetros devem ser escapados e separados pela vírgula '', delimiter. |
+| IncluirClaimResolvingInClaimsHandling  | Não | Para pedidos de entradas e saídas, especifica se a [resolução de sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` , ou `false`   (predefinição). Se pretender utilizar uma reclamação no perfil técnico, desa um pouco `true` para . |
+| ResolveJsonPathsInJsonTokens  | Não | Indica se o perfil técnico resolve os caminhos do JSON. Valores possíveis: `true` , ou `false` (predefinição). Utilize estes metadados para ler dados a partir de um elemento JSON aninhado. Em um [OutputClaim](technicalprofiles.md#outputclaims), desapedaça `PartnerClaimType` o elemento de caminho JSON que pretende obter. Por exemplo: `firstName.localized` ou `data.0.to.0.email` . .|
+|token_endpoint_auth_method| Não| Especifica como a Azure AD B2C envia o cabeçalho de autenticação para o ponto final simbólico. Valores possíveis: `client_secret_post` (padrão) e `client_secret_basic` (visualização pública). Para mais informações, consulte [a secção de autenticação do cliente OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
 
 ## <a name="cryptographic-keys"></a>Chaves criptográficas
 
@@ -106,7 +106,7 @@ O elemento **CryptographicKeys** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| client_secret | Yes | O segredo do cliente da aplicação do fornecedor de identidade. A chave criptográfica só é necessária se os **metadados response_types** estiver definidos para `code` . Neste caso, a Azure AD B2C faz outra chamada para trocar o código de autorização por um token de acesso. Se os metadados estiverem `id_token` definidos, pode omitir a tecla criptográfica. |
+| client_secret | Sim | O segredo do cliente da aplicação do fornecedor de identidade. A chave criptográfica só é necessária se os **metadados response_types** estiver definidos para `code` . Neste caso, a Azure AD B2C faz outra chamada para trocar o código de autorização por um token de acesso. Se os metadados estiverem `id_token` definidos, pode omitir a tecla criptográfica. |
 
 ## <a name="redirect-uri"></a>URI de Redirecionamento
 

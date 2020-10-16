@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 1f79add26af40abfa320bc23a3287d8246237701
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88037444"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Cobertura de geocoding Azure Maps
@@ -301,4 +301,4 @@ A capacidade de geocódificar num país/região depende da cobertura de dados ro
 
 Saiba mais sobre geocoding Azure Maps:
 > [!div class="nextstepaction"]
-> [Serviço de pesquisa Azure Maps](https://docs.microsoft.com/rest/api/maps/search)
+> [Serviço de pesquisa do Azure Maps](https://docs.microsoft.com/rest/api/maps/search)

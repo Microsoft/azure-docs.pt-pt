@@ -4,10 +4,10 @@ description: Neste tutorial, irá ligar-se a um cluster gerido por Tecido de Ser
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.openlocfilehash: 36a91d2852bcda5f958441b48ef4721d6ccc83c4
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91410458"
 ---
 # <a name="tutorial-deploy-an-app-to-a-service-fabric-managed-cluster-preview"></a>Tutorial: Implementar uma aplicação para um cluster gerido por Tecido de Serviço (pré-visualização)
@@ -75,7 +75,7 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore Debug
 
 ### <a name="create-an-application"></a>Criar uma aplicação
 
-Pode instantaneamente uma aplicação a partir de qualquer versão do tipo de aplicação que tenha sido registada com sucesso utilizando o cmdlet New-ServiceFabricApplication. O nome de cada pedido deve começar pelo esquema "tecido:" e deve ser único para cada instância de aplicação. São também criados quaisquer serviços predefinidos definidos no manifesto de aplicação do tipo de aplicação-alvo.
+Pode instantaneamente uma aplicação a partir de qualquer versão do tipo de aplicação que tenha sido registada com sucesso utilizando o New-ServiceFabricApplication cmdlet. O nome de cada pedido deve começar pelo esquema "tecido:" e deve ser único para cada instância de aplicação. São também criados quaisquer serviços predefinidos definidos no manifesto de aplicação do tipo de aplicação-alvo.
 
 ```powershell
 New-ServiceFabricApplication fabric:/Voting VotingType 1.0.0

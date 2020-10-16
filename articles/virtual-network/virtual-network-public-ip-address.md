@@ -18,10 +18,10 @@ ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
 ms.openlocfilehash: 92e71a8c08ef2c64509d7e00b0c43abdd58cf036
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91804032"
 ---
 # <a name="manage-public-ip-addresses"></a>Gerir endereços IP públicos

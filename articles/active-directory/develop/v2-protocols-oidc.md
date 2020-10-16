@@ -14,10 +14,10 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 71e930898f1f86622357f9e02da69be7bf2f8088
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91256590"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Plataforma de identidade da Microsoft e protocolo OpenID Connect
@@ -172,7 +172,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 A tabela a seguir descreve códigos de erro que podem ser devolvidos no `error` parâmetro da resposta de erro:
 
-| Código de erro | Description | Ação do cliente |
+| Código de erro | Descrição | Ação do cliente |
 | --- | --- | --- |
 | `invalid_request` | Erro de protocolo, como um parâmetro em falta, exigido. |Corrija e reenvia o pedido. Este é um erro de desenvolvimento que normalmente é apanhado durante os testes iniciais. |
 | `unauthorized_client` | O pedido do cliente não pode solicitar um código de autorização. |Isto ocorre geralmente quando a aplicação do cliente não está registada no Azure AD ou não é adicionada ao inquilino AZure AD do utilizador. A aplicação pode solicitar ao utilizador instruções para instalar a aplicação e adicioná-la ao Azure AD. |
@@ -292,7 +292,7 @@ GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
 post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 ```
 
-| Parâmetro | Condição | Description |
+| Parâmetro | Condição | Descrição |
 | ----------------------- | ------------------------------- | ------------ |
 | `post_logout_redirect_uri` | Recomendado | O URL para o qual o utilizador é redirecionado após a assinatura com sucesso. Se o parâmetro não estiver incluído, o utilizador é mostrado uma mensagem genérica que é gerada pelo ponto final da plataforma de identidade da Microsoft. Este URL deve corresponder a um dos URIs de redirecionamento registados para a sua aplicação no portal de registo de aplicações. |
 

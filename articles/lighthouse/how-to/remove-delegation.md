@@ -4,10 +4,10 @@ description: Saiba como remover o acesso aos recursos que tinham sido delegados 
 ms.date: 08/12/2020
 ms.topic: how-to
 ms.openlocfilehash: 72a2c49dde8cccfcc298d4128384a10bb7e8840f
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88167236"
 ---
 # <a name="remove-access-to-a-delegation"></a>Remover o acesso a uma delegação

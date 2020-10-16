@@ -6,18 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 09/25/2019
+ms.date: 10/06/2020
 ms.author: alkohli
-ms.openlocfilehash: 74b8bfcd8cfedaa7c5e24b6c29d9229a4db5828a
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: e8df77356b6b5b1b40e2abd772e13c2e811413ae
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450755"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950317"
 ---
 # <a name="preserving-file-acls-attributes-and-timestamps-with-azure-data-box"></a>Preservação de ACLs, atributos e timetamps com Caixa de Dados Azure
 
-A Azure Data Box permite-lhe preservar listas de controlo de acesso (ACLs), timetamps e atributos de ficheiros ao enviar dados para o Azure. Este artigo descreve os metadados que pode transferir ao copiar dados para a Caixa de Dados via Bloco de Mensagens do Servidor (SMB) para o fazer o upload para ficheiros Azure. São fornecidas etapas específicas para copiar metadados com ferramentas de cópia de dados Windows e Linux.
+A Azure Data Box permite-lhe preservar listas de controlo de acesso (ACLs), timetamps e atributos de ficheiros ao enviar dados para o Azure. Este artigo descreve os metadados que pode transferir ao copiar dados para a Caixa de Dados via Bloco de Mensagens do Servidor (SMB) para o fazer o upload para ficheiros Azure. 
+
+São fornecidas etapas específicas para copiar metadados com ferramentas de cópia de dados Windows e Linux. Os metadados não são preservados ao transferir dados para o armazenamento de bolhas.
 
 Neste artigo, os ACLs, os timetamps e os atributos de ficheiro que são transferidos são referidos colectivamente como *metadados.*
 
@@ -112,6 +114,6 @@ cp -aR /etc /opt/
 rsync -avP /etc /opt (-a copies a directory)
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Copiar dados para o Azure Data Box via SMB](./data-box-deploy-copy-data.md)

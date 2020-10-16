@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: tutorial
 ms.date: 5/6/2019
 ms.openlocfilehash: f211ce7e52ccaa6793435159d0ce1c64fe8b63ed
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91705286"
 ---
 # <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>Tutorial: Monitor e tune Azure Database for PostgreSQL - Single Server
@@ -23,7 +23,7 @@ A Base de Dados do Azure para PostgreSQL possui recursos que o ajudam a compreen
 > * Analisar uma base de dados para obter recomendações de desempenho
 > * Aplicar recomendações de desempenho
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 Precisa de um servidor da Base de Dados do Azure para PostgreSQL com a versão 9.6 ou 10 do PostgreSQL. Pode seguir os passos no [Tutorial de criação](tutorial-design-database-using-azure-portal.md) para criar um servidor.
 
 > [!IMPORTANT]
@@ -92,5 +92,5 @@ A funcionalidade [Recomendações de Desempenho](concepts-performance-recommenda
 ### <a name="permissions"></a>Permissões
 As permissões **Proprietário** ou **Contribuidor** necessárias para executar a análise que utiliza a funcionalidade Recomendações de Desempenho.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 - Saber mais sobre [monitorização e otimização](concepts-monitoring.md) na Base de Dados do Azure para PostgreSQL.

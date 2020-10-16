@@ -1,14 +1,14 @@
 ---
 title: Controlos de amostras de planta do Canadá Federal PBMM
-description: Controlo do mapeamento das amostras de planta do PBMM federal do Canadá. Cada controlo é mapeado para uma ou mais Políticas Azure que ajudam na avaliação.
+description: Controlo do mapeamento das amostras de planta do PBMM federal do Canadá. Cada controlo é mapeado para uma ou mais definições da Política Azure que ajudam na avaliação.
 ms.date: 07/31/2020
 ms.topic: sample
-ms.openlocfilehash: b3879ee847a0cb7a4cb6d00e842c613de53579e2
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: c7b7df73d9fd553e9f733f37d7238e4c1c0afed5
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91541072"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91929562"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Mapeamento de controlo da amostra de planta federal do Canadá PBMM
 
@@ -17,7 +17,7 @@ O artigo seguinte detalha como o Azure Blueprints Canada Federal Protected B, Me
 Os seguintes mapeamentos são para os controlos **PBMM federais** do Canadá. Utilize a navegação no direito de saltar diretamente para um mapeamento de controlo específico. Muitos dos controlos mapeados são implementados com uma iniciativa [da Política Azure.](../../../policy/overview.md) Para rever a iniciativa completa, abra **a Política** no portal Azure e selecione a página **Definições.** Em seguida, encontre e selecione a ** \[ Pré-visualização \] : Audit Canada Federal PBMM controla** a iniciativa política incorporada.
 
 > [!IMPORTANT]
-> Cada controlo abaixo está associado a uma ou mais definições [da Política Azure.](../../../policy/overview.md) Estas políticas podem ajudá-lo a avaliar o [cumprimento](../../../policy/how-to/get-compliance-data.md) do controlo; no entanto, muitas vezes não há um 1:1 ou um jogo completo entre um controlo e uma ou mais políticas. Como tal, **a Conformidade** na Política Azure refere-se apenas às próprias políticas; isto não garante que esteja totalmente em conformidade com todos os requisitos de um controlo. Além disso, a norma de conformidade inclui controlos que não são abordados por nenhuma definição da Política Azure neste momento. Portanto, o cumprimento da Política Azure é apenas uma visão parcial do seu estado de conformidade geral. As associações entre controlos e definições de Política Azure para esta amostra de projeto de conformidade podem mudar ao longo do tempo. Para ver a história da mudança, consulte o [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/canada-federal-pbmm/control-mapping.md).
+> Cada controlo abaixo está associado a uma ou mais definições [da Política Azure.](../../../policy/overview.md) Estas políticas podem ajudá-lo a avaliar o [cumprimento](../../../policy/how-to/get-compliance-data.md) do controlo; no entanto, muitas vezes não há um para um ou um jogo completo entre um controlo e uma ou mais políticas. Como tal, **a Conformidade** na Política Azure refere-se apenas às próprias políticas; isto não garante que esteja totalmente em conformidade com todos os requisitos de um controlo. Além disso, a norma de conformidade inclui controlos que não são abordados por nenhuma definição da Política Azure neste momento. Portanto, o cumprimento da Política Azure é apenas uma visão parcial do seu estado de conformidade geral. As associações entre controlos e definições de Política Azure para esta amostra de projeto de conformidade podem mudar ao longo do tempo. Para ver a história da mudança, consulte o [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/canada-federal-pbmm/control-mapping.md).
 
 ## <a name="location-constraints"></a>Restrições de localização
 
@@ -37,7 +37,7 @@ Este projeto ajuda-o a rever contas que podem não cumprir os requisitos de gest
 - As contas externas com permissões de escrita devem ser removidas da sua subscrição
 
 
-## <a name="ac-2-7-account-management--role-based-schemes"></a>AC-2 (7) Gestão de Conta / Regimes baseados em funções
+## <a name="ac-2-7-account-management--role-based-schemes"></a>AC-2 (7) Gestão de Conta / Regimes Role-Based
 
 A Azure implementa [o controlo de acesso baseado em funções (Azure RBAC) para ajudá-lo](../../../../role-based-access-control/overview.md) a gerir quem tem acesso a recursos em Azure. Utilizando o portal Azure, pode rever quem tem acesso aos recursos do Azure e às suas permissões. Esta planta também atribui definições [de Política Azure](../../../policy/overview.md) à utilização de auditação da autenticação do Azure Ative Directory para servidores SQL e Tecido de Serviço. A utilização da autenticação do Azure Ative Directory permite uma gestão simplificada da permissão e uma gestão centralizada da identidade dos utilizadores de bases de dados e outros serviços da Microsoft. Além disso, este projeto atribui uma definição de Política Azure para auditar o uso de regras Azure RBAC personalizadas. Compreender onde são implementadas as regras Azure RBAC personalizadas pode ajudá-lo a verificar necessidades e implementação adequada, uma vez que as regras personalizadas do Azure RBAC são propensas a erros.
 
@@ -46,8 +46,7 @@ A Azure implementa [o controlo de acesso baseado em funções (Azure RBAC) para 
 
 ## <a name="ac-4-information-flow-enforcement"></a>AC-4 Informação Fluxo de Fluxo
 
-A partilha de recursos de origem cruzada (CORS) pode permitir que os recursos dos Serviços de Aplicação sejam solicitados a partir de um domínio externo. A Microsoft recomenda que apenas os domínios necessários interajam com as suas aplicações API, função e web. Esta planta atribui uma definição [de Política Azure](../../../policy/overview.md) para ajudá-lo a monitorizar as restrições de acesso a recursos CORS no Centro de Segurança Azure.
-Compreender as implementações do CORS pode ajudá-lo a verificar se os controlos de fluxo de informação são implementados.
+A partilha de recursos de origem cruzada (CORS) pode permitir que os recursos dos Serviços de Aplicação sejam solicitados a partir de um domínio externo. A Microsoft recomenda que apenas os domínios necessários interajam com as suas aplicações API, função e web. Esta planta atribui uma definição [de Política Azure](../../../policy/overview.md) para ajudá-lo a monitorizar as restrições de acesso a recursos CORS no Centro de Segurança Azure. Compreender as implementações do CORS pode ajudá-lo a verificar se os controlos de fluxo de informação são implementados.
 
 - O CORS não deve permitir que todos os recursos acedam à sua Aplicação Web
 
@@ -123,7 +122,8 @@ Os dados de registo recolhidos pelo Azure Monitor são armazenados num espaço d
 
 ## <a name="au-12-audit-generation"></a>Geração de auditoria AU-12
 
-Esta planta ajuda-o a garantir que os eventos do sistema são registados atribuindo definições [de Política Azure](../../../policy/overview.md) que auditam as definições de registo nos recursos do Azure. Estas definições de política auditam e impõem a implantação do agente Log Analytics em máquinas virtuais Azure e configuração de definições de auditoria para outros tipos de recursos Azure. Estas definições de política também auditam a configuração de registos de diagnóstico para fornecer informações sobre operações que são realizadas dentro dos recursos Azure. Além disso, a auditoria e a Segurança Avançada de Dados estão configuradas em servidores SQL.
+Esta planta ajuda-o a garantir que os eventos do sistema são registados atribuindo definições [de Política Azure](../../../policy/overview.md) que auditam as definições de registo nos recursos do Azure.
+Estas definições de política auditam e impõem a implantação do agente Log Analytics em máquinas virtuais Azure e configuração de definições de auditoria para outros tipos de recursos Azure. Estas definições de política também auditam a configuração de registos de diagnóstico para fornecer informações sobre operações que são realizadas dentro dos recursos Azure. Além disso, a auditoria e a Segurança Avançada de Dados estão configuradas em servidores SQL.
 
 - \[Pré-visualização \] : Implementação do agente de análise de registo de auditoria - VM Image (OS) não listado
 - Implementação do agente de análise de registo de auditoria em VMSS - VM Image (OS) não listado
@@ -145,7 +145,7 @@ O controlo de aplicações adaptativas no Azure Security Center é uma solução
 
 - Os controlos de aplicações adaptativos devem ser ativados em máquinas virtuais
 
-## <a name="cm-11-user-installed-software"></a>Software instalado pelo utilizador CM-11
+## <a name="cm-11-user-installed-software"></a>CM-11 User-Installed Software
 
 O controlo de aplicações adaptativas no Azure Security Center é uma solução inteligente e automatizada de aplicação de ponta a ponta que permite a solução de lista de chamadas que pode bloquear ou impedir que softwares específicos sejam executadas nas suas máquinas virtuais. O controlo de aplicações pode ajudá-lo a impor e monitorizar o cumprimento das políticas de restrição de software. Esta planta atribui uma definição [de Política Azure](../../../policy/overview.md) que o ajuda a monitorizar máquinas virtuais onde uma lista de pedidos é recomendada, mas ainda não foi configurada.
 
@@ -162,7 +162,7 @@ A Azure Site Recovery replica cargas de trabalho em máquinas virtuais de um loc
 Este projeto ajuda-o a restringir e a controlar o acesso privilegiado atribuindo definições [da Azure Policy](../../../policy/overview.md) a contas de auditoria com o proprietário e/ou a escrever permissões que não tenham autenticação de vários fatores ativadas. A autenticação multi-factor ajuda a manter as contas seguras mesmo que uma peça de informação de autenticação esteja comprometida. Ao monitorizar contas sem autenticação multi-factor ativada, pode identificar contas que possam ser mais comprometidas.
 
 - O MFA deve ser ativado em contas com permissões do proprietário na sua subscrição
-- MFA deve ser ativado em contas com permissões de escrita na sua subscrição
+- O MFA deve ser ativado em contas com permissões de escrita na sua subscrição
 
 ## <a name="ia-5-authenticator-management"></a>Gestão de Autenticadores IA-5
 
@@ -173,7 +173,7 @@ Esta planta atribui definições [de Política Azure](../../../policy/overview.m
 - Implementar requisitos para auditar Os VMs do Linux que não têm as permissões de ficheiros passwd definidas para 0644
 - Implementar requisitos para auditar Os VMs do Linux que têm contas sem senhas
 
-## <a name="ia-5-1-authenticator-management--password-based-authentication"></a>IA-5 (1) Gestão de Autenticadores / Autenticação baseada em palavras-passe
+## <a name="ia-5-1-authenticator-management--password-based-authentication"></a>IA-5 (1) Gestão de Autenticadores / Autenticação Password-Based
 
 Este plano ajuda-o a impor senhas fortes atribuindo definições [de Política Azure](../../../policy/overview.md) que auditam máquinas virtuais do Windows que não impõem a força mínima e outros requisitos de senha. A sensibilização das máquinas virtuais em violação da política de força de senha ajuda-o a tomar ações corretivas para garantir que as palavras-passe de todas as contas de utilizadores de máquinas virtuais cumprem a política de senha da sua organização.
 
@@ -193,11 +193,12 @@ Este plano ajuda-o a impor senhas fortes atribuindo definições [de Política A
 Este projeto ajuda-o a restringir e a controlar o acesso privilegiado atribuindo definições [da Azure Policy](../../../policy/overview.md) a contas de auditoria com o proprietário e/ou a escrever permissões que não tenham autenticação de vários fatores ativadas. A autenticação multi-factor ajuda a manter as contas seguras mesmo que uma peça de informação de autenticação esteja comprometida. Ao monitorizar contas sem autenticação multi-factor ativada, pode identificar contas que possam ser mais comprometidas.
 
 - O MFA deve ser ativado em contas com permissões do proprietário na sua subscrição
-- MFA deve ser ativado em contas com permissões de escrita na sua subscrição
+- O MFA deve ser ativado em contas com permissões de escrita na sua subscrição
 
 ## <a name="ra-5-vulnerability-scanning"></a>Varredura de vulnerabilidade RA-5
 
-Esta planta ajuda-o a gerir as vulnerabilidades do sistema de informação atribuindo definições [de Política Azure](../../../policy/overview.md) que monitorizam vulnerabilidades do sistema operativo, vulnerabilidades SQL e vulnerabilidades de máquinas virtuais no Azure Security Center. O Azure Security Center fornece capacidades de reporte que lhe permitem ter informações em tempo real sobre o estado de segurança dos recursos Azure implantados. Esta planta também atribui definições de política que auditam e aplicam a Segurança Avançada de Dados em servidores SQL. A segurança avançada de dados incluiu a avaliação de vulnerabilidades e as capacidades avançadas de proteção de ameaças para ajudá-lo a compreender as vulnerabilidades nos seus recursos implantados.
+Esta planta ajuda-o a gerir as vulnerabilidades do sistema de informação atribuindo definições [de Política Azure](../../../policy/overview.md) que monitorizam vulnerabilidades do sistema operativo, vulnerabilidades SQL e vulnerabilidades de máquinas virtuais no Azure Security Center.
+O Azure Security Center fornece capacidades de reporte que lhe permitem ter informações em tempo real sobre o estado de segurança dos recursos Azure implantados. Esta planta também atribui definições de política que auditam e aplicam a Segurança Avançada de Dados em servidores SQL. A segurança avançada de dados incluiu a avaliação de vulnerabilidades e as capacidades avançadas de proteção de ameaças para ajudá-lo a compreender as vulnerabilidades nos seus recursos implantados.
 
 - A segurança avançada dos dados deve ser ativada nas suas instâncias geridas pelo SQL
 - A segurança avançada dos dados deve ser ativada nos seus servidores SQL
@@ -215,8 +216,7 @@ O nível padrão de negação de serviço distribuído (DDoS) da Azure fornece f
 
 ## <a name="sc-7-boundary-protection"></a>Proteção de Fronteiras SC-7
 
-Esta planta ajuda-o a gerir e a controlar a fronteira do sistema, atribuindo uma definição [de Política Azure](../../../policy/overview.md) que monitoriza as recomendações de endurecimento do grupo de segurança da rede no Centro de Segurança Azure. O Azure Security Center analisa os padrões de tráfego da Internet face às máquinas virtuais e fornece recomendações de regras do grupo de segurança da rede para reduzir a potencial superfície de ataque.
-Além disso, este plano também atribui definições de política que monitorizam pontos finais, aplicações e contas de armazenamento desprotegidas. Pontos finais e aplicações que não estejam protegidas por uma firewall, e contas de armazenamento com acesso sem restrições podem permitir o acesso não intencional a informações contidas no sistema de informação.
+Esta planta ajuda-o a gerir e a controlar a fronteira do sistema, atribuindo uma definição [de Política Azure](../../../policy/overview.md) que monitoriza as recomendações de endurecimento do grupo de segurança da rede no Centro de Segurança Azure. O Azure Security Center analisa os padrões de tráfego da Internet face às máquinas virtuais e fornece recomendações de regras do grupo de segurança da rede para reduzir a potencial superfície de ataque. Além disso, este plano também atribui definições de política que monitorizam pontos finais, aplicações e contas de armazenamento desprotegidas. Pontos finais e aplicações que não estejam protegidas por uma firewall, e contas de armazenamento com acesso sem restrições podem permitir o acesso não intencional a informações contidas no sistema de informação.
 
 - Recomendações de endurecimento de rede adaptativa devem ser aplicadas na internet face a máquinas virtuais
 - O acesso através da Internet face ao ponto final deve ser restringido
@@ -305,7 +305,7 @@ Esta planta ajuda-o a monitorizar o seu sistema auditando e aplicando a seguran�
 > [!NOTE]
 > A disponibilidade de definições específicas da Política Azure pode variar no Governo de Azure e noutras nuvens nacionais. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Reviram o mapeamento de controlo da amostra de planta federal do Canadá. Em seguida, visite os seguintes artigos para saber sobre a visão geral e como implementar esta amostra:
 

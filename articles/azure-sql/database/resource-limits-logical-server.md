@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 09/15/2020
-ms.openlocfilehash: 6589211839a5c1667a6b5cef22220fd917f7e4af
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: e70897825dfebe03e920ff5948ad597b57bdd7d7
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91618966"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058255"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Limites de recursos para a Azure SQL Database e para os servidores Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -59,7 +59,7 @@ Quando a utilização do CPU computacional da base de dados se torna elevada, a 
 Ao encontrar uma alta utilização computacional, as opções de mitigação incluem:
 
 - Aumentar o tamanho do cálculo da base de dados ou piscina elástica para fornecer à base de dados mais recursos compute. Consulte [os recursos de base de dados únicos escala](single-database-scale.md) e recursos de piscina elástica em [escala.](elastic-pool-scale.md)
-- Otimizar consultas para reduzir a utilização de recursos cpu de cada consulta. Para obter mais informações, consulte [Consulta Afinação/Sugestões](performance-guidance.md#query-tuning-and-hinting).
+- Otimizar consultas para reduzir a utilização de recursos cpu de cada consulta. Para obter mais informações, veja [Ajuste/Sugestões de Consultas](performance-guidance.md#query-tuning-and-hinting).
 
 ### <a name="storage"></a>Armazenamento
 
@@ -78,7 +78,7 @@ O número máximo de sessões e trabalhadores é determinado pelo nível de serv
 Ao encontrar alta sessão ou utilização do trabalhador, as opções de mitigação incluem:
 
 - Aumentar o nível de serviço ou o tamanho do cálculo da base de dados ou piscina elástica. Consulte [os recursos de base de dados únicos escala](single-database-scale.md) e recursos de piscina elástica em [escala.](elastic-pool-scale.md)
-- Otimizar consultas para reduzir a utilização de recursos de cada consulta se a causa do aumento da utilização do trabalhador se deve à contenção dos recursos computacional. Para obter mais informações, consulte [Consulta Afinação/Sugestões](performance-guidance.md#query-tuning-and-hinting).
+- Otimizar consultas para reduzir a utilização de recursos de cada consulta se a causa do aumento da utilização do trabalhador se deve à contenção dos recursos computacional. Para obter mais informações, veja [Ajuste/Sugestões de Consultas](performance-guidance.md#query-tuning-and-hinting).
 - Redução da regulação [MAXDOP](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option#Guidelines) (grau máximo de paralelismo).
 - Otimização da carga de trabalho de consulta para reduzir o número de ocorrências e duração do bloqueio de consultas.
 
@@ -119,7 +119,7 @@ No contexto da monitorização do desempenho e da resolução de problemas, é i
 
 Quando **o consumo total de CPU** é elevado, as opções de mitigação são as mesmas que as notadas anteriormente e incluem aumento objetivo de serviço e/ou otimização da carga de trabalho do utilizador.
 
-## <a name="resource-governance"></a>Governação de recursos
+## <a name="resource-governance"></a>Gestão de recursos
 
 Para impor limites de recursos, a Azure SQL Database utiliza uma implementação de governação de recursos baseada no [Governador de Recursos do](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor)Servidor SQL, modificado e estendido para funcionar na Base de Dados Azure SQL. Na Base de [Dados](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor-resource-pool) SQL, múltiplos conjuntos de recursos e [grupos de carga de trabalho,](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor-workload-group)com limites de recursos definidos tanto a nível de piscina como de grupo, proporcionam uma [Base de Dados equilibrada como serviço.](https://azure.microsoft.com/blog/resource-governance-in-azure-sql-database/) A carga de trabalho do utilizador e as cargas de trabalho internas são classificadas em conjuntos de recursos separados e grupos de carga de trabalho. A carga de trabalho do utilizador nas réplicas secundárias primárias e legíveis, incluindo geo-réplicas, é classificada no `SloSharedPool1` grupo de recursos e grupo de carga de `UserPrimaryGroup.DBId[N]` trabalho, onde se encontra o valor `N` de ID da base de dados. Além disso, existem múltiplos pools de recursos e grupos de carga de trabalho para várias cargas de trabalho internas.
 
@@ -137,11 +137,11 @@ Por exemplo, se uma consulta gerar 1000 IOPS sem qualquer governação de recurs
 
 Os valores IOPS e de produção min/max devolvidos pela [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) visão funcionam como limites/tampas, e não como garantias. Além disso, a governação dos recursos não garante qualquer latência específica de armazenamento. A melhor latência alcançável, IOPS, e produção para uma determinada carga de trabalho do utilizador dependem não só dos limites de governação dos recursos IO, mas também da mistura de tamanhos de IO utilizados, e das capacidades do armazenamento subjacente. A BASE de Dados SQL utiliza iOs que variam de tamanho entre 512 KB e 4 MB. Para efeitos de aplicação dos limites do IOPS, todas as IO são contabilizadas independentemente do seu tamanho, com exceção das bases de dados com ficheiros de dados no Azure Storage. Nesse caso, os IOs maiores do que 256 KB são contabilizados como múltiplos IOs de 256 KB, para alinhar com a contabilidade IO de armazenamento Azure.
 
-Para bases de dados Básicas, Standard e Finalidade Geral, que utilizam ficheiros de dados no Azure Storage, o `primary_group_max_io` valor pode não ser alcançável se uma base de dados não tiver ficheiros de dados suficientes para fornecer cumulativamente este número de IOPS, ou se os dados não forem distribuídos uniformemente por ficheiros, ou se o nível de desempenho das bolhas subjacentes limitar o IOPS/produção abaixo do limite de governação dos recursos. Da mesma forma, com pequenos IOs de registo gerados por transações frequentes, o `primary_max_log_rate` valor pode não ser alcançável por uma carga de trabalho devido ao limite de IOPS na bolha de armazenamento Azure subjacente.
+Para bases de dados Básicas, Standard e Finalidade Geral, que utilizam ficheiros de dados no Azure Storage, o `primary_group_max_io` valor pode não ser alcançável se uma base de dados não tiver ficheiros de dados suficientes para fornecer cumulativamente este número de IOPS, ou se os dados não forem distribuídos uniformemente por ficheiros, ou se o nível de desempenho das bolhas subjacentes limitar o IOPS/produção abaixo dos limites de governação dos recursos. Da mesma forma, com pequenos IOs de registo gerados por transações frequentes, o `primary_max_log_rate` valor pode não ser alcançável por uma carga de trabalho devido ao limite de IOPS na bolha de armazenamento Azure subjacente. Para bases de dados que utilizem o Azure Premium Storage, a Azure SQL Database utiliza bolhas de armazenamento suficientemente grandes para obter iops/produção necessárias, independentemente do tamanho da base de dados. Para bases de dados maiores, são criados vários ficheiros de dados para aumentar a capacidade total de IOPS/produção.
 
 Os valores de utilização dos recursos, tais `avg_data_io_percent` como, `avg_log_write_percent` relatados no [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database),  [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database), e [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) pontos de vista, são calculados em percentagens dos limites máximos de governação dos recursos. Assim, quando fatores que não o limite de governação de recursos IOPS/produção, é possível ver o IOPS/throughputando aplanar e as latências aumentarem à medida que a carga de trabalho aumenta, embora a utilização de recursos reportada se mantenha abaixo dos 100%.
 
-Para ver ler e escrever IOPS, produção e latência por ficheiro de base de dados, utilize a função [sys.dm_io_virtual_file_stats().](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) Esta função surge em toda a IO contra a base de dados, incluindo iO de fundo que não é contabilizado para `avg_data_io_percent` , mas usa IOPS e produção do armazenamento subjacente, e pode impactar a latência de armazenamento observada. A função também apresenta latência adicional que pode ser introduzida pela governação de recursos da OI para leituras e escritas, `io_stall_queued_read_ms` `io_stall_queued_write_ms` respectivamente.
+Para ver ler e escrever IOPS, produção e latência por ficheiro de base de dados, utilize a função [sys.dm_io_virtual_file_stats().](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) Esta função surge em toda a IO contra a base de dados, incluindo iO de fundo que não é contabilizado para `avg_data_io_percent` , mas usa IOPS e produção do armazenamento subjacente, e pode impactar a latência de armazenamento observada. A função apresenta latência adicional que pode ser introduzida pela governação de recursos da OI para leituras e escritas, `io_stall_queued_read_ms` `io_stall_queued_write_ms` respectivamente.
 
 ### <a name="transaction-log-rate-governance"></a>Governação da taxa de registo de transações
 

@@ -14,10 +14,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 48288ed3765fa939fc56a4469f64070315c4c6aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84668751"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Estender o suporte para SQL Server 2008 e SQL Server 2008 R2 com Azure
@@ -42,7 +42,7 @@ As imagens implementadas através do Azure Marketplace vêm com a extensão SQL 
 > [!NOTE]
 > Embora as lâminas SQL **Server Create** and **Manage** funcionem com a imagem SQL Server 2008 R2 no portal Azure, as seguintes funcionalidades não são _suportadas_: Backups automáticos, integração do Cofre de Chaves Azure, Serviços R e configuração de armazenamento.
 
-## <a name="licensing"></a>Licensing
+## <a name="licensing"></a>Licenciamento
 As implementações do Pay-as-you-go SQL Server 2008 R2 podem converter-se em [Benefício Híbrido Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 Para converter uma licença baseada em Software Assurance (SA) para pagar o que quiser, os clientes devem registar-se junto do fornecedor de [recursos](sql-vm-resource-provider-register.md)SQL VM . Após esse registo, o tipo de licença SQL será permutável entre a Azure Hybrid Benefit e o pay-as-you-go.
@@ -58,7 +58,7 @@ Para migrações a granel, recomendamos o serviço [de Recuperação do Local Az
 
 O SQL Server requer instantâneos de recuperação do site Azure consistentes para garantir a recuperação. A Azure Site Recovery suporta instantâneos consistentes com um intervalo mínimo de 1 hora. O objetivo mínimo de ponto de recuperação (RPO) possível para o SQL Server com migrações de recuperação do local de Azure é de 1 hora. O objetivo de tempo de recuperação (RTO) é de 2 horas mais o tempo de recuperação do SQL Server.
 
-### <a name="database-migration-service"></a>Serviço de Migração de Bases de Dados
+### <a name="database-migration-service"></a>Database Migration Service
 
 O [Azure Database Migration Service](/azure/dms/dms-overview) é uma opção para os clientes se estiverem a migrar de instalações para um Azure VM, atualizando o SQL Server para a versão de 2012 ou mais tarde.
 
@@ -76,7 +76,7 @@ As atualizações de segurança alargadas para VMs do Servidor SQL são entregue
 A *Aplicação de patches automatizada* está ativada por predefinição. A Aplicação de patches automatizada permite ao Azure automaticamente aplicar o patch do SQL Server e o sistema operativo. Pode especificar um dia da semana, hora e duração para uma janela de manutenção se a extensão SQL Server IaaS for instalada. O Azure executa a aplicação de patches nesta janela de manutenção. A agenda da janela de manutenção utiliza a região da VM para a hora. Para obter mais informações, consulte [patching automatizado para O Servidor SQL em Máquinas Virtuais Azure](automated-patching.md).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Migrar o seu SQL Server VM para Azure:
 

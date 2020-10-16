@@ -4,10 +4,10 @@ description: Este artigo descreve as definições de tecido e as políticas de u
 ms.topic: reference
 ms.date: 08/30/2019
 ms.openlocfilehash: fbd6c9503e409473a87c58202eb88d77716441f9
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89055125"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizar as definições do cluster do Service Fabric
@@ -122,8 +122,8 @@ Segue-se uma lista de configurações de Tecido que pode personalizar, organizad
 |ApplicationLogsFormatVersion |Int, o padrão é 0 | Dinâmica |Versão para formato de registos de aplicações. Os valores suportados são 0 e 1. A versão 1 inclui mais campos do registo do evento ETW do que a versão 0. |
 |AuditHttpRequests |Bool, o padrão é falso. | Dinâmica | Ligue a auditoria HTTP ou desligada. O objetivo da auditoria é ver as atividades que foram realizadas contra o cluster; incluindo quem iniciou o pedido. Note que esta é a melhor tentativa de registo; e pode ocorrer perda de vestígios. Os pedidos HTTP com autenticação "Utilizador" não são registados. |
 |CaptureHttpTelemetry|Bool, o padrão é verdadeiro | Dinâmica | Ligue ou desligue a telemetria HTTP. O objetivo da telemetria é que o Service Fabric seja capaz de capturar dados de telemetria para ajudar a planear o trabalho futuro e identificar áreas problemáticas. A telemetria não regista quaisquer dados pessoais ou o organismo de pedido. A telemetria captura todos os pedidos HTTP, salvo configuração em contrário. |
-|ClusterId |String | Dinâmica |A identificação única do aglomerado. Isto é gerado quando o cluster é criado. |
-|Instâncias do Consumidor |String | Dinâmica |A lista de casos de consumidores da DCA. |
+|ClusterId |Cadeia | Dinâmica |A identificação única do aglomerado. Isto é gerado quando o cluster é criado. |
+|Instâncias do Consumidor |Cadeia | Dinâmica |A lista de casos de consumidores da DCA. |
 |DiskFullSafetySpaceInMB |Int, o padrão é 1024 | Dinâmica |Espaço restante em disco em MB para proteger da utilização por DCA. |
 |EnableCircularTraceSsion |Bool, o padrão é falso. | Estático |A bandeira indica se devem ser utilizadas sessões circulares de rastreio. |
 |EnablePlatformEventsFileSink |Bool, o padrão é falso. | Estático |Ativar/Desativar eventos de plataforma que estão a ser escritos em disco |
@@ -131,7 +131,7 @@ Segue-se uma lista de configurações de Tecido que pode personalizar, organizad
 |FalhasOnlyHttpTelemetry | Bool, o padrão é falso. | Dinâmica | Se a captura de telemetria HTTP estiver ativada; capturar apenas pedidos falhados. Isto é para ajudar a reduzir o número de eventos gerados para a telemetria. |
 |HttpTelemetryCapturePercentage | int, o padrão é 50 | Dinâmica | Se a captura de telemetria HTTP estiver ativada; capturar apenas uma percentagem aleatória de pedidos. Isto é para ajudar a reduzir o número de eventos gerados para a telemetria. |
 |MaxDiskQuotaInMB |Int, o padrão é 65536 | Dinâmica |Quota de disco em MB para ficheiros de registo de tecido do Windows. |
-|ProdutoresInstances |String | Dinâmica |A lista de casos de produtores da DCA. |
+|ProdutoresInstances |Cadeia | Dinâmica |A lista de casos de produtores da DCA. |
 
 ## <a name="dnsservice"></a>DnsService
 | **Parâmetro** | **Valores Permitidos** |**Política de Upgrade**| **Orientação ou Breve Descrição** |
@@ -505,7 +505,7 @@ Segue-se uma lista de configurações de Tecido que pode personalizar, organizad
 
 | **Parâmetro** | **Valores Permitidos** | **Política de Upgrade** | **Orientação ou Breve Descrição** |
 | --- | --- | --- | --- |
-|Contador |String | Dinâmica |Lista separada por vírgula de contadores de desempenho para recolher. |
+|Contador |Cadeia | Dinâmica |Lista separada por vírgula de contadores de desempenho para recolher. |
 |IsEnabled |Bool, o padrão é verdadeiro | Dinâmica |A bandeira indica se a recolha do contador de desempenho no nó local está ativada. |
 |MaxCounterBinaryFileSizeInMB |Int, o padrão é 1 | Dinâmica |Tamanho máximo (em MB) para cada ficheiro binário do contador de desempenho. |
 |NewCounterBinaryFileCreationIntervalInMinutes |Int, o padrão é 10 | Dinâmica |Intervalo máximo (em segundos) após o qual é criado um novo ficheiro binário de contador de desempenho. |
@@ -838,10 +838,10 @@ Segue-se uma lista de configurações de Tecido que pode personalizar, organizad
 | --- | --- | --- | --- |
 |Nome da Rede de Contentores|cadeia, padrão é ""| Estático |O nome da rede a utilizar ao configurar uma rede de contentores.|
 |ContainerNetworkSetup|bool, o padrão é FALSO (Linux) e o padrão é TRUE (Windows)| Estático |Se criar uma rede de contentores.|
-|FabricDataRoot |String | Não é permitido |Diretório de raiz de dados de tecido de serviço. O padrão para Azure é d:\svcfab |
-|FabricLogRoot |String | Não é permitido |Diretório de raiz de tronco de tecido de serviço. É aqui que são colocados registos e vestígios de SF. |
+|FabricDataRoot |Cadeia | Não é permitido |Diretório de raiz de dados de tecido de serviço. O padrão para Azure é d:\svcfab |
+|FabricLogRoot |Cadeia | Não é permitido |Diretório de raiz de tronco de tecido de serviço. É aqui que são colocados registos e vestígios de SF. |
 |NódesToBeRemoved|cadeia, padrão é ""| Dinâmica |Os nós que devem ser removidos como parte da atualização da configuração. (Apenas para implantações autónomas)|
-|ServiceRunAsAccountName |String | Não é permitido |O nome da conta sob o qual executar o serviço de hospeda de tecido. |
+|ServiceRunAsAccountName |Cadeia | Não é permitido |O nome da conta sob o qual executar o serviço de hospeda de tecido. |
 |SkipContainerNetworkResetOnReboot|bool, o padrão é FALSO|Não-alealtado|Se saltar a rede de recipientes de reposição no reboot.|
 |SkipFirewallConfiguration |Bool, o padrão é falso. | Não é permitido |Especifica se as definições de firewall precisam ou não ser definidas pelo sistema. Isto só se aplica se estiver a utilizar firewall do Windows. Se estiver a utilizar firewalls de terceiros, então tem de abrir as portas para o sistema e aplicações utilizarem |
 

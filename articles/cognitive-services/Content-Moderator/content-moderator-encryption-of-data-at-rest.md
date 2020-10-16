@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: egeaney
 ms.openlocfilehash: 38fc21ee45db25f015a6b8b534b0d922efa636f2
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84310551"
 ---
 # <a name="content-moderator-encryption-of-data-at-rest"></a>Encriptação do Moderador de Conteúdo dos dados em repouso
@@ -23,7 +23,7 @@ O Moderador de Conteúdo encripta automaticamente os seus dados quando estes sã
 [!INCLUDE [cognitive-services-about-encryption](../includes/cognitive-services-about-encryption.md)]
 
 > [!IMPORTANT]
-> As chaves geridas pelo cliente só estão disponíveis no nível de preços E0. Para solicitar a capacidade de utilizar chaves geridas pelo cliente, preencha e envie o [Formulário de Pedido de Chave Gerido pelo Cliente do Moderador de Conteúdo](https://aka.ms/cogsvc-cmk). Levará aproximadamente 3 a 5 dias úteis para ouvir de volta o estado do seu pedido. Dependendo da procura, você pode ser colocado em uma fila e aprovado à medida que o espaço fica disponível. Uma vez aprovado para a utilização da CMK com o serviço Desematado de Conteúdo, terá de criar um novo recurso de Moderador de Conteúdo e selecionar o E0 como O Nível de Preços. Uma vez criado o recurso do Seu Moderador de Conteúdo com o nível de preços E0, pode utilizar o Azure Key Vault para configurar a sua identidade gerida.
+> As chaves geridas pelo cliente só estão disponíveis no nível de preços E0. Para solicitar a capacidade de utilizar chaves geridas pelo cliente, preencha e envie o [Formulário de Pedido de Pedido de Customer-Managed Chave do Moderador](https://aka.ms/cogsvc-cmk)de Conteúdo . Levará aproximadamente 3 a 5 dias úteis para ouvir de volta o estado do seu pedido. Dependendo da procura, você pode ser colocado em uma fila e aprovado à medida que o espaço fica disponível. Uma vez aprovado para a utilização da CMK com o serviço Desematado de Conteúdo, terá de criar um novo recurso de Moderador de Conteúdo e selecionar o E0 como O Nível de Preços. Uma vez criado o recurso do Seu Moderador de Conteúdo com o nível de preços E0, pode utilizar o Azure Key Vault para configurar a sua identidade gerida.
 
 [!INCLUDE [cognitive-services-cmk](../includes/cognitive-services-cmk-regions.md)]
 
@@ -40,5 +40,5 @@ Para ativar a encriptação de dados para a sua Equipa de Avaliação de Moderad
 
 * Para obter uma lista completa de serviços que suportam a CMK, consulte [chaves geridas pelo cliente para serviços cognitivos](../encryption/cognitive-services-encryption-keys-portal.md)
 * [O que é Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
-* [Formulário de pedido de chave gerido pelo cliente de serviços cognitivos](https://aka.ms/cogsvc-cmk)
+* [Formulário de pedido chave de Customer-Managed serviços cognitivos](https://aka.ms/cogsvc-cmk)
 

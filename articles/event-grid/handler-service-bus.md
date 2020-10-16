@@ -4,10 +4,10 @@ description: Descreve como pode usar filas e tópicos de Service Bus como manipu
 ms.topic: conceptual
 ms.date: 09/03/2020
 ms.openlocfilehash: ab219f0dc6009dc01d5915995fc04094e72a88cf
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91629510"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Filas de autocarros de serviço e tópicos como manipuladores de eventos para eventos Azure Event Grid

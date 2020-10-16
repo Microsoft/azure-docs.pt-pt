@@ -7,13 +7,13 @@ ms.author: juluk
 ms.date: 06/29/2020
 author: jluk
 ms.openlocfilehash: d8ae03d52691a6c30f78439a579e7e7c136dda76
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90975295"
 ---
-# <a name="customize-cluster-egress-with-a-user-defined-route"></a>Personalize a saída do cluster com uma rota definida pelo utilizador
+# <a name="customize-cluster-egress-with-a-user-defined-route"></a>Personalize a saída do cluster com uma rota User-Defined
 
 A Egress de um cluster AKS pode ser personalizada para se adaptar a cenários específicos. Por predefinição, a AKS irá providenciar um Balanceador de Carga Standard SKU para ser configurado e utilizado para a saída. No entanto, a configuração padrão pode não satisfazer os requisitos de todos os cenários se os IPs públicos forem proibidos ou se forem necessários lúpulos adicionais para a saída.
 

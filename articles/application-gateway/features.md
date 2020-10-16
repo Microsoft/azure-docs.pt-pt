@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: victorh
 ms.openlocfilehash: ba9f42bc932a37e1052f17db2ae00413e0769d59
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91355742"
 ---
 # <a name="azure-application-gateway-features"></a>Funcionalidades do Gateway de Aplicações Azure
@@ -26,7 +26,7 @@ O Gateway de Aplicações inclui as seguintes funcionalidades:
 - [Dimensionamento automático](#autoscaling)
 - [Redundância entre zonas](#zone-redundancy)
 - [VIP estático](#static-vip)
-- [Firewall de Aplicações Web](#web-application-firewall)
+- [Firewall de Aplicação Web](#web-application-firewall)
 - [Controlador de Entrada para AKS](#ingress-controller-for-aks)
 - [Encaminhamento baseado em URL](#url-based-routing)
 - [Alojamento de vários sites](#multiple-site-hosting)
@@ -58,7 +58,7 @@ Um Gateway de aplicação Standard_v2 pode abranger várias Zonas de Disponibili
 
 A porta de entrada de aplicação Standard_v2 SKU suporta exclusivamente o tipo VIP estático. Isto garante que o VIP associado ao gateway de aplicações não muda mesmo ao longo da vida útil do Gateway de aplicações.
 
-## <a name="web-application-firewall"></a>Firewall de Aplicações Web
+## <a name="web-application-firewall"></a>Firewall de Aplicação Web
 
 Web Application Firewall (WAF) é um serviço que fornece proteção centralizada das suas aplicações web contra explorações e vulnerabilidades comuns. A WAF baseia-se nas regras do [OWASP (Open Web Application Security Project) que define](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.1 (apenas WAF_v2), 3.0 e 2.2.9. 
 

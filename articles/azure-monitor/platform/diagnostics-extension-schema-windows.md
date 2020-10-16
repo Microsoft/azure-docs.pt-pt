@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
 ms.openlocfilehash: d2b1afea746410e966b43bef01a039a8471d4ae7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87007933"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Esquema de extensão de diagnóstico do Windows
@@ -39,13 +39,13 @@ Adicionado na versão 1.3.
 
 O elemento de nível superior do ficheiro de configuração de diagnóstico.  
 
-**Atributo** xmlns - O espaço de nome XML para o ficheiro de configuração de diagnósticos é:  
+**Atributo**  xmlns - O espaço de nome XML para o ficheiro de configuração de diagnósticos é:  
 `http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration`
 
 
 |Elementos Subordinados|Descrição|  
 |--------------------|-----------------|  
-|**Config público**|Necessário. Consulte a descrição em outro lugar nesta página.|  
+|**Config público**|Obrigatório. Consulte a descrição em outro lugar nesta página.|  
 |**Config Privado**|Opcional. Consulte a descrição em outro lugar nesta página.|  
 |**IsEnabled**|O Boolean. Consulte a descrição em outro lugar nesta página.|  
 
@@ -56,10 +56,10 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 
 |Elementos Subordinados|Descrição|  
 |--------------------|-----------------|  
-|**WadCfg**|Necessário. Consulte a descrição em outro lugar nesta página.|  
-|**StorageAccount**|O nome da conta de Armazenamento Azure para armazenar os dados dentro Também pode ser especificado como um parâmetro ao executar o cmdlet Set-AzureServiceDiagnosticsExtension.|  
+|**WadCfg**|Obrigatório. Consulte a descrição em outro lugar nesta página.|  
+|**StorageAccount**|O nome da conta de Armazenamento Azure para armazenar os dados dentro Também pode ser especificado como um parâmetro ao executar o Set-AzureServiceDiagnosticsExtension cmdlet.|  
 |**Dispositivo de armazenamento**|Pode ser *Mesa,* *Blob,* ou *TableAndBlob*. A tabela é padrão. Quando o TableAndBlob é escolhido, os dados de diagnóstico são escritos duas vezes - uma para cada tipo.|  
-|**LocalResourceDirectory**|O diretório na máquina virtual onde o Agente de Monitorização armazena dados de eventos. Caso contrário, definido, o diretório predefinido é utilizado:<br /><br /> Para um papel trabalhador/web:`C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Para uma máquina virtual:`C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Os atributos necessários são:<br /><br /> - **caminho** - O diretório no sistema a ser utilizado pela Azure Diagnostics.<br /><br /> - **expandir O ambiente** - Controla se as variáveis ambientais são expandidas no nome do caminho.|  
+|**LocalResourceDirectory**|O diretório na máquina virtual onde o Agente de Monitorização armazena dados de eventos. Caso contrário, definido, o diretório predefinido é utilizado:<br /><br /> Para um papel trabalhador/web: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Para uma máquina virtual: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Os atributos necessários são:<br /><br /> - **caminho** - O diretório no sistema a ser utilizado pela Azure Diagnostics.<br /><br /> - **expandir O ambiente** - Controla se as variáveis ambientais são expandidas no nome do caminho.|  
 
 ## <a name="wadcfg-element"></a>Elemento WadCFG  
  *Árvore: Raiz - DiagnósticoConfiguration - PublicConfig - WadCFG*
@@ -107,7 +107,7 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 
 |Elementos Subordinados|Descrição|  
 |--------------------|-----------------|  
-|**CrashDumpConfiguration**|Necessário. Define valores de configuração para cada processo.<br /><br /> É igualmente necessário o seguinte atributo:<br /><br /> **nome de processo** - O nome do processo para o quais pretende que o Azure Diagnostics recolha uma lixeira de colisão.|  
+|**CrashDumpConfiguration**|Obrigatório. Define valores de configuração para cada processo.<br /><br /> É igualmente necessário o seguinte atributo:<br /><br /> **nome de processo** - O nome do processo para o quais pretende que o Azure Diagnostics recolha uma lixeira de colisão.|  
 
 ## <a name="directories-element"></a>Elemento de diretórios
  *Árvore: Raiz - DiagnósticosConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Diretórios*
@@ -132,7 +132,7 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 
 |Elementos Subordinados|Descrição|  
 |--------------------|-----------------|  
-|**Configuação do Diretório**|Necessário. Atributo requerido:<br /><br /> **containerName** - O nome do recipiente blob na sua conta de Armazenamento Azure que deve ser utilizado para armazenar os ficheiros de registo.|  
+|**Configuação do Diretório**|Obrigatório. Atributo requerido:<br /><br /> **containerName** - O nome do recipiente blob na sua conta de Armazenamento Azure que deve ser utilizado para armazenar os ficheiros de registo.|  
 
 
 
@@ -284,7 +284,7 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 
 |Elemento|Tipo|Descrição|  
 |-------------|----------|-----------------|  
-|**Canal**|string|Consulte a descrição em outro lugar nesta página.|  
+|**Channel**|string|Consulte a descrição em outro lugar nesta página.|  
 
 ## <a name="channel-element"></a>Elemento do Canal
  *Árvore: Raiz - DiagnósticoConfiguration - PublicConfig - WadCFG - SinksConfig - SinksConfig - Sink - Canais - Canal*

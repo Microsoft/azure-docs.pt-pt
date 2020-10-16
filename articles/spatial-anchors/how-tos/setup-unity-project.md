@@ -9,17 +9,17 @@ ms.date: 09/29/2020
 ms.topic: how-to
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: da983719dc66656aa28cab4aea0bae558c2a7162
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91530426"
 ---
 # <a name="configuring-azure-spatial-anchors-in-a-unity-project"></a>Configurar âncoras espaciais Azure num projeto de unidade
 
 Este guia irá mostrar-lhe como começar com o Azure Spatial Anchors SDK no seu projeto De unidade.
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 
 A Azure Spatial Anchors suporta atualmente a Unidade 2019.4 (LTS) com as seguintes configurações.
 
@@ -79,7 +79,7 @@ Quando tudo estiver feito, a sua `dependencies` secção deve ser assim:
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Como: Criar e localizar âncoras na Unidade](./create-locate-anchors-unity.md)

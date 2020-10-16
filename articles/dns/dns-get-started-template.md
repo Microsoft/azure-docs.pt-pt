@@ -8,12 +8,13 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 09/8/2020
 ms.author: duau
-ms.openlocfilehash: 8e53e8ad26ddac1006a28fea2ddee9990533e8c9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: subject-armqs
+ms.openlocfilehash: 986258631d47989e5be5e738da86f844283ce706
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89647896"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093825"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-an-arm-template"></a>Quickstart: Crie uma zona de DNS Azure e grave usando um modelo ARM
 

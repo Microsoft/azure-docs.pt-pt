@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.openlocfilehash: 8ff1800bc699a7fb29f64b63a3098225921628df
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91710843"
 ---
 # <a name="create-and-manage-vnet-service-endpoints-and-vnet-rules-in-azure-database-for-postgresql---single-server-by-using-the-azure-portal"></a>Criar e gerir os pontos finais do serviço VNet e as regras VNet na Base de Dados Azure para PostgreSQL - Servidor Único utilizando o portal Azure
@@ -50,7 +50,7 @@ Os pontos finais e regras dos serviços da Rede Virtual (VNet) estendem o espaç
 
    :::image type="content" source="./media/howto-manage-vnet-using-portal/3-vnet-service-endpoints-enabled-vnet-rule-created.png" alt-text="Portal Azure - clique na segurança de conexão":::
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 - Da mesma forma, pode escrever para [ativar pontos finais de serviço VNet e criar uma regra VNET para Azure Database for PostgreSQL usando Azure CLI](howto-manage-vnet-using-cli.md).
 - Para obter ajuda na ligação a uma base de dados Azure para servidor PostgreSQL, consulte [as bibliotecas de conexão para Azure Database for PostgreSQL](./concepts-connection-libraries.md)
 

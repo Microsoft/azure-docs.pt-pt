@@ -4,10 +4,10 @@ description: Saiba como especificar artefactos obrigatórios que precisam de ser
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 0677f8bea35cb34735fdcf34e717eea349fad8bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85480308"
 ---
 # <a name="specify-mandatory-artifacts-for-your-lab-in-azure-devtest-labs"></a>Especifique artefactos obrigatórios para o seu laboratório em Azure DevTest Labs
@@ -74,6 +74,6 @@ Agora, como utilizador de laboratório, pode ver a lista de artefactos obrigató
 
     ![Criar um VM - artefactos obrigatórios](media/devtest-lab-mandatory-artifacts/create-vm-artifacts.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Aprenda a [adicionar um repositório de artefactos Git a um laboratório.](devtest-lab-add-artifact-repo.md)
 

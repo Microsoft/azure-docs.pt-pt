@@ -7,10 +7,10 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.openlocfilehash: 8c829f7e4dcca5aa731f505092739146c72bd293
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87041727"
 ---
 # <a name="azure-event-hubs-output-binding-for-azure-functions"></a>Azure Event Hubs vinculação de saída para funções Azure

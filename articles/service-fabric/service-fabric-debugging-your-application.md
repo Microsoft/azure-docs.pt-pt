@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2bec6667ea44e195ea1fccb5313b45ed060312a1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 35c4875ca9bf3165fff84164eb3bb7ebe44cf932
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000112"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093400"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Depurar a sua aplicação do Service Fabric com o Visual Studio
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ Pode economizar tempo e dinheiro implantando e depurando a sua aplicação Azure
 1. Inicie um cluster de desenvolvimento local seguindo os passos na Configuração do [seu ambiente de desenvolvimento do tecido de serviço.](service-fabric-get-started.md)
 2. Prima **F5** ou clique em **Debug**  >  **Start Debugging**.
    
-    ![Comece a depurar uma aplicação][startdebugging]
+    ![Screenshot que mostra o menu Debug.][startdebugging]
 3. Desfaça os pontos de rutura no seu código e passe pela aplicação clicando nos comandos no menu **Debug.**
    
    > [!NOTE]

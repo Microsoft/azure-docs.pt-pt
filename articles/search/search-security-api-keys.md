@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.openlocfilehash: 60c5051b403d3072292a03c60d7cba95bd0cf1d7
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91740637"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Criar e gerir chaves api para um serviço de Pesquisa Cognitiva Azure
@@ -93,7 +93,7 @@ Os membros das seguintes funções podem visualizar e regenerar chaves: Propriet
 > [!Note]
 > Para o acesso à identidade sobre os resultados da pesquisa, pode criar filtros de segurança para aparar resultados por identidade, removendo documentos para os quais o solicitador não deve ter acesso. Para obter mais informações, consulte [filtros de segurança](search-security-trimming-for-azure-search.md) e [Secure with Ative Directory](search-security-trimming-for-azure-search-with-aad.md).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 + [Controlo de acesso baseado em funções na Pesquisa Cognitiva Azure](search-security-rbac.md)
 + [Gerir com o PowerShell](search-manage-powershell.md) 

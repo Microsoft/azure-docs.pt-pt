@@ -9,10 +9,10 @@ ms.date: 12/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: 1e04ed8fe9087cb06b1533887da3c0fed61259ef
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89019730"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Tutorial: Use enriquecimentos de mensagens Azure IoT Hub
@@ -279,7 +279,7 @@ Neste momento, os recursos estão todos preparados e o encaminhamento de mensage
 ## <a name="create-and-configure-by-using-a-resource-manager-template"></a>Criar e configurar usando um modelo de Gestor de Recursos
 Pode utilizar um modelo de Gestor de Recursos para criar e configurar os recursos, encaminhamento de mensagens e enriquecimentos de mensagens.
 
-1. Inicie sessão no portal do Azure. Selecione **+ Criar um recurso** para criar uma caixa de pesquisa. Introduza *a implementação do modelo*e procure-o. No painel de resultados, selecione a **implementação do modelo (implementar utilizando o modelo personalizado)**.
+1. Inicie sessão no Portal do Azure. Selecione **+ Criar um recurso** para criar uma caixa de pesquisa. Introduza *a implementação do modelo*e procure-o. No painel de resultados, selecione a **implementação do modelo (implementar utilizando o modelo personalizado)**.
 
    ![Implantação do modelo no portal Azure](./media/tutorial-message-enrichments/template-select-deployment.png)
 

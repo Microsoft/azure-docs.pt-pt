@@ -2,23 +2,25 @@
 title: Funções do modelo - lógica
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para determinar valores lógicos.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: 8fe1c00240fc24c3c1454b118f9e0d9a9d54fe4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 10/12/2020
+ms.openlocfilehash: ede41bd6c03eb7a01ae63526810d0310f31e4014
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84677394"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978514"
 ---
 # <a name="logical-functions-for-arm-templates"></a>Funções lógicas para modelos ARM
 
 O Gestor de Recursos fornece várias funções para fazer comparações nos seus modelos Azure Resource Manager (ARM).
 
-* [e](#and)
+* [and](#and)
 * [bool](#bool)
+* [falso](#false)
 * [se](#if)
 * [não](#not)
 * [ou](#or)
+* [verdade](#true)
 
 ## <a name="and"></a>e
 
@@ -28,7 +30,7 @@ Verifica se todos os valores dos parâmetros são verdadeiros.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |boolean |O primeiro valor para verificar se é verdade. |
 | arg2 |Sim |boolean |O segundo valor para verificar se é verdade. |
@@ -66,7 +68,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | eExampleOutput | Booleano | Falso |
 | ouExampleOutput | Booleano | Verdadeiro |
@@ -80,12 +82,17 @@ Converte o parâmetro num booleano.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |corda ou int |O valor para converter para um boolean. |
 
 ### <a name="return-value"></a>Valor devolvido
+
 Um booleano do valor convertido.
+
+### <a name="remarks"></a>Observações
+
+Também pode usar [valores verdadeiros](#true) e [falsos](#false) para obter valores boolean.
 
 ### <a name="examples"></a>Exemplos
 
@@ -119,12 +126,50 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | trueString | Booleano | Verdadeiro |
 | falseString | Booleano | Falso |
 | trueInt | Booleano | Verdadeiro |
 | falseInt | Booleano | Falso |
+
+## <a name="false"></a>false
+
+`false()`
+
+Devoluções falsas.
+
+### <a name="parameters"></a>Parâmetros
+
+A falsa função não aceita parâmetros.
+
+### <a name="return-value"></a>Valor devolvido
+
+Um booleano que é sempre falso.
+
+### <a name="example"></a>Exemplo
+
+O exemplo a seguir devolve um valor de saída falso.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "falseOutput": {
+            "value": "[false()]",
+            "type" : "bool"
+        }
+    }
+}
+```
+
+A saída do exemplo anterior é:
+
+| Nome | Tipo | Valor |
+| ---- | ---- | ----- |
+| falsoOutput | Booleano | Falso |
 
 ## <a name="if"></a>if
 
@@ -134,7 +179,7 @@ Devolve um valor baseado no facto de uma condição ser verdadeira ou falsa.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | condição |Sim |boolean |O valor para verificar se é verdade ou falso. |
 | verdadeiroValue |Sim | cadeia, int, objeto ou matriz |O valor para voltar quando a condição é verdadeira. |
@@ -177,10 +222,10 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| simOutput | String | sim |
-| noOutput | String | não |
+| simOutput | Cadeia | sim |
+| noOutput | Cadeia | não |
 | objetoOutput | Objeto | { "teste": "valor1" } |
 
 O [modelo de exemplo](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) a seguir mostra como usar esta função com expressões que são apenas válidas condicionalmente.
@@ -239,7 +284,7 @@ Converte o valor booleano ao seu valor oposto.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |boolean |O valor para converter. |
 
@@ -275,7 +320,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | eExampleOutput | Booleano | Falso |
 | ouExampleOutput | Booleano | Verdadeiro |
@@ -300,7 +345,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | checkNotEquals | Booleano | Verdadeiro |
 
@@ -312,7 +357,7 @@ Verifica se qualquer valor de parâmetro é verdadeiro.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |boolean |O primeiro valor para verificar se é verdade. |
 | arg2 |Sim |boolean |O segundo valor para verificar se é verdade. |
@@ -350,13 +395,51 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | eExampleOutput | Booleano | Falso |
 | ouExampleOutput | Booleano | Verdadeiro |
 | notExampleOutput | Booleano | Falso |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="true"></a>true
+
+`true()`
+
+Retorna verdadeira.
+
+### <a name="parameters"></a>Parâmetros
+
+A verdadeira função não aceita parâmetros.
+
+### <a name="return-value"></a>Valor devolvido
+
+Um booleano que é sempre verdade.
+
+### <a name="example"></a>Exemplo
+
+O exemplo a seguir devolve um verdadeiro valor de saída.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "trueOutput": {
+            "value": "[true()]",
+            "type" : "bool"
+        }
+    }
+}
+```
+
+A saída do exemplo anterior é:
+
+| Nome | Tipo | Valor |
+| ---- | ---- | ----- |
+| trueOutput | Booleano | Verdadeiro |
+
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter uma descrição das secções num modelo de Gestor de Recursos Azure, consulte [a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
 

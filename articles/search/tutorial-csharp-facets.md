@@ -10,17 +10,17 @@ ms.topic: tutorial
 ms.date: 10/01/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: ab15af07c5f63d375d8fdb4fc38e0853e207a0be
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91667287"
 ---
 # <a name="tutorial-add-faceted-navigation-using-the-net-sdk"></a>Tutorial: Adicionar navegação facetada usando o .NET SDK
 
 As facetas permitem a navegação auto-dirigida, fornecendo um conjunto de links para os resultados de filtragem. Neste tutorial, uma estrutura de navegação facetada é colocada no lado esquerdo da página, com etiquetas e texto clicável para aparar os resultados.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Definir propriedades do modelo como _IsFacetable_
 > * Adicione navegação faceta à sua app
@@ -563,7 +563,7 @@ Considere os seguintes takeaways deste projeto:
 * As facetas são combinadas com filtros para reduzir os resultados.
 * As facetas são cumulativas, com cada edifício de seleção no anterior para mais resultados mais estreitos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 No próximo tutorial, olhamos para os resultados da encomenda. Até este ponto, os resultados são encomendados simplesmente na ordem em que estão localizados na base de dados.
 

@@ -12,10 +12,10 @@ ms.date: 09/03/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 85d392323b24df3cede196d2c68f05c9522b2293
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89458302"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Tutorial: Utilizar a API do Video Indexer
@@ -207,12 +207,12 @@ Debug.WriteLine(playerWidgetLink);
 
 ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 - [Descrição geral do Video Indexer](video-indexer-overview.md)
 - [Regiões](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Examinar detalhes da saída JSON](video-indexer-output-json-v2.md)
 - Confira o código de [amostra](https://github.com/Azure-Samples/media-services-video-indexer) que demonstra aspeto importante do upload e indexação de um vídeo. Seguindo o código, você lhe dará uma boa ideia de como usar a nossa API para funcionalidades básicas. Certifique-se de ler os comentários inline e note os nossos conselhos de boas práticas.

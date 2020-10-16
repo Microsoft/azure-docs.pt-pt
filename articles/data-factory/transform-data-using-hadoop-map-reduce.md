@@ -11,10 +11,10 @@ manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 05/08/2020
 ms.openlocfilehash: 48afff71d4b5241ede1783a270658e56e4b8c242
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83849251"
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Transforme dados usando a atividade hadoop MapReduce na Azure Data Factory
@@ -62,7 +62,7 @@ Consulte [o Pig](transform-data-using-hadoop-pig.md) and [Hive](transform-data-u
 
 ## <a name="syntax-details"></a>Detalhes da sintaxe
 
-| Propriedade          | Descrição                              | Necessário |
+| Propriedade          | Descrição                              | Obrigatório |
 | ----------------- | ---------------------------------------- | -------- |
 | name              | Nome da atividade                     | Sim      |
 | descrição       | Texto que descreve para que a atividade é usada | Não       |
@@ -114,7 +114,7 @@ Pode utilizar a Atividade de MapReduce HDInsight para executar qualquer ficheiro
 ```
 Pode especificar quaisquer argumentos para o programa MapReduce na secção **de argumentos.** No tempo de execução, você vê alguns argumentos extra (por exemplo: mapreduce.job.tags) a partir do quadro MapReduce. Para diferenciar os seus argumentos com os argumentos MapReduce, considere usar a opção e o valor como argumentos como mostrados no exemplo seguinte (,--inputação,--output etc., são opções imediatamente seguidas pelos seus valores).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Veja os seguintes artigos que explicam como transformar dados de outras formas:
 
 * [Atividade u-SQL](transform-data-using-data-lake-analytics.md)

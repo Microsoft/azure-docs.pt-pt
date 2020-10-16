@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.openlocfilehash: 02d9407766930f02c70d580112136b50b6036e11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d71f0396f453ceb7113d724b113fe5aacdc60e21
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90029868"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078175"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>Utilizar identidades geridas para aceder ao App Configuration
 
@@ -39,7 +39,7 @@ Neste artigo, vai aprender a:
 Para concluir este tutorial, tem de ter:
 
 * [.NET Core SDK](https://www.microsoft.com/net/download/windows).
-* [Concha de nuvem Azure configurada](https://docs.microsoft.com/azure/cloud-shell/quickstart).
+* [Concha de nuvem Azure configurada](../cloud-shell/quickstart.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -73,7 +73,7 @@ Para configurar uma identidade gerida no portal, primeiro cria uma aplicação e
 
     ![Adicionar uma identidade gerida](./media/add-managed-identity.png)
 
-1. Opcional: Se desejar também conceder acesso ao Key Vault, siga as instruções na [política de acesso do Cofre de Chaves](/azure/key-vault/general/assign-access-policy-portal).
+1. Opcional: Se desejar também conceder acesso ao Key Vault, siga as instruções na [política de acesso do Cofre de Chaves](../key-vault/general/assign-access-policy-portal.md).
 
 ## <a name="use-a-managed-identity"></a>Utilizar uma identidade gerida
 
@@ -185,7 +185,7 @@ Para configurar uma identidade gerida no portal, primeiro cria uma aplicação e
     Agora pode aceder a referências do Key Vault como qualquer outra chave de Configuração de Aplicações. O provedor de config utilizará o `KeyVaultClient` que configura para autenticar no Key Vault e recuperar o valor.
 
 > [!NOTE]
-> `ManagedIdentityCredential` apenas suporta a autenticação de identidade gerida. Não funciona em ambientes locais. Se pretender executar o código localmente, considere usar `DefaultAzureCredential` , que também suporta a autenticação principal do serviço. Verifique se o [link](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential) é mais detalhes.
+> `ManagedIdentityCredential` apenas suporta a autenticação de identidade gerida. Não funciona em ambientes locais. Se pretender executar o código localmente, considere usar `DefaultAzureCredential` , que também suporta a autenticação principal do serviço. Verifique se o [link](/dotnet/api/azure.identity.defaultazurecredential) é mais detalhes.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
@@ -268,7 +268,7 @@ Por exemplo, pode atualizar a aplicação de consola .NET Framework criada no ar
     </appSettings>
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

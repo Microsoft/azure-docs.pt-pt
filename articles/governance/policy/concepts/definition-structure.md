@@ -1,14 +1,14 @@
 ---
 title: Detalhes da estrutura de definição de políticas
 description: Descreve como as definições de política são usadas para estabelecer convenções para recursos Azure na sua organização.
-ms.date: 09/22/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: f9b64255723c6e53a6d8fe945bf19506ba30644e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 84af781ae58ab45b69d71ebdc22fbced910da246
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330286"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074265"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -104,17 +104,17 @@ Recomendamos que desfase o **modo** `all` na maioria dos casos. Todas as defini�
 
 ### <a name="resource-provider-modes"></a>Modos fornecedores de recursos
 
-O seguinte nó do Fornecedor de Recursos é totalmente suportado:
+O seguinte modo fornecedor de recursos é totalmente suportado:
 
 - `Microsoft.Kubernetes.Data` para gerir os seus clusters Kubernetes em ou fora de Azure. Definições que utilizam este modo de fornecedor de recursos utilizam _auditoria_de efeitos, _negar_e _desativar_. A utilização do efeito [EnforceOPAConstraint](./effects.md#enforceopaconstraint) é _depreciada._
 
 Os seguintes modos de Fornecedor de Recursos são atualmente suportados como **pré-visualização:**
 
 - `Microsoft.ContainerService.Data` para gerir as regras do controlador de admissão no [Serviço Azure Kubernetes](../../../aks/intro-kubernetes.md). As definições que utilizam este modo fornecedor de recursos **devem** utilizar o efeito [EnforceRegoPolicy.](./effects.md#enforceregopolicy) Este modo é _precotado._
-- `Microsoft.KeyVault.Data` para a gestão de cofres e certificados em [Azure Key Vault](../../../key-vault/general/overview.md).
+- `Microsoft.KeyVault.Data` para a gestão de cofres e certificados em [Azure Key Vault](../../../key-vault/general/overview.md). Para obter mais informações sobre estas definições políticas, consulte [Integrar o Cofre da Chave Azure com a Política Azure](../../../key-vault/general/azure-policy.md).
 
 > [!NOTE]
-> Os modos fornecedor de recursos suportam apenas definições de políticas incorporadas.
+> Os modos fornecedores de recursos apenas suportam definições políticas incorporadas e não suportam [isenções](./exemption-structure.md).
 
 ## <a name="metadata"></a>Metadados
 
@@ -226,7 +226,7 @@ No bloco **Then,** define-se o efeito que acontece quando as condições **'Se'*
         <condition> | <logical operator>
     },
     "then": {
-        "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists | disabled"
+        "effect": "deny | audit | modify | append | auditIfNotExists | deployIfNotExists | disabled"
     }
 }
 ```
@@ -306,6 +306,9 @@ São suportados os seguintes campos:
 - `type`
 - `location`
   - Use **global** para recursos que são agnósticos de localização.
+- `id`
+  - Devolve o ID de recursos do recurso que está a ser avaliado.
+  - Exemplo: `/subscriptions/06be863d-0996-4d56-be22-384767287aa2/resourceGroups/myRG/providers/Microsoft.KeyVault/vaults/myVault`
 - `identity.type`
   - Devolve o tipo de [identidade gerida](../../../active-directory/managed-identities-azure-resources/overview.md) ativada no recurso.
 - `tags`
@@ -435,7 +438,7 @@ Em vez disso, utilize a função [se()](../../../azure-resource-manager/template
 
 Com a regra da política revista, `if()` verifica o comprimento do **nome** antes de tentar obter um valor com menos de `substring()` três caracteres. Se o **nome** for demasiado curto, o valor "não começando pelo ABC" é devolvido e comparado com **o ABC**. Um recurso com um nome curto que não começa com o **ABC** ainda falha a regra da política, mas já não causa um erro durante a avaliação.
 
-### <a name="count"></a>de palavras
+### <a name="count"></a>Contagem
 
 As condições que contam quantos membros de uma matriz na carga útil do recurso satisfazem uma expressão da condição podem ser formadas usando a expressão **da contagem.** Cenários comuns estão a verificar se "pelo menos um", "exatamente um dos", "todos", ou "nenhum dos" membros da matriz satisfazem a condição. **contagem** avalia cada membro da matriz [ \[ \* \] de pseudónimo para](#understanding-the--alias) uma expressão de condição e resume os _verdadeiros_ resultados, que é então comparado com o operador de expressão. **As** expressões de contagem podem ser adicionadas até três vezes a uma única definição **de regra de política.**
 
@@ -606,8 +609,20 @@ As seguintes funções só estão disponíveis nas regras políticas:
     "definitionReferenceId": "StorageAccountNetworkACLs"
   }
   ```
-  
-  
+
+
+- `ipRangeContains(range, targetRange)`
+    - **gama**: [Obrigatório] string - Cadeia especificando uma gama de endereços IP.
+    - **targetRange**: [Obrigatório] string - Cadeia especificando uma gama de endereços IP.
+
+    Devolve se o intervalo de endereço IP dado contém o intervalo de endereço IP alvo. Não são permitidas gamas vazias, ou mistura entre famílias ip e resulta em falha de avaliação.
+
+    Formatos suportados:
+    - Endereço IP único (exemplos: `10.0.0.0` `2001:0DB8::3:FFFE` )
+    - Gama CIDR (exemplos: `10.0.0.0/24` `2001:0DB8::/110` , )
+    - Gama definida por endereços IP de início e fim (exemplos: `192.168.0.1-192.168.0.9` `2001:0DB8::-2001:0DB8::3:FFFF` )
+
+
 #### <a name="policy-function-example"></a>Exemplo de função política
 
 Este exemplo de regra de política usa a `resourceGroup` função de recurso para obter a propriedade do **nome,** combinada com a `concat` função de matriz e objeto para construir uma `like` condição que impõe o nome do recurso para começar com o nome do grupo de recursos.

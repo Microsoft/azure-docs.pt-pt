@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: jingwang
 ms.openlocfilehash: 7134fc5d591fffdfb9aea13767e597dddc92b038
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89434950"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identidade gerida do Data Factory
@@ -246,7 +246,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Veja os seguintes tópicos que introduzem quando e como utilizar a identidade gerida pela fábrica de dados:
 
 - [Credencial de loja em Azure Key Vault](store-credentials-in-key-vault.md)

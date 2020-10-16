@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/01/2018
 ms.openlocfilehash: 9163071237041d7c8510a644c573e3763434bb0c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87060664"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-workflow-definitions-in-azure-logic-apps"></a>Criar, editar ou expandir JSON para definições de fluxo de aplicações lógicas no Azure Logic Apps
@@ -46,7 +46,7 @@ No Visual Studio, pode abrir aplicações lógicas que foram criadas e implement
 
 1. Abra a solução Visual Studio, ou projeto [Azure Resource Group,](../azure-resource-manager/management/overview.md) que contém a sua aplicação lógica.
 
-2. Encontre e abra a definição da sua aplicação lógica, que por padrão, aparece num [modelo de Gestor de Recursos,](../azure-resource-manager/templates/overview.md)nomeadoLogicApp.js**em**.
+2. Encontre e abra a definição da sua aplicação lógica, que por padrão, aparece num [modelo de Gestor de Recursos,](../azure-resource-manager/templates/overview.md)nomeadoLogicApp.js** em**.
 Pode utilizar e personalizar este modelo para a implementação de diferentes ambientes.
 
 3. Abra o menu de atalho para a definição e modelo da sua aplicação lógica.
@@ -149,7 +149,7 @@ Primeiro, o fluxo de trabalho recebe uma lista de artigos. Em seguida, o fluxo d
 
 *   A [`intersection()`](../logic-apps/logic-apps-workflow-definition-language.md) função verifica se a categoria corresponde a uma categoria definida conhecida.
 
-*   Depois de obter uma categoria de correspondência, o exemplo retira o item do mapa utilizando suportes quadrados:`parameters[...]`
+*   Depois de obter uma categoria de correspondência, o exemplo retira o item do mapa utilizando suportes quadrados: `parameters[...]`
 
 ``` json
 {

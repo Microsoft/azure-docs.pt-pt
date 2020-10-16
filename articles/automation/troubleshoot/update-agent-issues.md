@@ -10,10 +10,10 @@ ms.service: automation
 ms.subservice: update-management
 manager: carmonm
 ms.openlocfilehash: 92020313fccf1b8be0add58a7bafab62b5daa4d5
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86187137"
 ---
 # <a name="troubleshoot-windows-update-agent-issues"></a>Resolver problemas do agente de atualização do Windows

@@ -7,10 +7,10 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
 ms.openlocfilehash: 9b6180f2480d8a92dc0ebdd2cad474a9eef3cbe4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91328858"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>Ligue o Azure às ferramentas ITSM utilizando a Secure Export
@@ -19,7 +19,7 @@ Este artigo mostra-lhe como configurar a ligação entre o seu produto ou servi�
 
 Secure Export é uma versão atualizada do Connector de Gestão de [Serviços de TI (ITSMC)](./itsmc-overview.md). Ambas as versões permitem criar itens de trabalho numa ferramenta ITSM quando o Azure Monitor envia alertas. A funcionalidade inclui alertas métricos, de log e de registo de atividade.
 
-O ITSMC utiliza o nome de utilizador e as credenciais de senha. A Secure Export tem uma autenticação mais forte porque utiliza o Azure Ative Directory (Azure AD). Azure AD é o serviço de gestão de identidade e acesso baseado na nuvem da Microsoft. Ajuda os utilizadores a iniciar seduca e a aceder a recursos internos ou externos. A utilização do Azure AD com o ITSM ajuda a identificar os alertas do Azure (através do ID da aplicação Azure) que foram enviados para o sistema externo.
+O ITSMC utiliza o nome de utilizador e as credenciais de senha. A Secure Export tem uma autenticação mais forte porque utiliza o Azure Ative Directory (Azure AD). O Azure AD é o serviço da Microsoft baseado na cloud para a gestão de identidades e acessos. Ajuda os utilizadores a iniciar seduca e a aceder a recursos internos ou externos. A utilização do Azure AD com o ITSM ajuda a identificar os alertas do Azure (através do ID da aplicação Azure) que foram enviados para o sistema externo.
 
 > [!NOTE]
 > A capacidade de ligar o Azure às ferramentas ITSM utilizando a Secure Export está em pré-visualização.

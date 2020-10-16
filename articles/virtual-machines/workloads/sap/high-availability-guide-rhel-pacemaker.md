@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: radeltch
 ms.openlocfilehash: 4c444cb84f215ba4f42c14eb64f1d2f441e4280d
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91598300"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Configuração do Pacemaker na Red Hat Enterprise Linux em Azure
@@ -59,13 +59,13 @@ Leia primeiro as seguintes notas e artigos SAP:
 * [Azure Virtual Machines DBMS implantação para SAP em Linux][dbms-guide]
 * [Replicação do sistema SAP HANA no cluster pacemaker](https://access.redhat.com/articles/3004101)
 * Documentação geral do RHEL
-  * [Visão geral do suplemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
-  * [Administração de complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
-  * [Referência de complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+  * [Visão geral Add-On de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
+  * [Alta Disponibilidade Add-On Administração](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
+  * [Referência de Add-On de Alta Disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
   * [Políticas de apoio para clusters de alta disponibilidade RHEL - sbd e fence_sbd](https://access.redhat.com/articles/2800691)
 * Documentação RHEL específica do Azure:
   * [Políticas de suporte para clusters de alta disponibilidade RHEL - Microsoft Azure Virtual Machines como Membros do Cluster](https://access.redhat.com/articles/3131341)
-  * [Instalação e Configuração de um Red Hat Enterprise Linux 7.4 (e mais tarde) Cluster de Alta Disponibilidade no Microsoft Azure](https://access.redhat.com/articles/3252491)
+  * [Instalar e Configurar um Red Hat Enterprise Linux 7.4 (e mais tarde) High-Availability Cluster no Microsoft Azure](https://access.redhat.com/articles/3252491)
   * [Considerações na adoção do RHEL 8 - Alta disponibilidade e clusters](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/considerations_in_adopting_rhel_8/high-availability-and-clusters_considerations-in-adopting-rhel-8)
   * [Configure SAP S/4HANA ASCS/ERS com Standalone Enqueue Server 2 (ENSA2) em Pacemaker em RHEL 7.6](https://access.redhat.com/articles/3974941)
 
@@ -102,7 +102,7 @@ Os seguintes itens são prefixados com **ambos [A]** - aplicável a todos os nó
    sudo subscription-manager repos --enable=rhel-ha-for-rhel-7-server-eus-rpms
    </code></pre>
 
-1. **[A]** Instalar add-on RHEL HA
+1. **[A]** Instalar a RHEL HA Add-On
 
    <pre><code>sudo yum install -y pcs pacemaker fence-agents-azure-arm nmap-ncat
    </code></pre>

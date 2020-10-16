@@ -11,10 +11,10 @@ ms.date: 07/04/2017
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
 ms.openlocfilehash: 7a80fb47122d21e078cf2724b805fa56c5a73aeb
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90018136"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-net"></a>Faça upload de ficheiros do seu dispositivo para a nuvem com IoT Hub (.NET)
@@ -188,7 +188,7 @@ Agora pode executar as aplicações.
 
     ![Screenshot mostrando o ecrã de saída](./media/iot-hub-csharp-csharp-file-upload/run-apps1.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a usar as capacidades de upload de ficheiros do IoT Hub para simplificar os uploads de ficheiros a partir de dispositivos. Pode continuar a explorar funcionalidades e cenários do IoT Hub com os seguintes artigos:
 

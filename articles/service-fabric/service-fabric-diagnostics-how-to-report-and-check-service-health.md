@@ -7,10 +7,10 @@ ms.date: 02/25/2019
 ms.author: srrengar
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 59c8202b03bf1be2be5a68b75a1d7c7404b2213d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89020206"
 ---
 # <a name="report-and-check-service-health"></a>Comunicar e verificar o estado de funcionamento dos serviços

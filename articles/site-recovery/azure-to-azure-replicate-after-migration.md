@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: a71e476a214c44514c7d57c54a09a38218ad6d2a
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86135677"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Configurar a recuperação após desastre de VMs do Azure após a migração para o Azure 
@@ -82,7 +82,7 @@ Instale manualmente o agente [Azure Linux VM](../virtual-machines/extensions/age
         ```
 2. Reinicie o VM antes de configurar a replicação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Reveja a resolução de problemas](site-recovery-extension-troubleshoot.md) para a extensão de recuperação do local no agente Azure VM.
 [Replique rapidamente](azure-to-azure-quickstart.md) um Azure VM para uma região secundária.

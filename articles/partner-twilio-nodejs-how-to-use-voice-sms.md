@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.openlocfilehash: c4b1c506ff0e78e5e304ceb1682c73f9cd784c95
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88080546"
 ---
 # <a name="using-twilio-for-voice-voip-and-sms-messaging-in-azure"></a>Usando Twilio para Voz, VoIP e Sms mensagens em Azure
@@ -64,7 +64,7 @@ Selecione o seu website node.js e clique no link "CONFIGURE".  Se deslocar um po
 Depois de configurar estas variáveis, reinicie a sua aplicação na consola Azure.
 
 ### <a name="declaring-the-twilio-module-in-packagejson"></a>Declarando o módulo Twilio em package.jsem
-Em seguida, precisamos criar uma package.jspara gerir as nossas dependências de módulos de nó através [da npm]. Ao mesmo nível do `server.js` ficheiro que criou no tutorial *Azure/node.js,* crie um ficheiro chamado `package.json` .  Dentro deste ficheiro, coloque o seguinte:
+Em seguida, precisamos criar uma package.jspara gerir as nossas dependências de módulos de nó através [da npm]. Ao mesmo nível do `server.js` ficheiro que criou no tutorial *Azure/node.js, * crie um ficheiro chamado `package.json` .  Dentro deste ficheiro, coloque o seguinte:
 
 ```json
 {

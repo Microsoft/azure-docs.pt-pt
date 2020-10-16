@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
 ms.openlocfilehash: dc6056653fc50976439d4b16594e6d554e62f061
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91652827"
 ---
 # <a name="nvv3-series"></a>Série NVv3
 
-As máquinas virtuais da série NVv3 são alimentadas pela [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPUs e pela tecnologia NVIDIA GRID com CPUs Intel E5-2690 v4 (Broadwell) e Tecnologia de Hiper-Threading Intel. Estas máquinas virtuais são direcionadas para aplicações gráficas aceleradas da GPU e desktops virtuais onde os clientes querem visualizar os seus dados, simular resultados para ver, trabalhar no CAD ou renderizar e transmitir conteúdo. Além disso, estas máquinas virtuais podem executar cargas de trabalho de precisão única, tais como codificação e renderização. As máquinas virtuais NVv3 suportam o Armazenamento Premium e vêm com o dobro da memória do sistema (RAM) quando comparadas com as suas séries NV antecessoras.  
+As máquinas virtuais da série NVv3 são alimentadas pela [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPUs e pela tecnologia NVIDIA GRID com CPUs Intel E5-2690 v4 (Broadwell) e Tecnologia intel Hyper-Threading. Estas máquinas virtuais são direcionadas para aplicações gráficas aceleradas da GPU e desktops virtuais onde os clientes querem visualizar os seus dados, simular resultados para ver, trabalhar no CAD ou renderizar e transmitir conteúdo. Além disso, estas máquinas virtuais podem executar cargas de trabalho de precisão única, tais como codificação e renderização. As máquinas virtuais NVv3 suportam o Armazenamento Premium e vêm com o dobro da memória do sistema (RAM) quando comparadas com as suas séries NV antecessoras.  
 
 Cada GPU em instâncias NVv3 vem com uma licença GRID. Esta licença dá-lhe a flexibilidade para usar uma instância NV como uma estação de trabalho virtual para um único utilizador, ou 25 utilizadores simultâneos podem ligar-se ao VM para um cenário de aplicação virtual.
 

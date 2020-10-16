@@ -4,10 +4,10 @@ description: Neste artigo, aprende-se a ligar máquinas ao Azure utilizando serv
 ms.date: 09/24/2020
 ms.topic: conceptual
 ms.openlocfilehash: 2c36a79790f3e31e897dfe750f430f05eaa34d04
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91329062"
 ---
 # <a name="how-to-install-the-connected-machine-agent-using-windows-powershell-dsc"></a>Como instalar o agente da Máquina Conectada utilizando o Windows PowerShell DSC

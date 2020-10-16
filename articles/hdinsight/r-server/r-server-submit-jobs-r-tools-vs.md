@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.openlocfilehash: 73d1478ec2d6c90428f22a30ec82634df115d2f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75435257"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Submeter tarefas a partir das Ferramentas R para o Visual Studio
@@ -131,7 +131,7 @@ Utilizando um Microsoft ML Server/Microsoft R Client a partir de um computador W
     rxStopEngine(mySparkCluster)
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Opções de contexto computacional para serviços ML em HDInsight](r-server-compute-contexts.md)
 * [A combinação da ScaleR e da SparkR](../hdinsight-hadoop-r-scaler-sparkr.md) fornece um exemplo das previsões de atrasos de voo da companhia aérea.

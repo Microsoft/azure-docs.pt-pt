@@ -4,17 +4,18 @@ description: Ligações de suporte Sinaapse SQL do SQL Server Management Studio 
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
+ms.subservice: sql
 ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
 ms.custom: has-adal-ref
-ms.openlocfilehash: 52964c906df7a96685c8eb80c1d23ef9a9efc6e1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a430bb41f88bfec1299d52d8237c9534b28acc5d
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91361845"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093383"
 ---
 # <a name="use-multi-factor-aad-authentication-with-synapse-sql-ssms-support-for-mfa"></a>Utilize a autenticação AAD multi-factor com sinaapse SQL (suporte SSMS para MFA)
 

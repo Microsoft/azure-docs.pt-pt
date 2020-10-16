@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 07/21/2020
 tags: connectors
 ms.openlocfilehash: 4afd6f0cc3b4b5e135d80b420d8260c50d9ca46c
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89488852"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Ligar-se a sistemas SAP a partir de Azure Logic Apps
@@ -610,7 +610,7 @@ Para ambientes de produção, deve criar dois perfis de parceiros. O primeiro pe
 
 1. Confirmar a mensagem **do tipo IDoc** selecionando **Continue**.
 
-1. Selecione o nó **EDIDC.** Introduza os valores adequados para as portas do seu recetor e remetente. **Selecione Continuar**.
+1. Selecione o nó **EDIDC.** Introduza os valores adequados para as portas do seu recetor e remetente. Selecione **Continuar**.
 
 1. Selecione **o processamento de saída padrão**.
 
@@ -1190,7 +1190,7 @@ Para obter mais detalhes técnicos sobre este conector, tais como gatilhos, aç�
 > [!NOTE]
 > Para aplicações lógicas num ambiente de [serviço de integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)a versão com rótulo ISE deste conector utiliza os limites de [mensagem ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Ligue-se aos sistemas no local](../logic-apps/logic-apps-gateway-connection.md) a partir de Azure Logic Apps.
 * Saiba como validar, transformar e utilizar outras operações de mensagens com o [Pacote de Integração Empresarial.](../logic-apps/logic-apps-enterprise-integration-overview.md)

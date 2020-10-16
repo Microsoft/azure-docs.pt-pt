@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 0cb7d1fa8dc9171c4baba09136d3a3c28d6c901c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c767edca46696bc7d04a1cf101e2bd183f5cf7f9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510655"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970848"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrar para armazenamento premium usando a recuperação do site Azure
 
-[Os SSDs premium Azure](disks-types.md) oferecem suporte de disco de alto desempenho e baixa latência para máquinas virtuais (VMs) que estão a executar cargas de trabalho intensivas de I/O. Este guia ajuda-o a migrar os discos VM de uma conta de armazenamento padrão para uma conta de armazenamento premium utilizando [a Recuperação do Sítio Azure.](../../site-recovery/site-recovery-overview.md)
+[Os SSDs premium Azure](../disks-types.md) oferecem suporte de disco de alto desempenho e baixa latência para máquinas virtuais (VMs) que estão a executar cargas de trabalho intensivas de I/O. Este guia ajuda-o a migrar os discos VM de uma conta de armazenamento padrão para uma conta de armazenamento premium utilizando [a Recuperação do Sítio Azure.](../../site-recovery/site-recovery-overview.md)
 
 A Recuperação do Site é um serviço Azure que contribui para a sua estratégia de continuidade de negócios e recuperação de desastres orquestrando a replicação de servidores físicos e VMs no local para a nuvem (Azure) ou para um centro de dados secundário. Quando ocorrem interrupções na sua localização primária, falha na localização secundária para manter as aplicações e cargas de trabalho disponíveis. Falhas na tua localização primária quando volta ao normal funcionamento. 
 
@@ -165,7 +165,7 @@ Para verificar se o seu servidor de configuração está associado com sucesso �
 
    ![Ativar o painel de replicação com a Fonte selecionada][13]
 
-Ao conceber o seu ambiente de Armazenamento Azure, recomendamos que utilize contas de armazenamento separadas para cada VM num conjunto de disponibilidade. Recomendamos que siga as melhores práticas na camada de armazenamento para [utilizar várias contas de armazenamento para cada conjunto de disponibilidade](../linux/manage-availability.md). Distribuir discos VM para várias contas de armazenamento ajuda a melhorar a disponibilidade de armazenamento e distribui o E/S através da infraestrutura de armazenamento Azure.
+Ao conceber o seu ambiente de Armazenamento Azure, recomendamos que utilize contas de armazenamento separadas para cada VM num conjunto de disponibilidade. Recomendamos que siga as melhores práticas na camada de armazenamento para [utilizar várias contas de armazenamento para cada conjunto de disponibilidade](../manage-availability.md). Distribuir discos VM para várias contas de armazenamento ajuda a melhorar a disponibilidade de armazenamento e distribui o E/S através da infraestrutura de armazenamento Azure.
 
 Se os seus VMs estiverem num conjunto de disponibilidade, em vez de replicar discos de todos os VMs numa única conta de armazenamento, recomendamos vivamente a migração de vários VMs várias vezes. Desta forma, os VMs no mesmo conjunto de disponibilidade não partilham uma única conta de armazenamento. Utilize o painel **de replicação ativa** para configurar uma conta de armazenamento de destino para cada VM, um de cada vez.
  
@@ -205,7 +205,7 @@ A Recuperação do Site criará uma instância VM cujo tipo seja o mesmo que ou 
 * [Proteção contra monitorização e resolução de problemas para máquinas virtuais e servidores físicos](../../site-recovery/site-recovery-monitor-and-troubleshoot.md)
 * [Microsoft Q&Uma página de perguntas para a recuperação do site do Microsoft Azure](/answers/topics/azure-site-recovery.html)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para cenários específicos para máquinas virtuais migratórias, consulte os seguintes recursos:
 
@@ -217,7 +217,7 @@ Consulte também os seguintes recursos para saber mais sobre o Azure Storage e a
 
 * [Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
 * [Máquinas Virtuais do Azure](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Selecionar um tipo de disco para VMs IaaS](disks-types.md)
+* [Selecionar um tipo de disco para VMs IaaS](../disks-types.md)
 
 [1]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-1.png
 [2]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-2.png

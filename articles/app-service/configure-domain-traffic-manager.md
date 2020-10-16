@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 03/05/2020
 ms.custom: seodec18
 ms.openlocfilehash: 0e8d5fa14678a2a26234dfcd73f4a50af62ca7aa
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88962881"
 ---
 # <a name="configure-a-custom-domain-name-in-azure-app-service-with-traffic-manager-integration"></a>Configure um nome de domínio personalizado no Azure App Service com integração de Gestor de Tráfego

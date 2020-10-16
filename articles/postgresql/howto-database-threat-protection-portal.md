@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.openlocfilehash: 6aa0a0f798df2fd69d6f69badd0dcbbb92a0cf39
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708225"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-postgresql---single-server"></a>Proteção avançada de ameaças para base de dados de Azure para PostgreSQL - Servidor Único
@@ -60,7 +60,7 @@ Clique em **alertas de segurança** no âmbito **da PROTEÇÃO DE AMEAÇAS** par
 
   :::image type="content" source="./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png" alt-text="Configurar a deteção de ameaças":::
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [o Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 * Para obter mais informações sobre preços, consulte a [Base de Dados Azure para a página de preços pós-SQL](https://azure.microsoft.com/pricing/details/postgresql/)  

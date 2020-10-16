@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
 ms.openlocfilehash: 0111da00962f267387e66978952e8a7c9f5d7308
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90970047"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Buy a custom domain name for Azure App Service (Comprar um nome de domínio personalizado para o Serviço de Aplicações do Azure)
@@ -61,7 +61,7 @@ Selecione qualquer uma das camadas não gratuitas (**D1**, **B1**, **B2**, **B3*
 
 Clique em **Aplicar**.
 
-:::image type="content" source="./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png" alt-text="Screenshot dos níveis de preços de domínio personalizados na categoria Produção com o separador De Produção, plano B1 e o botão Apply realçado.":::
+:::image type="content" source="./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png" alt-text="Screenshot do menu de navegação à esquerda da página da aplicação com Scale up (plano de Serviço de Aplicações) selecionado.":::
 
 Quando vir a notificação seguinte, significa que a operação de dimensionamento está completa.
 

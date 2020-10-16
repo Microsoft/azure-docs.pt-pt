@@ -12,10 +12,10 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 6b3bb3648fff6bc893ea07204fad79d2830a1b47
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91355098"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personalização linguística no Azure Ative Directory B2C
@@ -202,7 +202,7 @@ Chrome e Firefox solicitam ambos para o seu idioma definido. Se for uma língua 
 
 Azure AD B2C inclui suporte para as seguintes línguas. As línguas de fluxo do utilizador são fornecidas pelo Azure AD B2C. As línguas de notificação de autenticação multi-factor (MFA) são fornecidas pela [Azure MFA](../active-directory/authentication/concept-mfa-howitworks.md).
 
-| Linguagem              | Código do idioma | Fluxos do utilizador         | Notificações de MFA  |
+| Idioma              | Código do idioma | Fluxos do utilizador         | Notificações de MFA  |
 |-----------------------| :-----------: | :----------------: | :----------------: |
 | Árabe                | ar            | ![X indicando não.](./media/user-flow-language-customization/no.png) | ![Marca verde de verificação.](./media/user-flow-language-customization/yes.png) |
 | Búlgaro             | bg            | ![X indicando não.](./media/user-flow-language-customization/no.png) | ![Marca verde de verificação.](./media/user-flow-language-customization/yes.png) |

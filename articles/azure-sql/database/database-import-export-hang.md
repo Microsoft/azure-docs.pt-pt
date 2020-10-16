@@ -11,10 +11,10 @@ ms.author: ramakoni
 ms.reviewer: ''
 ms.date: 09/27/2019
 ms.openlocfilehash: f98cfcd49806061a969a9227f9ade05f70ce79ff
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85982315"
 ---
 # <a name="azure-sql-database-and-managed-instance-importexport-service-takes-a-long-time-to-import-or-export-a-database"></a>Azure SQL Database and Managed Instance Import/Export service leva muito tempo para importar ou exportar uma base de dados
@@ -42,7 +42,7 @@ Se as exportações da sua base de dados forem utilizadas apenas para a recupera
 
 * [Exporte para um ficheiro BACPAC utilizando o utilitário SQLPackage](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-the-sqlpackage-utility).
 * [Exportar para um ficheiro BACPAC utilizando o SQL Server Management Studio (SSMS)](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-sql-server-management-studio-ssms).
-* Executar a importação ou exportação BACPAC diretamente no seu código utilizando a API de Aplicação de Dados tier tier do Servidor Microsoft SQL (DacFx). Para obter informações adicionais, consulte:
+* Executar a importação ou exportação BACPAC diretamente no seu código utilizando a API do Microsoft SQL Server Data-Tier Application Framework (DacFx). Para obter informações adicionais, consulte:
   * [Exportar uma aplicação de nível de dados](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
   * [Microsoft.SqlServer.Dac Namespace](https://docs.microsoft.com/dotnet/api/microsoft.sqlserver.dac)
   * [Baixar o DACFx](https://www.microsoft.com/download/details.aspx?id=55713)

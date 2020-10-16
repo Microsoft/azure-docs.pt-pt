@@ -4,10 +4,10 @@ description: Neste artigo, aprenda a apoiar um VM Azure singular ou vários VMs 
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.openlocfilehash: 55b71d2a2901cdde984df3ebfd68a2a643b78b74
-ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89667512"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Apoie um VM Azure a partir das definições de VM
@@ -78,7 +78,7 @@ Para apoiar os VMs Azure, o Azure Backup instala uma extensão no agente VM em f
 
 Siga as instruções [deste artigo](backup-azure-arm-vms-prepare.md) para permitir a cópia de segurança para os VMs Azure, criando um cofre Azure Backup Recovery Services e permitindo a cópia de segurança no cofre.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Se tiver dificuldades com algum dos procedimentos deste artigo, consulte o [guia de resolução de problemas](backup-azure-vms-troubleshoot.md).
 - [Saiba como](backup-azure-manage-vms.md) gerir os seus backups.

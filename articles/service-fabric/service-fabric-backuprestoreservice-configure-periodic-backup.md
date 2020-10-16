@@ -4,10 +4,10 @@ description: Utilize a cópia de segurança periódica do Service Fabric e a fun
 ms.topic: article
 ms.date: 2/01/2019
 ms.openlocfilehash: 852e430a9183d92e13536fd6499f3d1404985455
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91538624"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Compreensão da configuração de backup periódica no Tecido de Serviço Azure
@@ -237,7 +237,7 @@ Seguem-se as breves informações sobre variantes suportadas.
  
 - [Obtenha a Lista de Backup de Partição](/rest/api/servicefabric/sfclient-api-getpartitionbackuplist): Devolve uma lista de cópias de segurança disponíveis para a partição especificada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Backup restaurar referência API REST](/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/backup-policy-association-example.png

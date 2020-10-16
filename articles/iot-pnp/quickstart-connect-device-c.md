@@ -7,12 +7,12 @@ ms.date: 07/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: d8782bf6cab85b1b87c0cfc418a4731cc134db8f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e490171fd533783aab9fd44798a9c81c55faf89f
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91577072"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047935"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-running-on-linux-or-windows-to-iot-hub-c"></a>Quickstart: Ligue uma aplicação de dispositivo IoT Plug e Play de amostra em execução no Linux ou Windows ao IoT Hub (C)
 
@@ -52,7 +52,7 @@ gcc --version
 
 Para completar este arranque rápido no Windows, instale o seguinte software no ambiente local do Windows:
 
-* [Visual Studio (Comunidade, Profissional ou Enterprise)](https://visualstudio.microsoft.com/downloads/) - certifique-se de que inclui o Desktop Development com carga de trabalho **C++** quando [instalar](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019&preserve-view=true) o Visual Studio.
+* [Visual Studio (Comunidade, Profissional ou Enterprise)](https://visualstudio.microsoft.com/downloads/) - certifique-se de que inclui o Desktop Development com carga de trabalho **C++** quando [instalar](/cpp/build/vscpp-step-0-installation?preserve-view=true&view=vs-2019) o Visual Studio.
 * [Git.](https://git-scm.com/download/)
 * [CMake.](https://cmake.org/download/)
 
@@ -159,4 +159,4 @@ O código utiliza a biblioteca Parson para analisar os objetos JSON nas cargas e
 Neste arranque rápido, aprendeu a ligar um dispositivo IoT Plug e Play a um hub IoT. Para saber mais sobre como construir uma solução que interage com os seus dispositivos IoT Plug e Play, consulte:
 
 > [!div class="nextstepaction"]
-> [Como fazer: Ligar e interagir com um dispositivo](howto-develop-solution.md)
+> [Como fazer: Ligar e interagir com um dispositivo](./quickstart-service-node.md)

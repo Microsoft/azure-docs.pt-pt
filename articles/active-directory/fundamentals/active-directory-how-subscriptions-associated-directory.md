@@ -14,10 +14,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 747edfdb2a2709a842f767d2ace09662d139c827
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91666437"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associar ou adicionar uma subscrição do Azure ao inquilino do Azure Active Directory
@@ -39,14 +39,14 @@ Todos os seus utilizadores têm um único *diretório caseiro* para autenticaç�
 >
 > Mover o seu cluster Azure Kubernetes Service (AKS) para uma subscrição diferente, ou mover a subscrição proprietária do cluster para um novo inquilino, faz com que o cluster perca a funcionalidade devido às atribuições de papéis perdidas e aos direitos do diretor de serviço. Para obter mais informações sobre a AKS, consulte [o Serviço Azure Kubernetes (AKS)](../../aks/index.yml).
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Antes de poder associar ou adicionar a sua subscrição, faça as seguintes tarefas:
 
 - Reveja a seguinte lista de alterações que ocorrerão após associar ou adicionar a sua subscrição e como poderá ser afetado:
 
   - Os utilizadores que tenham sido atribuídos funções usando o Azure RBAC perderão o seu acesso
-  - Administrador de Serviço e Coadministradores perderão acesso
+  - Administrador de serviço e Co-Administrators perderão acesso
   - Se tiveres cofres chave, eles ficarão inacessíveis e terás de os arranjar depois da associação.
   - Se tiver identidades geridas para recursos como Máquinas Virtuais ou Aplicações Lógicas, deve ree capacitá-las ou recriá-las após a associação
   - Se tiver um Azure Stack registado, terá de re-registrá-lo após associação
@@ -95,7 +95,7 @@ Depois de associar uma subscrição a um diretório diferente, poderá ter de fa
 
 - Para obter mais informações, consulte [transferir uma subscrição do Azure para um diretório AD Azure diferente.](../../role-based-access-control/transfer-subscription.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - Para criar um novo inquilino AZure AD, consulte [Quickstart: Criar um novo inquilino no Azure Ative Directory](active-directory-access-create-new-tenant.md).
 

@@ -2,17 +2,18 @@
 title: Conceito - Integre uma implementação de Solução VMware Azure num hub e tenha falado arquitetura
 description: Conheça as recomendações para a integração de uma implementação de Azure VMware Solution num centro existente ou novo e falou arquitetura sobre a Azure.
 ms.topic: conceptual
-ms.date: 09/09/2020
-ms.openlocfilehash: bfd0da4f03eedaf215ddb55facffc2296a9d0b85
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.date: 10/14/2020
+ms.openlocfilehash: 66c6cc4841b4b36775fda89b29dc588100c3ad87
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91580283"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058476"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>Integre a Solução Azure VMware num hub e falou arquitetura
 
 Neste artigo, fornecemos recomendações para a integração de uma implementação de Azure VMware Solution num hub existente ou num novo [Hub e Spoke arquitetura](/azure/architecture/reference-architectures/hybrid-networking/shared-services) em Azure. 
+
 
 O cenário Hub e Spoke assumem um ambiente híbrido em nuvem com cargas de trabalho em:
 
@@ -26,9 +27,12 @@ O *Hub* é uma Rede Virtual Azure que funciona como um ponto central de conectiv
 
 O tráfego entre o datacenter no local, a nuvem privada Azure VMware Solution e o Hub passa pelas ligações Azure ExpressRoute. As redes virtuais faladas geralmente contêm cargas de trabalho baseadas em IaaS, mas podem ter serviços PaaS como [o App Service Environment](../app-service/environment/intro.md), que tem integração direta com a Rede Virtual, ou outros serviços PaaS com [Azure Private Link](../private-link/index.yml) ativados.
 
+>[!IMPORTANT]
+>Pode utilizar um Gateway ExpressRoute existente para ligar à Azure VMware Solution desde que não exceda o limite de quatro circuitos ExpressRoute por rede virtual.  No entanto, para aceder à Azure VMware Solution a partir das instalações através do ExpressRoute, deve ter ExpressRoute Global Reach uma vez que o gateway ExpressRoute não fornece encaminhamento transitório entre os seus circuitos conectados.
+
 O diagrama mostra um exemplo de uma implantação de Hub e Spoke em Azure ligada às instalações e Solução Azure VMware através do ExpressRoute Global Reach.
 
-:::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-and-spoke-deployment.png" alt-text="Azure VMware Solution Hub e implementação de integração de spoke" border="false":::
+:::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-and-spoke-deployment.png" alt-text="Azure VMware Solution Hub e implementação de integração de spoke" border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-and-spoke-deployment.png":::
 
 A arquitetura tem os seguintes componentes principais:
 
@@ -65,12 +69,12 @@ Como um gateway ExpressRoute não fornece um encaminhamento transitório entre o
 
 * **No local para o fluxo de tráfego da Solução VMware Azure**
 
-  :::image type="content" source="media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png" alt-text="Azure VMware Solution Hub e implementação de integração de spoke" border="false":::
+  :::image type="content" source="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png" alt-text="Azure VMware Solution Hub e implementação de integração de spoke" border="false" lightbox="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png":::
 
 
 * **Solução Azure VMware para o fluxo de tráfego hub VNET**
 
-  :::image type="content" source="media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png" alt-text="Azure VMware Solution Hub e implementação de integração de spoke" border="false":::
+  :::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png" alt-text="Azure VMware Solution Hub e implementação de integração de spoke" border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png":::
 
 
 Pode encontrar mais detalhes sobre a rede de soluções Azure VMware e conceitos de conectividade na documentação do [produto Azure VMware Solution](./concepts-networking.md).
@@ -105,14 +109,17 @@ Reveja o artigo específico da Azure VMware Solution no [Application Gateway](./
 :::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Azure VMware Solution Hub e implementação de integração de spoke" border="false":::
 
 
-### <a name="jumpbox-and-azure-bastion"></a>Jumpbox e Azure Bastion
+### <a name="jump-box-and-azure-bastion"></a>Caixa de salto e Bastião Azure
 
-Acesso VMware Solution ambiente com Jumpbox, que é um VM windows 10 ou Windows Server implantado na sub-rede de serviço partilhado dentro da rede virtual Hub.
+Acesso Azure VMware Solution ambiente com jump box, que é um Windows 10 ou Windows Server VM implantado na sub-rede de serviço partilhado dentro da rede virtual Hub.
 
-Como uma boa prática de segurança, implemente o serviço [Microsoft Azure Bastion](../bastion/index.yml) dentro da rede virtual Hub. O Azure Bastion fornece acesso sem costura de PDR e SSH aos VM implantados em Azure sem a necessidade de fornecer endereços IP públicos a esses recursos. Uma vez prestado o serviço Azure Bastion, pode aceder ao VM selecionado a partir do portal Azure. Depois de estabelecer a ligação, abre-se um novo separador, mostrando o ambiente de trabalho Jumpbox, e a partir desse ambiente de trabalho, pode aceder ao plano de gestão de nuvem privada Azure VMware Solution.
+>[!IMPORTANT]
+>Azure Bastion é o serviço recomendado para ligar à caixa de salto para evitar expor a Solução Azure VMware à internet. Não é possível utilizar o Azure Bastion para ligar aos VMs da Solução VMware Azure, uma vez que não são objetos Azure IaaS.  
+
+Como uma boa prática de segurança, implemente o serviço [Microsoft Azure Bastion](../bastion/index.yml) dentro da rede virtual Hub. O Azure Bastion fornece acesso sem costura de PDR e SSH aos VM implantados em Azure sem a necessidade de fornecer endereços IP públicos a esses recursos. Uma vez prestado o serviço Azure Bastion, pode aceder ao VM selecionado a partir do portal Azure. Depois de estabelecer a ligação, abre-se um novo separador, mostrando o ambiente de trabalho da caixa de salto, e a partir desse ambiente de trabalho, pode aceder ao plano de gestão de nuvem privada Azure VMware Solution.
 
 > [!IMPORTANT]
-> Não forneça o endereço IP público para a VM da Jumpbox nem exponha a porta 3389/TCP à internet pública. 
+> Não forneça o endereço IP público para a caixa de salto VM nem exponha a porta 3389/TCP à internet pública. 
 
 
 :::image type="content" source="media/hub-spoke/azure-bastion-hub-vnet.png" alt-text="Azure VMware Solution Hub e implementação de integração de spoke" border="false":::

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: tomfitz
 ms.openlocfilehash: c4eb3972be85ac7e291380f64127c20424b0d0f0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87004290"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Microsoft.Common.FileUpload UI elemento
@@ -42,7 +42,7 @@ Um controlo que permite a um utilizador especificar um ou mais ficheiros para ca
 }
 ```
 
-## <a name="sample-output"></a>Resultado da amostra
+## <a name="sample-output"></a>Saída de exemplo
 
 Se as opções.multiple são falsas e as opções.uploadMode é ficheiro, então a saída tem o conteúdo do ficheiro como uma cadeia JSON:
 
@@ -80,13 +80,13 @@ Ao testar um CreateUiDefinition, alguns navegadores (como o Google Chrome) trunc
 
 ## <a name="remarks"></a>Observações
 
-- `constraints.accept`especifica os tipos de ficheiros que são mostrados no diálogo de ficheiros do navegador. Consulte a [especificação HTML5](https://html.spec.whatwg.org/multipage/input.html#attr-input-accept) para obter valores permitidos. O valor por defeito é **nulo.**
+- `constraints.accept` especifica os tipos de ficheiros que são mostrados no diálogo de ficheiros do navegador. Consulte a [especificação HTML5](https://html.spec.whatwg.org/multipage/input.html#attr-input-accept) para obter valores permitidos. O valor por defeito é **nulo.**
 - Se `options.multiple` estiver definido como **verdadeiro,** o utilizador pode selecionar mais de um ficheiro no diálogo de ficheiros do navegador. O valor predefinido é **falso**.
 - Este elemento suporta o upload de ficheiros em dois modos com base no valor de `options.uploadMode` . Se o **ficheiro** for especificado, a saída tem o conteúdo do ficheiro como uma bolha. Se **o url** for especificado, então o ficheiro é enviado para um local temporário, e a saída tem o URL da bolha. As bolhas temporárias serão purgadas após 24 horas. O valor predefinido é **ficheiro.**
 - Um ficheiro carregado está protegido. O URL de saída inclui um [símbolo SAS para](../../storage/common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json) aceder ao ficheiro durante a implementação.
 - O valor determina `options.openMode` como o ficheiro é lido. Se se espera que o ficheiro seja texto simples, especifique **o texto;** caso contrário, especifique **binário.** O valor predefinido é **texto.**
 - Se `options.uploadMode` estiver definido para **arquivar** e estiver definido `options.openMode` para **binário,** a saída é codificada com base64.
-- `options.encoding`especifica a codificação a utilizar ao ler o ficheiro. O valor predefinido é **UTF-8**, e é utilizado apenas quando `options.openMode` é definido para **texto**.
+- `options.encoding` especifica a codificação a utilizar ao ler o ficheiro. O valor predefinido é **UTF-8**, e é utilizado apenas quando `options.openMode` é definido para **texto**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

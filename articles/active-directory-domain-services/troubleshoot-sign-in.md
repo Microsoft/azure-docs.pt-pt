@@ -2,20 +2,20 @@
 title: Sinal de resolução de problemas em problemas nos Serviços de Domínio AD Azure / Microsoft Docs
 description: Saiba como resolver problemas comuns de inscrição do utilizador e erros nos Serviços de Domínio do Diretório Ativo Azure.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 91c42e391d1a23e9ac494af9271c92e3e9b5d6c4
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.author: joflore
+ms.openlocfilehash: 9343af5b29289a152db84e64f81fa8ca74ce7bc3
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88722658"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967397"
 ---
 # <a name="troubleshoot-account-sign-in-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Problemas de sessão de conta de resolução de problemas com um domínio gerido por serviços de domínio do diretório ativo Azure
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.custom: contperfq1
 ms.openlocfilehash: fbd0da43e79ee2c27f654f9bd07614e08c12fd30
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88756933"
 ---
 # <a name="optimize-apache-spark-jobs-in-hdinsight"></a>Otimizar os empregos da Apache Spark em HDInsight

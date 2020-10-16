@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: alkohli
 ms.openlocfilehash: 132c072ad4cbee5cc3ac49695aa34480dc827400
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89565769"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Proteção de dados e segurança do Azure Data Box
@@ -114,7 +114,7 @@ As seguintes diretrizes de segurança são implementadas no Data Box:
 |[FIPS 140-2 Level 2](https://csrc.nist.gov/csrc/media/publications/fips/140/2/final/documents/fips1402.pdf)      | Para proteção de dados         |
 |Apêndice A, para Discos Rígidos ATA em [NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | Para a limpeza de dados         |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Reveja os [Requisitos do Data Box](data-box-system-requirements.md).
 - Compreenda os [limites do Data Box](data-box-limits.md).

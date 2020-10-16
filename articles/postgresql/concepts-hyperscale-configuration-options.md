@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 7/1/2020
 ms.openlocfilehash: 8dc70eaeb9e2c2f5d4cdfef37619e4b04217782e
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85964520"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-configuration-options"></a>Azure Database para opções de configuração pós-escala (Citus)
@@ -79,12 +79,12 @@ Os grupos de servidores de hiperescala (Citus) estão disponíveis nas seguintes
     * E.U.A. Leste
     * E.U.A. Leste 2
     * E.U.A. Centro-Norte
-    * E.U.A.Oeste 2
+    * E.U.A. Oeste 2
 * Ásia-Pacífico:
     * Leste da Austrália
     * Leste do Japão
     * Coreia do Sul Central
-    * Ásia Sudeste
+    * Sudeste Asiático
 * Europa:
     * Europa do Norte
     * Sul do Reino Unido
@@ -123,5 +123,5 @@ Até 2 TiB de armazenamento é suportado em coordenadores e nós de trabalhadore
 Para obter as informações de preços mais atualizadas, consulte a [página de preços do](https://azure.microsoft.com/pricing/details/postgresql/)serviço .
 Para ver o custo da configuração desejada, o [portal Azure](https://portal.azure.com/#create/Microsoft.PostgreSQLServer) mostra o custo mensal no **separador Configurar** com base nas opções selecionadas. Se não tiver uma subscrição do Azure, pode utilizar a calculadora de preços Azure para obter um preço estimado. No site da [calculadora de preços Azure,](https://azure.microsoft.com/pricing/calculator/) selecione **Adicionar itens,** expandir a categoria **Base de Dados** e escolher a Base de **Dados Azure para PostgreSQL – Hyperscale (Citus)** para personalizar as opções.
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba como criar um grupo de [servidores Hyperscale (Citus) no portal](quickstart-create-hyperscale-portal.md).

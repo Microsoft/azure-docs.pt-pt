@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 4/25/2019
 ms.author: obboms
 ms.openlocfilehash: 4e817d572a98ffb8135adf58d13f50ccacbc8746
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86251999"
 ---
 # <a name="manually-create-and-use-an-nfs-network-file-system-linux-server-volume-with-azure-kubernetes-service-aks"></a>Criar e utilizar manualmente um volume de servidor Linux (Sistema de Ficheiros de Rede) com serviço Azure Kubernetes (AKS)
@@ -20,7 +20,7 @@ Embora os ficheiros Azure sejam uma opção, a criação de um Servidor NFS num 
 
 Este artigo irá mostrar-lhe como criar um Servidor NFS numa máquina virtual Ubuntu. E também dar aos seus contentores AKS acesso a este sistema de ficheiros partilhados.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um Cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 
 O seu Cluster AKS terá de viver nas mesmas redes virtuais ou espreitadas que o Servidor NFS. O cluster deve ser criado num VNET existente, que pode ser o mesmo VNET que o seu VM.

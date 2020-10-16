@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
 ms.openlocfilehash: 278fbdf7010fe7b14488bb021ab8a366393ad512
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86087367"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Use MirrorMaker to replicate Apache Kafka topics with Kafka on HDInsight (Utilizar o MirrorMaker para replicar tópicos do Apache Kafka com o Kafka no HDInsight)
@@ -300,7 +300,7 @@ Configure a publicidade IP para permitir que um cliente se conecte usando endere
 
 Os passos neste documento criaram clusters em diferentes grupos de recursos Azure. Para eliminar todos os recursos criados, pode eliminar os dois grupos de recursos criados: **kafka-primary-rg** e **kafka-secondary_rg**. A eliminação dos grupos de recursos remove todos os recursos criados seguindo este documento, incluindo clusters, redes virtuais e contas de armazenamento.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste documento, aprendeu a usar [o MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) para criar uma réplica de um cluster [Apache Kafka.](https://kafka.apache.org/) Use os seguintes links para descobrir outras formas de trabalhar com Kafka:
 

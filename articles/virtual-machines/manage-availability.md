@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cynthn
-ms.openlocfilehash: fe89b58f71b14b211863fd46ba523e8c866764f1
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 11444fc599b46ceff90eda562d2fd557bcaf53b2
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361794"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961345"
 ---
 # <a name="manage-the-availability-of-linux-virtual-machines"></a>Gerir a disponibilidade de máquinas virtuais Linux
 
@@ -22,7 +22,7 @@ Aprenda formas de configurar e gerir várias máquinas virtuais para garantir um
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Compreender os Reinícios da VM - manutenção vs. período de indisponibilidade
 Existem três cenários que podem levar a que a máquina virtual em Azure seja afetada: manutenção de hardware não planeada, tempo de paragem inesperado e manutenção planeada.
 
-* Um **Evento de Manutenção de Hardware Não Planeada** ocorre quando a plataforma Azure prevê que o hardware ou um componente da plataforma associado a uma máquina física está prestes a falhar. Quando a plataforma prevê uma falha, emite um evento de manutenção de hardware não planeada para reduzir o impacto sobre as máquinas virtuais alojadas nesse hardware. O Azure usa a tecnologia [Live Migration](./linux/maintenance-and-updates.md) para migrar as Máquinas Virtuais do hardware falhado para uma máquina física saudável. A Migração em Direto é uma operação que visa conservar a VM e que apenas coloca a Máquina Virtual em pausa durante um curto espaço de tempo. A memória, os ficheiros abertos e as ligações de rede são mantidos, mas pode ocorrer uma redução do desempenho antes e/ou depois do evento. Nos casos em que não é possível utilizar a Migração em Direto, a VM sofre um Período de Indisponibilidade Inesperado, conforme descrito abaixo.
+* Um **Evento de Manutenção de Hardware Não Planeada** ocorre quando a plataforma Azure prevê que o hardware ou um componente da plataforma associado a uma máquina física está prestes a falhar. Quando a plataforma prevê uma falha, emite um evento de manutenção de hardware não planeada para reduzir o impacto sobre as máquinas virtuais alojadas nesse hardware. O Azure usa a tecnologia [Live Migration](./maintenance-and-updates.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json%252c%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json%253ftoc%253d%252fazure%252fvirtual-machines%252flinux%252ftoc.json) para migrar as Máquinas Virtuais do hardware falhado para uma máquina física saudável. A Migração em Direto é uma operação que visa conservar a VM e que apenas coloca a Máquina Virtual em pausa durante um curto espaço de tempo. A memória, os ficheiros abertos e as ligações de rede são mantidos, mas pode ocorrer uma redução do desempenho antes e/ou depois do evento. Nos casos em que não é possível utilizar a Migração em Direto, a VM sofre um Período de Indisponibilidade Inesperado, conforme descrito abaixo.
 
 
 * **Um Tempo de Inatividade Inesperado** é quando o hardware ou a infraestrutura física da máquina virtual falham inesperadamente. Isto pode incluir falhas de rede locais, falhas de disco locais ou outras falhas no nível da cremalheira. Quando detetada, a plataforma Azure migra automaticamente (cura) a sua máquina virtual para uma máquina física saudável no mesmo datacenter. Durante o procedimento de recuperação, as máquinas virtuais sofrem um período de indisponibilidade (reinício) e, em alguns casos, a perda da unidade temporária. O SO anexado e os discos de dados são sempre preservados.
@@ -94,7 +94,7 @@ az vm list-skus --resource-type availabilitySets --query '[?name==`Aligned`].{Lo
 >
 > Nestas circunstâncias, o disco de SO do segundo VM pode ser criado no mesmo domínio de avaria que o primeiro VM, pelo que os dois VMs estarão no mesmo domínio de avaria. Para evitar este problema, recomendamos que não pare/transloja VMs entre implementações.
 
-Se planeia utilizar VMs com discos não geridos, siga abaixo as melhores práticas para contas de Armazenamento onde discos rígidos virtuais (VHDs) de VMs são armazenados como [bolhas](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs)de página .
+Se planeia utilizar VMs com discos não geridos, siga abaixo as melhores práticas para contas de Armazenamento onde discos rígidos virtuais (VHDs) de VMs são armazenados como [bolhas](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs)de página .
 
 1. **Manter todos os discos (SO e dados) associados a uma VM na mesma conta de armazenamento**
 2. **Reveja os [limites](../storage/blobs/scalability-targets-premium-page-blobs.md) do número de discos não geridos numa conta de Armazenamento Azure** antes de adicionar mais VHDs a uma conta de armazenamento

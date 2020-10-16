@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/05/2020
 ms.author: sausin
 ms.openlocfilehash: 83b6e6be8764a86c41bd9156cc96f8a594dbe1e9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87294555"
 ---
 # <a name="custom-commands-encryption-of-data-at-rest"></a>Encriptação de Comandos Personalizados de dados inativos
@@ -25,7 +25,7 @@ Os Comandos Personalizados encriptam automaticamente os seus dados quando estes 
 > O serviço De Comandos Personalizados não permite automaticamente encriptação para os recursos LUIS associados à sua aplicação. Se necessário, deve ativar a encriptação do seu recurso LUIS a partir [daqui.](./../LUIS/luis-encryption-of-data-at-rest.md)
 
 ## <a name="about-cognitive-services-encryption"></a>Sobre a encriptação dos Serviços Cognitivos
-Os dados são encriptados e desencriptados utilizando encriptação AES de [140-2](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) em conformidade com o [FIPS.](https://en.wikipedia.org/wiki/FIPS_140-2) A encriptação e a desencriptação são transparentes, o que significa que a encriptação e o acesso são geridos para si. Os seus dados são seguros por padrão e não precisa de modificar o seu código ou aplicações para tirar partido da encriptação.
+Os dados são encriptados e desencriptados utilizando encriptação AES de [140-2](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) em conformidade com o [FIPS.](https://en.wikipedia.org/wiki/FIPS_140-2) A encriptação e a desencriptação são transparentes, o que significa que a encriptação e o acesso são geridos para si. Os dados estão protegidos por predefinição e não precisa de modificar o código ou as aplicações para tirar partido da encriptação.
 
 ## <a name="about-encryption-key-management"></a>Sobre a gestão de chaves de encriptação
 
@@ -33,13 +33,13 @@ Quando utilizar Comandos Personalizados, o serviço de fala armazenará os segui
 * Configuração JSON por trás da aplicação Comandos Personalizados
 * A chave de autoria e previsão do LUIS
 
-Por predefinição, a sua subscrição utiliza chaves de encriptação geridas pela Microsoft. No entanto, também pode gerir a sua subscrição com as suas próprias chaves de encriptação. As teclas geridas pelo cliente (CMK), também conhecidas como trazer a sua própria chave (BYOK), oferecem uma maior flexibilidade para criar, rodar, desativar e revogar os controlos de acesso. Também pode auditar as chaves de encriptação utilizadas para proteger os seus dados.
+Por predefinição, a subscrição utiliza chaves de encriptação geridas pela Microsoft. No entanto, também pode gerir a subscrição com as suas próprias chaves de encriptação. As chaves geridas pelo cliente (CMK), também conhecidas como bring your own key (BYOK), oferecem maior flexibilidade para criar, rodar, desativar e revogar os controlos de acesso. Também pode auditar as chaves de encriptação utilizadas para proteger os dados.
 
 
 > [!IMPORTANT]
 > As chaves geridas pelo cliente só são recursos disponíveis criados após 27 de junho de 2020. Para utilizar a CMK com serviços de fala, terá de criar um novo recurso de Discurso. Uma vez criado o recurso, pode utilizar o Azure Key Vault para configurar a sua identidade gerida.
 
-Para solicitar a capacidade de utilizar chaves geridas pelo cliente, preencha e envie o Formulário de Pedido de Chave Gerido pelo Cliente. Levará aproximadamente 3 a 5 dias úteis para ouvir de volta o estado do seu pedido. Dependendo da procura, você pode ser colocado em uma fila e aprovado à medida que o espaço fica disponível. Uma vez aprovado para a utilização de CMK com Serviços de Fala, terá de criar um novo recurso de Discurso a partir do portal Azure.
+Para solicitar a capacidade de utilizar chaves geridas pelo cliente, preencha e envie Customer-Managed Formulário de Pedido chave. Levará aproximadamente 3 a 5 dias úteis para ouvir de volta o estado do seu pedido. Dependendo da procura, você pode ser colocado em uma fila e aprovado à medida que o espaço fica disponível. Uma vez aprovado para a utilização de CMK com Serviços de Fala, terá de criar um novo recurso de Discurso a partir do portal Azure.
    > [!NOTE]
    > **As teclas geridas pelo cliente (CMK) são suportadas apenas para Comandos Personalizados.**
    >
@@ -151,7 +151,7 @@ Quando desativa as teclas geridas pelo cliente, o seu recurso Speech é então e
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Formulário de pedido chave gerido pelo cliente da fala](https://aka.ms/cogsvc-cmk)
+* [Formulário de pedido chave Customer-Managed de discurso](https://aka.ms/cogsvc-cmk)
 * [Saiba mais sobre o Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
 * [O que são identidades geridas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 

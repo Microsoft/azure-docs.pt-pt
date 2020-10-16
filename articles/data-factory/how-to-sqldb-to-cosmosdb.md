@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: makromer
 ms.openlocfilehash: 3d2ef6fb0cd7af444b9bff755eee4eee70d03d15
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82691889"
 ---
-# <a name="migrate-normalized-database-schema-from-azure-sql-database-to-azure-cosmosdb-denormalized-container"></a>Migrar esquemas de base de dados normalizados da Base de Dados Azure SQL para o recipiente desnormalizado Azure CosmosDB
+# <a name="migrate-normalized-database-schema-from-azure-sql-database-to-azure-cosmosdb-denormalized-container"></a>Migrar o esquema da base de dados normalizada da Base de Dados SQL do Azure para um contentor desnormalizado do Azure CosmosDB
 
 Este guia explicará como pegar num esquema de base de dados normalizado existente na Base de Dados Azure SQL e convertê-lo num esquema desnormalizado Azure CosmosDB para carregar em Azure CosmosDB.
 

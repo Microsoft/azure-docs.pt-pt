@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: ryanwi
 ms.openlocfilehash: dc37ce474ad3226f5dbf7e6efd687ddf55f7da03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82926685"
 ---
 # <a name="how-to-discover-endpoints"></a>Como descobrir pontos finais
@@ -33,6 +33,6 @@ Pode encontrar os pontos finais de autenticação da sua aplicação no [portal 
 
 **As nuvens** nacionais (por exemplo, Azure AD China, Alemanha e Governo dos EUA) têm o seu próprio portal de registo de aplicações e pontos finais de autenticação AZure AD. Saiba mais na visão geral das [nuvens nacionais.](authentication-national-cloud.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre os pontos finais nos diferentes ambientes Azure, consulte a visão geral das [nuvens nacionais.](authentication-national-cloud.md)

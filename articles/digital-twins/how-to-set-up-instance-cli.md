@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: bb5ff0bf7347b87fdc3a103a03f9ff58279a367d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0dfc86503f1b3aa648cb8c7cefe14fbd123f1459
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320779"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047510"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Configurar uma instância e autenticação Azure Digital Twins (CLI)
 
@@ -78,7 +78,7 @@ O resultado deste comando é informação sobre a atribuição de funções que 
 >
 > Utilize a [página do portal Azure dos utilizadores do Azure Ative Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) para selecionar a conta de utilizador e abrir os seus dados. Copie o *ObjectID*do utilizador:
 >
-> :::image type="content" source="media/includes/user-id.png" alt-text="Vista da página do utilizador no portal Azure destacando o GUID no campo 'Objeto ID'" lightbox="media/includes/user-id.png":::
+> :::image type="content" source="media/includes/user-id.png" alt-text="Janela de comando com criação bem sucedida de grupo de recursos e exemplo de Gémeos Digitais Azure" lightbox="media/includes/user-id.png":::
 >
 > Em seguida, repita o comando da lista de atribuições de funções utilizando o *ID* do objeto do utilizador para o `assignee` parâmetro acima.
 
@@ -115,7 +115,7 @@ Guarde este ficheiro à medida _** quemanifest.jsligado**_.
 
 Em seguida, vais enviar este ficheiro para a Cloud Shell. Na sua janela Cloud Shell, clique no ícone "Carregar/Descarregar ficheiros" e escolha "Upload".
 
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Janela Cloud Shell mostrando a seleção da opção Upload":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Janela de comando com criação bem sucedida de grupo de recursos e exemplo de Gémeos Digitais Azure":::
 Navegue até ao *manifest.jsem* que acabou de criar e bater "Open".
 
 Em seguida, executar o seguinte comando para criar um registo de aplicações, com um *cliente público/nativo (mobile & desktop)* resposta URL de `http://localhost` . Substitua os espaços reservados conforme necessário:
@@ -126,7 +126,7 @@ az ad app create --display-name <name-for-your-app-registration> --native-app --
 
 Aqui está um excerto da saída deste comando, mostrando informações sobre o registo que criou:
 
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/new-app-registration.png" alt-text="Saída cloud Shell do novo registo de aplicações AD AZure":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/new-app-registration.png" alt-text="Janela de comando com criação bem sucedida de grupo de recursos e exemplo de Gémeos Digitais Azure":::
 
 ### <a name="verify-success"></a>Verificar o sucesso
 
@@ -140,7 +140,7 @@ Em seguida, verifique se as definições do seu *manifest.js* carregado estavam 
 
 Em seguida, *selecione Overview* da barra de menus para ver os detalhes do registo da aplicação:
 
-:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Visão do portal dos valores importantes para o registo da aplicação":::
+:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Janela de comando com criação bem sucedida de grupo de recursos e exemplo de Gémeos Digitais Azure":::
 
 Tome nota do ID de *Aplicação (cliente)* e *Diretório (inquilino)* mostrado na **sua** página. Estes valores serão necessários mais tarde para [autenticar uma aplicação do cliente contra as APIs das Gémeas Digitais Azure.](how-to-authenticate-client.md) Se você não é a pessoa que vai escrever código para tais aplicações, você precisará compartilhar estes valores com a pessoa que será.
 
@@ -151,7 +151,7 @@ Tome nota do ID de *Aplicação (cliente)* e *Diretório (inquilino)* mostrado n
 ## <a name="next-steps"></a>Passos seguintes
 
 Teste as chamadas individuais da API REST no seu caso utilizando os comandos CLI dos Gémeos Digitais Azure: 
-* [az dt referência](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true)
+* [az dt referência](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)
 * [*Como fazer: Use o CLI das Gémeas Digitais Azure*](how-to-use-cli.md)
 
 Ou, veja como ligar a aplicação do seu cliente ao seu caso escrevendo o código de autenticação da aplicação do cliente:

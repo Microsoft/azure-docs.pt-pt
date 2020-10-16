@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: e2096e8c0ebfb233c7449510bf0bc8e80b56231e
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88140722"
 ---
 # <a name="cloudsimple-private-cloud-overview"></a>Visão geral da nuvem privada CloudSimple
@@ -132,7 +132,7 @@ A tabela seguinte lista os limites do nó nos recursos de uma Nuvem Privada.
 | Número máximo de nós numa Nuvem Privada | 64 |
 | Número mínimo de nós num novo cluster | 3 |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [criar uma Nuvem Privada](create-private-cloud.md)
 * Saiba como [configurar um ambiente private Cloud](quickstart-create-private-cloud.md)

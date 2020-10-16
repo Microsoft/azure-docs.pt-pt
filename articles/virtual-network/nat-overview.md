@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: allensu
 ms.openlocfilehash: 75a2bb187b2ed7a234e99d8cd293cb30148bcb1f
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91667202"
 ---
 # <a name="what-is-virtual-network-nat"></a>O que é Virtual Network NAT?
@@ -141,7 +141,7 @@ Queremos saber como podemos melhorar o serviço. Propor e votar o que devemos co
 * A família iPv4 é apoiada.  A NAT não interage com a família IPv6.  O NAT não pode ser implantado numa sub-rede com um prefixo IPv6.
 * A NAT não pode abranger várias redes virtuais.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [o recurso nat gateway.](./nat-gateway-resource.md)
 * [Diga-nos o que construir a seguir para o NAT de Rede Virtual no UserVoice](https://aka.ms/natuservoice).

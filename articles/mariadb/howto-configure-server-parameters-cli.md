@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 10/1/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: ce9fc7a7af18a163207f8fc497149d885423607b
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91626450"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mariadb-using-the-azure-cli"></a>Configurar parâmetros de servidor na Base de Dados Azure para MariaDB utilizando o Azure CLI

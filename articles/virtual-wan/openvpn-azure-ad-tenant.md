@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: alzam
 ms.openlocfilehash: a54397fe7cfecef6813105645b7f2b218894875e
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91367857"
 ---
 # <a name="prepare-azure-active-directory-tenant-for-user-vpn-openvpn-protocol-connections"></a>Prepare o inquilino do Diretório Ativo Azure para as ligações de protocolo openVPN do utilizador VPN
@@ -80,7 +80,7 @@ Use os passos [deste artigo](../active-directory/fundamentals/add-users-azure-ac
 
 5. Sob o seu Azure AD, em **aplicações enterprise,** você deve agora ver **Azure VPN** listado.
 
-    ![Azure VPN](./media/openvpn-create-azure-ad-tenant/azurevpn.png)
+    ![VPN do Azure](./media/openvpn-create-azure-ad-tenant/azurevpn.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

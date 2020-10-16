@@ -15,10 +15,10 @@ ms.author: RamaKoni
 ms.reviewer: sqlblt, daleche
 ms.custom: seo-lt-2019
 ms.openlocfilehash: a57a432a5f0f8e5a6bd802ec08b18350da3a77b3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91293378"
 ---
 # <a name="in-place-change-of-sql-server-version-on-azure-vm"></a>Mudança no local da Versão do SQL Server na VM do Azure
@@ -31,7 +31,7 @@ Este artigo descreve como alterar a versão do Microsoft SQL Server numa máquin
 
 Para fazer uma atualização no local do SQL Server, aplicam-se as seguintes condições:
 
-- É necessário o meio de configuração da versão desejada do SQL Server. Os clientes que tenham [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) podem obter os seus meios de instalação a partir do [Centro de Licenciamento de Volume.](https://www.microsoft.com/Licensing/servicecenter/default.aspx) Os clientes que não têm Software Assurance podem utilizar os meios de configuração a partir de uma imagem VM do Azure Marketplace SQL Server que tem uma versão posterior do SQL Server (normalmente localizado em C:\SQLServerFull).
+- É necessário o meio de configuração da versão desejada do SQL Server. Os clientes que tiverem o [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) poderão obter o suporte de dados de instalação no [Centro de Licenciamento em Volume](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Os clientes que não têm Software Assurance podem utilizar os meios de configuração a partir de uma imagem VM do Azure Marketplace SQL Server que tem uma versão posterior do SQL Server (normalmente localizado em C:\SQLServerFull).
 - As atualizações de edição devem seguir os [caminhos de upgrade](https://docs.microsoft.com/sql/database-engine/install-windows/supported-version-and-edition-upgrades-version-15?view=sql-server-ver15)de suporte .
 
 ## <a name="planning-for-version-change"></a>Planeamento para mudança de versão
@@ -69,11 +69,11 @@ Para atualizar a versão do SQL Server, obtenha o suporte de configuração do S
 1. Na página **'Chave do Produto',** selecione uma opção para indicar se está a atualizar para uma edição gratuita do SQL Server ou se tem uma chave PID para uma versão de produção do produto. Para mais informações, consulte [Edições e funcionalidades suportadas do SQL Server 2019 (15.x)](https://docs.microsoft.com/sql/sql-server/editions-and-components-of-sql-server-version-15?view=sql-server-ver15) e [das atualizações de versão e edição suportadas (SQL Server 2016)](https://docs.microsoft.com/sql/database-engine/install-windows/supported-version-and-edition-upgrades?view=sql-server-ver15).
 1. Selecione **Next** até chegar à página **De atualização pronta** e, em seguida, selecione **Upgrade**. A janela de configuração pode parar de responder durante alguns minutos enquanto a mudança está a fazer efeito. Uma página **Completa** confirmará que a sua atualização está concluída. Para um procedimento passo a passo para atualizar, consulte [o procedimento completo](https://docs.microsoft.com/sql/database-engine/install-windows/upgrade-sql-server-using-the-installation-wizard-setup?view=sql-server-ver15#procedure).
 
-   :::image type="content" source="./media/change-sql-server-version/complete-page.png" alt-text="Página completa":::
+   :::image type="content" source="./media/change-sql-server-version/complete-page.png" alt-text="Seleção para atualização da versão do SQL Server":::
 
 Se alterou a edição do SQL Server para além de alterar a versão, também atualize a edição e consulte a **Versão e edição verificar na** secção Portal para alterar a instância VM SQL.
 
-   :::image type="content" source="./media/change-sql-server-version/change-portal.png" alt-text="Alterar metadados de versão":::
+   :::image type="content" source="./media/change-sql-server-version/change-portal.png" alt-text="Seleção para atualização da versão do SQL Server":::
 
 ## <a name="downgrade-the-version-of-sql-server"></a>Downgrade a versão do SQL Server
 
@@ -91,7 +91,7 @@ Pode desclassificar a versão do SQL Server seguindo estes passos:
 
    Certifique-se de que seleciona as opções corretas quando scripts itens como a versão alvo, objetos dependentes e opções avançadas.
 
-   :::image type="content" source="./media/change-sql-server-version/scripting-options.png" alt-text="Opções de script":::
+   :::image type="content" source="./media/change-sql-server-version/scripting-options.png" alt-text="Seleção para atualização da versão do SQL Server":::
 
 1. Desinstale completamente o SQL Server e todos os serviços associados.
 1. Reinicie a VM.
@@ -104,7 +104,7 @@ Pode desclassificar a versão do SQL Server seguindo estes passos:
 
 Depois de alterar a versão do SQL Server, registe novamente o seu SQL Server VM com o [fornecedor de recursos SQL VM](sql-vm-resource-provider-register.md) para que possa utilizar o portal Azure para visualizar a versão do SQL Server. O número da versão listada deve agora refletir a versão e edição recentemente atualizadas da sua instalação SQL Server.
 
-:::image type="content" source="./media/change-sql-server-version/verify-portal.png" alt-text="Verificar versão":::
+:::image type="content" source="./media/change-sql-server-version/verify-portal.png" alt-text="Seleção para atualização da versão do SQL Server":::
 
 > [!NOTE]
 > Se já se registou com o fornecedor de recursos SQL VM, [não registo do RP](sql-vm-resource-provider-register.md#unregister-from-rp) e, em seguida, [registar novamente o recurso SQL VM](sql-vm-resource-provider-register.md#register-with-rp) para que detete a versão e edição corretas do SQL Server que está instalado no VM. Isto atualiza os metadados e informações de faturação que estão associados a este VM.

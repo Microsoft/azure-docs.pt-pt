@@ -4,10 +4,10 @@ description: Saiba como o Agente MARS suporta os cenários de backup
 ms.topic: conceptual
 ms.date: 08/04/2020
 ms.openlocfilehash: 8e4ace0c17dbe75e989981db56583ed9477b3716
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87562604"
 ---
 # <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>Sobre o agente microsoft Azure Recovery Services (MARS)
@@ -64,7 +64,7 @@ O agente MARS suporta os seguintes cenários de restauro:
 
 - O agente MARS pode executar a tarefa de backup em **modo otimizado** utilizando o diário de alteração USN (Update Sequence Number) ou em **modo não otimizado,** verificando alterações nos diretórios ou ficheiros através da digitalização de todo o volume. O modo nãotimizado é mais lento porque o agente tem de digitalizar cada ficheiro no volume e compará-lo com os metadados para determinar os ficheiros alterados.  A **cópia de segurança inicial** será sempre executada em modo nãotimizado. Se o backup anterior falhar, o próximo trabalho de backup programado será executado em modo nãotimizado. Para saber mais sobre estes modos e como os verificar, consulte [este artigo](backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-backup-job-running-in-unoptimized-mode).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Matriz de suporte do agente MARS](./backup-support-matrix-mars-agent.md)
 

@@ -3,12 +3,12 @@ title: Visão geral da gestão do Azure - Azure Governance
 description: Panorâmica das áreas de gestão das aplicações e recursos da Azure com ligações aos conteúdos em ferramentas de gestão Azure.
 ms.date: 09/09/2020
 ms.topic: overview
-ms.openlocfilehash: 0aaa23dd2841802919cfdfcc857a189e072a5c6b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8ffb37cd1db5740ed022b52cd9687bb3db1632bb
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89662124"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949501"
 ---
 # <a name="what-are-the-azure-management-areas"></a>Quais são as áreas de Gestão Azure?
 
@@ -44,13 +44,13 @@ Esta funcionalidade mantém esses recursos em conformidade com os seus padrões 
 
 ## <a name="secure"></a>Proteger
 
-Gerencie a segurança dos seus recursos e dados. Um programa de segurança envolve avaliar ameaças, recolher e analisar dados, e cumprir as suas aplicações e recursos. A monitorização de segurança e a análise de ameaças são fornecidas pelo [Azure Security Center,](../security-center/security-center-intro.md)que inclui a gestão unificada de segurança e a proteção avançada de ameaças através de cargas de trabalho em nuvem híbrida. Consulte [a Introdução à Segurança Azure](../security/fundamentals/overview.md) para obter informações e orientações abrangentes sobre a garantia de recursos da Azure.
+Gerencie a segurança dos seus recursos e dados. Um programa de segurança envolve avaliar ameaças, recolher e analisar dados, e cumprir as suas aplicações e recursos. A monitorização de segurança e a análise de ameaças são fornecidas pelo [Azure Security Center,](../security-center/security-center-introduction.md)que inclui a gestão unificada de segurança e a proteção avançada de ameaças através de cargas de trabalho em nuvem híbrida. Consulte [a Introdução à Segurança Azure](../security/fundamentals/overview.md) para obter informações e orientações abrangentes sobre a garantia de recursos da Azure.
 
 ## <a name="protect"></a>Proteger
 
 Proteção refere-se a manter as suas aplicações e dados disponíveis, mesmo com falhas que estão fora do seu controlo. A proteção no Azure é fornecida por dois serviços. O [Azure Backup](../backup/backup-overview.md) garante a cópia de segurança e a recuperação dos seus dados, seja na cloud ou no local. [A Azure Site Recovery](../site-recovery/site-recovery-overview.md) proporciona continuidade de negócios e recuperação imediata durante um desastre.
 
-## <a name="migrate"></a>Migrate
+## <a name="migrate"></a>Migrar
 
 Migração refere-se à transição das cargas de trabalho atualmente em execução no local para a cloud do Azure.
 [Azure Migrate](../migrate/migrate-services-overview.md) é um serviço que o ajuda a avaliar a adequação da migração de máquinas virtuais no local para Azure. A Azure Site Recovery migra máquinas virtuais [a partir do local](../site-recovery/migrate-tutorial-on-premises-azure.md) ou dos [Serviços Web da Amazon.](../site-recovery/migrate-tutorial-aws-azure.md) [A Azure Database Migration](../dms/dms-overview.md) ajuda-o na migração de fontes de dados para plataformas de Dados Azure.

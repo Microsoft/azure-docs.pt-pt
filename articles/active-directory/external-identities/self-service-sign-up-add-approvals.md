@@ -12,10 +12,10 @@ manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d664d7cd169593924917bb02a0220e4047eb0cdb
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88165255"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Adicione um fluxo de trabalho de aprovação personalizado à inscrição de self-service
@@ -50,7 +50,7 @@ Tem de registar o seu sistema de aprovação como uma aplicação no seu inquili
 
 9. Na página de permissões da **API,** selecione **o consentimento de administração grant para (o nome do seu inquilino)** e, em seguida, selecione **Sim**.
 10. Em **Gerir** no menu esquerdo, selecione **Certificados & segredos,** e, em seguida, selecione **Novo segredo do cliente**.
-11. Insira uma **Descrição** para o segredo, por _exemplo, aprova_o segredo do cliente, e selecione a duração para quando o segredo do cliente **expirar.** Em seguida, **selecione Adicionar**.
+11. Insira uma **Descrição** para o segredo, por _exemplo, aprova_o segredo do cliente, e selecione a duração para quando o segredo do cliente **expirar.** Em seguida, selecione **Adicionar**.
 12. Copie o valor do segredo do cliente.
 
     ![Copie o segredo do cliente para uso no sistema de aprovação](media/self-service-sign-up-add-approvals/client-secret-value-copy.png)

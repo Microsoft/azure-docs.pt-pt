@@ -6,10 +6,10 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.openlocfilehash: 05ae359182ac3d9c3f4cc17d7675a3f2fefa0bff
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91776838"
 ---
 # <a name="test-your-knowledge-base-in-qna-maker"></a>Teste a sua base de conhecimentos no QnA Maker

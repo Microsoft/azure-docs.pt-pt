@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/04/2020
 ms.author: mlottner
 ms.openlocfilehash: e56cf54e1bf1483309cb7aac8519bb281ca2bc06
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90938717"
 ---
 # <a name="access-your-security-data"></a>Aceda aos seus dados de segurança
@@ -87,7 +87,7 @@ SecurityAlert
     DisplayName
 ```
 
-| IoTHubId                                                                                                       | DeviceId      | Alertaseverity | DisplayName                           | de palavras |
+| IoTHubId                                                                                                       | DeviceId      | Alertaseverity | DisplayName                           | Contagem |
 |----------------------------------------------------------------------------------------------------------------|---------------|---------------|---------------------------------------|-----|
 | /subscrições/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alto          | Ataque de força bruta conseguiu           | 9   |
 | /subscrições/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Médio        | Tentativa de login local falhada no dispositivo  | 242 |
@@ -164,7 +164,7 @@ SecurityRecommendation
 | summarize Cnt=count() by IoTHubId, DeviceId, RecommendationSeverity
 ```
 
-| IoTHubId                                                                                                       | DeviceId      | RecomendaçõesEverity | de palavras |
+| IoTHubId                                                                                                       | DeviceId      | RecomendaçõesEverity | Contagem |
 |----------------------------------------------------------------------------------------------------------------|---------------|------------------------|-----|
 | /subscrições/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alto          | 2   |
 | /subscrições/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Médio        | 1 |

@@ -4,10 +4,10 @@ description: Utilize o Servidor de Backup Azure para fazer backup e restaurar os
 ms.topic: conceptual
 ms.date: 06/07/2020
 ms.openlocfilehash: 1e237e63b92468fafff4f8f8f525d1388840d162
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89378326"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Apoie uma fazenda SharePoint em Azure Stack
@@ -219,7 +219,7 @@ No exemplo seguinte, o *item RecoverIng SharePoint* foi acidentalmente eliminado
     ![MABS SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. Neste ponto, siga os passos de recuperação mais cedo neste artigo para recuperar uma base de dados de conteúdos SharePoint do disco.
 
-## <a name="switching-the-front-end-web-server"></a>Mudar o servidor web frontal
+## <a name="switching-the-front-end-web-server"></a>Mudar o servidor web Front-End
 
 Se tiver mais de um servidor web frontal e quiser mudar o servidor que o MABS utiliza para proteger a quinta, siga as instruções:
 
@@ -257,7 +257,7 @@ O procedimento a seguir utiliza o exemplo de uma quinta de servidores com dois s
 
 1. Se tiver realizado o passo 6, pode agora retirar o volume do grupo de proteção.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Consulte os ficheiros de cópia de segurança e o artigo [de aplicação.](backup-mabs-files-applications-azure-stack.md)
 * Consulte o servidor SQL de backup no artigo [Azure Stack.](backup-mabs-sql-azure-stack.md)

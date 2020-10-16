@@ -14,10 +14,10 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: inhenkel
 ms.openlocfilehash: bcbe5fe71e5a4d4d39a29d4a6828c104f6891c0d
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91617150"
 ---
 # <a name="how-to-scale-media-reserved-units"></a>Como escalar unidades reservadas para os meios de comunicação
@@ -52,6 +52,6 @@ az ams account mru set -n amsaccount -g amsResourceGroup --count 10 --type S3
 
 [Analisar vídeos](analyze-videos-tutorial-with-api.md)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 * [Quotas e limites](limits-quotas-constraints.md)

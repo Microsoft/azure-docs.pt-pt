@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: how-to
 ms.date: 01/12/2017
 ms.openlocfilehash: 1a4e4e8f97f543132e4295cca59312b0e78a6637
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362842"
 ---
 # <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Use parâmetros de serviço web Azure Machine Learning Studio (clássicos)

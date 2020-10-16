@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
 ms.openlocfilehash: 0eccab6c3d59ad68ddc8f96c3d84c57dc1bbeeca
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939520"
 ---
 # <a name="security-recommendations"></a>Recomendações de segurança
@@ -31,7 +31,7 @@ Neste artigo, encontrará uma lista de recomendações que podem ser ativadas no
 
 As recomendações do dispositivo fornecem insights e sugestões para melhorar a postura de segurança do dispositivo.
 
-| Gravidade | Name                                                      | Origem de dados | Descrição                                                                                                                                                                                           |
+| Gravidade | Nome                                                      | Origem de dados | Descrição                                                                                                                                                                                           |
 |----------|-----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Médio   | Portas abertas no dispositivo                                      | Agente       | Foi encontrado um ponto de escuta no dispositivo .                                                                                                                                                        |
 | Médio   | Política de firewall permissiva encontrada numa das correntes. | Agente       | Política de firewall permitida encontrada (INPUT/OUTPUT). A política de firewall deve negar todo o tráfego por defeito e definir regras para permitir a comunicação necessária de/para o dispositivo.                               |
@@ -43,7 +43,7 @@ As recomendações do dispositivo fornecem insights e sugestões para melhorar a
 
 As recomendações operacionais fornecem insights e sugestões para melhorar a configuração do agente de segurança.
 
-| Gravidade | Name                                    | Origem de dados | Descrição                                                                       |
+| Gravidade | Nome                                    | Origem de dados | Descrição                                                                       |
 |----------|-----------------------------------------|-------------|-----------------------------------------------------------------------------------|
 | Baixo      | Agente envia mensagens não utetilizadas          | Agente       | 10% ou mais de mensagens de segurança foram menores do que 4 KB durante as últimas 24 horas.  |
 | Baixo      | Configuração de twin de segurança não é ideal | Agente       | A configuração de dois de segurança não é a ideal.                                        |
@@ -54,12 +54,12 @@ As recomendações operacionais fornecem insights e sugestões para melhorar a c
 
 Os alertas de recomendação fornecem insights e sugestões para ações para melhorar a postura de segurança do seu ambiente.
 
-| Gravidade | Name                                                     | Origem de dados | Descrição                                                                                                                                                                                                             |
+| Gravidade | Nome                                                     | Origem de dados | Descrição                                                                                                                                                                                                             |
 |----------|----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Alto     | Credenciais de autenticação idênticas utilizadas por vários dispositivos | Hub IoT     | As credenciais de autenticação IoT Hub são utilizadas por vários dispositivos. Isto pode indicar um dispositivo ilegítimo que se faz passar por um dispositivo legítimo. O uso de credencial duplicada aumenta o risco de imitação de dispositivo por um ator mal-intencionado. |
-| Médio   | A política de filtro IP predefinido deve ser negada                  | Hub IoT     | A configuração do filtro IP deve ter regras definidas para tráfego permitido, e deve, por padrão, negar todo o tráfego por padrão.                                                                                                     |
-| Médio   | A regra do filtro IP inclui grande gama de IP                   | Hub IoT     | Um intervalo IP de fonte de fonte de filtro IP permite que seja demasiado grande. Regras excessivamente permissivas podem expor o seu hub IoT a atores mal-intencionados.                                                                                       |
-| Baixo      | Ativar registos de diagnóstico no IoT Hub                       | Hub IoT     | Ativar os registos e retê-los por um ano. A retenção de registos permite-lhe recriar pistas de atividade para fins de investigação quando ocorre um incidente de segurança ou se a sua rede está comprometida.                                       |
+| Alto     | Credenciais de autenticação idênticas utilizadas por vários dispositivos | IoT Hub     | As credenciais de autenticação IoT Hub são utilizadas por vários dispositivos. Isto pode indicar um dispositivo ilegítimo que se faz passar por um dispositivo legítimo. O uso de credencial duplicada aumenta o risco de imitação de dispositivo por um ator mal-intencionado. |
+| Médio   | A política de filtro IP predefinido deve ser negada                  | IoT Hub     | A configuração do filtro IP deve ter regras definidas para tráfego permitido, e deve, por padrão, negar todo o tráfego por padrão.                                                                                                     |
+| Médio   | A regra do filtro IP inclui grande gama de IP                   | IoT Hub     | Um intervalo IP de fonte de fonte de filtro IP permite que seja demasiado grande. Regras excessivamente permissivas podem expor o seu hub IoT a atores mal-intencionados.                                                                                       |
+| Baixo      | Ativar registos de diagnóstico no IoT Hub                       | IoT Hub     | Ativar os registos e retê-los por um ano. A retenção de registos permite-lhe recriar pistas de atividade para fins de investigação quando ocorre um incidente de segurança ou se a sua rede está comprometida.                                       |
 |
 
 ## <a name="next-steps"></a>Passos seguintes

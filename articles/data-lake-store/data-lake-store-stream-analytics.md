@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/30/2018
 ms.author: twooley
 ms.openlocfilehash: 4c289ecb1d8471a7b99f1d4c85a0163de4d0c593
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91576222"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Transmita os dados da Azure Storage Blob para a Azure Data Lake Storage Gen1 usando a Azure Stream Analytics
@@ -58,7 +58,7 @@ Começa por criar um trabalho stream Analytics que inclui uma fonte de entrada e
    * Para **Delimiter**, **selecione separador**.
    * Para **codificação,** selecione **UTF-8**.
 
-     Clique em **Create** (Criar). O portal adiciona agora a entrada e testa a ligação ao mesmo.
+     Clique em **Criar**. O portal adiciona agora a entrada e testa a ligação ao mesmo.
 
 
 ## <a name="create-a-data-lake-storage-gen1-output-for-the-job"></a>Criar uma saída gen1 de armazenamento de data lake para o trabalho
@@ -86,7 +86,7 @@ Começa por criar um trabalho stream Analytics que inclui uma fonte de entrada e
    * Para **Delimiter**, **selecione separador**.
    * Para **codificação,** selecione **UTF-8**.
     
-     Clique em **Create** (Criar). O portal adiciona agora a saída e testa a ligação ao mesmo.
+     Clique em **Criar**. O portal adiciona agora a saída e testa a ligação ao mesmo.
     
 ## <a name="run-the-stream-analytics-job"></a>Executar a tarefa do Stream Analytics
 
@@ -112,5 +112,5 @@ Começa por criar um trabalho stream Analytics que inclui uma fonte de entrada e
 
     No painel do Data Explorer, note que a saída é escrita para um caminho de pasta, conforme especificado nas definições de saída da Data Lake Storage Gen1 `streamanalytics/job/output/{date}/{time}` ().  
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 * [Crie um cluster HDInsight para utilizar a Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

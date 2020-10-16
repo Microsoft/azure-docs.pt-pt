@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 10/1/2020
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 3888e83738d8617d6ec1433a3b760a2c518b874c
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91627215"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-using-powershell"></a>Configurar parâmetros de servidor na Base de Dados Azure para o MySQL utilizando o PowerShell

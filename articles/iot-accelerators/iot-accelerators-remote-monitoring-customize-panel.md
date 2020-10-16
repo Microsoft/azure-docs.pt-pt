@@ -10,10 +10,10 @@ ms.date: 10/05/2018
 ms.topic: conceptual
 ms.custom: devx-track-js
 ms.openlocfilehash: 1dcca8409022ba4cf1f988b7c777e3a1fa511060
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91318369"
 ---
 # <a name="add-a-custom-panel-to-the-dashboard-in-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicione um painel personalizado ao painel no painel de instrumentos na UI do acelerador de solução de monitorização remota

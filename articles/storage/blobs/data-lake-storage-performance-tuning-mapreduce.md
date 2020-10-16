@@ -9,10 +9,10 @@ ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: e9d638a7ed17d08b585c71b1dac4a0177f4a2939
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88030525"
 ---
 # <a name="tune-performance-mapreduce-hdinsight--azure-data-lake-storage-gen2"></a>Desempenho da sintonização: MapReduce, HDInsight & Azure Data Lake Storage Gen2
@@ -65,7 +65,7 @@ Se estiver a utilizar um aglomerado vazio, então a memória pode ser a memória
 
 Os contentores de YARN ditam a quantidade de concordância disponível para o trabalho.  Pegue a memória total do YARN e divida-a por mapreduce.map.memory.  
 
-\#de contentores YARN = memória total de YARN / mapreduce.map.memory
+\# de contentores YARN = memória total de YARN / mapreduce.map.memory
 
 **Passo 5: Definir mapreduce.job.maps/mapreduce.job.reduz**
 
@@ -93,7 +93,7 @@ A memória total do cluster é de 8 nóns * 96GB de memória YARN para um D14 = 
 
 **Passo 4: Calcular # de recipientes YARN**
 
-\#de recipientes YARN = 768GB de memória disponível / 3 GB de memória = 256
+\# de recipientes YARN = 768GB de memória disponível / 3 GB de memória = 256
 
 **Passo 5: Definir mapreduce.job.maps/mapreduce.job.reduz**
 

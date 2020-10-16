@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 2/27/2020
 ms.openlocfilehash: 674622e6210c3cceda5af3b53bf4ba1851f7179b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86118856"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>Migrar a sua base de dados MariaDB para Azure Database para MariaDB usando despejo e restauro
@@ -18,7 +18,7 @@ Este artigo explica duas formas comuns de fazer o back backs de apoio e restaura
 - Despejar e restaurar a partir da linha de comando (usando mysqldump) 
 - Despejar e restaurar usando PHPMyAdmin
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 Para passar por este guia, você precisa ter:
 - [Criar Base de Dados Azure para servidor MariaDB - Portal Azure](quickstart-create-mariadb-server-database-using-azure-portal.md)
 - utilitário de linha de comando [mysqldump](https://mariadb.com/kb/en/library/mysqldump/) instalado numa máquina.
@@ -119,7 +119,7 @@ Importar a sua base de dados é semelhante à exportação. Fazer as seguintes a
 5. Utilize o botão de navegação para encontrar o ficheiro de base de **dados.** 
 6. Clique no botão **Go** para exportar a cópia de segurança, execute os comandos SQL e recrie a sua base de dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Conecte as aplicações à Base de Dados Azure para o MariaDB.](./howto-connection-string.md)
  
 <!--

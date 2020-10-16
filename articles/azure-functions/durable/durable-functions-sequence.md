@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/29/2019
 ms.author: azfuncdf
 ms.openlocfilehash: b117fca23b26919f3c404dd32ba64c0c89d66ae7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87033569"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Acorrentação de funções em funções duradouras - Amostra de sequência de olá
@@ -43,7 +43,7 @@ O código chama `E1_SayHello` três vezes em sequência com diferentes valores d
 
 #### <a name="functionjson"></a>function.json
 
-Se utilizar o Código do Estúdio Visual ou o portal Azure para o desenvolvimento, aqui está o conteúdo do *function.jsem* ficheiro para a função de orquestrador. A maioria dosfunction.jsde orquestra *em* ficheiros são quase exatamente assim.
+Se utilizar o Código do Estúdio Visual ou o portal Azure para o desenvolvimento, aqui está o conteúdo do *function.jsem* ficheiro para a função de orquestrador. A maioria dosfunction.jsde orquestra * em* ficheiros são quase exatamente assim.
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/function.json)]
 

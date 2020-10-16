@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a98ff68500593c644e6f0fa5eacb338ab90f5604
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88795386"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Gerir contas de acesso de emergência em Azure AD

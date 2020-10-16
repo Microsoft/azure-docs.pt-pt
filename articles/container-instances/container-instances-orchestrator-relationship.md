@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.custom: mvc
 ms.openlocfilehash: f3f8693d1a9a12e7c35d126ab3e3ca53448e5e40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74533667"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Instâncias de contentores de Azure e orquestradores de contentores
@@ -60,7 +60,7 @@ Os nós virtuais usam o [Kubelet Virtual de][aci-connector-k8s] código aberto p
 
 Consulte o projeto [Virtual Kubelet](https://github.com/virtual-kubelet/virtual-kubelet) para obter exemplos adicionais de extensão da API de Kubernetes em plataformas de contentores sem servidor.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Crie o seu primeiro recipiente com instâncias do recipiente Azure utilizando o [guia de arranque rápido](container-instances-quickstart.md).
 

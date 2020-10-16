@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 10/09/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 3a585bc2bf3872a21bde9be036628922ee5743fa
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 7248dff25af4693f7f264c8cbf42236612dddda0
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90087359"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91931075"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Configurar o público anónimo ler acesso a contentores e bolhas
 
@@ -56,7 +56,7 @@ Para permitir ou proibir o acesso público a uma conta de armazenamento, configu
 > [!NOTE]
 > A propriedade **AllowBlobPublicAccess** não é definida por padrão e não devolve um valor até que o descreva explicitamente. A conta de armazenamento permite o acesso público quando o valor da propriedade é **nulo** ou quando é **verdade.**
 >
-> A propriedade **AllowBlobPublicAccess** está atualmente disponível apenas para contas de armazenamento na nuvem pública Azure.
+> A propriedade **AllowBlobPublicAccess** está disponível para todas as contas de armazenamento na nuvem pública de Azure e nas nuvens do Governo Azure.
 
 # <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
@@ -207,7 +207,7 @@ Para atualizar o nível de acesso público a um ou mais contentores existentes n
 
 Quando o acesso público é proibido para a conta de armazenamento, o nível de acesso público de um contentor não pode ser definido. Se tentar definir o nível de acesso público do contentor, verá que a definição está desativada porque o acesso público é proibido para a conta.
 
-:::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="Screenshot mostrando que a definição do nível de acesso público do contentor é bloqueada quando o acesso público é proibido":::
+:::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="Screenshot mostrando como permitir ou desativar o acesso público blob para conta":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

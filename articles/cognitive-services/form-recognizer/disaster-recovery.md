@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.openlocfilehash: ac934f88d00521b13fd2b134c80f19656c63117b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88718820"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Recue e recupere os seus modelos de Reconhecimento de Formulários
@@ -82,7 +82,7 @@ O corpo do seu pedido precisa de ter o seguinte formato. Terá de introduzir o I
 > [!NOTE]
 > A API copy suporta de forma transparente a função [AEK/CMK.](https://msazure.visualstudio.com/Cognitive%20Services/_wiki/wikis/Cognitive%20Services.wiki/52146/Customer-Managed-Keys) Isto não requer qualquer tratamento especial, mas note que se estiver a copiar entre um recurso não encriptado para um recurso encriptado, tem de incluir o cabeçalho de pedido `x-ms-forms-copy-degrade: true` . Se este cabeçalho não estiver incluído, a operação de cópia falhará e devolverá a `DataProtectionTransformServiceError` .
 
-Receberá uma `202\Accepted` resposta com um cabeçalho de operação.operação. Este valor é o URL que você usará para acompanhar o progresso da operação. Copie-o para um local temporário para o próximo passo.
+Terá uma `202\Accepted` resposta com um cabeceamento Operation-Location. Este valor é o URL que você usará para acompanhar o progresso da operação. Copie-o para um local temporário para o próximo passo.
 
 ```
 HTTP/1.1 202 Accepted

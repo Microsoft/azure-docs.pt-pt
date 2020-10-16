@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: d5e867849d17a489fad37d09215905d23fb0ed6a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: daf54b64e33b83b909fe91455cee2f5c1ec27d3d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514252"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960325"
 ---
 # <a name="contact-microsoft-support"></a>Contacte o Suporte da Microsoft
 
@@ -39,7 +39,7 @@ Dependendo do seu [plano de suporte,](https://azure.microsoft.com/support/plans/
    3. Selecione um plano de **suporte** da lista de drop-down se tiver vários planos associados à sua subscrição. Precisa de um plano de apoio pago para permitir o Apoio Técnico.
    4. Clique em **Seguinte**.
 
-       ![Contacte o Apoio aos Ms através de um novo portal](./media/storsimple-8000-contact-microsoft-support/contactsupport2.png)
+       ![Contacte o Ms Support através do novo portal 2](./media/storsimple-8000-contact-microsoft-support/contactsupport2.png)
 
 3. Na lâmina de **pedido de novo suporte,** selecione **Problema do Passo 2**. Na lâmina **Problem,** faça os seguintes passos:
     
@@ -51,7 +51,7 @@ Dependendo do seu [plano de suporte,](https://azure.microsoft.com/support/plans/
     6. Verifique **Informações de diagnóstico de partilhar**.
     7. Clique em **Seguinte**.
 
-       ![Contacte o Apoio aos Ms através de um novo portal](./media/storsimple-8000-contact-microsoft-support/contactsupport3.png) 
+       ![Contacte o Ms Support através do novo portal 3](./media/storsimple-8000-contact-microsoft-support/contactsupport3.png) 
 
 4. Na lâmina de **pedido de novo suporte,** clique em **informações de contacto do Passo 3**. Na lâmina **de informação de contacto,** faça os seguintes passos:
 
@@ -59,7 +59,7 @@ Dependendo do seu [plano de suporte,](https://azure.microsoft.com/support/plans/
    2. Nas informações de Contacto, forneça o seu nome, e-mail, contacto opcional, país/região. Selecione as **alterações de contacto Save para futuras caixas de** verificação de pedidos de apoio.
    3. Clique em **Criar**.
    
-       ![Contacte o Apoio aos Ms através de um novo portal](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
+       ![Contacte o Ms Support através do novo portal 4](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
 
       O Microsoft Support utilizará estas informações para lhe contactar para obter mais informações, diagnóstico e resolução.
       Depois de ter apresentado o seu pedido, um engenheiro de Suporte entrará em contacto consigo o mais rapidamente possível para prosseguir com o seu pedido.
@@ -76,11 +76,11 @@ Depois de criar um pedido de suporte, pode gerir o ciclo de vida do mesmo no por
 
 2. Uma listagem tabular de todos os pedidos de suporte é apresentada na lâmina **de suporte Help +.**
 
-    ![Gerir pedidos de apoio](./media/storsimple-8000-contact-microsoft-support/managesupport2.png)
+    ![Gerir pedidos de apoio 2](./media/storsimple-8000-contact-microsoft-support/managesupport2.png)
 
 3. Selecione e clique num pedido de suporte. Pode ver o estado e os detalhes deste pedido. Clique **em + Nova mensagem** se quiser acompanhar este pedido.
 
-    ![Gerir pedidos de apoio](./media/storsimple-8000-contact-microsoft-support/managesupport3.png)
+    ![Gerir pedidos de apoio 3](./media/storsimple-8000-contact-microsoft-support/managesupport3.png)
 
 ## <a name="start-a-support-session-in-windows-powershell-for-storsimple"></a>Inicie uma sessão de suporte no Windows PowerShell para StorSimple
 
@@ -106,6 +106,6 @@ Execute os seguintes passos para iniciar uma sessão de suporte:
 > Pode desativar o acesso ao suporte executando `Disable-HcsSupportAccess` . O dispositivo StorSimple também tentará desativar o acesso de suporte 8 horas após o início da sessão. É uma boa prática alterar as credenciais do dispositivo StorSimple depois de iniciar uma sessão de suporte.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [diagnosticar e resolver problemas relacionados com o seu dispositivo da série StorSimple 8000](storsimple-8000-troubleshoot-deployment.md)

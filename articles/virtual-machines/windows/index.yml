@@ -10,12 +10,12 @@ metadata:
   author: cynthn
   ms.author: cynthn
   ms.date: 09/09/2019
-  ms.openlocfilehash: 9210922f4b43eb229ec0e3b0b554d06f7c2be2eb
-  ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+  ms.openlocfilehash: a0376262468d076b64d1c22427bb5f9aa4ecc6df
+  ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/25/2020
-  ms.locfileid: "88816682"
+  ms.lasthandoff: 10/13/2020
+  ms.locfileid: "91973687"
 landingContent:
 - title: Funcionalidades mais recentes
   linkLists:
@@ -24,7 +24,7 @@ landingContent:
     - text: Spot VMs
       url: ../spot-vms.md
     - text: Anfitriões dedicados
-      url: dedicated-hosts.md
+      url: ../dedicated-hosts.md
     - text: Grupos de colocação de proximidade
       url: proximity-placement-groups.md
 - title: Introdução

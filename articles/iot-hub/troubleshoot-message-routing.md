@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: asrastog
 ms.openlocfilehash: 871a4c7d99fc44cf9868f19e41560e6e7a2e22f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84793325"
 ---
 # <a name="troubleshooting-message-routing"></a>Encaminhamento de mensagens de resolução de problemas
@@ -75,6 +75,6 @@ Seguem-se os nomes de operação e os códigos de erro registados nos [registos 
 
 [!INCLUDE [iot-hub-diagnostics-error-codes](../../includes/iot-hub-diagnostics-error-codes.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se precisar de mais ajuda, pode contactar os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode apresentar um incidente de suporte Azure. Vá ao [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione Obter **Apoio**.

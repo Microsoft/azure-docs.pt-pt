@@ -13,10 +13,10 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d2ea038c7d7212529185d77a6ba9e64deacb1c9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84689763"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Mover dados de uma fonte de tabela Web usando Azure Data Factory
@@ -70,7 +70,7 @@ As seguintes secções fornecem detalhes sobre as propriedades JSON que são usa
 ## <a name="linked-service-properties"></a>Propriedades de serviço ligadas
 A tabela seguinte fornece descrição para elementos JSON específicos do serviço ligado à Web.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | tipo |A propriedade tipo deve ser definida para: **Web** |Sim |
 | Url |URL para a fonte web |Sim |
@@ -98,10 +98,10 @@ Para obter uma lista completa de secções & propriedades disponíveis para defi
 
 A secção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados na loja de dados. A secção de tipos de propriedades para conjunto de dados do tipo **WebTable** tem as seguintes propriedades
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo |tipo do conjunto de dados. deve ser definido para **WebTable** |Sim |
-| path |Um URL relativo ao recurso que contém a tabela. |Não. Quando o caminho não é especificado, apenas é utilizado o URL especificado na definição de serviço ligada. |
+| caminho |Um URL relativo ao recurso que contém a tabela. |N.º Quando o caminho não é especificado, apenas é utilizado o URL especificado na definição de serviço ligada. |
 | índice |O índice da tabela no recurso. Consulte [o índice de uma tabela numa](#get-index-of-a-table-in-an-html-page) secção de página HTML para obter o índice de uma tabela numa página HTML. |Sim |
 
 **Exemplo:**
@@ -292,7 +292,7 @@ Consulte as propriedades do tipo WebSource para a lista de propriedades suportad
 
     ![Do diálogo web](./media/data-factory-web-table-connector/FromWeb-DialogBox.png)
 
-    URL utilizado neste exemplo:https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies
+    URL utilizado neste exemplo: https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies
 4. Se vir a caixa de diálogo **de conteúdo do Access Web,** selecione o **URL**certo, **a autenticação**e clique em **Connect**.
 
    ![Aceder caixa de diálogo de conteúdo web](./media/data-factory-web-table-connector/AccessWebContentDialog.png)

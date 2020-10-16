@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: 7012808e4ebcd936f30aba767731e7888d92161f
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85856911"
 ---
 # <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Orientação de afinação de desempenho para Spark on HDInsight e Azure Data Lake Storage Gen1

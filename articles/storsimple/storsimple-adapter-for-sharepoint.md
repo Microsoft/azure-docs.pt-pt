@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: alkohli
 ms.openlocfilehash: a33e01d68a31585e216faa51ac8af193d86c6123
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90053281"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Instale e configuure o Adaptador StorSimple para SharePoint
@@ -208,7 +208,7 @@ Os seguintes procedimentos descrevem como mover os BLOBs de volta para as bases 
 > Tem de deslocar os BLOBs de volta para as bases de dados de conteúdos antes de desinstalar o software do adaptador.
 
 
-### <a name="before-you-begin"></a>Before you begin
+### <a name="before-you-begin"></a>Antes de começar
 Recolher as seguintes informações antes de transferir os dados para as bases de dados de conteúdos do SQL Server e iniciar o processo de remoção do adaptador:
 
 * Os nomes de todas as bases de dados para as quais o RBS está habilitado
@@ -253,7 +253,7 @@ Depois de transferir os BLOBs para as bases de dados de conteúdos do SQL Server
 1. Abra o Painel de Controlo e, em seguida, clique em **Programas e Funcionalidades**.
 2. Selecione **Adaptador StorSimple para SharePoint**e, em seguida, clique em **Desinstalar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Saiba mais sobre o StorSimple.](storsimple-overview.md)
 
 <!--Reference links-->

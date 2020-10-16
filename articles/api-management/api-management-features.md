@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: apimpm
-ms.openlocfilehash: 262d12e1b0ff74570b44b7794f8b55619a9afa97
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: eec913237ba978e52bb64fbd4c1f043a9214ffc8
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905147"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077852"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Comparação baseada em recursos dos escalões de Gestão API da Azure
 
@@ -26,24 +26,24 @@ Cada [nível de preços da](https://aka.ms/apimpricing) API Management oferece u
 > [!IMPORTANT]
 > Por favor, note que o nível de Desenvolvedor é para casos e avaliações de utilização não-produção. Não oferece SLA.
 
-| Funcionalidade                                                                                      | Consumo | Developer (Programador) | Básica | Standard | Premium |
+| Funcionalidade                                                                                      | Consumo | Programador | Básica | Standard | Premium |
 | -------------------------------------------------------------------------------------------- | ----------- | --------- | ----- | -------- | ------- |
-| Integração AD AZure<sup>1</sup>                                                             | Não          | Sim       | Não    | Sim      | Sim     |
-| Suporte de Rede Virtual (VNet)                                                               | Não          | Sim       | Não    | Não       | Sim     |
-| Implementação em várias regiões                                                                      | Não          | Não        | Não    | Não       | Sim     |
-| Vários nomes de domínio personalizado                                                                 | Não          | Sim        | Não    | Não       | Sim     |
-| Portal do desenvolvedor<sup>2</sup>                                                                 | Não          | Sim       | Sim   | Sim      | Sim     |
-| Cache embutido                                                                               | Não          | Sim       | Sim   | Sim      | Sim     |
-| Análise incorporada                                                                           | Não          | Sim       | Sim   | Sim      | Sim     |
-| [Gateway auto-hospedado](self-hosted-gateway-overview.md)<sup>3</sup>                           | Não          | Sim       | Não    | Não       | Sim     |
-| [Definições de TLS](api-management-howto-manage-protocols-ciphers.md)                             | Sim         | Sim       | Sim   | Sim      | Sim     |
-| [Cache externo](https://aka.ms/apimbyoc)                                                    | Sim         | Sim       | Sim   | Sim      | Sim     |
-| [Autenticação de certificado de cliente](api-management-howto-mutual-certificates-for-clients.md) | Sim         | Sim       | Sim   | Sim      | Sim     |
-| [Criar Cópias de Segurança e Restaurar](api-management-howto-disaster-recovery-backup-restore.md)               | Não          | Sim       | Sim   | Sim      | Sim     |
-| [Gestão sobre Git](api-management-configuration-repository-git.md)                        | Não          | Sim       | Sim   | Sim      | Sim     |
-| API de gestão direta                                                                        | Não          | Sim       | Sim   | Sim      | Sim     |
-| Registos e métricas do Monitor Azure                                                               | Sim         | Sim       | Sim   | Sim      | Sim     |
-| IP estático                                                                                    | Não          | Sim       | Sim   | Sim      | Sim     |
+| Integração AD AZure<sup>1</sup>                                                             | No          | Yes       | No    | Yes      | Yes     |
+| Suporte de Rede Virtual (VNet)                                                               | No          | Yes       | No    | No       | Yes     |
+| Implementação em várias regiões                                                                      | No          | No        | No    | No       | Yes     |
+| Vários nomes de domínio personalizado                                                                 | No          | Yes        | No    | No       | Yes     |
+| Portal do desenvolvedor<sup>2</sup>                                                                 | No          | Yes       | Yes   | Yes      | Yes     |
+| Cache embutido                                                                               | No          | Yes       | Yes   | Yes      | Yes     |
+| Análise incorporada                                                                           | No          | Yes       | Yes   | Yes      | Yes     |
+| [Gateway auto-hospedado](self-hosted-gateway-overview.md)<sup>3</sup>                           | No          | Yes       | No    | No       | Yes     |
+| [Definições de TLS](api-management-howto-manage-protocols-ciphers.md)                             | Yes         | Yes       | Yes   | Yes      | Yes     |
+| [Cache externo](./api-management-howto-cache-external.md)                                                    | Yes         | Yes       | Yes   | Yes      | Yes     |
+| [Autenticação de certificado de cliente](api-management-howto-mutual-certificates-for-clients.md) | Yes         | Yes       | Yes   | Yes      | Yes     |
+| [Backup e restauro](api-management-howto-disaster-recovery-backup-restore.md)               | No          | Yes       | Yes   | Yes      | Yes     |
+| [Gestão sobre Git](api-management-configuration-repository-git.md)                        | No          | Yes       | Yes   | Yes      | Yes     |
+| API de gestão direta                                                                        | No          | Yes       | Yes   | Yes      | Yes     |
+| Registos e métricas do Monitor Azure                                                               | Yes         | Yes       | Yes   | Yes      | Yes     |
+| IP estático                                                                                    | No          | Yes       | Yes   | Yes      | Yes     |
 
 <sup>1</sup> Permite a utilização do Azure AD (e Azure AD B2C) como fornecedor de identidade para o utilizador iniciar súbdis no portal do desenvolvedor.<br/>
 <sup>2</sup> Incluindo funcionalidades relacionadas, por exemplo, utilizadores, grupos, problemas, aplicações e modelos de e-mail e notificações.<br/>

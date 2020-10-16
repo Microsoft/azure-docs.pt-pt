@@ -12,10 +12,10 @@ ms.topic: end-user-help
 ms.date: 07/29/2020
 ms.author: curtand
 ms.openlocfilehash: 95947a9350f19f0f0ff45b7c65e14729b66f26cf
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88798164"
 ---
 # <a name="what-is-the-my-account-portal"></a>O que é o portal A Minha Conta?

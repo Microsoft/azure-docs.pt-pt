@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: edf35fada4233fbe43bc7f859c2414bfb8130714
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90905733"
 ---
 # <a name="train-anomaly-detection-model-module"></a>Módulo de modelo de deteção de anomalias de comboio
@@ -38,7 +38,7 @@ Para obter mais informações sobre os algoritmos de deteção de anomalias forn
 
 5.  Envie o oleoduto.  
 
-## <a name="results"></a>Resultados
+## <a name="results"></a>Results
 
 Após o treino estar completo:
 

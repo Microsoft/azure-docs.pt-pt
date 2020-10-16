@@ -7,14 +7,15 @@ ms.author: saveenr
 manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
+ms.subservice: overview
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: f5cb8119e5429c4684030aaee2e6ffa99c92e2d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a46bbf9552bfef30efc0282f9f6abb19c512488b
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91260942"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089762"
 ---
 # <a name="get-started-with-azure-synapse-analytics"></a>Começar com Azure Synapse Analytics
 

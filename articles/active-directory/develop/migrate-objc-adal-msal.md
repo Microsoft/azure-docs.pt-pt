@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: 13923596b7ad0f6d3fdef24e847f469645b448ee
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88119934"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>Migrar aplicações para MSAL para iOS e macOS
@@ -53,7 +53,7 @@ A API pública MSAL reflete algumas diferenças fundamentais entre o Azure AD v1
 
 ### <a name="msalpublicclientapplication-instead-of-adauthenticationcontext"></a>MSALPublicCientApplication em vez de ADAuthenticationContexto
 
-`ADAuthenticationContext`é o primeiro objeto que uma aplicação ADAL cria. Representa uma instantânea de ADAL. As aplicações criam um novo exemplo `ADAuthenticationContext` de cada combinação de cloud e inquilino (autoridade) do Azure Ative Directory. O mesmo `ADAuthenticationContext` pode ser usado para obter fichas para várias aplicações de clientes públicos.
+`ADAuthenticationContext` é o primeiro objeto que uma aplicação ADAL cria. Representa uma instantânea de ADAL. As aplicações criam um novo exemplo `ADAuthenticationContext` de cada combinação de cloud e inquilino (autoridade) do Azure Ative Directory. O mesmo `ADAuthenticationContext` pode ser usado para obter fichas para várias aplicações de clientes públicos.
 
 No MSAL, a principal interação é através de um `MSALPublicClientApplication` objeto, que é modelado após [OAuth 2.0 Cliente Público](https://tools.ietf.org/html/rfc6749#section-2.1). Um exemplo `MSALPublicClientApplication` pode ser usado para interagir com várias nuvens de AAD, e inquilinos, sem necessidade de criar um novo exemplo para cada autoridade. Para a maioria das aplicações, um `MSALPublicClientApplication` caso é suficiente.
 
@@ -83,7 +83,7 @@ Pode ler mais informações sobre a utilização do âmbito "/.predefinição" [
 
 A ADAL suporta apenas uIWebView/WKWebView para iOS e WebView para macOS. O MSAL para iOS suporta mais opções para exibir conteúdo web ao solicitar um código de autorização, e já não suporta `UIWebView` ; o que pode melhorar a experiência e segurança do utilizador.
 
-Por padrão, o MSAL no iOS utiliza [o ASWebAuthenticationSsion](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession?language=objc), que é o componente web que a Apple recomenda para autenticação em dispositivos iOS 12+. Ele fornece benefícios de Sign-On Único (SSO) através da partilha de cookies entre apps e o navegador Safari.
+Por padrão, o MSAL no iOS utiliza [o ASWebAuthenticationSsion](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession?language=objc), que é o componente web que a Apple recomenda para autenticação em dispositivos iOS 12+. Ele fornece benefícios de Sign-On (SSO) através da partilha de cookies entre apps e o navegador Safari.
 
 Pode optar por utilizar um componente web diferente, dependendo dos requisitos da aplicação e da experiência do utilizador final que pretende. Consulte [os tipos de visualização web suportados](customize-webviews.md) para obter mais opções.
 
@@ -322,7 +322,7 @@ Por predefinição, o MSAL caches os tokens da sua aplicação no chaveiro iOS o
 Para permitir o caching token:
 1. Certifique-se de que a sua candidatura está devidamente assinada
 2. Aceda ao seu separador de Definições de Projeto Xcode > **Capacidades**  >  **Ativar a partilha de chavechains**
-3. Clique **+** e introduza uma seguinte entrada **dos Grupos Keychain:** 3.a Para iOS, introduza `com.microsoft.adalcache` 3.b Para a entrada do macOS`com.microsoft.identity.universalstorage`
+3. Clique **+** e introduza uma seguinte entrada **dos Grupos Keychain:** 3.a Para iOS, introduza `com.microsoft.adalcache` 3.b Para a entrada do macOS `com.microsoft.identity.universalstorage`
 
 ### <a name="create-msalpublicclientapplication-and-switch-to-its-acquiretoken-and-acquiretokesilent-calls"></a>Crie MSALPublicClientApplication e mude para a sua aquisiçãoToken e adquira chamadasTokeSilent
 

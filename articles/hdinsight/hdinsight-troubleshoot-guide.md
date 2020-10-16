@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/14/2019
 ms.openlocfilehash: 3578cda1b51dbb70b0bdfebf92b98c3fa7aa2842
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86085961"
 ---
 # <a name="troubleshoot-by-using-azure-hdinsight"></a>Resolução de problemas utilizando Azure HDInsight
@@ -34,7 +34,7 @@ ms.locfileid: "86085961"
 | Erros | - [Compreender e resolver erros do WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md)<br>- [Configurações da Colmeia Apache para corrigir erro outofMemory](hdinsight-hadoop-hive-out-of-memory-error-oom.md) |
 | Ferramentas | - [Otimizar consultas de Colmeia Apache](hdinsight-hadoop-optimize-hive-query.md)<br>- [Ferramenta HDInsight IntelliJ](./spark/apache-spark-intellij-tool-plugin.md)<br>- [Ferramenta hdInsight Eclipse](./spark/apache-spark-eclipse-tool-plugin.md)<br>- [Ferramenta HDInsight VSCode](hdinsight-for-vscode.md)<br>- [Ferramenta HDInsight Visual Studio](./hadoop/apache-hadoop-visual-studio-tools-get-started.md) |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

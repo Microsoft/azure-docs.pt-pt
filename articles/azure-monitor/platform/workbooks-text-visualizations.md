@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: lagayhar
 ms.openlocfilehash: e8f2d9495484b781b26962c2946b5bada6c38b4c
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89664924"
 ---
 # <a name="text-visualizations"></a>Visualizações de texto
@@ -66,7 +66,7 @@ Exemplo de estilo de aviso:
 
 ![Screenshot de como é o estilo de aviso.](./media/workbooks-text-visualizations/text-warning-style.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como criar um [gráfico em livros de trabalho.](workbooks-chart-visualizations.md)
 * Saiba como criar uma grelha em livros de [trabalho.](workbooks-grid-visualizations.md)

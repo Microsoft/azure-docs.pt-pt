@@ -9,10 +9,10 @@ ms.service: traffic-manager
 ms.date: 09/18/2019
 ms.author: duau
 ms.openlocfilehash: c43b85f3c4b8d1b750e9f97e0be812bee683c702
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90600811"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-cli"></a>Sub-rede do Gestor de Tráfego sobrepõe-se usando Azure CLI

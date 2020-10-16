@@ -11,10 +11,10 @@ ms.author: aashishb
 author: aashishb
 ms.date: 04/27/2020
 ms.openlocfilehash: 405b0aa051d0d1142d7dd4ccbf2bca4ef9cc3545
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89650597"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Referência de dados de monitorização de machine learning Azure
@@ -130,11 +130,11 @@ As tabelas que se seguem listam as métricas da plataforma recolhidas para a Azu
 
 | Métrica | Unidade | Descrição |
 | ----- | ----- | ----- |
-| A implementação do modelo falhou | de palavras | O número de implementações de modelos que falharam. |
-| Implementação de modelos iniciado | de palavras | O número de implementações de modelos começou. |
-| Implementação de modelos conseguiu | de palavras | O número de implementações de modelos que conseguiram. |
-| Registo modelo falhou | de palavras | O número de registos de modelos que falharam. |
-| Registo modelo conseguiu | de palavras | O número de registos de modelos que se sucederam. |
+| A implementação do modelo falhou | Contagem | O número de implementações de modelos que falharam. |
+| Implementação de modelos iniciado | Contagem | O número de implementações de modelos começou. |
+| Implementação de modelos conseguiu | Contagem | O número de implementações de modelos que conseguiram. |
+| Registo modelo falhou | Contagem | O número de registos de modelos que falharam. |
+| Registo modelo conseguiu | Contagem | O número de registos de modelos que se sucederam. |
 
 **Quota**
 
@@ -142,19 +142,19 @@ A informação sobre quotas é apenas para o cálculo Azure Machine Learning.
 
 | Métrica | Unidade | Descrição |
 | ----- | ----- | ----- |
-| Núcleos ativos | de palavras | O número de núcleos de computação ativo. |
-| Nódes ativos | de palavras | O número de nós ativos. |
-| Núcleos ociosos | de palavras | O número de núcleos de computação ocioso. |
-| Nódoas ociosas | de palavras | O número de nós de computação ocioso. |
-| Deixando núcleos | de palavras | O número de núcleos de saída. |
-| Deixando os nódoas | de palavras | O número de nós de saída. |
-| Núcleos preemptidos | de palavras | O número de núcleos preempted. |
-| Nódoas presas | de palavras | O número de nós preempted. |
+| Núcleos ativos | Contagem | O número de núcleos de computação ativo. |
+| Nódes ativos | Contagem | O número de nós ativos. |
+| Núcleos ociosos | Contagem | O número de núcleos de computação ocioso. |
+| Nódoas ociosas | Contagem | O número de nós de computação ocioso. |
+| Deixando núcleos | Contagem | O número de núcleos de saída. |
+| Deixando os nódoas | Contagem | O número de nós de saída. |
+| Núcleos preemptidos | Contagem | O número de núcleos preempted. |
+| Nódoas presas | Contagem | O número de nós preempted. |
 | Percentagem de utilização de quotas | Percentagem | A percentagem de quota utilizada. |
-| Total de núcleos | de palavras | Os núcleos totais. |
-| Nódoas totais | de palavras | Os nós totais. |
-| Núcleos inutilizáveis | de palavras | O número de núcleos inutilizáveis. |
-| Nódes inutilizáveis | de palavras | O número de nós inutilizáveis. |
+| Total de núcleos | Contagem | Os núcleos totais. |
+| Nódoas totais | Contagem | Os nós totais. |
+| Núcleos inutilizáveis | Contagem | O número de núcleos inutilizáveis. |
+| Nódes inutilizáveis | Contagem | O número de nós inutilizáveis. |
 
 Seguem-se as dimensões que podem ser utilizadas para filtrar métricas de quota:
 
@@ -180,15 +180,15 @@ Seguem-se as dimensões que podem ser utilizadas para filtrar métricas de recur
 | NodeId | Identificação do nó criado onde o trabalho está a funcionar. |
 | RunId | Identificação da corrida/trabalho. |
 
-**Executar**
+**Correr**
 
 Informação sobre treinos.
 
 | Métrica | Unidade | Descrição |
 | ----- | ----- | ----- |
-| Execuções concluídas | de palavras | O número de execuções completas. |
-| Corridas falhadas | de palavras | O número de corridas falhadas. |
-| Começou a correr | de palavras | O número de corridas iniciadas. |
+| Execuções concluídas | Contagem | O número de execuções completas. |
+| Corridas falhadas | Contagem | O número de corridas falhadas. |
+| Começou a correr | Contagem | O número de corridas iniciadas. |
 
 Seguem-se as dimensões que podem ser utilizadas para filtrar métricas de execução:
 

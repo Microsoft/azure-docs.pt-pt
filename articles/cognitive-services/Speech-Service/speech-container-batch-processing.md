@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: aahi
 ms.openlocfilehash: 3cd6febfc774b214a8c1ae8553e6c127c4f452fa
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319083"
 ---
 # <a name="batch-processing-kit-for-speech-containers"></a>Kit de processamento de lote para recipientes de fala
@@ -118,7 +118,7 @@ O kit de processamento de lote oferece três modos, utilizando o `--run-mode` pa
 
 `ONESHOT` o modo transcreve um único lote de ficheiros áudio (de um diretório de entrada e lista de ficheiros opcionais) para uma pasta de saída.
 
-:::image type="content" source="media/containers/batch-oneshot-mode.png" alt-text="Um diagrama que mostra os ficheiros de processamento do recipiente do kit de lote no modo oneshot.":::
+:::image type="content" source="media/containers/batch-oneshot-mode.png" alt-text="Um diagrama que mostra um fluxo de trabalho de recipiente de lote de exemplo.":::
 
 1. Defina os pontos finais do recipiente speech que o cliente do lote utilizará no `config.yaml` ficheiro. 
 2. Coloque ficheiros de áudio para transcrição num diretório de entrada.  
@@ -133,7 +133,7 @@ O kit de processamento de lote oferece três modos, utilizando o `--run-mode` pa
 
 `DAEMON` o modo transcreve os ficheiros existentes numa determinada pasta e transcreve continuamente novos ficheiros de áudio à medida que são adicionados.          
 
-:::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="Um diagrama que mostra os ficheiros de processamento do recipiente do kit de lote no modo Daemon.":::
+:::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="Um diagrama que mostra um fluxo de trabalho de recipiente de lote de exemplo.":::
 
 1. Defina os pontos finais do recipiente speech que o cliente do lote utilizará no `config.yaml` ficheiro. 
 2. Invoque o recipiente num diretório de entrada. O cliente do lote começará a monitorizar o diretório para os ficheiros de entrada. 
@@ -146,7 +146,7 @@ O kit de processamento de lote oferece três modos, utilizando o `--run-mode` pa
 
 `REST` modo é um modo de servidor API que fornece um conjunto básico de pontos finais HTTP para submissão de ficheiros áudio, verificação de estado e sondagens longas. Também permite o consumo programático usando uma extensão de módulo python, ou importando como uma submula.
 
-:::image type="content" source="media/containers/batch-rest-api-mode.png" alt-text="Um diagrama que mostra os ficheiros de processamento do recipiente do kit de lote no modo Daemon.":::
+:::image type="content" source="media/containers/batch-rest-api-mode.png" alt-text="Um diagrama que mostra um fluxo de trabalho de recipiente de lote de exemplo.":::
 
 1. Defina os pontos finais do recipiente speech que o cliente do lote utilizará no `config.yaml` ficheiro. 
 2. Envie um pedido HTTP a um dos pontos finais do servidor API. 

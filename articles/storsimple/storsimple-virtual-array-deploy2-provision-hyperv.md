@@ -16,10 +16,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d6dfc95820e911781ffa88e2207601703f165839
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87070587"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>Implementar StorSimple Virtual Array - Provisão em Hiper-V
@@ -168,11 +168,11 @@ Execute os seguintes passos para iniciar a sua matriz virtual e conectá-la.
    ![Screenshot do separador consola cliente vSphere mostrando caracteres indeterminados na caixa de entrada.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image23.png)
 4. Por motivos de segurança, a palavra-passe de administrador do dispositivo expira após o primeiro início de sessão. É-lhe pedido que altere a palavra-passe.
 
-   ![Screenshot do separador consola cliente vSphere. Texto na página indica que a palavra-passe deve ser alterada.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image24.png)
+   ![Screenshot do separador consola do cliente vSphere. O texto na página indica que a palavra-passe deve ser alterada.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image24.png)
 
    Introduza uma palavra-passe com, pelo menos, 8 carateres. A palavra-passe tem de satisfazer, pelo menos, três dos quatro requisitos seguintes: letras maiúsculas, letras minúsculas, números e carateres especiais. Reintroduza a palavra-passe para a confirmar. É notificado de que a palavra-passe foi alterada.
 
-   ![Screenshot do separador consola cliente vSphere. Texto na página indica que a palavra-passe foi alterada.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image25.png)
+   ![Screenshot do separador consola do cliente vSphere. O texto na página indica que a palavra-passe foi alterada.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image25.png)
 5. Depois de a palavra-passe ser alterada com sucesso, a matriz virtual pode reiniciar. Aguarde pelo início do dispositivo.
 
    ![Screenshot da página principal do StorSimpleAdmin. O texto na página pede ao utilizador que aguarde o serviço de notificação de eventos do sistema.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image26.png)

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: jlian
 ms.openlocfilehash: 08ecb766a1a9bd7ff75bf97647be811577212eb5
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90006045"
 ---
 # <a name="tls-support-in-iot-hub"></a>Suporte TLS no IoT Hub
@@ -92,7 +92,7 @@ Um cliente pode sugerir uma lista de suítes de cifra mais altas para usar duran
 
 Utilize os links abaixo para configurar o TLS 1.2 e permitiu cifras em SDKs cliente IoT Hub.
 
-| Linguagem | Versões que suportam TLS 1.2 | Documentação |
+| Idioma | Versões que suportam TLS 1.2 | Documentação |
 |----------|------------------------------------|---------------|
 | C        | Tag 2019-12-11 ou mais recente            | [Ligação](https://aka.ms/Tls_C_SDK_IoT) |
 | Python   | Versão 2.0.0 ou mais recente             | [Ligação](https://aka.ms/Tls_Python_SDK_IoT) |

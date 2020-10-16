@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
 ms.openlocfilehash: 039045b613e57ee396201ee93c3962c5970cf02b
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91651926"
 ---
 # <a name="fsv2-series"></a>Série Fsv2
 
 A série Fsv2 funciona nos processadores Intel® Xeon® Platinum 8272CL (Cascade Lake) e nos processadores Intel® Xeon® Platinum 8168 (Skylake). Apresenta uma velocidade do relógio Turbo de 3,4 GHz e uma frequência máxima de turbo mono-núcleo de 3,7 GHz. As instruções ® AVX-512 da Intel são novas nos processadores Intel Scalable. Estas instruções fornecem até um aumento de desempenho de 2X para cargas de trabalho de processamento de vetores em operações de ponto flutuante de precisão única e dupla. Por outras palavras, são muito rápidos para qualquer carga de trabalho computacional.
 
-Os VMs da série Fsv2 apresentam tecnologia de hiper rosca ® Intel.
+Os VMs da série Fsv2 apresentam Tecnologia intel® Hyper-Threading.
 
 [ACU](acu.md): 195 - 210<br>
 [Armazenamento Premium](premium-storage-performance.md): Suportado<br>

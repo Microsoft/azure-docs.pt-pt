@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
 ms.openlocfilehash: 1727193faa028a1d681f2a74df950afeb9570ec9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91270054"
 ---
 # <a name="tutorial-add-security-headers-with-rules-engine"></a>Tutorial: Adicione cabeçalhos de segurança com o motor de regras
@@ -25,7 +25,7 @@ Este tutorial mostra como implementar cabeçalhos de segurança para prevenir vu
 
 O exemplo a seguir mostra-lhe como adicionar um cabeçalho de Política de Segurança de Conteúdo a todos os pedidos de entrada que correspondam ao caminho definido na rota com que a configuração do Motor de Regras está associada. Aqui, apenas permitimos que scripts do nosso site de confiança, **https://apiphany.portal.azure-api.net** para executar na nossa aplicação.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > - Configure uma política de segurança de conteúdo dentro do motor de regras.
 
@@ -49,7 +49,7 @@ Neste tutorial, vai aprender a:
 > [!NOTE]
 > Neste cenário, não acrescentámos [condições de jogo](front-door-rules-engine-match-conditions.md) à regra. Todos os pedidos de entrada que correspondam ao caminho definido na Regra da Rota terão esta regra aplicada. Se quiser que se aplique apenas a um subconjunto desses pedidos, certifique-se de adicionar as suas **condições** específicas de correspondência a esta regra.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Nos passos anteriores, configuraste cabeçalhos de segurança com o Motor das Regras. Se já não quiser a regra, pode removê-la clicando na regra Eliminar.
 

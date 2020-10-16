@@ -10,18 +10,18 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: 0b032f48e18651af7f360471cc2834a5c45acc56
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0297c8674cc47a1d5f59fef196a60175244eaae2
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831418"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978327"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>IBM DB2 pureScale em Azure
 
 O ambiente IBM DB2 pureScale fornece um cluster de base de dados para a Azure com elevada disponibilidade e escalabilidade nos sistemas operativos Linux. Este artigo mostra uma arquitetura para executar DB2 pureScale on Azure.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Overview (Descrição geral)
 
 Há muito que as empresas utilizam plataformas tradicionais de gestão de bases de dados relacionais (RDBMS) para atender às suas necessidades de processamento de transações online (OLTP). Hoje em dia, muitos estão a migrar os seus ambientes de base de dados baseados em computadores principais para Azure como forma de expandir a capacidade, reduzir custos e manter uma estrutura de custos operacional estável. A migração é muitas vezes o primeiro passo na modernização de uma plataforma legado. 
 
@@ -86,7 +86,7 @@ Esta arquitetura executa os níveis de aplicação, armazenamento e dados em má
 
 ### <a name="storage-considerations"></a>Considerações sobre armazenamento
 
-Tal como o Oracle RAC, dB2 pureScale é uma base de dados de alta performance do bloco de alto desempenho, de escala. Recomendamos a utilização da maior opção [SSD premium Azure](disks-types.md) que se adequa às suas necessidades. Opções de armazenamento mais pequenas podem ser adequadas para ambientes de desenvolvimento e teste, enquanto os ambientes de produção muitas vezes precisam de mais capacidade de armazenamento. O exemplo da arquitetura usa [P30](https://azure.microsoft.com/pricing/details/managed-disks/) devido à sua relação de IOPS com o tamanho e preço. Independentemente do tamanho, utilize o Premium Storage para melhor desempenho.
+Tal como o Oracle RAC, dB2 pureScale é uma base de dados de alta performance do bloco de alto desempenho, de escala. Recomendamos a utilização da maior opção [SSD premium Azure](../disks-types.md) que se adequa às suas necessidades. Opções de armazenamento mais pequenas podem ser adequadas para ambientes de desenvolvimento e teste, enquanto os ambientes de produção muitas vezes precisam de mais capacidade de armazenamento. O exemplo da arquitetura usa [P30](https://azure.microsoft.com/pricing/details/managed-disks/) devido à sua relação de IOPS com o tamanho e preço. Independentemente do tamanho, utilize o Premium Storage para melhor desempenho.
 
 DB2 pureScale usa uma arquitetura de tudo partilhado, onde todos os dados são acessíveis a partir de todos os nós de cluster. O armazenamento premium deve ser partilhado em vários casos, seja a pedido ou em casos dedicados.
 

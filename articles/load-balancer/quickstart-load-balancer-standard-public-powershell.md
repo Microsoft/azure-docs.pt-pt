@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/25/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: aca16e334e594f8adf0c0a3b0354db827fc475fe
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9db530c1bdff6521c945ae0c2373bb9d32b8a476
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91334000"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047782"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-powershell"></a>Quickstart: Criar um equilibrador de carga público para carregar VMs de equilíbrio usando Azure PowerShell
 
@@ -1186,7 +1186,7 @@ Leva alguns minutos para criar e configurar os três VMs.
 
 Utilize [a Configuração AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension?view=latest) para instalar a extensão de script personalizada. 
 
-A extensão executa o PowerShell Add-WindowsFeature Web-Server para instalar o webserver IIS e, em seguida, atualiza a página Default.htm para mostrar o nome de anfitrião do VM:
+A extensão executa o powerShell Add-WindowsFeature Web-Server instalar o webserver IIS e, em seguida, atualiza a página Default.htm para mostrar o nome de anfitrião do VM:
 
 ### <a name="vm1"></a>VM1 
 
@@ -1271,8 +1271,8 @@ Neste arranque rápido
 * Configurado a regra de tráfego do balanceador de carga e a sonda de saúde.
 * Testei o equilibrador de carga.
 
-Para saber mais sobre o Azure Load Balancer, continue até [Load Balancer frequently asked questions](load-balancer-faqs.md) [o que é o Equilibr de Carga Azure?](load-balancer-overview.md)
-
-* Saiba mais sobre [as zonas de Balancer e Disponibilidade](load-balancer-standard-availability-zones.md)de Carga.
+Para saber mais sobre o Azure Load Balancer, continue a.
+> [!div class="nextstepaction"]
+> [What is Azure Load Balancer?](load-balancer-overview.md) (O que é o Balanceador de Carga do Azure?)
 
 

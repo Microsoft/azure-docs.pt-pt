@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 02/14/2020
 ms.openlocfilehash: c678372fbd54e528a8a16eacc601e815cfd32e58
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86082238"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Adicione bibliotecas personalizadas da Hive Apache ao criar o seu cluster HDInsight
@@ -33,7 +33,7 @@ A utilização da ação de script neste artigo disponibiliza as bibliotecas ao 
 
 [https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1](https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1)
 
-### <a name="requirements"></a>Requirements
+### <a name="requirements"></a>Requisitos
 
 * Os scripts devem ser aplicados tanto nos **nós da Cabeça como** nos nós do **Trabalhador**.
 
@@ -59,7 +59,7 @@ A utilização da ação de script neste artigo disponibiliza as bibliotecas ao 
     |Propriedade |Valor |
     |---|---|
     |Tipo de script|- Personalizado|
-    |Name|Bibliotecas |
+    |Nome|Bibliotecas |
     |URI de guião de bash|`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`|
     |Tipo de nó(s)|Cabeça, Trabalhador|
     |Parâmetros|Introduza o endereço WASB na conta de contentores e armazenamento que contenham os frascos. Por exemplo, `wasbs://libs@mystorage.blob.core.windows.net/`.|
@@ -71,6 +71,6 @@ A utilização da ação de script neste artigo disponibiliza as bibliotecas ao 
 
 Uma vez concluída a criação de clusters, você pode usar os frascos adicionados através deste script da Hive sem ter que usar a `ADD JAR` declaração.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o trabalho com a Colmeia, consulte [Use Apache Hive com HDInsight](hadoop/hdinsight-use-hive.md)

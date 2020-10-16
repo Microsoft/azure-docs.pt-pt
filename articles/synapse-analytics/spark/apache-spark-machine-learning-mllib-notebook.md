@@ -10,10 +10,10 @@ ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
 ms.openlocfilehash: 667ce8ede9469063e5714470a8e18c218f3c2c90
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540324"
 ---
 # <a name="tutorial-build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Tutorial: Construa uma app de machine learning com Apache Spark MLlib e Azure Synapse Analytics
@@ -278,11 +278,11 @@ plt.show()
 
 Depois de ter terminado a execução da aplicação, desligue o portátil para libertar os recursos fechando o separador ou selecione **Sessão final** do painel de estado na parte inferior do portátil.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 - [Visão geral: Apache Spark on Azure Synapse Analytics](apache-spark-overview.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [.NET para documentação Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)

@@ -1,6 +1,6 @@
 ---
-title: Implementar a Plataforma de Contentores OpenShift 3.11 Oferta de Mercado Auto-gerida em Azure
-description: Implementar a Oferta de Mercado de Contentores OpenShift 3.11 auto-gerida em Azure.
+title: Implementar plataforma de contentores openshift 3.11 Self-Managed oferta de marketplace em Azure
+description: Implementar a Plataforma de Contentores OpenShift 3.11 Self-Managed Oferta de Mercado em Azure.
 author: haroldwongms
 manager: mdotson
 ms.service: virtual-machines-linux
@@ -11,10 +11,10 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.openlocfilehash: 36adf35c5fbfc3e88b7d9af425ebabc852707e69
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87374104"
 ---
 # <a name="configure-prerequisites"></a>Configurar pré-requisitos

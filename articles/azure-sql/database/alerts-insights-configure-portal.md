@@ -12,10 +12,10 @@ ms.author: aamalvea
 ms.reviewer: jrasnik, sstein
 ms.date: 05/04/2020
 ms.openlocfilehash: 2fdaaf153f242a25e1ad9d8f926d6ac77d285df2
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91444901"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-using-the-azure-portal"></a>Criar alertas para a Base de Dados Azure SQL e Azure Synapse Analytics utilizando o portal Azure
@@ -71,6 +71,6 @@ Pode configurar e obter informações sobre regras de alerta usando
 
 Dentro de 10 minutos, o alerta está ativo e dispara como descrito anteriormente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [configurar webhooks em alertas](../../azure-monitor/platform/alerts-webhooks.md).

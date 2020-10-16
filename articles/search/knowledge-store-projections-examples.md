@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.openlocfilehash: f40841887b8116ad1384dc2b827d8215ea659490
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91537502"
 ---
 # <a name="how-to-shape-and-export-enrichments"></a>Como moldar e exportar enriquecimentos
@@ -664,7 +664,7 @@ Ao definir uma projeção, existem algumas questões comuns que podem causar res
 
 + Erros de sintaxe do caminho. Os seletores de caminhos são sensíveis ao caso e podem levar a avisos de entrada em falta se não utilizar a caixa exata para o seletor.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Os exemplos deste artigo demonstram padrões comuns sobre como criar projeções. Agora que tem uma boa compreensão dos conceitos, está mais bem equipado para construir projeções para o seu cenário específico.
 

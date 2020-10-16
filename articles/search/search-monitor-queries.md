@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.openlocfilehash: a5589a46a63437fb395db280222f8a9e84775df3
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88935080"
 ---
 # <a name="monitor-query-requests-in-azure-cognitive-search"></a>Monitor solicita pedidos de consulta em Azure Cognitive Search
@@ -39,7 +39,7 @@ O volume é medido como **Consultas de Pesquisa Por Segundo** (QPS), uma métric
 | Tipo de Agregação | Descrição |
 |------------------|-------------|
 | Média | O número médio de segundos dentro de um minuto durante o qual ocorreu a execução de consultas.|
-| de palavras | O número de métricas emitidas no registo dentro do intervalo de um minuto. |
+| Contagem | O número de métricas emitidas no registo dentro do intervalo de um minuto. |
 | Máximo | O maior número de consultas de pesquisa por segundo registados durante um minuto. |
 | Mínimo | O menor número de consultas de pesquisa por segundo registado durante um minuto.  |
 | Soma | A soma de todas as consultas executadas dentro de um minuto.  |
@@ -57,7 +57,7 @@ Em todo o serviço, o desempenho da consulta é medido como latência de pesquis
 | Tipo de Agregação | Latência | 
 |------------------|---------|
 | Média | Duração média da consulta em milissegundos. | 
-| de palavras | O número de métricas emitidas no registo dentro do intervalo de um minuto. |
+| Contagem | O número de métricas emitidas no registo dentro do intervalo de um minuto. |
 | Máximo | Consulta de maior duração na amostra. | 
 | Mínimo | Consulta de funcionamento mais curta na amostra.  | 
 | Total | Tempo total de execução de todas as consultas na amostra, executando dentro do intervalo (um minuto).  |
@@ -85,7 +85,7 @@ Para confirmar consultas estranguladas, use a métrica **das consultas de pesqui
 | Tipo de Agregação | Limitação |
 |------------------|-----------|
 | Média | Percentagem de consultas diminuiu dentro do intervalo. |
-| de palavras | O número de métricas emitidas no registo dentro do intervalo de um minuto. |
+| Contagem | O número de métricas emitidas no registo dentro do intervalo de um minuto. |
 | Máximo | Percentagem de consultas diminuiu dentro do intervalo.|
 | Mínimo | Percentagem de consultas diminuiu dentro do intervalo. |
 | Total | Percentagem de consultas diminuiu dentro do intervalo. |

@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.openlocfilehash: 12d78846f5892e71388de6e6e76b868f9b14d4de
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88008921"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-server-side-issues"></a>Resolver problemas do lado do servidor da Cache do Azure para Redis
@@ -35,12 +35,12 @@ A pressão de memória no lado do servidor leva a todo o tipo de problemas de de
 
 Redis expõe duas estatísticas através do comando [INFO](https://redis.io/commands/info) que podem ajudá-lo a identificar este problema: "used_memory" e "used_memory_rss". Pode [ver estas métricas](cache-how-to-monitor.md#view-metrics-with-azure-monitor) usando o portal.
 
-Existem várias alterações possíveis que pode fazer para ajudar a manter o uso da memória saudável:
+Há várias alterações possíveis que pode fazer para ajudar a manter um bom estado de funcionamento da utilização da memória:
 
 - [Configure uma política de memória](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) e desfaça os prazos de validade nas suas chaves. Esta política pode não ser suficiente se tiver fragmentação.
 - [Configure um valor maxmemory reservado](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) que seja grande o suficiente para compensar a fragmentação da memória.
-- Separe os seus objetos grandes em cache em objetos mais pequenos.
-- [Crie alertas](cache-how-to-monitor.md#alerts) em métricas como a memória usada para ser notificada precocemente sobre potenciais impactos.
+- Divida os objetos em cache grandes em objetos relacionados mais pequenos.
+- [Crie alertas](cache-how-to-monitor.md#alerts) sobre métricas, por exemplo, sobre a memória utilizada, para ser notificado antecipadamente sobre potenciais impactos.
 - [Dimensione](cache-how-to-scale.md) para um tamanho de cache maior com mais capacidade de memória.
 
 ## <a name="high-cpu-usage-or-server-load"></a>Alta carga de utilização do CPU ou servidor
@@ -70,7 +70,7 @@ As métricas "Cache Read" e "Cache Write" podem ser usadas para ver a quantidade
 Para mitigar situações em que a utilização da largura de banda da rede está próxima da capacidade máxima:
 
 - Alterar o comportamento de chamada do cliente para reduzir a procura de rede.
-- [Crie alertas](cache-how-to-monitor.md#alerts) em métricas como a leitura de cache ou a escrita de cache para ser notificado precocemente sobre potenciais impactos.
+- [Crie alertas](cache-how-to-monitor.md#alerts) sobre métricas, por exemplo, leitura de cache ou escrita de cache para ser notificado antecipadamente sobre potenciais impactos.
 - [Dimensione](cache-how-to-scale.md) para um tamanho de cache maior com mais capacidade de largura de banda de rede.
 
 ## <a name="additional-information"></a>Informações adicionais
@@ -78,5 +78,5 @@ Para mitigar situações em que a utilização da largura de banda da rede está
 - [Resolver problemas do lado do cliente da Cache do Azure para Redis](cache-troubleshoot-client.md)
 - [Escolher o escalão certo](cache-overview.md#choosing-the-right-tier)
 - [Como posso comparar e testar o desempenho da minha cache?](cache-management-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
-- [Como monitorizar a Cache Azure para Redis](cache-how-to-monitor.md)
+- [Como monitorizar a Cache do Azure para Redis](cache-how-to-monitor.md)
 - [Como posso comandar o Redis?](cache-development-faq.md#how-can-i-run-redis-commands)

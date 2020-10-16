@@ -12,19 +12,19 @@ ms.date: 06/06/2020
 ms.author: vigunase
 ms.subservice: B2C
 ms.openlocfilehash: c8739da859c00a9caf08ac833f7b4ae7ae52e392
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90084316"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Recomendações e boas práticas para o Azure Ative Directory B2C
 
 As seguintes boas práticas e recomendações abrangem alguns dos aspetos primários da integração do Azure Ative Directory (Azure AD) B2C em ambientes de aplicação existentes ou novos.
 
-## <a name="fundamentals"></a>Fundamentos
+## <a name="fundamentals"></a>Noções básicas
 
-| Melhores práticas | Description |
+| Melhores práticas | Descrição |
 |--|--|
 | Escolha os fluxos de utilizador para a maioria dos cenários | O Quadro de Experiência de Identidade do Azure AD B2C é a força central do serviço. As políticas descrevem totalmente experiências de identidade como inscrição, inscrição ou edição de perfis. Para ajudá-lo a configurar as tarefas de identidade mais comuns, o portal Azure AD B2C inclui políticas predefinidas e configuráveis chamadas fluxos de utilizador. Com os fluxos do utilizador, pode criar excelentes experiências de utilizador em minutos, com apenas alguns cliques. [Saiba quando utilizar fluxos de utilizador vs. políticas personalizadas](custom-policy-overview.md#comparing-user-flows-and-custom-policies).|
 | Registos de aplicações | Todas as aplicações (web, nativas) e API que estão a ser protegidas devem estar registadas no Azure AD B2C. Se uma aplicação tiver uma versão web e nativa do iOS e Android, pode registá-las como uma aplicação no Azure AD B2C com o mesmo ID do cliente. Saiba como [registar aplicações OIDC, SAML, web e native.](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications?tabs=applications) Saiba mais sobre [os tipos de aplicações que podem ser usados em Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/application-types). |
@@ -34,7 +34,7 @@ As seguintes boas práticas e recomendações abrangem alguns dos aspetos primá
 
 Defina a sua arquitetura de aplicação e serviço, os sistemas atuais de inventário e planeie a sua migração para Azure AD B2C.
 
-| Melhores práticas | Description |
+| Melhores práticas | Descrição |
 |--|--|
 | Arquiteto uma solução de ponta a ponta | Inclua todas as dependências das suas aplicações ao planear uma integração Azure AD B2C. Considere todos os serviços e produtos que estão atualmente no seu ambiente ou que possam precisar de ser adicionados à solução, por exemplo, Funções Azure, sistemas de gestão de relacionamento com o cliente (CRM), gateway de gestão API Azure e serviços de armazenamento. Tome em consideração a segurança e escalabilidade de todos os serviços. |
 | Documente as experiências dos seus utilizadores | Detalhe todas as viagens de utilizador que os seus clientes podem experimentar na sua aplicação. Inclua todos os ecrãs e quaisquer fluxos de ramificação que possam encontrar ao interagir com os aspetos de identidade e perfil da sua aplicação. Inclua usabilidade, acessibilidade e localização no seu planeamento. |
@@ -50,7 +50,7 @@ Defina a sua arquitetura de aplicação e serviço, os sistemas atuais de invent
 
 Durante a fase de implementação, considere as seguintes recomendações.
 
-| Melhores práticas | Description |
+| Melhores práticas | Descrição |
 |--|--|
 | Editar políticas personalizadas com a extensão AZURE AD B2C para Código de Estúdio Visual | Baixe o Código do Estúdio Visual e esta [extensão](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c)construída pela comunidade a partir do Visual Studio Code Marketplace . Embora não seja um produto oficial da Microsoft, a extensão AZURE AD B2C para o Código do Estúdio Visual inclui várias funcionalidades que ajudam a facilitar o trabalho com políticas personalizadas. |
 | Saiba como resolver problemas Azure AD B2C | Saiba como [resolver políticas personalizadas](https://docs.microsoft.com/azure/active-directory-b2c/troubleshoot-custom-policies?tabs=applications) durante o desenvolvimento. Saiba como é um fluxo de autenticação normal e use ferramentas para descobrir anomalias e erros. Por exemplo, utilize [o Application Insights](troubleshoot-with-application-insights.md) para rever os registos de saída das viagens do utilizador. |
@@ -60,7 +60,7 @@ Durante a fase de implementação, considere as seguintes recomendações.
 
 Teste e automatize a sua implementação Azure AD B2C.
 
-| Melhores práticas | Description |
+| Melhores práticas | Descrição |
 |--|--|
 | Conta para o tráfego global | Utilize fontes de tráfego de diferentes endereços globais para testar os requisitos de desempenho e localização. Certifique-se de que todos os HTMLs, CSS e dependências podem satisfazer as suas necessidades de desempenho. |
 | Testes funcionais e de UI | Teste os fluxos do utilizador de ponta a ponta. Adicione testes sintéticos a cada poucos minutos utilizando Selénio, VS Web Test, etc. |
@@ -74,11 +74,11 @@ Teste e automatize a sua implementação Azure AD B2C.
 
 Gerencie o seu ambiente Azure AD B2C.
 
-| Melhores práticas | Description |
+| Melhores práticas | Descrição |
 |--|--|
 | Criar vários ambientes | Para facilitar as operações e implantação, crie ambientes separados para o desenvolvimento, teste, pré-produção e produção. Crie inquilinos Azure AD B2C para cada um. |
 | Use o controlo de versão para as suas políticas personalizadas | Considere usar GitHub, Azure Repos ou outro sistema de controlo de versão baseado na nuvem para as suas políticas personalizadas Azure AD B2C. |
-| Utilize a Microsoft Graph API para automatizar a gestão dos seus inquilinos B2C | APIs do Gráfico da Microsoft:<br/>Gerir [o Quadro de Experiência de Identidade](https://docs.microsoft.com/graph/api/resources/trustframeworkpolicy?view=graph-rest-beta&preserve-view=true) (políticas personalizadas)<br/>[Chaves](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta&preserve-view=true)<br/>[Fluxos do Utilizador](https://docs.microsoft.com/graph/api/resources/identityuserflow?view=graph-rest-beta&preserve-view=true) |
+| Utilize a Microsoft Graph API para automatizar a gestão dos seus inquilinos B2C | APIs do Gráfico da Microsoft:<br/>Gerir [o Quadro de Experiência de Identidade](https://docs.microsoft.com/graph/api/resources/trustframeworkpolicy?view=graph-rest-beta&preserve-view=true) (políticas personalizadas)<br/>[Chaves](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta&preserve-view=true)<br/>[Fluxos de Utilizador](https://docs.microsoft.com/graph/api/resources/identityuserflow?view=graph-rest-beta&preserve-view=true) |
 | Integre com Azure DevOps | Um [gasoduto CI/CD](deploy-custom-policies-devops.md) facilita o código de movimento entre diferentes ambientes e garante sempre a prontidão da produção.   |
 | Integre-se com o Azure Monitor | [Os eventos de registo de auditoria](view-audit-logs.md) só são mantidos por sete dias. [Integre-se com o Azure Monitor](azure-monitor.md) para reter os registos para uso a longo prazo, ou integrar-se com ferramentas de segurança de terceiros e de gestão de eventos (SIEM) para obter informações sobre o seu ambiente. |
 | Configuração de alerta e monitorização ativa | [Acompanhe o comportamento do utilizador](active-directory-b2c-custom-guide-eventlogger-appins.md) em Azure AD B2C utilizando Insights de Aplicação. |
@@ -87,8 +87,8 @@ Gerencie o seu ambiente Azure AD B2C.
 
 Mantenha-se atualizado com o estado do serviço e encontre opções de apoio.
 
-| Melhores práticas | Description |
+| Melhores práticas | Descrição |
 |--|--|
 | [Atualizações de serviço](https://azure.microsoft.com/updates/?product=active-directory-b2c) |  Mantenha-se atualizado com as atualizações e anúncios de produtos Azure AD B2C. |
-| [Suporte da Microsoft](support-options.md) | Apresentar um pedido de apoio para problemas técnicos Azure AD B2C. O suporte de gestão de faturação e subscrição é fornecido sem custos. |
+| [Suporte à Microsoft](support-options.md) | Apresentar um pedido de apoio para problemas técnicos Azure AD B2C. O suporte de gestão de faturação e subscrição é fornecido sem custos. |
 | [Estado do Azure](https://status.azure.com/status) | Veja o estado de saúde atual de todos os serviços da Azure. |

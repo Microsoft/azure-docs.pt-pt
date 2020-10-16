@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b5438132f32117e0ec48a6f985c3b9d2045a9da2
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 602e3f58ac5f8f194ad4704a4e792d4f0aec3a3e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649691"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978786"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurações e operações de infraestrutura do SAP HANA no Azure
 Este documento fornece orientações para configurar a infraestrutura Azure e operar sistemas SAP HANA que são implantados em máquinas virtuais nativas do Azure (VMs). O documento também inclui informações de configuração para a escala SAP HANA para o M128s VM SKU. Este documento não se destina a substituir a documentação padrão SAP, que inclui o seguinte conteúdo:
@@ -79,7 +79,7 @@ Para configurações de armazenamento e tipos de armazenamento a serem utilizado
 Quando tiver conectividade site-to-site em Azure via VPN ou ExpressRoute, deve ter pelo menos uma rede virtual Azure que esteja ligada através de um Gateway Virtual para o circuito VPN ou ExpressRoute. Em implementações simples, o Gateway Virtual pode ser implantado numa sub-rede da rede virtual Azure (VNet) que também acolhe as instâncias SAP HANA. Para instalar o SAP HANA, cria duas sub-redes adicionais dentro da rede virtual Azure. Uma sub-rede acolhe os VMs para executar as instâncias SAP HANA. A outra sub-rede executa VMs Jumpbox ou Management para hospedar o SAP HANA Studio, outro software de gestão ou o seu software de aplicação.
 
 > [!IMPORTANT]
-> Fora da funcionalidade, mas mais importante por razões de desempenho, não é suportado para configurar [aparelhos virtuais da rede Azure](https://azure.microsoft.com/solutions/network-appliances/) na via de comunicação entre a aplicação SAP e a camada DBMS de um sistema SAP NetWeaver, Hybris ou S/4HANA baseado em SAP. A comunicação entre a camada de aplicação SAP e a camada DBMS tem de ser direta. A restrição não inclui [as regras Azure ASG e NSG,](../../../virtual-network/security-overview.md) desde que as regras ASG e NSG permitam uma comunicação direta. Outros cenários em que os NVAs não são suportados estão em vias de comunicação entre VMs Azure que representam os nós de cluster Linux Pacemaker e dispositivos SBD, conforme descrito em [Alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server para aplicações SAP](./high-availability-guide-suse.md). Ou em vias de comunicação entre VMs Azure e Windows Server SOFS configuradas como descrito no [Cluster uma instância SAP ASCS/SCS num cluster de failover do Windows utilizando uma partilha de ficheiros no Azure](./sap-high-availability-guide-wsfc-file-share.md). Os NVAs nas vias de comunicação podem facilmente duplicar a latência da rede entre dois parceiros de comunicação, podendo restringir a produção em caminhos críticos entre a camada de aplicação SAP e a camada DBMS. Em alguns cenários observados com os clientes, os NVAs podem fazer com que os clusters Pacemaker Linux falhem nos casos em que as comunicações entre os nós do cluster Linux Pacemaker precisam de comunicar ao seu dispositivo SBD através de um NVA.  
+> Fora da funcionalidade, mas mais importante por razões de desempenho, não é suportado para configurar [aparelhos virtuais da rede Azure](https://azure.microsoft.com/solutions/network-appliances/) na via de comunicação entre a aplicação SAP e a camada DBMS de um sistema SAP NetWeaver, Hybris ou S/4HANA baseado em SAP. A comunicação entre a camada de aplicação SAP e a camada DBMS tem de ser direta. A restrição não inclui [as regras Azure ASG e NSG,](../../../virtual-network/network-security-groups-overview.md) desde que as regras ASG e NSG permitam uma comunicação direta. Outros cenários em que os NVAs não são suportados estão em vias de comunicação entre VMs Azure que representam os nós de cluster Linux Pacemaker e dispositivos SBD, conforme descrito em [Alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server para aplicações SAP](./high-availability-guide-suse.md). Ou em vias de comunicação entre VMs Azure e Windows Server SOFS configuradas como descrito no [Cluster uma instância SAP ASCS/SCS num cluster de failover do Windows utilizando uma partilha de ficheiros no Azure](./sap-high-availability-guide-wsfc-file-share.md). Os NVAs nas vias de comunicação podem facilmente duplicar a latência da rede entre dois parceiros de comunicação, podendo restringir a produção em caminhos críticos entre a camada de aplicação SAP e a camada DBMS. Em alguns cenários observados com os clientes, os NVAs podem fazer com que os clusters Pacemaker Linux falhem nos casos em que as comunicações entre os nós do cluster Linux Pacemaker precisam de comunicar ao seu dispositivo SBD através de um NVA.  
 > 
 
 > [!IMPORTANT]
@@ -108,7 +108,7 @@ Para obter uma visão geral dos diferentes métodos de atribuição de endereço
 
 Para VMs que executam SAP HANA, deve trabalhar com endereços IP estáticos atribuídos. A razão é que alguns atributos de configuração para endereços IP de referência HANA.
 
-[Os Grupos de Segurança da Rede Azure (NSGs)](../../../virtual-network/virtual-network-vnet-plan-design-arm.md) são utilizados para direcionar o tráfego que é encaminhado para a instância SAP HANA ou para a caixa de salto. Os NSGs e, [eventualmente, grupos de segurança de aplicações](../../../virtual-network/security-overview.md#application-security-groups) estão associados à sub-rede SAP HANA e à sub-rede de Gestão.
+[Os Grupos de Segurança da Rede Azure (NSGs)](../../../virtual-network/virtual-network-vnet-plan-design-arm.md) são utilizados para direcionar o tráfego que é encaminhado para a instância SAP HANA ou para a caixa de salto. Os NSGs e, [eventualmente, grupos de segurança de aplicações](../../../virtual-network/network-security-groups-overview.md#application-security-groups) estão associados à sub-rede SAP HANA e à sub-rede de Gestão.
 
 A imagem a seguir mostra uma visão geral de um esquema de implantação áspera para SAP HANA seguindo um hub e falou arquitetura VNet:
 
@@ -187,7 +187,7 @@ Para além das certificações SAP HANA em VMs da série Azure M, o SAP HANA Dyn
 SAP HANA Dynamic Tiering 2.0 não é suportado por SAP BW ou S4HANA. Os principais casos de uso neste momento são aplicações HANA nativas.
 
 
-### <a name="overview"></a>Descrição geral
+### <a name="overview"></a>Overview (Descrição geral)
 
 A imagem abaixo dá uma visão geral sobre o suporte DT 2.0 no Microsoft Azure. Existe um conjunto de requisitos obrigatórios, que devem ser seguidos para cumprir a certificação oficial:
 
@@ -324,4 +324,3 @@ Familiarize-se com os artigos listados
 - [Alta disponibilidade de SAP HANA em VMs Azure no SUSE Linux Enterprise Server](./sap-hana-high-availability.md)
 - [Alta disponibilidade de SAP HANA em VMs Azure em Red Hat Enterprise Linux](./sap-hana-high-availability-rhel.md)
 
- 

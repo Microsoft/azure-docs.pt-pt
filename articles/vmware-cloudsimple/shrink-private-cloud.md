@@ -9,17 +9,17 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 2759b35c9ba521a63eaf54c4c696598d545120b4
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88141742"
 ---
 # <a name="shrink-a-cloudsimple-private-cloud"></a>Encolher uma nuvem Simple Nuvem
 
 O CloudSimple proporciona a flexibilidade para encolher dinamicamente uma Nuvem Privada.  Uma Nuvem Privada consiste de um ou mais aglomerados vSphere. Cada aglomerado pode ter 3 a 16 nós. Ao encolher uma Nuvem Privada, retire um nó do cluster existente ou elimine um aglomerado inteiro. 
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 As condições devem ser satisfeitas para encolher uma Nuvem Privada.  O cluster de gestão (primeiro cluster) criado quando uma Nuvem Privada foi criada não pode ser eliminado.
 
@@ -60,7 +60,7 @@ O psiquiatra da Nuvem Privada começa.  Pode monitorizar o progresso nas tarefas
 > 2. Se ocorrer qualquer violação da regra drs, o nó não será removido do cluster e a descrição da tarefa mostra que remover um nó violará as regras de DRS no cluster.    
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Consumir VMs de VMware no Azure](quickstart-create-vmware-virtual-machine.md)
 * Saiba mais sobre [Nuvens Privadas](cloudsimple-private-cloud.md)

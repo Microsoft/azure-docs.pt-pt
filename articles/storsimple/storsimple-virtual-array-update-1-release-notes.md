@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 48dec3a87ab540af224ae4ac59dd37cee7c9d0ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76271346"
 ---
 # <a name="storsimple-virtual-array-update-10-release-notes"></a>StorSimple Virtual Array Update 1.0 notas de lançamento
@@ -47,7 +47,7 @@ A atualização 1.0 corresponde à versão do software **10.0.10296.0**.
 
 O quadro seguinte fornece um resumo das questões corrigidas nesta versão.
 
-| Não. | Funcionalidade | Problema |
+| N.º | Funcionalidade | Problema |
 | --- | --- | --- |
 | 1 |Autenticação baseada em AAD| Esta versão contém alterações que permitem à AAD autenticar com o Gestor de Dispositivos StorSimple.|
 | 2 |Recolha de lixo| Este problema foi reportado num site de clientes onde o dispositivo e as contas de armazenamento se encontram em diferentes regiões e o cliente relatou erros de rede intermitentes com impacto na faturação. Neste comunicado, esta questão foi corrigida. |
@@ -58,7 +58,7 @@ O quadro seguinte fornece um resumo das questões corrigidas nesta versão.
 
 A tabela seguinte fornece um resumo de questões conhecidas para o StorSimple Virtual Array e inclui os problemas de lançamento anotados a partir das versões anteriores.
 
-| Não. | Funcionalidade | Problema | Soluções/comentários |
+| N.º | Funcionalidade | Problema | Soluções/comentários |
 | --- | --- | --- | --- |
 | **1.** |Atualizações |As matrizes virtuais criadas na versão de pré-visualização não podem ser atualizadas para uma versão suportada da Disponibilidade Geral. |Estes conjuntos virtuais devem ser falhados para a libertação de Disponibilidade Geral utilizando um fluxo de trabalho de recuperação de desastres (DR). |
 | **2.** |Disco de dados provisionado |Uma vez que tenha fornecedo um disco de dados de um determinado tamanho especificado e criado o conjunto virtual StorSimple correspondente, não deve expandir ou encolher o disco de dados. Tentar fazer resulta numa perda de todos os dados nos níveis locais do dispositivo. | |
@@ -80,7 +80,7 @@ A tabela seguinte fornece um resumo de questões conhecidas para o StorSimple Vi
 | **18.** |Atualizações |Se utilizar o UI web local para instalar o Update 1 na sua matriz virtual, tem de se certificar de que está a executar a Atualização 0.6. Se estiver a executar uma versão inferior à atualização 0.6, tem de instalar o Update 0.6 primeiro e depois aplicar o Update 1. Se instalar diretamente o Update 1.0 a partir de uma versão pré-Actualização 0.6, perderá algumas atualizações e os gráficos de monitorização não funcionarão.   | |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Instale a Atualização 1.0](storsimple-virtual-array-install-update-1.md) no seu StorSimple Virtual Array.
 
 ## <a name="references"></a>Referências

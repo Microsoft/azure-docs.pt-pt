@@ -4,10 +4,10 @@ description: Neste artigo, aprenda a preparar-se para backups do System Center D
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.openlocfilehash: 0089c3d86eb36b82287570ecdfd6e8c782e6fb8a
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90975451"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Prepare-se para apoiar cargas de trabalho para Azure com O Centro de SistemaS DPM
@@ -44,7 +44,7 @@ DPM em um VM Hiper-V | System Center 2012 SP1 ou posterior; Centro de Sistema 20
 DPM em um VMware VM | System Center 2012 R2 com Update Rollup 5 ou posterior.
 Componentes | O servidor DPM deve ter o Windows PowerShell e o .NET Framework 4.5 instalados.
 Aplicações suportadas | [Saiba](/system-center/dpm/dpm-protection-matrix) o que o DPM pode recuar.
-Tipos de ficheiro suportados | Estes tipos de ficheiros podem ser apoiados com cópia de segurança do Azure:<br> <li>Encriptado (apenas cópias de segurança completas)<li> Comprimido (cópias de segurança incrementais suportadas) <li> Escassos (backups incrementais suportados)<li> Comprimido e escasso (tratado como escasso)
+Tipos de ficheiros suportados | Estes tipos de ficheiros podem ser apoiados com cópia de segurança do Azure:<br> <li>Encriptado (apenas cópias de segurança completas)<li> Comprimido (cópias de segurança incrementais suportadas) <li> Escassos (backups incrementais suportados)<li> Comprimido e escasso (tratado como escasso)
 Tipos de ficheiros não suportados | <li>Servidores em sistemas de ficheiros sensíveis a casos<li> links rígidos (ignorados)<li> reparse pontos (ignorado)<li> encriptado e comprimido (ignorado)<li> encriptado e escasso (ignorado)<li> Fluxo comprimido<li> fluxo de parse
 Armazenamento local | Cada máquina que pretende fazer back-up deve ter armazenamento gratuito local que é pelo menos 5% do tamanho dos dados que estão sendo apoiados. Por exemplo, o backup de 100 GB de dados requer um mínimo de 5 GB de espaço livre na localização do risco.
 Armazenamento de cofre | Não há limite para a quantidade de dados que pode fazer até um cofre de backup Azure, mas o tamanho de uma fonte de dados (por exemplo, uma máquina virtual ou base de dados) não deve exceder 54.400 GB.

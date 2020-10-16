@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8c319489fe4c884cd5de48ac2d3e47e7beb3026f
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90705491"
 ---
 # <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>Qual é a pontuação de identidade segura no Azure Ative Directory?
@@ -110,7 +110,7 @@ A [pontuação segura da Microsoft](/office365/securitycompliance/microsoft-secu
 - Dados
 - Dispositivos
 - Infraestrutura
-- Aplicações
+- Apps
 
 A pontuação de segurança de identidade representa a parte de identidade da pontuação segura da Microsoft. Esta sobreposição significa que as suas recomendações para a pontuação de segurança de identidade e a pontuação de identidade na Microsoft são as mesmas.
 

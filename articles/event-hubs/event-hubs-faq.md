@@ -4,10 +4,10 @@ description: Este artigo fornece uma lista de perguntas frequentes (FAQ) para Az
 ms.topic: article
 ms.date: 09/16/2020
 ms.openlocfilehash: 65b6fd40c66ec055a5b80ccea9d2dd9ba1510d54
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91729105"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Os Centros de Eventos fazem perguntas frequentes

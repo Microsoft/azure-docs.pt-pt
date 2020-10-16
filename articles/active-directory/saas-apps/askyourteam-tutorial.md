@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/28/2020
 ms.author: jeedes
 ms.openlocfilehash: 6ab6a355b986daeca41ffd18a51689cd9d880dcd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91713811"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-askyourteam"></a>Tutorial: Azure Ative Directory integração única (SSO) com AskYourTeam
@@ -85,7 +85,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<COMPANY>.app.askyourteam.com/login`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com os valores reais de URL de resposta e URL de acesso que são explicados mais tarde no tutorial.
+    > Estes valores não são reais. Atualize estes valores com os valores de URL de resposta e Sign-On que são explicados mais tarde no tutorial.
 
 1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre **o Certificado (Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
@@ -139,13 +139,13 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Clique em **Configurações de Edição**.
 
-    ![A screenshot mostra a mensagem Sign-On única com um botão de definições de edição.](./media/askyourteam-tutorial/configure2.png)
+    ![A screenshot mostra a mensagem single Sign-On com um botão De editar Definições.](./media/askyourteam-tutorial/configure2.png)
 
-1. Na página editar a **integração única de sinais,** execute os seguintes passos: 
+1. Na página **Editar A Integração de Sign-On Única,** execute os seguintes passos: 
 
-    ![A screenshot mostra editar a integração sign-on única onde pode introduzir os valores para este passo.](./media/askyourteam-tutorial/configure3.png)
+    ![O Screenshot mostra editar a Integração de Sign-On Única, onde pode introduzir os valores deste passo.](./media/askyourteam-tutorial/configure3.png)
 
-    a. Na caixa de texto URL de serviço único de inscrição do **SAML,** cole o valor URL de **login** que copiou do portal Azure.
+    a. Na caixa de texto **URL de serviço de Sign-On único SAML,** cole o valor URL de **login** que copiou do portal Azure.
 
     b. Na caixa de texto **ID da Entidade SAML,** cole o valor **identificador Azure AD** que copiou do portal Azure.
 

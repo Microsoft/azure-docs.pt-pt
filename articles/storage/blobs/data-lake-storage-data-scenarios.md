@@ -9,10 +9,10 @@ ms.date: 02/14/2020
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: 6e183a1e8cac8eec2806a35603c40a44aadac502
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84193513"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Usando Azure Data Lake Storage Gen2 para grandes requisitos de dados
@@ -41,10 +41,10 @@ Isto representa conjuntos de dados menores que são usados para prototipar uma a
 
 Aqui está uma lista de ferramentas que pode usar para ingerir dados ad hoc.
 
-| Origem de Dados | Ingeri-lo usando |
+| Origem de dados | Ingeri-lo usando |
 | --- | --- |
 | Computador local |[Azure PowerShell](data-lake-storage-directory-file-acl-powershell.md)<br><br>[CLI do Azure](data-lake-storage-directory-file-acl-cli.md)<br><br>[Explorador de Armazenamento](https://azure.microsoft.com/features/storage-explorer/)<br><br>[Ferramenta AzCopy](../common/storage-use-azcopy-v10.md)|
-| Bolha de armazenamento Azure |[Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md)<br><br>[Ferramenta AzCopy](../common/storage-use-azcopy-v10.md)<br><br>[DistCp em execução no cluster HDInsight](data-lake-storage-use-distcp.md)|
+| Azure Storage Blob |[Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md)<br><br>[Ferramenta AzCopy](../common/storage-use-azcopy-v10.md)<br><br>[DistCp em execução no cluster HDInsight](data-lake-storage-use-distcp.md)|
 
 ### <a name="streamed-data"></a>Dados transmitidos
 
@@ -119,13 +119,13 @@ Aqui está uma lista de ferramentas que você pode usar para executar trabalhos 
 |Ferramenta | Orientação |
 |---|--|
 |Azure HDInsight | [Utilizar o Azure Data Lake Storage Gen2 com clusters do Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) |
-|Azure Databricks | [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) (Armazenamento do Azure Data Lake Gen2)<br><br>[Quickstart: Analise os dados em Azure Data Lake Storage Gen2 utilizando Azure Databricks](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br><br>[Tutorial: Extrair, transformar e carregar dados utilizando dados do Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Azure Databricks | [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) (Armazenamento do Azure Data Lake Gen2)<br><br>[Quickstart: Analise os dados em Azure Data Lake Storage Gen2 utilizando Azure Databricks](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br><br>[Tutorial: Extrair, transformar e carregar dados através do Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 
 ## <a name="visualize-the-data"></a>Ver os dados
 
 Utilize o conector Power BI para criar representações visuais de dados armazenados na Data Lake Storage Gen2. Consulte [os dados da Azure Data Lake Storage Gen2 utilizando o Power BI](https://docs.microsoft.com/power-query/connectors/datalakestorage).
 
-## <a name="download-the-data"></a>Faça o download dos dados
+## <a name="download-the-data"></a>Transferir os dados
 
 Também pode querer descarregar ou mover dados do Azure Data Lake Storage Gen2 para cenários como:
 
@@ -141,5 +141,5 @@ Aqui está uma lista de ferramentas que pode usar para descarregar dados da Data
 |---|--|
 |Azure Data Factory | [Copy Activity in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) (Atividade de Cópia no Azure Data Factory) |
 |Apache DistCp | [Utilize o DistCp para copiar dados entre as bolhas de armazenamento Azure e a Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |
-|Explorador do Storage do Azure|[Use o Azure Storage Explorer para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2](data-lake-storage-explorer.md)|
+|Explorador do Storage do Azure|[Use Azure Storage Explorer to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md) (Utilizar o Explorador de Armazenamento do Azure para gerir diretórios, ficheiros e ACLs no Azure Data Lake Storage Gen2)|
 |Ferramenta AzCopy|[Dados de transferência com armazenamento AzCopy e Blob](../common/storage-use-azcopy-blobs.md)|

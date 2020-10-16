@@ -7,22 +7,22 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 10/07/2020
+ms.date: 10/13/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 06b80b5fe14a7a913d8ad8454c6568b04fe01c2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c964e3c02148c461c601eab4bc5bfb0abb4ac052
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819793"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013309"
 ---
 # <a name="tutorial-index-from-multiple-data-sources-using-the-net-sdk"></a>Tutorial: Índice de várias fontes de dados utilizando o .NET SDK
 
-A Azure Cognitive Search pode importar, analisar e indexar dados de várias fontes de dados para um único índice de pesquisa consolidado. Isto suporta situações em que os dados estruturados são agregados com dados de texto menos estruturados ou mesmo simples de outras fontes, como texto, HTML ou documentos JSON.
+A Azure Cognitive Search pode importar, analisar e indexar dados de várias fontes de dados para um único índice de pesquisa consolidado. 
 
-Este tutorial descreve como indexar os dados do hotel a partir de uma fonte de dados DB da Azure Cosmos e fundir isso com detalhes do quarto de hotel extraídos de documentos de armazenamento Azure Blob. O resultado será um índice combinado de pesquisa de hotéis contendo tipos de dados complexos.
+Este tutorial usa C# e a [ biblioteca de clientesAzure.Search.Documents](/dotnet/api/overview/azure/search) no Azure SDK para .NET para indexar dados de amostras de um Azure Cosmos DB, e fundir isso com detalhes do quarto de hotel extraídos de documentos de armazenamento Azure Blob. O resultado será um índice combinado de pesquisa de hotéis contendo documentos de hotel, com quartos como um tipo de dados complexos.
 
-Este tutorial utiliza C# e o [.NET SDK](/dotnet/api/overview/azure/search). Neste tutorial, realizará as seguintes tarefas:
+Neste tutorial, realizará as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Carre faça upload de dados de amostras e crie fontes de dados
@@ -33,19 +33,26 @@ Este tutorial utiliza C# e o [.NET SDK](/dotnet/api/overview/azure/search). Nest
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
+## <a name="overview"></a>Descrição geral
+
+Este tutorial utiliza a nova biblioteca de [ clientes,Azure.Search.Documents](/dotnet/api/overview/azure/search), versão 11.x, para criar e executar vários indexantes. Neste tutorial, irá configurar duas fontes de dados Azure para que possa configurar um indexer que puxa de ambos para preencher um único índice de pesquisa. Os dois conjuntos de dados devem ter um valor em comum para suportar a fusão. Nesta amostra, este campo é uma identificação. Enquanto houver um campo em comum para suportar o mapeamento, um indexante pode fundir dados de recursos diferentes: dados estruturados do Azure SQL, dados não estruturados do armazenamento blob, ou qualquer combinação de fontes de [dados suportadas](search-indexer-overview.md#supported-data-sources) no Azure.
+
+Uma versão acabada do código neste tutorial pode ser encontrada no seguinte projeto:
+
+* [fontes de dados múltiplos/v11 (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/multiple-data-sources/v11)
+
+Este tutorial foi atualizado para utilizar o pacote Azure.Search.Documents (versão 11). Para obter uma versão anterior do .NET SDK, consulte a amostra de [código Microsoft.Azure.Search (versão 10)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/multiple-data-sources/v10) no GitHub.
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 + [Azure Cosmos DB](../cosmos-db/create-cosmosdb-resources-portal.md)
 + [Armazenamento do Azure](../storage/common/storage-account-create.md)
-+ [Visual Studio 2019](https://visualstudio.microsoft.com/)
++ [Visual Studio](https://visualstudio.microsoft.com/)
++ [Pacote Azure Cognitive Search (versão 11.x) NuGet](https://www.nuget.org/packages/Azure.Search.Documents/)
 + [Criar](search-create-service-portal.md) ou [encontrar um serviço de pesquisa existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
 > [!Note]
 > Você pode usar o serviço gratuito para este tutorial. Um serviço de pesquisa gratuito limita-o a três índices, três indexantes e três fontes de dados. Este tutorial cria um de cada. Antes de começar, certifique-se de ter espaço no seu serviço para aceitar os novos recursos.
-
-## <a name="download-files"></a>Transferir ficheiros
-
-O código-fonte para este tutorial encontra-se no repositório GitHub, de [pesquisa de azure-search-dotnet,](https://github.com/Azure-Samples/azure-search-dotnet-samples) na pasta [de múltiplas fontes de dados.](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/multiple-data-sources)
 
 ## <a name="1---create-services"></a>1 - Criar serviços
 
@@ -77,6 +84,8 @@ Esta amostra usa dois pequenos conjuntos de dados que descrevem sete hotéis fic
 
 1. Use o botão Refresh para refrescar a sua visão dos itens na coleção de hotéis. Devia ver sete novos documentos da base de dados listados.
 
+1. Copie uma cadeia de ligação da página **Keys** para o Bloco de Notas. Vai precisar disto para **appsettings.js** num passo posterior. Se não usou o nome de base de dados sugerido "hotel-rooms-db", copie também o nome da base de dados.
+
 ### <a name="azure-blob-storage"></a>Armazenamento de Blobs do Azure
 
 1. Inscreva-se no [portal Azure,](https://portal.azure.com)navegue para a sua conta de armazenamento Azure, clique em **Blobs**e clique **em + Recipiente**.
@@ -89,21 +98,19 @@ Esta amostra usa dois pequenos conjuntos de dados que descrevem sete hotéis fic
 
    :::image type="content" source="media/tutorial-multiple-data-sources/blob-upload.png" alt-text="Criar uma nova base de dados" border="false":::
 
-Após o envio concluído, os ficheiros devem aparecer na lista para o recipiente de dados.
+1. Copie o nome da conta de armazenamento e uma cadeia de ligação da página **'Chaves de Acesso'** para o Bloco de Notas. Vai precisar de ambos os valores para **appsettings.jsnum** passo posterior.
 
 ### <a name="azure-cognitive-search"></a>Azure Cognitive Search
 
-O terceiro componente é Azure Cognitive Search, que pode [criar no portal.](search-create-service-portal.md) Pode utilizar o nível Free para completar este walkthrough. 
+O terceiro componente é Azure Cognitive Search, que pode [criar no portal.](search-create-service-portal.md) 
 
-### <a name="get-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Obtenha uma api-chave de administrador e URL para pesquisa cognitiva Azure
+### <a name="copy-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Copie uma chave api-chave de administrador e URL para pesquisa cognitiva Azure
 
-Para interagir com o seu serviço de Pesquisa Cognitiva Azure, necessitará do URL de serviço e de uma chave de acesso. Um serviço de pesquisa é criado com ambos, por isso, se adicionar Azure Cognitive Search à sua subscrição, siga estes passos para obter as informações necessárias:
+Para autenticar o seu serviço de pesquisa, necessitará do URL de serviço e de uma chave de acesso.
 
 1. [Inscreva-se no portal Azure,](https://portal.azure.com/)e na página **geral do** seu serviço de pesquisa, obtenha o URL. Um ponto final de exemplo poderá ser parecido com `https://mydemo.search.windows.net`.
 
 1. Em **Definições**  >  **Teclas,** obtenha uma chave de administração para todos os direitos sobre o serviço. Existem duas chaves de administração intercambiáveis, previstas para a continuidade do negócio, caso precise de rolar uma. Pode utilizar a tecla primária ou secundária nos pedidos de adição, modificação e eliminação de objetos.
-
-   Pegue a chave de consulta também. É uma boa prática emitir pedidos de consulta com acesso apenas de leitura.
 
    :::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Criar uma nova base de dados" border="false":::
 
@@ -111,30 +118,30 @@ Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a ap
 
 ## <a name="2---set-up-your-environment"></a>2 - Configurar o seu ambiente
 
-1. Inicie o Visual Studio 2019 e no menu **Ferramentas,** selecione **NuGet Package Manager** e, em seguida, **Gerencie pacotes NuGet para solução...**. 
+1. Inicie o Visual Studio e no menu **Ferramentas,** selecione **NuGet Package Manager** e, em seguida, **Gerencie pacotes NuGet para solução...**. 
 
-1. No separador **Procurar,** encontrar e instalar **o Microsoft.Azure.Search** (versão 9.0.1, ou mais tarde). Terá de clicar através de diálogos adicionais para completar a instalação.
+1. No separador **Procurar,** encontrar e instalar **Azure.Search.Documents** (versão 11.0 ou posterior). Terá de clicar através de diálogos adicionais para completar a instalação.
 
     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png" alt-text="Criar uma nova base de dados" border="false":::
 
-1. Procure o **Microsoft.Extensions.Configuration.Jsno** pacote NuGet e instale-o também.
+1. Procure a **Microsoft.Extensions.Configuration** e **Microsoft.Extensions.Configuration.Jsem** pacotes NuGet e instale-os também.
 
-1. Abra o ficheiro de solução **AzureSearchMultipleDataSources.sln**.
+1. Abra o ficheiro de solução **/v11/AzureSearchMultipleDataSources.sln**.
 
 1. No Solution Explorer, edite o **appsettings.jsno** ficheiro para adicionar informações de ligação.  
 
     ```json
     {
-      "SearchServiceName": "Put your search service name here",
-      "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
-      "BlobStorageAccountName": "Put your Azure Storage account name here",
-      "BlobStorageConnectionString": "Put your Azure Blob Storage connection string here",
-      "CosmosDBConnectionString": "Put your Cosmos DB connection string here",
+      "SearchServiceUri": "<YourSearchServiceURL>",
+      "SearchServiceAdminApiKey": "<YourSearchServiceAdminApiKey>",
+      "BlobStorageAccountName": "<YourBlobStorageAccountName>",
+      "BlobStorageConnectionString": "<YourBlobStorageConnectionString>",
+      "CosmosDBConnectionString": "<YourCosmosDBConnectionString>",
       "CosmosDBDatabaseName": "hotel-rooms-db"
     }
     ```
 
-As duas primeiras entradas utilizam as teclas URL e administração do seu serviço de Pesquisa Cognitiva Azure. Dado um ponto final `https://mydemo.search.windows.net` de, por exemplo, o nome de serviço a fornecer é `mydemo` .
+As duas primeiras entradas são as chaves URL e administração de um serviço de pesquisa. Utilize o ponto final completo, por exemplo: `https://mydemo.search.windows.net` .
 
 As próximas entradas especificam nomes de conta e informações de cadeia de ligação para as fontes de dados Azure Blob Storage e Azure Cosmos DB.
 
@@ -148,14 +155,14 @@ Ao indexar dados de várias fontes de dados, certifique-se de que cada linha ou 
 
 Muitas vezes requer algum planeamento frontal para identificar uma chave de documento significativa para o seu índice, e certifique-se de que existe em ambas as fontes de dados. Nesta demonstração, a `HotelId` chave para cada hotel em Cosmos DB também está presente nos quartos JSON blobs no armazenamento Blob.
 
-Os indexantes de Pesquisa Cognitiva Azure podem usar mapeamentos de campo para renomear e até mesmo reformar campos de dados durante o processo de indexação, de modo que os dados de origem podem ser direcionados para o campo de índice correto. Por exemplo, em Cosmos DB, o identificador do hotel chama-se **`HotelId`** . Mas nos ficheiros da bolha JSON para os quartos de hotel, o identificador do hotel **`Id`** chama-se. O programa trata disto mapeando o **`Id`** campo das bolhas para o **`HotelId`** campo chave no índice.
+Os indexantes de Pesquisa Cognitiva Azure podem usar mapeamentos de campo para renomear e até mesmo reformar campos de dados durante o processo de indexação, de modo que os dados de origem podem ser direcionados para o campo de índice correto. Por exemplo, em Cosmos DB, o identificador do hotel chama-se **`HotelId`** . Mas nos ficheiros da bolha JSON para os quartos de hotel, o identificador do hotel **`Id`** chama-se. O programa trata disto mapeando o **`Id`** campo das bolhas para o **`HotelId`** campo chave no indexante.
 
 > [!NOTE]
 > Na maioria dos casos, as chaves de documento geradas automaticamente, como as criadas por padrão por alguns indexantes, não fazem boas chaves documentais para índices combinados. Em geral, irá querer utilizar um valor-chave significativo e único que já exista ou possa ser facilmente adicionado às suas fontes de dados.
 
 ## <a name="4---explore-the-code"></a>4 - Explorar o código
 
-Uma vez que as definições de dados e configurações estejam em vigor, o programa de amostras em **AzureSearchMultipleDataSources.sln** deve estar pronto para construir e executar.
+Uma vez que as definições de dados e configurações estejam no lugar, o programa de amostra em **/v11/AzureSearchMultipleDataSources.sln** deve estar pronto para construir e executar.
 
 Esta simples aplicação de consola C#/.NET executa as seguintes tarefas:
 
@@ -172,35 +179,38 @@ Esta simples aplicação de consola C#/.NET executa as seguintes tarefas:
 
 ### <a name="create-an-index"></a>Criar um índice
 
-Este programa de amostragem utiliza o .NET SDK para definir e criar um índice de Pesquisa Cognitiva Azure. Aproveita a classe [FieldBuilder](/dotnet/api/microsoft.azure.search.fieldbuilder) para gerar uma estrutura de índice a partir de uma classe de modelo de dados C#.
+Este programa de amostra utiliza [CreateIndexAsync](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindexasync) para definir e criar um índice de Pesquisa Cognitiva Azure. Aproveita a classe [FieldBuilder](/dotnet/api/azure.search.documents.indexes.fieldbuilder) para gerar uma estrutura de índice a partir de uma classe de modelo de dados C#.
 
 O modelo de dados é definido pela classe Hotel, que também contém referências às classes Address e Room. O FieldBuilder perfura através de múltiplas definições de classe para gerar uma estrutura de dados complexa para o índice. As tags de metadados são usadas para definir os atributos de cada campo, tais como se é pesmável ou ordenado.
 
-Os seguintes excertos do ficheiro **Hotel.cs** mostram como um único campo, e uma referência a outra classe de modelo de dados, podem ser especificados.
+O programa eliminará qualquer índice existente com o mesmo nome antes de criar o novo, caso pretenda executar este exemplo mais de uma vez.
+
+Os seguintes excertos do ficheiro **Hotel.cs** mostram campos únicos, seguidos de uma referência a outra classe de modelo de dados, a Room[], que por sua vez é definida em **Room.cs** ficheiro (não mostrado).
 
 ```csharp
-. . . 
-[IsSearchable, IsFilterable, IsSortable]
+. . .
+[SimpleField(IsFilterable = true, IsKey = true)]
+public string HotelId { get; set; }
+
+[SearchableField(IsFilterable = true, IsSortable = true)]
 public string HotelName { get; set; }
 . . .
 public Room[] Rooms { get; set; }
 . . .
 ```
 
-No ficheiro **Program.cs,** o índice é definido com um nome e uma coleção de campo gerada pelo `FieldBuilder.BuildForType<Hotel>()` método, e depois criado da seguinte forma:
+No ficheiro **Program.cs,** um [SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex) é definido com um nome e uma coleção de campo gerada pelo `FieldBuilder.Build` método, e depois criada da seguinte forma:
 
 ```csharp
-private static async Task CreateIndex(string indexName, SearchServiceClient searchService)
+private static async Task CreateIndexAsync(string indexName, SearchIndexClient indexClient)
 {
     // Create a new search index structure that matches the properties of the Hotel class.
     // The Address and Room classes are referenced from the Hotel class. The FieldBuilder
     // will enumerate these to create a complex data structure for the index.
-    var definition = new Index()
-    {
-        Name = indexName,
-        Fields = FieldBuilder.BuildForType<Hotel>()
-    };
-    await searchService.Indexes.CreateAsync(definition);
+    FieldBuilder builder = new FieldBuilder();
+    var definition = new SearchIndex(indexName, builder.Build(typeof(Hotel)));
+
+    await indexClient.CreateIndexAsync(definition);
 }
 ```
 
@@ -208,137 +218,144 @@ private static async Task CreateIndex(string indexName, SearchServiceClient sear
 
 Em seguida, o programa principal inclui lógica para criar a fonte de dados DB Azure Cosmos para os dados dos hotéis.
 
-Primeiro, concatena o nome da base de dados Azure Cosmos DB para a cadeia de ligação. Em seguida, define o objeto de origem de dados, incluindo configurações específicas para fontes DB Azure Cosmos, como a propriedade [useChangeDetection].
+Primeiro, concatena o nome da base de dados Azure Cosmos DB para a cadeia de ligação. Em seguida, define um objeto [SearchIndexerDataSourceConnection.](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection)
 
-  ```csharp
-private static async Task CreateAndRunCosmosDbIndexer(string indexName, SearchServiceClient searchService)
+```csharp
+private static async Task CreateAndRunCosmosDbIndexerAsync(string indexName, SearchIndexerClient indexerClient)
 {
     // Append the database name to the connection string
-    string cosmosConnectString = 
+    string cosmosConnectString =
         configuration["CosmosDBConnectionString"]
-        + ";Database=" 
+        + ";Database="
         + configuration["CosmosDBDatabaseName"];
 
-    DataSource cosmosDbDataSource = DataSource.CosmosDb(
-        name: configuration["CosmosDBDatabaseName"], 
-        cosmosDbConnectionString: cosmosConnectString,
-        collectionName: "hotels",
-        useChangeDetection: true);
+    SearchIndexerDataSourceConnection cosmosDbDataSource = new SearchIndexerDataSourceConnection(
+        name: configuration["CosmosDBDatabaseName"],
+        type: SearchIndexerDataSourceType.CosmosDb,
+        connectionString: cosmosConnectString,
+        container: new SearchIndexerDataContainer("hotels"));
 
-    // The Azure Cosmos DB data source does not need to be deleted if it already exists,
+    // The Cosmos DB data source does not need to be deleted if it already exists,
     // but the connection string might need to be updated if it has changed.
-    await searchService.DataSources.CreateOrUpdateAsync(cosmosDbDataSource);
-  ```
+    await indexerClient.CreateOrUpdateDataSourceConnectionAsync(cosmosDbDataSource);
+```
 
 Após a criação da fonte de dados, o programa configura um indexante DB Azure Cosmos chamado **hotel-quartos-cosmos-indexante**.
 
-```csharp
-    Indexer cosmosDbIndexer = new Indexer(
-        name: "hotel-rooms-cosmos-indexer",
-        dataSourceName: cosmosDbDataSource.Name,
-        targetIndexName: indexName,
-        schedule: new IndexingSchedule(TimeSpan.FromDays(1)));
-    
-    // Indexers keep metadata about how much they have already indexed.
-    // If we already ran this sample, the indexer will remember that it already
-    // indexed the sample data and not run again.
-    // To avoid this, reset the indexer if it exists.
-    bool exists = await searchService.Indexers.ExistsAsync(cosmosDbIndexer.Name);
-    if (exists)
-    {
-        await searchService.Indexers.ResetAsync(cosmosDbIndexer.Name);
-    }
-    await searchService.Indexers.CreateOrUpdateAsync(cosmosDbIndexer);
-```
-O programa eliminará quaisquer indexantes existentes com o mesmo nome antes de criar o novo, caso pretenda executar este exemplo mais de uma vez.
+O programa atualizará quaisquer indexantes existentes com o mesmo nome, sobreescrevendo o indexante existente com o conteúdo do código acima. Também inclui ações de reset e execução, caso pretenda executar este exemplo mais de uma vez.
 
-Este exemplo define um calendário para o indexante, de modo que será executado uma vez por dia. Pode remover a propriedade do agendamento desta chamada se não quiser que o indexante volte a funcionar automaticamente no futuro.
-
-### <a name="index-azure-cosmos-db-data"></a>Dados do Índice Azure Cosmos DB
-
-Uma vez criada a fonte de dados e o indexante, o código que executa o indexante é breve:
+O exemplo a seguir define um calendário para o indexante, de modo a que seja executado uma vez por dia. Pode remover a propriedade do agendamento desta chamada se não quiser que o indexante volte a funcionar automaticamente no futuro.
 
 ```csharp
-    try
-    {
-        await searchService.Indexers.RunAsync(cosmosDbIndexer.Name);
-    }
-    catch (CloudException e) when (e.Response.StatusCode == (HttpStatusCode)429)
-    {
-        Console.WriteLine("Failed to run indexer: {0}", e.Response.Content);
-    }
+SearchIndexer cosmosDbIndexer = new SearchIndexer(
+    name: "hotel-rooms-cosmos-indexer",
+    dataSourceName: cosmosDbDataSource.Name,
+    targetIndexName: indexName)
+{
+    Schedule = new IndexingSchedule(TimeSpan.FromDays(1))
+};
+
+// Indexers keep metadata about how much they have already indexed.
+// If we already ran the indexer, it "remembers" and does not run again.
+// To avoid this, reset the indexer if it exists.
+try
+{
+    await indexerClient.GetIndexerAsync(cosmosDbIndexer.Name);
+    // Reset the indexer if it exists.
+    await indexerClient.ResetIndexerAsync(cosmosDbIndexer.Name);
+}
+catch (RequestFailedException ex) when (ex.Status == 404)
+{
+    // If the indexer does not exist, 404 will be thrown.
+}
+
+await indexerClient.CreateOrUpdateIndexerAsync(cosmosDbIndexer);
+
+Console.WriteLine("Running Cosmos DB indexer...\n");
+
+try
+{
+    // Run the indexer.
+    await indexerClient.RunIndexerAsync(cosmosDbIndexer.Name);
+}
+catch (RequestFailedException ex) when (ex.Status == 429)
+{
+    Console.WriteLine("Failed to run indexer: {0}", ex.Message);
+}
 ```
 
 Este exemplo inclui um simples bloco de captura para relatar quaisquer erros que possam ocorrer durante a execução.
 
-Após a execução do indexante DB Azure Cosmos, o índice de pesquisa conterá um conjunto completo de documentos do hotel de amostra. No entanto, o campo de quartos para cada hotel será uma matriz vazia, uma vez que a fonte de dados do Azure Cosmos não continha detalhes do quarto. Em seguida, o programa irá retirar do armazenamento Blob para carregar e fundir os dados da sala.
+Após a execução do indexante DB Azure Cosmos, o índice de pesquisa conterá um conjunto completo de documentos do hotel de amostra. No entanto, o campo de quartos para cada hotel será uma matriz vazia, uma vez que a fonte de dados do Azure Cosmos DB omite detalhes do quarto. Em seguida, o programa irá retirar do armazenamento Blob para carregar e fundir os dados da sala.
 
 ### <a name="create-blob-storage-data-source-and-indexer"></a>Criar fonte de dados de armazenamento Blob e indexante
 
-Para obter os detalhes do quarto, o programa configura primeiro uma fonte de dados de armazenamento Blob para fazer referência a um conjunto de ficheiros de blob JSON individuais.
+Para obter os detalhes do quarto, o programa primeiro configura uma fonte de dados de armazenamento Blob para referenciar um conjunto de ficheiros de bolhas JSON individuais.
 
 ```csharp
-private static async Task CreateAndRunBlobIndexer(string indexName, SearchServiceClient searchService)
+private static async Task CreateAndRunBlobIndexerAsync(string indexName, SearchIndexerClient indexerClient)
 {
-    DataSource blobDataSource = DataSource.AzureBlobStorage(
+    SearchIndexerDataSourceConnection blobDataSource = new SearchIndexerDataSourceConnection(
         name: configuration["BlobStorageAccountName"],
-        storageConnectionString: configuration["BlobStorageConnectionString"],
-        containerName: "hotel-rooms");
+        type: SearchIndexerDataSourceType.AzureBlob,
+        connectionString: configuration["BlobStorageConnectionString"],
+        container: new SearchIndexerDataContainer("hotel-rooms"));
 
     // The blob data source does not need to be deleted if it already exists,
     // but the connection string might need to be updated if it has changed.
-    await searchService.DataSources.CreateOrUpdateAsync(blobDataSource);
+    await indexerClient.CreateOrUpdateDataSourceConnectionAsync(blobDataSource);
 ```
 
-Após a criação da fonte de dados, o programa configura um indexante blob chamado **hotel-rooms-blob-indexer**.
-
-```csharp
-    // Add a field mapping to match the Id field in the documents to 
-    // the HotelId key field in the index
-    List<FieldMapping> map = new List<FieldMapping> {
-        new FieldMapping("Id", "HotelId")
-    };
-
-    Indexer blobIndexer = new Indexer(
-        name: "hotel-rooms-blob-indexer",
-        dataSourceName: blobDataSource.Name,
-        targetIndexName: indexName,
-        fieldMappings: map,
-        parameters: new IndexingParameters().ParseJson(),
-        schedule: new IndexingSchedule(TimeSpan.FromDays(1)));
-
-    // Reset the indexer if it already exists
-    bool exists = await searchService.Indexers.ExistsAsync(blobIndexer.Name);
-    if (exists)
-    {
-        await searchService.Indexers.ResetAsync(blobIndexer.Name);
-    }
-    await searchService.Indexers.CreateOrUpdateAsync(blobIndexer);
-```
+Após a criação da fonte de dados, o programa configura um indexante blob chamado **hotel-rooms-blob-indexer**, como mostrado abaixo.
 
 As bolhas JSON contêm um campo chave nomeado **`Id`** em vez de **`HotelId`** . O código utiliza a `FieldMapping` classe para dizer ao indexante para direcionar o valor de campo para a chave de documento no **`Id`** **`HotelId`** índice.
 
-Os indexantes de armazenamento blob podem usar parâmetros que identifiquem o modo de análise a ser utilizado. O modo de análise difere para bolhas que representam um único documento, ou vários documentos dentro da mesma bolha. Neste exemplo, cada bolha representa um único documento de índice, pelo que o código utiliza o `IndexingParameters.ParseJson()` parâmetro.
-
-Para obter mais informações sobre os parâmetros de análise do indexante para as bolhas JSON, consulte [as bolhas índice JSON](search-howto-index-json-blobs.md). Para obter mais informações sobre a especificação destes parâmetros utilizando o .NET SDK, consulte a classe [IndexerParametersExtension.](/dotnet/api/microsoft.azure.search.models.indexingparametersextensions)
-
-O programa eliminará quaisquer indexantes existentes com o mesmo nome antes de criar o novo, caso pretenda executar este exemplo mais de uma vez.
+Os indexantes de armazenamento blob podem usar [Os Analisadores de Indexação](/dotnet/api/azure.search.documents.indexes.models.indexingparameters) para especificar um modo de análise. Deve definir diferentes modos de análise dependendo se as bolhas representam um único documento ou vários documentos dentro da mesma bolha. Neste exemplo, cada bolha representa um único documento JSON, pelo que o código utiliza o `json` modo de análise. Para obter mais informações sobre os parâmetros de análise do indexante para as bolhas JSON, consulte [as bolhas índice JSON](search-howto-index-json-blobs.md).
 
 Este exemplo define um calendário para o indexante, de modo que será executado uma vez por dia. Pode remover a propriedade do agendamento desta chamada se não quiser que o indexante volte a funcionar automaticamente no futuro.
 
-### <a name="index-blob-data"></a>Dados de blob de índice
-
-Uma vez criada a fonte de dados de armazenamento Blob e o indexante, o código que executa o indexante é simples:
-
 ```csharp
-    try
+// Map the Id field in the Room documents to the HotelId key field in the index
+List<FieldMapping> map = new List<FieldMapping> {
+    new FieldMapping("Id")
     {
-        await searchService.Indexers.RunAsync(cosmosDbIndexer.Name);
+        TargetFieldName =  "HotelId"
     }
-    catch (CloudException e) when (e.Response.StatusCode == (HttpStatusCode)429)
-    {
-        Console.WriteLine("Failed to run indexer: {0}", e.Response.Content);
-    }
+};
+
+IndexingParameters parameters = new IndexingParameters();
+parameters.Configuration.Add("parsingMode", "json");
+
+SearchIndexer blobIndexer = new SearchIndexer(
+    name: "hotel-rooms-blob-indexer",
+    dataSourceName: blobDataSource.Name,
+    targetIndexName: indexName)
+{
+    Parameters = parameters,
+    Schedule = new IndexingSchedule(TimeSpan.FromDays(1))
+};
+
+blobIndexer.FieldMappings.Add(new FieldMapping("Id") { TargetFieldName = "HotelId" });
+
+// Reset the indexer if it already exists
+try
+{
+    await indexerClient.GetIndexerAsync(blobIndexer.Name);
+    await indexerClient.ResetIndexerAsync(blobIndexer.Name);
+}
+catch (RequestFailedException ex) when (ex.Status == 404) { }
+
+await indexerClient.CreateOrUpdateIndexerAsync(blobIndexer);
+
+try
+{
+    // Run the indexer.
+    await searchService.Indexers.RunAsync(cosmosDbIndexer.Name);
+}
+catch (CloudException e) when (e.Response.StatusCode == (HttpStatusCode)429)
+{
+    Console.WriteLine("Failed to run indexer: {0}", e.Response.Content);
+}
 ```
 
 Como o índice já foi preenchido com dados do hotel da base de dados DB Azure Cosmos, o indexante blob atualiza os documentos existentes no índice e adiciona os detalhes do quarto.
@@ -360,11 +377,11 @@ Clique no índice de amostra de quartos de hotel na lista. Verá uma interface d
 
 Nas fases experimentais iniciais de desenvolvimento, a abordagem mais prática para a iteração de design é eliminar os objetos da Azure Cognitive Search e permitir que o seu código os reconstrua. Os nomes dos recursos são exclusivos. Quando elimina um objeto, pode recriá-lo com o mesmo nome.
 
-O código de amostra deste tutorial verifica os objetos existentes e elimina-os para que possa voltar a verificar o seu código.
+O código de amostra verifica os objetos existentes e elimina-os ou atualiza-os para que possa voltar a repetir o programa.
 
 Também pode utilizar o portal para eliminar índices, indexadores e fontes de dados.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando se está a trabalhar na sua própria subscrição, no final de um projeto, é uma boa ideia remover os recursos de que já não precisa. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 

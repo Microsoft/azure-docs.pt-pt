@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.custom: contperfq1
 ms.date: 06/18/2020
 ms.openlocfilehash: ed5c7eee1e8261c65decba4748e1d9c6a4d7212b
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91459817"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Resolução de problemas Azure Stream Analytics usando registos de recursos
@@ -66,7 +66,7 @@ Os registos de atividade estão ligados por padrão e dão informações de alto
 
     ![Navegação de lâminas para registos de recursos](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Forneça um **Nome** no **Nome das definições de Diagnóstico** e verifique as caixas de **execução** e **autoria** sob **registo**, e **AllMetrics** sob **métrica**. Em seguida, **selecione Enviar para registar analítico** e escolher o seu espaço de trabalho. Clique em **Save** (Guardar).
+2.  Forneça um **Nome** no **Nome das definições de Diagnóstico** e verifique as caixas de **execução** e **autoria** sob **registo**, e **AllMetrics** sob **métrica**. Em seguida, **selecione Enviar para registar analítico** e escolher o seu espaço de trabalho. Clique em **Guardar**.
 
     ![Definições para registos de recursos](./media/stream-analytics-job-diagnostic-logs/logs-setup.png)
 
@@ -141,7 +141,7 @@ Mensagem| Mensagem de registo.
 Tipo | Tipo de mensagem. Mapas para a categorização interna de erros. Por exemplo, **JobValidationError** ou **BlobOutputAdapterInitializationFailure**.
 ID de Correlação | GUID que identifica exclusivamente a execução do trabalho. Todas as entradas de registo de execução a partir do momento em que o trabalho começa até que o trabalho pare têm o mesmo valor **de ID de correlação.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Erros de dados do Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/data-errors)
 * [Referência linguística de consulta de stream analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)

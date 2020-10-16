@@ -4,10 +4,10 @@ description: Este artigo mostra como usar o CLI Azure para criar, visualizar e e
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 354afb89b145e288f525e40ad700e8f8a67c6dad
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86115048"
 ---
 # <a name="create-view-and-manage-event-grid-system-topics-using-azure-cli"></a>Criar, ver e gerir tópicos do sistema de grade de eventos usando O Azure CLI
@@ -18,14 +18,14 @@ Para o Azure CLI, você precisa da [extensão da Grade de Eventos](/cli/azure/az
 
 Em Cloud Shell:
 
-- Se já instalou a extensão anteriormente, atualize-a:`az extension update -n eventgrid`
-- Se não tiver instalado a extensão anteriormente, instale-a:`az extension add -n eventgrid`
+- Se já instalou a extensão anteriormente, atualize-a: `az extension update -n eventgrid`
+- Se não tiver instalado a extensão anteriormente, instale-a:  `az extension add -n eventgrid`
 
 Para uma instalação local:
 
 1. [Instale o Azure CLI](/cli/azure/install-azure-cli). Certifique-se de que tem a versão mais recente, verificando com `az --version` .
-2. Desinstalar versões anteriores da extensão:`az extension remove -n eventgrid`
-3. Instale a extensão eventgrid com`az extension add -n eventgrid`
+2. Desinstalar versões anteriores da extensão: `az extension remove -n eventgrid`
+3. Instale a extensão eventgrid com `az extension add -n eventgrid`
 
 ## <a name="create-a-system-topic"></a>Criar um tópico de sistema
 
@@ -96,5 +96,5 @@ Para eliminar um tópico do sistema, utilize o seguinte comando:
     az eventgrid system-topic delete -g <AZURE RESOURCE GROUP NAME> --name <SYSTEM TOPIC NAME>   
      ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os tópicos do Sistema na secção [Azure Event Grid](system-topics.md) para saber mais sobre tópicos do sistema e tipos de tópicos suportados pela Azure Event Grid. 

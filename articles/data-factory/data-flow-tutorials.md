@@ -5,13 +5,13 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 09/23/2020
-ms.openlocfilehash: d16285d6ba21c04e35f4bd5e334ac62ea83b8c87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/13/2020
+ms.openlocfilehash: 90b0791387e8b4966f8f2c56d3838f54457beef5
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91252880"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044059"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Tutoriais de vídeo sobre fluxo de dados de mapeamento
 
@@ -84,6 +84,8 @@ Como as atualizações são constantemente feitas ao produto, algumas funcionali
 [Transformação achatada](https://youtu.be/VY2tFQJoAXE)
 
 [Transformar dados hierárquicos](https://youtu.be/oAEh21NFgWQ)
+
+[Transformação de classificação](https://youtu.be/6XvgkbMtws0)
 
 ## <a name="source-and-sink"></a>Fonte e pia
 

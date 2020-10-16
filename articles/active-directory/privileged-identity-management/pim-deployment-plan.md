@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6bfe0fee14ed463e265dc4e7e4177c702b051c81
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89050204"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Implementar gestão de identidade privilegiada da Azure AD (PIM)
@@ -78,7 +78,7 @@ A secção seguinte ajuda-o a identificar todas as partes interessadas envolvida
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-ad-roles"></a>Stakeholders: Gestão privilegiada da identidade para funções de Ad Azure
 
-| Name | Função | Ação |
+| Nome | Função | Ação |
 | --- | --- | --- |
 | Nome e e-mail | **Arquiteto de identidade ou Administrador Global da Azure**<br/>Um representante da equipa de gestão de identidade responsável por definir como alinhar esta mudança com a infraestrutura de gestão de identidade central na sua organização. | SO/R/I |
 | Nome e e-mail | **Proprietário de serviço / gestor de linha**<br/>Um representante dos proprietários de TI de um serviço ou de um grupo de serviços. São fundamentais para tomar decisões e ajudar a lançar a Gestão de Identidade Privilegiada para a sua equipa. | SO/R/I |
@@ -88,7 +88,7 @@ A secção seguinte ajuda-o a identificar todas as partes interessadas envolvida
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-roles"></a>Stakeholders: Gestão de Identidade Privilegiada para funções de Azure
 
-| Name | Função | Ação |
+| Nome | Função | Ação |
 | --- | --- | --- |
 | Nome e e-mail | **Assinatura / Titular de recursos**<br/>Um representante dos proprietários de TI de cada subscrição ou recurso que pretende implementar Gestão de Identidade Privilegiada para | SO/R/I |
 | Nome e e-mail | **Proprietário de segurança**<br/>Um representante da equipa de segurança que pode assinar que o plano cumpre os requisitos de segurança da sua organização. | SO/R |

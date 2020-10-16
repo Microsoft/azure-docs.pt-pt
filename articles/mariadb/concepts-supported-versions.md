@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 7/20/2020
 ms.openlocfilehash: 0b495bf21b1f78e5e6a9285f67e1769d2d2a0db1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87065697"
 ---
 # <a name="supported-azure-database-for-mariadb-server-versions"></a>Banco de dados de Azure suportado para versões de servidor mariaDB
@@ -20,7 +20,7 @@ A Azure Database for MariaDB foi desenvolvida a partir do [open-source MariaDB S
 MariaDB usa o esquema de nomeação X.Y.Z. X é a versão principal, Y é a versão menor, e Z é a versão patch.
 
 > [!NOTE]
-> No serviço, um gateway é utilizado para redirecionar as ligações para instâncias de servidor. Após a ligação ser estabelecida, o cliente MySQL exibe a versão do Conjunto MariaDB no gateway, e não a versão real em execução na sua instância do servidor MariaDB. Para determinar a versão da sua instância do servidor MariaDB, utilize o `SELECT VERSION();` comando.
+> No serviço, é utilizado um gateway para redirecionar as ligações para as instâncias de servidor. Após a ligação ser estabelecida, o cliente MySQL exibe a versão do Conjunto MariaDB no gateway, e não a versão real em execução na sua instância do servidor MariaDB. Para determinar a versão da sua instância do servidor MariaDB, utilize o `SELECT VERSION();` comando.
 
 A Azure Database for MariaDB suporta atualmente a seguinte versão:
 

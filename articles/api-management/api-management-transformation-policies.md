@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 0182c3aa9095ad6f7bf3d8d86f115517e9efb020
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3097f7b0b6b69dc470877d4951efbcbd3c7482b1
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249608"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078498"
 ---
 # <a name="api-management-transformation-policies"></a>Políticas de transformação da Gestão de API
-Este tópico fornece uma referência para as seguintes políticas de Gestão da API. Para obter informações sobre políticas de adição e configuração, consulte [Políticas em Gestão de API.](https://go.microsoft.com/fwlink/?LinkID=398186)
+Este tópico fornece uma referência para as seguintes políticas de Gestão da API. Para obter informações sobre políticas de adição e configuração, consulte [Políticas em Gestão de API.](./api-management-policies.md)
 
-##  <a name="transformation-policies"></a><a name="TransformationPolicies"></a>Políticas de transformação
+##  <a name="transformation-policies"></a><a name="TransformationPolicies"></a> Políticas de transformação
 
 -   [Converter JSON em XML](api-management-transformation-policies.md#ConvertJSONtoXML) - Converte o pedido ou o corpo de resposta de JSON para XML.
 
@@ -44,7 +44,7 @@ Este tópico fornece uma referência para as seguintes políticas de Gestão da 
 
 -   [Transforme o XML utilizando um XSLT](api-management-transformation-policies.md#XSLTransform) - Aplica uma transformação XSL a XML no corpo de pedido ou resposta.
 
-##  <a name="convert-json-to-xml"></a><a name="ConvertJSONtoXML"></a>Converter JSON em XML
+##  <a name="convert-json-to-xml"></a><a name="ConvertJSONtoXML"></a> Converter JSON em XML
  A `json-to-xml` apólice converte um órgão de pedido ou resposta de JSON para XML.
 
 ### <a name="policy-statement"></a>Declaração política
@@ -69,17 +69,17 @@ Este tópico fornece uma referência para as seguintes políticas de Gestão da 
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Necessário|
+|Nome|Descrição|Obrigatório|
 |----------|-----------------|--------------|
 |json-to-xml|Elemento de raiz.|Yes|
 
 ### <a name="attributes"></a>Atributos
 
-|Nome|Descrição|Necessário|Predefinição|
+|Nome|Descrição|Obrigatório|Predefinição|
 |----------|-----------------|--------------|-------------|
 |apply|O atributo deve ser definido para um dos seguintes valores.<br /><br /> - sempre - aplicar sempre a conversão.<br />- tipo de conteúdo-json - converta-se apenas se o cabeçalho do tipo de conteúdo de resposta indicar a presença de JSON.|Yes|N/D|
-|considerar-aceitar cabeçalho|O atributo deve ser definido para um dos seguintes valores.<br /><br /> - verdadeiro - aplique a conversão se XML for solicitado no pedido Aceite cabeçalho.<br />- falso - aplicar sempre a conversão.|Não|true|
-|data de parse|Quando definidos até à `false` data os valores são simplesmente copiados durante a transformação|Não|true|
+|considerar-aceitar cabeçalho|O atributo deve ser definido para um dos seguintes valores.<br /><br /> - verdadeiro - aplique a conversão se XML for solicitado no pedido Aceite cabeçalho.<br />- falso - aplicar sempre a conversão.|No|true|
+|data de parse|Quando definidos até à `false` data os valores são simplesmente copiados durante a transformação|No|true|
 
 ### <a name="usage"></a>Utilização
  Esta política pode ser utilizada nas [seguintes secções](./api-management-howto-policies.md#sections) e [âmbitos políticos.](./api-management-howto-policies.md#scopes)
@@ -88,7 +88,7 @@ Este tópico fornece uma referência para as seguintes políticas de Gestão da 
 
 -   **Âmbitos de política:** todos os âmbitos
 
-##  <a name="convert-xml-to-json"></a><a name="ConvertXMLtoJSON"></a>Converter XML em JSON
+##  <a name="convert-xml-to-json"></a><a name="ConvertXMLtoJSON"></a> Converter XML em JSON
  A `xml-to-json` apólice converte um órgão de pedido ou resposta de XML para JSON. Esta política pode ser usada para modernizar APIs com base em serviços web de backend apenas XML.
 
 ### <a name="policy-statement"></a>Declaração política
@@ -113,17 +113,17 @@ Este tópico fornece uma referência para as seguintes políticas de Gestão da 
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Necessário|
+|Nome|Descrição|Obrigatório|
 |----------|-----------------|--------------|
 |xml-para-json|Elemento de raiz.|Yes|
 
 ### <a name="attributes"></a>Atributos
 
-|Nome|Descrição|Necessário|Predefinição|
+|Nome|Descrição|Obrigatório|Predefinição|
 |----------|-----------------|--------------|-------------|
 |tipo|O atributo deve ser definido para um dos seguintes valores.<br /><br /> - javascript-friendly - o JSON convertido tem um formulário amigável para os desenvolvedores JavaScript.<br />- direto - o JSON convertido reflete a estrutura original do documento XML.|Yes|N/D|
 |apply|O atributo deve ser definido para um dos seguintes valores.<br /><br /> - sempre - converter sempre.<br />- tipo de conteúdo-xml - converta-se apenas se o cabeçalho do tipo de conteúdo de resposta indicar a presença de XML.|Yes|N/D|
-|considerar-aceitar cabeçalho|O atributo deve ser definido para um dos seguintes valores.<br /><br /> - verdadeiro - aplique a conversão se jSON for solicitado no pedido Aceite cabeçalho.<br />- falso - aplicar sempre a conversão.|Não|true|
+|considerar-aceitar cabeçalho|O atributo deve ser definido para um dos seguintes valores.<br /><br /> - verdadeiro - aplique a conversão se jSON for solicitado no pedido Aceite cabeçalho.<br />- falso - aplicar sempre a conversão.|No|true|
 
 ### <a name="usage"></a>Utilização
  Esta política pode ser utilizada nas [seguintes secções](./api-management-howto-policies.md#sections) e [âmbitos políticos.](./api-management-howto-policies.md#scopes)
@@ -132,7 +132,7 @@ Este tópico fornece uma referência para as seguintes políticas de Gestão da 
 
 -   **Âmbitos de política:** todos os âmbitos
 
-##  <a name="find-and-replace-string-in-body"></a><a name="Findandreplacestringinbody"></a>Encontre e substitua a corda no corpo
+##  <a name="find-and-replace-string-in-body"></a><a name="Findandreplacestringinbody"></a> Encontre e substitua a corda no corpo
  A `find-and-replace` apólice encontra um pedido ou sub-fundamento de resposta e substitui-o por um sub-cordão diferente.
 
 ### <a name="policy-statement"></a>Declaração política
@@ -149,13 +149,13 @@ Este tópico fornece uma referência para as seguintes políticas de Gestão da 
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Necessário|
+|Nome|Descrição|Obrigatório|
 |----------|-----------------|--------------|
 |encontrar e substituir|Elemento de raiz.|Yes|
 
 ### <a name="attributes"></a>Atributos
 
-|Nome|Descrição|Necessário|Predefinição|
+|Nome|Descrição|Obrigatório|Predefinição|
 |----------|-----------------|--------------|-------------|
 |De|A cadeia a procurar.|Yes|N/D|
 |para|A cadeia de substituição. Especifique uma cadeia de substituição de comprimento zero para remover o fio de pesquisa.|Yes|N/D|
@@ -167,7 +167,7 @@ Este tópico fornece uma referência para as seguintes políticas de Gestão da 
 
 -   **Âmbitos de política:** todos os âmbitos
 
-##  <a name="mask-urls-in-content"></a><a name="MaskURLSContent"></a>URLs de máscara em conteúdo
+##  <a name="mask-urls-in-content"></a><a name="MaskURLSContent"></a> URLs de máscara em conteúdo
  A `redirect-content-urls` política reescreve (máscaras) ligações no organismo de resposta para que apaguem para o link equivalente através do gateway. Utilize na secção de saída para reescrever ligações do corpo de resposta para os fazer apontar para o gateway. Utilize na secção de entrada para obter um efeito oposto.
 
 > [!NOTE]
@@ -187,7 +187,7 @@ Este tópico fornece uma referência para as seguintes políticas de Gestão da 
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Necessário|
+|Nome|Descrição|Obrigatório|
 |----------|-----------------|--------------|
 |redireccionamento-conteúdo-urls|Elemento de raiz.|Yes|
 
@@ -198,7 +198,7 @@ Este tópico fornece uma referência para as seguintes políticas de Gestão da 
 
 -   **Âmbitos de política:** todos os âmbitos
 
-##  <a name="set-backend-service"></a><a name="SetBackendService"></a>Serviço de backend definido
+##  <a name="set-backend-service"></a><a name="SetBackendService"></a> Serviço de backend definido
  Utilize a `set-backend-service` política para redirecionar um pedido de entrada para um backend diferente do especificado nas definições de API para essa operação. Esta política altera o URL base de serviço de backend do pedido de entrada para o especificado na apólice.
 
 ### <a name="policy-statement"></a>Declaração política
@@ -242,7 +242,7 @@ Inicialmente, o URL de base de serviço de backend é derivado das definições 
 
 Quando a [<escolher \> ](api-management-advanced-policies.md#choose) a declaração de política é aplicada, o URL de base de serviço de backend pode mudar novamente `http://contoso.com/api/8.2` para `http://contoso.com/api/9.1` ou, dependendo do valor do parâmetro de consulta de pedido de versão. Por exemplo, se o valor for `"2013-15"` o URL de pedido final torna-se `http://contoso.com/api/8.2/partners/15?version=2013-05&subscription-key=abcdef` .
 
-Se for desejada uma nova transformação do pedido, podem ser utilizadas outras [políticas de transformação.](api-management-transformation-policies.md#TransformationPolicies) Por exemplo, para remover o parâmetro de consulta da versão agora que o pedido está a ser encaminhado para uma versão específica backend, a política de [parâmetros de linha de consulta set](api-management-transformation-policies.md#SetQueryStringParameter) pode ser usada para remover o atributo de versão agora redundante.
+Se for desejada uma nova transformação do pedido, podem ser utilizadas outras [políticas de transformação.](api-management-transformation-policies.md#TransformationPolicies) Por exemplo, para remover o parâmetro de consulta da versão agora que o pedido está a ser encaminhado para uma versão específica backend, a política de  [parâmetros de linha de consulta set](api-management-transformation-policies.md#SetQueryStringParameter) pode ser usada para remover o atributo de versão agora redundante.
 
 ### <a name="example"></a>Exemplo
 
@@ -260,21 +260,21 @@ Neste exemplo, a política encaminha o pedido para um backend de tecido de servi
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Necessário|
+|Nome|Descrição|Obrigatório|
 |----------|-----------------|--------------|
 |set-backend-serviço|Elemento de raiz.|Yes|
 
 ### <a name="attributes"></a>Atributos
 
-|Nome|Descrição|Necessário|Predefinição|
+|Nome|Descrição|Obrigatório|Predefinição|
 |----------|-----------------|--------------|-------------|
 |base-url|URL de base de serviço de backend novo.|Um dos `base-url` ou `backend-id` deve estar presente.|N/D|
 |backend-id|Identificador do backend para. (As entidades backend são geridas através da [API](/rest/api/apimanagement/2019-12-01/backend) e [da PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|Um dos `base-url` ou `backend-id` deve estar presente.|N/D|
-|sf-partition-key|Só aplicável quando o backend é um serviço de Tecido de Serviço e é especificado com 'backend-id'. Usado para resolver uma divisão específica do serviço de resolução de nomes.|Não|N/D|
-|sf-replica-type|Só aplicável quando o backend é um serviço de Tecido de Serviço e é especificado com 'backend-id'. Controla se o pedido deve ir para a réplica primária ou secundária de uma partição. |Não|N/D|
-|sf-resolve-condição|Só se aplica quando o backend é um serviço de Tecido de Serviço. A condição de identificar se a chamada para o Service Fabric tem de ser repetida com nova resolução.|Não|N/D|
-|sf-serviço-instância-nome|Só se aplica quando o backend é um serviço de Tecido de Serviço. Permite alterar as instâncias de serviço em tempo de execução. |Não|N/D|
-|sf-ouvinte-nome|Só aplicável quando o backend é um serviço de Tecido de Serviço e é especificado com 'backend-id'. O Service Fabric Reliable Services permite-lhe criar vários ouvintes num serviço. Este atributo é utilizado para selecionar um ouvinte específico quando um Backend Reliable Service tem mais de um ouvinte. Se este atributo não for especificado, a API Management tentará utilizar um ouvinte sem nome. Um ouvinte sem nome é típico dos Serviços Fidedigdos que têm apenas um ouvinte. |Não|N/D|
+|sf-partition-key|Só aplicável quando o backend é um serviço de Tecido de Serviço e é especificado com 'backend-id'. Usado para resolver uma divisão específica do serviço de resolução de nomes.|No|N/D|
+|sf-replica-type|Só aplicável quando o backend é um serviço de Tecido de Serviço e é especificado com 'backend-id'. Controla se o pedido deve ir para a réplica primária ou secundária de uma partição. |No|N/D|
+|sf-resolve-condição|Só se aplica quando o backend é um serviço de Tecido de Serviço. A condição de identificar se a chamada para o Service Fabric tem de ser repetida com nova resolução.|No|N/D|
+|sf-serviço-instância-nome|Só se aplica quando o backend é um serviço de Tecido de Serviço. Permite alterar as instâncias de serviço em tempo de execução. |No|N/D|
+|sf-ouvinte-nome|Só aplicável quando o backend é um serviço de Tecido de Serviço e é especificado com 'backend-id'. O Service Fabric Reliable Services permite-lhe criar vários ouvintes num serviço. Este atributo é utilizado para selecionar um ouvinte específico quando um Backend Reliable Service tem mais de um ouvinte. Se este atributo não for especificado, a API Management tentará utilizar um ouvinte sem nome. Um ouvinte sem nome é típico dos Serviços Fidedigdos que têm apenas um ouvinte. |No|N/D|
 
 ### <a name="usage"></a>Utilização
  Esta política pode ser utilizada nas [seguintes secções](./api-management-howto-policies.md#sections) e [âmbitos políticos.](./api-management-howto-policies.md#scopes)
@@ -283,7 +283,7 @@ Neste exemplo, a política encaminha o pedido para um backend de tecido de servi
 
 -   **Âmbitos de política:** todos os âmbitos
 
-##  <a name="set-body"></a><a name="SetBody"></a>Conjunto de corpo
+##  <a name="set-body"></a><a name="SetBody"></a> Conjunto de corpo
  Utilize a `set-body` política para definir o corpo de mensagens para pedidos de entrada e saída. Para aceder ao corpo de mensagens pode utilizar a `context.Request.Body` propriedade ou `context.Response.Body` a, dependendo se a apólice está na secção de entrada ou saída.
 
 > [!IMPORTANT]
@@ -396,15 +396,15 @@ A `set-body` política pode ser configurada para usar a linguagem templária [l�
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Necessário|
+|Nome|Descrição|Obrigatório|
 |----------|-----------------|--------------|
 |conjunto de corpo|Elemento de raiz. Contém o texto do corpo ou uma expressão que devolve um corpo.|Yes|
 
 ### <a name="properties"></a>Propriedades
 
-|Nome|Descrição|Necessário|Predefinição|
+|Nome|Descrição|Obrigatório|Predefinição|
 |----------|-----------------|--------------|-------------|
-|modelo|Usado para alterar o modo de templário em que a política do corpo definido irá funcionar. Atualmente, o único valor suportado é:<br /><br />- líquido - a política do corpo definido utilizará o motor templário líquido |Não||
+|modelo|Usado para alterar o modo de templário em que a política do corpo definido irá funcionar. Atualmente, o único valor suportado é:<br /><br />- líquido - a política do corpo definido utilizará o motor templário líquido |No||
 
 Para aceder a informações sobre o pedido e resposta, o modelo Liquid pode ligar-se a um objeto de contexto com as seguintes propriedades: <br />
 <pre>context.
@@ -453,7 +453,7 @@ OriginalUrl.
 
 -   **Âmbitos de política:** todos os âmbitos
 
-##  <a name="set-http-header"></a><a name="SetHTTPheader"></a>Definir cabeçalho HTTP
+##  <a name="set-http-header"></a><a name="SetHTTPheader"></a> Definir cabeçalho HTTP
  A `set-header` apólice atribui um valor a uma resposta existente e/ou um cabeçalho de pedido ou adiciona uma nova resposta e/ou cabeçalho de pedido.
 
  Insere uma lista de cabeçalhos HTTP numa mensagem HTTP. Quando colocado num gasoduto de entrada, esta política define os cabeçalhos HTTP para o pedido ser transmitido para o serviço alvo. Quando colocado num oleoduto de saída, esta política define os cabeçalhos HTTP para a resposta enviada ao cliente do gateway.
@@ -497,29 +497,29 @@ OriginalUrl.
  Para obter mais informações, consulte [as expressões de política](api-management-policy-expressions.md) e a [variável Context.](api-management-policy-expressions.md#ContextVariables)
 
 > [!NOTE]
-> Os múltiplos valores de um cabeçalho são concatenados a uma cadeia de CSV, por exemplo:`headerName: value1,value2,value3`
+> Os múltiplos valores de um cabeçalho são concatenados a uma cadeia de CSV, por exemplo: `headerName: value1,value2,value3`
 >
 > As exceções incluem cabeçalhos padronizados, que valorizam:
 > - podem conter vírgulas , `User-Agent` `WWW-Authenticate` , `Proxy-Authenticate`
 > - pode conter data ( `Cookie` , `Set-Cookie` , `Warning` ),
 > - conter a data `Date` `Expires` (, `If-Modified-Since` , , , , , . `If-Unmodified-Since` `Last-Modified` `Retry-After` .
 >
-> Em caso de exceções, os valores múltiplos dos cabeçalhos não serão concatenados numa única corda e serão passados como cabeçalhos separados, por exemplo:`User-Agent: value1`
+> Em caso de exceções, os valores múltiplos dos cabeçalhos não serão concatenados numa única corda e serão passados como cabeçalhos separados, por exemplo: `User-Agent: value1`
 >`User-Agent: value2`
 >`User-Agent: value3`
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Necessário|
+|Nome|Descrição|Obrigatório|
 |----------|-----------------|--------------|
 |set-header|Elemento de raiz.|Yes|
-|valor|Especifica o valor do cabeçalho a definir. Para vários cabeçalhos com o mesmo nome adicione `value` elementos adicionais.|Não|
+|valor|Especifica o valor do cabeçalho a definir. Para vários cabeçalhos com o mesmo nome adicione `value` elementos adicionais.|No|
 
 ### <a name="properties"></a>Propriedades
 
-|Nome|Descrição|Necessário|Predefinição|
+|Nome|Descrição|Obrigatório|Predefinição|
 |----------|-----------------|--------------|-------------|
-|existe-ação|Especifica que medidas tomar quando o cabeçalho já está especificado. Este atributo deve ter um dos seguintes valores.<br /><br /> - sobreposição - substitui o valor do cabeçalho existente.<br />- saltar - não substitui o valor do cabeçalho existente.<br />- apêndice - anexa o valor ao valor do cabeçalho existente.<br />- excluir - retire o cabeçalho do pedido.<br /><br /> Quando definido para `override` a inscrição de várias entradas com o mesmo nome resulta na configuração do cabeçalho de acordo com todas as entradas (que serão listadas várias vezes); apenas os valores listados serão definidos no resultado.|Não|sobreposição|
+|existe-ação|Especifica que medidas tomar quando o cabeçalho já está especificado. Este atributo deve ter um dos seguintes valores.<br /><br /> - sobreposição - substitui o valor do cabeçalho existente.<br />- saltar - não substitui o valor do cabeçalho existente.<br />- apêndice - anexa o valor ao valor do cabeçalho existente.<br />- excluir - retire o cabeçalho do pedido.<br /><br /> Quando definido para `override` a inscrição de várias entradas com o mesmo nome resulta na configuração do cabeçalho de acordo com todas as entradas (que serão listadas várias vezes); apenas os valores listados serão definidos no resultado.|No|sobreposição|
 |name|Especifica o nome do cabeçalho a definir.|Yes|N/D|
 
 ### <a name="usage"></a>Utilização
@@ -529,7 +529,7 @@ OriginalUrl.
 
 -   **Âmbitos de política:** todos os âmbitos
 
-##  <a name="set-query-string-parameter"></a><a name="SetQueryStringParameter"></a>Definir parâmetro de cadeia de consulta
+##  <a name="set-query-string-parameter"></a><a name="SetQueryStringParameter"></a> Definir parâmetro de cadeia de consulta
  A `set-query-parameter` apólice adiciona, substitui o valor ou elimina o parâmetro de cadeia de consulta de pedido. Pode ser usado para passar parâmetros de consulta esperados pelo serviço de backend que são opcionais ou nunca presentes no pedido.
 
 ### <a name="policy-statement"></a>Declaração política
@@ -565,16 +565,16 @@ OriginalUrl.
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Necessário|
+|Nome|Descrição|Obrigatório|
 |----------|-----------------|--------------|
 |set-consulta-parâmetro|Elemento de raiz.|Yes|
 |valor|Especifica o valor do parâmetro de consulta a definir. Para parâmetros de consulta múltiplas com o mesmo nome adicione `value` elementos adicionais.|Yes|
 
 ### <a name="properties"></a>Propriedades
 
-|Nome|Descrição|Necessário|Predefinição|
+|Nome|Descrição|Obrigatório|Predefinição|
 |----------|-----------------|--------------|-------------|
-|existe-ação|Especifica a ação a realizar quando o parâmetro de consulta já está especificado. Este atributo deve ter um dos seguintes valores.<br /><br /> - sobreposição - substitui o valor do parâmetro existente.<br />- saltar - não substitui o valor do parâmetro de consulta existente.<br />- apêndice - anexa o valor ao valor do parâmetro de consulta existente.<br />- eliminar - remove o parâmetro de consulta do pedido.<br /><br /> Quando definido para `override` recrutar várias entradas com o mesmo nome resulta no parâmetro de consulta que está a ser definido de acordo com todas as entradas (que serão listadas várias vezes); apenas os valores listados serão definidos no resultado.|Não|sobreposição|
+|existe-ação|Especifica a ação a realizar quando o parâmetro de consulta já está especificado. Este atributo deve ter um dos seguintes valores.<br /><br /> - sobreposição - substitui o valor do parâmetro existente.<br />- saltar - não substitui o valor do parâmetro de consulta existente.<br />- apêndice - anexa o valor ao valor do parâmetro de consulta existente.<br />- eliminar - remove o parâmetro de consulta do pedido.<br /><br /> Quando definido para `override` recrutar várias entradas com o mesmo nome resulta no parâmetro de consulta que está a ser definido de acordo com todas as entradas (que serão listadas várias vezes); apenas os valores listados serão definidos no resultado.|No|sobreposição|
 |name|Especifica o nome do parâmetro de consulta a definir.|Yes|N/D|
 
 ### <a name="usage"></a>Utilização
@@ -584,12 +584,12 @@ OriginalUrl.
 
 -   **Âmbitos de política:** todos os âmbitos
 
-##  <a name="rewrite-url"></a><a name="RewriteURL"></a>Reescrever URL
+##  <a name="rewrite-url"></a><a name="RewriteURL"></a> Reescrever URL
  A `rewrite-uri` política converte um URL de pedido do seu formulário público para o formulário esperado pelo serviço web, como mostrado no exemplo seguinte.
 
-- URL público -`http://api.example.com/storenumber/ordernumber`
+- URL público - `http://api.example.com/storenumber/ordernumber`
 
-- Solicitação URL -`http://api.example.com/v2/US/hardware/storenumber&ordernumber?City&State`
+- Solicitação URL - `http://api.example.com/v2/US/hardware/storenumber&ordernumber?City&State`
 
   Esta política pode ser usada quando um URL humano e/ou amigo do navegador deve ser transformado no formato URL esperado pelo serviço web. Esta política só deve ser aplicada quando expor um formato DE URL alternativo, como URLs limpos, URLs RESTful, URLs fáceis de utilizar ou URLs fáceis de seo que são URLs puramente estruturais que não contêm uma cadeia de consulta e contêm apenas o caminho do recurso (após o esquema e a autoridade). Isto é muitas vezes feito para fins estéticos, usabilidade ou otimização do motor de busca (SEO).
 
@@ -644,16 +644,16 @@ OriginalUrl.
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Necessário|
+|Nome|Descrição|Obrigatório|
 |----------|-----------------|--------------|
 |reescrever-uri|Elemento de raiz.|Yes|
 
 ### <a name="attributes"></a>Atributos
 
-|Atributo|Descrição|Necessário|Predefinição|
+|Atributo|Descrição|Obrigatório|Predefinição|
 |---------------|-----------------|--------------|-------------|
 |modelo|O URL de serviço web real com quaisquer parâmetros de cadeia de consulta. Ao utilizar expressões, todo o valor deve ser uma expressão.|Yes|N/D|
-|copy-incomparável-params|Especifica se os parâmetros de consulta no pedido de entrada não presentes no modelo URL original são adicionados ao URL definido pelo modelo de re-escrita|Não|true|
+|copy-incomparável-params|Especifica se os parâmetros de consulta no pedido de entrada não presentes no modelo URL original são adicionados ao URL definido pelo modelo de re-escrita|No|true|
 
 ### <a name="usage"></a>Utilização
  Esta política pode ser utilizada nas [seguintes secções](./api-management-howto-policies.md#sections) e [âmbitos políticos.](./api-management-howto-policies.md#scopes)
@@ -662,7 +662,7 @@ OriginalUrl.
 
 -   **Âmbitos de política:** todos os âmbitos
 
-##  <a name="transform-xml-using-an-xslt"></a><a name="XSLTransform"></a>Transformar XML usando um XSLT
+##  <a name="transform-xml-using-an-xslt"></a><a name="XSLTransform"></a> Transformar XML usando um XSLT
  A `Transform XML using an XSLT` política aplica uma transformação de XSL a XML no órgão de pedido ou resposta.
 
 ### <a name="policy-statement"></a>Declaração política
@@ -713,10 +713,10 @@ OriginalUrl.
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Necessário|
+|Nome|Descrição|Obrigatório|
 |----------|-----------------|--------------|
 |xsl-transform|Elemento de raiz.|Yes|
-|parameter|Usado para definir variáveis usadas na transformação|Não|
+|parameter|Usado para definir variáveis usadas na transformação|No|
 |xsl:folha de estilo|Elemento de folha de estilo de raiz. Todos os elementos e atributos definidos dentro seguem a [especificação padrão XSLT](https://www.w3.org/TR/xslt)|Yes|
 
 ### <a name="usage"></a>Utilização
@@ -732,4 +732,4 @@ Para obter mais informações, consulte os seguintes tópicos:
 
 + [Políticas em Gestão de API](api-management-howto-policies.md)
 + [Referência política](./api-management-policies.md) para uma lista completa de declarações políticas e suas definições
-+ [Amostras de política](policy-samples.md)
++ [Amostras de política](./policy-reference.md)

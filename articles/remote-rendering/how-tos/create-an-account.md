@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
 ms.openlocfilehash: 7a4e6d80d80441a1b94c1fb2bd8f82f247235fe3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91318097"
 ---
 # <a name="create-an-azure-remote-rendering-account"></a>Criar uma conta do Azure Remote Rendering
@@ -52,7 +52,7 @@ Consulte a [lista das regiões disponíveis](../reference/regions.md) para preen
 
 Os valores para **`arrAccountId`** e **`arrAccountKey`** podem ser encontrados no portal conforme descrito nos seguintes passos:
 
-* Vá ao [portal Azure](https://www.portal.azure.com)
+* Aceda ao [Portal do Azure](https://www.portal.azure.com)
 * Encontre a sua **"Conta de Renderização Remota"** - deve estar na lista **de "Recursos Recentes".** Também pode pesquisar na barra de pesquisa no topo. Nesse caso, certifique-se de que a subscrição que pretende utilizar está selecionada no filtro de subscrição Predefinido (ícone de filtro ao lado da barra de pesquisa):
 
 ![Filtro de assinatura](./media/azure-subscription-filter.png)

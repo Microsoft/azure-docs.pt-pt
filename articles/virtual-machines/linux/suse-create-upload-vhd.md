@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: guybo
 ms.openlocfilehash: 73e07c612486d5f48b1ad3eca8044a561549092b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87292131"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Prepare a SLES or openSUSE virtual machine for Azure (Preparar uma máquina virtual SLES ou openSUSE para o Azure)
@@ -137,7 +137,7 @@ Como alternativa à construção do seu próprio VHD, a SUSE também publica ima
    | - | :-------------------- | :-------------------- | :------ | :------
    | 1 | Nuvem:Tools_13.1      | Nuvem:Tools_13.1      | Sim     | Sim
    | 2 | openSUSE_13.1_OSS     | openSUSE_13.1_OSS     | Sim     | Sim
-   | 3 | openSUSE_13.1_Updates | openSUSE_13.1_Updates | Sim     | Sim
+   | 3 | openSUSE_13.1_Atualizações | openSUSE_13.1_Atualizações | Sim     | Sim
 
     Se o comando retornar "Não há repositórios definidos..." em seguida, utilizar os seguintes comandos para adicionar estes repos:
 

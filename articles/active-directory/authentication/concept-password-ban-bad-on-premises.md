@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e09ad2991d552cb9886911ac75ea23c690204a71
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: c4802c4faf245819f57f9885129fa876110407dd
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116653"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965238"
 ---
 # <a name="enforce-on-premises-azure-ad-password-protection-for-active-directory-domain-services"></a>Impor no local proteção de senha azure AD para serviços de domínio de diretório ativo
 

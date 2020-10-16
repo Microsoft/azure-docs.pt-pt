@@ -7,10 +7,10 @@ ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python
 ms.openlocfilehash: 96daa93c28617bd34f263b11afcd244e3b7bacf0
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88214132"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Gatilho da grelha de eventos Azure para funções Azure
@@ -407,7 +407,7 @@ Para as funções que desenvolve no portal Azure com o gatilho da Grelha de Even
 
 Quando seleciona este link, o portal abre a página **De Subscrição de Eventos** criar com o ponto final do gatilho atual já definido.
 
-:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="Criar subscrição de evento com ponto final de função já definido" :::
+:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="Ligue uma nova subscrição de eventos para desencadear no portal." :::
 
 Para obter mais informações sobre como criar subscrições utilizando o portal Azure, consulte [Criar evento personalizado - Portal Azure](../event-grid/custom-event-quickstart-portal.md) na documentação da Grade de Eventos.
 

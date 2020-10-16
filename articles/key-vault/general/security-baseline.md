@@ -8,10 +8,10 @@ ms.date: 04/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 34036388ce9243c082cf79eb4be9251957eafc01
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89400471"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Linha de Base de Segurança do Azure para o Key Vault
@@ -1097,7 +1097,7 @@ Compreenda o Antimalware da Microsoft para serviços em nuvem Azure e máquinas 
 
 - Backup-AzKeyVaultKey
 
-- Backup-AzKeyVaultManagedstorageAccount
+- Backup-AzKeyVaultManagedStorageAccount
 
 - Backup-AzKeyVaultSecret
 
@@ -1127,7 +1127,7 @@ Como ativar a cópia de segurança do Azure: https://docs.microsoft.com/azure/ba
 
 - Backup-AzKeyVaultKey
 
-- Backup-AzKeyVaultManagedstorageAccount
+- Backup-AzKeyVaultManagedStorageAccount
 
 - Backup-AzKeyVaultSecret
 
@@ -1153,13 +1153,13 @@ Como ativar a cópia de segurança do Azure: https://docs.microsoft.com/azure/ba
 
 **Orientação**: Execute periodicamente a restauração de dados dos seus certificados de cofre chave, chaves, contas de armazenamento gerido e segredos, com os seguintes comandos PowerShell:
 
-- Restaurar-AzKeyVaultCertificate
+- Restore-AzKeyVaultCertificate
 
-- Restaurar-AzKeyVaultKey
+- Restore-AzKeyVaultKey
 
-- Restauração-AzKeyVaultManagedstorageAccount
+- Restore-AzKeyVaultManagedStorageAccount
 
-- Restaurar-AzKeyVaultSecret
+- Restore-AzKeyVaultSecret
 
 Como restaurar os certificados de cofre chave:  https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0
 
@@ -1301,7 +1301,7 @@ https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte o [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
 - Saiba mais sobre [as Linhas de Base de Segurança Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

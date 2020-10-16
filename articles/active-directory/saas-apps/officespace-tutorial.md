@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: jeedes
-ms.openlocfilehash: ae8a1fa68e61e160ce08b93bf66776a050b45613
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e05a2a4ba12d5fc665090d5bf078da520000f43b
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554188"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945367"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-officespace-software"></a>Tutorial: Azure Ative Directory integração única (SSO) com software OfficeSpace
 
@@ -150,11 +150,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 2. Vá a **Definições** e clique em **Conectores**.
 
-    ![Configurar Sign-On única no lado da aplicação](./media/officespace-tutorial/tutorial_officespace_002.png)
+    ![Screenshot que mostra o drop-down "Definições" com "Conectores" selecionados.](./media/officespace-tutorial/tutorial_officespace_002.png)
 
 3. Clique na **autenticação SAML**.
 
-    ![Configurar Sign-On única no lado da aplicação](./media/officespace-tutorial/tutorial_officespace_003.png)
+    ![Screenshot que mostra a secção "Autenticação" com a ação "S A M L Authentication" selecionada.](./media/officespace-tutorial/tutorial_officespace_003.png)
 
 4. Na secção **de Autenticação SAML,** execute os seguintes passos:
 

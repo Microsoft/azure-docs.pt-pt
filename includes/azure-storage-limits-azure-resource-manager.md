@@ -9,10 +9,10 @@ ms.date: 04/16/2020
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 32f972b177e004612856db91e790c5c2781a2b44
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81536449"
 ---
 Os seguintes limites aplicam-se apenas quando executa operações de gestão utilizando o Azure Resource Manager com o Azure Storage.

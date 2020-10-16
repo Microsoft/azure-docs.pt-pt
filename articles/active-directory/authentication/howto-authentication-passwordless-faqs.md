@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 08/19/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16e232cedb13dc246bf7a568adfad401c1fe3eb8
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: c5cc6847332765419001eadc5944905f55a425ef
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89236720"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91964796"
 ---
 # <a name="deployment-frequently-asked-questions-faqs-for-hybrid-fido2-security-keys-in-azure-ad-preview"></a>Implementação frequentemente feita perguntas (FAQs) para chaves de segurança híbridas FIDO2 em Azure AD (pré-visualização)
 
@@ -185,7 +185,7 @@ O servidor Azure AD Kerberos está representado num ambiente AD DS no local como
 
 * *CN=AzureADKerberos,OU=Controladores de Domínio,\<domain-DN>*
     
-    Um objeto *de computador* que representa um controlador de domínio só de leitura (RODC) em DS AD. Não há computador associado a este objeto. Em vez disso, é uma representação lógica de um DC.
+    Um objeto *de computador* que representa um controlador de domínio Read-Only (RODC) em DS AD. Não há computador associado a este objeto. Em vez disso, é uma representação lógica de um DC.
 
 * *CN=krbtgt_AzureAD,CN=Utilizadores,\<domain-DN>*
 
@@ -234,11 +234,11 @@ O pedido HTTP é um pedido padrão de Token (PRT) de Atualização Primária. Es
 
 A Azure AD combina a chave de cliente encriptada e o tampão de mensagens na resposta prt como propriedades adicionais. A carga útil é encriptada utilizando a tecla de sessão do Dispositivo AD Azure.
 
-| Campo              | Tipo   | Description  |
+| Campo              | Tipo   | Descrição  |
 |--------------------|--------|--------------|
-| tgt_client_key     | string | Base64 codificada chave do cliente (segredo). Esta chave é o segredo do cliente usado para proteger o TGT. Neste cenário sem palavra-passe, o segredo do cliente é gerado pelo servidor como parte de cada pedido de TGT e depois devolvido ao cliente na resposta. |
+| tgt_client_key     | cadeia | Base64 codificada chave do cliente (segredo). Esta chave é o segredo do cliente usado para proteger o TGT. Neste cenário sem palavra-passe, o segredo do cliente é gerado pelo servidor como parte de cada pedido de TGT e depois devolvido ao cliente na resposta. |
 | tgt_key_type       | int    | O tipo de chave AD DS no local utilizado tanto para a chave do cliente como para a chave de sessão Kerberos incluída no KERB_MESSAGE_BUFFER. |
-| tgt_message_buffer | string | Base64 codificada KERB_MESSAGE_BUFFER. |
+| tgt_message_buffer | cadeia | Base64 codificada KERB_MESSAGE_BUFFER. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

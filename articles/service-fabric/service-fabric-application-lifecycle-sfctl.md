@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: bikang
 ms.openlocfilehash: 7d361d44c349bc7a6e3c041f78d00ad66182fa15
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84711039"
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli-sfctl"></a>Gerir uma aplicação de tecido de serviço Azure utilizando o CLI do tecido de serviço Azure (sfctl)
@@ -73,7 +73,7 @@ Para eliminar o pacote de aplicações da loja de imagens, utilize o seguinte co
 sfctl store delete --content-path app_package_dir
 ```
 
-`content-path`deve ser o nome do diretório que carregou quando criou a aplicação.
+`content-path` deve ser o nome do diretório que carregou quando criou a aplicação.
 
 ### <a name="create-an-application-from-an-application-type"></a>Criar uma aplicação a partir de um tipo de aplicação
 
@@ -83,7 +83,7 @@ Depois de apresentar a aplicação, utilize o seguinte comando para nomear e cri
 sfctl application create --app-name fabric:/TestApp --app-type TestAppType --app-version 1.0
 ```
 
-`app-name`é o nome que pretende usar para a aplicação. Pode obter parâmetros adicionais do manifesto de aplicação previamente previsto.
+`app-name` é o nome que pretende usar para a aplicação. Pode obter parâmetros adicionais do manifesto de aplicação previamente previsto.
 
 O nome da aplicação deve começar pelo `fabric:/` prefixo.
 
@@ -162,7 +162,7 @@ Quando uma atualização da aplicação está em andamento, o estado pode ser re
 
 Finalmente, se uma atualização estiver em andamento e precisar de ser cancelada, pode utilizar `sfctl application upgrade-rollback` a atualização para reverter.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Básicos CLI de Tecido de Serviço](service-fabric-cli.md)
 * [Começando com tecido de serviço em Linux](service-fabric-get-started-linux.md)

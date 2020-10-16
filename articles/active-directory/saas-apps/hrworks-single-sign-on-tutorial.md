@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única de sign-on (SSO) com HRworks Single Sign-On / Microsoft Docs'
+title: 'Tutorial: Azure Ative Directy integração única (SSO) com HRworks Single Sign-On [ Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o HRworks Single Sign-On.
 services: active-directory
 author: jeevansd
@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.date: 01/02/2020
 ms.author: jeedes
 ms.openlocfilehash: 1a0fff21c85104498895c9de20de9961a77cffeb
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91820487"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hrworks-single-sign-on"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com HRworks Single Sign-On
 
-Neste tutorial, você aprenderá a integrar HRworks Single Sign-On com Azure Ative Directory (Azure AD). Quando integrar o HRworks Single Sign-On com Azure AD, pode:
+Neste tutorial, você vai aprender a integrar HRworks Single Sign-On com Azure Ative Directory (Azure AD). Quando integrar o HRworks Single Sign-On com Azure AD, pode:
 
 * Controlo em Azure AD que tem acesso a HRworks Single Sign-On.
-* Ativar os seus utilizadores para serem automaticamente inscritos na HRworks Single Sign-On com as suas contas AD Azure.
+* Ativar os seus utilizadores a serem automaticamente inscritos na HRworks Single Sign-On com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
 
 Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -33,7 +33,7 @@ Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consult
 Para começar, precisa dos seguintes itens:
 
 * Uma assinatura AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
-* HRworks Assinatura única única (SSO) ativada.
+* HRworks Assinatura única Sign-On única inscrição (SSO) ativada.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -41,9 +41,9 @@ Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 * HRworks Single Sign-On suporta **SSO** iniciado SP
 
-## <a name="adding-hrworks-single-sign-on-from-the-gallery"></a>Adicionando HRworks Single Sign-On da galeria
+## <a name="adding-hrworks-single-sign-on-from-the-gallery"></a>Adicionar HRworks Single Sign-On da galeria
 
-Para configurar a integração do HRworks Single Sign-On em AD Azure, é necessário adicionar hrworks Single Sign-On da galeria à sua lista de aplicações geridas para o SaaS.
+Para configurar a integração da HRworks Single Sign-On em AD Azure, é necessário adicionar hRworks Single Sign-On da galeria à sua lista de aplicações geridas para o SaaS.
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
@@ -52,17 +52,17 @@ Para configurar a integração do HRworks Single Sign-On em AD Azure, é necess�
 1. Na secção Adicionar a partir da secção **de galeria,** **escreva HRworks Single Sign-On** na caixa de pesquisa.
 1. Selecione **HRworks Single Sign-On** do painel de resultados e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-hrworks-single-sign-on"></a>Configurar e testar a Azure AD um único sinal para hrworks single sign-on
+## <a name="configure-and-test-azure-ad-single-sign-on-for-hrworks-single-sign-on"></a>Configure e teste Azure AD único sinal de inscrição para HRworks Single Sign-On
 
-Configure e teste Azure AD SSO com HRworks Single Sign-On usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado em HRworks Single Sign-On.
+Configure e teste Azure AD SSO com HRworks Single Sign-On utilizando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado em HRworks Single Sign-On.
 
 Para configurar e testar o Azure AD SSO com hrworks Single Sign-On, complete os seguintes blocos de construção:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     * Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
     * **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
-1. **[Configure HRworks Single Sign-On SSO](#configure-hrworks-single-sign-on-sso)** - para configurar as definições de inscrição única no lado da aplicação.
-    * **[Crie o utilizador de teste único de sign-on HRworks](#create-hrworks-single-sign-on-test-user)** - para ter uma contraparte de B.Simon em HRworks Single Sign-On que está ligada à representação AD AD do utilizador.
+1. **[Configure hRworks Single Sign-On SSO](#configure-hrworks-single-sign-on-sso)** - para configurar as definições de inscrição única no lado da aplicação.
+    * **[Crie o utilizador de teste de Sign-On Único HRworks](#create-hrworks-single-sign-on-test-user)** - para ter uma contrapartida de B.Simon em HRworks Single Sign-On que está ligada à representação AD AD do utilizador.
 1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
@@ -80,7 +80,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://login.hrworks.de/?companyId=<companyId>&directssologin=true`
 
     > [!NOTE]
-    > O valor não é real. Atualize o valor com o URL de inscrição real. Contacte [a equipa de suporte ao cliente único da HRworks](mailto:nadja.sommerfeld@hrworks.de) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > O valor não é real. Atualize o valor com o URL de Sign-On real. Contacte [a equipa de suporte Sign-On cliente da HRworks Single Sign-On](mailto:nadja.sommerfeld@hrworks.de) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
 1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre o **Metadados XML da Federação** e selecione **Descarregue** para descarregar o certificado e guarde-o no seu computador.
 
@@ -130,7 +130,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, permiti
 
     ![Configuração de configuração](common/setup-sso.png)
 
-1. Se pretender configurar o HRworks Single Sign-On manualmente, abra uma nova janela do navegador web e inscreva-se no site da empresa HRworks Single Sign-On como administrador e execute os seguintes passos:
+1. Se pretender configurar o HRworks Single Sign-On manualmente, abra manualmente uma nova janela do navegador web e inscreva-se no seu site da empresa HRworks Single Sign-On como administrador e execute os seguintes passos:
 
 1. Clique em **Básicos**de Segurança De  >  **Basics**  >  **Segurança**  >  **Único Sign-on** a partir do lado esquerdo da barra de menu e execute os seguintes passos:
 
@@ -146,13 +146,13 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, permiti
 
     e. Clique em **Guardar**.
 
-### <a name="create-hrworks-single-sign-on-test-user"></a>Criar utilizador de teste único de SNRworks
+### <a name="create-hrworks-single-sign-on-test-user"></a>Criar utilizador de teste de Sign-On único da HRworks
 
 Para ativar os utilizadores Azure AD, inscreva-se no HRworks Single Sign-On, devem ser ateados na HRworks Single Sign-On. Na HRworks Single Sign-On, o provisionamento é uma tarefa manual.
 
 **Para obter uma conta de utilizador, execute os seguintes passos:**
 
-1. Inscreva-se na HRworks Single Sign-On como administrador.
+1. Inscreva-se na HRworks Single Sign-On como Administrador.
 
 1. Clique em Pessoas **de Administrador**  >  **Persons**  >  **Persons**  >  **Pessoas Nova pessoa** do lado esquerdo da barra de menu.
 
@@ -170,7 +170,7 @@ Para ativar os utilizadores Azure AD, inscreva-se no HRworks Single Sign-On, dev
 
 Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 
-Quando clicar no azulejo de SSS Single Sign-On da HRworks no Painel de Acesso, deverá ser automaticamente inscrito no Sign-On Único de HRworks para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando clicar no azulejo Sign-On único da HRworks no Painel de Acesso, deverá ser automaticamente inscrito no Sign-On Único de HRworks para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

@@ -4,10 +4,10 @@ description: Referência para o evento de autoescala da piscina Batch, que é em
 ms.topic: reference
 ms.date: 10/08/2020
 ms.openlocfilehash: e548ed484e5f683a8f79434ce4095ac66900f01a
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91852179"
 ---
 # <a name="pool-autoscale-event"></a>Evento de autoescala de piscina
@@ -36,16 +36,16 @@ ms.locfileid: "91852179"
 
 |Elemento|Tipo|Notas|
 |-------------|----------|-----------|
-|`id`|String|A identificação da piscina.|
+|`id`|Cadeia|A identificação da piscina.|
 |`timestamp`|DateTime|A estampagem de tempo quando o escalonamento automático é executado.|
-|`formula`|String|A fórmula definida para a escala automática.|
-|`results`|String|Resultados da avaliação de todas as variáveis utilizadas na fórmula.|
+|`formula`|Cadeia|A fórmula definida para a escala automática.|
+|`results`|Cadeia|Resultados da avaliação de todas as variáveis utilizadas na fórmula.|
 |[`error`](#error)|Tipo Complexo|O erro detalhado para a escala automática.|
 
 ###  <a name="error"></a><a name="error"></a> erro
 
 |Nome do elemento|Tipo|Notas|
 |------------------|----------|-----------|
-|`code`|String|Um identificador para o erro de escala automático. Os códigos são invariantes e destinam-se a ser consumidos programáticamente.|
-|`message`|String|Uma mensagem que descreve o erro de escala automático, destinado a ser exibido numa interface de utilizador.|
+|`code`|Cadeia|Um identificador para o erro de escala automático. Os códigos são invariantes e destinam-se a ser consumidos programáticamente.|
+|`message`|Cadeia|Uma mensagem que descreve o erro de escala automático, destinado a ser exibido numa interface de utilizador.|
 |`values`|Matriz|Lista de pares de valor-nome que descrevem mais detalhes do erro de escala automático.|

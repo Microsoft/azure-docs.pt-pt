@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 99595e27b17db716b09325d5dd80633bf44ffb02
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91336654"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>O processo de ciência de dados da equipa em ação - Usando um cluster de hadoop Azure HDInsight num conjunto de dados de 1-TB
@@ -607,12 +607,12 @@ Está agora pronto para construir um modelo Azure Machine Learning utilizando es
 #### <a name="choice-of-learner"></a>Escolha do aprendiz
 Primeiro, tens de escolher um aprendiz. Usa uma árvore de decisão de duas classes como aprendiz. Aqui estão as opções padrão para este aluno:
 
-![Parâmetros da árvore de decisão reforçada de duas classes](./media/hive-criteo-walkthrough/bH3ST2z.png)
+![Two-Class impulsionados parâmetros da árvore de decisão](./media/hive-criteo-walkthrough/bH3ST2z.png)
 
 Para a experiência, escolha os valores predefinidos. Os incumprimentos são significativos e uma boa maneira de obter linhas de base rápidas sobre o desempenho. Pode melhorar o desempenho varrendo parâmetros se optar por uma linha de base.
 
 #### <a name="train-the-model"></a>Preparar o modelo
-Para treinar, basta invocar um módulo **Train Model.** As duas entradas são o aprendiz de duas classes da Árvore de Decisão Reforçada e o nosso conjunto de dados do comboio. Isto é mostrado aqui:
+Para treinar, basta invocar um módulo **Train Model.** As duas entradas são o Two-Class Aprendiz de Árvore de Decisão Reforçada e o nosso conjunto de dados do comboio. Isto é mostrado aqui:
 
 ![Módulo modelo de trem](./media/hive-criteo-walkthrough/2bZDZTy.png)
 

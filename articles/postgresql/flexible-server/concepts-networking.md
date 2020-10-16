@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: 38dd103189446e287f3d62d93344ed89a364d238
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708786"
 ---
 # <a name="networking-overview---azure-database-for-postgresql---flexible-server"></a>Visão geral de networking - Base de dados Azure para PostgreSQL - Servidor Flexível
@@ -118,6 +118,6 @@ A Azure Database for PostgreSQL - Flexible Server suporta ligar as aplicações 
 
 A base de dados Azure para PostgreSQL - Servidor Flexível suporta apenas ligações encriptadas utilizando a Segurança da Camada de Transporte. Todas as ligações recebidas com TLS 1.0 e TLS 1.1 serão negadas. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 * Saiba como criar um servidor flexível com **acesso privado (integração VNet)** [no portal Azure](how-to-manage-virtual-network-portal.md) ou [no Azure CLI](how-to-manage-virtual-network-cli.md).
 * Saiba como criar um servidor flexível com **acesso público (endereços IP autorizados)** [no portal Azure](how-to-manage-firewall-portal.md) ou [no Azure CLI](how-to-manage-firewall-cli.md).

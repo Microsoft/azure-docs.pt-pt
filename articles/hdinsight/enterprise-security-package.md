@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.openlocfilehash: 91fa6a8da555d0b0cc79b262a83306c1f72aa68a
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89567100"
 ---
 # <a name="enterprise-security-package-for-azure-hdinsight"></a>Pacote de segurança da empresa para Azure HDInsight
@@ -59,7 +59,7 @@ O Pacote de Segurança Empresarial suporta a utilização do Azure Data Lake Sto
 
 Para obter informações sobre preços e SLA para o Pacote de Segurança [Empresarial, consulte os preços da HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Configuração de cluster para Apache Hadoop, Spark, e muito mais em HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 * [Trabalhar em Apache Hadoop em HDInsight a partir de um PC windows](hdinsight-hadoop-windows-tools.md)

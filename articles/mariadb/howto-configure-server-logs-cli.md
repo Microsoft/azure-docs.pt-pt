@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 4/13/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: cd74feaebe5a89667668c05e332ed9d3c7cdad5d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87490256"
 ---
 # <a name="configure-and-access-azure-database-for-maria-db-slow-query-logs-by-using-azure-cli"></a>Configurar e aceder a Base de Dados Azure para registos de consulta lenta de Maria DB utilizando O Azure CLI

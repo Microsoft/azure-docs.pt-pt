@@ -16,10 +16,10 @@ ms.date: 02/15/2017
 ms.reviewer: dx@sendgrid.com
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: c8ac20378cbae9334cedb59878311f2541b40bd3
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89020597"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Como enviar e-mail usando SendGrid com Azure

@@ -2,19 +2,19 @@
 title: Funções do modelo - arrays
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para trabalhar com matrizes.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: 4d4ee96888aee5421d88b5371ac25a69c0af4fd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 10/12/2020
+ms.openlocfilehash: a5cf73203cf59a0b9f2b5f49c923d0a077c065fc
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84677853"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979143"
 ---
 # <a name="array-functions-for-arm-templates"></a>Funções de matriz para modelos ARM
 
 O Gestor de Recursos fornece várias funções para trabalhar com matrizes no seu modelo Azure Resource Manager (ARM).
 
-* [array](#array)
+* [matriz](#array)
 * [concat](#concat)
 * [contém](#contains)
 * [criarArray](#createarray)
@@ -22,17 +22,17 @@ O Gestor de Recursos fornece várias funções para trabalhar com matrizes no se
 * [primeiro](#first)
 * [intersecção](#intersection)
 * [último](#last)
-* [comprimento](#length)
+* [length](#length)
 * [máx](#max)
 * [min](#min)
 * [gama](#range)
 * [saltar](#skip)
-* [tomar](#take)
+* [take](#take)
 * [união](#union)
 
 Para obter uma série de valores de cordas delimitados por um valor, consulte [split](template-functions-string.md#split).
 
-## <a name="array"></a>array
+## <a name="array"></a>matriz
 
 `array(convertToArray)`
 
@@ -40,7 +40,7 @@ Converte o valor numa matriz.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | converterToArray |Sim |int, string, matriz ou objeto |O valor para converter para uma matriz. |
 
@@ -91,7 +91,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | intOutput | Matriz |  [1] |
 | stringOutput | Matriz | ["efgh"] |
@@ -105,7 +105,7 @@ Combina várias matrizes e devolve a matriz concatenated, ou combina múltiplos 
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz ou corda |A primeira matriz ou corda para a concatenação. |
 | argumentos adicionais |Não |matriz ou corda |Matrizes adicionais ou cordas em ordem sequencial para a concatenação. |
@@ -155,7 +155,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | regressar | Matriz | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
@@ -183,9 +183,9 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| concatOutput | String | prefixo-5yj4yjf5mbg72 |
+| concatOutput | Cadeia | prefixo-5yj4yjf5mbg72 |
 
 ## <a name="contains"></a>contains
 
@@ -195,7 +195,7 @@ Verifica se uma matriz contém um valor, um objeto contém uma chave, ou uma cor
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | contentor |Sim |matriz, objeto ou corda |O valor que contém o valor a encontrar. |
 | itemToFind |Sim |corda ou int |O valor a encontrar. |
@@ -259,7 +259,7 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | stringTrue | Booleano | Verdadeiro |
 | stringFalse | Booleano | Falso |
@@ -276,14 +276,13 @@ Cria uma matriz a partir dos parâmetros.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |String, Inteiro, Array ou Objeto |O primeiro valor da matriz. |
-| argumentos adicionais |Não |String, Inteiro, Array ou Objeto |Valores adicionais na matriz. |
+| args |Não |String, Inteiro, Array ou Objeto |Os valores na matriz. |
 
 ### <a name="return-value"></a>Valor devolvido
 
-Uma matriz.
+Uma matriz. Quando não são fornecidos parâmetros, devolve uma matriz vazia.
 
 ### <a name="example"></a>Exemplo
 
@@ -321,6 +320,10 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
         "arrayArray": {
             "type": "array",
             "value": "[createArray(parameters('arrayToTest'))]"
+        },
+        "emptyArray": {
+            "type": "array",
+            "value": "[createArray()]"
         }
     }
 }
@@ -328,12 +331,13 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | stringArray | Matriz | ["a", "b", "c"] |
 | intArray | Matriz | [1, 2, 3] |
 | objetoArray | Matriz | [{"one": "a", "two": "b", "três": "c"}] |
 | matrizArray | Matriz | ["um", "dois", "três"]] |
+| VazioArray | Matriz | [] |
 
 ## <a name="empty"></a>vazio
 
@@ -343,7 +347,7 @@ Determina se uma matriz, objeto ou corda está vazia.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | itemToTest |Sim |matriz, objeto ou corda |O valor para verificar se está vazio. |
 
@@ -394,7 +398,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | arrayEmpty | Booleano | Verdadeiro |
 | objetoEmpty | Booleano | Verdadeiro |
@@ -408,7 +412,7 @@ Devolve o primeiro elemento da matriz, ou primeiro carácter da corda.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz ou corda |O valor para recuperar o primeiro elemento ou caráter. |
 
@@ -447,10 +451,10 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| intervalo de matriz | String | um |
-| stringOutput | String | O |
+| intervalo de matriz | Cadeia | um |
+| stringOutput | Cadeia | O |
 
 ## <a name="intersection"></a>intersecção
 
@@ -460,7 +464,7 @@ Devolve uma única matriz ou objeto com os elementos comuns dos parâmetros.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz ou objeto |O primeiro valor a ser usado para encontrar elementos comuns. |
 | arg2 |Sim |matriz ou objeto |O segundo valor a ser usado para encontrar elementos comuns. |
@@ -513,7 +517,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | objetoOutput | Objeto | {"one": "a", "três": "c"} |
 | intervalo de matriz | Matriz | ["dois", "três"] |
@@ -526,7 +530,7 @@ Devolve o último elemento da matriz, ou último carácter da corda.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz ou corda |O valor para recuperar o último elemento ou caráter. |
 
@@ -565,10 +569,10 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| intervalo de matriz | String | três |
-| stringOutput | String | e |
+| intervalo de matriz | Cadeia | três |
+| stringOutput | Cadeia | e |
 
 ## <a name="length"></a>length
 
@@ -578,7 +582,7 @@ Devolve o número de elementos numa matriz, caracteres numa cadeia ou propriedad
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz, corda ou objeto |A matriz a usar para obter o número de elementos, a cadeia para usar para obter o número de caracteres, ou o objeto a usar para obter o número de propriedades de nível de raiz. |
 
@@ -640,7 +644,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | arrayLength | int | 3 |
 | stringLength | int | 13 |
@@ -657,7 +661,7 @@ Pode utilizar esta função com uma matriz para especificar o número de iteraç
 
 Para obter mais informações sobre a utilização desta função com uma matriz, consulte [Criar várias instâncias de recursos no Azure Resource Manager](copy-resources.md).
 
-## <a name="max"></a>máx
+## <a name="max"></a>max
 
 `max(arg1)`
 
@@ -665,7 +669,7 @@ Devolve o valor máximo de uma matriz de inteiros ou de uma lista de inteiros se
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz de inteiros, ou lista separada por vírgula de inteiros |A coleção para obter o valor máximo. |
 
@@ -703,7 +707,7 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | intervalo de matriz | int | 5 |
 | intOutput | int | 5 |
@@ -716,7 +720,7 @@ Devolve o valor mínimo de uma matriz de inteiros ou de uma lista de inteiros se
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz de inteiros, ou lista separada por vírgula de inteiros |A coleção para obter o valor mínimo. |
 
@@ -754,7 +758,7 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | intervalo de matriz | int | 0 |
 | intOutput | int | 0 |
@@ -767,7 +771,7 @@ Cria uma variedade de inteiros a partir de um inteiro inicial e contendo uma sé
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | startIndex |Sim |int |O primeiro inteiro na matriz. A soma do startIndex e da contagem não deve ser superior a 2147483647. |
 | count |Sim |int |O número de inteiros na matriz. Deve ser inteiro não negativo até 10.000. |
@@ -806,7 +810,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | rangeOutput | Matriz | [5, 6, 7] |
 
@@ -818,7 +822,7 @@ Retorna uma matriz com todos os elementos após o número especificado na matriz
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | originalValue |Sim |matriz ou corda |A matriz ou corda para usar para saltar. |
 | numberToSkip |Sim |int |O número de elementos ou caracteres a saltar. Se este valor for 0 ou menos, todos os elementos ou caracteres do valor são devolvidos. Se for maior do que o comprimento da matriz ou da corda, é devolvida uma matriz ou corda vazia. |
@@ -873,12 +877,12 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | intervalo de matriz | Matriz | ["três"] |
-| stringOutput | String | dois três |
+| stringOutput | Cadeia | dois três |
 
-## <a name="take"></a>tomar
+## <a name="take"></a>take
 
 `take(originalValue, numberToTake)`
 
@@ -886,7 +890,7 @@ Devolve uma matriz com o número especificado de elementos desde o início da ma
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | originalValue |Sim |matriz ou corda |A matriz ou corda para tirar os elementos. |
 | numberToTake |Sim |int |O número de elementos ou caracteres a tomar. Se este valor for 0 ou menos, uma matriz ou corda vazia é devolvida. Se for maior do que o comprimento da matriz ou corda dada, todos os elementos da matriz ou da corda são devolvidos. |
@@ -941,10 +945,10 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | intervalo de matriz | Matriz | ["um", "dois"] |
-| stringOutput | String | em |
+| stringOutput | Cadeia | em |
 
 ## <a name="union"></a>união
 
@@ -954,7 +958,7 @@ Devolve uma única matriz ou objeto com todos os elementos dos parâmetros. Os v
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz ou objeto |O primeiro valor a utilizar para unir elementos. |
 | arg2 |Sim |matriz ou objeto |O segundo valor a utilizar para unir elementos. |
@@ -1007,11 +1011,11 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | objetoOutput | Objeto | {"one": "a", "dois": "b", "três": "c2", "quatro": "d", "cinco": "e"} |
 | intervalo de matriz | Matriz | ["um", "dois", "três", "quatro"] |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter uma descrição das secções num modelo de Gestor de Recursos Azure, consulte [a estrutura e a sintaxe dos modelos ARM](template-syntax.md).

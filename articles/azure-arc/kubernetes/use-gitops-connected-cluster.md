@@ -9,10 +9,10 @@ ms.author: mlearned
 description: Utilize GitOps para uma configuração de cluster ativada pelo Arco Azure (Pré-visualização)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, contentores
 ms.openlocfilehash: c00ed30c9a7424d083bf076c64cf008e0480bb2b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91714185"
 ---
 # <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Implementar configurações usando GitOps em Arc ativado cluster Kubernetes (Preview)
@@ -29,7 +29,7 @@ O mesmo padrão pode ser usado para gerir uma maior coleção de aglomerados, qu
 
 Este guia de arranque irá acompanhá-lo através da aplicação de um conjunto de configurações com âmbito de administração de cluster.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo pressupõe que você tem um Azure Arc existente habilitado cluster ligado Kubernetes. Se precisar de um cluster ligado, consulte o [arranque rápido](./connect-cluster.md)do cluster .
 
@@ -308,7 +308,7 @@ az k8sconfiguration delete --name cluster-config --cluster-name AzureArcTest1 --
 Command group 'k8sconfiguration' is in preview. It may be changed/removed in a future release.
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - [Use o leme com configuração de controlo de origem](./use-gitops-with-helm.md)
 - [Use a política do Azure para governar a configuração do cluster](./use-azure-policy.md)

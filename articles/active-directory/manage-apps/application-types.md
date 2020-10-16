@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.openlocfilehash: 5229b123986149903d562bc0b3d6902c0136f647
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90707888"
 ---
 # <a name="viewing-apps-using-your-azure-ad-tenant-for-identity-management"></a>Visualização de aplicativos usando o seu inquilino Azure AD para gestão de identidade

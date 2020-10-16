@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: f89358f4ca34c39527d7e65307ada042ba3df7e0
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 6519f9d549c513e03400366447812a170f9ab41c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776158"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978667"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Armazenamento premium Azure: design para alto desempenho
 
@@ -130,7 +130,7 @@ Os contadores PerfMon estão disponíveis para processador, memória e cada disc
 | **Már. Memória** |Quantidade de memória necessária para executar a aplicação sem problemas |% dos Bytes Consolidados em Utilização |Use vmstat |
 | **Max. CPU** |Valor CPU necessário para executar a aplicação sem problemas |% tempo de processador |%util |
 
-Saiba mais sobre [iostat](https://linux.die.net/man/1/iostat) e [PerfMon.](https://docs.microsoft.com/windows/win32/perfctrs/performance-counters-portal)
+Saiba mais sobre [iostat](https://linux.die.net/man/1/iostat) e [PerfMon.](/windows/win32/perfctrs/performance-counters-portal)
 
 
 
@@ -197,7 +197,7 @@ Para testemunhar os efeitos do tamanho do IO no desempenho da aplicação, pode 
 
 ## <a name="high-scale-vm-sizes"></a>Tamanhos VM de alta escala
 
-Quando começar a desenhar uma aplicação, uma das primeiras coisas a fazer é escolher um VM para hospedar a sua aplicação. O Premium Storage vem com tamanhos VM de alta escala que podem executar aplicações que requerem maior potência de computação e um alto desempenho em disco local de E/S. Estes VMs fornecem processadores mais rápidos, uma relação memória-core mais alta e uma Unidade de Estado Sólido (SSD) para o disco local. Exemplos de VMs de alta escala que suportam o Armazenamento Premium são os VMs da série DS e GS.
+Quando começar a desenhar uma aplicação, uma das primeiras coisas a fazer é escolher um VM para hospedar a sua aplicação. O Premium Storage vem com tamanhos VM de alta escala que podem executar aplicações que requerem maior potência de computação e um alto desempenho em disco local de E/S. Estes VMs fornecem processadores mais rápidos, uma relação memória-core mais alta e uma unidade de Solid-State (SSD) para o disco local. Exemplos de VMs de alta escala que suportam o Armazenamento Premium são os VMs da série DS e GS.
 
 VMs de alta escala estão disponíveis em diferentes tamanhos com um número diferente de núcleos de CPU, memória, SO e tamanho do disco temporário. Cada tamanho VM também tem o número máximo de discos de dados que pode anexar ao VM. Portanto, o tamanho VM escolhido irá afetar a quantidade de processamento, memória e capacidade de armazenamento disponível para a sua aplicação. Também afeta o custo de Computação e Armazenamento. Por exemplo, abaixo estão as especificações do maior tamanho VM de uma série DS e uma série GS:
 
@@ -222,7 +222,7 @@ No entanto, se hospedar a mesma aplicação no Premium Storage, necessitará de 
 
 Tabela abaixo resume a repartição de custos deste cenário para o Armazenamento Standard e Premium.
 
-| &nbsp; | **Standard** | **Premium** |
+| &nbsp; | **Padrão** | **Premium** |
 | --- | --- | --- |
 | **Custo de VM por mês** |$1.570,58 (Standard \_ D14) |$1.003.66 (Standard \_ DS13) |
 | **Custo dos Discos por mês** |$1.638,40 (discos de 32 x 1-TB) |$544.34 (discos 4 x P30) |
@@ -279,7 +279,7 @@ Seguem-se as definições recomendadas de cache de disco para discos de dados,
 
 | **Definição de cache de disco** | **recomendação sobre quando usar esta definição** |
 | --- | --- |
-| Nenhuma |Configure a cache do hospedeiro como Nenhum para discos só de escrita e de escrita pesada. |
+| Nenhum |Configure a cache do hospedeiro como Nenhum para discos só de escrita e de escrita pesada. |
 | ReadOnly |Configure a cache do anfitrião como ReadOnly para discos de leitura e leitura. |
 | ReadWrite |Configure a cache do hospedeiro como ReadWrite apenas se a sua aplicação manusear corretamente a escrita de dados em cache para discos persistentes quando necessário. |
 
@@ -343,7 +343,7 @@ Existem configurações que pode alterar para influenciar este processamento mul
 
 Por exemplo, digamos que a sua aplicação utilizando o SQL Server está a executar uma grande consulta e uma operação de índice ao mesmo tempo. Assumamos que queria que a operação de índice fosse mais performante em comparação com a grande consulta. Neste caso, pode definir o valor MAXDOP da operação do índice para ser superior ao valor MAXDOP para a consulta. Desta forma, o SQL Server tem mais processadores que pode alavancar para a operação do índice em comparação com o número de processadores que pode dedicar à grande consulta. Lembre-se que não controla o número de fios que o SQL Server utilizará para cada operação. Pode controlar o número máximo de processadores que estão a ser dedicados a multi-threading.
 
-Saiba mais sobre [Os Graus de Paralelos](https://technet.microsoft.com/library/ms188611.aspx) no SQL Server. Descubra tais configurações que influenciam o multi-threading na sua aplicação e as suas configurações para otimizar o desempenho.
+Saiba mais sobre [Os Graus de Paralelos](/previous-versions/sql/sql-server-2008-r2/ms188611(v=sql.105)) no SQL Server. Descubra tais configurações que influenciam o multi-threading na sua aplicação e as suas configurações para otimizar o desempenho.
 
 ## <a name="queue-depth"></a>Profundidade da fila
 

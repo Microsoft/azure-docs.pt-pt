@@ -1,25 +1,18 @@
 ---
 title: Implementar o Portão Dourado do Oracle num Azure Linux VM Microsoft Docs
 description: Rapidamente coloque um Oracle Golden Gate a funcionar no seu ambiente Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: dbakevlar
-manager: ''
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.openlocfilehash: 24dfe52b7f08d93dfba70c7b63812eac53431d5c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.reviewer: cynthn
+ms.openlocfilehash: c1890ab9f99999c88e28eb9a76d6270fa08fb87c
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91274797"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996667"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementar o Portão Dourado do Oráculo num VM Azure Linux 
 
@@ -68,7 +61,7 @@ az group create --name myResourceGroup --location westus
 
 ### <a name="create-an-availability-set"></a>Criar um conjunto de disponibilidade
 
-O passo seguinte é opcional, mas recomendado. Para mais informações, consulte [o guia de conjuntos de disponibilidades do Azure.](../../windows/infrastructure-example.md)
+O passo seguinte é opcional, mas recomendado. Para mais informações, consulte [o guia de conjuntos de disponibilidades do Azure.](/previous-versions/azure/virtual-machines/windows/infrastructure-example)
 
 ```azurecli
 az vm availability-set create \
@@ -384,7 +377,7 @@ Para descarregar e preparar o software Oracle Golden Gate, complete os seguintes
    ```
 
 ### <a name="prepare-the-client-and-vm-to-run-x11-for-windows-clients-only"></a>Prepare o cliente e a VM para executar x11 (apenas para clientes Windows)
-Este é um passo opcional. Pode saltar este passo se estiver a utilizar um cliente Linux ou já tiver configuração x11.
+Este passo é opcional. Pode saltar este passo se estiver a utilizar um cliente Linux ou já tiver configuração x11.
 
 1. Baixe o PuTTY e o Xming para o seu computador Windows:
 

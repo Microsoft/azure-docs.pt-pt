@@ -4,10 +4,10 @@ description: Configure a sua conta de utilizador para Azure Notebooks usando uma
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: 929a21785b5b48c81c2d2016874feed61021d3c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85832190"
 ---
 # <a name="your-user-account-for-azure-notebooks-preview"></a>A sua conta de utilizador para visualização de Cadernos Azure
@@ -63,7 +63,7 @@ O administrador de uma conta organizacional deve fornecer consentimento em nome 
 
 Para fornecer o seu consentimento como administrador, utilize a página de consentimento do [administrador,](https://notebooks.azure.com/account/adminConsent)que o acompanha através do processo.
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Passos seguintes  
 
 > [!div class="nextstepaction"]
 > [Edite o seu perfil e iD do utilizador](azure-notebooks-user-profile.md)

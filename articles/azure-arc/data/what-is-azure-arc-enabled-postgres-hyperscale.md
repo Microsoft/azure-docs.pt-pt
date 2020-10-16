@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 7e8746d9b29b0b4af30ba799628328acc3fd8bc0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939070"
 ---
 # <a name="what-is-azure-arc-enabled-postgresql-hyperscale"></a>O que é a hiperescala pós-SQL ativada por Azure?
@@ -43,7 +43,7 @@ Este é o fator de forma de hiperescala do motor de base de dados Postgres dispo
 
 ## <a name="azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc habilitado a hiperescala pósgresql
 
-:::image type="content" source="media/postgres-hyperscale/postgresql-hyperscale-arc.png" alt-text="Azure Arc habilitado a hiperescala pósgresql":::
+:::image type="content" source="media/postgres-hyperscale/postgresql-hyperscale-arc.png" alt-text="Base de Dados Azure SQL para a hiperescala pós-SQL (Citus)":::
 
 Este é o fator de forma de hiperescala do motor de base de dados Postgres que está disponível com serviços de dados habilitados a Azure Arc. Também é alimentado pela extensão Citus que permite a experiência de hiperescala. Neste fator de forma, os nossos clientes fornecem a infraestrutura que acolhe os sistemas e os opera.
 

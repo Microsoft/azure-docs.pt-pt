@@ -14,10 +14,10 @@ ms.date: 08/24/2020
 ms.author: kumud
 ms.reviewer: kumud
 ms.openlocfilehash: e60cdfb00d0dc9d446bd52a72e9fd15676acd285
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89458200"
 ---
 # <a name="how-network-security-groups-filter-network-traffic"></a>Como os grupos de segurança da rede filtram o tráfego da rede
@@ -52,7 +52,7 @@ Relativamente ao tráfego de saída, o Azure processa primeiro as regras num gru
 - **VM4**: todo o tráfego de rede é permitido a partir de *VM4,* porque não está associado nenhum grupo de segurança de rede à interface de rede anexada à máquina virtual ou a *Subnet3*.
 
 
-## <a name="intra-subnet-traffic"></a>Tráfego intra-sub-rede
+## <a name="intra-subnet-traffic"></a>tráfego Intra-Subnet
 
 É importante notar que as regras de segurança numa NSG associada a uma sub-rede podem afetar a conectividade entre os VM's dentro dela. Por exemplo, se for adicionada uma regra ao *NSG1* que negue todo o tráfego de entrada e saída, *o VM1* e o *VM2* deixarão de poder comunicar entre si. Outra regra teria de ser acrescentada especificamente para o permitir. 
 
@@ -64,7 +64,7 @@ Pode ver as [regras de segurança em vigor](virtual-network-network-interface.md
 > [!TIP]
 > A menos que tenha uma razão específica para o fazer, recomendamos que associe um grupo de segurança de rede a uma sub-rede, ou a uma interface de rede, mas não a ambas. Uma vez que as regras num grupo de segurança de rede associado a uma sub-rede podem entrar em conflito com as regras num grupo associado a uma interface de rede, poderão ocorrer problemas de comunicação inesperados que exijam resolução.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber que recursos do Azure podem ser implementados numa rede virtual e associar grupos de segurança de rede aos mesmos, veja [Virtual network integration for Azure services](virtual-network-for-azure-services.md) (Integração da rede virtual para serviços do Azure).
 * Se nunca tiver criado um grupo de segurança de rede, pode seguir um [tutorial](tutorial-filter-network-traffic.md) rápido para ganhar experiência na criação de um.

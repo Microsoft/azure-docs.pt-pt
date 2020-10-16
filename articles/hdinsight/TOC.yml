@@ -64,8 +64,14 @@
           href: ./hdinsight-capacity-planning.md
         - name: Melhores práticas de gestão de clusters
           href: ./cluster-management-best-practices.md
-        - name: Disponibilidade e fiabilidade
-          href: ./hdinsight-high-availability-linux.md
+        - name: Continuidade do negócio
+          items:
+            - name: Descrição geral da continuidade de negócio
+              href: hdinsight-business-continuity.md
+            - name: Arquitetura da continuidade de negócio
+              href: ./hdinsight-business-continuity-architecture.md
+            - name: Caso prático de elevada disponibilidade
+              href: ./hdinsight-high-availability-case-study.md
         - name: Compreender identidades geridas
           href: ./hdinsight-managed-identities.md
         - name: Comparar opções de armazenamento
@@ -102,10 +108,14 @@
           items:
             - name: Utilizar o Armazenamento do Azure
               href: hdinsight-hadoop-use-blob-storage.md
-            - name: Utilizar o Azure Data Lake Storage Gen2
+            - name: Utilizar o Data Lake Storage Gen2
               href: hdinsight-hadoop-use-data-lake-storage-gen2.md
-            - name: Utilizar o Azure Data Lake Storage Gen1
-              href: hdinsight-hadoop-use-data-lake-store.md
+            - name: Utilizar o Data Lake Storage Gen2 no portal
+              href: hdinsight-hadoop-use-data-lake-storage-gen2-portal.md
+            - name: Utilizar o Data Lake Storage Gen2 com a CLI do Azure
+              href: hdinsight-hadoop-use-data-lake-storage-gen2-azure-cli.md
+            - name: Utilizar o Data Lake Storage Gen1
+              href: hdinsight-hadoop-use-data-lake-storage-gen1.md
         - name: Expandir clusters
           items:
             - name: Instalar aplicações do HDInsight
@@ -757,6 +767,8 @@
           href: ./interactive-query/gateway-best-practices.md
         - name: Diretrizes de dimensionamento
           href: ./interactive-query/sizing-guidelines.md
+        - name: Replicação do Hive
+          href: ./interactive-query/apache-hive-replication.md
     - name: Guias de procedimentos
       items:
         - name: Programar

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/31/2017
 ms.author: yegu
 ms.openlocfilehash: a89acb73ea5c78c9f82758e0a322fb9001698c24
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88004328"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Dados de importação e exportação em Azure Cache para Redis

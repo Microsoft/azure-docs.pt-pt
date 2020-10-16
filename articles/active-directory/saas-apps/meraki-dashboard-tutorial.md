@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: jeedes
 ms.openlocfilehash: 84db28348baebc4f6b62f9cacb0035b4df1f6145
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89660769"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-meraki-dashboard"></a>Tutorial: Azure Ative Directory integração única (SSO) com o Meraki Dashboard
@@ -94,7 +94,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação Meraki Dashboard espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
     
-    | Name | Atributo de origem|
+    | Nome | Atributo de origem|
     | ---------------| --------- |
     | `https://dashboard.meraki.com/saml/attributes/username` | user.userprincipalname |
     | `https://dashboard.meraki.com/saml/attributes/role` | user.assignedroles |

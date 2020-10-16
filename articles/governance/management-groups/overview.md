@@ -4,12 +4,12 @@ description: Saiba mais sobre os grupos de gestão, como as permissões destes f
 ms.date: 09/22/2020
 ms.topic: overview
 ms.custom: contperfq1
-ms.openlocfilehash: e3bc3ee34227fd23ea9f56070f8ea7776a10a134
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: be3369369f28930fd1ecad295a4dad4d14e75cd3
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91533811"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951881"
 ---
 # <a name="what-are-azure-management-groups"></a>O que são os grupos de gestão do Azure?
 
@@ -90,7 +90,7 @@ Estas permissões são herdadas pelos recursos subordinados existentes na hierar
 
 A tabela seguinte mostra a lista de funções e as ações suportadas nos grupos de gestão.
 
-| Nome de papel Azure             | Criar | Mudar o Nome | Mover-se\*\* | Eliminar | Atribuir Acesso | Atribuir Política | Ler  |
+| Nome de papel Azure             | Criar | Mudar o Nome | Mover-se\*\* | Delete | Atribuir Acesso | Atribuir Política | Ler  |
 |:-------------------------- |:------:|:------:|:--------:|:------:|:-------------:| :------------:|:-----:|
 |Proprietário                       | X      | X      | X        | X      | X             | X             | X     |
 |Contribuinte                 | X      | X      | X        | X      |               |               | X     |
@@ -202,6 +202,6 @@ Quando quiser consultar Grupos de Gestão fora do portal do Azure, o âmbito de 
 
 Para saber mais sobre os grupos de gestão, veja:
 
-- [Criar grupos de gestão para organizar recursos do Azure](./create.md)
+- [Criar grupos de gestão para organizar recursos do Azure](./create-management-group-portal.md)
 - [Como alterar, eliminar ou gerir os seus grupos de gestão](./manage.md)
 - Ver opções para [como proteger a sua hierarquia de recursos](./how-to/protect-resource-hierarchy.md)

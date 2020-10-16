@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: cherylmc
 ms.openlocfilehash: 2c9b8a769dec1a2aa461a34203c98a228cf71d16
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87082057"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Ligar redes virtuais a partir de modelos de implementação diferentes com o PowerShell

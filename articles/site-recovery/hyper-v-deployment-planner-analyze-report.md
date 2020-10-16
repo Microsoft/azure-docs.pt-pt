@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 10/21/2019
 ms.author: mayg
 ms.openlocfilehash: b2bb351de292ff2015cdcbd388155063a86a7359
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88653584"
 ---
-# <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analise o relatório do Planejador de Recuperação do Local de Azure
+# <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analisar o relatório do Planeador de Implementações do Azure Site Recovery
 Este artigo aborda as folhas do relatório do Excel que o Planeador de Implementações do Azure Site Recovery gera para um cenário de Hyper-V para o Azure.
 
 ## <a name="on-premises-summary"></a>Resumo no local

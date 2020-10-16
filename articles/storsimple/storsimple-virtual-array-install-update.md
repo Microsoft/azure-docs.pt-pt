@@ -15,20 +15,20 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 77d2e61533016de7417446ba4111116e9749ac74
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a0e661cb3c3bafa92a060b0fdfd899aa152b46a5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85507879"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977464"
 ---
 # <a name="install-updates-on-your-storsimple-virtual-array---azure-portal"></a>Instale atualizações no seu StorSimple Virtual Array - Portal Azure
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Overview (Descrição geral)
 
 Este artigo descreve os passos necessários para instalar atualizações no seu StorSimple Virtual Array através da UI web local e através do portal Azure. Tem de aplicar atualizações de software ou hotfixes para manter o seu StorSimple Virtual Array atualizado. 
 
-Tenha em mente que instalar uma atualização ou um hotfix reinicia o seu dispositivo. Dado que o StorSimple Virtual Array é um único dispositivo de nó, qualquer I/S em andamento é interrompido e o seu dispositivo experimenta tempo de inatividade. 
+Tenha em atenção que a instalação de uma atualização ou correção reinicia o dispositivo. Dado que o StorSimple Virtual Array é um único dispositivo de nó, qualquer I/S em andamento é interrompido e o seu dispositivo experimenta tempo de inatividade. 
 
 Antes de aplicar uma atualização, recomendamos que leve primeiro os volumes ou partilhas offline no anfitrião e, em seguida, no dispositivo. Isto minimiza qualquer possibilidade de danos em dados.
 
@@ -77,26 +77,26 @@ Utilize este método para instalar atualizações num dispositivo em execução 
 
 1. Na UI web local, **Maintenance**aceda à  >  **Atualização de Software de**Manutenção .
    
-    ![atualizar o dispositivo](./media/storsimple-virtual-array-install-update/update1m.png)
+    ![dispositivo de atualização 1](./media/storsimple-virtual-array-install-update/update1m.png)
 
 2. Na **trajetória do ficheiro 'Actualizar',** insira o nome do ficheiro para a atualização ou o hotfix. Também pode navegar no ficheiro de instalação de atualização ou hotfix se for colocado numa partilha de rede. Clique em **Aplicar**.
    
-    ![atualizar o dispositivo](./media/storsimple-virtual-array-install-update/update2m.png)
+    ![dispositivo de atualização 2](./media/storsimple-virtual-array-install-update/update2m.png)
 
 3. É apresentado um aviso. Dado que se trata de um único dispositivo de nó, após a aplicação da atualização, o dispositivo reinicia e há tempo de inatividade. Clique no ícone de verificação.
    
-   ![atualizar o dispositivo](./media/storsimple-virtual-array-install-update/update3m.png)
+   ![dispositivo de atualização 3](./media/storsimple-virtual-array-install-update/update3m.png)
 
 4. A atualização começa. Depois de o dispositivo ser atualizado com sucesso, reinicia-o. A UI local não é acessível nesta duração.
    
-    ![atualizar o dispositivo](./media/storsimple-virtual-array-install-update/update5m.png)
+    ![dispositivo de atualização 4](./media/storsimple-virtual-array-install-update/update5m.png)
 
 5. Após o reinício, é levado para a página **Signo.** Para verificar se o software do dispositivo se atualizou, na UI web local, vá à **Maintenance**  >  **Atualização de Software**de Manutenção . A versão do software visualizada deve ser **10.0.0.0.0.10288.0** para a atualização 0.3.
    
    > [!NOTE]
    > Reportamos as versões de software de uma forma ligeiramente diferente na UI web local e no portal Azure. Por exemplo, o web UI local reporta **10.0.0.0.0.10288** e o portal Azure reporta **10.0.10288.0** para a mesma versão.
    
-    ![atualizar o dispositivo](./media/storsimple-virtual-array-install-update/update6m.png)
+    ![dispositivo de atualização 5](./media/storsimple-virtual-array-install-update/update6m.png)
 
 ## <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
 
@@ -107,7 +107,7 @@ Se executar a Atualização 0.2, recomendamos que instale atualizações atravé
 Depois de concluída a instalação (conforme indicado pelo estado de trabalho a 100 %), aceda ao serviço StorSimple Device Manager. Selecione **Dispositivos** e, em seguida, selecione e clique no dispositivo que pretende atualizar a partir da lista de dispositivos ligados a este serviço. Na lâmina **Definições,** vá à secção **Gerir** e selecione **atualizações do dispositivo**. A versão de software visualizada deve ser **10.0.10288.0**.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [a administração do seu StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 

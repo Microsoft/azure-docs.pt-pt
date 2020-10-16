@@ -14,10 +14,10 @@ ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
 ms.openlocfilehash: d55f52b5e99a7a617e2bec8bea4d6e6ef687730a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91336535"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Balanceador de carga transversal (Pré-visualização)
@@ -55,7 +55,7 @@ Se uma região falhar, o tráfego é encaminhado para o próximo e mais próximo
 
 A sonda de saúde do equilibrador de carga cross-region reúne informações sobre a disponibilidade a cada 20 segundos. Se um equilibrador regional de carga baixar a sua disponibilidade para 0, o equilibrador de carga transversal detetará a falha. O balançador regional de carga é então retirado da rotação. 
 
-:::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="Diagrama da visão de tráfego da região global." border="true":::
+:::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="Diagrama do equilibrador de carga entre regiões." border="true":::
 
 ### <a name="ultra-low-latency"></a>Latência ultra-baixa
 

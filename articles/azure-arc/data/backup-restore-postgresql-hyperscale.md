@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 4fb64a2ea55744d66b203ef4d901f22ae4695e1a
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: d27537f017707e937303dd0c08a589db28aac6ef
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91630428"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071443"
 ---
 # <a name="backup-and-restore-for-azure-arc-enabled-postgresql-hyperscale-server-groups"></a>Backup e restauro para Azure Arc ativado grupos de servidores de hiperescala postgreSQL
 
@@ -82,7 +82,12 @@ azdata arc postgres server create -n postgres01 --workers 2 --storage-class-back
 
 ## <a name="take-manual-full-backup"></a>Pegue o backup manual completo
 
+
 Em seguida, pegue uma cópia de segurança manual.
+
+> [!CAUTION]
+> **Apenas para os utilizadores do Serviço Azure Kubernetes (AKS):** estamos cientes de um problema com a tomada de cópias de segurança de um grupo de servidores alojado no Serviço Azure Kubernetes (AKS). Já estamos a tentar consertá-lo. Até que a atualização seja implementada numa futura versão/atualização, antes de fazer uma cópia de segurança, tem de eliminar as cápsulas dos seus grupos de servidor. Para cada uma das cápsulas do seu grupo de servidor (lista as cápsulas executando **kubectl get \<namespace name> pods -n **) elimine-as executando o pod de **eliminação de kubectl \<server group pod name> -n \<namespace name> **. Não elimine os pods que não fazem parte do seu grupo de servidor. Excluir cápsulas não está a colocar os seus dados em risco. Aguarde até que todas as cápsulas estejam novamente on-line e em STATUS=RUNNING antes de fazer uma cópia de segurança. O estado da cápsula é fornecido na saída do kubectl obter o comando das cápsulas acima.
+
 
 Para obter uma cópia de segurança completa de todos os dados e pastas de registo do seu grupo de servidor, execute o seguinte comando:
 

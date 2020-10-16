@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
 ms.openlocfilehash: c8978504244fbf68875ca8cff7a92f042e8e988b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91329538"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Akamai
@@ -45,7 +45,7 @@ Para além do suporte de integração nativa do Azure Ative Directory para proto
 * VNC (Computação de Rede Virtual)
 * Auth anónimo ou sem aplicativos de autenticação incorporado
 * Aplicativos de autenticação NTLM (proteção com solicitações duplas para o utilizador)
-* Aplicação baseada em formulários (proteção com solicitações duplas para o utilizador)
+* Forms-Based Aplicação (proteção com solicitações duplas para o utilizador)
 
 ### <a name="integration-scenarios"></a>Cenários de Integração
 
@@ -169,7 +169,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Create** (Criar).
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -313,7 +313,7 @@ Clique em Guardar e Ir à Autenticação.
 
     ![Screenshot do separador implementação da consola Akamai EAA mostrando a mensagem de estado da aplicação: "Aplicação implementada com sucesso".](./media/header-akamai-tutorial/configure15.png)
 
-1. Experiência de Utilizador Final.
+1. End-User Experience.
 
     ![Screenshot do ecrã de abertura para myapps.microsoft.com com uma imagem de fundo e um Sinal em diálogo.](./media/header-akamai-tutorial/enduser01.png)
 
@@ -363,7 +363,7 @@ Clique **em Guardar e ir para Definições Avançadas**.
 
     ![Screenshot das definições de cabeçalhos HTTP personalizados da consola Akamai EAA para SECRETRDPAPP com o Botão De implementação no canto inferior direito.](./media/header-akamai-tutorial/configure24.png)
 
-1. Experiência de Utilizador Final
+1. experiência End-User
 
     ![Screenshot de uma janela myapps.microsoft.com com uma imagem de fundo e um sinal em diálogo.](./media/header-akamai-tutorial/enduser03.png)
 
@@ -429,7 +429,7 @@ Clique em Guardar e ir Implantar
 
     ![Screenshot do separador implementação da consola Akamai EAA para SSH-SECURE mostrando o botão de aplicação Implementar.](./media/header-akamai-tutorial/configure32.png)
 
-1. Experiência de Utilizador Final
+1. experiência End-User
 
     ![Screenshot de uma janela myapps.microsoft.com Sinal em diálogo.](./media/header-akamai-tutorial/enduser03.png)
 

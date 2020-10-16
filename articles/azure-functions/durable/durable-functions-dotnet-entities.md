@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
 ms.openlocfilehash: d480b8db69b34eda7ca1ea8e1b2755179f9c673f
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88055178"
 ---
 # <a name="developers-guide-to-durable-entities-in-net"></a>Guia do desenvolvedor para entidades duráveis em .NET
@@ -267,7 +267,7 @@ Também aplicamos algumas regras adicionais:
 * As interfaces de entidades só devem definir métodos.
 * As interfaces de entidades não devem conter parâmetros genéricos.
 * Os métodos de interface da entidade não devem ter mais do que um parâmetro.
-* Os métodos de interface da entidade devem `void` `Task` regressar, ou`Task<T>` 
+* Os métodos de interface da entidade devem `void` `Task` regressar, ou `Task<T>` 
 
 Se alguma destas regras for violada, uma `InvalidOperationException` é lançada no tempo de execução quando a interface é usada como um argumento tipo para ou `SignalEntity` `CreateProxy` . A mensagem de exceção explica qual a regra que foi quebrada.
 

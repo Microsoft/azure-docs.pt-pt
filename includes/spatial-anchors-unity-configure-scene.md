@@ -4,15 +4,17 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 8/13/2020
 ms.author: crtreasu
-ms.openlocfilehash: 11086108aa59feae06ad1871b8ca0de9eca8e62e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e712f7876a31e2bde629b2a2a3ad83a22c6ad7e7
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91280907"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971424"
 ---
 ## <a name="configure-the-account-information"></a>Configurar a informação da conta
 
-O próximo passo é configurar a app para usar as informações da sua conta. Copiou-os para um editor de texto ao [configurar o recurso Spatial Anchors](#create-a-spatial-anchors-resource).
+O próximo passo é configurar a app para usar as informações da sua conta. Copiou a Chave de **Conta,** **ID**de Conta e Valores **de Domínio de Conta** para um editor de texto anteriormente, na secção ["Criar um recurso de âncoras espaciais".](#create-a-spatial-anchors-resource)
 
-No painel do **Projeto,** navegue `Assets\AzureSpatialAnchors.SDK\Resources` para. Selecione `SpatialAnchorConfig`. Em seguida, no painel de **inspetor,** insira o `Account Key` valor `Spatial Anchors Account Key` para, o `Account ID` valor para , e o como o valor para `Spatial Anchors Account Id` `Account Domain` `Spatial Anchors Account Domain` .
+No painel do **Projeto,** vá a `Assets\AzureSpatialAnchors.SDK\Resources` . 
+
+Selecione **SpatialAnchorConfig**. No painel de **inspetor,** insira o `Account Key` valor para a Chave de Conta de **Âncoras Espaciais,** o `Account ID` valor para o **Id da Conta de Âncoras Espaciais,** e o `Account Domain` valor para o Domínio da Conta das **Âncoras Espaciais.**

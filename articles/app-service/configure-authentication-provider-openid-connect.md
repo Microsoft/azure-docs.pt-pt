@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.openlocfilehash: e8112f2dc20175e81cfa8388440b2d9aef6a419c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90983874"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-login-using-an-openid-connect-provider-preview"></a>Configurar a aplicação do Serviço de Aplicações ou das Funções do Azure para iniciar sessão com um fornecedor do OpenID Connect (Pré-visualização)

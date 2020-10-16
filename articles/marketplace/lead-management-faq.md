@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 10/01/2020
 ms.openlocfilehash: b88c5d7692efa64349f9dbb01b2d4645ec0eb366
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91654201"
 ---
 # <a name="common-questions-and-troubleshooting-for-lead-configuration"></a>Perguntas comuns e resolução de problemas para a configuração do chumbo
@@ -70,7 +70,7 @@ Pode aceder aos dados de chumbo armazenados na tabela Azure a partir do portal A
 
 #### <a name="i-configured-an-azure-table-as-my-lead-destination-can-i-get-notified-whenever-a-new-commercial-marketplace-lead-is-sent"></a>Configurei uma mesa Azure como o meu destino principal. Posso ser notificado sempre que for enviado um novo líder comercial?
 
-Yes. Siga as instruções na [gestão do chumbo Configure utilizando uma tabela Azure](partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md) para configurar um fluxo Microsoft que envia um e-mail se um fio for adicionado à tabela Azure.
+Sim. Siga as instruções na [gestão do chumbo Configure utilizando uma tabela Azure](partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md) para configurar um fluxo Microsoft que envia um e-mail se um fio for adicionado à tabela Azure.
 
 #### <a name="i-configured-salesforce-as-my-lead-destination-but-why-cant-i-find-the-leads"></a>Configurei a Salesforce como o meu destino principal, mas por que não encontro as pistas?
 
@@ -88,7 +88,7 @@ Se a sua pergunta não for respondida, contacte o Microsoft Support através da 
 
 #### <a name="im-receiving-email-notifications-when-new-customer-leads-are-received-how-can-i-configure-someone-else-to-receive-these-emails"></a>Estou a receber notificações por e-mail quando novas pistas de clientes são recebidas. Como posso configurar outra pessoa para receber estes e-mails?
 
-Aceda à sua oferta no Partner Center e vá à página **de configuração da Oferta** **>Dição de Gestão de Chumbo.**  >  **Edit** Atualize os endereços de e-mail no campo **de e-mail de Contato.**
+Aceda à sua oferta no Partner Center e vá à página **de configuração da Oferta** > Dição de **Gestão de Chumbo.**  >  **Edit** Atualize os endereços de e-mail no campo **de e-mail de Contato.**
 
 ## <a name="troubleshooting-lead-configuration-errors"></a><a id="publishing-config-errors"></a> Erros de configuração de chumbo de resolução de problemas
 

@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/23/2020
-ms.openlocfilehash: d0c6de2fdf0720e671090e8a817b00e25c5f3d42
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/12/2020
+ms.openlocfilehash: 408f58b44bbe1ff8be7498b33a1209f4488c2ccc
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332156"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951983"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar e transformar dados em Azure Synapse Analytics (anteriormente SQL Data Warehouse) utilizando a Azure Data Factory
 
@@ -63,13 +63,13 @@ As seguintes propriedades são suportadas para um serviço Azure Synapse Analyti
 
 | Propriedade            | Descrição                                                  | Obrigatório                                                     |
 | :------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| tipo                | A propriedade tipo deve ser definida para **AzureSqlDW**.             | Yes                                                          |
-| conexãoStragem    | Especifique as informações necessárias para ligar à instância Azure Synapse Analytics para a **propriedade connectionString.** <br/>Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory. Também pode colocar a chave principal de senha/serviço no Cofre da Chave Azure, e se for a autenticação SQL retire a `password` configuração da cadeia de ligação. Veja o exemplo JSON abaixo da tabela e [guarde as credenciais no artigo Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Yes                                                          |
+| tipo                | A propriedade tipo deve ser definida para **AzureSqlDW**.             | Sim                                                          |
+| conexãoStragem    | Especifique as informações necessárias para ligar à instância Azure Synapse Analytics para a **propriedade connectionString.** <br/>Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory. Também pode colocar a chave principal de senha/serviço no Cofre da Chave Azure, e se for a autenticação SQL retire a `password` configuração da cadeia de ligação. Veja o exemplo JSON abaixo da tabela e [guarde as credenciais no artigo Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Sim                                                          |
 | servicePrincipalId  | Especifique a identificação do cliente da aplicação.                         | Sim, quando utilizar a autenticação AZure AD com um principal de serviço. |
 | servicePrincipalKey | Especifique a chave da aplicação. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim, quando utilizar a autenticação AZure AD com um principal de serviço. |
 | inquilino              | Especifique a informação do inquilino (nome de domínio ou ID do inquilino) sob a qual a sua aplicação reside. Pode recuperá-lo pairando sobre o rato no canto superior direito do portal Azure. | Sim, quando utilizar a autenticação AZure AD com um principal de serviço. |
-| AzureCloudType | Para a autenticação principal do serviço, especifique o tipo de ambiente em nuvem Azure para o qual a sua aplicação AD AZure está registada. <br/> Os valores permitidos são **AzurePublic,** **AzureChina,** **AzureUsGovernment,** e **AzureGermany**. Por padrão, o ambiente em nuvem da fábrica de dados é utilizado. | No |
-| connectVia          | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o Tempo de Execução da Integração Azure ou um tempo de integração auto-hospedado (se a sua loja de dados estiver localizada numa rede privada). Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. | No                                                           |
+| AzureCloudType | Para a autenticação principal do serviço, especifique o tipo de ambiente em nuvem Azure para o qual a sua aplicação AD AZure está registada. <br/> Os valores permitidos são **AzurePublic,** **AzureChina,** **AzureUsGovernment,** e **AzureGermany**. Por padrão, o ambiente em nuvem da fábrica de dados é utilizado. | Não |
+| connectVia          | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o Tempo de Execução da Integração Azure ou um tempo de integração auto-hospedado (se a sua loja de dados estiver localizada numa rede privada). Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. | Não                                                           |
 
 Para diferentes tipos de autenticação, consulte as seguintes secções sobre pré-requisitos e amostras JSON, respectivamente:
 
@@ -224,9 +224,9 @@ As seguintes propriedades são suportadas para o conjunto de dados Azure Synapse
 
 | Propriedade  | Descrição                                                  | Obrigatório                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
-| tipo      | A propriedade **do tipo** do conjunto de dados deve ser definida para **AzureSqlDWTable**. | Yes                         |
+| tipo      | A propriedade **do tipo** do conjunto de dados deve ser definida para **AzureSqlDWTable**. | Sim                         |
 | esquema | O nome do esquema. |Não para a fonte, sim para a pia  |
-| mesa | Nome da mesa/vista. |Não para a fonte, sim para a pia  |
+| table | Nome da mesa/vista. |Não para a fonte, sim para a pia  |
 | tableName | Nome da tabela/vista com esquema. Esta propriedade é suportada para retrocompatibilidade. Para nova carga de trabalho, use `schema` e `table` . | Não para a fonte, sim para a pia |
 
 ### <a name="dataset-properties-example"></a>Exemplo de propriedades de dataset
@@ -263,17 +263,17 @@ Para copiar dados da Azure Synapse Analytics, decreva a propriedade **tipo** na 
 
 | Propriedade                     | Descrição                                                  | Obrigatório |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
-| tipo                         | A propriedade **tipo** da fonte de Atividade de Cópia deve ser definida como **SqlDWSource**. | Yes      |
-| sqlReaderQuery               | Utilize a consulta SQL personalizada para ler dados. Exemplo: `select * from MyTable`. | No       |
-| sqlReaderStoredProcedureName | O nome do procedimento armazenado que lê os dados da tabela de origem. A última declaração SQL deve ser uma declaração SELECT no procedimento armazenado. | No       |
-| parametrómetros de reserva armazenados    | Parâmetros para o procedimento armazenado.<br/>Os valores permitidos são pares de nomes ou valores. Os nomes e o invólucro dos parâmetros devem corresponder aos nomes e invólucros dos parâmetros de procedimento armazenados. | No       |
-| isolamentoLevel | Especifica o comportamento de bloqueio de transação para a fonte SQL. Os valores permitidos são: **ReadCommitted,** **ReadUncommitted,** **RepeatableRead,** **Serializable**, **Snapshot**. Se não for especificado, é utilizado o nível de isolamento predefinido da base de dados. Consulte [este doc](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) para mais detalhes. | No |
-| partitionOptions | Especifica as opções de partição de dados utilizadas para carregar dados da Azure Synapse Analytics. <br>Os valores permitidos são: **Nenhum** (padrão), **PhysicalPartitionsOfTable**e **DynamicRange**.<br>Quando uma opção de partição é ativada (isto é, `None` não), o grau de paralelismo para carregar simultaneamente dados de um Azure Synapse Analytics é controlado pela [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) definição na atividade da cópia. | No |
-| divisóriasSas | Especificar o grupo das definições para a partilha de dados. <br>Aplicar quando a opção de partição não `None` estiver. | No |
+| tipo                         | A propriedade **tipo** da fonte de Atividade de Cópia deve ser definida como **SqlDWSource**. | Sim      |
+| sqlReaderQuery               | Utilize a consulta SQL personalizada para ler dados. Exemplo: `select * from MyTable`. | Não       |
+| sqlReaderStoredProcedureName | O nome do procedimento armazenado que lê os dados da tabela de origem. A última declaração SQL deve ser uma declaração SELECT no procedimento armazenado. | Não       |
+| parametrómetros de reserva armazenados    | Parâmetros para o procedimento armazenado.<br/>Os valores permitidos são pares de nomes ou valores. Os nomes e o invólucro dos parâmetros devem corresponder aos nomes e invólucros dos parâmetros de procedimento armazenados. | Não       |
+| isolamentoLevel | Especifica o comportamento de bloqueio de transação para a fonte SQL. Os valores permitidos são: **ReadCommitted,** **ReadUncommitted,** **RepeatableRead,** **Serializable**, **Snapshot**. Se não for especificado, é utilizado o nível de isolamento predefinido da base de dados. Consulte [este doc](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) para mais detalhes. | Não |
+| partitionOptions | Especifica as opções de partição de dados utilizadas para carregar dados da Azure Synapse Analytics. <br>Os valores permitidos são: **Nenhum** (padrão), **PhysicalPartitionsOfTable**e **DynamicRange**.<br>Quando uma opção de partição é ativada (isto é, `None` não), o grau de paralelismo para carregar simultaneamente dados de um Azure Synapse Analytics é controlado pela [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) definição na atividade da cópia. | Não |
+| divisóriasSas | Especificar o grupo das definições para a partilha de dados. <br>Aplicar quando a opção de partição não `None` estiver. | Não |
 | ***Em `partitionSettings` :*** | | |
-| partitionColumnName | Especificar o nome da coluna de origem **no tipo inteiro ou data/data** que será utilizado por divisórias de intervalo para cópia paralela. Se não for especificado, o índice ou a chave primária da tabela é detetado automaticamente e utilizado como coluna de partição.<br>Aplicar quando a opção de partição for `DynamicRange` . Se utilizar uma consulta para recuperar os dados de origem,  `?AdfDynamicRangePartitionCondition ` ligue-se à cláusula WHERE. Por exemplo, consulte a cópia paralela da secção [de base de dados SQL.](#parallel-copy-from-synapse-analytics) | No |
-| partitionUpperBound | O valor máximo da coluna de partição para a divisão do intervalo de partição. Este valor é usado para decidir o passo de partição, não para filtrar as linhas na mesa. Todas as linhas da tabela ou resultado de consulta serão divididas e copiadas. Se não for especificado, a atividade de cópia deteta o valor.  <br>Aplicar quando a opção de partição for `DynamicRange` . Por exemplo, consulte a cópia paralela da secção [de base de dados SQL.](#parallel-copy-from-synapse-analytics) | No |
-| partitionLowerBound | O valor mínimo da coluna de partição para a divisão do intervalo de divisão. Este valor é usado para decidir o passo de partição, não para filtrar as linhas na mesa. Todas as linhas da tabela ou resultado de consulta serão divididas e copiadas. Se não for especificado, a atividade de cópia deteta o valor.<br>Aplicar quando a opção de partição for `DynamicRange` . Por exemplo, consulte a cópia paralela da secção [de base de dados SQL.](#parallel-copy-from-synapse-analytics) | No |
+| partitionColumnName | Especificar o nome da coluna de origem **no tipo inteiro ou data/data** que será utilizado por divisórias de intervalo para cópia paralela. Se não for especificado, o índice ou a chave primária da tabela é detetado automaticamente e utilizado como coluna de partição.<br>Aplicar quando a opção de partição for `DynamicRange` . Se utilizar uma consulta para recuperar os dados de origem,  `?AdfDynamicRangePartitionCondition ` ligue-se à cláusula WHERE. Por exemplo, consulte a cópia paralela da secção [de base de dados SQL.](#parallel-copy-from-synapse-analytics) | Não |
+| partitionUpperBound | O valor máximo da coluna de partição para a divisão do intervalo de partição. Este valor é usado para decidir o passo de partição, não para filtrar as linhas na mesa. Todas as linhas da tabela ou resultado de consulta serão divididas e copiadas. Se não for especificado, a atividade de cópia deteta o valor.  <br>Aplicar quando a opção de partição for `DynamicRange` . Por exemplo, consulte a cópia paralela da secção [de base de dados SQL.](#parallel-copy-from-synapse-analytics) | Não |
+| partitionLowerBound | O valor mínimo da coluna de partição para a divisão do intervalo de divisão. Este valor é usado para decidir o passo de partição, não para filtrar as linhas na mesa. Todas as linhas da tabela ou resultado de consulta serão divididas e copiadas. Se não for especificado, a atividade de cópia deteta o valor.<br>Aplicar quando a opção de partição for `DynamicRange` . Por exemplo, consulte a cópia paralela da secção [de base de dados SQL.](#parallel-copy-from-synapse-analytics) | Não |
 
 **Exemplo: utilização da consulta SQL**
 
@@ -378,15 +378,15 @@ Para copiar os dados para a Azure Synapse Analytics, descreva o tipo de pia em A
 
 | Propriedade          | Descrição                                                  | Obrigatório                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| tipo              | A propriedade **tipo** do lavatório Copy Activity deve ser definida como **SqlDWSink**. | Yes                                           |
+| tipo              | A propriedade **tipo** do lavatório Copy Activity deve ser definida como **SqlDWSink**. | Sim                                           |
 | permitir A Base DePoly     | Indica se deve utilizar o PolyBase para carregar dados no Azure Synapse Analytics. `allowCopyCommand` e `allowPolyBase` não pode ser ambos verdadeiros. <br/><br/>Consulte [o PolyBase para carregar dados na secção Azure Synapse Analytics](#use-polybase-to-load-data-into-azure-synapse-analytics) para obter constrangimentos e detalhes.<br/><br/>Os valores permitidos são **verdadeiros** e **falsos** (padrão). | Não.<br/>Aplicar quando utilizar o PolyBase.     |
 | poliBaseSettings  | Um grupo de propriedades que podem ser especificadas quando a `allowPolybase` propriedade é definida como **verdadeira.** | Não.<br/>Aplicar quando utilizar o PolyBase. |
 | permitirCopyCommand | Indica se deve utilizar a [declaração COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql) (pré-visualização) para carregar dados no Azure Synapse Analytics. `allowCopyCommand` e `allowPolyBase` não pode ser ambos verdadeiros. <br/><br/>Consulte a declaração copy para carregar dados na secção [Azure Synapse Analytics](#use-copy-statement) para obter constrangimentos e detalhes.<br/><br/>Os valores permitidos são **verdadeiros** e **falsos** (padrão). | Não.<br>Aplicar ao utilizar COPY. |
 | copyCommandSettings | Um grupo de propriedades que podem ser especificadas quando `allowCopyCommand` a propriedade é definida para TRUE. | Não.<br/>Aplicar ao utilizar COPY. |
 | escreverBatchSize    | Número de linhas para inserir na tabela SQL **por lote**.<br/><br/>O valor permitido é **inteiro (número** de linhas). Por predefinição, a Data Factory determina dinamicamente o tamanho apropriado do lote com base no tamanho da linha. | Não.<br/>Aplicar quando utilizar a inserção a granel.     |
 | escreverBatchTimeout | Aguarde o tempo para que a operação de inserção do lote termine antes de se esgotar.<br/><br/>O valor permitido é **o tempo.** Exemplo: "00:30:00" (30 minutos). | Não.<br/>Aplicar quando utilizar a inserção a granel.        |
-| preCopyScript     | Especifique uma consulta SQL para a Copy Activity para executar antes de escrever dados em Azure Synapse Analytics em cada execução. Utilize esta propriedade para limpar os dados pré-carregados. | No                                            |
-| mesaOption | Especifica se deve [criar automaticamente a tabela do lavatório](copy-activity-overview.md#auto-create-sink-tables) se não existir com base no esquema de origem. Os valores permitidos são: `none` (padrão), `autoCreate` . |No |
+| preCopyScript     | Especifique uma consulta SQL para a Copy Activity para executar antes de escrever dados em Azure Synapse Analytics em cada execução. Utilize esta propriedade para limpar os dados pré-carregados. | Não                                            |
+| mesaOption | Especifica se deve [criar automaticamente a tabela do lavatório](copy-activity-overview.md#auto-create-sink-tables) se não existir com base no esquema de origem. Os valores permitidos são: `none` (padrão), `autoCreate` . |Não |
 | desativaçãoMetricosCollecto | A Data Factory recolhe métricas como Azure Synapse Analytics DWUs para otimização de desempenho de cópia e recomendações. Se estiver preocupado com este comportamento, especifique `true` para desligá-lo. | Não (o padrão `false` é) |
 
 #### <a name="azure-synapse-analytics-sink-example"></a>Exemplo de pia Azure Synapse Analytics
@@ -484,10 +484,10 @@ As seguintes definições de PolyBase são suportadas `polyBaseSettings` na ativ
 
 | Propriedade          | Descrição                                                  | Obrigatório                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| rejeitarValue       | Especifica o número ou percentagem de linhas que podem ser rejeitadas antes da consulta falhar.<br/><br/>Saiba mais sobre as opções de rejeição da PolyBase na secção de Argumentos da [TABELA EXTERNA CREATE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). <br/><br/>Os valores permitidos são 0 (padrão), 1, 2, etc. | No                                            |
-| rejeitarType        | Especifica se a opção **rejeitar o Valor** é um valor literal ou uma percentagem.<br/><br/>Os valores permitidos são **Valor** (padrão) e **Percentagem**. | No                                            |
+| rejeitarValue       | Especifica o número ou percentagem de linhas que podem ser rejeitadas antes da consulta falhar.<br/><br/>Saiba mais sobre as opções de rejeição da PolyBase na secção de Argumentos da [TABELA EXTERNA CREATE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). <br/><br/>Os valores permitidos são 0 (padrão), 1, 2, etc. | Não                                            |
+| rejeitarType        | Especifica se a opção **rejeitar o Valor** é um valor literal ou uma percentagem.<br/><br/>Os valores permitidos são **Valor** (padrão) e **Percentagem**. | Não                                            |
 | rejeitarSampleValue | Determina o número de linhas a recuperar antes que a PolyBase recalcule a percentagem de linhas rejeitadas.<br/><br/>Os valores permitidos são 1, 2, etc. | Sim, se o **Tipo rejeitado** for **percentagem.** |
-| utilizarTypeDefault    | Especifica como lidar com valores em falta em ficheiros de texto delimitados quando o PolyBase recupera dados do ficheiro de texto.<br/><br/>Saiba mais sobre esta propriedade a partir da secção Argumentos em [FORMATO DE FICHEIRO EXTERNO (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Os valores permitidos são **verdadeiros** e **falsos** (padrão).<br><br> | No                                            |
+| utilizarTypeDefault    | Especifica como lidar com valores em falta em ficheiros de texto delimitados quando o PolyBase recupera dados do ficheiro de texto.<br/><br/>Saiba mais sobre esta propriedade a partir da secção Argumentos em [FORMATO DE FICHEIRO EXTERNO (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Os valores permitidos são **verdadeiros** e **falsos** (padrão).<br><br> | Não                                            |
 
 ### <a name="direct-copy-by-using-polybase"></a>Cópia direta utilizando o PolyBase
 
@@ -564,7 +564,7 @@ Se os requisitos não forem cumpridos, a Azure Data Factory verifica as definiç
 
 Quando os seus dados de origem não são de forma nativa compatível com a PolyBase, ative a cópia de dados através de uma encenação provisória Azure Blob ou Azure Data Lake Storage Gen2 (não pode ser Azure Premium Storage). Neste caso, a Azure Data Factory converte automaticamente os dados para satisfazer os requisitos do formato de dados da PolyBase. Em seguida, invoca a PolyBase para carregar dados no Azure Synapse Analytics. Finalmente, limpa os seus dados temporários do armazenamento. Consulte [a cópia encenada](copy-activity-performance-features.md#staged-copy) para obter mais detalhes sobre a cópia dos dados através de uma encenação.
 
-Para utilizar esta funcionalidade, crie um [serviço ligado ao Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) ou um serviço ligado ao [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) que se refira à conta de armazenamento Azure com o armazenamento provisório. Em seguida, especifique as `enableStaging` propriedades e propriedades para a Atividade de `stagingSettings` Cópia, como mostrado no código seguinte.
+Para utilizar esta funcionalidade, crie um [serviço ligado ao Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) ou serviço de armazenamento de [dados Azure Data Lake Gen2](connector-azure-data-lake-storage.md#linked-service-properties) com **chave de conta ou autenticação de identidade gerida** que se refere à conta de armazenamento Azure como armazenamento provisório.
 
 >[!IMPORTANT]
 >Se a sua encenação Azure Storage estiver configurada com o ponto final do serviço VNet, deve utilizar a autenticação de identidade gerida - consulte o [Impacto da utilização de Pontos Finais de Serviço VNet com armazenamento Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Aprenda as configurações necessárias na Data Factory a partir de [Azure Blob - autenticação de identidade gerida](connector-azure-blob-storage.md#managed-identity) e [Azure Data Lake Storage Gen2 - autenticação de identidade gerida](connector-azure-data-lake-storage.md#managed-identity).
@@ -706,8 +706,8 @@ As seguintes definições de declaração COPY são suportadas `allowCopyCommand
 
 | Propriedade          | Descrição                                                  | Obrigatório                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| padrãoValues | Especifica os valores predefinidos de cada coluna-alvo no Azure Synapse Analytics.  Os valores predefinidos na propriedade substituem a restrição DEFAULT definida no armazém de dados, e a coluna de identidade não pode ter um valor padrão. | No |
-| opções adicionais | Opções adicionais que serão passadas para uma declaração Azure Synapse Analytics COPY diretamente na cláusula "With" em [declaração COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql). Cite o valor necessário para alinhar com os requisitos de declaração COPY. | No |
+| padrãoValues | Especifica os valores predefinidos de cada coluna-alvo no Azure Synapse Analytics.  Os valores predefinidos na propriedade substituem a restrição DEFAULT definida no armazém de dados, e a coluna de identidade não pode ter um valor padrão. | Não |
+| opções adicionais | Opções adicionais que serão passadas para uma declaração Azure Synapse Analytics COPY diretamente na cláusula "With" em [declaração COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql). Cite o valor necessário para alinhar com os requisitos de declaração COPY. | Não |
 
 ```json
 "activities":[

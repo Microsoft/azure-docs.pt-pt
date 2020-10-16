@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: damendo
 ms.openlocfilehash: aa5d7efed1ce1f41ebb67e2ec377e862ad14ed7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84725040"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-powershell"></a>Ligações de resolução de problemas com o Observador de Redes Azure usando o PowerShell
@@ -32,7 +32,7 @@ Saiba como utilizar a resolução de problemas de ligação para verificar se po
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 * Um caso de Observador de Rede na região que pretende resolver uma ligação.
 * Máquinas virtuais para resolver ligações com.
@@ -301,7 +301,7 @@ Hops             : [
                    ]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Determine se determinado tráfego é permitido dentro ou fora do seu VM visitando [verificar o fluxo IP.](diagnose-vm-network-traffic-filtering-problem.md)
 

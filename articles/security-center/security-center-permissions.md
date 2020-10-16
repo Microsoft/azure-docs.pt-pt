@@ -15,10 +15,10 @@ ms.topic: overview
 ms.date: 07/02/2020
 ms.author: memildin
 ms.openlocfilehash: 2a66873d558495049c97b987dfb69bbf83b4e1d8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91439485"
 ---
 # <a name="permissions-in-azure-security-center"></a>Permissions in Azure Security Center (Permissões no Centro de Segurança do Azure)

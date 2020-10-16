@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: 20add4859b272b6d121666cde9c56296119d41e4
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87836535"
 ---
 # <a name="private-link-for-azure-database-for-mariadb"></a>Link privado para base de dados Azure para MariaDB
@@ -22,7 +22,7 @@ Para obter uma lista de serviços PaaS que suportem a funcionalidade Private Lin
 > [!NOTE]
 > A funcionalidade de ligação privada só está disponível para a Base de Dados Azure para servidores MariaDB nos níveis de preços otimizados para fins gerais ou memória. Certifique-se de que o servidor de base de dados está num destes níveis de preços.
 
-## <a name="data-exfiltration-prevention"></a>Prevenção de exfiltração de dados
+## <a name="data-exfiltration-prevention"></a>Data exfiltration prevention (Prevenção da transferência de dados não autorizada)
 
 A ex-filtração de dados na Base de Dados Azure para MariaDB é quando um utilizador autorizado, como um administrador de base de dados, é capaz de extrair dados de um sistema e movê-lo para outro local ou sistema fora da organização. Por exemplo, o utilizador desloca os dados para uma conta de armazenamento detida por terceiros.
 

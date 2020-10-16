@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
 ms.openlocfilehash: 8c3993d8208a9a9e2ab54be44d88de0b20a2e586
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86084720"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kernels para o caderno Jupyter em aglomerados Apache Spark em Azure HDInsight
@@ -52,7 +52,7 @@ Um aglomerado de Faíscas Apache em HDInsight. Para obter instruções, veja [Cr
 
 Aqui estão alguns benefícios de usar os novos núcleos com o caderno Jupyter em clusters Spark HDInsight.
 
-- **Contextos predefinidos**. Com **o PySpark,** **PySpark3**ou os kernels **Spark,** não precisa de definir explicitamente os contextos Spark ou Hive antes de começar a trabalhar com as suas aplicações. Estes contextos estão disponíveis por padrão. Estes contextos são:
+- **Contextos predefinidos**. Com  **o PySpark,** **PySpark3**ou os kernels **Spark,** não precisa de definir explicitamente os contextos Spark ou Hive antes de começar a trabalhar com as suas aplicações. Estes contextos estão disponíveis por padrão. Estes contextos são:
 
   - **sc** - para o contexto spark
   - **sqlContext** - para o contexto da Colmeia
@@ -74,7 +74,7 @@ Aqui estão alguns benefícios de usar os novos núcleos com o caderno Jupyter e
    | --- | --- | --- |
    | Ajuda |`%%help` |Gera uma tabela de todas as magias disponíveis com exemplo e descrição |
    | informações |`%%info` |Informações da sessão de saídas para o atual ponto final da Livy |
-   | configuração |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Configura os parâmetros para a criação de uma sessão. A bandeira de força `-f` é obrigatória se já tiver sido criada uma sessão, o que garante que a sessão seja retirada e recriada. Veja o [Corpo de Pedido post/sessions da Livy](https://github.com/cloudera/livy#request-body) para obter uma lista de parâmetros válidos. Os parâmetros devem ser passados como uma corda JSON e devem estar na linha seguinte após a magia, como mostra a coluna de exemplo. |
+   | configurar |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Configura os parâmetros para a criação de uma sessão. A bandeira de força `-f` é obrigatória se já tiver sido criada uma sessão, o que garante que a sessão seja retirada e recriada. Veja o [Corpo de Pedido post/sessions da Livy](https://github.com/cloudera/livy#request-body) para obter uma lista de parâmetros válidos. Os parâmetros devem ser passados como uma corda JSON e devem estar na linha seguinte após a magia, como mostra a coluna de exemplo. |
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Executa uma consulta de Colmeia contra o sqlContext. Se o `-o` parâmetro for aprovado, o resultado da consulta é persistido no contexto python %%local como um dataframe [pandas.](https://pandas.pydata.org/) |
    | local |`%%local`<br>`a=1` |Todo o código em linhas posteriores é executado localmente. O código deve ser o código Python2 válido, independentemente do núcleo que estiver a usar. Assim, mesmo que tenha selecionado **miolos PySpark3** ou **Spark** enquanto cria o caderno, se usar a `%%local` magia numa célula, essa célula deve ter apenas um código Python2 válido. |
    | registos |`%%logs` |Outputs os registos para a atual sessão livy. |
@@ -141,7 +141,7 @@ Os cadernos Jupyter nos clusters Spark HDInsight são suportados apenas no Googl
 
 Os novos núcleos estão em evolução e irão amadurecer com o tempo. Assim, as APIs podem mudar à medida que estes núcleos amadurecem. Agradecemos qualquer feedback que tenha enquanto utiliza estes novos núcleos. O feedback é útil na formação da libertação final destes núcleos. Pode deixar os seus comentários/feedback na secção **De Feedback** na parte inferior deste artigo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 - [Use cadernos Apache Zeppelin com um cluster Apache Spark em HDInsight](apache-spark-zeppelin-notebook.md)

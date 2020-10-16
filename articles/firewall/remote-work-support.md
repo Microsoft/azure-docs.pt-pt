@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: victorh
 ms.openlocfilehash: 68789d3b8a4be51a381e95d6e6f840331b46b4e9
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91400116"
 ---
 # <a name="azure-firewall-remote-work-support"></a>Suporte remoto de trabalho Azure Firewall

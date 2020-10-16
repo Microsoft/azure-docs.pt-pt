@@ -8,10 +8,10 @@ ms.date: 06/29/2020
 ms.custom: fasttrack-edit
 author: palma21
 ms.openlocfilehash: 33355251a06ba076be3677b84e383793f9f25193
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91570371"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controlo tráfego de saídas para nós de cluster no Serviço Azure Kubernetes (AKS)
@@ -779,7 +779,7 @@ Neste artigo, aprendeu quais portas e moradas para permitir se quiser restringir
 
 Se necessário, pode generalizar os passos acima para encaminhar o tráfego para a sua solução de saída preferida, seguindo a [ `userDefinedRoute` documentação](egress-outboundtype.md)do Tipo de Saída .
 
-Se pretender restringir a forma como as cápsulas comunicam entre si e as restrições de tráfego leste-oeste dentro do cluster, consulte [o tráfego seguro entre as cápsulas utilizando as políticas de rede em AKS][network-policy].
+Se pretender restringir a forma como as cápsulas comunicam entre si e East-West restrições de tráfego dentro do cluster, consulte [o tráfego seguro entre as cápsulas utilizando as políticas de rede em AKS][network-policy].
 
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md

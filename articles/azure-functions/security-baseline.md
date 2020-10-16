@@ -8,10 +8,10 @@ ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 21e2b197c31a30ab8a249e2e8e398072a624154c
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89394096"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Linha de segurança Azure para Funções Azure
@@ -1031,7 +1031,7 @@ O anti-malware da Microsoft é ativado no anfitrião subjacente que suporta os s
 
 **Orientação**: Utilize a função de cópia de segurança e restauro para agendar cópias de segurança regulares da sua aplicação. As aplicações de função que executam no plano Premium têm as mesmas capacidades de hospedagem que as aplicações web no Azure App Service, que inclui a funcionalidade "Backup and Restore".
 
-Utilize também uma solução de controlo de origem, como a Azure Repos e a Azure DevOps, para armazenar e gerir o seu código de forma segura. A Azure DevOps Services aproveita muitas das funcionalidades de armazenamento do Azure para garantir a disponibilidade de dados em caso de falha de hardware, perturbação do serviço ou desastre na região. Além disso, a equipa Azure DevOps segue procedimentos para proteger os dados de eliminação acidental ou maliciosa.
+Utilize também uma solução de controlo de origem, como a Azure Repos e a Azure DevOps, para armazenar e gerir o seu código de forma segura. Os Serviços de DevOps do Azure tiram partido das muitas funcionalidades de armazenamento do Azure para garantir a disponibilidade de dados no caso de falhas de hardware, interrupções de serviço ou desastre na região. Adicionalmente, a equipa do Azure DevOps segue procedimentos para proteger dados contra eliminação acidental ou maliciosa.
 
 - [Efetuar cópia de segurança da sua aplicação no Azure](../app-service/manage-backup.md)
 
@@ -1049,7 +1049,7 @@ Utilize também uma solução de controlo de origem, como a Azure Repos e a Azur
 
 **Orientação**: Utilize a função de cópia de segurança e restauro para agendar cópias de segurança regulares da sua aplicação. As aplicações de função que executam no plano Premium têm as mesmas capacidades de hospedagem que as aplicações web no Azure App Service, que inclui a funcionalidade "Backup and Restore". O cliente de reserva geriu as chaves dentro do Cofre da Chave Azure.
 
-Utilize também uma solução de controlo de origem, como a Azure Repos e a Azure DevOps, para armazenar e gerir o seu código de forma segura. A Azure DevOps Services aproveita muitas das funcionalidades de armazenamento do Azure para garantir a disponibilidade de dados em caso de falha de hardware, perturbação do serviço ou desastre na região. Além disso, a equipa Azure DevOps segue procedimentos para proteger os dados de eliminação acidental ou maliciosa.
+Utilize também uma solução de controlo de origem, como a Azure Repos e a Azure DevOps, para armazenar e gerir o seu código de forma segura. Os Serviços de DevOps do Azure tiram partido das muitas funcionalidades de armazenamento do Azure para garantir a disponibilidade de dados no caso de falhas de hardware, interrupções de serviço ou desastre na região. Adicionalmente, a equipa do Azure DevOps segue procedimentos para proteger dados contra eliminação acidental ou maliciosa.
 
 - [Efetuar cópia de segurança da sua aplicação no Azure](../app-service/manage-backup.md)
 
@@ -1083,11 +1083,11 @@ Utilize também uma solução de controlo de origem, como a Azure Repos e a Azur
 
 **Orientação**: Cópias de segurança da funcionalidade Backup e Restore utilizam uma conta de Armazenamento Azure na sua subscrição. O Azure Storage encripta todos os dados numa conta de armazenamento em repouso. Por predefinição, os dados são encriptados com as teclas geridas pela Microsoft. Para controlo adicional sobre as chaves de encriptação, pode fornecer chaves geridas pelo cliente para encriptação de dados de armazenamento.
 
-Se estiver a utilizar teclas geridas pelo cliente, certifique-se de que o Soft-Delete no Cofre de Chaves está ativado para proteger as chaves contra a eliminação acidental ou maliciosa.
+Se estiver a utilizar chaves geridas pelo cliente, certifique-se de Soft-Delete no Cofre de Chaves está ativado para proteger as chaves contra a eliminação acidental ou maliciosa.
 
 - [Encriptação do Armazenamento do Azure em repouso](../storage/common/storage-service-encryption.md)
 
-- [Como permitir o Soft-Delete no Cofre da Chave](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+- [Como permitir Soft-Delete em Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -1181,7 +1181,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [referência de segurança Azure](../security/benchmarks/overview.md)
 - Saiba mais sobre [as linhas de base de segurança da Azure](../security/benchmarks/security-baselines-overview.md)

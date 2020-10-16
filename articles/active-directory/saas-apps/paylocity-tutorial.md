@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/21/2020
 ms.author: jeedes
-ms.openlocfilehash: 53a224f53f0270166ce75e718e670780730a10c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e772dc39374b178743a6c8b93e6b48e62b1e2ed
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543657"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995950"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-paylocity"></a>Tutorial: Azure Ative Directory integração única (SSO) com Paylocity
 
@@ -91,7 +91,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação Paylocity espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas você tem que atualizar estes atributos com os valores reais.
 
-    | Nome |  Atributo de origem|
+    | Name |  Atributo de origem|
     | ---------------| --------------- |
     | PartnerID | `P8000010` |
     | PaylocityUser | `user.mail`|
@@ -106,7 +106,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na **configuração de um único sinal de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Editar Ícone**.
 
-    ![A Edição de Certificado de Assinatura SAML](./media/paylocity-tutorial/edit-samlassertion.png)
+    ![Screenshot que mostra o "S A M L Signing Certificate" com a ação "Download" para "Federation Metadata X M L" selecionado.](./media/paylocity-tutorial/edit-samlassertion.png)
 
 1. Selecione **a Opção de Assinatura** como Sinal de resposta e **afirmação SAML** e clique em **Guardar**.
 

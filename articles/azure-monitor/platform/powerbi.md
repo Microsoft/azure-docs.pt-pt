@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/01/2019
 ms.openlocfilehash: 8b9624313716081a039b12c73e54b9f7afc2a323
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86505317"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Import Azure Monitor regista dados de registo em Power BI
@@ -20,7 +20,7 @@ ms.locfileid: "86505317"
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 Para importar dados de um espaço de [trabalho Log Analytics](manage-access.md) em Azure Monitor para o Power BI, cria um conjunto de dados no Power BI com base numa consulta de [registo](../log-query/log-query-overview.md) no Azure Monitor.  A consulta é executada cada vez que o conjunto de dados é atualizado.  Em seguida, pode criar relatórios Power BI que utilizam dados a partir do conjunto de dados.  Para criar o conjunto de dados no Power BI, exporta a sua consulta de Log Analytics para [o idioma Power Query (M).](/powerquery-m/power-query-m-language-specification)  Em seguida, utiliza-o para criar uma consulta no Power BI Desktop e depois publicá-lo no Power BI como conjunto de dados.  Os detalhes deste processo são descritos abaixo.
 
 ![Log Analytics para Power BI](media/powerbi/overview.png)
@@ -39,7 +39,7 @@ Comece por criar uma [consulta de registo](../log-query/log-query-overview.md) q
 Power BI Desktop é uma aplicação de ambiente de trabalho que permite criar conjuntos de dados e relatórios que podem ser publicados no Power BI.  Também pode usá-lo para criar uma consulta utilizando a linguagem Power Query exportada do Azure Monitor. 
 
 1. Instale [o Power BI Desktop](https://powerbi.microsoft.com/desktop/) se ainda não o tiver e, em seguida, abra a aplicação.
-2. **Selecione Obter Consulta**Em Branco para abrir uma nova  >  **Blank Query** consulta.  Em seguida, selecione **Advanced Editor** e cole o conteúdo do ficheiro exportado para a consulta. Clique em **Concluído**.
+2. **Selecione Obter Consulta**Em Branco para abrir uma nova  >  **Blank Query** consulta.  Em seguida, selecione **Advanced Editor** e cole o conteúdo do ficheiro exportado para a consulta. Clique em **Done** (Concluído).
 
     ![Consulta de ambiente de trabalho Power BI](media/powerbi/desktop-new-query.png)
 
@@ -78,6 +78,6 @@ O conjunto de dados criado no Power BI terá os mesmos dados que viu anteriormen
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais [sobre pesquisas de registo para](../log-query/log-query-overview.md) construir consultas que podem ser exportadas para o Power BI.
 * Saiba mais sobre [o Power BI](https://powerbi.microsoft.com) para construir visualizações com base nas exportações de registos do Azure Monitor.

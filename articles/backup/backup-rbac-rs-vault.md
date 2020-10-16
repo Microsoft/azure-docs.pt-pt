@@ -1,19 +1,19 @@
 ---
-title: Gerir backups com controlo de acesso baseado em funções
-description: Use o Control de Acesso baseado em funções para gerir o acesso a operações de gestão de backup no cofre dos Serviços de Recuperação.
+title: Gerir backups com controlo de acesso baseado em funções Azure
+description: Use o controlo de acesso baseado em funções Azure para gerir o acesso a operações de gestão de backup no cofre dos Serviços de Recuperação.
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: c24d075dcb9ac36ce741db746d69aa9e61fac39d
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 0dd8d08c4ee79082f47929cf7d453f3f4bbd60ee
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376133"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090884"
 ---
-# <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Use o Controlo de Acesso Baseado em Funções para gerir pontos de recuperação de backup do Azure
+# <a name="use-azure-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Use o controlo de acesso baseado em funções Azure para gerir os pontos de recuperação do Backup Azure
 
-O controlo de acesso baseado em funções Azure (Azure RBAC) permite uma gestão de acesso de grãos finos para o Azure. Ao utilizar o RBAC, pode segregar funções na sua equipa e conceder apenas a quantidade de acesso a utilizadores que precisam para desempenhar as suas funções.
+O controlo de acesso baseado em funções Azure (Azure RBAC) permite uma gestão de acesso de grãos finos para o Azure. Com o RBAC do Azure, pode fazer a segregação de deveres na sua equipa e conceder aos utilizadores apenas a quantidade de acesso de que precisam para desempenhar as suas funções.
 
 > [!IMPORTANT]
 > As funções fornecidas pela Azure Backup estão limitadas a ações que podem ser executadas no portal Azure ou através de cofres de API ou Serviços de Recuperação powerShell ou CLI. As ações realizadas no UI do agente de backup Azure ou no System center Data Protection Manager UI ou no Azure Backup Server UI estão fora de controlo destas funções.
@@ -37,7 +37,7 @@ O quadro seguinte captura as ações de gestão de Backup e a correspondente fun
 | | Contribuidor de Máquina Virtual | Recurso VM |
 | Backup a pedido da VM | Operador de backup | Cofre dos Serviços de Recuperação |
 | Restaurar VMs | Operador de backup | Cofre dos Serviços de Recuperação |
-| | Contribuidor | Grupo de recursos no qual a VM será implantada |
+| | Contribuinte | Grupo de recursos no qual a VM será implantada |
 | | Contribuidor de Máquina Virtual | Fonte VM que foi apoiado |
 | Restaurar a cópia de segurança dos discos não geridos VM | Operador de backup | Cofre dos Serviços de Recuperação |
 | | Contribuidor de Máquina Virtual | Fonte VM que foi apoiado |
@@ -45,7 +45,7 @@ O quadro seguinte captura as ações de gestão de Backup e a correspondente fun
 | Restaurar discos geridos a partir de backup VM | Operador de backup | Cofre dos Serviços de Recuperação |
 | | Contribuidor de Máquina Virtual | Fonte VM que foi apoiado |
 | | Contribuidor de Conta de Armazenamento | Conta de Armazenamento Temporário selecionada como parte da restauração para reter dados do cofre antes de convertê-los em discos geridos |
-| | Contribuidor | Grupo de recursos para o qual os discos geridos serão restaurados |
+| | Contribuinte | Grupo de recursos para o qual os discos geridos serão restaurados |
 | Restaurar ficheiros individuais a partir de cópia de segurança VM | Operador de backup | Cofre dos Serviços de Recuperação |
 | | Contribuidor de Máquina Virtual | Fonte VM que foi apoiado |
 | Criar política de backup para backup Azure VM | Colaborador de backup | Cofre dos Serviços de Recuperação |
@@ -75,11 +75,11 @@ A tabela seguinte captura as ações de gestão de Backup e o papel corresponden
 | Conta de armazenamento não registro do cofre |Colaborador de backup | Cofre dos Serviços de Recuperação |
 | |Contribuidor de Conta de Armazenamento | Recurso de conta de armazenamento|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md): Começa com o RBAC no portal Azure.
+* [Controlo de acesso baseado em funções (Azure RBAC)](../role-based-access-control/role-assignments-portal.md): Começa com o Azure RBAC no portal Azure.
 * Saiba como gerir o acesso com:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [CLI do Azure](../role-based-access-control/role-assignments-cli.md)
   * [API REST](../role-based-access-control/role-assignments-rest.md)
-* [Resolução de problemas do Controlo de Acesso Baseado em Função:](../role-based-access-control/troubleshooting.md)Obtenha sugestões para corrigir questões comuns.
+* [Azure controlo de acesso baseado em funções resolução de problemas](../role-based-access-control/troubleshooting.md): Obtenha sugestões para corrigir questões comuns.

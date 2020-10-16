@@ -7,10 +7,10 @@ keywords: inventário, automatização,alteração, controlo
 ms.date: 06/30/2020
 ms.topic: conceptual
 ms.openlocfilehash: 32d3c17a5f3d152f32b19ffbfd5c9793a7a34b80
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86185726"
 ---
 # <a name="manage-inventory-collection-from-vms"></a>Gerir a recolha de inventário a partir de VMs
@@ -22,7 +22,7 @@ Pode ativar o rastreio de inventário para um Azure VM a partir da página de re
 
 O Azure Automation Change Tracking and Inventory fornece uma interface de utilizador baseada no navegador para configurar e configurar a recolha de inventário.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/).
 
@@ -65,7 +65,7 @@ As seguintes secções fornecem informações sobre cada imóvel que podem ser c
 |---------|---------|
 |Ativado     | Determina se a definição foi aplicada        |
 |Nome do Item     | Nome amigável do ficheiro a ser monitorizado        |
-|Grupo     | Um nome de grupo para agrupar ficheiros logicamente        |
+|Group     | Um nome de grupo para agrupar ficheiros logicamente        |
 |Chave do Registo do Windows   | O caminho para verificar o ficheiro, por exemplo: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ### <a name="windows-files"></a>Ficheiros do Windows
@@ -74,7 +74,7 @@ As seguintes secções fornecem informações sobre cada imóvel que podem ser c
 |---------|---------|
 |Ativado     | Verdade se a definição for aplicada, e falso de outra forma.        |
 |Nome do Item     | O nome amigável do ficheiro a ser rastreado.        |
-|Grupo     | Um nome de grupo para agrupar logicamente ficheiros.       |
+|Group     | Um nome de grupo para agrupar logicamente ficheiros.       |
 |Introduzir o Caminho     | O caminho para verificar o ficheiro, por exemplo, **c:\temp\myfile.txt**.
 
 ### <a name="linux-files"></a>Ficheiros Linux
@@ -83,7 +83,7 @@ As seguintes secções fornecem informações sobre cada imóvel que podem ser c
 |---------|---------|
 |Ativado     | Verdade se a definição for aplicada, e falso de outra forma.        |
 |Nome do Item     | O nome amigável do ficheiro a ser rastreado.        |
-|Grupo     | Um nome de grupo para agrupar logicamente ficheiros.        |
+|Group     | Um nome de grupo para agrupar logicamente ficheiros.        |
 |Introduzir o Caminho     | O caminho para verificar o ficheiro, por exemplo, **/etc/*.conf**.       |
 |Tipo de Caminho     | O tipo de item a ser rastreado. Os valores são Arquivo e Diretório.        |
 |Recursão     | É verdade que se a recursão for usada quando se procura que o item seja rastreado, e falso de outra forma.        |

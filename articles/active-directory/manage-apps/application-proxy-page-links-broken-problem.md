@@ -13,10 +13,10 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 050874b301628348b513b8b5b0c2b878a1dcecaa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84760206"
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>Links na página não funcionam para uma aplicação de Procuração de Aplicação
@@ -46,6 +46,6 @@ Há três formas de resolver esta questão. As escolhas abaixo estão listadas e
 
 3.  Se nenhuma destas opções for viável, existem múltiplas opções para permitir a tradução de ligações inline. Estas opções incluem a utilização do Navegador Gerido Intune, a extensão das Minhas Apps ou a utilização da definição de tradução de link na sua aplicação. Para saber mais sobre cada uma destas opções e como as habilitar, consulte [redirecionar links codificados para aplicações publicadas com Azure AD Application Proxy](application-proxy-configure-hard-coded-link-translation.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Trabalhar com servidores proxy existentes no local](application-proxy-configure-connectors-with-proxy-servers.md)
 

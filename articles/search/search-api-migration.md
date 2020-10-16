@@ -7,13 +7,13 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/26/2020
-ms.openlocfilehash: 0f1050bf58e0cd8d9a601d60a4c5dc22a5420483
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.date: 10/09/2020
+ms.openlocfilehash: d7734fde529c24e8113ea3b019d343b7223f0122
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949036"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91929647"
 ---
 # <a name="upgrade-to-the-latest-rest-api-in-azure-cognitive-search"></a>Upgrade para a mais recente API REST em Pesquisa Cognitiva Azure
 
@@ -40,13 +40,19 @@ Se alguma destas situações se aplicar a si, poderá ter de alterar o seu códi
 
 ## <a name="upgrade-to-2020-06-30"></a>Upgrade para 2020-06-30
 
-Versão 2020-06-30 é o novo lançamento geralmente disponível da API REST. Não há mudanças de rutura, mas há algumas diferenças comportamentais. 
+Versão 2020-06-30 é o novo lançamento geralmente disponível da API REST. Há uma mudança de rutura e várias diferenças comportamentais. 
 
 As funcionalidades estão agora geralmente disponíveis nesta versão API:
 
 * [Loja de conhecimento,](knowledge-store-concept-intro.md)armazenamento persistente de conteúdos enriquecidos criados através de skillsets, criados para análise e processamento a jusante através de outras aplicações. Com esta capacidade, um oleoduto de enriquecimento de IA orientado por indexante pode povoar uma loja de conhecimento, além de um índice de pesquisa. Se utilizar a versão de pré-visualização desta funcionalidade, esta é equivalente à versão geralmente disponível. A única alteração de código necessária é modificar a versão api.
 
-As alterações de comportamento incluem:
+### <a name="breaking-change"></a>Mudança de rutura
+
+O código existente escrito contra versões anteriores da API irá quebrar na versão api=2020-06-30 e, mais tarde, se o código contiver a seguinte funcionalidade:
+
+* Quaisquer literais Edm.Date (data composta por um mês- dia, `2020-12-12` como) em expressões de filtro devem seguir o formato Edm.DateTimeOffset: `2020-12-12T00:00:00Z` . Esta alteração foi necessária para lidar com resultados de consultas erróneas ou inesperadas devido a diferenças de azono.
+
+### <a name="behavior-changes"></a>Mudanças de comportamento
 
 * [O algoritmo de classificação BM25](index-ranking-similarity.md) substitui o algoritmo de classificação anterior por tecnologia mais recente. Novos serviços usarão este algoritmo automaticamente. Para os serviços existentes, deve definir parâmetros para usar o novo algoritmo.
 

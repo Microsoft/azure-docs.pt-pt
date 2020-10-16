@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sharrai
 ms.openlocfilehash: 3217c30737a133c1c1092fc4a8a8caaa0338e980
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89425879"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Adicione um script VMM a um plano de recuperação
@@ -43,7 +43,7 @@ Pode utilizar scripts PowerShell nos seus planos de recuperação. Para estar ac
 
   Se o seu caminho de partilha da biblioteca for remoto (ou se for local mas não partilhado com a MSCVMMLibrary), configurar a partilha da seguinte forma, utilizando \\ libserver2.contoso.com\share\ como exemplo:
   
-  1. Abra o Editor de Registo e, em seguida, vá para **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**.
+  1. Abra o Editor de Registos e, em seguida, vá para **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**.
 
   1. Altere o valor **para ScriptLibraryPath** para ** \\ \libserver2.contoso.com\share \\ **. Especifique o FQDN completo. Fornecer permissões para a localização da partilha. Este é o nó raiz da parte. Para verificar o nó de raiz, em VMM, vá ao nó de raiz na biblioteca. O caminho que se abre é a raiz do caminho. Este é o caminho que deve usar na variável.
 
@@ -51,7 +51,7 @@ Pode utilizar scripts PowerShell nos seus planos de recuperação. Para estar ac
 
      a. Abra a consola **Windows PowerShell de 64 bits** como administrador.
      
-     b. **Insira o bypass de política de execução de conjuntos**. Para obter mais informações, consulte [utilizando o cmdlet Set-ExecutionPolicy](/previous-versions/windows/it-pro/windows-powershell-1.0/ee176961(v=technet.10)).
+     b. **Insira o bypass de política de execução de conjuntos**. Para obter mais informações, consulte [utilizar o Set-ExecutionPolicy cmdlet](/previous-versions/windows/it-pro/windows-powershell-1.0/ee176961(v=technet.10)).
 
      > [!IMPORTANT]
      > **Descose** o bypass de política de execução de set apenas na consola PowerShell de 64 bits. Se o definires para a consola PowerShell de 32 bits, os scripts não funcionam.
@@ -76,6 +76,6 @@ Depois de adicionar VMs ou grupos de replicação a um plano de recuperação e 
 1. Para garantir que o script funciona como esperado, faça um teste de failover do plano de recuperação.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre [execução de falhas.](site-recovery-failover.md)
 

@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: lenalepa
 ms.custom: aaddev
 ms.openlocfilehash: 0574eb0b8ab0b5d4de671ad44a45a85e434393f1
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88115582"
 ---
 # <a name="app-registration-reference"></a>Referência de registo de aplicação

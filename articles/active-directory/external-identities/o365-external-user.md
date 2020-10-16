@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 563d925aa3e0d6922756ab037226f5a86534b19f
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90705440"
 ---
 # <a name="microsoft-365-external-sharing-and-azure-active-directory-azure-ad-b2b-collaboration"></a>Partilha externa microsoft 365 e colaboração B2B do Azure Ative (Azure AD)
@@ -41,7 +41,7 @@ Para gerir a partilha externa no OneDrive/SharePoint Online com a colaboração 
 
 Depois de permitir a partilha externa, a capacidade de procurar utilizadores convidados existentes no picker de pessoas SharePoint Online (SPO) é OFF por padrão para corresponder ao comportamento do legado.
 
-Pode ativar esta funcionalidade utilizando a definição 'ShowPeoplePickerSuggestionsForGuestUsers' ao nível do arrendatário e da recolha do site. Pode definir a funcionalidade utilizando os cmdlets Set-SPOTenant e Set-SPOSite, que permitem aos membros pesquisar todos os utilizadores convidados existentes no diretório. As alterações no âmbito do arrendatário não afetam os sítios SPO já previstos.
+Pode ativar esta funcionalidade utilizando a definição 'ShowPeoplePickerSuggestionsForGuestUsers' ao nível do arrendatário e da recolha do site. Pode definir a funcionalidade utilizando os Set-SPOTenant e Set-SPOSite cmdlets, que permitem aos membros pesquisar todos os utilizadores convidados existentes no diretório. As alterações no âmbito do arrendatário não afetam os sítios SPO já previstos.
 
 ## <a name="next-steps"></a>Passos seguintes
 

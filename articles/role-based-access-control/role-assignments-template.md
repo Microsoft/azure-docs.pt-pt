@@ -14,10 +14,10 @@ ms.date: 09/29/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 400f0b1b55136f133c9ad01fd0ba4b5dbc5e6bcb
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91612749"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Adicione atribuições de funções Azure usando modelos de Gestor de Recursos Azure

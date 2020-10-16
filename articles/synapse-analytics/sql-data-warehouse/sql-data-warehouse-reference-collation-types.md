@@ -5,17 +5,18 @@ services: synapse-analytics
 author: antvgski
 manager: igorstan
 ms.service: synapse-analytics
+ms.subservice: sql
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 202bbaf4ea53dd6ba285e79dfa9e6ce782c0903e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 08a008e2f2402072dce3069c5d059b297239b7dd
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80633095"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090459"
 ---
 # <a name="database-collation-support-for-azure-synapse-analytics-sql-pool"></a>Suporte de colagem de base para piscina SQL Azure Synapse Analytics
 

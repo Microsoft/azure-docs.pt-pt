@@ -1,6 +1,6 @@
 ---
-title: Configure a segurança para o seu grupo de servidores de hiperescala PostgreSQL ativado
-description: Configure a segurança para o seu grupo de servidores de hiperescala PostgreSQL ativado
+title: Configurar a segurança para o grupo de servidores do PostgreSQL Hyperscale preparado para o Azure Arc
+description: Configurar a segurança para o grupo de servidores do PostgreSQL Hyperscale preparado para o Azure Arc
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -10,13 +10,13 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 4f89ace7130e95ba109edcf6becca1e15c8d32c1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91273205"
 ---
-# <a name="configure-security-for-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Configure a segurança para o seu grupo de servidores de hiperescala PostgreSQL ativado
+# <a name="configure-security-for-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Configurar a segurança para o grupo de servidores do PostgreSQL Hyperscale preparado para o Azure Arc
 
 Este documento descreve vários aspetos relacionados com a segurança do seu grupo de servidores:
 - Encriptação inativa
@@ -150,7 +150,7 @@ Este pequeno exemplo demonstra que pode encriptar dados em repouso (armazenar da
 
 ## <a name="user-management"></a>Gestão de utilizadores
 ### <a name="general-perspectives"></a>Perspetivas gerais
-Pode utilizar a forma padrão de Postgres de criar utilizadores ou funções. No entanto, se o fizerem, estes artefactos só estarão disponíveis no papel de coordenador. Durante a pré-visualização, estes utilizadores/funções ainda não poderão aceder a dados que sejam distribuídos fora do nó Coordenador e nos nós do Trabalhador do seu grupo de servidores. A razão é que, na pré-visualização, a definição do utilizador não é replicada nos nós do Trabalhador.
+Pode utilizar a forma padrão de Postgres de criar utilizadores ou funções. No entanto, se o fizer, estes artefactos só ficarão disponíveis na função de coordenador. Durante a pré-visualização, estes utilizadores/funções ainda não conseguirão aceder aos dados distribuídos fora do nó de Coordenação e nos nós de Trabalho do grupo de servidores. O motivo é que, na pré-visualização, a definição do utilizador não é replicada para os nós de Trabalho.
 
 ### <a name="change-the-password-of-the-_postgres_-administrative-user"></a>Alterar a palavra-passe do utilizador administrativo _de postgres_
 A hiperescala pós-crise ativada Azure Arc vem com os _postgres_ de utilizador administrativo padrão para os quais define a palavra-passe quando cria o seu grupo de servidor.

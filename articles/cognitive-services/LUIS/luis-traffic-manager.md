@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 08/20/2019
 ms.openlocfilehash: e37b35e3473b2da397904d01be5e65cf8cafbbe5
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541123"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Utilize o Gestor de Tráfego do Microsoft Azure para gerir a quota de ponto final através das teclas
@@ -369,7 +369,7 @@ Ativar [os registos de diagnóstico](../../traffic-manager/traffic-manager-diagn
 ## <a name="clean-up"></a>Limpeza
 Remova as duas chaves de ponto final LUIS, os três perfis do Gestor de Tráfego, e o grupo de recursos que continha estes cinco recursos. Isto é feito a partir do portal Azure. Apaga-se os cinco recursos da lista de recursos. Em seguida, apague o grupo de recursos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Reveja as opções [de middleware](https://docs.microsoft.com/azure/bot-service/bot-builder-create-middleware?view=azure-bot-service-4.0&tabs=csaddmiddleware%2Ccsetagoverwrite%2Ccsmiddlewareshortcircuit%2Ccsfallback%2Ccsactivityhandler) no BotFramework v4 para entender como este código de gestão de tráfego pode ser adicionado a um botFramework.
 

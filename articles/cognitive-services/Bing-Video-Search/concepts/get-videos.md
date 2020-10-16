@@ -1,7 +1,7 @@
 ---
-title: Pesquisa de vídeos usando a API de pesquisa de vídeo bing
+title: Pesquisa de vídeos utilizando a API de Pesquisa de Vídeo Bing
 titleSuffix: Azure Cognitive Services
-description: O Bing Video Search APIencontra e devolve vídeos relevantes da web, fornece várias funcionalidades para uma recuperação inteligente e focada de vídeo na web.
+description: O Bing Video Search APIfinds e devolve vídeos relevantes da web, fornece várias funcionalidades para a recuperação de vídeo inteligente e focada na web.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: aahi
 ms.openlocfilehash: 5add9597924aa77ede875d0056e83eceb4f99598
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79220305"
 ---
-# <a name="search-for-videos-with-the-bing-video-search-api"></a>Pesquisa de vídeos com a API de pesquisa de vídeo bing
+# <a name="search-for-videos-with-the-bing-video-search-api"></a>Pesquisa de vídeos com a API de Pesquisa de Vídeo Bing
 
-A API bing video search facilita a integração das capacidades cognitivas de pesquisa de notícias do Bing nas suas aplicações. Enquanto a API encontra e devolve principalmente vídeos relevantes da web, fornece várias funcionalidades para uma recuperação inteligente e focada de vídeo na web.
+A API de Pesquisa de Vídeo Bing facilita a integração das capacidades de pesquisa de notícias cognitivas de Bing nas suas aplicações. Embora a API encontre e devolva vídeos relevantes da web, fornece várias funcionalidades para a recuperação de vídeo inteligente e focada na web.
 
 ## <a name="getting-videos"></a>Obter vídeos
 
@@ -98,7 +98,7 @@ A resposta contém uma resposta [Vídeos](https://docs.microsoft.com/rest/api/co
 
 ## <a name="video-thumbnails"></a>Miniaturas de vídeo
 
-Pode exibir tudo, ou um subconjunto das miniaturas de vídeo devolvidas pela API de Pesquisa de Vídeo Bing. Se for apresentado um subconjunto, dê ao utilizador uma opção para ver os vídeos restantes. como parte dos requisitos de [utilização e exibição](../UseAndDisplayRequirements.md)da API bing, deve exibir os vídeos na ordem fornecida na resposta. Para obter informações sobre o redimensionamento da miniatura, veja [Redimensionar e Recortar Miniaturas](../../bing-web-search/resize-and-crop-thumbnails.md). 
+Pode exibir tudo ou um subconjunto das miniaturas de vídeo devolvidas pela API de Pesquisa de Vídeo Bing. Se for apresentado um subconjunto, dê ao utilizador uma opção para ver os vídeos restantes. como parte dos requisitos de [utilização e visualização](../UseAndDisplayRequirements.md)da API Bing, deve exibir os vídeos na ordem fornecida na resposta. Para obter informações sobre o redimensionamento da miniatura, veja [Redimensionar e Recortar Miniaturas](../../bing-web-search/resize-and-crop-thumbnails.md). 
 
 À medida que o utilizador coloca o cursor sobre a miniatura, pode utilizar [motionThumbnailUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-motionthumbnailurl) para reproduzir uma versão em miniatura do vídeo. Certifique-se de que adiciona um atributo à miniatura de movimento quando a apresentar.
 
@@ -120,10 +120,10 @@ Para obter detalhes sobre como utilizar o [videoId](https://docs.microsoft.com/r
 
 Por predefinição, a API de Pesquisa de Vídeos devolve todos os vídeos que são relevantes para a consulta. Se quiser apenas vídeos gratuitos ou com menos de cinco minutos de duração, utilize os seguintes parâmetros de consulta de filtro:
 
-- [preços Filtrar](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#pricing)&mdash;vídeos por preços (por exemplo, vídeos que são gratuitos ou que você tem que pagar)
-- [resolução](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#resolution)&mdash;Filtrar vídeos por resolução (por exemplo, vídeos com uma resolução de 720p ou superior)
-- [vídeoLength](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videolength)&mdash;Filter vídeos por comprimento de vídeo (por exemplo, vídeos com menos de cinco minutos de comprimento)
-- [frescura](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#freshness)&mdash;Filtravídeos por idade (por exemplo, vídeos descobertos por Bing na semana passada)
+- [preços](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#pricing) &mdash; Filtrar vídeos por preços (por exemplo, vídeos gratuitos ou que tenha de pagar)
+- [resolução](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#resolution) &mdash; Filtrar vídeos por resolução (por exemplo, vídeos com uma resolução de 720p ou superior)
+- [videoLength](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videolength) &mdash; Filtrar vídeos por comprimento de vídeo (por exemplo, vídeos com menos de cinco minutos de comprimento)
+- [frescura](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#freshness) &mdash; Filtrar vídeos por idade (por exemplo, vídeos descobertos por Bing na semana passada)
 
 Para obter vídeos de um domínio específico, inclua o operador de consulta [site:](https://msdn.microsoft.com/library/ff795613.aspx) na cadeia de consulta.
 

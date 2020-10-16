@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: c21ddd0aacde277f4cf796f133a3169a69798dda
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: ddad462658465c07624f078e20c224750c5180c9
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89264475"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019482"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Começar com a entrega de conteúdos a pedido usando REST
 
@@ -489,7 +489,7 @@ Date: Mon, 19 Jan 2015 07:54:09 GMT
 ### <a name="create-a-job"></a>Criar uma tarefa
 Cada Trabalho pode ter uma ou mais Tarefas dependendo do tipo de processamento que pretende realizar. Através da API REST, pode criar Jobs e as suas tarefas conexas de uma de duas formas: As tarefas podem ser definidas em linha através da propriedade de navegação tasks em entidades job, ou através do processamento de lotes OData. O Media Services SDK utiliza o processamento de lote. No entanto, para a legibilidade dos exemplos de código neste artigo, as tarefas são definidas em linha. Para obter informações sobre o processamento de lotes, consulte [o processo de processamento do lote do Protocolo de Dados Abertos (OData).](https://www.odata.org/documentation/odata-version-3-0/batch-processing/)
 
-O exemplo a seguir mostra-lhe como criar e publicar um Job com um conjunto de Tarefas para codificar um vídeo numa resolução e qualidade específicas. A seguinte secção de documentação contém a lista de todas as [predefinições de tarefa](/azure/media-services/previous/media-services-mes-presets-overview) suportadas pelo processador Media Encoder Standard.  
+O exemplo a seguir mostra-lhe como criar e publicar um Job com um conjunto de Tarefas para codificar um vídeo numa resolução e qualidade específicas. A seguinte secção de documentação contém a lista de todas as [predefinições de tarefa](./media-services-mes-presets-overview.md) suportadas pelo processador Media Encoder Standard.  
 
 **Pedido de HTTP**
 

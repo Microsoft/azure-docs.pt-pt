@@ -8,10 +8,10 @@ ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: 6543b629af8d67658afe61ef81e22eb7355e1de7
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91772809"
 ---
 # <a name="azure-activity-log"></a>Registo de atividades do Azure

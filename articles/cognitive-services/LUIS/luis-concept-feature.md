@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 08ab71375171d4bb4167c725bc7118bec2e1ebfa
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91372029"
 ---
 # <a name="machine-learning-features"></a>Características de aprendizagem automática
@@ -226,7 +226,7 @@ Depois de criar a entidade de aprendizagem automática, precisa adicionar palavr
 
 Para o exemplo de reserva de bilhetes, Marque o exemplo de declarações na intenção com a `TicketBooking` entidade e quaisquer subentências no texto.
 
-:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity.png" alt-text="Palavras de exemplo de rótulo":::
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity.png" alt-text="Esquema de entidade de bilhética":::
 
 ### <a name="example-pizza-ordering-app"></a>Exemplo: app de encomenda de pizza
 
@@ -234,13 +234,13 @@ Para um segundo exemplo, considere uma aplicação para um restaurante de pizza,
 
 A entidade de aprendizagem automática neste exemplo é mais complexa com subentidades aninhadas, listas de frases, entidades pré-construídas e entidades personalizadas.
 
-:::image type="content" source="media/luis-concept-features/pizza-order-entity.png" alt-text="Esquema de entidade de encomenda de pizza":::
+:::image type="content" source="media/luis-concept-features/pizza-order-entity.png" alt-text="Esquema de entidade de bilhética":::
 
 Este exemplo utiliza funcionalidades ao nível da subinidade e criança do nível da subinidade. Qual o nível que obtém o tipo de lista de frases ou modelo como recurso é uma parte importante do design da sua entidade.
 
 Embora as subentidades possam ter muitas listas de frases como funcionalidades que ajudam a detetar a entidade, cada subinidade tem apenas um modelo como recurso. Nesta [aplicação de pizzas,](https://github.com/Azure/pizza_luis_bot/blob/master/CognitiveModels/MicrosoftPizza.json)estes modelos são principalmente listas.
 
-:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity-pizza.png" alt-text="Ordem da pizza com frases de exemplo rotuladas":::
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity-pizza.png" alt-text="Esquema de entidade de bilhética":::
 
 As expressões de exemplo corretamente rotuladas mostram de forma a mostrar como as entidades estão aninhadas. 
 

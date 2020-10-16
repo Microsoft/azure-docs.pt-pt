@@ -1,5 +1,5 @@
 ---
-title: Tradução configurada
+title: Configurar a tradução
 titleSuffix: Azure Cognitive Services
 description: Este artigo irá mostrar-lhe como configurar as várias opções de tradução.
 author: metanMSFT
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: metan
 ms.openlocfilehash: ea066fab713100309103a040d309bac5b984fb99
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85486936"
 ---
 # <a name="how-to-configure-translation"></a>Como configurar a tradução

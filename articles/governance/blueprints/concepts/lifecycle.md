@@ -4,10 +4,10 @@ description: Conheça o ciclo de vida que uma definição de planta passa e deta
 ms.date: 08/27/2020
 ms.topic: conceptual
 ms.openlocfilehash: c1de2cf869362154b112c3eef74ed1fb0db3a993
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89049711"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Compreenda o ciclo de vida de uma Planta Azure
@@ -60,7 +60,7 @@ Cada versão de uma planta é um objeto único e pode ser **publicada**individua
 > [!NOTE]
 > Não é possível apagar uma planta que tenha missões ativas. Elimine as atribuições primeiro e, em seguida, elimine a versão que pretende remover.
 
-1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas.**
+1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Esquemas**.
 
 1. Selecione **definições** de Planta a partir da página à esquerda e use as opções de filtro para localizar a planta que deseja eliminar uma versão de. Selecione-o para abrir a página de edição.
 

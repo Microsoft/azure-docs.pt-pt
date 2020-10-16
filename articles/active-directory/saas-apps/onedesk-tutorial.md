@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 4c3eb3706858bd2bfd2160e58698c0f5136c41f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e8ed59783a6a714434b17a1d1abbb22fbe30939
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88547916"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944057"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-onedesk"></a>Tutorial: Azure Ative Directory integração única (SSO) com OneDesk
 
@@ -141,7 +141,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Clique no separador **Integrações.**
 
-    ![Separador de definições](./media/onedesk-tutorial/img-integration.png)
+    ![Screenshot que mostra o separador "Integrações" selecionado.](./media/onedesk-tutorial/img-integration.png)
 
 1. Clique no **Signo Único**, selecione **Carregar Ficheiro de Metadados** e clique no **Ficheiro Escolha** para carregar o ficheiro de metadados, que descarregou a partir do portal Azure.
 

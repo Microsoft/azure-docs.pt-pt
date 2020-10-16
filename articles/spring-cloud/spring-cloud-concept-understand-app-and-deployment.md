@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/23/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: c053a7830e02eb7c460bd030ca3c6a10c00ea78a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91323642"
 ---
 # <a name="understand-app-and-deployment-in-azure-spring-cloud"></a>Compreenda a aplicação e a implementação em Azure Spring Cloud
@@ -29,7 +29,7 @@ O nível padrão da Cloud Azure Spring permite que uma Aplicação tenha uma imp
 ## <a name="app"></a>Aplicação
 As seguintes funcionalidades/propriedades são definidas ao nível da App.
 
-| Funcionalidades | Description |
+| Funcionalidades | Descrição |
 |:--|:----------------|
 | Público</br>Ponto final | O URL para aceder à app |
 | Personalizado</br>Domínio | REGISTO CNAME que assegura o domínio personalizado |
@@ -45,7 +45,7 @@ As seguintes funcionalidades/propriedades são definidas ao nível de Implantaç
 |:--|:----------------|
 | CPU | Número de vcores por instância de App |
 | Memória | Gb de memória por instância de App|
-| Instância</br>de palavras | O número de instâncias de aplicações, definidas manualmente ou automaticamente |
+| Instância</br>Contagem | O número de instâncias de aplicações, definidas manualmente ou automaticamente |
 | Escala automática | Contagem de instâncias de escala automaticamente com base em regras e horários predefinidos |
 | JVM</br>Opções | Definição de opções JVM  |
 | Ambiente</br>Variáveis | Definição de variáveis ambientais |
@@ -55,7 +55,7 @@ As seguintes funcionalidades/propriedades são definidas ao nível de Implantaç
 
 * **Uma Aplicação deve ter uma implantação de produção**: A eliminação de uma produção é bloqueada pela API. Deve ser trocado para encenação antes de apagar.
 * **Uma Aplicação pode ter no máximo duas Implementações**: Criar mais de duas implementações é bloqueado pela API. Desloque o seu novo binário para a produção ou implantação de encenação existentes.
-* **A gestão da implementação não está disponível no Basic Tier**: Use o nível padrão para a capacidade de implantação Blue-Green.
+* **A gestão da implementação não está disponível no Basic Tier**: Use o nível standard para Blue-Green capacidade de implantação.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 * [Crie um ambiente de encenação em Azure Spring Cloud](spring-cloud-howto-staging-environment.md)

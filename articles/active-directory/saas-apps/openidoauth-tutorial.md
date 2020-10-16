@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.custom: has-adal-ref
-ms.openlocfilehash: f36c80b9d08f2fde07483c1dde3afe99ec9f92d7
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: ce4cccba678a934780dc987f1441ea658a70f8eb
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705627"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996626"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Configure uma aplicação OpenID/OAuth da galeria de aplicações AZure AD
 
@@ -99,19 +99,19 @@ Os seguintes passos mostram-lhe como funciona a experiência de consentimento pa
 
     a. Clique nas **inscrições** da App a partir do lado esquerdo do menu e abra a sua aplicação digitando o nome da aplicação na caixa de pesquisa.
 
-    ![Graph API](./media/openidoauth-tutorial/application.png)
+    ![Screenshot que mostra "Registos de aplicações" selecionados a partir do menu do lado esquerdo e da caixa de pesquisa "Aplicação I D" realçada.](./media/openidoauth-tutorial/application.png)
 
     b. Clique **em Ver Permissões API**.
 
-    ![Graph API](./media/openidoauth-tutorial/api-permission.png)
+    ![Screenshot que mostra a página "Call A P I" com o botão "Ver A P I Permissões" selecionado.](./media/openidoauth-tutorial/api-permission.png)
 
     c. Clique em **Adicionar uma permissão**.
 
-    ![Graph API](./media/openidoauth-tutorial/add-permission.png)
+    ![Screenshot que mostra a secção "A P I permissões" com o botão "Adicionar uma permissão" selecionado.](./media/openidoauth-tutorial/add-permission.png)
 
     d. Clique no **Gráfico microsoft**.
 
-    ![Graph API](./media/openidoauth-tutorial/microsoft-graph.png)
+    ![Screenshot que mostra a página "Request A P I permissões" com o separador "Microsoft A P I" e o azulejo "Microsoft Graph" selecionados.](./media/openidoauth-tutorial/microsoft-graph.png)
 
     e. Selecione as opções necessárias a partir de **permissões delegadas** e **permissões de aplicação.**
 

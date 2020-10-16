@@ -1,20 +1,20 @@
 ---
 title: Tutorial - Configurar rede virtual para Serviços de Domínio Azure AD / Microsoft Docs
 description: Neste tutorial, aprende-se a criar e configurar uma sub-rede de rede virtual Azure ou uma rede que espreita um domínio gerido por um Azure Ative Directory Domain Services utilizando o portal Azure.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: e0d2b235f671ca9b30bf61aef254cb850b25373e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: 33beb0767ef1f21d4fb3d08c9072d7c8479d2cb1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86024779"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967414"
 ---
 # <a name="tutorial-configure-virtual-networking-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configurar a rede virtual para um domínio gerido por Azure Ative Directory Domain Services
 
@@ -24,7 +24,7 @@ Quando crias os teus próprios VMs e aplicações, elas não devem ser implantad
 
 Este tutorial mostra-lhe como criar e configurar uma sub-rede de rede virtual dedicada ou como espreitar uma rede diferente para a rede virtual gerida pelo Azure AD DS.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Compreenda as opções de conectividade de rede virtual para recursos unidos pelo domínio ao Azure AD DS

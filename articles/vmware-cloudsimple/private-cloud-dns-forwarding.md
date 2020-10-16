@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 3571455db6ecc600bf0948087b40c281d72512ce
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87091254"
 ---
 # <a name="enable-cloudsimple-private-cloud-dns-servers-to-forward-dns-lookup-of-on-premises-resources-to-your-dns-servers"></a>Ativar os servidores DNS private Cloud do Cloud para encaminhar a procura de DNS dos recursos no local para os seus servidores DNS
@@ -27,7 +27,7 @@ Reencaminhamento de DNS para o seu servidor DNS no local permite-lhe utilizar a 
 * Use no local Ative Directory como fonte de identidade para o seu Private Cloud vSphere
 * Utilize HCX para migrar máquinas virtuais de instalações para Nuvem Privada
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Uma ligação de rede deve estar presente da sua rede Private Cloud para a sua rede de acesso ao local para o encaminhamento de DNS para funcionar.  Pode configurar a ligação de rede utilizando:
 

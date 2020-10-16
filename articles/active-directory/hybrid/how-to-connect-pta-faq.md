@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6db477a288ef41c2946cd550af6ff87999eff2f0
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91461279"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticação pass-through do Azure Ative Directory: Perguntas frequentes
@@ -44,7 +44,7 @@ Sim, o sing-in utilizando um valor não UPN, como um e-mail alternativo, é supo
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>A sincronização de hash de palavra-passe funciona como um recuo para a autenticação pass-through?
 
-Não. A autenticação pass-through _não_ falha automaticamente na sincronização de hash de palavra-passe. Para evitar falhas de inscrição no utilizador, deve configurar a autenticação pass-through para [uma elevada disponibilidade](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
+N.º A autenticação pass-through _não_ falha automaticamente na sincronização de hash de palavra-passe. Para evitar falhas de inscrição no utilizador, deve configurar a autenticação pass-through para [uma elevada disponibilidade](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
 
 ## <a name="what-happens-when-i-switch-from-password-hash-synchronization-to-pass-through-authentication"></a>O que acontece quando mudo de sincronização de hash de palavra-passe para autenticação pass-through?
 
@@ -170,7 +170,7 @@ Os inquilinos criados após 15 de junho de 2015 têm o comportamento padrão de 
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Limitações atuais](how-to-connect-pta-current-limitations.md): Saiba quais os cenários que são apoiados e quais não são.
 - [Início rápido](how-to-connect-pta-quick-start.md): Levante-se e corra na Autenticação Pass-through Azure.
 - [Migrar de AD FS para Autenticação Pass-through](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) - Um guia detalhado para migrar de FS AD (ou outras tecnologias da federação) para a Autenticação Pass-through.

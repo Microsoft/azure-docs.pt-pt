@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 714a43ec197ac150488d4443c1eb6fe1be1da232
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 845336385fe7490d4c62df41af873c237ae34871
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91575525"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996335"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor Logs Clusters Dedicados
 
@@ -49,7 +49,7 @@ Existem dois modos de faturação para uso num cluster. Estes podem ser especifi
 
 1. **Cluster**: neste caso (que é o padrão), a faturação dos dados ingeridos é feita ao nível do cluster. As quantidades de dados ingeridas de cada espaço de trabalho associado a um cluster são agregadas para calcular a fatura diária do cluster. 
 
-2. **Espaços de trabalho**: os custos de reserva de capacidade para o seu Cluster são atribuídos proporcionalmente aos espaços de trabalho no Cluster (após contabilização das dotações por nó do Centro de [Segurança Azure](https://docs.microsoft.com/azure/security-center/) para cada espaço de trabalho.)
+2. **Espaços de trabalho**: os custos de reserva de capacidade para o seu Cluster são atribuídos proporcionalmente aos espaços de trabalho no Cluster (após contabilização das dotações por nó do Centro de [Segurança Azure](../../security-center/index.yml) para cada espaço de trabalho.)
 
 Note que se o seu espaço de trabalho estiver a utilizar o nível de preços por nó, quando estiver ligado a um cluster, será faturado com base em dados ingeridos contra a Reserva de Capacidade do cluster, e não mais por nó. As alocações de dados por nó do Centro de Segurança Azure continuarão a ser aplicadas.
 
@@ -116,12 +116,12 @@ Deve ser 200 OK e um cabeçalho.
 
 O provisionamento do cluster Log Analytics demora algum tempo a ser concluído. Pode verificar o estado de provisionamento de várias formas:
 
-- Executar o comando Get-AzOperationalInsightsCluster PowerShell com o nome do grupo de recursos e verificar a propriedade ProvisioningState. O valor é *ProvisioningAccount* enquanto provisione e *conseguiu* quando concluído.
+- Executar Get-AzOperationalInsightsCluster comando PowerShell com o nome do grupo de recursos e verifique a propriedade ProvisioningState. O valor é *ProvisioningAccount* enquanto provisione e *conseguiu* quando concluído.
   ```powershell
   New-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} 
   ```
 
-- Copie o valor URL Azure-AsyncOperation da resposta e siga a verificação do estado das operações assíncronas.
+- Copie o valor de URL Azure-AsyncOperation da resposta e siga a verificação do estado das operações assíncronos.
 
 - Envie um pedido GET sobre o recurso *Cluster* e analise o valor *do Estado de provisionamento.* O valor é *ProvisioningAccount* enquanto provisione e *conseguiu* quando concluído.
 
@@ -218,9 +218,9 @@ Content-type: application/json
 
 A propagação do identificador chave leva alguns minutos para ser concluída. Pode verificar o estado de atualização de duas formas:
 
-- Copie o valor URL Azure-AsyncOperation da resposta e siga a verificação do estado das operações assíncronas. 
+- Copie o valor de URL Azure-AsyncOperation da resposta e siga a verificação do estado das operações assíncronos. 
 
-   OU
+   OR
 
 - Envie um pedido GET sobre o recurso *Cluster* e veja as propriedades *KeyVaultProperties.* Os seus dados de identificação chave recentemente atualizados devem regressar na resposta.
 
@@ -319,9 +319,9 @@ Se utilizar as teclas geridas pelo cliente, os dados ingeridos são armazenados 
 
 Pode verificar o estado da associação do espaço de trabalho de duas formas:
 
-- Copie o valor URL Azure-AsyncOperation da resposta e siga a verificação do estado das operações assíncronas.
+- Copie o valor de URL Azure-AsyncOperation da resposta e siga a verificação do estado das operações assíncronos.
 
-- Enviar um [Espaço de Trabalho – Solicite](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) e observe a resposta. O espaço de trabalho associado tem um clusterResourceId em "funcionalidades".
+- Enviar um [Espaço de Trabalho – Solicite](/rest/api/loganalytics/workspaces/get) e observe a resposta. O espaço de trabalho associado tem um clusterResourceId em "funcionalidades".
 
 Um pedido de envio parece o seguinte:
 

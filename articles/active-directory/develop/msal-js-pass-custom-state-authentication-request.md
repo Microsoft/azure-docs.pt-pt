@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 840c371e63aacf8ef410cbf84cc9f68137dd77df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85477588"
 ---
 # <a name="pass-custom-state-in-authentication-requests-using-msaljs"></a>Passe o estado personalizado em pedidos de autenticação usando MSAL.js
@@ -46,7 +46,7 @@ export type AuthenticationParameters = {
 
 > [!Note]
 > Se quiser saltar um token em cache e ir para o servidor, por favor passe o boolean `forceRefresh` para o objeto AuthenticationParameters usado para fazer um pedido de login/token.
-> `forceRefresh`não deve ser utilizado por padrão, devido ao impacto de desempenho na sua aplicação.
+> `forceRefresh` não deve ser utilizado por padrão, devido ao impacto de desempenho na sua aplicação.
 > Confiar na cache dará aos seus utilizadores uma melhor experiência.
 > Saltar a cache só deve ser usado em cenários em que sabe que os dados atualmente em cache não têm informações atualizadas.
 > Tal como uma ferramenta Admin que adiciona funções a um utilizador que precisa de obter um novo token com funções atualizadas.

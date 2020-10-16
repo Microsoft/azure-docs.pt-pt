@@ -7,15 +7,15 @@ ms.date: 08/07/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 669f4baa723b78b8933f3a75fc361c468f9e2df9
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88002394"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contentores de perfil FSLogix e ficheiros do Azure
 
-O serviço de ambiente de trabalho virtual do Windows recomenda recipientes de perfil FSLogix como solução de perfil de utilizador. O FSLogix foi concebido para percorrer perfis em ambientes informáticos remotos, como o Windows Virtual Desktop. Armazena um perfil de utilizador completo num único contentor. Ao iniciar sposição, este recipiente está dinamicamente ligado ao ambiente de computação utilizando disco rígido virtual (VHD) e disco virtual de hiper-V (VHDX). O perfil do utilizador está imediatamente disponível e aparece no sistema exatamente como um perfil de utilizador nativo. Este artigo descreve como os recipientes de perfil FSLogix utilizados com ficheiros Azure funcionam no Windows Virtual Desktop.
+O serviço de ambiente de trabalho virtual do Windows recomenda recipientes de perfil FSLogix como solução de perfil de utilizador. O FSLogix foi concebido para percorrer perfis em ambientes informáticos remotos, como o Windows Virtual Desktop. Armazena um perfil de utilizador completo num único contentor. Ao iniciar sposição, este recipiente está dinamicamente ligado ao ambiente de computação utilizando disco rígido virtual (VHD) e disco virtual de hiper-V (VHDX). O perfil do utilizador fica imediatamente disponível e aparece no sistema exatamente como um perfil de utilizador nativo. Este artigo descreve como os recipientes de perfil FSLogix utilizados com ficheiros Azure funcionam no Windows Virtual Desktop.
 
 >[!NOTE]
 >Se procura material de comparação sobre as diferentes opções de armazenamento de contentores de perfil FSLogix no Azure, consulte [as opções de armazenamento para recipientes de perfil FSLogix](store-fslogix-profile.md).
@@ -57,7 +57,7 @@ A tabela a seguir mostra benefícios e limitações de tecnologias anteriores de
 
 A UPD requer [espaços de armazenamento direto (S2D)](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) para atender aos requisitos de desempenho. UPD utiliza o protocolo Bloco de Mensagens do Servidor (SMB). Copia o perfil para o VM no qual o utilizador está a ser registado. UPD com S2D é a solução que recomendamos para o Windows Virtual Desktop.
 
-#### <a name="cost"></a>Custo
+#### <a name="cost"></a>Cost
 
 Enquanto os clusters S2D alcançam o desempenho necessário, o custo é caro para os clientes empresariais, mas especialmente caro para os clientes de pequenas e médias empresas (SMB). Para esta solução, as empresas pagam por discos de armazenamento, juntamente com o custo dos VMs que usam os discos para uma parte.
 

@@ -8,10 +8,10 @@ ms.date: 08/20/2020
 ms.author: mingshen
 author: mingshen-ms
 ms.openlocfilehash: ca8f2e1721c99c79188917e5b44950b8db6895ce
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90006402"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Capacidades de transação de mercado comercial
@@ -107,7 +107,7 @@ Neste cenário, a Microsoft fatura 1,14 dólares por hora para utilização da s
 |Microsoft mantém 100% do custo de utilização do Azure | $0,14 por hora |
 ||
 
-**Traga a Sua Própria Licença (BYOL)**
+**Traga a sua própria licença (BYOL)**
 
 A BYOL tem a seguinte estrutura de custos:
 
@@ -199,7 +199,7 @@ A opção de publicação de transações só está disponível para utilizaçã
 
 - **Aplicação SaaS** - Deve ser uma solução multitenante, utilizar [o Azure Ative Directory](https://azure.microsoft.com/services/active-directory/) para autenticação e integrar-se com as [APIs de Cumprimento do SaaS](partner-center-portal/pc-saas-fulfillment-api-v2.md). O uso da infraestrutura Azure é gerido e faturado diretamente para você (o parceiro), por isso você deve prestar contas das taxas de utilização da infraestrutura Azure e taxas de licenciamento de software como um item de custo único. Para obter orientações detalhadas, consulte [Criar uma nova oferta saaS no mercado comercial.](partner-center-portal/create-new-saas-offer.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Reveja os requisitos de elegibilidade nas opções de publicação por secção de tipo oferta para finalizar a seleção e configuração da sua oferta.
 - Reveja os padrões de publicação por loja online por exemplos sobre como a sua solução mapeia para um tipo de oferta e configuração.

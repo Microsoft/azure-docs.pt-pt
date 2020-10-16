@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
 ms.openlocfilehash: 786d9b4b577f4a686367a103542ae4f8fa5453da
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86257637"
 ---
 # <a name="using-managed-identities-for-azure-with-service-fabric"></a>Utilização de identidades geridas para Azure com Tecido de Serviço

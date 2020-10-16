@@ -4,10 +4,10 @@ description: Saiba como resolver falhas de máquina virtual (VM) e de criação 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: b7d3f3ad34d8a5bb48607816623c67121d21d78c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85476483"
 ---
 # <a name="troubleshoot-virtual-machine-vm-and-environment-creation-failures-in-azure-devtest-labs"></a>Falhas na criação de máquinas virtuais (VM) e de criação de ambiente em Azure DevTest Labs
@@ -67,5 +67,5 @@ Para ver os registos de implementação do modelo de laboratório, siga estes pa
 4. Na página **'Implantar',** selecione **''Operação' link** para a operação que falhou.
 5. Veja detalhes sobre a operação que falhou na janela de detalhes da **Operação.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Ver [falhas de artefactos de resolução de problemas](devtest-lab-troubleshoot-artifact-failure.md)

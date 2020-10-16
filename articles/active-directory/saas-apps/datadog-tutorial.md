@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/13/2020
 ms.author: jeedes
-ms.openlocfilehash: d3bb0ad5305ccba412a403352405711be8f183a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75f2574a656f659dfed12b59d52c9f147527c65d
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88555942"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950035"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-datadog"></a>Tutorial: Azure Ative Directory integração única (SSO) com Datadog
 
@@ -141,6 +141,22 @@ Nesta secção, cria-se um utilizador chamado B.Simon in Datadog. Trabalhe com a
 Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 
 Quando clicar no azulejo datadog no Painel de Acesso, deverá ser automaticamente inscrito no Datadog para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+
+### <a name="enable-all-users-from-your-tenant-to-authenticate-with-the-app"></a>Capacitar todos os utilizadores do seu inquilino a autenticar com a app
+
+Nesta secção, você permite que todos dentro do seu inquilino acedam ao Datadog se um utilizador tiver uma conta no lado do Datadog.
+
+1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de aplicações, selecione **Datadog**.
+1. Na página geral da aplicação, em **Manage**, selecione **Properties**.
+
+    ![A ligação "Propriedades"](common/properties.png)
+
+1. Para a atribuição do **No** **utilizador necessária?**
+
+    ![Atribuição de utilizadores não necessária](common/user-assignment-not-required.png)
+
+1. Selecione **Guardar**.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

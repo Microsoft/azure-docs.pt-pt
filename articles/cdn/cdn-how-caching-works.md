@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: allensu
 ms.openlocfilehash: aa3c190912c0fbd62b08182018c99b985354811b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86201797"
 ---
 # <a name="how-caching-works"></a>Como funciona a colocação em cache
@@ -60,7 +60,7 @@ O caching é parte integrante da forma como um CDN opera para acelerar a entrega
 
 Tal como o cache é implementado num navegador web, pode controlar como o cache é realizado num CDN enviando cabeçalhos de diretiva de cache. Os cabeçalhos da diretiva cache são cabeçalhos HTTP, que são normalmente adicionados pelo servidor de origem. Embora a maioria destes cabeçalhos tenham sido originalmente projetados para abordar o cache nos navegadores de clientes, eles agora também são usados por todos os caches intermédios, como CDNs. 
 
-Dois cabeçalhos podem ser usados para definir a frescura da cache: `Cache-Control` e `Expires` . `Cache-Control`é mais atual e tem precedência sobre `Expires` , se ambos existem. Existem também dois tipos de cabeçalhos utilizados para validação (chamados validadores): `ETag` e `Last-Modified` . `ETag`é mais atual e tem precedência sobre `Last-Modified` , se ambos são definidos.  
+Dois cabeçalhos podem ser usados para definir a frescura da cache: `Cache-Control` e `Expires` . `Cache-Control` é mais atual e tem precedência sobre `Expires` , se ambos existem. Existem também dois tipos de cabeçalhos utilizados para validação (chamados validadores): `ETag` e `Last-Modified` . `ETag` é mais atual e tem precedência sobre `Last-Modified` , se ambos são definidos.  
 
 ## <a name="cache-directive-headers"></a>Cabeçalhos da diretiva em cache
 
@@ -90,7 +90,7 @@ O Azure CDN suporta os seguintes cabeçalhos de diretiva http cache, que definem
    - Não é honrado pela Azure CDN, por defeito.
    - Cabeçalho legado introduzido em HTTP 1.0; suportado para retrocompatibilidade.
    - Utilizado como cabeçalho de pedido de cliente com a seguinte diretiva: `no-cache` . Esta diretiva instrui o servidor a entregar uma nova versão do recurso.
-   - `Pragma: no-cache`é equivalente a `Cache-Control: no-cache` .
+   - `Pragma: no-cache` é equivalente a `Cache-Control: no-cache`.
 
 ## <a name="validators"></a>Validadores
 
@@ -98,7 +98,7 @@ Quando a cache está em estado de s paliação, os validadores de cache HTTP sã
 
 **ETag:**
 - **O Azure CDN Standard/Premium da Verizon** suporta `ETag` por padrão, enquanto **o Azure CDN Standard da Microsoft** e o **Azure CDN Standard da Akamai** não.
-- `ETag`define uma cadeia que é única para cada ficheiro e versão de um ficheiro. Por exemplo, `ETag: "17f0ddd99ed5bbe4edffdd6496d7131f"`.
+- `ETag` define uma cadeia que é única para cada ficheiro e versão de um ficheiro. Por exemplo, `ETag: "17f0ddd99ed5bbe4edffdd6496d7131f"`.
 - Introduzido em HTTP 1.1 e mais atual do que `Last-Modified` . Útil quando a última data modificada é difícil de determinar.
 - Suporta a validação forte e a fraca validação; no entanto, a Azure CDN suporta apenas uma validação forte. Para uma validação forte, as duas representações de recursos devem ser idênticas. 
 - Um cache valida um ficheiro que utiliza `ETag` enviando um `If-None-Match` cabeçalho com um ou mais `ETag` validadores no pedido. Por exemplo, `If-None-Match: "17f0ddd99ed5bbe4edffdd6496d7131f"`. Se a versão do servidor corresponder a um `ETag` validador na lista, envia o código de estado 304 (Não Modificado) na sua resposta. Se a versão for diferente, o servidor responde com o código de estado 200 (OK) e o recurso atualizado.
@@ -126,7 +126,7 @@ A tabela seguinte descreve o comportamento padrão de caching para os produtos A
 
 |    | Microsoft: Entrega geral da web | Verizon: Entrega geral da web | Verizon: DSA | Akamai: Entrega geral da web | Akamai: DSA | Akamai: Grande download de ficheiros | Akamai: streaming de meios de comunicação geral ou VOD |
 |------------------------|--------|-------|------|--------|------|-------|--------|
-| **Origem de honra**       | Sim    | Sim   | Não   | Yes    | Não   | Sim   | Sim    |
+| **Origem de honra**       | Sim    | Sim   | Não   | Sim    | Não   | Sim   | Sim    |
 | **Duração da cache CDN** | 2 dias |7 dias | Nenhum | 7 dias | Nenhum | 1 dia | 1 ano |
 
 **Origem de honra**: Especifica se deve honrar os cabeçalhos de diretiva de cache suportados se existirem na resposta HTTP do servidor de origem.

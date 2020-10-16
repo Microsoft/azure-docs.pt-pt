@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 68869d464df01d3cc89493c64d66511b4a6f369d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 37b21a5e9e2839fba24b3dcc861fc7c42bdb4547
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91300059"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945214"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-kemp-loadmaster-azure-ad-integration"></a>Tutorial: Integração SSO do Azure Ative Directory com integração de AD Kemp LoadMaster Azure
 
@@ -145,7 +145,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Especificar os Parâmetros para o Serviço Virtual.
 
-    ![Kemp LoadMaster Azure AD integração webserver](./media/kemp-tutorial/kemp-1.png)
+    ![Screenshot que mostra a página "Por favor especifique os parâmetros para o serviço virtual" com valores de exemplo nas caixas.](./media/kemp-tutorial/kemp-1.png)
 
     a. Endereço Virtual
     
@@ -161,7 +161,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Especifique os parâmetros para o Servidor Real.
     
-    ![Kemp LoadMaster Azure AD integração webserver](./media/kemp-tutorial/kemp-2.png)
+    ![Screenshot que mostra a página "Por favor especifique os parâmetros para o servidor real" com valores de exemplo nas caixas.](./media/kemp-tutorial/kemp-2.png)
 
     a. Selecione Permitir endereços remotos
     
@@ -203,7 +203,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Clique em SSL Properties (que opera na Camada 7).
     
-    ![Kemp LoadMaster Azure AD integração webserver](./media/kemp-tutorial/kemp-3.png)
+    ![Screenshot que mostra a secção "S S L Properties" com selecionado "S S L Acceleration - Enabled" e um certificado de exemplo selecionado.](./media/kemp-tutorial/kemp-3.png)
     
     a. Clique em Ativado na Aceleração SSL.
     
@@ -222,7 +222,7 @@ Vá a Kemp LoadMaster Azure AD integração Web Console
 
 1. Clique em Certificados Intermédios em Certificados e Autoridade.
 
-    ![Kemp LoadMaster Azure AD integração webserver](./media/kemp-tutorial/kemp-6.png)
+    ![Screenshot que mostra a secção "Certificados Intermédios atualmente instalados" com um certificado de exemplo selecionado.](./media/kemp-tutorial/kemp-6.png)
 
     a. Clique em escolher o ficheiro em Adicionar um novo Certificado Intermédio.
     
@@ -238,7 +238,7 @@ Vá a Kemp LoadMaster Azure AD integração Web Console
  
 Vá a Manage SSO em Serviços Virtuais.
 
-   ![Kemp LoadMaster Azure AD integração webserver](./media/kemp-tutorial/kemp-7.png)
+   ![Screenshot que mostra a página "Gerir S O".](./media/kemp-tutorial/kemp-7.png)
    
    a. Clique em Adicionar em Adicionar nova configuração do lado do cliente depois de lhe dar um nome.
 
@@ -268,7 +268,7 @@ Na consola web de integração azure Ad do Kemp LoadMaster Ad
 
 1. Clique em Modificar e navegar para opções ESP.
     
-    ![Kemp LoadMaster Azure AD integração webserver](./media/kemp-tutorial/kemp-8.png)
+    ![Screenshot que mostra a página "Ver/Modificar Serviços", com as secções "OPÇÕES ESP" e "Servidores Reais" expandidas.](./media/kemp-tutorial/kemp-8.png)
 
     a. Clique em Enable ESP.
     
@@ -286,7 +286,7 @@ Navegue pelo URL da aplicação
 
 Você deve ver a sua página de login insediada em vez de acesso não autenticado anteriormente. 
 
-![Kemp LoadMaster Azure AD integração webserver](./media/kemp-tutorial/kemp-9.png)
+![Screenshot que mostra a página "Iniciar sedem".](./media/kemp-tutorial/kemp-9.png)
 
 ## <a name="configuring-kerberos-based-authentication"></a>Configuração da autenticação baseada em Kerberos 
  
@@ -294,7 +294,7 @@ Você deve ver a sua página de login insediada em vez de acesso não autenticad
 
 1. Criar uma Conta de utilizador (neste exemplo AppDelegation).
     
-    ![Kemp LoadMaster Azure AD integração webserver](./media/kemp-tutorial/kemp-10.png)
+    ![Screenshot que mostra a janela "KCD user Properties" com o separador "Conta" selecionado.](./media/kemp-tutorial/kemp-10.png)
 
 
     a. Selecione o separador Attribute Editor (Editor de Atributos).
@@ -311,7 +311,7 @@ Você deve ver a sua página de login insediada em vez de acesso não autenticad
 
 1. Selecione o separador Delegação.
 
-    ![Kemp LoadMaster Azure AD integração webserver](./media/kemp-tutorial/kemp-11.png)
+    ![Screenshot que mostra a janela "KCD user Properties" com o separador "Delegação" selecionado.](./media/kemp-tutorial/kemp-11.png)
 
     a. Selecione Confiar neste utilizador para delegação apenas para serviços especificados.
 
@@ -332,7 +332,7 @@ Você deve ver a sua página de login insediada em vez de acesso não autenticad
 
 Vá a Kemp LoadMaster Azure Ad integração Web Consola > Serviços Virtuais > Gerir SSO.
 
-![Kemp LoadMaster Azure AD integração webserver](./media/kemp-tutorial/kemp-12.png)
+![Screenshot que mostra a página "Gerir S O - Gerir o Domínio".](./media/kemp-tutorial/kemp-12.png)
 
 a. Navegue para o sinal único do lado do servidor nas configurações.
 

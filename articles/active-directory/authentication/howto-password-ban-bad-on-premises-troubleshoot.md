@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 11/21/2019
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25199aeb7a3ed6332e74ad05835a8c4fca763c00
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 3508d3942626c319221f4b690aaf444e034195bf
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116466"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966632"
 ---
 # <a name="troubleshoot-on-premises-azure-ad-password-protection"></a>Resolução de problemas: Proteção de senha azure AD
 
@@ -50,7 +50,7 @@ O principal sintoma deste problema são 30018 eventos no registo de eventos do a
 
 1. Certifique-se de que a floresta e todos os servidores proxy estão registados contra o mesmo inquilino Azure.
 
-   Pode verificar este requisito executando os `Get-AzureADPasswordProtectionProxy` `Get-AzureADPasswordProtectionDCAgent` cmdlets e PowerShell e, em seguida, comparar a `AzureTenant` propriedade de cada item devolvido. Para uma operação correta, o nome do inquilino reportado deve ser o mesmo em todos os agentes de DC e servidores proxy.
+   Pode verificar este requisito executando os  `Get-AzureADPasswordProtectionProxy` `Get-AzureADPasswordProtectionDCAgent` cmdlets e PowerShell e, em seguida, comparar a `AzureTenant` propriedade de cada item devolvido. Para uma operação correta, o nome do inquilino reportado deve ser o mesmo em todos os agentes de DC e servidores proxy.
 
    Se existir uma condição de incompatibilidade de inscrição do inquilino Azure, este problema pode ser corrigido executando os `Register-AzureADPasswordProtectionProxy` cmdlets e/ou `Register-AzureADPasswordProtectionForest` PowerShell conforme necessário, certificando-se de que utiliza credenciais do mesmo inquilino Azure para todas as inscrições.
 
@@ -84,7 +84,7 @@ The forest has not been registered with Azure. Password policies cannot be downl
 
 Há duas causas possíveis para esta questão.
 
-1. A floresta não foi, de facto, registada. Para resolver o problema, por favor, execute o comando Register-AzureADPasswordProtectionForest, conforme descrito nos [requisitos de implantação](howto-password-ban-bad-on-premises-deploy.md).
+1. A floresta não foi, de facto, registada. Para resolver o problema, por favor, executar o comando Register-AzureADPasswordProtectionForest conforme descrito nos [requisitos de implantação](howto-password-ban-bad-on-premises-deploy.md).
 1. A floresta foi registada, mas o agente de DC não consegue desencriptar os dados do registo florestal. Este caso tem a mesma causa de raiz que a questão #2 listados acima sob [o agente DC é incapaz de encriptar ou desencriptar ficheiros de política de palavra-passe](howto-password-ban-bad-on-premises-troubleshoot.md#dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files). Uma forma fácil de confirmar esta teoria é que você verá este erro apenas em agentes DC em execução no Windows Server 2012 ou nos controladores de domínio Windows Server 2012R2, enquanto os agentes DC que executam no Windows Server 2016 e posteriormente os controladores de domínio estão bem. A solução alternativa é a mesma: atualize todos os controladores de domínio para o Windows Server 2016 ou mais tarde.
 
 ## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>Senhas fracas estão sendo aceites, mas não devem ser

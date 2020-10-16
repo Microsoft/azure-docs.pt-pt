@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 0fe7e0d43050120daa017669a96e90f96b873530
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39f2f592601f60f060cce8ded2b5303dc6b10e8a
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543793"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995826"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-origami"></a>Tutorial: Integração do Diretório Ativo Azure com Origami
 
@@ -126,11 +126,11 @@ Para configurar o Azure AD com origami, execute os seguintes passos:
 
 2. No menu em cima, clique em **Administração.**
    
-    ![Configurar Sign-On Individuais](./media/origami-tutorial/tutorial_origami_51.png)
+    ![Screenshot que mostra a página inicial de Origami com "Administrador" selecionado.](./media/origami-tutorial/tutorial_origami_51.png)
 
 3. Na página de diálogo de sinal único na configuração, execute os seguintes passos:
    
-    ![Configurar Sign-On Individuais](./media/origami-tutorial/tutorial_origami_531.png)
+    ![Screenshot que mostra a página "Sign On Setup" com "Enable Single Sign-on" selecionado e as caixas de texto destacadas.](./media/origami-tutorial/tutorial_origami_531.png)
 
     a. Selecione **Ativar um único sinal .**
 
@@ -201,19 +201,19 @@ Nesta secção, cria-se um utilizador chamado Britta Simon em Origami.
 
 2. No menu em cima, clique em **Administração.**
    
-    ![Configurar Sign-On Individuais](./media/origami-tutorial/tutorial_origami_51.png)
+    ![Screenshot que mostra a página inicial da conta origami com "Administrador" selecionado.](./media/origami-tutorial/tutorial_origami_51.png)
 
 3. No diálogo **de Utilizadores e Segurança,** clique nos **Utilizadores**.
    
-    ![Configurar Sign-On Individuais](./media/origami-tutorial/tutorial_origami_54.png)
+    ![Screenshot que mostra o diálogo "Utilizadores e Segurança" com "Utilizadores" selecionados.](./media/origami-tutorial/tutorial_origami_54.png)
 
 4. Clique **em Adicionar Novo Utilizador**.
    
-    ![Configurar Sign-On Individuais](./media/origami-tutorial/tutorial_origami_55.png)
+    ![Screenshot que mostra o botão "Adicionar Novo Utilizador" selecionado.](./media/origami-tutorial/tutorial_origami_55.png)
 
 5. No diálogo Adicionar Novo Utilizador, execute os seguintes passos:
    
-    ![Configurar Sign-On Individuais](./media/origami-tutorial/tutorial_origami_56.png)
+    ![Screenshot que mostra o diálogo "Adicionar Novo Utilizador" com as caixas de texto "Nome de Utilizador", "Primeiro Nome" e "Apelido" em destaque.](./media/origami-tutorial/tutorial_origami_56.png)
 
     a. Na caixa de texto **do Nome do Utilizador,** introduza o e-mail do utilizador como ** \@ brittasimon contoso.com**.
 
@@ -227,7 +227,7 @@ Nesta secção, cria-se um utilizador chamado Britta Simon em Origami.
 
     f. Clique em **Guardar**.
    
-    ![Configurar Sign-On Individuais](./media/origami-tutorial/tutorial_origami_57.png)
+    ![Screenshot que mostra o botão "Guardar" selecionado.](./media/origami-tutorial/tutorial_origami_57.png)
 
 6. Atribuir **funções de utilizador** e acesso ao **cliente** ao utilizador. 
    

@@ -11,10 +11,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 7683f5d60c5d788707e2f89774cee42e7820db87
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87924211"
 ---
 # <a name="communicate-with-your-dps-using-the-mqtt-protocol"></a>Comunique com o seu DPS utilizando o protocolo MQTT
@@ -48,7 +48,7 @@ Se um dispositivo não puder utilizar os SDKs do dispositivo, ainda pode ligar-s
 
 * Para o campo **Palavra-Passe,** utilize um token SAS. O formato do token SAS é o mesmo que para os protocolos HTTPS e AMQP:
 
-  `SharedAccessSignature sr={URL-encoded-resourceURI}&sig={signature-string}&se={expiry}&skn=registration`O recursoURI deve estar no formato `{idScope}/registrations/{registration_id}` . O nome da apólice deve ser `registration` .
+  `SharedAccessSignature sr={URL-encoded-resourceURI}&sig={signature-string}&se={expiry}&skn=registration` O recursoURI deve estar no formato `{idScope}/registrations/{registration_id}` . O nome da apólice deve ser `registration` .
 
   > [!NOTE]
   > Se utilizar a autenticação do certificado X.509, não são necessárias palavras-passe para o símbolo SAS.

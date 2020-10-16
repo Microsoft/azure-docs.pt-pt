@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 08/30/2020
 ms.author: yelevin
 ms.openlocfilehash: ba872f221f3bde29f0bb48b04dc2259d3ab4938a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90906282"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Deteção avançada de ataques em vários palcos em Azure Sentinel
@@ -422,7 +422,7 @@ Este cenário encontra-se atualmente em **pré-visualização pública.**
 
 **MITRE ATT&táticas CK:** Acesso Inicial, Execução, Movimento Lateral, Escalada de Privilégio
 
-**Técnicas MITRE ATT&CK:** Explorar Aplicação virada para o Público (T1190), Exploração para Execução de Clientes (T1203), Exploração de Serviços Remotos (T1210), Exploração para Escalada de Privilégios (T1068)
+**Técnicas MITRE ATT&CK:** Explorar Public-Facing Aplicação (T1190), Exploração para Execução de Clientes (T1203), Exploração de Serviços Remotos (T1210), Exploração para Escalada de Privilégios (T1068)
 
 **Fontes de conector de dados:** Microsoft Defender para Endpoint (anteriormente MDATP), Palo Alto Networks 
 

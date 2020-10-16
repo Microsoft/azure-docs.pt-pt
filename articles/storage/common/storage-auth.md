@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: 806222fc522c548fd58935812d705e12c9b3cee1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91714417"
 ---
 # <a name="authorizing-access-to-data-in-azure-storage"></a>Autorizar o acesso aos dados no Azure Storage
@@ -45,7 +45,7 @@ Cada opção de autorização é brevemente descrita abaixo:
 
 Por predefinição, todos os recursos no Azure Storage estão seguros e estão disponíveis apenas para o proprietário da conta. Embora possa utilizar qualquer uma das estratégias de autorização descritas acima para garantir aos clientes o acesso aos recursos na sua conta de armazenamento, a Microsoft recomenda a utilização do Azure AD sempre que possível para máxima segurança e facilidade de utilização.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - [Autorizar o acesso a blobs e filas Azure usando o Azure Ative Directory](storage-auth-aad.md)
 - [Autorizar com a Chave Partilhada](/rest/api/storageservices/authorize-with-shared-key/)

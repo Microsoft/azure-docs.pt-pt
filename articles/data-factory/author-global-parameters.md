@@ -9,10 +9,10 @@ author: djpmsft
 ms.author: daperlov
 ms.date: 08/31/2020
 ms.openlocfilehash: a936fbec23a38c5b96c678b38b92eed9346b88bf
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91567541"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Parâmetros globais na Azure Data Factory

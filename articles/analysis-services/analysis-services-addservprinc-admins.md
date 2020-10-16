@@ -8,12 +8,12 @@ ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ce8f7347e4813e72ede426ab17f09221ab859136
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8e751d210ab472d82e4abd613d37069a8c591f52
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015413"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013938"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Adicione um principal de serviço à função de administrador do servidor 
 
@@ -22,7 +22,7 @@ ms.locfileid: "87015413"
 > [!NOTE]
 > Os princípios de serviço devem ser adicionados diretamente à função de administrador do servidor. Adicionar um principal de serviço a um grupo de segurança e, em seguida, adicionar que o grupo de segurança à função de administrador do servidor não é suportado. 
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 Antes de completar esta tarefa, deve ter um diretor de serviço registado no Azure Ative Directory.
 
 [Criar um principal de serviço – portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md)   
@@ -117,5 +117,5 @@ Em seguida, pode utilizar este ID do cliente em conjunto com o ID do inquilino p
 
 ## <a name="related-information"></a>Informações relacionadas
 
-* [Baixar módulo PowerShell do servidor SQL](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
-* [Baixar SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
+* [Baixar módulo PowerShell do servidor SQL](/sql/ssms/download-sql-server-ps-module)   
+* [Baixar SSMS](/sql/ssms/download-sql-server-management-studio-ssms)

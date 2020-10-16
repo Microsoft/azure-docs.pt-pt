@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: yushwang
 ms.openlocfilehash: 82e00e0b519040c57fdfd798d8992086c61e5481
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89426184"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Configuração da amostra: Dispositivo Cisco ASA (IKEv2/no BGP)
@@ -297,5 +297,5 @@ Utilize os seguintes comandos ASA para fins de depuragem:
     show run tunnel-group
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para configurar as instalações cruzadas ativas ativas e as ligações VNet-to-VNet, consulte as [portas VPN ativas ativas .](vpn-gateway-activeactive-rm-powershell.md)

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
 ms.openlocfilehash: 1ddf2b6879d8d33f99281daba6fb1040e24a37af
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86078804"
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>Analisar registos de telemetria de Insights de Aplicação com Faísca Apache em HDInsight
@@ -31,7 +31,7 @@ Aprenda a usar [o Apache Spark](https://spark.apache.org/) em HDInsight para ana
 
 Foram utilizados os seguintes recursos para desenvolver e testar este documento:
 
-* Os dados de telemetria do Application Insights foram gerados utilizando uma [aplicação webNode.js configurada para utilizar o Application Insights](../../azure-monitor/app/nodejs.md).
+* Os dados de telemetria do Application Insights foram gerados utilizando uma [ aplicação webNode.js configurada para utilizar o Application Insights](../../azure-monitor/app/nodejs.md).
 
 * Uma faísca baseada em Linux na versão 3.5 do cluster HDInsight foi usada para analisar os dados.
 
@@ -371,7 +371,7 @@ Para adicionar a Conta de Armazenamento Azure a um cluster existente, utilize as
     +---------+
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais exemplos de utilização da Apache Spark para trabalhar com dados e serviços em Azure, consulte os seguintes documentos:
 

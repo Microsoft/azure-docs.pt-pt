@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
 ms.openlocfilehash: c707f6108c73a268bcac18c45afb70ae17185bb8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91308117"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Compreensão conceptual dos certificados X.509 CA na indústria IoT
@@ -69,9 +69,9 @@ A aquisição de um certificado de CA tem o benefício de ter uma ca de raiz bem
 
 Para adquirir um certificado X.509 CA, a Empresa-X escolheria um prestador de serviços de certificados de raiz. Uma pesquisa na Internet para a frase "Root CA" produzirá boas pistas. A CA de raiz irá orientar a Empresa-X sobre como criar o par de chaves público/privado e como gerar um Pedido de Assinatura de Certificado (CSR) para os seus serviços. Uma RSE é o processo formal de pedido de certificado a uma autoridade de certificados. O resultado desta compra é um certificado para uso como certificado de autoridade. Dada a ubiquidade dos certificados X.509, é provável que o certificado tenha sido devidamente formatado para a norma RFC 5280 do IETF.
 
-### <a name="creating-a-self-signed-x509-ca-certificate"></a>Criação de um certificado de CA X.509 auto-assinado
+### <a name="creating-a-self-signed-x509-ca-certificate"></a>Criação de um certificado ca Self-Signed X.509
 
-O processo de criação de um certificado de CA Auto-Assinado X.509 é semelhante à compra, com exceção de envolver um signatário de terceiros como a autoridade do certificado de raiz. No nosso exemplo, a Empresa-X assinará o seu certificado de autoridade em vez de uma autoridade de certificados de raiz. A Empresa-X pode escolher esta opção para testes até estarem prontos para comprar um certificado de autoridade. A Empresa-X também pode utilizar um certificado X.509 CA auto-assinado em produção, se o Smart-X-Widget não se destinar a ligar a quaisquer serviços de terceiros fora do IoT Hub.
+O processo de criação de um certificado de CA Self-Signed X.509 é semelhante à compra, com exceção de envolver um signatário de terceiros como a autoridade do certificado raiz. No nosso exemplo, a Empresa-X assinará o seu certificado de autoridade em vez de uma autoridade de certificados de raiz. A Empresa-X pode escolher esta opção para testes até estarem prontos para comprar um certificado de autoridade. A Empresa-X também pode utilizar um certificado X.509 CA auto-assinado em produção, se o Smart-X-Widget não se destinar a ligar a quaisquer serviços de terceiros fora do IoT Hub.
 
 ## <a name="register-the-x509-certificate-to-iot-hub"></a>Registe o certificado X.509 no IoT Hub
 

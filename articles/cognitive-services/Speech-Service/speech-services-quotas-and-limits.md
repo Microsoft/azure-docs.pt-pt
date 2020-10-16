@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: alexeyo
 ms.openlocfilehash: 7e22b772ec35ff9b63c99acd81ad6bb5abe328a0
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91567167"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Limites e Quotas dos Serviços de Voz
@@ -86,7 +86,7 @@ Aumentar o limite de Pedido Simultâneo **não** afeta diretamente os seus custo
 
 Os limites de pedido simultâneos para modelos **base** e **personalizados** devem ser ajustados **separadamente**.
 
-O valor existente do parâmetro limite de pedido simultâneo **não** é visível através do portal Azure, ferramentas da Linha de Comando ou pedidos de API. Para verificar o valor existente, crie um Pedido de Suporte Azure.
+O valor existente do parâmetro limite de pedido simultâneo **não** é visível através do portal Azure, Command-Line ferramentas ou pedidos de API. Para verificar o valor existente, crie um Pedido de Suporte Azure.
 
 >[!NOTE]
 >[Os recipientes](speech-container-howto.md) de fala não requerem aumentos do limite de pedido simultâneo, uma vez que os contentores são limitados apenas pelas CPUs do hardware em que estão hospedados.
@@ -152,7 +152,7 @@ Por predefinição, o número de pedidos simultâneos para um ponto final de Voz
 
 Aumentar o limite de Pedido Simultâneo **não** afeta diretamente os seus custos. Os Serviços de Fala utilizam o modelo "Pague apenas pelo que usa". O limite define a altura da escala do Serviço antes de iniciar o aceleração dos seus pedidos.
 
-O valor existente do parâmetro limite de pedido simultâneo **não** é visível através do portal Azure, ferramentas da Linha de Comando ou pedidos de API. Para verificar o valor existente, crie um Pedido de Suporte Azure.
+O valor existente do parâmetro limite de pedido simultâneo **não** é visível através do portal Azure, Command-Line ferramentas ou pedidos de API. Para verificar o valor existente, crie um Pedido de Suporte Azure.
 
 >[!NOTE]
 >[Os recipientes](speech-container-howto.md) de fala não requerem aumentos do limite de pedido simultâneo, uma vez que os contentores são limitados apenas pelas CPUs do hardware em que estão hospedados.

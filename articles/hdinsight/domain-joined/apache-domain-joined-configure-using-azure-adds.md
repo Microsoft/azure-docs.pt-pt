@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: seodec18,seoapr2020
 ms.date: 04/17/2020
 ms.openlocfilehash: 7792ac688ede32155ec32e1f4ba25b328102f86c
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86079841"
 ---
 # <a name="enterprise-security-package-configurations-with-azure-active-directory-domain-services-in-hdinsight"></a>Configurações de pacotes de segurança da empresa com serviços de domínio de diretório ativo Azure em HDInsight
@@ -130,7 +130,7 @@ A identidade gerida que criou pode ser escolhida a partir da lista de abandono d
 
 ![Azure HDInsight ESP Ative Directory Domain Services geriu identidade](./media/apache-domain-joined-configure-using-azure-adds/azure-portal-cluster-security-networking-identity.png).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para configurar as políticas de Colmeia e executar consultas de Colmeia, consulte [as políticas de colmeia Apache configuradas para clusters HDInsight com ESP](apache-domain-joined-run-hive.md).
 * Para utilizar o SSH para ligar aos clusters HDInsight com ESP, consulte [Use SSH com Apache Hadoop baseado em Linux em HDInsight de Linux, Unix ou OS X](../hdinsight-hadoop-linux-use-ssh-unix.md#authentication-domain-joined-hdinsight).

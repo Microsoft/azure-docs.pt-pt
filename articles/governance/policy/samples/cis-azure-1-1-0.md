@@ -4,12 +4,12 @@ description: Detalhes da iniciativa integrada cis Microsoft Azure Foundations Be
 ms.date: 10/07/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 93d875c55a671fe68cec720bc78507fcbec638b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5da46631d0b6cfcd142ab32172de306115a080bd
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91820011"
+ms.locfileid: "91932163"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-regulatory-compliance-built-in-initiative"></a>Detalhes da iniciativa integrada cis Microsoft Azure Foundations Benchmark Regulatory Compliance
 
@@ -23,7 +23,7 @@ Esta iniciativa incorporada é implementada como parte da amostra de projeto ben
 
 > [!IMPORTANT]
 > Cada controlo abaixo está associado a uma ou mais definições [da Política Azure.](../overview.md)
-> Estas políticas podem ajudá-lo a avaliar o [cumprimento](../how-to/get-compliance-data.md) do controlo; no entanto, muitas vezes não há um 1:1 ou um jogo completo entre um controlo e uma ou mais políticas. Como tal, **a conformidade com** a política Azure refere-se apenas às próprias definições políticas; isto não garante que esteja totalmente em conformidade com todos os requisitos de um controlo. Além disso, a norma de conformidade inclui controlos que não são abordados por nenhuma definição da Política Azure neste momento. Portanto, o cumprimento da Política Azure é apenas uma visão parcial do seu estado de conformidade geral. As associações entre domínios de conformidade, controlos e definições de Política Azure para esta norma de conformidade podem mudar ao longo do tempo. Para ver a história da mudança, consulte o [GitHub Commit History](https://github.com/Azure/azure-policy/commits/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_1_0_audit.json).
+> Estas políticas podem ajudá-lo a avaliar o [cumprimento](../how-to/get-compliance-data.md) do controlo; no entanto, muitas vezes não há um para um ou um jogo completo entre um controlo e uma ou mais políticas. Como tal, **a conformidade com** a política Azure refere-se apenas às próprias definições políticas; isto não garante que esteja totalmente em conformidade com todos os requisitos de um controlo. Além disso, a norma de conformidade inclui controlos que não são abordados por nenhuma definição da Política Azure neste momento. Portanto, o cumprimento da Política Azure é apenas uma visão parcial do seu estado de conformidade geral. As associações entre domínios de conformidade, controlos e definições de Política Azure para esta norma de conformidade podem mudar ao longo do tempo. Para ver a história da mudança, consulte o [GitHub Commit History](https://github.com/Azure/azure-policy/commits/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_1_0_audit.json).
 
 ## <a name="identity-and-access-management"></a>Gestão de Acesso e Identidades
 

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/7/2020
 ms.openlocfilehash: b21062256896ebfc9c11b031413538b39620d1e7
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89613971"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mysql"></a>Compreender a continuidade do negócio na Base de Dados Azure para o MySQL
@@ -23,7 +23,7 @@ A Azure Database for MySQL fornece funcionalidades de continuidade de negócios 
 
 A tabela a seguir compara o ERT e o RPO pelas funcionalidades disponíveis:
 
-| **Capacidade** | **Básica** | **Finalidade Geral** | **Com otimização de memória** |
+| **Capacidade** | **Básica** | **Fins Gerais** | **Com otimização de memória** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Restauro para um Ponto Anterior no Tempo a partir de cópia de segurança | Qualquer ponto de restauração dentro do período de retenção | Qualquer ponto de restauração dentro do período de retenção | Qualquer ponto de restauração dentro do período de retenção |
 | Geo-restauro a partir de backups geo-replicados | Não suportado | ERT < 12 h<br/>RPO < 1 h | ERT < 12 h<br/>RPO < 1 h |
@@ -56,7 +56,7 @@ Você pode usar réplicas de leitura de região cruzada para melhorar o seu plan
 ### <a name="where-does-azure-database-for-mysql-store-customer-data"></a>Onde é que a Azure Database para o MySQL armazena os dados dos clientes?
 Por padrão, a Base de Dados Azure para o MySQL não move nem armazena os dados dos clientes para fora da região em que está implantado. No entanto, os clientes podem optar opcionalmente por permitir [cópias de segurança geo-redundantes](concepts-backup.md#backup-redundancy-options) ou criar [réplicas de leitura cruzada](concepts-read-replicas.md#cross-region-replication) para armazenar dados noutra região.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre as [cópias de segurança automáticas na Base de Dados Azure para o MySQL](concepts-backup.md).
 - Saiba como restaurar utilizando [o portal Azure](howto-restore-server-portal.md) ou [o Azure CLI](howto-restore-server-cli.md).

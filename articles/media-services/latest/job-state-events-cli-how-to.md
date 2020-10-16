@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 072bfb22eba82d7a39d985f72cbc78c0639a4795
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: b646965be03b5d3f57483887e256d33262192375
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90976837"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013292"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-cli"></a>Criar e monitorizar eventos de Serviços de Mídia com Grade de Eventos utilizando o Azure CLI
 
@@ -32,7 +32,7 @@ Neste artigo, utiliza o CLI Azure para subscrever eventos para a sua conta Azure
 - Uma subscrição ativa do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 - Instale e utilize o CLI localmente, este artigo requer a versão Azure CLI 2.0 ou posterior. Execute `az --version` para localizar a versão atual. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
 
-    Atualmente, nem todos os comandos [de Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) funcionam na Azure Cloud Shell. Recomenda-se a utilização do CLI localmente.
+    Atualmente, nem todos os comandos [de Media Services v3 CLI](/cli/azure/ams) funcionam na Azure Cloud Shell. Recomenda-se a utilização do CLI localmente.
 
 - [Criar uma conta de Serviços de Comunicação](./create-account-howto.md)Social.
 

@@ -2,7 +2,7 @@
 title: Corrigir erros de diretório desajustados nos Serviços de Domínio Ad da Azure Microsoft Docs
 description: Saiba o que significa um erro de diretório desajustado e como resolvê-lo em Azure AD Domain Services
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
-ms.author: iainfou
-ms.openlocfilehash: 62768dcc8df9f7dbd6cbb15c434ec9886e2d1d44
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.author: joflore
+ms.openlocfilehash: 0c2a6ee4ee5c92122e896e62485479d50c660c7f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91713007"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968077"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-active-directory-domain-services-managed-domains"></a>Resolver erros de diretório desajustados para os domínios geridos pelo Azure Ative Directory Domain Services
 
@@ -64,6 +64,6 @@ As duas opções seguintes resolvem o erro de diretório desajustado:
 * Em primeiro lugar, [elimine o domínio gerido](delete-aadds.md) do seu diretório AD Azure existente. Em seguida, [crie um domínio gerido de substituição](tutorial-create-instance.md) no mesmo diretório AD Azure que a rede virtual que pretende utilizar. Quando estiver pronto, junte todas as máquinas previamente unidas ao domínio eliminado ao domínio gerido recriado.
 * [Mover a assinatura Azure](../cost-management-billing/manage/billing-subscription-transfer.md) contendo a rede virtual para o mesmo diretório AD Azure que o domínio gerido.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre problemas de resolução de problemas com a Azure AD DS, consulte o [guia de resolução de problemas](troubleshoot.md).

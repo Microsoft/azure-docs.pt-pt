@@ -9,10 +9,10 @@ ms.author: tisande
 ms.reviewer: sngun
 ms.custom: devx-track-js
 ms.openlocfilehash: 1e8e1aa9d8e582644d1d625fc8a97cc0e0c790df
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91334400"
 ---
 # <a name="javascript-query-api-in-azure-cosmos-db"></a>Consulta JavaScript API em Azure Cosmos DB

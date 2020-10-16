@@ -11,10 +11,10 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
 ms.openlocfilehash: affddf7367f58107106ae07a07b8baedac73e251
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89659563"
 ---
 # <a name="query-acceleration-sql-language-reference"></a>Referência linguística SQL de aceleração de consulta
@@ -91,9 +91,9 @@ São apoiados os seguintes operadores standard de SQL:
 |[/](https://docs.microsoft.com/sql/t-sql/language-elements/divide-transact-sql)    |Divide um número por outro (um operador de divisão aritmética).|
 |[*](https://docs.microsoft.com/sql/t-sql/language-elements/multiply-transact-sql)    |Multiplica duas expressões (um operador de multiplicação aritmética).|
 |[%](https://docs.microsoft.com/sql/t-sql/language-elements/modulo-transact-sql)    |Devolve o resto de um número dividido por outro.|
-|[E](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-and-transact-sql)    |Executa um funcionamento e um pouco lógico entre dois valores inteiros.|
-|[OU](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-or-transact-sql)    |Executa uma operação OR pouco lógica entre dois valores inteiros especificados como traduzidos para expressões binárias dentro das declarações Transact-SQL.|
-|[NÃO](https://docs.microsoft.com/sql/t-sql/language-elements/not-transact-sql)    |Nega uma entrada booleana.|
+|[AND](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-and-transact-sql)    |Executa um funcionamento e um pouco lógico entre dois valores inteiros.|
+|[OR](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-or-transact-sql)    |Executa uma operação OR pouco lógica entre dois valores inteiros especificados como traduzidos para expressões binárias dentro das declarações Transact-SQL.|
+|[NOT](https://docs.microsoft.com/sql/t-sql/language-elements/not-transact-sql)    |Nega uma entrada booleana.|
 |[CAST](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql)    |Converte uma expressão de um tipo de dados noutra expressão.|
 |[ENTRE](https://docs.microsoft.com/sql/t-sql/language-elements/between-transact-sql)    |Especifica um intervalo para testar.|
 |[EM](https://docs.microsoft.com/sql/t-sql/language-elements/in-transact-sql)    |Determina se um valor especificado corresponde a qualquer valor numa subloga ou numa lista.|
@@ -336,7 +336,7 @@ Na maioria dos casos, o tamanho de cada lote será ligeiramente superior ao núm
 >[!NOTE]
 > O split_size deve ser de, pelo menos, 10 MB (10485760).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 - [Aceleração da consulta de armazenamento do lago de dados Azure](data-lake-storage-query-acceleration.md)
 - [Filtrar dados utilizando a aceleração da consulta de armazenamento do lago de dados Azure](data-lake-storage-query-acceleration-how-to.md)

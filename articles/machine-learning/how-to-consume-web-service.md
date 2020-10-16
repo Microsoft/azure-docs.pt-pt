@@ -8,15 +8,15 @@ ms.subservice: core
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 06/17/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-csharp
-ms.openlocfilehash: 6aacc2778e02b96f31c633671da014ced30778fd
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 5ffdb7a3bb177092d728fbd469aa8cf95e93edb5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91756675"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966105"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir um modelo do Azure Machine Learning implementado como serviço Web
 
@@ -46,7 +46,9 @@ A classe [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml
 * `scoring_uri` - O endereço da API REST.
 * `swagger_uri` - O endereço da especificação OpenAPI. Este URI está disponível se for habilitado a geração de esquemas automáticos. Para obter mais informações, consulte [implementar modelos com Azure Machine Learning](how-to-deploy-and-where.md).
 
-Existem três formas de recuperar esta informação para serviços web implantados:
+Existem várias formas de recuperar esta informação para serviços web implantados:
+
+# <a name="python"></a>[Python](#tab/python)
 
 * Quando implementa um modelo, um `Webservice` objeto é devolvido com informações sobre o serviço:
 
@@ -72,6 +74,30 @@ Existem três formas de recuperar esta informação para serviços web implantad
     print(service.scoring_uri)
     print(service.swagger_uri)
     ```
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Se souber o nome do serviço implantado, utilize o comando [de espetáculo de serviço az ml:](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show)
+
+```azurecli
+az ml service show -n <service-name>
+```
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+A partir do estúdio Azure Machine Learning, selecione __Endpoints,__ __pontos finais em tempo real__e, em seguida, o nome de ponto final. Em detalhes para o ponto final, o campo __de ponto final REST__ contém o URI de pontuação. O __Swagger URI__ contém o swagger URI.
+
+---
+
+A tabela a seguir mostra como estes URIs se parecem:
+
+| Tipo URI | Exemplo |
+| ----- | ----- |
+| Pontuação URI | `http://104.214.29.152:80/api/v1/service/<service-name>/score` |
+| Swagger URI | `http://104.214.29.152/api/v1/service/<service-name>/swagger.json` |
+
+> [!TIP]
+> O endereço IP será diferente para a sua implementação. Cada cluster AKS terá o seu próprio endereço IP que é partilhado por implementações para esse cluster.
 
 ### <a name="secured-web-service"></a>Serviço web seguro
 
@@ -268,7 +294,7 @@ Os resultados devolvidos são semelhantes ao seguinte documento JSON:
 
 ## <a name="call-the-service-go"></a>Ligue para o serviço (Go)
 
-Este exemplo demonstra como usar o Go para chamar o serviço web criado a partir do Comboio dentro do exemplo [do portátil:](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/notebook_example.ipynb)
+Este exemplo demonstra como usar o Go para chamar o serviço web criado a partir do Comboio dentro do exemplo [do portátil:](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/notebook_runner/training_notebook.ipynb)
 
 ```go
 package main
@@ -360,7 +386,7 @@ Os resultados devolvidos são semelhantes ao seguinte documento JSON:
 
 ## <a name="call-the-service-java"></a>Ligue para o serviço (Java)
 
-Este exemplo demonstra como usar a Java para chamar o serviço web criado a partir do Comboio dentro do exemplo [do portátil:](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/notebook_example.ipynb)
+Este exemplo demonstra como usar a Java para chamar o serviço web criado a partir do Comboio dentro do exemplo [do portátil:](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/notebook_runner/training_notebook.ipynb)
 
 ```java
 import java.io.IOException;
@@ -440,7 +466,7 @@ Os resultados devolvidos são semelhantes ao seguinte documento JSON:
 
 ## <a name="call-the-service-python"></a>Ligue para o serviço (Python)
 
-Este exemplo demonstra como usar python para chamar o serviço web criado a partir do Comboio dentro do exemplo [do portátil:](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/notebook_example.ipynb)
+Este exemplo demonstra como usar python para chamar o serviço web criado a partir do Comboio dentro do exemplo [do portátil:](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/notebook_runner/training_notebook.ipynb)
 
 ```python
 import requests

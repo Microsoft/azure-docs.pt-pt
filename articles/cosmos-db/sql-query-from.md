@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: tisande
 ms.openlocfilehash: e4bbb27a2f49027ed5a456ad824f54b9c92a899c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83005864"
 ---
 # <a name="from-clause-in-azure-cosmos-db"></a>Cláusula de Azure Cosmos DB
@@ -55,11 +55,11 @@ FROM <from_specification>
   
 -  Se a expressão for `<container_expression>` , então property_name, então property_name será usado como pseudónimo. Se a expressão for uma container_name, então container_name será usado como pseudónimo.  
   
-- AS`input_alias`  
+- AS `input_alias`  
   
   Especifica que `input_alias` é um conjunto de valores devolvidos pela expressão do recipiente subjacente.  
  
-- `input_alias`EM  
+- `input_alias` EM  
   
   Especifica que `input_alias` o deve representar o conjunto de valores obtidos por iteramento sobre todos os elementos de matriz de cada matriz devolvidos pela expressão do recipiente subjacente. Qualquer valor devolvido pela expressão subjacente do recipiente que não seja uma matriz é ignorado.  
   
@@ -163,7 +163,7 @@ Os resultados são:
     ]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Introdução](sql-query-getting-started.md)
 - [Cláusula SELECT](sql-query-select.md)

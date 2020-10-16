@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 02/05/2020
 ms.author: Zhchia
 ms.openlocfilehash: 8548e6c4c3e2b31d9fb16273bcc441ca38127831
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361828"
 ---
 # <a name="tutorial-configure-purecloud-by-genesys-for-automatic-user-provisioning"></a>Tutorial: Configurar PureCloud by Genesys para fornecimento automático de utilizadores

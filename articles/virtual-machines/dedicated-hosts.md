@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 07/28/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 351b10b68cf1c014d358032f41bb01ac1093bd68
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 3b407ae18316071d77cc87992a70a4fba857ab64
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91373127"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979024"
 ---
 # <a name="azure-dedicated-hosts"></a>Anfitriões Dedicados Azure
 
@@ -122,7 +122,7 @@ A infraestrutura que suporta as suas máquinas virtuais pode ocasionalmente ser 
 
 **O Controlo de Manutenção** oferece aos clientes a opção de ignorar as atualizações regulares da plataforma programadas nos seus anfitriões dedicados e, em seguida, aplicá-lo no momento da sua escolha dentro de uma janela de 35 dias.
 
-Para obter mais informações, consulte ['Gerir as atualizações da plataforma' com o Controlo de Manutenção.](https://docs.microsoft.com/azure/virtual-machines/maintenance-control)
+Para obter mais informações, consulte ['Gerir as atualizações da plataforma' com o Controlo de Manutenção.](./maintenance-control.md)
 
 ## <a name="capacity-considerations"></a>Considerações de capacidade
 
@@ -142,7 +142,7 @@ O fornecimento de um hospedeiro dedicado consumirá tanto o vCPU de hospedeiro d
 
 ![Screenshot da página de utilização e quotas no portal](./media/virtual-machines-common-dedicated-hosts/quotas.png)
 
-Para mais informações, consulte [as quotas vCPU da máquina virtual.](/azure/virtual-machines/windows/quotas)
+Para mais informações, consulte [as quotas vCPU da máquina virtual.](./windows/quotas.md)
 
 As assinaturas de teste gratuito e MSDN não têm quota para anfitriões dedicados Azure.
 
@@ -172,7 +172,7 @@ Os tamanhos e os tipos de hardware variam por região. Consulte a [página de pr
 
 Azure monitoriza e gere o estado de saúde dos seus anfitriões. Os seguintes estados serão devolvidos quando consultar o seu anfitrião:
 
-| Estado da Saúde   | Description       |
+| Estado da Saúde   | Descrição       |
 |----------|----------------|
 | Anfitrião Disponível     | Não há problemas conhecidos com o seu anfitrião.   |
 | Hospedeiro sob investigação  | Estamos tendo alguns problemas com o anfitrião que estamos procurando. Este é um estado transitório necessário para que a Azure tente identificar o âmbito e a causa principal para a questão identificada. As máquinas virtuais que estão a funcionar no hospedeiro podem ser afetadas. |
@@ -182,7 +182,7 @@ Azure monitoriza e gere o estado de saúde dos seus anfitriões. Os seguintes es
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Pode implementar um anfitrião dedicado utilizando [a Azure PowerShell,](./windows/dedicated-hosts-powershell.md)o [portal](./windows/dedicated-hosts-portal.md)e [o Azure CLI](./linux/dedicated-hosts-cli.md).
+- Pode implementar um anfitrião dedicado utilizando [a Azure PowerShell,](./windows/dedicated-hosts-powershell.md)o [portal](./dedicated-hosts-portal.md)e [o Azure CLI](./linux/dedicated-hosts-cli.md).
 
 - Existe o modelo de amostra, encontrado [aqui,](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md)que usa ambas as zonas e domínios de avaria para máxima resiliência numa região.
 

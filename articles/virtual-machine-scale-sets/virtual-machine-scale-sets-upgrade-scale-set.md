@@ -10,10 +10,10 @@ ms.date: 03/10/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: f7a61ed039a3d8ed643e3b1b3d79384e35847986
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87029302"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificar um conjunto de dimensionamento de máquinas virtuais

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/08/2020
-ms.openlocfilehash: a69a58da85cf1ee03046626bb076c5cd44196279
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: f2f2272363cbc26895b061fe7b6263ed2a29fbab
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828715"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993246"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Implementar monitor de Azure em escala usando a política Azure
 Enquanto algumas funcionalidades do Azure Monitor são configuradas uma ou um número limitado de vezes, outras devem ser repetidas para cada recurso que deseja monitorizar. Este artigo descreve métodos para usar a Política Azure para implementar o Azure Monitor em escala para garantir que a monitorização é configurada de forma consistente e precisa para todos os seus recursos Azure.
@@ -33,7 +33,7 @@ A Política Azure consiste nos objetos da tabela seguinte. Consulte [os objetos 
 | Atribuição | Uma definição ou iniciativa política não faz efeito até que seja atribuída a um âmbito. Por exemplo, atribuir uma política a um grupo de recursos para aplicá-la a todos os recursos criados nesse recurso, ou aplicá-la a uma subscrição para aplicá-la a todos os recursos dessa subscrição.  Para mais detalhes, consulte [a estrutura de atribuição da Política Azure.](../governance/policy/concepts/assignment-structure.md) |
 
 ## <a name="built-in-policy-definitions-for-azure-monitor"></a>Definições políticas incorporadas para o Azure Monitor
-A Política Azure inclui várias definições pré-construídas relacionadas com o Azure Monitor. Pode atribuir estas definições de política à subscrição existente ou usá-las como base para criar as suas próprias definições personalizadas. Para obter uma lista completa da política incorporada na categoria **Monitor,** consulte as [definições políticas incorporadas da Azure Policy para o Azure Monitor](samples/policy-samples.md).
+A Política Azure inclui várias definições pré-construídas relacionadas com o Azure Monitor. Pode atribuir estas definições de política à subscrição existente ou usá-las como base para criar as suas próprias definições personalizadas. Para obter uma lista completa da política incorporada na categoria **Monitor,** consulte as [definições políticas incorporadas da Azure Policy para o Azure Monitor](./samples/policy-reference.md).
 
 Para visualizar as definições de política incorporadas relacionadas com a monitorização, execute o seguinte:
 
@@ -41,7 +41,7 @@ Para visualizar as definições de política incorporadas relacionadas com a mon
 2. Selecione **Definições**.
 3. Para **tipo**, selecione *Built-in* e para **categoria**, selecione *Monitoring*.
 
-  ![Definições políticas incorporadas](media/deploy-scale/builtin-policies.png)
+  ![Screenshot da página Azure Policy Definitions no portal Azure mostrando uma lista de definições de política para a categoria de Monitorização e Tipo Incorporado.](media/deploy-scale/builtin-policies.png)
 
 
 ## <a name="diagnostic-settings"></a>Definições de diagnóstico
@@ -54,7 +54,7 @@ Existem duas definições de política incorporadas para cada tipo de recurso, u
 
 Por exemplo, a imagem a seguir mostra as definições de política de definição de diagnóstico incorporada para data lake analytics.
 
-  ![Definições políticas incorporadas](media/deploy-scale/builtin-diagnostic-settings.png)
+  ![Screenshot parcial da página Azure Policy Definitions mostrando duas definições de política de definição de diagnóstico incorporada para Data Lake Analytics.](media/deploy-scale/builtin-diagnostic-settings.png)
 
 ### <a name="custom-policy-definitions"></a>Definições de política personalizada
 Para tipos de recursos que não têm uma política incorporada, você precisa criar uma definição de política personalizada. Pode fazê-lo manualmente no portal Azure copiando uma política incorporada existente e modificando depois para o seu tipo de recurso. É mais eficiente, no entanto, criar a política de forma programatical usando um script na PowerShell Gallery.
@@ -109,7 +109,7 @@ Consulte [Criar e atribuir uma definição de iniciativa](../governance/policy/t
 ### <a name="assignment"></a>Atribuição 
 Atribua a iniciativa a um grupo de gestão, subscrição ou grupo de recursos da Azure, dependendo do âmbito dos seus recursos para monitorizar. Um [grupo de gestão](../governance/management-groups/overview.md) é particularmente útil para a política de deteção, especialmente se a sua organização tiver várias subscrições.
 
-![Atribuição de iniciativas](media/deploy-scale/initiative-assignment.png)
+![Screenshot das definições para o separador Basics na secção de iniciativa 'Atribuir' as definições de Diagnóstico ao espaço de trabalho do Log Analytics no portal Azure.](media/deploy-scale/initiative-assignment.png)
 
 Ao utilizar parâmetros de iniciativa, pode especificar o espaço de trabalho ou quaisquer outros detalhes uma vez para todas as definições políticas da iniciativa. 
 
@@ -146,7 +146,7 @@ Para obter mais informações sobre este processo, consulte [Enable Azure Monito
 ### <a name="virtual-machine-scale-sets"></a>Conjuntos de dimensionamento de máquinas virtuais
 Para utilizar a Política Azure para permitir a monitorização de conjuntos de escala de máquinas virtuais, atribua o Enable Azure Monitor para a iniciativa **de conjuntos de escalas de máquinas virtuais** a um grupo de gestão, subscrição ou grupo de recursos da Azure, dependendo do âmbito dos seus recursos para monitorizar. Um [grupo de gestão](../governance/management-groups/overview.md) é particularmente útil para a política de deteção, especialmente se a sua organização tiver várias subscrições.
 
-![Atribuição de iniciativas](media/deploy-scale/virtual-machine-scale-set-assign-initiative.png)
+![Screenshot da página de iniciativa Atribuir no portal Azure. A definição de iniciativa está definida para permitir o Monitor Azure para conjuntos de escala de máquinas virtuais.](media/deploy-scale/virtual-machine-scale-set-assign-initiative.png)
 
 Selecione o espaço de trabalho para onde os dados serão enviados. Este espaço de trabalho deve ter a solução *VMInsights* instalada como descrito em []() .
 

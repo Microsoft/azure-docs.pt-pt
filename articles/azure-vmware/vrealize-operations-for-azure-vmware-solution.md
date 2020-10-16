@@ -4,10 +4,10 @@ description: Saiba como configurar as operações vRealize para a sua nuvem priv
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: 9e512d107ddc4d9bca28323658d09f4b4b378dc3
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91580398"
 ---
 # <a name="set-up-vrealize-operations-for-azure-vmware-solution"></a>Configurar vRealize Operations for Azure VMware Solution
@@ -21,7 +21,7 @@ Reveja minuciosamente [Antes de começar](#before-you-begin) e [pré-requisitos]
 > * [No local vRealize Operations gerindo a implementação da Solução VMware Azure](#on-premises-vrealize-operations-managing-azure-vmware-solution-deployment)
 > * [vRealize Operações em execução na implementação da Solução VMware Azure](#vrealize-operations-running-on-azure-vmware-solution-deployment)
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 * Reveja a [documentação do produto vRealize Operations Manager](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-7FFC61A0-7562-465C-A0DC-46D092533984.html) para aprender mais implementação vRealize Operations. 
 * Reveja a [série tutorial](tutorial-network-checklist.md)básica do Software Defined Datacenter (SDDC) do Azure VMware Solution .
 * Opcionalmente, reveja a documentação do produto do controlador remoto de [operações vRealize Operações](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-263F9219-E801-4383-8A59-E84F3D01ED6B.html) para gerir a opção de implementação da Solução Azure VMware. 

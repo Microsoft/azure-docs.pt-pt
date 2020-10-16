@@ -17,10 +17,10 @@ ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
 ms.openlocfilehash: 54c14f1ef78694055c567ded0fdccede062605ba
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91400320"
 ---
 # <a name="azure-identity-management-security-overview"></a>Visão geral da segurança da gestão de identidade Azure
@@ -41,7 +41,7 @@ O artigo centra-se nas seguintes capacidades de gestão de identidade Azure:
 * Início de sessão único
 * Proxy inverso
 * Multi-Factor Authentication
-* Controlo de acesso baseado em funções Azure (Azure RBAC)
+* Controlo de acesso baseado em funções do Azure (RBAC do Azure)
 * Relatórios de monitorização de segurança, alertas e aprendizagem automática
 * Gestão da identidade e do acesso ao consumidor
 * Registo de dispositivo

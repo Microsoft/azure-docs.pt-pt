@@ -12,10 +12,10 @@ ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 31d98e0d37da1b957d86e425e01fe04de842f532
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91715132"
 ---
 # <a name="use-azure-cli-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Use o CLI Azure para atribuir uma função Azure para acesso a dados de bolhas e filas
@@ -24,7 +24,7 @@ O Azure Ative Directory (Azure AD) autoriza os direitos de acesso a recursos seg
 
 Quando um papel de Azure é atribuído a um diretor de segurança da AZure, a Azure concede acesso a esses recursos para esse diretor de segurança. O acesso pode ser alargado ao nível da subscrição, do grupo de recursos, da conta de armazenamento ou de um contentor ou fila individual. Um diretor de segurança Azure AD pode ser um utilizador, um grupo, um diretor de serviço de aplicação ou uma [identidade gerida para os recursos da Azure.](../../active-directory/managed-identities-azure-resources/overview.md)
 
-Este artigo descreve como usar o Azure CLI para listar as funções incorporadas do Azure e atribuí-las aos utilizadores. Para obter mais informações sobre a utilização do [Azure CLI, consulte a Interface Azure Command-Line (CLI)](/cli/azure).
+Este artigo descreve como usar o Azure CLI para listar as funções incorporadas do Azure e atribuí-las aos utilizadores. Para obter mais informações sobre a utilização do Azure CLI, consulte [Azure Command-Line Interface (CLI)](/cli/azure).
 
 ## <a name="azure-roles-for-blobs-and-queues"></a>Papéis de azul para bolhas e filas
 
@@ -137,7 +137,7 @@ az role assignment create \
     --scope "/subscriptions/<subscription>"
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - [Adicione ou remova atribuições de funções Azure utilizando o módulo Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 - [Utilize o módulo Azure PowerShell para atribuir uma função Azure para acesso a dados de bolhas e filas](storage-auth-aad-rbac-powershell.md)

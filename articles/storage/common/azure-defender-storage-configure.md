@@ -11,10 +11,10 @@ ms.date: 09/22/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.openlocfilehash: c7e0c9aee1ce6b4a2524ac756673784b63be3b31
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91289774"
 ---
 # <a name="configure-azure-defender-for-storage"></a>Configure Azure Defender para armazenamento
@@ -69,7 +69,7 @@ O Azure Defender encontra-se agora ativado para todas as contas de armazenamento
 1. Navegue até à sua conta de armazenamento. Em **Definições**, selecione **Segurança Avançada**.
 1. Selecione **Ative Azure Defender para armazenamento**.
 
-    :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-portal.png" alt-text="Screenshot mostrando como ativar o Azure Defender para uma conta de Armazenamento Azure":::
+    :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-portal.png" alt-text="Screenshot mostrando como ativar O Azure Defender para armazenamento no Centro de Segurança":::
 
 O Azure Defender está agora ativado para esta conta de armazenamento.
 
@@ -84,15 +84,15 @@ Utilize uma Política Azure para permitir que o Azure Defender entre contas de a
 1. Lançar a página Azure **Policy - Definições.**
 1. Procure a política **de Implementação do Defensor Azure sobre contas de armazenamento.**
 
-    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy-definitions.png" alt-text="Aplicar a política para permitir contas de Armazenamento do Azure Defender":::
+    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy-definitions.png" alt-text="Screenshot mostrando como ativar O Azure Defender para armazenamento no Centro de Segurança":::
 
 1. Selecione uma subscrição ou grupo de recursos Azure.
 
-    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy2.png" alt-text="Selecione a subscrição ou grupo de recursos para o âmbito de aplicação da política ":::
+    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy2.png" alt-text="Screenshot mostrando como ativar O Azure Defender para armazenamento no Centro de Segurança":::
 
 1. Atribua a apólice.
 
-    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy1.png" alt-text="Atribuir política para permitir o Azure Defender para armazenamento":::
+    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy1.png" alt-text="Screenshot mostrando como ativar O Azure Defender para armazenamento no Centro de Segurança":::
 
 ### <a name="rest-api"></a>[API REST](#tab/rest-api)
 
@@ -125,11 +125,11 @@ Quando ocorrem anomalias na atividade de armazenamento, recebe uma notificação
 
 O e-mail também inclui detalhes sobre possíveis causas e ações recomendadas para investigar e mitigar a ameaça potencial.
 
-:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert-email.png" alt-text="Azure Defender para armazenamento e-mail de alerta":::
+:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert-email.png" alt-text="Screenshot mostrando como ativar O Azure Defender para armazenamento no Centro de Segurança":::
 
 Pode rever e gerir os seus atuais alertas de segurança a partir do azulejo de [alertas](../../security-center/security-center-managing-and-responding-alerts.md)de segurança do Azure Security Center . Clicar num alerta específico fornece detalhes e ações para investigar a ameaça atual e abordar ameaças futuras.
 
-:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert.png" alt-text="Alerta de Azure Defender para armazenamento":::
+:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert.png" alt-text="Screenshot mostrando como ativar O Azure Defender para armazenamento no Centro de Segurança":::
 
 ## <a name="security-alerts"></a>Alertas de segurança
 

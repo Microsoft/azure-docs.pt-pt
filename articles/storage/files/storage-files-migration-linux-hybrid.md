@@ -8,10 +8,10 @@ ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: 202f7fd065641f9921df5237fb83e7900819c8f7
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90563510"
 ---
 # <a name="migrate-from-linux-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migrar do Linux para uma implementação de nuvem híbrida com Azure File Sync
@@ -24,7 +24,7 @@ Como resultado, transformar os seus serviços de ficheiros numa implementação 
 
 O objetivo é mover as ações que tem no seu servidor Linux Samba para uma instância do Windows Server. Em seguida, utilize o Azure File Sync para uma implementação de nuvem híbrida. Esta migração tem de ser feita de forma a garantir a integridade dos dados de produção, bem como a disponibilidade durante a migração. Este último requer manter o tempo de inatividade ao mínimo, de modo a que possa encaixar ou apenas exceder ligeiramente as janelas de manutenção regulares.
 
-## <a name="migration-overview"></a>Descrição geral da Migração
+## <a name="migration-overview"></a>Descrição geral da migração
 
 Como mencionado no artigo geral de [migração](storage-files-migration-overview.md)dos Ficheiros Azure, é importante utilizar a ferramenta e abordagem corretas de cópia. O seu servidor Linux Samba está a expor as ações da SMB diretamente na sua rede local. Robocopia, incorporada no Windows Server, é a melhor forma de mover os seus ficheiros neste cenário de migração.
 

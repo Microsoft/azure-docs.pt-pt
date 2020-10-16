@@ -10,10 +10,10 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 695d1b1124c042b61837f0a1257ac2a201ae4860
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91539406"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Tutorial: Detetar problemas dos dispositivos ligados à sua solução de monitorização
@@ -132,7 +132,7 @@ Só é possível eliminar uma regra de cada vez.
 
 [!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este tutorial mostrou como utilizar a página **Regras** no acelerador de soluções de Monitorização Remota, para criar e gerir regras que acionam alertas na solução. Para saber como utilizar o acelerador de soluções para gerir e configurar os seus dispositivos ligados, avance para o próximo tutorial.
 

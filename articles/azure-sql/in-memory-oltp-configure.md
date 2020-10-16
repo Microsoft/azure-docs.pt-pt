@@ -1,6 +1,6 @@
 ---
 title: In-Memory OLTP melhora SQL txn perf
-description: Adote o OLTP in-memory para melhorar o desempenho transacional numa base de dados existente na Base de Dados Azure SQL e na Azure SQL Managed Instance.
+description: Adote In-Memory OLTP para melhorar o desempenho transacional numa base de dados existente na Base de Dados Azure SQL e na Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-database
 ms.custom: sqldbrb=2
@@ -11,13 +11,13 @@ ms.author: sstein
 ms.reviewer: MightyPen
 ms.date: 11/07/2018
 ms.openlocfilehash: e17e98e784b7453c87814c5cce5c03568f66b1cb
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619751"
 ---
-# <a name="use-in-memory-oltp-to-improve-your-application-performance-in-azure-sql-database-and-azure-sql-managed-instance"></a>Utilize o OLTP de memória para melhorar o desempenho da sua aplicação na Base de Dados Azure SQL e na Azure SQL Gestd managingd Instance
+# <a name="use-in-memory-oltp-to-improve-your-application-performance-in-azure-sql-database-and-azure-sql-managed-instance"></a>Utilize In-Memory OLTP para melhorar o desempenho da sua aplicação na Base de Dados Azure SQL e na Azure SQL Gestd Managing Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
 [OLTP in-Memory](in-memory-oltp-overview.md) pode ser usado para melhorar o desempenho do processamento de transações, ingestão de dados e cenários transitórios de dados, em bases de dados [de nível Premium e Business Critical](database/service-tiers-vcore.md) sem aumentar o nível de preços.
@@ -25,11 +25,11 @@ ms.locfileid: "91619751"
 > [!NOTE]
 > Saiba como o [Qurum duplica a carga de trabalho da base de dados chave enquanto baixa a DTU em 70% com a Base de Dados Azure SQL](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 
-Siga estes passos para adotar o OLTP in-memory na sua base de dados existente.
+Siga estes passos para adotar In-Memory OLTP na sua base de dados existente.
 
 ## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>Passo 1: Certifique-se de que está a utilizar uma base de dados de nível Premium e Business Critical
 
-O OLTP in-Memory é suportado apenas em bases de dados de nível Premium e Business Critical. In-Memory é suportado se o resultado devolvido for 1 (não 0):
+In-Memory OLTP é suportado apenas em bases de dados de nível Premium e Business Critical. In-Memory é suportado se o resultado devolvido for 1 (não 0):
 
 ```sql
 SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
@@ -37,16 +37,16 @@ SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
 
 *XTP* significa *processamento de transações extremas*
 
-## <a name="step-2-identify-objects-to-migrate-to-in-memory-oltp"></a>Passo 2: Identificar objetos para migrar para o OLTP in-memory
+## <a name="step-2-identify-objects-to-migrate-to-in-memory-oltp"></a>Passo 2: Identificar objetos para migrar para In-Memory OLTP
 
-O SSMS inclui um relatório **geral de análise de desempenho de transação** que pode correr contra uma base de dados com uma carga de trabalho ativa. O relatório identifica tabelas e procedimentos armazenados que são candidatos à migração para o In-Memory OLTP.
+O SSMS inclui um relatório **geral de análise de desempenho de transação** que pode correr contra uma base de dados com uma carga de trabalho ativa. O relatório identifica tabelas e procedimentos armazenados que são candidatos à migração para In-Memory OLTP.
 
 Na SSMS, para gerar o relatório:
 
 * No **Object Explorer,** clique com o botão direito no nó de base de dados.
 * Clique **em Relatórios**  >  **Relatórios Relatórios**  >  **Padrão Relatórios Análise de Desempenho de Transação**.
 
-Para obter mais informações, consulte [a determinação de uma tabela ou procedimento armazenado deve ser porão para OLTP in-memory](/sql/relational-databases/in-memory-oltp/determining-if-a-table-or-stored-procedure-should-be-ported-to-in-memory-oltp).
+Para obter mais informações, consulte [a determinação de uma tabela ou procedimento armazenado para In-Memory OLTP](/sql/relational-databases/in-memory-oltp/determining-if-a-table-or-stored-procedure-should-be-ported-to-in-memory-oltp).
 
 ## <a name="step-3-create-a-comparable-test-database"></a>Passo 3: Criar uma base de dados de teste comparável
 
@@ -83,8 +83,8 @@ Para utilizar esta opção de migração:
 3. No assistente, clique na **validação de migração** (ou no botão **Seguinte)** para ver se a tabela tem alguma funcionalidade não suportada que não esteja suportada em tabelas otimizadas para a memória. Para obter mais informações, consulte:
 
    * A *lista de verificação de otimização de memória* no Aviso de [Otimização de Memória](/sql/relational-databases/in-memory-oltp/memory-optimization-advisor).
-   * [Construções Transact-SQL não suportadas por OLTP de memória.](/sql/relational-databases/in-memory-oltp/transact-sql-constructs-not-supported-by-in-memory-oltp)
-   * [Migrando para OLTP in-memory](/sql/relational-databases/in-memory-oltp/plan-your-adoption-of-in-memory-oltp-features-in-sql-server).
+   * [Construções Transact-SQL Não suportadas por In-Memory OLTP](/sql/relational-databases/in-memory-oltp/transact-sql-constructs-not-supported-by-in-memory-oltp).
+   * [Migrando para In-Memory OLTP](/sql/relational-databases/in-memory-oltp/plan-your-adoption-of-in-memory-oltp-features-in-sql-server).
 4. Se a tabela não tiver funcionalidades não suportadas, o conselheiro pode realizar o esquema real e a migração de dados para si.
 
 ### <a name="manual-t-sql"></a>Manual T-SQL
@@ -109,7 +109,7 @@ INSERT INTO <new_memory_optimized_table>
 
 ## <a name="step-5-optional-migrate-stored-procedures"></a>Passo 5 (opcional): Migrar procedimentos armazenados
 
-A função In-Memory também pode modificar um procedimento armazenado para melhorar o desempenho.
+A funcionalidade In-Memory também pode modificar um procedimento armazenado para melhorar o desempenho.
 
 ### <a name="considerations-with-natively-compiled-stored-procedures"></a>Considerações com procedimentos armazenados nativamente compilados
 
@@ -170,9 +170,9 @@ Para minimizar a latência da rede, escorrida o seu teste na mesma região geogr
 
 ## <a name="step-7-post-implementation-monitoring"></a>Passo 7: Monitorização pós-implementação
 
-Considere monitorizar os efeitos de desempenho das suas implementações in-memory na produção:
+Considere monitorizar os efeitos de desempenho das suas implementações In-Memory na produção:
 
-* [Monitorar o armazenamento na memória](in-memory-oltp-monitor-space.md).
+* [Monitor In-Memory armazenamento](in-memory-oltp-monitor-space.md).
 * [Monitorização utilizando pontos de vista dinâmicos de gestão](database/monitoring-with-dmvs.md)
 
 ## <a name="related-links"></a>Ligações relacionadas

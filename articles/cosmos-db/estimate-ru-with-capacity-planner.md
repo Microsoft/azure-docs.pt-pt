@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 07/30/2019
 ms.author: dech
 ms.openlocfilehash: ec80791f9a43dc45d670442ee7b2d0c67d54f582
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91803403"
 ---
 # <a name="estimate-rus-using-the-azure-cosmos-db-capacity-planner"></a>Estimativa RU/s usando o planejador de capacidades DB Azure Cosmos

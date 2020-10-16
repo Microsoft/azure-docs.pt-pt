@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.openlocfilehash: 437fe4636fd5b93656758c9fa55f2b18d64a4b6b
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540698"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql"></a>Compreender as alterações na alteração root CA para Azure Database for MySQL
@@ -109,7 +109,7 @@ Para o conector que utiliza o Tempo de Execução da Integração Azure, os cert
 Para o conector que utiliza o Tempo de Execução de Integração Auto-hospedado, onde inclui explicitamente o caminho para o ficheiro cert SSL na sua cadeia de ligação, terá de descarregar o [novo certificado](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) e atualizar o fio de ligação para o utilizar.
 
 ### <a name="7-do-i-need-to-plan-a-database-server-maintenance-downtime-for-this-change"></a>7. Preciso de planear um tempo de inatividade de manutenção do servidor de bases de dados para esta mudança?
-Não. Uma vez que a mudança aqui está apenas do lado do cliente para ligar ao servidor de base de dados, não há tempo de inatividade de manutenção necessário para o servidor de base de dados para esta alteração.
+N.º Uma vez que a mudança aqui está apenas do lado do cliente para ligar ao servidor de base de dados, não há tempo de inatividade de manutenção necessário para o servidor de base de dados para esta alteração.
 
 ### <a name="8--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-october-26-2020-10262020"></a>8. E se eu não conseguir um tempo de paragem programado para esta mudança antes de 26 de outubro de 2020 (10/26/2020)?
 Uma vez que os clientes utilizados para a ligação ao servidor precisam de estar a atualizar as informações do certificado tal como descrito na secção de correção [aqui,](./concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity)não precisamos de um tempo de inatividade para o servidor neste caso.
@@ -144,7 +144,7 @@ Se estiver a utilizar a [replicação de dados](concepts-data-in-replication.md)
 Para verificar se está a utilizar a ligação SSL para ligar ao servidor, consulte a [verificação SSL](howto-configure-ssl.md#step-4-verify-the-ssl-connection).
 
 ### <a name="14-is-there-an-action-needed-if-i-already-have-the-digicertglobalrootg2-in-my-certificate-file"></a>14. É necessária alguma ação se já tiver o DigiCertGlobalRootG2 no meu ficheiro de certificado?
-Não. Não é necessária qualquer ação se o seu ficheiro de certificado já tiver o **DigiCertGlobalRootG2**.
+N.º Não é necessária qualquer ação se o seu ficheiro de certificado já tiver o **DigiCertGlobalRootG2**.
 
 ### <a name="15-what-if-i-have-further-questions"></a>15. E se eu tiver mais perguntas?
 Se tiver dúvidas, obtenha respostas de especialistas comunitários no [Microsoft Q&A](mailto:AzureDatabaseforMySQL@service.microsoft.com). Se tiver um plano de apoio e precisar de ajuda técnica, [contacte-nos](mailto:AzureDatabaseforMySQL@service.microsoft.com).

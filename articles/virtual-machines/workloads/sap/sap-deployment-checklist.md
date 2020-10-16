@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9991bae3d5c8487cc80cca0bf9a249e715b5c521
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 4e80332b172eeb4c49ae068e1781ffcaf1657f13
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650689"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978225"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Cargas de trabalho sap em Azure: lista de verificação de planeamento e implantação
 
@@ -60,8 +60,8 @@ Durante esta fase, planeia a migração da sua carga de trabalho SAP para a plat
     - A utilização de configurações de cluster multi-SID para serviços centrais SAP é suportada em sistemas operativos de hóspedes Windows, SLES e RHEL em Azure. Tenha em mente que o raio de explosão pode aumentar quanto mais ASCS/SCS colocar num cluster multi-SID. Pode encontrar documentação para o respetivo cenário de OS convidados nestes artigos:
         - [SAP ASCS/SCS exemplo multi-SID alta disponibilidade com Cluster de Failover do Servidor do Windows e disco partilhado em Azure](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md)
         - [SAP ASCS/SCS exemplo multi-SID alta disponibilidade com Cluster de Falha de Falha do Servidor do Windows e partilha de ficheiros no Azure](./sap-ascs-ha-multi-sid-wsfc-file-share.md)
-        - [Alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server para aplicações SAP multi-SID guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
-        - [Alta disponibilidade para SAP NetWeaver em VMs Azure em Red Hat Enterprise Linux para aplicações SAP multi-SID guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
+        - [Alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server para aplicações SAP multi-SID guide](./high-availability-guide-suse-multi-sid.md)
+        - [Alta disponibilidade para SAP NetWeaver em VMs Azure em Red Hat Enterprise Linux para aplicações SAP multi-SID guide](./high-availability-guide-rhel-multi-sid.md)
     - Alta disponibilidade e arquitetura de recuperação de desastres.
         - Com base na RTO e na RPO, defina como a arquitetura de alta disponibilidade e recuperação de desastres precisa de ser.
         - Para obter uma elevada disponibilidade dentro de uma zona, verifique o que o DBMS desejado tem para oferecer em Azure. A maioria dos pacotes DBMS oferecem métodos sincronizados de um standby quente sincronizado, que recomendamos para sistemas de produção. Verifique também a documentação relacionada com o SAP para diferentes bases de dados, começando com [considerações para a implementação de DBMS de máquinas virtuais Azure para cargas de trabalho SAP e documentos relacionados.](./dbms_guide_general.md)
@@ -109,7 +109,7 @@ Recomendamos que crie e valide uma solução HADR completa e um design de segura
            -  [Tamanhos para máquinas virtuais Windows em Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). É importante considerar o *limite máximo de disco não-achado* para o tamanho.
            -  [Tamanhos para máquinas virtuais Linux em Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). É importante considerar o *limite máximo de disco não-achado* para o tamanho.
    2. Armazenamento.
-        - Consulte os [tipos de armazenamento Azure para obter carga de trabalho SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage)
+        - Consulte os [tipos de armazenamento Azure para obter carga de trabalho SAP](./planning-guide-storage.md)
         - No mínimo, utilize [o armazenamento SSD Standard Azure](../../disks-types.md#standard-ssd) para VMs que representem camadas de aplicação SAP e para a implantação de DBMSs que não sejam sensíveis ao desempenho.
         - Em geral, não recomendamos a utilização de [discos HDD Standard Azure](../../disks-types.md#standard-hdd).
         - Utilize [o Azure Premium Storage](../../disks-types.md#premium-ssd) para quaisquer VMs DBMS que sejam remotamente sensíveis ao desempenho.
@@ -127,7 +127,7 @@ Recomendamos que crie e valide uma solução HADR completa e um design de segura
         - Avaliar e testar o caminho de dados entre a camada de aplicação SAP e a camada SAP DBMS.
             -  A colocação de aparelhos virtuais da [rede Azure](https://azure.microsoft.com/solutions/network-appliances/) na via de comunicação entre a aplicação SAP e a camada DBMS de sistemas SAP baseados em SAP NetWeaver, Hybris ou S/4HANA não é suportada.
             -  A colocação da camada de aplicação SAP e do SAP DBMS em diferentes redes virtuais Azure que não são espreitadas não é suportada.
-            -  Pode utilizar [regras do grupo de segurança de aplicações e do grupo de segurança](../../../virtual-network/security-overview.md) de rede para definir rotas entre a camada de aplicação SAP e a camada SAP DBMS.
+            -  Pode utilizar [regras do grupo de segurança de aplicações e do grupo de segurança](../../../virtual-network/network-security-groups-overview.md) de rede para definir rotas entre a camada de aplicação SAP e a camada SAP DBMS.
         - Certifique-se de que [o Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) está ativado nos VMs utilizados na camada de aplicação SAP e na camada SAP DBMS. Tenha em mente que diferentes níveis de SO são necessários para suportar a rede acelerada em Azure:
             - Windows Server 2012 R2 ou posterior.
             - SUSE Linux 12 SP3 ou mais tarde.
@@ -138,7 +138,7 @@ Recomendamos que crie e valide uma solução HADR completa e um design de segura
         - Se estiver a utilizar o Azure Load Balancer juntamente com os sistemas operativos de hóspedes Linux, verifique se o parâmetro da rede Linux **net.ipv4.tcp_timestamps** está definido para **0**. Esta recomendação entra em conflito com recomendações em versões mais antigas da [nota SAP #2382421](https://launchpad.support.sap.com/#/notes/2382421). A nota SAP é agora atualizada para indicar que este parâmetro precisa de ser definido para **0** para funcionar com os equilibradores de carga Azure.
         - Considere usar [grupos de colocação de proximidade Azure](../../linux/co-location.md) para obter a latência ideal da rede. Para obter mais informações, consulte [os grupos de colocação de proximidade do Azure para obter uma latência ótima da rede com aplicações SAP](sap-proximity-placement-scenarios.md).
    4. Alta disponibilidade e implantações de recuperação de desastres.
-        - Se implementar a camada de aplicação SAP sem definir uma zona específica de disponibilidade de Azure, certifique-se de que todos os VMs que executam instâncias de diálogo SAP ou instâncias de middleware de um único sistema SAP são implantados num [conjunto de disponibilidade](../../windows/manage-availability.md).
+        - Se implementar a camada de aplicação SAP sem definir uma zona específica de disponibilidade de Azure, certifique-se de que todos os VMs que executam instâncias de diálogo SAP ou instâncias de middleware de um único sistema SAP são implantados num [conjunto de disponibilidade](../../manage-availability.md).
         - Se não necessitar de alta disponibilidade para os Serviços Centrais SAP e para o DBMS, pode implantar estes VMs no mesmo conjunto de disponibilidade que a camada de aplicação SAP.
         - Se proteger os Serviços Centrais SAP e a camada DBMS para uma elevada disponibilidade utilizando replicação passiva, coloque os dois nós para os Serviços Centrais SAP num conjunto de disponibilidades separados e os dois nós DBMS em outro conjunto de disponibilidade.
         - Se implementar em Zonas de Disponibilidade Azure, não pode utilizar conjuntos de disponibilidade. Mas você precisa ter certeza de que você implanta os nós de Serviços Centrais ativos e passivos em duas diferentes Zonas de Disponibilidade. Utilize zonas de disponibilidade que tenham a menor latência entre elas.
@@ -161,7 +161,7 @@ Recomendamos que crie e valide uma solução HADR completa e um design de segura
             -   [Nota de suporte SAP #2753418 - Potencial degradação do desempenho devido ao recuo do temporizador](https://launchpad.support.sap.com/#/notes/2753418)
             -   [Nota de suporte SAP #2791572 - Degradação de desempenho por causa do suporte vdso em falta para hiper-V em Azure](https://launchpad.support.sap.com/#/notes/2791572)
             -   [Nota de suporte SAP #2382421 - Otimização da Configuração da Rede no Nível HANA e OS](https://launchpad.support.sap.com/#/notes/2382421)
-            -   [Nota de suporte SAP #2694118 - Red Hat Enterprise Linux HA Add-On on Azure](https://launchpad.support.sap.com/#/notes/2694118)
+            -   [Nota de suporte DA SAP #2694118 - Red Hat Enterprise Linux HA Add-On em Azure](https://launchpad.support.sap.com/#/notes/2694118)
             -   [Nota de suporte SAP #1984787 - SUSE LINUX Enterprise Server 12: Notas de instalação](https://launchpad.support.sap.com/#/notes/1984787)
             -   [Nota de suporte SAP #2002167 - Red Hat Enterprise Linux 7.x: Instalação e atualização](https://launchpad.support.sap.com/#/notes/0002002167)
             -   [Nota de suporte SAP #2292690 - SAP HANA DB: Definições recomendadas de OS para RHEL 7](https://launchpad.support.sap.com/#/notes/0002292690)
@@ -179,7 +179,7 @@ Recomendamos que crie e valide uma solução HADR completa e um design de segura
    4. Teste a funcionalidade e arquitetura DR transversal.
 1. Verificações de segurança.
    1. Teste a validade da sua arquitetura de controlo de acesso baseado em funções Azure (Azure RBAC). O objetivo é separar e limitar o acesso e permissões de diferentes equipas. Por exemplo, os membros da equipa SAP Basis devem ser capazes de implantar VMs e atribuir discos do Azure Storage para uma determinada rede virtual Azure. Mas a equipa sap base não deve ser capaz de criar as suas próprias redes virtuais ou alterar as configurações das redes virtuais existentes. Os membros da equipa de rede não devem ser capazes de implantar VMs em redes virtuais nas quais a aplicação SAP e os VMs DBMS estão em execução. Os membros desta equipa também não devem ser capazes de alterar atributos de VMs ou mesmo apagar VMs ou discos.  
-   1.  Verifique se o grupo de segurança da rede e as regras [da ASC](../../../virtual-network/security-overview.md) funcionam como esperado e proteja os recursos protegidos.
+   1.  Verifique se o grupo de segurança da rede e as regras [da ASC](../../../virtual-network/network-security-groups-overview.md) funcionam como esperado e proteja os recursos protegidos.
    1.  Certifique-se de que todos os recursos que precisam de ser encriptados estão encriptados. Definir e implementar processos para fazer o back up certificados, armazenar e aceder a esses certificados, e restaurar as entidades encriptadas.
    1.  Utilize [encriptação do disco Azure](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) para discos OS sempre que possível do ponto de vista do suporte do OS.
    1.  Certifique-se de que não está a usar muitas camadas de encriptação. Em alguns casos, faz sentido utilizar a Encriptação do Disco Azure juntamente com um dos métodos de encriptação de dados transparentes DBMS para proteger diferentes discos ou componentes no mesmo servidor.  Por exemplo, num servidor SAP DBMS, a Encriptação do Disco Azure (ADE) pode ser ativada no disco de arranque do sistema operativo (se o SISTEMA suporta ADE) e os discos de dados não utilizados pelos ficheiros de persistência de dados DBMS.  Um exemplo é utilizar o ADE no disco que mantém as chaves de encriptação DBMS TDE.
@@ -298,7 +298,7 @@ Esta fase tem a ver com monitorização, operação e administração do sistema
 3. Otimize os tempos em que pode desligar os sistemas.  
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Veja estes artigos:
 
 - [Azure Virtual Machines planejamento e implementação para SAP NetWeaver](./planning-guide.md)

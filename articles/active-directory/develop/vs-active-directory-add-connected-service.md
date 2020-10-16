@@ -11,15 +11,15 @@ ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.openlocfilehash: a1ba7db72743ac122a697bf271e783ec64e041e8
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88165486"
 ---
 # <a name="add-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Adicione um Diretório Ativo Azure utilizando serviços conectados no Estúdio Visual
 
-Ao utilizar o Azure Ative Directory (Azure AD), pode suportar o Sign-On Único (SSO) para aplicações web ASP.NET MVC ou autenticação de diretório ativo nos serviços web da API. Com a Autenticação AD Azure, os seus utilizadores podem utilizar as suas contas a partir do Azure Ative Diretório para se conectarem às suas aplicações web. As vantagens da autenticação AD AD Azure com a API web incluem segurança de dados melhorada ao expor uma API a partir de uma aplicação web. Com o Azure AD, não é preciso gerir um sistema de autenticação separado com conta própria e gestão de utilizadores.
+Ao utilizar o Azure Ative Directory (Azure AD), pode suportar Sign-On únicos (SSO) para aplicações web ASP.NET MVC ou Autenticação de Diretório Ativo nos serviços web da API. Com a Autenticação AD Azure, os seus utilizadores podem utilizar as suas contas a partir do Azure Ative Diretório para se conectarem às suas aplicações web. As vantagens da autenticação AD AD Azure com a API web incluem segurança de dados melhorada ao expor uma API a partir de uma aplicação web. Com o Azure AD, não é preciso gerir um sistema de autenticação separado com conta própria e gestão de utilizadores.
 
 Este artigo e os seus artigos de acompanhante fornecem detalhes da utilização da funcionalidade visual Studio Connected Service para Ative Directory. A capacidade está disponível no Visual Studio 2015 e mais tarde.
 
@@ -32,7 +32,7 @@ Atualmente, o serviço Ative Directory connected não suporta ASP.NET aplicaçõ
 
 ### <a name="connect-to-azure-active-directory-using-the-connected-services-dialog"></a>Ligue-se ao Diretório Ativo Azure utilizando o diálogo de serviços conectados
 
-1. No Visual Studio, crie ou abra um projeto de MVC ASP.NET ou um projeto de API web ASP.NET. Pode utilizar os modelos MVC, Web API, Single Page, Azure API App, Azure Mobile App e Azure Mobile Service.
+1. No Visual Studio, crie ou abra um projeto de MVC ASP.NET ou um projeto de API web ASP.NET. Pode utilizar os modelos MVC, Web API, Single-Page, Azure API App, Azure Mobile App e Azure Mobile Service.
 
 1. Selecione o **project > Adicionar Serviço Conectado...** comando do menu ou clique duas vezes no nó de **Serviços Conectados** encontrado no âmbito do projeto no Solution Explorer.
 

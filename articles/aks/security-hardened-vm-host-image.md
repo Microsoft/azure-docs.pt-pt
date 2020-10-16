@@ -8,10 +8,10 @@ ms.date: 09/11/2019
 ms.author: mlearned
 ms.custom: mvc
 ms.openlocfilehash: 84b826ce33b5395db5bd38e883b3a0fb3425725b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86244043"
 ---
 # <a name="security-hardening-for-aks-agent-node-host-os"></a>Endurecimento de segurança para o número de agente da AKS anfitrião OS
@@ -85,8 +85,8 @@ O objetivo do hospedeiro de segurança endurecido é reduzir a área de superfí
 
 Consulte os seguintes artigos para obter mais informações sobre a segurança da AKS: 
 
-[Serviço de Kubernetes do Azure (AKS)](./intro-kubernetes.md)
+[Azure Kubernetes Service (AKS)](./intro-kubernetes.md)
 
-[Considerações de segurança da AKS](./concepts-security.md)
+[Considerações de segurança da AKS ](./concepts-security.md)
 
-[Melhores práticas da AKS](./best-practices.md)
+[Melhores práticas da AKS ](./best-practices.md)

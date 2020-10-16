@@ -4,10 +4,10 @@ description: Este artigo mostra-lhe como pode resolver validações de subscriç
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 48844859013507ab684ef8879b7b85dd6b6fe8cd
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86118992"
 ---
 # <a name="troubleshoot-azure-event-grid-subscription-validations"></a>Validações de subscrição de Azure Event Grid de resolução de problemas
@@ -72,7 +72,7 @@ Se o seu webhook estiver a devolver o 403 (Proibido) na resposta, verifique se o
   - 942430 (Deteção restrita de anomalias de caracteres SQL (args): # de caracteres especiais excedidos (12))
   - 920230 (Encoding multiple URL Detetado)
   - 942130 (SqL Injection Attack: SQL Tautology Detected.)
-  - 931130 (Possível inclusão de ficheiros remotos (RFI) Ataque = Referência/Ligação off-Domain)
+  - 931130 (Possível Inclusão de Ficheiros Remotos (RFI) Ataque = Off-Domain Referência/Ligação)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Se precisar de mais ajuda, publique o seu problema no [fórum Stack Overflow](https://stackoverflow.com/questions/tagged/azure-eventgrid) ou abra um bilhete de [apoio.](https://azure.microsoft.com/support/options/) 

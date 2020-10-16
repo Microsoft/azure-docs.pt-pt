@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: d6408f8c08694ae681d302ae35f5778894091733
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87063617"
 ---
 # <a name="microsoftcomputesizeselector-ui-element"></a>Microsoft.Compute.SizeSelector UI elemento
@@ -59,7 +59,7 @@ Depois de selecionar o controlo, o utilizador vê uma visão expandida dos taman
 }
 ```
 
-## <a name="sample-output"></a>Resultado da amostra
+## <a name="sample-output"></a>Saída de exemplo
 
 ```json
 "Standard_D1"
@@ -67,12 +67,12 @@ Depois de selecionar o controlo, o utilizador vê uma visão expandida dos taman
 
 ## <a name="remarks"></a>Observações
 
-- `recommendedSizes`deve ter pelo menos um tamanho. O primeiro tamanho recomendado é usado como padrão. A lista de tamanhos disponíveis não é ordenada pelo estado recomendado. O utilizador pode selecionar esta coluna para ordenar por estado recomendado.
+- `recommendedSizes` deve ter pelo menos um tamanho. O primeiro tamanho recomendado é usado como padrão. A lista de tamanhos disponíveis não é ordenada pelo estado recomendado. O utilizador pode selecionar esta coluna para ordenar por estado recomendado.
 - Se um tamanho recomendado não estiver disponível no local selecionado, o tamanho é automaticamente ignorado. Em vez disso, o próximo tamanho recomendado é usado.
-- `constraints.allowedSizes`e `constraints.excludedSizes` são ambos opcionais, mas não podem ser usados simultaneamente. A lista de tamanhos disponíveis pode ser determinada através da chamada [Lista de tamanhos de máquinas virtuais disponíveis para uma subscrição.](/rest/api/compute/virtualmachines/virtualmachines-list-sizes-region) Qualquer tamanho não especificado no `constraints.allowedSizes` é escondido, e qualquer tamanho não especificado `constraints.excludedSizes` é mostrado.
-- `osPlatform`deve ser especificado, e pode ser **windows** ou **Linux**. É usado para determinar os custos de hardware das máquinas virtuais.
-- `imageReference`é omitida para imagens de primeira parte, mas fornecidas para imagens de terceiros. É usado para determinar os custos de software das máquinas virtuais.
-- `count`é utilizado para definir o multiplicador apropriado para o elemento. Suporta um valor estático, como **2,** ou um valor dinâmico de outro elemento, como `[steps('step1').vmCount]` . O valor predefinido é **1**.
+- `constraints.allowedSizes` e `constraints.excludedSizes` são ambos opcionais, mas não podem ser usados simultaneamente. A lista de tamanhos disponíveis pode ser determinada através da chamada [Lista de tamanhos de máquinas virtuais disponíveis para uma subscrição.](/rest/api/compute/virtualmachines/virtualmachines-list-sizes-region) Qualquer tamanho não especificado no `constraints.allowedSizes` é escondido, e qualquer tamanho não especificado `constraints.excludedSizes` é mostrado.
+- `osPlatform` deve ser especificado, e pode ser **windows** ou **Linux**. É usado para determinar os custos de hardware das máquinas virtuais.
+- `imageReference` é omitida para imagens de primeira parte, mas fornecidas para imagens de terceiros. É usado para determinar os custos de software das máquinas virtuais.
+- `count` é utilizado para definir o multiplicador apropriado para o elemento. Suporta um valor estático, como **2,** ou um valor dinâmico de outro elemento, como `[steps('step1').vmCount]` . O valor predefinido é **1**.
 - A `numAvailabilityZonesRequired` lata é 1, 2 ou 3.
 - Por defeito, `hideDiskTypeFilter` é **falso**. O filtro do tipo disco permite ao utilizador ver todos os tipos de discos ou apenas SSD.
 

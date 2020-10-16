@@ -12,10 +12,10 @@ ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
 ms.openlocfilehash: 7f4c09a32794e13b0e0041ee916401b714d8509e
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90055236"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>O que é a aplicação Microsoft Authenticator?

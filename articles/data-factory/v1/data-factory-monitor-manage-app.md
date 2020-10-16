@@ -13,10 +13,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: e378c1e25fb434e689eadd91e9e8562ffe7e61fd
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91570086"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorize e gere os oleodutos da Azure Data Factory utilizando a app de monitorização e gestão
@@ -159,7 +159,7 @@ As janelas de atividade podem estar num dos seguintes estados:
 
 <table>
 <tr>
-    <th align="left">Estado</th><th align="left">Subtátuo</th><th align="left">Description</th>
+    <th align="left">Estado</th><th align="left">Subtátuo</th><th align="left">Descrição</th>
 </tr>
 <tr>
     <td rowspan="8">Em espera</td><td>Horário</td><td>Não chegou a hora da janela de atividade funcionar.</td>
@@ -177,7 +177,7 @@ As janelas de atividade podem estar num dos seguintes estados:
 <td>AtividadesResume</td><td>A atividade é interrompida e não pode executar as janelas de atividade até que seja retomada.</td>
 </tr>
 <tr>
-<td>Tentar novamente</td><td>A execução da atividade está a ser novamente julgada.</td>
+<td>Repetir</td><td>A execução da atividade está a ser novamente julgada.</td>
 </tr>
 <tr>
 <td>Validação</td><td>A validação ainda não começou.</td>

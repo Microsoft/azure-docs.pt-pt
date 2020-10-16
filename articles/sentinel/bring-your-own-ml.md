@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: yelevin
 ms.openlocfilehash: 17c0ba7306ab4cc51fe8bbe3709d5b6bc85fa487
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91347512"
 ---
 # <a name="bring-your-own-machine-learning-ml-into-azure-sentinel"></a>Traga a sua própria Machine Learning (ML) para o Azure Sentinel
@@ -79,7 +79,7 @@ Se já tiver Databricks ou qualquer outro ambiente de Faísca, e preferir utiliz
 
 O pacote BYO ML inclui as melhores práticas e pesquisa da Microsoft na parte frontal do ML para segurança. Neste pacote, fornecemos a seguinte lista de utilitários, cadernos e modelos de algoritmos para problemas de segurança.
 
-| Nome de ficheiro | Description |
+| Nome de ficheiro | Descrição |
 | --------- | ----------- |
 | azure_sentinel_utilities.whl | Contém utilitários para ler bolhas de Azure e escrever para Log Analytics. |
 | AnomalousRASampleData | O Notebook demonstra a utilização do modelo de Acesso a Recursos Anómalos no Sentinel com dados de amostras de formação e teste gerados. |
@@ -159,13 +159,13 @@ Assim que tiver a pontuação programada, pode utilizar o módulo no caderno de 
 
 Para ver os resultados da sua pontuação juntamente com detalhes de registo relacionados, volte ao seu portal Azure Sentinel. Em **Logs** > Registos Personalizados, verá os resultados na tabela **AnomalousResourceAccessResult_CL** (ou no nome da sua própria mesa personalizada). Você pode usar esses resultados para melhorar a sua investigação e experiências de caça.
 
-:::image type="content" source="./media/bring-your-own-ml/anomalous-resource-access-logs.png" alt-text="registos anómalos de acesso a recursos":::
+:::image type="content" source="./media/bring-your-own-ml/anomalous-resource-access-logs.png" alt-text="quadro de aprendizagem automática":::
 
 ### <a name="build-custom-analytics-rule-with-ml-results"></a>Construa regra de análise personalizada com resultados ML
 
 Uma vez confirmado que os resultados do ML estão na tabela de registos personalizados, e está satisfeito com a fidelidade das pontuações, pode criar uma deteção com base nos resultados. Vá ao **Analytics** a partir do portal Azure Sentinel e [crie uma nova regra de deteção.](tutorial-detect-threats-custom.md) Abaixo está um exemplo que mostra a consulta usada para criar a deteção.
 
-:::image type="content" source="./media/bring-your-own-ml/create-byo-ml-analytics-rule.png" alt-text="criar regras de análise personalizadas para deteções de B Y O M L":::
+:::image type="content" source="./media/bring-your-own-ml/create-byo-ml-analytics-rule.png" alt-text="quadro de aprendizagem automática":::
 
 ### <a name="view-and-respond-to-incidents"></a>Ver e responder a incidentes
 Uma vez configurado a regra de análise com base nos resultados do ML, se houver resultados acima do limiar que definiu na consulta, um incidente será gerado e surgido na página **incidentes** em Azure Sentinel. 

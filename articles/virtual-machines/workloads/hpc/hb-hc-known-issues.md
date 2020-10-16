@@ -1,24 +1,18 @@
 ---
 title: Resolução de problemas conhecidos com HPC e GPU VMs - Azure Virtual Machines Microsoft Docs
 description: Saiba mais sobre problemas conhecidos com tamanhos de HPC e GPU VM em Azure.
-services: virtual-machines
-documentationcenter: ''
 author: vermagit
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines
-ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 09/08/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 42a27092a87488e39d1195dba5fb64173cf52af7
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 52050066aceef50e64c5887efb7b99da0b03f140
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90004209"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996265"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>Problemas conhecidos relacionados com as VMs da série H e série N
 
@@ -111,7 +105,7 @@ Pode ignorar as seguintes mensagens de aviso de núcleo ao iniciar um VM da sér
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Reveja a [visão geral](hb-series-overview.md) da série HB e [a visão geral da série HC](hc-series-overview.md) para aprender sobre a configuração ideal das cargas de trabalho para desempenho e escalabilidade.
 - Leia sobre os últimos anúncios e alguns exemplos e resultados do HPC no [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).

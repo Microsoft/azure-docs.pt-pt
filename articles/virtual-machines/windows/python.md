@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/22/2017
 ms.author: cynthn
 ms.custom: devx-track-python
-ms.openlocfilehash: 1e2558074275f9b97bd4a2fd9a3d111c5de02948
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 402a61b4b5335c19d75cd1182243783453a0e7fa
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87853420"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974860"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Criar e gerir VMs windows em Azure usando Python
 
@@ -492,7 +492,7 @@ Muitos aspetos da implementação devem ser considerados ao decidir sobre um tam
 
 ### <a name="add-a-data-disk-to-the-vm"></a>Adicionar um disco de dados à VM
 
-As máquinas virtuais podem ter um ou mais [discos de dados](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) que são armazenados como VHDs.
+As máquinas virtuais podem ter um ou mais [discos de dados](../managed-disks-overview.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) que são armazenados como VHDs.
 
 1. Para adicionar um disco de dados à máquina virtual, adicione esta função após as variáveis no ficheiro .py: 
 

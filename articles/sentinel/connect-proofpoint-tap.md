@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
 ms.openlocfilehash: df4292a40335e58c64b8ebc50ffb6ac1ceee8836
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87059894"
 ---
 # <a name="connect-your-proofpoint-tap-to-azure-sentinel-with-azure-function"></a>Ligue o seu Ponto de Revisão TAP ao Azure Sentinel com a Função Azure

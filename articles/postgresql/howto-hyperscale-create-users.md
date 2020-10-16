@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 1/8/2019
 ms.openlocfilehash: 3d23ee6119b625e11ce44bb9ad11ce4b3ee0280d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295741"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Criar utilizadores na Base de Dados Azure para PostgreSQL - Hiperescala (Citus)
@@ -50,9 +50,9 @@ Como mencionado, a `citus` conta de administração carece de permissão para cr
 
    :::image type="content" source="media/howto-hyperscale-create-users/1-role-page.png" alt-text="A página de papéis":::
 
-2. Insira o nome da função e a palavra-passe. Clique em **Save** (Guardar).
+2. Insira o nome da função e a palavra-passe. Clique em **Guardar**.
 
-   :::image type="content" source="media/howto-hyperscale-create-users/2-add-user-fields.png" alt-text="Adicionar papel":::
+   :::image type="content" source="media/howto-hyperscale-create-users/2-add-user-fields.png" alt-text="A página de papéis":::
 
 O utilizador será criado no nó coordenador do grupo de servidores e propagado a todos os nós do trabalhador. As funções criadas através do portal Azure têm o atributo, o `LOGIN` que significa que são verdadeiros utilizadores que podem iniciar súbs na base de dados.
 
@@ -77,7 +77,7 @@ GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;
 
 Para atualizar um utilizador, visite a página **Roles** para o seu grupo de servidor Hyperscale (Citus) e clique nas elipses... ao lado do utilizador. **...** As elipses abrirão um menu para eliminar o utilizador ou redefinir a sua palavra-passe.
 
-   :::image type="content" source="media/howto-hyperscale-create-users/edit-role.png" alt-text="Editar um papel":::
+   :::image type="content" source="media/howto-hyperscale-create-users/edit-role.png" alt-text="A página de papéis":::
 
 O `citus` papel é privilegiado e não pode ser apagado.
 

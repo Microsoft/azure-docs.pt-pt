@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/20/2020
 tags: connectors
 ms.openlocfilehash: 988d1efd348fe8e85dd33fbe35cc8dc9362c081b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87290613"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Introdução ao conector da Oracle Database

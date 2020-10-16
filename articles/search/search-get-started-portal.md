@@ -2,18 +2,18 @@
 title: Criar um índice de pesquisa no portal Azure
 titleSuffix: Azure Cognitive Search
 description: Neste quickstart do portal Azure, utilize o assistente de Dados de Importação para criar, carregar e consultar o seu primeiro índice de pesquisa em Azure Cognitive Search.
-author: tchristiani
 manager: nitinme
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 09/16/2020
-ms.openlocfilehash: 460c37107ac2dbd8bc3377d3716e708331db9904
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: b783366958380f391dc76583c42988badc9915c8
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91740937"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056485"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Quickstart: Criar um índice de Pesquisa Cognitiva Azure no portal Azure
 
@@ -256,7 +256,7 @@ Também aprendeu a encontrar índices, indexadores e fontes de dados no portal. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Ao trabalhar na sua própria subscrição, recomendamos que verifique, depois de concluir um projeto, se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
+Ao trabalhar na sua própria subscrição, depois de concluir um projeto, recomendamos que verifique se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 
 Pode encontrar e gerir recursos no portal, utilizando a ligação **de todos os recursos** ou **grupos** de recursos no painel de navegação à esquerda.
 

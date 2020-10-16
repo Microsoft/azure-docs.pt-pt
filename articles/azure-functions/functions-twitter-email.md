@@ -8,10 +8,10 @@ ms.date: 04/27/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, mvc, cc996988-fb4f-47
 ms.openlocfilehash: feb6b36f8e5e7bbec83d8882552484f68abfd56d
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91537757"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Criar uma função que se integra no Azure Logic Apps
@@ -243,7 +243,7 @@ A última parte do fluxo de trabalho é acionar um e-mail quando o sentimento é
 | **Assunto** | Sentimento negativo de tweet detetado  | A linha de assunto da notificação de e-mail.  |
 | **Corpo** | Texto do tweet, Localização | Clique nos parâmetros **Tweet text** (Texto do tweet) e **Location** (Localização). |
 
-1. Clique em **Save** (Guardar).
+1. Clique em **Guardar**.
 
 Agora que o fluxo de trabalho está concluído, pode ativar a aplicação lógica e ver a função em funcionamento.
 

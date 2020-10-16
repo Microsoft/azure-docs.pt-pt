@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
 ms.openlocfilehash: 657ddc9f772d31e8845631501e72175ecfbc78d7
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91442695"
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>Atualize uma aplicação para usar a mais recente biblioteca de clientes de base de dados elástica

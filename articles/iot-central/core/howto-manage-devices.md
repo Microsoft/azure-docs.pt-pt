@@ -10,10 +10,10 @@ services: iot-central
 manager: peterpr
 ms.custom: contperfq2
 ms.openlocfilehash: 1782982c75e502ea8df70818a134b5b009188959
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91850103"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gerir dispositivos na sua aplicação Azure IoT Central

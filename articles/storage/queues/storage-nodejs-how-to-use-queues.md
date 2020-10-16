@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: seo-javascript-september2019, devx-track-js
 ms.openlocfilehash: 77c35ae4b9e845cd3c0f638407c0d71c36fcf9f7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91289689"
 ---
 # <a name="how-to-use-azure-queue-storage-from-nodejs"></a>Como utilizar o armazenamento da Azure Queue a partir de Node.js

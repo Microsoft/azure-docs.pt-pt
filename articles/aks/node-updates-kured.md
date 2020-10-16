@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 02/28/2019
 ms.openlocfilehash: 35c9e76c234e4b09fbb090eda363506ee3e11130
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88164245"
 ---
 # <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Aplicar atualizações de segurança e kernel aos nós Linux no Serviço Azure Kubernetes (AKS)
@@ -21,9 +21,9 @@ O processo para manter os nós do Windows Server atualizados é um pouco diferen
 Este artigo mostra-lhe como usar o kured de código aberto [(KUbernetes REboot Daemon)][kured] para observar os nós Linux que requerem um reboot, em seguida, lidar automaticamente com o reagendamento de cápsulas de corrida e processo de reinicialização do nó.
 
 > [!NOTE]
-> `Kured`é um projeto de código aberto da Weaveworks. O apoio a este projeto na AKS é prestado com o melhor esforço. Suporte adicional pode ser encontrado no canal slack #weave-comunidade.
+> `Kured` é um projeto de código aberto da Weaveworks. O apoio a este projeto na AKS é prestado com o melhor esforço. Suporte adicional pode ser encontrado no canal slack #weave-comunidade.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 
@@ -78,7 +78,7 @@ Por padrão, os nós Linux na AKS verificam as atualizações todas as noites. S
 sudo apt-get update && sudo apt-get upgrade -y
 ```
 
-Se forem aplicadas atualizações que exijam um reinício do nó, um ficheiro é escrito para */var/run/reboot-required*. `Kured`verifica os nós que requerem um reboot a cada 60 minutos por defeito.
+Se forem aplicadas atualizações que exijam um reinício do nó, um ficheiro é escrito para */var/run/reboot-required*. `Kured` verifica os nós que requerem um reboot a cada 60 minutos por defeito.
 
 ## <a name="monitor-and-review-reboot-process"></a>Monitore e reveja o processo de reinicialização
 

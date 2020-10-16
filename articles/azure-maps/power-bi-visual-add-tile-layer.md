@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: 8a0d930d1c0fd30c48d97b0d1d4b94548077fbca
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86261939"
 ---
 # <a name="add-a-tile-layer"></a>Adicionar uma camada de mosaico
@@ -27,7 +27,7 @@ Uma camada de azulejos carrega em azulejos de um servidor. Estas imagens podem s
 
 A faixa de limite e de zoom de onde está disponível um serviço de azulejos pode ser passada como configurações para limitar onde os azulejos são solicitados. Este é simultaneamente um melhoramento de desempenho tanto para o serviço visual como para o azulejo. Abaixo está uma visão geral de todas as definições disponíveis no painel **de formato** que estão disponíveis na secção camada **de azulejos.**
 
-| Definição        | Descrição   |
+| Definições        | Descrição   |
 |----------------|---------------|
 | Url            | Um URL formatado que aponta para um serviço de azulejos.  |
 | Tamanho do mosaico      | Um valor inteiro que especifica tanto a largura como as dimensões de altura dos azulejos.   |
@@ -51,11 +51,11 @@ Existem três diferentes convenções de nomeação de azulejos apoiadas pelo vi
 
 O URL de azulejos um URL https para um modelo de URL de azulejos que utiliza os seguintes parâmetros:
 
--   `{x}`- X posição do azulejo. Também precisa `{y}` `{z}` e. .
--   `{y}`- Posição Y do azulejo. Também precisa `{x}` `{z}` e. .
--   `{z}`- Zoom nível do azulejo. Também precisa `{x}` `{y}` e. .
--   `{quadkey}`- `quadkey` Identificador de azulejos baseado na convenção de nomeação do sistema de azulejos Bing Maps.
--   `{bbox-epsg-3857}`- Uma cadeia de caixa de limitação com o formato `{west},{south},{east},{north}` no sistema de referência espacial EPSG 3857.
+-   `{x}` - X posição do azulejo. Também precisa `{y}` `{z}` e. .
+-   `{y}` - Posição Y do azulejo. Também precisa `{x}` `{z}` e. .
+-   `{z}` - Zoom nível do azulejo. Também precisa `{x}` `{y}` e. .
+-   `{quadkey}` - `quadkey` Identificador de azulejos baseado na convenção de nomeação do sistema de azulejos Bing Maps.
+-   `{bbox-epsg-3857}` - Uma cadeia de caixa de limitação com o formato `{west},{south},{east},{north}` no sistema de referência espacial EPSG 3857.
 
 Como exemplo, o seguinte é um URL de azulejos formatado para o [serviço de azulejos de radar meteorológico](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) em Azure Maps. Note que `[subscription-key]` é um espaço reservado para a sua chave de subscrição Azure Maps.
 

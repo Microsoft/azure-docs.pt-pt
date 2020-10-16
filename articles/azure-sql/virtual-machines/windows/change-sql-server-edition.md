@@ -14,10 +14,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 06587d80851839188f8d8dcfa870d331e8fa96d3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91293361"
 ---
 # <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Mudança no lugar da edição do SQL Server no Azure VM
@@ -35,7 +35,7 @@ Para fazer uma alteração no local da edição do SQL Server, precisa do seguin
 
 - Uma [subscrição do Azure](https://azure.microsoft.com/free/).
 - Um [SQL Server VM no Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registado no fornecedor de recursos [SQL VM](sql-vm-resource-provider-register.md).
-- Configurar os meios de comunicação com a **edição desejada** do SQL Server. Os clientes que tenham [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) podem obter os seus meios de instalação a partir do [Centro de Licenciamento de Volume.](https://www.microsoft.com/Licensing/servicecenter/default.aspx) Os clientes que não têm Software Assurance podem utilizar os meios de configuração a partir de uma imagem VM do Azure Marketplace SQL Server que tem a sua edição desejada (normalmente localizada em `C:\SQLServerFull` ). 
+- Configurar os meios de comunicação com a **edição desejada** do SQL Server. Os clientes que tiverem o [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) poderão obter o suporte de dados de instalação no [Centro de Licenciamento em Volume](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Os clientes que não têm Software Assurance podem utilizar os meios de configuração a partir de uma imagem VM do Azure Marketplace SQL Server que tem a sua edição desejada (normalmente localizada em `C:\SQLServerFull` ). 
 
 
 ## <a name="upgrade-an-edition"></a>Atualizar uma edição

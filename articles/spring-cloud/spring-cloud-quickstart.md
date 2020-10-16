@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 1d7196f85f64ed466e99986996832952ffe1d59c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fe6f72b60257a1101765dcb539cc3e0eb1d2346e
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91336263"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090051"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Quickstart: Implemente a sua primeira aplicação Azure Spring Cloud
 
@@ -21,7 +21,7 @@ ms.locfileid: "91336263"
 Este quickstart explica como implementar uma aplicação simples de microserviço Azure Spring Cloud para funcionar no Azure.
 
 >[!NOTE]
-> O suporte steeltoe para Azure Spring Cloud é atualmente oferecido como uma pré-visualização pública. As ofertas de pré-visualização públicas permitem que os clientes experimentem novas funcionalidades antes do seu lançamento oficial.  As funcionalidades e serviços de pré-visualização do público não se destinam ao uso da produção.  Para obter mais informações sobre o suporte durante as pré-visualizações, consulte as [FAQ](https://azure.microsoft.com/support/faq/) ou apresente um [pedido de Apoio](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+> O suporte steeltoe para Azure Spring Cloud é atualmente oferecido como uma pré-visualização pública. As ofertas de pré-visualização públicas permitem que os clientes experimentem novas funcionalidades antes do seu lançamento oficial.  As funcionalidades e serviços de pré-visualização do público não se destinam ao uso da produção.  Para obter mais informações sobre o suporte durante as pré-visualizações, consulte as [FAQ](https://azure.microsoft.com/support/faq/) ou apresente um [pedido de Apoio](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 Ao seguir este arranque rápido, aprenderá a:
 
@@ -37,7 +37,7 @@ O código de aplicação utilizado neste quickstart é uma aplicação simples c
 
 * Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1). O serviço Azure Spring Cloud suporta versões .NET Core 3.1 e versões posteriores.
-* [Versão Azure CLI 2.0.67 ou posterior](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+* [Versão Azure CLI 2.0.67 ou posterior](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 * [Git.](https://git-scm.com/)
 
 ## <a name="install-azure-cli-extension"></a>Instalar a extensão da CLI do Azure
@@ -338,10 +338,10 @@ Este quickstart explica como:
 
 Para concluir este guia de início rápido:
 
-* [Instalar JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true)
+* [Instalar JDK 8](/java/azure/jdk/?preserve-view=true&view=azure-java-stable)
 * [Inscreva-se para uma subscrição do Azure](https://azure.microsoft.com/free/)
-* (Opcional) [Instale a versão Azure CLI 2.0.67 ou superior](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) e a extensão Azure Spring Cloud com comando: `az extension add --name spring-cloud`
-* (Opcional) [Instale o Azure Toolkit para IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) e [inscreva-se](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
+* (Opcional) [Instale a versão Azure CLI 2.0.67 ou superior](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) e a extensão Azure Spring Cloud com comando: `az extension add --name spring-cloud`
+* (Opcional) [Instale o Azure Toolkit para IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) e [inscreva-se](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
 
 ## <a name="generate-a-spring-cloud-project"></a>Gere um projeto de Nuvem de primavera
 
@@ -439,7 +439,7 @@ O procedimento a seguir utiliza o plug-in IntelliJ para a Azure Spring Cloud par
     ![Projeto de Importação](media/spring-cloud-quickstart-java/intellij-new-project.png)
 
 ### <a name="deploy-the-app"></a>Implementar a aplicação
-Para poder implementar no Azure tem de iniciar sôms com a sua conta Azure e escolher a sua subscrição.  Para obter informações de insusição, consulte [a Instalação e a inscrição.](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
+Para poder implementar no Azure tem de iniciar sôms com a sua conta Azure e escolher a sua subscrição.  Para obter informações de insusição, consulte [a Instalação e a inscrição.](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
 
 1. Clique com o botão direito no seu projeto no explorador de projetos IntelliJ e selecione **Azure**  ->  **Deploy to Azure Spring Cloud**.
 
@@ -448,7 +448,7 @@ Para poder implementar no Azure tem de iniciar sôms com a sua conta Azure e esc
 1. Aceite o nome para aplicação no campo **Nome.** **O nome** refere-se à configuração, não ao nome da aplicação. Os utilizadores normalmente não precisam de alterá-lo.
 1. Na caixa de texto **do Artefacto,** selecione *hellospring-0.0.1-SNAPSHOT.jar*.
 1. Na caixa de texto **de assinatura,** verifique a sua subscrição.
-1. Na caixa de texto **da Nuvem de primavera,** selecione a instância de Azure Spring Cloud que criou no [exemplo de Provision Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-provision-service-instance).
+1. Na caixa de texto **da Nuvem de primavera,** selecione a instância de Azure Spring Cloud que criou no [exemplo de Provision Azure Spring Cloud](./spring-cloud-quickstart-provision-service-instance.md).
 1. Definir **ponto de final público** para *ativar*.
 1. Na **App:** caixa de texto, selecione **Criar app...**.
 1. Introduza *a primavera de hellospring*e, em seguida, clique **em OK**.

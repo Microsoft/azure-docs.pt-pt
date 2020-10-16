@@ -8,10 +8,10 @@ ms.date: 06/05/2020
 author: jasonwhowell
 ms.author: jasonh
 ms.openlocfilehash: 15b4e6515f98a4d5a65bb5a56bdd5a5f40f90fe8
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91408616"
 ---
 # <a name="use-mongodb-compass-to-connect-to-azure-cosmos-dbs-api-for-mongodb"></a>Utilize a Bússola MongoDB para ligar à API da Azure Cosmos DB para a MongoDB
@@ -40,17 +40,17 @@ Para ligar a sua conta Cosmos DB à Bússola, pode seguir os passos abaixo:
 
 2. Clique no botão que diz **Copiar para a área de transferência** ao lado da sua cadeia de **ligação primária/secundária** em Cosmos DB. Clicar neste botão irá copiar toda a sua cadeia de ligação para a sua área de transferência.
 
-    :::image type="content" source="./media/mongodb-compass/mongodb-connection-copy.png" alt-text="Screenshot da cópia para botão de prancheta":::
+    :::image type="content" source="./media/mongodb-compass/mongodb-connection-copy.png" alt-text="Screenshot da lâmina de corda de ligação":::
 
 3. Abrir a bússola no seu ambiente de trabalho/máquina e clicar em **Ligar** e, em seguida, **ligar a...**.
 
 4. A bússola detetará automaticamente uma cadeia de ligação na área de transferência e solicitará a pergunta se deseja utilizar isso para ligar. Clique em **Sim** como mostrado na imagem abaixo.
 
-    :::image type="content" source="./media/mongodb-compass/mongodb-compass-detect.png" alt-text="Screenshot da bússola pronta para ligar":::
+    :::image type="content" source="./media/mongodb-compass/mongodb-compass-detect.png" alt-text="Screenshot da lâmina de corda de ligação":::
 
 5. Ao clicar em **Sim** no passo acima, os seus dados a partir da cadeia de ligação serão automaticamente povoados. Remova o valor automaticamente povoado no campo **'set Name'** de réplica para garantir que fica em branco.
 
-    :::image type="content" source="./media/mongodb-compass/mongodb-compass-replica.png" alt-text="Screenshot da bússola pronta para ligar":::
+    :::image type="content" source="./media/mongodb-compass/mongodb-compass-replica.png" alt-text="Screenshot da lâmina de corda de ligação":::
 
 6. Clique em **Ligar** na parte inferior da página. A sua conta e bases de dados cosmos DB devem agora ser visíveis dentro da Bússola MongoDB.
 

@@ -1,5 +1,5 @@
 ---
-title: incluir ficheiro
+title: ficheiro de inclusão
 description: conectores suportados para atividade de procura
 services: data-factory
 author: linda33wj
@@ -9,10 +9,10 @@ ms.date: 09/24/2020
 ms.author: jingwang
 ms.custom: include file
 ms.openlocfilehash: f3678045eae269429909f7ba0e007e13d2b02bc6
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91422028"
 ---
 | Categoria | Arquivo de dados |
@@ -25,7 +25,7 @@ ms.locfileid: "91422028"
 | &nbsp; |[Azure Database for MariaDB](../articles/data-factory/connector-azure-database-for-mariadb.md) |
 | &nbsp; |[Base de Dados do Azure para MySQL](../articles/data-factory/connector-azure-database-for-mysql.md) |
 | &nbsp; |[Base de Dados do Azure para PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |
-| &nbsp; |[Lago Delta de Azure Databricks](../articles/data-factory/connector-azure-databricks-delta-lake.md) |
+| &nbsp; |[Delta Lake no Azure Databricks](../articles/data-factory/connector-azure-databricks-delta-lake.md) |
 | &nbsp; |[Ficheiros do Azure](../articles/data-factory/connector-azure-file-storage.md) |
 | &nbsp; |[Base de Dados SQL do Azure](../articles/data-factory/connector-azure-sql-database.md) |
 | &nbsp; |[Instância Gerida do SQL no Azure](../articles/azure-sql/managed-instance/sql-managed-instance-paas-overview.md) |

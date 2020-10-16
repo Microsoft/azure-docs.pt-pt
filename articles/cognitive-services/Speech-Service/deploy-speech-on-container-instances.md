@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: aahi
 ms.openlocfilehash: 5a85086ea8d969dc70f4cd24b25a00765da285eb
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89425811"
 ---
 # <a name="deploy-the-speech-service-container-to-azure-container-instances"></a>Desdobre o recipiente de serviço de fala para instâncias de contentores Azure

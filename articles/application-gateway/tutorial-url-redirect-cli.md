@@ -10,17 +10,17 @@ ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 66c725e8d6c28137db5c3220e0a6548714da0911
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88959600"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Tutorial:Criar um gateway de aplicação com o redirecionamento com base no caminho do URL, com a CLI do Azure
 
 Pode utilizar a CLI do Azure para configurar [regras de encaminhamento com base no caminho do URL](tutorial-url-route-cli.md) quando cria um [gateway de aplicação](application-gateway-introduction.md). Neste tutorial, você cria piscinas de backend usando [conjuntos de escala de máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Em seguida, vai criar regras de encaminhamento de URL que asseguram que o tráfego da Web é redirecionado para o conjunto de back-end adequado.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Configurar a rede

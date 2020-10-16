@@ -1,5 +1,5 @@
 ---
-title: Partilhar e receber dados do Azure Blob Storage e do Azure Data Lake Storage
+title: Partilhar e receber dados do Armazenamento de Blobs do Azure e do Azure Data Lake Storage
 description: Saiba como partilhar e receber dados do Azure Blob Storage e do Azure Data Lake Storage
 author: jifems
 ms.author: jife
@@ -7,13 +7,13 @@ ms.service: data-share
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.openlocfilehash: a54a9d4c50852fe78fd245723dd29f487d58f4b1
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89270253"
 ---
-# <a name="share-and-receive-data-from-azure-blob-storage-and-azure-data-lake-storage"></a>Partilhar e receber dados do Azure Blob Storage e do Azure Data Lake Storage
+# <a name="share-and-receive-data-from-azure-blob-storage-and-azure-data-lake-storage"></a>Partilhar e receber dados do Armazenamento de Blobs do Azure e do Azure Data Lake Storage
 
 [!INCLUDE[appliesto-storage](includes/appliesto-storage.md)]
 
@@ -34,8 +34,8 @@ Quando os sistemas de ficheiros, contentores ou pastas são partilhados na parti
 ### <a name="prerequisites-for-source-storage-account"></a>Pré-requisitos para a conta de armazenamento de fontes
 
 * Uma conta de Armazenamento Azure: Se ainda não tiver uma, pode criar uma [conta de Armazenamento Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* Permissão para escrever na conta de armazenamento, que está presente na *Microsoft.Storage/storageAccounts/write*. Esta permissão existe na função de Contribuinte.
-* Permissão para adicionar atribuição de funções à conta de armazenamento, que está presente na *Microsoft.Autorização/atribuições/escrita de funções.* Esta permissão existe na função Proprietário. 
+* Permissão para escrever na conta de armazenamento, que está presente na *Microsoft.Storage/storageAccounts/write*. Esta permissão existe na função de Contribuidor.
+* Permissão para adicionar atribuição de funções à conta de armazenamento, que está presente na *Microsoft.Autorização/atribuições/escrita de funções.* Esta permissão existe na função de Proprietário. 
 
 ### <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
@@ -58,7 +58,7 @@ Crie um recurso Azure Data Share num grupo de recursos Azure.
     | Subscrição | A sua subscrição | Selecione a subscrição Azure que pretende utilizar para a sua conta de partilha de dados.|
     | Grupo de recursos | *grupo de recursos de teste* | Utilize um grupo de recursos existente ou crie um novo grupo de recursos. |
     | Localização | *E.U.A. Leste 2* | Selecione uma região para a sua conta de partilha de dados.
-    | Name | *conta de datashare* | Especifique um nome para a sua conta de partilha de dados. |
+    | Nome | *conta de datashare* | Especifique um nome para a sua conta de partilha de dados. |
     | | |
 
 1. Selecione **Rever + criar**e, em seguida, **criar** para obter a sua conta de partilha de dados. O fornecimento de uma nova conta de partilha de dados normalmente demora cerca de 2 minutos ou menos. 
@@ -79,7 +79,7 @@ Crie um recurso Azure Data Share num grupo de recursos Azure.
 
     ![EnterShareDetails](./media/enter-share-details.png "Insira detalhes de partilha") 
 
-1. **Selecione Continuar**.
+1. Selecione **Continuar**.
 
 1. Para adicionar Conjuntos de Dados à sua parte, selecione **Adicionar Conjuntos de Dados**. 
 
@@ -97,7 +97,7 @@ Crie um recurso Azure Data Share num grupo de recursos Azure.
 
     ![AdicionarRecipients](./media/add-recipient.png "Adicionar destinatários") 
 
-1. **Selecione Continuar**.
+1. Selecione **Continuar**.
 
 1. Se tiver selecionado o tipo de partilha snapshot, pode configurar o calendário de instantâneos para fornecer atualizações dos seus dados ao seu consumidor de dados. 
 
@@ -105,7 +105,7 @@ Crie um recurso Azure Data Share num grupo de recursos Azure.
 
 1. Selecione um intervalo de tempo de início e recorrência. 
 
-1. **Selecione Continuar**.
+1. Selecione **Continuar**.
 
 1. No separador 'Rever + Criar', rever os conteúdos, definições, destinatários e definições de sincronização do pacote. Selecione **Criar**.
 
@@ -125,8 +125,8 @@ Certifique-se de que todos os pré-requisitos estão completos antes de aceitar 
 ### <a name="prerequisites-for-target-storage-account"></a>Pré-requisitos para a conta de armazenamento alvo
 
 * Uma conta de Armazenamento Azure: Se ainda não tiver uma, pode criar uma [conta de Armazenamento Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 
-* Permissão para escrever na conta de armazenamento, que está presente na *Microsoft.Storage/storageAccounts/write*. Esta permissão existe na função de Contribuinte. 
-* Permissão para adicionar atribuição de funções à conta de armazenamento, que está presente na *Microsoft.Autorização/atribuições/escrita de funções.* Esta permissão existe na função Proprietário.  
+* Permissão para escrever na conta de armazenamento, que está presente na *Microsoft.Storage/storageAccounts/write*. Esta permissão existe na função de Contribuidor. 
+* Permissão para adicionar atribuição de funções à conta de armazenamento, que está presente na *Microsoft.Autorização/atribuições/escrita de funções.* Esta permissão existe na função de Proprietário.  
 
 ### <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 

@@ -5,10 +5,10 @@ ms.date: 09/30/2020
 ms.topic: reference
 ms.custom: generated
 ms.openlocfilehash: 385ee96fa821b8d90ff529fecb52dbec9803dea2
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91740008"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Tabela de gráfico de recurso Azure e referência do tipo de recurso

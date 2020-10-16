@@ -12,10 +12,10 @@ ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: how-to
 ms.openlocfilehash: 116dd65bf04c01f513e196a2f1b37d54aacbf1fe
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91841361"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Conecte-se aos dados com o estúdio Azure Machine Learning

@@ -8,12 +8,12 @@ ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperfq1
-ms.openlocfilehash: 773c5f95cdbec6961b063720106794e6ec00451d
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: cb310861edc2ba1ee183bc6f996cb1593457e3c7
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299937"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972038"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introduction to Azure managed disks (Introdução aos discos geridos do Azure)
 
@@ -35,7 +35,7 @@ Utilizando discos geridos, pode criar até 50.000 **discos** VM de um tipo numa 
 
 ### <a name="integration-with-availability-sets"></a>Integração com conjuntos de disponibilidade
 
-Os discos geridos são integrados com conjuntos de disponibilidade para garantir que os discos de [VMs num conjunto](windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) de disponibilidade estão suficientemente isolados uns dos outros para evitar um único ponto de falha. Os discos são automaticamente colocados em diferentes unidades de escala de armazenamento (selos). Se um carimbo falhar devido a falha de hardware ou software, apenas as instâncias VM com discos nesses selos falham. Por exemplo, digamos que tem uma aplicação em execução em cinco VMs, e os VMs estão em um Conjunto de Disponibilidade. Os discos para esses VMs não serão todos armazenados no mesmo carimbo, por isso, se um carimbo cair, as outras instâncias da aplicação continuam a ser executadas.
+Os discos geridos são integrados com conjuntos de disponibilidade para garantir que os discos de [VMs num conjunto](./manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) de disponibilidade estão suficientemente isolados uns dos outros para evitar um único ponto de falha. Os discos são automaticamente colocados em diferentes unidades de escala de armazenamento (selos). Se um carimbo falhar devido a falha de hardware ou software, apenas as instâncias VM com discos nesses selos falham. Por exemplo, digamos que tem uma aplicação em execução em cinco VMs, e os VMs estão em um Conjunto de Disponibilidade. Os discos para esses VMs não serão todos armazenados no mesmo carimbo, por isso, se um carimbo cair, as outras instâncias da aplicação continuam a ser executadas.
 
 ### <a name="integration-with-availability-zones"></a>Integração com Zonas de Disponibilidade
 
@@ -47,7 +47,7 @@ Para proteger contra desastres regionais, [o Azure Backup](../backup/backup-over
 
 ### <a name="granular-access-control"></a>Controlo de acesso granular
 
-Pode utilizar [o controlo de acesso baseado em funções (Azure RBAC)](../role-based-access-control/overview.md) para atribuir permissões específicas para um disco gerido a um ou mais utilizadores. Os discos geridos expõem uma variedade de operações, incluindo ler, escrever (criar/atualizar), eliminar e recuperar uma [assinatura de acesso partilhado (SAS) URI](../storage/common/storage-dotnet-shared-access-signature-part-1.md) para o disco. Pode conceder acesso apenas às operações que uma pessoa precisa para desempenhar o seu trabalho. Por exemplo, se não quiser que uma pessoa copie um disco gerido para uma conta de armazenamento, pode optar por não conceder acesso à ação de exportação para esse disco gerido. Da mesma forma, se não quiser que uma pessoa utilize um SAS URI para copiar um disco gerido, pode optar por não conceder essa permissão ao disco gerido.
+Pode utilizar [o controlo de acesso baseado em funções (Azure RBAC)](../role-based-access-control/overview.md) para atribuir permissões específicas para um disco gerido a um ou mais utilizadores. Os discos geridos expõem uma variedade de operações, incluindo ler, escrever (criar/atualizar), eliminar e recuperar uma [assinatura de acesso partilhado (SAS) URI](../storage/common/storage-sas-overview.md) para o disco. Pode conceder acesso apenas às operações que uma pessoa precisa para desempenhar o seu trabalho. Por exemplo, se não quiser que uma pessoa copie um disco gerido para uma conta de armazenamento, pode optar por não conceder acesso à ação de exportação para esse disco gerido. Da mesma forma, se não quiser que uma pessoa utilize um SAS URI para copiar um disco gerido, pode optar por não conceder essa permissão ao disco gerido.
 
 ### <a name="upload-your-vhd"></a>Faça upload do seu vhd
 
@@ -96,7 +96,7 @@ Este disco tem uma capacidade máxima de 4.095 GiB.
 
 ### <a name="temporary-disk"></a>Disco temporário
 
-A maioria dos VMs contêm um disco temporário, que não é um disco gerido. O disco temporário fornece armazenamento de curto prazo para aplicações e processos, e destina-se apenas a armazenar dados como página ou ficheiros de troca. Os dados relativos ao disco temporário podem ser perdidos durante um [evento de manutenção](windows/manage-availability.md?toc=/azure/virtual-machines/windows/toc.json#understand-vm-reboots---maintenance-vs-downtime) ou quando se [recolocar um VM](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Durante um reboot padrão bem sucedido do VM, os dados sobre o disco temporário persistirão. Para obter mais informações sobre VMs sem discos temporários, consulte [os tamanhos Azure VM sem disco temporário local.](azure-vms-no-temp-disk.md)
+A maioria dos VMs contêm um disco temporário, que não é um disco gerido. O disco temporário fornece armazenamento de curto prazo para aplicações e processos, e destina-se apenas a armazenar dados como página ou ficheiros de troca. Os dados relativos ao disco temporário podem ser perdidos durante um [evento de manutenção](./manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json#understand-vm-reboots---maintenance-vs-downtime) ou quando se [recolocar um VM](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Durante um reboot padrão bem sucedido do VM, os dados sobre o disco temporário persistirão. Para obter mais informações sobre VMs sem discos temporários, consulte [os tamanhos Azure VM sem disco temporário local.](azure-vms-no-temp-disk.md)
 
 Nos VMs Azure Linux, o disco temporário é tipicamente /dev/sdb e no Windows VMs o disco temporário é D: por padrão. O disco temporário não é encriptado pela encriptação do lado do servidor, a menos que ative a encriptação no anfitrião.
 
@@ -104,7 +104,7 @@ Nos VMs Azure Linux, o disco temporário é tipicamente /dev/sdb e no Windows VM
 
 Um snapshot de disco gerido é uma cópia completa consistente apenas de leitura de um disco gerido que é armazenado como um disco gerido padrão por padrão. Com instantâneos, pode fazer o back up dos seus discos geridos a qualquer momento. Estes instantâneos existem independentemente do disco de origem e podem ser usados para criar novos discos geridos. 
 
-As imagens são faturadas com base no tamanho utilizado. Por exemplo, se criar uma imagem instantânea de um disco gerido com capacidade a provisionada de 64 GiB e tamanho real de dados usados de 10 GiB, esse instantâneo é faturado apenas para o tamanho de dados usado de 10 GiB. Pode ver o tamanho usado das suas fotos olhando para o relatório de utilização do [Azure.](https://docs.microsoft.com/azure/billing/billing-understand-your-bill) Por exemplo, se o tamanho dos dados usados de um instantâneo for de 10 GiB, o relatório de utilização **diário** mostrará 10 GiB/((31 dias) = 0,3226 como a quantidade consumida.
+As imagens são faturadas com base no tamanho utilizado. Por exemplo, se criar uma imagem instantânea de um disco gerido com capacidade a provisionada de 64 GiB e tamanho real de dados usados de 10 GiB, esse instantâneo é faturado apenas para o tamanho de dados usado de 10 GiB. Pode ver o tamanho usado das suas fotos olhando para o relatório de utilização do [Azure.](../cost-management-billing/understand/review-individual-bill.md) Por exemplo, se o tamanho dos dados usados de um instantâneo for de 10 GiB, o relatório de utilização **diário** mostrará 10 GiB/((31 dias) = 0,3226 como a quantidade consumida.
 
 Para saber mais sobre como criar instantâneos para discos geridos, consulte os seguintes recursos:
 
@@ -144,7 +144,7 @@ O Azure utiliza um canal de rede prioritário para o tráfego de discos, o que o
 
 Consulte o nosso design para artigo [de alto desempenho,](premium-storage-performance.md) para aprender as melhores práticas para otimizar as configurações de VM + Disco para que possa alcançar o desempenho desejado
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se quiser que um vídeo entre em mais detalhes sobre discos geridos, confira: [Melhor Resiliência VM Azure com Discos Geridos](https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency).
 

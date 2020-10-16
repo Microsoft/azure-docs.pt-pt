@@ -3,22 +3,31 @@ title: A azure funciona como manipulador de eventos para eventos Azure Event Gri
 description: Descreve como pode usar funções Azure como manipuladores de eventos para eventos de Grade de Eventos.
 ms.topic: conceptual
 ms.date: 09/18/2020
-ms.openlocfilehash: db06962c020eb954bf0c595e5a4019b1df774898
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: cd500eed180096388eede96f768f08b896ca6456
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629693"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873732"
 ---
 # <a name="azure-function-as-an-event-handler-for-event-grid-events"></a>A azure funciona como manipulador de eventos para eventos de Grade de Eventos
 
 Um manipulador de eventos é o local onde o evento é enviado. O manipulador toma uma ação para processar o evento. Vários serviços Azure são configurados automaticamente para lidar com eventos e **as Funções Azure** é um deles. 
 
-Use **funções Azure** numa arquitetura sem servidor para responder a eventos da Grade de Eventos. Quando utilizar uma função Azure como manipulador, utilize o gatilho 'Grelha de Evento' em vez do gatilho GENÉRICO HTTP. A Grelha de Eventos valida automaticamente os gatilhos da Grelha de Eventos. Com os gatilhos GENÉRICOS HTTP, tem de implementar a [resposta de validação](webhook-event-delivery.md) por si mesmo.
 
-Para obter mais informações, consulte [o gatilho da Grelha de Eventos para as Funções Azure](../azure-functions/functions-bindings-event-grid.md) para uma visão geral da utilização do gatilho da Grelha de Eventos em funções.
+Para utilizar uma função Azure como manipulador para eventos, siga uma destas abordagens: 
 
-## <a name="tutorials"></a>Tutorials (Tutoriais)
+-   Use o [gatilho da grelha de eventos](../azure-functions/functions-bindings-event-grid-trigger.md).  Especificar **a função Azure** como o **tipo ponto final**. Em seguida, especifique a aplicação de função Azure e a função que irá lidar com eventos. 
+-   Utilize [o gatilho HTTP](../azure-functions/functions-bindings-http-webhook.md).  Especifique o **Web Hook** como o **tipo de ponto final.** Em seguida, especifique o URL para a função Azure que irá lidar com eventos. 
+
+Recomendamos que utilize a primeira abordagem (detonador de Grade de Eventos), uma vez que tem as seguintes vantagens sobre a segunda abordagem:
+-   A Grelha de Eventos valida automaticamente os gatilhos da Grelha de Eventos. Com os gatilhos GENÉRICOS HTTP, tem de implementar a [resposta de validação](webhook-event-delivery.md) por si mesmo.
+-   A Grelha de Eventos ajusta automaticamente a taxa a que os eventos são entregues a uma função desencadeada por um evento de Grade de Eventos com base na taxa percebida a que a função pode processar eventos. Esta funcionalidade de correspondência de taxa evita erros de entrega que decorrem da incapacidade de uma função para processar eventos, uma vez que a taxa de processamento de eventos da função pode variar ao longo do tempo. Para melhorar a eficiência a uma produção elevada, ative o lote na subscrição do evento. Para obter mais informações, consulte [Ativar o lote .](#enable-batching)
+
+    > [!NOTE]
+    > Atualmente, não é possível utilizar um gatilho de Grade de Eventos para uma aplicação Azure Functions quando o evento é entregue no esquema do **CloudEvents.** Em vez disso, utilize um gatilho HTTP.
+
+## <a name="tutorials"></a>Tutoriais
 
 |Título  |Descrição  |
 |---------|---------|

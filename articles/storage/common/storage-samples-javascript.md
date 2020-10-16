@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-js
 ms.openlocfilehash: 208e06e9bd8fcf26674a11f79d2bd6878ca4f633
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331561"
 ---
 # <a name="azure-storage-samples-using-v12-javascript-client-libraries"></a>Amostras de armazenamento Azure usando bibliotecas de clientes v12 JavaScript
@@ -413,7 +413,7 @@ Para ver as bibliotecas completas da amostra JavaScript, vá a:
 
 Pode navegar e clonar o repositório GitHub para cada biblioteca.
 
-## <a name="getting-started-guides"></a>Começar guias
+## <a name="getting-started-guides"></a>Guias de introdução
 
 Consulte os seguintes guias se estiver à procura de instruções sobre como instalar e começar com as Bibliotecas do Cliente de Armazenamento Azure.
 

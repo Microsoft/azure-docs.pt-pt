@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 8f45a4de2e13f936556f8dd99aa107110edc6e91
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89077930"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Realizar operações no armazenamento de Filas do Azure com o Azure PowerShell
@@ -164,7 +164,7 @@ $queue.CloudQueue.DeleteMessageAsync($queueMessage.Result.Id,$queueMessage.Resul
 
 ## <a name="delete-a-queue"></a>Eliminar uma fila
 
-Para eliminar uma fila e todas as mensagens contidas nela, ligue para o cmdlet Remove-AzStorageQueue. O exemplo a seguir mostra como eliminar a fila específica utilizada neste exercício utilizando o cmdlet Remove-AzStorageQueue.
+Para eliminar uma fila e todas as mensagens contidas, ligue para o Remove-AzStorageQueue cmdlet. O exemplo a seguir mostra como eliminar a fila específica utilizada neste exercício utilizando o cmdlet Remove-AzStorageQueue.
 
 ```powershell
 # Delete the queue

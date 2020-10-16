@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 09/30/2020
 ms.custom: mvc
 ms.openlocfilehash: c41f6dbd3b85125ef290539040819ffa1833ef6f
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91629647"
 ---
 # <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>Tutorial: Atualizar o Kubernetes no Serviço Kubernetes do Azure (AKS)
@@ -23,7 +23,7 @@ Neste tutorial, parte sete de sete, é atualizado um cluster do Kubernetes. Saib
 > * Atualizar os nós do Kubernetes
 > * Validar uma atualização com êxito
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Em tutoriais anteriores, uma aplicação foi embalada numa imagem de contentor. Esta imagem foi enviada para o Registo de Contentores Azure, e você criou um cluster AKS. A aplicação foi então implantada no cluster AKS. Se não tiver feito estes passos, e gostaria de seguir em frente, comece com [Tutorial 1 – Crie imagens de contentores.][aks-tutorial-prepare-app]
 

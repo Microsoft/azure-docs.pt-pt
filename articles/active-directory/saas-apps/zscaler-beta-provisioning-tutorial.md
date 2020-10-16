@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 71b40fe903e5a837046b9b29f62ef4875e3139e5
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88545922"
 ---
 # <a name="tutorial-configure-zscaler-beta-for-automatic-user-provisioning"></a>Tutorial: Configurar Zscaler Beta para fornecimento automático de utilizadores
@@ -23,7 +23,7 @@ ms.locfileid: "88545922"
 O objetivo deste tutorial é demonstrar os passos a serem realizados no Zscaler Beta e no Azure Ative Directory (Azure AD) para configurar a Azure AD para fornecimento e desavisionamento automática de utilizadores e/ou grupos à Zscaler Beta.
 
 > [!NOTE]
-> Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte [automatizar o fornecimento e desprovisionamento de aplicações saaS com diretório Azure Ative.](../active-directory-saas-app-provisioning.md)
+> Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona e perguntas frequentes, veja [Automatizar o aprovisionamento e desaprovisionamento de utilizadores em aplicações SaaS no Azure Active Directory](../active-directory-saas-app-provisioning.md).
 >
 
 
@@ -85,17 +85,17 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) e selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Zscaler Beta**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **Zscaler Beta**.
 
     ![O link Beta Zscaler na lista de Aplicações](common/all-applications.png)
 
-3. Selecione o **separador Provisioning.**
+3. Selecione o separador **Aprovisionamento**.
 
     ![Provisão Beta Zscaler](./media/zscaler-beta-provisioning-tutorial/provisioning-tab.png)
 
-4. Desa ajuste o **modo de provisionamento** para **automático**.
+4. Defina o **Modo de Aprovisionamento** como **Automático**.
 
     ![Provisão Beta Zscaler](./media/zscaler-beta-provisioning-tutorial/provisioning-credentials.png)
 
@@ -109,7 +109,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![Provisão Beta Zscaler](./media/zscaler-beta-provisioning-tutorial/secret-token-2.png)
 
-    Selecione **Ativar o Provisionamento baseado em SCIM** para recuperar **o URL base** e o **token do portador**e, em seguida, guarde as definições. Copie o **URL base** para o URL **do inquilino,** e **o Bearer Token**  para **Secret Token** no portal Azure.
+    **Selecione Ative SCIM-Based Provisioning** para recuperar **o URL base** e **o Token do portador**e, em seguida, guarde as definições. Copie o **URL base** para o URL **do inquilino,** e **o Bearer Token**  para **Secret Token** no portal Azure.
 
 7. Ao povoar os campos mostrados no Passo 5, clique em **Test Connection** para garantir que a Azure AD pode ligar-se à Zscaler Beta. Se a ligação falhar, certifique-se de que a sua conta Beta Zscaler tem permissões de Administração e tente novamente.
 
@@ -137,7 +137,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![Provisão Beta Zscaler](./media/zscaler-beta-provisioning-tutorial/group-attribute-mappings.png)
 
-14. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro de escotagem](./../active-directory-saas-scoping-filters.md).
+14. Para configurar filtros de âmbito, veja as instruções seguintes disponibilizadas no [Tutorial de filtro de âmbito](./../active-directory-saas-scoping-filters.md).
 
 15. Para ativar o serviço de fornecimento de Ad Azure para Zscaler Beta, altere o **Estado de Provisionamento** para **On** na secção **Definições.**
 
@@ -147,7 +147,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![Provisão Beta Zscaler](./media/zscaler-beta-provisioning-tutorial/scoping.png)
 
-17. Quando estiver pronto para a provisão, clique em **Guardar**.
+17. Quando estiver pronto para aprovisionar, clique em **Guardar**.
 
     ![Provisão Beta Zscaler](./media/zscaler-beta-provisioning-tutorial/save-provisioning.png)
 
@@ -157,12 +157,12 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gestão do fornecimento de conta de utilizador para apps empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gerir o aprovisionamento de contas de utilizador para Aplicações Empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../active-directory-saas-provisioning-reporting.md)
+* [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../active-directory-saas-provisioning-reporting.md)
 
 <!--Image references-->
 [1]: ./media/zscaler-beta-provisioning-tutorial/tutorial-general-01.png

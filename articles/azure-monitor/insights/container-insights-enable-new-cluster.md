@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.custom: devx-track-terraform
 ms.openlocfilehash: 7706df4f457167f5bb4d17f1d506594615364380
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87320328"
 ---
 # <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>Permitir a monitorização de um novo cluster Azure Kubernetes Service (AKS)
@@ -20,7 +20,7 @@ Pode ativar a monitorização de um cluster AKS utilizando um dos métodos supor
 * CLI do Azure
 * Terraform
 
-## <a name="enable-using-azure-cli"></a>Ativar a utilização do CLI Azure
+## <a name="enable-using-azure-cli"></a>Ativar através do CLI do Azure
 
 Para permitir a monitorização de um novo cluster AKS criado com O Azure CLI, siga o passo no artigo de arranque rápido na secção [Criar cluster AKS](../../aks/kubernetes-walkthrough.md#create-aks-cluster).  
 

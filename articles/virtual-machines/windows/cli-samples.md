@@ -9,10 +9,10 @@ ms.date: 03/01/2019
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 6c4b707a3cebc1bcdad7c9e14a96d82a8dda2371
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89318799"
 ---
 # <a name="azure-cli-samples-for-windows-virtual-machines"></a>Exemplos da CLI do Azure para máquinas virtuais do Windows

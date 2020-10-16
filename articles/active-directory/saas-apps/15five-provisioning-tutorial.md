@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
 ms.openlocfilehash: c26a581df7ac10777687bf268027eb94862605b1
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91850137"
 ---
 # <a name="tutorial-configure-15five-for-automatic-user-provisioning"></a>Tutorial: Configurar 15Five para fornecimento automático de utilizadores
@@ -127,9 +127,9 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
    |name.familyName|String|
    |externalId|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Referência|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
-   |urn:ietf:params:scim:schemas:extensão:15Five:2.0:Utilizador:localização|String|
-   |urn:ietf:params:scim:schemas:extensão:15Five:2.0:User:startDate|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|Cadeia|
+   |urn:ietf:params:scim:schemas:extensão:15Five:2.0:Utilizador:localização|Cadeia|
+   |urn:ietf:params:scim:schemas:extensão:15Five:2.0:User:startDate|Cadeia|
 
 10. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Groups a 15Five**.
 

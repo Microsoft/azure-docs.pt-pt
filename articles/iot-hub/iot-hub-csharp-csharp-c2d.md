@@ -16,10 +16,10 @@ ms.custom:
 - 'Role: IoT Device'
 - devx-track-csharp
 ms.openlocfilehash: ff6153abb3e930e3268ed7768e4ab44c9b5824cc
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91449563"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Envie mensagens da nuvem para o seu dispositivo com IoT Hub (.NET)
@@ -224,7 +224,7 @@ Nesta secção, modifica a aplicação **SendCloudToDevice** para solicitar feed
 > Para simplificar, este tutorial não implementa nenhuma política de retenção. No código de produção, deve implementar políticas de repetição, tais como o backoff exponencial, tal como sugerido no [tratamento de falhas transitórias](/azure/architecture/best-practices/transient-faults).
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste modo de como, aprendeu a enviar e a receber mensagens cloud-to-device.
 

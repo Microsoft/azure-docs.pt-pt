@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: alkohli
 ms.openlocfilehash: 337c0c4434eb768ee45429d9b2d23536db4c3fc7
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91575457"
 ---
 # <a name="update-your-azure-data-box-gateway"></a>Atualize o seu Gateway de Caixa de Dados Azure
@@ -63,7 +63,7 @@ Recomendamos que instale atualizações através do portal Azure. O dispositivo 
 
     ![Screenshot da página inicial da Caixa de Dados de Edge da Pilha de Azure com a opção Overview e o banner de notificação de atualizações descarregadas chamados.](./media/data-box-gateway-apply-updates/portal-apply-update-10a.png)
 
-    Se optar por descarregar apenas atualizações, selecione a notificação para abrir a lâmina **de atualizações** do Dispositivo. Selecione **Install** (Instalar).
+    Se optar por descarregar apenas atualizações, selecione a notificação para abrir a lâmina **de atualizações** do Dispositivo. Selecione **Instalar**.
   
     ![A screenshot do dispositivo atualiza a caixa de diálogo com a opção de instalação chamada.](./media/data-box-gateway-apply-updates/portal-apply-update-11a.png)
 

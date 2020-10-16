@@ -9,12 +9,12 @@ ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4c44ad91b4fb8581a67ea67e09faca4a9d96df91
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 10ed546e8f05f4a93e4523c7870f79d41aa1f622
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447766"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045997"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Criar e providenciar um dispositivo IoT Edge utilizando atestado de chave simétrica
 
@@ -26,7 +26,7 @@ Este artigo mostra-lhe como criar uma inscrição individual do Serviço de Prov
 * Crie uma inscrição individual para o dispositivo.
 * Instale o tempo de funcionação do IoT Edge e ligue-o ao Hub IoT.
 
-A tecla de teclas simétricas é uma abordagem simples para autenticar um dispositivo com uma instância de Serviço de Provisionamento de Dispositivos. Este método de atestado representa uma experiência "Hello world" para desenvolvedores que são novos no fornecimento de dispositivos, ou não têm requisitos de segurança rigorosos. O atestado do dispositivo utilizando certificados [TPM](../iot-dps/concepts-tpm-attestation.md) ou [X.509](../iot-dps/concepts-security.md#x509-certificates) é mais seguro e deve ser utilizado para requisitos de segurança mais rigorosos.
+A tecla de teclas simétricas é uma abordagem simples para autenticar um dispositivo com uma instância de Serviço de Provisionamento de Dispositivos. Este método de atestado representa uma experiência "Hello world" para desenvolvedores que são novos no fornecimento de dispositivos, ou não têm requisitos de segurança rigorosos. O atestado do dispositivo utilizando certificados [TPM](../iot-dps/concepts-tpm-attestation.md) ou [X.509](../iot-dps/concepts-x509-attestation.md) é mais seguro e deve ser utilizado para requisitos de segurança mais rigorosos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -152,11 +152,17 @@ echo "`n$derivedkey`n"
 Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 ```
 
-## <a name="install-the-iot-edge-runtime"></a>Instale o tempo de execução IoT Edge
+## <a name="install-the-iot-edge-runtime"></a>Instalar o runtime do IoT Edge
 
 O runtime do IoT Edge é implementado em todos os dispositivos do IoT Edge. Os seus componentes funcionam em contentores e permitem-lhe colocar recipientes adicionais no dispositivo para que possa executar código na borda.
 
-Necessitará das seguintes informações ao providenciar o seu dispositivo:
+Siga os passos no [Instale o tempo de execução Azure IoT Edge](how-to-install-iot-edge.md)e, em seguida, volte a este artigo para disposir o dispositivo.
+
+## <a name="configure-the-device-with-provisioning-information"></a>Configure o dispositivo com informações de provisionamento
+
+Uma vez instalado o tempo de funcionamento no seu dispositivo, configuure o dispositivo com as informações que utiliza para ligar ao Serviço de Provisionamento de Dispositivos e ao IoT Hub.
+
+Tenha as seguintes informações prontas:
 
 * O valor do **ID Scope** DPS
 * O **ID de registo do** dispositivo que criou
@@ -167,50 +173,49 @@ Necessitará das seguintes informações ao providenciar o seu dispositivo:
 
 ### <a name="linux-device"></a>Dispositivo Linux
 
-Siga as instruções para a arquitetura do seu dispositivo. Certifique-se de configurar o tempo de funcionamento IoT Edge para o provisionamento automático e não manual.
+1. Abra o ficheiro de configuração no dispositivo IoT Edge.
 
-[Instale o tempo de execução Azure IoT Edge no Linux](how-to-install-iot-edge-linux.md)
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
 
-A secção no ficheiro de configuração para o provisionamento de chaves simétricas é a seguinte:
+1. Encontre a secção de configurações de provisionamento do ficheiro. Descompromecer as linhas para o provisionamento de chaves simétricas DPS e certificar-se de que quaisquer outras linhas de provisionamento são comentadas.
 
-```yaml
-# DPS symmetric key provisioning configuration
-provisioning:
-   source: "dps"
-   global_endpoint: "https://global.azure-devices-provisioning.net"
-   scope_id: "<SCOPE_ID>"
-   attestation:
-      method: "symmetric_key"
-      registration_id: "<REGISTRATION_ID>"
-      symmetric_key: "<SYMMETRIC_KEY>"
-```
+   A `provisioning:` linha não deve ter espaço branco anterior, e os itens aninhados devem ser recortados por dois espaços.
 
-Substitua os valores de espaço reservado para `<SCOPE_ID>` `<REGISTRATION_ID>` , e pelos `<SYMMETRIC_KEY>` dados recolhidos anteriormente. Certifique-se de que o **provisionamento: a** linha não tem espaço branco anterior e que os itens aninhados são recortados por dois espaços.
+   ```yml
+   # DPS TPM provisioning configuration
+   provisioning:
+     source: "dps"
+     global_endpoint: "https://global.azure-devices-provisioning.net"
+     scope_id: "<SCOPE_ID>"
+     attestation:
+       method: "symmetric_key"
+       registration_id: "<REGISTRATION_ID>"
+       symmetric_key: "<SYMMETRIC_KEY>"
+   ```
+
+1. Atualize os valores de `scope_id` , e com as `registration_id` `symmetric_key` informações do seu DPS e dispositivo.
+
+1. Reinicie o tempo de funcionamento do IoT Edge de modo a que detete todas as alterações de configuração que fez no dispositivo.
+
+   ```bash
+   sudo systemctl restart iotedge
+   ```
 
 ### <a name="windows-device"></a>Dispositivo Windows
 
-Instale o tempo de funcionaamento do IoT Edge no dispositivo para o qual gerou uma chave de dispositivo derivada. Irá configurar o tempo de funcionamento do IoT Edge para o fornecimento automático, não manual.
-
-Para obter informações mais detalhadas sobre a instalação do IoT Edge no Windows, incluindo pré-requisitos e instruções para tarefas como gerir contentores e atualizar o IoT Edge, consulte [instalar o tempo de execução do IoT Edge Azure no Windows](how-to-install-iot-edge-windows.md).
-
 1. Abra uma janela PowerShell no modo de administrador. Certifique-se de que utiliza uma sessão AMD64 de PowerShell ao instalar ioT Edge, não PowerShell (x86).
 
-1. O comando **Deploy-IoTEdge** verifica se a sua máquina Do Windows está numa versão suportada, liga a funcionalidade de contentores e, em seguida, descarrega o tempo de execução moby e o tempo de execução IoT Edge. O comando não permite a utilização de recipientes Windows.
-
-   ```powershell
-   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Deploy-IoTEdge
-   ```
-
-1. Neste ponto, os dispositivos IoT Core podem reiniciar automaticamente. Outros dispositivos Windows 10 ou Windows Server podem pedir-lhe para reiniciar. Em caso afirmativo, reinicie já o seu dispositivo. Assim que o seu dispositivo estiver pronto, volte a executar o PowerShell como administrador.
-
-1. O comando **Initialize-IoTEdge** configura o tempo de funcionamento do IoT Edge na sua máquina. O comando não permite o fornecimento manual com recipientes Windows, a menos que utilize a bandeira para utilizar o `-Dps` provisionamento automático.
+1. O comando **Initialize-IoTEdge** configura o tempo de funcionamento do IoT Edge na sua máquina. O comando predefine o fornecimento manual com recipientes Windows, por isso utilize a bandeira para utilizar o `-DpsSymmetricKey` provisionamento automático com autenticação de chave simétrica.
 
    Substitua os valores de espaço reservado para `{scope_id}` `{registration_id}` , e pelos `{symmetric_key}` dados recolhidos anteriormente.
 
+   Adicione o `-ContainerOs Linux` parâmetro se estiver a utilizar recipientes Linux no Windows.
+
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID} -SymmetricKey {symmetric key}
+   Initialize-IoTEdge -DpsSymmetricKey -ScopeId {scope ID} -RegistrationId {registration ID} -SymmetricKey {symmetric key}
    ```
 
 ## <a name="verify-successful-installation"></a>Verifique a instalação bem sucedida
@@ -259,6 +264,6 @@ iotedge list
 
 Pode verificar se foi utilizada a inscrição individual que criou no Serviço de Provisionamento de Dispositivos. Navegue para a sua instância de Serviço de Provisionamento de Dispositivos no portal Azure. Abra os detalhes das inscrições para a inscrição individual que criou. Note que o estado da inscrição é **atribuído** e o ID do dispositivo está listado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 O processo de inscrição do Serviço de Provisionamento de Dispositivos permite-lhe definir o ID do dispositivo e as etiquetas gémeas do dispositivo ao mesmo tempo que fornece o novo dispositivo. Pode utilizar esses valores para direcionar dispositivos individuais ou grupos de dispositivos utilizando a gestão automática do dispositivo. Aprenda a [implementar e monitorizar os módulos IoT Edge em escala utilizando o portal Azure](how-to-deploy-at-scale.md) ou utilizando o [Azure CLI](how-to-deploy-cli-at-scale.md).

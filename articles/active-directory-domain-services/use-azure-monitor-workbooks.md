@@ -1,20 +1,20 @@
 ---
 title: Utilize livros de trabalho do Monitor Azure com serviços de domínio Azure AD / Microsoft Docs
 description: Saiba como usar os livros de trabalho do Monitor Azure para rever as auditorias de segurança e compreender problemas num domínio gerido por Serviços de Domínio do Diretório Ativo Azure.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: iainfou
-ms.openlocfilehash: 280b7e051c4c9d87c504c1abf6aca0b04bfa1b29
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.author: joflore
+ms.openlocfilehash: 02c4679016ea80a4ac8bb53b502292945cbe9d7b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91704604"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967074"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Rever eventos de auditoria de segurança em Azure Ative Directory Domain Services usando livros de trabalho do Azure Monitor
 
@@ -22,7 +22,7 @@ Para ajudá-lo a compreender o estado do seu domínio gerido Azure Ative Directo
 
 Este artigo mostra-lhe como usar os Livros de Trabalho do Monitor Azure para rever eventos de auditoria de segurança em Azure AD DS.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Para completar este artigo, precisa dos seguintes recursos e privilégios:
 
@@ -108,7 +108,7 @@ Os dois livros de modelo fornecidos pela Azure AD DS são um bom lugar para come
 
 Todos os gráficos e tabelas em Azure Monitor Workbooks são gerados usando consultas kusto. Para obter mais informações sobre a criação das suas próprias consultas, consulte [as consultas de registo do Azure Monitor][azure-monitor-queries] e o tutorial de consultas de [Kusto.][kusto-queries]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Se precisar de ajustar as políticas de senha e bloqueio, consulte [as políticas de bloqueio de passwords e de conta em domínios geridos][password-policy].
 

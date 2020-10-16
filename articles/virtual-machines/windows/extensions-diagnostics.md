@@ -10,10 +10,10 @@ ms.date: 04/06/2018
 ms.author: johnkem
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: c981214c69653b3a4a687a861cb348f3587def7c
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89078763"
 ---
 # <a name="azure-diagnostics-extension-for-windows-vms"></a>Extensão de diagnóstico Azure para VMs windows
@@ -73,7 +73,7 @@ Set-AzVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup `
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e apoio
 
-### <a name="troubleshoot"></a>Resolver Problemas
+### <a name="troubleshoot"></a>Resolução de problemas
 
 Os dados sobre o estado das extensões podem ser recuperados a partir do portal Azure e utilizando o CLI Azure. Para ver o estado de implantação das extensões para um determinado VM, executar o seguinte comando utilizando o Azure CLI.
 

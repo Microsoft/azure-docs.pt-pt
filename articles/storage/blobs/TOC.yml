@@ -582,10 +582,10 @@
               href: ../common/storage-explorer-support-policy-lifecycle.md
             - name: Acessibilidade do Explorador de Armazenamento
               href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Armazenamento do Azure no Microsoft Q&A
+        - name: Armazenamento de Blobs no Microsoft Q&A
           href: 'https://docs.microsoft.com/answers/topics/azure-blob-storage.html'
-        - name: Armazenamento do Azure no Stack Overflow
-          href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
+        - name: Armazenamento de Blobs no Stack Overflow
+          href: 'https://stackoverflow.com/questions/tagged/azure-blob-storage'
         - name: Preços dos blobs de blocos
           href: 'https://azure.microsoft.com/pricing/details/storage/blobs/'
         - name: Preços dos blobs de páginas

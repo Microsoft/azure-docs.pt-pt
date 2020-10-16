@@ -11,10 +11,10 @@ ms.date: 06/17/2020
 ms.author: tamram
 ms.custom: security-recommendations
 ms.openlocfilehash: bd50a007b73438a5776cf6ecdb1074dc9980c537
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91713716"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Recomendações de segurança para armazenamento blob
@@ -67,7 +67,7 @@ O Azure Security Center analisa periodicamente o estado de segurança dos seus r
 |-|----|--|
 | Acompanhe como os pedidos são autorizados | Habilitar o registo de armazenamento Azure para acompanhar como cada pedido feito contra o Azure Storage foi autorizado. Os registos indicam se um pedido foi feito de forma anónima, utilizando um token OAuth 2.0, utilizando a Chave Partilhada, ou utilizando uma assinatura de acesso partilhado (SAS). Para obter mais informações, consulte [o registo de análises a Azure Storage.](../common/storage-analytics-logging.md) | - |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - [Documentação de segurança do Azure](https://docs.microsoft.com//azure/security/)
 - [Documentação de desenvolvimento segura.](https://docs.microsoft.com/azure/security/develop/)

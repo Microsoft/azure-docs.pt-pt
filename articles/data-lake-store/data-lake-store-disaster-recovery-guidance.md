@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: twooley
 ms.openlocfilehash: fe5940083d04c1b5cc60b21834adf609e523e059
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91666250"
 ---
 # <a name="high-availability-and-disaster-recovery-guidance-for-data-lake-storage-gen1"></a>Alta disponibilidade e orientação de recuperação de desastres para data lake storage gen1
@@ -38,7 +38,7 @@ Para evitar a eliminação acidental, recomendamos que desementasse as política
 
 Também pode permitir [o registo de diagnóstico](data-lake-store-diagnostic-logs.md) de uma conta gen1 de armazenamento de dados para recolher pistas de auditoria de acesso a dados. Os rastos de auditoria fornecem informações sobre quem poderia ter apagado ou atualizado um ficheiro.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 * [Começar com data lake storage gen1](data-lake-store-get-started-portal.md)
 * [Proteger dados no Armazenamento do Data Lake Ger1](data-lake-store-secure-data.md)

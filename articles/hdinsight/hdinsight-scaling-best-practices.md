@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
 ms.openlocfilehash: 44cfc5b651bdd5dc0d7abee575bd964ad0b603d0
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89505017"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Clusters Azure HDInsight
@@ -152,7 +152,7 @@ Por exemplo:
 yarn application -kill "application_1499348398273_0003"
 ```
 
-### <a name="getting-stuck-in-safe-mode"></a>Ficar preso em modo de segurança
+### <a name="getting-stuck-in-safe-mode"></a>Bloqueado no modo seguro
 
 Quando se reduz um cluster, o HDInsight utiliza interfaces de gestão Apache Ambari para primeiro desativar os nós de trabalhador extra. Os nós replicam os seus blocos HDFS a outros nós de trabalhadores online. Depois disso, o HDInsight escala o cluster com segurança para baixo. O HDFS entra em modo de segurança durante a operação de escala. O HDFS deve sair assim que o escalonamento estiver terminado. Em alguns casos, no entanto, o HDFS fica preso em modo de segurança durante uma operação de escala devido à sub-replicação do bloco de ficheiros.
 
@@ -268,7 +268,7 @@ Os servidores da região são automaticamente equilibrados dentro de poucos minu
     balancer
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Dimensionar automaticamente os clusters do Azure HDInsight](hdinsight-autoscale-clusters.md)
 

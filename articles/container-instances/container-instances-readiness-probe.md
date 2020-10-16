@@ -4,10 +4,10 @@ description: Saiba como configurar uma sonda para garantir que os contentores em
 ms.topic: article
 ms.date: 07/02/2020
 ms.openlocfilehash: 3e89086d66f284df35e36dc8f1d68bb09264843f
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86169668"
 ---
 # <a name="configure-readiness-probes"></a>Configurar pesquisas readiness

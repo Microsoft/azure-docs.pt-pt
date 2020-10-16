@@ -15,10 +15,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f9696d48db7d051f3a8bdf16f93438fb71f025dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84760053"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Aplicação Proxy e Qlik Sense 
@@ -64,7 +64,7 @@ Para obter mais informações sobre a publicação do Qlik Sense com Application
 - [Azure AD com autenticação integrada do Windows usando uma delegação restrita kerberos com Qlik Sense](https://community.qlik.com/docs/DOC-20183)
 - [Integração Qlik Sense com Proxy de Aplicação AD AZure](https://community.qlik.com/t5/Technology-Partners-Ecosystem/Azure-AD-Application-Proxy/ta-p/1528396)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Publicar aplicações com o Proxy da Aplicação](application-proxy-add-on-premises-application.md)
 - [Trabalhar com conectores proxy de aplicação](application-proxy-connector-groups.md)

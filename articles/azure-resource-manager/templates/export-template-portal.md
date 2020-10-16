@@ -3,12 +3,12 @@ title: Modelo de exportação no portal Azure
 description: Utilize o portal Azure para exportar um modelo de Gestor de Recursos Azure a partir de recursos na sua subscrição.
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 0262517df11f0d91920fd7e44f96ff532ffbe63f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 6d0c9adb121372047336d2753df047f54f1e0fa2
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423240"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951762"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Exportação única e multi-recursos para um modelo no portal Azure
 
@@ -49,13 +49,15 @@ Exporte o modelo antes da implantação ou da história, quando:
 
 Ao exportar de um grupo de recursos ou recurso, o modelo exportado é gerado a partir dos [esquemas publicados](https://github.com/Azure/azure-resource-manager-schemas/tree/master/schemas) para cada tipo de recurso. Ocasionalmente, o esquema não tem a versão mais recente para um tipo de recurso. Verifique o seu modelo exportado para se certificar de que inclui as propriedades necessárias. Se necessário, edite o modelo exportado para utilizar a versão API de que necessita.
 
-A funcionalidade do modelo de exportação não suporta a exportação de recursos da Azure Data Factory. Para saber como pode exportar recursos da Data Factory, consulte [Copy ou clone uma fábrica de dados na Azure Data Factory.](https://aka.ms/exportTemplateViaAdf)
+A funcionalidade do modelo de exportação não suporta a exportação de recursos da Azure Data Factory. Para saber como pode exportar recursos da Data Factory, consulte [Copy ou clone uma fábrica de dados na Azure Data Factory.](../../data-factory/copy-clone-data-factory.md)
 
-Para exportar recursos criados através de um modelo de implementação clássico, deve [migrar para o modelo de implementação do Gestor de Recursos.](https://aka.ms/migrateclassicresourcetoarm)
+Para exportar recursos criados através de um modelo de implementação clássico, deve [migrar para o modelo de implementação do Gestor de Recursos.](../../virtual-machines/windows/migration-classic-resource-manager-overview.md)
 
 Se receber um aviso ao exportar um modelo que indique que um tipo de recurso não foi exportado, ainda pode descobrir as propriedades desse recurso. Para saber mais sobre as diferentes opções para visualizar propriedades de recursos, consulte [as propriedades de recursos Discover.](view-resources.md) Também pode olhar para a [API Azure REST](/rest/api/azure/) para o tipo de recurso.
 
-## <a name="export-template-from-a-resource-group"></a>Modelo de exportação de um grupo de recursos
+Há um limite de 200 recursos no grupo de recursos para o qual se cria o modelo exportado. Se tentar exportar um grupo de recursos com mais de 200 recursos, a mensagem de erro `Export template is not supported for resource groups more than 200 resources` é mostrada.
+
+## <a name="export-template-from-a-resource-group"></a>Exportar modelo a partir de um grupo de recursos
 
 Exportar um ou mais recursos de um grupo de recursos:
 
@@ -119,7 +121,7 @@ Pode exportar o modelo que foi usado para implantar recursos existentes. O model
 
    ![Selecionar modelo](./media/export-template-portal/show-template-from-history.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como exportar modelos com [Azure CLI,](../management/manage-resource-groups-cli.md#export-resource-groups-to-templates) [Azure PowerShell,](../management/manage-resource-groups-powershell.md#export-resource-groups-to-templates)ou [REST API](/rest/api/resources/resourcegroups/exporttemplate).
 - Para aprender a sintaxe do modelo do Gestor de Recursos, consulte [compreender a estrutura e a sintaxe dos modelos do Gestor de Recursos Azure](template-syntax.md).

@@ -4,10 +4,10 @@ description: Saiba como o Azure Service Bus suporta o Protocolo avançado de Fil
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: c91c7965b94216f3f3bcb47e0cb652ce22a0217a
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88066343"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Suporte AMQP 1.0 em Service Bus
@@ -60,12 +60,12 @@ A seguinte figura ilustra uma implementação de exemplo em que os clientes java
 
 Neste momento, as seguintes bibliotecas de clientes são conhecidas por trabalhar com a Service Bus:
 
-| Linguagem | Biblioteca |
+| Idioma | Biblioteca |
 | --- | --- |
 | Java |Cliente do Serviço de Mensagens Apache Qpid Java (JMS)<br/>Cliente do IIT Software SwiftMQ Java |
 | C |Apache Qpid Protão-C |
 | PHP |Apache Qpid Proton-PHP |
-| Python |Apache Qpid Proton-Python |
+| Python |Proton-Python Apache Qpid |
 | C# |AMQP .NET Lite |
 
 **Figura 2: Tabela de bibliotecas de clientes AMQP 1.0**

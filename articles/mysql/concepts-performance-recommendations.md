@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/3/2020
 ms.openlocfilehash: 6f41863f45bdc90cb9fe589ba0a5011dea84a67c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84485214"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mysql"></a>Performance Recommendations in Azure Database for MySQL (Recomendações de desempenho na Base de Dados do Azure para MySQL)
@@ -33,9 +33,9 @@ A funcionalidade [Recomendações de Desempenho](concepts-performance-recommenda
 
 Selecione **Analisar** e escolher uma base de dados, que começará a análise. Dependendo da sua carga de trabalho, a análise pode demorar vários minutos a ser concluída. Quando a análise estiver concluída, será apresentada uma notificação no portal. A análise faz um exame profundo da sua base de dados. Recomendamos que efetue análises durante períodos fora do pico.
 
-A janela **de recomendações** apresentará uma lista de recomendações se alguma for encontrada e o ID de consulta relacionado que gerou esta recomendação. Com o ID de consulta, você pode usar a visão [mysql.query_store](concepts-query-store.md#mysqlquery_store) para saber mais sobre a consulta.
+A janela **de recomendações** apresentará uma lista de recomendações se alguma for encontrada e o ID de consulta relacionado que gerou esta recomendação. Com o ID de consulta, você pode usar a vista [mysql.query_store](concepts-query-store.md#mysqlquery_store) para saber mais sobre a consulta.
 
-:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="Nova página de recomendações de desempenho":::
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="Página de destino das Recomendações de Desempenho":::
 
 As recomendações não são aplicadas automaticamente. Para aplicar a recomendação, copie o texto de consulta e execute-o a partir do seu cliente de eleição. Lembre-se de testar e monitorizar para avaliar a recomendação.
 
@@ -49,5 +49,5 @@ As recomendações não são aplicadas automaticamente. Para aplicar a recomenda
 
 Recomendações de consulta sugerem otimizações e reescritas para consultas na carga de trabalho. Ao identificar os anti-padrões de consulta mySQL e fixá-los sintactamente, o desempenho de consultas demoradas pode ser melhorado. Este tipo de recomendação requer que a Loja de Consultas seja ativada. A Consulta Store recolhe informações de consulta e fornece as estatísticas detalhadas de tempo de consulta e frequência que a análise utiliza para fazer a recomendação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [monitorização e afinação](concepts-monitoring.md) na Base de Dados Azure para o MySQL.

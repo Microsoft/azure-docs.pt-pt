@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: e6cfbef3751a7b4256f689af0e5b3524ae6fa878
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88037461"
 ---
 # <a name="extended-geojson-geometries"></a>Geometrias geoJSON estendidas
@@ -47,7 +47,7 @@ Uma `Circle` geometria representada através do `GeoJSON Feature` objeto __deve_
 
     O círculo `radius` é representado usando `GeoJSON Feature` as propriedades. O valor do raio está nos _metros_ e deve ser do tipo `double` .
 
-- SubtiType
+- Subtipo
 
     A geometria do círculo também deve conter a `subType` propriedade. Esta propriedade deve fazer parte das propriedades e seu `GeoJSON Feature` valor deve ser _Circle_
 
@@ -79,7 +79,7 @@ Uma `Rectangle` geometria representada através do `GeoJSON Polygon Feature` obj
 
     Os cantos do retângulo são representados usando as coordenadas de um `GeoJSON Polygon` objeto. Deve haver cinco coordenadas, uma para cada canto. E uma quinta coordenada que é a mesma que a primeira coordenada. Será assumido que estas coordenadas se alinham, e que o desenvolvedor pode rodá-las como desejado.
 
-- SubtiType
+- Subtipo
 
     A geometria do retângulo também deve conter a `subType` propriedade. Esta propriedade deve ser uma parte das `GeoJSON Feature` propriedades, e seu valor deve ser _Retângulo_
 

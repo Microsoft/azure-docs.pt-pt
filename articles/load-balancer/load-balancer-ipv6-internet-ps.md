@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
 ms.openlocfilehash: 43203a756bcb42c7d00de9c11e9223f1d8b9e2a8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87001592"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>Começar a criar um equilibrador de carga virado para a Internet com o IPv6 usando o PowerShell para Gestor de Recursos
@@ -112,7 +112,7 @@ Certifique-se de que tem a mais recente versão de produção do módulo Azure R
     > [!IMPORTANT]
     > O equilibrador de carga utiliza o rótulo de domínio do IP público como prefixo para o seu FQDN. Neste exemplo, as FQDNs são *lbnrpipv4.westus.cloudapp.azure.com* e *lbnrpipv6.westus.cloudapp.azure.com.*
 
-## <a name="create-a-front-end-ip-configurations-and-a-back-end-address-pool"></a>Crie configurações IP front-end e um pool de endereços back-end
+## <a name="create-a-front-end-ip-configurations-and-a-back-end-address-pool"></a>Crie configurações IP Front-End e um Pool de Endereços Back-End
 
 1. Crie uma configuração de endereço frontal que utilize os endereços IP públicos criados.
 

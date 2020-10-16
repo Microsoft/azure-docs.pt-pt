@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/15/2019
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
-ms.openlocfilehash: 37859a8571355dcd61175d7b1b4d9888e058bf3a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e8f60a3f39e770c1b09668a6d76e025b07ebbd6d
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91612902"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893514"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Início Rápido: Iniciar sessão dos utilizadores e chamar a Microsoft Graph API a partir de uma aplicação Android
 
@@ -111,7 +111,7 @@ Vamos agora analisar estes ficheiros com mais detalhes e chamar o código espec�
 MSAL[(com.microsoft.identity.client)](https://javadoc.io/doc/com.microsoft.identity.client/msal)é a biblioteca utilizada para assinar nos utilizadores e solicitar fichas usadas para aceder a uma API protegida pela plataforma de identidade Microsoft. Gradle 3.0+ instala a biblioteca quando adiciona o seguinte a **Gradle Scripts**  >  **build.gradle (Módulo: app)** em **Dependências**:
 
 ```gradle
-implementation 'com.microsoft.identity.client:msal:1.+'
+implementation 'com.microsoft.identity.client:msal:2.+'
 ```
 
 Pode ver isso no projeto de amostra em build.gradle (Módulo: app):
@@ -119,7 +119,7 @@ Pode ver isso no projeto de amostra em build.gradle (Módulo: app):
 ```java
 dependencies {
     ...
-    implementation 'com.microsoft.identity.client:msal:1.+'
+    implementation 'com.microsoft.identity.client:msal:2.+'
     ...
 }
 ```

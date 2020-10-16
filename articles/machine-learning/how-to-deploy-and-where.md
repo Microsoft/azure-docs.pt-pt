@@ -10,13 +10,13 @@ author: gvashishtha
 ms.reviewer: larryfr
 ms.date: 09/17/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a9b8a2c2454c135c72d39a587e84220e8916e54b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: how-to, devx-track-python, deploy
+ms.openlocfilehash: 40d8d4596e7d93b589e44f2dde2d1cb453566d71
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91315440"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999239"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implementar modelos com o Azure Machine Learning
 
@@ -313,11 +313,11 @@ A tabela a seguir descreve os diferentes estados de serviço:
 
 | Estado do serviço web | Description | Estado final?
 | ----- | ----- | ----- |
-| Transição | O serviço está em processo de implantação. | No |
-| Mau estado de funcionamento | O serviço foi implantado, mas está atualmente inacessível.  | No |
-| Insodulável | O serviço não pode ser implantado neste momento devido à falta de recursos. | No |
-| Com falhas | O serviço falhou em ser acionado devido a um erro ou acidente. | Yes |
-| Bom estado de funcionamento | O serviço é saudável e o ponto final está disponível. | Yes |
+| Transição | O serviço está em processo de implantação. | Não |
+| Mau estado de funcionamento | O serviço foi implantado, mas está atualmente inacessível.  | Não |
+| Insodulável | O serviço não pode ser implantado neste momento devido à falta de recursos. | Não |
+| Com falhas | O serviço falhou em ser acionado devido a um erro ou acidente. | Sim |
+| Bom estado de funcionamento | O serviço é saudável e o ponto final está disponível. | Sim |
 
 
 ### <a name="batch-inference"></a><a id="azuremlcompute"></a> Inferência do lote

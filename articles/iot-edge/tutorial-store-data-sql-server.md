@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: ee64e3f0f803ff00159e43480b8a20bf4134df03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8d09f762002c89d225ccc00eac83da336850a3c
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91857356"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047952"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Tutorial: Armazenar dados na periferia com bases de dados do SQL Server
 
@@ -24,7 +24,7 @@ Utilize o Azure IoT Edge e o SQL Server para armazenar e consultar dados na peri
 
 Este artigo fornece instruções para implementar uma base de dados do SQL Server num dispositivo IoT Edge. As Funções do Azure, em execução no dispositivo IoT Edge, estruturam os dados recebidos e, em seguida, envia-os para a base de dados. Os passos neste artigo também podem ser aplicados a outras bases de dados que funcionam em contentores, como o MySQL ou o PostgreSQL.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -42,7 +42,7 @@ Antes de iniciar este tutorial, deveria ter passado pelo tutorial anterior para 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) no escalão gratuito ou standard no Azure.
 * Um dispositivo AMD64 [Linux em execução Azure IoT Edge](quickstart-linux.md).
   * Dispositivos ARM, como Raspberry Pis, não podem executar o SQL Server. Se quiser utilizar o SQL num dispositivo ARM, pode inscrever-se para experimentar [o Azure SQL Edge](https://azure.microsoft.com/services/sql-edge/) na pré-visualização.
-* Um registo de contentores, como [o Registo de Contentores de Azure.](https://docs.microsoft.com/azure/container-registry/)
+* Um registo de contentores, como [o Registo de Contentores de Azure.](../container-registry/index.yml)
 * [Código de Estúdio Visual](https://code.visualstudio.com/) configurado com as [Ferramentas Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) configurado para executar contentores Linux.
 
@@ -228,7 +228,7 @@ Um [Manifesto de implementação](module-composition.md) declara os módulos que
 7. Encontre a secção **de módulos.** Devia ver três módulos. O módulo *SimulatedTemperatureSensor* está incluído por padrão em novas soluções e fornece dados de teste para utilizar com os seus outros módulos. O módulo *sqlFunction* é o módulo que inicialmente criou e atualizou com novo código. Finalmente, o módulo *sql* foi importado do Mercado Azure.
 
    >[!Tip]
-   >O módulo SQL Server vem com uma palavra-passe padrão definida nas variáveis ambientais do manifesto de implementação. Sempre que criar um contentor do SQL Server num ambiente de produção, deve [alterar a palavra-passe de administrador do sistema predefinida](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker).
+   >O módulo SQL Server vem com uma palavra-passe padrão definida nas variáveis ambientais do manifesto de implementação. Sempre que criar um contentor do SQL Server num ambiente de produção, deve [alterar a palavra-passe de administrador do sistema predefinida](/sql/linux/quickstart-install-connect-docker).
 
 8. Feche a **deployment.template.jsarquivada.**
 
@@ -323,7 +323,7 @@ A partir da ferramenta de comandos SQL, execute o seguinte comando para ver os d
 
    ![Ver conteúdo da base de dados local](./media/tutorial-store-data-sql-server/view-data.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se planeia avançar para o próximo artigo recomendado, pode manter os recursos e as configurações que criou e reutilizá-los. Também pode continuar a utilizar o mesmo dispositivo IoT Edge como um dispositivo de teste.
 
@@ -331,7 +331,7 @@ Caso contrário, pode eliminar as configurações locais e os recursos do Azure 
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-Neste tutorial, criou um módulo das Funções do Azure que contém código para filtrar dados não processados gerados pelo seu dispositivo IoT Edge. Quando estiver pronto para construir os seus próprios módulos, poderá aprender mais sobre como [desenvolver funções de Azure com Azure IoT Edge para Código de Estúdio Visual.](how-to-develop-csharp-function.md)
+Neste tutorial, criou um módulo das Funções do Azure que contém código para filtrar dados não processados gerados pelo seu dispositivo IoT Edge. Quando estiver pronto para construir os seus próprios módulos, poderá aprender mais sobre como [desenvolver funções de Azure com Azure IoT Edge para Código de Estúdio Visual.](./how-to-vs-code-develop-module.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

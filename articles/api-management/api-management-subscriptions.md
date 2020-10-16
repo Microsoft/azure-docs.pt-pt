@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
 ms.openlocfilehash: d1ab8990d0e5c389e0454c23a31989a71b0cd9a2
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87843781"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Subscrições na Gestão de API do Azure

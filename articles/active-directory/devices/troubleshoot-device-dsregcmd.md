@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2cd782cdab625934fe60617142e5ac0baf756398
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80128768"
 ---
 # <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Dispositivos de resolução de problemas utilizando o comando dsregcmd

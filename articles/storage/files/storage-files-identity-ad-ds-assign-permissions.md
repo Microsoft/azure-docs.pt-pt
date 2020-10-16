@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
 ms.openlocfilehash: af88f0b3403fb80acbb7dacebe293ac583e35799
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91716042"
 ---
 # <a name="part-two-assign-share-level-permissions-to-an-identity"></a>Parte dois: atribuir permissões de nível de partilha a uma identidade
@@ -76,7 +76,7 @@ Antes de executar o seguinte script de amostra, lembre-se de substituir os valor
 az role assignment create --role "<role-name>" --assignee <user-principal-name> --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshares/<share-name>"
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que atribuiu permissões de nível de partilha, tem de configurar o diretório e as permissões de nível de ficheiro. Continue para o próximo artigo.
 

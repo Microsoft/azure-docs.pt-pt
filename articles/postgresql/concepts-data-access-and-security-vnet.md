@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.openlocfilehash: 170d5eaa4c14c6de54825bc08f3aef0fd0dfa0c5
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708004"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Utilize pontos finais de serviço de rede virtual e regras para Azure Database for PostgreSQL - Single Server
@@ -132,7 +132,7 @@ Pode definir a bandeira **IgnoreMissingServiceEndpoint** utilizando o Azure CLI 
 - [Redes virtuais do Azure][vm-virtual-network-overview]
 - [Pontos finais de serviço de rede virtual Azure][vm-virtual-network-service-endpoints-overview-649d]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 Para artigos sobre a criação de regras VNet, consulte:
 - [Criar e gerir a Base de Dados de Azure para as regras postgreSQL VNet utilizando o portal Azure](howto-manage-vnet-using-portal.md)
 - [Criar e gerir a Base de Dados de Azure para regras postgreSQL VNet usando Azure CLI](howto-manage-vnet-using-cli.md)

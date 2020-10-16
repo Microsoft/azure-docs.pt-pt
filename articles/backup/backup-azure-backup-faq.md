@@ -3,12 +3,12 @@ title: Respostas a perguntas comuns
 description: 'Respostas a perguntas comuns sobre: funcionalidades do Azure Backup incluindo os cofres dos Serviços de Recuperação, que cópias de segurança podem criar, como funcionam, a encriptação e os limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 26d833dfea214c5f29b77c2ac34a5f8863c7fbc0
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 72a4f805b34ba8a536cd398efd5e6809bd66f0d4
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986430"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096628"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – Perguntas frequentes
 
@@ -57,6 +57,10 @@ Se já configurar a cópia de segurança e tiver de passar de GRS para LRS, ent�
 
 - O ILR é suportado nas VMs do Azure com cópia de segurança efetuada pela cópia de segurança da VM do Azure. Para obter mais informações, veja este [artigo](backup-azure-restore-files-from-vm.md)
 - O ILR não é suportado para pontos de recuperação on-line de VMs no local apoiados pelo Azure Backup Server (MABS) ou pelo System Center DPM.
+
+### <a name="how-can-i-move-data-from-the-recovery-services-vault-to-on-premises"></a>Como posso transferir dados do cofre dos Serviços de Recuperação para o local?
+
+Não é suportado a exportação de dados diretamente do cofre dos Serviços de Recuperação para as instalações utilizando a Data Box. Os dados devem ser restaurados numa conta de armazenamento e, em seguida, podem ser transferidos para o local através da [Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) ou [da Import/Export](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
 
 ## <a name="azure-backup-agent"></a>Agente do Backup do Azure
 
@@ -174,7 +178,7 @@ Os produtos de ponto de retenção de longa duração típicos armazenam cópias
 - Os pontos completos são *ineficazes* ao nível do armazenamento, mas é mais rápido e mais fácil restaurá-los.
 - As cópias incrementais são *eficientes* ao nível do armazenamento, mas necessitam que restaure uma cadeia de dados, que tem impacto no tempo de recuperação
 
-A arquitetura de armazenamento do Backup do Azure dá-lhe o melhor dos dois mundos ao armazenar da melhor maneira dados para restauros rápidos e incorrer em custos de armazenamento reduzido reduzidos. Tal garante que a largura de banda de entrada e de saída é utilizada com eficácia. A quantidade do armazenamento de dados e o tempo necessário para recuperar os dados são mantidos num mínimo. Obtenha mais informações sobre as [cópias de segurança incrementais](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/).
+A arquitetura de armazenamento do Backup do Azure dá-lhe o melhor dos dois mundos ao armazenar da melhor maneira dados para restauros rápidos e incorrer em custos de armazenamento reduzido reduzidos. Tal garante que a largura de banda de entrada e de saída é utilizada com eficácia. A quantidade do armazenamento de dados e o tempo necessário para recuperar os dados são mantidos num mínimo. Obtenha mais informações sobre as [cópias de segurança incrementais](backup-architecture.md#backup-types).
 
 ### <a name="is-there-a-limit-on-the-number-of-recovery-points-that-can-be-created"></a>Existe um limite no número de pontos de recuperação que podem ser criados?
 

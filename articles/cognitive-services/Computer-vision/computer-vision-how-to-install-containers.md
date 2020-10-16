@@ -13,10 +13,10 @@ ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: no local, OCR, Docker, contentor
 ms.openlocfilehash: acf6a391965dcba20a2dabc18648076b88c5e7c5
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91536380"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>Instalar Ler recipientes OCR Docker (Pré-visualização) 
@@ -510,7 +510,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para descarregar, instalar 
 > [!IMPORTANT]
 > Os recipientes dos Serviços Cognitivos não estão licenciados para funcionar sem estarem ligados ao Azure para a medição. Os clientes precisam de permitir que os contentores comuniquem informações de faturação com o serviço de medição em todos os momentos. Os recipientes de Serviços Cognitivos não enviam dados do cliente (por exemplo, a imagem ou texto que está a ser analisado) para a Microsoft.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Rever recipientes de configuração](computer-vision-resource-container-config.md) para configurações de configuração
 * Reveja [a visão geral da Visão computacional](overview.md) para saber mais sobre o reconhecimento de texto impresso e manuscrito

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 672918280a988771431dccc81f042226addf029d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91265940"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurar a gestão de sessões de autenticação com o Acesso Condicional

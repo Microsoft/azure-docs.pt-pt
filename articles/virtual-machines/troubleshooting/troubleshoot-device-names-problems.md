@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 31f64a504156134b1d622705d5301d9cd5a5f5b1
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88756831"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>Resolução de problemas Alterações no nome do dispositivo Linux VM
@@ -162,9 +162,9 @@ Para obter as mais recentes regras de Armazenamento Azure, execute os seguintes 
 # sudo udevadm trigger --subsystem-match=block
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
-Para obter mais informações, veja os seguintes artigos:
+Para obter mais informações, veja os artigos seguintes:
 
 - [Ubuntu: Utilização uuID](https://help.ubuntu.com/community/UsingUUID)
 - [Chapéu Vermelho: Nomeação persistente](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.html)

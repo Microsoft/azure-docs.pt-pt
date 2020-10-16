@@ -10,10 +10,10 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.openlocfilehash: 11199e5a283459d7d97f649322f9d41fc7b3e11d
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91650799"
 ---
 # <a name="supported-data-types"></a>Tipos de dados suportados
@@ -23,7 +23,7 @@ A tabela que se segue lista os tipos de dados suportados pela Azure Time Series 
 | Tipo de dados | Descrição | Exemplo | [Sintaxe de expressão de série de tempo](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) | Nome da coluna de propriedade em Parquet
 |---|---|---|---|---|
 | **bool** | Um tipo de dados com um de dois estados: `true` ou `false` . | `"isQuestionable" : true` | `$event.isQuestionable.Bool` ou `$event['isQuestionable'].Bool` | `isQuestionable_bool`
-| **data** | Representa um instante no tempo, tipicamente expresso como data e hora do dia. Expresso no formato [ISO 8601.](https://www.iso.org/iso-8601-date-and-time-format.html) As propriedades da data são sempre armazenadas em formato UTC. As compensações do fuso horário, se for em formatada corretamente, serão aplicadas e, em seguida, as valorizadas armazenadas na UTC. Consulte [esta](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) secção para obter mais informações sobre a propriedade do timetamp do ambiente e as compensações de datas | `"eventProcessedLocalTime": "2020-03-20T09:03:32.8301668Z"` |  Se "eventProcessedLocalTime" for o tempo de origem do evento: `$event.$ts` . Se for outra propriedade JSON: `$event.eventProcessedLocalTime.DateTime` ou `$event['eventProcessedLocalTime'].DateTime` | `eventProcessedLocalTime_datetime`
+| **datetime** | Representa um instante no tempo, tipicamente expresso como data e hora do dia. Expresso no formato [ISO 8601.](https://www.iso.org/iso-8601-date-and-time-format.html) As propriedades da data são sempre armazenadas em formato UTC. As compensações do fuso horário, se for em formatada corretamente, serão aplicadas e, em seguida, as valorizadas armazenadas na UTC. Consulte [esta](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) secção para obter mais informações sobre a propriedade do timetamp do ambiente e as compensações de datas | `"eventProcessedLocalTime": "2020-03-20T09:03:32.8301668Z"` |  Se "eventProcessedLocalTime" for o tempo de origem do evento: `$event.$ts` . Se for outra propriedade JSON: `$event.eventProcessedLocalTime.DateTime` ou `$event['eventProcessedLocalTime'].DateTime` | `eventProcessedLocalTime_datetime`
 | **duplo** | Um número de 64 bits de precisão dupla  | `"value": 31.0482941` | `$event.value.Double` ou `$event['value'].Double` |  `value_double`
 | **longo** | Um inteiro assinado de 64 bits  | `"value" : 31` | `$event.value.Long` ou `$event['value'].Long` |  `value_long`
 | **cadeia** | Os valores de texto devem consistir em UTF-8 válido. Cordas nulas e vazias são tratadas da mesma forma. |  `"site": "DIM_MLGGG"`| `$event.site.String` ou `$event['site'].String`| `site_string`

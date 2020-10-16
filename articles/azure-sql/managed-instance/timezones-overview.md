@@ -10,13 +10,13 @@ ms.topic: reference
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
-ms.date: 05/25/2020
-ms.openlocfilehash: fc1532fab23ec520722ea71d814496e786b91651
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.date: 10/12/2020
+ms.openlocfilehash: 7b95ddfdb75dd5e5951a9c95442798692582fe6a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91617932"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978378"
 ---
 # <a name="time-zones-in-azure-sql-managed-instance"></a>Fusos horários em Azure SQL Gestded Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -95,7 +95,7 @@ Usar o mesmo fuso horário através de uma instância primária e secundária nu
 
 ## <a name="limitations"></a>Limitações
 
-- O fuso horário do caso gerido existente não pode ser alterado.
+- O fuso horário do caso gerido existente não pode ser alterado. Como uma solução alternativa, crie uma nova instância gerida com o fuso horário adequado e, em seguida, execute uma cópia de segurança manual e restaure, ou o que recomendamos, realizar uma [restauração pontual transversal](https://docs.microsoft.com/azure/azure-sql/managed-instance/point-in-time-restore?tabs=azure-portal#restore-an-existing-database).
 - Os processos externos lançados a partir dos trabalhos do SqL Server Agent não observam o fuso horário do caso.
 
 ## <a name="list-of-supported-time-zones"></a>Lista de fusos horários suportados
@@ -144,7 +144,7 @@ Usar o mesmo fuso horário através de uma instância primária e secundária nu
 | Hora Padrão de Saint Pierre | (UTC-03:00) São Pedro e Miquelon |
 | Horário padrão da Bahia | (UTC-03:00) Salvador |
 | UTC-02 | (UTC-02:00) Tempo Universal Coordenado-02 |
-| Horário padrão do Meio-Atlântico | (UTC-02:00) Médio-Atlântico - Velho |
+| hora padrão Mid-Atlantic | (UTC-02:00) Mid-Atlantic - Velho |
 | Hora Padrão dos Açores | (UTC-01:00) Açores |
 | Tempo Padrão de Cabo Verde | (UTC-01:00) Cabo Verde é. |
 | UTC | (UTC) Hora Universal Coordenada |
@@ -199,7 +199,7 @@ Usar o mesmo fuso horário através de uma instância primária e secundária nu
 | Hora Padrão de Omsk | (UTC+06:00) Omsk |
 | Tempo Padrão de Myanmar | (UTC+06:30) Yangon (Rangoon) |
 | Se Asia Tempo Padrão | (UTC+07:00) Banguecoque, Hanói, Jacarta |
-| Hora Padrão Altai | (UTC+07:00) Barnaul |
+| Hora Padrão Altai | (UTC+07:00) Barnaul, Gorno-Altaysk |
 | W. Hora Padrão da Mongólia | (UTC+07:00) Rio Hovd |
 | Horário padrão do Norte da Ásia | (UTC+07:00) Krasnoyarsk |
 | N. Tempo Padrão da Ásia Central | (UTC+07:00) Novosibirsk |
@@ -230,7 +230,7 @@ Usar o mesmo fuso horário através de uma instância primária e secundária nu
 | Hora Padrão de Norfolk | (UTC+11:00) Ilha Norfolk |
 | Hora Padrão de Sakhalin | (UTC+11:00) Sakhalin |
 | Horário padrão do Pacífico Central | (UTC+11:00) Salomão é., Nova Caledónia |
-| Fuso Horário da Rússia 11 | (UTC+12:00) Anadyr |
+| Fuso Horário da Rússia 11 | (UTC+12:00) Anadyr, Petropavlovsk-Kamchatsky |
 | Horário padrão da Nova Zelândia | (UTC+12:00) Auckland |
 | UTC+12 | (UTC+12:00) Tempo Universal Coordenado+12 |
 | Tempo Padrão Fiji | (UTC+12:00) Fiji |
@@ -241,7 +241,7 @@ Usar o mesmo fuso horário através de uma instância primária e secundária nu
 | Tempo Padrão de Samoa | (UTC+13:00) Samoa |
 | Tempo padrão das ilhas da linha | (UTC+14:00) Ilha Kiritimati |
 
-## <a name="see-also"></a>Ver também 
+## <a name="see-also"></a>Consulte também 
 
 - [CURRENT_TIMEZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)
 - [CURRENT_TIMEZONE_ID (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-id-transact-sql)

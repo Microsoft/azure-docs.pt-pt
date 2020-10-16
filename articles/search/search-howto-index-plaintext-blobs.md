@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.openlocfilehash: 417bdacc3ce8b619d5ec9618e6060ac071882471
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91533930"
 ---
 # <a name="how-to-index-plain-text-blobs-in-azure-cognitive-search"></a>Como indexar bolhas de texto simples na Pesquisa Cognitiva Azure
@@ -64,7 +64,7 @@ Os modos de análise são especificados na definição do indexante.
 
 Se tiver pedidos de funcionalidades ou ideias para melhorias, forneça a sua entrada no [UserVoice](https://feedback.azure.com/forums/263029-azure-search/). Se precisar de ajuda para utilizar a função existente, publique a sua pergunta no [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/18870).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Indexadores na Pesquisa Cognitiva do Azure](search-indexer-overview.md)
 * [Como configurar um indexador de bolhas](search-howto-indexing-azure-blob-storage.md)

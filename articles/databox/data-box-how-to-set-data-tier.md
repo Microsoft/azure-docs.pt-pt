@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 05/24/2019
 ms.author: alkohli
 ms.openlocfilehash: a68793d893d8eb8de681eb438de39afc212370c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84608728"
 ---
 # <a name="use-azure-data-box-or-azure-data-box-heavy-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Utilize a Caixa de Dados Azure ou caixa de dados Azure Heavy para enviar dados para o nível de blob de armazenamento Azure apropriado
@@ -114,7 +114,7 @@ Os passos seguintes descrevem como pode definir o nível blob para Archive usand
    > [!TIP]
    > Se quiser que os dados arquivam sobre a ingestão, desave o nível de conta predefinido para Hot. Se o nível predefinido for Cool, então existe uma penalização de eliminação antecipada de 30 dias se os dados forem imediatamente para Archive.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 -  Saiba como abordar os [cenários comuns de tiering de dados com regras de política do ciclo de vida](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts#examples)
 

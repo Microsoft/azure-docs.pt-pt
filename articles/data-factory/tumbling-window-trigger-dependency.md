@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/03/2020
 ms.openlocfilehash: 4a99865e13e029dcea478cf6085d71c465918b14
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89421854"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>Criar uma dependência de acionamento de janela em cascata
@@ -81,9 +81,9 @@ A tabela seguinte fornece a lista de atributos necessários para definir uma dep
 
 | **Nome da propriedade** | **Descrição**  | **Tipo** | **Necessário** |
 |---|---|---|---|
-| tipo  | Todos os gatilhos da janela de caindo existentes são apresentados nesta queda. Escolha o gatilho para assumir a dependência.  | TumblingWindowTriggerDependencyReference ou SelfDependencyTumblingWindowTriggerReference | Yes |
+| tipo  | Todos os gatilhos da janela de caindo existentes são apresentados nesta queda. Escolha o gatilho para assumir a dependência.  | TumblingWindowTriggerDependencyReference ou SelfDependencyTumblingWindowTriggerReference | Sim |
 | offset | Compensação do gatilho da dependência. Fornecer um valor no formato de tempo e tanto compensações negativas como positivas são permitidas. Esta propriedade é obrigatória se o gatilho depender de si mesmo e em todos os outros casos é opcional. A auto-dependência deve ser sempre uma compensação negativa. Se nenhum valor especificado, a janela é a mesma que o gatilho em si. | Timespan<br/>(hh:mm:ss) | Auto-dependência: Sim<br/>Outros: Não |
-| size | Tamanho da janela de caindo de dependência. Fornecer um valor de tempos positivo. Esta propriedade é opcional. | Timespan<br/>(hh:mm:ss) | No  |
+| size | Tamanho da janela de caindo de dependência. Fornecer um valor de tempos positivo. Esta propriedade é opcional. | Timespan<br/>(hh:mm:ss) | Não  |
 
 > [!NOTE]
 > Um gatilho da janela caindo pode depender de um máximo de cinco outros gatilhos.
@@ -181,6 +181,6 @@ As caixas transparentes mostram as janelas de dependência de cada gatilho depen
 
 Para refazer uma janela na vista do gráfico de Gantt, selecione a caixa de cores sólida para a janela, e um painel de ação aparecerá com detalhes e opções de repetição
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Rever [Como criar um gatilho de janela caindo](how-to-create-tumbling-window-trigger.md)

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: 9060c00e1523db0671d9698465c8e8fcb6340785
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.openlocfilehash: efbed9ec44bd386a4540c397ca8958fb3ccea807
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91842840"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019890"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Acesso seguro a um cofre de chaves
 
@@ -79,7 +79,7 @@ Cria-se um cofre chave num grupo de recursos e gere o acesso utilizando o Azure 
 
 Há vários papéis predefinidos. Se um papel predefinido não se adequa às suas necessidades, pode definir o seu próprio papel. Para obter mais informações, veja [Funções incorporadas do Azure](../../role-based-access-control/built-in-roles.md). 
 
-Precisa de ter `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete` permissões, como [Administrador de Acesso ao Utilizador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles.md#user-access-administrator) ou [Proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles.md#owner)
+Precisa de ter `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete` permissões, como [Administrador de Acesso ao Utilizador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) ou [Proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
 
 > [!IMPORTANT]
 > Se um utilizador tiver `Contributor` permissões para um avião de gestão de cofre chave, o utilizador pode conceder-se acesso ao plano de dados definindo uma política de acesso ao Cofre de Chaves. Deve controlar bem quem tem `Contributor` acesso aos seus cofres chave. Certifique-se de que apenas pessoas autorizadas podem aceder e gerir os seus cofres chave, chaves, segredos e certificados.

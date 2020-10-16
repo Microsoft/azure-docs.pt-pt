@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 06/24/2020
 ms.author: zarhoads
 ms.openlocfilehash: d05d0166724e586fa79e58e2e74fb583b45d0cc6
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88852878"
 ---
 # <a name="install-existing-applications-with-helm-in-azure-kubernetes-service-aks"></a>Instalar aplicações existentes com Helm in Azure Kubernetes Service (AKS)
@@ -19,7 +19,7 @@ ms.locfileid: "88852878"
 
 Este artigo mostra-lhe como configurar e usar Helm num cluster Kubernetes em AKS.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 
@@ -212,7 +212,7 @@ release "my-nginx-ingress" uninstalled
 Para obter mais informações sobre a gestão das implementações da aplicação da Kubernetes com o Helm, consulte a documentação helm.
 
 > [!div class="nextstepaction"]
-> [Documentação de leme][helm-documentation]
+> [Documentação do Helm][helm-documentation]
 
 <!-- LINKS - external -->
 [helm]: https://github.com/kubernetes/helm/

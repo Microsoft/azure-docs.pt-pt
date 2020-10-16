@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: victorh
 ms.openlocfilehash: 3d714b579bebb096745a47410da3f8f458e27161
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88723304"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Visão geral da rescisão de TLS e fim do fim do TLS com Gateway de aplicação
@@ -49,7 +49,7 @@ O gateway de aplicações suporta os seguintes tipos de certificados:
 - Certificado CA (Autoridade de Certificados): Um certificado de CA é um certificado digital emitido por uma autoridade de certificados (CA)
 - Certificado EV (Validação Alargada): Um certificado EV é um certificado de conformidade com as diretrizes de certificados padrão da indústria. Isto irá tornar o localizador de navegador verde e publicar o nome da empresa também.
 - Certificado Wildcard: Este certificado suporta qualquer número de subdomínios com base em *.site.com, onde o seu subdomínio substituiria o *. No entanto, não suporta site.com, pelo que, no caso de os utilizadores acederem ao seu website sem dactilografia do "www" principal, o certificado wildcard não cobre isso.
-- Certificados auto-assinados: Os navegadores de clientes não confiam nestes certificados e avisam o utilizador de que o certificado do serviço virtual não faz parte de uma cadeia de fidedignidade. Os certificados auto-assinados são bons para testes ou ambientes onde os administradores controlam os clientes e podem contornar com segurança os alertas de segurança do navegador. As cargas de trabalho de produção nunca devem utilizar certificados auto-assinados.
+- Self-Signed certificados: Os navegadores de clientes não confiam nestes certificados e avisam o utilizador de que o certificado do serviço virtual não faz parte de uma cadeia de fidedignidade. Os certificados auto-assinados são bons para testes ou ambientes onde os administradores controlam os clientes e podem contornar com segurança os alertas de segurança do navegador. As cargas de trabalho de produção nunca devem utilizar certificados auto-assinados.
 
 Para obter mais informações, consulte [a rescisão de TLS com o gateway de aplicações.](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal)
 

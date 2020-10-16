@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: 320d48535c4792a4d610888c6a7030568ccf16bc
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89459849"
 ---
 # <a name="configuration-requirements-and-troubleshooting-tips-for-xamarin-android-with-msalnet"></a>Requisitos de configuração e dicas de resolução de problemas para Xamarin Android com MSAL.NET
@@ -156,7 +156,7 @@ Este exemplo contém um caminho de ficheiro correto:
 </Reference>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações, consulte a amostra de uma [aplicação móvel Xamarin que utiliza a plataforma de identidade da Microsoft.](https://github.com/azure-samples/active-directory-xamarin-native-v2#android-specific-considerations) A tabela seguinte resume as informações relevantes no ficheiro README.
 

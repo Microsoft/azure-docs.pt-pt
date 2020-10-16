@@ -10,10 +10,10 @@ ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 11/28/2019
 ms.openlocfilehash: 71f9bc75bc2b84708af54ba89918cd874099a2d4
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85961902"
 ---
 # <a name="fix-an-apache-hive-out-of-memory-error-in-azure-hdinsight"></a>Corrija uma Colmeia Apache fora de erro de memória em Azure HDInsight
@@ -123,6 +123,6 @@ SET hive.tez.java.opts=-Xmx8192m
 
 Com as novas definições, a consulta foi com sucesso em menos de 10 minutos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Obter um erro OOM não significa necessariamente que o tamanho do recipiente é muito pequeno. Em vez disso, deve configurar as definições de memória de modo a que o tamanho da pilha seja aumentado e seja pelo menos 80% do tamanho da memória do recipiente. Para otimizar as consultas de Colmeia, consulte [as consultas de Hive Otimize Apache para Apache Hadoop em HDInsight.](hdinsight-hadoop-optimize-hive-query.md)

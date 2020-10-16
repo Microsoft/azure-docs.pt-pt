@@ -12,10 +12,10 @@ ms.date: 10/24/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 90993ea2ee66a23b5b629dfaf5bb34298ce15d9b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88936287"
 ---
 # <a name="check-text-against-a-custom-term-list-in-c"></a>Verifique o texto contra uma lista de termos personalizados em C #

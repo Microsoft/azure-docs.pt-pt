@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: lobrien
 ms.author: laobri
 ms.reviewer: laobri
-ms.date: 03/11/2020
+ms.date: 10/13/2020
 ms.custom: contperfq4, devx-track-python
-ms.openlocfilehash: f02638acdc60bba710280dcbeba0717173ed8b83
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f131e1f8d5604e566c8d7b41fa9d45cb7d2a7a2
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320511"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92054887"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Tutorial: Construir um pipeline de aprendizagem automática Azure para pontuação de lotes
 
@@ -101,7 +101,7 @@ output_dir = PipelineData(name="scores",
                           output_path_on_compute="batchscoring/results")
 ```
 
-Em seguida, registe os conjuntos de dados para o espaço de trabalho.
+Registe os conjuntos de dados no espaço de trabalho se quiser reutilizá-lo mais tarde. Este passo é opcional.
 
 ```python
 
@@ -426,7 +426,7 @@ published_pipeline_run = PipelineRun(ws.experiments["batch_scoring"], run_id)
 RunDetails(published_pipeline_run).show()
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Não complete esta secção se planeia executar outros tutoriais de Aprendizagem automática Azure.
 

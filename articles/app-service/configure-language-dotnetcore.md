@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
 ms.openlocfilehash: 3456adc2b143f1f51115183fe4873938d067d267
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88961674"
 ---
 # <a name="configure-an-aspnet-core-app-for-azure-app-service"></a>Configure uma aplicação core ASP.NET para o Azure App Service
@@ -98,7 +98,7 @@ Para obter mais informações sobre como o App Service funciona e constrói ASP.
 
 ## <a name="access-environment-variables"></a>Aceder a variáveis de ambiente
 
-No Serviço de Aplicações, pode [definir definições](configure-common.md#configure-app-settings) de aplicações fora do seu código de aplicação. Em seguida, pode acessá-los em qualquer classe usando o padrão ASP.NET padrão de injeção de dependência do núcleo:
+No Serviço de Aplicações, pode [configurar as definições da aplicação](configure-common.md#configure-app-settings) fora do código da aplicação. Em seguida, pode acessá-los em qualquer classe usando o padrão ASP.NET padrão de injeção de dependência do núcleo:
 
 ```csharp
 using Microsoft.Extensions.Configuration;
@@ -212,7 +212,7 @@ Para obter mais informações, consulte [o Configure ASP.NET Core para trabalhar
 
 ::: zone pivot="platform-linux"
 
-## <a name="open-ssh-session-in-browser"></a>SSH aberto no navegador
+## <a name="open-ssh-session-in-browser"></a>Abrir sessão SSH no browser
 
 [!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
@@ -228,6 +228,6 @@ Para obter mais informações, consulte [o Configure ASP.NET Core para trabalhar
 ::: zone pivot="platform-linux"
 
 > [!div class="nextstepaction"]
-> [Serviço de Aplicações Linux FAQ](faq-app-service-linux.md)
+> [FAQ do Serviço de Aplicações no Linux](faq-app-service-linux.md)
 
 ::: zone-end

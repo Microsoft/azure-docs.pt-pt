@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/15/2019
 ms.openlocfilehash: 31cdef281b1cb26d01a4690c815e3d3621e2c053
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84709050"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>Exceções outOfMemoryError para Apache Spark em Azure HDInsight
@@ -194,7 +194,7 @@ Exception in thread "main" java.lang.OutOfMemoryError: unable to create new nati
 
 ### <a name="cause"></a>Causa
 
-`java.lang.OutOfMemoryError: unable to create new native thread`destaques OS não pode atribuir mais fios nativos a JVMs. Confirmado que esta Exceção é causada pela violação do limite de contagem de fios por processo.
+`java.lang.OutOfMemoryError: unable to create new native thread` destaques OS não pode atribuir mais fios nativos a JVMs. Confirmado que esta Exceção é causada pela violação do limite de contagem de fios por processo.
 
 Quando livy Server termina inesperadamente, todas as ligações com Spark Clusters também são terminadas, o que significa que todos os empregos e dados relacionados serão perdidos. No mecanismo de recuperação da sessão hDP 2.6 foi introduzido, Livy armazena os detalhes da sessão no Zookeeper para ser recuperado após o Livy Server estar de volta.
 
@@ -239,11 +239,11 @@ Elimine todas as entradas utilizando passos detalhados abaixo.
 1. Aguarde que o comando acima está concluído e o cursor para devolver o pedido e, em seguida, reiniciar o serviço Livy de Ambari, que deve ter sucesso.
 
 > [!NOTE]
-> `DELETE`a sessão livy uma vez que é concluída a sua execução. As sessões de lote Livy não serão apagadas automaticamente assim que a aplicação de faíscas estiver concluída, que é por design. Uma sessão Livy é uma entidade criada por um pedido POST contra o servidor Livy Rest. `DELETE`É necessária uma chamada para eliminar essa entidade. Ou devemos esperar que a GC entre em vigor.
+> `DELETE` a sessão livy uma vez que é concluída a sua execução. As sessões de lote Livy não serão apagadas automaticamente assim que a aplicação de faíscas estiver concluída, que é por design. Uma sessão Livy é uma entidade criada por um pedido POST contra o servidor Livy Rest. `DELETE`É necessária uma chamada para eliminar essa entidade. Ou devemos esperar que a GC entre em vigor.
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 3c5486e31dd3227cfcc8bd3b433602ce58cfa4fb
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: e92fab392dc73d8de0b7b2547e38b3f345562930
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852995"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975863"
 ---
 # <a name="register-a-resource-application-in-azure-active-directory"></a>Registar uma aplicação de recursos no Azure Ative Directory
 
@@ -107,7 +107,7 @@ A Azure API para fHIR e o SERVIDOR OSS FHIR para Azure utilizam [funções de ap
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, aprendeu a registar uma aplicação de recursos no Azure Ative Directory. Em seguida, implemente a AZure API para fHIR.
+Neste artigo, aprendeu a registar uma aplicação de recursos no Azure Ative Directory. Em seguida, registe a sua aplicação confidencial de cliente.
  
 >[!div class="nextstepaction"]
->[Implementar o Azure API for FHIR](fhir-paas-powershell-quickstart.md)
+>[Registar Aplicação confidencial do cliente](register-confidential-azure-ad-client-app.md)

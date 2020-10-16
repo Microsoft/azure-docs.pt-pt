@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: aahi
 ms.openlocfilehash: 3d35a1f6913d0b657956489d0e57836a05f9eb1d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90900048"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Os contentores dos Serviços Cognitivos Azure fazem perguntas frequentes (FAQ)
@@ -37,14 +37,14 @@ ms.locfileid: "90900048"
 
 **A:** Gostaríamos de disponibilizar mais Serviços Cognitivos como ofertas de contentores. Contacte o seu gestor de conta local da Microsoft para obter atualizações sobre novas versões de contentores e outros anúncios de Serviços Cognitivos.
 
-**P: O que será o Acordo de Nível de Serviço (SLA) para os contentores dos Serviços Cognitivos?**
+**P: Qual será o Acordo Service-Level (SLA) para os contentores dos Serviços Cognitivos?**
 
 **A:** Os contentores dos Serviços Cognitivos não têm SLA.
 
 As configurações de recursos dos serviços cognitivos são controladas pelos clientes, pelo que a Microsoft não oferecerá um SLA para disponibilidade geral (GA). Os clientes são livres de colocar contentores no local, assim definem os ambientes de acolhimento.
 
 > [!IMPORTANT]
-> Para saber mais sobre os Acordos de Nível de Serviços Cognitivos, [visite a nossa página SLA](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/).
+> Para saber mais sobre serviços cognitivos Service-Level Acordos, [visite a nossa página SLA](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/).
 
 **P: Estes contentores estão disponíveis em nuvens soberanas?**
 

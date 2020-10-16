@@ -3,12 +3,12 @@ title: Azure Lighthouse e aplicações geridas do Azure
 description: Entenda como as aplicações geridas pelo Farol de Azure e Azure podem ajudar a ativar diferentes cenários e como podem ser usadas em conjunto.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7fd8801fc714a0f0c245d27462e368602dc41eb5
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 144917716da38cc99078f663cc2f4cb8ba0199c8
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89483852"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014992"
 ---
 # <a name="azure-lighthouse-and-azure-managed-applications"></a>Azure Lighthouse e aplicações geridas do Azure
 
@@ -23,7 +23,7 @@ Tanto a Azure geriu aplicações como o trabalho do Farol Azure, permitindo a um
 
 Com [o Azure Lighthouse,](../overview.md)um prestador de serviços pode executar uma vasta gama de tarefas de gestão diretamente na subscrição (ou grupo de recursos) de um cliente. Este acesso é conseguido através de uma projeção lógica, permitindo aos prestadores de serviços inscreverem-se no seu próprio inquilino e recursos de acesso que pertencem ao arrendatário do cliente. O cliente pode determinar quais subscrições ou grupos de recursos para delegar ao prestador de serviços, e o cliente mantém o acesso total a esses recursos. Também podem remover o acesso do prestador de serviços a qualquer momento.
 
-Para utilizar o Farol Azure, os clientes estão a bordo para [a gestão de recursos delegados da Azure,](azure-delegated-resource-management.md) quer [através da implementação de modelos ARM,](../how-to/onboard-customer.md) quer através de uma [oferta de Serviço Gerido no Mercado Azure.](managed-services-offers.md) Pode acompanhar o seu impacto nos compromissos com os clientes e receber o crédito obtido pelo [parceiro, ligando o ID do seu parceiro.](../how-to/partner-earned-credit.md)
+Para utilizar o Farol Azure, os clientes estão a bordo para [a gestão de recursos delegados da Azure,](azure-delegated-resource-management.md) quer [através da implementação de modelos ARM,](../how-to/onboard-customer.md) quer através de uma [oferta de Serviço Gerido no Mercado Azure.](managed-services-offers.md) Pode acompanhar o seu impacto nos compromissos com os clientes [ligando o ID do seu parceiro.](../how-to/partner-earned-credit.md)
 
 O Azure Lighthouse é normalmente utilizado quando um prestador de serviços executa tarefas de gestão para um cliente numa base contínua.
 
@@ -35,7 +35,7 @@ Numa aplicação gerida, os recursos utilizados pela aplicação são agregados 
 
 As aplicações geridas suportam experiências e integração [personalizadas do portal Azure](../../azure-resource-manager/managed-applications/concepts-view-definition.md) [com fornecedores personalizados.](../../azure-resource-manager/managed-applications/tutorial-create-managed-app-with-custom-provider.md) Estas opções podem ser usadas para proporcionar uma experiência mais personalizada e integrada, facilitando aos clientes a realização de algumas tarefas de gestão.
 
-As aplicações geridas podem ser [publicadas no Azure Marketplace,](../../azure-resource-manager/managed-applications/publish-marketplace-app.md)seja como uma oferta privada para uso específico de um cliente, quer como ofertas públicas que vários clientes podem comprar. Também podem ser entregues aos utilizadores dentro da sua [organização, publicando aplicações geridas no seu catálogo de serviços.](../../azure-resource-manager/managed-applications/publish-service-catalog-app.md) Pode implementar tanto o catálogo de serviços como as instâncias do Marketplace utilizando modelos ARM, que podem incluir o identificador único de um parceiro do Mercado Comercial para acompanhar a atribuição de utilização do [cliente.](../../marketplace/azure-partner-customer-usage-attribution.md)
+As aplicações geridas podem ser [publicadas no Azure Marketplace,](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md)seja como uma oferta privada para uso específico de um cliente, quer como ofertas públicas que vários clientes podem comprar. Também podem ser entregues aos utilizadores dentro da sua [organização, publicando aplicações geridas no seu catálogo de serviços.](../../azure-resource-manager/managed-applications/publish-service-catalog-app.md) Pode implementar tanto o catálogo de serviços como as instâncias do Marketplace utilizando modelos ARM, que podem incluir o identificador único de um parceiro do Mercado Comercial para acompanhar a atribuição de utilização do [cliente.](../../marketplace/azure-partner-customer-usage-attribution.md)
 
 As aplicações geridas pelo Azure são normalmente utilizadas para uma necessidade específica do cliente que pode ser alcançada através de uma solução chave na mão que é totalmente gerida pelo prestador de serviços.
 
@@ -47,7 +47,7 @@ Por exemplo, um cliente pode querer serviços geridos prestados por um prestador
 
 Os clientes também podem estar interessados em aplicações geridas de vários prestadores de serviços, quer também utilizem ou não serviços geridos através do Farol Azure de qualquer um desses prestadores de serviços. Além disso, os parceiros do programa Cloud Solution Provider (CSP) podem revender certas aplicações geridas publicadas por outros ISVs a clientes que suportam através do Farol Azure. Com um vasto leque de opções, os prestadores de serviços podem escolher o equilíbrio certo para atender às necessidades dos seus clientes, limitando o acesso aos recursos quando apropriado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Conheça as [aplicações geridas pela Azure.](../../azure-resource-manager/managed-applications/overview.md)
 - Saiba como embarcar [numa subscrição do Azure Lighthouse.](../how-to/onboard-customer.md)

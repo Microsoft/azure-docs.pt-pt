@@ -2,19 +2,19 @@
 title: Encriptação do serviço Métrica Advisor
 titleSuffix: Azure Cognitive Services
 description: Métricas Advisor encriptação de dados em repouso.
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/10/2020
-ms.author: aahi
-ms.openlocfilehash: 9d6a2f8a69d41d29e635b03425ed738484d6f408
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.author: mbullwin
+ms.openlocfilehash: 9a7a914acd1358243c1e8a29f59dadf4fac46957
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939057"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046932"
 ---
 # <a name="metrics-advisor-service-encryption-of-data-at-rest"></a>Métricas Advisor encriptação de dados em repouso
 
@@ -23,7 +23,7 @@ O serviço Metrics Advisor encripta automaticamente os seus dados quando os pers
 [!INCLUDE [cognitive-services-about-encryption](../includes/cognitive-services-about-encryption.md)]
 
 > [!IMPORTANT]
-> As chaves geridas pelo cliente só estão disponíveis no nível de preços E0. Para solicitar a capacidade de utilizar chaves geridas pelo cliente, preencha e envie o Formulário de Pedido chave gerido pelo cliente do [Serviço de Aconselhamento Métrica](https://aka.ms/cogsvc-cmk). Levará aproximadamente 3 a 5 dias úteis para ouvir de volta o estado do seu pedido. Dependendo da procura, você pode ser colocado em uma fila e aprovado à medida que o espaço fica disponível. Uma vez aprovado para a utilização da CMK com o serviço Metrics Advisor, terá de criar um novo recurso Metrics Advisor e selecionar o E0 como O Nível de Preços. Uma vez criado o seu recurso Metrics Advisor com o nível de preços E0, pode utilizar o Cofre de Chaves Azure para configurar a sua identidade gerida.
+> As chaves geridas pelo cliente só estão disponíveis no nível de preços E0. Para solicitar a capacidade de utilizar chaves geridas pelo cliente, preencha e envie o [Formulário de Pedido chave do Serviço de Aconselhamento métrica Customer-Managed .](https://aka.ms/cogsvc-cmk) Levará aproximadamente 3 a 5 dias úteis para ouvir de volta o estado do seu pedido. Dependendo da procura, você pode ser colocado em uma fila e aprovado à medida que o espaço fica disponível. Uma vez aprovado para a utilização da CMK com o serviço Metrics Advisor, terá de criar um novo recurso Metrics Advisor e selecionar o E0 como O Nível de Preços. Uma vez criado o seu recurso Metrics Advisor com o nível de preços E0, pode utilizar o Cofre de Chaves Azure para configurar a sua identidade gerida.
 
 [!INCLUDE [cognitive-services-cmk](../includes/cognitive-services-cmk-regions.md)]
 
@@ -31,5 +31,5 @@ O serviço Metrics Advisor encripta automaticamente os seus dados quando os pers
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Métricas Assessoria Serviço De Pedido de Pedido gerido pelo cliente](https://aka.ms/cogsvc-cmk)
+* [Serviço de Aconselhamento de Métricas Customer-Managed Formulário de Pedido chave](https://aka.ms/cogsvc-cmk)
 * [Saiba mais sobre o Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)

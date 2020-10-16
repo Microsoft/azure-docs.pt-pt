@@ -7,10 +7,10 @@ ms.date: 12/03/2019
 author: markjbrown
 ms.author: mjbrown
 ms.openlocfilehash: e8786c2d6e93c18a5bf9856a5555d6b528f842c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75441226"
 ---
 # <a name="create-a-synthetic-partition-key"></a>Criar uma chave de partição sintética
@@ -54,7 +54,7 @@ Considere o exemplo anterior, onde um recipiente utiliza uma data como chave de 
 
 Com esta estratégia, as escritas são distribuídas uniformemente pelos valores-chave da partição, e através das divisórias. Pode ler facilmente um determinado item e data, pois pode calcular o valor da chave de partição para um específico `Vehicle-Identification-Number` . O benefício deste método é que pode evitar criar uma única chave de partição quente, ou seja, uma chave de partição que leva toda a carga de trabalho. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode saber mais sobre o conceito de partição nos seguintes artigos:
 

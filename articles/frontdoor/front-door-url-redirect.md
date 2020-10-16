@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
 ms.openlocfilehash: 61077c7900530fd4c5be64054bedd9c5d087fe77
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91442060"
 ---
 # <a name="url-redirect"></a>Redirecionamento de URL
@@ -51,7 +51,7 @@ Também pode substituir os parâmetros de cadeia de consulta no URL redirecionad
 ## <a name="destination-fragment"></a>Fragmento de destino
 O fragmento de destino é a parte de URL após '#', que é usado pelo navegador para pousar em uma secção específica de uma página web. Pode definir este campo para adicionar um fragmento ao URL de redirecionamento.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
 - Saiba [como funciona o Front Door](front-door-routing-architecture.md).

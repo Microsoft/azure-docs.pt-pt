@@ -2,7 +2,7 @@
 title: Resolver alertas principais de serviço nos Serviços de Domínio Azure AD / Microsoft Docs
 description: Saiba como resolver os alertas principais de configuração do serviço para os Serviços de Domínio do Diretório Ativo Azure
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: f168870c-b43a-4dd6-a13f-5cfadc5edf2c
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
-ms.author: iainfou
-ms.openlocfilehash: fc665503413d2f022b10ae043aac3315597c6ba4
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.author: joflore
+ms.openlocfilehash: fc980d18a05b18706bb7eeecd907769b80e1b18f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221396"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962722"
 ---
 # <a name="known-issues-service-principal-alerts-in-azure-active-directory-domain-services"></a>Questões conhecidas: Alertas principais de serviço nos Serviços de Domínio do Diretório Ativo Azure
 
@@ -40,7 +40,7 @@ Para verificar qual o principal de serviço que falta e deve ser recriado, compl
 1. Selecione **aplicações da Enterprise**. Escolha *todas as aplicações* do menu drop-down do Tipo de **Aplicação** e, em seguida, selecione **Aplicar**.
 1. Procure cada um dos seguintes IDs de aplicação. Se não for encontrada nenhuma aplicação existente, siga as etapas de *Resolução* para criar o principal de serviço ou re-registar o espaço de nome.
 
-    | ID da aplicação | Resolução |
+    | ID da Aplicação | Resolução |
     | :--- | :--- |
     | 2565bd9d-da50-47d4-8b85-4c97f669dc36 | [Recriar um diretor de serviço desaparecido](#recreate-a-missing-service-principal) |
     | 443155a6-77f3-45e3-882b-22b3a8d431fb | [Re-registrar o espaço de nomes Microsoft.AAD](#re-register-the-microsoft-aad-namespace) |

@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
 ms.openlocfilehash: 8076a6af2382ccec1ac832cd83c3946d8c7c6f57
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91401057"
 ---
-|Nome do Parâmetro| Tipo | Description| Valores Possíveis|
+|Nome do Parâmetro| Tipo | Descrição| Valores Possíveis|
 |-|-|-|-|
 | /ServerMode|Obrigatório|Especifica se a configuração e os servidores de processos devem ser instalados, ou apenas o servidor de processos|CS<br>PS|
 |/InstallLocation|Obrigatório|A pasta na qual os componentes são instalados| Qualquer pasta no computador|

@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 04/10/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 0c552e8f3e732c49da02b2f5704fb9cf312fb3e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d12244bce117d6a631fdb67dc460af18bc77028c
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77671091"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995757"
 ---
 # <a name="application-insights-cohorts"></a>Coortes de Insights de Aplicação
 
@@ -129,9 +129,9 @@ Coortes e filtros são diferentes. Suponha que tem uma coorte de utilizadores do
 * A versão coorte mostra todos os eventos de utilizadores que enviaram um ou mais eventos do Reino Unido na atual faixa de tempo. Se dividir por país ou região, provavelmente verá muitos países e regiões.
 * A versão dos filtros só mostra eventos do Reino Unido. Mas se dividirmos por país ou região, só vemos o Reino Unido.
 
-## <a name="learn-more"></a>Saiba mais
+## <a name="learn-more"></a>Saber mais
 
-* [Linguagem de consulta de análise](https://go.microsoft.com/fwlink/?linkid=856587)
+* [Linguagem de consulta de análise](../log-query/get-started-portal.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
 * [Utilizadores, sessões, eventos](usage-segmentation.md)
-* [Fluxos do utilizador](usage-flows.md)
+* [Fluxos de utilizadores](usage-flows.md)
 * [Visão geral do uso](usage-overview.md)

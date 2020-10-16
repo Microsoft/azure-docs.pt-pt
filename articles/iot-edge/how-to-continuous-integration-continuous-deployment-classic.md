@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c4a9d7fbfbda568c07a528e5a7eafd70b85add45
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 1866f3360b90a96b5e3f215eb7669a1451262bd8
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447797"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046014"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices-classic-editor"></a>Integração contínua e implementação contínua para dispositivos Azure IoT Edge (editor clássico)
 
@@ -21,7 +21,7 @@ Pode facilmente adotar DevOps com as suas aplicações Azure IoT Edge com as tar
 
 ![Diagrama - Sucursais de CI e CD para desenvolvimento e produção](./media/how-to-continuous-integration-continuous-deployment-classic/model.png)
 
-Neste artigo, aprende-se a utilizar as [tarefas Azure IoT Edge incorporadas](https://docs.microsoft.com/azure/devops/pipelines/tasks/build/azure-iot-edge) para a Azure Pipelines para criar oleodutos de construção e libertação para a sua solução IoT Edge. Cada tarefa Azure IoT Edge adicionada ao seu oleoduto implementa uma das quatro ações seguintes:
+Neste artigo, aprende-se a utilizar as [tarefas Azure IoT Edge incorporadas](/azure/devops/pipelines/tasks/build/azure-iot-edge) para a Azure Pipelines para criar oleodutos de construção e libertação para a sua solução IoT Edge. Cada tarefa Azure IoT Edge adicionada ao seu oleoduto implementa uma das quatro ações seguintes:
 
  | Ação | Descrição |
  | --- | --- |
@@ -32,22 +32,22 @@ Neste artigo, aprende-se a utilizar as [tarefas Azure IoT Edge incorporadas](htt
 
 Salvo especificação em contrário, os procedimentos deste artigo não exploram todas as funcionalidades disponíveis através de parâmetros de tarefa. Para obter mais informações, consulte o seguinte:
 
-* [Versão de tarefa](https://docs.microsoft.com/azure/devops/pipelines/process/tasks?view=azure-devops&tabs=classic#task-versions)
+* [Versão de tarefa](/azure/devops/pipelines/process/tasks?tabs=classic&view=azure-devops#task-versions)
 * **Avançado** - Se aplicável, especifique os módulos que não pretende construir.
-* [Opções de Controlo](https://docs.microsoft.com/azure/devops/pipelines/process/tasks?view=azure-devops&tabs=classic#task-control-options)
-* [Variáveis ambientais](https://docs.microsoft.com/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#environment-variables)
-* [Variáveis de saída](https://docs.microsoft.com/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#use-output-variables-from-tasks)
+* [Opções de Controlo](/azure/devops/pipelines/process/tasks?tabs=classic&view=azure-devops#task-control-options)
+* [Variáveis ambientais](/azure/devops/pipelines/process/variables?tabs=yaml%252cbatch&view=azure-devops#environment-variables)
+* [Variáveis de saída](/azure/devops/pipelines/process/variables?tabs=yaml%252cbatch&view=azure-devops#use-output-variables-from-tasks)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um repositório de Azure Repos. Se não tiver um, pode [criar um novo git repo no seu projeto.](https://docs.microsoft.com/azure/devops/repos/git/create-new-repo?view=vsts&tabs=new-nav) Para este artigo, criámos um repositório chamado **IoTEdgeRepo.**
-* Uma solução IoT Edge comprometida e empurrada para o seu repositório. Se pretender criar uma nova solução de amostra para testar este artigo, siga os passos em [Módulos De Desenvolvimento e Depurg em Módulos Visual Studio Code](how-to-vs-code-develop-module.md) ou Develop e [depurar C# em Visual Studio](how-to-visual-studio-develop-csharp-module.md). Para este artigo, criámos uma solução no nosso repositório chamado **IoTEdgeSolution,** que tem o código para um módulo chamado **filtermodule.**
+* Um repositório de Azure Repos. Se não tiver um, pode [criar um novo git repo no seu projeto.](/azure/devops/repos/git/create-new-repo?tabs=new-nav&view=vsts) Para este artigo, criámos um repositório chamado **IoTEdgeRepo.**
+* Uma solução IoT Edge comprometida e empurrada para o seu repositório. Se pretender criar uma nova solução de amostra para testar este artigo, siga os passos em [Módulos De Desenvolvimento e Depurg em Módulos Visual Studio Code](how-to-vs-code-develop-module.md) ou Develop e [depurar C# em Visual Studio](./how-to-visual-studio-develop-module.md). Para este artigo, criámos uma solução no nosso repositório chamado **IoTEdgeSolution,** que tem o código para um módulo chamado **filtermodule.**
 
    Para este artigo, tudo o que precisa é da pasta de solução criada pelos modelos IoT Edge em Código de Estúdio Visual ou Estúdio Visual. Não precisa de construir, empurrar, implementar ou depurar este código antes de prosseguir. Vais configurar esses processos em Azure Pipelines.
 
    Se está a criar uma nova solução, clone primeiro o seu repositório localmente. Em seguida, quando criar a solução pode optar por criá-la diretamente na pasta do repositório. Pode facilmente comprometer-se e empurrar os novos ficheiros a partir daí.
 
-* Um registo de contentores onde pode empurrar imagens do módulo. Pode utilizar [o Registo do Contentor Azure](https://docs.microsoft.com/azure/container-registry/) ou um registo de terceiros.
+* Um registo de contentores onde pode empurrar imagens do módulo. Pode utilizar [o Registo do Contentor Azure](../container-registry/index.yml) ou um registo de terceiros.
 * Um hub Azure [IoT](../iot-hub/iot-hub-create-through-portal.md) ativo com pelo menos dois dispositivos IoT Edge para testar as fases de teste e de implantação separadas. Pode seguir os artigos de arranque rápido para criar um dispositivo IoT Edge no [Linux](quickstart-linux.md) ou [Windows](quickstart.md)
 
 ## <a name="create-a-build-pipeline-for-continuous-integration"></a>Criar um oleoduto de construção para integração contínua
@@ -84,7 +84,7 @@ Nesta secção, cria-se um novo oleoduto de construção. Configura o pipeline p
 
    * Se quiser construir os seus módulos na plataforma amd64 para recipientes Linux, escolha **ubuntu-16.04**
 
-   * Se quiser construir os seus módulos na plataforma amd64 para recipientes Windows 1809, tem de [configurar um agente auto-hospedado no Windows](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts).
+   * Se quiser construir os seus módulos na plataforma amd64 para recipientes Windows 1809, tem de [configurar um agente auto-hospedado no Windows](/azure/devops/pipelines/agents/v2-windows?view=vsts).
 
    * Se quiser construir os seus módulos na plataforma arm32v7 ou arm64 para recipientes Linux, tem de [configurar um agente auto-hospedado no Linux](https://devblogs.microsoft.com/iotdev/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent).
 
@@ -136,14 +136,14 @@ Nesta secção, cria-se um novo oleoduto de construção. Configura o pipeline p
     | Nome a apresentar | Use o nome padrão ou personalize |
     | Pasta de origem | A pasta com os ficheiros a copiar. |
     | Conteúdos | Adicione duas linhas: `deployment.template.json` e `**/module.json` . Estes dois ficheiros servem como entradas para gerar o manifesto de implantação IoT Edge. |
-    | Pasta-alvo | Especificar a variável `$(Build.ArtifactStagingDirectory)` . Consulte [variáveis build](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) para saber sobre a descrição. |
+    | Pasta-alvo | Especificar a variável `$(Build.ArtifactStagingDirectory)` . Consulte [variáveis build](/azure/devops/pipelines/build/variables?tabs=yaml&view=azure-devops#build-variables) para saber sobre a descrição. |
 
 10. Selecione a tarefa **de Publicar Artefactos de Construção** para editá-lo. Forneça o caminho do diretório de encenação de artefactos para a tarefa para que o caminho possa ser publicado para libertar o pipeline.
 
     | Parâmetro | Descrição |
     | --- | --- |
     | Nome a apresentar | Utilize o nome predefinido ou personalize.. |
-    | Caminho para publicar | Especificar a variável `$(Build.ArtifactStagingDirectory)` . Ver [Construir variáveis](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) para saber mais. |
+    | Caminho para publicar | Especificar a variável `$(Build.ArtifactStagingDirectory)` . Ver [Construir variáveis](/azure/devops/pipelines/build/variables?tabs=yaml&view=azure-devops#build-variables) para saber mais. |
     | Nome do artefacto | Use o nome predefinido: **drop** |
     | Local de publicação de artefactos | Utilize a localização padrão: **Gasodutos Azure** |
 
@@ -160,7 +160,7 @@ Este gasoduto está agora configurado para funcionar automaticamente quando intr
 >[!NOTE]
 >Se desejar utilizar implementações em **camadas** no seu pipeline, as implementações em camadas ainda não são suportadas nas tarefas Azure IoT Edge em Azure DevOps.
 >
->No entanto, pode utilizar uma [tarefa Azure CLI em Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-cli) para criar a sua implementação como uma implementação em camadas. Para o valor **do Script Inline,** pode utilizar o [comando de criação de borda az iot](/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment):
+>No entanto, pode utilizar uma [tarefa Azure CLI em Azure DevOps](/azure/devops/pipelines/tasks/deploy/azure-cli) para criar a sua implementação como uma implementação em camadas. Para o valor **do Script Inline,** pode utilizar o [comando de criação de borda az iot](/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment):
 >
 >   ```azurecli-interactive
 >   az iot edge deployment create -d {deployment_name} -n {hub_name} --content modules_content.json --layered true
@@ -168,7 +168,7 @@ Este gasoduto está agora configurado para funcionar automaticamente quando intr
 
 [!INCLUDE [iot-edge-verify-iot-edge-continuous-integration-continuous-deployment](../../includes/iot-edge-verify-iot-edge-continuous-integration-continuous-deployment.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * IoT Edge DevOps amostra de boas práticas em [Azure DevOps Starter para IoT Edge](how-to-devops-starter.md)
 * Compreenda a implementação IoT Edge em [implementações de Borda De IoT para dispositivos individuais ou à escala](module-deployment-monitoring.md)

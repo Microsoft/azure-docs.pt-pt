@@ -11,10 +11,10 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.openlocfilehash: 40fa6bce67aa6c5643e4a153da610dce65907b56
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88036356"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Funções e permissões do Azure Data Factory
@@ -80,7 +80,7 @@ Aqui estão alguns exemplos que demonstram o que pode conseguir com funções pe
   Este cenário requer duas atribuições de papéis.
 
   1. Atribua o papel **de contribuinte** incorporado ao nível da fábrica de dados.
-  2. Crie um papel personalizado com a permissão **Microsoft.Resources/implementações/**. Atribua esta função personalizada ao utilizador a nível de grupo de recursos.
+  2. Crie um papel personalizado com a permissão  **Microsoft.Resources/implementações/**. Atribua esta função personalizada ao utilizador a nível de grupo de recursos.
 
 - Deixe que um utilizador seja capaz de testar a ligação num serviço ligado ou dados de pré-visualização num conjunto de dados
 

@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/02/2020
 ms.openlocfilehash: b6fcc294c2b8c131d9a4a058c653ae1f64652ccf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324863"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Teste a sua app LUIS no portal LUIS

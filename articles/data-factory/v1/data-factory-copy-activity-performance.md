@@ -13,10 +13,10 @@ ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 785b42ab963c3784e63cd00eb0baa62b20952a8a
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89441090"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guia de desempenho e otimização da Atividade de Cópia
@@ -207,10 +207,10 @@ Configure a **definição de definição de definição de ativação** na Ativi
 
 | Propriedade | Descrição | Valor predefinido | Necessário |
 | --- | --- | --- | --- |
-| **permitir A marcação** |Especifique se pretende copiar dados através de uma loja de encenação provisória. |Falso |No |
+| **permitir A marcação** |Especifique se pretende copiar dados através de uma loja de encenação provisória. |Falso |Não |
 | **linkedServiceName** |Especifique o nome de um serviço ligado [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) ou [AzureStorageSas,](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) que se refere à instância de Armazenamento que utiliza como loja de paragem provisória. <br/><br/> Não é possível utilizar o Armazenamento com uma assinatura de acesso partilhado para carregar dados no Azure Synapse Analytics via PolyBase. Podes usá-lo em todos os outros cenários. |N/D |Sim, quando **ativar A definição de marcação** está definida para TRUE |
-| **caminho** |Especifique a trajetória de armazenamento Blob que pretende conter os dados encenados. Se não fornecer um caminho, o serviço cria um recipiente para armazenar dados temporários. <br/><br/> Especifique um caminho apenas se utilizar o Armazenamento com uma assinatura de acesso partilhado, ou se necessitar de dados temporários para estar num local específico. |N/D |No |
-| **permitir a compressão** |Especifica se os dados devem ser comprimidos antes de serem copiados para o destino. Esta definição reduz o volume de dados que são transferidos. |Falso |No |
+| **caminho** |Especifique a trajetória de armazenamento Blob que pretende conter os dados encenados. Se não fornecer um caminho, o serviço cria um recipiente para armazenar dados temporários. <br/><br/> Especifique um caminho apenas se utilizar o Armazenamento com uma assinatura de acesso partilhado, ou se necessitar de dados temporários para estar num local específico. |N/D |Não |
+| **permitir a compressão** |Especifica se os dados devem ser comprimidos antes de serem copiados para o destino. Esta definição reduz o volume de dados que são transferidos. |Falso |Não |
 
 Aqui está uma definição de amostra de Copy Activity com as propriedades descritas na tabela anterior:
 

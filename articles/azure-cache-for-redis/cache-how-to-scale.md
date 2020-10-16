@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/11/2017
 ms.openlocfilehash: e780ef0b82240ac6771059f8bd239b90395135d9
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88213333"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Como escalar cache Azure para Redis

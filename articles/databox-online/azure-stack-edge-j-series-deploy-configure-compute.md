@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 3281642134e7a6a2531f43ad4b3f80cff34d03b6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6bea4ee4452675a50ef9144da300c3e15652a81f
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90890921"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952170"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro"></a>Tutorial: Transformar dados com Azure Stack Edge Pro
 
@@ -25,7 +25,7 @@ Este tutorial descreve como configurar um papel computacional no seu dispositivo
 Este procedimento pode demorar cerca de 10 a 15 minutos para ser concluído.
 
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Configure computação
@@ -58,18 +58,18 @@ Para configurar o cálculo no seu Azure Stack Edge Pro, irá criar um recurso Io
    
     |Campo  |Valor  |
     |---------|---------|
-    |Hub IoT     | Escolha entre **Novo** ou **Já.** <br> Por predefinição, é utilizado um escalão Standard (S1) para criar um recurso IoT. Para utilizar um recurso IoT de escalão gratuito, crie um e, em seguida, selecione o recurso existente. <br> Em cada caso, o recurso IoT Hub utiliza o mesmo grupo de subscrição e recursos que é utilizado pelo recurso Azure Stack Edge.     |
-    |Name     |Insira um nome para o seu recurso IoT Hub.         |
+    |IoT Hub     | Escolha entre **Novo** ou **Já.** <br> Por predefinição, é utilizado um escalão Standard (S1) para criar um recurso IoT. Para utilizar um recurso IoT de escalão gratuito, crie um e, em seguida, selecione o recurso existente. <br> Em cada caso, o recurso IoT Hub utiliza o mesmo grupo de subscrição e recursos que é utilizado pelo recurso Azure Stack Edge.     |
+    |Nome     |Insira um nome para o seu recurso IoT Hub.         |
 
-    ![Começar com o computo](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-3.png)
+    ![Começar com o compute 2](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-3.png)
 
 4. Selecione **Criar**. A criação de recursos IoT Hub demora vários minutos. Após a criação do recurso IoT Hub, as atualizações de azulejos **de computação Configure** para mostrar a configuração do cálculo. 
 
-    ![Começar com o computo](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-4.png)
+    ![Começar com o computo 3](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-4.png)
 
 5. Para confirmar que a função de computação Edge foi configurada, selecione **Ver Computação** no azulejo **do cálculo Configure.**
     
-    ![Começar com o computo](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
+    ![Começar com o compute 4](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
 
     > [!NOTE]
     > Se o diálogo **Configure Compute** for fechado antes de o IoT Hub estar associado ao dispositivo Azure Stack Edge Pro, o Hub IoT é criado mas não é mostrado na configuração do cálculo. 

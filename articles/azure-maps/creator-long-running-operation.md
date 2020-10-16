@@ -1,5 +1,5 @@
 ---
-title: Azure Maps Operação API de longa duração
+title: Azure Maps Long-Running Operação API
 description: Saiba mais sobre o processamento de fundo assíncronos de longa duração no Azure Maps
 author: anastasia-ms
 ms.author: v-stharr
@@ -10,15 +10,15 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 360fc4af688e393bb8639ee773f0bf0de603a425
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83598389"
 ---
-# <a name="creator-long-running-operation-api"></a>Operação API de Longa Duração do Criador
+# <a name="creator-long-running-operation-api"></a>Operação API Long-Running Criador
 
-AlgumaS API em Azure Maps usam um [padrão assíncrono de resposta de pedido](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply). Este padrão permite que o Azure Maps forneça serviços altamente disponíveis e responsivos. Este artigo explica a implementação específica do Azure Map de processamento de fundo assíncrona de longa duração.
+Alguma API em Azure Maps usam um [padrão assíncrono Request-Reply](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply). Este padrão permite que o Azure Maps forneça serviços altamente disponíveis e responsivos. Este artigo explica a implementação específica do Azure Map de processamento de fundo assíncrona de longa duração.
 
 ## <a name="submitting-a-request"></a>Apresentação de um pedido
 

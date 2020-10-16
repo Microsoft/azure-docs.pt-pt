@@ -38,15 +38,17 @@
 - name: Tutoriais
   items:
     - name: 1 - Aprovisionar conjuntos de dispositivos com grupos de inscrição
-      href: how-to-legacy-device-symm-key.md
+      items:
+        - name: Aprovisionar dispositivos com chaves simétricas
+          href: how-to-legacy-device-symm-key.md
+        - name: Utilizar políticas de alocação personalizadas
+          href: tutorial-custom-allocation-policies.md
     - name: 2 - Aprovisionar dispositivos a vários hubs
       items:
         - name: Ligar vários hubs ao DPS
           href: tutorial-provision-multiple-hubs.md
         - name: Aprovisionar para arquitetura multi-inquilino
           href: how-to-provision-multitenant.md
-        - name: Utilizar políticas de alocação personalizadas
-          href: tutorial-custom-allocation-policies.md
 - name: Amostras
   items:
     - name: Exemplo de atestado de dispositivo TPM simulado

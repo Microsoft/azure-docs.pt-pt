@@ -11,14 +11,14 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1
-ms.openlocfilehash: 6d05f5fa20b5deee14b1a2fada389d869d48908a
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: fc5b958813ea1107d98525b6dfc1b0b56c9c5400
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91709092"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091207"
 ---
-# <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentações do ML automatizado no Python
+# <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentações do ML automatizado no Python
 
 
 Neste guia, aprenda a definir várias configurações das suas experiências automatizadas de aprendizagem automática de máquinas com o [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true). A aprendizagem automática de máquinas escolhe um algoritmo e hiperparímetros para si e gera um modelo pronto para ser implantado. Existem várias opções que pode usar para configurar experiências automatizadas de aprendizagem automática de máquinas.
@@ -222,7 +222,7 @@ Em todas as experiências automatizadas de machine learning, os seus dados são 
 
 Ao configurar as suas experiências no `AutoMLConfig` seu objeto, pode ativar/desativar a definição `featurization` . A tabela a seguir mostra as definições aceites para a exibição no [objeto AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
-|Configuração de exibição | Descrição |
+|Configuração de exibição | Description |
 | ------------- | ------------- |
 |`"featurization": 'auto'`| Indica que, como parte do pré-processamento, [os guarda-dados e as etapas de exibição](how-to-configure-auto-features.md#featurization) são executados automaticamente. **Definição padrão**.|
 |`"featurization": 'off'`| Indica que o passo de exibição não deve ser feito automaticamente.|
@@ -270,7 +270,7 @@ Os seguintes parâmetros aplicam-se apenas aos modelos **StackEnsemble:**
 
 * `stack_meta_learner_type`: o meta-aprendiz é um modelo treinado na saída dos modelos heterogéneos individuais. Os meta-aprendizes predefinidos são `LogisticRegression` para tarefas de classificação (ou `LogisticRegressionCV` se a validação cruzada estiver ativada) e para `ElasticNet` tarefas de regressão/previsão (ou `ElasticNetCV` se a validação cruzada estiver ativada). Este parâmetro pode ser uma das seguintes cordas: `LogisticRegression` , , , , , , , ou `LogisticRegressionCV` `LightGBMClassifier` `ElasticNet` `ElasticNetCV` `LightGBMRegressor` `LinearRegression` .
 
-* `stack_meta_learner_train_percentage`: especifica a proporção do conjunto de formação (na escolha do tipo de formação de comboio e validação) a reservar para a formação do metaapresador. O valor predefinido é `0.2` . 
+* `stack_meta_learner_train_percentage`: especifica a proporção do conjunto de formação (na escolha do tipo de formação de comboio e validação) a reservar para a formação do metaapresador. O valor predefinido é `0.2`. 
 
 * `stack_meta_learner_kwargs`: parâmetros opcionais para passar para o inicializador do metaacosador. Estes parâmetros e tipos de parâmetros espelham os parâmetros e os tipos de parâmetros do construtor de modelos correspondentes, e são encaminhados para o construtor do modelo.
 
@@ -343,7 +343,7 @@ Uma &nbsp; pontuação &nbsp; foi &nbsp; &nbsp; alcançada| A utilização compl
 
 Pode ver os resultados do seu treino num widget ou inline se estiver num caderno. Consulte [Track e avalie os modelos](how-to-monitor-view-training-logs.md#monitor-automated-machine-learning-runs) para obter mais detalhes.
 
-Consulte [os resultados automatizados de aprendizagem automática](how-to-understand-automated-ml.md) de máquinas para definições e exemplos dos gráficos de desempenho e métricas fornecidas para cada execução. 
+Consulte [avaliar os resultados automatizados](how-to-understand-automated-ml.md) da experiência de machine learning para definições e exemplos dos gráficos de desempenho e métricas fornecidas para cada execução. 
 
 Para obter um resumo de exibição e entender que características foram adicionadas a um determinado modelo, consulte [a transparência da Participação.](how-to-configure-auto-features.md#featurization-transparency) 
 
@@ -364,7 +364,7 @@ Para obter informações gerais sobre como as explicações dos modelos e a impo
 > [!NOTE]
 > O modelo ForecastTCN não é atualmente suportado pelo Cliente explicação. Este modelo não devolverá um dashboard de explicação se for devolvido como o melhor modelo, e não suporta explicações a pedido.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 + Saiba mais sobre [como e onde implementar um modelo.](how-to-deploy-and-where.md)
 

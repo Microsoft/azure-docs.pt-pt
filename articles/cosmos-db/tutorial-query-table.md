@@ -10,10 +10,10 @@ ms.date: 06/05/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 481f1353e16fecd0e413152db89a4ae54824a0f8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89019288"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>Tutorial: Consultar o Azure Cosmos DB através da API de Tabela
@@ -51,7 +51,7 @@ Uma vez que as propriedades PartitionKey e RowKey formam a chave primária de um
 https://<mytableendpoint>/People(PartitionKey='Harp',RowKey='Walter')  
 ```
 
-**Resultados**
+**Results**
 
 | PartitionKey | RowKey | E-mail | PhoneNumber |
 | --- | --- | --- | --- |
@@ -78,7 +78,7 @@ https://<mytableapi-endpoint>/People()?$filter=PartitionKey%20eq%20'Smith'%20and
 
 Para obter mais informações sobre como criar expressões de filtro para vários tipos de dados, veja [Consultar Tabelas e Entidades](/rest/api/storageservices/querying-tables-and-entities).
 
-**Resultados**
+**Results**
 
 | PartitionKey | RowKey | E-mail | PhoneNumber |
 | --- | --- | --- | --- |

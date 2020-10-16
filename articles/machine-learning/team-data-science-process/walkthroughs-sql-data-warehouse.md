@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 92cd3a9cc82a38cae6a56b7796e22d035979f2d5
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89439855"
 ---
 # <a name="azure-synapse-analytics-data-science-walkthroughs-using-t-sql-and-python-on-azure"></a>Azure Synapse Analytics data science walkthroughs usando T-SQL e Python on Azure
@@ -30,7 +30,7 @@ As análises adicionais da ciência dos dados que executam o Processo de Ciênci
 O [walkthrough Use Azure Synapse Analytics](sqldw-walkthrough.md) mostra-lhe como construir e implementar modelos de classificação e regressão de machine learning utilizando a Azure Synapse Analytics.  Os dados são uma viagem de táxi e dataset de tarifas de NYC publicamente disponíveis.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para uma discussão dos componentes-chave que compõem o Processo de Ciência de Dados de Equipa, consulte [a visão geral do Processo de Ciência de Dados da Equipa.](overview.md)
 

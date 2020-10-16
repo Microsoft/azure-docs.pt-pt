@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 07/17/2020
 ms.author: thomasge
 ms.openlocfilehash: 836a5a003268a98dd8e63eed9bfdba741abcf4ed
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91397050"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Utilize identidades geridas no Serviço Azure Kubernetes
@@ -18,7 +18,7 @@ Atualmente, um cluster Azure Kubernetes Service (AKS) (especificamente, o proved
 
 *As identidades geridas* são essencialmente um invólucro em torno dos diretores de serviço, e tornam a sua gestão mais simples. A rotação credencial para o MI ocorre automaticamente a cada 46 dias de acordo com o padrão do Azure Ative Directory. A AKS utiliza tipos de identidade geridos atribuídos pelo sistema e atribuídos pelo utilizador. Estas identidades são atualmente imutáveis. Para saber mais, leia sobre [identidades geridas para recursos Azure.](../active-directory/managed-identities-azure-resources/overview.md)
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Deve ter o seguinte recurso instalado:
 
@@ -37,20 +37,20 @@ Deve ter o seguinte recurso instalado:
 
 A AKS usa várias identidades geridas para serviços incorporados e addons.
 
-| Identidade                       | Name    | Caso de utilização | Permissões por defeito | Traga a sua própria identidade
+| Identidade                       | Nome    | Caso de utilização | Permissões por defeito | Traga a sua própria identidade
 |----------------------------|-----------|----------|
 | Plano de controlo | não visível | Utilizado pela AKS para recursos de rede geridos, incluindo equilibradores de carga ingresss e IPs públicos geridos por AKS | Papel contribuinte para o grupo de recursos nó | Pré-visualizar
 | Kubelet | AKS Cluster Name-agentpool | Autenticação com Registo de Contentores Azure (ACR) | NA (para kubernetes v1.15+) | Atualmente, não é suportado
-| Add-on | AzurenPM | Nenhuma identidade necessária | ND | No
-| Add-on | Monitorização da rede AzureCNI | Nenhuma identidade necessária | ND | No
-| Add-on | azurepolicy (gatekeeper) | Nenhuma identidade necessária | ND | No
-| Add-on | azurepolicy | Nenhuma identidade necessária | ND | No
-| Add-on | Calico | Nenhuma identidade necessária | ND | No
-| Add-on | Dashboard | Nenhuma identidade necessária | ND | No
-| Add-on | HTTPApplicationRouting | Gere os recursos de rede necessários | Função do leitor para grupo de recursos de nó, papel de contribuinte para a zona DNS | No
-| Add-on | Gateway de aplicação ingress | Gere os recursos de rede necessários| Papel contribuinte para o grupo de recursos de nó | No
-| Add-on | omsagent | Usado para enviar métricas AKS para Azure Monitor | Função de editor de métricas de monitorização | No
-| Add-on | Nó virtual (ACIConnector) | Gere os recursos de rede necessários para as instâncias do contentor Azure (ACI) | Papel contribuinte para o grupo de recursos de nó | No
+| Add-on | AzurenPM | Nenhuma identidade necessária | ND | Não
+| Add-on | Monitorização da rede AzureCNI | Nenhuma identidade necessária | ND | Não
+| Add-on | azurepolicy (gatekeeper) | Nenhuma identidade necessária | ND | Não
+| Add-on | azurepolicy | Nenhuma identidade necessária | ND | Não
+| Add-on | Calico | Nenhuma identidade necessária | ND | Não
+| Add-on | Dashboard | Nenhuma identidade necessária | ND | Não
+| Add-on | HTTPApplicationRouting | Gere os recursos de rede necessários | Função do leitor para grupo de recursos de nó, papel de contribuinte para a zona DNS | Não
+| Add-on | Gateway de aplicação ingress | Gere os recursos de rede necessários| Papel contribuinte para o grupo de recursos de nó | Não
+| Add-on | omsagent | Usado para enviar métricas AKS para Azure Monitor | Função de editor de métricas de monitorização | Não
+| Add-on | Virtual-Node (ACIConnector) | Gere os recursos de rede necessários para as instâncias do contentor Azure (ACI) | Papel contribuinte para o grupo de recursos de nó | Não
 | Projeto OSS | aad-pod-identidade | Permite aplicações para aceder a recursos em nuvem de forma segura com o Azure Ative Directory (AAD) | ND | Passos para conceder permissão em https://github.com/Azure/aad-pod-identity#role-assignment .
 
 ## <a name="create-an-aks-cluster-with-managed-identities"></a>Criar um cluster AKS com identidades geridas

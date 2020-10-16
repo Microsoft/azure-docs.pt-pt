@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/20/2019
 ms.author: jingwang
 ms.openlocfilehash: dda761e12abe7ec866ad9426982563b6f629f6b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85513305"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Copiar dados do Office 365 para a Azure usando a Azure Data Factory
@@ -77,7 +77,7 @@ As seguintes secções fornecem detalhes sobre propriedades que são usadas para
 
 As seguintes propriedades são suportadas para o serviço ligado ao Office 365:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo deve ser definida para: **Office365** | Sim |
 | office365TenantId | Identificação do inquilino Azure à qual pertence a conta do Office 365. | Sim |
@@ -117,7 +117,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados do Office 365, suportam-se as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade do tipo do conjunto de dados deve ser definida para: **Office365Table** | Sim |
 | tableName | Nome do conjunto de dados para extrair do Office 365. Consulte [aqui](https://docs.microsoft.com/graph/data-connect-datasets#datasets) a lista dos conjuntos de dados do Office 365 disponíveis para extração. | Sim |
@@ -151,7 +151,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados do Office 365, as seguintes propriedades são suportadas na secção **fonte de origem** da atividade da cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **Office365Source** | Sim |
 | permitidos Grupos | Predicado de seleção de grupo.  Utilize esta propriedade para selecionar até 10 grupos de utilizadores para os quais os dados serão recuperados.  Se nenhum grupo for especificado, então os dados serão devolvidos para toda a organização. | Não |
@@ -303,5 +303,5 @@ Para copiar dados do Office 365, as seguintes propriedades são suportadas na se
 ]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter uma lista de lojas de dados suportadas como fontes e sumidouros pela atividade de cópia na Azure Data Factory, consulte lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)

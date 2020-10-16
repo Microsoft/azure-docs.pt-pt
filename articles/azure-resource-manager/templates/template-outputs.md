@@ -4,10 +4,10 @@ description: Descreve como definir valores de saída num modelo de Gestor de Rec
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.openlocfilehash: 203bfc66e9515ef14a5fe1315ef5b9ee07075041
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79460029"
 ---
 # <a name="outputs-in-azure-resource-manager-template"></a>Saídas no modelo do Gestor de Recursos Azure
@@ -116,6 +116,6 @@ Os exemplos que se seguem demonstram cenários para a utilização de saídas.
 |[Endereço IP público](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | Cria um endereço IP público e produz o ID do recurso. |
 |[Equilibrador de carga](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) | Links para o modelo anterior. Utiliza o ID do recurso na saída ao criar o equilibrador de carga. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para conhecer as propriedades disponíveis para saídas, consulte [a estrutura e sintaxe dos modelos Azure Resource Manager](template-syntax.md).

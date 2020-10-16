@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
 ms.openlocfilehash: f71a9fa1151a1df2ae04fe47afd6bf36861aa2e5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91273777"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rstudio-connect"></a>Tutorial: Integração do Azure Ative Directory com o RStudio Connect
@@ -95,7 +95,7 @@ Para configurar o Azure AD com rStudio Connect, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -120,11 +120,11 @@ Para configurar o Azure AD com rStudio Connect, execute os seguintes passos:
 
     ![image](common/edit-attribute.png)
 
-7. Na **configuração de um único sinal com página SAML,** na secção certificado de assinatura **SAML,** clique no botão de cópia para copiar o **Url de metadados da Federação de Aplicações** e guarde-o no seu computador.
+7. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** clique no botão de cópia para copiar o **Url de Metadados da Federação de Aplicações** e guarde-o no seu computador.
 
     ![O link de descarregamento de certificado](common/copy-metadataurl.png)
 
-### <a name="configure-rstudio-connect-single-sign-on"></a>Configure RStudio Ligar único sinal
+### <a name="configure-rstudio-connect-single-sign-on"></a>Configurar RStudio Connect Single Sign-On
 
 Para configurar um único sinal de insuflação para **o RStudio Connect,** é necessário utilizar o url de **metadados da Federação de Aplicações** e o **Endereço do Servidor** utilizado acima. Isto é feito no ficheiro de configuração RStudio Connect em `/etc/rstudio-connect/rstudio-connect.gcfg` .
 
@@ -179,7 +179,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Create** (Criar).
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 09/10/2020
+ms.date: 10/07/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 6807174f374e75f826001afecc1eccf8ba1a0603
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a767f6f877ae22a311afdb00417efb9f28fdc8f0
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743391"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938360"
 ---
 # <a name="tutorial-activate-azure-stack-edge-pro-with-gpu"></a>Tutorial: Ativar Azure Stack Edge Pro com GPU
 
@@ -92,6 +92,7 @@ Antes de configurar e configurar o seu dispositivo Azure Stack Edge Pro com GPU,
  
 A ativação do dispositivo está completa. Agora pode adicionar ações no seu dispositivo.
 
+Se encontrar algum problema durante a ativação, aceda à [ativação de resolução de problemas e aos erros do Cofre da Chave Azure](azure-stack-edge-gpu-troubleshoot-activation.md#activation-errors).
 
 ## <a name="next-steps"></a>Passos seguintes
 

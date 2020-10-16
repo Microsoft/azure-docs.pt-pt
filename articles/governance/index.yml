@@ -11,12 +11,12 @@ metadata:
   author: DCtheGeek
   ms.author: dacoulte
   ms.date: 06/29/2020
-  ms.openlocfilehash: dfecc160962fca67e08e48b1e5b266d3899a4675
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 2b36da366c41b43a125a25c682aa15b7594f0d1d
+  ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "89048694"
+  ms.lasthandoff: 10/14/2020
+  ms.locfileid: "92057948"
 highlightedContent:
   items:
   - title: Descrição geral da governação
@@ -141,6 +141,9 @@ additionalContent:
       - text: REST
         url: /rest/api/resources/policydefinitions
         note: (Definições)
+      - text: REST
+        url: /rest/api/resources/policyexemptions
+        note: (Isenções)
       - text: REST
         url: /rest/api/resources/policysetdefinitions
         note: (Iniciativas)

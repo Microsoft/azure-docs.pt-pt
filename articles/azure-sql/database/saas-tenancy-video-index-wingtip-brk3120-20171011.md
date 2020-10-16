@@ -11,10 +11,10 @@ ms.custom: sqldbrb=1
 ms.date: 12/18/2018
 ms.topic: conceptual
 ms.openlocfilehash: 8cceeef7e41e8fc5c48b4e67cdb1adf3aa4f02a1
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89483869"
 ---
 # <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>Vídeo indexado e anotado para app SaaS multi-inquilino usando Azure SQL Database
@@ -306,7 +306,7 @@ Clicar em qualquer imagem de imagem leva-o ao local exato do vídeo.
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Primeiro artigo tutorial][saas-how-welcome-wingtip-app-679t]
 

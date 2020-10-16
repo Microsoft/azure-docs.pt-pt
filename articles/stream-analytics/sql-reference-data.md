@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/29/2019
 ms.openlocfilehash: e00ab059c68d7a3f2288d94894199773cab63ac5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86039301"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Utilize dados de referência de uma base de dados SQL para um trabalho de Azure Stream Analytics
@@ -99,7 +99,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
    ![Entrada new stream analytics no Estúdio Visual](./media/sql-reference-data/stream-analytics-vs-input.png)
 
-2. Clique duas **vezesInput.jsno** **Solution Explorer**.
+2. Clique duas ** vezesInput.jsno** **Solution Explorer**.
 
 3. Preencha a **Configuração de Entrada de Stream Analytics**. Escolha o nome da base de dados, o nome do servidor, o tipo de atualização e a taxa de atualização. Especificar a taxa de atualização no `DD:HH:MM` formato.
 
@@ -198,7 +198,7 @@ O Azure Stream Analytics funcionará com qualquer tipo de Base de Dados Azure SQ
 
 O Stream Analytics garante exatamente um processamento de eventos e pelo menos uma entrega de eventos. Nos casos em que as questões transitórias afetam o seu trabalho, uma pequena quantidade de repetição é necessária para restaurar o estado. Para ativar a repetição, é necessário ter estas imagens armazenadas numa conta de Armazenamento Azure. Para obter mais informações sobre a repetição do checkpoint, consulte [Checkpoint e reproduzir conceitos em trabalhos Azure Stream Analytics](stream-analytics-concepts-checkpoint-replay.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Utilização de dados de referência para procuras no Stream Analytics](stream-analytics-use-reference-data.md)
 * [Início Rápido: Criar uma tarefa do Stream Analytics com as ferramentas do Azure Stream Analytics para Visual Studio](stream-analytics-quick-create-vs.md)

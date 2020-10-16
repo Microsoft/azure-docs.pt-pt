@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: c4ea8db464c7cae57b80837ced9f8886a8b3cf4a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87093022"
 ---
 # <a name="prepay-for-azure-cache-for-redis-compute-resources-with-reserved-capacity"></a>Pré-pagamento por Azure Cache para redis computa recursos com capacidade reservada
@@ -52,7 +52,7 @@ A tabela a seguir descreve os campos necessários.
 | :------------ | :------- |
 | Subscrição   | A subscrição utilizada para pagar a Cache Azure para reserva de capacidade reservada redis. O método de pagamento da subscrição é cobrado os custos iniciais da Cache Azure para reserva de capacidade reservada redis. O tipo de subscrição deve ser um acordo de empresa (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou um acordo individual com preços pay-as-you-go (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Para uma subscrição Enterprise, os custos são deduzidos do saldo de fidelização monetária da inscrição ou cobrados como utilização excedida. Para uma subscrição individual com preços pay-as-you-go, os encargos são cobrados no cartão de crédito ou no método de pagamento da fatura na subscrição.
 | Âmbito | O âmbito da reserva pode abranger uma subscrição ou várias subscrições (âmbito partilhado). Se selecionar: </br></br> **Partilhado**, o desconto de reserva é aplicado à Azure Cache para instâncias Redis que estão a decorrer em quaisquer subscrições dentro do seu contexto de faturação. Para os clientes empresariais, o âmbito partilhado é a inscrição e inclui todas as subscrições dentro da inscrição. Para clientes Pay As You Go, o âmbito partilhado é todas as subscrições Pay As You Go criadas pelo administrador de conta.</br></br> **Subscrição única**, o desconto de reserva é aplicado à Azure Cache para instâncias Redis nesta subscrição. </br></br> **Grupo de recursos únicos**, o desconto de reserva é aplicado à Cache Azure para instâncias Redis na subscrição selecionada e no grupo de recursos selecionado dentro dessa subscrição.
-| Região | A região de Azure que está coberta pela Cache Azure para reserva de capacidade reservada redis.
+| Region | A região de Azure que está coberta pela Cache Azure para reserva de capacidade reservada redis.
 | Escalão de preço | O nível de serviço para o Cache Azure para servidores Redis.
 | Termo | Um ano ou três anos
 | Quantidade | A quantidade de recursos computacionares que estão a ser adquiridos dentro da Cache Azure para reserva de capacidade reservada redis. A quantidade é uma série de caches na região de Azure selecionada e nível de serviço que estão sendo reservados e receberá o desconto de faturação. Por exemplo, se estiver a executar ou a planear executar um Cache Azure para servidores Redis com a capacidade total de cache de 26 GB na região leste dos EUA, então especificaria a quantidade que lhe dá o equivalente a 26 GB para maximizar o benefício para todos os caches. Isto pode ser 1 caches P3 ou 2 P2.
@@ -82,5 +82,5 @@ O desconto de reserva é aplicado automaticamente na Cache Azure para instância
     * [Compreender o desconto das Reservas do Azure](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges)
     * [Compreender a utilização de reservas na sua subscrição Pay As You Go](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges-mysql)
     * [Compreender a utilização de reservas na inscrição Enterprise](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
-    * [Azure Reservations no programa Fornecedor de Soluções Cloud (CSP) do Centro de Parceiros](https://docs.microsoft.com/partner-center/azure-reservations)
+    * [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](https://docs.microsoft.com/partner-center/azure-reservations) (Reservas do Azure no programa Fornecedor de Soluções Cloud (CSP) do Centro de Parceiros)
 

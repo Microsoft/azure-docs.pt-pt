@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: troubleshooting
 ms.date: 10/18/2019
 ms.openlocfilehash: 122c96c95aea794fbba9cab8a9a5b867f9f34b48
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88008972"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Resolver problemas do lado do cliente da Cache do Azure para Redis
@@ -30,7 +30,7 @@ A pressão de memória na máquina do cliente leva a todo o tipo de problemas de
 Para detetar a pressão da memória no cliente:
 
 - Monitorize a utilização da memória na máquina para se certificar de que não excede a memória disponível.
-- Monitorize o balcão de desempenho do `Page Faults/Sec` cliente. Durante o funcionamento normal, a maioria dos sistemas tem algumas falhas de página. Os picos nas falhas de página correspondentes aos intervalos de tempo de pedido podem indicar pressão de memória.
+- Monitorize o balcão de desempenho do `Page Faults/Sec` cliente. Durante o funcionamento normal, a maioria dos sistemas tem algumas falhas de página. Os picos nas falhas de paginação correspondentes a tempos limite de pedidos podem indicar a pressão da memória.
 
 A alta pressão de memória sobre o cliente pode ser atenuada de várias maneiras:
 
@@ -41,7 +41,7 @@ A alta pressão de memória sobre o cliente pode ser atenuada de várias maneira
 
 Explosões de tráfego `ThreadPool` combinadas com configurações deficientes podem resultar em atrasos no processamento de dados já enviados pelo Redis Server, mas ainda não consumidos do lado do cliente.
 
-Monitorize como as suas `ThreadPool` estatísticas mudam ao longo do tempo usando um [exemplo `ThreadPoolLogger` ](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). Pode utilizar `TimeoutException` mensagens de StackExchange.Redis como abaixo para investigar mais aprofundadamente:
+Monitorize como as suas `ThreadPool` estatísticas mudam ao longo do tempo usando um [exemplo `ThreadPoolLogger` ](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). Pode utilizar  `TimeoutException` mensagens de StackExchange.Redis como abaixo para investigar mais aprofundadamente:
 
 ```output
     System.TimeoutException: Timeout performing EVAL, inst: 8, mgr: Inactive, queue: 0, qu: 0, qs: 0, qc: 0, wr: 0, wq: 0, in: 64221, ar: 0,

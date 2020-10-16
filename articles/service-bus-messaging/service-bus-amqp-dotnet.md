@@ -4,10 +4,10 @@ description: Este artigo descreve como utilizar o Azure Service Bus a partir de 
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 7a67ab74efc700e16f5b1689e9cc1f459ecf14bd
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88067108"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Utilize o ônibus de serviço de .NET com AMQP 1.0
@@ -68,7 +68,7 @@ Para facilitar a interoperabilidade com non-.NET clientes, utilize apenas tipos 
 | DateTime |carimbo de data/hora |Valor AMQP |
 | GUID |uuid |Valor AMQP |
 | byte[] |binary |Valor AMQP |
-| cadeia |cadeia |Valor AMQP |
+| string |string |Valor AMQP |
 | System.Collections.IList |lista |Valor AMQP: os itens contidos na coleção só podem ser os que estão definidos nesta tabela. |
 | Sistema.Array |matriz |Valor AMQP: os itens contidos na coleção só podem ser os que estão definidos nesta tabela. |
 | System.Collections.IDictionary |mapa |Valor AMQP: os itens contidos na coleção só podem ser os que estão definidos nesta tabela. Nota: apenas as teclas de corda são suportadas. |
@@ -89,7 +89,7 @@ Para facilitar a interoperabilidade com non-.NET clientes, utilize apenas tipos 
 Existem algumas pequenas diferenças no comportamento do Service Bus .NET API ao utilizar amQP, em comparação com o protocolo padrão:
 
 * A propriedade [OperationTimeout][OperationTimeout] é ignorada.
-* `MessageReceiver.Receive(TimeSpan.Zero)`é implementado como `MessageReceiver.Receive(TimeSpan.FromSeconds(10))` .
+* `MessageReceiver.Receive(TimeSpan.Zero)` é implementado como `MessageReceiver.Receive(TimeSpan.FromSeconds(10))` .
 * A conclusão das mensagens por fichas de bloqueio só pode ser feita pelos recetores de mensagens que inicialmente receberam as mensagens.
 
 ## <a name="control-amqp-protocol-settings"></a>Definições do protocolo AMQP de controlo

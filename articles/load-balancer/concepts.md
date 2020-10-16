@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2020
 ms.author: allensu
-ms.openlocfilehash: 61620a8497765c4d8f90a3d616bd2f4b932f8dcc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5c12b7d0bf9bed551e54ccb2e54a4674a8323a9c
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91629034"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91930922"
 ---
 # <a name="azure-load-balancer-algorithm"></a>Algoritmo do balançador de carga Azure
 
@@ -54,16 +54,6 @@ O balanceador de carga não interage diretamente com TCP ou UDP ou a camada de a
 - Cada ponto final é respondido por um VM. Por exemplo, ocorre um aperto de mão TCP entre o cliente e o VM de back-end selecionado. Uma resposta a um pedido para uma frente é uma resposta gerada por um VM de back-end. Quando valida com sucesso a conectividade para uma extremidade frontal, está a validar a conectividade em pelo menos uma máquina virtual de back-end.
 - As cargas de aplicação são transparentes para o balançador de carga. Qualquer aplicação UDP ou TCP pode ser suportada.
 - Como o equilibrador de carga não interage com a carga útil TCP e fornece descarregamento de TLS, pode construir cenários encriptados abrangentes. A utilização do balançador de carga ganha uma grande escala para aplicações TLS, terminando a ligação TLS na própria VM. Por exemplo, a sua capacidade de teclaragem de sessão TLS é limitada apenas pelo tipo e número de VMs que adiciona à piscina traseira.
-
-## <a name="limitations"></a><a name = "limitations"></a>Limitações
-
-- Uma regra do balançador de carga não pode abranger duas redes virtuais.  Os frontends e as suas instâncias de backend devem estar localizadas na mesma rede virtual.  
-
-- O balançador de carga fornece o equilíbrio de carga e o encaminhamento da porta para protocolos específicos de TCP ou UDP. As regras de equilíbrio de carga e as regras nat de entrada suportam TCP e UDP, mas não outros protocolos IP, incluindo o ICMP.
-
-- O fluxo de saída de um VM de backend para uma parte frontal de um balanceador de carga interno falhará.
-
-- Reencaminhar fragmentos de IP não é suportado em regras de equilíbrio de carga. A fragmentação ip de pacotes UDP e TCP não é suportada em regras de equilíbrio de carga. As regras de equilíbrio de carga das portas HA podem ser utilizadas para encaminhar os fragmentos de IP existentes. Para mais informações, consulte [a visão geral das portas de alta disponibilidade.](load-balancer-ha-ports-overview.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

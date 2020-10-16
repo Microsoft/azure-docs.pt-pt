@@ -4,10 +4,10 @@ description: Este artigo mostra como resolver problemas com os hubs de eventos d
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: e32e02947b9f004755381d562fd3f3c897b70674
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90061432"
 ---
 # <a name="apache-kafka-troubleshooting-guide-for-event-hubs"></a>Guia de resolução de problemas de Apache Kafka para centros de eventos
@@ -62,7 +62,7 @@ Apache Kafka vs. Event Hubs Kafka. Na maior parte das vezes, a interface kafka d
 - Os compromissos de compensação são acelerados para 4 chamadas/segundo por partição com um tamanho máximo de log interno de 1 MB
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre Os Centros de Eventos e Centros de Eventos para Kafka, consulte os seguintes artigos:  
 
 - [Guia de desenvolvedores apache Kafka para centros de eventos](apache-kafka-developer-guide.md)

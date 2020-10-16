@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Saiba como utilizar o Detetor de Anomalias API e a Azure Databricks para monitorizar anomalias nos seus dados.
 titlesuffix: Azure Cognitive Services
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 03/05/2020
-ms.author: aahi
-ms.openlocfilehash: 95ab400d645a2a2761e39c191cdb85e49e1c7a27
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.author: mbullwin
+ms.openlocfilehash: 8ef5d8e049ac4a779d5139945bf1073f38eb434c
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245609"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017663"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Tutorial: Deteção de anomalias em dados de streaming utilizando Azure Databricks
 
@@ -63,7 +63,7 @@ Nesta secção, cria-se um espaço de trabalho Azure Databricks utilizando o [po
 
 1. No portal Azure, **selecione Criar um recurso**  >  **Analytics**  >  **Azure Databricks**.
 
-    ![Databricks no portal Azure](../media/tutorials/azure-databricks-on-portal.png "Databricks no portal Azure")
+    ![Azure Databricks no portal](../media/tutorials/azure-databricks-on-portal.png "Databricks no portal Azure")
 
 3. No serviço **Azure Databricks,** forneça os seguintes valores para criar um espaço de trabalho databricks:
 
@@ -115,7 +115,7 @@ Para receber um fluxo de tweets, tem de criar uma aplicação no Twitter. Siga o
 
 3. Na página da aplicação, selecione o separador **Chaves e Tokens de Acesso** e copie os valores de **Chave de Consumidor** e **Segredo de Consumidor**. Além disso, selecione **Criar o meu token de acesso** para gerar os tokens de acesso. Copie os valores de **Token de Acesso** e **Segredo de Token de Acesso**.
 
-    ![Detalhes da aplicação do Twitter](../media/tutorials/twitter-app-key-secret.png "Detalhes da aplicação do Twitter")
+    ![Detalhes da aplicação do Twitter 2](../media/tutorials/twitter-app-key-secret.png "Detalhes da aplicação do Twitter")
 
 Guarde os valores que obteve da aplicação do Twitter. Vai precisar dos valores mais tarde no tutorial.
 
@@ -193,7 +193,7 @@ Nesta secção, vai criar dois blocos de notas na área de trabalho do Databrick
 
 2. Na caixa de diálogo **Create Notebook,** **insira SendTweetsToEventHub** como nome, selecione **Scala** como idioma e selecione o cluster Spark que criou anteriormente.
 
-    ![Criar caderno em Databricks](../media/tutorials/databricks-notebook-details.png "Criar caderno em Databricks")
+    ![Detalhes do caderno](../media/tutorials/databricks-notebook-details.png "Criar caderno em Databricks")
 
     Selecione **Criar**.
 

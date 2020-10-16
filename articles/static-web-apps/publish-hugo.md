@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
 ms.openlocfilehash: ff408f114784fa3f0b8fab49521b5ec7ec2be102
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88797722"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicar um site Hugo para pré-visualização de aplicações web estáticas Azure
@@ -115,7 +115,7 @@ Os passos seguintes mostram-lhe como criar uma nova aplicação estática do sit
 
 1. Para _SKU_, selecione **Grátis**.
 
-   :::image type="content" source="./media/publish-hugo/basic-app-details.png" alt-text="Detalhes preenchidos":::
+   :::image type="content" source="./media/publish-hugo/basic-app-details.png" alt-text="Criar um recurso Azure Static Web Apps no portal":::
 
 1. Clique **no botão Iniciar sin com GitHub.**
 
@@ -125,7 +125,7 @@ Os passos seguintes mostram-lhe como criar uma nova aplicação estática do sit
 
 1. Para o _Branch_ selecione **master**.
 
-   :::image type="content" source="./media/publish-hugo/completed-github-info.png" alt-text="Informação completa do GitHub":::
+   :::image type="content" source="./media/publish-hugo/completed-github-info.png" alt-text="Criar um recurso Azure Static Web Apps no portal":::
 
 ### <a name="build"></a>Compilar
 
@@ -149,7 +149,7 @@ Em seguida, adiciona definições de configuração que o processo de construç�
 
 1. Na janela _Geral_ do portal Azure do recurso Azure Static Web Apps, clique na ligação _URL_ para abrir a sua aplicação implementada.
 
-   :::image type="content" source="./media/publish-hugo/deployed-app.png" alt-text="Aplicação implantada":::
+   :::image type="content" source="./media/publish-hugo/deployed-app.png" alt-text="Criar um recurso Azure Static Web Apps no portal":::
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

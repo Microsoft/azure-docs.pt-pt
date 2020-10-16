@@ -4,10 +4,10 @@ description: Aprenda sobre a embalagem de uma aplicação existente como um hós
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.openlocfilehash: 8b808d092001196a4d2150e44d508e031db95554
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86247392"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>Implementar um executável existente para o tecido de serviço

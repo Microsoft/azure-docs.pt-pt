@@ -8,10 +8,10 @@ ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: how-to
 ms.date: 02/09/2018
 ms.openlocfilehash: b554869864ff71fb31b6c4e2b891fd42c4a380b1
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87126487"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Utilizar Azure Data Lake Tools for Visual Studio Code

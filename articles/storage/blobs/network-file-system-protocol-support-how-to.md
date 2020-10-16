@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
 ms.openlocfilehash: 09206b8189f03a37f8bd7d073238609a3f1bd3ad
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88816104"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Armazenamento do Monte Blob utilizando o protocolo Sistema de Ficheiros de Rede (NFS) 3.0 (pré-visualização)
@@ -172,7 +172,7 @@ Crie um diretório no seu sistema Windows ou Linux e, em seguida, monte um recip
 |`Access denied by server while mounting`|Confirme que o cliente está a ser executado numa sub-rede suportada. Consulte as localizações da [rede suportada.](network-file-system-protocol-support.md#supported-network-connections)|
 |`No such file or directory`| Confirme que o contentor que está a montar foi criado depois de verificar que a funcionalidade estava registada. Ver [Passo 2: Verifique se a função está registada](#step-2-verify-that-the-feature-is-registered). Além disso, certifique-se de digitar o comando de montagem e os seus parâmetros diretamente para o terminal. Se copiar e colar qualquer parte deste comando no terminal a partir de outra aplicação, os carateres ocultos nas informações coladas poderão ser a causa deste erro.|
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 [Suporte ao protocolo do Sistema de Ficheiros de Rede (NFS) 3.0 no armazenamento do Azure Blob (pré-visualização)](network-file-system-protocol-support.md)
 

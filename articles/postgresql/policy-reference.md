@@ -8,10 +8,10 @@ ms.author: jonels
 ms.service: postgresql
 ms.custom: subject-policy-reference
 ms.openlocfilehash: 0207abb3eda84093909a4a4b37760dbe7c5e7d03
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91826770"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-database-for-postgresql"></a>Definições incorporadas da Política Azure para a Base de Dados Azure para PostgreSQL

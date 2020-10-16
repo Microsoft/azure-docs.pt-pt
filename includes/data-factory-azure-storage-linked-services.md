@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 37917e0ed663675677f1d0452b5796120ca2694e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75469490"
 ---
 ### <a name="azure-storage-linked-service"></a>Serviço Ligado do Storage do Azure
 O **serviço ligado ao Azure Storage** permite-lhe ligar uma conta de armazenamento Azure a uma fábrica de dados Azure utilizando a chave de **conta**, que fornece à fábrica de dados acesso global ao Azure Storage. A tabela seguinte fornece descrição para elementos JSON específicos do serviço ligado ao Armazenamento Azure.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo |O tipo de propriedade deve ser definido para: **AzureStorage** |Sim |
 | conexãoStragem |Especifique as informações necessárias para ligar ao armazenamento Azure para a propriedade connectionString. |Sim |
@@ -42,12 +42,12 @@ As assinaturas de acesso partilhado (SAS) disponibilizam acesso delegado a recur
 > A Azure Data Factory agora só suporta **o Serviço SAS,** mas não a Conta SAS. Note que o URL SAS generable do portal Azure ou Storage Explorer é uma Conta SAS, que não é suportada.
 
 > [!TIP]
-> Pode executar abaixo os comandos PowerShell para gerar um Serviço SAS para a sua conta de armazenamento (substitua os titulares de lugares e conceda a permissão necessária):`$context = New-AzStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> Pode executar abaixo os comandos PowerShell para gerar um Serviço SAS para a sua conta de armazenamento (substitua os titulares de lugares e conceda a permissão necessária): `$context = New-AzStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
 > `New-AzStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 O serviço Azure Storage SAS permite-lhe ligar uma Conta de Armazenamento Azure a uma fábrica de dados Azure utilizando uma Assinatura de Acesso Partilhado (SAS). Fornece à fábrica de dados um acesso restrito/temporal a todos/recursos específicos (blob/contentor) no armazenamento. A tabela seguinte fornece descrição para elementos JSON específicos do serviço ligado ao Azure Storage SAS. 
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo |O tipo de propriedade deve ser definido para: **AzureStorageSas** |Sim |
 | SasUri |Especifique a assinatura de acesso partilhado URI aos recursos de armazenamento Azure, tais como bolha, recipiente ou mesa.  |Sim |

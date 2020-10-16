@@ -11,10 +11,10 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 07/28/2020
 ms.openlocfilehash: d43f94d3555a660d6b7c8f755eebfec253d31dc2
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89322987"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Compreender o uso da máquina virtual Azure
@@ -59,7 +59,7 @@ Para algumas imagens na galeria Azure, o tipo de imagem é povoado no campo Info
 - Pré-visualização do servidor do Windows 
 
 ## <a name="service-type"></a>Tipo de Serviço
-O campo de tipo de serviço no campo Informações Adicionais corresponde ao tamanho exato do VM que implementou. Os VMs de armazenamento premium (baseado em SSD) e VMs de armazenamento não premium (baseado em HDD) têm o mesmo preço. Se implementar um tamanho baseado em SSD, como o Standard \_ DS2 \_ v2, vê o tamanho não SSD `Standard\_D2\_v2 VM` () na coluna sub-categoria do medidor e no tamanho SSD ( `Standard\_DS2\_v2` ) no campo Informação Adicional.
+O campo de tipo de serviço no campo Informações Adicionais corresponde ao tamanho exato do VM que implementou. Os VMs de armazenamento premium (baseado em SSD) e VMs de armazenamento não premium (baseado em HDD) têm o mesmo preço. Se implementar um tamanho baseado em SSD, como \_ o Standard DS2 \_ v2, vê o tamanho não SSD ( `Standard\_D2\_v2 VM` ) na coluna Sub-Category meter e no tamanho SSD ( `Standard\_DS2\_v2` ) no campo Informação Adicional.
 
 ## <a name="region-names"></a>Nomes da região
 O nome da região preenchido no campo de Localização de Recursos nos detalhes de utilização varia do nome da região utilizado no Gestor de Recursos Azure. Aqui está um mapeamento entre os valores da região:
@@ -136,5 +136,5 @@ No modelo Clássico, a faturação de recursos é agregada ao nível do Cloud Se
 ### <a name="why-is-pricing-not-available-for-dsfsgsls-sizes-on-the-pricing-page"></a>Porque é que os preços não estão disponíveis para os tamanhos DS/FS/GS/LS na página de preços?
 Os VMs capazes de armazenamento premium são faturados ao mesmo ritmo que os VMs capazes de armazenamento não premium. Apenas os seus custos de armazenamento diferem. Visite a [página de preços de armazenamento](https://azure.microsoft.com/pricing/details/storage/unmanaged-disks/) para mais informações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre os seus dados de utilização, consulte [a sua conta para o Microsoft Azure.](../cost-management-billing/understand/review-individual-bill.md)

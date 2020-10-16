@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 5/26/2020
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 37fb724b83e80c1265755e6440f152143d419051
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87503077"
 ---
 # <a name="restart-azure-database-for-mariadb-server-using-powershell"></a>Reinicie a base de dados do Azure para o servidor MariaDB utilizando o PowerShell

@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
 ms.openlocfilehash: 33435d2367b92f312d41f0e32fdbb3a93d59a9fd
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540885"
 ---
 # <a name="use-features-to-boost-signal-of-word-list"></a>Use funcionalidades para aumentar o sinal da lista de palavras
@@ -65,6 +65,6 @@ Para adicionar uma entidade como recurso a uma intenção, selecione a intençã
 
 Para adicionar uma entidade como recurso a outra entidade, pode adicionar a funcionalidade na página de detalhes de Intenção utilizando a [Paleta de Entidade](label-entity-example-utterance.md#adding-entity-as-a-feature-from-the-entity-palette) ou pode adicionar a [funcionalidade](luis-how-to-add-entities.md#add-a-feature-to-a-machine-learned-entity) na página de detalhes da Entidade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de adicionar, editar, eliminar ou desativar uma funcionalidade, [treine e teste novamente a aplicação](luis-interactive-test.md) para ver se o desempenho melhora.

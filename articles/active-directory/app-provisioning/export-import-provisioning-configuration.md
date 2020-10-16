@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 03/19/2020
 ms.author: kenwith
 ms.openlocfilehash: e34656d6ce515cabe955c101f7b52ac0f2ade8db
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88235822"
 ---
 # <a name="how-to-export-provisioning-configuration-and-roll-back-to-a-known-good-state"></a>Como fazer: Configuração de provisionamento de exportação e retrocesso para um bom estado conhecido
@@ -97,7 +97,7 @@ No Microsoft Graph Explorer, configuure a seguinte consulta PUT, substituindo [s
 
 No separador "Request Body", copie o conteúdo do ficheiro de esquema JSON.
 
-   [![Corpo do Pedido](./media/export-import-provisioning-configuration/wd_export_04.png)](./media/export-import-provisioning-configuration/wd_export_04.png#lightbox)
+   [![Corpo de Pedido](./media/export-import-provisioning-configuration/wd_export_04.png)](./media/export-import-provisioning-configuration/wd_export_04.png#lightbox)
 
 No separador "Cabeçalhos de pedido", adicione o atributo cabeçalho do tipo de conteúdo com o valor "aplicação/json"
 

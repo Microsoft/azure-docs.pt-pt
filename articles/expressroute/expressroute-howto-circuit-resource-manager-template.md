@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: duau
 ms.openlocfilehash: 3428f092c4b2356e9ea6afa54d1a03fc8b4f9f05
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89566182"
 ---
 # <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Crie um circuito ExpressRoute utilizando o modelo de Gestor de Recursos Azure
@@ -27,7 +27,7 @@ ms.locfileid: "89566182"
 
 Aprenda a criar um circuito ExpressRoute implantando um modelo de Gestor de Recursos Azure utilizando a Azure PowerShell. Para obter mais informações sobre o desenvolvimento de modelos de Gestor de Recursos, consulte [a documentação do Gestor de Recursos](/azure/azure-resource-manager/) e a referência do [modelo.](/azure/templates/microsoft.network/expressroutecircuits)
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 * Reveja os [pré-requisitos](expressroute-prerequisites.md) e [fluxos de trabalho](expressroute-workflows.md) antes de iniciar a configuração.
 * Certifique-se de que tem permissões para criar novos recursos de rede. Contacte o administrador da sua conta se não tiver as permissões certas.
@@ -100,7 +100,7 @@ $resourceGroupName = "${circuitName}rg"
 Remove-AzExpressRouteCircuit -ResourceGroupName $resourceGroupName -Name $circuitName
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de criar o seu circuito, continue com os seguintes passos:
 

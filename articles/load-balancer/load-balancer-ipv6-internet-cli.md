@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
 ms.openlocfilehash: edc17b9636792ce00458716e3461077fa689b3ed
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87001578"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Criar um equilibrista de carga pública com IPv6 usando Azure CLI
@@ -157,7 +157,7 @@ Este exemplo cria os seguintes itens:
 * Uma regra NAT para traduzir todo o tráfego de entrada na porta 3391 para a porta 3389 para o protocolo de ambiente de trabalho remoto (RDP).\*
 * Uma regra do balançador de carga para equilibrar todo o tráfego de entrada no porto 80 para o porto 80 nos endereços da piscina traseira.
 
-\*As regras DA Estão associadas a uma instância específica da máquina virtual por trás do equilibrador de carga. O tráfego de rede que chega à porta 3389 é enviado para a máquina virtual específica e porta que está associada à regra NAT. Tem de especificar um protocolo (UDP ou TCP) para uma regra NAT. Não pode atribuir ambos os protocolos à mesma porta.
+\* As regras DA Estão associadas a uma instância específica da máquina virtual por trás do equilibrador de carga. O tráfego de rede que chega à porta 3389 é enviado para a máquina virtual específica e porta que está associada à regra NAT. Tem de especificar um protocolo (UDP ou TCP) para uma regra NAT. Não pode atribuir ambos os protocolos à mesma porta.
 
 1. Configurar as variáveis PowerShell:
 

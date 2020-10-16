@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: a183589c3e5274cf747164cdc33d46044f95e716
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87073691"
 ---
 # <a name="agent-data-sources-in-azure-monitor"></a>Fontes de dados de agente no Azure Monitor

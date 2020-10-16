@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: jeedes
 ms.openlocfilehash: a70216286e6f19f565d189c1c16f8862494e3aef
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91743085"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-beyondtrust-remote-support"></a>Tutorial: Azure Ative Directory integração única (SSO) com Suporte Remoto BeyondTrust
@@ -85,7 +85,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<HOSTNAME>.bomgar.com/saml/sso`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de inscrição, identificação e URL de resposta. Obterá estes valores explicados mais tarde no tutorial.
+    > Estes valores não são reais. Atualize estes valores com o URL de Sign-On real, identifier e responder URL. Obterá estes valores explicados mais tarde no tutorial.
 
 1. A aplicação BeyondTrust Remote Support espera as afirmações DO SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos.
 
@@ -93,11 +93,11 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação BeyondTrust Remote Support espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
 
-    | Name |  Atributo de origem|
+    | Nome |  Atributo de origem|
     | ---------------| ----------|
     | Nome dado | user.givenname |
     | Emailaddress | user.mail |
-    | Name | user.userprincipalname |
+    | Nome | user.userprincipalname |
     | Nome de utilizador | user.userprincipalname |
     | Grupos | utilizador.grupos |
     | Identificador de utilizador único | user.userprincipalname |
@@ -163,7 +163,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. No menu suspenso, selecione **SAML** e clique no botão **Criar Provedor.**
 
-1. Na secção Definições do Fornecedor de Identidade, existe uma opção para carregar os metadados do Fornecedor de Identidade. Localize o ficheiro Metadados XML que descarregou a partir do portal Azure e clique no botão **Upload.** O **ID da Entidade**, URL e Certificado de Serviço único de início de sômcula será automaticamente carregado, e a **Ligação protocolar** terá de ser alterada para **HTTP POST**. **Single Sign-On Service URL** Veja a imagem abaixo:
+1. Na secção Definições do Fornecedor de Identidade, existe uma opção para carregar os metadados do Fornecedor de Identidade. Localize o ficheiro Metadados XML que descarregou a partir do portal Azure e clique no botão **Upload.** O **ID da Entidade,** URL e Certificado **de Serviço de Sign-On Único** será automaticamente carregado, e a **Ligação protocolar** terá de ser alterada para **HTTP POST**. Veja a imagem abaixo:
 
     ![A screenshot mostra a secção definições do fornecedor de identidade onde executa estas ações.](./media/bomgarremotesupport-tutorial/config-uploadfile.png)
 

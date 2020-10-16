@@ -7,10 +7,10 @@ ms.date: 12/10/2019
 ms.author: mayg
 ms.topic: conceptual
 ms.openlocfilehash: c4842172ff181b5cdbe7f6fecf69da8755ae43fa
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86129881"
 ---
 # <a name="exclude-disks-from-vmware-vm-replication-to-azure"></a>Excluir discos da replicação VMware VM para Azure
@@ -49,5 +49,5 @@ Antes de excluir discos da replicação:
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Depois da implementação estar instalada e em execução, [saiba mais](failover-failback-overview.md) sobre os diferentes tipos de ativação pós-falha.

@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.reviewer: jmartens, larryfr
 ms.author: tracych
 author: tracychms
-ms.date: 08/14/2020
+ms.date: 10/13/2020
 ms.custom: Build2020, devx-track-python
-ms.openlocfilehash: 8e8d0a13bc01e95311345154648ecb00b624c4bf
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1e55a8e8dd78a6093c875cd20dd8b240816e7426
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905614"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055108"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Executar inferência de lote em grandes quantidades de dados utilizando Azure Machine Learning
 
@@ -26,6 +26,9 @@ Este artigo mostra como executar o modelo do Azure Machine Learning em paralelo,
 A inferição de grandes conjuntos de dados ou com modelos complicados pode ser demorado. A `ParallelRunStep` classe permite-lhe realizar o processamento em paralelo, potencialmente obtenindo resultados globais mais rapidamente. Mesmo que executar uma única avaliação seja bastante rápido, muitos cenários (deteção de objetos, processamento de vídeo, processamento de linguagem natural, etc.) envolvem executar muitas avaliações. 
 
 Com `ParallelRunStep` , é simples escalar inferências de lote para grandes aglomerados de máquinas. Estes clusters podem lidar com terabytes de dados estruturados ou não estruturados com uma produtividade melhorada e custos otimizados.
+
+> [!NOTE]
+> ParallelRunStep é projetado para cargas de trabalho embaraçosamente paralelas, também pode ser usado para treinar muitos modelos simultaneamente, ou processar grandes dados.
 
 Neste artigo, aprende-se as seguintes tarefas:
 

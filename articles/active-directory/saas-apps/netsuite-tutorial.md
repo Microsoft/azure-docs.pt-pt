@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.openlocfilehash: c5be6ef39a3e980852aa3373dbc54da63aa3983e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f1845a8371c3b64174b83ce640f91e4ce9221b8e
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554520"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940825"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>Tutorial: Integre o Azure AD single sign-on (SSO) com NetSuite
 
@@ -79,7 +79,7 @@ Para ativar o Azure AD SSO no portal Azure, faça o seguinte:
 
 1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **NetSuite,** procure a secção **Gerir** e, em seguida, selecione **Single sign-on**.
 1. No **painel de método de inscrição única,** selecione **SAML**.
-1. No **set up Single Sign-On com painel SAML,** selecione o ícone **Edit** ("lápis") ao lado **da Configuração Básica SAML**.
+1. Na **configuração single Sign-On com painel SAML,** selecione o ícone **Edit** ("lápis") ao lado **da Configuração Básica SAML**.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -96,7 +96,7 @@ Para ativar o Azure AD SSO no portal Azure, faça o seguinte:
 
     * Obtém-se o **<`Instance ID`>** valor na secção de configuração Netsuite, que é explicada mais tarde no tutorial no passo 8 em Configuração Netsuite. Encontrará o domínio exato (como system.na0.netsuite.com neste caso).
 
-        ![Configurar o início de sessão único](./media/NetSuite-tutorial/domain-value.png)
+        ![A screenshot mostra a página de configuração SAML onde pode obter o domínio.](./media/NetSuite-tutorial/domain-value.png)
 
         > [!NOTE]
         > Os valores nos URLs anteriores não são reais. Atualize-os com o URL de resposta real. Para obter o valor, contacte a equipa de suporte do [Cliente NetSuite.](http://www.netsuite.com/portal/services/support-services/suitesupport.shtml) Também pode consultar os formatos indicados na secção **Configuração Básica SAML** no portal Azure.
@@ -107,7 +107,7 @@ Para ativar o Azure AD SSO no portal Azure, faça o seguinte:
 
 1. Além de acima, a aplicação NetSuite espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
 
-    | Name | Atributo de origem |
+    | Nome | Atributo de origem |
     | ---------------| --------------- |
     | conta  | `account id` |
 
@@ -164,31 +164,31 @@ Nesta secção, permite ao utilizador B.Simon utilizar o Azure single sign-on, p
 
 2. Na barra de navegação superior, selecione **Configuração**e, em seguida, selecione **Company**  >  **Funcionalidades de Ativação**da Empresa .
 
-    ![Configurar o início de sessão único](./media/NetSuite-tutorial/ns-setupsaml.png)
+    ![Screenshot mostra Enable Features selecionados da Empresa.](./media/NetSuite-tutorial/ns-setupsaml.png)
 
 3. Na barra de ferramentas no meio da página, selecione **SuiteCloud**.
 
-    ![Configurar o início de sessão único](./media/NetSuite-tutorial/ns-suitecloud.png)
+    ![A screenshot mostra SuiteCloud selecionada.](./media/NetSuite-tutorial/ns-suitecloud.png)
 
 4. No **Âmbito da Autenticação Gestão**, selecione a caixa de verificação **de sinais único SAML** para ativar a opção de inscrição única SAML no NetSuite.
 
-    ![Configurar o início de sessão único](./media/NetSuite-tutorial/ns-ticksaml.png)
+    ![A screenshot mostra a autenticação de gestão onde pode selecionar O SEML Single Sign-on.](./media/NetSuite-tutorial/ns-ticksaml.png)
 
 5. Na barra de navegação superior, selecione **Configuração**.
 
-    ![Configurar o início de sessão único](./media/NetSuite-tutorial/ns-setup.png)
+    ![Screenshot mostra configuração selecionada a partir da barra de navegação NETSUITE.](./media/NetSuite-tutorial/ns-setup.png)
 
 6. Na lista **de Tarefas de Configuração,** selecione **Integração**.
 
-    ![Configurar o início de sessão único](./media/NetSuite-tutorial/ns-integration.png)
+    ![Screenshot mostra integração selecionada a partir de TAREFAS DE CONFIGURAÇÃO.](./media/NetSuite-tutorial/ns-integration.png)
 
 7. Em **Gestão de Autenticação**, selecione **SAML Single Sign-on**.
 
-    ![Configurar o início de sessão único](./media/NetSuite-tutorial/ns-saml.png)
+    ![Screenshot mostrar SINL Single Sign-on selecionado a partir do item de integração em TAREFAS DE CONFIGURAÇÃO.](./media/NetSuite-tutorial/ns-saml.png)
 
 8. No painel **de configuração SAML,** em **Configuração NetSuite,** faça o seguinte:
 
-    ![Configurar o início de sessão único](./media/NetSuite-tutorial/ns-saml-setup.png)
+    ![A screenshot mostra a Configuração SAML onde pode introduzir os valores descritos.](./media/NetSuite-tutorial/ns-saml-setup.png)
   
     a. Selecione a caixa **de verificação do método de autenticação primária.**
 
@@ -198,9 +198,9 @@ Nesta secção, permite ao utilizador B.Simon utilizar o Azure single sign-on, p
 
 9. Na barra de navegação superior NetSuite, selecione **Configuração**e, em seguida, selecione **Company**  >  **Informações da Empresa**.
 
-    ![Configurar o início de sessão único](./media/NetSuite-tutorial/ns-com.png)
+    ![A screenshot mostra informações da empresa selecionadas da Empresa.](./media/NetSuite-tutorial/ns-com.png)
 
-    ![Configurar o início de sessão único](./media/NetSuite-tutorial/ns-account-id.png)
+    ![A imagem mostra o painel onde pode introduzir os valores descritos.](./media/NetSuite-tutorial/ns-account-id.png)
 
     b. No painel **de Informação da Empresa,** na coluna certa, copie o valor **de ID conta.**
 
@@ -210,23 +210,23 @@ Nesta secção, permite ao utilizador B.Simon utilizar o Azure single sign-on, p
 
     a. Na barra de navegação superior, selecione **Configuração**.
 
-    ![Configurar o início de sessão único](./media/NetSuite-tutorial/ns-setup.png)
+    ![Screenshot mostra configuração selecionada a partir da barra de navegação NETSUITE.](./media/NetSuite-tutorial/ns-setup.png)
 
     b. No painel esquerdo, selecione **Utilizadores/Funções**e, em seguida, **selecione Gerir Funções**.
 
-    ![Configurar o início de sessão único](./media/NetSuite-tutorial/ns-manage-roles.png)
+    ![A screenshot mostra o painel 'Gerir papéis' onde pode selecionar New Role.](./media/NetSuite-tutorial/ns-manage-roles.png)
 
     c. Selecione **Novo Papel**.
 
     d. Insira um **Nome** para o novo papel.
 
-    ![Configurar o início de sessão único](./media/NetSuite-tutorial/ns-new-role.png)
+    ![A screenshot mostra o Gestor de Configuração onde pode introduzir um nome para a função.](./media/NetSuite-tutorial/ns-new-role.png)
 
     e. Selecione **Guardar**.
 
     f. Na barra de navegação superior, selecione **Permissões**. Em seguida, selecione **Configuração**.
 
-    ![Configurar o início de sessão único](./media/NetSuite-tutorial/ns-sso.png)
+    ![A screenshot mostra o separador Configuração onde pode introduzir os valores descritos.](./media/NetSuite-tutorial/ns-sso.png)
 
     exemplo, Selecione **O Sign-on Único SAML**e, em seguida, selecione **Adicionar**.
 
@@ -234,19 +234,19 @@ Nesta secção, permite ao utilizador B.Simon utilizar o Azure single sign-on, p
 
     i. Na barra de navegação superior, selecione **Configuração**e, em seguida, selecione **Setup Manager**.
 
-    ![Configurar o início de sessão único](./media/NetSuite-tutorial/ns-setup.png)
+    ![Screenshot mostra configuração selecionada a partir da barra de navegação NETSUITE.](./media/NetSuite-tutorial/ns-setup.png)
 
     j. No painel esquerdo, selecione **Utilizadores/Funções**e, em seguida, **selecione Gerir utilizadores**.
 
-    ![Configurar o início de sessão único](./media/NetSuite-tutorial/ns-manage-users.png)
+    ![A screenshot mostra o painel de Utilizadores de Gestão onde pode selecionar a Equipa de Demonstração suite.](./media/NetSuite-tutorial/ns-manage-users.png)
 
     k. Selecione um utilizador de teste, **selecione Editar**e, em seguida, selecione o **separador 'Saber'.**
 
-    ![Configurar o início de sessão único](./media/NetSuite-tutorial/ns-edit-user.png)
+    ![A screenshot mostra o painel de Utilizadores de Gestão onde pode selecionar Editar.](./media/NetSuite-tutorial/ns-edit-user.png)
 
     l. No painel **Roles,** atribua o papel apropriado que criou.
 
-    ![Configurar o início de sessão único](./media/NetSuite-tutorial/ns-add-role.png)
+    ![A screenshot mostra administrador selecionado do Empregado.](./media/NetSuite-tutorial/ns-add-role.png)
 
     m. Selecione **Guardar**.
 

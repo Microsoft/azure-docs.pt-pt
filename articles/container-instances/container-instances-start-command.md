@@ -4,10 +4,10 @@ description: Desloque uma linha de comando para anular o ponto de entrada numa i
 ms.topic: article
 ms.date: 04/15/2019
 ms.openlocfilehash: 23221de3dc91c37c2e6fb96489539d3954efcd87
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86169634"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Definir a linha de comando numa instância de contentor para anular a operação da linha de comando predefinido
@@ -78,7 +78,7 @@ Uma vez que o estado do recipiente apareça como *Terminado* (use [az container 
 az container logs --resource-group myResourceGroup --name mycontainer1
 ```
 
-Saída:
+Resultado:
 
 ```console
 [('HAMLET', 386), ('HORATIO', 127), ('CLAUDIUS', 120)]
@@ -104,7 +104,7 @@ Mais uma vez, uma vez *terminado*o contentor, veja a saída mostrando os troncos
 az container logs --resource-group myResourceGroup --name mycontainer2
 ```
 
-Saída:
+Resultado:
 
 ```console
 [('ROMEO', 177), ('JULIET', 134), ('CAPULET', 119)]

@@ -2,7 +2,7 @@
 title: Junte-se a um CentOS VM para Azure AD Domain Services / Microsoft Docs
 description: Aprenda a configurar e junte uma máquina virtual CentOS Linux a um domínio gerido por Azure Ative Directory Domain Services.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 16100caa-f209-4cb0-86d3-9e218aeb51c6
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/13/2020
-ms.author: iainfou
-ms.openlocfilehash: 9eb6a43557da43e8f792bcc3858e7123f2b6c607
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: joflore
+ms.openlocfilehash: 6aa85564390728331f682c31d14655844d68b3c3
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005162"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962178"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Junte-se a uma máquina virtual CentOS Linux a um domínio gerido por Azure Ative Directory Domain Services
 

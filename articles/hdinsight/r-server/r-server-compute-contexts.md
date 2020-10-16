@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
 ms.openlocfilehash: 4df3c24c6f0853c1ae7447a8e20e8c2944319686
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86087610"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Opções de contexto computacional para serviços ML em HDInsight
@@ -57,7 +57,7 @@ Qual das três opções que escolhe que fornecem execução paralela depende da 
 
 Tendo em conta estes princípios, as seguintes secções oferecem algumas regras gerais do polegar para a seleção de um contexto computacional.
 
-### <a name="local"></a>Localização
+### <a name="local"></a>Local
 
 - Se a quantidade de dados a analisar for pequena e não necessitar de análise repetida, em seguida, transmita-a diretamente para a rotina de análise *utilizando* local ou *localpar*.
 - Se a quantidade de dados a analisar for pequena ou média e necessitar de análise repetida, copie-os para o sistema de ficheiros local, importe-os para XDF e analise-os através de *localidade* ou *local.*
@@ -79,7 +79,7 @@ Para obter mais informações e exemplos de contextos de computação RevoScaleR
 
 Também pode consultar a [visão geral](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing) da computação distribuída na [documentação do Servidor de Aprendizagem automática](https://docs.microsoft.com/machine-learning-server/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu sobre as opções que estão disponíveis para especificar se e como a execução é paralelamente através de núcleos do nó de borda ou cluster HDInsight. Para saber mais sobre como utilizar os Serviços ML com clusters HDInsight, consulte os seguintes tópicos:
 

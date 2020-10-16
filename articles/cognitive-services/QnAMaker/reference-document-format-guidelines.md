@@ -6,10 +6,10 @@ ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 04/06/2020
 ms.openlocfilehash: d35ea57a68e500deffa99033b83114ec518dd5e3
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91776736"
 ---
 # <a name="format-guidelines-for-imported-documents-and-urls"></a>Diretrizes de formato para documentos e URLs importados
@@ -54,7 +54,7 @@ Abaixo está um exemplo de um doc semi-estruturado, sem um índice:
 
 ## <a name="structured-qna-document"></a>Documento QnA estruturado
 
-O formato de respostas de perguntas estruturadas em ficheiros DOC, é sob a forma de perguntas e respostas alternadas por linha, uma pergunta por linha seguida da sua resposta na seguinte linha, como mostrado abaixo:
+O formato para Question-Answers estruturados em ficheiros DOC, é na forma de perguntas e respostas alternadas por linha, uma pergunta por linha seguida da sua resposta na seguinte linha, como mostra abaixo:
 
 ```text
 Question1

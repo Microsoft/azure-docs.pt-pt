@@ -8,10 +8,10 @@ ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 1eb24871817f365efe58b8e687563727df74493c
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89400981"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Linha de base de segurança Azure para lote
@@ -366,7 +366,7 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **Responsabilidade**: Cliente
 
-### <a name="34-utilize-single-sign-on-sso-with-azure-active-directory"></a>3.4: Utilize o Sign-On Único (SSO) com o Azure Ative Directory
+### <a name="34-utilize-single-sign-on-sso-with-azure-active-directory"></a>3.4: Utilizar Sign-On individuais (SSO) com o Azure Ative Directory
 
 **Orientação**: Não é aplicável, enquanto o Azure Batch suporta a autenticação Azure AD, a inscrição única não é suportada.
 
@@ -1135,7 +1135,7 @@ https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyva
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: Garantir a proteção de backups e chaves geridas pelo cliente
 
-**Orientação**: Se o Cofre da Chave Azure estiver a ser utilizado para conter quaisquer teclas relacionadas com as contas de armazenamento de piscinas do Azure Batch, ativar o Soft-Delete no Cofre da Chave Azure para proteger as chaves contra a eliminação acidental ou maliciosa.
+**Orientação**: Se o Cofre da Chave Azure estiver a ser utilizado para conter quaisquer teclas relacionadas com as contas de armazenamento de piscinas do Azure Batch, ative Soft-Delete no Cofre da Chave Azure para proteger as chaves contra a eliminação acidental ou maliciosa.
 
 Como permitir a eliminação suave no cofre da chave Azure:
 
@@ -1237,7 +1237,7 @@ https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte o [Azure Security Benchmark](../security/benchmarks/overview.md)
 - Saiba mais sobre [as Linhas de Base de Segurança Azure](../security/benchmarks/security-baselines-overview.md)

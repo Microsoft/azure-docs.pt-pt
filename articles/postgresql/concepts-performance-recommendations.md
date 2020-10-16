@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.openlocfilehash: d547844671e6485e71be7dd8c355de08f3dec5e6
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91710571"
 ---
 # <a name="performance-recommendations-in-azure-database-for-postgresql---single-server"></a>Recomendações de desempenho na base de dados Azure para PostgreSQL - Servidor Único
@@ -49,6 +49,6 @@ Além de detetar índices em falta, a Base de Dados Azure para PostgreSQL analis
 
 ## <a name="considerations"></a>Considerações
 * As recomendações de desempenho não estão disponíveis para [réplicas de leitura.](concepts-read-replicas.md)
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 - Saber mais sobre [monitorização e otimização](concepts-monitoring.md) na Base de Dados do Azure para PostgreSQL.
 

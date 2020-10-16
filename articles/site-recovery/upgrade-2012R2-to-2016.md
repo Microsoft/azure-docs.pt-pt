@@ -9,10 +9,10 @@ ms.service: site-recovery
 ms.date: 12/03/2018
 ms.author: sharrai
 ms.openlocfilehash: b9869ae7dfbf5afd6b8d3b870a2ad4e56fd54c1a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91250075"
 ---
 # <a name="upgrade-windows-server-serversystem-center-2012-r2-vmm-to-windows-servervmm-2016"></a>Upgrade Servidor do Servidor do Windows/Centro do Sistema 2012 R2 VMM para Windows Server/VMM 2016 

@@ -8,10 +8,10 @@ ms.date: 08/21/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 581e30508b508d5a36f2d5695043ac7bd782a2d5
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89394385"
 ---
 # <a name="azure-security-baseline-for-event-grid"></a>Linha de base de segurança Azure para a Grade de Eventos
@@ -70,7 +70,7 @@ auditoria.
 
 Pode configurar pontos finais privados para restringir o acesso apenas a partir de redes virtuais selecionadas.
 
-Ativar a Norma de Proteção DDoS nestas redes virtuais para evitar ataques de negação de serviço distribuídos (DDoS). Use a Azure Security Center Integrated Threat Intelligence para negar comunicações com endereços IP de Internet maliciosos ou não utilizados. Para obter mais informações, veja os seguintes artigos: 
+Ativar a Norma de Proteção DDoS nestas redes virtuais para evitar ataques de negação de serviço distribuídos (DDoS). Use a Azure Security Center Integrated Threat Intelligence para negar comunicações com endereços IP de Internet maliciosos ou não utilizados. Para obter mais informações, veja os artigos seguintes: 
 
 - [Como configurar pontos finais privados para tópicos ou domínios da Grelha de Eventos Azure](configure-private-endpoints.md)
 
@@ -994,7 +994,7 @@ Atualmente, a Event Grid não suporta chaves geridas pelo cliente.
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [referência de segurança Azure](/azure/security/benchmarks/overview)
 - Saiba mais sobre [as linhas de base de segurança da Azure](/azure/security/benchmarks/security-baselines-overview)

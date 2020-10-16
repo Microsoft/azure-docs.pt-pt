@@ -16,10 +16,10 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 70db1ff63e3c2a7e7806e5ef3c55b4e4af4a5259
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89263591"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Inserir anúncios no lado do cliente
@@ -353,7 +353,7 @@ O elemento **de gatilho** contém um elemento **startConditions** que especifica
     </trigger>
 ```
 
-### <a name="using-video-player-ad-interface-definition-vpaid"></a>Usando a definição de interface de vídeo-ad (VPAID)
+### <a name="using-video-player-ad-interface-definition-vpaid"></a>Usando a definição de interface de Player-Ad de vídeo (VPAID)
 VPAID é uma API para permitir que unidades de anúncios executáveis se comuniquem com um leitor de vídeo. Isto permite experiências de anúncios altamente interativas. O utilizador pode interagir com o anúncio e o anúncio pode responder às ações tomadas pelo espectador. Por exemplo, um anúncio pode exibir botões que permitem ao utilizador visualizar mais informações ou uma versão mais longa do anúncio. O leitor de vídeo deve apoiar a API VPAID e o anúncio executável deve implementar a API. Quando um jogador solicita um anúncio a partir de um servidor de anúncios, o servidor pode responder com uma resposta VAST que contém um anúncio VPAID.
 
 Um anúncio executável é criado em código que deve ser executado em um ambiente de tempo de execução como Adobe Flash™ ou JavaScript que pode ser executado em um navegador web. Quando um servidor de anúncios retorna uma resposta VAST contendo um anúncio VPAID, o valor do atributo apiFramework no `<MediaFile>` elemento deve ser "VPAID". Este atributo especifica que o anúncio contido é um anúncio executável VPAID. O atributo do tipo deve ser definido para o tipo MIME do executável, como "aplicação/x-shockwave-flash" ou "aplicação/x-javascript". O seguinte corte XML mostra o `<MediaFile>` elemento de uma resposta VAST contendo um anúncio executável VPAID.

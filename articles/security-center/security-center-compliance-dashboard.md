@@ -11,25 +11,24 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/12/2019
+ms.date: 10/11/2020
 ms.author: memildin
-ms.openlocfilehash: 7f235f9255df49c096e224e1754ad2bbdf664423
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3108dd32b9d7338e418a1d10684115ad7265702e
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90895812"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951201"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Tutorial: Melhorar a sua conformidade regulamentar
----
 
 O Azure Security Center ajuda a agilizar o processo de cumprimento dos requisitos de conformidade regulamentar, utilizando o **painel de conformidade regulamentar**. No painel de instrumentos, o Security Center fornece informações sobre a sua postura de conformidade com base em avaliações contínuas do seu ambiente Azure. O Security Center analisa fatores de risco no seu ambiente de nuvem híbrida de acordo com as melhores práticas de segurança. Estas avaliações são mapeadas para controlos de conformidade de um conjunto de normas apoiadas. No painel de conformidade regulamentar, pode ver o estado de todas as avaliações dentro do seu ambiente no contexto de uma determinada norma ou regulamento. À medida que age sobre as recomendações e reduz os fatores de risco no seu ambiente, a sua postura de conformidade melhora.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
--   Avalie a sua conformidade regulamentar utilizando o painel de conformidade regulamentar
-
--   Melhore a sua postura de conformidade tomando medidas sobre recomendações
+> [!div class="checklist"]
+> * Avalie a sua conformidade regulamentar utilizando o painel de conformidade regulamentar
+> * Melhore a sua postura de conformidade tomando medidas sobre recomendações
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -48,58 +47,54 @@ A visão do painel de conformidade regulamentar pode ajudar a concentrar a sua a
 >
 > A funcionalidade [de pacotes de conformidade dinâmica (pré-visualização)](update-regulatory-compliance-packages.md) permite-lhe atualizar as normas apresentadas no seu painel de conformidade regulamentar para os novos pacotes *dinâmicos.* Também pode utilizar a mesma funcionalidade de pré-visualização para adicionar novos pacotes de conformidade e monitorizar o cumprimento de normas adicionais. 
 
-1.  No menu principal do Centro de Segurança, no âmbito **da POLICY & conformidade** selecione conformidade **regulamentar**. <br>
+1. A partir do menu do Centro de Segurança, **selecione conformidade regulamentar**. <br>
 Na parte superior do ecrã, vê-se um dashboard com uma visão geral do seu estado de conformidade com o conjunto de regulamentos de conformidade suportados. Pode ver a sua pontuação geral de conformidade, e o número de avaliações de passagem vs. falhando associadas a cada padrão.
 
-    ![descrição do computador alta confiança](./media/security-center-compliance-dashboard/compliance-dashboard.png)
+    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Painel de conformidade regulamentar":::
 
-2.  Selecione o separador de uma norma de conformidade relevante para si. Verá a lista de todos os controlos dessa norma. Nos controlos aplicáveis, poderá ver os detalhes das avaliações bem-sucedidas e com falhas associadas a esse controlo. Alguns controlos estão acinzentados. Estes controlos não têm avaliações do Centro de Segurança associadas a eles. Verifique os requisitos para estes e avalie-os no seu ambiente por conta própria. Algumas delas podem estar relacionadas com processos e não técnicas.
+1. Selecione um separador para um padrão de conformidade que seja relevante para si (1). Verá em que subscrições o padrão é aplicado (2), e a lista de todos os controlos para esse padrão (3). Para os controlos aplicáveis, pode ver os detalhes das avaliações de passagem e falha associadas a esse controlo (4), bem como o número de recursos afetados (5). Alguns controlos estão acinzentados. Estes controlos não têm avaliações do Centro de Segurança associadas a eles. Verifique os requisitos para estes e avalie-os no seu ambiente por conta própria. Algumas delas podem estar relacionadas com processos e não técnicas.
 
-    ![separador de conformidade](./media/security-center-compliance-dashboard/compliance-pci.png)
+    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-drilldown.png" alt-text="Painel de conformidade regulamentar":::
 
 1. Para gerar e descarregar um relatório PDF que ressoe o seu estado de conformidade atual para uma determinada norma, clique em **Baixar o relatório**.
 
     O relatório fornece um resumo de alto nível do seu estado de conformidade para a norma selecionada com base nos dados de avaliação do Centro de Segurança, e é organizado de acordo com os controlos dessa norma específica. O relatório pode ser partilhado com as partes interessadas relevantes e pode servir para apresentar provas aos auditores internos e externos.
 
-    ![transferir](./media/security-center-compliance-dashboard/download-report.png)
+    :::image type="content" source="./media/security-center-compliance-dashboard/download-report.png" alt-text="Painel de conformidade regulamentar":::
 
 ## <a name="improve-your-compliance-posture"></a>Melhore a sua postura de conformidade
 
-Tendo em conta as informações no painel de conformidade regulamentar, pode melhorar a sua postura de conformidade, resolvendo recomendações diretamente dentro do painel de instrumentos.
+Tendo em conta as informações no painel de conformidade regulamentar, pode melhorar a sua postura de conformidade resolvendo recomendações diretamente dentro do painel de instrumentos.
 
 1.  Clique em qualquer uma das avaliações falhadas que aparecem no painel de instrumentos para ver os detalhes dessa recomendação. Cada recomendação inclui um conjunto de medidas de reparação que devem ser seguidas para resolver a questão.
 
-1.  Pode selecionar um recurso específico para visualizar mais detalhes e resolver a recomendação para esse recurso. <br>Por exemplo, no separador **padrão Azure CIS,** pode clicar na recomendação **Exigir transferência segura para a conta de armazenamento**.
+1.  Pode selecionar um recurso específico para visualizar mais detalhes e resolver a recomendação para esse recurso. <br>Por exemplo, na **norma Azure CIS 1.1.0 (Nova),** pode selecionar a recomendação **A encriptação do disco deve ser aplicada em máquinas virtuais**.
 
-    ![Selecionando a recomendação **Exija transferência segura para a conta de armazenamento**](./media/security-center-compliance-dashboard/compliance-recommendation.png)
+    :::image type="content" source="./media/security-center-compliance-dashboard/sample-recommendation.png" alt-text="Painel de conformidade regulamentar":::
 
-1. Ao clicar nas informações de recomendação e selecionar um recurso pouco saudável, ele leva-o diretamente à experiência de permitir uma **transferência segura** de armazenamento dentro do portal Azure.
+1. Neste exemplo, quando selecionar **Tome medidas** a partir da página de detalhes da recomendação, você chega às páginas Azure Virtual Machine do portal Azure, onde pode abrir o separador **Segurança** e ativar a encriptação:
+
+    :::image type="content" source="./media/security-center-compliance-dashboard/encrypting-vm-disks.png" alt-text="Painel de conformidade regulamentar":::
 
     Para obter mais informações sobre como aplicar recomendações, consulte [as recomendações de segurança de implementação no Centro de Segurança Azure.](security-center-recommendations.md)
-
-    ![Configuração da conta de armazenamento](./media/security-center-compliance-dashboard/compliance-remediate-recommendation.png)
 
 1.  Depois de tomar medidas para resolver recomendações, verá o impacto no relatório do painel de conformidade porque a sua pontuação de conformidade melhora.
 
     > [!NOTE]
-    > As avaliações são executadas aproximadamente a cada 12 horas, portanto, verá o impacto nos dados de conformidade apenas depois da execução das avaliações.
+    > As avaliações são executadas aproximadamente a cada 12 horas, pelo que verá o impacto nos seus dados de conformidade apenas após a próxima execução da avaliação relevante.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a usar o painel de conformidade regulamentar do Centro de Segurança para:
 
 -   Veja e monitorize a sua postura de conformidade, em relação aos padrões e regulamentos que são importantes para si.
-
 -   Melhore o seu estado de conformidade, resolvendo recomendações relevantes e vendo a pontuação de conformidade melhorar.
 
 O painel de conformidade regulamentar pode simplificar consideravelmente o processo de conformidade e reduzir significativamente o tempo necessário para recolher provas de conformidade para o seu ambiente Azure e híbrido.
 
-Para saber mais veja:
+Para saber mais, consulte estes artigos relacionados:
 
 -   [Atualização para pacotes de conformidade dinâmicos no seu painel de conformidade regulamentar (Preview)](update-regulatory-compliance-packages.md) - Saiba mais sobre esta funcionalidade de pré-visualização que lhe permite atualizar as normas apresentadas no seu painel de conformidade regulamentar para os novos pacotes *dinâmicos.* Também pode adicionar novos pacotes de conformidade e monitorizar o cumprimento de normas adicionais. 
-
 -   [Segurança monitorização de saúde no Azure Security Center](security-center-monitoring.md) - Saiba como monitorizar a saúde dos seus recursos Azure.
-
 -   [Gerir recomendações de segurança no Azure Security Center](security-center-recommendations.md) - Saiba como usar recomendações no Azure Security Center para ajudar a proteger os seus recursos Azure.
-
 -   [Melhore a sua Pontuação Segura no Centro de Segurança Azure](secure-score-security-controls.md) - Aprenda a priorizar vulnerabilidades e recomendações de segurança para melhorar a sua postura de segurança.

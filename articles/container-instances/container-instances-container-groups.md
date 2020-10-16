@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
 ms.openlocfilehash: 72ebe6186da179bc5a1effddcc14327455eb7557
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89612411"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Grupos de contentores no Azure Container Instances
@@ -67,7 +67,7 @@ Neste cenário, pode estabelecer um limite de recursos de até 2 CPUs para a ins
 
 * Para obter os recursos **máximos** de um grupo de contentores, consulte a [disponibilidade de recursos][region-availability] para instâncias de contentores Azure na região de implantação.
 
-## <a name="networking"></a>Rede
+## <a name="networking"></a>Redes
 
 Os grupos de contentores podem partilhar um endereço IP virado para o exterior, uma ou mais portas nesse endereço IP e uma etiqueta DNS com um nome de domínio totalmente qualificado (FQDN). Para permitir que clientes externos cheguem a um contentor dentro do grupo, deve expor a porta no endereço IP e a partir do contentor. O endereço IP de um grupo de contentores e fQDN são libertados quando o grupo de contentores é eliminado. 
 
@@ -96,7 +96,7 @@ O uso de exemplos pode incluir:
 * Um recipiente de aplicação e um recipiente de monitorização. O recipiente de monitorização faz periodicamente um pedido à aplicação para garantir que está a funcionar e a responder corretamente, e levanta um alerta se não estiver.
 * Um recipiente frontal e um recipiente de back-end. A parte frontal pode servir uma aplicação web, com a parte de trás a executar um serviço para recuperar dados. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como implantar um grupo de contentores multi-contentores com um modelo de Gestor de Recursos Azure:
 

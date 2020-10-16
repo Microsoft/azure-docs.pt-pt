@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/24/2020
 ms.author: jeedes
 ms.openlocfilehash: a631ab7190891ae3716a28615bcdbfe4d219ea27
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90053468"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-slack"></a>Tutorial: Azure Ative Directy integração única (SSO) com Slack
@@ -112,7 +112,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação Slack espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos. Também deve adicionar o `email` atributo. Se o utilizador não tiver um endereço de **e-mail, mapear o endereço de e-mail** para **user.userprincipalname** e **mapear o e-mail** para **user.userprincipalname**.
 
-    | Name | Atributo de origem |
+    | Nome | Atributo de origem |
     | -----|---------|
     | endereço de e-mail | user.userprincipalname |
     | e-mail | user.userprincipalname |
@@ -145,7 +145,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a Slack.
 
 1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
-1. Na lista de candidaturas, selecione **Slack**.
+1. Na lista de aplicações, selecione **Slack**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)

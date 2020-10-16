@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9398fc9ee61bed41cd1e8c227fc4b4068e4b3e69
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89662253"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existing-tenant"></a>Azure AD Connect: Quando tiver um inquilino existente
@@ -74,5 +74,5 @@ Alguns clientes começam com uma solução apenas em nuvem com Azure AD e não t
 
 Se a única razão pela qual planeia adicionar AD no local é para suportar LOBs (aplicações Line-of-Business), então talvez deva considerar usar os serviços de [domínio AD AZure](../../active-directory-domain-services/index.yml) em vez disso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: ca0bfcb0c90142924285215c427a7071297be730
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f808cff5bddf6566276df2f707232bde1ecca8a
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88553923"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995096"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Tutorial: Integração do Diretório Ativo Azure com dados do Periscópio
 
@@ -123,7 +123,7 @@ Para configurar o Azure AD com dados periscópios, execute os seguintes passos:
 
 2. Abra o menu de engrenagens na parte inferior esquerda e abra o menu De segurança de **faturação**  >  **Security** e execute os seguintes passos. Só os administradores têm acesso a estas definições.
 
-    ![Informações sobre dados do periscópio Configure](./media/periscope-data-tutorial/configure01.png)
+    ![Screenshot que mostra o diálogo "Segurança" com definições selecionadas.](./media/periscope-data-tutorial/configure01.png)
 
     a. Copie o **URL de metadados** da Federação de Aplicações a partir do passo #5 **Certificado de Assinatura SAML** e abra-o num browser. Isto abrirá um documento XML.
 
@@ -143,7 +143,7 @@ Para configurar o Azure AD com dados periscópios, execute os seguintes passos:
 
     i. Por fim, clique em **Guardar** e **confirme** a alteração das definições SSO digitando **o Logout**.
 
-    ![Informações sobre dados do periscópio Configure](./media/periscope-data-tutorial/configure02.png)
+    ![Screenshot que mostra o diálogo "Update S O Configuration" com "logout" dactilografado na caixa de texto e no botão "Confirmar" selecionado.](./media/periscope-data-tutorial/configure02.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 
@@ -206,7 +206,7 @@ Para permitir que os utilizadores de Azure AD iniciem sessão nos Dados do Peris
 
 2. Clique no ícone **Definições** na parte inferior esquerda do menu e navegue para **Permissões**.
 
-    ![Informações sobre dados do periscópio Configure](./media/periscope-data-tutorial/configure03.png)
+    ![Screenshot que mostra o menu "Definições" com "Permissões" selecionadas.](./media/periscope-data-tutorial/configure03.png)
 
 3. Clique no **UTILIZADOR ADD** e execute os seguintes passos:
 

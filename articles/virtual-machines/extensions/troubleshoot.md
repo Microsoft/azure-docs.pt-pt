@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
 ms.openlocfilehash: ad3197f20428ec751b4e3520af72dc5f8eb9ad28
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89180360"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Falhas de extensão Azure Windows VM de resolução de problemas

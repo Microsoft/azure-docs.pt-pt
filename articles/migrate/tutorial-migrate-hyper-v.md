@@ -6,12 +6,12 @@ ms.date: 06/08/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 842513536bf4dbfc0a3e3bd82905b397da9fa6c4
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: fbf436f501ef2d21dcd3394e61a40d354376efb9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91439076"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979092"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrar VMs Hyper-V para o Azure 
 
@@ -22,10 +22,10 @@ Este tutorial é o terceiro de uma série que demonstra como avaliar e migrar m�
 > [!NOTE]
 > Os tutoriais mostram-lhe o caminho de implantação mais simples para um cenário para que possa configurar rapidamente uma prova de conceito. Os tutoriais utilizam opções predefinidas sempre que possível e não mostram todas as definições e caminhos possíveis. 
 
- Neste tutorial, ficará a saber como:
+ Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
-> * Adicione a ferramenta Azure Migration:Server Migration.
+> * Adicione a ferramenta Azure Migrate:Server Migration.
 > * Descubra VMs que quer migrar.
 > * Comece a replicar VMs.
 > * Faça um teste de migração para garantir que tudo está funcionando como esperado.
@@ -239,6 +239,6 @@ Depois de verificar que a migração do teste funciona como esperado, pode migra
 -  Considere implementar o [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) para monitorizar a utilização e as despesas do recurso.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Investigue a [jornada de migração](/azure/architecture/cloud-adoption/getting-started/migrate) em nuvem no Quadro de Azure Cloud Adopt.

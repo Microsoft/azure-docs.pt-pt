@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 09/03/2020
 ms.author: aahi
 ms.openlocfilehash: d514460f3cd80b5b85604251743abbbbcd1adc8c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907006"
 ---
 ### <a name="container-repositories-and-images"></a>Repositórios e imagens de contentores
@@ -63,9 +63,9 @@ Consulte [como executar e instalar recipientes de detetores de anomalias](../../
 
 | Contentor | Registo de contentores / Repositório / Nome da imagem |
 |--|--|
-| [Discurso-a-texto](../../speech-service/speech-container-howto.md?tab=stt) | `mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text` |
+| [Conversão de voz em texto](../../speech-service/speech-container-howto.md?tab=stt) | `mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text` |
 | [Discurso-a-texto personalizado](../../speech-service/speech-container-howto.md?tab=cstt) | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text` |
-| [Texto-a-discurso](../../speech-service/speech-container-howto.md?tab=tts) | `mcr.microsoft.com/azure-cognitive-services/speechservices/text-to-speech` |
+| [Conversão de texto em voz](../../speech-service/speech-container-howto.md?tab=tts) | `mcr.microsoft.com/azure-cognitive-services/speechservices/text-to-speech` |
 
 #### <a name="ungated-preview"></a>Pré-visualização "Ungated" 
 

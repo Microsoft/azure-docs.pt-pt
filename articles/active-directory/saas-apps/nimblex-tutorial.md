@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 595977635937ec5dcf4a45a1d57524c1d3f41a6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3be17c672eb918c715602c7576c7d682badd925
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554384"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91941030"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nimblex"></a>Tutorial: Integração do Diretório Ativo Azure com o Nimblex
 
@@ -132,19 +132,19 @@ Para configurar o Azure AD single sign-on com Nimblex, execute os seguintes pass
 
 2. No lado superior direito da página, clique no logotipo **Definições.**
 
-    ![Configurações de nimblex](./media/nimblex-tutorial/tutorial_nimblex_settings.png)
+    ![A screenshot mostra o ícone Definições.](./media/nimblex-tutorial/tutorial_nimblex_settings.png)
 
 3. Na página **do Painel de Controlo,** na secção **de Segurança** clique **em 'S.Sign-on' único**.
 
-    ![Configurações de nimblex](./media/nimblex-tutorial/tutorial_nimblex_single.png)
+    ![A screenshot mostra o único sinal de inscrição selecionado no menu Security.](./media/nimblex-tutorial/tutorial_nimblex_single.png)
 
 4. Na página **'Gerir',** selecione o nome da sua instância e clique em **Editar.**
 
-    ![Saml nimblex](./media/nimblex-tutorial/tutorial_nimblex_saml.png)
+    ![A screenshot mostra gerir o Single Sign-On onde pode selecionar Editar.](./media/nimblex-tutorial/tutorial_nimblex_saml.png)
 
 5. Na página **Editar SSO Provider,** execute os seguintes passos:
 
-    ![Saml nimblex](./media/nimblex-tutorial/tutorial_nimblex_sso.png)
+    ![A screenshot mostra editar S O Provider onde pode introduzir os valores descritos.](./media/nimblex-tutorial/tutorial_nimblex_sso.png)
 
     a. Na caixa de texto **Descrição,** digite o nome da sua instância.
 

@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: lcozzens
-ms.openlocfilehash: c1142ef7b37dee916118964778f6c1db2a65d591
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: b2b903f259fdd2564fbcaed5eb0a750edf9c06e2
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719704"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075880"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Push configurações para configuração de aplicativos com pipelines Azure
 
@@ -56,7 +56,7 @@ Atribua as atribuições de funções de configuração de aplicação adequadas
 
 Esta secção abrangerá como utilizar a tarefa Azure App Configuration Push num pipeline de construção de Azure DevOps.
 
-1. Navegue para a página **Pipelines**do gasoduto de construção clicando em  >  **Pipelines Pipelines**. A documentação para a construção de gasodutos pode ser [consultada aqui.](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=tfs-2018-2)
+1. Navegue para a página **Pipelines**do gasoduto de construção clicando em  >  **Pipelines Pipelines**. A documentação para a construção de gasodutos pode ser [consultada aqui.](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2&view=azure-devops)
       - Se estiver a criar um novo pipeline de construção, selecione **Mostrar assistente** no lado direito do oleoduto e procure a tarefa **Azure App Configuration Push.**
       - Se estiver a utilizar um pipeline de construção existente, navegue no separador **Tarefas** ao editar o pipeline e procure a Tarefa de Push de Configuração da **Aplicação Azure.**
 2. Configure os parâmetros necessários para a tarefa de empurrar os valores-chave do ficheiro de configuração para a loja de Configuração de Aplicações. O parâmetro **Caminho do Ficheiro de Configuração** começa na raiz do repositório de ficheiros.
@@ -66,10 +66,10 @@ Esta secção abrangerá como utilizar a tarefa Azure App Configuration Push num
 
 Esta secção abrangerá como utilizar a tarefa Azure App Configuration Push num pipeline de lançamento Azure DevOps.
 
-1. Navegue para lançar a página do gasoduto selecionando **lançamentos**de  >  **pipelines**. A documentação para os gasodutos de libertação pode ser [consultada aqui.](https://docs.microsoft.com/azure/devops/pipelines/release?view=azure-devops)
+1. Navegue para lançar a página do gasoduto selecionando **lançamentos**de  >  **pipelines**. A documentação para os gasodutos de libertação pode ser [consultada aqui.](/azure/devops/pipelines/release?view=azure-devops)
 1. Escolha um gasoduto de desbloqueio existente. Se não tiver um, selecione **+ Novo** para criar um novo.
 1. Selecione o botão **Editar** no canto superior direito para editar o pipeline de desbloqueio.
-1. Escolha o **Palco** para adicionar a tarefa. Mais informações sobre as etapas podem ser [encontradas aqui.](https://docs.microsoft.com/azure/devops/pipelines/release/environments?view=azure-devops)
+1. Escolha o **Palco** para adicionar a tarefa. Mais informações sobre as etapas podem ser [encontradas aqui.](/azure/devops/pipelines/release/environments?view=azure-devops)
 1. Selecione **+** para esse Trabalho e, em seguida, adicione a tarefa **Azure App Configuration Push** no **separador Implementar.**
 1. Configure os parâmetros necessários na tarefa de empurrar os valores-chave do seu ficheiro de configuração para a sua loja de Configuração de Aplicações. As explicações dos parâmetros estão disponíveis na secção **Parâmetros** abaixo e nas pontas das ferramentas ao lado de cada parâmetro.
 1. Poupe e faça fila para uma libertação. O registo de desbloqueio apresentará quaisquer falhas encontradas durante a execução da tarefa.
@@ -87,7 +87,7 @@ Os seguintes parâmetros são utilizados pela tarefa De pressão de configuraç�
 - **Etiqueta**: Uma cadeia que é adicionada a cada valor-chave como a etiqueta dentro da loja de configuração de aplicações.
 - **Tipo de Conteúdo**: Uma cadeia que é adicionada a cada valor-chave como o tipo de conteúdo dentro da loja de Configuração de Aplicações.
 - **Tags**: Um objeto JSON no formato de `{"tag1":"val1", "tag2":"val2"}` , que define tags que são adicionadas a cada valor-chave empurrado para a sua loja de Configuração de Aplicações.
-- **Eliminar todos os outros Valores-Chave na loja com o prefixo e etiqueta especificados**: O valor predefinido não é **verificado**.
+- **Elimine todas as outras Key-Values na loja com o prefixo e etiqueta especificados**: O valor predefinido não é **verificado**.
   - **Verificado**: Remove todos os valores-chave na loja de configuração da aplicação que correspondem tanto ao prefixo especificado como à etiqueta antes de empurrar novos valores-chave do ficheiro de configuração.
   - **Desmarcado**: Empurra todos os valores-chave do ficheiro de configuração para a loja de Configuração de Aplicações e deixa tudo o resto intacto na loja de Configuração de Aplicações.
 

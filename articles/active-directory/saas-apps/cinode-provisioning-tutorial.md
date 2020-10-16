@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/28/2020
 ms.author: Zhchia
-ms.openlocfilehash: dd052bf7a95cbadf2a107f7e49915a9899b084ae
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: ce4b93bc8f44e7bec490466fc42be829f942ae07
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91614092"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940927"
 ---
 # <a name="tutorial-configure-cinode-for-automatic-user-provisioning"></a>Tutorial: Configure Cinode para o fornecimento automático de utilizadores
 
@@ -55,7 +55,7 @@ O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-req
 
 3. Navegue até **Tokens** e crie um novo símbolo.
 
-4. Insira um nome único, selecione https://api.cinode.app/scim/v2 como Audience, e estabeleça uma data de validade adequadamente.
+4. Insira um nome único, **selecione https://api.cinode.app/scim/v2 '** como Audience, e desavenda adequadamente uma data de validade.
 
 5. Clique **em Criar ficha.**
 
@@ -120,7 +120,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
    |externalId|String|
    |active|Booleano|
    |título|String|
-   |endereços[tipo eq "work"].localidade|String|
+   |endereços[tipo eq "work"].localidade|Cadeia|
 
 10. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Groups to Cinode**.
 

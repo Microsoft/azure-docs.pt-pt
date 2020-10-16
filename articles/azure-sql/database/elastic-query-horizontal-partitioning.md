@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/03/2019
 ms.openlocfilehash: ced546f8f4375433d9fcd59f7ce46f9604f72921
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91443131"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Reportagem em bases de dados de nuvem escalonadas (pré-visualização)
@@ -222,7 +222,7 @@ Utilize as cadeias regulares de ligação do SQL Server para ligar a sua aplica�
 * Atualmente, a consulta elástica não realiza a eliminação de fragmentos quando predicados sobre a chave de fragmentos lhe permitiriam excluir com segurança certos fragmentos do processamento.
 * A consulta elástica funciona melhor para consultas onde a maior parte do cálculo pode ser feito nos fragmentos. Normalmente obtém o melhor desempenho de consulta com predicados de filtro seletivos que podem ser avaliados nos fragmentos ou junta-se sobre as teclas de partição que podem ser realizadas de forma alinhada com partição em todos os fragmentos. Outros padrões de consulta podem precisar de carregar grandes quantidades de dados dos fragmentos até ao nó da cabeça e podem ter um desempenho fraco
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter uma visão geral da consulta elástica, consulte [a visão geral da consulta elástica](elastic-query-overview.md).
 * Para obter um tutorial de partição vertical, consulte [Começar com consulta de base de dados cruzada (partição vertical)](elastic-query-getting-started-vertical.md).

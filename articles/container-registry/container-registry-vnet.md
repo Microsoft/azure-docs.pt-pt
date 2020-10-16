@@ -4,10 +4,10 @@ description: Restringir o acesso a um registo de contentores Azure utilizando um
 ms.topic: article
 ms.date: 05/04/2020
 ms.openlocfilehash: 1fc8d54d677112a9c934f9079e953a7389939bde
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89488677"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Restringir o acesso a um registo de contentores utilizando um ponto final de serviço numa rede virtual Azure
@@ -183,7 +183,7 @@ az group delete --name myResourceGroup
 
 Para limpar os seus recursos no portal, navegue para o grupo de recursos myResourceGroup. Assim que o grupo de recursos estiver carregado, clique no **grupo de recursos Delete** para remover o grupo de recursos e os recursos aí armazenados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para restringir o acesso a um registo utilizando um ponto final privado numa rede virtual, consulte o [Link Privado Configure Azure para um registo de contentores Azure](container-registry-private-link.md).
 * Se precisar de configurar regras de acesso ao registo por detrás de uma firewall do cliente, consulte [as regras de Configuração para aceder a um registo de contentores Azure atrás de uma firewall](container-registry-firewall-access-rules.md).

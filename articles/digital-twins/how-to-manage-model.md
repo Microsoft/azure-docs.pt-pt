@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3deb7c0802dbfcdb65bcff6cb2653e73017651f1
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: 5fd297545e7f07844e28a1f56e724a7f61916bee
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536460"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057744"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gerir os modelos Azure Digital Twins
 
@@ -84,7 +84,7 @@ As secções seguintes mostram como completar diferentes operações de gestão 
 Uma vez criados os modelos, pode enviá-los para a instância Azure Digital Twins.
 
 > [!TIP]
-> É aconselhável validar os seus modelos offline antes de os enviar para a sua instância Azure Digital Twins. Pode utilizar a [biblioteca de parser do lado do cliente DTDL](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) e [a amostra DTDL Validator](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) descrita em [*How-to: Parse e validar modelos*](how-to-parse-models.md) para verificar os seus modelos antes de os enviar para o serviço.
+> É aconselhável validar os seus modelos offline antes de os enviar para a sua instância Azure Digital Twins. Pode utilizar a [biblioteca de parser do lado do cliente DTDL](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) e [a amostra DTDL Validator](/samples/azure-samples/dtdl-validator/dtdl-validator) descrita em [*How-to: Parse e validar modelos*](how-to-parse-models.md) para verificar os seus modelos antes de os enviar para o serviço.
 
 Quando estiver pronto para carregar um modelo, pode utilizar o seguinte corte de código:
 
@@ -291,7 +291,7 @@ Os modelos também podem ser geridos usando o CLI das Gémeas Digitais Azure. Os
 
 [!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Veja como criar e gerir gémeos digitais com base nos seus modelos:
 * [*Como fazer: Gerir gémeos digitais*](how-to-manage-twin.md)

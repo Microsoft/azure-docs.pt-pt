@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2017
 ms.author: alkohli
-ms.openlocfilehash: 9f92a6277765447cbc1a9b12f06c3ec49548f4d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 15c35fb314af27b1ced129a12f752d0a2794e0f8
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513446"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949909"
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>Utilize o serviço StorSimple Manager para gerir registos de controlo de acessos
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Overview (Descrição geral)
 Os registos de controlo de acesso (ACRs) permitem-lhe especificar quais os anfitriões que podem ligar-se a um volume no dispositivo StorSimple. Os ACRs são definidos para um volume específico e contêm os nomes qualificados iSCSI (IQNs) dos anfitriões. Quando um hospedeiro tenta ligar-se a um volume, o dispositivo verifica o ACR associado a esse volume para o nome IQN e se existe uma correspondência, então a ligação é estabelecida. Os registos de controlo de acesso na secção **de Configuração** da sua lâmina de serviço StorSimple Device Manager exibem todos os registos de controlo de acesso com as QINs correspondentes dos anfitriões.
 
 Este tutorial explica as seguintes tarefas comuns relacionadas com ACR:
@@ -63,11 +63,11 @@ Execute os seguintes passos para adicionar um ACR.
 
     3. Clique **em Adicionar** para criar o ACR.
 
-        ![Clique em adicionar ACR](./media/storsimple-8000-manage-acrs/createacr2.png)
+        ![Clique em adicionar ACR 2](./media/storsimple-8000-manage-acrs/createacr2.png)
 
 4.  O ACR recém-adicionado será exibido na listagem tabular de ACRs.
 
-    ![Clique em adicionar ACR](./media/storsimple-8000-manage-acrs/createacr5.png)
+    ![Clique em adicionar ACR 3](./media/storsimple-8000-manage-acrs/createacr5.png)
 
 
 ## <a name="edit-an-access-control-record"></a>Editar um registo de controlo de acesso
@@ -89,11 +89,11 @@ Execute os seguintes passos para editar um ACR.
 
 3. Na lâmina de **registo de controlo de acesso editar,** forneça um IQN diferente correspondente a outro hospedeiro.
 
-    ![Editar registos de controlo de acessos](./media/storsimple-8000-manage-acrs/editacr2.png)
+    ![Editar registos de controlo de acesso 2](./media/storsimple-8000-manage-acrs/editacr2.png)
 
 4. Clique em **Guardar**. Quando lhe for pedida a confirmação, clique em **Sim**. 
 
-    ![Editar registos de controlo de acessos](./media/storsimple-8000-manage-acrs/editacr3.png)
+    ![Editar registos de controlo de acesso 3](./media/storsimple-8000-manage-acrs/editacr3.png)
 
 5. É notificado quando o ACR for atualizado. A listagem tabular também atualiza para refletir a mudança.
 
@@ -109,25 +109,25 @@ Execute os seguintes passos para eliminar um registo de controlo de acesso.
 #### <a name="to-delete-an-access-control-record"></a>Para apagar um registo de controlo de acesso
 1.  Aceda ao seu serviço StorSimple Device Manager, clique duas vezes no nome do serviço e, em seguida, na secção **Configuração,** clique nos **registos de controlo de acesso**.
 
-    ![Ir para registos de controlo de acesso](./media/storsimple-8000-manage-acrs/createacr1.png)
+    ![Aceda aos registos de controlo de acesso 1b](./media/storsimple-8000-manage-acrs/createacr1.png)
 
 2. Na listagem tabular dos registos de controlo de acesso, clique e selecione o ACR que pretende eliminar.
 
-    ![Ir para registos de controlo de acesso](./media/storsimple-8000-manage-acrs/deleteacr1.png)
+    ![Aceda aos registos de controlo de acesso 2](./media/storsimple-8000-manage-acrs/deleteacr1.png)
 
 3. Clique com o botão direito para invocar o menu de contexto e selecione **Delete**.
 
-    ![Ir para registos de controlo de acesso](./media/storsimple-8000-manage-acrs/deleteacr2.png)
+    ![Aceda aos registos de controlo de acesso 3](./media/storsimple-8000-manage-acrs/deleteacr2.png)
 
 4. Quando solicitado para confirmação, reveja as informações e, em seguida, clique em **Eliminar**.
 
-    ![Ir para registos de controlo de acesso](./media/storsimple-8000-manage-acrs/deleteacr3.png)
+    ![Aceda aos registos de controlo de acesso 4](./media/storsimple-8000-manage-acrs/deleteacr3.png)
 
 5. É notificado quando a eliminação terminar. A listagem tabular é atualizada para refletir a eliminação.
 
-    ![Ir para registos de controlo de acesso](./media/storsimple-8000-manage-acrs/deleteacr5.png)
+    ![Aceda aos registos de controlo de acesso 5](./media/storsimple-8000-manage-acrs/deleteacr5.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre [a gestão de volumes StorSimple](storsimple-8000-manage-volumes-u2.md).
 * Saiba mais sobre [a utilização do serviço StorSimple Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

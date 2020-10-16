@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 11/28/2017
 ms.openlocfilehash: 7ec49ee4f07aff6e9b9f9d6fc43e37742d7e163a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86085128"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Utilize o Azure Toolkit para o IntelliJ para depurar as aplicações Apache Spark remotamente em HDInsight através da VPN
@@ -285,7 +285,7 @@ Recomendamos que também crie um cluster Apache Spark em Azure HDInsight que faz
 
     ![IntelliJ debug-add-watch-variable](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch-variable.png)
 
-    Neste exemplo, a aplicação quebrou antes da variável `rdd1` ser criada. Ao usar este relógio, podemos ver as primeiras cinco linhas na `rdd` variável. Selecione **Entrar**.
+    Neste exemplo, a aplicação quebrou antes da variável `rdd1` ser criada. Ao usar este relógio, podemos ver as primeiras cinco linhas na `rdd` variável. Selecione **Enter** (Introduzir).
 
     ![IntelliJ Executar o programa em modo depuramento](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch-variable-value.png)
 
@@ -299,7 +299,7 @@ Recomendamos que também crie um cluster Apache Spark em Azure HDInsight que faz
 
     ![Saída da consola intelliJ IDEA depura](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-complete-window.png)
 
-## <a name="next-steps"></a><a name="seealso"></a>Próximos passos
+## <a name="next-steps"></a><a name="seealso"></a>Passos seguintes
 
 * [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 

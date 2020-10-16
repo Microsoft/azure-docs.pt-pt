@@ -5,14 +5,16 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Descreve os processos de execução do seu código no Serviço Azure Kubernetes com Espaços Azure Dev
 keywords: azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
-ms.openlocfilehash: a189b26264f3e22a69acb3e3c0410203f9822c31
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 1cace325f9415d46210636e5c04cc2d75589cc11
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90981293"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975472"
 ---
 # <a name="how-running-your-code-with-azure-dev-spaces-works"></a>Como funciona o seu código com a Azure Dev Spaces
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
 
 A Azure Dev Spaces fornece-lhe múltiplas formas de iteração rápida e depuração rápida de aplicações kubernetes e colaborar com a sua equipa num cluster Azure Kubernetes Service (AKS). Uma vez que o seu [projeto esteja preparado para funcionar num espaço dev,][how-it-works-prep]você pode usar Dev Spaces para construir e executar o seu projeto no seu cluster AKS.
 

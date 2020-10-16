@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
 ms.openlocfilehash: 741bea5129e5fa9660e198a74e23f0ef6c67dc23
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91329759"
 ---
 # <a name="support-for-the-microsoft-commercial-marketplace"></a>Suporte para o mercado comercial da Microsoft
@@ -22,22 +22,22 @@ Tem alguma dúvida sobre o início como editor de marketplace comercial da Micro
 
 Abra um bilhete com [o suporte da editora microsoft marketplace](https://aka.ms/marketplacepublishersupport) para problemas com o embarque e o início.
 
-## <a name="partner-center"></a>Centro de Parceiros
+## <a name="partner-center"></a>Partner Center
 
-| Canal de suporte | Description | Disponibilidade |  
+| Canal de suporte | Descrição | Disponibilidade |  
 |:--- |:--- |:--- |  
 | Para assistência, visite a página criar um incidente localizado no [Marketplace Support](https://aka.ms/marketplacepublishersupport)</li> </ul> | Apoio ao Centro de Parceiros. | O suporte é fornecido 24x5. |  
 
-## <a name="technical"></a>Técnico  
+## <a name="technical"></a>Parte Técnica  
 
-| Canal de suporte | Description |  
+| Canal de suporte | Descrição |  
 |:--- |:--- |  
 | Fóruns da MSDN: Marketplace localizado no [Microsoft Q&Uma página de perguntas](https://docs.microsoft.com/answers/products/azure) | Fórum microsoft Developer Network. |  
 | Stack Overflow: Azure localizado em [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure) | Stack Overflow ambiente para obter soluções e fazer perguntas sobre tudo o que está relacionado com o Azure Marketplace.<ul> <li>Stack Overflow: Azure Marketplace localizado em [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Stack Overflow: Azure Resource Manager localizado em [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Stack Overflow: Máquinas virtuais em Azure localizadas a [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li> <li>Stack Overflow: Contentores em Azure localizados em [stackoverflow.com/search?q=azure+container](https://stackoverflow.com/search?q=azure+container)</li> </ul> |
 
 ## <a name="marketing-resources"></a>Recursos de marketing  
 
-| Canal de suporte | Description | Disponibilidade |  
+| Canal de suporte | Descrição | Disponibilidade |  
 |:--- |:--- |:--- |
 | Email: [gtm@microsoft.com](mailto:gtm@microsoft.com) | Suporte para benefícios GTM e questões de programa. | O horário de trabalho está no fuso horário do Pacífico. |  
 | Email: [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Respostas a perguntas sobre o uso de logótipos Azure e marca. |  |  

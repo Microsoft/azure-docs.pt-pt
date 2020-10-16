@@ -10,10 +10,10 @@ ms.date: 09/23/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 828b5c34aaccf2a53aa197f921a8ef02d46821ae
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91280475"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>Execute uma restauração pontual em dados de blob de bloco
@@ -122,7 +122,7 @@ Para restaurar todos os recipientes e bolhas na conta de armazenamento com o por
 1. Confirme se deseja proceder verificando a caixa.
 1. **Selecione Restaurar** para iniciar a operação de restauro.
 
-    :::image type="content" source="media/point-in-time-restore-manage/restore-all-containers-portal.png" alt-text="Screenshot mostrando como restaurar todos os recipientes para um ponto de restauro especificado":::
+    :::image type="content" source="media/point-in-time-restore-manage/restore-all-containers-portal.png" alt-text="Screenshot mostrando como configurar o ponto-a-tempo restaurado no portal Azure":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -169,14 +169,14 @@ Para restaurar uma gama de bolhas em um ou mais recipientes com o portal Azure, 
 1. Especifique os intervalos para restaurar. Utilize um corte para a frente (/) para delinear o nome do recipiente a partir do prefixo do blob.
 1. Por predefinição, o painel de **recipientes selecionados Restaurar** especifica um intervalo que inclui todas as bolhas no recipiente. Elimine este alcance se não quiser restaurar todo o recipiente. O intervalo predefinido é mostrado na imagem seguinte.
 
-    :::image type="content" source="media/point-in-time-restore-manage/delete-default-blob-range.png" alt-text="Screenshot mostrando a gama de blob padrão para eliminar antes de especificar a gama personalizada":::
+    :::image type="content" source="media/point-in-time-restore-manage/delete-default-blob-range.png" alt-text="Screenshot mostrando como configurar o ponto-a-tempo restaurado no portal Azure":::
 
 1. Confirme se deseja proceder verificando a caixa.
 1. **Selecione Restaurar** para iniciar a operação de restauro.
 
 A imagem a seguir mostra uma operação de restauro num conjunto de intervalos.
 
-:::image type="content" source="media/point-in-time-restore-manage/restore-multiple-container-ranges-portal.png" alt-text="Screenshot mostrando como restaurar gamas de bolhas em um ou mais recipientes":::
+:::image type="content" source="media/point-in-time-restore-manage/restore-multiple-container-ranges-portal.png" alt-text="Screenshot mostrando como configurar o ponto-a-tempo restaurado no portal Azure":::
 
 A operação de restauro mostrada na imagem realiza as seguintes ações:
 
@@ -249,5 +249,5 @@ Para executar a operação de restauro sincronizada e bloquear a execução até
 
 - [Restauro pontual para bolhas de bloco](point-in-time-restore-overview.md)
 - [Eliminação recuperável](soft-delete-overview.md)
-- [Feed de alterações](storage-blob-change-feed.md)
+- [Alterar alimentação](storage-blob-change-feed.md)
 - [Versão blob](versioning-overview.md)

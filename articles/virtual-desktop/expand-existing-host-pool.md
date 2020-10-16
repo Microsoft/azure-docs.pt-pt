@@ -3,15 +3,15 @@ title: Expandir o pool de anfitriões existente com novos anfitriões de sessão
 description: Como expandir um pool de anfitriões existente com novos anfitriões de sessão no Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 10/09/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 339fe25a5a75ca8bc5cc0af7c4d96651e90c7eb6
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: b65560a3b10d04887040c4da1e137912810b3095
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002450"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91929596"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expandir uma piscina de anfitriões existente com novos anfitriões de sessão
 
@@ -39,7 +39,7 @@ Você também precisará das seguintes informações a partir de quando criou o 
 
 Para expandir a sua piscina de anfitriões adicionando máquinas virtuais:
 
-1. Inicie sessão no portal do Azure.
+1. Inicie sessão no Portal do Azure.
 
 2. Procure e selecione **Windows Virtual Desktop**.
 
@@ -56,7 +56,7 @@ Para expandir a sua piscina de anfitriões adicionando máquinas virtuais:
 8. Introduza o número de anfitriões de sessão que pretende adicionar à sua piscina de anfitriões em **Número de VMs**. Por exemplo, se estiver a expandir a sua piscina de anfitriões por cinco anfitriões, insira **5**.
 
     >[!NOTE]
-    >Não é possível editar o tamanho ou imagem dos VMs porque é importante garantir que todos os VMs na piscina de anfitrião são do mesmo tamanho.
+    >Embora seja possível editar a imagem e o prefixo dos VMs, não recomendamos editá-los se tiver VMs com imagens diferentes na mesma piscina de anfitrião. Edite a imagem e o prefixo apenas se planeia remover VMs com imagens mais antigas da piscina hospedeira afetada.
 
 9. Para obter **informações sobre rede virtual**, selecione a rede virtual e a sub-rede à qual pretende que as máquinas virtuais sejam associadas. Pode selecionar a mesma rede virtual que as máquinas existentes utilizam atualmente ou escolher uma diferente que seja mais adequada à região selecionada no passo 7.
 
@@ -67,7 +67,7 @@ Para expandir a sua piscina de anfitriões adicionando máquinas virtuais:
 
 11. Selecione o separador **Tag** se tiver alguma etiqueta com as quais pretende agrupar as máquinas virtuais. Caso contrário, ignore esta aba.
 
-12. Selecione o **separador 'Rever + Criar'.** Reveja as suas escolhas e, se tudo estiver bem, selecione **Criar**.
+12. Selecione o **separador 'Rever + Criar'.** Reveja as suas escolhas e, se tudo estiver bem, **selecione Criar**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

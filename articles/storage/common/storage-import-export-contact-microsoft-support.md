@@ -9,10 +9,10 @@ ms.date: 03/29/2018
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: ee30e9bba35ad39606fbe201c49e4eed3e656c97
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88548279"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Abrir um bilhete de apoio para uma tarefa de importação/exportação

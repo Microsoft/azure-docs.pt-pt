@@ -2,19 +2,19 @@
 title: Exemplo de destaque das chamadas em grupo
 titleSuffix: An Azure Communication Services sample overview
 description: Visão geral da amostra de herói chamando a amostra de herói usando os Serviços de Comunicação Azure para permitir que os desenvolvedores aprendam mais sobre o funcionamento interno da amostra.
-author: ddematheu
+author: ddematheu2
 manager: nimag
 services: azure-communication-services
 ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 8ae69abc9a5f2969f0d60b2fa712c4c9910b678c
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: d4c3c8e2f8470d187156f0dd98fab2bd74eb33bc
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91823826"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963113"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>Começa com o grupo a chamar amostra de herói
 
@@ -32,7 +32,7 @@ Neste quickstart da amostra, vamos aprender como a amostra funciona antes de pas
 > [!IMPORTANT]
 > [Faça o download da amostra do GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Calling%20Hero%20Sample/Web/Calling)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Overview (Descrição geral)
 
 A amostra tem uma aplicação do lado do cliente e uma aplicação do lado do servidor. A **aplicação do lado do cliente** é uma aplicação web React/Redux que utiliza a estrutura fluente da Microsoft. Esta aplicação envia pedidos para uma **aplicação do ASP.NET** Core que ajuda a aplicação do lado do cliente a ligar-se ao Azure. 
 
@@ -50,9 +50,9 @@ Assim que configurar o nome e os dispositivos do ecrã, pode juntar-se à sessã
 
 Componentes do ecrã principal de chamada:
 
-- **Media Gallery**: O palco principal onde os participantes são mostrados. Se um participante tiver a sua câmara ativada, o seu feed de vídeo é mostrado aqui. Cada participante tem um azulejo individual que mostra o seu nome de exibição e fluxo de vídeo (quando há um)
-- **Cabeçalho**: É aqui que se encontram os controlos de chamada primário para alternar as definições e a barra lateral do participante, ligar o vídeo e misturar,partilhar o ecrã e deixar a chamada.
-- **Barra lateral**: É aqui que são mostradas informações sobre os participantes e as definições quando alternadas utilizando os controlos do cabeçalho. O componente pode ser descartado utilizando o 'X' no canto superior direito. A barra lateral dos participantes mostrará uma lista de participantes e um link para convidar mais utilizadores a conversar. A barra lateral permite configurar as definições do microfone e da câmara.
+1. **Media Gallery**: O palco principal onde os participantes são mostrados. Se um participante tiver a sua câmara ativada, o seu feed de vídeo é mostrado aqui. Cada participante tem um azulejo individual que mostra o seu nome de exibição e fluxo de vídeo (quando há um)
+2. **Cabeçalho**: É aqui que se encontram os controlos de chamada primário para alternar as definições e a barra lateral do participante, ligar o vídeo e misturar,partilhar o ecrã e deixar a chamada.
+3. **Barra lateral**: É aqui que são mostradas informações sobre os participantes e as definições quando alternadas utilizando os controlos do cabeçalho. O componente pode ser descartado utilizando o 'X' no canto superior direito. A barra lateral dos participantes mostrará uma lista de participantes e um link para convidar mais utilizadores a conversar. A barra lateral permite configurar as definições do microfone e da câmara.
 
 Abaixo encontrará mais informações sobre pré-requisitos e passos para configurar a amostra.
 
@@ -96,7 +96,7 @@ Pode testar a amostra localmente abrindo várias sessões de navegador com o URL
 2. Crie um novo perfil de publicação e selecione a sua subscrição Azure.
 3. Antes de publicar, adicione a sua cadeia de ligação com `Edit App Service Settings` , e preencha `ResourceConnectionString` como chave e forneça a sua cadeia de ligação (copiada a partir de appsettings.js) como o valor.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados. Saiba mais sobre [a limpeza de recursos.](../quickstarts/create-communication-resource.md#clean-up-resources)
 
@@ -105,7 +105,7 @@ Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode
 >[!div class="nextstepaction"] 
 >[Faça o download da amostra do GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Calling%20Hero%20Sample/Web/Calling)
 
-Para obter mais informações, veja os artigos seguintes:
+Para obter mais informações, veja os seguintes artigos:
 
 - Familiarize-se com [a utilização da biblioteca de clientes de chamadas](../quickstarts/voice-video-calling/calling-client-samples.md)
 - Saiba mais [sobre chamar as capacidades da biblioteca do cliente](../quickstarts/voice-video-calling/calling-client-samples.md)

@@ -11,10 +11,10 @@ author: peterclu
 ms.date: 01/09/2020
 ms.custom: designer
 ms.openlocfilehash: 86cb5260a59f864658fbb7ac1c1da2d943c6253e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90893431"
 ---
 # <a name="use-a-keyboard-to-use-azure-machine-learning-designer"></a>Use um teclado para usar o designer de aprendizagem de máquinas Azure
@@ -70,7 +70,7 @@ Utilize os seguintes atalhos com a chave de acesso. Para obter mais informaçõe
 | Chave de acesso + R | Executar |
 | Chave de acesso + P | Publicar |
 | Chave de acesso + C | Clone |
-| Chave de acesso + D | Implementar |
+| Chave de acesso + D | Implementação |
 | Chave de acesso + I | Criar/atualizar o gasoduto de inferência |
 | Chave de acesso + B | Criar/atualizar o gasoduto de inferência do lote |
 | Chave de acesso + K | Abra o dropdown "Create inference pipeline" |

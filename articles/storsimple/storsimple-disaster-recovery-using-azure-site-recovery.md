@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/13/2017
 ms.author: alkohli
 ms.openlocfilehash: 0c54b4e3015e255a6948202a6c3ea7a83362032f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514914"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Solução automatizada de recuperação de desastres utilizando a recuperação do site Azure para ações de ficheiros hospedadas no StorSimple
@@ -104,7 +104,7 @@ Este passo requer que prepare o ambiente do servidor de ficheiros no local, crie
    1. Crie recipientes de volume e, em seguida, crie volumes. (Estes volumes são para a(s) partilha de ficheiros(s) nos VMs do servidor de ficheiros). Copie o nome do iniciador e dê um nome apropriado para os Registos de Controlo de Acesso quando criar os volumes.
    1. Selecione o **separador Configurar** e anotar o endereço IP do dispositivo.
    1. Nas suas VMs no local, vá novamente ao **iniciador iSCSI** e introduza o IP na secção Quick Connect. Clique em **"Ligação Rápida"** (o dispositivo deve agora ser ligado).
-   1. Abra o portal Azure e selecione o separador **Volumes e Dispositivos.** Clique em **Configuração Automática**. O volume que criou deve aparecer.
+   1. Abra o portal Azure e selecione o **separador Volumes e Dispositivos.** Clique **em Configuração Automática**. O volume que criou deve aparecer.
    1. No portal, selecione o separador **Dispositivos** e, em seguida, **selecione Criar um novo dispositivo virtual.** (Este dispositivo virtual será utilizado se ocorrer uma falha). Este novo dispositivo virtual pode ser mantido em estado offline para evitar custos adicionais. Para desligar o dispositivo virtual, aceda à secção **Máquinas Virtuais** no Portal e desligue-o.
    1. Volte para os VMs no local e abra a Gestão do Disco (prima a tecla Windows + X e selecione **Gestão do Disco).**
    1. Irá notar alguns discos extra (dependendo do número de volumes que criou). Clique com o botão direito no primeiro, **selecione Initialize Disk**, e selecione **OK**. Clique à direita na secção **Não atribuída,** selecione **New Simple Volume,** atribua-lhe uma letra de unidade e termine o assistente.
@@ -170,7 +170,7 @@ Pode criar um plano de recuperação na ASR para automatizar o processo de failo
    
 1. Na conta de automatização, clique em **Variáveis** &gt; **Adicione uma variável** e adicione as seguintes variáveis. Pode optar por encriptar estes ativos. Estas variáveis são específicas do plano de recuperação. Se o seu plano de recuperação, que irá criar no próximo passo, o nome é TestPlan, então as suas variáveis devem ser TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName, e assim por diante.
 
-   - **BaseUrl**: O url do Gestor de Recursos para a nuvem Azure. Use **o Get-AzEnvironment Nome de objeto selecionado, cmdlet ResourceManagerUrl.**
+   - **BaseUrl**: O url do Gestor de Recursos para a nuvem Azure. Utilize **o Get-AzEnvironment / Select-Object Name, ResourceManagerUrl** cmdlet.
    - _RecoveryPlanName_**-ResourceGroupName**: O grupo gestor de recursos que tem o recurso StorSimple.
    - _RecoveryPlanName_**-ManagerName**: O recurso StorSimple que tem o dispositivo StorSimple.
    - _RecoveryPlanName_**-DeviceName**: O dispositivo StorSimple que tem de ser chumbado.

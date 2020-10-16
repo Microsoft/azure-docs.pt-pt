@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: 407257dbe9fbfa560153d5044263fc4c947cb05c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86111937"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>Recolha de fontes de dados JSON personalizadas com o agente Log Analytics para Linux em Azure Monitor
@@ -58,7 +58,7 @@ O ficheiro de configuração adicionado `/etc/opt/microsoft/omsagent/<workspace 
 `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/exec-json.conf`
 
 ### <a name="configure-output-plugin"></a>Configurar plugin de saída de configuração 
-Adicione a seguinte configuração plugin de saída à configuração principal dentro `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf` ou como um ficheiro de configuração separado colocado em`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`
+Adicione a seguinte configuração plugin de saída à configuração principal dentro `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf` ou como um ficheiro de configuração separado colocado em `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`
 
 ```xml
 <match oms.api.**>
@@ -103,5 +103,5 @@ As fontes de dados do JSON aninhadas são suportadas, mas são indexadas fora do
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais [sobre consultas de registo](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de fontes de dados e soluções. 

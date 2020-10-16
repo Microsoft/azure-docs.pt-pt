@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/04/2019
 ms.openlocfilehash: bc33fd1b90306a016c419f227fb9e73e83e8ea83
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91535258"
 ---
 # <a name="url-prebuilt-entity-for-a-luis-app"></a>Entidade pré-incorporada URL para uma aplicação LUIS
@@ -82,7 +82,7 @@ O exemplo a seguir mostra a resolução do https://www.luis.ai é um grande exem
 
 * * *
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre o ponto final de [previsão V3](luis-migration-api-v3.md).
 

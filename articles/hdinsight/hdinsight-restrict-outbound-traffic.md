@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
 ms.openlocfilehash: f87c3665f558b3185e95b0ad0aa18a883439a221
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87006522"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Configure o tráfego de rede de saída para clusters Azure HDInsight usando firewall
@@ -69,13 +69,13 @@ Crie uma coleção de regras de aplicação que permita ao cluster enviar e rece
 
     **Secção de tags FQDN**
 
-    | Name | Endereço de origem | Tag FQDN | Notas |
+    | Nome | Endereço de origem | Tag FQDN | Notas |
     | --- | --- | --- | --- |
     | Rule_1 | * | WindowsUpdate e HDInsight | Obrigatório para os serviços de HDI |
 
     **Seção FQDNs alvo**
 
-    | Name | Endereços de origem | Protocolo:Porto | Alvo FQDNS | Notas |
+    | Nome | Endereços de origem | Protocolo:Porto | Alvo FQDNS | Notas |
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https:443 | login.windows.net | Permite atividade de login do Windows |
     | Rule_3 | * | https:443 | login.microsoftonline.com | Permite atividade de login do Windows |
@@ -103,7 +103,7 @@ Crie as regras de rede para configurar corretamente o seu cluster HDInsight.
 
     **Secção de Endereços IP**
 
-    | Name | Protocolo | Endereços de origem | Endereços de destino | Portas de destino | Notas |
+    | Nome | Protocolo | Endereços de origem | Endereços de destino | Portas de destino | Notas |
     | --- | --- | --- | --- | --- | --- |
     | Rule_1 | UDP | * | * | 123 | Serviço de tempo |
     | Rule_2 | Qualquer | * | DC_IP_Address_1, DC_IP_Address_2 | * | Se estiver a utilizar o Pacote de Segurança Empresarial (ESP), adicione uma regra de rede na secção endereços IP que permite a comunicação com a AAD-DS para clusters ESP. Pode encontrar os endereços IP dos controladores de domínio na secção AAD-DS no portal |
@@ -112,7 +112,7 @@ Crie as regras de rede para configurar corretamente o seu cluster HDInsight.
 
     **Secção de Etiquetas de Serviço**
 
-    | Name | Protocolo | Endereços de Origem | Etiquetas de Serviço | Portos de Destino | Notas |
+    | Nome | Protocolo | Endereços de Origem | Etiquetas de Serviço | Portos de Destino | Notas |
     | --- | --- | --- | --- | --- | --- |
     | Rule_7 | TCP | * | SQL | 1433 | Configure uma regra de rede na secção Tags de Serviço para SQL que lhe permitirá registar e auditar o tráfego DE SQL. A menos que tenha configurado pontos de final de serviço para o SQL Server na sub-rede HDInsight, que irá contornar a firewall. |
     | Rule_8 | TCP | * | Azure Monitor | * | (opcional) Os clientes que pretendam utilizar a função de escala automática devem adicionar esta regra. |

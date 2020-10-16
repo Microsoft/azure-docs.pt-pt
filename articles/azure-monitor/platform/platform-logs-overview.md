@@ -8,13 +8,13 @@ ms.date: 12/19/2019
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: 6ea960e93dba634573ec1ef594f1d2c49be57ca9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84945312"
 ---
-# <a name="overview-of-azure-platform-logs"></a>Visão geral dos registos da plataforma Azure
+# <a name="overview-of-azure-platform-logs"></a>Descrição geral dos registos de plataforma Azure
 Os registos da plataforma fornecem informações detalhadas de diagnóstico e auditoria para os recursos da Azure e para a plataforma Azure em que dependem. São geradas automaticamente, embora seja necessário configurar certos registos da plataforma para serem reencaminhados para um ou mais destinos para serem retidos. Este artigo fornece uma visão geral dos registos da plataforma, incluindo as informações que fornecem e como pode configurá-los para recolha e análise.
 
 ## <a name="types-of-platform-logs"></a>Tipos de registos de plataformas
@@ -24,7 +24,7 @@ A tabela que se segue lista os registos específicos da plataforma que estão di
 |:---|:---|:---|
 | [Registos do recurso](resource-logs.md) | Recursos do Azure | Forneça informações sobre as operações que foram realizadas dentro de um recurso Azure (o plano de *dados),* por exemplo, obter um segredo de um Cofre-Chave ou fazer um pedido para uma base de dados. O conteúdo dos registos de recursos varia consouros e de tipo de recurso.<br><br>*Os registos de recursos eram previamente referidos como registos de diagnóstico.*  |
 | [Registo de atividades](activity-log.md) | Subscrição do Azure | Fornece informações sobre as operações de cada recurso Azure na subscrição a partir do exterior (*o plano de gestão*) para além de atualizações sobre eventos de Saúde de Serviço. Utilize o Registo de Atividades, para determinar o _que_, _quem_, e _quando_ para quaisquer operações de escrita (PUT, POST, DELETE) assumiu os recursos na sua subscrição. Há um único registo de Atividade para cada subscrição do Azure. |
-| [Registos de diretório ativo Azure](../../active-directory/reports-monitoring/overview-reports.md) | Inquilino do Azure |  Contém o histórico de atividade de inscrição e pista de auditoria de alterações escoradas no Diretório Ativo Azure para um inquilino em particular.   |
+| [Registos do Azure Active Directory](../../active-directory/reports-monitoring/overview-reports.md) | Inquilino do Azure |  Contém o histórico de atividade de inscrição e pista de auditoria de alterações escoradas no Diretório Ativo Azure para um inquilino em particular.   |
 
 > [!NOTE]
 > O Registo de Atividades Azure destina-se principalmente a atividades que ocorrem no Azure Resource Manager. Não rastreia recursos utilizando o modelo Classic/RDFE. Alguns tipos de recursos clássicos têm um fornecedor de recursos proxy no Azure Resource Manager (por exemplo, Microsoft.ClassicCompute). Se interagir com um tipo de recurso Clássico através do Azure Resource Manager utilizando estes fornecedores de recursos proxy, as operações aparecem no Registo de Atividades. Se interagir com um tipo de recurso clássico fora dos proxies do Azure Resource Manager, as suas ações só são registadas no Registo de Operação. O Registo de Operação pode ser navegado numa secção separada do portal.
@@ -58,7 +58,7 @@ Pode enviar registos de plataforma para um ou mais destinos na tabela seguinte, 
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Leia mais detalhes sobre o registo de atividades](activity-log.md)
 * [Leia mais detalhes sobre registos de recursos](resource-logs.md)

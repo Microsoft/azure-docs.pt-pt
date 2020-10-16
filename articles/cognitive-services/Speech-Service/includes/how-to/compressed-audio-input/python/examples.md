@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/09/2020
 ms.author: amishu
 ms.openlocfilehash: 3000709f19b53eb6e79b4dae0559040ca025c9e4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87282751"
 ---
 Para transmitir num formato áudio comprimido para o serviço Speech, criar `PullAudioInputStream` ou `PushAudioInputStream` . Em seguida, crie um `AudioConfig` a partir de um exemplo da sua classe de fluxo, especificando o formato de compressão do fluxo.

@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 09/04/2020
 ms.openlocfilehash: 68b11c672d362e7af7dfc01e2679d035d9e1e4c9
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89484821"
 ---
 # <a name="offer-publishing-guide-for-microsoft-365-dynamics-365-power-apps-and-power-bi"></a>Oferta guia de publicação para Microsoft 365, Dynamics 365, Power Apps e Power BI
@@ -35,7 +35,7 @@ Para obter links para a publicação de processos e diretrizes para cada tipo de
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se ainda não o fez, aprenda a [fazer crescer o seu negócio na nuvem com o Azure Marketplace.](https://azuremarketplace.microsoft.com/sell)
 

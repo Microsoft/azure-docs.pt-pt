@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: cynthn
 ms.openlocfilehash: 33ba816227db4cf958fd30c9dac1a0745505c504
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87513694"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Passos rápidos: Criar e utilizar um par de chaves SSH público-privado para Os VMs Linux em Azure
@@ -37,7 +37,7 @@ O seguinte comando cria um par de chaves SSH usando encriptação RSA e um pouco
 ssh-keygen -m PEM -t rsa -b 4096
 ```
 
-Se utilizar o [CLI Azure](/cli/azure) para criar o seu VM com o comando [az vm criar,](/cli/azure/vm#az-vm-create) pode opcionalmente gerar ficheiros de chaves públicas e privadas SSH utilizando a `--generate-ssh-keys` opção. Os ficheiros-chave são armazenados no diretório ~/ssh, salvo especificação em contrário com a `--ssh-dest-key-path` opção. Se já existir um par de chaves ssh e a `--generate-ssh-keys` opção for utilizada, não será gerado um novo par de chaves, mas em vez disso será utilizado o par de chaves existente. No seguinte comando, substitua *o VMname* e *o RGname* pelos seus próprios valores:
+Se utilizar o [CLI Azure](/cli/azure) para criar o seu VM com o comando [az vm criar,](/cli/azure/vm#az-vm-create) pode opcionalmente gerar ficheiros de chaves públicas e privadas SSH utilizando a `--generate-ssh-keys` opção. Os ficheiros-chave são armazenados no diretório ~/ssh, salvo especificação em contrário com a `--ssh-dest-key-path` opção. Se já existir um par de chaves ssh e a  `--generate-ssh-keys` opção for utilizada, não será gerado um novo par de chaves, mas em vez disso será utilizado o par de chaves existente. No seguinte comando, substitua *o VMname* e *o RGname* pelos seus próprios valores:
 
 ```azurecli
 az vm create --name VMname --resource-group RGname --image UbuntuLTS --generate-ssh-keys 

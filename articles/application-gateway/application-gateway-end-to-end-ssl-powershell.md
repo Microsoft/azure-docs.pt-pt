@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: victorh
 ms.openlocfilehash: e35569a1dc5ce7c1cb2889ac3e2ca8f60f8ccd42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84808203"
 ---
 # <a name="configure-end-to-end-tls-by-using-application-gateway-with-powershell"></a>Configure fim para acabar com o TLS utilizando o Gateway de Aplicação com PowerShell
@@ -27,7 +27,7 @@ O Application Gateway suporta a definição de opções TLS personalizadas. Tamb
 
 ![imagem de cenário][scenario]
 
-## <a name="scenario"></a>Scenario
+## <a name="scenario"></a>Cenário
 
 Neste cenário, aprende-se a criar um gateway de aplicações utilizando OLS de ponta a ponta com o PowerShell.
 
@@ -38,7 +38,7 @@ Este cenário:
 * Crie duas sub-redes chamadas **appgwsubnet** e **appsubnet**.
 * Crie uma pequena porta de aplicação suportando encriptação TLS de ponta a ponta que limita as versões do protocolo TLS e as suites de cifra.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -357,7 +357,7 @@ DnsSettings              : {
                             }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o endurecimento da segurança das suas aplicações web com firewall de aplicação web através do Gateway de aplicações, consulte a visão geral da firewall da [aplicação Web](application-gateway-webapplicationfirewall-overview.md).
 

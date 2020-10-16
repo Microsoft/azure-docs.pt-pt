@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 00661043d1ec9769adbf4119a2c9c1925dcd29fa
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: bfb7d1d52549d7fda9547b65a259fe2ce73f8839
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88186360"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91997917"
 ---
 ## <a name="supported-operating-systems-and-drivers"></a>Sistemas operativos e controladores suportados
 
@@ -39,9 +39,9 @@ Os controladores GRID redistribuídos pela Azure não funcionam em VMs não-NV s
 Por favor, note que a extensão da Nvidia irá sempre instalar o mais recente controlador. Fornecemos links para a versão anterior aqui para clientes, que têm dependência de uma versão mais antiga.
 
 Para o Windows Server 2019, Windows Server 2016 e Windows 10 (até 2004):
-- [GRELHA 11 (451.48)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe)
-- [GRELHA 10.1 (442.06)](https://download.microsoft.com/download/b/8/f/b8f5ecec-b8f9-47de-b007-ac40adc88dc8/442.06_grid_win10_64bit_international_whql.exe) (.exe) 
+- [GRELHA 11 (452.39)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe)
+- [GRELHA 11.0 (451.48)](https://download.microsoft.com/download/C/1/4/c147a482-1364-4d12-b9e3-0beda0f00a13/451.48_grid_win10_server2016_server2019_64bit_international.exe) (.exe) 
 
 Para o Windows Server 2012 R2: 
-- [GRELHA 11 (451.48)](https://go.microsoft.com/fwlink/?linkid=874184) (.exe)
+- [GRELHA 11.0 (451.48)](https://download.microsoft.com/download/C/1/4/c147a482-1364-4d12-b9e3-0beda0f00a13/451.48_grid_win10_server2016_server2019_64bit_international.exe) (.exe) 
 - [GRELHA 10.1 (442.66)](https://download.microsoft.com/download/4/3/3/4330fd5c-c685-4ca1-abca-3b2fb3c11d2e/442.06_grid_win8_win7_64bit_international_whql.exe) (.exe)  

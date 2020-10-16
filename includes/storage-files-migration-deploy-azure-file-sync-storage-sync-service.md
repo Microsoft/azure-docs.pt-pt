@@ -8,10 +8,10 @@ ms.date: 2/20/2020
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: 248b61530b80a00aa10272dcb3d28b85c6ee04e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82143538"
 ---
 Neste passo, precisa das suas credenciais de subscrição Azure.

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/10/2020
 ms.author: jingwang
 ms.openlocfilehash: ac9dff4b16d8ba1b346a2827f3b5487dbf97392e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84669839"
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Copiar dados da Sybase utilizando a Azure Data Factory
@@ -59,13 +59,13 @@ As secções seguintes fornecem detalhes sobre propriedades que são usadas para
 
 As seguintes propriedades são suportadas para o serviço ligado à Sybase:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo deve ser definida para: **Sybase** | Sim |
 | servidor | Nome do servidor Sybase. |Sim |
 | base de dados | Nome da base de dados Sybase. |Sim |
 | authenticationType | Tipo de autenticação usada para ligar à base de dados Sybase.<br/>Os valores permitidos são: **Básico**e **Windows**. |Sim |
-| o nome de utilizador | Especifique o nome do utilizador para ligar à base de dados Sybase. |Sim |
+| nome de utilizador | Especifique o nome do utilizador para ligar à base de dados Sybase. |Sim |
 | palavra-passe | Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). |Sim |
 | connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. É necessário um tempo de integração auto-organizado, tal como mencionado nos [Pré-Requisitos](#prerequisites). |Sim |
 
@@ -100,7 +100,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados da Sybase, suportam-se as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo do conjunto de dados deve ser definida para: **SybaseTable** | Sim |
 | tableName | O nome da tabela na base de dados da Sybase. | Não (se for especificada "consulta" na fonte de atividade) |
@@ -132,7 +132,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados da Sybase, as seguintes propriedades são suportadas na secção **de origem** da atividade da cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **SybaseSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
@@ -183,5 +183,5 @@ Para obter detalhes sobre as propriedades, consulte [a atividade de Lookup](cont
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter uma lista de lojas de dados suportadas como fontes e sumidouros pela atividade de cópia na Azure Data Factory, consulte lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)

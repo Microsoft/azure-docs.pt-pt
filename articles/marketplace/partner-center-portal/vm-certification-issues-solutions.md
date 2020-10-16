@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 06/16/2020
-ms.openlocfilehash: d724ef463d7c7ad237b5fd023e9c15f50de96f04
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.date: 10/14/2020
+ms.openlocfilehash: 1a8dbbb42a548a8c4e9a1117166aa621e8734208
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803471"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044501"
 ---
 # <a name="common-issues-when-certifying-virtual-machine-images-for-azure-marketplace"></a>Questões comuns ao certificar imagens de máquinas virtuais para o Azure Marketplace
 
@@ -29,7 +29,7 @@ Quando submete um pedido para republicar a sua imagem com atualizações, o caso
 
 Esta falha ocorre quando se utiliza uma imagem base que pertence a outra editora e atualiza a imagem. Nesta situação, não poderá publicar a sua imagem.
 
-Para corrigir este problema, recupere a imagem do Azure Marketplace e faça alterações no mesmo. Para obter mais informações, veja os artigos seguintes:
+Para corrigir este problema, recupere a imagem do Azure Marketplace e faça alterações no mesmo. Para obter mais informações, veja os seguintes artigos:
 
 - [Imagens linux](../../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
 - [Imagens do Windows](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base)
@@ -338,7 +338,7 @@ Passo 3. Após a execução bem sucedida do comando, reinicie o VM.
 
 Passo 4: Generalize o VM, pegue o VHD de imagem e pare o VM.
 
-Passo 5.     Re-Submeter a imagem generalizada.
+Passo 5.     Re-Submit a imagem generalizada.
 
 ## <a name="requesting-exceptions-custom-templates-on-vm-images-for-selective-tests"></a>Solicitando exceções (modelos personalizados) em imagens VM para testes seletivos
 
@@ -372,6 +372,61 @@ Os editores devem contactar o suporte no [Marketplace Publisher Support](https:/
    7. Linha do tempo - Data até à qual esta exceção foi solicitada 
    8.   Anexo - Anexar quaisquer documentos de prova de importância. Para VMs bloqueados, anexe o relatório de teste e os modelos personalizados, forneça o modelo ARM personalizado como acessório. A não anexação do relatório para VMs bloqueados e o modelo ARM personalizado para modelos personalizados resultará em negação de pedido
 
+## <a name="how-to-address-a-vulnerability-or-exploit-in-a-vm-offer"></a>Como lidar com uma vulnerabilidade ou exploração numa oferta VM
+
+Este FAQ ajuda-o a fornecer uma imagem de máquina virtual (VM) quando uma vulnerabilidade ou exploração é descoberta com uma das suas imagens VM. Esta FAQ aplica-se apenas às ofertas da Azure Virtual Machine que são publicadas no Azure Marketplace.
+
+> [!NOTE]
+> Não pode remover a última imagem em VM de um plano e não pode parar de vender o último plano para uma oferta.
+
+Faça um dos seguintes:
+
+1. Se tiver uma nova imagem em VM para substituir a imagem VM vulnerável, então vá [ao Como fornecer uma imagem VM fixa](#how-to-provide-a-fixed-vm-image).
+1. Se não tiver uma nova imagem em VM para substituir a única imagem em VM num plano e se terminar o plano, então pode [parar de vender o plano.](update-existing-offer.md#stop-selling-an-offer-or-plan)
+1. Se não pretende substituir a única imagem VM da oferta, recomendamos que [deixe de vender a oferta.](update-existing-offer.md#stop-selling-an-offer-or-plan)
+
+### <a name="how-to-provide-a-fixed-vm-image"></a>Como fornecer uma imagem VM fixa
+
+Para fornecer uma imagem VM fixa para substituir uma imagem VM que tenha uma vulnerabilidade ou exploração, deve fazer o seguinte:
+
+1. Forneça uma nova imagem em VM para abordar a vulnerabilidade de segurança ou exploração.
+1. Remova a imagem VM que tenha a vulnerabilidade de segurança ou exploração.
+1. Republice a oferta.
+
+#### <a name="provide-a-new-vm-image-to-address-the-security-vulnerability-or-exploit"></a>Fornecer uma nova imagem VM para abordar a vulnerabilidade de segurança ou explorar
+
+Para completar estes passos, precisará de preparar o ativo técnico para a imagem VM que pretende adicionar. Para obter mais informações, consulte [Criar ativos técnicos para uma oferta de máquina virtual Azure Marketplace](create-azure-vm-technical-asset.md) e Obter um [SAS URI para a sua imagem VM](get-sas-uri.md).
+
+1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview**.
+1. Na coluna **'Oferta' é a** seguinte, selecione a oferta.
+1. No separador **Plano de Visão Geral,** na coluna **Nome,** selecione o plano a que pretende adicionar o VM.
+1. No separador **de configuração técnica,** em **Imagens VM,** selecione **+ Adicionar Imagem VM**.
+   > [!NOTE]
+   > Pode adicionar apenas uma imagem VM a um plano de cada vez. Para adicionar várias imagens VM, publique a primeira e aguarde até chegar à fase _de sinalização_ da Publisher antes de adicionar a próxima imagem de VM.
+1. Nas caixas que aparecem, forneça uma nova versão em disco e a imagem da máquina virtual.
+1. Selecione **Guardar rascunho**.
+1. Continue até à secção seguinte para remover a imagem VM com a vulnerabilidade de segurança.
+
+#### <a name="remove-the-vm-image-that-has-the-security-vulnerability-or-exploit"></a>Remova a imagem VM que tem a vulnerabilidade de segurança ou exploração
+
+Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview**.
+1. Na coluna **'Oferta' é a** seguinte, selecione a oferta.
+1. No separador **Plano de Visão Geral,** na coluna **Nome,** selecione o plano com o VM que pretende remover.
+1. No separador **de configuração técnica,** em **Imagens VM,** junto à imagem VM que pretende remover, selecione **Remover imagem VM**.
+1. Na caixa de diálogo que aparece, selecione **Continue**.
+1. Selecione **Guardar rascunho**.
+1. Continue até a próxima secção para republicar a oferta.
+
+#### <a name="republish-the-offer"></a>Reeminar a oferta
+
+Depois de ter removido ou substituído a imagem em VM, tem de republicar a oferta.
+1. Selecione **Rever e publicar.**
+1. Se precisar de fornecer alguma informação à equipa de certificação, adicione-a às Notas para caixa **de certificação.**
+1. Selecione **Publicar**.
+
+Para obter mais detalhes sobre o processo de publicação, consulte [Como rever e publicar uma oferta ao mercado comercial.](../review-publish-offer.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

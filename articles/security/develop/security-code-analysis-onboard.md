@@ -13,10 +13,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 5366da1048e7c6d9612ad8b6b1f1694068bb35fb
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87543032"
 ---
 # <a name="onboarding-and-installing"></a>Integração e instalação
@@ -48,9 +48,9 @@ Se cumprir as qualificações acima, contacte um parceiro da lista abaixo para a
 
 >**Parceiros:**
 
-- Zonas – Detalhes de contacto:cloudsupport@zones.com
-- Wortell – Detalhes de contacto:info@wortell.nl
-- Logicalis – Detalhes de contacto:logicalisleads@us.logicalis.com
+- Zonas – Detalhes de contacto: cloudsupport@zones.com
+- Wortell – Detalhes de contacto: info@wortell.nl
+- Logicalis – Detalhes de contacto: logicalisleads@us.logicalis.com
 
 ### <a name="become-a-partner"></a>Tornar-se um Parceiro
 
@@ -63,7 +63,7 @@ A equipa de Análise de Códigos de Segurança da Microsoft está à procura de 
 1. Selecione **Compartilhado**.
 1. Selecione a extensão de Análise de Código de Segurança da Microsoft, selecione **instalar.**
 1. A partir da lista de drop-down, escolha a organização Azure DevOps para instalar a extensão.
-1. Selecione **Install** (Instalar). Após a instalação estar concluída, pode começar a utilizar a extensão.
+1. Selecione **Instalar**. Após a instalação estar concluída, pode começar a utilizar a extensão.
 
 >[!NOTE]
 > Mesmo que não tenha acesso para instalar a extensão, continue com os passos de instalação. Pode solicitar acesso à sua administração da organização Azure DevOps durante o processo de instalação.

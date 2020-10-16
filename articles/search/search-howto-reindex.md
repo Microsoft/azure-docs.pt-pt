@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.openlocfilehash: 10c7d4146d61f5b589b29bc8faad5fa8e60a293a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88924032"
 ---
 # <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Como reconstruir um índice na Pesquisa Cognitiva Azure
@@ -95,7 +95,7 @@ Pode utilizar [o Search Explorer](search-explorer.md) ou uma ferramenta de teste
 
 Se adicionou ou renomeou um campo, utilize [$select](search-query-odata-select.md) para devolver esse campo: `search=*&$select=document-id,my-new-field,some-old-field&$count=true`
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 + [Descrição geral do Indexador](search-indexer-overview.md)
 + [Índice grandes conjuntos de dados em escala](search-howto-large-index.md)

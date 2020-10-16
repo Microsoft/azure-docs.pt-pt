@@ -9,18 +9,61 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 954962d4f0f16cb35035527d4cb81d0e13495a86
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 9f1b8435f7d51ad586484ddb7e9bbabf9d067926
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631839"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996756"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
 Neste artigo, saiba mais sobre os lançamentos da Azure Machine Learning.  Para obter o conteúdo completo de referência SDK, visite a página de referência principal do Azure Machine Learning para a página de referência [**python.**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)
 
 Veja [a lista de questões conhecidas](resource-known-issues.md) para conhecer bugs e soluções alternativas conhecidas.
+
+## <a name="2020-10-12"></a>2020-10-12
+
+### <a name="azure-machine-learning-sdk-for-python-v1160"></a>Azure Machine Learning SDK para Python v1.16.0
++ **Correções e melhorias de bugs**
+  + **azure-cli-ml**
+    + O AKSWebservice e o AKSEndpoints suportam agora os limites de CPU e de recursos de memória ao nível do pod. Estes limites opcionais podem ser definidos através de 1. Definição `cpu_cores_limit` e `memory_gb_limit` parâmetros no `AKSEndpoint.deploy_configuration()` e método `AKSWebservice.deploy_configuration()` 2. Configuração `--cpu-cores-limit` e `--memory-gb-limit` bandeiras nas chamadas CLI aplicáveis 3. Configuração `cpuLimit` e `memoryInGBLimit` na `containerResourceRequirements` configuração de implementação .json/.yml ficheiros Mais informações sobre recursos e limites de Kubernetes podem ser encontradas em https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
+  + **azureml-contrib-interpret**
+    + corrigir descrições de pacotes que causam erro de upload para pypi para azureml-interpret, azureml-explain-model, azureml-contrib-interpret e azureml-tensorboard
+  + **azureml-contrib-k8s**
+    + Suporte adicionado para anexar o cálculo arcKubernetes
+  + **azureml-contrib-mir**
+    + O AKSWebservice e o AKSEndpoints suportam agora os limites de CPU e de recursos de memória ao nível do pod. Estes limites opcionais podem ser definidos através de 1. Definição `cpu_cores_limit` e `memory_gb_limit` parâmetros no `AKSEndpoint.deploy_configuration()` e método `AKSWebservice.deploy_configuration()` 2. Configuração `--cpu-cores-limit` e `--memory-gb-limit` bandeiras nas chamadas CLI aplicáveis 3. Configuração `cpuLimit` e `memoryInGBLimit` na `containerResourceRequirements` configuração de implementação .json/.yml ficheiros Mais informações sobre recursos e limites de Kubernetes podem ser encontradas em https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
+  + **azureml-contrib-servidor**
+    + O AKSWebservice e o AKSEndpoints suportam agora os limites de CPU e de recursos de memória ao nível do pod. Estes limites opcionais podem ser definidos através de 1. Definição `cpu_cores_limit` e `memory_gb_limit` parâmetros no `AKSEndpoint.deploy_configuration()` e método `AKSWebservice.deploy_configuration()` 2. Configuração `--cpu-cores-limit` e `--memory-gb-limit` bandeiras nas chamadas CLI aplicáveis 3. Configuração `cpuLimit` e `memoryInGBLimit` na `containerResourceRequirements` configuração de implementação .json/.yml ficheiros Mais informações sobre recursos e limites de Kubernetes podem ser encontradas em https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
+  + **azureml-core**
+    + Pin principais versões de dependências diretas do azureml-core
+    + O AKSWebservice e o AKSEndpoints suportam agora os limites de CPU e de recursos de memória ao nível do pod. Mais informações sobre recursos e limites de Kubernetes podem ser encontrados em https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
+    + Atualizado run.log_table para permitir que as linhas individuais sejam registadas.
+    + Método estático adicionado `Run.get(workspace, run_id)` para recuperar uma corrida apenas usando um espaço de trabalho - método de instância adicionado para recuperar uma corrida dentro do espaço de `Workspace.get_run(run_id)` trabalho
+    + Introduzindo a propriedade de comando na configuração de execução que permitirá que os utilizadores submetam o comando em vez de argumentos & script.
+  + **azureml-dataprep-nativo**
+    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` apoiar oficialmente Python 3.8.
+  + **azureml-explain-modelo**
+    + corrigir descrições de pacotes que causam erro de upload para pypi para azureml-interpret, azureml-explain-model, azureml-contrib-interpret e azureml-tensorboard
+  + **azureml-interpret**
+    + cliente de explicação fixa is_raw comportamento de bandeira em azureml-interpret
+    + corrigir descrições de pacotes que causam erro de upload para pypi para azureml-interpret, azureml-explain-model, azureml-contrib-interpret e azureml-tensorboard
+  + **azureml-pipeline-core**
+    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` apoiar oficialmente Python 3.8.
+  + **azureml-sdk**
+    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` apoiar oficialmente Python 3.8.
+  + **azureml-tensorboard**
+    + corrigir descrições de pacotes que causam erro de upload para pypi para azureml-interpret, azureml-explain-model, azureml-contrib-interpret e azureml-tensorboard
+  + **azureml-train**
+    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` apoiar oficialmente Python 3.8.
+  + **azureml-train-core**
+    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` apoiar oficialmente Python 3.8.
+    + Adicionar tensorFlow 2.3 ambiente curado
+    + Introduzindo a propriedade de comando na configuração de execução que permitirá que os utilizadores submetam o comando em vez de argumentos & script.
+  + **azureml-widgets**
+    + Interface redesenhada para o widget de execução do script.
+
 
 ## <a name="2020-09-28"></a>2020-09-28
 
@@ -90,7 +133,7 @@ Veja [a lista de questões conhecidas](resource-known-issues.md) para conhecer b
     + Documentação atualizada do AzureML MLflow e amostras de cadernos 
     + Novo suporte para projetos MLflow com backend AzureML
     + Suporte ao registo do modelo MLflow
-    + Apoio RBAC adicionado para operações AzureML-MLflow 
+    + Apoio adicional do RBAC para operações de AzureML-MLflow 
     
   + **azureml-pipeline-core**
     + Melhorou a documentação dos métodos PipelineOutputFileDataset.parse_*.
@@ -311,7 +354,7 @@ Veja [a lista de questões conhecidas](resource-known-issues.md) para conhecer b
     + Para Datastore.register_azure_blob_container e Datastore.register_azure_file_share (apenas opções que suportam o token SAS), atualizámos as cordas do doc para o `sas_token` campo para incluir requisitos mínimos de permissões para cenários típicos de leitura e escrita.
     + Depreciação _with_auth param em ws.get_mlflow_tracking_uri()
   + **azureml-mlflow**
-    + Adicione suporte para implantação de modelos locais de file:// com AzureML-MLflow
+    + Adicione suporte para implantar modelos locais de file:// com AzureML-MLflow
     + Depreciação _with_auth param em ws.get_mlflow_tracking_uri()
   + **azureml-opendatasets**
     + Os conjuntos de dados de rastreio Covid-19 recentemente publicados estão agora disponíveis com o SDK
@@ -485,7 +528,7 @@ Veja [a lista de questões conhecidas](resource-known-issues.md) para conhecer b
       + O valor predefinido para process_count_per_node é alterado para 1. O utilizador deve sintonizar este valor para um melhor desempenho. As melhores práticas são definir como o número de gPU ou nó CPU tem.
       + ParallelRunStep não injeta nenhum pacote, o utilizador precisa incluir pacotes **azureml-core** e **azureml-dataprep [pandas, fusíveis]** na definição ambiental. Se a imagem de estivador personalizada for utilizada com user_managed_dependencies, o utilizador terá de instalar conda na imagem.
       
-+ **Quebra de mudanças**
++ **Alterações interruptivas**
   + **azureml-pipeline-steps**
     + Depreifed o uso de azureml.dprep.Dataflow como um tipo válido de entrada para AutoMLConfig
   + **azureml-train-automl-client**
@@ -677,7 +720,7 @@ Agora pode criar, editar e partilhar cadernos e ficheiros de machine learning di
 
 Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
     
-| Ferramenta baseada na web  |     Descrição  |
+| Ferramenta baseada na web  |     Description  |
 |---|---|
 | Cadernos do estúdio Azure ML   |     Primeira autoria em classe para ficheiros de portátil e suporte a toda a operação disponível no Azure ML Python SDK. | 
 
@@ -689,7 +732,7 @@ Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
   + Os clusters AmlCompute suportam agora a criação de uma identidade gerida no cluster no momento do provisionamento. Basta especificar se gostaria de usar uma identidade atribuída ao sistema ou uma identidade atribuída ao utilizador, e passar um ID de identidade para este último. Em seguida, pode configurar permissões para aceder a vários recursos, como Armazenamento ou ACR, de forma a que a identidade do computação seja usada para aceder de forma segura aos dados, em vez de uma abordagem baseada em fichas que a AmlCompute emprega hoje em dia. Consulte a nossa referência SDK para obter mais informações sobre os parâmetros.
   
 
-+ **Quebra de mudanças**
++ **Alterações interruptivas**
   + Os clusters AmlCompute apoiaram uma funcionalidade de Pré-visualização em torno da criação baseada em execução, que estamos planejando depreciar em duas semanas. Pode continuar a criar metas de computação persistentes, como sempre, utilizando a classe Amlcompute, mas a abordagem específica de especificar o identificador "amlcompute" como o alvo de computação em run config não será suportada num futuro próximo. 
 
 + **Correções e melhorias de bugs**
@@ -760,7 +803,7 @@ Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
 
 ### <a name="azure-machine-learning-sdk-for-python-v120"></a>Azure Machine Learning SDK para Python v1.2.0
 
-+ **Quebra de mudanças**
++ **Alterações interruptivas**
   + Suporte de queda para python 2.7
 
 + **Correções e melhorias de bugs**
@@ -795,7 +838,7 @@ Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
   + **Python 2.7**
     + Última versão para apoiar python 2.7
 
-+ **Quebra de mudanças**
++ **Alterações interruptivas**
   + **Semantic Versioning 2.0.0** (Controlo de Versões Semântico 2.0.0)
     + Começando pela versão 1.1 Azure ML Python SDK adota a Versão Semântica 2.0.0. [Leia mais aqui.](https://semver.org/) Todas as versões subsequentes seguirão o novo esquema de numeração e o contrato de versão semântica. 
 
@@ -958,7 +1001,7 @@ Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
 
 ### <a name="azure-machine-learning-sdk-for-python-v110rc0-pre-release"></a>Azure Machine Learning SDK para Python v1.1.0rc0 (Pré-lançamento)
 
-+ **Quebra de mudanças**
++ **Alterações interruptivas**
   + **Semantic Versioning 2.0.0** (Controlo de Versões Semântico 2.0.0)
     + Começando pela versão 1.1 Azure ML Python SDK adota a Versão Semântica 2.0.0. [Leia mais aqui.](https://semver.org/) Todas as versões subsequentes seguirão o novo esquema de numeração e o contrato de versão semântica. 
   
@@ -1088,7 +1131,7 @@ Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
 
 ### <a name="azure-machine-learning-sdk-for-python-v1076"></a>Azure Machine Learning SDK para Python v1.0.76
 
-+ **Quebra de mudanças**
++ **Alterações interruptivas**
   + Problemas de upgrade Azureml-Train-AutoML
     + A atualização para>azureml-train-automl =1.0.76 de azureml-train-automl<1.0.76 pode causar instalações parciais, fazendo com que algumas importações automl falhem. Para resolver isto, pode executar o script de configuração encontrado em https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/automl_setup.cmd . Ou se estiver a usar o pip diretamente, pode:
       + "pip install --upgrade azureml-train-automl"
@@ -1189,7 +1232,7 @@ A partir do estúdio, você pode treinar, testar, implementar e gerir ativos de 
 
 Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
 
-| Ferramenta baseada na web | Descrição | 
+| Ferramenta baseada na web | Description | 
 |-|-|-|
 | VM do portátil (pré-visualização) | Estação de trabalho totalmente gerida em nuvem | 
 | [Aprendizagem automática de máquinas](tutorial-first-experiment-automated-ml.md) (pré-visualização) | Nenhuma experiência de código para automatizar o desenvolvimento de modelos de aprendizagem automática | 
@@ -1694,7 +1737,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
     + Mais classes para obter população dos EUA por concelho e zip.
   + **azureml-pipeline-core**
     + Adicionou propriedade de etiqueta às definições de porta de entrada e saída.
-  + **azureml-telemetria**
+  + **azureml-telemetry**
     + Corrigiu uma configuração de telemetria incorreta.
   + **azureml-train-automl**
     + Corrigiu o bug onde, na falha de configuração, o erro não estava a ser registado no campo "erros" para a execução da configuração e, por isso, não foi armazenado em "erros" de execução dos pais.
@@ -1785,7 +1828,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
 + **Novas funcionalidades**
   + Machine Learning automatizado agora suporta a formação de modelos ONNX no alvo de computação remota
   + O Azure Machine Learning oferece agora a capacidade de retomar o treino a partir de uma execução anterior, de um ponto de verificação ou de ficheiros de modelos.
-    + Saiba como [usar os estimadores para retomar o treino de uma corrida anterior](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/tensorflow/training/train-tensorflow-resume-training/train-tensorflow-resume-training.ipynb)
+    + Saiba como [usar os estimadores para retomar o treino de uma corrida anterior](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/tensorflow/train-tensorflow-resume-training/train-tensorflow-resume-training.ipynb)
 
 + **Correções e melhorias de bugs**
   + **azure-cli-ml**
@@ -1857,7 +1900,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
     + A DBFS Datastore está agora suportada para entradas e saídas em DatabricksStep.
     + Documentação atualizada para o Azure Batch Step no que diz respeito a entradas/saídas.
     + Em AzureBatchStep, alterou *delete_batch_job_after_finish* valor padrão para *verdadeiro*.
-  + **azureml-telemetry**
+  + **azureml-telemetria**
     +  Mova os conjuntos de dados azureml-contrib-open para conjuntos de dados abertos azureml.
     + Permitir que as aulas de conjunto de dados abertas sejam registadas no espaço de trabalho Azure Machine Learning e aproveite perfeitamente as capacidades do Conjunto de Dados AML.
     + Melhore o desempenho noaaIsdWeather enriquece significativamente o desempenho na versão não-SPARK.
@@ -2046,7 +2089,7 @@ Foi [`PipelineEndpoint`](https://docs.microsoft.com/python/api/azureml-pipeline-
 
 + **Novas funcionalidades**
   + A Azure Machine Learning agora fornece suporte de primeira classe para o popular DNN framework Chainer. A utilização de [`Chainer`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py&preserve-view=true) utilizadores de classe pode facilmente treinar e implementar modelos Chainer.
-    + Saiba como [executar o treino distribuído com chainerMN](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/chainer/training/distributed-chainer/distributed-chainer.ipynb)
+    + Saiba como [executar o treino distribuído com chainerMN](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/chainer/distributed-chainer/distributed-chainer.ipynb)
     + Aprenda a [executar afinação de hiperparímetro com Chainer usando HyperDrive](https://github.com/Azure/MachineLearningNotebooks/blob/b881f78e4658b4e102a72b78dbd2129c24506980/how-to-use-azureml/ml-frameworks/chainer/deployment/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb)
   + A azure Machine Learning Pipelines adicionou capacidade de desencadear uma execução de Pipeline com base em modificações de datastore. O [caderno de horários do](https://aka.ms/pl-schedule) pipeline é atualizado para mostrar esta funcionalidade.
 

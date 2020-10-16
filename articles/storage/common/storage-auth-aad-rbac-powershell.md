@@ -12,10 +12,10 @@ ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: d750e1f287ff7dfc5259b704355e026011fa872a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91715806"
 ---
 # <a name="use-powershell-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Use o PowerShell para atribuir uma função Azure para acesso a dados de bolhas e filas
@@ -134,7 +134,7 @@ New-AzRoleAssignment -SignInName <email> `
     -Scope  "/subscriptions/<subscription>"
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - [Adicione ou remova atribuições de funções Azure utilizando o módulo Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 - [Utilize o CLI Azure para atribuir uma função Azure para acesso a dados de bolhas e filas](storage-auth-aad-rbac-cli.md)

@@ -15,10 +15,10 @@ ms.date: 05/03/2020
 ms.author: kaib
 ms.custom: seodec18
 ms.openlocfilehash: 30a960c3ed76788158b15022947fec49a95ae299
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89375215"
 ---
 # <a name="resize-an-os-disk-that-has-a-gpt-partition"></a>Redimensione um disco DE que tenha uma partição GPT
@@ -352,6 +352,6 @@ Quando o VM tiver sido reiniciado, execute os seguintes passos:
 > [!NOTE]
 > Para utilizar o mesmo procedimento para redimensionar qualquer outro volume lógico, altere o nome **lv** no passo 7.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Disco de redimensione](expand-disks.md)

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.openlocfilehash: e6d811e19bb19c8c8bf96764cfcca2b1294f4a85
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91440058"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Criar e instalar ficheiros de configuração do cliente VPN para autenticação P2S RADIUS
@@ -43,7 +43,7 @@ Para utilizar as secções deste artigo, decida primeiro que tipo de autenticaç
 
 Pode configurar a autenticação do nome de utilizador/palavra-passe para utilizar o Ative Directory ou não utilizar o Ative Directory. Em qualquer dos cenários, certifique-se de que todos os utilizadores de ligação têm credenciais de nome de utilizador/palavra-passe que podem ser autenticadas através do RADIUS.
 
-Ao configurar a autenticação do nome de utilizador/palavra-passe, só pode criar uma configuração para o protocolo de autenticação de nome de utilizador/palavra-passe EAP-MSCHAPv2. Nos comandos, `-AuthenticationMethod` `EapMSChapv2` está.
+Ao configurar a autenticação do nome de utilizador/palavra-passe, só pode criar uma configuração para o EAP-MSCHAPv2 protocolo de autenticação de nome de utilizador/palavra-passe. Nos comandos, `-AuthenticationMethod` `EapMSChapv2` está.
 
 ### <a name="1-generate-vpn-client-configuration-files"></a><a name="usernamefiles"></a> 1. Gerar ficheiros de configuração de clientes VPN
 
@@ -279,7 +279,7 @@ Para utilizar um tipo de autenticação diferente (por exemplo, OTP), ou para ut
    
    A pasta **GenericDevice** também contém um ficheiro .cer chamado **VpnServerRoot**. Este ficheiro contém o certificado de raiz necessário para validar o gateway Azure VPN durante a configuração da ligação P2S. Instale o certificado em todos os dispositivos que se ligarão à rede virtual Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Volte ao artigo para completar a [sua configuração P2S](point-to-site-how-to-radius-ps.md).
 

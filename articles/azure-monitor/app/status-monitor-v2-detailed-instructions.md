@@ -6,10 +6,10 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: a8a27a782d5e05b5febda659009284c22d3608c0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87318985"
 ---
 # <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Application Insights Agent (anteriormente denominado Status Monitor v2): Instruções detalhadas
@@ -167,7 +167,7 @@ Instale o módulo PowerShell descarregado manualmente num diretório PowerShell 
 Para obter mais informações, consulte [a instalação de um módulo PowerShell](/powershell/scripting/developer/module/installing-a-powershell-module).
 
 
-#### <a name="unzip-nupkg-as-a-zip-file-by-using-expand-archive-v1010"></a>Desaperte o nupkg como ficheiro zip utilizando o Expand-Archive (v1.0.1.0)
+#### <a name="unzip-nupkg-as-a-zip-file-by-using-expand-archive-v1010"></a>Desaperte o nupkg como ficheiro zip utilizando Expand-Archive (v1.0.1.0)
 
 - Descrição: A versão base do Microsoft.PowerShell.Archive (v1.0.1.0) não consegue desapertar ficheiros nupkg. Mude o nome do ficheiro com a extensão .zip.
 - Referência: [Expandir-Arquivo](/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6).
@@ -181,9 +181,9 @@ Para obter mais informações, consulte [a instalação de um módulo PowerShell
     Expand-Archive -LiteralPath $pathToZip -DestinationPath $pathInstalledModule
     ```
 
-#### <a name="unzip-nupkg-by-using-expand-archive-v1100"></a>Unzip nupkg utilizando o Expand-Archive (v1.1.0.0)
+#### <a name="unzip-nupkg-by-using-expand-archive-v1100"></a>Unzip nupkg utilizando Expand-Archive (v1.1.0.0)
 
-- Descrição: Utilize uma versão atual do Expand-Archive para desapertar ficheiros nupkg sem alterar a extensão.
+- Descrição: Utilize uma versão atual de Expand-Archive para desapertar ficheiros nupkg sem alterar a extensão.
 - Referência: [Expand-Archive](/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6) e [Microsoft.PowerShell.Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive/1.1.0.0).
 - Comando:
 

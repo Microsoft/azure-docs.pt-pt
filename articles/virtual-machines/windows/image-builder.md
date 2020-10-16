@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
 ms.openlocfilehash: 62d80426dec6f5d63d8fa5d67d64d6aafb881110
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91320018"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>Pré-visualização: Criar um Windows VM com Azure Image Builder

@@ -6,10 +6,10 @@ ms.subservice: shared-capabilities
 ms.date: 09/10/2020
 ms.topic: conceptual
 ms.openlocfilehash: 4fbcf74c2c70d3dffd86728132d58430472271b0
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90004669"
 ---
 # <a name="manage-credentials-in-azure-automation"></a>Gerir credenciais em Azure Automation
@@ -157,7 +157,7 @@ print cred["username"]
 print cred["password"]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre os cmdlets utilizados para aceder a certificados, consulte [Gerir módulos na Azure Automation.](modules.md)
 * Para obter informações gerais sobre os runbooks, consulte [a execução do Runbook na Azure Automation](../automation-runbook-execution.md).

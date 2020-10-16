@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 3ed1ecca686471e052f07e945738ad1a49e68464
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260307"
 ---
 # <a name="sfctl-replica"></a>sfctl replica
@@ -21,7 +21,7 @@ Gerir as réplicas que pertencem a divisórias de serviço.
 | --- | --- |
 | implantado | Obtém os detalhes da réplica implantados num nó de Tecido de Serviço. |
 | lista implantada | Obtém a lista de réplicas implantadas num nó de Tecido de Serviço. |
-| saúde | Obtém a saúde de uma réplica de serviço stateful Fabric ou de serviço apátrida. |
+| Saúde | Obtém a saúde de uma réplica de serviço stateful Fabric ou de serviço apátrida. |
 | informações | Obtém a informação sobre uma réplica de uma divisória de Tecido de Serviço. |
 | lista | Obtém a informação sobre réplicas de uma divisória de serviço de tecido de serviço. |
 | remover | Remove uma réplica de serviço em execução num nó. |

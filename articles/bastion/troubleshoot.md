@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 10/16/2019
 ms.author: charwen
 ms.openlocfilehash: f3c142491363f30513877ae4368f291430aa3675
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85831935"
 ---
 # <a name="troubleshoot-azure-bastion"></a>Resolver problemas do Azure Bastion
@@ -41,7 +41,7 @@ Como exemplo, pode utilizar o seguinte comando para criar uma nova chave RSA SSH
 
 **ssh-keygen -t rsa -b 4096 -C email@domain.com "**
 
-Saída:
+Resultado:
 
 ```
 ashishj@dreamcatcher:~$ ssh-keygen -t rsa -b 4096 -C "email@domain.com"
@@ -85,6 +85,6 @@ The key's randomart image is:
 
 **A:** Isto acontece quando existe um problema de conectividade de rede entre o seu navegador web e O Azure Bastion (a firewall da Internet do seu cliente pode estar bloqueando o tráfego de WebSockets ou similares), ou entre o Bastião Azure e o seu VM alvo. A maioria dos casos inclui um NSG aplicado quer à AzureBastionSubnet, quer à sub-rede VM alvo que está a bloquear o tráfego RDP/SSH na sua rede virtual. Permita o tráfego webSockets na firewall da internet do seu cliente e verifique os NSGs na sub-rede VM do seu alvo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações, consulte as [FAQ do Bastião.](bastion-faq.md)

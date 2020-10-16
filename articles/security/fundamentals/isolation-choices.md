@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
 ms.openlocfilehash: 42582c9474647c4c203bd0cafae0be664398ba41
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87533908"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento na Nuvem Pública de Azure
@@ -54,7 +54,7 @@ Utilizadores, grupos e aplicações desse diretório podem gerir recursos na sub
 
 - Os utilizadores de AD Azure não têm acesso a ativos ou locais físicos, pelo que não lhes é possível contornar os controlos de política lógicos da RBAC indicados a seguir.
 
-Para diagnósticos e necessidades de manutenção, é necessário e utilizado um modelo operacional que utilize um sistema de elevação de privilégios just-in-time. A Azure AD Gestão de Identidade Privilegiada (PIM) introduz o conceito de administrador elegível. [Os administradores elegíveis](../../active-directory/privileged-identity-management/pim-configure.md) devem ser utilizadores que precisam de acesso privilegiado de vez em quando, mas não todos os dias. A função está inativa até que o utilizador precise de acesso. Nessa altura, o utilizador realiza um processo de ativação e torna-se num administrador ativo durante uma quantidade pré-determinada de tempo.
+Para diagnósticos e necessidades de manutenção, é necessário e utilizado um modelo operacional que utilize um sistema de elevação de privilégios just-in-time. A Azure AD Privileged Identity Management (PIM) introduz o [Eligible admins](../../active-directory/privileged-identity-management/pim-configure.md) conceito de administrador elegível. A função está inativa até que o utilizador precise de acesso. Nessa altura, o utilizador realiza um processo de ativação e torna-se num administrador ativo durante uma quantidade pré-determinada de tempo.
 
 ![Azure AD Privileged Identity Management](./media/isolation-choices/azure-isolation-fig2.png)
 
@@ -64,7 +64,7 @@ O conceito de contentores de inquilinos está profundamente enraizado no serviç
 
 Mesmo quando os metadados de vários inquilinos do Azure Ative Directory são armazenados no mesmo disco físico, não há qualquer relação entre os contentores que não o que é definido pelo serviço de diretório, que por sua vez é ditado pelo administrador do arrendatário.
 
-### <a name="azure-role-based-access-control-azure-rbac"></a>Controlo de acesso baseado em funções Azure (Azure RBAC)
+### <a name="azure-role-based-access-control-azure-rbac"></a>Controlo de acesso baseado em funções do Azure (RBAC do Azure)
 
 [O controlo de acesso baseado em funções (Azure RBAC) ajuda-o](../../role-based-access-control/overview.md) a partilhar vários componentes disponíveis dentro de uma subscrição do Azure, fornecendo uma gestão de acesso de grãos finos para o Azure. O Azure RBAC permite-lhe segregar funções dentro da sua organização e conceder acesso com base no que os utilizadores precisam para desempenhar os seus trabalhos. Em vez de dar a todos permissões ilimitadas na subscrição ou recursos do Azure, você pode permitir apenas certas ações.
 
@@ -76,7 +76,7 @@ O Azure RBAC tem três funções básicas que se aplicam a todos os tipos de rec
 
 - **O leitor** pode ver os recursos Azure existentes.
 
-![Controlo de acesso baseado em funções Azure (Azure RBAC)](./media/isolation-choices/azure-isolation-fig3.png)
+![Controlo de acesso baseado em funções do Azure (RBAC do Azure)](./media/isolation-choices/azure-isolation-fig3.png)
 
 O resto das funções do Azure no Azure permitem a gestão de recursos específicos do Azure. Por exemplo, a função Contribuidor de Máquina Virtual permite ao utilizador criar e gerir máquinas virtuais. Não lhes dá acesso à Rede Virtual Azure ou à sub-rede a que a máquina virtual se conecta.
 

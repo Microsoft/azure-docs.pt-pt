@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/27/2020
 ms.author: alkohli
 ms.openlocfilehash: ff2a473ca008e9b283d03ebb05f35122473d778a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90899270"
 ---
 # <a name="kubernetes-storage-management-on-your-azure-stack-edge-pro-gpu-device"></a>Gestão de armazenamento kubernetes no seu dispositivo GPU Azure Stack Edge Pro

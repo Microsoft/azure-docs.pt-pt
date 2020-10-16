@@ -8,14 +8,16 @@ ms.topic: conceptual
 description: Use um repositório helm privado num espaço Azure Dev.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, contentores, Helm
 manager: gwallace
-ms.openlocfilehash: c8f0e463bc78d278d8162f8389664dbb46a83301
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c5f28595df2e552fd48033b44e4e1f0ea4ec306
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80240476"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960342"
 ---
 # <a name="use-a-private-helm-repository-in-azure-dev-spaces"></a>Use um repositório de leme privado em Azure Dev Spaces
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
 
 [Helm][helm] é um gestor de pacotes para Kubernetes. Helm usa um formato [de gráfico][helm-chart] para pacotes dependências. Os gráficos de leme são armazenados num repositório, que pode ser público ou privado. A Azure Dev Spaces só recupera gráficos helm de repositórios públicos ao executar a sua aplicação. Nos casos em que o repositório Helm é privado ou a Azure Dev Spaces não pode aceder a ele, pode adicionar um gráfico desse repositório diretamente à sua aplicação. Adicionar o gráfico diretamente permite que a Azure Dev Spaces execute a sua aplicação sem ter de aceder ao repositório helm privado.
 

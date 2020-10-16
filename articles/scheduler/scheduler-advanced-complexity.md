@@ -10,10 +10,10 @@ ms.suite: infrastructure-services
 ms.topic: article
 ms.date: 11/14/2018
 ms.openlocfilehash: b85932bf0d4fd080afadef2bc28d6a218b2d627a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78898594"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Construir horários avançados e recorrências para empregos no Azure Scheduler
@@ -66,10 +66,10 @@ Esta tabela fornece uma visão geral de alto nível para os principais elementos
 
 | Elemento | Obrigatório | Descrição | 
 |---------|----------|-------------|
-| **startTime** | Não | Um valor de cadeia DateTime no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) que especifica quando o trabalho começa pela primeira vez num horário básico. <p>Para horários complexos, o trabalho começa o mais cedo que **o startTime**. | 
+| **horário de início** | Não | Um valor de cadeia DateTime no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) que especifica quando o trabalho começa pela primeira vez num horário básico. <p>Para horários complexos, o trabalho começa o mais cedo que **o startTime**. | 
 | **recorrência** | Não | As regras de recorrência para quando o trabalho funciona. O objeto **de recorrência** suporta estes elementos: **frequência,** **intervalo,** **programação,** **contagem**e fim **de hora**. <p>Se utilizar o elemento **de recorrência,** também deve utilizar o elemento **de frequência,** enquanto outros elementos **de recorrência** são opcionais. |
 | **frequência** | Sim, quando se usa **a recorrência** | A unidade de tempo entre ocorrências e apoios a estes valores: "Minuto", "Hora", "Dia", "Semana", "Mês" e "Ano" | 
-| **intervalo** | Não | Um número inteiro positivo que determina o número de unidades de tempo entre ocorrências com base na **frequência**. <p>Por exemplo, se **o intervalo** for de 10 e **a frequência** for "Semana", o trabalho repete-se a cada 10 semanas. <p>Aqui está o maior número de intervalos para cada frequência: <p>- 18 meses <br>- 78 semanas <br>- 548 dias <br>- Durante horas e minutos, o intervalo é de 1 <= intervalo <*> <* = 1000. | 
+| **interval** | Não | Um número inteiro positivo que determina o número de unidades de tempo entre ocorrências com base na **frequência**. <p>Por exemplo, se **o intervalo** for de 10 e **a frequência** for "Semana", o trabalho repete-se a cada 10 semanas. <p>Aqui está o maior número de intervalos para cada frequência: <p>- 18 meses <br>- 78 semanas <br>- 548 dias <br>- Durante horas e minutos, o intervalo é de 1 <= intervalo <*> <* = 1000. | 
 | **agendar** | Não | Define alterações à recorrência com base nas notas de minutos especificadas, marcas de horas, dias da semana e dias do mês | 
 | **contar** | Não | Um número inteiro positivo que especifica o número de vezes que o trabalho funciona antes de terminar. <p>Por exemplo, quando um trabalho diário tem **a contagem** definida para 7, e a data de início é segunda-feira, o trabalho termina no domingo. Se a data de início já tiver passado, a primeira execução é calculada a partir do tempo de criação. <p>Sem **fim tempo** ou **contagem,** o trabalho funciona infinitamente. Não podes usar a **contagem** e o fim do **Tempo** no mesmo trabalho, mas a regra que termina primeiro é honrada. | 
 | **endTime** | Não | Um valor de cadeia Data ou DateTime no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) que especifica quando o trabalho deixa de funcionar. Pode definir um valor para **o fim do Tempo** que está no passado. <p>Sem **fim tempo** ou **contagem,** o trabalho funciona infinitamente. Não podes usar a **contagem** e o fim do **Tempo** no mesmo trabalho, mas a regra que termina primeiro é honrada. |
@@ -165,7 +165,7 @@ A tabela seguinte descreve os elementos de agenda detalhadamente:
 | **minutos** |Minutos da hora em que o trabalho funciona. |Uma série de inteiros. |
 | **horas** |Horas do dia em que o trabalho funciona. |Uma série de inteiros. |
 | **weekDays** |Dias da semana o trabalho funciona. Só pode ser especificado com uma frequência semanal. |Uma matriz de qualquer um dos seguintes valores (tamanho máximo de matriz é 7):<br />- "Segunda-feira".<br />- "Terça-feira"<br />- "Quarta-feira"<br />- "Quinta-feira"<br />- "Sexta-feira".<br />- "Sábado"<br />- "Domingo"<br /><br />Não sensível a casos. |
-| **monthlyOccurrences** |Determina em que dias do mês o trabalho funciona. Só pode ser especificado com uma frequência mensal. |Uma variedade de **objetos mensais Desocupações:**<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **dia** é o dia da semana o trabalho corre. Por exemplo, *{Sunday}* é todos os domingos do mês. Necessário.<br /><br />**ocorrência** é a ocorrência do dia durante o mês. Por exemplo, *{Domingo, -1}* é o último domingo do mês. Opcional. |
+| **monthlyOccurrences** |Determina em que dias do mês o trabalho funciona. Só pode ser especificado com uma frequência mensal. |Uma variedade de **objetos mensais Desocupações:**<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **dia** é o dia da semana o trabalho corre. Por exemplo, *{Sunday}* é todos os domingos do mês. Obrigatório.<br /><br />**ocorrência** é a ocorrência do dia durante o mês. Por exemplo,  *{Domingo, -1}* é o último domingo do mês. Opcional. |
 | **monthDays** |Dia do mês em que o trabalho funciona. Só pode ser especificado com uma frequência mensal. |Uma matriz dos seguintes valores:<br />- Qualquer valor <= -1 e >= -31<br />- Qualquer valor >= 1 e <= 31|
 
 ## <a name="examples-recurrence-schedules"></a>Exemplos: Horários de recorrência
@@ -208,7 +208,7 @@ Estes horários assumem que **o intervalo** está definido para 1\. Os exemplos 
 | `{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}` |Executar de 15 em 15 minutos na última sexta-feira do mês. |
 | `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` |Executar às 5:15, 5:45, 17:15 e 17:45 na terceira quarta-feira de cada mês. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Conceitos, terminologia e hierarquia de entidades do Agendador do Azure](scheduler-concepts-terms.md)
 * [Referência da API REST do Azure Scheduler](/rest/api/scheduler)

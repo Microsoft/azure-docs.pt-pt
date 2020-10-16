@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: 924aff8f2ba3d796b65f52494845f3b10018065c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87063986"
 ---
 # <a name="microsoftcommonsection-ui-element"></a>Microsoft.Common.Section UI elemento
@@ -45,10 +45,10 @@ Um controlo que agrupe um ou mais elementos sob um título.
 
 ## <a name="remarks"></a>Observações
 
-- `elements`deve ter pelo menos um elemento, e pode ter todos os tipos de elementos, exceto `Microsoft.Common.Section` .
+- `elements` deve ter pelo menos um elemento, e pode ter todos os tipos de elementos, exceto `Microsoft.Common.Section` .
 - Este elemento não suporta a `toolTip` propriedade.
 
-## <a name="sample-output"></a>Resultado da amostra
+## <a name="sample-output"></a>Saída de exemplo
 Para aceder aos valores de saída dos `elements` elementos, utilize as [funções básicas()](create-ui-definition-referencing-functions.md#basics) ou [passos()](create-ui-definition-referencing-functions.md#steps) e a notação de pontos:
 
 ```json

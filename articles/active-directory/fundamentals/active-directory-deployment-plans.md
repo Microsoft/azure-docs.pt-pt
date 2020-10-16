@@ -13,10 +13,10 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 75081c218536d17798d1ffa788f79130211f72d3
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89318432"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Planos de implementação do Azure Active Directory
@@ -59,7 +59,7 @@ O alargamento do lançamento a grupos maiores de utilizadores deve ser efetuado 
 
 ## <a name="deploy-authentication"></a>Implementar autenticação
 
-| Funcionalidade | Descrição|
+| Funcionalidade | Description|
 | -| -|
 | [Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)| A Azure Multi-Factor Authentication (MFA) é uma solução de verificação em dois passos da Microsoft. Utilizando métodos de autenticação aprovados pela administração, o Azure MFA ajuda a salvaguardar o acesso aos seus dados e aplicações, ao mesmo tempo que satisfaz a exigência de um processo de inscrição simples. |
 | [Conditional Access](../conditional-access/plan-conditional-access.md)| Com o Acesso Condicional, pode implementar decisões automatizadas de controlo de acesso para quem pode aceder às suas aplicações na nuvem, com base nas condições. |
@@ -68,7 +68,7 @@ O alargamento do lançamento a grupos maiores de utilizadores deve ser efetuado 
 
 ## <a name="deploy-application-and-device-management"></a>Implementar aplicação e gestão de dispositivos
 
-| Funcionalidade | Descrição|
+| Funcionalidade | Description|
 | -| - |
 | [Início de sessão único](../manage-apps/plan-sso-deployment.md)| O único sessão de sessão ajuda os seus utilizadores a aceder às apps e recursos de que necessitam para fazer negócios enquanto fazem a sessão apenas uma vez. Depois de se terem assinado, podem ir do Microsoft Office para SalesForce para Box para aplicações internas sem serem obrigados a introduzir credenciais uma segunda vez. |
 | [Painel de acesso](../manage-apps/access-panel-deployment-plan.md)| Ofereça aos seus utilizadores um simples hub para descobrir e aceder a todas as suas aplicações. Capacitá-los a serem mais produtivos com capacidades de self-service, como solicitar acesso a apps e grupos, ou gerir o acesso a recursos em nome de outros. |
@@ -77,7 +77,7 @@ O alargamento do lançamento a grupos maiores de utilizadores deve ser efetuado 
 
 ## <a name="deploy-hybrid-scenarios"></a>Implementar cenários híbridos
 
-| Funcionalidade | Descrição|
+| Funcionalidade | Description|
 | -| -|
 | [ADFS para Sincronização Hash de Palavras-passe](../hybrid/plan-migrate-adfs-password-hash-sync.md)| Com a sincronização de Hash Password, as hashes de senhas de utilizador são sincronizadas desde o Ative Directy no local até ao Azure AD, permitindo que o Azure AD autente os utilizadores sem qualquer interação com o Ative Directory no local |
 | [ADFS para Autenticação Pass-through](../hybrid/plan-migrate-adfs-pass-through-authentication.md)| A Azure AD AD Authentication ajuda os seus utilizadores a iniciar súmis tanto no local como em aplicações baseadas na nuvem usando as mesmas palavras-passe. Esta funcionalidade proporciona aos utilizadores uma melhor experiência - uma palavra-passe a menos para se lembrarem - e reduz os custos de IT helpdesk porque os utilizadores são menos propensos a esquecer como fazer o s. Quando as pessoas iniciam sessão com o Azure AD, esta funcionalidade valida as respetivas palavras-passe diretamente no seu Active Directory no local. |
@@ -86,14 +86,14 @@ O alargamento do lançamento a grupos maiores de utilizadores deve ser efetuado 
 
 ## <a name="deploy-user-provisioning"></a>Implementar o fornecimento de utilizadores
 
-| Funcionalidade | Descrição|
+| Funcionalidade | Description|
 | -| -|
 | [Aprovisionamento de utilizadores](../app-provisioning/plan-auto-user-provisioning.md)| O Azure AD ajuda-o a automatizar a criação, a manutenção e a remoção de identidades de utilizadores em aplicações da cloud (SaaS), como o Dropbox, o Salesforce, o ServiceNow, entre outras. |
 | [Fornecimento de utilizadores de RH em nuvem](../app-provisioning/plan-cloud-hr-provision.md)| O fornecimento de utilizadores de HR em nuvem ao Ative Directory cria uma base para a governação de identidade em curso e melhora a qualidade dos processos de negócio que dependem de dados de identidade autoritários. Utilizando esta funcionalidade com o seu produto HR em nuvem, como Workday ou Successfactors, pode gerir perfeitamente o ciclo de vida identitário dos colaboradores e trabalhadores contingentes através da configuração de regras que mapeiam processos de Joiner-Mover-Leaver (como New Hire, Terminate, Transfer) para ações de provisionamento de TI (tais como Criar, Ativar, Desativar) |
 
 ## <a name="deploy-governance-and-reporting"></a>Implementar governação e relatórios
 
-| Funcionalidade | Descrição|
+| Funcionalidade | Description|
 | -| -|
 | [Privileged Identity Management](../privileged-identity-management/pim-deployment-plan.md)| A Azure AD Privileged Identity Management (PIM) ajuda-o a gerir funções administrativas privilegiadas em Azure AD, recursos Azure e outros Serviços Online da Microsoft. A PIM fornece soluções como o acesso just-in-time, solicitar fluxos de trabalho de aprovação e avaliações de acesso totalmente integradas para que possa identificar, descobrir e prevenir atividades maliciosas de funções privilegiadas em tempo real. |
 | [Reportagem e Monitorização](../reports-monitoring/plan-monitoring-and-reporting.md)| O desenho da sua solução de relatório e monitorização Azure AD depende dos seus requisitos legais, de segurança e operacionais, bem como do ambiente e processos existentes. Este artigo apresenta as várias opções de design e guia-o para a estratégia de implementação certa. |

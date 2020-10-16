@@ -220,6 +220,8 @@
               href: iot-hub-reliability-features-in-sdks.md
             - name: Desenvolver para a plataforma Android Things
               href: iot-hub-how-to-android-things.md
+        - name: Desenvolver sem um SDK de IoT do Azure
+          href: iot-hub-devguide-no-sdk.md
         - name: Consultar dados Avro de uma rota do hub
           href: iot-hub-query-avro-data.md
         - name: Pedir eventos de estado de ligação ao dispositivo a partir do Event Grid

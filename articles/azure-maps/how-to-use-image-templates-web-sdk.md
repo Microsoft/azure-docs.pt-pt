@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendleton
 ms.custom: codepen, devx-track-js
 ms.openlocfilehash: f43c0086cfd6e51e0fbcd5d30911aa6c8e9a6518
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91335556"
 ---
 # <a name="how-to-use-image-templates"></a>Como utilizar modelos de imagem
@@ -119,7 +119,7 @@ Consulte o marcador pen <a href='https://codepen.io/azuremaps/pen/EqQvzq/'>HTML 
 
 Se a sua aplicação utilizar o mesmo ícone com ícones diferentes ou se estiver a criar um módulo que adiciona modelos de imagem adicionais, pode facilmente adicionar e recuperar estes ícones a partir da web SDK do Azure Maps. Utilize as seguintes funções estáticas no `atlas` espaço de nomes.
 
-| Name | Tipo de retorno | Description | 
+| Nome | Tipo de retorno | Descrição | 
 |-|-|-|
 | `addImageTemplate(templateName: string, template: string, override: boolean)` | | Adiciona um modelo de imagem SVG personalizado ao espaço de nome atlas. |
 |  `getImageTemplate(templateName: string, scale?: number)`| string | Recupera um modelo SVG pelo nome. |
@@ -127,7 +127,7 @@ Se a sua aplicação utilizar o mesmo ícone com ícones diferentes ou se estive
 
 Os modelos de imagem SVG suportam os seguintes valores de espaço reservado:
 
-| Marcador de posição | Description |
+| Marcador de posição | Descrição |
 |-|-|
 | `{color}` | A cor primária. | 
 | `{secondaryColor}` | A cor secundária. | 

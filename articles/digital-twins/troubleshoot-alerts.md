@@ -8,10 +8,10 @@ ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.openlocfilehash: ae7e85624f5da06603ddc2675787b84203bc987b
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90087218"
 ---
 # <a name="troubleshooting-azure-digital-twins-alerts"></a>Resolução de problemas Azure Digital Twins: Alertas
@@ -44,17 +44,17 @@ Para uma passagem guiada para preencher estes campos, consulte [*a visão geral 
 
 Aqui está um excerto do processo *de condição Select* que ilustra quais os tipos de sinais de alerta disponíveis para as Gémeas Digitais Azure. Nesta página pode filtrar o tipo de sinal e selecionar o sinal que deseja de uma lista.
 
-:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic.png" alt-text="Screenshot mostrando a primeira página Configure Signal Logic. Há um destaque na caixa do tipo Signal para selecionar métricas ou registos de atividade, e uma lista de métricas por baixo que podem ser selecionadas":::
+:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic.png" alt-text="Screenshot mostrando a página 'Criar Regra de Alerta' com secções para âmbito, condição, grupo de ação e detalhes da regra de alerta":::
 
 Depois de selecionar um sinal, ser-lhe-á pedido que configuure a lógica do alerta. Pode filtrar uma dimensão, definir um valor de limiar para o seu alerta e definir a frequência de verificações para a circunstância. Aqui está um exemplo de configuração de um alerta para quando a métrica média de taxa de falha de encaminhamento vai acima de 5%.
 
-:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic-2.png" alt-text="Screenshot mostrando a segunda página Configure Signal Logic. A página mostra o histórico de métricas, tem uma área para filtrar sobre uma dimensão como operações de Grade de Eventos, e uma secção para definir lógica de alerta como média é superior a 5":::
+:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic-2.png" alt-text="Screenshot mostrando a página 'Criar Regra de Alerta' com secções para âmbito, condição, grupo de ação e detalhes da regra de alerta":::
 
 ### <a name="verify-success"></a>Verificar o sucesso
 
 Depois de configurar alertas, eles vão aparecer de volta na página *alertas,* para o seu caso.
  
-:::image type="content" source="media/troubleshoot-alerts/alerts-post.png" alt-text="Screenshot mostrando a página e o botão alertas para adicionar. Há um alerta configurado" lightbox="media/troubleshoot-alerts/alerts-post.png":::
+:::image type="content" source="media/troubleshoot-alerts/alerts-post.png" alt-text="Screenshot mostrando a página 'Criar Regra de Alerta' com secções para âmbito, condição, grupo de ação e detalhes da regra de alerta" lightbox="media/troubleshoot-alerts/alerts-post.png":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

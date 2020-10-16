@@ -3,12 +3,12 @@ title: Como utilizar a funcionalidade IP pública em VIRTUAL WAN
 description: Este artigo explica como utilizar a funcionalidade IP pública em Azure Virtual WAN.
 ms.topic: how-to
 ms.date: 10/30/2020
-ms.openlocfilehash: ec8af45a98e82a7c1c657776c4fee2c3ef068dca
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 61ed6487bc000a35fd25cabde2b562b6eb08da46
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91744926"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048309"
 ---
 # <a name="how-to-use-the-public-ip-functionality-in-azure-virtual-wan"></a>Como utilizar a funcionalidade IP pública em Azure Virtual WAN
 
@@ -29,9 +29,9 @@ Este artigo detalha como pode utilizar a funcionalidade IP pública em GERAL WAN
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
--   Ambiente de solução Azure VMware
-
--   Um webserver em execução em ambiente Azure VMware Solution.
+- Ambiente de solução Azure VMware
+- Um webserver em execução em ambiente Azure VMware Solution.
+- Uma nova gama de IP não sobreposta para a implantação do hub Virtual WAN, tipicamente a `/24` .
 
 ## <a name="reference-architecture"></a>Arquitetura de referência
 
@@ -62,15 +62,15 @@ Neste cenário, deve publicar o webserver do IIS na internet. Utilize a função
 
    :::image type="content" source="media/public-ip-usage/connectivity-public-ip-tab.png" alt-text="Diagrama de arquitetura IP público" border="true" lightbox="media/public-ip-usage/connectivity-public-ip-tab.png":::
 
-2.  Aceite os valores predefinidos ou altere-os e, em seguida, **selecione Criar**.
+1. Aceite os valores predefinidos ou altere-os e, em seguida, **selecione Criar**.
 
-   -  Grupo de recursos de rede de área virtual
+   - Grupo de recursos de rede de área virtual
 
-   -  Nome de rede de área virtual ampla
+   - Nome de rede de área virtual ampla
 
-   -  Bloco de endereço de centro virtual
+   - Bloco de endereços de hub virtual (utilizando uma nova gama IP não sobreposta)
 
-   -  Número de IPs públicos (1-100)
+   - Número de IPs públicos (1-100)
 
 Leva cerca de uma hora para completar a colocação de todos os componentes. Esta implementação só tem de ocorrer uma vez para suportar todos os futuros IPs públicos para este ambiente Azure VMware Solution.  
 
@@ -120,7 +120,7 @@ Uma vez implantados todos os componentes, pode vê-los no grupo de Recursos adic
 
 1. **Selecione Adicione uma coleção de regras,** forneça os detalhes abaixo e selecione **Adicionar** e, em seguida, selecione Seguinte : Inteligência **de ameaça**.
 
-   -  Name
+   -  Nome
    -  Tipo de recolha de regras - DNAT
    -  Prioridade
    -  Ação de recolha de regras – Permitir

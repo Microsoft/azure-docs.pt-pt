@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/18/2019
 ms.author: allensu
 ms.openlocfilehash: eb3605249578b15d67bdd9764490d61812b21c18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84808449"
 ---
 # <a name="move-azure-internal-load-balancer-to-another-region-using-the-azure-portal"></a>Mover o Equilibrador de Carga Interno Azure para outra região utilizando o portal Azure
@@ -397,10 +397,10 @@ Se desejar descartar a rede virtual alvo e o balançador de carga interno, elimi
 
 Para comprometer as alterações e completar o movimento da rede virtual e do balançador de carga interno, elimine a rede virtual de origem e o equilibrador de carga interno ou grupo de recursos. Para tal, selecione a rede virtual e o equilibrador de carga interno ou grupo de recursos do seu painel de instrumentos no portal e selecione **Eliminar** no topo de cada página.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você moveu um equilibrador interno Azure de uma região para outra e limpou os recursos de origem.  Para saber mais sobre a movimentação de recursos entre regiões e recuperação de desastres em Azure, consulte:
 
 
-- [Move resources to a new resource group or subscription](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources) (Mover recursos para um grupo de recursos ou uma subscrição nova)
+- [Mover recursos para um novo grupo de recursos ou subscrição](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
 - [Mover VMs do Azure para outra região](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)

@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: dpalled
 ms.openlocfilehash: c3948a5bdfce583384992fb87bf40e9e7251974d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91346387"
 ---
-# <a name="model-synchronization-between-azure-digital-twins-and-time-series-insights-gen2"></a>Sincronização de modelos entre gémeos digitais Azure e Time Series Insights Gen2
+# <a name="model-synchronization-between-azure-digital-twins-and-time-series-insights-gen2"></a>Sincronização de modelos entre o Azure Digital Twins e o Time Series Insights Gen2
 
 Este artigo explica as melhores práticas e ferramentas usadas para traduzir o modelo de ativos em Azure Digital Twins (ADT) para modelo de ativos em Azure Time Series Insights (TSI).  Este artigo é a segunda parte de uma série tutorial de duas partes que explica a integração de Azure Digital Twins com Azure Time Series Insights. A integração de Azure Digital Twins com Time Series Insights permite arquivar e acompanhar a história das telemetrias e propriedades calculadas de Gémeos Digitais. Esta série de tutoriais destina-se a desenvolvedores que trabalham para integrar a Time Series Insights com a Azure Digital Twins. A Parte 1 explica  [o estabelecimento do pipeline de dados que traz os dados reais das séries de tempo da Azure Digital Twins à Time Series Insights](https://docs.microsoft.com/azure/digital-twins/how-to-integrate-time-series-insights) e esta, segunda parte da série tutorial explica a sincronização do modelo de ativos entre a Azure Digital Twins e a Time Series Insights. Este tutorial explica as melhores práticas na escolha e criação de convenções de nomeação para iD séries temporítneas (TS ID) e estabelecendo manualmente hierarquias no Modelo série de tempo (TSM).
 

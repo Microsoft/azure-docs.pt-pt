@@ -8,10 +8,10 @@ ms.date: 02/16/2018
 ms.author: dukek
 ms.subservice: alerts
 ms.openlocfilehash: 5c02812d4c97b94667fcddcb275243e7a9b36b29
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87321909"
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>Crie um grupo de ação com um modelo de Gestor de Recursos

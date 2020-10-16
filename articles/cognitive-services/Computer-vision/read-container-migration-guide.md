@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 09/21/2020
 ms.author: aahi
-ms.openlocfilehash: 714a4709eceea875798940de962716d34437f2a9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 856e73181ee02fe2bb21c4317ec8c733e2536d53
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91530464"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973127"
 ---
 # <a name="migrate-to-the-read-v3x-ocr-containers"></a>Migrar para os recipientes de OCR de Leitura v3.x
 
@@ -65,10 +65,10 @@ O núcleo e a memória correspondem às `--cpus` `--memory` definições e confi
 >[!NOTE]
 > O MongoDB já não é suportado em versões 3.x do recipiente. Em vez disso, os contentores suportam sistemas de armazenamento Azure e sistemas de ficheiros offline.
 
-| Implementação |  Argumentos de execução necessários |
+| Implementação |    Argumentos de execução necessários |
 |---------|---------|
-|Nível de ficheiro (padrão)   | Não são necessários argumentos de tempo de execução. `/share` diretório será usado. |
-|Blob do Azure | `Storage:ObjectStore:AzureBlob:ConnectionString={AzureStorageConnectionString}` |
+|Nível de ficheiro (padrão)    | Não são necessários argumentos de tempo de execução. `/share` diretório será usado. |
+|Blob do Azure    | `Storage:ObjectStore:AzureBlob:ConnectionString={AzureStorageConnectionString}` |
 
 ## <a name="queue-implementations"></a>Implementações de filas
 
@@ -78,7 +78,7 @@ Em v3.x do recipiente, o RabbitMQ não está atualmente suportado. As implementa
 |---------|---------|-------|
 | Na Memória (padrão) | Não são necessários argumentos de tempo de execução. | Desenvolvimento e teste |
 | Filas do Azure | `Queue:Azure:ConnectionString={AzureStorageConnectionString}` | Produção |
-| RabbitMQ  | Indisponível | Produção |
+| RabbitMQ    | Indisponível | Produção |
 
 Para uma redundância adicional, o recipiente Read v3.x utiliza um temporizador de visibilidade para garantir que os pedidos podem ser processados com sucesso em caso de colisão, quando funciona numa configuração de vários contentores. 
 
@@ -86,7 +86,7 @@ Ajuste o temporizador com `Queue:Azure:QueueVisibilityTimeoutInMilliseconds` , o
 
 | Valor predefinido | Valor recomendado |
 |---------|---------|
-| 30000 |   120000 |
+| 30000 |    120000 |
 
 
 ## <a name="next-steps"></a>Passos seguintes

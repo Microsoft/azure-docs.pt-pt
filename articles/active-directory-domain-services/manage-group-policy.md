@@ -1,7 +1,7 @@
 ---
 title: Criar e gerir a política de grupos nos Serviços de Domínio Azure AD ! Microsoft Docs
 description: Aprenda a editar os objetos de política de grupo incorporados (GPOs) e crie as suas próprias políticas personalizadas num domínio gerido pelos Serviços de Domínio do Diretório Ativo Azure.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
@@ -9,13 +9,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: c5ee162a78ac5e8c3080cd33c89fcee507ecfe92
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.author: joflore
+ms.openlocfilehash: deefcb66e05199896e8997d707a06e45f397adec
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91704859"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963742"
 ---
 # <a name="administer-group-policy-in-an-azure-active-directory-domain-services-managed-domain"></a>Administrar a Política de Grupo num domínio gerido por serviços de domínio do diretório ativo Azure
 
@@ -25,7 +25,7 @@ Num ambiente híbrido, as políticas de grupo configuradas num ambiente AD DS no
 
 Este artigo mostra-lhe como instalar as ferramentas de Gestão de Políticas de Grupo, em seguida, editar os GPOs incorporados e criar GPOs personalizados.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Para completar este artigo, precisa dos seguintes recursos e privilégios:
 
@@ -116,7 +116,7 @@ Para agrupar definições de políticas semelhantes, muitas vezes criaSGOs adici
 
     Quando terminar, escolha **'>', guarde** para guardar a política. Os computadores atualizam a Política de Grupo por predefinição a cada 90 minutos e aplicam as alterações efetuadas.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre as definições de Política de Grupo disponíveis que possa configurar utilizando a Consola de Gestão de Políticas de Grupo, consulte [itens de preferência de Gestão de Políticas de Grupo][group-policy-console].
 

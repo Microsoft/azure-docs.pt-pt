@@ -15,7 +15,7 @@
 - name: Tutoriais
   expanded: true
   items:
-    - name: Dia 1 de introdução ao Python
+    - name: Introdução ao Python (Dia 1)
       expanded: true
       items:
         - name: 1. Configurar um computador local
@@ -166,6 +166,8 @@
               href: how-to-setup-authentication.md
             - name: Gerir utilizadores e funções
               href: how-to-assign-roles.md
+            - name: Utilizar identidades geridas para controlo de acesso
+              href: how-to-use-managed-identities.md
             - name: Utilize a identidade Azure AD em implementações AKS
               href: how-to-use-azure-ad-identity.md
         - name: Segurança da rede
@@ -188,6 +190,8 @@
             - name: Utilizar o Private Link
               displayName: private endpoint
               href: how-to-configure-private-link.md
+            - name: Utilizar DNS personalizado
+              href: how-to-custom-dns.md
             - name: Configurar serviços Web seguros
               displayName: 'ssl, tls'
               href: how-to-secure-web-service.md

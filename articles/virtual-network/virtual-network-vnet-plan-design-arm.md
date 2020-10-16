@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2020
 ms.author: kumud
 ms.openlocfilehash: 416ca556e298fa088916a554860d05725bc1cf72
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86045506"
 ---
 # <a name="plan-virtual-networks"></a>Planear redes virtuais
@@ -113,6 +113,6 @@ A Política Azure permite-lhe criar, atribuir e gerir definições políticas. A
 
 As políticas são aplicadas à seguinte hierarquia: grupo de gestão, subscrição e grupo de recursos. Saiba mais sobre [a Política Azure](../governance/policy/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou implemente algumas definições de [Política Azure de](policy-samples.md)rede virtual .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Conheça todas as tarefas, configurações e opções para uma [rede virtual,](manage-virtual-network.md) [sub-rede e ponto final de serviço,](virtual-network-manage-subnet.md) [interface de rede,](virtual-network-network-interface.md) [peering,](virtual-network-manage-peering.md) [grupo de segurança de rede e aplicação,](manage-network-security-group.md)ou [tabela de rotas.](manage-route-table.md)

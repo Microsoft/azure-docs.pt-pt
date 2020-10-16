@@ -4,10 +4,10 @@ description: Explicação passo a passo para restaurar o Estado do Sistema do Se
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.openlocfilehash: 824ed5e71934af370211bfa8b4c266fe4323b4ad
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89377442"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restaurar o Estado do Sistema para o Servidor do Windows
@@ -88,7 +88,7 @@ A terminologia utilizada nestes passos inclui:
 6. No painel 'Selecionar backup', selecione a *máquina 'Fonte'* da lista de máquinas visualizadas.
 7. No painel de modo de recuperação selecionado, escolha **o Estado do Sistema** e selecione **Seguinte**.
 
-    ![Pesquisar](./media/backup-azure-restore-system-state/recover-type-selection.png)
+    ![Pesquisa](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
 8. No calendário no painel **de volume e data selecionados,** selecione um ponto de recuperação. Pode restaurar a partir de qualquer ponto de recuperação no tempo. As datas em **negrito** indicam a disponibilidade de pelo menos um ponto de recuperação. Uma vez selecionada uma data, se estiverem disponíveis vários pontos de recuperação, escolha o ponto de recuperação específico do menu de entrega do **tempo.**
 
@@ -244,6 +244,6 @@ Se o processo anterior de aplicação do Estado do Sistema não estiver concluí
 
      ![Recuperar todos os volumes](./media/backup-azure-restore-system-state/winre-6.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Agora que recuperou os seus ficheiros e pastas, pode [gerir as suas cópias de segurança.](backup-azure-manage-windows-server.md)

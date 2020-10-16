@@ -16,10 +16,10 @@ ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
 ms.openlocfilehash: 09d0e53840c2bf7a0d67c7c7fb0b224f9f77c587
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89268310"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmissão em fluxo em direto utilizando os Serviços de Multimédia do Azure para criar transmissões com velocidade de transmissão múltipla
@@ -209,7 +209,7 @@ Uma bandeira opcional que diz ao codificadora ao vivo para ignorar qualquer dado
 #### <a name="index"></a>Índice
 Recomenda-se o envio de um único fluxo de transporte de programa (SPTS). Se o fluxo de entrada contiver vários programas, o codificadora ao vivo dentro do Canal analisa a Tabela de Mapas do Programa (PMT) na entrada, identifica as entradas que têm um nome tipo de fluxo de MPEG-2 AAC ADTS ou AC-3 System-A ou AC-3 System-B ou MPEG-2 Private PES ou MPEG-1 Audio ou MPEG-2 Audio, e organiza-as na ordem especificada no PMT. O índice baseado em zero é então usado para captar a entrada n-th nesse arranjo.
 
-#### <a name="language"></a>Linguagem
+#### <a name="language"></a>Idioma
 O identificador de linguagem do fluxo de áudio, em conformidade com a ISO 639-2, tal como o ENG. Se não estiver presente, o padrão é UND (indefinido).
 
 ### <a name="system-preset"></a><a id="preset"></a>Predefinição do sistema

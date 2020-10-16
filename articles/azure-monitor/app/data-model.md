@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.reviewer: sergkanz
 ms.openlocfilehash: fd5848eb44ecd32612943662b5a4fd0a5091cd9d
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91461296"
 ---
 # <a name="application-insights-telemetry-data-model"></a>Modelo de dados de telemetria de Insights de Aplicação
@@ -48,7 +48,7 @@ O modelo de dados Application Insights é uma forma simples e básica mas podero
 
 [Para reportar problemas e sugestões de modelo de dados ou esquemas, utilize o nosso repositório GitHub.](https://github.com/microsoft/ApplicationInsights-dotnet/issues/new/choose)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Escrever telemetria personalizada](./api-custom-events-metrics.md)
 - Saiba como [estender e filtrar a telemetria.](./api-filtering-sampling.md)

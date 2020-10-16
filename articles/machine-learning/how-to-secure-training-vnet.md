@@ -12,10 +12,10 @@ author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python, contperfq1
 ms.openlocfilehash: 6e7499d8402bf31d5ecc4d1b212c08b7064d0446
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91629731"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Garantir um ambiente de formação Azure Machine Learning com redes virtuais
@@ -171,7 +171,7 @@ Há duas maneiras de conseguir isto:
         ```
 
         > [!TIP]
-        > Se estiver a utilizar as regiões EUA-Virgínia, EUA-Arizona ou China-Leste-2, estes comandos não devolvem endereços IP. Em vez disso, utilize um dos seguintes links para descarregar uma lista de endereços IP:
+        > Se estiver a utilizar as regiões EUA-Virgínia, US-Arizona ou China-Leste-2, estes comandos não devolvem endereços IP. Em vez disso, utilize um dos seguintes links para descarregar uma lista de endereços IP:
         >
         > * [Gamas IP Azure e tags de serviço para o Governo Azure](https://www.microsoft.com/download/details.aspx?id=57063)
         > * [Gamas Azure IP e tags de serviço para Azure China](https://www.microsoft.com//download/details.aspx?id=57062)
@@ -276,7 +276,7 @@ Nesta secção aprende-se a utilizar uma máquina virtual ou um cluster Azure HD
 
 ### <a name="create-the-vm-or-hdinsight-cluster"></a>Criar o cluster VM ou HDInsight
 
-Crie um cluster VM ou HDInsight utilizando o portal Azure ou o CLI Azure, e coloque o cluster numa rede virtual Azure. Para obter mais informações, veja os seguintes artigos:
+Crie um cluster VM ou HDInsight utilizando o portal Azure ou o CLI Azure, e coloque o cluster numa rede virtual Azure. Para obter mais informações, veja os artigos seguintes:
 * [Criar e gerir redes virtuais Azure para Os VMs Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 
 * [Estender o HDInsight usando uma rede virtual Azure](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network)

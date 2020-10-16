@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/16/2020
 ms.openlocfilehash: ce078a3dad645f592bb33ed55ce508f68ce8f30a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87281396"
 ---
-# <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Manage HDInsight clusters by using the Apache Ambari Web UI (Gerir clusters do HDInsight através da IU da Web do Apache Ambari)
+# <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Gerir clusters do HDInsight através da IU da Web do Apache Ambari
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
@@ -58,7 +58,7 @@ Quando a página abrir, note o bar no topo. Esta barra contém as seguintes info
 |Serviços|Definições de informação e configuração para os serviços no cluster.|
 |Anfitriões|Definições de informação e configuração para os nós no cluster.|
 |Alertas|Um registo de informações, avisos e alertas críticos.|
-|Admin|Pilha de software/serviços instalados no cluster, informações de conta de serviço e segurança Kerberos.|
+|Administrador|Pilha de software/serviços instalados no cluster, informações de conta de serviço e segurança Kerberos.|
 |Botão de administração|Gestão Ambari, configurações do utilizador e assine.|
 
 ## <a name="monitoring"></a>Monitorização

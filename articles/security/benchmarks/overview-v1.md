@@ -9,10 +9,10 @@ ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 39b6a5452c4bc0cba1e1153c266b83e87f6209ea
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90059316"
 ---
 # <a name="overview-of-the-azure-security-benchmark-v1"></a>Visão geral do Benchmark de Segurança Azure (v1)

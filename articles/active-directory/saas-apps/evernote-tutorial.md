@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/17/2019
 ms.author: jeedes
 ms.openlocfilehash: b22bf4ee3ff830a80ee97851f08173257697c50d
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91826490"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-evernote"></a>Tutorial: Azure Ative Directy integração única (SSO) com Evernote
@@ -148,7 +148,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 4. Ir para **'Admin Console'**
 
-    ![Admin-Consola](./media/evernote-tutorial/tutorial_evernote_adminconsole.png)
+    ![Admin-Console](./media/evernote-tutorial/tutorial_evernote_adminconsole.png)
 
 5. A partir da **'Consola de Administração',** vá a **'Segurança'** e selecione **'Single Sign-On'**
 
@@ -156,7 +156,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 6. Configure os seguintes valores:
 
-    ![Definição de certificados](./media/evernote-tutorial/tutorial_evernote_certx.png)
+    ![Certificate-Setting](./media/evernote-tutorial/tutorial_evernote_certx.png)
     
     a.  **Ativar SSO:** SSO é ativado por padrão (Clique **em Desativar o Único Sinal** para remover o requisito SSO)
 
@@ -177,7 +177,7 @@ No caso do Evernote, o provisionamento é uma tarefa manual.
 
 2. Clique na **'Consola de Administração'.**
 
-    ![Admin-Consola](./media/evernote-tutorial/tutorial_evernote_adminconsole.png)
+    ![Admin-Console](./media/evernote-tutorial/tutorial_evernote_adminconsole.png)
 
 3. A partir da **'Consola de Administração',** aceda a **'Adicionar utilizadores'.**
 

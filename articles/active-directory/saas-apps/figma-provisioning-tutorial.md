@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 07/12/2019
 ms.author: zhchia
 ms.openlocfilehash: f5b14ecf061e8f0c53dc1387d1581bc780d190b9
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91850913"
 ---
 # <a name="tutorial-configure-figma-for-automatic-user-provisioning"></a>Tutorial: Configure a Figma para o fornecimento automático de utilizadores

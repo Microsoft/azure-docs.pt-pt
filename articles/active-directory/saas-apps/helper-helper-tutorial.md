@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/31/2019
 ms.author: jeedes
 ms.openlocfilehash: 89467dcca75c72c3a868478cc3e46b9cb474ed19
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88540098"
 ---
 # <a name="tutorial-integrate-helper-helper-with-azure-active-directory"></a>Tutorial: Integrar ajudante de ajuda com diretório ativo Azure
@@ -69,7 +69,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Helper Helper,** encontre a secção **Gerir** e selecione **'Único sinal de sção'.**
 1. Na página **de método de inscrição única,** selecione **SAML**.
-1. Na **configuração de 'Sessão Única' com** a página SAML, clique no ícone edit/pen para **a configuração básica do SAML** para editar as definições.
+1. Na **configuração single Sign-On com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -94,7 +94,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     > [!NOTE]
     > O valor url de inscrição não é real. Atualize este valor com o URL de inscrição real. Contacte a equipa de [suporte do Helper Helper para](mailto:info@helperhelper.com) obter este valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.l.
 
-1. Na **configuração de um único sign-on com** a página SAML, na secção **certificado de assinatura SAML,** clique no botão de cópia para copiar o **Url de metadados da Federação de Aplicações** e guarde-o no seu Bloco de Notas.
+1. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique no botão de cópia para copiar o **Url de Metadados da Federação de Aplicações** e guarde-o no seu Bloco de Notas.
 
    ![O link de descarregamento de certificado](common/copy-metadataurl.png)
 

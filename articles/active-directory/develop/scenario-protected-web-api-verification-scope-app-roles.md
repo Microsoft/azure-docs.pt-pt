@@ -13,10 +13,10 @@ ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 1e5c8b788f1abbfbd46c4dfe6c7bb9d87adcee86
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91257271"
 ---
 # <a name="protected-web-api-verify-scopes-and-app-roles"></a>API web protegida: Verificar âmbitos e funções de aplicativo
@@ -100,7 +100,7 @@ Se a sua API web for chamada por uma [aplicação daemon,](scenario-daemon-overv
 
 Precisa agora que a sua API verifique se o token que recebe contém a `roles` reclamação e que esta reclamação tem o valor esperado. O código de verificação é semelhante ao código que verifica as permissões delegadas, exceto que o seu controlador testa as funções em vez de âmbitos:
 
-### <a name="aspnet-core"></a>ASP.NET Core
+### <a name="aspnet-core"></a>Núcleo de ASP.NET
 
 ```csharp
 [Authorize]

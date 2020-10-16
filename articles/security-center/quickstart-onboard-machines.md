@@ -7,27 +7,30 @@ ms.date: 10/01/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: df780e4e55bb5c119320d4b33502d50a95da1eaf
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+zone_pivot_groups: non-azure-machines
+ms.openlocfilehash: bf31c2d4a90abeec62d785d0294a9c50f3b675ab
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91612222"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993611"
 ---
 #  <a name="connect-your-non-azure-machines-to-security-center"></a>Ligue as suas máquinas não-Azure ao Centro de Segurança
 
-O Centro de Segurança pode monitorizar a postura de segurança dos seus computadores não Azure, mas, primeiro, tem de incluir esses recursos. 
+O Centro de Segurança pode monitorizar a postura de segurança dos seus computadores não-Azure, mas primeiro tem de os ligar ao Azure. 
 
-Pode adicionar computadores não-Azure de qualquer das seguintes formas:
+Pode ligar os seus computadores não-Azure de qualquer das seguintes formas:
 
 - Usando arco de Azure **(recomendado)**
 - Das páginas do Security Center no portal Azure (**Começar** e **Inventar)**
 
-Cada um destes é descrito abaixo.
+Cada um destes é descrito nesta página.
+
+::: zone pivot="azure-arc"
 
 ## <a name="add-non-azure-machines-with-azure-arc"></a>Adicione máquinas não-Azure com Arco Azure
 
-A utilização do Arco azul é a forma preferida de adicionar as suas máquinas não-Azure ao Centro de Segurança Azure.
+Azure Arc é a forma preferida de adicionar as suas máquinas não-Azure ao Centro de Segurança Azure.
 
 Uma máquina com Azure Arc ativada, torna-se um recurso Azure e aparece no Centro de Segurança com recomendações como os seus outros recursos Azure. 
 
@@ -43,7 +46,11 @@ Saiba mais sobre [o Arco Azure.](../azure-arc/servers/overview.md)
 > [!TIP]
 > Se estiver a bordo de máquinas AWS, o conector do Security Center para a AWS lida de forma transparente com a implantação do Arco Azure para si. Saiba mais em [Ligar as suas contas AWS ao Azure Security Center](quickstart-onboard-aws.md).
 
-## <a name="add-non-azure-machines-from-security-centers-portal-pages"></a>Adicione máquinas não-Azure das páginas do portal do Security Center
+::: zone-end
+
+::: zone pivot="azure-portal"
+
+## <a name="add-non-azure-machines-from-the-azure-portal"></a>Adicione máquinas não-Azure do portal Azure
 
 1. A partir do menu do Security Center, abra a página **'Iniciar'.**
 1. Selecione o separador **Introdução**.
@@ -114,6 +121,7 @@ Quando concluído, o **agente Log Analytics** aparece no Painel de **Controlo**.
 
 Para obter mais informações sobre a instalação e configuração do agente, consulte [as máquinas Connect Windows](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
 
+::: zone-end
 
 ## <a name="verifying"></a>Verificação
 Parabéns! Agora podem ver as suas máquinas Azure e não-Azure juntas num só lugar. Abra a página de inventário do [ativo](asset-inventory.md) e filtre para os tipos de recursos relevantes. Estes ícones distinguem os tipos:

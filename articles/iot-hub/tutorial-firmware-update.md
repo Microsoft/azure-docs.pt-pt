@@ -15,10 +15,10 @@ ms.custom:
 - 'Role: IoT Device'
 - devx-track-js
 ms.openlocfilehash: 304ded466aeb734388c13b87331eb4813e850e56
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91842823"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Tutorial: Implementar um processo de atualização de firmware do dispositivo

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
 ms.openlocfilehash: a6bbb2abe24eba96fd2c55b7aaf15ccd8ae33530
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87760957"
 ---
 # <a name="what-is-azure-private-link-service"></a>O que é o serviço Azure Private Link?
@@ -91,7 +91,7 @@ O pseudónimo é composto por três partes: *Prefix.* *GUID*. *Sufixo*
 - O GUID será fornecido pela plataforma. Isto ajuda a tornar o nome globalmente único. 
 - O sufixo é anexado pelo Azure: *região*.azure.privatelinkservice 
 
-Pseudónimo completo: *Prefixo*. {GUID}. *região*.azure.privatelinkservice  
+Pseudónimo completo:  *Prefixo*. {GUID}. *região*.azure.privatelinkservice  
 
 ## <a name="control-service-exposure"></a>Exposição ao serviço de controlo
 

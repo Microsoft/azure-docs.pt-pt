@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/25/2020
 ms.author: robinsh
 ms.openlocfilehash: 1ba3c89ea4f964f9e6fd5f902aab29a83a058f25
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87074728"
 ---
 # <a name="use-ip-filters"></a>Utilizar filtros de IP
@@ -47,11 +47,11 @@ Para aceder à página de definições do Filtro IP, **selecione Networking**, *
 
 Para adicionar uma regra do filtro IP, selecione **+ Adicionar regra do filtro IP**.
 
-:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-add-rule.png" alt-text="Adicione uma regra de filtro IP a um hub IoT":::
+:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-add-rule.png" alt-text="Definições de filtro IP padrão IoT Hub":::
 
 Depois de selecionar **a Regra do Filtro IP,** preencha os campos.
 
-:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-after-selecting-add.png" alt-text="Depois de selecionar Adicione uma regra de filtro IP":::
+:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-after-selecting-add.png" alt-text="Definições de filtro IP padrão IoT Hub":::
 
 * Forneça um **nome** para a regra do filtro IP. Esta deve ser uma corda alfanumérica única, insensível até 128 caracteres. Apenas os caracteres alfanuméricos ASCII de 7 bits mais `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` são aceites.
 
@@ -61,7 +61,7 @@ Depois de selecionar **a Regra do Filtro IP,** preencha os campos.
 
 Depois de preencher os campos, **selecione Guardar** para guardar a regra. Vê um alerta a notificá-lo de que a atualização está em andamento.
 
-:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-save-new-rule.png" alt-text="Notificação sobre a poupança de uma regra de filtro IP":::
+:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-save-new-rule.png" alt-text="Definições de filtro IP padrão IoT Hub":::
 
 A opção **Adicionar** é desativada quando atinge o máximo de 10 regras de filtro IP.
 
@@ -71,7 +71,7 @@ Para editar uma regra existente, selecione os dados que pretende alterar, faça 
 
 Para eliminar uma regra do filtro IP, selecione o ícone do caixote do lixo nessa linha e, em seguida, **selecione Guardar**. A regra é removida e a mudança é guardada.
 
-:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-delete-rule.png" alt-text="Eliminar uma regra de filtro IP do Hub IoT":::
+:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-delete-rule.png" alt-text="Definições de filtro IP padrão IoT Hub":::
 
 ## <a name="retrieve-and-update-ip-filters-using-azure-cli"></a>Recupere e atualize filtros IP usando O Azure CLI
 
@@ -161,7 +161,7 @@ Pode alterar a ordem das regras do filtro IP na grelha clicando nos três pontos
 
 Para guardar a nova ordem de regra do filtro IP, clique em **Guardar**.
 
-:::image type="content" source="media/iot-hub-ip-filtering/ip-filter-rule-order.png" alt-text="Altere a ordem das suas regras de filtro IP IoT HUb":::
+:::image type="content" source="media/iot-hub-ip-filtering/ip-filter-rule-order.png" alt-text="Definições de filtro IP padrão IoT Hub":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -10,17 +10,17 @@ ms.date: 09/22/2020
 ms.author: jomore
 ms.custom: fasttrack-new
 ms.openlocfilehash: fa4828d8b2752168d5f66a4f80c00611f80f0176
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91306638"
 ---
 # <a name="use-private-link-in-virtual-wan"></a>Use link privado em WAN virtual
 
 [O Azure Private Link](../private-link/private-link-overview.md) é uma tecnologia que permite ligar ofertas Azure Platform-as-a-Service utilizando a conectividade de endereço IP privado expondo [pontos de acesso privados.](../private-link/private-endpoint-overview.md) Com o Azure Virtual WAN, pode implementar um Ponto Final Privado numa das redes virtuais ligadas a qualquer hub virtual. Isto proporciona conectividade a qualquer outra rede virtual ou ramo ligado ao mesmo WAN Virtual.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Os passos neste artigo assumem que já implementou um WAN virtual com um ou mais hubs, bem como pelo menos duas redes virtuais ligadas ao WAN Virtual.
 
@@ -38,11 +38,11 @@ Você pode criar um ponto final de ligação privada para muitos serviços difer
 
 Depois de criar a Base de Dados Azure SQL, pode verificar o endereço IP do ponto final privado que navega nos seus pontos finais privados:
 
-:::image type="content" source="./media/howto-private-link/endpoints.png" alt-text="pontos finais privados" lightbox="./media/howto-private-link/endpoints.png":::
+:::image type="content" source="./media/howto-private-link/endpoints.png" alt-text="criar ligação privada" lightbox="./media/howto-private-link/endpoints.png":::
 
 Clicando no ponto final privado que criamos, deverá ver o seu endereço IP privado, bem como o seu Nome de Domínio Totalmente Qualificado (FQDN). Note que o ponto final privado tem um endereço IP na gama do VNet onde foi implantado (10.1.3.0/24):
 
-:::image type="content" source="./media/howto-private-link/sql-endpoint.png" alt-text="Ponto final SQL" lightbox="./media/howto-private-link/sql-endpoint.png":::
+:::image type="content" source="./media/howto-private-link/sql-endpoint.png" alt-text="criar ligação privada" lightbox="./media/howto-private-link/sql-endpoint.png":::
 
 ## <a name="verify-connectivity-from-the-same-vnet"></a><a name="connectivity"></a>Verificar conectividade a partir do mesmo VNet
 
@@ -61,7 +61,7 @@ Address: 10.1.3.228
 
 Como pode ver na saída anterior, o FQDN `wantest.database.windows.net` está mapeado `wantest.privatelink.database.windows.net` para, que a zona privada de DNS criada ao longo do ponto final privado irá resolver para o endereço IP privado `10.1.3.228` . Olhando para a zona privada do DNS confirmará que existe um registo A para o ponto final privado mapeado para o endereço IP privado:
 
-:::image type="content" source="./media/howto-private-link/dns-zone.png" alt-text="Zona DNS" lightbox="./media/howto-private-link/dns-zone.png":::
+:::image type="content" source="./media/howto-private-link/dns-zone.png" alt-text="criar ligação privada" lightbox="./media/howto-private-link/dns-zone.png":::
 
 Depois de verificar a resolução correta do DNS, podemos tentar ligar-nos à base de dados:
 
@@ -87,7 +87,7 @@ Uma vez que tenha conectividade entre o VNet ou o ramo para o VNet onde o ponto 
 
 Neste exemplo, ligaremos a partir de um VNet diferente, por isso, primeiro, anexaremos a zona privada de DNS ao novo VNet para que as suas cargas de trabalho possam resolver o Nome de Domínio Totalmente Qualificado da Base de Dados Azure SQL ao endereço IP privado. Isto é feito através da ligação da zona privada de DNS ao novo VNet:
 
-:::image type="content" source="./media/howto-private-link/dns-link.png" alt-text="Ligação DNS" lightbox="./media/howto-private-link/dns-link.png":::
+:::image type="content" source="./media/howto-private-link/dns-link.png" alt-text="criar ligação privada" lightbox="./media/howto-private-link/dns-link.png":::
 
 Agora, qualquer máquina virtual no VNet anexado deve resolver corretamente a Base de Dados Azure SQL FQDN para o endereço IP privado do link privado:
 
@@ -104,7 +104,7 @@ Address: 10.1.3.228
 
 Para verificar duas vezes que este VNet (10.1.1.0/24) tem conectividade com o VNet original onde o ponto final privado foi configurado (10.1.3.0/24), pode verificar a tabela de rotas eficaz em qualquer máquina virtual no VNet:
 
-:::image type="content" source="./media/howto-private-link/effective-routes.png" alt-text="rotas eficazes" lightbox="./media/howto-private-link/effective-routes.png":::
+:::image type="content" source="./media/howto-private-link/effective-routes.png" alt-text="criar ligação privada" lightbox="./media/howto-private-link/effective-routes.png":::
 
 Como pode ver, existe uma rota que aponta para o VNet 10.1.3.0/24 injetado pelos Gateways de Rede Virtual em Azure Virtual WAN. Agora podemos finalmente testar a conectividade com a base de dados:
 

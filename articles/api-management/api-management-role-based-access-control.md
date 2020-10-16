@@ -1,5 +1,5 @@
 ---
-title: Como utilizar o Controlo de Acesso Baseado em Função na Gestão API da Azure Microsoft Docs
+title: Como utilizar Role-Based Controlo de Acesso na Gestão API da Azure ! Microsoft Docs
 description: Saiba como usar as funções incorporadas e crie funções personalizadas na Azure API Management
 services: api-management
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
 ms.openlocfilehash: faef2721b48ffab12264c585d2dec55ab9334016
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87015294"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Como utilizar o Controlo de Acesso Baseado em Funções na Gestão de API do Azure
@@ -44,7 +44,7 @@ A tabela a seguir apresenta breves descrições das funções incorporadas. Pode
 
 <sup>[2] Escrever acesso a serviços e entidades de Gestão da API, com exceção das seguintes operações: criação, supressão e escalação de casos; Configuração VPN; e configuração personalizada do domínio.</sup>
 
-<sup>\*O papel de Editor de Serviço estará disponível depois de migrarmos toda a UI administrador do portal de editores existente para o portal Azure. A função de Gestor de Conteúdos estará disponível depois de o portal da editora ser refacado para conter apenas a funcionalidade relacionada com a gestão do portal do desenvolvedor.</sup>  
+<sup>\* O papel de Editor de Serviço estará disponível depois de migrarmos toda a UI administrador do portal de editores existente para o portal Azure. A função de Gestor de Conteúdos estará disponível depois de o portal da editora ser refacado para conter apenas a funcionalidade relacionada com a gestão do portal do desenvolvedor.</sup>  
 
 ## <a name="custom-roles"></a>Funções personalizadas
 
@@ -79,7 +79,7 @@ O artigo de operações do [fornecedor de recursos Azure Resource Manager](../ro
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre o Controlo de Acesso Baseado em Função em Azure, consulte os seguintes artigos:
+Para saber mais sobre Role-Based Controlo de Acesso em Azure, consulte os seguintes artigos:
   * [Get started with access management in the Azure portal (Introdução à gestão do acesso no portal do Azure)](../role-based-access-control/overview.md)
   * [Utilize atribuições de funções para gerir o acesso aos recursos de subscrição do Azure](../role-based-access-control/role-assignments-portal.md)
   * [Papéis personalizados em Azure RBAC](../role-based-access-control/custom-roles.md)

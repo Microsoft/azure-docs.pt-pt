@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
 ms.openlocfilehash: b7571b0a064e10faf5f002c9487ecc804ac78665
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90017902"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-azure-ad-user-provisioning"></a>Tutorial: Configurar os sap successFactors para o fornecimento de utilizadores Azure AD
@@ -244,7 +244,7 @@ Nesta secção, irá configurar como os dados dos utilizadores fluem de SuccessF
 
          * **Apenas durante a criação** - Aplique este mapeamento apenas em ações de criação de utilizadores
 
-1. Para guardar os seus mapeamentos, clique em **Guardar** na parte superior da secção De mapeamento de Atributos.
+1. Para guardar os seus mapeamentos, clique em **Guardar** na parte superior da secção Attribute-Mapping.
 
 Uma vez concluída a configuração de mapeamento do seu atributo, pode agora [ativar e lançar o serviço de fornecimento de utilizadores](#enable-and-launch-user-provisioning).
 
@@ -268,11 +268,11 @@ Uma vez concluídas as configurações de aplicações do SuccessFactors, pode l
    > [!div class="mx-imgBorder"]
    > ![Provisão de barras de progresso](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba mais sobre atributos de Sucessos suportados para o provisionamento de entrada](../app-provisioning/sap-successfactors-attribute-reference.md)
 * [Saiba como configurar a gravação de email para o SuccessFactors](sap-successfactors-writeback-tutorial.md)
-* [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
+* [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 * [Saiba como configurar um único sign-on entre SuccessFactors e Azure Ative Directory](successfactors-tutorial.md)
 * [Saiba como integrar outras aplicações saaS com o Azure Ative Directory](tutorial-list.md)
 * [Saiba como exportar e importar as suas configurações de provisionamento](../app-provisioning/export-import-provisioning-configuration.md)

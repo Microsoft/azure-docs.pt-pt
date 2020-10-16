@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
 ms.openlocfilehash: 09fef350a0ff8cc8c2481acd7b8f74cee15d1b9d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86075557"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-uis"></a>Use túneis SSH para aceder a Apache Ambari web UI, JobHistory, NameNode, Apache Oozie, e outros UIs
@@ -156,7 +156,7 @@ Uma vez estabelecido o cluster, utilize os seguintes passos para verificar se po
     > [!NOTE]  
     > Note o URL para esta página; deve ser semelhante a `http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster` . Este URI está a utilizar o nome de domínio interno totalmente qualificado (FQDN) do nó, e só é acessível quando se utiliza um túnel SSH.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a criar e usar um túnel SSH, consulte o seguinte documento para outras formas de usar Ambari:
 

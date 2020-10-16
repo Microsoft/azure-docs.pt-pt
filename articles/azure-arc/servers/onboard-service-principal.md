@@ -4,10 +4,10 @@ description: Neste artigo, aprende-se a ligar máquinas ao Azure utilizando serv
 ms.date: 09/24/2020
 ms.topic: conceptual
 ms.openlocfilehash: dc92b1cb96b61caa17f141ca9a78fb10fe59a2a9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91713420"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>Ligue as máquinas híbridas ao Azure à escala
@@ -137,7 +137,7 @@ Depois de instalar o agente e configurá-lo para ligar aos servidores ativados d
 
 ![Uma ligação de servidor bem sucedida](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 * As informações relativas à resolução de problemas podem ser encontradas no guia do [agente da máquina conectado de resolução de problemas.](troubleshoot-agent-onboard.md)
 

@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 10/11/2017
 ms.author: allensu
 ms.openlocfilehash: cff355aeb74efc9dec2780840ae57fea4c5764cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84888713"
 ---
 # <a name="custom-reports-from-verizon"></a>Relatórios Personalizados da Verizon
@@ -81,7 +81,7 @@ Pode exportar os dados em formato Excel clicando no símbolo Excel à direita do
 | Acertos                      | Indica o número total de pedidos à borda CNAME |
 | Misses                    | Indica o número total de pedidos ou dados transferidos (MB) para a borda CNAME que resulta numa falha de cache (por exemplo, TCP_CLIENT_REFRESH_MISS, TCP_EXPIRED_MISS ou TCP_MISS). Uma falha de cache ocorre quando o conteúdo solicitado não foi colocado no servidor de borda que honrou o pedido. | 
 | Sem Cache                  | Indica o número total de pedidos ou dados transferidos (MB) para a borda CNAME que resulta num código de estado de cache CONFIG_NOCACHE.  |
-| Outros                     | Indica o número total de pedidos ou dados transferidos (MB) para a borda CNAME indicado que resulta num código de estado HTTP que se encontra fora da gama 2xx - 5xx. |
+| Outro                     | Indica o número total de pedidos ou dados transferidos (MB) para a borda CNAME indicado que resulta num código de estado HTTP que se encontra fora da gama 2xx - 5xx. |
 | Plataforma                  | Indica a plataforma que trata do tráfego da CNAME. |
 | Não atribuído               | Indica o número total de pedidos ou dados transferidos (MB) para a borda CNAME para a qual o código de estado da cache ou informações do código de estado HTTP não foram registados.  |
 | Incacheable               | Indica o número total de pedidos ou dados transferidos (MB) para a borda CNAME que resulta num código de estado de cache UNCACHEABLE.  |

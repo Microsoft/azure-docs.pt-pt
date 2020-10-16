@@ -16,10 +16,10 @@ ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
 ms.openlocfilehash: f0bad935c7c3d44f57dd171f714f31856bc2089c
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361318"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Largura de banda de rede de máquinas virtuais

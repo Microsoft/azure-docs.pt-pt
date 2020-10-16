@@ -10,10 +10,10 @@ ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 51480a49aab2c1277eeb846c593fcb2bc858d1f0
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90983712"
 ---
 # <a name="about-virtual-hub-routing"></a>Acerca do encaminhamento do hub virtual
@@ -30,7 +30,7 @@ As secções seguintes descrevem os conceitos-chave no encaminhamento de hubs vi
 
 Uma tabela de rota de hub virtual pode conter uma ou mais rotas. Uma rota inclui o seu nome, uma etiqueta, um tipo de destino, uma lista de prefixos de destino, e próxima informação de lúpulo para um pacote a ser encaminhado. Uma **Ligação** normalmente terá uma configuração de encaminhamento que associou ou se propaga a uma tabela de rotas
 
-### <a name="connection"></a><a name="connection"></a>Ligação
+### <a name="connection"></a><a name="connection"></a>Conexão
 
 As ligações são recursos do Gestor de Recursos que têm uma configuração de encaminhamento. Os quatro tipos de ligações são:
 
@@ -55,7 +55,7 @@ As ligações propagam dinamicamente as rotas para uma tabela de rotas. Com uma 
 
 Uma **tabela de rotas Zero** também está disponível para cada hub virtual. A propagação para o quadro de rotas Zero implica que não são necessárias rotas para serem propagadas a partir da ligação. As ligações VPN, ExpressRoute e User VPN propagam rotas para o mesmo conjunto de tabelas de rotas.
 
-:::image type="content" source="./media/about-virtual-hub-routing/concepts-propagation.png" alt-text="Propagação":::
+:::image type="content" source="./media/about-virtual-hub-routing/concepts-propagation.png" alt-text="Associação":::
 
 ### <a name="labels"></a><a name="static"></a>Etiquetas
 As etiquetas fornecem um mecanismo para agrupar logicamente as tabelas de rotas. Isto é especialmente útil durante a propagação de rotas de ligações a várias tabelas de rotas. Por exemplo, a Tabela de Rota Padrão tem uma etiqueta incorporada chamada "Padrão". Quando os utilizadores propagam as rotas de ligação para a etiqueta 'Predefinido', aplica-se automaticamente a todas as tabelas de rota padrão em todos os hubs do WAN Virtual. 

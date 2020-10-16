@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: cynthn
 ms.openlocfilehash: d5dda567d0cfa89863731a3e8e651aede4ab5957
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87825196"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Perguntas frequentes sobre máquinas virtuais do Windows
@@ -46,7 +46,7 @@ Se tiver uma aplicação que precisa de usar a letra D: drive letter, pode reatr
 Pode alterar a letra de unidade movendo o ficheiro de página e reatribuindo as letras de unidade, mas tem de se certificar de que faz os passos numa ordem específica. Para obter instruções, veja [Alterar a letra de unidade do disco temporário do Windows](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="can-i-add-an-existing-vm-to-an-availability-set"></a>Posso adicionar um VM existente a um conjunto de disponibilidade?
-Não. Se quiser que o seu VM faça parte de um conjunto de disponibilidade, tem de criar o VM dentro do conjunto. Atualmente não existe uma forma de adicionar um VM a um conjunto de disponibilidade depois de ter sido criado.
+N.º Se quiser que o seu VM faça parte de um conjunto de disponibilidade, tem de criar o VM dentro do conjunto. Atualmente não existe uma forma de adicionar um VM a um conjunto de disponibilidade depois de ter sido criado.
 
 ## <a name="can-i-upload-a-virtual-machine-to-azure"></a>Posso enviar uma máquina virtual para o Azure?
 Sim. Para obter instruções, consulte [VMs migratórios no local para Azure](on-prem-to-azure.md).
@@ -127,7 +127,7 @@ Não são permitidas as seguintes palavras-passe:
     <tr>
         <td>abc@123</td>
         <td>Iloveyou!</td>
-        <td>P@$$w0</td>
+        <td>P@$$w 0</td>
         <td>P@ssw0rd</td>
         <td>P@ssword123</td>
     </tr>

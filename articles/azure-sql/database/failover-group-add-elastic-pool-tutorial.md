@@ -12,10 +12,10 @@ ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 08/27/2019
 ms.openlocfilehash: a9f5bac475fd019b294f79abf0acdfaff198f52b
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91442753"
 ---
 # <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Tutorial: Adicione uma piscina elástica Azure SQL Database a um grupo de failover
@@ -412,7 +412,7 @@ Não existem scripts disponíveis para o portal Azure.
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, adicionou uma piscina elástica Azure SQL Database a um grupo de failover, e testou failover. Aprendeu a:
 

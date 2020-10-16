@@ -2,20 +2,20 @@
 title: Resolução de problemas de domínio-junta aos Serviços de Domínio AD da Azure Microsoft Docs
 description: Saiba como resolver problemas comuns quando tenta aderir a um VM ou ligar uma aplicação aos Serviços de Domínio do Diretório Ativo do Azure e não consegue ligar ou autenticar ao domínio gerido.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 4a472f0d1e31faea6b62eec004543b42e6add4fe
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.author: joflore
+ms.openlocfilehash: ee60b684d64ef49fbb669de8c98203e2df5268bf
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039692"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967516"
 ---
 # <a name="troubleshoot-domain-join-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Problemas de resolução de domínios com um domínio gerido por serviços de domínio do diretório ativo Azure
 
@@ -58,7 +58,7 @@ Para resolver problemas relacionados com as credenciais, reveja as seguintes eta
 1. Tente usar as credenciais para uma conta de utilizador que faz parte do domínio gerido para juntar VMs ao domínio gerido.
 1. Certifique-se de que [ativou a sincronização da palavra-passe][enable-password-sync] e esperou o tempo suficiente para que a sincronização inicial da palavra-passe se completasse.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter uma compreensão mais profunda dos processos do Ative Directory como parte da operação de união de domínios, consulte as questões de [Junção e autenticação][join-authentication-issues].
 

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 8/04/2017
 ms.author: cawa
 ms.openlocfilehash: d4d6b781d97d481793e69cf2ca97cca5b93ce432
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86256098"
 ---
 # <a name="configure-secure-connections-to-a-service-fabric-cluster-from-visual-studio"></a>Configure ligações seguras a um cluster de tecido de serviço do Visual Studio
@@ -31,13 +31,13 @@ A caixa de diálogo **de aplicação de tecido de serviço** de publicação val
 
 ### <a name="to-connect-to-a-secure-cluster"></a>Para ligar a um cluster seguro
 1. Certifique-se de que pode aceder a um dos certificados de cliente que o cluster de destino confia. O certificado é geralmente partilhado como um ficheiro Personal Information Exchange (.pfx). Consulte [a criação de um cluster de Tecidos de Serviço a partir do portal Azure](service-fabric-cluster-creation-via-portal.md) para saber como configurar o servidor para conceder acesso a um cliente.
-2. Instale o certificado de confiança. Para isso, clique duas vezes no ficheiro .pfx ou use o script PowerShell Import-PfxCertificate para importar os certificados. Instale o certificado em **Cert:\LocalMachine\My**. Não há problema em aceitar todas as definições predefinidos enquanto importa o certificado.
+2. Instale o certificado de confiança. Para isso, clique duas vezes no ficheiro .pfx ou utilize o script PowerShell Import-PfxCertificate para importar os certificados. Instale o certificado em **Cert:\LocalMachine\My**. Não há problema em aceitar todas as definições predefinidos enquanto importa o certificado.
 3. Escolha o comando **Publicar...** no menu de atalho do projeto para abrir a caixa de diálogo **de aplicação Publicar Azure** e, em seguida, selecione o cluster alvo. A ferramenta resolve automaticamente a ligação e guarda os parâmetros de ligação seguros no perfil de publicação.
 4. Opcional: Pode editar o perfil de publicação para especificar uma ligação de cluster segura.
    
    Uma vez que está a editar manualmente o ficheiro Publish Profile XML para especificar as informações do certificado, certifique-se de que regista o nome da loja de certificados, a localização da loja e a impressão digital do certificado. Você precisará fornecer estes valores para o nome da loja do certificado e localização da loja. Ver [Como: Recuperar a impressão digital de um certificado](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) para mais informações.
    
-   Pode utilizar os parâmetros *ClusterConnectionParameters* para especificar os parâmetros PowerShell a utilizar ao ligar-se ao cluster de Tecido de Serviço. Os parâmetros válidos são os que são aceites pelo cmdlet Connect-ServiceFabricCluster. Consulte [o Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) para obter uma lista de parâmetros disponíveis.
+   Pode utilizar os parâmetros *ClusterConnectionParameters* para especificar os parâmetros PowerShell a utilizar ao ligar-se ao cluster de Tecido de Serviço. Os parâmetros válidos são os que são aceites pelo Connect-ServiceFabricCluster cmdlet. Consulte [o Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) para obter uma lista de parâmetros disponíveis.
    
    Se estiver a publicar num cluster remoto, tem de especificar os parâmetros apropriados para esse cluster específico. Segue-se um exemplo de ligação a um cluster não seguro:
    

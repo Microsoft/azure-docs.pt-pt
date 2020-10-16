@@ -6,10 +6,10 @@ ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 151bc87bd5674a61b8652adfa70634318c405240
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91839610"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
@@ -531,7 +531,7 @@ A precisão da aproximação depende em grande parte da percentagem de amostrage
 
 *A telemetria pode ser amostrada mais de uma vez?*
 
-* Não. Amostragem Os processos de amostragem ignoram os itens de consideração de amostragem se o item já estiver amostrado. O mesmo acontece com a amostragem de ingestão, que não aplicará amostras aos itens já recolhidos no próprio SDK.
+* N.º Amostragem Os processos de amostragem ignoram os itens de consideração de amostragem se o item já estiver amostrado. O mesmo acontece com a amostragem de ingestão, que não aplicará amostras aos itens já recolhidos no próprio SDK.
 
 *Por que provar um simples "recolher X% de cada tipo de telemetria"?*
 

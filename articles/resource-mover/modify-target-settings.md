@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
 ms.openlocfilehash: ca22def6bc152d03c3992ed7e94ac2b5ccf179e9
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90604483"
 ---
-# <a name="modify-target-settings"></a>Modificar as definições de alvo
+# <a name="modify-target-settings"></a>Modificar as definições de destino
 
 Este artigo descreve como modificar as definições de destino, ao mover recursos entre as regiões de Azure com [o Azure Resource Mover](overview.md).
 

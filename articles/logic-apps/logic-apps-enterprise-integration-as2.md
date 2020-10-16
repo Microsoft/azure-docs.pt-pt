@@ -12,7 +12,7 @@ ms.openlocfilehash: 1845de8332287f85e96b4e29c40caa66cb8704d9
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91856675"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trocar mensagens AS2 para a integração empresarial B2B no Azure Logic Apps com o Enterprise Integration Pack

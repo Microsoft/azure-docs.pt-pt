@@ -10,10 +10,10 @@ ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
 ms.openlocfilehash: c6a5f69a5a32ed1279b367c93b5246eb77ef0208
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91802842"
 ---
 # <a name="transition-to-metrics-in-azure-monitor"></a>Transição para métricas no Monitor Azure

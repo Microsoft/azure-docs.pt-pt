@@ -9,17 +9,17 @@ ms.date: 02/25/2019
 ms.author: duau
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 460ea446fc6dfc43e81a1a57bbba032a61f3a72d
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90532550"
 ---
 # <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>Mova os circuitos ExpressRoute do modelo de implementação clássico para o gestor de recursos usando o PowerShell
 
 Para utilizar um circuito ExpressRoute para os modelos clássicos e gestores de recursos, tem de mover o circuito para o modelo de implementação do Gestor de Recursos. As seguintes secções ajudam-no a mover o circuito utilizando o PowerShell.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 [!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
@@ -92,7 +92,7 @@ Para mover o seu circuito, modifique e corra o seguinte corte:
 Move-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Location "West US" -ServiceKey "<Service-key>"
 ```
 
-Em modo clássico, um circuito ExpressRoute não tem o conceito de estar ligado a uma região. No entanto, no Gestor de Recursos, todos os recursos precisam de ser mapeados para uma região de Azure. A região especificada no cmdlet Move-AzExpressRouteCircuit pode ser tecnicamente qualquer região. Para fins organizacionais, pode querer escolher uma região que represente de perto a sua localização de observação.
+Em modo clássico, um circuito ExpressRoute não tem o conceito de estar ligado a uma região. No entanto, no Gestor de Recursos, todos os recursos precisam de ser mapeados para uma região de Azure. A região especificada no Move-AzExpressRouteCircuit cmdlet pode ser tecnicamente qualquer região. Para fins organizacionais, pode querer escolher uma região que represente de perto a sua localização de observação.
 
 > [!NOTE]
 > * Depois de mover o seu circuito expressRoute clássico para o modelo de implementação do Gestor de Recursos, terá acesso aos modelos clássicos e gestores de recursos por padrão.

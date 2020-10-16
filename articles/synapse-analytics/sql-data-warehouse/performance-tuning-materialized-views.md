@@ -11,10 +11,10 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.openlocfilehash: 7c7109999d478121ba0251de8e7470bc0f38d64c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90984118"
 ---
 # <a name="performance-tune-with-materialized-views"></a>Melodia de desempenho com vistas materializadas
@@ -37,8 +37,8 @@ A maioria dos requisitos numa vista padrão ainda se aplica a uma visão materia
 |Ver conteúdos                    | Gerada cada vez que a vista é usada.   | Pré-processado e armazenado na piscina SQL durante a criação de vista. Atualizado à medida que os dados são adicionados às tabelas subjacentes.
 |Atualização de dados                    | Sempre atualizado                               | Sempre atualizado
 |Velocidade para recuperar dados de visualização de consultas complexas     | Lento                                         | Rápido  
-|Armazenamento extra                   | No                                           | Yes
-|Sintaxe                          | CRIAR VISTA                                  | CRIAR VISTA MATERIALIZADA COMO SELEÇÃO
+|Armazenamento extra                   | Não                                           | Sim
+|Syntax                          | CRIAR VISTA                                  | CRIAR VISTA MATERIALIZADA COMO SELEÇÃO
 
 ## <a name="benefits-of-using-materialized-views"></a>Benefícios da utilização de vistas materializadas
 

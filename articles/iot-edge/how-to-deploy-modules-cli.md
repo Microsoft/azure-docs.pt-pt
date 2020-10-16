@@ -4,18 +4,17 @@ description: Utilize o CLI Azure com a Extensão Azure IoT para empurrar um mód
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/16/2019
+ms.date: 10/13/2020
 ms.topic: conceptual
-ms.reviewer: menchi
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 24630295eaea04044273c412760d25bcddf41335
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 86cccbc9a72459ad038defca32e232381368ef45
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91439688"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046694"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>Implementar módulos Azure IoT Edge com Azure CLI
 
@@ -28,7 +27,10 @@ Este artigo mostra como criar um manifesto de implementação JSON e, em seguida
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um [hub IoT](../iot-hub/iot-hub-create-using-cli.md) na sua assinatura Azure.
-* Um [dispositivo IoT Edge](how-to-register-device.md#register-with-the-azure-cli) com o tempo de execução IoT Edge instalado.
+* Um dispositivo IoT Edge
+
+  Se não tiver um dispositivo IoT Edge configurado, pode criar um numa máquina virtual Azure. Siga os passos num dos artigos de arranque rápido para [criar um dispositivo Linux virtual](quickstart-linux.md) ou criar um dispositivo Virtual [Windows](quickstart.md).
+
 * [Azure CLI](/cli/azure/install-azure-cli) no seu ambiente. No mínimo, a sua versão Azure CLI deve ser de 2.0.70 ou superior. Utilize `az --version` para validar. Esta versão suporta comandos de extensão az e apresenta a arquitetura de comandos Knack.
 * A [extensão IoT para Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
@@ -40,13 +42,16 @@ Para implementar módulos utilizando o CLI Azure, guarde o manifesto de implanta
 
 Aqui está um manifesto básico de implantação com um módulo como exemplo:
 
+>[!NOTE]
+>Este manifesto de implantação da amostra utiliza a versão 1.1 do esquema para o agente e o hub IoT Edge. A versão 1.1 do Schema foi lançada juntamente com a versão 1.0.10 do IoT Edge e permite funcionalidades como a ordem de arranque do módulo e a priorização da rota.
+
 ```json
 {
   "content": {
     "modulesContent": {
       "$edgeAgent": {
         "properties.desired": {
-          "schemaVersion": "1.0",
+          "schemaVersion": "1.1",
           "runtime": {
             "type": "docker",
             "settings": {
@@ -89,7 +94,7 @@ Aqui está um manifesto básico de implantação com um módulo como exemplo:
       },
       "$edgeHub": {
         "properties.desired": {
-          "schemaVersion": "1.0",
+          "schemaVersion": "1.1",
           "routes": {
             "upstream": "FROM /messages/* INTO $upstream"
           },
@@ -139,6 +144,6 @@ O parâmetro de identificação do dispositivo é sensível a maiôs.
 
    ![az iot hub módulo-identidade saída](./media/how-to-deploy-cli/list-modules.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [implementar e monitorizar os módulos IoT Edge à escala](how-to-deploy-at-scale.md)

@@ -12,10 +12,10 @@ ms.date: 07/17/2019
 ms.author: cawa
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 79fa01e53b53f3066e55736c105d6489ccbd96e7
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89019849"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Guardar de forma segura as definições de aplicações secretas para uma aplicação web

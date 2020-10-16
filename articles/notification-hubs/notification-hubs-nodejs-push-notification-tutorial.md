@@ -19,10 +19,10 @@ ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-js
 ms.openlocfilehash: 34962686ae36764a6dc16b164e91004be9ef038d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91250424"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Envio de notificações push com a Azure Notification Hubs e Node.js
@@ -90,7 +90,7 @@ Obtenha o valor de ligação `connectionstring` a partir do portal [Azure] reali
 ![Portal Azure - Centros de Notificação](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
 
 > [!NOTE]
-> Também pode recuperar a cadeia de ligação utilizando o cmdlet **Get-AzureSbNamespace** fornecido pela [Azure PowerShell](/powershell/azure/) ou o comando **de show de espaço de nome azure sb** com a Interface [Azure Command-Line (Azure CLI)](/cli/azure/install-classic-cli).
+> Também pode recuperar a cadeia de ligação utilizando o cmdlet **Get-AzureSbNamespace** fornecido pela [Azure PowerShell](/powershell/azure/) ou o comando **de show de nomes azure sb** com a [Interface de Command-Line Azure (Azure CLI)](/cli/azure/install-classic-cli).
 
 ## <a name="general-architecture"></a>Arquitetura geral
 

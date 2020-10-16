@@ -10,10 +10,10 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: 841247c03d9f3b151a0c75430715c03b009d831a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91287071"
 ---
 # <a name="create-a-scale-set-from-a-generalized-image-with-azure-cli"></a>Crie um conjunto de escala a partir de uma imagem generalizada com Azure CLI

@@ -1,29 +1,24 @@
 ---
-title: Publicar Desktop Remoto com App AD AZure Proxy / Microsoft Docs
-description: Cobre como configurar app Proxy com RDS
+title: Publicar desktop remoto com Azure Ative Directory Application Proxy
+description: Abrange como configurar o Proxy app com serviços de desktop remoto (RDS)
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: kenwith
-ms.custom: it-pro
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ffdccf9cf3b6de4ba15d6076d7a5b9e0a93f464
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 83d7ed6c937d515520058819636bc23c8de173fd
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89396765"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015281"
 ---
-# <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicar desktop remoto com Proxy de aplicação AD Azure
+# <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicar o Ambiente de Trabalho Remoto com o Proxy de Aplicações do Azure AD
 
 O Serviço remoto de Desktop e a Aplicação AD Azure trabalham em conjunto para melhorar a produtividade dos trabalhadores que estão longe da rede corporativa. 
 
@@ -145,7 +140,7 @@ Para utilizar a autenticação passthrough, existem apenas duas modificações n
 1. Em Publicar o ponto [final do anfitrião RD](#publish-the-rd-host-endpoint) passo 1, definir o método de pré-autorização para **Passthrough**.
 2. No [tráfego RDS direto para Application Proxy,](#direct-rds-traffic-to-application-proxy)salte completamente o passo 8.
 
-## <a name="next-steps"></a>Próximos passos
-
-[Permitir o acesso remoto ao SharePoint com Proxy de aplicações AD Azure](application-proxy-integrate-with-sharepoint-server.md) 
- [Considerações de segurança para aceder remotamente a apps através da utilização de Proxy de Aplicação AD AZure](application-proxy-security.md)
+## <a name="next-steps"></a>Passos seguintes
+- [Ativar o acesso remoto ao SharePoint com o Proxy de Aplicações do Azure AD](application-proxy-integrate-with-sharepoint-server.md)
+- [Considerações de segurança para aceder remotamente a apps através da utilização de Proxy de Aplicação AD AZure](application-proxy-security.md)
+- [Melhores práticas para a carga equilibrando vários servidores de aplicações](application-proxy-high-availability-load-balancing.md#best-practices-for-load-balancing-among-multiple-app-servers)

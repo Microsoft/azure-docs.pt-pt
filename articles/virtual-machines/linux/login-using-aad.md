@@ -8,10 +8,10 @@ ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: sandeo
 ms.openlocfilehash: fef1870c396055cb9121aa5d8c7859440d107f98
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88002328"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Pré-visualização: Inicie sessão numa máquina virtual Linux em Azure utilizando a autenticação do Azure Ative Directory
@@ -158,7 +158,7 @@ ssh -l azureuser@contoso.onmicrosoft.com 10.11.123.456
 
 Quando solicitado, insira as suas credenciais de login AZure AD na página de login. 
 
-A seguinte mensagem é mostrada no navegador web quando tiver autenticado com sucesso:`You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
+A seguinte mensagem é mostrada no navegador web quando tiver autenticado com sucesso: `You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
 
 Feche a janela do navegador, volte ao pedido SSH e pressione a tecla **Enter.** 
 

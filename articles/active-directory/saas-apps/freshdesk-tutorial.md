@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/24/2020
 ms.author: jeedes
 ms.openlocfilehash: 0bbfdc2463795770b52f5008fc633fe9e95244a0
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90056579"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>Tutorial: Integração do Diretório Ativo Azure com o FreshDesk
@@ -64,7 +64,7 @@ Para configurar e testar o Azure AD SSO com o FreshDesk, complete os seguintes b
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
     1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
-1. **[Configure o Sign-On único do FreshDesk](#configure-freshdesk-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+1. **[Configure o Sign-On Único do FreshDesk](#configure-freshdesk-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
     1. **[Create FreshDesk test user](#create-freshdesk-test-user)** - para ter uma contraparte de Britta Simon em FreshDesk que está ligada à representação AD AD do utilizador.
 1. **[Teste um único sinal](#test-single-sign-on)** - para verificar se a configuração funciona.
 
@@ -91,7 +91,7 @@ Para configurar e testar o Azure AD SSO com o FreshDesk, complete os seguintes b
 
     ![image](common/edit-attribute.png)
 
-1. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+1. Na **configuração Single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -137,7 +137,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **FreshDesk**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, escreva e selecione **FreshDesk**.
 
@@ -157,7 +157,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 7. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
-## <a name="configure-freshdesk-single-sign-on"></a>Configurar o sign-on único do FreshDesk
+## <a name="configure-freshdesk-single-sign-on"></a>Configurar Sign-On single freshdesk
 
 1. Numa janela diferente do navegador web, inicie sessão no site da empresa Freshdesk como administrador.
 

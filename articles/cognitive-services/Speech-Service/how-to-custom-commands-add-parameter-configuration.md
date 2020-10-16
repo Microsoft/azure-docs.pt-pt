@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: sausin
 ms.openlocfilehash: 45dba3b7f46ec558c46b8505da26fd3ef4de4cbc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87284188"
 ---
 # <a name="add-configurations-to-commands-parameters"></a>Adicionar configurações aos parâmetros dos comandos
@@ -103,7 +103,7 @@ Selecione **Train** e aguarde a conclusão do treino. Uma vez concluído o trein
 Teste as validações utilizando o comando **SetTemperature.** Utilize os seguintes passos para adicionar uma validação para o parâmetro **temperatura.**
 
 1. Selecione o comando **SetTemperature** no painel esquerdo.
-1. Selecione **Temperatura** no painel central.
+1. Selecione  **Temperatura** no painel central.
 1. **Selecione Adicione uma validação** presente no painel direito.
 1. Na nova janela **de validação,** configurar a validação da seguinte forma e selecionar **Criar**.
 
@@ -112,7 +112,7 @@ Teste as validações utilizando o comando **SetTemperature.** Utilize os seguin
     | ---- | ---- | ---- |
     | Valor Mínimo | `60` | Para os parâmetros número, o valor mínimo que este parâmetro pode assumir |
     | Valor Máximo | `80` | Para os parâmetros número, o valor máximo que este parâmetro pode assumir |
-    | Resposta de falha |  Editor simples > Primeira Variação >`Sorry, I can only set temperature between 60 and 80 degrees. What temperature do you want?` | A prompt para pedir um novo valor se a validação falhar |
+    | Resposta de falha |  Editor simples > Primeira Variação > `Sorry, I can only set temperature between 60 and 80 degrees. What temperature do you want?` | A prompt para pedir um novo valor se a validação falhar |
 
     > [!div class="mx-imgBorder"]
     > ![Adicionar uma validação de gama](media/custom-commands/add-validations-temperature.png)

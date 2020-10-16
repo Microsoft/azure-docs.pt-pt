@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/15/2020
 ms.author: Zhchia
 ms.openlocfilehash: 850db53cbf88968a413d72527d76463e17aa8f5d
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361709"
 ---
 # <a name="tutorial-configure-8x8-for-automatic-user-provisioning"></a>Tutorial: Configurar 8x8 para o provisionamento automático do utilizador
@@ -37,7 +37,7 @@ O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-req
 * Uma conta de utilizador no Azure AD com [permissão](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) para configurar o aprovisionamento (por ex., Administrador de Aplicações, Administrador de Aplicações de Cloud, Proprietário da Aplicação ou Administrador Global).
 * Uma subscrição da série 8x8 X de qualquer nível.
 * Uma conta de utilizador 8x8 com permissão de administrador no [Gestor de Configuração](https://vo-cm.8x8.com).
-* [O Sign-On único com Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/8x8virtualoffice-tutorial) já foi configurado.
+* [O Sign-On com Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/8x8virtualoffice-tutorial) já foi configurado.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Passo 1. Planear a sua implementação de aprovisionamento
 1. Saiba [como funciona o serviço de aprovisionamento](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).

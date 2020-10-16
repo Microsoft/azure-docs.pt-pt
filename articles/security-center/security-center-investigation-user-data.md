@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 11/20/2018
 ms.author: memildin
 ms.openlocfilehash: 82c800df03826386c8b79d45584f4b26b0bc45e4
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91440657"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Gerir os dados dos utilizadores encontrados numa investigação do Azure Security Center
@@ -55,6 +55,6 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 ## <a name="exporting-personal-data"></a>Exportar dados pessoais
 Um utilizador do Centro de Segurança atribuiu o papel de Proprietário, Contribuinte ou Administrador de Conta pode exportar as informações de investigação. Para exportar informações sobre investigação, vá ao separador **Entidades** para copiar e colar as informações relevantes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre a gestão dos dados dos utilizadores, consulte [Gerir os dados do utilizador no Azure Security Center](security-center-privacy.md).
 Para saber mais sobre a eliminação de dados privados nos registos do Azure Monitor, consulte [Como exportar e eliminar dados privados.](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data)

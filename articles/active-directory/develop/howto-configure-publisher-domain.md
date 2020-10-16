@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.openlocfilehash: d62328534157a1e2d9e53830be9d6b87e08c9e40
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87129275"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain"></a>Como: Configurar o domínio de uma aplicação
@@ -97,7 +97,7 @@ Se a sua aplicação não estiver registada num inquilino, só verá a opção d
 - Se o seu inquilino tiver domínios verificados, selecione um dos domínios do **Select a descoduse de domínio verificado.**
 
 >[!Note]
-> O cabeçalho "Tipo de Conteúdo" esperado que deve ser devolvido é `application/json` . Pode obter um erro como mencionado abaixo se usar qualquer outra coisa como`application/json; charset=utf-8` 
+> O cabeçalho "Tipo de Conteúdo" esperado que deve ser devolvido é `application/json` . Pode obter um erro como mencionado abaixo se usar qualquer outra coisa como `application/json; charset=utf-8` 
 > 
 >``` "Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value. " ```
 >

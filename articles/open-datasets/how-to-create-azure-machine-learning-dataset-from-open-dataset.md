@@ -9,10 +9,10 @@ author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
 ms.openlocfilehash: a80559761c8a3eba6045db5cd99a7719dd041fa8
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91704400"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Criar conjuntos de dados de aprendizagem automática Azure a partir de conjuntos de dados abertos do Azure
@@ -125,7 +125,7 @@ Utilize os seus conjuntos de dados nas suas experiências de aprendizagem autom�
 
 Por exemplo, e demonstrações da funcionalidade Open Datasets, consulte estes [cadernos de amostras](samples.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 * [Treine o seu primeiro modelo ML.](../machine-learning/tutorial-1st-experiment-sdk-train.md)
 

@@ -4,10 +4,10 @@ description: Este artigo fornece informações sobre como rastrear o custo do se
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 220cbd1bc793e4bcfdf03a184d7463114506e6e0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87283831"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Custos de pista associados a um laboratório em Azure DevTest Labs

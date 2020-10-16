@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
 ms.openlocfilehash: 7421162ed68a879d9f935a3efd5c6267e159a648
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87324306"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Criar um espaço de trabalho Log Analytics com Azure CLI 2.0
@@ -107,7 +107,7 @@ Os seguintes parâmetros definem um valor predefinido:
     ```
 
 2. Edite o modelo para satisfazer os seus requisitos. Reveja a referência [do modelo Microsoft.OperationalInsights/workspaces](/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) para saber quais as propriedades e valores suportados.
-3. Guarde este ficheiro à medida **quedeploylaworkspacetemplate.jsnuma** pasta local.   
+3. Guarde este ficheiro à medida ** quedeploylaworkspacetemplate.jsnuma** pasta local.   
 4. Está pronto para implementar este modelo. Utilize os seguintes comandos da pasta que contém o gabarito. Quando você é solicitado para um nome de espaço de trabalho, forneça um nome que é globalmente único em todas as subscrições do Azure.
 
     ```azurecli

@@ -12,10 +12,10 @@ ms.date: 05/09/2019
 ms.author: ramankum
 ms.custom: mvc,seodec18, devx-track-azurecli
 ms.openlocfilehash: c43a18f1dcb4122eb6c1407ca11b7c60653594c4
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89323224"
 ---
 # <a name="exportcopy-a-managed-disk-to-a-storage-account-using-the-azure-cli"></a>Exportar/Copiar um disco gerido para uma conta de armazenamento utilizando o Azure CLI
@@ -41,7 +41,7 @@ Este script utiliza os seguintes comandos para gerar o URI de SAS de um disco ge
 | [az disk grant-access](/cli/azure/disk?view=azure-cli-latest#az-disk-grant-access) | Gera o SAS só de leitura utilizado para copiar o ficheiro VHD subjacente para uma conta de armazenamento ou transferi-lo para o local  |
 | [az storage blob copy start](/cli/azure/storage/blob/copy) | Copia um blob de forma assíncrona de uma conta de armazenamento para outra |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Criar um disco gerido a partir de um VHD](virtual-machines-cli-sample-create-managed-disk-from-vhd.md)
 

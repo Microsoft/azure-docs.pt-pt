@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 04b5c9464c614c32f178e35e72cee98450007a62
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 38072e95ed89d8fbc095e2f8ed41ea1381636300
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91772792"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015160"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Fornecer acesso a chaves, certificados e segredos do Cofre Chave com um controlo de acesso baseado em funções Azure (pré-visualização)
 
@@ -37,7 +37,7 @@ As permissões individuais de chaves, segredos e certificados devem ser utilizad
 
 -   Aplicações em várias camadas que precisam de separar o controlo de acesso entre camadas
 
--   Cofre de chaves compartilhado com segredos comuns, quando as aplicações precisam de acesso a subconjuntos de segredos naquele cofre chave
+-   Partilha de segredo individual entre múltiplas aplicações
 
 Mais sobre as diretrizes de gestão do Azure Key Vault, consulte:
 
@@ -48,7 +48,7 @@ Mais sobre as diretrizes de gestão do Azure Key Vault, consulte:
 > [!NOTE]
 > `Key Vault Contributor` papel é para operações de avião de gestão para gerir cofres chave. Não permite o acesso a chaves, segredos e certificados.
 
-| Papel incorporado | Descrição | ID |
+| Papel incorporado | Description | ID |
 | --- | --- | --- |
 | Administrador do cofre chave (pré-visualização) | Execute todas as operações de avião de dados num cofre chave e todos os objetos nele, incluindo certificados, chaves e segredos. Não é possível gerir os recursos-chave do cofre ou gerir atribuições de funções. Só funciona para cofres-chave que utilizam o modelo de permissão de acesso baseado em funções "Azure". | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
 | Key Vault Certificates Officer (pré-visualização) | Efetue qualquer ação nos certificados de um cofre chave, exceto gerir permissões. Só funciona para cofres-chave que utilizam o modelo de permissão de acesso baseado em funções "Azure". | a4417e6f-fecd-4de8-b567-7b0420556985 |
@@ -70,7 +70,7 @@ O novo modelo de permissão Azure RBAC para o cofre de chaves fornece alternativ
 Para adicionar atribuições de funções, você deve ter:
 
 - Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-- `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete` permissões, tais como [Administrador de Acesso ao Utilizador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles.md#user-access-administrator) ou [Proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles.md#owner)
+- `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete` permissões, tais como [Administrador de Acesso ao Utilizador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) ou [Proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
 
 ### <a name="enable-azure-rbac-permissions-on-key-vault"></a>Ativar permissões Azure RBAC no Cofre de Chaves
 
@@ -224,7 +224,7 @@ Para obter mais informações sobre como criar funções personalizadas, consult
 
 -   Funitências latência: no desempenho esperado atual, levará até 10 minutos (600 segundos) após a alteração das atribuições de funções para que o papel seja aplicado
 
-## <a name="learn-more"></a>Saber mais
+## <a name="learn-more"></a>Saiba mais
 
 - [Visão geral do Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 - [Tutorial de Papéis Personalizados](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-cli)

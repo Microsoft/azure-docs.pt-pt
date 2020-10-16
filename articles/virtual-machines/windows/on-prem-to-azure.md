@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/07/2017
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1f363b8fc2fec659ee1b101c13d1ba6ac629f29d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 32cbfbcc8feeff66101ab5e2c95f476a4a4215e9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835494"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973908"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migrar dos Serviços Web da Amazon (AWS) e de outras plataformas para Discos Geridos em Azure
 
@@ -31,7 +31,7 @@ Pode carregar VHDs generalizados e especializados.
 >
 
 
-| Cenário                                                                                                                         | Documentação                                                                                                                       |
+| Cenário                                                                                                                         | Documentation                                                                                                                       |
 |----------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | Tem instâncias AWS EC2 existentes que gostaria de migrar para VMs Azure usando discos geridos                              | [Mover um VM da Amazon Web Services (AWS) para Azure](aws-to-azure.md)                           |
 | Tem um VM de outra plataforma de virtualização que gostaria de usar como imagem para criar vários VMs Azure. | [Faça upload de um VHD generalizado e use-o para criar um novo VM em Azure](upload-generalized-managed.md) |
@@ -41,7 +41,7 @@ Pode carregar VHDs generalizados e especializados.
 ## <a name="overview-of-managed-disks"></a>Visão geral dos discos geridos
 
 A Azure Managed Disks simplifica a gestão de VM removendo a necessidade de gerir contas de armazenamento. Os Discos Geridos também beneficiam de uma melhor fiabilidade dos VMs num Conjunto de Disponibilidade. Garante que os discos de diferentes VMs num Conjunto de Disponibilidades estão suficientemente isolados uns dos outros para evitar um único ponto de falha. Coloca automaticamente discos de diferentes VMs num Conjunto de Disponibilidade em diferentes unidades de escala de armazenamento (selos) que limitam o impacto de falhas de unidade de escala de armazenamento única causadas por falhas de hardware e software.
-Com base nas suas necessidades, pode escolher entre quatro tipos de opções de armazenamento. Para saber mais sobre os tipos de disco disponíveis, consulte o nosso artigo [Selecione um tipo de disco](disks-types.md).
+Com base nas suas necessidades, pode escolher entre quatro tipos de opções de armazenamento. Para saber mais sobre os tipos de disco disponíveis, consulte o nosso artigo [Selecione um tipo de disco](../disks-types.md).
 
 ## <a name="plan-for-the-migration-to-managed-disks"></a>Plano para a migração para Discos Geridos
 

@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 12/04/2019
 ms.topic: conceptual
 ms.openlocfilehash: f1e4e288b5b95f355221188a45f1e6c764fde77c
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86187341"
 ---
 # <a name="use-source-control-integration-in-azure-automation---legacy"></a>Utilize a integração de controlo de fonte na Azure Automation - Legacy
@@ -43,7 +43,7 @@ Se já tem uma conta GitHub e um repositório que pretende ligar à Azure Automa
    | Escolha Fonte |Selecione a fonte. Atualmente, apenas **o GitHub** é apoiado. |
    | Autorização |Clique no botão **Authorize** para conceder acesso à Azure Automation ao seu repositório GitHub. Se já tiver iniciado sessão na sua conta GitHub numa janela diferente, então as credenciais dessa conta são utilizadas. Uma vez que a autorização seja bem sucedida, a página mostra o seu nome de utilizador GitHub sob **Propriedade de Autorização**. |
    | Escolha o repositório |Selecione um repositório GitHub da lista de repositórios disponíveis. |
-   | Escolha o ramo |Selecione um ramo da lista de ramos disponíveis. Só o ramo **principal** é mostrado se não criou nenhum ramo. |
+   | Escolha o ramo |Selecione um ramo da lista de ramos disponíveis. Só o **ramo principal** é mostrado se não criou nenhum ramo. |
    | Caminho da pasta do runbook |O caminho da pasta do livro de execução especifica o caminho no repositório GitHub a partir do qual pretende empurrar ou puxar o seu código. Deve ser introduzido no formato **/nome de pasta/sub-nome**. Apenas os livros de execução no caminho da pasta do livro serão sincronizados na sua conta Dem automação. Os livros de bordo nas sub-dobradeiras do percurso da pasta do livro **não** serão sincronizados. Utilize **/** para sincronizar todos os livros sob o repositório. |
 3. Por exemplo, se tiver um repositório chamado **PowerShellScripts** que contenha uma pasta chamada **RootFolder**, que contém uma pasta chamada **SubFolder**. Pode utilizar as seguintes cordas para sincronizar cada nível de pasta:
 
@@ -63,7 +63,7 @@ Se já tem uma conta GitHub e um repositório que pretende ligar à Azure Automa
      | **Parâmetro** | **Valor** |
      |:--- |:--- |
      | `Name`  |Microsoft.Azure.Automation.SourceControl.Connection |
-     | `Type`  |String |
+     | `Type`  |Cadeia |
      | `Value` |{"Branch": \<*Your branch name*> "RunbookFolderPath": \<*Runbook folder path*> "ProviderType": \<*has a value 1 for GitHub*> "Repositório": \<*Name of your repository*> "Nome de utilizador": \<*Your GitHub user name*> } |
 
    * A variável **Microsoft.Azure.Automation.SourceControl.OAuthToken**, contém o valor encriptado seguro do seu OAuthToken.  
@@ -115,7 +115,7 @@ O botão de sincronização na página de Sincronização repositória permite-l
 
     ![Sync botão com mensagem confirmando todos os runbooks serão sincronizados](media/source-control-integration-legacy/automation-SyncButtonwithMessage.png)
 
-2. O Sync inicia o **livro de aplicação Sync-MicrosoftAzureAutomationAccountFromGitHubV1,** que se conecta ao GitHub e retira as alterações do seu repositório para a Azure Automation. Devias ver um novo emprego na página de sincronização do Repositório para esta ação. Para ver detalhes sobre o trabalho de sincronização, clique para abrir a página de detalhes do trabalho.  
+2. O Sync inicia o  **livro de aplicação Sync-MicrosoftAzureAutomationAccountFromGitHubV1,** que se conecta ao GitHub e retira as alterações do seu repositório para a Azure Automation. Devias ver um novo emprego na página de sincronização do Repositório para esta ação. Para ver detalhes sobre o trabalho de sincronização, clique para abrir a página de detalhes do trabalho.  
 
     ![Uma janela mostrando os resultados sincronizados de um trabalho de sincronização num repositório do GitHub](media/source-control-integration-legacy/automation-SyncRunbook.png)
 

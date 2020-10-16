@@ -8,10 +8,10 @@ ms.date: 07/01/2016
 ms.author: dariac
 ms.custom: seodec18
 ms.openlocfilehash: 0a25ae41a5f4ed73148f629799ca4865d756a769
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88962456"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Melhores Práticas do Serviço de Aplicações do Azure
@@ -34,7 +34,7 @@ Quando notar que uma aplicação consome mais CPU do que o esperado ou experimen
 Para mais informações sobre aplicações "stateful" vs "apátridas" pode ver este vídeo: [Planejando uma aplicação multi-tier scalable de ponta a ponta no Serviço de Aplicações Azure](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Para obter mais informações sobre opções de dimensionamento e autoscaling do Serviço de Aplicações, consulte [Scale a Web App in Azure App Service](manage-scale-up.md).  
 
 ## <a name="when-socket-resources-are-exhausted"></a><a name="socketresources"></a>Quando os recursos da tomada estão esgotados
-Uma razão comum para esgotar as ligações TCP de saída é a utilização de bibliotecas de clientes, que não são implementadas para reutilizar ligações TCP, ou quando um protocolo de nível superior como HTTP - Keep-Alive não é utilizado. Reveja a documentação de cada uma das bibliotecas referenciadas pelas aplicações no seu Plano de Serviço de Aplicações para garantir que são configuradas ou acedidas no seu código para uma reutilização eficiente das ligações de saída. Siga também as orientações de documentação da biblioteca para a criação e libertação ou limpeza adequadas para evitar fugas de ligações. Embora tais investigações de bibliotecas de clientes estejam em andamento, o impacto pode ser atenuado escalando para vários casos.
+Uma razão comum para esgotar as ligações TCP de saída é a utilização de bibliotecas de clientes, que não são implementadas para reutilizar ligações TCP, ou quando um protocolo de nível superior, como HTTP - Keep-Alive não é utilizado. Reveja a documentação de cada uma das bibliotecas referenciadas pelas aplicações no seu Plano de Serviço de Aplicações para garantir que são configuradas ou acedidas no seu código para uma reutilização eficiente das ligações de saída. Siga também as orientações de documentação da biblioteca para a criação e libertação ou limpeza adequadas para evitar fugas de ligações. Embora tais investigações de bibliotecas de clientes estejam em andamento, o impacto pode ser atenuado escalando para vários casos.
 
 ### <a name="nodejs-and-outgoing-http-requests"></a>Node.js e pedidos http de saída
 Ao trabalhar com Node.js e muitos pedidos de http outgoing, lidar com HTTP - Keep-Alive é importante. Pode utilizar o pacote [de agentekeepalive](https://www.npmjs.com/package/agentkeepalive) `npm` para facilitar o seu código.

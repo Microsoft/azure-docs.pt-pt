@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cc7a5e2e45cd3d76c0d8af612291ecaf9893b5b5
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89231100"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Interpretar o esquema de registos de auditoria AZure AD no Azure Monitor (pré-visualização)
@@ -147,7 +147,7 @@ Este artigo descreve o esquema de registo de auditoria Azure Ative (Azure AD) no
 
 ## <a name="field-and-property-descriptions"></a>Descrições de campo e de propriedade
 
-| Nome do campo | Description |
+| Nome do campo | Descrição |
 |------------|-------------|
 | hora       | A data e a hora (UTC). |
 | operationName | O nome da operação. |
@@ -167,7 +167,7 @@ Este artigo descreve o esquema de registo de auditoria Azure Ative (Azure AD) no
 
 <br>
 
-| Nome da propriedade | Description |
+| Nome da propriedade | Descrição |
 |---------------|-------------|
 | AuditEventCategoria | O tipo de evento de auditoria. Pode ser *Gestão de Utilizadores,* *Gestão de Aplicações,* ou outro tipo.|
 | Tipo de Identidade | O tipo pode ser *Aplicação* ou *Utilizador.* |

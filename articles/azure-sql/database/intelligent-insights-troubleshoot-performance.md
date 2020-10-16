@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 06/12/2020
 ms.openlocfilehash: 80f5d6033429c40f468d525a088bcc72bdc3375b
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91450292"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Resolução de problemas Azure SQL Database e Azure SQL Gerenciados Problemas de desempenho com Insights Inteligentes
@@ -328,7 +328,7 @@ Aceda a Insights Inteligentes através do portal Azure indo ao Azure SQL Analyti
 
 Insights Inteligentes geralmente precisam de uma hora de tempo para realizar a análise da causa raiz do problema de desempenho. Se não conseguir localizar o seu problema em Insights Inteligentes e é fundamental para si, utilize a Loja de Consultas para identificar manualmente a causa principal do problema de desempenho. (Normalmente, estas questões têm menos de uma hora de idade.) Para obter mais informações, consulte [o desempenho do Monitor utilizando a Loja de Consultas.](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Aprenda [conceitos de Insights Inteligentes.](intelligent-insights-overview.md)
 - Utilize o [registo de diagnósticos de desempenho de Insights Inteligentes](intelligent-insights-use-diagnostics-log.md).

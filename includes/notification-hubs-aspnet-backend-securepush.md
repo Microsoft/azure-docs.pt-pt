@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.author: sethm
 ms.openlocfilehash: fb3c95b74128f1da7b29a290e17fefe21987dd76
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90089955"
 ---
 ## <a name="webapi-project"></a>Projeto WebAPI

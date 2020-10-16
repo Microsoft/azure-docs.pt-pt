@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: b494e7f7f99394c7337d663ea9a9c7e1f74dacf3
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91612834"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Configurar pontos finais da rede Azure Files
@@ -164,7 +164,7 @@ Quando restringe a conta de armazenamento a redes virtuais específicas, está a
 
 ---
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 - [Considerações de networking de ficheiros Azure](storage-files-networking-overview.md)
 - [Configurar o reencaminhamento de DNS para Ficheiros do Azure](storage-files-networking-dns.md)

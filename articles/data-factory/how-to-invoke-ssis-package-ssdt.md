@@ -13,10 +13,10 @@ manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 09/06/2020
 ms.openlocfilehash: fb5b5cb0ac4a9ace7b5de5e92308da58fd2b1fec
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89504949"
 ---
 # <a name="execute-ssis-packages-in-azure-from-ssdt"></a>Executar pacotes SSIS em Azure a partir de SSDT
@@ -204,6 +204,6 @@ Depois de iniciar a execução do seu pacote, vamos formatar e exibir os seus re
 
 -  O SSDT habilitado para o Azure apoia apenas regiões de nuvem comercial/global e não apoia regiões de nuvem governamentais/nacionais por enquanto.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Assim que estiver satisfeito com a execução dos seus pacotes em Azure a partir de SSDT, pode implantá-los e executá-los como atividades do Pacote SSIS executado em oleodutos ADF, consulte [os pacotes Running SSIS como executar atividades do Pacote SSIS em oleodutos ADF.](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)

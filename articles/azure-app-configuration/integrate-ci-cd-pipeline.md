@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.custom: devx-track-csharp
 ms.date: 01/30/2020
 ms.author: lcozzens
-ms.openlocfilehash: f0d1e57c7e212fefc6e17a8170e3b4537b190f60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8756db881448edcaac1fda44b60229975350676
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88211650"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074741"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Integrar num pipeline CI/CD
 
@@ -35,9 +35,9 @@ Você pode usar qualquer editor de código para fazer os passos neste tutorial. 
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Se você construir localmente, faça o download e instale o [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) se ainda não o fez.
+Se você construir localmente, faça o download e instale o [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) se ainda não o fez.
 
-Para fazer uma construção em nuvem, com Azure DevOps, por exemplo, certifique-se de que o [CLI Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) está instalado no seu sistema de construção.
+Para fazer uma construção em nuvem, com Azure DevOps, por exemplo, certifique-se de que o [CLI Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) está instalado no seu sistema de construção.
 
 ### <a name="export-an-app-configuration-store"></a>Exportar uma loja de configuração de aplicativos
 
@@ -107,4 +107,4 @@ Para fazer uma construção em nuvem, com Azure DevOps, por exemplo, certifique-
 Neste tutorial, exportaste dados de Configuração de Aplicações Azure para serem utilizados num oleoduto de implantação. Para saber mais sobre como usar a Configuração de Aplicações, continue para as amostras do Azure CLI.
 
 > [!div class="nextstepaction"]
-> [CLI do Azure](https://docs.microsoft.com/cli/azure/appconfig?view=azure-cli-latest)
+> [CLI do Azure](/cli/azure/appconfig?view=azure-cli-latest)

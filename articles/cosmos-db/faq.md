@@ -8,10 +8,10 @@ ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: 4bd29ce3bf2cc7cd69f86dbf172d3cd9a2044e79
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91570364"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Perguntas mais frequentes sobre as diferentes APIs no Azure Cosmos DB
@@ -177,7 +177,7 @@ A API SQL suporta a agregação de baixa latência em qualquer escala através d
 
 ### <a name="how-does-the-sql-api-provide-concurrency"></a>Como é que a API SQL proporciona concordância?
 
-A API SQL suporta controlo de concência otimista (OCC) através de tags de entidades HTTP, ou ETags. Cada recurso API SQL tem um ETag, e o ETag é definido no servidor sempre que um documento é atualizado. O cabeçalho ETag e o valor atual estão incluídos em todas as mensagens de resposta. Os ETags podem ser utilizados com o cabeçalho Se-Match para permitir que o servidor decida se um recurso deve ser atualizado. O valor If-Match é o valor ETag a ser verificado. Se o valor ETag corresponder ao valor ETag do servidor, o recurso é atualizado. Se o ETag já não estiver em funcionamento, o servidor rejeita a operação com um código de resposta "FALHA DE Pré-condição HTTP 412". Em seguida, o cliente refetches o recurso para adquirir o valor ETag atual para o recurso. Além disso, os ETags podem ser utilizados com o cabeçalho Se-Nenhum-Match para determinar se é necessário um refetch de um recurso.
+A API SQL suporta controlo de concência otimista (OCC) através de tags de entidades HTTP, ou ETags. Cada recurso API SQL tem um ETag, e o ETag é definido no servidor sempre que um documento é atualizado. O cabeçalho ETag e o valor atual estão incluídos em todas as mensagens de resposta. Os ETags podem ser utilizados com o cabeçalho If-Match para permitir que o servidor decida se um recurso deve ser atualizado. O valor If-Match é o valor ETag a ser verificado. Se o valor ETag corresponder ao valor ETag do servidor, o recurso é atualizado. Se o ETag já não estiver em funcionamento, o servidor rejeita a operação com um código de resposta "FALHA DE Pré-condição HTTP 412". Em seguida, o cliente refetches o recurso para adquirir o valor ETag atual para o recurso. Além disso, os ETags podem ser utilizados com o cabeçalho Se-Nenhum-Match para determinar se é necessário um refetch de um recurso.
 
 Para utilizar a concordância otimista em .NET, utilize a classe [AccessCondition.](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.accesscondition.aspx) Para obter uma amostra .NET, consulte [Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs) na amostra de DocumentosManagement no GitHub.
 

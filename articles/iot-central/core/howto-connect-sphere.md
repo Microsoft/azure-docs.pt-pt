@@ -9,10 +9,10 @@ author: sandeeppujar
 ms.date: 04/30/2020
 ms.custom: device-developer
 ms.openlocfilehash: 34b767a2cc48c94fdb5c2db032321b9254bf4ce2
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90017698"
 ---
 # <a name="connect-an-azure-sphere-device-to-your-azure-iot-central-application"></a>Ligar um dispositivo do Azure Sphere à aplicação do Azure IoT Central
@@ -67,7 +67,7 @@ Para permitir que a amostra se conecte à IoT Central, deve [configurar uma apli
 
 Quando o dispositivo está ligado à IoT Central, pode ver a telemetria no painel de instrumentos.
 
-:::image type="content" source="media/howto-connect-sphere/sphere-view.png" alt-text="Painel de instrumentos para Azure Sphere DevKit":::
+:::image type="content" source="media/howto-connect-sphere/sphere-view.png" alt-text="Modelo de dispositivo para Azure Sphere DevKit":::
 
 ## <a name="create-a-simulated-device"></a>Criar um dispositivo simulado
 
@@ -81,7 +81,7 @@ Para criar um dispositivo simulado:
 - Ativar a **definição simulada.**
 - Selecione **Criar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se você é um desenvolvedor de dispositivos, alguns passos sugeridos seguintes são:
 

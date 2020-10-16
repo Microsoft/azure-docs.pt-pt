@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/12/2020
 ms.openlocfilehash: 930c7e7881a00cd0cb1f4abc6b219c0fbdeebac5
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87533415"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse via Open Hub usando a Azure Data Factory
@@ -236,14 +236,14 @@ Ao copiar dados do SAP BW Open Hub, os seguintes mapeamentos são utilizados des
 
 | Tipo SAP ABAP | Tipo de dados provisórios da fábrica de dados |
 |:--- |:--- |
-| C (Corda) | String |
+| C (Corda) | Cadeia |
 | I (inteiro) | Int32 |
 | F (Flutuar) | Double (Duplo) |
-| D (Data) | String |
-| T (Tempo) | String |
+| D (Data) | Cadeia |
+| T (Tempo) | Cadeia |
 | P (BCD Embalado, Moeda, Decimal, Qty) | Decimal |
-| N (Numc) | String |
-| X (Binário e Cru) | String |
+| N (Numc) | Cadeia |
+| X (Binário e Cru) | Cadeia |
 
 ## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura
 

@@ -5,16 +5,16 @@ services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice: ''
+ms.subservice: spark
 ms.date: 06/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 51422bd47b5bd2d7d5103c154e90eaa910396024
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 43e4027c9d88b209ed0606e045dd5b4d47d3ff6e
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661020"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088521"
 ---
 # <a name="analyze-complex-data-types-in-azure-synapse-analytics"></a>Analise tipos de dados complexos no Azure Synapse Analytics
 
@@ -218,7 +218,7 @@ Existem dois tipos diferentes de operações:
 
   Se a matriz tinha 5 elementos com 4 estruturas aninhadas, o modelo sem servidor de SQL devolve 5 linhas e 4 colunas. O modelo sem servidor de SQL pode consultar no lugar, mapear a matriz em 2 linhas e exibir todas as estruturas aninhadas em colunas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como consultar a Synapse Link para Azure Cosmos DB com Faísca](./synapse-link/how-to-query-analytical-store-spark.md)
 * [Consultar tipos aninhados de Parquet](./sql/query-parquet-nested-types.md) 

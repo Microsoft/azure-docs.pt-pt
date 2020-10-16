@@ -1,26 +1,20 @@
 ---
 title: Quais são as soluções para executar o Servidor WebLogic da Oracle em Máquinas Virtuais Azure
 description: Saiba como executar o Oracle WebLogic Server nas Máquinas Virtuais Microsoft Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: rezar
-manager: gwallace
-tags: azure-resource-management
-ms.assetid: ''
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 09/23/2020
 ms.author: rezar
-ms.openlocfilehash: e8f1b115f8a52b4352478f91dd5849c45bfebdc1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.reviewer: cynthn
+ms.openlocfilehash: c19d6d2513d1bf266d10e90dfb1d6fe79c9410d1
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91274372"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993459"
 ---
-# <a name="what-are-solutions-for-running-oracle-weblogic-server-on-azure-virtual-machines"></a>Quais são as soluções para executar o Oracle WebLogic Server em Azure Virtual Machines?
+# <a name="what-are-solutions-for-running-oracle-weblogic-server-on-azure-virtual-machines"></a>Quais são as soluções para executar o Oracle WebLogic Server nas Máquinas Virtuais do Azure?
 
 Esta página descreve as soluções para executar o Oracle WebLogic Server (WLS) em máquinas virtuais Azure. Estas soluções são desenvolvidas conjuntamente pela Oracle e Microsoft.
 
@@ -56,7 +50,7 @@ Esta oferta cria um cluster dinâmico altamente disponível e escalável de máq
 
 As soluções permitirão uma vasta gama de arquiteturas de implantação prontas a produção com relativa facilidade. Você pode atender a maioria dos casos de migração da forma mais produtiva possível, permitindo um foco no desenvolvimento de aplicações de negócio.
 
-:::image type="content" source="media/oracle-weblogic/weblogic-architecture-vms.png" alt-text="Implementações complexas do Servidor WebLogic são ativadas no Azure":::
+:::image type="content" source="media/oracle-weblogic/weblogic-architecture-vms.png" alt-text="Pode utilizar o portal Azure para implementar o Servidor WebLogic no Azure":::
 
 Para além do que é automaticamente a provisionado pelas soluções, os clientes têm total flexibilidade para personalizar ainda mais as suas implementações. É provável que, além da implementação de aplicações, os clientes integrem mais recursos Azure com as suas implementações. Os clientes são encorajados a fornecer feedback sobre a melhoria das soluções.
 

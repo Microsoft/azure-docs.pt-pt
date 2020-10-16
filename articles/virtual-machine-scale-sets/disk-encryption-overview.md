@@ -10,10 +10,10 @@ ms.date: 10/10/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.openlocfilehash: 6b9805d66149a18216a200bc89a79b3e06106c9d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83195115"
 ---
 # <a name="azure-disk-encryption-for-virtual-machine-scale-sets"></a>Encriptação do disco Azure para conjuntos de escala de máquinas virtuais
@@ -27,7 +27,7 @@ A encriptação do disco Azure também pode ser aplicada em conjuntos de escala 
 
 Pode aprender os fundamentos da Encriptação do Disco Azure para conjuntos de escala de máquinas virtuais em apenas alguns minutos com o [Criptografar uma balança de máquina virtual usando o Azure CLI](disk-encryption-cli.md) ou [o Criptografar uma escala de máquina virtual usando os tutoriais Azure PowerShell.](disk-encryption-powershell.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criptografe conjuntos de escala de máquina virtual usando o Gestor de Recursos Azure](disk-encryption-azure-resource-manager.md)
 - [Criar e configurar um cofre chave para encriptação de disco Azure](disk-encryption-key-vault.md)

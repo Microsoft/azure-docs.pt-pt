@@ -10,10 +10,10 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: be4bab10d369fcefe626bbe890acfff7fc7004b0
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89079069"
 ---
 # <a name="create-or-modify-a-direct-peering-by-using-powershell"></a>Criar ou modificar um espreitamento direto utilizando o PowerShell
@@ -22,7 +22,7 @@ Este artigo descreve como criar um microsoft direct peering usando cmdlets Power
 
 Se preferir, pode completar este guia utilizando o [portal](howto-direct-portal.md)Azure .
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 * Reveja os [pré-requisitos](prerequisites.md) e o [passo de observação direto](walkthrough-direct-all.md) antes de iniciar a configuração.
 * Se já tem ligações diretas de observação com a Microsoft que não são convertidas em recursos Azure, consulte [Converter um legado Direta a espreitar para um recurso Azure utilizando o PowerShell](howto-legacy-direct-powershell.md).
 

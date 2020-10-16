@@ -8,10 +8,10 @@ ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: d55e53ba455a4b91b4f57ea08b250320a5467c2b
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89398449"
 ---
 # <a name="azure-security-baseline-for-virtual-machine-scale-sets"></a>Linha de base de segurança Azure para conjuntos de escala de máquina virtual
@@ -1096,7 +1096,7 @@ Se estiver a utilizar a encriptação do disco Azure, pode restaurar os conjunto
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: Garantir a proteção das cópias de segurança e das chaves geridas pelo cliente
 
-**Orientação**: Ativar a proteção para o disco gerido utilizando fechaduras. Ativar a proteção soft-Delete e purgar no Cofre de Chaves para proteger as chaves contra a eliminação acidental ou maliciosa.
+**Orientação**: Ativar a proteção para o disco gerido utilizando fechaduras. Ativar Soft-Delete e limpar a proteção no Cofre de Chaves para proteger as chaves contra a eliminação acidental ou maliciosa.
 
 * [Bloquear recursos para prevenir alterações inesperadas](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources)
 
@@ -1196,7 +1196,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [referência de segurança Azure](/azure/security/benchmarks/overview)
 - Saiba mais sobre [as linhas de base de segurança da Azure](/azure/security/benchmarks/security-baselines-overview)

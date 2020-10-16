@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: damendo
 ms.openlocfilehash: 28d5ae1451b97c19576baa3f9760b8f784db3175
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84736735"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Gerir capturas de pacotes com o Azure Network Watcher usando o portal
@@ -25,7 +25,7 @@ A captura de pacotes do Network Watcher permite-lhe criar sessões de captura pa
 
 Neste artigo, aprende-se a começar, parar, descarregar e apagar uma captura de pacotes. 
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 A captura de pacotes requer a seguinte conectividade TCP de saída:
 - para a conta de armazenamento escolhida sobre a porta 443
@@ -100,7 +100,7 @@ https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscrip
 
 Se selecionou **O Ficheiro** quando criou a captura, pode visualizar ou descarregar o ficheiro a partir do caminho configurado na máquina virtual.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para aprender a automatizar capturas de pacotes com alertas de máquinas virtuais, consulte [Criar uma captura de pacote acionada em alerta](network-watcher-alert-triggered-packet-capture.md).
 - Para determinar se o tráfego específico é permitido dentro ou fora de uma máquina virtual, consulte diagnosticar um problema de filtro de [tráfego de rede de máquinas virtuais](diagnose-vm-network-traffic-filtering-problem.md).

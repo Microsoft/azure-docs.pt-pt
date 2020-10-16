@@ -10,47 +10,44 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/29/2020
+ms.date: 10/12/2020
 ms.author: yohaddad
-ms.openlocfilehash: bdcf9417aca6ece24e5ef577620734eeb48d9362
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 6ceba8e81c4700963e0d147c10085760b9308319
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91531161"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076662"
 ---
 # <a name="azure-guest-os"></a>Hóspede Azure OS
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao Azure Guest OS. Pes faça uma pesquisa neste artigo para determinar se uma determinada atualização se aplica ao so-os convidado que está a utilizar. As atualizações são sempre transmitidas para a [família][family-explain] em particular em que foram introduzidas.
 
 ## <a name="september-2020-guest-os"></a>Os convidados de setembro de 2020
->[!NOTE]
->O Os Hóspedes de setembro está a ser lançado para os VMs do Cloud Service que estão configurados para atualizações automáticas. Quando o lançamento estiver concluído, esta versão será disponibilizada para atualizações manuais através do portal Azure e ficheiros de configuração. Os seguintes patches estão incluídos no Os Convidados de setembro. Esta lista está sujeita a alterações.
-
 
 | Product Category (Categoria de Produto) | Artigo KB dos pais | Descrição da Vulnerabilidade | SO convidado | Data Introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-|  Rel 20-09 |  [4577010]  |  Internet Explorer | 2.102, 3.89, 4.82 | 8 de set, 2020 |
-|  Rel 20-09 |  [4561600]  |  Atualização flash | 3.89, 4.82, 5.47, 6.23 | 8 de set, 2020 |
-|  Rel 20-09 |  [4577015]  |  Última atualização cumulativa (LCU) | 5.47 | 8 de set, 2020 |
-|  Rel 20-09 |  [4570333]  |  Última atualização cumulativa (LCU) | 6.23 | 8 de set, 2020 |
-|  Rel 20-09 |  [4570673]  |  Atualização de Stack de Manutenção | 2.102 | 8 de set, 2020 |
-|  Rel 20-09 |  [4577051]  |  Rollup mensal | 2.102 | 8 de set, 2020 |
-|  Rel 20-09 |  [4569767]  |  .Net Framework 3.5 Rollup de segurança e qualidade | 2.102 | 8 de set, 2020 |
-|  Rel 20-09 |  [4569780]  |  .Net Framework 4.5.2 Rollup de segurança e qualidade | 2.102 | 8 de set, 2020 |
-|  Rel 20-09 |  [4566426]  |  Atualização de Stack de Manutenção | 3.89 | 8 de set, 2020 |
-|  Rel 20-09 |  [4577038]  |  Rollup mensal | 3.89 | 8 de set, 2020 |
-|  Rel 20-09 |  [4569765]  |  .Net Framework 3.5 Rollup de segurança e qualidade | 3.89 | 8 de set, 2020 |
-|  Rel 20-09 |  [4569779]  |  .Net Framework 4.5.2 Rollup de segurança e qualidade | 3.89 | 8 de set, 2020 |
-|  Rel 20-09 |  [4566425]  |  Atualização de Stack de Manutenção | 2.102 | 8 de set, 2020 |
-|  Rel 20-09 |  [4577066]  |  Rollup mensal | 2.102 | 8 de set, 2020 |
-|  Rel 20-09 |  [4569768]  |  .Net Framework 3.5 Rollup de segurança e qualidade | 2.102 | 8 de set, 2020 |
-|  Rel 20-09 |  [4569778]  |  Quadro NET 4.5.2 Rollup de segurança e qualidade | 2.102 | 8 de set, 2020 |
-|  Rel 20-09 |  [4578013]  |  Atualização de Segurança | 2.102 | 8 de set, 2020 |
-|  Rel 20-09 |  [4576750]  |  Atualização de Stack de Manutenção | 5.47 | 8 de set, 2020 |
-|  Rel 20-09 |  [4494175]  |  Microcódigo | 5.47 | 8 de set, 2020 |
-|  Rel 20-09 |  [4570332]  |  Atualização de Stack de Manutenção | 6.23 | 8 de set, 2020 |
-|  Rel 20-09 |  [4570720]  |  .Net Framework 3.5 e 4.7.2 Atualização Cumulativa | 6.23 | 8 de set, 2020 |
-|  Rel 20-09 |  [4494174]  |  Microcódigo | 6.23 | 8 de set, 2020 |
+|  Rel 20-09 |  [4577010]  |  Internet Explorer | [2.102], [3.89], [4.82] | 8 de set, 2020 |
+|  Rel 20-09 |  [4561600]  |  Atualização flash | [3.89], [4.82], [5.47], [6.23] | 8 de set, 2020 |
+|  Rel 20-09 |  [4577015]  |  Última atualização cumulativa (LCU) | [5.47] | 8 de set, 2020 |
+|  Rel 20-09 |  [4570333]  |  Última atualização cumulativa (LCU) | [6.23] | 8 de set, 2020 |
+|  Rel 20-09 |  [4570673]  |  Atualização de Stack de Manutenção | [2.102] | 8 de set, 2020 |
+|  Rel 20-09 |  [4577051]  |  Rollup mensal | [2.102] | 8 de set, 2020 |
+|  Rel 20-09 |  [4569767]  |  .Net Framework 3.5 Rollup de segurança e qualidade | [2.102] | 8 de set, 2020 |
+|  Rel 20-09 |  [4569780]  |  .Net Framework 4.5.2 Rollup de segurança e qualidade | [2.102] | 8 de set, 2020 |
+|  Rel 20-09 |  [4566426]  |  Atualização de Stack de Manutenção | [3.89] | 8 de set, 2020 |
+|  Rel 20-09 |  [4577038]  |  Rollup mensal | [3.89] | 8 de set, 2020 |
+|  Rel 20-09 |  [4569765]  |  .Net Framework 3.5 Rollup de segurança e qualidade | [3.89] | 8 de set, 2020 |
+|  Rel 20-09 |  [4569779]  |  .Net Framework 4.5.2 Rollup de segurança e qualidade | [3.89] | 8 de set, 2020 |
+|  Rel 20-09 |  [4566425]  |  Atualização de Stack de Manutenção | [2.102] | 8 de set, 2020 |
+|  Rel 20-09 |  [4577066]  |  Rollup mensal | [2.102] | 8 de set, 2020 |
+|  Rel 20-09 |  [4569768]  |  .Net Framework 3.5 Rollup de segurança e qualidade | [2.102] | 8 de set, 2020 |
+|  Rel 20-09 |  [4569778]  |  Quadro NET 4.5.2 Rollup de segurança e qualidade | [2.102] | 8 de set, 2020 |
+|  Rel 20-09 |  [4578013]  |  Atualização de Segurança | [2.102] | 8 de set, 2020 |
+|  Rel 20-09 |  [4576750]  |  Atualização de Stack de Manutenção | [5.47] | 8 de set, 2020 |
+|  Rel 20-09 |  [4494175]  |  Microcódigo | [5.47] | 8 de set, 2020 |
+|  Rel 20-09 |  [4570332]  |  Atualização de Stack de Manutenção | [6.23] | 8 de set, 2020 |
+|  Rel 20-09 |  [4570720]  |  .Net Framework 3.5 e 4.7.2 Atualização Cumulativa | [6.23] | 8 de set, 2020 |
+|  Rel 20-09 |  [4494174]  |  Microcódigo | [6.23] | 8 de set, 2020 |
 
 [4577010]: https://support.microsoft.com/kb/4577010
 [4561600]: https://support.microsoft.com/kb/4561600
@@ -74,6 +71,11 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [4570332]: https://support.microsoft.com/kb/4570332
 [4570720]: https://support.microsoft.com/kb/4570720
 [4494174]: https://support.microsoft.com/kb/4494174
+[2.102]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[3.89]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[4.82]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[5.47]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[6.23]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
 
 ## <a name="august-2020-guest-os"></a>Os convidados de agosto de 2020
 
@@ -122,11 +124,11 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [4565912]: https://support.microsoft.com/kb/4565912
 [4569776]: https://support.microsoft.com/kb/4569776
 [4566424]: https://support.microsoft.com/kb/4566424
-[2.101]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
-[3.88]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[4.81]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[5.46]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[6.22]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[2.101]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.88]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.81]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.46]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.22]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 
 ## <a name="july-2020-guest-os"></a>Os convidados de julho de 2020
@@ -177,11 +179,11 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [4565632]: https://support.microsoft.com/kb/4565632
 [4558997]: https://support.microsoft.com/kb/4558997
 [4494174]: https://support.microsoft.com/kb/4494174
-[2.100]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
-[3.87]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[4.80]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[5.45]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[6.21]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[2.100]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.87]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.80]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.45]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.21]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 
 ## <a name="june-2020-guest-os"></a>Junho 2020 Guest OS
@@ -216,11 +218,11 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [4561666]: https://support.microsoft.com/kb/4561666
 [4562561]: https://support.microsoft.com/kb/4562561
 [4562562]: https://support.microsoft.com/kb/4562562
-[2.99]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
-[3.86]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[4.79]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[5.44]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[6.20]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[2.99]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.86]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.79]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.44]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.20]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 
 ## <a name="may-2020-guest-os"></a>Maio 2020 Guest OS
@@ -262,11 +264,11 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [4550994]: https://support.microsoft.com/kb/4550994
 [4552924]: https://support.microsoft.com/kb/4552924
 [4549947]: https://support.microsoft.com/kb/4549947
-[2.98]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
-[3.85]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[4.78]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[5.43]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[6.19]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[2.98]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.85]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.78]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.43]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.19]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 
 ## <a name="april-2020-guest-os"></a>Os convidados de abril de 2020
@@ -304,11 +306,11 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [4540725]: https://support.microsoft.com/kb/4540725
 [4540723]: https://support.microsoft.com/kb/4540723
 [4539571]: https://support.microsoft.com/kb/4539571
-[2.97]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
-[3.84]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[4.77]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[5.42]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[6.18]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[2.97]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.84]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.77]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.42]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.18]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 
 ## <a name="march-2020-guest-os"></a>Março 2020 Guest OS
@@ -335,11 +337,11 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [4537814]: https://support.microsoft.com/kb/4537814 
 [4537821]: https://support.microsoft.com/kb/4537821 
 
-[6.17]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
-[5.41]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[4.76]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[3.83]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[2.96]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[6.17]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[5.41]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[4.76]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[3.83]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[2.96]: ./cloud-services-guestos-update-matrix.md#family-2-releases
 
 
 ## <a name="february-2020-guest-os"></a>Os hóspedes de fevereiro de 2020
@@ -378,11 +380,11 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [4532920]: https://support.microsoft.com/kb/4532920
 [4534297]: https://support.microsoft.com/kb/4534297
 
-[6.16]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
-[5.40]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[4.75]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[3.82]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[2.95]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[6.16]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[5.40]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[4.75]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[3.82]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[2.95]: ./cloud-services-guestos-update-matrix.md#family-2-releases
 
 
 ## <a name="january-2020-guest-os"></a>Janeiro 2020 Guest OS
@@ -428,11 +430,11 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [4530734]: https://support.microsoft.com/kb/4530734
 [4530691]: https://support.microsoft.com/kb/4530691
 [4530702]: https://support.microsoft.com/kb/4530702
-[6.15]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
-[5.39]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[4.74]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[3.81]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[2.94]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[6.15]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[5.39]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[4.74]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[3.81]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[2.94]: ./cloud-services-guestos-update-matrix.md#family-2-releases
 
 
 ## <a name="december-2019-guest-os"></a>Os hóspedes de dezembro de 2019
@@ -472,11 +474,11 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [4524445]: https://support.microsoft.com/kb/4524445
 [4520724]: https://support.microsoft.com/kb/4520724
 [4523204]: https://support.microsoft.com/kb/4523204
-[6.14]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
-[5.38]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[4.73]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[3.80]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[2,93]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[6.14]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[5.38]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[4.73]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[3.80]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[2,93]: ./cloud-services-guestos-update-matrix.md#family-2-releases
 
 
 
@@ -515,11 +517,11 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [4521864]: https://support.microsoft.com/kb/4521864
 [4521858]: https://support.microsoft.com/kb/4521858
 [4521862]: https://support.microsoft.com/kb/4521862
-[6.13]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
-[5.37]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[4.72]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[3.79]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[2.92]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[6.13]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[5.37]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[4.72]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[3.79]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[2.92]: ./cloud-services-guestos-update-matrix.md#family-2-releases
 
 
 ## <a name="october-2019-guest-os"></a>Outubro 2019 Guest OS
@@ -564,11 +566,11 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [4512574]: https://support.microsoft.com/kb/4512574
 [4512577]: https://support.microsoft.com/kb/4512577
 
-[6.12]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
-[5.36]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[4.71]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[3.78]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[2.91]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[6.12]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[5.36]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[4.71]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[3.78]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[2.91]: ./cloud-services-guestos-update-matrix.md#family-2-releases
 
 
 ## <a name="september-2019-guest-os"></a>Os convidados de setembro de 2019
@@ -606,11 +608,11 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [4512488]: https://support.microsoft.com/kb/4512488
 [4512518]: https://support.microsoft.com/kb/4512518
 [4512506]: https://support.microsoft.com/kb/4512506
-[6.11]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
-[5.35]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[4.70]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[3.77]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[2.90]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[6.11]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[5.35]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[4.70]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[3.77]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[2.90]: ./cloud-services-guestos-update-matrix.md#family-2-releases
 
 
 ## <a name="august-2019-guest-os"></a>Agosto 2019 Guest OS
@@ -663,11 +665,11 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [4507001]: https://support.microsoft.com/kb/4507001
 [4507704]: https://support.microsoft.com/kb/4507704
 
-[6.1]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
-[5.34]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[4.69]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[3.76]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[2.89]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[6.1]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[5.34]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[4.69]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[3.76]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[2.89]: ./cloud-services-guestos-update-matrix.md#family-2-releases
 
 
 ## <a name="july-2019-guest-os"></a>Julho 2019 Guest OS
@@ -1438,7 +1440,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | MS16-147 |[3204063]   |Atualização de segurança para o Microsoft Uniscribe|2.58, 3.46, 4.39, 5.4 |Dez 13, 2016 |
 | MS16-149 |[3205655]   |Atualização de segurança para o Microsoft Windows|2.58, 3.46, 4.39, 5.4 |Dez 13, 2016 |
 | MS16-150 |[3205642]   |Atualização de segurança para o modo Kernel seguro |5.4 |Dez 13, 2016 |
-| MS16-151 |[3205651]   |Atualização de segurança para controladores de modo Kernel|2.58, 3.46, 4.39, 5.4 |Dez 13, 2016 |
+| MS16-151 |[3205651]   |Atualização de Segurança para motoristas de Kernel-Mode|2.58, 3.46, 4.39, 5.4 |Dez 13, 2016 |
 | MS16-152 |[3199709]   |Atualização de segurança para o Windows Kernel |5.4 |Dez 13, 2016 |
 | MS16-153 |[3207328] |Atualização de segurança para controlador do sistema de ficheiros de registo comum|2.58, 3.46, 4.39, 5.4 |Dez 13, 2016 |
 | MS16-155 |[3205640]   |Atualização de segurança para o quadro .NET |5.4 |Dez 13, 2016 |
@@ -1454,7 +1456,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | MS16-131 |[3199151]   |Atualização de segurança para o Controlo de Vídeo da Microsoft |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
 | MS16-132 |[3199120] |Atualização de segurança para componente da Microsoft |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
 | MS16-134 |[3193706] |Atualização de segurança para controlador do sistema de ficheiros de registo comum |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
-| MS16-135 |[3199135] |Atualização de segurança para controladores de modo Kernel |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
+| MS16-135 |[3199135] |Atualização de Segurança para motoristas de Kernel-Mode |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
 | MS16-137 |[3199173]   |Atualização de segurança para métodos de autenticação do Windows |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
 | MS16-138 |[3199647] |Atualização de segurança para o Hard Drive Virtual da Microsoft |5.3, 4.38, 3.45 |Nov 8, 2016 |
 | MS16-139 |[3199720] |Atualização de segurança para o Windows Kernel |2.57 |Nov 8.2016 |
@@ -1476,7 +1478,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | --- | --- | --- | --- | --- |
 | MS16-118 |[3192887] |Atualização de Segurança Cumulativa para o Internet Explorer |4.37, 3.44, 2.56 |11 de outubro de 2016 |
 | MS16-120 |[3192884] |Atualização de segurança para componente gráficos da Microsoft |4.37, 3.44, 2.56 |11 de outubro de 2016 |
-| MS16-123 |[3192892] |Atualização de segurança para controladores de modo Kernel |4.37, 3.44, 2.56 |11 de outubro de 2016 |
+| MS16-123 |[3192892] |Atualização de Segurança para motoristas de Kernel-Mode |4.37, 3.44, 2.56 |11 de outubro de 2016 |
 | MS16-124 |[3193227] |Atualização de segurança para registo do Windows |4.37, 3.44, 2.56 |11 de outubro de 2016 |
 | MS16-126 |[3196067] |Atualização de segurança para a API de Mensagens de Internet da Microsoft |2.56 |11 de outubro de 2016 |
 | MS16-101 |[3178465] |Atualização de segurança para métodos de autenticação do Windows |4.37, 3.44, 2.56 |11 de outubro de 2016 |
@@ -1497,7 +1499,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | MS16-114 |[3185879] |Atualização de segurança para o Servidor SMB do Windows |4.36, 3.43, 2.55 |13 de setembro de 2016 |
 | MS16-115 |[3188733] |Atualização de Segurança para PDF |4.35, 3.43 |13 de setembro de 2016 |
 | MS16-116 |[3188724] |Atualização de segurança na automatização OLE para motor de script vbscript |4.36, 3.43, 2.55 |13 de setembro de 2016 |
-| N/D |[3174644] |Suporte atualizado para troca de chaves Diffie-Hellman |4.36, 3.43, 2.55 |13 de setembro de 2016 |
+| N/D |[3174644] |Suporte atualizado para Diffie-Hellman troca de chaves |4.36, 3.43, 2.55 |13 de setembro de 2016 |
 | N/D |[3177723] |Atualização do Timezone - Egito cancela DST |4.36, 3.43, 2.55 |13 de setembro de 2016 |
 | N/D |[3179573] |Atualização de agosto de 2016 para Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.55 |13 de setembro de 2016 |
 | N/D |[3179575] |Rollup de atualização de agosto de 2016 para Windows Server 2012 |3.43 |13 de setembro de 2016 |
@@ -1508,11 +1510,11 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | --- | --- | --- | --- | --- |
 | MS16-095 |[3177356] |Atualização de Segurança Cumulativa para o Internet Explorer |4.35, 3.42, 2.54 |9 de agosto de 2016 |
 | MS16-097 |[3177393] |Atualização de segurança para componente gráficos da Microsoft |4.35, 3.42, 2.54 |9 de agosto de 2016 |
-| MS16-098 |[3178466] |Atualização de segurança para controladores do modo Kernel do Windows |4.35, 3.42, 2.54 |9 de agosto de 2016 |
+| MS16-098 |[3178466] |Atualização de segurança para controladores de Kernel-Mode do Windows |4.35, 3.42, 2.54 |9 de agosto de 2016 |
 | MS16-100 |[3179577] |Atualização de segurança para arranque seguro |4.35, 3.42 |9 de agosto de 2016 |
 | MS16-101 |[3178465] |Atualização de segurança para métodos de autenticação do Windows |4.35, 3.42, 2.54 |9 de agosto de 2016 |
 | MS16-102 |[3182248] |Atualização de segurança para a Biblioteca PDF do Microsoft Windows |4.35, 3.42 |9 de agosto de 2016 |
-| Re-lançamento MS16-077 |[3165191] |Atualização de segurança para a Web Proxy Autodiscovery (WPAD) |4.35, 3.42, 2.54 |9 de agosto de 2016 |
+| MS16-077 Re-Release |[3165191] |Atualização de segurança para a Web Proxy Autodiscovery (WPAD) |4.35, 3.42, 2.54 |9 de agosto de 2016 |
 | N/D |[3172605] |Rollup de atualização de julho de 2016 para Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.54 |9 de agosto de 2016 |
 | N/D |[3172615] |Rollup de atualização de julho de 2016 para Windows Server 2012 |3.42 |9 de agosto de 2016 |
 | N/D |[3172614] |Roll up de atualização de julho de 2016 para Windows RT 8.1, Windows 8.1 e Windows Server 2012 R2 |4.35 |9 de agosto de 2016 |
@@ -1600,7 +1602,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | MS16-031 |[3140410] |Atualização de segurança para o Microsoft Windows para abordar a elevação do privilégio |2.49 |8 de março de 2016 |
 | MS16-032 |[3143141] |Atualização de segurança para logon secundário para abordar a elevação do privilégio |4.30, 3.37, 2.49 |8 de março de 2016 |
 | MS16-033 |[3143142] |Atualização de segurança para motorista de classe de armazenamento em massa USB para abordar a elevação do privilégio |4.30, 3.37, 2.49 |8 de março de 2016 |
-| MS16-034 |[3143145] |Atualizações de segurança para o controlador do modo Kernel para abordar a elevação do privilégio |4.30, 3.37, 2.49 |8 de março de 2016 |
+| MS16-034 |[3143145] |Atualizações de segurança para Kernel-Mode condutor para abordar a Elevação do Privilégio |4.30, 3.37, 2.49 |8 de março de 2016 |
 
 ## <a name="february-2016-guest-os"></a>Os hóspedes de fevereiro de 2016
 | ID do boletim | Artigo KB dos pais | Descrição da Vulnerabilidade | SO convidado | Data Introduzida pela primeira vez |
@@ -1609,20 +1611,20 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | MS16-013 |[3134811] |Atualização de segurança para o Windows Journal para abordar a execução de código remoto |4.29, 3.36, 2.48 |9 de fevereiro de 2016 |
 | MS16-014 |[3134228] |Atualização de segurança para o Microsoft Windows para abordar a execução de código remoto |4.29, 3.36, 2.48 |9 de fevereiro de 2016 |
 | MS16-016 |[3136041] |Atualização de segurança para WebDAV para abordar a elevação do privilégio |4.29, 3.36, 2.48 |9 de fevereiro de 2016 |
-| MS16-018 |[3136082] |Atualização de segurança para o controlador do modo Kernel do Windows para abordar a elevação do privilégio |4.29, 3.36, 2.48 |9 de fevereiro de 2016 |
+| MS16-018 |[3136082] |Atualização de segurança para o Windows Kernel-Mode driver para abordar a elevação do privilégio |4.29, 3.36, 2.48 |9 de fevereiro de 2016 |
 | MS16-019 |[3137893] |Atualização de segurança para o quadro .NET para abordar a execução de código remoto |4.29, 3.36, 2.48 |9 de fevereiro de 2016 |
 | MS16-021 |[3133043] |Atualização de segurança para o servidor NPS RADIUS para abordar a negação de serviço |4.29, 3.36, 2.48 |9 de fevereiro de 2016 |
 | Microsoft Security Advisory |[3109853] |Atualização para melhorar a interoperabilidade do TLS |4.29, 3.36 |9 de fevereiro de 2016 |
-| Re-Lançamento - MS15-101 |[3089662] |Vulnerabilidades em .NET Framework poderiam permitir a elevação do privilégio |4.29, 3.36, 2.48 |9 de fevereiro de 2016 |
-| Re-Lançamento - MS15-118 |[3104507] |Atualizações de segurança para o quadro .NET para abordar a elevação do privilégio |4.29, 3.36, 2.48 |9 de fevereiro de 2016 |
-| Re-Lançamento - MS15-128 |[3104503] |Atualizações de segurança para componente gráficos da Microsoft para abordar a execução remota de código |4.29, 3.36, 2.48 |9 de fevereiro de 2016 |
+| Re-Release - MS15-101 |[3089662] |Vulnerabilidades em .NET Framework poderiam permitir a elevação do privilégio |4.29, 3.36, 2.48 |9 de fevereiro de 2016 |
+| Re-Release - MS15-118 |[3104507] |Atualizações de segurança para o quadro .NET para abordar a elevação do privilégio |4.29, 3.36, 2.48 |9 de fevereiro de 2016 |
+| Re-Release - MS15-128 |[3104503] |Atualizações de segurança para componente gráficos da Microsoft para abordar a execução remota de código |4.29, 3.36, 2.48 |9 de fevereiro de 2016 |
 
 ## <a name="january-2016-guest-os"></a>Janeiro 2016 Guest OS
 | ID do boletim | Artigo KB dos pais | Descrição da Vulnerabilidade | SO convidado | Data Introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | MS16-001 |[3124903] |Atualização de Segurança Cumulativa para o Internet Explorer |4.28, 3.35, 2.47 |12 de janeiro de 2016 |
 | MS16-003 |[3125540] |Atualização de Segurança Cumulativa para JScript e VBScript |2.47 |12 de janeiro de 2016 |
-| MS16-005 |[3124584] |Atualização de segurança para controladores do modo Kernel do Windows para abordar a execução de código remoto |4.28, 3.35, 2.47 |12 de janeiro de 2016 |
+| MS16-005 |[3124584] |Atualização de segurança para os controladores de Kernel-Mode Windows para abordar a execução de código remoto |4.28, 3.35, 2.47 |12 de janeiro de 2016 |
 | MS16-007 |[3124901] |Atualização de segurança para o Microsoft Windows para abordar a execução remota de código |4.28, 3.35, 2.47 |12 de janeiro de 2016 |
 | MS16-008 |[3124605] |Atualização de segurança para Kernel para abordar a elevação do privilégio |4.28, 3.35, 2.47 |12 de janeiro de 2016 |
 | Revisão do Aconselhamento de Segurança da Microsoft |[2755801] |Atualização para vulnerabilidades no Adobe Flash Player no Internet Explorer (Pacote KB: TBD) - Espaço reservado consultivo |4.28, 3.35 |12 de janeiro de 2016 |
@@ -1699,7 +1701,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | MS15-069 |[3072631] |Vulnerabilidades no Windows podem permitir a execução remota de código |4.22, 3.29, 2.41 |14 de julho de 2015 |
 | MS15-071 |[3068457] |Vulnerabilidade em NETLOGON pode permitir falsificação |4.22, 3.29, 2.41 |14 de julho de 2015 |
 | MS15-072 |[3069392] |Vulnerabilidade no condutor gráfico pode permitir a elevação do privilégio |4.22, 3.29, 2.41 |14 de julho de 2015 |
-| MS15-073 |[3070102] |Vulnerabilidades no condutor do modo Kernel podem permitir a elevação do privilégio |4.22, 3.29, 2.41 |14 de julho de 2015 |
+| MS15-073 |[3070102] |Vulnerabilidades no Kernel-Mode Driver podem permitir elevação de privilégios |4.22, 3.29, 2.41 |14 de julho de 2015 |
 | MS15-074 |[3072630] |Vulnerabilidade no serviço de instalação do Windows poderia permitir a elevação do privilégio |4.22, 3.29, 2.41 |14 de julho de 2015 |
 | MS15-075 |[3072633] |Vulnerabilidades no OLE podem permitir elevação de privilégio |4.22, 3.29, 2.41 |14 de julho de 2015 |
 | MS15-076 |[3067505] |Vulnerabilidade na chamada de procedimento remoto do Windows poderia permitir a elevação do privilégio |4.22, 3.29, 2.41 |14 de julho de 2015 |
@@ -1712,7 +1714,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | MS15-056 |[3058515] |Atualização de Segurança Cumulativa para o Internet Explorer |4.21, 3.28, 2.40 |9 de junho de 2015 |
 | MS15-057 |[3033890] |Vulnerabilidade no Windows Media Player pode permitir a execução remota de código |4.21, 3.28, 2.40 |9 de junho de 2015 |
 | MS15-060 |[3059317] |Vulnerabilidade nos controlos comuns da Microsoft pode permitir a execução remota de código |4.21, 3.28, 2.40 |9 de junho de 2015 |
-| MS15-061 |[3057839] |Vulnerabilidades em controladores do modo Kernel do Windows podem permitir a elevação do privilégio |4.21, 3.28, 2.40 |9 de junho de 2015 |
+| MS15-061 |[3057839] |Vulnerabilidades em windows Kernel-Mode drivers poderiam permitir a elevação de privilégios |4.21, 3.28, 2.40 |9 de junho de 2015 |
 | MS15-062 |[3062577] |Vulnerabilidade nos serviços da Federação de Diretórios Ativos poderia permitir a elevação do privilégio |4.21, 3.28, 2.40 |9 de junho de 2015 |
 | MS15-063 |[3063858] |Vulnerabilidade no Kernel do Windows pode permitir a elevação do privilégio |4.21, 3.28, 2.40 |9 de junho de 2015 |
 
@@ -1724,7 +1726,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | MS15-045 |[3046002] |Vulnerabilidade no Windows Journal pode permitir a execução remota de código |4.20, 3.27, 2.39 |12 de maio de 2015 |
 | MS15-048 |[3057134] |Vulnerabilidades em .NET Framework poderiam permitir a elevação do privilégio |4.20, 3.27, 2.39 |12 de maio de 2015 |
 | MS15-050 |[3055642] |Vulnerabilidade no Gestor de Controlo de Serviços poderia permitir a elevação do privilégio |4.20, 3.27, 2.39 |12 de maio de 2015 |
-| MS15-051 |[3057191] |Vulnerabilidades em controladores do modo Kernel do Windows podem permitir a elevação do privilégio |4.20, 3.27, 2.39 |12 de maio de 2015 |
+| MS15-051 |[3057191] |Vulnerabilidades em windows Kernel-Mode drivers poderiam permitir a elevação de privilégios |4.20, 3.27, 2.39 |12 de maio de 2015 |
 | MS15-052 |[3050514] |Vulnerabilidade no Kernel do Windows pode permitir o bypass de funcionalidades de segurança |4.20, 3.27, 2.39 |12 de maio de 2015 |
 | MS15-053 |[3057263] |Vulnerabilidades no motor de scripts JScript e VBScript podem permitir o bypass de funcionalidades de segurança |4.20, 3.27, 2.39 |12 de maio de 2015 |
 | MS15-054 |[3051768] |Vulnerabilidade no formato de ficheiro de consola de gestão da Microsoft poderia permitir a negação de serviço |4.20, 3.27, 2.39 |12 de maio de 2015 |
@@ -2132,9 +2134,9 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [4014567]: https://support.microsoft.com/kb/4014567
 [4015550]: https://support.microsoft.com/kb/4015550
 [4013418]: https://support.microsoft.com/kb/4013418
-[4022345]: https://technet.microsoft.com/library/security/4022345.aspx
-[4022344]: https://technet.microsoft.com/library/security/4022344.aspx
-[4021279]: https://technet.microsoft.com/library/security/4021279.aspx
+[4022345]: /security-updates/SecurityAdvisories/2017/4022345
+[4022344]: /security-updates/SecurityAdvisories/2017/4022344
+[4021279]: /security-updates/SecurityAdvisories/2017/4021279
 
 
 [4015217]: https://support.microsoft.com/kb/4015217
@@ -2173,7 +2175,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [3211320]: https://support.microsoft.com/kb/3211320
 
 
-[3216771]: https://technet.microsoft.com/library/security/MS17-004
+[3216771]: /security-updates/SecurityBulletins/2017/ms17-004
 
 [3204059]: https://support.microsoft.com/kb/3204059
 [3204062]: https://support.microsoft.com/kb/3204062
@@ -2302,7 +2304,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [3133977]: https://support.microsoft.com/kb/3133977
 [3133681]: https://support.microsoft.com/kb/3133681
 [3123245]: https://support.microsoft.com/kb/3123245
-[Desativar o RC4]: https://blogs.msdn.microsoft.com/azuresecurity/2016/04/12/azure-cipher-suite-change-removes-rc4-support/
+[Desativar o RC4]: /archive/blogs/azuresecurity/azure-cipher-suite-change-removes-rc4-support
 
 
 [3148531]: https://support.microsoft.com/kb/3148531
@@ -2407,7 +2409,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [3077657]: https://support.microsoft.com/kb/3077657
 [3057154]: https://support.microsoft.com/kb/3057154
 
-[MS15-034]: https://technet.microsoft.com/library/security/MS15-034
+[MS15-034]: /security-updates/SecurityBulletins/2015/ms15-034
 
 [3042553]: https://support.microsoft.com/en-us/kb/3042553/
 
@@ -2484,5 +2486,5 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [3063858]:https://support.microsoft.com/kb/3063858
 
 
-[archive]: https://msdn.microsoft.com/library/azure/dn391773.aspx
+[archive]: /previous-versions/azure/
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-explanation

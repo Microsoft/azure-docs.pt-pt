@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4f9e52dc28d2834b479ac0580ff990119a56772a
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87422033"
 ---
 # <a name="update-or-remove-an-assigned-azure-ad-custom-role-in-privileged-identity-management"></a>Atualizar ou remover um papel personalizado Azure AD atribuído na Gestão de Identidade Privilegiada
@@ -54,7 +54,7 @@ Siga estes passos para atualizar ou remover uma atribuição de funções person
 
     ![Selecione remover ou atualizar na atribuição de função elegível](./media/azure-ad-custom-roles-update-remove/remove-update.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Ativar um papel personalizado AZure AD](azure-ad-custom-roles-assign.md)
 - [Atribuir um papel personalizado AZure AD](azure-ad-custom-roles-assign.md)

@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 03/15/2019
 ms.author: jenoller
 ms.openlocfilehash: e99d841dcfb18b41df128283c37f46682e3fa129
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88257116"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>Personalizar o CoreDNS com o Azure Kubernetes Service
@@ -24,7 +24,7 @@ Este artigo mostra-lhe como usar ConfigMaps para opções básicas de personaliz
 > [!NOTE]
 > `kube-dns` ofereceu diferentes opções de [personalização][kubednsblog] através de um mapa config de Kubernetes. CoreDNS **não** é compatível com kube-dns. Quaisquer personalizações que tenha usado anteriormente devem ser atualizadas para utilização com o CoreDNS.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/06/2020
 ms.author: dayshen
 ms.openlocfilehash: 8810309fef5dbbb35465a2af15d42fa8a59d5401
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84300177"
 ---
 # <a name="use-service-tags-for-azure-signalr-service"></a>Utilize etiquetas de serviço para o Serviço Azure SignalR
@@ -44,6 +44,6 @@ Pode permitir o tráfego de saída para o Serviço Azure SignalR adicionando uma
 1. Clique em **Adicionar**.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Grupos de segurança da rede: tags de serviço](../virtual-network/security-overview.md#security-rules)

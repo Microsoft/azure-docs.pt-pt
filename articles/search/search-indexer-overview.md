@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 7f6be959bf09cbe20bb37dfa3d17d64467758bd6
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91397900"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indexadores na Pesquisa Cognitiva do Azure
@@ -48,7 +48,7 @@ Indexantes rastejam lojas de dados em Azure.
 
 * [Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
 * [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md) (em pré-visualização)
-* [Table Storage do Azure](search-howto-indexing-azure-tables.md)
+* [Armazenamento de mesa Azure](search-howto-indexing-azure-tables.md)
 * [BD do Cosmos para o Azure](search-howto-index-cosmosdb.md)
 * [Base de Dados SQL do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Instância Gerida do SQL](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
@@ -88,7 +88,7 @@ Tal como os mapeamentos de campo que associam valores verbatim de origem a campo
 
 A imagem seguinte mostra uma representação [da sessão de depuração do](cognitive-search-debug-session.md) indexante da amostra das fases indexantes: rachaduras de documentos, mapeamentos de campo, execução de skillset e mapeamentos de campo de saída.
 
-:::image type="content" source="media/search-indexer-overview/sample-debug-session.png" alt-text="sessão de depurar amostra" lightbox="media/search-indexer-overview/sample-debug-session.png":::
+:::image type="content" source="media/search-indexer-overview/sample-debug-session.png" alt-text="Estágios indexantes" lightbox="media/search-indexer-overview/sample-debug-session.png":::
 
 ## <a name="basic-configuration-steps"></a>Passos de configuração básica
 
@@ -173,6 +173,6 @@ Agora que tem uma noção básica, o passo seguinte é rever os requisitos e as 
 * [Base de Dados Azure SQL, SQL Managed Instance ou SQL Server em uma máquina virtual Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [BD do Cosmos para o Azure](search-howto-index-cosmosdb.md)
 * [Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
-* [Table Storage do Azure](search-howto-indexing-azure-tables.md)
+* [Armazenamento de mesa Azure](search-howto-indexing-azure-tables.md)
 * [Indexação de bolhas de CSV utilizando o indexante Azure Cognitive Search Blob](search-howto-index-csv-blobs.md)
 * [Indexação de bolhas JSON com indexante de blob de pesquisa cognitiva Azure](search-howto-index-json-blobs.md)

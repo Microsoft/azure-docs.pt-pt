@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.openlocfilehash: 1a32e485dfc9cd465f6dd6d50abdb166737dc3aa
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87387987"
 ---
 # <a name="device-roobo-smart-audio-dev-kit"></a>Dispositivo: Roobo Smart Audio Dev Kit
@@ -69,8 +69,8 @@ Para obter mais informações sobre o desenvolvimento, consulte o [guia de desen
 
 ## <a name="audio"></a>Áudio
 
-Roobo fornece uma ferramenta que captura todo o áudio para memória flash. Pode ajudá-lo a resolver problemas de áudio. Uma versão da ferramenta é fornecida para cada configuração do kit de desenvolvimento. No [site roobo,](http://ddk.roobo.com/)selecione o seu dispositivo e, em seguida, selecione o link **Roobo Tools** na parte inferior da página.
+Roobo fornece uma ferramenta que captura todo o áudio para memória flash. Pode ajudá-lo a resolver problemas de áudio. Uma versão da ferramenta é fornecida para cada configuração do kit de desenvolvimento. No  [site roobo,](http://ddk.roobo.com/)selecione o seu dispositivo e, em seguida, selecione o link **Roobo Tools** na parte inferior da página.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Executar o aplicativo de amostra Android](speech-devices-sdk-android-quickstart.md)

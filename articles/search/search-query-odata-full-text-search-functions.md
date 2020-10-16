@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 78f9e4d8fa80fdf74bdb5cd79f4489d12696fcc2
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88935794"
 ---
 # <a name="odata-full-text-search-functions-in-azure-cognitive-search---searchismatch-and-searchismatchscoring"></a>OData funções de pesquisa de texto completo em Azure Cognitive Search - `search.ismatch` e `search.ismatchscoring`
@@ -35,7 +35,7 @@ A Azure Cognitive Search suporta a pesquisa de texto completo no contexto das ex
 
 ## <a name="syntax"></a>Syntax
 
-O seguinte EBNF[(Formulário Backus-Naur alargado)](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)define a gramática das `search.ismatch` e `search.ismatchscoring` funções:
+O seguinte formulário EBNF[(Formulário Backus-Naur Alargado)](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)define a gramática das `search.ismatch` e `search.ismatchscoring` funções:
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: victorh
 ms.openlocfilehash: dabe154535d2bd3ae5550d4bbbafa75adc5ae2c0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91347380"
 ---
 # <a name="monitor-logs-using-azure-firewall-workbook"></a>Monitorize registos usando o Livro de Trabalho da Firewall Azure
@@ -38,23 +38,23 @@ A página geral fornece-lhe uma maneira de filtrar através de espaços de traba
 
 Esta página mostra fontes únicas de endereço IP ao longo do tempo, utilização da contagem de regras de aplicação, FQDN negado/permitido ao longo do tempo, e dados filtrados. Pode filtrar dados com base no endereço IP.
 
-:::image type="content" source="./media/firewall-workbook/firewall-workbook-application-rule.png" alt-text="Registo de regras de aplicação do livro de trabalho de Azure Firewall":::
+:::image type="content" source="./media/firewall-workbook/firewall-workbook-application-rule.png" alt-text="Visão geral do livro de Azure Firewall":::
 
 ## <a name="network-rule-log-statistics"></a>Estatísticas de registo de regras de rede
 
 Esta página fornece uma visão por ação de regras – permitir/negar, porta-alvo por IP e DNAT ao longo do tempo. Também pode filtrar por ação, porta e tipo de destino.
 
-:::image type="content" source="./media/firewall-workbook/firewall-workbook-network-rule.png" alt-text="Registo de regras da rede de livros de trabalho de Azure Firewall":::
+:::image type="content" source="./media/firewall-workbook/firewall-workbook-network-rule.png" alt-text="Visão geral do livro de Azure Firewall":::
 
 Também pode filtrar registos com base na janela do tempo:
 
-:::image type="content" source="./media/firewall-workbook/firewall-workbook-network-rule-time.png" alt-text="Janela de tempo de registo de regras da rede de regras da rede Azure Firewall":::
+:::image type="content" source="./media/firewall-workbook/firewall-workbook-network-rule-time.png" alt-text="Visão geral do livro de Azure Firewall":::
 
 ## <a name="investigations"></a>Investigações
 
 Pode olhar para os registos e entender mais sobre o recurso baseado no endereço IP de origem. Pode obter informações como nome de máquina virtual e nome de interface de rede. É simples filtrar o recurso dos registos.
 
-:::image type="content" source="./media/firewall-workbook/firewall-workbook-investigation.png" alt-text="Investigação do Livro de Obras de Azure Firewall":::
+:::image type="content" source="./media/firewall-workbook/firewall-workbook-investigation.png" alt-text="Visão geral do livro de Azure Firewall":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

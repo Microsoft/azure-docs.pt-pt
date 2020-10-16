@@ -1,24 +1,24 @@
 ---
-title: Desenvolver um ponto final SCIM para o fornecimento de utilizadores a apps a partir do Azure AD
-description: O sistema de gestão de identidade de domínio cruzado (SCIM) normaliza o fornecimento automático do utilizador. Aprenda a desenvolver um ponto final SCIM, integre a sua API SCIM com o Azure Ative Directory e comece a automatizar utilizadores e grupos de provisionamento nas suas aplicações em nuvem.
+title: Tutorial - Desenvolver um ponto final SCIM para o fornecimento de utilizadores a apps a partir do Azure AD
+description: O sistema de gestão de identidade de domínio cruzado (SCIM) normaliza o fornecimento automático do utilizador. Neste tutorial, aprende-se a desenvolver um ponto final SCIM, a integrar a sua API SCIM com o Azure Ative Directory e a automatizar utilizadores e grupos de a provisionamento nas suas aplicações na nuvem.
 services: active-directory
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 59c899d2450e9d439426239384945258e8df694a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bfd9e08387a4de2220ef56afdd0ef79bd837ed4c
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91266654"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070202"
 ---
-# <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Construa um ponto final SCIM e configuure o fornecimento de utilizadores com Azure AD
+# <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Tutorial - Construa um ponto final SCIM e configuure o fornecimento de utilizadores com Azure AD
 
 Como desenvolvedor de aplicações, pode utilizar a API de gestão de identidade de controlo de identidade de domínio cruzado (SCIM) para permitir o fornecimento automático de utilizadores e grupos entre a sua aplicação e a Azure AD. Este artigo descreve como construir um ponto final SCIM e integrar-se com o serviço de fornecimento AZURE AD. A especificação SCIM fornece um esquema comum de utilização para o provisionamento. Quando usado em conjunto com padrões da federação como SAML ou OpenID Connect, o SCIM dá aos administradores uma solução baseada em padrões para a gestão de acessos.
 
@@ -98,7 +98,7 @@ Em seguida, pode utilizar a tabela abaixo para entender como os atributos que a 
 |departamento|urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|
 | displayName |displayName |
 |employeeId|urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|
-| Facsímia-TelefoneNumber |números de telefone[tipo eq "fax"].valor |
+| Facsimile-TelephoneNumber |números de telefone[tipo eq "fax"].valor |
 | nomeDado |name.givenName |
 | jobTitle |título |
 | correio |emails[type eq "work"].value |
@@ -226,7 +226,7 @@ Esta secção fornece o exemplo dos pedidos do SCIM emitidos pelo cliente Azure 
 
 #### <a name="create-user"></a>Criar Utilizador
 
-###### <a name="request"></a>Pedido
+###### <a name="request"></a>Pedir
 
 *POST /Utilizadores*
 ```json
@@ -284,7 +284,7 @@ Esta secção fornece o exemplo dos pedidos do SCIM emitidos pelo cliente Azure 
 
 #### <a name="get-user"></a>Obter Utilizador
 
-###### <a name="request"></a><a name="request-1"></a>Pedido
+###### <a name="request"></a><a name="request-1"></a>Pedir
 *GET /Utilizadores/5d48a0a8e9f04aa38008* 
 
 ###### <a name="response-user-found"></a><a name="response-1"></a>Resposta (Utilizador encontrado)
@@ -314,7 +314,7 @@ Esta secção fornece o exemplo dos pedidos do SCIM emitidos pelo cliente Azure 
 }
 ```
 
-###### <a name="request"></a>Pedido
+###### <a name="request"></a>Pedir
 *GET /Utilizadores/5171a35d82074e068ce2* 
 
 ###### <a name="response-user-not-found-note-that-the-detail-is-not-required-only-status"></a>Resposta (Utilizador não encontrado. Note que o detalhe não é necessário, apenas o estado.)
@@ -331,7 +331,7 @@ Esta secção fornece o exemplo dos pedidos do SCIM emitidos pelo cliente Azure 
 
 #### <a name="get-user-by-query"></a>Obtenha o utilizador por consulta
 
-##### <a name="request"></a><a name="request-2"></a>Pedido
+##### <a name="request"></a><a name="request-2"></a>Pedir
 
 *GET /Utilizadores?filter=userName eq "Test_User_dfeef4c5-5681-4387-b016-bdf221e82081"*
 
@@ -372,7 +372,7 @@ Esta secção fornece o exemplo dos pedidos do SCIM emitidos pelo cliente Azure 
 
 #### <a name="get-user-by-query---zero-results"></a>Obtenha o Utilizador por consulta - Resultados zero
 
-##### <a name="request"></a><a name="request-3"></a>Pedido
+##### <a name="request"></a><a name="request-3"></a>Pedir
 
 *GET /Utilizadores?filter=userName eq "utilizador inexistente"*
 
@@ -392,7 +392,7 @@ Esta secção fornece o exemplo dos pedidos do SCIM emitidos pelo cliente Azure 
 
 #### <a name="update-user-multi-valued-properties"></a>Atualizar o Utilizador [propriedades multi-valorizadas]
 
-##### <a name="request"></a><a name="request-4"></a>Pedido
+##### <a name="request"></a><a name="request-4"></a>Pedir
 
 *PATCH /Utilizadores/6764549bef60420686bc HTTP/1.1*
 ```json
@@ -443,7 +443,7 @@ Esta secção fornece o exemplo dos pedidos do SCIM emitidos pelo cliente Azure 
 
 #### <a name="update-user-single-valued-properties"></a>Atualizar o Utilizador [propriedades de valor único]
 
-##### <a name="request"></a><a name="request-5"></a>Pedido
+##### <a name="request"></a><a name="request-5"></a>Pedir
 
 *PATCH /Utilizadores/5171a35d82074e068ce2 HTTP/1.1*
 ```json
@@ -488,7 +488,7 @@ Esta secção fornece o exemplo dos pedidos do SCIM emitidos pelo cliente Azure 
 
 ### <a name="disable-user"></a>Desativar Utilizador
 
-##### <a name="request"></a><a name="request-14"></a>Pedido
+##### <a name="request"></a><a name="request-14"></a>Pedir
 
 *PATCH /Utilizadores/5171a35d82074e068ce2 HTTP/1.1*
 ```json
@@ -542,7 +542,7 @@ Esta secção fornece o exemplo dos pedidos do SCIM emitidos pelo cliente Azure 
 ```
 #### <a name="delete-user"></a>Eliminar Utilizador
 
-##### <a name="request"></a><a name="request-6"></a>Pedido
+##### <a name="request"></a><a name="request-6"></a>Pedir
 
 *DELETE /Utilizadores/5171a35d82074e068ce2 HTTP/1.1*
 
@@ -559,7 +559,7 @@ Esta secção fornece o exemplo dos pedidos do SCIM emitidos pelo cliente Azure 
 
 #### <a name="create-group"></a>Criar Grupo
 
-##### <a name="request"></a><a name="request-7"></a>Pedido
+##### <a name="request"></a><a name="request-7"></a>Pedir
 
 *POST /Grupos HTTP/1.1*
 ```json
@@ -594,7 +594,7 @@ Esta secção fornece o exemplo dos pedidos do SCIM emitidos pelo cliente Azure 
 
 #### <a name="get-group"></a>Obter Grupo
 
-##### <a name="request"></a><a name="request-8"></a>Pedido
+##### <a name="request"></a><a name="request-8"></a>Pedir
 
 *GET /Groups/40734ae655284ad3abcc?excluídosAttributes=membros HTTP/1.1*
 
@@ -616,7 +616,7 @@ Esta secção fornece o exemplo dos pedidos do SCIM emitidos pelo cliente Azure 
 
 #### <a name="get-group-by-displayname"></a>Obtenha grupo por displayName
 
-##### <a name="request"></a><a name="request-9"></a>Pedido
+##### <a name="request"></a><a name="request-9"></a>Pedir
 *GET /Groups?excluiuAttributes=membros&filtro=displayName eq "displayName" HTTP/1.1*
 
 ##### <a name="response"></a><a name="response-9"></a>Resposta
@@ -645,7 +645,7 @@ Esta secção fornece o exemplo dos pedidos do SCIM emitidos pelo cliente Azure 
 
 #### <a name="update-group-non-member-attributes"></a>Grupo de Atualização [Atributos não membros]
 
-##### <a name="request"></a><a name="request-10"></a>Pedido
+##### <a name="request"></a><a name="request-10"></a>Pedir
 
 *PATCH /Groups/fa2ce26709934589afc5 HTTP/1.1*
 ```json
@@ -665,7 +665,7 @@ Esta secção fornece o exemplo dos pedidos do SCIM emitidos pelo cliente Azure 
 
 ### <a name="update-group-add-members"></a>Grupo de Atualização [Adicionar Membros]
 
-##### <a name="request"></a><a name="request-11"></a>Pedido
+##### <a name="request"></a><a name="request-11"></a>Pedir
 
 *PATCH /Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
@@ -688,7 +688,7 @@ Esta secção fornece o exemplo dos pedidos do SCIM emitidos pelo cliente Azure 
 
 #### <a name="update-group-remove-members"></a>Grupo de atualização [Remover Membros]
 
-##### <a name="request"></a><a name="request-12"></a>Pedido
+##### <a name="request"></a><a name="request-12"></a>Pedir
 
 *PATCH /Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
@@ -711,7 +711,7 @@ Esta secção fornece o exemplo dos pedidos do SCIM emitidos pelo cliente Azure 
 
 #### <a name="delete-group"></a>Eliminar Grupo
 
-##### <a name="request"></a><a name="request-13"></a>Pedido
+##### <a name="request"></a><a name="request-13"></a>Pedir
 
 *DELETE /Groups/cdb1ce18f65944079d37 HTTP/1.1*
 
@@ -747,7 +747,7 @@ Barra mínima TLS 1.2 Cipher Suites:
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>Gamas IP
-O serviço de prestação de AD Azure opera atualmente ao abrigo dos Intervalos IP para AzureActiveDirectory, conforme [listado aqui.](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all) Pode adicionar as gamas IP listadas na tag AzureActiveDirectory para permitir o tráfego do serviço de fornecimento AZure AD na sua aplicação. 
+O serviço de prestação de AD Azure opera atualmente ao abrigo dos Intervalos IP para AzureActiveDirectory, conforme [listado aqui.](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all) Pode adicionar as gamas IP listadas na tag AzureActiveDirectory para permitir o tráfego do serviço de fornecimento AZure AD na sua aplicação. Note que terá de rever cuidadosamente a lista de gama IP para endereços computados. Um endereço como '40.126.25.32' poderia estar representado na lista de intervalos de IP como '40.126.0.0/18'. Também pode recuperar programaticamente a lista de gama IP utilizando a seguinte [API](/rest/api/virtualnetwork/servicetags/list).
 
 ## <a name="step-3-build-a-scim-endpoint"></a>Passo 3: Construir um ponto final SCIM
 

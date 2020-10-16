@@ -9,17 +9,17 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 0ea178655646f7f130476acaffc35c60181968ea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87058708"
 ---
 # <a name="access-the-vmware-solution-by-cloudsimple-portal-from-the-azure-portal"></a>Aceda à Solução VMware por CloudSimple a partir do portal Azure
 
 O sôm-on único é suportado para acesso ao portal CloudSimple. Depois de iniciar sessão no portal Azure, pode aceder ao portal CloudSimple sem voltar a iniciar sessão. A primeira vez que acede ao portal CloudSimple é solicitado a autorizar a aplicação [de Autorização de Serviço CloudSimple.](#consent-to-cloudsimple-service-authorization-application)  A autorização é uma ação única.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Os utilizadores com funções **de Proprietário** e **Contribuinte** podem aceder ao portal CloudSimple.  As funções devem ser configuradas no grupo de recursos onde o serviço CloudSimple é implantado.  As funções também podem ser configuradas no objeto de serviço CloudSimple.  Para obter mais informações sobre a verificação da sua função, consulte [artigo de atribuições de funções.](../role-based-access-control/check-access.md) Apenas os utilizadores com funções **incorporadas proprietário** e **contribuinte** podem aceder ao portal CloudSimple.  As funções devem ser configuradas na subscrição.  Para obter mais informações sobre a verificação da sua função, consulte [artigo de atribuições de funções.](../role-based-access-control/check-access.md)
 

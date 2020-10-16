@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: a88cf9981d4f3a69a503c9caa56be1b5f35029f6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86105188"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Utilizar o serviço Importar/Exportar do Azure para importar dados para ficheiros do Azure
@@ -50,7 +50,7 @@ Execute os seguintes passos para preparar as unidades.
 2. Crie um único volume NTFS em cada unidade. Atribua uma carta de unidade ao volume. Não utilize pontos de montagem.
 3. Modifique o ficheiro *dataset.csv* na pasta raiz onde a ferramenta reside. Dependendo se pretende importar um ficheiro ou uma pasta ou ambos, adicione entradas no ficheiro *dataset.csv* semelhantes aos seguintes exemplos.  
 
-   - **Importar um ficheiro**: No seguinte exemplo, os dados a copiar residem no F: unidade. O seu ficheiro *MyFile1.txt* é copiado para a raiz do *MyAzureFileshare1*. Se o *MyAzureFileshare1* não existir, é criado na conta Azure Storage. A estrutura da pasta mantém-se.
+   - **Importar um ficheiro**: No seguinte exemplo, os dados a copiar residem no F: unidade. O seu ficheiro *MyFile1.txt*  é copiado para a raiz do *MyAzureFileshare1*. Se o *MyAzureFileshare1* não existir, é criado na conta Azure Storage. A estrutura da pasta mantém-se.
 
        ```
            BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
@@ -145,7 +145,7 @@ Execute os seguintes passos para criar uma função de importação no portal Az
 
 4. Informações **de envio em troca:**
 
-    - Selecione o transportador da lista de desistências. Se quiser utilizar uma transportadora diferente da FedEx/DHL, escolha uma opção existente a partir do dropdown. Contacte a equipa de Operações da Caixa de Dados da Azure `adbops@microsoft.com` com as informações relativas à transportadora que pretende utilizar.
+    - Selecione o transportador da lista de desistências. Se quiser utilizar uma transportadora diferente da FedEx/DHL, escolha uma opção existente a partir do dropdown. Contacte a equipa de Operações da Caixa de Dados da Azure `adbops@microsoft.com`  com as informações relativas à transportadora que pretende utilizar.
     - Introduza um número de conta transportadora válido que criou com essa transportadora. A Microsoft utiliza esta conta para enviar as unidades de volta para si assim que o seu trabalho de importação estiver concluído.
     - Forneça um nome de contacto completo e válido, telefone, e-mail, endereço de rua, cidade, zip, estado/província e país/região.
 
@@ -193,7 +193,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#3  /AdditionalDrive
 
 Para adicionar dados adicionais ao mesmo driveset, utilize o comando PrepImport para sessões de cópia subsequentes para copiar ficheiros/diretórios adicionais.
 
-Para sessões de cópia subsequentes às mesmas unidades de disco rígido especificadas no ficheiro *InitialDriveset.csv,* especifique o mesmo nome **de ficheiro de diário** e forneça um novo **ID de sessão;** não há necessidade de fornecer a chave da conta de armazenamento.
+Para sessões de cópia subsequentes às mesmas unidades de disco rígido especificadas no ficheiro *InitialDriveset.csv, * especifique o mesmo nome **de ficheiro de diário** e forneça um novo **ID de sessão;** não há necessidade de fornecer a chave da conta de armazenamento.
 
 ```cmd
 WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] DataSet:<dataset.csv>
@@ -205,7 +205,7 @@ Um exemplo de importação é mostrado abaixo.
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset-2.csv
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Ver o estado do trabalho e da unidade](storage-import-export-view-drive-status.md)
 * [Rever os requisitos de importação/exportação](storage-import-export-requirements.md)

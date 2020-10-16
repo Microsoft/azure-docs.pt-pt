@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
 ms.openlocfilehash: 70d9a8069979a299ad3031de37c525438ab0159d
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89394606"
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>Descarregue scripts de configuração de dispositivos VPN para ligações VPN S2S
@@ -97,6 +97,6 @@ Get-AzVirtualNetworkGatewayConnectionVpnDeviceConfigScript -Name $Connection -Re
 
 Depois de ter descarregado e validado o script de configuração, o próximo passo é aplicar o script no seu dispositivo VPN. O procedimento real varia em com base nas fabricações e modelos do seu dispositivo VPN. Consulte os manuais de funcionamento ou as páginas de instruções para os seus dispositivos VPN.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Continue a configurar a sua [ligação Site-to-Site](vpn-gateway-howto-site-to-site-resource-manager-portal.md).

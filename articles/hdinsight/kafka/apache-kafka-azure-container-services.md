@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
 ms.openlocfilehash: baf350e23025342cc74b4d063d9a1604e8ad2ffd
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86087427"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Use o serviço Azure Kubernetes com Apache Kafka em HDInsight
@@ -27,7 +27,7 @@ O [Apache Kafka](https://kafka.apache.org) é uma plataforma de transmissão em 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-* Uma subscrição do Azure.
+* Uma subscrição do Azure
 
 Este documento pressupõe que está familiarizado com a criação e utilização dos seguintes serviços Azure:
 
@@ -94,7 +94,7 @@ Se ainda não tiver um cluster AKS, utilize um dos seguintes documentos para apr
     |---|---|
     |Nome do que espreitar da \<this VN> rede virtual remota|Insira um nome único para esta configuração de espreitar.|
     |Rede virtual|selecione a rede virtual para o **cluster AKS**.|
-    |Nome do que espreitar \<AKS VN> de\<this VN>|Introduza um nome exclusivo.|
+    |Nome do que espreitar \<AKS VN> de \<this VN>|Introduza um nome exclusivo.|
 
     Deixe todos os outros campos pelo valor predefinido e, em seguida, selecione __OK__ para configurar o espreitamento.
 
@@ -223,7 +223,7 @@ Neste momento, o Serviço Kafka e Azure Kubernetes estão em comunicação atrav
     > [!WARNING]  
     > Pode receber várias cópias de uma mensagem. Este problema geralmente acontece quando você atualiza o seu navegador após a ligação, ou abre várias ligações de navegador à aplicação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Utilize as seguintes ligações para saber como utilizar o Apache Kafka no HDInsight:
 

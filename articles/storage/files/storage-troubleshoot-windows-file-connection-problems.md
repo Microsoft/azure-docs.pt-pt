@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
 ms.openlocfilehash: 7ec511400d1e00d37993f2f4ee581bce1bccb897
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91715986"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Problemas de resolução de ficheiros Azure no Windows (SMB)
@@ -154,7 +154,7 @@ Para visualizar as pegas abertas para uma partilha de ficheiros, diretório ou f
 Para fechar as pegas abertas para uma partilha de ficheiros, diretório ou ficheiro, utilize o cmdlet [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell.
 
 > [!Note]  
-> Os cmdlets Get-AzStorageFileHandle e Close-AzStorageFileHandle estão incluídos na versão 2.4 ou posterior do módulo Az PowerShell. Para instalar o mais recente módulo Az PowerShell, consulte [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+> Os Get-AzStorageFileHandle e Close-AzStorageFileHandle cmdlets estão incluídos na versão 2.4 ou posterior do módulo Az PowerShell. Para instalar o mais recente módulo Az PowerShell, consulte [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 <a id="noaaccessfailureportal"></a>
 ## <a name="error-no-access-when-you-try-to-access-or-delete-an-azure-file-share"></a>Erro "Não acesso" quando tenta aceder ou apagar uma Partilha de Ficheiros Azure  
@@ -193,7 +193,7 @@ Se os clientes SMB encerrarem todas as pegas abertas e o problema continuar a oc
 - Utilize o [cmdlet Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell para fechar as pegas abertas. 
 
 > [!Note]  
-> Os cmdlets Get-AzStorageFileHandle e Close-AzStorageFileHandle estão incluídos na versão 2.4 ou posterior do módulo Az PowerShell. Para instalar o mais recente módulo Az PowerShell, consulte [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+> Os Get-AzStorageFileHandle e Close-AzStorageFileHandle cmdlets estão incluídos na versão 2.4 ou posterior do módulo Az PowerShell. Para instalar o mais recente módulo Az PowerShell, consulte [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>Cópia lenta de ficheiros para e de Ficheiros do Azure no Windows
@@ -332,7 +332,7 @@ Em primeiro lugar, certifique-se de que seguiu os quatro passos para ativar a [a
 
 Em segundo lugar, tente [montar a partilha de ficheiros Azure com a chave da conta de armazenamento](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows). Se não tiver montado, faça o download [AzFileDiagnostics.ps1](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) para o ajudar a validar o ambiente de funcionamento do cliente, detetar a configuração incompatível do cliente que causaria falhas de acesso aos Ficheiros Azure, dá orientações prescritivas sobre a auto-correcção e, recolhendo os vestígios de diagnóstico.
 
-Em terceiro lugar, pode executar o cmdlet Debug-AzStorageAccountAuth para realizar um conjunto de verificações básicas na sua configuração de AD com o registado no utilizador AD. Este cmdlet é suportado na [versão v0.1.2 e superior do AzFilesHybrid](https://github.com/Azure-Samples/azure-files-samples/releases). Deve executar este cmdlet com um utilizador do AD que possua permissão de proprietário na conta de armazenamento de destino.  
+Em terceiro lugar, pode executar o Debug-AzStorageAccountAuth cmdlet para realizar um conjunto de verificações básicas na sua configuração de AD com o registado no utilizador AD. Este cmdlet é suportado na [versão v0.1.2 e superior do AzFilesHybrid](https://github.com/Azure-Samples/azure-files-samples/releases). Deve executar este cmdlet com um utilizador do AD que possua permissão de proprietário na conta de armazenamento de destino.  
 ```PowerShell
 $ResourceGroupName = "<resource-group-name-here>"
 $StorageAccountName = "<storage-account-name-here>"

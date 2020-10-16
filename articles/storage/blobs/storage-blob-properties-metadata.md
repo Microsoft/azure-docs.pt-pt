@@ -10,10 +10,10 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 19d20a208672667e5a4354fd1b7d185d0c00f8d9
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91399130"
 ---
 # <a name="manage-blob-properties-and-metadata-with-net"></a>Gerir propriedades blob e metadados com .NET
@@ -208,7 +208,7 @@ public static async Task ReadBlobMetadataAsync(CloudBlob blob)
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 - [Definir operação Blob Properties](/rest/api/storageservices/set-blob-properties)
 - [Obtenha a operação Blob Properties](/rest/api/storageservices/get-blob-properties)

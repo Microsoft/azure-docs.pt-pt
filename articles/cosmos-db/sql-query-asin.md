@@ -8,10 +8,10 @@ ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 8b70738a439b6c64a84a63adf63c83995530e92e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78302700"
 ---
 # <a name="asin-azure-cosmos-db"></a>ASIN (Azure Cosmos DB)
@@ -50,7 +50,7 @@ SELECT ASIN(-1) AS asin
 
 Esta função do sistema não utilizará o índice.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Funções matemáticas Azure Cosmos DB](sql-query-mathematical-functions.md)
 - [Funciona O sistema Azure Cosmos DB](sql-query-system-functions.md)

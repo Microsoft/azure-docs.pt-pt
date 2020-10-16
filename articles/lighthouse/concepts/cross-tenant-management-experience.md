@@ -1,14 +1,14 @@
 ---
 title: Experiências de gestão entre inquilinos
 description: A gestão de recursos delegados Azure permite uma experiência de gestão de inquilinos cruzados.
-ms.date: 09/30/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 60eab197e38c7b6ef3b7f2d9442a0b7583f66d09
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 7b2476d58cdfe057a94c52b40af7694abc7b263f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91739736"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970644"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
@@ -35,10 +35,12 @@ Pode executar tarefas de gestão em recursos delegados, quer diretamente no port
 
 O cmdlet Azure PowerShell [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) mostra os `HomeTenantId` atributos e `ManagedByTenantIds` atributos para cada subscrição, permitindo-lhe identificar se uma subscrição devolvida pertence a um inquilino gerido ou ao seu inquilino gerente.
 
-Da mesma forma, os comandos Azure CLI, como [a lista de conta az,](/cli/azure/account#az-account-list) mostram os `homeTenantId` atributos e `managedByTenants` atributos.
+Da mesma forma, os comandos Azure CLI, como [a lista de conta az,](/cli/azure/account#az-account-list) mostram os `homeTenantId` atributos e `managedByTenants` atributos. Se não vir estes valores ao utilizar o Azure CLI, tente limpar o cache correndo `az account clear` seguido por `az login --identity` .
 
-> [!TIP]
-> Se não vir estes valores ao utilizar o Azure CLI, tente limpar o cache correndo `az account clear` seguido por `az login --identity` .
+Na API Azure REST, as [Assinaturas - Obter](/rest/api/resources/subscriptions/get) e [Assinaturas - Os](/rest/api/resources/subscriptions/list) comandos da lista incluem `ManagedByTenant` .
+
+> [!NOTE]
+> Para além das informações dos inquilinos relacionadas com o Farol de Azure, os inquilinos apresentados por estas APIs podem também refletir os inquilinos parceiros para os pedidos geridos pela Azure Databricks ou para a Azure.
 
 Também fornecemos APIs que são específicas para executar tarefas do Farol Azure. Para mais informações, consulte a secção **Referência.**
 

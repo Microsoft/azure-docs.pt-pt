@@ -12,10 +12,10 @@ ms.date: 07/24/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
 ms.openlocfilehash: b13a6944290f58f5ede239dee60610d67fff8b1c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88918473"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Recipientes de serviço de fala frequentemente perguntas (FAQ)
@@ -561,7 +561,7 @@ Amostras [de python:](https://github.com/Azure-Samples/cognitive-services-speech
 Em C# para permitir o ditado, invoque a `SpeechConfig.EnableDictation()` função.
 
 ### <a name="fromendpoint-apis"></a>`FromEndpoint` APIs
-| Linguagem | Detalhes da API |
+| Idioma | Detalhes da API |
 |----------|:------------|
 | C++ | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromendpoint" target="_blank">`SpeechConfig::FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | C# | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromendpoint?view=azure-dotnet" target="_blank">`SpeechConfig.FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
@@ -582,7 +582,7 @@ Em C# para permitir o ditado, invoque a `SpeechConfig.EnableDictation()` funçã
 
 ### <a name="fromhost-apis"></a>`FromHost` APIs
 
-| Linguagem | Detalhes da API |
+| Idioma | Detalhes da API |
 |--|:-|
 | C# | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost?view=azure-dotnet" target="_blank">`SpeechConfig.FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | C++ | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromhost" target="_blank">`SpeechConfig::FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: duau
 ms.openlocfilehash: 85e088dda767a6f6c80ac0a9f6eed84e8802e5ee
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401049"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Configure método de encaminhamento MultiValue em Gestor de Tráfego
@@ -62,7 +62,7 @@ Adicione dois endereços IP como pontos finais externos ao perfil de Gestor de T
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
     | Tipo                    | Ponto final externo                                   |
-    | Name           | myEndpoint1                                        |
+    | Nome           | myEndpoint1                                        |
     | Nome de domínio totalmente qualificado (FQDN) ou IP           | Digite o endereço IP público do ponto final que pretende adicionar a este perfil de Gestor de Tráfego                         |
     |        |           |
 
@@ -71,7 +71,7 @@ Adicione dois endereços IP como pontos finais externos ao perfil de Gestor de T
 
    ![Adicionar um ponto final do Gestor de Tráfego](./media/traffic-manager-multivalue-routing-method/add-endpoint.png)
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre o [método de encaminhamento de tráfego ponderado](traffic-manager-configure-weighted-routing-method.md).
 - Saiba mais sobre o [método de encaminhamento prioritário](traffic-manager-configure-priority-routing-method.md).

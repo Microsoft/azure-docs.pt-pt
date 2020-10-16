@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 05/15/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6bc07dc4a46327981c432cf8982f0c3a646fda0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 676b8b6fbb56536ec3a49100f5de1419ac417bb6
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89068920"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91964150"
 ---
 # <a name="use-the-sign-ins-report-to-review-azure-multi-factor-authentication-events"></a>Utilize o relatório de ins- ins para rever eventos de autenticação multi-factor Azure
 

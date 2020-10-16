@@ -9,10 +9,10 @@ ms.date: 04/08/2020
 ms.reviewer: sngun
 ms.custom: seodec18
 ms.openlocfilehash: 4cd0ad1553f04a781349a4664fbb408108015632
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88510288"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Feed de alterações no Azure Cosmos DB
@@ -25,7 +25,7 @@ Saiba mais sobre [mudar padrões de design de feed.](change-feed-design-patterns
 
 Esta funcionalidade é atualmente suportada pelas seguintes APIs DB da Azure Cosmos e SDKs cliente.
 
-| **Controladores do cliente** | **SQL API** | **A API de Azure Cosmos DB para Cassandra** | **API do Azure Cosmos DB para MongoDB** | **API do Gremlin**|**API de Tabela** |
+| **Motoristas de clientes** | **SQL API** | **A API de Azure Cosmos DB para Cassandra** | **API do Azure Cosmos DB para MongoDB** | **API do Gremlin**|**API de Tabela** |
 | --- | --- | --- | --- | --- | --- | --- |
 | .NET | Sim | Sim | Sim | Sim | Não |
 |Java|Sim|Sim|Sim|Sim|Não|

@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: 282ce16c926c61008d0ebd70106b161425a15c9e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 33d110f327a381241fd9dbf55996a6e3f9fd3a43
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89079086"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057982"
 ---
 # <a name="quickstart-create-an-azure-firewall-with-multiple-public-ip-addresses---arm-template"></a>Quickstart: Criar uma Firewall Azure com vários endereços IP públicos - modelo ARM
 
-Neste arranque rápido, você usa um modelo de Gestor de Recursos Azure (modelo ARM) para implementar uma Firewall Azure com vários endereços IP públicos. A firewall implementada tem regras de recolha de regras NAT que permitem ligações RDP a duas máquinas virtuais Do Windows Server 2019.
+Neste arranque rápido, você usa um modelo de Gestor de Recursos Azure (modelo ARM) para implementar uma Firewall Azure com vários endereços IP públicos a partir de um prefixo de endereço IP público. A firewall implementada tem regras de recolha de regras NAT que permitem ligações RDP a duas máquinas virtuais Do Windows Server 2019.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -42,6 +42,7 @@ O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápid
 Os recursos Azure múltiplos são definidos no modelo:
 
 - [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
+- [**Microsoft.Network/publicIPPrefix**](/azure/templates/microsoft.network/publicipprefixes)
 - [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
 - [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)

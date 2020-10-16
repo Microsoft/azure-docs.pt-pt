@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 03/09/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23ce2f02ef96a88b6bf4471377ce97a529dbd1a9
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 88cdad5b2b92d9b7449d93e1abeb09c08df89e7b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706341"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91964762"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Ativar o acesso à chave de segurança sem palavras-passe para os recursos no local com o Azure Ative Directory (pré-visualização)
 
@@ -58,7 +58,7 @@ As organizações também devem cumprir os seguintes requisitos de software.
 O cenário suporta uma única sinstentação (SSO) em ambos os cenários seguintes:
 
 - Para recursos em nuvem como o Microsoft 365 e outras aplicações ativadas pela SAML.
-- Para recursos no local e autenticação integrada do Windows para sites. Os recursos podem incluir sites web e sites SharePoint que requerem autenticação IIS e/ou recursos que utilizam a autenticação NTLM.
+- Para recursos no local e Windows-Integrated autenticação para sites. Os recursos podem incluir sites web e sites SharePoint que requerem autenticação IIS e/ou recursos que utilizam a autenticação NTLM.
 
 ### <a name="unsupported-scenarios"></a>Cenários não suportados
 

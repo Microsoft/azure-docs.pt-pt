@@ -10,10 +10,10 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 09/22/2020
 ms.openlocfilehash: dccdbcb99b32a922d76b29e5896cdf99290758d0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91302456"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>O que é um espaço de trabalho de aprendizagem automática Azure?

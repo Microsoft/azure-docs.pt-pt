@@ -7,10 +7,10 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 0d3074d58560df5cb5bd6bdc2c0437a4be828918
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86499397"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Aplicações de produção de perfis em Azure com Insights de Aplicação
@@ -91,7 +91,7 @@ Métodos como **SqlCommand.Exebonitos** indicam que o código está à espera qu
 
 ### <a name="unmanaged-async"></a>Async não gerido
 
-.Net framework emite eventos ETW e passa ids de atividade entre fios para que as chamadas de async possam ser rastreadas através de threads. O código não gerido (código nativo) e alguns estilos mais antigos de código assíncronos estão a perder estes eventos e ids de atividade, pelo que o profiler não consegue dizer que fio e que funções estão a funcionar no fio. Isto é rotulado como "Async não gerido" na pilha de chamadas. Se descarregar o ficheiro ETW, poderá utilizar o [PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) para obter mais informações sobre o que está a acontecer.
+.Net framework emite eventos ETW e passa ids de atividade entre fios para que as chamadas de async possam ser rastreadas através de threads. O código não gerido (código nativo) e alguns estilos mais antigos de código assíncronos estão a perder estes eventos e ids de atividade, pelo que o profiler não consegue dizer que fio e que funções estão a funcionar no fio. Isto é rotulado como "Async não gerido" na pilha de chamadas. Se descarregar o ficheiro ETW, poderá utilizar o [PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md)  para obter mais informações sobre o que está a acontecer.
 
 ### <a name="cpu-time"></a><a id="cpu"></a>Hora do CPU
 
@@ -119,7 +119,7 @@ Não há encargos para a utilização do serviço Profiler. Para que possa usá-
 
 O profiler funciona aleatoriamente dois minutos a cada hora em cada máquina virtual que hospeda a aplicação que tem o Profiler ativado para capturar vestígios. Quando o Profiler está em execução, adiciona de 5 a 15% de CPU para o servidor.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Ativar o Profiler de Insights de Aplicação para a sua aplicação Azure. Veja também:
 * [Serviços Aplicacionais](profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Cloud Services do Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)

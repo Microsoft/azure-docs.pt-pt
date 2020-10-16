@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 56f266eaba76bb990a4d2bc3d902f4c5911d9c47
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86026190"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Utilizar o Scala e o Spark para Ciência de Dados no Azure
@@ -77,18 +77,18 @@ val beginningTime = Calendar.getInstance().getTime()
 
 Os núcleos spark que são fornecidos com cadernos Jupyter têm contextos predefinidos. Não precisa de definir explicitamente os contextos Spark ou Hive antes de começar a trabalhar com a aplicação que está a desenvolver. Os contextos predefinidos são:
 
-* `sc`para SparkContext
-* `sqlContext`para HiveContext
+* `sc` para SparkContext
+* `sqlContext` para HiveContext
 
 ### <a name="spark-magics"></a>Magias de faíscas
 O kernel Spark fornece algumas "magias" predefinidas, que são comandos especiais com os quais se pode `%%` chamar. Dois destes comandos são usados nas seguintes amostras de código.
 
-* `%%local`especifica que o código nas linhas subsequentes será executado localmente. O código deve ser o código Scala válido.
-* `%%sql -o <variable name>`executa uma consulta de Colmeia contra `sqlContext` . Se o `-o` parâmetro for aprovado, o resultado da consulta é persistido no `%%local` contexto Scala como um quadro de dados spark.
+* `%%local` especifica que o código nas linhas subsequentes será executado localmente. O código deve ser o código Scala válido.
+* `%%sql -o <variable name>` executa uma consulta de Colmeia contra `sqlContext` . Se o `-o` parâmetro for aprovado, o resultado da consulta é persistido no `%%local` contexto Scala como um quadro de dados spark.
 
 Para obter mais informações sobre os núcleos dos cadernos Jupyter e as suas "magias" predefinidas que você chama `%%` (por exemplo, `%%local` ), consulte [Kernels disponível para cadernos Jupyter com clusters HDInsight Spark Linux em HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
-### <a name="import-libraries"></a>Bibliotecas de importação
+### <a name="import-libraries"></a>Importar bibliotecas
 Importe a Faísca, MLlib e outras bibliotecas que você precisará usando o seguinte código.
 
 ```scala

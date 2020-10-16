@@ -10,10 +10,10 @@ ms.date: 02/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma
 ms.openlocfilehash: 8c4944da8ffcaa75e6448483918a29809c32830b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83124062"
 ---
 # <a name="instance-protection-for-azure-virtual-machine-scale-set-instances"></a>Exemplo Proteção para séries de máquinas virtuais Azure conjunto instâncias
@@ -190,5 +190,5 @@ Pode aplicar proteção de instâncias a instâncias definidas após a criação
 ### <a name="not-able-to-apply-instance-protection"></a>Não é capaz de aplicar proteção de instâncias
 A proteção de instâncias só é suportada com a versão API 2019-03-01 ou acima. Verifique se a versão API está a ser utilizada e atualização conforme necessário. Pode também necessitar de atualizar o powerShell ou o CLI para a versão mais recente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba como implementar a [sua aplicação](virtual-machine-scale-sets-deploy-app.md) em conjuntos de escala de máquina virtual.

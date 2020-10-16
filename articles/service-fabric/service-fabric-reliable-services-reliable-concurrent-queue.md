@@ -4,10 +4,10 @@ description: ReliableConcurrentQueue é uma fila de alta produção que permite 
 ms.topic: conceptual
 ms.date: 5/1/2017
 ms.openlocfilehash: 423ef3d1898176d7c25c596ad186a9c000108aa4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86257453"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Introdução à ReliableConcurrentQueue em Tecido de Serviço Azure
@@ -215,7 +215,7 @@ while(!cancellationToken.IsCancellationRequested)
 }
 ```
 
-### <a name="best-effort-notification-based-processing"></a>Processamento baseado em notificação de melhor esforço
+### <a name="best-effort-notification-based-processing"></a>Processamento Best-Effort Notification-Based
 Outro padrão de programação interessante usa a API conde. Aqui, podemos implementar o processamento baseado em notificação de melhor esforço para a fila. O Conde de fila pode ser usado para acelerar uma enqueue ou uma tarefa de dequeue.  Note que, tal como no exemplo anterior, uma vez que o processamento ocorre fora da transação, os itens não transformados podem ser perdidos se ocorrer uma falha durante o processamento.
 
 ```
@@ -263,7 +263,7 @@ while(!cancellationToken.IsCancellationRequested)
 }
 ```
 
-### <a name="best-effort-drain"></a>Drenagem de melhor esforço
+### <a name="best-effort-drain"></a>Dreno Best-Effort
 Um dreno da fila não pode ser garantido devido à natureza simultânea da estrutura de dados.  É possível que, mesmo que nenhuma operação de utilizador na fila esteja a bordo, uma chamada particular para TryDequeueAsync não pode devolver um item que foi previamente encadeado e comprometido.  O item enqueia o facto *de eventualmente* se tornar visível para dequear, no entanto, sem um mecanismo de comunicação fora de banda, um consumidor independente não pode saber que a fila atingiu um estado estável, mesmo que todos os produtores tenham sido parados e não sejam permitidas novas operações de enqueue. Assim, a operação de drenagem é o melhor esforço implementado abaixo.
 
 O utilizador deve parar todas as outras tarefas de produtor e consumidor e aguardar que quaisquer transações a bordo cometam ou abortem, antes de tentar drenar a fila.  Se o utilizador souber o número esperado de itens na fila, pode configurar uma notificação que indique que todos os itens foram desoquedos.

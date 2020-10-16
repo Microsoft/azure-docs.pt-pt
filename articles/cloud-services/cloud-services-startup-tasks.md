@@ -7,12 +7,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
-ms.openlocfilehash: fa48953e5e86ffa758fe556b7fb1072be9d74647
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2417389de98f9998c189e7cbbbcdae77fbb8840
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75360315"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075064"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Como configurar e executar tarefas de arranque para um serviço de cloud
 Pode utilizar tarefas de arranque para executar operações antes de começar uma função. As operações que poderá querer realizar incluem a instalação de um componente, o registo de componentes com COM, a definição de chaves de registo ou o início de um longo processo de funcionamento.
@@ -148,19 +148,16 @@ Por exemplo, para criar uma variável ambiental que é "**verdadeira**" quando a
 </Startup>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba como executar algumas [tarefas comuns de arranque](cloud-services-startup-tasks-common.md) com o seu Serviço Cloud.
 
 [Embale](cloud-services-model-and-package.md) o seu Serviço cloud.  
 
 [ServiçoDefinition.csdef]: cloud-services-model-and-package.md#csdef
-[Tarefa]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
-[Arranque]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
-[Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
-[Ambiente]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
-[Variável]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
-[RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
-[RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
-
-
-
+[Tarefa]: /previous-versions/azure/reference/gg557552(v=azure.100)#Task
+[Arranque]: /previous-versions/azure/reference/gg557552(v=azure.100)#Startup
+[Runtime]: /previous-versions/azure/reference/gg557552(v=azure.100)#Runtime
+[Environment]: /previous-versions/azure/reference/gg557552(v=azure.100)#Environment
+[Variável]: /previous-versions/azure/reference/gg557552(v=azure.100)#Variable
+[RoleInstanceValue]: /previous-versions/azure/reference/gg557552(v=azure.100)#RoleInstanceValue
+[RoleEnvironment]: /previous-versions/azure/reference/ee773173(v=azure.100)

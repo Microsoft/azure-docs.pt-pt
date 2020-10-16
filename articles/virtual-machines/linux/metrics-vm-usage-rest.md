@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 06/13/2018
 ms.author: routlaw
 ms.openlocfilehash: 925246eb2adae59ca74e363c4d4a6952f11c3744
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87292323"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>Obtenha métricas de utilização da Máquina Virtual utilizando a API REST
@@ -36,7 +36,7 @@ Os seguintes cabeçalhos são obrigatórios:
 |Cabeçalho do pedido|Descrição|  
 |--------------------|-----------------|  
 |*Content-Type:*|Necessário. Definido como `application/json`.|  
-|*Authorization:*|Necessário. Definido como um  [token de acesso `Bearer`](/rest/api/azure/#authorization-code-grant-interactive-clients) válido. |  
+|*Authorization:*|Necessário. Definido como um [token de acesso `Bearer` ](/rest/api/azure/#authorization-code-grant-interactive-clients) válido. |  
 
 ### <a name="uri-parameters"></a>Parâmetros URI
 
@@ -45,7 +45,7 @@ Os seguintes cabeçalhos são obrigatórios:
 | subscriptionId | O ID de subscrição que identifica uma subscrição do Azure. Se tiver várias subscrições, consulte [Trabalhar com várias subscrições](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | resourceGroupName | O nome do grupo de recursos Azure associado ao recurso. Pode obter este valor a partir da Azure Resource Manager API, CLI ou do portal. |
 | vmname | O nome da Máquina Virtual Azure. |
-| métricas | Lista separada por vírgulas de [métricas válidas do Balanceador](../../load-balancer/load-balancer-standard-diagnostics.md)de Carga . |
+| métricas | Lista separada por vírgulas de  [métricas válidas do Balanceador](../../load-balancer/load-balancer-standard-diagnostics.md)de Carga . |
 | api-version | A versão API a utilizar para o pedido.<br /><br /> Este documento abrange a versão `2018-01-01` api, incluída no URL acima.  |
 | timespan | String com o seguinte formato `startDateTime_ISO/endDateTime_ISO` que define o intervalo de tempo das métricas devolvidas. Este parâmetro opcional está definido para devolver um dia de dados no exemplo. |
 | &nbsp; | &nbsp; |

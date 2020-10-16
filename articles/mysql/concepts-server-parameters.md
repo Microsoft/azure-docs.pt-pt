@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
 ms.openlocfilehash: 5415446e0211618cfbee917d0df91213d68b7097
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91627351"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parâmetros do servidor na Base de Dados Azure para o MySQL

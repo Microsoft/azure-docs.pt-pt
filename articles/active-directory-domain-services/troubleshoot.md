@@ -2,7 +2,7 @@
 title: Azure Ative Directory Domain Services resolução de problemas Microsoft Docs'
 description: Saiba como resolver erros comuns quando cria ou gere os Serviços de Domínio do Diretório Ativo do Azure
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 7642a32ce69dbbbb5ddebbe56b74f3202b2e6422
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.author: joflore
+ms.openlocfilehash: 9593fe71fc4a29678d58d7c67699210a4a39f95e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039573"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967380"
 ---
 # <a name="common-errors-and-troubleshooting-steps-for-azure-active-directory-domain-services"></a>Erros comuns e etapas de resolução de problemas para os serviços de domínio do diretório ativo Azure
 
@@ -167,7 +167,7 @@ A conta de utilizador permanece no estado desativado no domínio gerido, mesmo q
 
 Para remover totalmente uma conta de utilizador de um domínio gerido, elimine o utilizador permanentemente do seu inquilino AD Azure utilizando o cmdlet [Remove-MsolUser][Remove-MsolUser] PowerShell com o `-RemoveFromRecycleBin` parâmetro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se continuar a ter problemas, abra um pedido de [apoio ao Azure][azure-support] para assistência adicional à resolução de problemas.
 

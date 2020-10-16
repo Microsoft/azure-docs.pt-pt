@@ -12,10 +12,10 @@ ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
 ms.openlocfilehash: f14bcc1b0576a5ad2f4dbbf30311f613607d3ee5
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89322335"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Tutorial: Use a Visão de Computador para gerar metadados de imagem no Armazenamento Azure
@@ -144,7 +144,7 @@ Se quiser continuar a trabalhar na sua aplicação web, consulte a secção [eta
 
 Para eliminar o grupo de recursos, abra o separador **Grupos de Recursos** no portal, navegue para o grupo de recursos utilizado para este projeto e clique em Eliminar grupo de **recursos** na parte superior da vista. Ser-lhe-á pedido que escreva o nome do grupo de recursos para confirmar que pretende eliminá-lo, porque uma vez eliminado, um grupo de recursos não pode ser recuperado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou o serviço de Visão de Computador do Azure numa aplicação web existente para gerar automaticamente legendas e palavras-chave para imagens blob à medida que são carregadas. Em seguida, consulte o Azure Storage Lab, Exercício 6, para aprender a adicionar funcionalidade de pesquisa à sua aplicação web. Isto tira partido das palavras-chave de pesquisa que o serviço de Visão de Computador gera.
 

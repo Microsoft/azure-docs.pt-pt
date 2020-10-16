@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 714e4484c71b995bee186a2d94dc45c7ff82c50d
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87909207"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>E-mail autenticação de código de acesso único (pré-visualização)
@@ -71,7 +71,7 @@ Pode levar alguns minutos para que a ação de opt-in entre em vigor. Depois dis
 1.  Inscreva-se no [portal Azure](https://portal.azure.com/) como administrador global da Azure AD.
 2.  No painel de navegação, selecione **Azure Ative Directory**.
 3.  Selecione **identidades externas**  >  **Definições de colaboração externa .**
-5.  Em **Enable Email One-Time Passcode para os hóspedes (Pré-visualização)**, selecione **Sim**.
+5.  Em **Enable Email One-Time Código de Acesso para os hóspedes (Pré-visualização)**, selecione **Sim**.
  
 ### <a name="to-opt-in-using-powershell"></a>Optar pela utilização do PowerShell
 
@@ -137,7 +137,7 @@ Pode levar alguns minutos para que a ação de opt-out entre em vigor. Se desati
 1.  Inscreva-se no [portal Azure](https://portal.azure.com/) como administrador global da Azure AD.
 2.  No painel de navegação, selecione **Azure Ative Directory**.
 3.  Selecione **identidades externas**  >  **Definições de colaboração externa .**
-5.  Em **Enable Email One-Time Passcode for guests (Preview)**, selecione **No**.
+5.  Em **Enable Email One-Time Código de Acesso para os hóspedes (Pré-visualização)**, selecione **Nº**.
 
 ### <a name="to-turn-off-the-preview-using-powershell"></a>Para desativar a pré-visualização usando o PowerShell
 Instale o mais recente módulo AzureADPreview se ainda não o tiver (ver [Pré-requisito: Instale o mais recente módulo AzureADPreview](#prerequisite-install-the-latest-azureadpreview-module) acima). Em seguida, verifique se a política de pré-visualização de código de acesso único existe atualmente executando o seguinte:

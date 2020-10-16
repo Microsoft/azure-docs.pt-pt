@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: dech
 ms.openlocfilehash: 66eee67ae191d764228a85aaf1e63eae43208cc3
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91537740"
 ---
 # <a name="tutorial-use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Tutorial: Utilizar a ferramenta de Migração de dados para migrar os dados para o Azure Cosmos DB
@@ -527,7 +527,7 @@ No ecrã de configuração Avançada, especifique a localização do ficheiro de
 
     :::image type="content" source="./media/import-data/newimport.png" alt-text="Captura de ecrã das opções de origem de ficheiro JSON - ferramentas de migração de bases de dados":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, fez as seguintes tarefas:
 

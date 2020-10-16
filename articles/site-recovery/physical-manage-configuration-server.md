@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
 ms.openlocfilehash: ff612b7c052ead5658ea4bbfafd7aace51ba3c02
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86132501"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gerir o servidor de configuração para recuperação de desastres de servidor físico
@@ -33,13 +33,13 @@ A tabela resume os pré-requisitos para a implantação da máquina de servidor 
 | Espaço livre no disco (disco de retenção) | 600 GB|
 | Sistema operativo  | Windows Server 2012 R2 <br> Windows Server 2016 |
 | Região do sistema operativo | Inglês (E.U.A.)|
-| Versão do VMware vSphere PowerCLI | Não é necessária|
+| Versão do VMware vSphere PowerCLI | não é necessário|
 | Funções do Windows Server | Não ative estes papéis: <br> - Active Directory Domain Services <br>- Serviços de Informação da Internet <br> - Hyper-V |
 | Políticas de grupo| Não ative estas políticas de grupo: <br> - Impedir o acesso à solicitação de comando <br> - Impedir o acesso a ferramentas de edição de registos <br> - Lógica de confiança para anexos de ficheiros <br> - Ligue a execução do guião <br> [Saiba mais](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))|
-| IIS | - Nenhum website pre-existente <br> - Ativar [a autenticação anónima](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br> - Ativar a definição [fastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10))  <br> - Nenhum website/aplicação pré-existente na porta 443<br>|
+| IIS | - Nenhum website pre-existente <br> - Ativar  [a autenticação anónima](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br> - Ativar a definição [fastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10))  <br> - Nenhum website/aplicação pré-existente na porta 443<br>|
 | Tipo NIC | VMXNET3 (quando implementado como VMware VM) |
 | Tipo de endereço IP | Estático |
-| Acesso à Internet | O servidor precisa de acesso a estes URLs: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - `https://management.azure.com` <br> - services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi(não é necessário para servidores de processos de escala) <br> - time.nist.gov <br> - time.windows.com |
+| Acesso à Internet | O servidor precisa de acesso a estes URLs: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - `https://management.azure.com` <br> - services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (não é necessário para servidores de processos de escala) <br> - time.nist.gov <br> - time.windows.com |
 | Portas | 443 (Canal de controlo e orquestração)<br>9443 (Transporte de dados)|
 
 ## <a name="download-the-latest-installation-file"></a>Descarregue o mais recente ficheiro de instalação
@@ -288,7 +288,7 @@ Atualize o servidor da seguinte forma:
     `Remove-AzSiteRecoveryFabric -Fabric $Fabric [-Force]`
 
 > [!NOTE]
-> A opção **-Force** no Remove-AzSiteRecoveryFabric pode ser utilizada para forçar a remoção/eliminação do servidor de configuração.
+> A opção **-Força** no Remove-AzSiteRecoveryFabric pode ser usada para forçar a remoção/eliminação do servidor de Configuração.
 
 ## <a name="renew-tlsssl-certificates"></a>Renovar certificados TLS/SSL
 O servidor de configuração tem um servidor web incorporado, que orquestra atividades do serviço mobility, servidores de processo e servidores-alvo principais ligados a ele. O servidor web utiliza um certificado TLS/SSL para autenticar clientes. O certificado expira após três anos, e pode ser renovado a qualquer momento.
@@ -313,6 +313,6 @@ Para implementações de servidores de configuração antes de maio de 2016, a e
 ## <a name="common-issues"></a>Problemas comuns
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Reveja os tutoriais para configurar a recuperação de desastres de [servidores físicos](./physical-azure-disaster-recovery.md) para Azure.

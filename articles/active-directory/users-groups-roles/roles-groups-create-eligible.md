@@ -14,10 +14,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 07dc11877b38e830d90f544f1d7524b378bf5902
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90053757"
 ---
 # <a name="create-a-role-assignable-group-in-azure-active-directory"></a>Criar um grupo atribuível a funções no Azure Ative Directory
@@ -124,7 +124,7 @@ POST https://graph.microsoft.com/beta/groups
 
 Para este tipo de grupo, `isPublic` será sempre falso e será sempre `isSecurityEnabled` verdade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atribuir um papel a um grupo de nuvens](roles-groups-assign-role.md)
 - [Use grupos de nuvem para gerir atribuições de funções](roles-groups-concept.md)

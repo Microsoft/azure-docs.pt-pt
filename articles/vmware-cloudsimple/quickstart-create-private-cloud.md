@@ -10,17 +10,17 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 487308aca3231650aee3fac5ae127006649e19b9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87073906"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Quickstart - Configurar um ambiente private Cloud
 
 Neste artigo, aprenda a criar uma CloudSimple Private Cloud e crie o seu ambiente Private Cloud.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Rever [pré-requisitos de rede.](cloudsimple-network-checklist.md)
 
@@ -58,13 +58,13 @@ Nuvens Privadas são geridas através do portal CloudSimple. Têm o seu próprio
 
 11. Clique **em seguida: Reveja e crie**.
 12. Reveja as definições. Se precisar de alterar quaisquer definições, clique em **Anterior**.
-13. Clique em **Create** (Criar).
+13. Clique em **Criar**.
 
 O processo de provisionamento de nuvens privadas começa.  Pode levar até duas horas para que a Nuvem Privada seja a provisionada.
 
 ## <a name="launch-cloudsimple-portal"></a>Lançar portal CloudSimple
 
-Pode aceder ao portal CloudSimple a partir do portal Azure.  O portal CloudSimple será lançado com o seu sinal de Azure em credenciais utilizando O Sign-On Único (SSO).  Aceder ao portal CloudSimple requer que autorize a aplicação **de Autorização de Serviço CloudSimple.**  Para obter mais informações sobre a concessão de permissões, consulte [o pedido de Autorização de Serviço Consent to CloudSimple](access-cloudsimple-portal.md#consent-to-cloudsimple-service-authorization-application).
+Pode aceder ao portal CloudSimple a partir do portal Azure.  O portal CloudSimple será lançado com o seu sinal de Azure em credenciais utilizando Sign-On Single (SSO).  Aceder ao portal CloudSimple requer que autorize a aplicação **de Autorização de Serviço CloudSimple.**  Para obter mais informações sobre a concessão de permissões, consulte [o pedido de Autorização de Serviço Consent to CloudSimple](access-cloudsimple-portal.md#consent-to-cloudsimple-service-authorization-application).
 
 1. Selecione **Todos os serviços**.
 2. Procure por **Serviços CloudSimple**.
@@ -101,7 +101,7 @@ Uma ligação VPN ponto-a-local é a forma mais simples de ligar à sua Nuvem Pr
 
     * As opções **de adicionar automaticamente** definem a política global para este gateway. As definições aplicam-se ao gateway atual. As definições podem ser ultrapassadas na área **Select.**
     * **Selecione Adicionar VLANs/Subnets de Nuvens Privadas .**
-    * Para adicionar todos os VLANs/subnets definidos pelo utilizador, clique em **Adicionar VLANs/Subnets definidos pelo utilizador**.
+    * Para adicionar todos os VLANs/subnets definidos pelo utilizador, clique em  **Adicionar VLANs/Subnets definidos pelo utilizador**.
     * As definições **Select** sobrepõem-se às definições globais em **adicionar automaticamente**.
 
 7. Clique **em Seguinte** para rever as definições. Clique nos ícones editar para escoar quaisquer alterações.
@@ -159,7 +159,7 @@ Agora pode iniciar sôms no vCenter para configurar máquinas e políticas virtu
     ![Lançamento vSphere Cliente](media/launch-vcenter-from-cloudsimple-portal.png)
 
 2. Selecione o seu cliente vSphere preferido para aceder ao vCenter e iniciar sôr-se com o seu nome de utilizador e senha.  Os predefinidos são:
-    * Nome do utilizador:`CloudOwner@cloudsimple.local`
+    * Nome do utilizador: `CloudOwner@cloudsimple.local`
     * Palavra-passe: `CloudSimple123!`
 
 Os ecrãs vCenter nos próximos procedimentos são do cliente vSphere (HTML5).

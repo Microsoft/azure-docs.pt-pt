@@ -11,10 +11,10 @@ ms.custom:
 - device-developer
 - iot-edge
 ms.openlocfilehash: 5c51649e742f6e314e0e324ae19c38f1a83b02ee
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90016865"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Ligar dispositivos Azure IoT Edge a uma aplicação do Azure IoT Central
@@ -75,6 +75,6 @@ IoT Central modela um dispositivo IoT Edge da seguinte forma:
 
 Se selecionou um dispositivo IoT Edge para ser um dispositivo de gateway, pode adicionar relações a jusante aos modelos de capacidade do dispositivo para dispositivos que pretende ligar ao dispositivo gateway.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se você é um desenvolvedor de dispositivos, um próximo passo sugerido é aprender sobre [os tipos de dispositivos gateway na IoT Central](./tutorial-define-gateway-device-type.md).

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 6c27c78bf8e3f3b8af342a14a38c9be3821d781a
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91758668"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Aplicações web de instrumentos em tempo de execução com App Insights Codeless Attach
@@ -40,14 +40,14 @@ Segue-se um resumo do que pode usufruir:
 
 |  | Hora da compilação | Tempo de execução |
 | --- | --- | --- |
-| **Pedidos & exceções** |Yes |Yes |
-| **[Exceções mais detalhadas](./asp-net-exceptions.md)** | |Yes |
+| **Pedidos & exceções** |Sim |Sim |
+| **[Exceções mais detalhadas](./asp-net-exceptions.md)** | |Sim |
 | **[Diagnóstico de dependência](./asp-net-dependencies.md)** |Em .NET 4.6+, mas com menos detalhe |Sim, detalhe completo: códigos de resultado, texto do comando do SQL, verbo HTTP|
-| **[Contadores de desempenho do sistema](./performance-counters.md)** |Yes |Yes |
-| **[API para telemetria personalizada][api]** |Yes |No |
-| **[Integração de registo de rastreio](./asp-net-trace-logs.md)** |Yes |No |
-| **[Visualização da página & dados do utilizador](./javascript.md)** |Yes |No |
-| **É necessário reprogramar o código** |Yes | No |
+| **[Contadores de desempenho do sistema](./performance-counters.md)** |Sim |Sim |
+| **[API para telemetria personalizada][api]** |Sim |Não |
+| **[Integração de registo de rastreio](./asp-net-trace-logs.md)** |Sim |Não |
+| **[Visualização da página & dados do utilizador](./javascript.md)** |Sim |Não |
+| **É necessário reprogramar o código** |Sim | Não |
 
 
 

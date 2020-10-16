@@ -15,10 +15,10 @@ manager: mflasko
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 07/20/2020
 ms.openlocfilehash: 901693c512ddfcf5d3c4dafaec71b1606b5dc5f1
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89077854"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Run an SSIS package with the Execute SSIS Package activity in Azure Data Factory (Executar um pacote do SSIS com a atividade Executar Pacote do SSIS no Azure Data Factory)
@@ -251,7 +251,7 @@ No **separador Gestores** de Ligação da atividade do Pacote SSIS, complete os 
 
       Por exemplo, sem modificar o seu pacote original em SSDT, pode converter os seus fluxos de dados no local para as instalações que funcionam no SQL Server em fluxos de dados em nuvem em funcionamento no SSIS IR em ADF, sobressaltando os valores das propriedades da **ConnectByProxy,** **ConnectionString**e **ConnectUsingManagedIdentity** em gestores de conexão existentes no tempo de execução.
       
-      Estas sobreposições de tempo de execução podem permitir o IR auto-hospedado (SHIR) como um representante para o SSIS IR ao aceder aos dados nas instalações, ver [Configurar o SHIR como um proxy para as](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)ligações SSIS IR , e Azure SQL Database/Managed Instance utilizando o mais recente controlador MSOLEDBSQL que, por sua vez, permite a autenticação do Azure Ative Directory (AAD) com identidade gerida pela ADF, ver [autenticação AAD configurada com identidade gerida pela ADF para ligações OLEDB](https://docs.microsoft.com/sql/integration-services/connection-manager/ole-db-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication).
+      Estas sobreposições de tempo de execução podem permitir Self-Hosted IR (SHIR) como representante do SSIS IR ao aceder aos dados nas instalações, ver [Configurar o SHIR como um proxy para as](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)ligações SSIS IR , e Azure SQL Database/Managed Instance utilizando o mais recente controlador MSOLEDBSQL que, por sua vez, permite a autenticação do Azure Ative Directory (AAD) com identidade gerida pela ADF, ver [autenticação AAD configurada com identidade gerida pela ADF para ligações OLEDB](https://docs.microsoft.com/sql/integration-services/connection-manager/ole-db-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication).
 
       ![Definir propriedades a partir de SSDT no separador Gestores de Ligação](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers2.png)
    

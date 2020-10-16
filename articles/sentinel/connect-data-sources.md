@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
 ms.openlocfilehash: c1df52f027c23b2e3618ad17494b06c2ccecfaf6
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91627147"
 ---
 # <a name="connect-data-sources"></a>Ligar a origens de dados
@@ -131,7 +131,7 @@ Em alternativa, pode colocar o agente manualmente num VM Azure existente, num VM
 ## <a name="map-data-types-with-azure-sentinel-connection-options"></a>Mapear tipos de dados com as opções de ligação do Azure Sentinel
 
 
-| **Tipo de dados** | **Como se ligar** | **Conector de dados?** | **Comentários** |
+| **Tipo de dados** | **Como ligar** | **Conector de dados?** | **Comentários** |
 |------|---------|-------------|------|
 | AWSCloudTrail | [Ligar o AWS](connect-aws.md) | &#10003; | |
 | AzureActivity | Ligar a atividade e [os registos de atividades do](../azure-monitor/platform/platform-logs-overview.md) [Azure](connect-azure-activity.md)| &#10003; | |

@@ -7,10 +7,10 @@ author: kanshiG
 ms.author: govindk
 ms.date: 04/07/2020
 ms.openlocfilehash: 9c266e42804a12403e446bf024e93fe879497570
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91803267"
 ---
 # <a name="how-to-monitor-the-server-side-latency-for-operations-in-an-azure-cosmos-db-container-or-account"></a>Como monitorizar a latência do lado do servidor para operações num contentor ou conta DB da Azure Cosmos

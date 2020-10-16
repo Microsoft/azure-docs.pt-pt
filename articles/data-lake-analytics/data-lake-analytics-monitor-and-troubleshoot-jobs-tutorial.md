@@ -7,10 +7,10 @@ ms.assetid: b7066d81-3142-474f-8a34-32b0b39656dc
 ms.topic: troubleshooting
 ms.date: 12/05/2016
 ms.openlocfilehash: 5445ad61295be3637005ead734cc31126c88a440
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132080"
 ---
 # <a name="monitor-jobs-in-azure-data-lake-analytics-using-the-azure-portal"></a>Monitorizar tarefas no Azure Data Lake Analytics com o Portal do Azure
@@ -42,7 +42,7 @@ ms.locfileid: "87132080"
 
 6. Clique **em Script Duplicado**.
 
-7. Atualize o caminho **FROM** para:`/Samples/Data/SearchLog.tsv`
+7. Atualize o caminho **FROM** para: `/Samples/Data/SearchLog.tsv`
 
 8. Clique em **Submeter Tarefa**.
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 3/27/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 2116b5be4c5d40076aae10ecc2e81d73e7806e6d
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89419508"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Como fazer o back up e restaurar um servidor na Base de Dados Azure para o MySQL utilizando o Azure CLI
@@ -127,7 +127,7 @@ Após o fim do processo de restauro, localize o novo servidor e verifique se os 
 
 O novo servidor criado durante uma restauração não possui os pontos finais do serviço VNet que existiam no servidor original. Estas regras têm de ser configuradas separadamente para este novo servidor. As regras de firewall do servidor original são restauradas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre as [cópias](concepts-backup.md) de segurança do serviço
 - Saiba mais [sobre réplicas](concepts-read-replicas.md)
 - Saiba mais sobre opções [de continuidade de negócios](concepts-business-continuity.md)

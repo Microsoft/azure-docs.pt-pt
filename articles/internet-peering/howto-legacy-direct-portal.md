@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 496774f034c861131624b552b1acefca9f399ea8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84700268"
 ---
 # <a name="convert-a-legacy-direct-peering-to-an-azure-resource-by-using-the-azure-portal"></a>Converter um legado Espreitar diretamente para um recurso Azure utilizando o portal Azure
@@ -21,7 +21,7 @@ Este artigo descreve como converter um legado existente Espreitando diretamente 
 
 Se preferir, pode completar este guia utilizando [o PowerShell](howto-legacy-direct-powershell.md).
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 * Reveja os [pré-requisitos](prerequisites.md) e o [passo de observação direto](walkthrough-direct-all.md) antes de iniciar a configuração.
 
 
@@ -68,6 +68,6 @@ Como Fornecedor de Serviços de Internet, pode converter ligações de observaç
 
 Para obter mais informações, consulte [as PERGUNTAS Frequentes de Observação da Internet.](faqs.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar ou modificar um espreitamento direto utilizando o portal](howto-direct-portal.md)

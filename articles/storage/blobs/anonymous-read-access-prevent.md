@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/02/2020
+ms.date: 10/09/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 0ed8b04353c50bff53d074ebdb1efa2a286c8e59
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 3d843440adc61b315616a05f223c5a13ebe271ed
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086577"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91930837"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Impedir que o público anónimo leia o acesso a contentores e bolhas
 
@@ -59,7 +59,7 @@ Siga estes passos para criar uma métrica que rastreie pedidos anónimos:
 
 Depois de configurar a métrica, os pedidos anónimos começarão a aparecer no gráfico. A imagem que se segue mostra pedidos anónimos agregados ao longo dos últimos 30 minutos.
 
-:::image type="content" source="media/anonymous-read-access-prevent/metric-anonymous-blob-requests.png" alt-text="Screenshot mostrando pedidos anónimos agregados contra o armazenamento blob":::
+:::image type="content" source="media/anonymous-read-access-prevent/metric-anonymous-blob-requests.png" alt-text="Screenshot mostrando como configurar métrica para sum blob transações":::
 
 Também pode configurar uma regra de alerta para notificá-lo quando um certo número de pedidos anónimos são feitos contra a sua conta de armazenamento. Para obter mais informações, consulte [Criar, ver e gerir alertas métricos utilizando o Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
 
@@ -70,6 +70,9 @@ Os registos de armazenamento Azure captam detalhes sobre pedidos feitos contra a
 Para registar pedidos na sua conta de Armazenamento Azure para avaliar pedidos anónimos, pode utilizar o registo de armazenamento Azure no Azure Monitor (pré-visualização). Para obter mais informações, consulte [monitor Azure Storage](../common/monitor-storage.md).
 
 O registo de armazenamento Azure no Azure Monitor suporta a utilização de consultas de registo para analisar dados de registo. Para consultar registos, pode utilizar um espaço de trabalho Azure Log Analytics. Para saber mais sobre consultas de log, consulte [Tutorial: Começar com consultas de Log Analytics](../../azure-monitor/log-query/get-started-portal.md).
+
+> [!NOTE]
+> A pré-visualização do registo de armazenamento Azure no Azure Monitor é suportada apenas na nuvem pública do Azure. As nuvens governamentais não suportam o registo de madeira para o Azure Storage com o Azure Monitor.
 
 #### <a name="create-a-diagnostic-setting-in-the-azure-portal"></a>Criar uma definição de diagnóstico no portal Azure
 
@@ -85,7 +88,7 @@ Para registar os dados de Armazenamento Azure com o Azure Monitor e analisá-los
 1. Em **detalhes de categoria**, na secção de **registo,** escolha quais os tipos de pedidos para registar. Todos os pedidos anónimos serão lidos pedidos, por isso selecione **StorageRead** para capturar pedidos anónimos.
 1. Nos **detalhes do Destino**, selecione Enviar para Registar **Analítico**. Selecione a sua subscrição e o espaço de trabalho Log Analytics que criou anteriormente, como mostrado na imagem seguinte.
 
-    :::image type="content" source="media/anonymous-read-access-prevent/create-diagnostic-setting-logs.png" alt-text="Screenshot mostrando como criar uma definição de diagnóstico para pedidos de registo":::
+    :::image type="content" source="media/anonymous-read-access-prevent/create-diagnostic-setting-logs.png" alt-text="Screenshot mostrando como configurar métrica para sum blob transações":::
 
 Depois de criar a definição de diagnóstico, os pedidos para a conta de armazenamento são subsequentemente registados de acordo com essa definição. Para obter mais informações, consulte [Criar a definição de diagnóstico para recolher registos e métricas de recursos em Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
@@ -241,7 +244,7 @@ Para ver o relatório de conformidade no portal Azure, siga estes passos:
 1. Filtrar os resultados para o nome da atribuição de política que criou no passo anterior. O relatório mostra quantos recursos não estão em conformidade com a política.
 1. Pode aprofundar o relatório para obter mais detalhes, incluindo uma lista de contas de armazenamento que não estão em conformidade.
 
-    :::image type="content" source="media/anonymous-read-access-prevent/compliance-report-policy-portal.png" alt-text="Screenshot mostrando relatório de conformidade para a política de auditoria para o acesso público blob":::
+    :::image type="content" source="media/anonymous-read-access-prevent/compliance-report-policy-portal.png" alt-text="Screenshot mostrando como configurar métrica para sum blob transações":::
 
 ## <a name="use-azure-policy-to-enforce-authorized-access"></a>Use a Política Azure para impor o acesso autorizado
 
@@ -277,7 +280,7 @@ Depois de criar a política com o efeito Deny e atribuí-la a um âmbito, um uti
 
 A imagem a seguir mostra o erro que ocorre se tentar criar uma conta de armazenamento que permita o acesso do público (o padrão para uma nova conta) quando uma política com efeito Deny requer que o acesso público seja proibido.
 
-:::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Screenshot mostrando o erro que ocorre ao criar uma conta de armazenamento em violação da política":::
+:::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Screenshot mostrando como configurar métrica para sum blob transações":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

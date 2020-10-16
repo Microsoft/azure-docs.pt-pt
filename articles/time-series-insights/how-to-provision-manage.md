@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18
 ms.openlocfilehash: e54e8e9de1df4c8a1c870285d36e4580daaa698a
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91667831"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-gen2"></a>Provisão e gestão da Azure Time Series Insights Gen2
@@ -101,7 +101,7 @@ Pode gerir o seu ambiente Azure Time Series Insights Gen2 utilizando o portal Az
 
 [![Azure Time Series Insights Gen2 ambiente no portal Azure](media/v2-update-manage/create-and-manage-overview-confirm.png)](media/v2-update-manage/create-and-manage-overview-confirm.png#lightbox)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre a Azure Time Series Insights geralmente disponíveis ambientes e ambientes Gen2 lendo [Planeie o seu ambiente](./time-series-insights-update-plan.md).
 

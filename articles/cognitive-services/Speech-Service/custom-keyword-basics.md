@@ -12,13 +12,13 @@ ms.date: 10/02/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
 ms.openlocfilehash: f2f333cd01057ff5f6f904924880f88b0685c72f
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91667698"
 ---
-# <a name="get-started-with-custom-keyword"></a>Começar com a palavra-chave personalizada
+# <a name="get-started-with-custom-keyword"></a>Introdução à Palavra-passe Personalizada
 
 Neste arranque rápido, aprende-se o básico de trabalhar com palavras-chave personalizadas, utilizando o Speech Studio e o Speech SDK. Uma palavra-chave é uma palavra ou frase curta que permite ativar a voz do seu produto. Crias modelos de palavras-chave no Speech Studio e depois exportas um ficheiro modelo que usas com o Speech SDK nas tuas aplicações.
 
@@ -84,6 +84,6 @@ KeywordRecognitionResult result = await keywordRecognizer.RecognizeOnceAsync(key
 > [!NOTE]
 > O exemplo aqui mostrado utiliza o reconhecimento de palavras-chave locais, uma vez que não requer um `SpeechConfig` objeto para o contexto de autenticação, e não contacta o back-end. No entanto, pode executar reconhecimento e verificação de [palavras-chave utilizando uma ligação contínua de back-end](https://docs.microsoft.com/azure/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk#view-the-source-code-that-enables-keyword).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Teste a sua palavra-chave personalizada com os [dispositivos de fala SDK Quickstart](https://aka.ms/sdsdk-quickstart).

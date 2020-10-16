@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-java
 ms.date: 11/20/2019
 ms.openlocfilehash: 15a86fd191eefc5882150fb276228d18efd6ff5d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87323796"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Use um Java UDF com Colmeia Apache em HDInsight
@@ -273,4 +273,4 @@ $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
 
 Para outras formas de trabalhar com a Colmeia, consulte [Use Apache Hive com HDInsight](hdinsight-use-hive.md).
 
-Para obter mais informações sobre as funções definidas pelo utilizador da Colmeia, consulte os operadores de colmeia Apache e a secção de [Funções Definidas](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) pelo Utilizador da Colmeia wiki em apache.org.
+Para obter mais informações sobre as Funções User-Defined da Colmeia, consulte [os Operadores de Colmeia Apache e a](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) secção User-Defined Funções da Colmeia wiki em apache.org.

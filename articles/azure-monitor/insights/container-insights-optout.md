@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/19/2019
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: af5f49dfe5e668f39f105a62ad20858e273b34cb
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87489491"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Como parar a monitorização do Azure Kubernetes Service (AKS) com o Azure Monitor para contentores
@@ -90,7 +90,7 @@ Se optar por utilizar o Azure CLI, primeiro tem de instalar e utilizar o CLI loc
     }
     ```
 
-2. Guarde este ficheiro à medida **queOptOutTemplate.jsnuma** pasta local.
+2. Guarde este ficheiro à medida ** queOptOutTemplate.jsnuma** pasta local.
 
 3. Cole a seguinte sintaxe JSON no seu ficheiro:
 
@@ -124,7 +124,7 @@ Se optar por utilizar o Azure CLI, primeiro tem de instalar e utilizar o CLI loc
 
     Editar os **valores para aksResourceTagValues** para corresponder aos valores de etiqueta existentes especificados para o cluster AKS.
 
-5. Guarde este ficheiro à medida **queOptOutParam.jsnuma** pasta local.
+5. Guarde este ficheiro à medida ** queOptOutParam.jsnuma** pasta local.
 
 6. Está pronto para implementar este modelo.
 

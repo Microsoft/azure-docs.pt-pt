@@ -12,10 +12,10 @@ ms.date: 08/20/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: 4e5becdd026b0a1c9e848b183ebeee5833654461
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91259276"
 ---
 # <a name="tutorial-for-configuring-jumio-with-azure-active-directory-b2c"></a>Tutorial para configurar Jumio com Azure Ative Directory B2C
@@ -46,7 +46,7 @@ O seguinte diagrama de arquitetura mostra a implementação.
 
 ![Diagrama da arquitetura de uma integração Azure AD B2C com Jumio.](./media/partner-jumio/jumio-architecture-diagram.png)
 
-|Passo | Description |
+|Passo | Descrição |
 |:-----| :-----------|
 | 1. | O utilizador chega a uma página para iniciar sessão ou iniciar sessão para criar uma conta. Azure AD B2C recolhe os atributos do utilizador.
 | 2. | Azure AD B2C chama a API de camada média e transmite os atributos do utilizador.

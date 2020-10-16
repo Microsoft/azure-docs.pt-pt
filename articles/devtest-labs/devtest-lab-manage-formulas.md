@@ -4,10 +4,10 @@ description: Este artigo ilustra como criar uma fórmula a partir de uma base (i
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: f012a8c59a8e938334c3e1abc4c7b3ccd0e48d3e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91308899"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Gerir fórmulas Azure DevTest Labs
@@ -39,7 +39,7 @@ Os seguintes passos guiam-no através do processo de criação de uma fórmula a
     ![Adicione uma fórmula](./media/devtest-lab-create-formulas/add-formula.png)
 6. Na página **base,** selecione a base (imagem personalizada, imagem de Marketplace ou imagem de Galeria de Imagens Partilhada) a partir da qual pretende criar a fórmula.
 
-    :::image type="content" source="./media/devtest-lab-create-formulas/select-base.png" alt-text="Selecione a imagem base":::
+    :::image type="content" source="./media/devtest-lab-create-formulas/select-base.png" alt-text="Selecione a imagem base&quot;:::
 1. No separador **Definições Básicas** da página de **fórmula Criar,** especifique os seguintes valores:
    
     * **Nome da fórmula** - Introduza um nome para a sua fórmula. Este valor é apresentado na lista de imagens base quando cria um VM. O nome é validado à medida que o escreve e, se não for válido, uma mensagem indica os requisitos para um nome válido.
@@ -58,7 +58,7 @@ Os seguintes passos guiam-no através do processo de criação de uma fórmula a
     - **Sub-rede** - Para alterar a sub-rede, selecione **Alterar a Sub-rede**. 
     - **Configuração do endereço IP** - Especificar se pretende os endereços IP públicos, privados ou partilhados. Para obter mais informações sobre endereços IP partilhados, consulte [os endereços IP partilhados no Azure DevTest Labs](./devtest-lab-shared-ip.md).
     - **Data e hora de validade** - Não pode editar este campo. 
-    - **Tornar esta máquina reclamada** - Fazer uma máquina "reivindicada" significa que não será atribuída a propriedade no momento da criação. Em vez disso, os utilizadores de laboratório poderão apropriar-se ("reivindicação") da máquina na página do laboratório.  
+    - **Tornar esta máquina reclamada** - Fazer uma máquina &quot;reivindicada" significa que não será atribuída a propriedade no momento da criação. Em vez disso, os utilizadores de laboratório poderão apropriar-se ("reivindicação") da máquina na página do laboratório.  
 
         ![Screenshot que mostra as Definições Avançadas para a página "Criar fórmula (base reutilizável)".](./media/devtest-lab-create-formulas/advanced-settings.png)
     - Se selecionou uma imagem da Galeria de Imagens Partilhada como base, também vê o campo da **versão de imagem** que lhe permite selecionar a versão da imagem a partir da galeria que pretende utilizar como base. 

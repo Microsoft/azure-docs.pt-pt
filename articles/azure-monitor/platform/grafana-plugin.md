@@ -5,10 +5,10 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/06/2017
 ms.openlocfilehash: 23bba091628eee767fbf292a8a8d772ffab674cb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87073464"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Monitorize os seus serviços Azure em Grafana
@@ -150,7 +150,7 @@ Uma das muitas funcionalidades úteis de Grafana é a lista de reprodução do p
 
 ![Exemplo de lista de reprodução de Grafana](./media/grafana-plugin/grafana7.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se configurar um ambiente Grafana no Azure, é cobrado quando os VMs estão a funcionar quer esteja a usá-los ou não. Para evitar incorrer em taxas adicionais, limpe o grupo de recursos criado neste artigo.
 

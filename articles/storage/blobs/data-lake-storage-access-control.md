@@ -9,10 +9,10 @@ ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.openlocfilehash: 31d67daebf2e15fb11b5ebe30c4f7741a09eed2d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91716100"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Access control in Azure Data Lake Storage Gen2 (Controlo de acesso no Azure Data Lake Storage Gen2)
@@ -347,6 +347,6 @@ AcLs não herdam. No entanto, os ACLs predefinidos podem ser usados para definir
 * [POSIX ACL no Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL usando listas de controlo de acesso em Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 * [Visão geral do Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)

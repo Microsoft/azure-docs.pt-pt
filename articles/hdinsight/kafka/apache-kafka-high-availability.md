@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/09/2019
 ms.openlocfilehash: a90be471ca068869ee26fb02bba77dfdd476a44e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75435297"
 ---
 # <a name="high-availability-of-your-data-with-apache-kafka-on-hdinsight"></a>Elevada disponibilidade dos seus dados com o Apache Kafka no HDInsight
@@ -51,7 +51,7 @@ Utilize a [ferramenta de reequilíbrio de partição Apache Kafka](https://githu
 
 Para obter mais informações sobre a ligação ao HDInsight através do SSH, consulte o documento [Utilizar o SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Escalabilidade de Apache Kafka em HDInsight](apache-kafka-scalability.md)
 * [Espelhamento com Apache Kafka em HDInsight](apache-kafka-mirroring.md)

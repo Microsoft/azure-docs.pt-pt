@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/22/2019
 ms.openlocfilehash: 772b136c00dc9c20f8bc35d7ebb324175a56e885
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90061721"
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Use pacotes externos com cadernos Jupyter em aglomerados Apache Spark em HDInsight
@@ -93,7 +93,7 @@ Neste artigo, você vai aprender a usar o pacote [spark-csv](https://search.mave
     df.select("Time").count()
     ```
 
-## <a name="see-also"></a><a name="seealso"></a>Veja também
+## <a name="see-also"></a><a name="seealso"></a>Consulte também
 
 * [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 

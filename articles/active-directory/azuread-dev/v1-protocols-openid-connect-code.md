@@ -15,10 +15,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: b719e866852d2e865c16c62fddd8c549ae505b7d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85551563"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Autorizar o acesso a aplicações Web com o OpenID Connect e o Azure Active Directory
@@ -118,7 +118,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | redirect_uri | recomendado |O redirect_uri da sua app, onde as respostas de autenticação podem ser enviadas e recebidas pela sua app. Deve corresponder exatamente a uma das redirect_uris que registou no portal, exceto que deve estar codificada url. Se faltar, o agente do utilizador será enviado de volta para um dos URIs de redirecionamento registados para a aplicação, aleatoriamente. O comprimento máximo é de 255 bytes |
 | response_mode |opcional |Especifica o método que deve ser usado para enviar o authorization_code resultante de volta para a sua aplicação. Os valores suportados são `form_post` para post de formulário *HTTP* e para fragmento `fragment` de *URL*. Para aplicações web, recomendamos a utilização `response_mode=form_post` para garantir a transferência mais segura de fichas para a sua aplicação. O padrão para qualquer fluxo, incluindo um id_token é `fragment` .|
 | state |recomendado |Um valor incluído no pedido que é devolvido na resposta simbólica. Pode ser uma série de conteúdos que desejes. Um valor único gerado aleatoriamente é normalmente usado para [prevenir ataques de falsificação de pedidos de trans-locais](https://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorrer, como a página ou a vista em que estavam. |
-| rápido |opcional |Indica o tipo de interação do utilizador que é necessária. Atualmente, os únicos valores válidos são 'login', 'nenhum', e 'consentimento'. `prompt=login`força o utilizador a introduzir as suas credenciais nesse pedido, negando um único sinal. `prompt=none`é o oposto - garante que o utilizador não é apresentado com qualquer solicitação interativa. Se o pedido não puder ser concluído silenciosamente através de um único sinal, o ponto final retorna um erro. `prompt=consent`aciona o diálogo de consentimento OAuth após a indicação do utilizador, pedindo ao utilizador que conceda permissões à aplicação. |
+| rápido |opcional |Indica o tipo de interação do utilizador que é necessária. Atualmente, os únicos valores válidos são 'login', 'nenhum', e 'consentimento'. `prompt=login` força o utilizador a introduzir as suas credenciais nesse pedido, negando um único sinal. `prompt=none` é o oposto - garante que o utilizador não é apresentado com qualquer solicitação interativa. Se o pedido não puder ser concluído silenciosamente através de um único sinal, o ponto final retorna um erro. `prompt=consent` aciona o diálogo de consentimento OAuth após a indicação do utilizador, pedindo ao utilizador que conceda permissões à aplicação. |
 | login_hint |opcional |Pode ser usado para pré-preenchimento do nome de utilizador/endereço de endereço de e-mail da página de inscrição para o utilizador, se souber o seu nome de utilizador com antecedência. Muitas vezes as aplicações usam este parâmetro durante a reautornação, tendo já extraído o nome de utilizador de um pré-in usando a `preferred_username` alegação. |
 
 Neste momento, pede-se ao utilizador que introduza as suas credenciais e complete a autenticação.
@@ -197,7 +197,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 ```
 
-| Parâmetro | Tipo | Description |
+| Parâmetro | Tipo | Descrição |
 | --- | --- | --- |
 | post_logout_redirect_uri |recomendado |O URL para o que o utilizador deve ser redirecionado após a assinatura com sucesso.  Este URL deve corresponder a um dos URIs de redirecionamento registados para a sua aplicação no portal de registo de aplicações.  Se *post_logout_redirect_uri* não estiver incluído, o utilizador é mostrado uma mensagem genérica. |
 
@@ -271,7 +271,7 @@ Para obter uma descrição dos possíveis códigos de erro e da ação recomenda
 
 Uma vez que tenha obtido uma autorização `code` e `id_token` uma, pode inscrever o utilizador e obter [fichas de acesso](../develop/access-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) em seu nome. Para iniciar sê-lo, tem de validar exatamente o `id_token` que se descreve acima. Para obter tokens de acesso, pode seguir os passos descritos na secção "Use o código de autorização para solicitar um token de acesso" da nossa documentação de fluxo de [código OAuth](v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre os [tokens de acesso.](../develop/access-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)
 * Saiba mais sobre as [ `id_token` reivindicações e reivindicações.](../develop/id-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)

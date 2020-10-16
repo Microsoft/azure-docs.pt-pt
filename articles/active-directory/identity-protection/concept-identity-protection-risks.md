@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7bc7b0ce521522e677e0dc53809c8c33e0743f0d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91327923"
 ---
 # <a name="what-is-risk"></a>O que é o risco?
@@ -38,7 +38,7 @@ O risco de utilizador representa a probabilidade de uma determinada identidade o
 
 Estes riscos são calculados offline usando as fontes internas e externas de inteligência da Microsoft, incluindo investigadores de segurança, profissionais da aplicação da lei, equipas de segurança na Microsoft e outras fontes fidedignas.
 
-| Deteção de riscos | Description |
+| Deteção de riscos | Descrição |
 | --- | --- |
 | Fuga de credenciais | Este tipo de deteção de risco indica que as credenciais válidas do utilizador foram vazadas. Quando os cibercriminosos comprometem senhas válidas de utilizadores legítimos, muitas vezes partilham essas credenciais. Esta partilha é normalmente feita publicamente publicamente na dark web, pasta sites, ou através da negociação e venda das credenciais no mercado negro. Quando o serviço de credenciais vazado da Microsoft adquire credenciais de utilizador a partir da web escura, sites de pasta ou outras fontes, eles são verificados contra as credenciais válidas atuais dos utilizadores do AD AZure para encontrar correspondências válidas. Para obter mais informações sobre credenciais vazadas, consulte [questões comuns.](#common-questions) |
 | Inteligência de ameaça Azure AD | Este tipo de deteção de risco indica atividade de utilizador que é incomum para o utilizador dado ou é consistente com padrões de ataque conhecidos com base nas fontes internas e externas de inteligência da Microsoft. |
@@ -49,7 +49,7 @@ Um risco de entrada representa a probabilidade de um dado pedido de autenticaç�
 
 Estes riscos podem ser calculados em tempo real ou calculados offline usando as fontes internas e externas de inteligência da Microsoft, incluindo investigadores de segurança, profissionais da aplicação da lei, equipas de segurança na Microsoft e outras fontes fidedignas.
 
-| Deteção de riscos | Tipo de deteção | Description |
+| Deteção de riscos | Tipo de deteção | Descrição |
 | --- | --- | --- |
 | Endereço IP anónimo | Em tempo real | Este tipo de deteção de risco indica insusores de um endereço IP anónimo (por exemplo, navegador Tor ou VPN anónimo). Estes endereços IP são normalmente utilizados por atores que pretendem ocultar a sua telemetria de login (endereço IP, localização, dispositivo, etc.) para intenção potencialmente maliciosa. |
 | Viagem atípica | Offline | Este tipo de deteção de risco identifica dois sign-ins originários de locais geograficamente distantes, onde pelo menos um dos locais pode também ser atípico para o utilizador, dado o comportamento passado. Entre vários outros fatores, este algoritmo de aprendizagem automática tem em conta o tempo entre os dois sign-ins e o tempo que o utilizador levaria a viajar do primeiro para o segundo, indicando que um utilizador diferente está a usar as mesmas credenciais. <br><br> O algoritmo ignora "falsos positivos" óbvios, contribuindo para as condições impossíveis de viagem, como VPNs e locais regularmente utilizados por outros utilizadores da organização. O sistema tem um período de aprendizagem inicial dos primeiros 14 dias ou 10 logins, durante os quais aprende o comportamento de entrada de um novo utilizador. |
@@ -63,7 +63,7 @@ Estes riscos podem ser calculados em tempo real ou calculados offline usando as 
 
 ### <a name="other-risk-detections"></a>Outras deteções de risco
 
-| Deteção de riscos | Tipo de deteção | Description |
+| Deteção de riscos | Tipo de deteção | Descrição |
 | --- | --- | --- |
 | Risco adicional detetado | Em tempo real ou offline | Esta deteção indica que foi detetada uma das deteções de prémios acima. Uma vez que as deteções de prémios são visíveis apenas para os clientes Azure AD Premium P2, são intituladas "risco adicional detetado" para clientes sem licença Azure AD Premium P2. |
 

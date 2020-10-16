@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.openlocfilehash: fd9117af49de9fe59ed614a9dfa730644f02cd8c
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91403641"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Como indexar as bolhas JSON usando um indexante Blob em Azure Cognitive Search
@@ -63,7 +63,7 @@ Na página de origem dos **dados,** a fonte deve ser **Azure Blob Storage,** com
    
 + **O recipiente de armazenamento** deve especificar a sua conta de armazenamento e o seu recipiente, ou uma cadeia de ligação que se resolva para o recipiente. Pode obter cordas de ligação na página do portal de serviço Blob.
 
-   :::image type="content" source="media/search-howto-index-json/import-wizard-json-data-source.png" alt-text="Definição de fonte de dados blob" border="false":::
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-data-source.png" alt-text="Comando de dados de importação no portal" border="false":::
 
 ### <a name="4---skip-the-enrich-content-page-in-the-wizard"></a>4 - Salte a página "Enriquecer conteúdo" no assistente
 
@@ -81,7 +81,7 @@ Reveja a descrição dos [atributos](/rest/api/searchservice/create-index#bkmk_i
 
 Tire um momento para rever as suas seleções. Uma vez executado o assistente, as estruturas de dados físicos são criadas e não será capaz de editar estes campos sem deixar cair e recriar todos os objetos.
 
-   :::image type="content" source="media/search-howto-index-json/import-wizard-json-index.png" alt-text="Definição do índice blob" border="false":::
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-index.png" alt-text="Comando de dados de importação no portal" border="false":::
 
 ### <a name="6---create-indexer"></a>6 - Criar indexante
 
@@ -89,7 +89,7 @@ Totalmente especificado, o assistente cria três objetos distintos no seu servi�
 
 Se não estiver familiarizado com indexadores, um *indexador* é um recurso na Azure Cognitive Search que rastreia uma fonte de dados externa para conteúdo pesquisável. A saída do assistente de **dados de Importação** é um indexante que rastreia a sua fonte de dados JSON, extrai conteúdo pes pes pes pes pespável e o importa para um índice na Pesquisa Cognitiva Azure.
 
-   :::image type="content" source="media/search-howto-index-json/import-wizard-json-indexer.png" alt-text="Definição de indexante blob" border="false":::
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-indexer.png" alt-text="Comando de dados de importação no portal" border="false":::
 
 Clique **em OK** para executar o assistente e criar todos os objetos. A indexação começa imediatamente.
 
@@ -118,7 +118,7 @@ A ordem de operações requer que crie e chame objetos por esta ordem. Em contra
 
 As bolhas JSON no armazenamento Azure Blob são normalmente um único documento JSON ou uma "matriz" JSON. O indexante blob em Azure Cognitive Search pode analisar qualquer construção, dependendo de como definir o parâmetro **parsingMode** no pedido.
 
-| Documento JSON | parsingMode | Description | Disponibilidade |
+| Documento JSON | parsingMode | Descrição | Disponibilidade |
 |--------------|-------------|--------------|--------------|
 | Um por bolha | `json` | Parses JSON blobs como um único pedaço de texto. Cada bolha JSON torna-se um único documento de Pesquisa Cognitiva Azure. | Geralmente disponível tanto em [REST](/rest/api/searchservice/indexer-operations) API como [em .NET](/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
 | Múltiplos por bolha | `jsonArray` | Analisa uma matriz JSON na bolha, onde cada elemento da matriz torna-se um documento separado de Pesquisa Cognitiva Azure.  | Geralmente disponível tanto em [REST](/rest/api/searchservice/indexer-operations) API como [em .NET](/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
@@ -291,7 +291,7 @@ O .NET SDK tem paridade total com a API REST. Recomendamos que reveja a secção
 
 As bolhas JSON podem assumir múltiplas formas. O parâmetro **parsingMode** no indexante JSON determina como o conteúdo da bolha JSON é analisado e estruturado num índice de Pesquisa Cognitiva Azure:
 
-| parsingMode | Description |
+| parsingMode | Descrição |
 |-------------|-------------|
 | `json`  | Indexe cada bolha como um único documento. Esta é a predefinição. |
 | `jsonArray` | Escolha este modo se as suas bolhas forem compostas por matrizes JSON, e precisa de cada elemento da matriz para se tornar um documento separado na Pesquisa Cognitiva Azure. |
@@ -455,7 +455,7 @@ Também pode consultar elementos de matriz individuais utilizando um índice bas
 ## <a name="help-us-make-azure-cognitive-search-better"></a>Ajude-nos a melhorar a pesquisa cognitiva do Azure
 Se tiver pedidos de funcionalidades ou ideias para melhorias, forneça a sua entrada no [UserVoice](https://feedback.azure.com/forums/263029-azure-search/). Se precisar de ajuda para utilizar a função existente, publique a sua pergunta no [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/18870).
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 + [Indexadores na Pesquisa Cognitiva do Azure](search-indexer-overview.md)
 + [Indexação do armazenamento de blob Azure com pesquisa cognitiva Azure](search-howto-index-json-blobs.md)

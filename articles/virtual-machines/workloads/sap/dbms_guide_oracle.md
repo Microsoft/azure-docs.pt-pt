@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f953d87c53bc13af623c2bfd49ceb953280f8f2a
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 4e72c9d64a71fceb90d0a6ae9984997f73c1b5c6
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540715"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963538"
 ---
 # <a name="azure-virtual-machines-oracle-dbms-deployment-for-sap-workload"></a>Azure Virtual Machines Oracle DBMS implantação para carga de trabalho SAP
 
@@ -416,7 +416,7 @@ Também pode utilizar o Azure Backup para executar uma cópia de segurança VM c
 
 
 ### <a name="high-availability"></a>Elevada disponibilidade
-A Oracle Data Guard é suportada para fins de alta disponibilidade e recuperação de desastres. Para obter falhas automáticas na Data Guard, é necessário utilizar o Fast-Start Failover (FSFA). O Observador (FSFA) desencadeou a falha. Se não utilizar o FSFA, só pode utilizar uma configuração manual de falha.
+A Oracle Data Guard é suportada para fins de alta disponibilidade e recuperação de desastres. Para obter falhas automáticas na Data Guard, a sua necessidade de utilizar Fast-Start Failover (FSFA). O Observador (FSFA) desencadeou a falha. Se não utilizar o FSFA, só pode utilizar uma configuração manual de falha.
 
 Para obter mais informações sobre a recuperação de desastres para bases de dados oracle em Azure, consulte [a recuperação de desastres para uma base de dados Oracle Database 12c em um ambiente Azure](../oracle/oracle-disaster-recovery.md).
 
@@ -444,7 +444,7 @@ Neste caso, recomendamos a instalação/localização da Oracle em casa, palco, 
 
 ### <a name="storage-configuration"></a>Configuração do armazenamento
 
-Os sistemas de ficheiros de ext4, xfs ou Oracle ASM são suportados para ficheiros Oracle Database em Azure. Todos os ficheiros de base de dados devem ser armazenados nestes sistemas de ficheiros com base em VHDs ou Discos Geridos. Estes discos são montados no Azure VM e são baseados no [armazenamento de blob de página Azure](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) ou [em Discos Geridos Azure](../../managed-disks-overview.md).
+Os sistemas de ficheiros de ext4, xfs ou Oracle ASM são suportados para ficheiros Oracle Database em Azure. Todos os ficheiros de base de dados devem ser armazenados nestes sistemas de ficheiros com base em VHDs ou Discos Geridos. Estes discos são montados no Azure VM e são baseados no [armazenamento de blob de página Azure](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) ou [em Discos Geridos Azure](../../managed-disks-overview.md).
 
 Para os núcleos Oracle Linux UEK, é necessário um mínimo de versão UEK 4 para suportar [SSDs premium Azure](../../premium-storage-performance.md#disk-caching).
 
@@ -508,10 +508,10 @@ Para os VMs da série M azul, quando utilizar o Acelerador de Escrita Azure, a e
 ### <a name="backuprestore"></a>Cópia de segurança/restauro
 Para a funcionalidade de backup/restauro, as ferramentas SAP BR*para o oráculo são suportadas da mesma forma que estão em metal nu e Hiper-V. O Oracle Recovery Manager (RMAN) também é suportado para cópias de segurança para o disco e restauros a partir do disco.
 
-Para obter mais informações sobre como pode utilizar os serviços de Backup e Recuperação do Azure para fazer backup e recuperar bases de dados da Oracle, consulte [Back up e recupere uma base de dados oracle Database 12c numa máquina virtual Azure Linux](../oracle/oracle-backup-recovery.md).
+Para obter mais informações sobre como pode utilizar os serviços de Backup e Recuperação do Azure para fazer backup e recuperar bases de dados da Oracle, consulte [Back up e recupere uma base de dados oracle Database 12c numa máquina virtual Azure Linux](../oracle/oracle-overview.md).
 
 ### <a name="high-availability"></a>Elevada disponibilidade
-A Oracle Data Guard é suportada para fins de alta disponibilidade e recuperação de desastres. Para obter o failover automático na Data Guard, é necessário utilizar o Fast-Start Failover (FSFA). A funcionalidade Do Observador (FSFA) despoleta a falha. Se não utilizar o FSFA, só pode utilizar uma configuração manual de falha. Para obter mais informações, consulte [implementar o Oracle Data Guard numa máquina virtual Azure Linux](../oracle/configure-oracle-dataguard.md).
+A Oracle Data Guard é suportada para fins de alta disponibilidade e recuperação de desastres. Para obter falhas automáticas na Data Guard, é necessário utilizar Fast-Start Failover (FSFA). A funcionalidade Do Observador (FSFA) despoleta a falha. Se não utilizar o FSFA, só pode utilizar uma configuração manual de falha. Para obter mais informações, consulte [implementar o Oracle Data Guard numa máquina virtual Azure Linux](../oracle/configure-oracle-dataguard.md).
 
 
 Os aspetos de recuperação de desastres para as bases de dados da Oracle em Azure são apresentados no artigo [Recuperação de desastres para uma base de dados Oracle Database 12c em um ambiente Azure](../oracle/oracle-disaster-recovery.md).
@@ -527,9 +527,7 @@ sudo curl -so /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules https://raw.gi
 </code></pre>
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Leia o artigo 
 
 - [Considerações para a implantação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](dbms_guide_general.md)
- 
-

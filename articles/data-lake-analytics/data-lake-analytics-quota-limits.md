@@ -10,10 +10,10 @@ ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
 ms.topic: how-to
 ms.date: 03/15/2018
 ms.openlocfilehash: 0025e35f516543c8fe703daa647ca29ed3fb87e6
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87127592"
 ---
 # <a name="adjust-quotas-and-limits-in-azure-data-lake-analytics"></a>Ajustar quotas e limites no Azure Data Lake Analytics
@@ -22,7 +22,7 @@ Saiba como ajustar e aumentar a quota e os limites nas contas Azure Data Lake An
 
 ## <a name="azure-subscriptions-limits"></a>Limites de subscrições do Azure
 
-**Número máximo de contas ADLA por subscrição por região:** 5
+**Número máximo de contas ADLA por subscrição por região:**  5
 
 Se tentar criar uma sexta conta ADLA, terá um erro "Atingiu o número máximo de contas data lake analytics permitidas (5) na região com nome de subscrição".
 

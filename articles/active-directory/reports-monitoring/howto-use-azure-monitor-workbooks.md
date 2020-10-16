@@ -15,10 +15,10 @@ ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.openlocfilehash: 510991c1afba9a5ffbfd77e855ee25d8b641bdd0
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89226986"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Como utilizar os livros do Azure Monitor para relatórios do Azure Ative Directory
@@ -107,7 +107,7 @@ Pode filtrar cada tendência pelas seguintes categorias:
 
 - Intervalo de tempo
 
-- Aplicações
+- Apps
 
 - Utilizadores
 
@@ -141,7 +141,7 @@ Pode filtrar cada tendência pelas seguintes categorias:
 
 - Intervalo de tempo
 
-- Aplicações
+- Apps
 
 - Utilizadores
 
@@ -165,7 +165,7 @@ Este livro mostra as tendências para inserções com deficiência. Pode filtrar
 
 - Intervalo de tempo
 
-- Aplicações
+- Apps
 
 - Utilizadores
 
@@ -179,7 +179,7 @@ Para insinuações desativadas, obtém-se uma avaria pelo estado de Acesso Condi
 
 ## <a name="conditional-access-insights"></a>Informações de Acesso Condicional
 
-### <a name="overview"></a>Descrição Geral
+### <a name="overview"></a>Descrição geral
 
 Os livros contêm consultas de registo de login que podem ajudar os administradores de TI a monitorizar o impacto das políticas de Acesso Condicional no seu inquilino. Tem a capacidade de informar sobre quantos utilizadores teriam sido concedidos ou negados acesso. O livro contém informações sobre quantos utilizadores teriam contornado as políticas de Acesso Condicional com base nos atributos desses utilizadores no momento da s início. Contém detalhes por condição para que o impacto de uma política possa ser contextualizado por condição, incluindo plataforma de dispositivo, estado do dispositivo, app do cliente, risco de login, localização e aplicação.
 
@@ -238,7 +238,7 @@ Pode filtrar cada tendência pelas seguintes categorias:
 
 - Intervalo de tempo
 
-- Aplicações
+- Apps
 
 - Utilizadores
 
@@ -278,7 +278,7 @@ Pode filtrar cada tendência pelas seguintes categorias:
 
 - Intervalo de tempo
 
-- Aplicações
+- Apps
 
 - Utilizadores
 

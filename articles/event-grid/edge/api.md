@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 414487d460d897eff787b11915db560706b29eb4
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171759"
 ---
 # <a name="rest-api"></a>API REST
@@ -22,8 +22,8 @@ Este artigo descreve as APIs REST da Azure Event Grid em IoT Edge
 ### <a name="base-url"></a>URL Base
 A Grelha de Eventos no IoT Edge tem as seguintes APIs expostas sobre HTTP (porta 5888) e HTTPS (porta 4438).
 
-* URL de base para HTTP:http://eventgridmodule:5888
-* URL de base para HTTPS:https://eventgridmodule:4438
+* URL de base para HTTP: http://eventgridmodule:5888
+* URL de base para HTTPS: https://eventgridmodule:4438
 
 ### <a name="request-query-string"></a>Cadeia de consulta de pedido
 Todos os pedidos da API requerem o seguinte parâmetro de cadeia de consulta:
@@ -72,7 +72,7 @@ Todas as APIs devolvem um erro com a seguinte carga útil:
 
 ### <a name="put-topic-create--update"></a>Colocar tópico (criar/ atualizar)
 
-**Pedido**:``` PUT /topics/<topic_name>?api-version=2019-01-01-preview ```
+**Pedido**: ``` PUT /topics/<topic_name>?api-version=2019-01-01-preview ```
 
 **Carga útil:**
 
@@ -105,7 +105,7 @@ Todas as APIs devolvem um erro com a seguinte carga útil:
 
 ### <a name="get-topic"></a>Obtenha tópico
 
-**Pedido**:``` GET /topics/<topic_name>?api-version=2019-01-01-preview ```
+**Pedido**: ``` GET /topics/<topic_name>?api-version=2019-01-01-preview ```
 
 **Resposta**: HTTP 200
 
@@ -125,7 +125,7 @@ Todas as APIs devolvem um erro com a seguinte carga útil:
 
 ### <a name="get-all-topics"></a>Obtenha todos os tópicos
 
-**Pedido**:``` GET /topics?api-version=2019-01-01-preview ```
+**Pedido**: ``` GET /topics?api-version=2019-01-01-preview ```
 
 **Resposta**: HTTP 200
 
@@ -157,7 +157,7 @@ Todas as APIs devolvem um erro com a seguinte carga útil:
 
 ### <a name="delete-topic"></a>Eliminar tópico
 
-**Pedido**:``` DELETE /topics/<topic_name>?api-version=2019-01-01-preview ```
+**Pedido**: ``` DELETE /topics/<topic_name>?api-version=2019-01-01-preview ```
 
 **Resposta**: HTTP 200, carga útil vazia
 
@@ -166,7 +166,7 @@ As amostras desta secção `EndpointType=Webhook;` utilizam. As amostras de json
 
 ### <a name="put-event-subscription-create--update"></a>Coloque a subscrição do evento (criar/atualizar)
 
-**Pedido**:``` PUT /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
+**Pedido**: ``` PUT /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
 
 **Carga útil:**
 ```json
@@ -371,7 +371,7 @@ As amostras desta secção `EndpointType=Webhook;` utilizam. As amostras de json
 
 ### <a name="get-event-subscription"></a>Obtenha a subscrição do evento
 
-**Pedido**:``` GET /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
+**Pedido**: ``` GET /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
 
 **Resposta**: HTTP 200
 
@@ -476,7 +476,7 @@ As amostras desta secção `EndpointType=Webhook;` utilizam. As amostras de json
 
 ### <a name="get-event-subscriptions"></a>Obtenha subscrições de eventos
 
-**Pedido**:``` GET /topics/<topic_name>/eventSubscriptions?api-version=2019-01-01-preview ```
+**Pedido**: ``` GET /topics/<topic_name>/eventSubscriptions?api-version=2019-01-01-preview ```
 
 **Resposta**: HTTP 200
 
@@ -494,7 +494,7 @@ As amostras desta secção `EndpointType=Webhook;` utilizam. As amostras de json
 
 ### <a name="delete-event-subscription"></a>Eliminar subscrição de eventos
 
-**Pedido**:``` DELETE /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
+**Pedido**: ``` DELETE /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
 
 **Resposta**: HTTP 200, sem carga útil
 
@@ -503,7 +503,7 @@ As amostras desta secção `EndpointType=Webhook;` utilizam. As amostras de json
 
 ### <a name="send-batch-of-events-in-event-grid-schema"></a>Enviar lote de eventos (em esquema de grelha de evento)
 
-**Pedido**:``` POST /topics/<topic_name>/events?api-version=2019-01-01-preview ```
+**Pedido**: ``` POST /topics/<topic_name>/events?api-version=2019-01-01-preview ```
 
 ```json
 [
@@ -525,18 +525,18 @@ As amostras desta secção `EndpointType=Webhook;` utilizam. As amostras de json
 
 
 **Descrições do campo de carga útil**
-- ```Id```é obrigatório. Pode ser qualquer valor de corda que seja povoado pelo chamador. A Grade de EventoS NÃO faz qualquer deteção duplicada ou impõe qualquer semântica neste campo.
-- ```Topic```é opcional, mas se especificado deve corresponder ao topic_name do URL de pedido
-- ```Subject```é obrigatório, pode ser qualquer valor de cadeia
-- ```EventType```é obrigatório, pode ser qualquer valor de cadeia
-- ```EventTime```é obrigatório, não é validado, mas deve ser um DateTime adequado.
-- ```DataVersion```é obrigatório
-- ```MetadataVersion```é opcional, se especificado DEVE ser uma cadeia com o valor```"1"```
-- ```Data```é opcional, e pode ser qualquer símbolo JSON (número, corda, boolean, matriz, objeto)
+- ```Id``` é obrigatório. Pode ser qualquer valor de corda que seja povoado pelo chamador. A Grade de EventoS NÃO faz qualquer deteção duplicada ou impõe qualquer semântica neste campo.
+- ```Topic``` é opcional, mas se especificado deve corresponder ao topic_name do URL de pedido
+- ```Subject``` é obrigatório, pode ser qualquer valor de cadeia
+- ```EventType``` é obrigatório, pode ser qualquer valor de cadeia
+- ```EventTime``` é obrigatório, não é validado, mas deve ser um DateTime adequado.
+- ```DataVersion``` é obrigatório
+- ```MetadataVersion``` é opcional, se especificado DEVE ser uma cadeia com o valor ```"1"```
+- ```Data``` é opcional, e pode ser qualquer símbolo JSON (número, corda, boolean, matriz, objeto)
 
 ### <a name="send-batch-of-events-in-custom-schema"></a>Enviar lote de eventos (em esquema personalizado)
 
-**Pedido**:``` POST /topics/<topic_name>/events?api-version=2019-01-01-preview ```
+**Pedido**: ``` POST /topics/<topic_name>/events?api-version=2019-01-01-preview ```
 
 ```json
 [
@@ -754,7 +754,7 @@ Para publicar num Tópico de Autocarro de Serviço, desemote o `endpointType` te
 
 ## <a name="set-up-storage-queues-as-a-destination"></a>Configurar as filas de armazenamento como destino
 
-Para publicar numa fila de armazenamento, desemote o `endpointType` e `storageQueue` forneça:
+Para publicar numa fila de armazenamento, desemote o  `endpointType` e `storageQueue` forneça:
 
 * nome da fila de armazenamento a que vai publicar.
 * ligaçãoStragem: Cadeia de ligação para a conta de armazenamento em que a fila de armazenamento está dentro.

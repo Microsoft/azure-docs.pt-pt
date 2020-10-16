@@ -3,15 +3,15 @@ title: Configure as regras de firewall IP para o Azure Service Bus
 description: Como utilizar as Regras de Firewall para permitir ligações de endereços IP específicos para o Azure Service Bus.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 2ba6b1902213af8d968b220a387e419e56e8aa67
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 561ee90fb6d1e25123d15a09bbf143aef59bcf6f
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91300960"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058068"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-ip-addresses-or-ranges"></a>Permitir o acesso ao espaço de nomes do Azure Service Bus a partir de endereços ou intervalos IP específicos
-Por predefinição, os espaços de nome do Service Bus estão acessíveis a partir da Internet desde que o pedido venha com autenticação e autorização válidas. Com a firewall IP, pode restringi-lo ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (Roteamento Inter-Domain Sem Classe).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+Por predefinição, os espaços de nome do Service Bus estão acessíveis a partir da Internet desde que o pedido venha com autenticação e autorização válidas. Com a firewall IP, pode restringi-lo ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (Classless Inter-Domain Encaminhamento).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
 
 Esta funcionalidade é útil em cenários em que o Azure Service Bus só deve ser acessível a partir de determinados sites conhecidos. As regras de firewall permitem-lhe configurar regras para aceitar tráfego originário de endereços IPv4 específicos. Por exemplo, se utilizar o Service Bus com [a Azure Express Route,][express-route]pode criar uma regra de **firewall** para permitir o tráfego a partir apenas dos endereços IP da sua infraestrutura no local ou endereços de um gateway NAT corporativo. 
 
@@ -126,7 +126,7 @@ Parâmetros do modelo:
       {
         "apiVersion": "2018-01-01-preview",
         "name": "[variables('namespaceNetworkRuleSetName')]",
-        "type": "Microsoft.ServiceBus/namespaces/networkruleset",
+        "type": "Microsoft.ServiceBus/namespaces/networkrulesets",
         "dependsOn": [
           "[concat('Microsoft.ServiceBus/namespaces/', parameters('servicebusNamespaceName'))]"
         ],

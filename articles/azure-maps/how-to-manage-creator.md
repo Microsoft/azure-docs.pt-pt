@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 579294388dbcf9f785ef41e06505c14b6767565f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83677939"
 ---
 # <a name="manage-azure-maps-creator"></a>Gerir O Criador de Mapas Azure
@@ -23,13 +23,13 @@ Este artigo leva-o através dos passos para criar e eliminar um recurso Criador 
 
 ## <a name="create-creator-resource"></a>Criar recurso de criador
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com)
+1. Inicie sessão no [portal do Azure](https://portal.azure.com)
 
 2. Selecione a sua conta Azure Maps. Se não consegue ver a sua conta Azure Maps sob os **recursos recentes,** então navegue para o menu do portal Azure. Selecione **Todos os recursos**. Encontre e selecione a sua conta Azure Maps.
 
     ![Página inicial do Portal Azure Maps](./media/how-to-manage-creator/select-maps-account.png)
 
-3. Assim que estiver na página da conta Azure Maps, navegue para a opção **Visão Geral** sob **o Criador**. Clique em **Criar** para criar um recurso Azure Maps Creator.
+3. Assim que estiver na página da conta Azure Maps, navegue para a opção **Visão Geral** sob **o Criador**. Clique em  **Criar**  para criar um recurso Azure Maps Creator.
 
     ![Criar página de Criador de Mapas Azure](./media/how-to-manage-creator/creator-blade-settings.png)
 
@@ -77,7 +77,7 @@ Os serviços de criadores só são acessíveis a partir do local selecionado dur
 
 Além disso, todos os dados importados para o Criador devem ser enviados para a mesma localização geográfica que o recurso Criador. Por exemplo, se o Criador for a provisionado nos Estados Unidos, todos os dados brutos devem ser enviados através `us.atlas.microsoft.com/mapData/upload` de .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Introdução ao Criador para mapeamento interior:
 

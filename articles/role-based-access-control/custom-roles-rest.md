@@ -16,10 +16,10 @@ ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: b459f44308827308c28687db3c3fc33df470ea8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84790194"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-rest-api"></a>Criar ou atualizar funções personalizadas Azure usando a API REST
@@ -100,7 +100,7 @@ Para obter informações sobre um papel personalizado pelo seu nome de exibiçã
     > [!div class="mx-tableFixed"]
     > | Filtrar | Descrição |
     > | --- | --- |
-    > | `$filter=roleName+eq+'{roleDisplayName}'` | Utilize a forma codificada url do nome exato do visor da função. Por exemplo,`$filter=roleName+eq+'Virtual%20Machine%20Contributor'` |
+    > | `$filter=roleName+eq+'{roleDisplayName}'` | Utilize a forma codificada url do nome exato do visor da função. Por exemplo, `$filter=roleName+eq+'Virtual%20Machine%20Contributor'` |
 
 ## <a name="list-a-custom-role-definition-by-id"></a>Listar uma definição de função personalizada por ID
 
@@ -132,7 +132,7 @@ Para criar um papel personalizado, utilize as [Definições de Função - Criar 
 
 1. Reveja a lista de [operações de fornecedores](resource-provider-operations.md) de recursos disponíveis para criar as permissões para o seu papel personalizado.
 
-1. Utilize uma ferramenta GUID para gerar um identificador único que será utilizado para o identificador de funções personalizado. O identificador tem o formato:`00000000-0000-0000-0000-000000000000`
+1. Utilize uma ferramenta GUID para gerar um identificador único que será utilizado para o identificador de funções personalizado. O identificador tem o formato: `00000000-0000-0000-0000-000000000000`
 
 1. Comece com o seguinte pedido e corpo:
 
@@ -338,8 +338,8 @@ Para eliminar uma função personalizada, utilize as [Definições de Função -
 
 1. Substitua *{roleDefinitionId}* pelo identificador GUID da função personalizada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [Funções personalizadas Azure](custom-roles.md)
-- [Adicione ou remova atribuições de funções Azure usando a API REST](role-assignments-rest.md)
-- [Referência AZURE REST API](/rest/api/azure/)
+- [Funções personalizadas do Azure](custom-roles.md)
+- [Utilizar a API REST para adicionar ou remover atribuições de funções do Azure](role-assignments-rest.md)
+- [Referência à API REST do Azure](/rest/api/azure/)

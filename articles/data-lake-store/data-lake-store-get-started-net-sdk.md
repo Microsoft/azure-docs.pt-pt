@@ -8,10 +8,10 @@ ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: devx-track-csharp
 ms.openlocfilehash: ffd00ace0445b1b8cc13881834d7759aa217c4c6
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89020971"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Operações de gestão de conta na Azure Data Lake Storage Gen1 usando .NET SDK
@@ -142,7 +142,7 @@ O seguinte corte elimina a conta Desemarse De Armazenamento de Dados Gen1 que cr
 _adlsClient.Account.Delete(_resourceGroupName, _adlsAccountName);
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 * [Operações de sistema de ficheiros na Data Lake Storage Gen1 utilizando .NET SDK](data-lake-store-data-operations-net-sdk.md)
 * [Data Lake Storage Gen1 .NET SDK Referência](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 

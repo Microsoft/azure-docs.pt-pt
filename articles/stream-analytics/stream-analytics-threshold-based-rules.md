@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 04/30/2018
 ms.openlocfilehash: 215835bf7f1e6676adba6541da70dcb86fc3500c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86039046"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Regras baseadas em limiar de processos configuráveis no Azure Stream Analytics
@@ -137,7 +137,7 @@ Este exemplo de dados JSON representa os dados de entrada **de métricas** que s
 - Três exemplos de eventos são listados dentro do intervalo de 1 minuto, valor `T14:50` . 
 - Os três têm o mesmo `deviceId` `978648` valor.
 - Os valores métricos da CPU variam em cada evento, `98` `95` `80` respectivamente. Apenas os dois primeiros exemplos de eventos excedem a regra de alerta do CPU estabelecida na regra.
-- O campo incluindo oDim na regra de alerta era a chave número 2. O campo de tecla 2 correspondente nos eventos de exemplo é nomeado `NodeName` . Os três exemplos de eventos têm valores `N024` `N024` , `N014` e, respectivamente. Na saída, você vê apenas o nó `N024` como que são os únicos dados que correspondem aos critérios de alerta para CPU elevado. `N014`não satisfaz o limiar elevado da CPU.
+- O campo incluindo oDim na regra de alerta era a chave número 2. O campo de tecla 2 correspondente nos eventos de exemplo é nomeado `NodeName` . Os três exemplos de eventos têm valores `N024` `N024` , `N014` e, respectivamente. Na saída, você vê apenas o nó `N024` como que são os únicos dados que correspondem aos critérios de alerta para CPU elevado. `N014` não satisfaz o limiar elevado da CPU.
 - A regra de alerta é configurada com um `filter` apenas na chave número 2, que corresponde ao `cluster` campo nos eventos da amostra. Os três exemplos de eventos têm valor `C1` e correspondem aos critérios do filtro.
 
 ```json

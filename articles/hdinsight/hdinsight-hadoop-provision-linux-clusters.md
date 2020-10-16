@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 08/06/2020
 ms.openlocfilehash: b7757b5204c9b3b32145667367a71a9acc42c230
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89434661"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurar clusters no HDInsight com Apache Hadoop, Apache Spark, Apache Kafka e muito mais
@@ -39,7 +39,7 @@ A tabela a seguir mostra os diferentes métodos que pode utilizar para configura
 | [CLI do Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |
-| [Modelos de gestor de recursos Azure](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
+| [Modelos do Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 
 Este artigo acompanha-o através da configuração no [portal Azure,](https://portal.azure.com)onde pode criar um cluster HDInsight.
 
@@ -290,7 +290,7 @@ Por vezes, pretende-se configurar os seguintes ficheiros de configuração duran
 
 Para obter mais informações, consulte [os clusters HDInsight personalizados utilizando o Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Falhas na criação de clusters de resolução de problemas com Azure HDInsight](./hadoop/hdinsight-troubleshoot-cluster-creation-fails.md)
 * [O que são HDInsight, o ecossistema Apache Hadoop e os aglomerados hadoop?](hadoop/apache-hadoop-introduction.md)

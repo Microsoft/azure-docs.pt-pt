@@ -10,10 +10,10 @@ ms.topic: article
 ms.author: apimpm
 ms.date: 04/23/2020
 ms.openlocfilehash: 023c2c89b90d6ddc71abc95db325dcdeb7684a2d
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89500135"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Implementar um gateway autoalojado no Kubernetes
@@ -127,6 +127,6 @@ O gateway auto-hospedado envia telemetria para [Azure Monitor](api-management-ho
 Quando [a conectividade com Azure](self-hosted-gateway-overview.md#connectivity-to-azure) é temporariamente perdida, o fluxo de telemetria para Azure é interrompido e os dados são perdidos durante a interrupção.
 Considere [a criação de monitorização local](how-to-configure-local-metrics-logs.md) para garantir a capacidade de observar o tráfego da API e evitar a perda de telemetria durante as interrupções de conectividade Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre a porta de entrada auto-hospedada, consulte [a visão geral do gateway auto-hospedado.](self-hosted-gateway-overview.md)

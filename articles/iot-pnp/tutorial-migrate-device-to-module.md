@@ -1,24 +1,24 @@
 ---
-title: Converta um dispositivo IoT Plug and Play num Módulo Genérico Microsoft Docs
-description: Utilize o código do dispositivo PnP C# e converta-o num módulo.
+title: Ligue um módulo genérico IoT Plug and Play / Microsoft Docs
+description: Utilize o código do dispositivo IoT Plug e Play da amostra C# num módulo genérico.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: bdf7a46dec6f4ea766d5d5a039109022755bc3fb
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 671809b9cdbe72c8f3091b0056897c2342a38b1f
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761282"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089167"
 ---
-# <a name="tutorial-how-to-convert-an-iot-plug-and-play-device-to-a-module-c"></a>Tutorial: Como converter um dispositivo IoT Plug and Play num módulo (C#)
+# <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>Tutorial: Ligue um módulo IoT Plug and Play (C#)
 
-Este tutorial mostra-lhe como converter o código do dispositivo IoT Plug e Play para funcionar como um módulo genérico.
+Este tutorial mostra-lhe como ligar um [módulo](../iot-hub/iot-hub-devguide-module-twins.md)genérico IoT Plug and Play .
 
-Um dispositivo é um dispositivo IoT Plug and Play se publicar o seu ID modelo quando se conecta a um hub IoT e implementa as propriedades e métodos descritos no modelo Digital Twins Definition Language (DTDL) identificado pelo ID do modelo. Para saber mais sobre como os dispositivos utilizam um DTDL e um ID de modelo, consulte [o guia de desenvolvimento IoT Plug and Play](concepts-developer-guide.md). Os módulos utilizam iDs de modelo e modelos DTDL da mesma forma.
+Um dispositivo é um dispositivo IoT Plug and Play se publicar o seu ID modelo quando se conecta a um hub IoT e implementa as propriedades e métodos descritos no modelo Digital Twins Definition Language (DTDL) identificado pelo ID do modelo. Para saber mais sobre como os dispositivos utilizam um DTDL e um ID de modelo, consulte [o guia de desenvolvimento IoT Plug and Play](./concepts-developer-guide-device-csharp.md). Os módulos utilizam iDs de modelo e modelos DTDL da mesma forma.
 
 Para demonstrar como implementar um módulo IoT Plug and Play, este tutorial mostra-lhe como converter a amostra do dispositivo termóstato C# num módulo genérico.
 
@@ -224,7 +224,7 @@ Para converter esta amostra para funcionar como um módulo IoT Plug e Play IoT E
 Para aprender a implantar o seu módulo contentorizado, consulte:
 
 * [Executar Azure IoT Edge em Máquinas Virtuais Ubuntu](../iot-edge/how-to-install-iot-edge-ubuntuvm.md).
-* [Instale o tempo de execução Azure IoT Edge nos sistemas Linux baseados em Debian](../iot-edge/how-to-install-iot-edge-linux.md).
+* [Instale o tempo de execução Azure IoT Edge nos sistemas Linux baseados em Debian](../iot-edge/how-to-install-iot-edge.md).
 
 Pode utilizar a ferramenta Azure IoT Explorer para ver:
 
@@ -238,4 +238,4 @@ Pode utilizar a ferramenta Azure IoT Explorer para ver:
 Neste tutorial, aprendeu a ligar um dispositivo IoT Plug and Play com módulos a um hub IoT. Para saber mais sobre os modelos ioT Plug e Play, consulte:
 
 > [!div class="nextstepaction"]
-> [Guia de desenvolvedores de modelação IoT Plug e Play](concepts-developer-guide.md)
+> [Guia de desenvolvedores de modelação IoT Plug e Play](./concepts-developer-guide-device-csharp.md)

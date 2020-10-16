@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: ''
 ms.openlocfilehash: 1e8a5cd856358a0dc3e9c356cb3a55f75db29c86
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90709674"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-docker-compose"></a>Tutorial: Implementar um grupo multi-contentores usando Docker Compose 
@@ -212,7 +212,7 @@ azurevotingappredis_azure-vote-front   myregistry.azurecr.io/azure-vote-front   
 
 Para ver a aplicação de execução na nuvem, insira o endereço IP apresentado num navegador web local. Neste exemplo, `52.179.23.131` insira. O exemplo de aplicação é carregado, conforme mostrado no exemplo seguinte:
 
-:::image type="content" source="media/tutorial-docker-compose/azure-vote-aci.png" alt-text="Imagem de aplicação de voto no ACI":::
+:::image type="content" source="media/tutorial-docker-compose/azure-vote-aci.png" alt-text="Imagem de aplicação de voto":::
 
 Para ver os troncos do recipiente frontal, executar o comando de registos de [estivadores.](https://docs.docker.com/engine/reference/commandline/logs) Por exemplo:
 

@@ -11,10 +11,10 @@ ms.date: 09/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 ms.openlocfilehash: 0c541c848290988bb1f358f045abb2d0cd221de7
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87386763"
 ---
 # <a name="security-recommendations-for-azure-key-vault"></a>Recomendações de segurança para o Azure Key Vault
@@ -52,6 +52,6 @@ Algumas das recomendações incluídas neste artigo podem ser monitorizadas auto
 |-|----|--|
 |Limitar a exposição à rede | O acesso à rede deve limitar-se às redes virtuais utilizadas por soluções que exijam acesso ao cofre. Reveja as informações sobre [os pontos finais do serviço de rede virtual para o Cofre da Chave Azure](overview-vnet-service-endpoints.md)) | - |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o seu fornecedor de aplicações para ver se existem requisitos de segurança adicionais. Para obter mais informações sobre o desenvolvimento de aplicações seguras, consulte [a Documentação de Desenvolvimento Seguro](../../security/fundamentals/abstract-develop-secure-apps.md).

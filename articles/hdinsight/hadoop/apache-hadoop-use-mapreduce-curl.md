@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/13/2020
 ms.openlocfilehash: 407db727f521ea7731f0cbdbdd05c4338c9f452e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86207720"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Executar trabalhos de MapReduce com Apache Hadoop em HDInsight usando REST
@@ -26,7 +26,7 @@ Aprenda a usar a Apache Hive WebHCat REST API para executar trabalhos MapReduce 
 
 * Um aglomerado Apache Hadoop em HDInsight. Consulte [os clusters Apache Hadoop utilizando o portal Azure](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
-Faça o seguinte:
+Uma das seguintes opções:
   * Windows PowerShell ou,
   * [Enrolar](https://curl.haxx.se/) com [jq](https://stedolan.github.io/jq/)
 
@@ -77,7 +77,7 @@ Faça o seguinte:
 
     O fim do URI (/mapreduce/jar) diz ao WebHCat que este pedido inicia um trabalho MapReduce a partir de uma classe num ficheiro de frasco. Os parâmetros utilizados neste comando são os seguintes:
 
-   * **-d**: `-G` não é utilizado, pelo que o pedido é predefinido ao método POST. `-d`especifica os valores de dados que são enviados com o pedido.
+   * **-d**: `-G` não é utilizado, pelo que o pedido é predefinido ao método POST. `-d` especifica os valores de dados que são enviados com o pedido.
      * **user.name**: O utilizador que está a comandar o comando
      * **jar**: A localização do ficheiro do frasco que contém classe a ser correu
      * **classe**: A classe que contém a lógica MapReduce

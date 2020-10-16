@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
 ms.openlocfilehash: 6b252164027f07e4f26ab84ac12e2425e1da05f5
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91357306"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Utilize os conjuntos de dados da amostra no Azure Machine Learning Studio (clássico)
@@ -158,7 +158,7 @@ Etiquetas do desafio de previsão da relação com o cliente KDD Cup 2009<a href
 </tr>
 
 <tr>
-  <td>Dados de regressão de eficiência energética</td>
+  <td>Energy-Efficiency Dados de Regressão</td>
   <td>
 Uma coleção de perfis de energia simulados, baseados em 12 formas diferentes de construção. Os edifícios são diferenciados por oito características. Isto inclui área de envidraçamento, distribuição de área de vidro, e orientação.
 <p></p>
@@ -172,7 +172,7 @@ Uma coleção de perfis de energia simulados, baseados em 12 formas diferentes d
   <td>
 Dados de desempenho de voo de passageiros retirados da recolha de dados tranStats do Departamento de Transportes dos EUA<a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">(On-Time).</a>
 <p></p>
-O conjunto de dados abrange o período de abril a outubro de 2013. Antes de ser enviado para o Azure Machine Learning Studio (clássico), o conjunto de dados foi processado da seguinte forma:
+O conjunto de dados cobre o período de tempo April-October 2013. Antes de ser enviado para o Azure Machine Learning Studio (clássico), o conjunto de dados foi processado da seguinte forma:
 <ul>
   <li>O conjunto de dados foi filtrado para cobrir apenas os 70 aeroportos mais movimentados dos EUA</li>
   <li>Voos cancelados foram rotulados como atrasados por mais de 15 minutos</li>
@@ -332,7 +332,7 @@ Além disso, note que o número de eventos de fundo (h, para chuveiros hadrónic
   <td>
 Observações meteorológicas por hora da NOAA<a href="https://az754797.vo.msecnd.net/data/WeatherDataset.csv">(dados fundidos de 201304 a 201310).</a>
 <p></p>
-Os dados meteorológicos cobrem observações feitas a partir de estações meteorológicas aeroportuárias, abrangendo o período de abril a outubro de 2013. Antes de ser enviado para o Azure Machine Learning Studio (clássico), o conjunto de dados foi processado da seguinte forma:
+Os dados meteorológicos cobrem observações feitas a partir de estações meteorológicas do aeroporto, abrangendo o período April-October 2013. Antes de ser enviado para o Azure Machine Learning Studio (clássico), o conjunto de dados foi processado da seguinte forma:
 <ul>
   <li>Os IDs da estação meteorológica foram mapeados para os iDs do aeroporto correspondentes</li>
   <li>Estações meteorológicas não associadas aos 70 aeroportos mais movimentados foram filtradas</li>

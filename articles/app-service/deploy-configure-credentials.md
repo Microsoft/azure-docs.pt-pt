@@ -6,10 +6,10 @@ ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
 ms.openlocfilehash: 50b3cae00110a64e4d95171822bf1d2a282d2cc1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91715412"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configure credenciais de implementação para o Azure App Service
@@ -104,6 +104,6 @@ A API na secção anterior é apoiada pelo controlo de acesso baseado em funçõ
 
 Também pode utilizar [o Azure Monitor](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#audit-with-azure-monitor) para auditar quaisquer pedidos de autenticação bem-sucedidos e utilizar a [Azure Policy](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#enforce-compliance-with-azure-policy) para impor esta configuração para todos os sites da sua subscrição.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Descubra como usar estas credenciais para implementar a sua aplicação a partir de [Git local](deploy-local-git.md) ou usando [FTP/S](deploy-ftp.md).

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: c192ba73da0cfaf1832b6a1e572bd71b250a976b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2776b18dc3faded103b49e8ff58a8a0a6dccf144
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74168362"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074469"
 ---
 # <a name="add-an-email-action"></a>Adicione uma ação de e-mail
 
@@ -166,7 +166,7 @@ Os passos a seguir mostram-lhe como editar o modelo de e-mail HTML. Por exemplo,
 
 ## <a name="throttling"></a>Limitação
 
-O acelerador de solução de monitorização remota utiliza o Outlook para enviar notificações por e-mail. O Outlook limita o número de e-mails enviados para [30 e-mails por 1 minuto](https://docs.microsoft.com/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#receiving-and-sending-limits). Os clientes de e-mail que recebem os e-mails também podem acelerar o número de e-mails recebidos por minuto. Consulte o seu cliente de e-mail específico sobre limitações. Quando configura a notificação por e-mail para uma regra, a regra deve calcular valores médios durante um período de pelo menos um minuto, e não utilizar valores instantâneos:
+O acelerador de solução de monitorização remota utiliza o Outlook para enviar notificações por e-mail. O Outlook limita o número de e-mails enviados para [30 e-mails por 1 minuto](/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#receiving-and-sending-limits). Os clientes de e-mail que recebem os e-mails também podem acelerar o número de e-mails recebidos por minuto. Consulte o seu cliente de e-mail específico sobre limitações. Quando configura a notificação por e-mail para uma regra, a regra deve calcular valores médios durante um período de pelo menos um minuto, e não utilizar valores instantâneos:
 
 ![Cálculo médio](./media/iot-accelerators-remote-monitoring-email-actions/calculation-email.png)
 

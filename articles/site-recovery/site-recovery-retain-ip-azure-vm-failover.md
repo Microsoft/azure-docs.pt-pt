@@ -7,13 +7,13 @@ author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: 650fb7f0877a98ef53ed3868550f9c084ecb5885
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84710206"
 ---
-# <a name="retain-ip-addresses-during-failover"></a>Reter endereços IP durante a falha
+# <a name="retain-ip-addresses-during-failover"></a>Reter endereços IP durante a ativação pós-falha
 
 [A recuperação do local de Azure](site-recovery-overview.md) permite a recuperação de desastres para os VMs do Azure, replicando VMs para outra região do Azure, falhando se ocorrer uma paragem, e falhando de volta à região primária quando as coisas estão de volta ao normal.
 
@@ -161,6 +161,6 @@ A empresa B não pode falhar com aplicações isoladas ao nível da sub-rede. Is
  - Para a resiliência da aplicação a Empresa B terá de colocar cada aplicação no seu próprio Azure VNet dedicado.
  - Com cada aplicação num VNet separado, a Empresa B pode falhar em aplicações isoladas e encaminhar ligações de origem para a região alvo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Conheça os [planos de recuperação.](site-recovery-create-recovery-plans.md)

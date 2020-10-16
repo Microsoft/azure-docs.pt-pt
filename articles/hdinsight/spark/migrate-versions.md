@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.openlocfilehash: 1ce9b0faa6636d1318871cc9ef66cfbe47908265
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89504983"
 ---
 # <a name="migrate-apache-spark-21-and-22-workloads-to-23-and-24"></a>Migrar Apache Spark 2.1 e 2.2 cargas de trabalho para 2.3 e 2.4
@@ -35,7 +35,7 @@ Para obter informações gerais sobre a migração de um cluster HDInsight de 3.
 | HDInsight 3.6 Faísca 2.1 a HDInsight 4.0 Faísca 2.4 | Recriar clusters com HDInsight 4.0 Faísca 2.4 | Rever os seguintes artigos: <br> [Apache Spark: Upgrade de Spark SQL 2.3 a 2.4](https://spark.apache.org/docs/latest/sql-migration-guide.html#upgrading-from-spark-sql-23-to-24) <br><br> [Apache Spark: Upgrade de Spark SQL 2.2 a 2.3](https://spark.apache.org/docs/latest/sql-migration-guide.html#upgrading-from-spark-sql-22-to-23) <br><br> [Apache Spark: Upgrade de Spark SQL 2.1 a 2.2](https://spark.apache.org/docs/latest/sql-migration-guide.html#upgrading-from-spark-sql-21-to-22) | A integração de faíscas e colmeias mudou em HDInsight 4.0. <br><br> No HDInsight 4.0, a Spark e a Hive utilizam catálogos independentes para aceder às tabelas SparkSQL ou Hive. Uma mesa criada por Spark vive no catálogo Spark. Uma mesa criada pela Hive vive no catálogo da Hive. Este comportamento é diferente do HDInsight 3.6 onde a Hive e a Spark partilhavam o catálogo comum. A integração de colmeias e faíscas em HDInsight 4.0 depende do Conector do Armazém da Colmeia (HWC). A HWC funciona como uma ponte entre a Spark e a Hive. Saiba mais sobre o Conector do Armazém da Colmeia. <br> Em HDInsight 4.0 se quiser Partilhar a meta-loja entre a Hive e a Spark, pode fazê-lo alterando a propriedade metastore.catalog.default para colmeia no seu cluster Spark. Você pode encontrar esta propriedade em Ambari Advanced spark2-hive-site-override. É importante entender que a partilha de metastões só funciona para mesas de colmeia externas, isto não funcionará se tiver mesas de colmeias internas/geridas ou mesas ACID. <br><br>Leia [Migrar Azure HDInsight 3.6 Cargas de trabalho de colmeia para HDInsight 4.0](../interactive-query/apache-hive-migrate-workloads.md) para obter mais informações.<br><br> |
 | HDInsight 3.6 Faísca 2.2 a HDInsight 4.0 Faísca 2.4 | Recriar clusters com HDInsight 4.0 Faísca 2.4 | Rever os seguintes artigos: <br> [Apache Spark: Upgrade de Spark SQL 2.3 a 2.4](https://spark.apache.org/docs/latest/sql-migration-guide.html#upgrading-from-spark-sql-23-to-24) <br><br> [Apache Spark: Upgrade de Spark SQL 2.2 a 2.3](https://spark.apache.org/docs/latest/sql-migration-guide.html#upgrading-from-spark-sql-22-to-23) | A integração de faíscas e colmeias mudou em HDInsight 4.0. <br><br> No HDInsight 4.0, a Spark e a Hive utilizam catálogos independentes para aceder às tabelas SparkSQL ou Hive. Uma mesa criada por Spark vive no catálogo Spark. Uma mesa criada pela Hive vive no catálogo da Hive. Este comportamento é diferente do HDInsight 3.6 onde a Hive e a Spark partilhavam o catálogo comum. A integração de colmeias e faíscas em HDInsight 4.0 depende do Conector do Armazém da Colmeia (HWC). A HWC funciona como uma ponte entre a Spark e a Hive. Saiba mais sobre o Conector do Armazém da Colmeia. <br> Em HDInsight 4.0 se quiser Partilhar a meta-loja entre a Hive e a Spark, pode fazê-lo alterando a propriedade metastore.catalog.default para colmeia no seu cluster Spark. Você pode encontrar esta propriedade em Ambari Advanced spark2-hive-site-override. É importante entender que a partilha de metastões só funciona para mesas de colmeia externas, isto não funcionará se tiver mesas de colmeias internas/geridas ou mesas ACID. <br><br>Leia [Migrar Azure HDInsight 3.6 Cargas de trabalho de colmeia para HDInsight 4.0](../interactive-query/apache-hive-migrate-workloads.md) para obter mais informações.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Migrar o cluster HDInsight para uma versão mais recente](../hdinsight-upgrade-cluster.md)
 * [Migrar Azure HDInsight 3.6 Cargas de trabalho de colmeia para HDInsight 4.0](../interactive-query/apache-hive-migrate-workloads.md)

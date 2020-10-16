@@ -5,10 +5,10 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.openlocfilehash: 3865e6906b39633e14c86619770188f1c73fed8e
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88641964"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologias de implantação em Funções Azure
@@ -191,7 +191,7 @@ No editor baseado no portal, pode editar diretamente os ficheiros que estão na 
 
 A tabela a seguir mostra os sistemas operativos e os idiomas que suportam a edição do portal:
 
-| Linguagem | Consumo de Janelas | Windows Premium | Windows Dedicado | Consumo de Linux | Linux Premium | Linux Dedicado |
+| Idioma | Consumo de Janelas | Windows Premium | Windows Dedicado | Consumo de Linux | Linux Premium | Linux Dedicado |
 |-|:-----------------: |:----------------:|:-----------------:|:-----------------:|:-------------:|:---------------:|
 | C# | | | | | |
 | C# Script |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|

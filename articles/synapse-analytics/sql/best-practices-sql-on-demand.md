@@ -11,10 +11,10 @@ ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.openlocfilehash: 7bebfeba6da1493557d51777ba8438747e160750
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85476279"
 ---
 # <a name="best-practices-for-sql-on-demand-preview-in-azure-synapse-analytics"></a>Melhores práticas para SQL on-demand (pré-visualização) em Azure Synapse Analytics
@@ -141,6 +141,6 @@ SQL on-demand permite-lhe aceder a ficheiros armazenados utilizando credenciais 
 
 Se precisar de um melhor desempenho, tente usar credenciais SAS para aceder ao armazenamento até que o desempenho do Azure AD Pass-through seja melhorado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Reveja o artigo [de resolução de problemas](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para encontrar soluções para problemas comuns. Se você está trabalhando com piscinas SQL em vez de SQL on demand, consulte [as melhores práticas para piscinas SQL](best-practices-sql-pool.md) para orientação específica.

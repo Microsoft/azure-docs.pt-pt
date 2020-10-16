@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: a88d4893daa12ff2c35ee7cf8f4e5b7569f854f6
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86086199"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Visão geral do Fluxo de Faíscas Apache
@@ -239,7 +239,7 @@ Após o primeiro minuto, há 12 entradas - seis entradas de cada um dos dois lot
 
 As funções de janela deslizantes disponíveis na API de streaming de faíscas incluem a janela, a contagemByWindow, a redução deByWindow e o condeByValueAndWindow. Para obter mais informações sobre estas funções, consulte [Transformações em DStreams](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html#transformations-on-dstreams).
 
-## <a name="checkpointing"></a>Ponto de verificação
+## <a name="checkpointing"></a>Pontos de verificação
 
 Para oferecer resiliência e tolerância a falhas, o Spark Streaming baseia-se no checkpoint para garantir que o processamento de fluxo pode continuar ininterrupto, mesmo face a falhas no nó. A Faísca cria postos de controlo para armazenamento durável (Armazenamento Azure ou Armazenamento do Lago de Dados). Estes pontos de verificação armazenam metadados de aplicação de streaming, como a configuração, e as operações definidas pela aplicação. Além disso, quaisquer lotes que foram em fila mas ainda não processados. Por vezes, os postos de controlo também incluirão a poupança dos dados nos RDDs para reconstruir mais rapidamente o estado dos dados a partir do que está presente nos RDDs geridos pela Spark.
 
@@ -251,7 +251,7 @@ Normalmente constrói uma aplicação Spark Streaming localmente num ficheiro JA
 
 O estado de todos os pedidos também pode ser verificado com um pedido GET contra um ponto final LIVY. Finalmente, pode terminar um pedido de execução emitindo um pedido de DELETE contra o ponto final LIVY. Para mais detalhes sobre a API LIVY, consulte [trabalhos remotos com Apache LIVY](apache-spark-livy-rest-interface.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar um cluster Apache Spark em HDInsight](../hdinsight-hadoop-create-linux-clusters-portal.md)
 * [Guia de programação de streaming de faíscas apache spark](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html)

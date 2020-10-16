@@ -12,10 +12,10 @@ ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: dead71d08b5a7a16871816580107c8aed8a0a77c
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91405110"
 ---
 # <a name="restore-an-existing-sql-pool"></a>Restaurar uma piscina SQL existente
@@ -26,7 +26,7 @@ Neste artigo, você aprende a restaurar uma piscina SQL existente em Azure Synap
 
 **Verifique a sua capacidade de DTU.** Cada piscina é hospedada por um [servidor lógico SQL](../../azure-sql/database/logical-servers.md) (por exemplo, myserver.database.windows.net) que tem uma quota DTU padrão. Verifique se o servidor tem quota DTU suficiente para a base de dados ser restaurada. Para aprender a calcular o DTU necessário ou a solicitar mais DTU, consulte [Solicitar uma alteração de quota de DTU](sql-data-warehouse-get-started-create-support-ticket.md).
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 1. Certifique-se de [instalar a Azure PowerShell](/powershell/azure/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Tenha um ponto de restauro existente que queira restaurar. Se quiser criar um novo restauro, consulte [o tutorial para criar um novo ponto de restauro definido pelo utilizador](sql-data-warehouse-restore-points.md).
@@ -97,7 +97,7 @@ $RestoredDatabase.status
 
     ![ Descrição geral do Restauro](./media/sql-data-warehouse-restore-active-paused-dw/restoring-01.png)
 
-4. Selecione pontos de **restauro automáticos** ou **pontos de restauro definidos pelo utilizador**. Se a piscina SQL não tiver pontos de restauro automáticos, aguarde algumas horas ou crie um ponto de restauro definido pelo utilizador antes de restaurar. Para pontos de restauro definidos pelo utilizador, selecione um existente ou crie um novo. Para **o Servidor,** pode escolher um servidor num grupo e região de recursos diferentes ou criar um novo. Depois de fornecer todos os parâmetros, clique em **Rever + Restaurar.**
+4. Selecione pontos de **restauro automáticos** ou **pontos de restauro definidos pelo utilizador**. Se a piscina SQL não tiver pontos de restauro automáticos, aguarde algumas horas ou crie um ponto de restauro definido pelo utilizador antes de restaurar. Para User-Defined Restaurar Pontos, selecione um existente ou crie um novo. Para **o Servidor,** pode escolher um servidor num grupo e região de recursos diferentes ou criar um novo. Depois de fornecer todos os parâmetros, clique em **Rever + Restaurar.**
 
     ![Pontos de Restauro Automático](./media/sql-data-warehouse-restore-active-paused-dw/restoring-11.png)
 

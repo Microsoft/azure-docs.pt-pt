@@ -9,10 +9,10 @@ ms.date: 06/10/2020
 ms.author: victorh
 ms.reviewer: tyao
 ms.openlocfilehash: a995460793686d8293d77965e74e2cbf916925a0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87005604"
 ---
 # <a name="configure-a-custom-response-for-azure-web-application-firewall-waf"></a>Configure uma resposta personalizada para a Firewall de Aplicação Web Azure (WAF)
@@ -27,9 +27,7 @@ Pode configurar um código de estado de resposta personalizado e um organismo em
 
 No exemplo acima, mantivemos o código de resposta como 403, e configuramos uma mensagem curta "Please contact us", como mostra a imagem abaixo:
 
-:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response.png" alt-text="Exemplo de resposta personalizada":::
-
-"{{azure-ref}}" insere a cadeia de referência única no corpo de resposta. O valor corresponde ao campo TrackingReference nos `FrontdoorAccessLog` registos e `FrontdoorWebApplicationFirewallLog` registos.
+:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response.png" alt-text="Definições de política da WAF" insere a cadeia de referência única no corpo de resposta. O valor corresponde ao campo TrackingReference nos `FrontdoorAccessLog` registos e `FrontdoorWebApplicationFirewallLog` registos.
 
 ## <a name="configure-custom-response-status-code-and-message-use-powershell"></a>Configure código de estado de resposta personalizada e utilização de mensagem PowerShell
 

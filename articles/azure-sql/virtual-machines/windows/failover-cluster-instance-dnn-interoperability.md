@@ -13,10 +13,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.openlocfilehash: ca782e9949f990857db408919cac342d7f712d2b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91272621"
 ---
 # <a name="feature-interoperability-with-sql-server-fci--dnn"></a>Interoperabilidade de recurso com SQL Server FCI & DNN
@@ -86,7 +86,7 @@ Por exemplo, assuma que tem um Editor configurado como um FCI usando DNN numa to
 
 Utilize o nome completo para um caso nomeado, como o seguinte exemplo de imagem: 
 
-:::image type="content" source="media/failover-cluster-instance-dnn-interoperability/alias-named-instance-configuration-manager.png" alt-text="Utilize o nome completo do caso ao configurar um pseudónimo de rede para uma instância nomeada." :::
+:::image type="content" source="media/failover-cluster-instance-dnn-interoperability/alias-named-instance-configuration-manager.png" alt-text="Configure o nome DNN DNS como pseudónimo de rede utilizando o SqL Server Configuration Manager." :::
 
 ## <a name="database-mirroring"></a>Espelhamento da base de dados
 

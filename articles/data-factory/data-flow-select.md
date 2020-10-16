@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/02/2020
 ms.openlocfilehash: 70e0a95a85920562af8bf9d3fffa6633709dccc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84322095"
 ---
 # <a name="select-transformation-in-mapping-data-flow"></a>Selecione a transformação no fluxo de dados de mapeamento
@@ -72,7 +72,7 @@ Se a sua projeção definida tiver uma hierarquia, pode usar o mapeamento basead
 
 ![mapeamento baseado em regras](media/data-flow/rule-based-hierarchy.png "Mapeamento baseado em regras")
 
-O exemplo acima coincide com todos os subcolumns de coluna `a` complexa. `a`contém dois subcolumns `b` e `c` . O esquema de saída incluirá duas colunas `b` e como é a condição `c` 'Nome `$$` as'.
+O exemplo acima coincide com todos os subcolumns de coluna `a` complexa. `a` contém dois subcolumns `b` e `c` . O esquema de saída incluirá duas colunas `b` e como é a condição `c` 'Nome `$$` as'.
 
 ### <a name="parameterization"></a>Parametização
 
@@ -132,5 +132,5 @@ DerivedColumn1 select(mapColumn(
     skipDuplicateMapOutputs: true) ~> Select1
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Depois de utilizar Select para renomear, reencomendar e colunas de pseudónimos, utilize a [transformação](data-flow-sink.md) do Sink para colocar os seus dados numa loja de dados.

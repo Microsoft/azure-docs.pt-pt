@@ -9,10 +9,10 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 02/28/2018
 ms.openlocfilehash: 9dcf34211b77653943658c2bad5c1e2796e23c09
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91707609"
 ---
 # <a name="create-an-azure-database-for-postgresql-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>Criar um servidor da Base de Dados do Azure para PostgreSQL e configurar uma regra de firewall com a CLI do Azure
@@ -40,6 +40,6 @@ Este script utiliza os comandos descritos na tabela seguinte:
 | [az postgres server firewall create](/cli/azure/postgres/server/firewall-rule) | Cria uma regra de firewall para permitir o acesso ao servidor e às bases de dados incluídas, a partir do intervalo de endereços IP introduzido. |
 | [az group delete](/cli/azure/group) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 - Leia mais informações sobre o Azure CLI: [Documentação do Azure CLI](/cli/azure)
 - Experimente scripts adicionais: [Amostras da CLI do Azure para a Base de Dados do Azure para PostgreSQL](../sample-scripts-azure-cli.md)

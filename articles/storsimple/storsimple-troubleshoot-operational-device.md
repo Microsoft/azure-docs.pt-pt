@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: eaf6b1825a258b11a2e345c771909822de73dfcf
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90056494"
 ---
 # <a name="troubleshoot-an-operational-storsimple-device"></a>Resolução de problemas de um dispositivo StorSimple operacional
@@ -45,10 +45,10 @@ O assistente de configuração não realiza as operações relacionadas com a re
 ## <a name="errors-that-occur-during-subsequent-runs-of-the-setup-wizard"></a>Erros que ocorrem durante as execuções subsequentes do assistente de configuração
 A tabela a seguir descreve os erros que poderá encontrar quando executar o assistente de configuração num dispositivo operacional, possíveis causas para os erros e ações recomendadas para os resolver. 
 
-| Não. | Mensagem de erro ou condição | Possíveis causas | Ação recomendada |
+| N.º | Mensagem de erro ou condição | Possíveis causas | Ação recomendada |
 |:--- |:--- |:--- |:--- |
 | 1 |Erro 350032: Este dispositivo já foi desativado. |Verá este erro se executar o assistente de configuração num dispositivo que está desativado. |[Contacte o Microsoft Support](storsimple-contact-microsoft-support.md) para os próximos passos. Um dispositivo desativado não pode ser colocado em serviço. Pode ser necessário um reset de fábrica antes de o dispositivo poder ser novamente ativado. |
-| 2 |Invoke-HcsSetupWizard: ERROR_INVALID_FUNCTION (Exceção da HRESULT: 0x80070001) |A atualização do servidor DNS está a falhar. As definições de DNS são configurações globais e são aplicadas em todas as interfaces de rede ativadas. |Ative a interface e aplique novamente as definições de DNS. Isto pode perturbar a rede para outras interfaces ativadas porque estas definições são globais. |
+| 2 |Invoke-HcsSetupWizard : ERROR_INVALID_FUNCTION (Exceção da HRESULT: 0x80070001) |A atualização do servidor DNS está a falhar. As definições de DNS são configurações globais e são aplicadas em todas as interfaces de rede ativadas. |Ative a interface e aplique novamente as definições de DNS. Isto pode perturbar a rede para outras interfaces ativadas porque estas definições são globais. |
 | 3 |O dispositivo parece estar online no portal de serviço StorSimple Manager, mas quando tenta completar a configuração mínima e salvar a configuração, a operação falha. |Durante a configuração inicial, o proxy da web não foi configurado, mesmo que houvesse um servidor de procuração real no lugar. |Utilize o [cmdlet Test-HcsmConnection][2] para localizar o erro. [Contacte o Microsoft Support](storsimple-contact-microsoft-support.md) se não conseguir corrigir o problema. |
 | 4 |Invoke-HcsSetupWizard: O valor não se enquadra no intervalo esperado. |Uma máscara de sub-rede incorreta produz este erro. As causas possíveis são: <ul><li> A máscara da sub-rede está desaparecida ou vazia.</li><li>O formato prefixo Ipv6 está incorreto.</li><li>A interface está ativada pela nuvem, mas o portal está em falta ou está incorreto.</li></ul>Note que o DATA 0 está automaticamente ativado na nuvem se configurado através do assistente de configuração. |Para determinar o problema, utilize a sub-rede 0.0.0.0 ou 256.256.256.256 e, em seguida, olhe para a saída. Introduza os valores corretos para a máscara de sub-rede, gateway e prefixo Ipv6, conforme necessário. |
 
@@ -63,7 +63,7 @@ Os erros estão listados por ordem numérica.
 | 390061 |O sistema está ocupado ou indisponível. |Espere alguns minutos e tente de novo. Se o erro persistir, contacte o Microsoft Support para os próximos passos. |
 | 390143 |Ocorreu um erro com o código de erro 390143. (Erro desconhecido.) |Se o erro persistir, contacte o Microsoft Support para os próximos passos. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Se não conseguir resolver o problema, contacte o [Microsoft Support](storsimple-contact-microsoft-support.md) para obter assistência. 
 
 [1]: https://technet.microsoft.com/%5Clibrary/Dn688135(v=WPS.630).aspx

@@ -12,10 +12,10 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 157f01008636c61d95d479c396cf82d833b3b44d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91259667"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Fluxo de código de autorização OAuth 2.0 no Azure Ative Directory B2C
@@ -52,7 +52,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 ```
 
 
-| Parâmetro | Necessário? | Description |
+| Parâmetro | Necessário? | Descrição |
 | --- | --- | --- |
 |{inquilino}| Necessário | Nome do seu inquilino Azure AD B2C|
 | {política} | Necessário | O fluxo do utilizador a ser executado. Especifique o nome de um fluxo de utilizador que criou no seu inquilino Azure AD B2C. Por exemplo: `b2c_1_sign_in` `b2c_1_sign_up` , ou . `b2c_1_edit_profile` . |
@@ -112,7 +112,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 ```
 
-| Parâmetro | Necessário? | Description |
+| Parâmetro | Necessário? | Descrição |
 | --- | --- | --- |
 |{inquilino}| Necessário | Nome do seu inquilino Azure AD B2C|
 |{política}| Necessário| O fluxo de utilizador que foi utilizado para adquirir o código de autorização. Não é possível utilizar um fluxo de utilizador diferente neste pedido. |
@@ -179,7 +179,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
-| Parâmetro | Necessário? | Description |
+| Parâmetro | Necessário? | Descrição |
 | --- | --- | --- |
 |{inquilino}| Necessário | Nome do seu inquilino Azure AD B2C|
 |{política} |Necessário |O fluxo de utilizador que foi usado para adquirir o token original da atualização. Não é possível utilizar um fluxo de utilizador diferente neste pedido. |

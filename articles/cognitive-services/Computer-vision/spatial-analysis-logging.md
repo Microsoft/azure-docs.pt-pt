@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: aahi
 ms.openlocfilehash: f85a7e2acf911772ecc6562217918352e909fcbb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91254079"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetria e resolução de problemas
 
-A análise espacial inclui um conjunto de funcionalidades para monitorizar a saúde do sistema e ajudar no diagnóstico de problemas.
+A análise espacial inclui um conjunto de funcionalidades para monitorizar o estado de funcionamento do sistema e ajudar a diagnosticar problemas.
 
 ## <a name="enable-visualizations"></a>Permitir visualizações
 
@@ -103,7 +103,7 @@ Uma vez implantado o módulo telegraf, as métricas reportadas podem ser acedida
 
 ### <a name="system-health-events"></a>Eventos de saúde do sistema
 
-| Nome do Evento | Description|
+| Nome do Evento | Descrição|
 |------|---------|
 |archon_exit    |Enviado quando um utilizador altera o estado do módulo de análise espacial de *correr* para *parar*.  |
 |archon_error   |Enviado quando qualquer um dos processos dentro do contentor se despenhou. Isto é um erro crítico.  |
@@ -229,7 +229,7 @@ Os registos são carregados a pedido com o `getRTCVLogs` método IoT Edge, no `d
 >[!NOTE]
 > Invocar o `getRTCVLogs` método com uma carga útil vazia devolverá uma lista de todos os recipientes implantados no dispositivo. O nome do método é sensível a maiôs. Obterá um erro 501 se for dado um nome de método incorreto.
 
-:::image type="content" source="./media/spatial-analysis/direct-log-collection.png" alt-text="Invocando o método getRTCVLogs ":::
+:::image type="content" source="./media/spatial-analysis/direct-log-collection.png" alt-text="Relatório de telemetria do Monitor Azure":::
 ![getRTCVLogs Página de método direto](./media/spatial-analysis/direct-log-collection.png)
 
  
@@ -237,7 +237,7 @@ Os registos são carregados a pedido com o `getRTCVLogs` método IoT Edge, no `d
 
 A tabela abaixo lista os parâmetros que pode utilizar ao consultar os registos.
 
-| Palavra-chave | Description | Valor Predefinido |
+| Palavra-chave | Descrição | Valor Predefinido |
 |--|--|--|
 | StartTime | Troncos desejados começam na hora de início, em milissegundos UTC. | `-1`, o início do tempo de funcionação do contentor. Quando `[-1.-1]` é usado como um intervalo de tempo, a API retorna os registos da última hora.|
 | EndTime | Os troncos desejados terminam o tempo, em milissegundos UTC. | `-1`, a hora atual. Quando `[-1.-1]` o intervalo de tempo é utilizado, a API retorna os registos da última hora. |
@@ -248,7 +248,7 @@ A tabela abaixo lista os parâmetros que pode utilizar ao consultar os registos.
 
 A tabela seguinte lista os atributos na resposta de consulta.
 
-| Palavra-chave | Description|
+| Palavra-chave | Descrição|
 |--|--|
 |DoPost| Verdadeiro *true* ou *falso.* Indica se os registos foram carregados ou não. Quando opta por não fazer o upload de registos, a API retorna a informação ***de forma sincronizada***. Quando opta por fazer o upload de registos, a API devolve 200, se o pedido for válido, e começa a carregar registos ***assíncronamente***.|
 |Filtro de tempo| Filtro de tempo aplicado aos troncos.|

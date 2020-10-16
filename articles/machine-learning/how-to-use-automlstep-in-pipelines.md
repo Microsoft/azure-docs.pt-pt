@@ -11,12 +11,12 @@ manager: cgronlun
 ms.date: 08/26/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 960440b1c9a35aa9be33cd36945f9df3d800cc41
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 82e2a484e23d55b91ff0c7820302b2cc83537cb8
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91315199"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057710"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Utilize ML automatizado num oleoduto de aprendizagem de máquinas Azure em Python
 
@@ -133,7 +133,7 @@ else:
     # Add some packages relied on by data prep step
     aml_run_config.environment.python.conda_dependencies = CondaDependencies.create(
         conda_packages=['pandas','scikit-learn'], 
-        pip_packages=['azureml-sdk[automl,explain]', 'azureml-dataprep[fuse,pandas]'], 
+        pip_packages=['azureml-sdk[automl]', 'azureml-dataprep[fuse,pandas]'], 
         pin_sdk_version=False)
 ```
 

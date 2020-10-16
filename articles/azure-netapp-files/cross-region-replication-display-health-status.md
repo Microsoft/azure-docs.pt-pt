@@ -15,13 +15,13 @@ ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: b-juche
 ms.openlocfilehash: 95c1202fb56e882554d40926e9d5ecec7be49086
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90708812"
 ---
-# <a name="display-health-status-of-replication-relationship"></a>Mostrar estado de saúde da relação de replicação 
+# <a name="display-health-status-of-replication-relationship"></a>Apresentar o estado de funcionamento da relação de replicação 
 
 Pode ver o estado de replicação no volume de origem ou no volume de destino.  
 
@@ -55,8 +55,8 @@ Pode ver o estado de replicação no volume de origem ou no volume de destino.
 
 ## <a name="next-steps"></a>Passos seguintes  
 
-* [Replicação inter-região](cross-region-replication-introduction.md)
+* [Replicação entre regiões](cross-region-replication-introduction.md)
 * [Gerir a recuperação após desastre](cross-region-replication-manage-disaster-recovery.md)
 * [Métricas de replicação de volume](azure-netapp-files-metrics.md#replication)
-* [Resolução de problemas replicação transversal](troubleshoot-cross-region-replication.md)
+* [Resolver problemas da replicação entre regiões](troubleshoot-cross-region-replication.md)
 

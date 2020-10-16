@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 19e022073f43548a91fad76cb380a75205237bbd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e18193b40bb7c59a21a279f451673dc7d11140e4
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90892561"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092907"
 ---
 # <a name="azure-spring-cloud-disaster-recovery"></a>Recuperação de desastres em Azure Spring Cloud
 
@@ -50,7 +50,7 @@ Você precisará de duas instâncias de serviço da Azure Spring Cloud implantad
 
 2. Configurar o Domínio Personalizado para o Serviço Seguir [o Documento de Domínio Personalizado](spring-cloud-tutorial-custom-domain.md) para configurar o domínio personalizado para estas duas instâncias de serviço existentes. Após a configuração bem sucedida, ambas as instâncias de serviço ligar-se-ão ao domínio personalizado: bcdr-test.contoso.com
 
-3. Criar um gestor de tráfego e dois pontos finais: [Criar um perfil de Gestor de Tráfego utilizando o portal Azure](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile).
+3. Criar um gestor de tráfego e dois pontos finais: [Criar um perfil de Gestor de Tráfego utilizando o portal Azure](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 
 Aqui está o perfil do gestor de tráfego:
 * Nome DNS do Gestor de Tráfego: `http://asc-bcdr.trafficmanager.net`
@@ -68,4 +68,3 @@ Aqui está o perfil do gestor de tráfego:
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Quickstart: Implemente a sua primeira aplicação Azure Spring Cloud](spring-cloud-quickstart.md)
- 

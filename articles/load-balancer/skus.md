@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 05/01/2020
 ms.author: allensu
 ms.openlocfilehash: 8eb8be3307cf5e1df987f636be5c01cecaf4ae45
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91631448"
 ---
 # <a name="azure-load-balancer-skus"></a>SKUs de balançador de carga Azure
@@ -46,7 +46,7 @@ As VMs autónomas, os conjuntos de disponibilidade e os conjuntos de dimensionam
 | **Reposição de TCP em Idle** | [Disponível em qualquer regra](./load-balancer-tcp-reset.md) | Não disponível |
 | **[Múltiplas extremidades dianteiras](./load-balancer-multivip-overview.md)** | Entrada e [saída](./load-balancer-outbound-connections.md) | Só de entrada |
 | **Operações de Gestão** | A maioria das operações < 30 segundos | 60-90+ segundos típicos |
-| **SLA** | [99,99%](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | Não disponível | 
+| **SLA** | [99.99%](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | Não disponível | 
 
 Para obter mais informações, consulte [os limites do balançador de carga](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer). Relativamente aos detalhes do Balanceador de Carga Standard, veja a [descrição geral](load-balancer-standard-overview.md), os [preços](https://aka.ms/lbpricing) e o [SLA](https://aka.ms/lbsla).
 

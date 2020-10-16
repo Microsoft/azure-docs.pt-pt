@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 10/07/2020
 ms.author: memildin
 ms.openlocfilehash: 92feb159fe4c893a55d37fa90c34acf4c4c93631
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91826174"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Proteção avançada de ameaças do Microsoft Defender com Centro de Segurança Azure

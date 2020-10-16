@@ -17,10 +17,10 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9559e22a8396de93bbe46f20b76855d9ff00f753
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84763725"
 ---
 # <a name="unexpected-consent-prompt-when-signing-in-to-an-application"></a>Pedido de consentimento inesperado ao iniciar sessão de candidatura
@@ -45,7 +45,7 @@ Podem ser esperadas solicitações adicionais em vários cenários:
 
 * O desenvolvedor configura o pedido para exigir um pedido de consentimento sempre que é usado (nota: esta não é a melhor prática).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 -   [Aplicativos, permissões e consentimento no Azure Ative Directory (v1.0 endpoint)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)
 

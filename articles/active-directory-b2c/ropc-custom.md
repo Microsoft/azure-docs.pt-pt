@@ -12,10 +12,10 @@ ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: bf8fe68c28457fd01704762e537fe259a96a6bce
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87116230"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configure as credenciais de senha do proprietário do recurso fluem no Azure Ative Directory B2C usando uma política personalizada
@@ -226,7 +226,7 @@ Complete os passos em [Começar com políticas personalizadas no Azure Ative Dir
 
 Em seguida, atualize o ficheiro do partido que inicia a jornada do utilizador que criou:
 
-1. Faça uma cópia do *ficheiroSignUpOrSignin.xml* no seu diretório de trabalho e rebatize-o para *ROPC_Auth.xml*.
+1. Faça uma cópia do * ficheiroSignUpOrSignin.xml* no seu diretório de trabalho e rebatize-o para *ROPC_Auth.xml*.
 2. Abra o novo ficheiro e altere o valor do atributo **PolicyId** para **a TrustFrameworkPolicy** para um valor único. A identificação da apólice é o nome da sua apólice. Por exemplo, **B2C_1A_ROPC_Auth.**
 3. Alterar o valor do atributo **ReferenceId** em **DefaultUserJourney** para `ResourceOwnerPasswordCredentials` .
 4. Alterar o elemento **OutputClaims** para conter apenas as seguintes alegações:

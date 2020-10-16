@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.openlocfilehash: 439523fe55f231548ebc80ebc5d3b53c2f0d6e2f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84808128"
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Criar um gateway de aplicação com um equilibrador de carga interno (ILB)
@@ -20,7 +20,7 @@ Pode configurar o Application Gateway do Azure com um VIP de acesso à Internet 
 
 Este artigo descreve os passos para configurar um gateway de aplicação com um ILB.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -52,7 +52,7 @@ Os passos necessários para criar um gateway de aplicação encontram-se descrit
 
 Não se esqueça de mudar o modo do PowerShell para utilizar o cmdlets do Azure Resource Manager. Para obter mais informações, veja [Using Windows PowerShell with Resource Manager (Usar o Windows PowerShell com o Resource Manager)](../powershell-azure-resource-manager.md).
 
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 
 ```powershell
 Connect-AzAccount
@@ -92,7 +92,7 @@ No exemplo anterior, criámos um grupo de recursos chamado "appgw-rg" e localiza
 
 O exemplo que se segue mostra como criar uma rede virtual utilizando o Resource Manager:
 
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 
 ```powershell
 $subnetconfig = New-AzVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
@@ -118,7 +118,7 @@ Este passo atribui o objeto da sub-rede a $subnet variáveis para os próximos p
 
 ## <a name="create-an-application-gateway-configuration-object"></a>Criar um objeto de configuração do gateway de aplicação
 
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 
 ```powershell
 $gipconfig = New-AzApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
@@ -203,7 +203,7 @@ Para eliminar um gateway de aplicação, tem de fazer os seguintes passos para:
 2. Utilize o cmdlet `Remove-AzApplicationGateway` para remover o gateway.
 3. Verifique se o gateway foi removido com o cmdlet `Get-AzureApplicationGateway`.
 
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 
 Obtenha o objeto do gateway de aplicação e associe-o a uma variável “$getgw”.
 
@@ -256,12 +256,12 @@ VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway
 Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se pretender configurar a descarga de SSL, veja [Configure an application gateway for SSL offload (Configurar um gateway de aplicação para a descarga de SSL)](application-gateway-ssl.md).
 
 Se pretender obter mais informações sobre as opções de balanceamento de carga em geral, veja:
 
-* [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
-* [Traffic Manager do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
+* [Balanceador de Carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
+* [Gestor de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 

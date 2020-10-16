@@ -11,12 +11,12 @@ ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
-ms.openlocfilehash: 0d00db9909f05028b55505400d0810b00e0114c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4598cb1d54fbbeb09e3bc5f58f0cce949b3c848
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88932547"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073806"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução ao Cloud Services do Azure e ao ASP.NET
 
@@ -33,7 +33,7 @@ A aplicação é um BBS de publicidade. Os utilizadores criam um anúncio atrav�
 A aplicação utiliza o [padrão de trabalho centrado em filas](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) para transferir o trabalho intensivo da CPU de criar miniaturas para um processo de back-end.
 
 ## <a name="alternative-architecture-app-service-and-webjobs"></a>Arquitetura alternativa: App Service e WebJobs
-Este tutorial mostra como executar front-end e back-end num serviço em nuvem do Azure. Uma alternativa é executar a frente no [Azure App Service](/azure/app-service/) e utilizar a funcionalidade [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) para o back-end. Para obter um tutorial que utiliza WebJobs, consulte [Introdução ao SDK de WebJobs do Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Para obter informações sobre como escolher os serviços que melhor se adequam ao seu cenário, consulte [o Azure App Service, Cloud Services e a comparação de máquinas virtuais.](/azure/architecture/guide/technology-choices/compute-decision-tree)
+Este tutorial mostra como executar front-end e back-end num serviço em nuvem do Azure. Uma alternativa é executar a frente no [Azure App Service](../app-service/index.yml) e utilizar a funcionalidade [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) para o back-end. Para obter um tutorial que utiliza WebJobs, consulte [Introdução ao SDK de WebJobs do Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Para obter informações sobre como escolher os serviços que melhor se adequam ao seu cenário, consulte [o Azure App Service, Cloud Services e a comparação de máquinas virtuais.](/azure/architecture/guide/technology-choices/compute-decision-tree)
 
 ## <a name="what-youll-learn"></a>O que irá aprender
 * Como ativar o computador para a programação do Azure instalando o Azure SDK.
@@ -169,7 +169,7 @@ Numa aplicação real, normalmente criaria contas separadas para os dados da apl
 
 4. Defina a lista pendente **Replicação** para **Armazenamento localmente redundante**.
 
-    Quando a georreplicação está ativada para uma conta de armazenamento, o conteúdo armazenado é replicado para um datacenter secundário para ativar a ativação pós-falha, se ocorrer um desastre grave na localização primária. A georreplicação pode implicar custos adicionais. Para contas de teste e de desenvolvimento, normalmente não deseja pagar a georreplicação. Para obter mais informações, consulte [Criar, gerir ou eliminar uma conta de armazenamento](../storage/common/storage-create-storage-account.md).
+    Quando a georreplicação está ativada para uma conta de armazenamento, o conteúdo armazenado é replicado para um datacenter secundário para ativar a ativação pós-falha, se ocorrer um desastre grave na localização primária. A georreplicação pode implicar custos adicionais. Para contas de teste e de desenvolvimento, normalmente não deseja pagar a georreplicação. Para obter mais informações, consulte [Criar, gerir ou eliminar uma conta de armazenamento](../storage/common/storage-account-create.md).
 
 5. No **grupo de Recursos**, clique em **Utilizar existente** e selecione o grupo de recursos utilizado para o serviço cloud.
 6. Defina a **Localização** na lista pendente para a mesma região que selecionou para o serviço cloud.
@@ -290,7 +290,7 @@ A definição `<Instances>` especifica o número de máquinas virtuais em que o 
 
     ![Passo Definições](./media/cloud-services-dotnet-get-started/pubsettings.png)
 
-    As predefinições no separador **Avançado** podem ser utilizadas neste tutorial. Para obter informações sobre o separador Avançado, consulte [Publicar Assistente da Aplicação Azure](https://docs.microsoft.com/azure/vs-azure-tools-publish-azure-application-wizard).
+    As predefinições no separador **Avançado** podem ser utilizadas neste tutorial. Para obter informações sobre o separador Avançado, consulte [Publicar Assistente da Aplicação Azure](/visualstudio/azure/vs-azure-tools-publish-azure-application-wizard).
 4. No passo **Resumo**, clique em **Publicar**.
 
     ![Passo Resumo](./media/cloud-services-dotnet-get-started/pubsummary.png)
@@ -776,5 +776,5 @@ Para obter mais informações, veja os seguintes recursos:
 
 * [Parte 1 dos Cloud Services do Azure: Introdução](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Como gerir os Serviços Cloud](cloud-services-how-to-manage-portal.md)
-* [Armazenamento do Azure](https://docs.microsoft.com/azure/storage/)
+* [Armazenamento do Azure](../storage/index.yml)
 * [Como escolher um fornecedor de serviços cloud](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

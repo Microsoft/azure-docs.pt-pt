@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 11/06/2019
 ms.author: cynthn
-ms.openlocfilehash: e484cccb2dc15266fb7889c335a0acc981053e5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e10b1955d50450e43d1dbb180f4d533b6b6ae8b9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82792144"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978059"
 ---
 # <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>Criar uma Galeria de Imagens Partilhadas Azure usando o portal
 
@@ -48,7 +48,7 @@ Agora pode criar um ou mais VMs novos. Este exemplo cria um VM chamado *myVM,* n
 1. Para **opções de disponibilidade,** deixe o padrão de Não necessidade de *redundância de infraestrutura*.
 1. O valor para **Imagem** é automaticamente preenchido com a `latest` versão de imagem se você começar a partir da página para a definição de imagem.
 1. Para **tamanho**, escolha um tamanho VM da lista de tamanhos disponíveis e, em seguida, escolha **Selecione**.
-1. Na **conta administrador**, se a imagem foi generalizada, é necessário fornecer um nome de utilizador, como *azureuser* e uma palavra-passe. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](faq.md#what-are-the-password-requirements-when-creating-a-vm). Se a sua imagem foi especializada, os campos de nome de utilizador e palavra-passe ficarão acinzentados porque o nome de utilizador e a palavra-passe para a origem VM são utilizados.
+1. Na **conta administrador**, se a imagem foi generalizada, é necessário fornecer um nome de utilizador, como *azureuser* e uma palavra-passe. A palavra-passe deve ter pelo menos 12 caracteres de comprimento e satisfazer os [requisitos de complexidade definidos](faq.md#what-are-the-password-requirements-when-creating-a-vm). Se a sua imagem foi especializada, os campos de nome de utilizador e palavra-passe ficarão acinzentados porque o nome de utilizador e a palavra-passe para a origem VM são utilizados.
 1. Se pretender permitir o acesso remoto ao VM, **em portas de entrada pública,** escolha Localizar portas **selecionadas** e, em seguida, selecionar **RDP (3389)** a partir do drop-down. Se não pretender permitir o acesso remoto ao VM, deixe **nenhum** selecionado para **portas de entrada pública**.
 1. Quando terminar, selecione o botão **'Rever +'** na parte inferior da página.
 1. Depois da validação de passes VM, **selecione Criar** na parte inferior da página para iniciar a implementação.
@@ -69,5 +69,4 @@ Também pode criar recursos da Galeria de Imagens Partilhadas utilizando modelos
 - [Criar uma Versão de Imagem num Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 - [Criar uma VM a partir de uma Versão de Imagem](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
-Para mais informações sobre galerias de imagem partilhadas, consulte a [Visão Geral.](shared-image-galleries.md) Se tiver problemas, consulte [as galerias de imagem partilhadas .](troubleshooting-shared-images.md)
-
+Para mais informações sobre galerias de imagem partilhadas, consulte a [Visão Geral.](shared-image-galleries.md) Se tiver problemas, consulte [as galerias de imagem partilhadas .](../troubleshooting-shared-images.md)

@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2eb656e46ce5e26fca5ae5c094f9b8bb85819caa
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89275781"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect sync: Handling LargeObject erros causados pelo atributo userCertificate
@@ -79,14 +79,14 @@ Certifique-se de que não ocorre sincronização enquanto estiver a implementar 
 > [!Note]
 > Os passos anteriores só são aplicáveis às versões mais recentes (1.1.xxx.x) do Azure AD Connect com o programador incorporado. Se estiver a utilizar versões mais antigas (1.0.xxx.x) do Azure AD Connect que utiliza o Windows Task Scheduler, ou se estiver a utilizar o seu próprio programador personalizado (não comum) para desencadear uma sincronização periódica, tem de as desativar em conformidade.
 
-1. Inicie o **Gestor de Serviços de Sincronização** indo para START → Serviço de Sincronização.
+1. Inicie o **Gestor de Serviços de Sincronização** indo para o START → Serviço de Sincronização.
 
 1. Vá ao separador **Operações** e confirme que não há nenhuma operação cujo estado está *"em curso".*
 
 ### <a name="step-2-find-the-existing-outbound-sync-rule-for-usercertificate-attribute"></a>Passo 2. Encontre a regra de sincronização de saída existente para o atributo userCertate
 Deve existir uma regra de sincronização existente que esteja ativada e configurada para exportar o atributo de utilizadorCertificado para objetos do Utilizador para Azure AD. Localize esta regra de sincronização para descobrir a sua **precedência** e configuração do filtro de **deteção:**
 
-1. Inicie o **Editor de Regras de Sincronização** indo para START → Synchronization Rules Editor.
+1. Inicie o **Editor de Regras de Sincronização** indo ao START → Synchronization Rules Editor.
 
 2. Configure os filtros de pesquisa com os seguintes valores:
 
@@ -117,7 +117,7 @@ A nova regra de sincronização deve ter o mesmo **filtro de deteção** e **pre
 
     | Atributo | Valor | Detalhes |
     | --- | --- | --- |
-    | Name | *Fornecer um nome* | Por exemplo, *"out to AAD – Substituição personalizada para o utilizadorCertificate"* |
+    | Nome | *Fornecer um nome* | Por exemplo, *"out to AAD – Substituição personalizada para o utilizadorCertificate"* |
     | Descrição | *Fornecer uma descrição* | Por exemplo, *"Se o atributo userCertificate tiver mais de 15 valores, exporte NU."* |
     | Sistema Conectado | *Selecione o Conector AD Azure* |
     | Tipo de objeto de sistema conectado | **utilizador** | |
@@ -181,5 +181,5 @@ Agora que a questão está resolvida, reecamia o programador de sincronização 
 > [!Note]
 > Os passos anteriores só são aplicáveis às versões mais recentes (1.1.xxx.x) do Azure AD Connect com o programador incorporado. Se estiver a utilizar versões mais antigas (1.0.xxx.x) do Azure AD Connect que utiliza o Windows Task Scheduler, ou se estiver a utilizar o seu próprio programador personalizado (não comum) para desencadear uma sincronização periódica, tem de as desativar em conformidade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

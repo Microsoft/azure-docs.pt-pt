@@ -4,10 +4,10 @@ description: Conheça as novas funcionalidades no Azure Backup Server. Este arti
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: b077296e58e1193e454a686a392d802e905500a5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91292902"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Adicionar armazenamento ao Azure Backup Server
@@ -87,7 +87,7 @@ Sintaxe:
 Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-DatasourceType] <VolumeTag[]> ] [-Confirm] [-WhatIf] [ <CommonParameters>]
 ```
 
-A imagem que se segue mostra o cmdlet Update-DPMDiskStorage na janela PowerShell.
+A imagem que se segue mostra o Update-DPMDiskStorage cmdlet na janela PowerShell.
 
 ![O comando Update-DPMDiskStorage na janela PowerShell](./media/backup-mabs-add-storage/mabs-add-storage-8.png)
 

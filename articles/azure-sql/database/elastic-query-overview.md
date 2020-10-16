@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 12/05/2019
 ms.openlocfilehash: a4a666423c6f5a76d69f572f6d8b86a022bf3e30
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91443144"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Visão geral da consulta elástica Azure SQL Database (pré-visualização)

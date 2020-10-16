@@ -7,10 +7,10 @@ ms.custom: devx-track-java
 ms.author: jgol
 ms.date: 04/16/2020
 ms.openlocfilehash: c2d35a6f379b0d7cf3c4c7d61e5e679553e5302f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87326890"
 ---
 # <a name="java-codeless-application-monitoring-on-premises---azure-monitor-application-insights---public-preview"></a>Java codeless monitoring on-in - Azure Monitor Application Insights - visualização pública

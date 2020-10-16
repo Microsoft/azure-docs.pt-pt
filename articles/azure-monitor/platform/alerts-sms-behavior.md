@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.subservice: alerts
 ms.openlocfilehash: ff3d055840d69623234a799c62b1d8a6efd96ec5
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87327094"
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>Comportamento de alerta de SMS em grupos de ação
@@ -32,8 +32,8 @@ Um recetor SMS configurado como parte de um grupo de ação recebe um SMS quando
 
 | RESPONDER | Descrição |
 | ----- | ----------- |
-| DESATIVAR`<Action Group Short name>` | Desativa mais SMS do Grupo de Ação |
-| ATIVAR`<Action Group Short name>` | Re-habilita SMS do Grupo de Ação |
+| DESATIVAR `<Action Group Short name>` | Desativa mais SMS do Grupo de Ação |
+| ATIVAR `<Action Group Short name>` | Re-habilita SMS do Grupo de Ação |
 | PARAR | Desativa mais SMS de todos os Grupos de Ação |
 | INÍCIO | Reesibilizar SMS de TODOS os Grupos de Ação |
 | AJUDA | É enviada uma resposta ao utilizador com um link para este artigo. |
@@ -41,7 +41,7 @@ Um recetor SMS configurado como parte de um grupo de ação recebe um SMS quando
 >[!NOTE]
 >Se um utilizador não tiver sido subscrito a partir de alertas SMS, mas for adicionado a um novo grupo de ação; receberão alertas SMS para o novo grupo de ação, mas continuam sem ser subscritos de todos os grupos de ação anteriores.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 Obtenha uma [visão geral dos alertas de registo de atividade e](alerts-overview.md) aprenda a ser alertado  
 Saiba mais sobre [a limitação da taxa de SMS](alerts-rate-limiting.md)  
 Saiba mais sobre [grupos de ação](./action-groups.md)

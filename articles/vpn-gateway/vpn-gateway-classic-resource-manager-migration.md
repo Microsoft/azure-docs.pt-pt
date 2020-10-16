@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/06/2020
 ms.author: amsriva
 ms.openlocfilehash: b9154b124f89a8b672c58d5e7bce28c0833e8a8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84988043"
 ---
 # <a name="vpn-gateway-classic-to-resource-manager-migration"></a>VPN Gateway clássico para migração de Gestor de Recursos
@@ -65,6 +65,6 @@ Uma vez que transformamos a conectividade VNet para VNet sem exigir sites locais
 * Ativar o BGP em gateways VPN que estejam ligados entre si e no local. Permitir que o BGP restaure a conectividade sem qualquer outra alteração de configuração, uma vez que as rotas são aprendidas e publicitadas entre gateways VNet. Note que a opção BGP só está disponível na Standard e skus mais alta.
 * Estabeleça uma ligação explícita do VNet afetado à porta de entrada de rede local que representa a localização no local. Isto exigiria igualmente a alteração da configuração no router no local para criar e configurar o túnel IPsec.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Depois de aprender sobre o suporte de migração de gateway VPN, vá para a [migração apoiada pela plataforma de recursos IaaS de clássico para Gestor de Recursos](../virtual-machines/windows/migration-classic-resource-manager-ps.md) para começar.
 

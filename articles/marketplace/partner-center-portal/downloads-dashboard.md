@@ -8,10 +8,10 @@ ms.date: 08/21/2020
 author: shganesh-dev
 ms.author: shganesh
 ms.openlocfilehash: f426b0466046b366655c183a9372b2468937565b
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88750284"
 ---
 # <a name="downloads-dashboard-in-commercial-marketplace-analytics"></a>Descarrega dashboard em análise de mercado comercial

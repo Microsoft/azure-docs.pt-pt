@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.openlocfilehash: 0a19bd9d1547c16937ee575c08ea15a52589ccd0
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87171040"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>Utilizar o Azure Ative Directory para a autenticação com o PostgreSQL
@@ -86,7 +86,7 @@ Por favor, note que as operações de gestão, como a adição de novos utilizad
 - Se o administrador AD AD do Azure for removido do servidor, o servidor deixará de estar associado a um inquilino AZure AD, pelo que todos os logins AD do Azure serão desativados para o servidor. A adição de um novo administrador AD AD do mesmo inquilino irá reenensitar logins AZure AD.
 - A Azure Database for PostgreSQL corresponde aos tokens de acesso à Base de Dados Azure para a função PostgreSQL utilizando o ID único do utilizador Azure AD, em oposição à utilização do nome de utilizador. Isto significa que se um utilizador AD Azure for eliminado em Azure AD e um novo utilizador criado com o mesmo nome, a Azure Database for PostgreSQL considera que um utilizador diferente. Portanto, se um utilizador for eliminado do Azure AD e, em seguida, um novo utilizador com o mesmo nome adicionado, o novo utilizador não será capaz de se conectar com a função existente. Para permitir isso, a Base de Dados Azure para administração AD Pós-SQL Azure deve revogar e, em seguida, conceder a função "azure_ad_user" ao utilizador para refrescar o ID do utilizador Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para aprender a criar e povoar a AD AZure e, em seguida, configurar Azure AD com Azure Database for PostgreSQL, consulte [Configure e inscreva-se com Azure AD para Azure Database for PostgreSQL](howto-configure-sign-in-aad-authentication.md).
 - Para obter uma visão geral dos logins, utilizadores e funções de base de dados Azure Database for PostgreSQL, consulte [Criar utilizadores na Base de Dados Azure para PostgreSQL - Servidor Único](howto-create-users.md).

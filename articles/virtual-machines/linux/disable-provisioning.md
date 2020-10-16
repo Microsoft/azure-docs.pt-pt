@@ -10,10 +10,10 @@ ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
 ms.openlocfilehash: 2a17825d062496e6600966dc7c90b14749507e4d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86494518"
 ---
 # <a name="disable-or-remove-the-linux-agent-from-vms-and-images"></a>Desativar ou remover o Agente Linux de VMs e imagens
@@ -183,6 +183,6 @@ Em alternativa, pode fazê-lo utilizando modelos Azure Resource Manager (ARM), d
                     "keyData": "[parameters('adminPublicKey')]"
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações, consulte [Provisioning Linux](provisioning.md).

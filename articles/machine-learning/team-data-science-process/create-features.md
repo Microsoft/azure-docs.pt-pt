@@ -12,10 +12,10 @@ ms.date: 05/14/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
 ms.openlocfilehash: 5e84a3930d350ec45cef7119342e3e4d2d5daaee
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91250662"
 ---
 # <a name="feature-engineering-in-data-science"></a>Engenharia de recursos em ciência de dados
@@ -66,7 +66,7 @@ A figura a seguir demonstra o script R utilizado para criar o conjunto de funcio
 
 ![criar funcionalidades](./media/create-features/addFeature-Rscripts.png)
 
-### <a name="results"></a>Resultados
+### <a name="results"></a>Results
 
 Uma comparação dos resultados de desempenho dos quatro modelos é resumida no quadro seguinte: 
 

@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: cf7147ca1295c9f2cef5d89c232f2c266075e362
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: ae01fc2ef8761305c2096904471ce75b69d1150d
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167407"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048411"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurar um dispositivo IoT Edge para atuar como um gateway transparente
 
@@ -36,7 +36,7 @@ Existem três passos gerais para estabelecer uma ligação transparente de gatew
 
 Para que um dispositivo atue como um portal, tem de se ligar de forma segura aos seus dispositivos a jusante. O Azure IoT Edge permite-lhe utilizar uma infraestrutura de chaves públicas (PKI) para estabelecer ligações seguras entre dispositivos. Neste caso, estamos a permitir que um dispositivo a jusante se conecte a um dispositivo IoT Edge agindo como um gateway transparente. Para manter uma segurança razoável, o dispositivo a jusante deve confirmar a identidade do dispositivo gateway. Esta verificação de identidade impede que os seus dispositivos se conectem a gateways potencialmente maliciosos.
 
-Um dispositivo a jusante pode ser qualquer aplicação ou plataforma que tenha uma identidade criada com o serviço de nuvem [Azure IoT Hub.](https://docs.microsoft.com/azure/iot-hub) Estas aplicações utilizam frequentemente o [dispositivo Azure IoT SDK](../iot-hub/iot-hub-devguide-sdks.md). Um dispositivo a jusante pode até ser uma aplicação em execução no próprio dispositivo de gateway IoT Edge. No entanto, um dispositivo IoT Edge não pode ser a jusante de um gateway IoT Edge.
+Um dispositivo a jusante pode ser qualquer aplicação ou plataforma que tenha uma identidade criada com o serviço de nuvem [Azure IoT Hub.](../iot-hub/index.yml) Estas aplicações utilizam frequentemente o [dispositivo Azure IoT SDK](../iot-hub/iot-hub-devguide-sdks.md). Um dispositivo a jusante pode até ser uma aplicação em execução no próprio dispositivo de gateway IoT Edge. No entanto, um dispositivo IoT Edge não pode ser a jusante de um gateway IoT Edge.
 
 Pode criar qualquer infraestrutura de certificado que permita a confiança necessária para a sua topologia de porta de dispositivos. Neste artigo, assumimos a mesma configuração de certificado que você usaria para permitir a [segurança X.509 CA](../iot-hub/iot-hub-x509ca-overview.md) no IoT Hub, que envolve um certificado DE CA X.509 associado a um hub IoT específico (o hub IoT raiz CA), uma série de certificados assinados com este CA, e um CA para o dispositivo IoT Edge.
 

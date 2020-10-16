@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/05/2019
 ms.openlocfilehash: 58eb92f4d0bc3de4671ca2ece14a178a876e4a6b
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541051"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Construa uma aplicação LUIS programáticamente utilizando Node.js
@@ -184,7 +184,7 @@ Assim que o script estiver concluído, pode iniciar sôms no [LUIS](luis-referen
 ![Intenção turnOn](./media/luis-tutorial-node-import-utterances-csv/imported-utterances-661.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Teste e treine a sua app no site da LUIS](luis-interactive-test.md)

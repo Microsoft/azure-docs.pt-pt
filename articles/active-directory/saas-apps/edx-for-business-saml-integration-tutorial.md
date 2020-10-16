@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: jeedes
 ms.openlocfilehash: 31e8533da91fdab86313e21c20c2ebb107eef848
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89660597"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-edx-for-business-saml-integration"></a>Tutorial: Azure Ative Directy integração única (SSO) com edX para integração SAML de negócios
@@ -86,7 +86,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://courses.edx.org/dashboard?tpa_hint=<INSTANCE_NAME>`
 
     > [!NOTE]
-    > O valor não é real. Atualize o valor com o URL de inscrição real. Contacte [a equipa de suporte ao cliente de integração de negócios SAML](mailto:api-support@edx.org) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > O valor não é real. Atualize o valor com o URL de Sign-On real. Contacte [a equipa de suporte ao cliente de integração de negócios SAML](mailto:api-support@edx.org) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
 1. A aplicação edX for Business SAML Integration espera as afirmações DA SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos.
 
@@ -94,7 +94,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação edX para integração de SAML de negócios espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
     
-    | Name | Atributo de origem|
+    | Nome | Atributo de origem|
     | ---------------| --------- |
     | país | user.country  |
 

@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
 ms.openlocfilehash: d40a5b64cc8018f45bf08158ce808b2baae27962
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87049087"
 ---
 # <a name="use-an-azure-powershell-command-to-create-an-empty-cloud-service-container"></a>Use um comando Azure PowerShell para criar um recipiente de serviço de nuvem vazia
@@ -52,4 +52,4 @@ Get-help New-AzureService
 ### <a name="next-steps"></a>Passos seguintes
 
 * Para gerir a implementação do serviço de nuvem, consulte os comandos [Get-AzureService](/powershell/module/servicemanagement/azure.service/Get-AzureService?view=azuresmps-4.0.0), [Remove-AzureService](/powershell/module/servicemanagement/azure.service/Remove-AzureService?view=azuresmps-4.0.0)e [Set-AzureService.](/powershell/module/servicemanagement/azure.service/set-azureservice?view=azuresmps-4.0.0) Também pode consultar como [configurar serviços na nuvem](cloud-services-how-to-configure-portal.md) para mais informações.
-* Para publicar o seu projeto de serviço na nuvem ao Azure, consulte a amostra de código **PublishCloudService.ps1** do [repositório](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Scripts/cloud-services-continuous-delivery)de serviços de nuvem arquivado .
+* Para publicar o seu projeto de serviço na nuvem ao Azure, consulte a amostra de código  **PublishCloudService.ps1** do [repositório](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Scripts/cloud-services-continuous-delivery)de serviços de nuvem arquivado .

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: steveesp
 ms.openlocfilehash: 77ea14097538f722569acb5a0371674776aac8e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84687808"
 ---
 # <a name="test-vm-network-latency"></a>Testar a latência da rede de VMs
@@ -199,7 +199,7 @@ Espere pelos resultados. Dependendo da distância entre os VMs, o número de ite
 Este exemplo SockPerf usa um tamanho de mensagem de 350 byte, que é típico para um pacote médio. Pode ajustar o tamanho mais alto ou mais baixo para obter resultados que representem com maior precisão a carga de trabalho que está a funcionar nos seus VMs.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Melhorar a latência com um [grupo de colocação de proximidade Azure](https://docs.microsoft.com/azure/virtual-machines/linux/co-location).
 * Saiba como otimizar a [rede para VMs](../virtual-network/virtual-network-optimize-network-bandwidth.md) para o seu cenário.
 * Leia sobre como a [largura de banda é atribuída a máquinas virtuais.](../virtual-network/virtual-machine-network-throughput.md)

@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 03/05/2019
 ms.openlocfilehash: 2ef38aa76f4ef9152e7bc55a1d74c84ef426f0ac
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87056759"
 ---
 # <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Obter registos kubelet dos nós de cluster do Azure Kubernetes Service (AKS)
@@ -17,7 +17,7 @@ Como parte da operação de um cluster AKS, poderá ser necessário rever os reg
 
 Este artigo mostra-lhe como pode usar `journalctl` para ver os registos de *kubelet* num nó AKS.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 

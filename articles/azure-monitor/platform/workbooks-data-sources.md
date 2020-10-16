@@ -3,19 +3,17 @@ title: Azure Monitor resulta em fontes de dados Docs da Microsoft
 description: Simplificar relatórios complexos com livros de trabalho azure monitor pré-construídos e personalizados construídos a partir de múltiplas fontes de dados
 services: azure-monitor
 documentationcenter: ''
-author: mrbullwinkle
 manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
-ms.author: mbullwin
-ms.openlocfilehash: bbd231ca527b4c01509230e839b97187de29febd
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 049a7348b803d12b66974bb9a9b50c12059171a2
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825747"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91931126"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Fontes de dados de livros do Azure Monitor
 

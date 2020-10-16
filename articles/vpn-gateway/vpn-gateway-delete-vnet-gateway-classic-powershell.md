@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/09/2020
+ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: ded1887248e7313c2a284388e8338af96ad7614c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 39585a68c5cddc50cd04e82caca71209270f7b68
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987418"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91874123"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>Excluir um gateway de rede virtual usando PowerShell (clássico)
 
@@ -35,11 +35,7 @@ Este artigo ajuda-o a eliminar uma porta de entrada VPN no modelo clássico de i
 
 Abra a consola do PowerShell com direitos elevados e ligue-se à sua conta. Utilize o exemplo seguinte para o ajudar na ligação:
 
-1. Abra a sua consola PowerShell com direitos elevados. Para mudar para a gestão de serviços, utilize este comando:
-
-   ```powershell
-   azure config mode asm
-   ```
+1. Abra a sua consola PowerShell com direitos elevados.
 2. Ligar à sua conta. Utilize o exemplo seguinte para o ajudar na ligação:
 
    ```powershell

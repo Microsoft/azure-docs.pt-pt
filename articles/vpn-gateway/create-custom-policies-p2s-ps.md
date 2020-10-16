@@ -9,17 +9,17 @@ ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: cherylmc
 ms.openlocfilehash: a77a870304e20c179e22b4a4ffe404315894d8a0
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91743697"
 ---
 # <a name="create-and-set-custom-ipsec-policies-for-point-to-site-preview"></a>Criar e definir políticas IPsec personalizadas para ponto a local (pré-visualização)
 
 Se o seu ambiente necessitar de uma política IPsec personalizada para encriptação, pode configurar facilmente um objeto de política com as definições necessárias. Este artigo ajuda-o a criar um objeto de política personalizado e, em seguida, defini-lo usando o PowerShell.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 ### <a name="prerequisites"></a>Pré-requisitos
 

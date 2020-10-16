@@ -9,10 +9,10 @@ ms.date: 07/19/2019
 ms.topic: conceptual
 ms.service: container-service
 ms.openlocfilehash: 35474df96254b158a39b6d913171c553bf30aea4
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88816444"
 ---
 # <a name="manage-projects-templates-image-streams-in-an-azure-red-hat-openshift-cluster"></a>Gerir projetos, modelos, streams de imagem em um cluster Azure Red Hat OpenShift
@@ -27,7 +27,7 @@ Quando um pedido de projeto é apresentado, a API substitui os seguintes parâme
 
 | Parâmetro               | Descrição                                    |
 | ----------------------- | ---------------------------------------------- |
-| PROJECT_NAME            | O nome do projeto. Necessário.             |
+| PROJECT_NAME            | O nome do projeto. Obrigatório.             |
 | PROJECT_DISPLAYNAME     | O nome de exibição do projeto. Pode estar vazio. |
 | PROJECT_DESCRIPTION     | A descrição do projeto. Pode estar vazio.  |
 | PROJECT_ADMIN_USER      | O nome de utilizador do utilizador que administra.       |

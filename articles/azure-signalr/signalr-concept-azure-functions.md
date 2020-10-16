@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: cbb1fcf320a78f11045bf9627ffcc438af3e388a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74157618"
 ---
 # <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>Construir aplicativos em tempo real com funções Azure e serviço Azure SignalR
@@ -62,7 +62,7 @@ Um exemplo de como utilizar os enlaces do Serviço SignalR é utilizar as Funç�
 
 O Serviço SignalR permite-lhe difundir mensagens para todos os clientes ou apenas um subconjunto de clientes, tais como aqueles que pertencem a um único utilizador. Os enlaces do Serviço SignalR para as Funções do Azure podem ser combinados com a Autenticação do Serviço de Aplicações para autenticar utilizadores com fornecedores como o Azure Active Directory, o Facebook e o Twitter. Em seguida, pode enviar mensagens diretamente para estes utilizadores autenticados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, obteve uma descrição geral de como pode utilizar as Funções do Azure com o Serviço SignalR para ativar uma grande diversidade de cenários de mensagens em tempo real sem servidor.
 

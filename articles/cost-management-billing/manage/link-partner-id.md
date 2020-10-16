@@ -4,16 +4,16 @@ description: Acompanhe as cativações dos clientes do Azure ao ligar um ID de p
 author: dhirajgandhi
 ms.reviewer: dhgandhi
 ms.author: banders
-ms.date: 07/24/2020
+ms.date: 10/05/2020
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.openlocfilehash: 03953e210f1c4caf1541db272ce4c02c271dafaa
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: f030a9e75507063e104e0bae0ca5654bd3528bac
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371835"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772724"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Ligar um ID de parceiro às contas do Azure
 
@@ -43,7 +43,7 @@ Quando tiver acesso aos recursos do cliente, utilize o portal do Azure, o PowerS
 
 2. Inicie sessão no Portal do Azure.
 
-3. Introduza o ID de parceiro Microsoft. O ID de parceiro é o [ID do Microsoft Partner Network](https://partner.microsoft.com/) da sua organização.
+3. Introduza o ID de parceiro Microsoft. O ID de parceiro é o [ID do Microsoft Partner Network](https://partner.microsoft.com/) da sua organização. Utilize o **ID do MPN associado** apresentado no seu perfil de parceiro.
 
    ![Captura de ecrã que mostra Ligar a um ID de parceiro](./media/link-partner-id/link-partner-id01.png)
 
@@ -61,7 +61,8 @@ Quando tiver acesso aos recursos do cliente, utilize o portal do Azure, o PowerS
     C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
    ```
 
-3. Ligação para o novo ID de parceiro. O ID de parceiro é o [ID do Microsoft Partner Network](https://partner.microsoft.com/) da sua organização.
+3. Ligação para o novo ID de parceiro. O ID de parceiro é o [ID do Microsoft Partner Network](https://partner.microsoft.com/) da sua organização. Utilize o **ID do MPN associado** apresentado no seu perfil de parceiro.
+
 
     ```azurepowershell-interactive
     C:\> new-AzManagementPartner -PartnerId 12345
@@ -141,7 +142,7 @@ A ligação é associada ao nível da conta de utilizador. Apenas o utilizador d
 
 **Qual ID do MPN devo utilizar se a minha empresa tiver vários?**
 
-As Contas de Localização de Parceiros e os IDs do MPN associados devem ser utilizados para ligar o ID de parceiro.  Saiba mais sobre as [Contas de Parceiros](https://docs.microsoft.com/partner-center/account-structure)
+Utilize o **ID do MPN associado** apresentado no seu perfil de parceiro.
 
 **Onde posso encontrar relatórios de receitas influenciadas para o ID de parceiro ligado?**
 

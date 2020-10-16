@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: juergent
 ms.openlocfilehash: f2a62cb08fcce6597f02c080231f5e1808794054
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88509965"
 ---
 # <a name="installation-of-sap-hana-on-azure-virtual-machines"></a>Instalação de SAP HANA em máquinas virtuais Azure
@@ -61,7 +61,7 @@ Nesta fase, é necessário passar pelos passos que implementam os VM(s) para ins
 3. Aplique os remendos mais recentes no sistema operativo assim que o VM estiver implantado e registado. Registado com a sua própria assinatura. Ou caso tenha escolhido uma imagem que inclua suporte ao sistema operativo, o VM já deve ter acesso aos patches. 
 4. Aplique as melodias necessárias para o SAP HANA. Estas melodias estão listadas nestas notas de suporte SAP:
 
-    - [Nota de suporte SAP #2694118 - Red Hat Enterprise Linux HA Add-On on Azure](https://launchpad.support.sap.com/#/notes/2694118)
+    - [Nota de suporte DA SAP #2694118 - Red Hat Enterprise Linux HA Add-On em Azure](https://launchpad.support.sap.com/#/notes/2694118)
     - [Nota de suporte SAP #1984787 - SUSE LINUX Enterprise Server 12: Notas de instalação](https://launchpad.support.sap.com/#/notes/1984787) 
     - [Nota de suporte SAP #2578899 - SUSE Linux Enterprise Server 15: Nota de instalação](https://launchpad.support.sap.com/#/notes/2578899)
     - [Nota de suporte SAP #2002167 - Red Hat Enterprise Linux 7.x: Instalação e atualização](https://launchpad.support.sap.com/#/notes/0002002167)
@@ -72,7 +72,7 @@ Nesta fase, é necessário passar pelos passos que implementam os VM(s) para ins
     -  [Nota de suporte SAP #2382421 - Otimização da Configuração da Rede no Nível HANA e OS](https://launchpad.support.sap.com/#/notes/2382421)
 
 1. Selecione o tipo de armazenamento Azure para SAP HANA. Neste passo, você precisa decidir sobre o layout de armazenamento para a instalação SAP HANA. Você vai usar discos Azure anexados ou ações nativas da Azure NFS. Os tipos de armazenamento Azure que ou suportados e combinações de diferentes tipos de armazenamento Azure que podem ser usados, são documentados em [configurações de armazenamento de máquinas virtuais SAP HANA Azure](./hana-vm-operations-storage.md). Tome as configurações documentadas como ponto de partida. Para sistemas de não produção, poderá configurar uma produção mais baixa ou iOPS. Para efeitos de produção, poderá ser necessário configurar um pouco mais de produção e IOPS.
-2. Certifique-se de que configura o [Acelerador de Escrita Azure](../../how-to-enable-write-accelerator.md) para os seus volumes que contêm os registos de transações DBMS ou registos de redo quando estiver a utilizar VMs da Série M ou da Série Mv2. Esteja ciente das limitações para o Acelerador de Escrita, conforme documentado.
+2. Certifique-se de que configura o [Acelerador de Escrita Azure](../../how-to-enable-write-accelerator.md) para os seus volumes que contêm os registos de transações DBMS ou registos de redo quando estiver a utilizar M-Series ou VMs Mv2-Series. Esteja ciente das limitações para o Acelerador de Escrita, conforme documentado.
 2. Verifique se [o Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) está ativado nos VM(s) implantados.
 
 > [!NOTE]

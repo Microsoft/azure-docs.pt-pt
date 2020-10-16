@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.custom: devx-track-csharp
 ms.openlocfilehash: c714ae30c64ea073cbac521eac5e15a8d968b7ea
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91531315"
 ---
 # <a name="simulate-failures-during-service-workloads"></a>Simular falhas durante as cargas de trabalho de serviço

@@ -12,13 +12,13 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: 2b98b11d85bde8dd49b6bbde5d048493493b73f5
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91620244"
 ---
-# <a name="managed-api-reference-for-azure-sql-managed-instance"></a>Referência API gerida para Azure SQL Caso Gerido
+# <a name="managed-api-reference-for-azure-sql-managed-instance"></a>Referência de API gerida para o Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Pode criar e configurar instâncias geridas de Azure SQL Gestd Instance utilizando o portal Azure, PowerShell, Azure CLI, REST API e Transact-SQL. Neste artigo, pode encontrar uma visão geral das funções e da API que pode utilizar para criar e configurar casos geridos.

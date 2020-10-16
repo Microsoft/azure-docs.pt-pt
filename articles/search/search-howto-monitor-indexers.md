@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/12/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 06a31e61583ac28218b34195dd6e5b7f92776dce
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541242"
 ---
 # <a name="how-to-monitor-azure-cognitive-search-indexer-status-and-results"></a>Como monitorizar o estado e os resultados do indexante de pesquisa cognitiva do Azure

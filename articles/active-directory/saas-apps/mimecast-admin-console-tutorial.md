@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/21/2020
 ms.author: jeedes
-ms.openlocfilehash: f3029acd791e7c45eb5943d298189430ac308e99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a9599c20905168b425675d0b028545143c7d19f
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88528476"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91941080"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mimecast-admin-console"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Consola de Administração Mimecast
 
@@ -80,7 +80,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     a. Na caixa de texto **identifier,** digite um URL utilizando o seguinte padrão:
 
-    | Região  |  Valor | 
+    | Region  |  Valor | 
     | --------------- | --------------- |
     | Europa          | `https://eu-api.mimecast.com/sso/<accountcode>`|
     | Estados Unidos da América   | `https://us-api.mimecast.com/sso/<accountcode>`|
@@ -93,7 +93,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     b. Na caixa de texto **URL de resposta,** digite um URL: 
 
-    | Região  |  Valor | 
+    | Region  |  Valor | 
     | --------------- | --------------- | 
     | Europa          | `https://eu-api.mimecast.com/login/saml`|
     | Estados Unidos da América   | `https://us-api.mimecast.com/login/saml`|
@@ -105,7 +105,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     Na caixa de texto **url de entrada de inscrição,** digite um URL: 
 
-    | Região  |  Valor | 
+    | Region  |  Valor | 
     | --------------- | --------------- | 
     | Europa          | `https://login-eu.mimecast.com/administration/app/#/administration-dashboard`|
     | Estados Unidos da América   | `https://login-us.mimecast.com/administration/app/#/administration-dashboard`|
@@ -155,23 +155,23 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Navegar **Administration**para  >  aplicações**de**  >  **serviços de administração.**
 
-    ![Configuração da consola de administração mimecast](./media/mimecast-admin-console-tutorial/services.png)
+    ![A screenshot mostra a janela Mimecast com aplicações selecionadas.](./media/mimecast-admin-console-tutorial/services.png)
 
 1. Clique no **separador Perfis de Autenticação.**
     
-    ![Configuração da consola de administração mimecast](./media/mimecast-admin-console-tutorial/authentication-profiles.png)
+    ![A screenshot mostra o separador Aplicação com perfis de autenticação selecionados.](./media/mimecast-admin-console-tutorial/authentication-profiles.png)
 
 1. Clique no separador **Novo Perfil de Autenticação.**
 
-    ![Configuração da consola de administração mimecast](./media/mimecast-admin-console-tutorial/new-authenticatio-profile.png)
+    ![A screenshot mostra novo perfil de autenticação selecionado.](./media/mimecast-admin-console-tutorial/new-authenticatio-profile.png)
 
 1. Forneça uma descrição válida na caixa de texto **Descrição** e **selecione A autenticação SAML para caixa** de verificação da consola de administração.
 
-    ![Configuração da consola de administração mimecast](./media/mimecast-admin-console-tutorial/selecting-admin-consle.png)
+    ![A screenshot mostra onde selecionar a autenticação SAML para consola de administração.](./media/mimecast-admin-console-tutorial/selecting-admin-consle.png)
 
 1. Na página **saml configuração para consola de administração,** execute os seguintes passos:
 
-    ![Configuração da consola de administração mimecast](./media/mimecast-admin-console-tutorial/sso-settings.png)
+    ![A screenshot mostra a configuração SAML para consola de administração onde pode introduzir os valores descritos.](./media/mimecast-admin-console-tutorial/sso-settings.png)
 
     a. Para **Fornecedor**, selecione **Azure Ative Directory** do Dropdown.
 
@@ -189,19 +189,19 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Navegar **Administration**para  >  **Diretórios**  >  **Internos de**Administração .
 
-    ![Configuração da consola de administração mimecast](./media/mimecast-admin-console-tutorial/internal-directories.png)
+    ![A screenshot mostra a janela mimecast com diretórios internos selecionados.](./media/mimecast-admin-console-tutorial/internal-directories.png)
 
 1. Selecione no seu domínio, se o domínio for mencionado abaixo, caso contrário, crie um novo domínio clicando no **Novo Domínio**.
 
-    ![Configuração da consola de administração mimecast](./media/mimecast-admin-console-tutorial/domain-name.png)
+    ![A screenshot mostra o domínio selecionado.](./media/mimecast-admin-console-tutorial/domain-name.png)
 
 1. Clique no separador **Novo Endereço.**
 
-    ![Configuração da consola de administração mimecast](./media/mimecast-admin-console-tutorial/new-address.png)
+    ![A screenshot mostra novo endereço selecionado.](./media/mimecast-admin-console-tutorial/new-address.png)
 
 1. Forneça as informações necessárias do utilizador na página seguinte:
 
-    ![Configuração da consola de administração mimecast](./media/mimecast-admin-console-tutorial/user-information.png)
+    ![A screenshot mostra a página onde pode introduzir os valores descritos.](./media/mimecast-admin-console-tutorial/user-information.png)
 
     a. Na caixa de texto **do Endereço de E-mail,** insira o endereço de e-mail do utilizador como `B.Simon@yourdomainname.com` .
 
@@ -215,7 +215,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     f. Para atribuir funções ao utilizador, clique em **Role Edit** e atribua a função necessária ao utilizador de acordo com o requisito da sua organização.
 
-    ![Configuração da consola de administração mimecast](./media/mimecast-admin-console-tutorial/assign-role.png)
+    ![A screenshot mostra definições de endereço onde pode selecionar a Edição de Função.](./media/mimecast-admin-console-tutorial/assign-role.png)
 
 ## <a name="test-sso"></a>Teste SSO 
 

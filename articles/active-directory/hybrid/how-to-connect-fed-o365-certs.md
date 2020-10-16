@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 78dcd9d020923251439a05316569b559c19057d1
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89661457"
 ---
 # <a name="renew-federation-certificates-for-microsoft-365-and-azure-active-directory"></a>Renovar certificados da federação para Microsoft 365 e Azure Ative Directory
@@ -69,13 +69,13 @@ Get-Adfsproperties
 ![AutoCertateRollover](./media/how-to-connect-fed-o365-certs/autocertrollover.png)
 
 >[!NOTE] 
->Se estiver a utilizar o AD FS 2.0, primeiro executar Add-Pssnapin Microsoft.Adfs.Powershell.
+>Se estiver a utilizar o AD FS 2.0, a primeira Add-Pssnapin Microsoft.Adfs.Powershell.
 
 ### <a name="step-2-confirm-that-ad-fs-and-azure-ad-are-in-sync"></a>Passo 2: Confirmar que a AD FS e a Azure AD estão sincronizadas
 No seu servidor AD FS, abra o pedido MSOnline PowerShell e ligue-se ao Azure AD.
 
 > [!NOTE]
-> Os CMDlets MSOL fazem parte do módulo MSOnline PowerShell.
+> MSOL-Cmdlets fazem parte do módulo MSOnline PowerShell.
 > Pode baixar o Módulo MSOnline PowerShell diretamente da PowerShell Gallery.
 > 
 >
@@ -102,13 +102,13 @@ Get-MsolFederationProperty -DomainName <domain.name> | FL Source, TokenSigningCe
 Se as impressões digitais em ambas as saídas coincidirem, os seus certificados estão sincronizados com a Azure AD.
 
 ### <a name="step-3-check-if-your-certificate-is-about-to-expire"></a>Passo 3: Verifique se o seu certificado está prestes a expirar
-Na saída de Get-MsolFederationProperty ou Get-AdfsCertificate, verifique a data em "Not After". Se a data for a menos de 30 dias, deve tomar medidas.
+Na saída de Get-MsolFederationProperty ou Get-AdfsCertificate, verifique a data em "Não Depois". Se a data for a menos de 30 dias, deve tomar medidas.
 
 | AutoCertateRollover | Certificados em sincronização com Azure AD | Metadados da Federação são acessíveis ao público | Validade | Ação |
 |:---:|:---:|:---:|:---:|:---:|
-| Yes |Yes |Yes |- |Não é necessária uma ação. Consulte [automaticamente o certificado de assinatura de fichas de renovação](#autorenew). |
-| Yes |No |- |Menos de 15 dias |Renovar imediatamente. Consulte [manualmente o certificado de assinatura de fichas de renovação](#manualrenew). |
-| No |- |- |Menos de 30 dias |Renovar imediatamente. Consulte [manualmente o certificado de assinatura de fichas de renovação](#manualrenew). |
+| Sim |Sim |Sim |- |Não é necessária uma ação. Consulte [automaticamente o certificado de assinatura de fichas de renovação](#autorenew). |
+| Sim |Não |- |Menos de 15 dias |Renovar imediatamente. Consulte [manualmente o certificado de assinatura de fichas de renovação](#manualrenew). |
+| Não |- |- |Menos de 30 dias |Renovar imediatamente. Consulte [manualmente o certificado de assinatura de fichas de renovação](#manualrenew). |
 
 \[-] Não importa
 
@@ -152,7 +152,7 @@ Por outro lado, se o **AutoCertificateRollover** estiver definido para **True**,
     PS C: \> Get-ADFSCertificate –CertificateType token-signing
 
    > [!NOTE]
-   > Se estiver a utilizar o AD FS 2.0, deverá executar o Add-Pssnapin Microsoft.Adfs.Powershell primeiro.
+   > Se estiver a utilizar o AD FS 2.0, deverá correr Add-Pssnapin Microsoft.Adfs.Powershell primeiro.
    >
    >
 3. Veja a saída de comando em quaisquer certificados listados. Se a AD FS tiver gerado um novo certificado, deverá ver dois certificados na saída: um para o qual o valor **Do IsPrimary** é **Verdadeiro** e a data **notAfter** é dentro de 5 dias, e um para o qual **o IsPrimary** é **Falso** e **NotAfter** é de cerca de um ano no futuro.
@@ -167,9 +167,9 @@ Atualize o Microsoft 365 com os novos certificados de assinatura token a serem u
 
 1. Abra o Módulo de Diretório Ativo Microsoft Azure para Windows PowerShell.
 2. Executar $cred=Get-Credential. Quando este cmdlet lhe pedir credenciais, escreva as credenciais de conta do administrador de serviço na nuvem.
-3. Executar Connect-MsolService –$cred credenciais. Este cmdlet liga-o ao serviço de nuvem. É necessário criar um contexto que o ligue ao serviço de nuvem antes de executar qualquer um dos cmdlets adicionais instalados pela ferramenta.
-4. Se estiver a executar estes comandos num computador que não seja o servidor da federação primária do FS AD, executar Set-MSOLAdfscontext -Computer &lt; AD FS, &gt; onde o servidor primário &lt; AD FS &gt; é o nome interno FQDN do servidor principal AD FS. Este cmdlet cria um contexto que o liga ao AD FS.
-5. Executar Actualização-MSOLFederatedDomain – Domínio Dedomínio do Domínio &lt; &gt; . Este cmdlet atualiza as definições do AD FS para o serviço de nuvem e configura a relação de confiança entre os dois.
+3. Executar Connect-MsolService - $cred credenciais. Este cmdlet liga-o ao serviço de nuvem. É necessário criar um contexto que o ligue ao serviço de nuvem antes de executar qualquer um dos cmdlets adicionais instalados pela ferramenta.
+4. Se estiver a executar estes comandos num computador que não seja o servidor da federação primária da AD FS, executa Set-MSOLAdfscontext &lt; -Servidor primário AD FS &gt; do computador, onde &lt; o servidor primário AD FS &gt; é o nome interno FQDN do servidor principal AD FS. Este cmdlet cria um contexto que o liga ao AD FS.
+5. Executar Update-MSOLFederatedDomain - Domínio Dename &lt; de Domínio &gt; . Este cmdlet atualiza as definições do AD FS para o serviço de nuvem e configura a relação de confiança entre os dois.
 
 > [!NOTE]
 > Se precisar de suportar vários domínios de alto nível, tais como contoso.com e fabrikam.com, deve utilizar o interruptor **SupportMultipleDomain** com quaisquer cmdlets. Para obter mais informações, consulte [suporte para vários domínios de nível superior.](how-to-connect-install-multiple-domains.md)

@@ -4,10 +4,10 @@ description: Utilize um comando de purga para eliminar várias tags e manifestos
 ms.topic: article
 ms.date: 05/14/2020
 ms.openlocfilehash: ab6794648babd2bd491ded5788455b75c10d675a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83652630"
 ---
 # <a name="automatically-purge-images-from-an-azure-container-registry"></a>Purgar automaticamente imagens de um registo de contentores Azure
@@ -31,23 +31,23 @@ Se pretender eliminar as etiquetas de imagem ou manifestos únicos utilizando os
 O `acr purge` comando do recipiente elimina as imagens por marca num repositório que corresponde a um filtro de nome e que são mais antigas do que uma duração especificada. Por padrão, apenas as referências de etiqueta são eliminadas, não os [manifestos subjacentes](container-registry-concepts.md#manifest) e os dados da camada. O comando tem a opção de apagar manifestos. 
 
 > [!NOTE]
-> `acr purge`não apaga uma etiqueta de imagem ou repositório onde o `write-enabled` atributo está definido para `false` . Para obter informações, consulte [a imagem do recipiente num registo de contentores Azure](container-registry-image-lock.md).
+> `acr purge` não apaga uma etiqueta de imagem ou repositório onde o `write-enabled` atributo está definido para `false` . Para obter informações, consulte [a imagem do recipiente num registo de contentores Azure](container-registry-image-lock.md).
 
-`acr purge`é projetado para funcionar como um comando de contentor numa [Tarefa ACR](container-registry-tasks-overview.md), de modo que autentica automaticamente com o registo onde a tarefa executa e executa ações lá. Os exemplos de tarefa deste artigo utilizam o `acr purge` pseudónimo de comando no lugar de [um](container-registry-tasks-reference-yaml.md#aliases) comando de imagem de contentor totalmente qualificado.
+`acr purge` é projetado para funcionar como um comando de contentor numa [Tarefa ACR](container-registry-tasks-overview.md), de modo que autentica automaticamente com o registo onde a tarefa executa e executa ações lá. Os exemplos de tarefa deste artigo utilizam o `acr purge` pseudónimo de comando no lugar de [um](container-registry-tasks-reference-yaml.md#aliases) comando de imagem de contentor totalmente qualificado.
 
 No mínimo, especifique o seguinte quando `acr purge` correr:
 
-* `--filter`- Um repositório e uma *expressão regular* para filtrar etiquetas no repositório. Exemplos: `--filter "hello-world:.*"` corresponde a todas as etiquetas do `hello-world` repositório e `--filter "hello-world:^1.*"` corresponde às tags que começam com `1` . Passe `--filter` vários parâmetros para expurgar vários repositórios.
-* `--ago`- Uma cadeia de [duração](https://golang.org/pkg/time/) estilo Go para indicar uma duração para além da qual as imagens são eliminadas. A duração consiste numa sequência de um ou mais números decimais, cada um com um sufixo de unidade. As unidades de tempo válidas incluem "d" durante dias, "h" durante horas e "m" durante minutos. Por exemplo, `--ago 2d3h6m` seleciona todas as imagens filtradas modificadas há mais de 2 dias, 3 horas e 6 minutos atrás, e `--ago 1.5h` seleciona as imagens modificadas pela última vez há mais de 1,5 horas.
+* `--filter` - Um repositório e uma *expressão regular* para filtrar etiquetas no repositório. Exemplos: `--filter "hello-world:.*"` corresponde a todas as etiquetas do `hello-world` repositório e `--filter "hello-world:^1.*"` corresponde às tags que começam com `1` . Passe `--filter` vários parâmetros para expurgar vários repositórios.
+* `--ago` - Uma cadeia de [duração](https://golang.org/pkg/time/) estilo Go para indicar uma duração para além da qual as imagens são eliminadas. A duração consiste numa sequência de um ou mais números decimais, cada um com um sufixo de unidade. As unidades de tempo válidas incluem "d" durante dias, "h" durante horas e "m" durante minutos. Por exemplo, `--ago 2d3h6m` seleciona todas as imagens filtradas modificadas há mais de 2 dias, 3 horas e 6 minutos atrás, e `--ago 1.5h` seleciona as imagens modificadas pela última vez há mais de 1,5 horas.
 
-`acr purge`suporta vários parâmetros opcionais. Os dois seguintes são usados em exemplos neste artigo:
+`acr purge` suporta vários parâmetros opcionais. Os dois seguintes são usados em exemplos neste artigo:
 
 * `--untagged`- Especifica que os manifestos que não têm tags associadas *(manifestos não com marcação) são eliminados.*
-* `--dry-run`- Especifica que nenhum dado é eliminado, mas a saída é a mesma que se o comando for executado sem esta bandeira. Este parâmetro é útil para testar um comando de purga para se certificar de que não apaga inadvertidamente os dados que pretende preservar.
+* `--dry-run` - Especifica que nenhum dado é eliminado, mas a saída é a mesma que se o comando for executado sem esta bandeira. Este parâmetro é útil para testar um comando de purga para se certificar de que não apaga inadvertidamente os dados que pretende preservar.
 
 Para parâmetros adicionais, corra `acr purge --help` . 
 
-`acr purge`suporta outras funcionalidades dos comandos ACR Tasks, incluindo variáveis de [execução](container-registry-tasks-reference-yaml.md#run-variables) e [registos de execução](container-registry-tasks-logs.md) de tarefas que são transmitidos e também guardados para posterior recuperação.
+`acr purge` suporta outras funcionalidades dos comandos ACR Tasks, incluindo variáveis de [execução](container-registry-tasks-reference-yaml.md#run-variables) e [registos de execução](container-registry-tasks-logs.md) de tarefas que são transmitidos e também guardados para posterior recuperação.
 
 ### <a name="run-in-an-on-demand-task"></a>Executar numa tarefa a pedido
 
@@ -165,7 +165,7 @@ az acr task create --name weeklyPurgeTask \
 
 Executar o comando [de programa de tarefas az acr][az-acr-task-show] para ver se o gatilho do temporizador está configurado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre outras opções para [eliminar dados](container-registry-delete.md) de imagem no Registo do Contentor Azure.
 

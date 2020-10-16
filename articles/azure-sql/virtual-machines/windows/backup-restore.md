@@ -14,10 +14,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
 ms.openlocfilehash: a4965c587cb2f42c8411d48af2417dd3fe3d5edb
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91360791"
 ---
 # <a name="backup-and-restore-for-sql-server-on-azure-vms"></a>Backup e restauro para SQL Server em VMs Azure
@@ -31,7 +31,7 @@ A primeira parte deste artigo fornece uma visão geral das opções de backup e 
 
 A tabela seguinte fornece informações sobre várias opções de backup e restauro para SQL Server em VMs Azure:
 
-| Estratégia | Versões SQL | Description |
+| Estratégia | Versões SQL | Descrição |
 |---|---|---|
 | [Cópia de Segurança Automatizada](#automated) | 2014<br/> 2016<br/> 2017 | A Cópia de Segurança Automatizada permite-lhe agendar cópias de segurança regulares para todas as bases de dados num SQL Server VM. As cópias de segurança são armazenadas no armazém da Azure por um tempo até 30 dias. Começando pelo SQL Server 2016, o Backup Automático v2 oferece opções adicionais, como configurar o agendamento manual e a frequência de cópias de segurança completas e de registo. |
 | [Azure Backup for SQL VMs](#azbackup) (Azure Backup para VMs do SQL) | 2008<br/> 2012<br/> 2014<br/> 2016<br/> 2017 | O Azure Backup fornece uma capacidade de backup da classe Enterprise para O SQL Server em VMs Azure. Com este serviço, pode gerir centralmente backups para vários servidores e milhares de bases de dados. As bases de dados podem ser restauradas a um ponto específico no tempo no portal. Oferece uma política de retenção personalizável que pode manter backups durante anos. |

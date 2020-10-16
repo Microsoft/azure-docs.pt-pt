@@ -5,14 +5,16 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 description: Descreve os processos que alimentam a Azure Dev Spaces
 keywords: Espaços Azure Dev, Dev Spaces, Docker, Kubernetes, Azure, AKS, Serviço Azure Kubernetes, contentores
-ms.openlocfilehash: 81408ed4bbe5322538d893b29c7397104c5b0844
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 8de2c27ce03c871e60b6437656ad630fc8de8408
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90981264"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963708"
 ---
 # <a name="how-azure-dev-spaces-works"></a>Como funciona o Azure Dev Spaces
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
 
 Desenvolver uma aplicação Kubernetes pode ser um desafio. Precisas de ficheiros de configuração do Docker e do Kubernetes. Precisa de descobrir como testar a sua aplicação localmente e interagir com outros serviços dependentes. Poderá ter de lidar com o desenvolvimento e teste de múltiplos serviços ao mesmo tempo e com uma equipa de desenvolvedores.
 
@@ -22,7 +24,7 @@ O Azure Dev Spaces fornece-lhe múltiplas formas de iterar e depurar rapidamente
 
 A Azure Dev Spaces reduz o esforço de desenvolvimento, teste e iteração da sua aplicação Kubernetes no contexto do seu cluster AKS. Esta redução de esforço permite que os desenvolvedores se concentrem na lógica de negócio das suas aplicações e não configuram os seus serviços para funcionar em Kubernetes.
 
-### <a name="bridge-to-kubernetes"></a>Ponte para Kubernetes
+### <a name="bridge-to-kubernetes"></a>Bridge to Kubernetes
 
 Com Bridge to Kubernetes, pode ligar o seu computador de desenvolvimento ao seu cluster Kubernetes, permitindo-lhe executar e depurar código no seu computador de desenvolvimento como se estivesse a funcionar no cluster. A ponte para Kubernetes redireciona o tráfego entre o seu cluster conectado, executando uma cápsula no seu cluster que funciona como um agente remoto para redirecionar o tráfego entre o seu computador de desenvolvimento e o cluster. Esta reorientação de tráfego permite que o código no seu computador de desenvolvimento e serviços em execução no seu cluster se comunique como se estivessem no mesmo cluster. Para obter mais informações sobre a ligação do seu computador de desenvolvimento a um cluster Kubernetes, consulte [como funciona a Ponte para Kubernetes.][how-it-works-bridge-to-kubernetes]
 

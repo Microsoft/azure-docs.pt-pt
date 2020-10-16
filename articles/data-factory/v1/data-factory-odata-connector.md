@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 95f92d4e5616d7754c355610685701a8e089b84e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85847574"
 ---
 # <a name="move-data-from-an-odata-source-using-azure-data-factory"></a>Mover dados de uma fonte OData utilizando a Azure Data Factory
@@ -60,12 +60,12 @@ As seguintes secções fornecem detalhes sobre as propriedades JSON que são usa
 ## <a name="linked-service-properties"></a>Propriedades de serviço ligado
 A tabela a seguir fornece descrição para elementos JSON específicos do serviço ligado ao OData.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | tipo |A propriedade tipo deve ser definida para: **OData** |Sim |
 | url |Url do serviço OData. |Sim |
 | authenticationType |Tipo de autenticação utilizada para ligar à fonte OData. <br/><br/> Para o OData na nuvem, os valores possíveis são Anónimos, Básicos e OAuth (nota Azure Data Factory atualmente apenas suporta OAuth baseado em Azure Ative Directory). <br/><br/> Para o OData no local, os valores possíveis são Anónimos, Básicos e Windows. |Sim |
-| o nome de utilizador |Especifique o nome do utilizador se estiver a utilizar a autenticação Básica. |Sim (apenas se estiver a utilizar a autenticação básica) |
+| nome de utilizador |Especifique o nome do utilizador se estiver a utilizar a autenticação Básica. |Sim (apenas se estiver a utilizar a autenticação básica) |
 | palavra-passe |Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. |Sim (apenas se estiver a utilizar a autenticação básica) |
 | autorizadoCredential |Se estiver a utilizar o OAuth, clique no botão **Authorize** no Assistente de Cópia de Data Factory ou editor e introduza a sua credencial, então o valor desta propriedade será gerado automaticamente. |Sim (apenas se estiver a utilizar a autenticação OAuth) |
 | gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar ao serviço OData no local. Especifique apenas se estiver a copiar dados a partir da fonte OData das instalações. |Não |
@@ -145,9 +145,9 @@ Para obter uma lista completa de secções & propriedades disponíveis para defi
 
 A secção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados na loja de dados. A secção typeProperties para conjunto de dados do tipo **ODataResource** (que inclui o conjunto de dados OData) tem as seguintes propriedades
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| path |Caminho para o recurso OData |Não |
+| caminho |Caminho para o recurso OData |Não |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 Para obter uma lista completa das secções & propriedades disponíveis para definir atividades, consulte o artigo [Criar Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, e política estão disponíveis para todos os tipos de atividades.
@@ -175,14 +175,14 @@ Ao mover dados do OData, os seguintes mapeamentos são utilizados dos tipos ODat
 | Edm.Byte |Byte[] |
 | Edm.DateTime |DateTime |
 | Edm.Decimal |Decimal |
-| Edm.Double |Double |
+| Edm.Double |Double (Duplo) |
 | Edm.Single |Único |
 | Edm.Guid |GUID |
 | Edm.Int16 |Int16 |
 | Edm.Int32 |Int32 |
 | Edm.Int64 |Int64 |
 | Edm.SByte |Int16 |
-| Edm.String |String |
+| Edm.String |Cadeia |
 | Edm.Tempo |TimeSpan |
 | Edm.DateTimeOffset |Início de execução de tempo de data |
 

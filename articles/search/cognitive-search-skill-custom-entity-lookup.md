@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.openlocfilehash: 5511551f240fe4fdd2f2aa3bc8a3a2615505f35f
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88936117"
 ---
 #     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Competência cognitiva de procura de entidade personalizada (pré-visualização)
@@ -69,7 +69,7 @@ Se a definição for fornecida em linha, deve ser fornecida como o conteúdo do 
 
 ### <a name="csv-format"></a>Formato CSV
 
-Pode fornecer a definição das entidades personalizadas a procurar num ficheiro coma-Separado valor (CSV), fornecendo o caminho para o ficheiro e definindo-o no parâmetro *de habilidades DefinitionUri das entidades.* O caminho deve estar em um local https. O ficheiro de definição pode ter até 10 MB de tamanho.
+Pode fornecer a definição das entidades personalizadas a procurar num ficheiro Comma-Separated Valor (CSV), fornecendo o caminho para o ficheiro e definindo-o no parâmetro de *habilidades DefinitionUri das entidades.* O caminho deve estar em um local https. O ficheiro de definição pode ter até 10 MB de tamanho.
 
 O formato CSV é simples. Cada linha representa uma entidade única, como mostra abaixo:
 
@@ -302,7 +302,7 @@ Em alternativa, se decidir fornecer um ponteiro para o ficheiro de definição d
 
 Este aviso será emitido se o número de partidas detetadas for superior ao máximo permitido. Neste caso, deixaremos de incluir correspondências duplicadas. Se isto for inaceitável para si, por favor preencha um [bilhete de apoio](https://ms.portal.azure.com/#create/Microsoft.Support) para que possamos ajudá-lo com o seu caso de uso individual.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)

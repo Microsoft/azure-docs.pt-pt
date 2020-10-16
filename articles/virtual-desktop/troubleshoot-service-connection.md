@@ -7,10 +7,10 @@ ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 5eb5602b8330906311df4a0d1f59bc5e5130237e
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90089909"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Conexões de serviço de desktop virtual do Windows

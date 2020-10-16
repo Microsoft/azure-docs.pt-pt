@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: faf2257f944127748569466d314ff0a76faae4f0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: bf89e99842efa726e6ca05a08998c9d058dc02e3
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906737"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019380"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Tutorial: Use R para criar um modelo de aprendizagem automática (pré-visualização)
 
@@ -68,11 +68,11 @@ Use o RStudio numa instância de computação Azure ML para executar este tutori
 
 ## <a name="clone-the-sample-vignettes"></a><a name="azure"></a>Clone as vinhetas da amostra 
 
-Clone o https://github.com/azure/azureml-sdk-for-r repositório GitHub para uma cópia dos ficheiros de vinheta que irá executar neste tutorial.
+Clone o https://github.com/Azure/azureml-sdk-for-r repositório GitHub para uma cópia dos ficheiros de vinheta que irá executar neste tutorial.
 
 1. No RStudio, navegue para o separador "Terminal" e cd no diretório onde gostaria de clonar o repositório.
 
-1. Executar "git https://github.com/Azure/azureml-sdk-for-r clone" no terminal para clonar o repositório.
+1. Corre `git clone https://github.com/Azure/azureml-sdk-for-r` no terminal para clonar o repositório.
 
 1. Em RStudio, navegue para a pasta de *vinhetas* da pasta *clonada azureml-sdk-for-r.*  Sob *vinhetas,* selecione o modelo de *comboio e implantação.primeiro. Arquivo RMD* para encontrar vinheta usada neste tutorial. Os ficheiros adicionais utilizados para a vinheta estão localizados na sub-dobradeira *de primeiro modelo de comboio e implantação.* Uma vez aberta a vinheta, desave o diretório de trabalho para a localização do ficheiro através da **Sessão > Definir o Diretório de Trabalho > Para a Localização do Ficheiro Fonte**. 
 
@@ -369,7 +369,7 @@ Também pode obter o ponto final HTTP do serviço web, que aceita chamadas de cl
 aci_service$scoring_uri
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Apague os recursos uma vez que já não precise deles. Não elimine nenhum recurso que pretenda utilizar. 
 

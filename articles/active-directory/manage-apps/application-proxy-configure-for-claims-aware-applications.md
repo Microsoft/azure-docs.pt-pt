@@ -16,10 +16,10 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 97def0608251f65aa222e13760877d4287135d08
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87386984"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Trabalhar com aplicações conscientes de reclamações no Application Proxy
@@ -42,7 +42,7 @@ Pode configurar a ADFS para aplicações conscientes de reclamações de uma de 
 
 Se todos os URLs internos para as suas aplicações forem nomes de domínio totalmente qualificados (FQDNs), então pode configurar [domínios personalizados](application-proxy-configure-custom-domain.md) para as suas aplicações. Utilize os domínios personalizados para criar URLs externos que são os mesmos que os URLs internos. Quando os URLs externos combinam com os URLs internos, então as reorientações STS funcionam quer os seus utilizadores estejam no local ou remotos. 
 
-### <a name="option-2-ws-federation"></a>Opção 2: WS-Federação
+### <a name="option-2-ws-federation"></a>Opção 2: WS-Federation
 
 1. Abrir a gestão da ADFS.
 2. Vá a **Relying Party Trusts,** clique à direita na aplicação que está a publicar com o Application Proxy e escolha **Propriedades.**  
@@ -54,7 +54,7 @@ Se todos os URLs internos para as suas aplicações forem nomes de domínio tota
 
    ![Adicione um Ponto Final - definir valor de URL fidedigno - screenshot](./media/application-proxy-configure-for-claims-aware-applications/appproxyendpointtrustedurl.png)  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Permitir que as aplicações de clientes nativos interajam com aplicações proxy](application-proxy-configure-native-client-application.md)
 
 

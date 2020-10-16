@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.openlocfilehash: 1a73b4707f83d6a23dffc20d95aa7b8a0fa465b3
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88649062"
 ---
 # <a name="sparkcruise-on-azure-hdinsight"></a>SparkCruise em Azure HDInsight

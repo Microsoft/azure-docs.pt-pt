@@ -7,10 +7,10 @@ ms.date: 02/03/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 1c49c7bfaa7714dda902d05537fbe3d8a55d5abe
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89613926"
 ---
 # <a name="entities"></a>Entidades
@@ -144,7 +144,7 @@ A consulta terá sucesso mesmo que o objeto não possua nenhum metadados.
 * [Classe de entidade C++](https://docs.microsoft.com/cpp/api/remote-rendering/entity)
 * [C++ RemoteManager::CreateEntity()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#createentity)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Componentes](components.md)
 * [Limites dos objetos](object-bounds.md)

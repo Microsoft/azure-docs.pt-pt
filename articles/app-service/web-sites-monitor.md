@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 888118d227529110c209d7c8d5a3bb79cfcf3a9a
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 327abb2e67f21c2893fc652b0e30c640980914c2
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88959796"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044535"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorize aplicativos no Azure App Service
 [O Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) fornece funcionalidades de monitorização incorporadas para aplicações web, móveis e API no [portal Azure.](https://portal.azure.com)
@@ -58,7 +58,7 @@ Pode aumentar ou remover quotas da sua aplicação através da atualização do 
 ## <a name="understand-metrics"></a>Compreender métricas
 
 > [!NOTE]
-> **O Uso do Sistema de Ficheiros** é uma nova métrica que está a ser lançada globalmente, não são esperados dados a menos que lhe tenha sido concedido acesso para pré-visualização privada.
+> **O Uso do Sistema de Ficheiros** é uma nova métrica que está a ser lançada globalmente, não são esperados dados a menos que a sua aplicação esteja hospedada num Ambiente de Serviço de Aplicações.
 > 
 
 > [!IMPORTANT]
@@ -87,14 +87,14 @@ Para uma aplicação, as métricas disponíveis são:
 | **Coleções de lixo da Gen 1** | O número de vezes que os objetos de geração 1 são lixo recolhidos desde o início do processo de aplicação. Os GCs de maior geração incluem todos os GCs de menor geração.|
 | **Coleções de lixo gen 2** | O número de vezes que a geração 2 objetos são lixo recolhidos desde o início do processo de aplicação.|
 | **N.º de Identificadores** | O número total de pegas atualmente abertas pelo processo da aplicação.|
-| **Http 2xx** | A contagem de pedidos resulta num código de estado HTTP ≥ 200 mas < 300. |
-| **Http 3xx** | A contagem de pedidos resulta num código de estado HTTP ≥ 300 mas < 400. |
+| **Http 2xx** | A contagem de pedidos que resultam num código de estado HTTP ≥ 200, mas < 300. |
+| **Http 3xx** | A contagem de pedidos que resultam num código de estado HTTP ≥ 300 mas < 400. |
 | **Http 401** | A contagem de pedidos que resultam em código de estado HTTP 401. |
 | **Http 403** | A contagem de pedidos que resultam em código de estado HTTP 403. |
 | **Http 404** | A contagem de pedidos que resultam em código de estado HTTP 404. |
 | **Http 406** | A contagem de pedidos que resultam em código de estado HTTP 406. |
-| **Http 4xx** | A contagem de pedidos resulta num código de estado HTTP ≥ 400 mas < 500. |
-| **http Erros do servidor** | A contagem de pedidos resulta num código de estado HTTP ≥ 500 mas < 600. |
+| **Http 4xx** | A contagem de pedidos que resultam num código de estado HTTP ≥ 400 mas < 500. |
+| **http Erros do servidor** | A contagem de pedidos que resultam num código de estado HTTP ≥ 500 mas < 600. |
 | **IO Outros Bytes por Segundo** | A taxa a que o processo de aplicação está a emitir bytes para operações de I/S que não envolvem dados, como operações de controlo.|
 | **IO Outras Operações por Segundo** | A taxa a que o processo de aplicação está a emitir operações de E/S que não são lidas ou escrevem operações.|
 | **IO Ler Bytes por segundo** | A taxa a que o processo de aplicação está a ler bytes das operações de E/S.|

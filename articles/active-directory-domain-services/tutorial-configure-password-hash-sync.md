@@ -1,20 +1,20 @@
 ---
 title: Ativar a sincronização de haxixe de palavra-passe para serviços de domínio Azure AD / Microsoft Docs
 description: Neste tutorial, aprenda a permitir a sincronização de hash de palavra-passe utilizando o Azure AD Connect a um domínio gerido por Serviços de Domínio do Diretório Ativo Azure.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 02828e0c159e2d30dacc5759f1239dae1268dac5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: 4daad0d0739bb3407be13f717572c8aa99947d1a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87491787"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967295"
 ---
 # <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>Tutorial: Permitir a sincronização de palavras-passe em Azure Ative Directory Domain Services para ambientes híbridos
 

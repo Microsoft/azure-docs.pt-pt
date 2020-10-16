@@ -9,10 +9,10 @@ ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 07bfaabf051a016ca9617245ba8628ef6c7e80c0
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91566623"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Utilize identidades geridas atribuídas ao sistema para aceder aos dados do Azure Cosmos DB
@@ -41,7 +41,7 @@ Neste passo, irá atribuir uma identidade gerida pelo sistema à sua aplicação
 
 Neste passo, atribuirá um papel à identidade gerida atribuída pelo sistema da aplicação de funções. A Azure Cosmos DB tem múltiplos papéis incorporados que pode atribuir à identidade gerida. Para esta solução, utilizará as seguintes duas funções:
 
-|Papel incorporado  |Description  |
+|Papel incorporado  |Descrição  |
 |---------|---------|
 |[Colaborador de Conta DocumentDB](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Pode gerir as contas de DB da Azure Cosmos. Permite a recuperação de teclas de leitura/escrita. |
 |[Papel do leitor de conta de cosm de Cosmos DB](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Pode ler os dados da conta DB da Azure Cosmos. Permite a recuperação das chaves de leitura. |

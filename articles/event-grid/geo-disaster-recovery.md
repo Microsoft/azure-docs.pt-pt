@@ -4,10 +4,10 @@ description: Descreve como a Azure Event Grid suporta automaticamente a recupera
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: ccb16971020a65932daa8f9adf4b7cd9008a9253
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86105851"
 ---
 # <a name="server-side-geo-disaster-recovery-in-azure-event-grid"></a>Recuperação de desastres geo-side do servidor na Grelha de Eventos Azure
@@ -32,5 +32,5 @@ A falha automática da Event Grid tem diferentes RPOs e RTOs para os seus metada
 > O custo para os metadados GeoDR na Grelha de Eventos é: $0.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Se quiser implementar a sua própria lógica de failover do lado do cliente, consulte [# Construa a sua própria recuperação de desastres para tópicos personalizados na Grade de Eventos](custom-disaster-recovery.md)

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
 ms.openlocfilehash: 948cf3c65dfdc912f2f807dfac34076985f1bc89
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91449188"
 ---
 # <a name="routing-architecture-overview"></a>Visão geral da arquitetura de encaminhamento
@@ -41,6 +41,6 @@ Uma vez que a Porta Frontal tenha combinado uma regra de encaminhamento para um 
 ## <a name="forwarding-the-request-to-your-application-backend"></a>Encaminhar o pedido para o backend do seu pedido
 Finalmente, assumindo que o caching não está configurado, o pedido do utilizador é reencaminhado para o backend "melhor" com base na configuração do [seu método de encaminhamento.](front-door-routing-methods.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).

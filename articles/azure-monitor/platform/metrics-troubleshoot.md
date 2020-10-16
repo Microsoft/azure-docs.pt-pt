@@ -8,10 +8,10 @@ ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
 ms.openlocfilehash: 54f99f2f8708fca9c02950a8886a2a9b976a93dd
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89440682"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Troubleshooting metrics charts (Resolução de problemas de gráficos de métricas)
@@ -112,7 +112,7 @@ Por predefinição, as métricas do SO convidado são armazenadas na conta de Ar
 
 1. Utilize [o Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) para validar que as métricas estão a fluir para a conta de armazenamento. Se não forem recolhidas métricas, siga o [guia de resolução de problemas de Extensão de Diagnóstico do Azure](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como começar com o Metric Explorer](metrics-getting-started.md)
 * [Conheça as funcionalidades avançadas do Metric Explorer](metrics-charts.md)

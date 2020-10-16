@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 52c18f8d51f18b9bc167a99fbafda2365824dfc9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91312146"
 ---
 # <a name="tutorial-configure-zscaler-for-automatic-user-provisioning"></a>Tutorial: Configurar Zscaler para fornecimento automático de utilizadores
@@ -108,7 +108,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![Screenshot da caixa de diálogo Configure S A M L com as caixas de texto Base U R L e Bearer Token chamadas.](./media/zscaler-provisioning-tutorial/secret-token-2.png)
 
-    Selecione **Ativar o Provisionamento baseado em SCIM** para recuperar **o URL base** e o **token do portador**e, em seguida, guarde as definições. Copie o **URL base** para o URL **do inquilino,** e **o Bearer Token**  para **Secret Token** no portal Azure.
+    **Selecione Ative SCIM-Based Provisioning** para recuperar **o URL base** e **o Token do portador**e, em seguida, guarde as definições. Copie o **URL base** para o URL **do inquilino,** e **o Bearer Token**  para **Secret Token** no portal Azure.
 
 7. Ao povoar os campos mostrados no Passo 5, clique em **Test Connection** para garantir que o Azure AD pode ligar-se ao Zscaler. Se a ligação falhar, certifique-se de que a sua conta Zscaler tem permissões de Administração e tente novamente.
 
@@ -118,7 +118,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![Screenshot da caixa de texto de e-mail de notificação.](./media/zscaler-provisioning-tutorial/notification.png)
 
-9. Clique em **Save** (Guardar).
+9. Clique em **Guardar**.
 
 10. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users para Zscaler**.
 

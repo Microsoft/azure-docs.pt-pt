@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: dea009d6d246d68f0686c3dc85f3518ccb13705c
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 1c1ddeb8cafd8aa7584da48a715139c5d12eeb10
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91575202"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91874803"
 ---
 # <a name="tutorial-monitor-and-manage-a-video-analytics---object-and-motion-detection-application"></a>Tutorial: Monitorar e gerir uma aplicação de vídeo - aplicação de deteção de objetos e movimentos
 
@@ -26,7 +26,7 @@ Neste tutorial, ficará a saber como:
 
 Antes de começar, deve completar:
 
-* O [Create uma aplicação de análise de vídeo ao vivo no tutorial Azure IoT Central.](./tutorial-video-analytics-create-app.md)
+* Um dos anteriores [Criar uma aplicação de análise de vídeo ao vivo no Azure IoT Central](./tutorial-video-analytics-create-app-yolo-v3.md) ou criar uma análise de vídeo em tutoriais [Azure IoT Central (OpenVINO). &trade; ](tutorial-video-analytics-create-app-openvino.md)
 * Um dos anteriores [Criar uma instância IoT Edge para análise de vídeo ao vivo (Linux VM)](tutorial-video-analytics-iot-edge-vm.md) ou criar uma instância IoT Edge para tutoriais [de análise de vídeo ao vivo (Intel NUC).](tutorial-video-analytics-iot-edge-nuc.md)
 
 Devias ter o [Docker](https://www.docker.com/products/docker-desktop) instalado na tua máquina local para executar a aplicação do visualizador de vídeo.

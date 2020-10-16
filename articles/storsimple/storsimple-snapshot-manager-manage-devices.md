@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: dbb7e835d110bcb6cb81fd5425a2aafbb578e692
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90054855"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>Utilize o StorSimple Snapshot Manager para ligar e gerir dispositivos StorSimple
@@ -208,7 +208,7 @@ Se um dispositivo StorSimple falhar e for substituído por um dispositivo de esp
 6. Clique no nó de nível superior no painel **Scope** (StorSimple Snapshot Manager no exemplo) e, em seguida, clique no **Toggle Imports Display**. 
 7. Uma mensagem aparece quando os grupos de volume importados e cópias de segurança são visíveis no StorSimple Snapshot Manager. Clique em **OK**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba como [utilizar o StorSimple Snapshot Manager para administrar a sua solução StorSimple](storsimple-snapshot-manager-admin.md).
 * Saiba como [utilizar o StorSimple Snapshot Manager para visualizar e gerir volumes](storsimple-snapshot-manager-manage-volumes.md).
 

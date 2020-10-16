@@ -1,25 +1,18 @@
 ---
 title: Implementar a Oracle Data Guard numa máquina virtual Azure Linux Microsoft Docs
 description: Rapidamente coloque a Oracle Data Guard a funcionar no seu ambiente Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: dbakevlar
-manager: ''
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.openlocfilehash: f8a40f87b8fdaa2adf445392bd598dd8133aae4c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.reviewer: cynthn
+ms.openlocfilehash: b56fc172aa9fa4e88f03f488bdd1ac567708fe91
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335906"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996697"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementar a Oracle Data Guard numa máquina virtual Azure Linux 
 
@@ -57,7 +50,7 @@ az group create --name myResourceGroup --location westus
 
 ### <a name="create-an-availability-set"></a>Criar um conjunto de disponibilidade
 
-Criar um conjunto de disponibilidade é opcional, mas recomendamos. Para mais informações, consulte [as diretrizes de disponibilidade do Azure.](../../windows/infrastructure-example.md)
+Criar um conjunto de disponibilidade é opcional, mas recomendamos. Para mais informações, consulte [as diretrizes de disponibilidade do Azure.](/previous-versions/azure/virtual-machines/windows/infrastructure-example)
 
 ```azurecli
 az vm availability-set create \

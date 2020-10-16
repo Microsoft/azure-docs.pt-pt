@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
 ms.openlocfilehash: 59bbca9461ff174ebe2451a6c01d84dee404cf56
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91398311"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Problemas de resolução Azure-to-Azure Problemas de conectividade da rede VM
@@ -74,14 +74,11 @@ Este exemplo mostra como configurar as regras NSG para um VM replicar.
 
 1. Crie uma regra de segurança de saída HTTPS para o NSG, como mostrado na imagem seguinte. Este exemplo utiliza a **etiqueta de serviço destino**: **Gamas portuárias** _De Armazenamento.EastUS_ e Destino : _443_.
 
-     :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="A screenshot mostra um painel de regras de segurança de saída para uma regra de segurança para o ponto de armazenamento East U.S.":::
+     :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="com-erro":::
 
 1. Crie uma regra de segurança de saída HTTPS para o NSG, como mostrado na imagem seguinte. Este exemplo utiliza a **etiqueta de serviço destino**: _AzureActiveDirectory_ and **Destination port:** _443_.
 
-     :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="A screenshot mostra um painel de regras de segurança de saída para uma regra de segurança para o Azure Ative Directory.":::
-
-1. Semelhante às regras de segurança acima, crie uma regra de segurança HTTPS (443) para "EventHub.CentralUS" no NSG que corresponda à localização do alvo. Isto permite o acesso à monitorização da Recuperação do Local.
-1. Crie uma regra de segurança HTTPS (443) de saída para "AzureSiteRecovery" no NSG. Isto permite o acesso ao Serviço de Recuperação de Sítios em qualquer região.
+     :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="com-erro" no NSG. Isto permite o acesso ao Serviço de Recuperação de Sítios em qualquer região.
 
 #### <a name="nsg-rules---central-us"></a>Regras NSG - Central US
 

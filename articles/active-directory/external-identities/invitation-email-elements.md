@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d03391ba5a82c128197c86ea6ed84389552fadb9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91439843"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Os elementos do e-mail de convite de colaboração B2B - Azure Ative Directory
@@ -101,7 +101,7 @@ O idioma apresentado ao utilizador convidado no e-mail do convite é determinado
 
 Se nenhuma destas definições estiver configurada, o idioma não é lívado para inglês (EUA).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte os seguintes artigos sobre a colaboração Azure AD B2B:
 

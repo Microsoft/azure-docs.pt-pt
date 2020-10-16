@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/12/2019
 ms.openlocfilehash: cc0918f3d9739a214e682d7faa460b6cc519cb0b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86207846"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Executar os exemplos MapReduce incluídos no HDInsight

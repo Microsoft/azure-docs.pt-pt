@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 05/20/2020
-ms.openlocfilehash: 3487b5a069b1862ec302a979318ea78722b1433c
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 3079cb18f7bc88d691081a7970f5833e8b8d6887
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361692"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078192"
 ---
 # <a name="standard-contract-for-microsoft-commercial-marketplace"></a>Contrato Padrão para o mercado comercial da Microsoft
 
@@ -34,7 +34,7 @@ Existem dois tipos de alterações disponíveis para os editores de mercado come
 * Alterações personalizadas: Estas alterações são alterações especiais ao Contrato Padrão que são dirigidas a clientes específicos apenas através de IDs de inquilinos Azure. Os editores podem escolher o inquilino que querem atingir. Apenas os clientes do arrendatário serão apresentados com os termos de alteração personalizados no fluxo de compra da oferta.  Os clientes devem aceitar os termos do Contrato Padrão e as alterações antes de poderem utilizar a sua oferta.
 
 >[!Note]
->Estes dois tipos de emendas empilham-se em cima uns dos outros. Os clientes visados com alterações personalizadas também receberão a alteração universal ao Contrato Padrão durante a compra.
+>Estes dois tipos de emendas empilham-se em cima uns dos outros. Os clientes visados com alterações personalizadas também receberão a alteração universal ao Contrato Padrão durante a compra. As alterações são limitadas a 4000 caracteres, incluindo espaços.
 
 Pode aproveitar o Contrato Padrão para o mercado comercial da Microsoft para os seguintes tipos de oferta: Aplicações Azure (Modelos de Solução e Aplicações Geridas), Máquinas Virtuais e SaaS.
 
@@ -50,4 +50,4 @@ Durante o processo de compra no portal Azure, os clientes poderão ver os termos
 
 ## <a name="api"></a>API
 
-Os clientes podem usar o Get-AzureRmMarketplaceTerms para recuperar os termos de uma oferta e aceitá-la. O Contrato-Tipo e as alterações associadas serão devolvidos na saída do CMDLET.
+Os clientes podem usar Get-AzureRmMarketplaceTerms para recuperar os termos de uma oferta e aceitá-la. O Contrato-Tipo e as alterações associadas serão devolvidos na saída do CMDLET.

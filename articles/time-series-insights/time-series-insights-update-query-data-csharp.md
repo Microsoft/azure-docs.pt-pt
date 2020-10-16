@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18
 ms.openlocfilehash: 99cde78f0944544941224927e84e117bd0e660d8
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91667848"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-gen2-environment-using-c-sharp"></a>Dados de consulta do ambiente Azure Time Series Insights Gen2 usando C Sharp
@@ -78,7 +78,7 @@ Consulte o [Azure Time Series Insights](https://github.com/Azure-Samples/Azure-T
 > * A amostra de código pode ser executada sem alterar as variáveis ambientais padrão.
 > * A amostra de código compila-se-á para uma aplicação de consola executável .NET.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre consultas, leia a [referência API de Consulta.](https://docs.microsoft.com/rest/api/time-series-insights/reference-query-apis)
 

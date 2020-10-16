@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 79910aa60602a80cbe79c4ce9899f6ff73fbfde9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 922565d26274aee12c9397c08c19330b4fce00e7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75422243"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076305"
 ---
 # <a name="add-a-header-containing-a-correlation-id"></a>Adicionar um cabeçalho com um ID de correlação
 
-Este artigo mostra uma amostra de política de gestão da API Azure que demonstra como adicionar um cabeçalho contendo um id de correlação ao pedido de entrada. Para definir ou editar um código de política, siga os passos descritos no [Conjunto ou edite uma política](../set-edit-policies.md). Para ver outros exemplos, consulte [as amostras de política.](../policy-samples.md)
+Este artigo mostra uma amostra de política de gestão da API Azure que demonstra como adicionar um cabeçalho contendo um id de correlação ao pedido de entrada. Para definir ou editar um código de política, siga os passos descritos no [Conjunto ou edite uma política](../set-edit-policies.md). Para ver outros exemplos, consulte [as amostras de política.](../policy-reference.md)
 
 ## <a name="policy"></a>Política
 
@@ -35,5 +35,4 @@ Cole o código no bloco **de entrada.**
 Saiba mais sobre as políticas da APIM:
 
 + [Políticas de transformação](../api-management-transformation-policies.md)
-+ [Amostras de política](../policy-samples.md)
-
++ [Amostras de política](../policy-reference.md)

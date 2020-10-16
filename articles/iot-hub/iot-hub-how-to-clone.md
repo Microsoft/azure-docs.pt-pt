@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: robinsh
 ms.openlocfilehash: c54853717f7e0b234df013e5aee575682d0d3d97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75429156"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Como clonar um hub Azure IoT para outra região
@@ -407,7 +407,7 @@ Se pretender reverter as alterações, volte a realocar os dispositivos do novo 
 
 Já terminou de migrar o seu centro e os seus dispositivos. Pode saltar para [a Limpeza.](#clean-up)
 
-## <a name="using-import-export-to-move-the-devices-to-the-new-hub"></a>Utilizar a Importação-Exportação para mover os dispositivos para o novo hub
+## <a name="using-import-export-to-move-the-devices-to-the-new-hub"></a>Usando Import-Export para mover os dispositivos para o novo hub
 
 A aplicação tem como alvos .NET Core, para que possa executá-lo no Windows ou linux. Você pode baixar a amostra, recuperar as suas cordas de conexão, definir as bandeiras para as partes que você quer executar, e executá-la. Podes fazer isto sem nunca abrires o código.
 
@@ -589,7 +589,7 @@ Não limpe até ter a certeza de que o novo hub está a funcionar e os dispositi
 
 * Se tiver recursos de encaminhamento que mudou para o novo local, pode apagar os antigos recursos de encaminhamento.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Clonou um hub IoT para um novo centro numa nova região, com os dispositivos. Para obter mais informações sobre a realização de operações a granel contra o registo de identidade num hub IoT, consulte [as identidades do dispositivo IoT Hub de importação e exportação a granel](iot-hub-bulk-identity-mgmt.md).
 

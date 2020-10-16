@@ -4,10 +4,10 @@ description: Este artigo fornece informações sobre como configurar a sua próp
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: e3da167fcdd3bac53de86dae07242cf8bccb621c
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89400590"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configure as chaves geridas pelo cliente para encriptar os dados do Azure Service Bus em repouso utilizando o portal Azure
@@ -319,7 +319,7 @@ Neste passo, irá atualizar o espaço de nomes do Service Bus com informações 
     ```
     
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
 - [Visão geral do ônibus de serviço](service-bus-messaging-overview.md)
 - [Visão geral do cofre de chaves](../key-vault/general/overview.md)

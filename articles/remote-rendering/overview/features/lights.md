@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.openlocfilehash: 2ddce7e2f073914e9393eabf12e8b0f4ef347828
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89613651"
 ---
 # <a name="scene-lighting"></a>Iluminação da cena
@@ -81,7 +81,7 @@ As fontes luminosas têm um impacto significativo no desempenho da renderizaçã
 * [Classe C++ SpotLightComponent](https://docs.microsoft.com/cpp/api/remote-rendering/spotlightcomponent)
 * [Classe C++ DirectionalLightComponent](https://docs.microsoft.com/cpp/api/remote-rendering/directionallightcomponent)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Materiais](../../concepts/materials.md)
 * [Céu](sky.md)

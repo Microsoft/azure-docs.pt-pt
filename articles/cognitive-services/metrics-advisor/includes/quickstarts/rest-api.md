@@ -2,19 +2,19 @@
 title: Métricas Monitor API quickstart
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: include
 ms.date: 09/23/2020
-ms.author: aahi
-ms.openlocfilehash: 603668f5bd4bb3909c895c3b2816b7521312ab59
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.author: mbullwin
+ms.openlocfilehash: 416f28f51a3ebe00e7227503f189898406229c8a
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91253752"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047471"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 

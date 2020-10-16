@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/11/2019
+ms.date: 10/15/2020
 ms.custom: devx-track-java
 ms.author: erhopf
-ms.openlocfilehash: 2a6516ad5f0fc8d9faefd7b7f89ddb1eaa3fd7d6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 093e5482896e2af8008f20826e30443bdeb9aae9
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87375160"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097036"
 ---
 Este guia mostra como instalar o [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) para Java 8 JRE de 64 bits. Se você só quer que o nome do pacote seja iniciado por conta própria, o Java SDK não está disponível no repositório central de Maven. Quer esteja a utilizar Gradle ou um `pom.xml` ficheiro de dependência, tem de adicionar um repositório personalizado que indique `https://csspeechstorage.blob.core.windows.net/maven/` (ver abaixo o nome do pacote).
 

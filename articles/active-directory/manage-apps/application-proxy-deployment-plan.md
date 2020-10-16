@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: kenwith
 ms.openlocfilehash: 09a930778e35897671d10f14a95f3fa48ea5e9eb
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88642423"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planear uma implementação do Proxy de Aplicações do Azure AD
@@ -241,7 +241,7 @@ Verifique se a sua aplicação está acessível através do Application Proxy ac
 
 Com a pré-autenticação ativada, o Azure AD irá desafiar os utilizadores primeiro para a autenticação e se a única súbton estiver configurada, a aplicação back-end também verificará o utilizador antes de o acesso à aplicação ser concedido. A alteração do modo de pré-autenticação de Passthrough para Azure AD também configura o URL externo com HTTPS, pelo que qualquer aplicação inicialmente configurada para HTTPS será agora assegurada com HTTPS.
 
-### <a name="enable-single-sign-on"></a>Ativar o único sinal de inscrição
+### <a name="enable-single-sign-on"></a>Ativar Sign-On individuais
 
 O SSO fornece a melhor experiência e segurança possível do utilizador, porque os utilizadores só precisam de fazer sedúns uma vez ao aceder ao Azure AD. Uma vez que um utilizador tenha pré-autenticado, o SSO é realizado pelo conector Proxy da aplicação proxy que autentica para a aplicação no local, em nome do utilizador. A aplicação backend processa o login como se fosse o próprio utilizador.
 

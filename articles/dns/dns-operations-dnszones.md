@@ -13,10 +13,10 @@ ms.date: 03/19/2018
 ms.author: rohink
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 347fde86b2a37aa0f82c09c94d6aa2f9e405da9d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89075601"
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>Como gerir as Zonas DNS usando o PowerShell

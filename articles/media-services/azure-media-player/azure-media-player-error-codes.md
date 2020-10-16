@@ -7,15 +7,15 @@ ms.service: media-services
 ms.topic: error-reference
 ms.date: 04/20/2020
 ms.openlocfilehash: 13d804ec39c3d7753d4ee04962a88d4451fb04d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81727258"
 ---
 # <a name="error-codes"></a>Códigos de erro #
 
-Quando a reprodução não puder ser iniciada ou interrompida, um evento de erro será disparado e a `error()` função devolverá um código e uma mensagem opcional para ajudar o desenvolvedor de aplicações a obter mais detalhes. `error().message`não é a mensagem exibida ao utilizador.  A mensagem apresentada ao utilizador `error().code` baseia-se nos bits 27-20, consulte a tabela abaixo.
+Quando a reprodução não puder ser iniciada ou interrompida, um evento de erro será disparado e a `error()` função devolverá um código e uma mensagem opcional para ajudar o desenvolvedor de aplicações a obter mais detalhes. `error().message` não é a mensagem exibida ao utilizador.  A mensagem apresentada ao utilizador `error().code` baseia-se nos bits 27-20, consulte a tabela abaixo.
 
 ```javascript
 
@@ -151,6 +151,6 @@ O seguinte código captura apenas 404 erros:
     }
 ```
 
-## <a name="next-steps"></a>Próximos passos ##
+## <a name="next-steps"></a>Passos seguintes ##
 
 - [Azure Media Player Quickstart](azure-media-player-quickstart.md)

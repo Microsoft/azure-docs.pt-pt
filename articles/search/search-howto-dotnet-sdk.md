@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 394c87bcd3e4580289fbccc6a31b164f914dc8a3
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: bedb619d77d9e5a88fdc16d0fbd066fa092e0765
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020801"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950793"
 ---
 # <a name="how-to-use-microsoftazuresearch-v10-in-a-net-application"></a>Como utilizar o Microsoft.Azure.Search (v10) numa aplicação .NET
 
@@ -44,7 +44,7 @@ Se quiser fornecer feedback para uma futura atualização do SDK, consulte a nos
 
 O .NET SDK visa a versão `2019-05-06` da [AZure Cognitive Search REST API](/rest/api/searchservice/). Esta versão inclui suporte para [tipos complexos](search-howto-complex-data-types.md), [enriquecimento de IA,](cognitive-search-concept-intro.md) [autocompleto](/rest/api/searchservice/autocomplete)e [modo de análise JsonLines](search-howto-index-json-blobs.md) ao indexar Azure Blobs. 
 
-Este SDK não suporta [Operações de Gestão](/rest/api/searchmanagement/) como a criação e dimensionamento de serviços de pesquisa e gestão de chaves API. Se precisar de gerir os seus recursos de pesquisa a partir de uma aplicação .NET, pode utilizar o [Azure Cognitive Search .NET Management SDK](https://aka.ms/search-mgmt-sdk).
+Este SDK não suporta [Operações de Gestão](/rest/api/searchmanagement/) como a criação e dimensionamento de serviços de pesquisa e gestão de chaves API. Se precisar de gerir os seus recursos de pesquisa a partir de uma aplicação .NET, pode utilizar o [Azure Cognitive Search .NET Management SDK](/dotnet/api/overview/azure/search).
 
 ## <a name="upgrading-to-the-latest-version-of-the-sdk"></a>Upgrade para a versão mais recente do SDK
 Se já está a utilizar uma versão mais antiga do Azure Cognitive Search .NET SDK e gostaria de fazer upgrade para a versão mais recente geralmente disponível, [este artigo](search-dotnet-sdk-migration-version-9.md) explica como.
@@ -65,7 +65,7 @@ Há várias coisas que terá de fazer no seu pedido de pesquisa. Neste tutorial,
 
 O seguinte código de amostra ilustra cada um destes cenários. Sinta-se livre para usar os cortes de código na sua própria aplicação.
 
-### <a name="overview"></a>Descrição geral
+### <a name="overview"></a>Overview (Descrição geral)
 A aplicação de amostra que vamos explorar cria um novo índice chamado "hotéis", povoa-o com alguns documentos e executa algumas consultas de pesquisa. Aqui está o programa principal, mostrando o fluxo geral:
 
 ```csharp

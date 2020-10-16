@@ -10,10 +10,10 @@ ms.date: 06/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
 ms.openlocfilehash: 86fcdde72145cf25ee289ef3869976fecd628707
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362049"
 ---
 # <a name="how-to-create-a-java-application-that-uses-azure-cosmos-db-sql-api-and-change-feed-processor"></a>Como criar uma aplicação Java que usa Azure Cosmos DB SQL API e alterar processador de feed
@@ -78,7 +78,7 @@ mvn clean package
     * **InventárioContainer-pktype** - Uma visão materializada do registo de inventário, otimizada para consultas sobre item ```type```
     * **InventárioContainer-leases** - Um recipiente de locação é sempre necessário para alterar alimentos; os arrendamentos acompanham o progresso da app na leitura do feed de mudança.
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_account_resources_lease_empty.JPG" alt-text="Recipientes vazios":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_account_resources_lease_empty.JPG" alt-text="Conta do Azure Cosmos DB":::
 
 1. No terminal, deve agora ver um pedido
 
@@ -96,7 +96,7 @@ mvn clean package
 
     Volte ao portal Azure Data Explorer no seu browser. No âmbito do contentor **Decontainer-leases,** clique em **itens** para ver o seu conteúdo. Verá que o Processador Change Feed povoou o recipiente de locação, ou seja, o processador atribuiu ao ```SampleHost_1``` trabalhador um arrendamento em algumas divisórias do **InventárioContainer**.
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_leases.JPG" alt-text="Arrendamentos":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_leases.JPG" alt-text="Conta do Azure Cosmos DB":::
 
 1. A imprensa volta a entrar no terminal. Isto irá desencadear 10 documentos a serem inseridos no **InventárioContainer**. Cada inserção de documento aparece no feed de alteração como JSON; o seguinte código de retorno trata estes eventos espelhando os documentos JSON numa visão materializada:
 
@@ -106,15 +106,15 @@ mvn clean package
 
 1. Deixe o código funcionar 5-10sec. Em seguida, volte ao portal Azure Data Explorer e navegue para **InventárioContainer > itens**. Deve ver se os itens estão a ser inseridos no recipiente de inventário; note a chave de partição ```id``` ().
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_items.JPG" alt-text="Recipiente para alimentação":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_items.JPG" alt-text="Conta do Azure Cosmos DB":::
 
 1. Agora, no Data Explorer navegue para **InventárioContainer-pktype > itens**. Esta é a vista materializada - os itens neste espelho de **contentorEs InventárioContainer** porque foram inseridos programáticamente por alteração de feed. Note a tecla de partição ```type``` (). Portanto, esta visão materializada é otimizada para consultas filtrando ```type``` sobre , o que seria ineficiente no **InventárioContainer** porque é dividido em ```id``` .
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview2.JPG" alt-text="A screenshot mostra a página data Explorer para uma conta Azure Cosmos D B com itens selecionados.":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview2.JPG" alt-text="Conta do Azure Cosmos DB":::
 
 1. Vamos apagar um documento tanto do **InventárioContainer** como do **InventárioContainer-pktype** usando apenas uma ```upsertItem()``` chamada. Primeiro, dê uma olhada no portal Azure Data Explorer. Vamos apagar o documento para o ```/type == "plums"``` qual; está cercado em vermelho abaixo
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview-emph-todelete.JPG" alt-text="A screenshot mostra a página data Explorer para uma conta Azure Cosmos D B com um item específico I D selecionado.":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview-emph-todelete.JPG" alt-text="Conta do Azure Cosmos DB":::
 
     Introduza novamente para ligar a função ```deleteDocument()``` no código de exemplo. Esta função, mostrada abaixo, aumenta uma nova versão do documento com ```/ttl == 5``` , que define o documento Time-To-Live (TTL) a 5sec. 
     

@@ -1,7 +1,7 @@
 ---
-title: Como configurar um Array de Microfone - Serviço de Discurso
+title: Como configurar um microfone array - Serviço de Fala
 titleSuffix: Azure Cognitive Services
-description: Aprenda a configurar um Array de Microfone para que o SDK dos Dispositivos de Fala possa usá-lo.
+description: Aprenda a configurar um Conjunto de Microfones para que os Dispositivos de Fala SDK possam usá-lo.
 services: cognitive-services
 author: mswellsi
 manager: yanbo
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 05/01/2020
 ms.author: wellsi
 ms.openlocfilehash: a2652bed6c8e7dec0a6fe8f9471793c3873646bf
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82781759"
 ---
-# <a name="how-to-configure-a-microphone-array"></a>Como configurar um Array de Microfone
+# <a name="how-to-configure-a-microphone-array"></a>Como configurar uma Matriz do Microfone
 
-Neste artigo, aprende-se a configurar uma matriz de [microfones](https://aka.ms/sdsdk-microphone). Inclui a definição do ângulo de trabalho e a forma de selecionar qual o microfone utilizado para o SDK dos Dispositivos de Fala.
+Neste artigo, aprende-se a configurar uma [matriz de microfone](https://aka.ms/sdsdk-microphone). Inclui a definição do ângulo de trabalho e como selecionar o microfone utilizado para os Dispositivos de Fala SDK.
 
-O SDK de Dispositivos de Fala funciona melhor com uma matriz de microfone que foi desenhada de acordo com [as nossas diretrizes](https://aka.ms/sdsdk-microphone). A configuração da matriz do microfone pode ser fornecida pelo Sistema Operativo ou fornecida através de um dos seguintes métodos.
+O Speech Devices SDK funciona melhor com uma matriz de microfone que foi desenhada de acordo com [as nossas diretrizes.](https://aka.ms/sdsdk-microphone) A configuração da matriz do microfone pode ser fornecida pelo Sistema Operativo ou fornecida através de um dos seguintes métodos.
 
-O SDK dos Dispositivos de Fala inicialmente suportava as matrizes do microfone selecionando a partir de um conjunto fixo de configurações.
+Os dispositivos de fala SDK inicialmente suportavam as matrizes de microfone selecionando a partir de um conjunto fixo de configurações.
 
 ```java
 private static String DeviceGeometry = "Circular6+1"; // "Circular6+1", "Linear4",
@@ -32,28 +32,28 @@ private static String SelectedGeometry = "Circular6+1"; // "Circular6+1", "Circu
 
 No Windows, a configuração da matriz do microfone é fornecida pelo controlador de áudio.
 
-A partir de v1.11.0, o SDK dispositivos de fala também suporta a configuração a partir de um [ficheiro JSON](https://aka.ms/sdsdk-micarray-json).
+A partir de v1.11.0, o SDK dos Dispositivos de Fala também suporta a configuração a partir de um [ficheiro JSON](https://aka.ms/sdsdk-micarray-json).
 
 
 ## <a name="windows"></a>Windows
-No Windows, a informação de geometria da matriz do microfone é obtida automaticamente a partir do controlador de áudio. Assim, as `DeviceGeometry`propriedades, `SelectedGeometry` `MicArrayGeometryConfigFile` e são opcionais. Utilizamos o [ficheiro JSON](https://aka.ms/sdsdk-micarray-json) fornecido utilizando `MicArrayGeometryConfigFile` apenas para obter o alcance de formação de feixes.
+No Windows, a informação de geometria da matriz do microfone é obtida automaticamente a partir do controlador de áudio. Assim, as `DeviceGeometry`  `SelectedGeometry` propriedades, e `MicArrayGeometryConfigFile` são opcionais. Utilizamos o [ficheiro JSON](https://aka.ms/sdsdk-micarray-json) fornecido para `MicArrayGeometryConfigFile` obter apenas a gama de formação de feixes.
 
-Se for especificado um `AudioConfig::FromMicrophoneInput`conjunto de microfones utilizando- utilize-se o microfone especificado. Se um microfone não `AudioConfig::FromDefaultMicrophoneInput` for especificado ou for chamado, utilizamos o microfone predefinido, especificado nas definições de Som no Windows.
-A Microsoft Audio Stack no SDK dos Dispositivos de Fala apenas suporta a amostragem para baixo para taxas de amostra que são múltiplos integrais de 16 KHz.
+Se for especificada uma matriz de `AudioConfig::FromMicrophoneInput` microfone, utilizamos o microfone especificado. Se um microfone não for especificado ou `AudioConfig::FromDefaultMicrophoneInput` for chamado, utilizamos o microfone predefinido, especificado nas definições de som no Windows.
+A Microsoft Audio Stack nos Dispositivos de Fala SDK só suporta amostras para taxas de amostra que são múltiplos integrais de 16 KHz.
 
 ## <a name="linux"></a>Linux
-No Linux, a informação de geometria do microfone deve ser fornecida. A `DeviceGeometry` utilização `SelectedGeometry` e continua a ser apoiada. Também pode ser fornecido através do ficheiro `MicArrayGeometryConfigFile` JSON utilizando a propriedade. Semelhante ao Windows, a gama de feixes pode ser fornecida pelo ficheiro JSON.
+No Linux, a informação sobre geometria do microfone deve ser fornecida. O uso `DeviceGeometry` e `SelectedGeometry` os restos mortais apoiados. Também pode ser fornecido através do ficheiro JSON usando a `MicArrayGeometryConfigFile` propriedade. Semelhante ao Windows, a gama de formas de feixe pode ser fornecida pelo ficheiro JSON.
 
-Se for especificado um `AudioConfig::FromMicrophoneInput`conjunto de microfones utilizando- utilize-se o microfone especificado. Se um microfone não `AudioConfig::FromDefaultMicrophoneInput` for especificado ou for chamado, gravamos a partir do dispositivo ALSA chamado *padrão*. Por predefinição, o *predefinido* aponta sempre para o `asound.conf` dispositivo 0 do cartão 0, mas os utilizadores podem alterá-lo no ficheiro. 
+Se for especificada uma matriz de `AudioConfig::FromMicrophoneInput` microfone, utilizamos o microfone especificado. Se um microfone não for especificado ou `AudioConfig::FromDefaultMicrophoneInput` for chamado, gravamos a partir do dispositivo ALSA nomeado *predefinido*. Por predefinição, *o predefinição* aponta sempre para o dispositivo 0 do cartão 0, mas os utilizadores podem alterá-lo no `asound.conf` ficheiro. 
 
-A Microsoft Audio Stack no SDK dos Dispositivos de Fala apenas suporta a redução de amostragem para as taxas de amostra que são múltiplos integrais de 16 KHz. Adicionalmente, os seguintes formatos são suportados: boia de 32 bits IEEE pequeno, 32 pouco endian assinou int, 24 little endian assinou int, 16 little endian assinou int, e 8 bits assinado int.
+A Microsoft Audio Stack nos Dispositivos de Fala SDK só suporta a amostra para taxas de amostra que são múltiplos integrais de 16 KHz. Além disso, os seguintes formatos são suportados: 32 bits IEEE little endian float, 32-bit pequeno endian assinado int, 24-bit pequeno endian assinado int, 16-bit pouco endian assinado int, e 8-bit assinado int.
 
 ## <a name="android"></a>Android
-Atualmente, apenas [roobo v1](speech-devices-sdk-android-quickstart.md) é suportado pelo SDK dispositivos de fala. O comportamento é o mesmo `MicArrayGeometryConfigFile` que os lançamentos anteriores, exceto que agora a propriedade pode ser usada para especificar o ficheiro JSON contendo gama de feixes.
+Atualmente apenas [Roobo v1](speech-devices-sdk-android-quickstart.md) é suportado pelo Speech Devices SDK. O comportamento é o mesmo que as versões anteriores, exceto agora `MicArrayGeometryConfigFile` que a propriedade pode ser usada para especificar o ficheiro JSON que contém alcance de formação de feixes.
 
-## <a name="microphone-array-configuration-json"></a>Configuração de configuração de matriz de microfone JSON
+## <a name="microphone-array-configuration-json"></a>Configuração da matriz do microfone JSON
 
-O ficheiro JSON para a configuração de geometria da matriz do microfone seguirá o [esquema JSON](https://aka.ms/sdsdk-micarray-json). Seguem-se alguns exemplos que seguem o esquema.
+O ficheiro JSON para configuração de geometria da matriz do microfone seguirá o [esquema JSON](https://aka.ms/sdsdk-micarray-json). Seguem-se alguns exemplos que seguem o esquema.
 
 
 ```json

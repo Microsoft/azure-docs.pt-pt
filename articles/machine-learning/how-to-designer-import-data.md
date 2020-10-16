@@ -11,10 +11,10 @@ ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
 ms.openlocfilehash: 15fca48327c46480546764be1b2ab40c1635e874
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90985608"
 ---
 # <a name="import-data-into-azure-machine-learning-designer"></a>Importar dados para o designer de aprendizagem automática Azure
@@ -90,7 +90,7 @@ O designer suporta conjuntos de dados tabulares criados a partir das seguintes f
 O designer reconhece internamente os seguintes tipos de dados:
 
 * Cadeia
-* Integer (Número inteiro)
+* Número inteiro
 * Decimal
 * Booleano
 * Date

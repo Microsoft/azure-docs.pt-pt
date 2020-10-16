@@ -8,10 +8,10 @@ ms.date: 05/21/2020
 author: mingshen-ms
 ms.author: mingshen
 ms.openlocfilehash: e8f9a8e1d10e39e37480e06a25fcc0e203a104ec
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89378734"
 ---
 # <a name="marketplace-metering-service-authentication-strategies"></a>Estratégias de autenticação do serviço de medição do mercado
@@ -46,13 +46,13 @@ Para obter mais informações sobre estes tokens, consulte [os tokens de acesso 
 
 **Publicar**
 
-#### <a name="request-url"></a>*URL do Pedido*
+#### <a name="request-url"></a>*URL de pedido*
 
 **`https://login.microsoftonline.com/*{tenantId}*/oauth2/token`**
 
 #### <a name="uri-parameter"></a>*Parâmetro URI*
 
-|  **Parameter name** (Nome do parâmetro) |  **Necessário**  |  **Descrição**          |
+|  **Nome do parâmetro** |  **Necessário**  |  **Descrição**          |
 |  ------------------ |--------------- | ------------------------  |
 |  `tenantId`         |   Verdadeiro         | Identificação do inquilino do pedido registado de Azure AD.   |
 | | | |
@@ -153,7 +153,7 @@ Por exemplo, siga os passos abaixo para autenticar usando um VM do Windows,
 
 1. Utilize o [serviço de medição marketplace API](./marketplace-metering-service-apis.md) para emitir o uso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar uma oferta de aplicações do Azure](./create-new-azure-apps-offer.md)
 * [Planear uma oferta SaaS](../plan-saas-offer.md)

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 08/21/2020
 ms.custom: contperfq1
 ms.openlocfilehash: f6d8f804fa26383435d191af27289ffd2ecb3e0b
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88755097"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Utilizar o cliente do Apache Beeline com o Apache Hive
@@ -107,7 +107,7 @@ Este exemplo baseia-se na utilização do cliente Beeline a partir de uma ligaç
 
     Estas declarações fazem as seguintes ações:
 
-    |Declaração |Descrição |
+    |Instrução |Descrição |
     |---|---|
     |MESA DE LANÇAMENTO|Se a mesa existe, é apagada.|
     |CRIAR TABELA EXTERNA|Cria uma mesa **externa** na Colmeia. As mesas externas armazenam apenas a definição de tabela na Colmeia. Os dados são deixados no local original.|
@@ -172,7 +172,7 @@ Este exemplo é uma continuação do exemplo anterior. Utilize os seguintes pass
 
     Estas declarações fazem as seguintes ações:
 
-    |Declaração |Descrição |
+    |Instrução |Descrição |
     |---|---|
     |CRIAR TABELA SE NÃO EXISTIR|Se a mesa já não existe, é criada. Uma vez que a palavra-chave **EXTERNA** não é utilizada, esta afirmação cria uma tabela interna. As tabelas internas são armazenadas no armazém de dados da Hive e são geridas completamente pela Hive.|
     |ARMAZENADO COMO ORC|Armazena os dados no formato Colunar de Linha Otimizada (ORC). O formato ORC é um formato altamente otimizado e eficiente para armazenar dados da Hive.|

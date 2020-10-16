@@ -9,10 +9,10 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 06/25/2019
 ms.openlocfilehash: 475c2dfecbc882575955627d73b7159fa33ac4d7
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91710214"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-azure-cli"></a>Tutorial: Desenhe uma base de dados Azure para PostgreSQL - Servidor Único usando Azure CLI 
@@ -211,7 +211,7 @@ Restaurar um servidor para um ponto anterior no tempo cria um novo servidor, cop
 O comando é síncrono e irá regressar depois de o servidor ser restaurado. Depois de o restauro ser concluído, localize o novo servidor que foi criado. Certifique-se de que os dados foram restaurados conforme esperado.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, aprendeu a utilizar a CLI (interface de linha de comandos) do Azure e outros utilitários para:
 > [!div class="checklist"]
 > * Criar um servidor da Base de Dados do Azure para PostgreSQL

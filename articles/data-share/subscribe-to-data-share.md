@@ -7,13 +7,13 @@ ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/14/2020
 ms.openlocfilehash: ce47bc5e880f15eaa1bbf07477673d2475e5a10a
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89489923"
 ---
-# <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Tutorial: Aceitar e receber dados usando a Azure Data Share  
+# <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Tutorial: Aceitar e receber dados com o Azure Data Share  
 
 Neste tutorial, você aprenderá a aceitar um convite de partilha de dados usando a Azure Data Share. Você vai aprender a receber dados que estão sendo partilhados com você, bem como como ativar um intervalo de atualização regular para garantir que você sempre tem a imagem mais recente dos dados que estão sendo partilhados com você. 
 
@@ -35,12 +35,12 @@ Certifique-se de que todos os pré-requisitos estão completos antes de aceitar 
 ### <a name="receive-data-into-a-storage-account"></a>Receber dados numa conta de armazenamento: 
 
 * Uma conta de Armazenamento Azure: Se ainda não tiver uma, pode criar uma [conta de Armazenamento Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 
-* Permissão para escrever na conta de armazenamento, que está presente na *Microsoft.Storage/storageAccounts/write*. Esta permissão existe na função de Contribuinte. 
-* Permissão para adicionar atribuição de funções à conta de armazenamento, que está presente na *Microsoft.Autorização/atribuições/escrita de funções.* Esta permissão existe na função Proprietário.  
+* Permissão para escrever na conta de armazenamento, que está presente na *Microsoft.Storage/storageAccounts/write*. Esta permissão existe na função de Contribuidor. 
+* Permissão para adicionar atribuição de funções à conta de armazenamento, que está presente na *Microsoft.Autorização/atribuições/escrita de funções.* Esta permissão existe na função de Proprietário.  
 
 ### <a name="receive-data-into-a-sql-based-target"></a>Receber dados num alvo baseado em SQL:
 
-* Permissão para escrever para bases de dados no servidor SQL, que está presente no *Microsoft.Sql/servers/databases/write*. Esta permissão existe na função de Contribuinte. 
+* Permissão para escrever para bases de dados no servidor SQL, que está presente no *Microsoft.Sql/servers/databases/write*. Esta permissão existe na função de Contribuidor. 
 * Permissão para a identidade gerida do recurso de partilha de dados para aceder à Base de Dados Azure SQL ou Azure Synapse Analytics. Isto pode ser feito através dos seguintes passos: 
     1. Coloque-se como o Azure Ative Directory Admin para o servidor SQL.
     1. Ligue-se à Base de Dados/Armazém de Dados Azure SQL utilizando o Azure Ative Directory.
@@ -63,8 +63,8 @@ Certifique-se de que todos os pré-requisitos estão completos antes de aceitar 
 ### <a name="receive-data-into-an-azure-data-explorer-cluster"></a>Receba dados num cluster Azure Data Explorer: 
 
 * Um cluster Azure Data Explorer no mesmo centro de dados Azure que o cluster data Explorer do fornecedor de dados: Se ainda não tiver um, pode criar um [cluster Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/create-cluster-database-portal). Se não conhecer o centro de dados Azure do cluster do fornecedor de dados, pode criar o cluster mais tarde no processo.
-* Permissão para escrever para o cluster Azure Data Explorer, que está presente na *Microsoft.Kusto/clusters/write*. Esta permissão existe na função de Contribuinte. 
-* Permissão para adicionar atribuição de funções ao cluster Azure Data Explorer, que está presente na *Microsoft.Authorization/role assignments/write*. Esta permissão existe na função Proprietário. 
+* Permissão para escrever para o cluster Azure Data Explorer, que está presente na *Microsoft.Kusto/clusters/write*. Esta permissão existe na função de Contribuidor. 
+* Permissão para adicionar atribuição de funções ao cluster Azure Data Explorer, que está presente na *Microsoft.Authorization/role assignments/write*. Esta permissão existe na função de Proprietário. 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 

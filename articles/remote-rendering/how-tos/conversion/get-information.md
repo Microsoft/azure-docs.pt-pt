@@ -6,10 +6,10 @@ ms.author: matyrr
 ms.date: 03/05/2020
 ms.topic: how-to
 ms.openlocfilehash: 89ec0ad40822785457e988cf9e0f9bd6d00ed81f
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91576630"
 ---
 # <a name="get-information-about-conversions"></a>Obter informações sobre conversões

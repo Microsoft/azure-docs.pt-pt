@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 11/16/2019
 ms.author: amsriva
 ms.openlocfilehash: 1b0abe998540c4fcc0a9b83f6d1175e18a560871
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84808147"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Resolução de problemas de erros de gateway incorreto no Gateway de Aplicação
@@ -108,7 +108,7 @@ São adicionadas as seguintes propriedades adicionais:
 
 | Propriedade sonda | Descrição |
 | --- | --- |
-| Name |O nome da sonda. Este nome é utilizado para se referir à sonda nas definições HTTP de fundo. |
+| Nome |O nome da sonda. Este nome é utilizado para se referir à sonda nas definições HTTP de fundo. |
 | Protocolo |Protocolo usado para enviar a sonda. A sonda utiliza o protocolo definido nas definições HTTP de back-end |
 | Anfitrião |Nome do anfitrião para enviar a sonda. Aplicável apenas quando vários locais estiverem configurados no gateway de aplicações. Isto é diferente do nome do anfitrião VM. |
 | Caminho |Caminho relativo da sonda. O caminho válido começa a partir de '/'. A sonda é enviada para \<protocol\> \<host\> :\<port\>\<path\> |
@@ -192,7 +192,7 @@ Se todas as instâncias do BackendAddressPool não forem saudáveis, então o ga
 
 Certifique-se de que as ocorrências são saudáveis e que a aplicação está devidamente configurada. Verifique se as instâncias de back-end podem responder a um ping de outro VM no mesmo VNet. Se configurado com um ponto final público, certifique-se de que um pedido de navegador para a aplicação web é útil.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se os passos anteriores não resolverem o problema, abra um [bilhete de apoio](https://azure.microsoft.com/support/options/).
 

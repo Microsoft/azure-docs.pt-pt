@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.openlocfilehash: 05ab666eff39412c1b169178e7ea4c68f3a81ca9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91714550"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net"></a>Crie uma delegação de utilizador SAS para um recipiente ou bolha com .NET
@@ -235,7 +235,7 @@ private static async Task ReadBlobWithSasAsync(Uri sasUri)
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 - [Conceder acesso limitado aos recursos de armazenamento Azure utilizando assinaturas de acesso partilhado (SAS)](../common/storage-sas-overview.md)
 - [Obtenha a operação chave da delegação de utilizadores](/rest/api/storageservices/get-user-delegation-key)

@@ -54,6 +54,22 @@
               href: class-type-matlab.md
             - name: Conceção assistida por computador (CAD) do SolidWorks
               href: class-type-solidworks.md
+        - name: Utilizar o Azure Lab Services no Teams
+          items:
+            - name: Descrição geral
+              href: lab-services-within-teams-overview.md
+            - name: Criar um laboratório a partir do Teams
+              href: how-to-get-started-create-lab-within-teams.md
+            - name: Gerir listas de utilizadores
+              href: how-to-manage-user-lists-within-teams.md
+            - name: Gerir conjunto de VM
+              href: how-to-manage-vm-pool-within-teams.md
+            - name: Eliminar laboratórios
+              href: how-to-get-started-create-lab-within-teams.md#deleting-classroom-labs
+            - name: Agendamentos e definições
+              href: how-to-create-schedules-within-teams.md
+            - name: Aceder a uma VM (vista de aluno)
+              href: how-to-access-vm-for-students-within-teams.md
 - name: Guias de procedimentos
   items:
     - name: Guia do administrador

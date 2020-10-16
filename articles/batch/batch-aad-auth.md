@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 01/28/2020
 ms.custom: has-adal-ref
 ms.openlocfilehash: 19042b4bb0998d104792d7511ab2972299b4f58d
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87533517"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticar soluções de serviço batch com Diretório Ativo
@@ -127,7 +127,7 @@ Para autenticar com um diretor de serviço, precisa de atribuir o RBAC à sua ap
 1. Na secção **Definições** da conta Lote, selecione **Access Control (IAM)**.
 1. Selecione o **separador Funções.**
 1. Selecione **Adicionar atribuição de função**.
-1. A partir **do** drop-down Role, escolha a função *Contribuinte* ou *Leitor* para a sua aplicação. Para obter mais informações sobre estas funções, consulte [Começar com o Controlo de Acesso Baseado em Fun no portal Azure](../role-based-access-control/overview.md).
+1. A partir **do** drop-down Role, escolha a função *Contribuinte* ou *Leitor* para a sua aplicação. Para obter mais informações sobre estas funções, consulte [Começar com Role-Based Controlo de Acesso no portal Azure](../role-based-access-control/overview.md).
 1. No campo **Seleção,** insira o nome da sua candidatura. Selecione a sua candidatura da lista e, em seguida, **selecione Guardar**.
 
 A sua aplicação deve agora aparecer nas definições do controlo de acesso com uma função Azure atribuída.

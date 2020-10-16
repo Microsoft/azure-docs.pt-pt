@@ -9,10 +9,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/17/2020
 ms.openlocfilehash: 2080139732d71aa5df9a9d4ad13fcc4545128dff
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541922"
 ---
 # <a name="add-prebuilt-models-for-common-usage-scenarios"></a>Adicionar modelos pré-construídos para cenários comuns de utilização
@@ -78,6 +78,6 @@ A maneira mais fácil de ver o valor de um modelo pré-construído é consultar 
 
 Se tiver uma entidade de aprendizagem automática que necessite de uma característica necessária de uma entidade pré-construída, adicione uma sub-entidade à entidade de aprendizagem automática e, em seguida, adicione uma característica _necessária_ de uma entidade pré-construída.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
 > [Construa o modelo a partir de .csv com REST APIs](./luis-tutorial-node-import-utterances-csv.md)

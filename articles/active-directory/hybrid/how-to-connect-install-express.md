@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0a655f355bb77d937f4daff2f8987769416ebd8c
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89279674"
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Introdução ao Azure AD Connect utilizando as definições rápidas
@@ -60,7 +60,7 @@ Para obter um vídeo sobre como utilizar a instalação rápida, consulte:
 >
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Agora que já tem o Azure AD Connect instalado, pode [verificar a instalação e atribuir licenças](how-to-connect-post-installation.md).
 
 Saiba mais acerca destas funcionalidades que foram ativadas com a instalação: [Atualização automática](how-to-connect-install-automatic-upgrade.md), [Impedir eliminações acidentais](how-to-connect-sync-feature-prevent-accidental-deletes.md) e [Azure AD Connect Health](how-to-connect-health-sync.md).

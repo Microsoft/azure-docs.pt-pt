@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: lcozzens
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 5977aced8354694a631cce05bf6d6b913ea79118
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cdb7796f3f8c877f130f47b971dc66c113c4d36
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88121600"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070117"
 ---
 # <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>Tutorial: Use referências do Cofre de Chaves numa aplicação java Spring
 
@@ -35,7 +35,7 @@ Este tutorial mostra-lhe como implementar referências do Key Vault no seu códi
 
 Você pode usar qualquer editor de código para fazer os passos neste tutorial. Por exemplo, [o Visual Studio Code](https://code.visualstudio.com/) é um editor de códigos de plataforma cruzada que está disponível para os sistemas operativos Windows, macOS e Linux.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Crie uma chave de configuração de aplicativos que faz referência a um valor armazenado no Key Vault.
@@ -44,7 +44,7 @@ Neste tutorial, ficará a saber como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Azure subscrição - [crie uma gratuitamente](https://azure.microsoft.com/free/)
-* Um Kit de [Desenvolvimento java suportado (JDK)](https://docs.microsoft.com/java/azure/jdk) com a versão 8.
+* Um Kit de [Desenvolvimento java suportado (JDK)](/java/azure/jdk) com a versão 8.
 * [Apache Maven](https://maven.apache.org/download.cgi) versão 3.0 ou superior.
 
 ## <a name="create-a-vault"></a>Criar um cofre
@@ -260,7 +260,7 @@ Para adicionar um segredo ao cofre, precisa dar apenas alguns passos adicionais.
 
     Vê a mensagem que inseriu na loja de Configuração de Aplicações. Também vê a mensagem que introduziu no Cofre de Chaves.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

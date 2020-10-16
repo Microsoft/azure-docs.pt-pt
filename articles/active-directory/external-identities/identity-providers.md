@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a61eca3340985886ef782b28a59a1283c5f473ce
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91265719"
 ---
 # <a name="identity-providers-for-external-identities"></a>Fornecedores de Identidades Externas
@@ -30,7 +30,7 @@ No entanto, pode permitir que os utilizadores entrem em s90 com vários forneced
 
 - **Facebook**: Ao construir uma aplicação, pode configurar a inscrição de self-service e ativar a federação do Facebook para que os utilizadores possam inscrever-se na sua aplicação usando as suas próprias contas de Facebook. O Facebook só pode ser utilizado para fluxos de utilizadores de inscrição de autosserviço e não está disponível como opção de entrada quando os utilizadores estão a resgatar convites de si.
 
-- **Federação direta**: Também pode criar uma federação direta com qualquer fornecedor de identidade externa que suporte os protocolos SAML ou WS-Fed. A federação direta permite que utilizadores externos resgatem convites de si, insinando-se nas suas apps com as suas contas sociais ou empresariais existentes. 
+- **Federação Direta**: Pode ainda criar uma federação direta com qualquer fornecedor de identidade externa que suporte os protocolos SAML ou WS-Fed. A federação direta permite que utilizadores externos resgatem convites de si, insinando-se nas suas apps com as suas contas sociais ou empresariais existentes. 
    > [!NOTE]
    > Os fornecedores de identidade da federação direta não podem ser utilizados nos fluxos de utilizador de inscrição de autosserviço.
 

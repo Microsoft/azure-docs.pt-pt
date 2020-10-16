@@ -8,10 +8,10 @@ ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
 ms.openlocfilehash: cd0b73dd22e5e2cab720bb1a33e58e25e517b1f6
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90605044"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Gatilho de ônibus de serviço Azure para funções Azure
@@ -290,14 +290,14 @@ Consulte o [exemplo](#example) do gatilho para obter mais detalhes.
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `ServiceBusTrigger` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**tipo** | n/a | Deve ser definido como "serviceBusTrigger". Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure.|
 |**direção** | n/a | Deve ser definido para "dentro". Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure. |
 |**nome** | n/a | O nome da variável que representa a fila ou mensagem de tópico no código de função. |
 |**nome de fila**|**Nome da fila**|Nome da fila para monitorar.  Definir apenas se monitorizar uma fila, não para um tópico.
 |**temaName**|**Nome tópico**|Nome do tópico para monitorizar. Definir apenas se monitorizar um tópico, não para uma fila.|
-|**nome de subscrição**|**SubscriptionName**|Nome da subscrição para monitorar. Definir apenas se monitorizar um tópico, não para uma fila.|
+|**subscriptionName**|**Nome de assinatura**|Nome da subscrição para monitorar. Definir apenas se monitorizar um tópico, não para uma fila.|
 |**conexão**|**Ligação**|O nome de uma definição de aplicação que contém a cadeia de ligação Service Bus para usar para esta ligação. Se o nome de definição da aplicação começar com "AzureWebJobs", pode especificar apenas o restante do nome. Por exemplo, se definir `connection` para "MyServiceBus", o tempo de execução de Funções procura uma definição de aplicação que se chama "AzureWebJobsMyServiceBus". Se deixar `connection` vazio, o tempo de execução de Funções utiliza a cadeia de ligação padrão do Service Bus na definição da aplicação que é denominada "AzureWebJobsServiceBus".<br><br>Para obter uma cadeia de ligação, siga os passos indicados na [Get as credenciais de gestão](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). A cadeia de ligação deve ser para um espaço de nomes do Service Bus, não se limitando a uma fila ou tópico específico. |
 |**acessosDes**|**Acesso**|Direitos de acesso para a cadeia de ligação. Os valores disponíveis são `manage` `listen` e. O padrão é `manage` , o que indica que tem a `connection` permissão **'Gerir'.** Se utilizar uma cadeia de ligação que não tenha a permissão **'Gerir',** desemaça `accessRights` "ouvir". Caso contrário, o tempo de execução das Funções pode falhar ao tentar fazer operações que exijam direitos de gestão. Na versão 2.x e superior do Azure Functions, esta propriedade não está disponível porque a versão mais recente do Service Bus SDK não suporta operações de gestão.|
 |**isSessionsEnabled**|**IsSessionsEnabled**|`true`se ligar a uma fila ou subscrição [conscientes da sessão.](../service-bus-messaging/message-sessions.md) `false` caso contrário, que é o valor padrão.|
@@ -359,7 +359,7 @@ O `maxAutoRenewDuration` é configurável em *host.jsem*, que mapeia para [OnMes
 
 O gatilho do Service Bus fornece várias [propriedades de metadados.](./functions-bindings-expressions-patterns.md#trigger-metadata) Estas propriedades podem ser usadas como parte de expressões de ligação em outras encadernações ou como parâmetros no seu código. Estas propriedades são membros da classe [Message.](/dotnet/api/microsoft.azure.servicebus.message?view=azure-dotnet)
 
-|Propriedade|Tipo|Description|
+|Propriedade|Tipo|Descrição|
 |--------|----|-----------|
 |`ContentType`|`string`|Um identificador de tipo de conteúdo utilizado pelo remetente e pelo recetor para lógica específica da aplicação.|
 |`CorrelationId`|`string`|A identificação da correlação.|

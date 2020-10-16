@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Seamless Single Sign-On - Como funciona Microsoft Docs'
-description: Este artigo descreve como funciona a funcionalidade Azure Ative Directory Seamless Single Sign-On.
+title: 'Azure AD Connect: Single Sign-On sem emenda - Como funciona Microsoft Docs'
+description: Este artigo descreve como funciona o recurso Azure Ative Directory Seamless Single Sign-On.
 services: active-directory
 keywords: o que é Azure AD Connect, instalar Ative Directory, componentes necessários para Azure AD, SSO, Single Sign-on
 documentationcenter: ''
@@ -17,15 +17,15 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bde937adba8d2469390a6cf404f6cce8c5008e87
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86144709"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Ative Directory Single Sign-On: Mergulho profundo técnico
 
-Este artigo dá-lhe detalhes técnicos sobre como funciona a função Azure Ative Directory Single Sign-On (Seamless SSO).
+Este artigo dá-lhe detalhes técnicos sobre como funciona a funcionalidade Azure Ative Directory Seamless Single Sign-On (Seamless SSO).
 
 ## <a name="how-does-seamless-sso-work"></a>Como funciona o Seamless SSO?
 
@@ -82,8 +82,8 @@ O fluxo de entrada num cliente nativo é o seguinte:
 
 1. O utilizador tenta aceder a uma aplicação nativa (por exemplo, o cliente Outlook) a partir de um dispositivo corporativo de domínio dentro da sua rede corporativa.
 2. Se o utilizador ainda não tiver assinado, a aplicação nativa recupera o nome de utilizador do utilizador a partir da sessão do Windows do dispositivo.
-3. A aplicação envia o nome de utilizador para Azure AD e recupera o ponto final do WS-Trust MEX do seu inquilino. Este ponto final WS-Trust é utilizado exclusivamente pela funcionalidade Seamless SSO, e não é uma implementação geral do protocolo WS-Trust em Azure AD.
-4. A aplicação consulta então o ponto final do WS-Trust MEX para ver se está disponível o ponto final de autenticação integrado. O ponto final de autenticação integrado é utilizado exclusivamente pela funcionalidade Seamless SSO.
+3. A aplicação envia o nome de utilizador para Azure AD e recupera o WS-Trust ponto final MEX do seu inquilino. Este WS-Trust ponto final é utilizado exclusivamente pela funcionalidade SSO sem emenda, e não é uma implementação geral do protocolo WS-Trust em Azure AD.
+4. A aplicação consulta então o ponto final mex WS-Trust para ver se está disponível o ponto final de autenticação integrada. O ponto final de autenticação integrado é utilizado exclusivamente pela funcionalidade Seamless SSO.
 5. Se o passo 4 for bem sucedido, é emitido um desafio Kerberos.
 6. Se a aplicação conseguir recuperar o bilhete Kerberos, encaminha-o para o ponto final de autenticação integrado da Azure AD.
 7. A AZure AD desencripta o bilhete Kerberos e valida-o.

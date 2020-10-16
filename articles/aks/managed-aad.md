@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 08/26/2020
 ms.author: thomasge
 ms.openlocfilehash: 32273bbb14e6cee73f03bd83b84be77299186370
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88937001"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>Integração do Azure Ative Directory gerido pela AKS
@@ -55,7 +55,7 @@ kubelogin --version
 Utilize [estas instruções](https://kubernetes.io/docs/tasks/tools/install-kubectl/) para outros sistemas operativos.
 
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Para o seu grupo, precisa de um grupo AD Azure. Este grupo é necessário como grupo de administração para o cluster conceder permissões de administração de cluster. Você pode usar um grupo AD Azure existente, ou criar um novo. Grave a identificação do objeto do seu grupo AD Azure.
 

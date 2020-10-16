@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 10/12/2020
 tags: connectors
-ms.openlocfilehash: 2993fc718462d1ac2a9cfd02be5642fb21f86702
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 5834a1927fda71faa924e14265fb7f82034887de
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526532"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996345"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Troque mensagens na nuvem usando Azure Logic Apps e Azure Service Bus
 
@@ -79,7 +79,7 @@ Confirme que a sua aplicação lógica tem permissões para aceder ao seu espaç
    Alguns gatilhos, como o Quando uma ou mais mensagens chegam num gatilho **de fila (completa automaticamente),** podem devolver uma ou mais mensagens. Quando estes disparam fogo, eles retornam entre um e o número de mensagens especificadas pela propriedade de **contagem de mensagens máximas** do gatilho.
 
     > [!NOTE]
-    > O gatilho auto-completo completa automaticamente uma mensagem, mas a conclusão só acontece no próximo gatilho. Este comportamento pode afetar o design da sua aplicação lógica. Por exemplo, evite alterar a concordância no gatilho auto-completo porque esta alteração pode resultar em mensagens duplicadas se a sua aplicação lógica entrar num estado acelerado. A alteração do controlo de concordância cria estas condições: os gatilhos acelerados são ignorados com o `WorkflowRunInProgress` código, a operação de conclusão não acontecerá e o próximo gatilho ocorre após o intervalo de votação. Tem de definir a duração do bloqueio do autocarro de serviço para um valor mais longo do que o intervalo de votação. No entanto, apesar desta definição, a mensagem ainda pode não estar completa se a sua aplicação lógica se mantiver num estado acelerado no próximo intervalo de votação.
+    > O gatilho auto-completo completa automaticamente uma mensagem, mas a conclusão só acontece na próxima chamada para o Service Bus. Este comportamento pode afetar o design da sua aplicação lógica. Por exemplo, evite alterar a concordância no gatilho auto-completo porque esta alteração pode resultar em mensagens duplicadas se a sua aplicação lógica entrar num estado acelerado. A alteração do controlo de concordância cria estas condições: os gatilhos acelerados são ignorados com o `WorkflowRunInProgress` código, a operação de conclusão não acontecerá e o próximo gatilho ocorre após o intervalo de votação. Tem de definir a duração do bloqueio do autocarro de serviço para um valor mais longo do que o intervalo de votação. No entanto, apesar desta definição, a mensagem ainda pode não estar completa se a sua aplicação lógica se mantiver num estado acelerado no próximo intervalo de votação.
 
 1. Se o seu gatilho estiver a ligar-se ao seu espaço de nomes service bus pela primeira vez, siga estes passos quando o Logic App Designer lhe solicitar informações de ligação.
 
@@ -162,6 +162,10 @@ Confirme que a sua aplicação lógica tem permissões para aceder ao seu espaç
 Quando precisa enviar mensagens relacionadas numa ordem específica, pode utilizar o padrão do [ *comboio sequencial* ](/azure/architecture/patterns/sequential-convoy) utilizando o [conector Azure Service Bus](../connectors/connectors-create-api-servicebus.md). As mensagens correlacionadas têm uma propriedade que define a relação entre essas mensagens, como o ID para a [sessão](../service-bus-messaging/message-sessions.md) em Service Bus.
 
 Ao criar uma aplicação lógica, pode selecionar a **entrega de encomenda correlacionada utilizando** o modelo de sessões de autocarro de serviço, que implementa o padrão de comboio sequencial. Para obter mais informações, consulte [Enviar mensagens relacionadas por ordem](../logic-apps/send-related-messages-sequential-convoy.md).
+
+## <a name="delays-in-updates-to-your-logic-app-taking-effect"></a>Atrasos nas atualizações da sua app lógica a entrar em vigor
+
+Se o intervalo de votação de um gatilho do Service Bus for pequeno, como 10 segundos, as atualizações para a sua aplicação lógica podem não produzir efeitos até 10 minutos. Para resolver este problema, pode aumentar temporariamente o intervalo de votação para um valor maior, como 30 segundos ou 1 minuto, antes de atualizar a sua aplicação lógica. Depois de fazer a atualização, pode redefinir o intervalo de votação para o valor original. 
 
 <a name="connector-reference"></a>
 

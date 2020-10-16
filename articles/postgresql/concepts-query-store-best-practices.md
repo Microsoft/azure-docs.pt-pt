@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: dd39b7ecd51902f5035b4cd17d59dea964d0c962
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708837"
 ---
 # <a name="best-practices-for-query-store"></a>Melhores práticas para a Loja de Consultas
@@ -24,7 +24,7 @@ Deixe a Query Store capturar os dados que lhe interessam.
 
 |**pg_qs.consulta_capture_mode** | **Cenário**|
 |---|---|
-|_Todos os_  |Analise cuidadosamente a sua carga de trabalho em termos de todas as consultas e suas frequências de execução e outras estatísticas. Identifique novas consultas na sua carga de trabalho. Detete se as consultas ad hoc forem usadas para identificar oportunidades para o utilizador ou parametrização automática. _Tudo_ vem com um aumento do custo de consumo de recursos. |
+|_Todos_  |Analise cuidadosamente a sua carga de trabalho em termos de todas as consultas e suas frequências de execução e outras estatísticas. Identifique novas consultas na sua carga de trabalho. Detete se as consultas ad hoc forem usadas para identificar oportunidades para o utilizador ou parametrização automática. _Tudo_ vem com um aumento do custo de consumo de recursos. |
 |_Parte Superior_  |Concentre a sua atenção em consultas de topo - as emitidas pelos clientes.
 |_Nenhuma_ |Já capturou um conjunto de consultas e uma janela de tempo que quer investigar e quer eliminar as distrações que outras consultas podem introduzir. _Nenhum_ é adequado para ambientes de teste e marcação de bancada. _Nenhum_ deve ser usado com cuidado, pois pode perder a oportunidade de rastrear e otimizar novas consultas importantes. Não se pode recuperar dados das janelas do tempo passado. |
 
@@ -45,5 +45,5 @@ O parâmetro **pgms_wait_sampling.history_period** especifica a frequência (em 
 ## <a name="get-quick-insights-into-query-store"></a>Obtenha informações rápidas sobre a Loja de Consultas
 Pode utilizar [o Insight de Desempenho de Consulta](concepts-query-performance-insight.md) no portal Azure para obter informações rápidas sobre os dados na Loja de Consultas. As visualizações surgem nas consultas de maior duração e nos eventos de espera mais longos ao longo do tempo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 - Saiba como obter ou definir parâmetros utilizando o [portal Azure](howto-configure-server-parameters-using-portal.md) ou o [Azure CLI](howto-configure-server-parameters-using-cli.md).

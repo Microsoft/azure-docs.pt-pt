@@ -4,10 +4,10 @@ description: Este artigo fornece informações sobre como ligar a Apache Flink a
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.openlocfilehash: f2e6eeb74c5a334d1692357edec0fd363349c7c0
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90061653"
 ---
 # <a name="use-apache-flink-with-azure-event-hubs-for-apache-kafka"></a>Utilizar o Apache Flink com os Hubs de Eventos do Azure para Apache Kafka
@@ -115,7 +115,7 @@ Se o centro de eventos tiver eventos (por exemplo, se o seu produtor também est
 
 Consulte o [Guia de Conector Kafka da Flink](https://ci.apache.org/projects/flink/flink-docs-stable/dev/connectors/kafka.html) para obter informações mais detalhadas sobre a ligação entre o Flink e o Kafka.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre os Centros de Eventos para Kafka, consulte os seguintes artigos:  
 
 - [Espelhar um mediador de Kafka num hub de eventos](event-hubs-kafka-mirror-maker-tutorial.md)

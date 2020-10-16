@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 28947d1fa4ece5d6285651ef07342cae06ad8bc8
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 5d114017d5e5dfecfe20afc69849763a87aadd41
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077376"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015324"
 ---
 # <a name="automation-with-service-principals"></a>Automatização com principais de serviço
 
@@ -24,17 +24,17 @@ Os Serviços de Análise também apoiam operações realizadas por identidades g
 
 ## <a name="create-service-principals"></a>Criar principais de serviço
  
-Os principais de serviço podem ser criados no portal Azure ou utilizando o PowerShell. Para saber mais, consulte:
+Os principais de serviço podem ser criados no portal Azure ou utilizando o PowerShell. Para saber mais, veja:
 
 [Criar um principal de serviço – portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md)   
 [Criar principal de serviço - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="store-credential-and-certificate-assets-in-azure-automation"></a>Armazenar ativos de credencial e certificados na Azure Automation
 
-As credenciais e certificados principais do serviço podem ser armazenados de forma segura na Azure Automation para operações de runbook. Para saber mais, consulte:
+As credenciais e certificados principais do serviço podem ser armazenados de forma segura na Azure Automation para operações de runbook. Para saber mais, veja:
 
-[Ativos credenciais na Azure Automation](../automation/automation-credentials.md)   
-[Recursos de certificados na Automatização do Azure](../automation/automation-certificates.md)
+[Ativos credenciais na Azure Automation](../automation/shared-resources/credentials.md)   
+[Recursos de certificados na Automatização do Azure](../automation/shared-resources/certificates.md)
 
 ## <a name="add-service-principals-to-server-admin-role"></a>Adicione os principais de serviço ao papel de administração do servidor
 
@@ -50,7 +50,7 @@ O appID principal do serviço e a palavra-passe ou certificado podem ser usados 
 
 #### <a name="using-azanalysisservices-module"></a><a name="azmodule"></a>Utilizando o módulo Az.AnalysisServices
 
-Quando utilizar um principal de serviço para operações de gestão de recursos com o módulo [Az.AnalysisServices,](/powershell/module/az.analysisservices) utilize `Connect-AzAccount` o cmdlet. 
+Quando utilizar um principal de serviço para operações de gestão de recursos com o módulo [Az.AnalysisServices,](/powershell/module/az.analysisservices)  utilize `Connect-AzAccount` o cmdlet. 
 
 No exemplo seguinte, o appID e uma palavra-passe são utilizados para executar operações de plano de controlo para sincronização para réplicas apenas de leitura e escalar/eliminar:
 
@@ -92,7 +92,7 @@ Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserve
 
 ### <a name="amo-and-adomd"></a>AMO e ADOMD 
 
-Ao ligar-se a aplicações Web e aplicações cliente, os pacotes instaláveis das [bibliotecas cliente AMO e ADOMD](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current) (versão 15.0.2 e superior) do NuGet suportam principais de serviço em cadeias de ligação através da seguinte sintaxe: `app:AppID` e palavra-passe ou `cert:thumbprint`. 
+Ao ligar-se a aplicações Web e aplicações cliente, os pacotes instaláveis das [bibliotecas cliente AMO e ADOMD](/analysis-services/client-libraries?view=azure-analysis-services-current) (versão 15.0.2 e superior) do NuGet suportam principais de serviço em cadeias de ligação através da seguinte sintaxe: `app:AppID` e palavra-passe ou `cert:thumbprint`. 
 
 No seguinte exemplo, `appID` e `password` são utilizados para executar uma operação de atualização da base de dados modelo:
 
@@ -109,8 +109,8 @@ db.Model.SaveChanges();
 ```
 
 ## <a name="next-steps"></a>Próximos passos
-[Inscreva-se com a Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
+[Inscreva-se com a Azure PowerShell](/powershell/azure/authenticate-azureps)   
 [Atualizar com o Logic Apps](analysis-services-refresh-logic-app.md)  
 [Atualizar com a Automatização do Azure](analysis-services-refresh-azure-automation.md)  
 [Adicione um principal de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md)  
-[Automatizar o espaço de trabalho power BI Premium e as tarefas de conjunto de dados com os principais serviços](https://docs.microsoft.com/power-bi/admin/service-premium-service-principal) 
+[Automatizar o espaço de trabalho power BI Premium e as tarefas de conjunto de dados com os principais serviços](/power-bi/admin/service-premium-service-principal)

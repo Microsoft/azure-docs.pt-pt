@@ -12,10 +12,10 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.reviewer: celested
 ms.openlocfilehash: 11e0606568fdaad20f996a7ae20a622576acea15
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88549471"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Tutorial: Configurar Asana para o fornecimento automático de utilizadores
@@ -24,7 +24,7 @@ O objetivo deste tutorial é mostrar-lhe os passos que precisa de executar no As
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O cenário delineado neste tutorial pressupõe que já tem os seguintes itens:
+O cenário descrito neste tutorial pressupõe que já tem os seguintes itens:
 
 * Um inquilino da AD AZure
 * Um inquilino asana com um plano [empresarial](https://www.asana.com/pricing) ou melhor habilitado

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: jeedes
 ms.openlocfilehash: d980e0a5dd4b042f919775c205a20ea69e51f0bd
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91709007"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-123formbuilder-sso"></a>Tutorial: Azure Ative Directory integração única (SSO) com 123FormBuilder SSO
@@ -143,7 +143,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 2. No **Microsoft Azure AD - Single sign-on - Configurações de aplicações configuradas** executam os seguintes passos:
 
-    ![Configurar um único sign-on](./media/123formbuilder-tutorial/url3.png)
+    ![Configurar Sign-On Individuais](./media/123formbuilder-tutorial/url3.png)
 
     a. Se desejar configurar a aplicação no **modo iniciado pelo IDP,** copie o valor **IDENTIFIER** para o seu exemplo e cole-o na caixa de texto **Identifier** na secção **de Configuração SAML Básica** no portal Azure.
 

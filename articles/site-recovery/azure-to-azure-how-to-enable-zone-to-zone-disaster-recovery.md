@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/28/2019
 ms.author: sideeksh
 ms.openlocfilehash: 001ac4918ed5d87bdb801d1bf918a4450e7cf8e0
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90007796"
 ---
 # <a name="enable-azure-vm-disaster-recovery-between-availability-zones"></a>Permitir a recuperação de desastres em Azure VM entre zonas de disponibilidade
@@ -123,7 +123,7 @@ Zona para zona Recuperação de Desastres suporta os mesmos sistemas operativos 
 **5. Os grupos de recursos de origem e de destino podem ser os mesmos?**
 Não, tens de falhar com um grupo de recursos diferente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Os passos que precisam de ser seguidos para executar um exercício de recuperação de desastres, falhar, re-proteger e falhar são os mesmos que os passos em Azure para O cenário de Recuperação de Desastres Azure.
 

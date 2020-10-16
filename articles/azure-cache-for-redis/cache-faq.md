@@ -7,18 +7,18 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.openlocfilehash: 197decbb263391a32b8bf01cdbb6c2f34b750111
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88003569"
 ---
 # <a name="azure-cache-for-redis-faq"></a>FAQ da Cache do Azure para Redis
 Aprenda as respostas a perguntas, padrões e boas práticas comuns para Azure Cache para Redis.
 
-* [Planeamento de Perguntas Frequentes](cache-planning-faq.md)
-* [Perguntas frequentes de desenvolvimento](cache-development-faq.md)
-* [Perguntas frequentes de gestão](cache-management-faq.md)
+* [FAQs sobre planeamento](cache-planning-faq.md)
+* [FAQs sobre desenvolvimento](cache-development-faq.md)
+* [FAQs sobre gestão](cache-management-faq.md)
 * [Monitorização e resolução de problemas das FAQ](cache-monitor-troubleshoot-faq.md)
 
 ## <a name="deprecated-cache-services"></a>Serviços de cache precotados
@@ -28,10 +28,10 @@ Aprenda as respostas a perguntas, padrões e boas práticas comuns para Azure Ca
 
 Para ver documentação arquivada, consulte a [documentação do serviço de cache gerido arquivado.](/previous-versions/azure/azure-services/dn386094(v=azure.100))
 
-### <a name="in-role-cache"></a>In-Role Cache
+### <a name="in-role-cache"></a>Cache In-Role
 [In-Role Cache foi reformado a 30 de novembro de 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
-Para visualizar documentação arquivada, consulte a [documentação da Cache arquivada.](/previous-versions/azure/azure-services/dn386103(v=azure.100))
+Para visualizar documentação arquivada, consulte [a Documentação de Cache arquivada In-Role.](/previous-versions/azure/azure-services/dn386103(v=azure.100))
 
 ["minIoThreads" configuration setting]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 

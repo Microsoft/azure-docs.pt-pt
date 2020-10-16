@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 5f94564c5e769d3cf0e0abbe92a309a1ee2117a1
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90055083"
 ---
 # <a name="deploy-the-storsimple-snapshot-manager-mmc-snap-in"></a>Implementar o snap-in StorSimple Snapshot Manager MMC
@@ -211,7 +211,7 @@ Para reinstalar o Gestor instantâneo StorSimple, siga os passos na [Instalaçã
    2. Na página **Serviços,** selecione **Microsoft StorSimple Management Service**.
    3. No painel direito, no Serviço de **Gestão Microsoft StorSimple,** clique em **Reiniciar o serviço**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Para saber mais sobre o StorSimple Snapshot Manager, vá ao [Que é o StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
 * Para saber mais sobre a interface de utilizador do StorSimple Snapshot Manager, aceda à [interface de utilizador do StorSimple Snapshot Manager](storsimple-use-snapshot-manager.md).
 * Para saber mais sobre a utilização do StorSimple Snapshot Manager, vá ao [Use StorSimple Snapshot Manager para administrar a sua solução StorSimple](storsimple-snapshot-manager-admin.md).

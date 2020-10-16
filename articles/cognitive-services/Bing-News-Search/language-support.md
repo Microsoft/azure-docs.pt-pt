@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
 ms.openlocfilehash: d15058126f43fff328acfc563ffd081164a69a90
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84710563"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Suporte linguístico e regional para a API de Pesquisa de Notícias Bing
@@ -31,7 +31,7 @@ Para o `/news/search` ponto final, a tabela a seguir lista os valores de código
 
 Para obter uma lista de códigos de país/região que pode especificar no `cc` parâmetro de consulta, consulte [Códigos de País](#countrycodes).  
 
-|Pais/região|Linguagem|Código de mercado|  
+|Pais/região|Idioma|Código de mercado|  
 |---------------------|--------------|-----------------|
 |Dinamarca|Dinamarquês|da-DK|
 |Áustria|Alemão|de-AT|
@@ -80,7 +80,7 @@ Para o `/news` ponto final, a tabela a seguir lista os valores de código de mer
 
 Para obter uma lista de códigos de país/região que pode especificar no `cc` parâmetro de consulta, consulte [Códigos de País](#countrycodes).  
 
-|Pais/região|Linguagem|Código de mercado|  
+|Pais/região|Idioma|Código de mercado|  
 |---------------------|--------------|-----------------|
 |Dinamarca|Dinamarquês|da-DK|
 |Alemanha|Alemão|de-DE|
@@ -103,7 +103,7 @@ Para o `/news/trendingtopics` ponto final, a tabela a seguir lista os valores de
 
 Para obter uma lista de códigos de país/região que pode especificar no `cc` parâmetro de consulta, consulte [Códigos de País](#countrycodes).  
 
-|Pais/região|Linguagem|Código de mercado|  
+|Pais/região|Idioma|Código de mercado|  
 |---------------------|--------------|-----------------|
 |Alemanha|Alemão|de-DE|
 |Austrália|Inglês|en-AU|
@@ -122,7 +122,7 @@ Para obter uma lista de códigos de país/região que pode especificar no `cc` p
 
 Seguem-se os códigos país/região que pode especificar no `cc` parâmetro de consulta. A lista está sujeita a alterações.  
 
-|Pais/região|Código de país|  
+|Pais/região|Indicativo do país|  
 |---------------------|------------------|  
 |Argentina|AR|  
 |Austrália|AU|  

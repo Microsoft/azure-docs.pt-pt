@@ -12,10 +12,10 @@ ms.date: 08/05/2020
 ms.author: chmutali
 ms.reviewer: celested
 ms.openlocfilehash: ef2da377c7720cfb7b431d1ce0fed56656a2b8c7
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87808512"
 ---
 # <a name="sap-successfactors-attribute-reference"></a>SAP SuccessFactors atribuem referência

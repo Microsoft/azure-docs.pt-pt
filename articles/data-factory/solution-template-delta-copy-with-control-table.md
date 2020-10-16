@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/24/2018
 ms.openlocfilehash: 255e4085e24ee7520c603f8a00b3e46c23367a77
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89442008"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Cópia delta de uma base de dados com uma tabela de controlo
@@ -144,7 +144,7 @@ O modelo define os seguintes parâmetros:
     
     ![Configure a Base Polidisóia](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable15.png)
     
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Cópia a granel de uma base de dados usando uma tabela de controlo com Azure Data Factory](solution-template-bulk-copy-with-control-table.md)
 - [Copiar ficheiros de vários contentores com Azure Data Factory](solution-template-copy-files-multiple-containers.md)

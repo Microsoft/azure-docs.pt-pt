@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 844ef8c09f10e1df888ef4990db22be8705d5c01
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: b5c263506db68ea62b0d65b7b866cfab33a36236
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530204"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976883"
 ---
 # <a name="language-support-for-computer-vision"></a>Suporte linguístico para Visão de Computador
 
@@ -25,7 +25,7 @@ Algumas funcionalidades da Visão Computacional suportam vários idiomas; quaisq
 
 As APIs de OCR da Visão Computacional suportam vários idiomas. Não exigem que especifique um código linguístico. Consulte [o Reconhecimento de Caracteres Óticos (OCR)](concept-recognizing-text.md) para obter mais informações.
 
-|Linguagem| Código do idioma | OCR API | Ler v3.0 | Leia a pré-visualização pública v3.1 |
+|Linguagem| Código do idioma | OCR API | Ler v3.1 | Ler v3.1 pré-visualização.2 |
 |:-----|:----:|:-----:|:---:|:---:|
 |Árabe | `ar`|✔ | | |
 |Chinês (Simplificado) | `zh-Hans`|✔ | |✔ |
@@ -58,7 +58,7 @@ As APIs de OCR da Visão Computacional suportam vários idiomas. Não exigem que
 
 Algumas ações da [Análise - API de imagem](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) pode devolver resultados em outras línguas, especificadas com o parâmetro de `language` consulta. Outras ações retornam resultados em inglês, independentemente do que é especificado, e outras lançam uma exceção para línguas não apoiadas. As ações são especificadas com os `visualFeatures` parâmetros e `details` consultas; consulte a [Visão Geral](overview.md) para uma lista de todas as ações que pode fazer com a análise de imagem.
 
-|Linguagem | Código do idioma | Categorias | Etiquetas | Description | Adulto | Marcas | Cor | Rostos | ImagemType | Objetos | Celebridades | Pontos de referência |
+|Linguagem | Código do idioma | Categorias | Etiquetas | Descrição | Adulto | Marcas | Color | Rostos | ImagemType | Objetos | Celebridades | Pontos de referência |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |Chinês | `zh`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Inglês | `en`   | ✔ | ✔| ✔|✔|✔|✔|✔|✔|✔|✔|✔|

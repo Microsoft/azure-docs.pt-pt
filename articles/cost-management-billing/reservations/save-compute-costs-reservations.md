@@ -1,19 +1,19 @@
 ---
 title: O que é o Azure Reservations?
-description: Saiba mais sobre o Azure Reservations e os respetivos preços para poupar nos custos das suas máquinas virtuais, de bases de dados SQL, do Azure Cosmos DB e de outros recursos.
+description: Saiba mais sobre o Azure Reservations e os respetivos preços para poupar nos custos das suas instâncias reservadas para máquinas virtuais, bases de dados SQL, Azure Cosmos DB e outros recursos.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 08/04/2020
+ms.date: 10/01/2020
 ms.author: banders
-ms.openlocfilehash: a5ab489e995506deb806fe5f0cee4a147ae42ac2
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d8c9f35ec7a8db3a777e48a629e4af1f15090a89
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682591"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652368"
 ---
 # <a name="what-are-azure-reservations"></a>O que é o Azure Reservations?
 
@@ -39,7 +39,7 @@ Para obter mais informações sobre como funciona o âmbito de reserva, veja [De
 
 Todas as reservas, com exceção do Azure Databricks, são aplicadas de hora a hora. Considere as compras de reservas de acordo com a sua utilização base consistente. Para determinar que reserva comprar, pode analisar os dados de utilização ou ver as recomendações de reservas. As recomendações estão disponíveis:
 
-- No assistente do Azure (apenas VMs)
+- Assistente do Azure (apenas VMs)
 - Na experiência de compra de reservas no portal do Azure
 - Na aplicação Cost Management do Power BI
 - APIs 
@@ -50,9 +50,9 @@ Para obter mais informações, veja  [Determinar que reserva comprar](determin
 
 Pode comprar reservas no portal do Azure, nas APIs, no PowerShell e na CLI. 
 
-Aceda ao portal do Azure para comprar (https://ms.portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Docs) 
+Aceda ao [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Docs) para fazer uma compra.
 
-Para obter mais informações, veja  [Comprar uma reserva](prepare-buy-reservation.md) 
+Para obter mais informações, veja  [Comprar uma reserva](prepare-buy-reservation.md).
 
 ## <a name="how-is-a-reservation-billed"></a>Como é que uma reserva é faturada? 
 
@@ -106,7 +106,7 @@ Planos de software:
 
 - **SUSE Linux** – as reservas abrangem os custos do plano de software. Os descontos aplicam-se apenas aos medidores SUSE e não á utilização da máquina virtual.
 - **Planos do Red Hat** – as reservas abrangem os custos do plano de software. O desconto aplica-se apenas aos medidores Red Hat, não à utilização da máquina virtual.
-- **Azure VMware Solution by CloudSimple** – as reservas abrangem os Nós de VMWare da CloudSimple. Continuam a ser aplicados custos de software adicionais.
+- **Azure VMware Solution by CloudSimple** – as reservas abrangem os Nós de VMware da CloudSimple. Continuam a ser aplicados custos de software adicionais.
 - **Azure Red Hat OpenShift** – as reservas aplicam-se aos custos do OpenShift, não aos custos da infraestrutura do Azure.
 
 Para máquinas virtuais do Windows e Base de Dados SQL, o desconto de reserva não se aplica aos custos de software. Pode cobrir os custos de licenciamento com o [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).

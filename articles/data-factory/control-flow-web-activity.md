@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.openlocfilehash: 95cbb509beba82a14b9f8f8a11c603a6d7b8689d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87280805"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Atividade web na Azure Data Factory
@@ -25,9 +25,9 @@ ms.locfileid: "87280805"
 A atividade Web pode ser utilizada para chamar um ponto final REST personalizado a partir de um pipeline do Data Factory. Pode transmitir conjuntos de dados e serviços ligados aos quais a atividade tem acesso e que pode consumir.
 
 > [!NOTE]
-> A Web Activity é suportada para invocar URLs que são hospedados em uma rede virtual privada, bem como alavancando o tempo de integração auto-hospedado. O tempo de execução da integração deve ter uma linha de visão para o ponto final url. 
+> A Atividade Web é suportada para invocar URLs que são alojados numa rede virtual privada e para tirar partido do runtime de integração autoalojado. O runtime de integração deve ter uma linha visual para o ponto final do URL. 
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 ```json
 {
@@ -70,12 +70,12 @@ A atividade Web pode ser utilizada para chamar um ponto final REST personalizado
 
 ## <a name="type-properties"></a>Tipo de propriedades
 
-Propriedade | Descrição | Valores permitidos | Obrigatório
+Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
 name | Nome da atividade web | Cadeia | Sim
 tipo | Tem de ser definido para **WebActivity**. | Cadeia | Sim
 método | Desarre-se o método API para o ponto final do alvo. | Cadeia. <br/><br/>Tipos suportados: "GET", "POST", "PUT" | Sim
-url | Ponto final e caminho | Corda (ou expressão com resultadoTipo de corda). A atividade irá cronometrar a 1 minuto com um erro se não receber uma resposta do ponto final. | Sim
+url | Ponto final e caminho | Corda (ou expressão com resultadoTipo de corda). A atividade excederá o tempo limite após um minuto com um erro se não receber uma resposta do ponto final. | Sim
 cabeçalhos | Cabeçalhos que são enviados para o pedido. Por exemplo, para definir a língua e escrever num pedido: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` . | Corda (ou expressão com resultadoType de corda) | Sim, é necessário um cabeçalho do tipo conteúdo. `"headers":{ "Content-Type":"application/json"}`
 body | Representa a carga útil que é enviada para o ponto final.  | Corda (ou expressão com resultadoTipo de corda). <br/><br/>Consulte o esquema da carga útil do pedido na secção [de esquemas de carga útil do Pedido.](#request-payload-schema) | Requerido para métodos POST/PUT.
 autenticação | Método de autenticação utilizado para chamar o ponto final. Os Tipos Suportados são "Básico, ou Certificado cliente". Para mais informações, consulte a secção [autenticação.](#authentication) Se não for necessária a autenticação, exclua este imóvel. | Corda (ou expressão com resultadoType de corda) | Não
@@ -84,7 +84,7 @@ linkedServes | Lista de serviços ligados passados para ponto final. | Conjunto 
 connectVia | O [tempo de integração](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime) a ser utilizado para ligar à loja de dados. Pode utilizar o tempo de funcionamento da integração Azure ou o tempo de integração auto-hospedado (se a sua loja de dados estiver numa rede privada). Se esta propriedade não for especificada, o serviço utiliza o tempo de execução de integração Azure padrão. | A referência de tempo de integração. | Não 
 
 > [!NOTE]
-> Os pontos finais do REST que a atividade web invoca devem devolver uma resposta do tipo JSON. A atividade irá cronometrar a 1 minuto com um erro se não receber uma resposta do ponto final.
+> Os pontos finais REST que a atividade Web invoca têm de devolver uma resposta do tipo JSON. A atividade excederá o tempo limite após um minuto com um erro se não receber uma resposta do ponto final.
 
 A tabela a seguir mostra os requisitos para o conteúdo JSON:
 

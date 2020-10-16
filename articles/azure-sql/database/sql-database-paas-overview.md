@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/21/2020
 ms.openlocfilehash: 0fd3778d50216e337b872f0a27cb30b04a0219f7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91617235"
 ---
 # <a name="what-is-azure-sql-database"></a>O que é a Base de Dados SQL do Azure?
@@ -114,7 +114,7 @@ As Zonas de Disponibilidade Azure tentam proteger-se contra a interrupção de u
 
 De facto, o acordo de nível de serviço [(SLA)](https://azure.microsoft.com/support/legal/sla/) da Azure, alimentado por uma rede global de datacenters geridos pela Microsoft, ajuda a manter a sua aplicação a funcionar 24 horas por dia. A plataforma Azure gere totalmente todas as bases de dados, e garante nenhuma perda de dados e uma elevada percentagem de disponibilidade de dados. O Azure lida automaticamente com patching, backups, replicação, deteção de falhas, potenciais falhas de hardware, software ou rede subjacentes, implementando correções de bugs, falhas, atualizações de bases de dados e outras tarefas de manutenção. A disponibilidade standard é conseguida por uma separação das camadas de armazenamento e computação. A disponibilidade premium é conseguida através da integração do computação e armazenamento num único nó para o desempenho e, em seguida, implementando tecnologia semelhante a Always On Availability Groups. Para uma discussão completa sobre as elevadas capacidades de disponibilidade da Base de Dados Azure SQL, consulte [a disponibilidade da Base de Dados SQL](high-availability-sla.md). 
 
-Além disso, a SQL Database fornece funcionalidades de continuidade de negócios incorporadas e de [escalabilidade global.](business-continuity-high-availability-disaster-recover-hadr-overview.md) Incluem-se:
+Além disso, a SQL Database fornece funcionalidades de continuidade de negócios incorporadas e de [escalabilidade global.](business-continuity-high-availability-disaster-recover-hadr-overview.md) Estes incluem:
 
 - [Backups automáticos:](automated-backups-overview.md)
 

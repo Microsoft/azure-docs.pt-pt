@@ -11,10 +11,10 @@ ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
 ms.openlocfilehash: 4ff4d5a810eb79fb11e66591cd0b695062b1c9f6
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91450183"
 ---
 # <a name="monitor-iot-edge-deployments"></a>Monitorizar implementações do IoT Edge
@@ -99,6 +99,6 @@ O comando show-metric de implantação requer os seguintes parâmetros:
 
 Para escoar alterações na sua implementação, consulte [Modificar uma implementação](how-to-deploy-cli-at-scale.md#modify-a-deployment).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aprenda a [monitorizar os gémeos módulos](how-to-monitor-module-twins.md), principalmente os módulos de execução IoT Edge Agent e IoT Edge Hub, para a conectividade e saúde das suas implementações IoT Edge.

@@ -4,17 +4,17 @@ description: Descreve as cargas de trabalho que podem ser protegidas com a recup
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.openlocfilehash: 2b901425a0020c0ccc7b834ee36d965910028018
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80062828"
 ---
 # <a name="about-disaster-recovery-for-on-premises-apps"></a>Acerca da recuperação após desastre de aplicações no local
 
 Este artigo descreve cargas de trabalho e aplicações no local que pode proteger para recuperação de desastres com o serviço [de Recuperação do Local Azure.](site-recovery-overview.md)
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 As organizações precisam de uma estratégia de continuidade do negócio e recuperação de desastres (BCDR) para manter as cargas de trabalho e os dados seguros e disponíveis durante o tempo de inatividade planeado e não planeado. E, recuperar para condições de trabalho regulares.
 
@@ -50,7 +50,7 @@ A Recuperação de Sites pode replicar qualquer aplicação em execução numa m
 | Linux (sistema operativo e aplicações) |Sim (testado pela Microsoft) |Sim (testado pela Microsoft) |Sim (testado pela Microsoft) |Sim (testado pela Microsoft) |Sim (testado pela Microsoft)|
 | Dynamics AX |Sim |Sim |Sim |Sim |Sim|
 | Servidor de Ficheiros do Windows |Sim |Sim |Sim |Sim |Sim|
-| Citrix XenApp e XenDesktop |Yes|N/D |Yes |N/D |Yes |
+| Citrix XenApp e XenDesktop |Sim|N/D |Sim |N/D |Sim |
 
 ## <a name="replicate-active-directory-and-dns"></a>Replicar o Active Directory e o DNS
 
@@ -108,8 +108,8 @@ A tabela a seguir mostra as opções de replicação:
 
 | **RDS** |**Replicar VMs do Azure para o Azure** | **Replicar VMs Hyper-V para um site secundário** | **Replicar VMs Hyper-V para o Azure** | **Replicar VMs VMware para um site secundário** | **Replicar VMware VMs para Azure** | **Replicar servidores físicos para um site secundário** | **Replicar servidores físicos para o Azure** |
 |---| --- | --- | --- | --- | --- | --- | --- |
-| **Ambiente de Trabalho Virtual Agrupado (não gerido)** |Não|Yes |Não |Yes |Não |Yes |Não |
-| **Ambiente de Trabalho Virtual Agrupado (gerido e sem UDP)** |Não|Yes |Não |Yes |Não |Yes |Não |
+| **Ambiente de Trabalho Virtual Agrupado (não gerido)** |Não|Sim |Não |Sim |Não |Sim |Não |
+| **Ambiente de Trabalho Virtual Agrupado (gerido e sem UDP)** |Não|Sim |Não |Sim |Não |Sim |Não |
 | **Aplicações remotas e sessões de Ambiente de Trabalho (sem UDP)** |Sim|Sim |Sim |Sim |Sim |Sim |Sim |
 
 [Saiba mais](/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure) sobre a recuperação de desastres para RDS.

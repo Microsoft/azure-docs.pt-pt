@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.openlocfilehash: 4d10f06577738364e3f4a0ea40221d37ebfb31c0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86116289"
 ---
 # <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql---single-server"></a>Otimize inserções a granel e utilize dados transitórios numa Base de Dados Azure para PostgreSQL - Servidor Único 
@@ -19,7 +19,7 @@ Este artigo descreve como pode otimizar operações de inserção a granel e uti
 ## <a name="use-unlogged-tables"></a>Use mesas não ensoçadas
 Se tiver operações de carga de trabalho que envolvam dados transitórios ou que insira grandes conjuntos de dados a granel, considere utilizar tabelas nãologadas.
 
-As tabelas nãologadas são uma funcionalidade PostgreSQL que pode ser usada eficazmente para otimizar inserções a granel. PostgreSQL utiliza registo de write-ahead (WAL). Proporcionaatidade e durabilidade, por defeito. Aatóatriedade, a consistência, o isolamento e a durabilidade compõem as propriedades acid. 
+As tabelas nãologadas são uma funcionalidade PostgreSQL que pode ser usada eficazmente para otimizar inserções a granel. PostgreSQL utiliza Write-Ahead Registo (WAL). Proporcionaatidade e durabilidade, por defeito. Aatóatriedade, a consistência, o isolamento e a durabilidade compõem as propriedades acid. 
 
 Inserir numa tabela nãologada significa que o PostgreSQL insere-se sem escrever no registo de transações, que por si só é uma operação de E/S. Como resultado, estas tabelas são consideravelmente mais rápidas do que as tabelas normais.
 
@@ -34,7 +34,7 @@ Mesas não ensopídas não são seguras. Uma mesa não obstruída é automaticam
 
 Algumas cargas de trabalho dos clientes sofreram aproximadamente uma melhoria de desempenho de 15% a 20%, quando foram utilizadas mesas nãologadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Reveja a sua carga de trabalho para utilização de dados transitórios e grandes inserções a granel. Consulte a seguinte documentação PostgreSQL:
  
 - [Criar comandos SQL de mesa](https://www.postgresql.org/docs/current/static/sql-createtable.html)

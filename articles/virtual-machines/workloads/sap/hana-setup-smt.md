@@ -14,10 +14,10 @@ ms.date: 09/10/2018
 ms.author: hermannd
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c186b73cb00d03b731cd015b3ee06bf8f2233fa4
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541157"
 ---
 # <a name="set-up-smt-server-for-suse-linux"></a>Configurar o servidor SMT para SUSE Linux
@@ -151,7 +151,7 @@ Se encontrar um problema que precisa de corrigir com base nos passos do artigo S
 
 Configuraste o cliente SMT da unidade HANA Large Instance para ligar ao servidor SMT que instalou na máquina virtual Azure. Agora pode tomar 'zypper up' ou 'zypper in' para instalar atualizações do sistema operativo para HANA Large Instances ou instalar pacotes adicionais. Só é possível obter atualizações que descarregou antes no servidor SMT.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Instalação HANA em HLI](hana-example-installation.md).
 
 

@@ -6,16 +6,16 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 10/17/2017
 ms.author: alkohli
-ms.openlocfilehash: 1c2df017a9af47bfa330c8e0fa7561bf5b2d5bae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ffb13912780edcf3d92093e672d1dae983e50a8
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514691"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977413"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Utilize o serviço StorSimple Device Manager para monitorizar o seu dispositivo StorSimple
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Overview (Descrição geral)
 Pode utilizar o serviço StorSimple Device Manager para monitorizar dispositivos específicos dentro da sua solução StorSimple. Pode criar gráficos personalizados com base no desempenho de E/S, utilização da capacidade, produção de rede e métricas de desempenho do dispositivo e fixá-las no painel de instrumentos. Para mais informações, aceda para [personalizar o seu painel de instrumentos do portal.](../azure-portal/azure-portal-dashboards.md)
 
 Para visualizar as informações de monitorização de um dispositivo específico, no portal Azure, selecione o serviço StorSimple Device Manager. A partir da lista de dispositivos, selecione o seu dispositivo e, em seguida, vá ao **Monitor**. Em seguida, pode ver as tabelas **capacidade,** **utilização**e **desempenho** para o dispositivo selecionado.
@@ -29,7 +29,7 @@ A capacidade a provisionada e a capacidade remanescente são ainda desacompusada
 
 
 
-## <a name="usage"></a>Utilização
+## <a name="usage"></a>Usage
 **A utilização** rastreia métricas relacionadas com a quantidade de espaço de armazenamento de dados que é utilizado pelos volumes, recipientes de volume ou dispositivo. Pode criar relatórios baseados na utilização da capacidade do seu armazenamento primário, do seu armazenamento em nuvem ou do armazenamento do seu dispositivo. A utilização da capacidade pode ser medida num volume específico, num recipiente de volume específico ou em todos os recipientes de volume.
 Por padrão, o uso para as últimas 24 horas é reportado. Pode editar o gráfico para alterar a duração em que a utilização é reportada selecionando a partir de:
 * Últimas 24 horas
@@ -77,7 +77,7 @@ Se estiver a executar a Atualização 3 ou superior, pode decompor a utilizaçã
 
 Pode clicar ainda em cada um dos volumes da lista e ver a utilização correspondente.
 
-![Utilização da capacidade primária para todos os volumes fixados localmente](./media/storsimple-8000-monitor-device/device-primary-storage-usage-by-volume.png)
+![Utilização da capacidade primária para todos os volumes fixados localmente 2](./media/storsimple-8000-monitor-device/device-primary-storage-usage-by-volume.png)
 
 ### <a name="cloud-storage-usage"></a>Uso de armazenamento em nuvem
 Estes gráficos mostram a quantidade de armazenamento em nuvem usado. Estes dados são desduplicados e comprimidos. Esta quantidade inclui instantâneos em nuvem que podem conter dados que não se refletem em nenhum volume primário e são mantidos para fins legados ou de retenção necessários. Pode comparar os números de consumo de armazenamento primário e em nuvem para obter uma ideia da taxa de redução de dados, embora o número não seja exato.
@@ -138,7 +138,7 @@ Se olharmos para o gráfico de produção de interface data 1, outra interface d
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba como [utilizar o painel de instrumentos do StorSimple Device Manager](storsimple-device-dashboard.md).
 * Saiba como [utilizar o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 

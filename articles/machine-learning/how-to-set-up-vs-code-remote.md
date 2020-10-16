@@ -11,10 +11,10 @@ ms.author: jmartens
 author: j-martens
 ms.date: 09/03/2020
 ms.openlocfilehash: 6ac116b315d4a11b51b37c5b51edf35aa0676713
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708378"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Conecte-se a uma instância computacional de aprendizagem de máquinas Azure no Código do Estúdio Visual (pré-visualização)
@@ -150,7 +150,7 @@ Agora, você deve ser capaz de ssh para a sua instância de cálculo usando a ab
 
 A partir de agora, está a trabalhar inteiramente na instância computacional e agora pode editar, depurar, usar git, usar extensões, etc.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que configuraste o Visual Studio Code Remote, podes usar uma instância computacional como computação remota do Código do Estúdio Visual para [depurar interativamente o teu código.](how-to-debug-visual-studio-code.md)
 

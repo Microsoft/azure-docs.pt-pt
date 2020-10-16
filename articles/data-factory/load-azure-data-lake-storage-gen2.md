@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/08/2020
 ms.openlocfilehash: 8f8cfef5ed98682a1d03f7d36caa2008f4ff03b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84660445"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Carregue os dados no Azure Data Lake Storage Gen2 com a Azure Data Factory
@@ -51,7 +51,7 @@ Este artigo mostra-lhe como utilizar a ferramenta Data Copy Data da Data Factory
     * **Nome**: Introduza um nome globalmente único para a sua fábrica de dados Azure. Se receber o erro "Data factory name *YourDataFactoryName* não está disponível", insira um nome diferente para a fábrica de dados. Por exemplo, pode utilizar o nome _**do seu nome**_**ADFTutorialDataFactory**. Tente criar a fábrica de dados de novo. Para ter acesso às regras de nomenclatura para artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
     * **Subscrição**: Selecione a sua subscrição Azure na qual criar a fábrica de dados. 
     * **Grupo de Recursos**: Selecione um grupo de recursos existente da lista de drop-down, ou selecione a nova opção **Criar** e insira o nome de um grupo de recursos. Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/management/overview.md).  
-    * **Versão**: Selecione **V2**.
+    * **Versão**: selecione **V2**.
     * **Localização**: Selecione a localização para a fábrica de dados. Apenas são apresentadas as localizações suportadas na lista pendente. As lojas de dados que são utilizadas pela fábrica de dados podem estar noutros locais e regiões. 
 
 3. Selecione **Criar**.
@@ -97,7 +97,7 @@ Este artigo mostra-lhe como utilizar a ferramenta Data Copy Data da Data Factory
 8. Na página **New linked service (Azure Data Lake Storage Gen2),** faça os seguintes passos:
 
    1. Selecione a sua conta compatível com o Data Lake Storage Gen2 na lista pendente "Nome da conta de armazenamento".
-   2. Selecione **Criar** para criar a ligação. Em seguida, selecione **Seguinte**.   
+   2. Selecione **Criar** para criar a ligação. e selecione **Seguinte**.   
 
         ![Especificar conta Azure Data Lake Storage Gen2](./media/load-azure-data-lake-storage-gen2/specify-azure-data-lake-storage.png)
 
@@ -129,7 +129,7 @@ Este artigo mostra-lhe como utilizar a ferramenta Data Copy Data da Data Factory
 
 16. Verifique se os dados são copiados na sua conta Da Gen2 de Armazenamento de Data Lake.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Visão geral da atividade da cópia](copy-activity-overview.md)
+* [Descrição geral da atividade de cópia](copy-activity-overview.md)
 * [Conector do Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)

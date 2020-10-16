@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 08/07/2020
 ms.author: irenehua
 ms.openlocfilehash: a6d2b69b0b498601497c4b33fb6bdfede87002df
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89500254"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Upgrade Azure Internal Load Balancer - Sem Conexão de saída necessária
@@ -58,7 +58,7 @@ Existem duas opções para si, dependendo da configuração e preferências do a
 
 Para determinar se tem os módulos Azure Az instalados, corra `Get-InstalledModule -Name az` . Se não vir nenhum módulo Az instalado, então pode usar o `Install-Script` método.
 
-### <a name="install-using-the-install-script-method"></a>Instale utilizando o método instalar-script
+### <a name="install-using-the-install-script-method"></a>Instale usando o método Install-Script
 
 Para utilizar esta opção, não deve ter os módulos Azure Az instalados no seu computador. Se estiverem instalados, o seguinte comando apresenta um erro. Pode desinstalar os módulos Azure Az, ou utilizar a outra opção para descarregar o script manualmente e executá-lo.
   
@@ -96,7 +96,7 @@ Para executar o script:
 
 ### <a name="are-there-any-limitations-with-the-azure-powershell-script-to-migrate-the-configuration-from-v1-to-v2"></a>Existem limitações com o script Azure PowerShell para migrar a configuração de V1 para v2?
 
-Yes. Ver [Ressalvas/Limitações.](#caveatslimitations)
+Sim. Ver [Ressalvas/Limitações.](#caveatslimitations)
 
 ### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-basic-load-balancer-to-the-newly-created-standard-load-balancer"></a>O script Azure PowerShell também muda o tráfego do meu Balancer de Carga Básica para o recém-criado Balancer de Carga Padrão?
 
@@ -106,6 +106,6 @@ Sim, migra o tráfego. Se quiser migrar o tráfego pessoalmente, utilize [este s
   
 Pode enviar um e-mail slbupgradesupport@microsoft.com para, abrir um caso de suporte com o Suporte Azure, ou fazer ambos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba mais sobre o Balanceador de Carga Padrão](load-balancer-overview.md)

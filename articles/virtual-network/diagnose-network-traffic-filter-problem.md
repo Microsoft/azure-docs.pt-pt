@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
 ms.openlocfilehash: 8d4e78a90c5b852177c88350422bdd6ce1e398cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84704986"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnosticar um problema de filtro de tráfego de rede de máquinas virtuais
@@ -28,7 +28,7 @@ Neste artigo, aprende-se a diagnosticar um problema de filtro de tráfego de red
 
 Os NSGs permitem controlar os tipos de tráfego que fluem dentro e fora de um VM. Pode associar um NSG a uma sub-rede numa rede virtual Azure, uma interface de rede anexada a um VM, ou ambos. As regras de segurança eficazes aplicadas a uma interface de rede são uma agregação das regras existentes no NSG associada a uma interface de rede, e a sub-rede em que a interface de rede está. As regras em diferentes NSGs podem, por vezes, entrar em conflito entre si e afetar a conectividade de rede de um VM. Pode ver todas as regras de segurança eficazes dos NSGs que são aplicados nas interfaces de rede dos seus VM. Se não estiver familiarizado com a rede virtual, interface de rede ou conceitos NSG, consulte [a visão geral da rede virtual,](virtual-networks-overview.md) [interface de rede](virtual-network-network-interface.md)e [visão geral dos grupos de segurança da Rede.](security-overview.md)
 
-## <a name="scenario"></a>Scenario
+## <a name="scenario"></a>Cenário
 
 Tenta ligar-se a um VM sobre a porta 80 da internet, mas a ligação falha. Para determinar por que não pode aceder à porta 80 a partir da Internet, pode ver as regras de segurança eficazes para uma interface de rede utilizando o [portal](#diagnose-using-azure-portal)Azure, [PowerShell](#diagnose-using-powershell)ou o [Azure CLI](#diagnose-using-azure-cli).
 
@@ -177,7 +177,7 @@ Quer utilize o [portal](#diagnose-using-azure-portal)Azure, [PowerShell,](#diagn
 | Protocolo                | TCP                                                                                |
 | Ação                  | Permitir                                                                              |
 | Prioridade                | 100                                                                                |
-| Name                    | Permitir-HTTP-All                                                                     |
+| Nome                    | Permitir-HTTP-All                                                                     |
 
 Depois de criar a regra, a porta 80 é permitida a entrada da internet, porque a prioridade da regra é maior do que a regra de segurança padrão chamada *DenyAllInBound*, que nega o tráfego. Saiba como [criar uma regra de segurança.](manage-network-security-group.md#create-a-security-rule) Se diferentes NSGs estiverem associados tanto à interface de rede, como à sub-rede, deve criar a mesma regra em ambos os NSGs.
 
@@ -201,7 +201,7 @@ Considere os seguintes pontos ao resolver problemas de conectividade:
   * Software de firewall em execução dentro do sistema operativo do VM
   * Vias configuradas para aparelhos virtuais ou tráfego no local. O tráfego de internet pode ser redirecionado para a sua rede no local através [de um túnel forçado.](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Se forçar o tráfego de túneis à internet de um aparelho virtual ou no local, poderá não conseguir ligar-se ao VM a partir da internet. Para aprender a diagnosticar problemas de rota que possam impedir o fluxo de tráfego para fora do VM, consulte [diagnosticar um problema de encaminhamento de tráfego de rede de máquinas virtuais](diagnose-network-routing-problem.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Conheça todas as tarefas, propriedades e configurações para um [grupo de segurança de rede](manage-network-security-group.md#work-with-network-security-groups) e [regras de segurança.](manage-network-security-group.md#work-with-security-rules)
 - Saiba mais sobre [as regras de segurança predefinidas,](security-overview.md#default-security-rules) [etiquetas de serviço,](security-overview.md#service-tags)e [como a Azure processa as regras de segurança para o tráfego de entrada e saída](security-overview.md#network-security-groups) para um VM.

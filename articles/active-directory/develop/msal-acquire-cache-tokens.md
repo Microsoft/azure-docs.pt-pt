@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 47af4015fa5c6d9a73ee597146890a29b4b9ef9d
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88119900"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Adquirir e cache fichas utilizando a Biblioteca de Autenticação da Microsoft (MSAL)
@@ -42,8 +42,8 @@ Quando a sua aplicação necessitar de solicitar um token de acesso com permiss�
 
 Alguns valores de âmbito de exemplo para diferentes recursos:
 
-- Microsoft Graph API:`https://graph.microsoft.com/User.Read`
-- API web personalizada:`api://11111111-1111-1111-1111-111111111111/api.read`
+- Microsoft Graph API: `https://graph.microsoft.com/User.Read`
+- API web personalizada: `api://11111111-1111-1111-1111-111111111111/api.read`
 
 O formato do valor de âmbito varia consoante o recurso (a API) que recebe o token de acesso e os valores de `aud` reclamação que aceita.
 

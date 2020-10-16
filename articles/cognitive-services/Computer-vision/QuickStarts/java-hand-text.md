@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Visão Computacional 2.1 e 3.0 - Extrato de texto impresso e manuscrito - REST, Java'
+title: 'Quickstart: Visão Computacional 2.1 e 3.1 - Extrato de texto impresso e manuscrito - REST, Java'
 titleSuffix: Azure Cognitive Services
 description: Neste arranque rápido, extrai texto impresso e manuscrito de uma imagem utilizando a API de Visão de Computador com Java.
 services: cognitive-services
@@ -11,20 +11,19 @@ ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-java
-ms.openlocfilehash: e9f31a16434c8b54e13f4d52a412afbc90fb5c6b
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 6a7cc5338a77ece59c625a9b72adcc45bf135f24
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91760891"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969131"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-java"></a>Quickstart: Extrair texto impresso e manuscrito utilizando a API e Java da Visão de Computador
 
-Neste arranque rápido, extrairá texto impresso e manuscrito de uma imagem utilizando a API de Visão de Computador. Com os métodos [Ler](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) e [Obter Resultados,](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) pode detetar texto numa imagem e extrair caracteres reconhecidos num fluxo de caracteres legíveis por máquina.
+Neste arranque rápido, extrairá texto impresso e manuscrito de uma imagem utilizando a API de Visão de Computador. Com os métodos [Ler](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) e [Obter Resultados,](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750) pode detetar texto numa imagem e extrair caracteres reconhecidos num fluxo de caracteres legíveis por máquina.
 
-O método [ler](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) funciona assíncroticamente. Este método não devolve quaisquer informações no corpo de uma resposta de êxito. Em vez disso, o método De Leitura de Lote devolve um URI no valor do campo do cabeçalho de `Operation-Location` resposta. Em seguida, pode chamar este URI, que representa a API [do Resultado de Leitura,](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) para verificar o estado e devolver os resultados da chamada do método Ler.
+O método [ler](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) funciona assíncroticamente. Este método não devolve quaisquer informações no corpo de uma resposta de êxito. Em vez disso, o método De Leitura de Lote devolve um URI no valor do campo do cabeçalho de `Operation-Location` resposta. Em seguida, pode chamar este URI, que representa a API [do Resultado de Leitura,](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750) para verificar o estado e devolver os resultados da chamada do método Ler.
 
----
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -76,7 +75,7 @@ public class Main {
     private static String subscriptionKey = System.getenv("COMPUTER_VISION_SUBSCRIPTION_KEY");
     private static String endpoint = System.getenv("COMPUTER_VISION_ENDPOINT");
 
-    private static String uriBase = endpoint + "/vision/v3.0/read/analyze";
+    private static String uriBase = endpoint + "/vision/v3.1/read/analyze";
 
     private static String imageToAnalyze =
             "https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/cognitive-services/Computer-vision/Images/readsample.jpg";
@@ -189,7 +188,7 @@ O JSON devolve uma resposta de êxito. A aplicação de exemplo analisa e aprese
   "createdDateTime": "2020-05-28T05:13:21Z",
   "lastUpdatedDateTime": "2020-05-28T05:13:22Z",
   "analyzeResult": {
-    "version": "3.0.0",
+    "version": "3.1.0",
     "readResults": [
       {
         "page": 1,

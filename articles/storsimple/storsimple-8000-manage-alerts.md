@@ -6,16 +6,16 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: bf41232026fcb51e63cb68d6f42b7b66d14022e1
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 36ed87a75d590a8647e5347b3e90e6f5159dc6b5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207795"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961838"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Utilize o serviço StorSimple Device Manager para visualizar e gerir alertas StorSimple
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Overview (Descrição geral)
 
 A lâmina **alerts** no serviço StorSimple Device Manager fornece uma forma de rever e limpar alertas relacionados com dispositivos StorSimple em tempo real. A partir desta lâmina, pode monitorizar centralmente os problemas de saúde dos seus dispositivos StorSimple e a solução geral microsoft Azure StorSimple.
 
@@ -28,7 +28,7 @@ Este tutorial descreve condições de alerta comuns, níveis de gravidade de ale
 O seu dispositivo StorSimple gera alertas em resposta a uma variedade de condições. Seguem-se os tipos mais comuns de condições de alerta:
 
 * **Problemas de hardware** – Estes alertas dizem-lhe sobre a saúde do seu hardware. Eles avisam-no se são necessárias atualizações de firmware, se uma interface de rede tem problemas, ou se há algum problema com uma das suas unidades de dados.
-* **Problemas de conectividade** – Estes alertas ocorrem quando há dificuldade em transferir dados. Problemas de comunicação podem ocorrer durante a transferência de dados de e para a conta de armazenamento Azure ou devido à falta de conectividade entre os dispositivos e o serviço StorSimple Device Manager. As questões de comunicação são algumas das mais difíceis de corrigir, porque há tantos pontos de falha. Deve verificar-se sempre primeiro se a conectividade da rede e o acesso à Internet estão disponíveis antes de continuar a uma resolução de problemas mais avançada. Para obter ajuda na resolução de problemas, vá à [resolução de problemas com o cmdlet de ligação de teste](storsimple-8000-troubleshoot-deployment.md).
+* **Problemas de conectividade** – Estes alertas ocorrem quando há dificuldade em transferir dados. Problemas de comunicação podem ocorrer durante a transferência de dados de e para a conta de armazenamento Azure ou devido à falta de conectividade entre os dispositivos e o serviço StorSimple Device Manager. As questões de comunicação são algumas das mais difíceis de corrigir, porque há tantos pontos de falha. Deve verificar-se sempre primeiro se a conectividade da rede e o acesso à Internet estão disponíveis antes de continuar a uma resolução de problemas mais avançada. Para obter ajuda na resolução de problemas, vá à [resolução de problemas com o Test-Connection cmdlet](storsimple-8000-troubleshoot-deployment.md).
 * **Problemas de desempenho** – Estes alertas são causados quando o seu sistema não está a funcionar da melhor forma, como quando está sob uma carga pesada.
 
 Além disso, poderá ver alertas relacionados com segurança, atualizações ou falhas de emprego.
@@ -41,7 +41,7 @@ Os alertas têm diferentes níveis de gravidade, dependendo do impacto que a sit
 * **Aviso** – Esta condição pode tornar-se crítica se não for resolvida. Deve investigar a situação e tomar todas as medidas necessárias para resolver o problema.
 * **Informação** – Este alerta contém informações que podem ser úteis no rastreio e gestão do seu sistema.
 
-## <a name="configure-alert-settings"></a>Configurar definições de alerta
+## <a name="configure-alert-settings"></a>Configurar as definições de alertas
 
 Pode escolher se pretende ser notificado por e-mail de condições de alerta para cada um dos seus dispositivos StorSimple. Além disso, pode identificar outros destinatários de notificação de alerta inserindo os seus endereços de e-mail na caixa de destinatários de **e-mail,** separada por pontos de e-mail.
 
@@ -75,7 +75,7 @@ Depois de ativar a notificação por e-mail de um dispositivo, os membros da lis
 
 5. Uma vez concluída a configuração, clique em **Guardar**. Quando lhe for pedida a confirmação, clique em **Sim**.
 
-     ![Alertas enviaram e-mail de notificação de teste](./media/storsimple-8000-manage-alerts/configure-alerts-email5.png)
+     ![Alertas enviaram e-mail de notificação de teste enviado 2](./media/storsimple-8000-manage-alerts/configure-alerts-email5.png)
 
 ## <a name="view-and-track-alerts"></a>Ver e acompanhar os alertas
 
@@ -193,8 +193,8 @@ Se a conectividade em nuvem falhar no seu dispositivo de produção StorSimple, 
 | Texto de alerta | Evento | Mais informações / ações recomendadas |
 |:--- |:--- |:--- |
 | Não foi possível iniciar o serviço StorSimple. |Erro do Datapath |Se o problema persistir, contacte o Microsoft Support. |
-| Endereço IP duplicado detetado para 'Dados0'. | |O sistema detetou um conflito para o endereço IP '10.0.0.1'. O recurso de rede 'Data0' do dispositivo *\<device1>* está offline. Certifique-se de que este endereço IP não é utilizado por nenhuma outra entidade nesta rede. Para resolver problemas de rede, vá a [Troubleshoot com o cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Contacte o administrador da rede para ajudar a resolver este problema. Se o problema persistir, contacte o Microsoft Support. |
-| O endereço IPv4 (ou IPv6) para 'Data0' está offline. | |O recurso de rede 'Data0' com endereço IP '10.0.0.1.' e o comprimento do prefixo '22' no dispositivo *\<device1>* está offline. Certifique-se de que as portas do interruptor a que esta interface está ligada estão operacionais. Para resolver problemas de rede, vá a [Troubleshoot com o cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
+| Endereço IP duplicado detetado para 'Dados0'. | |O sistema detetou um conflito para o endereço IP '10.0.0.1'. O recurso de rede 'Data0' do dispositivo *\<device1>* está offline. Certifique-se de que este endereço IP não é utilizado por nenhuma outra entidade nesta rede. Para resolver problemas de rede, vá à [resolução de problemas com o Get-NetAdapter cmdlet](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Contacte o administrador da rede para ajudar a resolver este problema. Se o problema persistir, contacte o Microsoft Support. |
+| O endereço IPv4 (ou IPv6) para 'Data0' está offline. | |O recurso de rede 'Data0' com endereço IP '10.0.0.1.' e o comprimento do prefixo '22' no dispositivo *\<device1>* está offline. Certifique-se de que as portas do interruptor a que esta interface está ligada estão operacionais. Para resolver problemas de rede, vá à [resolução de problemas com o Get-NetAdapter cmdlet](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
 | Não foi possível ligar ao serviço de autenticação. |Erro do Datapath |O URL que é utilizado para autenticar não é acessível. Certifique-se de que as suas regras de firewall incluem os padrões de URL especificados para o dispositivo StorSimple. Para obter mais informações sobre padrões de URL no portal Azure, vá a https: \/ /aka.ms/ss-8000-network-reqs. Se utilizar a Nuvem do Governo de Azure, aceda aos padrões de URL em https: \/ /aka.ms/ss8000-gov-network-reqs.|
 
 ### <a name="performance-alerts"></a>Alertas de desempenho

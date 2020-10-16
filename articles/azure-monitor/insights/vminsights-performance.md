@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/31/2020
 ms.openlocfilehash: f9578fadfbe057b723af63e338bf8bda63cf6f21
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91330915"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms"></a>Como traçar o desempenho com o Azure Monitor para VMs

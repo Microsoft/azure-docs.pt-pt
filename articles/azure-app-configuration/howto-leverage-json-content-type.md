@@ -1,5 +1,5 @@
 ---
-title: Utilize o tipo de conteúdo JSON para valores-chave
+title: Utilizar o tipo de conteúdo JSON para chaves-valores
 titleSuffix: Azure App Configuration
 description: Saiba como utilizar o tipo de conteúdo JSON para valores-chave
 services: azure-app-configuration
@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: avgupta
 ms.openlocfilehash: 725beb50e55852e35ee4434539ff158f082059df
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88122042"
 ---
 # <a name="leverage-content-type-to-store-json-key-values-in-app-configuration"></a>Alavancar o tipo de conteúdo para armazenar valores-chave JSON na Configuração de Aplicações

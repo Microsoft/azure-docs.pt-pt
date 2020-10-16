@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/26/2019
 ms.openlocfilehash: ea7aa7758b5ccf7be02fa8d450ce710dcbef86a4
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86087389"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Use Apache Kafka em HDInsight com Azure IoT Hub
@@ -123,7 +123,7 @@ Desde a sua ligação SSH até ao nó de borda, utilize os seguintes passos para
     |`bootstrap.servers=localhost:9092`|Substitua o `localhost:9092` valor pelos anfitriões do corretor do passo anterior|Configura a configuração autónoma para o nó de borda encontrar os corretores Kafka.|
     |`key.converter=org.apache.kafka.connect.json.JsonConverter`|`key.converter=org.apache.kafka.connect.storage.StringConverter`|Esta alteração permite-lhe testar utilizando o produtor de consola incluído com Kafka. Pode precisar de diferentes conversores para outros produtores e consumidores. Para obter informações sobre a utilização de outros valores de conversor, consulte [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md) .|
     |`value.converter=org.apache.kafka.connect.json.JsonConverter`|`value.converter=org.apache.kafka.connect.storage.StringConverter`|O mesmo que acima.|
-    |N/D|`consumer.max.poll.records=10`|Adicione ao fim do ficheiro. Esta alteração é para evitar intervalos de tempo no conector da pia, limitando-o a 10 registos de cada vez. Para mais informações, [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md) consulte.|
+    |N/D|`consumer.max.poll.records=10`|Adicione ao fim do ficheiro. Esta alteração é para evitar intervalos de tempo no conector da pia, limitando-o a 10 registos de cada vez. Para obter mais informações, veja [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).|
 
 1. Para guardar o ficheiro, utilize __Ctrl + X,__ __Y,__ e, em seguida, __Insira__.
 
@@ -354,7 +354,7 @@ Para enviar mensagens através do conector, utilize os seguintes passos:
 
 Para obter mais informações sobre a utilização do conector da pia, consulte [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md) .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste documento, aprendeu a usar a API Apache Kafka Connect para iniciar o IoT Kafka Connector em HDInsight. Use os seguintes links para descobrir outras formas de trabalhar com Kafka:
 

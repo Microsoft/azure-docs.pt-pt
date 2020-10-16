@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: faf78e9f7efb83c5f28538e18ed081378d120848
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a0d596c7c1046ea26ac389a48c17fa5abccbfd12
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90890662"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951609"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge-pro-gpu"></a>Utilize o portal Azure para gerir os horários de largura de banda no seu GPU Azure Stack Edge Pro 
 
@@ -68,7 +68,7 @@ Efetue os seguintes passos para editar uma agenda de largura de banda.
 
 4. Depois de modificar a agenda, a lista de agendas é atualizada para refletir a agenda modificada.
 
-    ![Modificar utilizador](media/azure-stack-edge-j-series-manage-bandwidth-schedules/modify-schedule-3.png)
+    ![Modificar o utilizador 2](media/azure-stack-edge-j-series-manage-bandwidth-schedules/modify-schedule-3.png)
 
 
 ## <a name="delete-a-schedule"></a>Eliminar uma agenda

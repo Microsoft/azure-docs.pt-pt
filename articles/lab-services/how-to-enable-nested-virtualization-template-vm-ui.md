@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: ad92862c78260e7385168faf794c013e85f66b82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85445734"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services-manually"></a>Ativar a virtualização aninhada numa máquina virtual de modelo nos Serviços Azure Lab manualmente
@@ -39,9 +39,9 @@ Os seguintes passos descrevem as ações necessárias para ativar o Hyper-V no S
 12. Na página **'Lojas Predefinidos',** aceite os predefinidos e clique em **Seguinte**.
 13. Na página **de seleções de instalação Confirm,** selecione **Reinicie automaticamente o servidor de destino, se necessário**.
 14. Quando aparecer o pop-up **do 'Add Roles and Features Wizard',** clique em **Sim**.
-15. Clique **em Instalar**.
+15. Clique em **Install** (Instalar).
 16. Aguarde que a página de progresso da **instalação** indique que a função Hyper-V está completa.  A máquina pode reiniciar no meio da instalação.
-17. Clique em **Fechar**.
+17. Clique em **Close** (Fechar).
 
 ## <a name="enable-dhcp-role"></a>Ativar o papel do DHCP
 
@@ -80,7 +80,7 @@ Quaisquer máquinas virtuais de clientes Hiper-V criadas, precisam de um endere�
 12. Na página **Selecionar serviços de funções**, clique em **Seguinte**.
 13. Na página **Confirmar seleções de instalação**, clique em **Instalar**.
 14. Aguarde que a página de progresso da **instalação** indique que a função de Acesso Remoto está completa.  
-15. Clique em **Fechar**.
+15. Clique em **Close** (Fechar).
 
 ## <a name="create-virtual-nat-network"></a>Criar rede NAT virtual
 
@@ -158,7 +158,7 @@ Os seguintes passos são instruções para adicionar o âmbito DHCP.  Neste arti
 
 Agora a sua máquina de modelo está pronta para criar máquinas virtuais Hyper-V.   Consulte [Criar uma máquina virtual em Hiper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v) para obter instruções sobre como criar máquinas virtuais Hiper-V.  Consulte também o [Microsoft Evaluation Center](https://www.microsoft.com/evalcenter/) para verificar os sistemas operativos e o software disponíveis.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Os próximos passos são comuns para montar qualquer laboratório.
 

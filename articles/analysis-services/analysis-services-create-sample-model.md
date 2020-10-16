@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5b84c2e50ae7f5038cf9cb8a96c0c51d6537c929
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f882a40940a5c7202e9cf1f5c8b8927f008f4a39
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230907"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013615"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>Tutorial: Adicionar um modelo de exemplo a partir do portal
 
@@ -30,7 +30,7 @@ Para concluir este tutorial, precisa de:
 
 - Um servidor do Azure Analysis Services. Para saber mais, veja [Criar um servidor - portal](analysis-services-create-server.md).
 - Permissões de administrador de servidor
-- [O SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
+- [O SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
@@ -52,7 +52,7 @@ Inicie sessão no [portal](https://portal.azure.com/).
     ![Selecionar dados de exemplo](./media/analysis-services-create-sample-model/aas-create-sample-verify.png)
 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 O modelo de exemplo está a utilizar recursos de memória de cache. Se não estiver a utilizar o seu modelo de exemplo para fins de teste, deve removê-lo do seu servidor.
 
@@ -74,5 +74,3 @@ Neste tutorial, aprendeu a adicionar um modelo de exemplo básico ao seu servido
 
 > [!div class="nextstepaction"]
 > [Tutorial: Configurar funções de utilizador e de administrador de servidor](tutorials/analysis-services-tutorial-roles.md)
-
-

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 03/05/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e4797c3e089e0ae9d15cc604e9f93605978b36c
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 4d72aa65f18896ebbecf651da32558059ba782cc
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419772"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968400"
 ---
 # <a name="enable-on-premises-azure-active-directory-password-protection"></a>Ativar no local Azure Ative Directory Password Protection
 
@@ -26,7 +26,7 @@ Para proteger o ambiente de Serviços de Domínio de Diretório Ativo (AD DS) no
 
 Para obter mais informações sobre como a Proteção de Passwords AD AZure funciona num ambiente no local, consulte como impor a proteção de [senha azure AD para o Windows Server Ative Directory](concept-password-ban-bad-on-premises.md).
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo mostra-lhe como ativar a Proteção de PasswordS AZure AD para o seu ambiente no local. Antes de concluir este artigo, [instale e registe o serviço de procuração de senhas Azure AD e agentes dc](howto-password-ban-bad-on-premises-deploy.md) no seu ambiente de DS AD no local.
 
@@ -67,7 +67,7 @@ Os utilizadores finais afetados podem ter de trabalhar com o seu pessoal de TI p
 > [!NOTE]
 > O Azure AD Password Protection não tem controlo sobre a mensagem de erro específica exibida pela máquina do cliente quando uma palavra-passe fraca é rejeitada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para personalizar a lista de palavras-passe proibidas para a sua organização, consulte [a lista de senhas proibidas a Azure AD Password Protection](tutorial-configure-custom-password-protection.md).
 

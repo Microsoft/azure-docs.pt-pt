@@ -13,10 +13,10 @@ ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1cce42cdb63fcfcb9a5841f2f2199daf2bb92304
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90604177"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Use restrições de inquilinos para gerir o acesso a aplicações em nuvem SaaS

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 0b39ec9c8cb70adac1474b2647ac1c9591b9d5cd
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: db3d4bb7f4b32c07e75487764acc5e7ba7d05915
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526396"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873283"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>Tutorial: Criar uma instância IoT Edge para análise de vídeo (Linux VM)
 
@@ -34,7 +34,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, deverá completar a anterior Criar uma aplicação de análise de vídeo no tutorial [Azure IoT Central.](./tutorial-video-analytics-create-app.md)
+Antes de começar, deverá completar a anterior [Criar uma aplicação de análise de vídeo no Azure IoT Central](./tutorial-video-analytics-create-app-yolo-v3.md) ou criar uma análise de vídeo no tutorial [Azure IoT Central &trade; (OpenVINO).](tutorial-video-analytics-create-app-openvino.md)
 
 Também precisa de uma assinatura Azure. Se não tiver uma subscrição do Azure, pode criar uma gratuitamente na página de inscrição do [Azure](https://aka.ms/createazuresubscription).
 

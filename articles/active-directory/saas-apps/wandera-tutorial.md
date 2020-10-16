@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/27/2020
 ms.author: jeedes
 ms.openlocfilehash: c8ec4b68dc774b52ad621ff3e965481de680b6ff
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89080004"
 ---
 # <a name="tutorial-integrate-wandera-radar-admin-with-azure-active-directory"></a>Tutorial: Integrar o Wandera RADAR Admin com diretório ativo Azure
@@ -63,7 +63,7 @@ Para configurar e testar o Azure AD SSO com a Wandera RADAR Admin, complete os s
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
    * Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
    * **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
-1. **[Configure o Wandera RADAR Admin SSO](#configure-wandera-radar-admin-sso)** - para configurar as definições de Sign-On único no lado da aplicação.
+1. **[Configure o Wandera RADAR Admin SSO](#configure-wandera-radar-admin-sso)** - para configurar as definições de Sign-On única no lado da aplicação.
    * **[Create Wandera RADAR Admin test user](#create-wandera-radar-admin-test-user)** - para ter uma contraparte de B.Simon em Wandera RADAR Admin que está ligada à representação AD AD do utilizador.
 1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
@@ -73,7 +73,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **Wandera RADAR,** encontre a secção **Gerir** e selecione **'Único sinal de s-on'.**
 1. Na página **de método de inscrição única,** selecione **SAML**.
-1. Na **configuração de 'Sessão Única' com** a página SAML, clique no ícone edit/pen para **a configuração básica do SAML** para editar as definições.
+1. Na **configuração single Sign-On com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -84,11 +84,11 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     > [!NOTE]
     > O valor não é real. Atualizar o valor com o URL de resposta real. Contacte [a equipa de apoio ao Cliente do Wandera RADAR](https://www.wandera.com/about-wandera/contact/#supportsection) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-1. Na **configuração de um único sign-on com** a página SAML, na secção **certificado de assinatura SAML,** encontre o **Metadados XML da Federação** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
+1. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre o **Metadados XML da Federação** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
-1. No **set up Single Sign-On com** a página SAML, clique no ícone edit/pen para **o Certificado de Assinatura SAML** para editar as definições.
+1. No Conjunto single Sign-On com a página **SAML,** clique no ícone edit/pen para **O Certificado de Assinatura SAML** para editar as definições.
 
     ![Opção de assinatura](common/signing-option.png)
 

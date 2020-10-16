@@ -1,20 +1,20 @@
 ---
-title: Crie um circuito ExpressRoute utilizando um modelo de Gestor de Recursos Azure (modelo ARM)
-description: Aprenda a criar um circuito ExpressRoute utilizando o modelo Azure Resource Manager (modelo ARM).
+title: 'Quickstart: Criar um circuito ExpressRoute utilizando um modelo de Gestor de Recursos Azure (modelo ARM)'
+description: Este quickstart mostra-lhe como criar um circuito ExpressRoute utilizando o modelo Azure Resource Manager (modelo ARM).
 services: expressroute
 author: duongau
 mnager: kumud
 ms.service: expressroute
 ms.topic: quickstart
-ms.custom: subject-armsq
-ms.date: 08/31/2020
+ms.custom: subject-armqs
+ms.date: 10/12/2020
 ms.author: duau
-ms.openlocfilehash: f45fc32e99fff7403c40048b8c7ad117b0395cc9
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 37f0b890cd4942e5dcb47b496d661eb7c54db94d
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91759242"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093519"
 ---
 # <a name="quickstart-create-an-expressroute-circuit-with-private-peering-using-an-arm-template"></a>Quickstart: Criar um circuito ExpressRoute com um esprevamento privado usando um modelo ARM
 

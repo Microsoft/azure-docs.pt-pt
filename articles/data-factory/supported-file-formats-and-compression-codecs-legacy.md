@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
 ms.openlocfilehash: a19f81fab525b44f0b55244281930977e0e1f476
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85254621"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory-legacy"></a>Formatos de ficheiros suportados e codecs de compressão na Azure Data Factory (legado)
@@ -25,7 +25,7 @@ ms.locfileid: "85254621"
 >[!IMPORTANT]
 >Data Factory introduziu um novo modelo de conjunto de dados baseado em formato, ver artigo de formato correspondente com detalhes: <br>- [Formato Avro](format-avro.md)<br>- [Formato binário](format-binary.md)<br>- [Formato de texto delimitado](format-delimited-text.md)<br>- [Formato JSON](format-json.md)<br>- [Formato ORC](format-orc.md)<br>- [Formato parquet](format-parquet.md)<br>As restantes configurações mencionadas neste artigo ainda são suportadas como é para compabitilidade retrógrada. Sugere-se que use o novo modelo para a frente. 
 
-## <a name="text-format-legacy"></a><a name="text-format"></a>Formato de texto (legado)
+## <a name="text-format-legacy"></a><a name="text-format"></a> Formato de texto (legado)
 
 >[!NOTE]
 >Conheça o novo modelo a partir de um artigo de formato de [texto delimitado.](format-delimited-text.md) As seguintes configurações no conjunto de dados da loja de dados baseado em ficheiros ainda são suportadas como é para compabitilidade retrógrada. Sugere-se que use o novo modelo para a frente.
@@ -79,7 +79,7 @@ Para utilizar um `escapeChar` em vez de `quoteChar`, substitua a linha por `quot
 * Está a copiar de um ficheiro de texto que contém uma linha de cabeçalho para um sink de não ficheiro e quer remover essa linha. Especifique `firstRowAsHeader` como verdadeiro no conjunto de dados de entrada.
 * Está a copiar de um ficheiro de texto e quer ignorar algumas linhas no início que não contêm dados nem informações de cabeçalho. Especifique `skipLineCount` para indicar o número de linhas a ignorar. Se o resto do ficheiro contiver uma linha de cabeçalho, também pode especificar `firstRowAsHeader`. Se as propriedades `skipLineCount` e `firstRowAsHeader` forem especificadas simultaneamente, as linhas são ignoradas primeiro e, em seguida, as informações de cabeçalho são lidas a partir do ficheiro de entrada
 
-## <a name="json-format-legacy"></a><a name="json-format"></a>Formato JSON (legado)
+## <a name="json-format-legacy"></a><a name="json-format"></a> Formato JSON (legado)
 
 >[!NOTE]
 >Conheça o novo modelo a partir do artigo de [formato JSON.](format-json.md) As seguintes configurações no conjunto de dados da loja de dados baseado em ficheiros ainda são suportadas como é para compabitilidade retrógrada. Sugere-se que use o novo modelo para a frente.
@@ -88,7 +88,7 @@ Para **importar/exportar um ficheiro JSON que é dentro/de Azure Cosmos DB,** co
 
 Se pretender analisar os ficheiros JSON ou escrever os dados em formato JSON, descreva a `type` propriedade na secção para `format` **JsonFormat**. Também pode especificar as seguintes propriedades **opcionais** na secção `format`. Veja a secção [Exemplo de JsonFormat](#jsonformat-example) sobre como configurar.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | filePattern |Indica o padrão dos dados armazenados em cada ficheiro JSON. Os valores permitidos são **setOfObjects** e **arrayOfObjects**. O valor **predefinido** é **setOfObjects**. Veja a secção [Padrões de ficheiro JSON](#json-file-patterns) para obter detalhes sobre estes padrões. |Não |
 | jsonNodeReference | Se quiser iterar e extrair dados dos objetos dentro de um campo de matriz com o mesmo padrão, especifique o caminho JSON dessa matriz. Esta propriedade só é suportada ao copiar dados **de** ficheiros JSON. | Não |
@@ -306,7 +306,7 @@ e quiser copiá-lo para uma tabela SQL do Azure no seguinte formato, ao simplifi
 O conjunto de dados de entrada com o tipo **JsonFormat** é definido da seguinte forma: (definição parcial com apenas as partes relevantes). Mais especificamente:
 
 - A secção `structure` define os nomes de colunas personalizados e o tipo de dados correspondente enquanto converte em dados tabulares. Esta secção é **opcional**, exceto se precisar de fazer o mapeamento de colunas. Para obter mais informações, consulte [as colunas do conjunto de dados de origem do mapa para as colunas de conjunto de dados de destino](copy-activity-schema-and-type-mapping.md).
-- `jsonNodeReference`indica iterar e extrair dados dos objetos com o mesmo padrão sob **matriz** `orderlines` .
+- `jsonNodeReference` indica iterar e extrair dados dos objetos com o mesmo padrão sob **matriz** `orderlines` .
 - `jsonPathDefinition` especifica o caminho JSON para cada coluna que indica de onde extrair os dados. Neste exemplo, `ordernumber` `orderdate` , e `city` estão sob objeto raiz com o caminho JSON começando `$.` com, enquanto `order_pd` e são `order_price` definidos com caminho derivado do elemento matriz sem `$.` .
 
 ```json
@@ -406,7 +406,7 @@ O conjunto de dados de saída com o tipo **JsonFormat** é definido da seguinte 
 }
 ```
 
-## <a name="parquet-format-legacy"></a><a name="parquet-format"></a>Formato parquet (legado)
+## <a name="parquet-format-legacy"></a><a name="parquet-format"></a> Formato parquet (legado)
 
 >[!NOTE]
 >Conheça o novo modelo a partir do artigo [em formato Parquet.](format-parquet.md) As seguintes configurações no conjunto de dados da loja de dados baseado em ficheiros ainda são suportadas como é para compabitilidade retrógrada. Sugere-se que use o novo modelo para a frente.
@@ -455,7 +455,7 @@ Exemplo: definir variável `_JAVA_OPTIONS` com valor `-Xms256m -Xmx16g` . A band
 | Int64 | Int64 | Int64 | Int64 |
 | UInt64 | Int64/Binário | UInt64 | Decimal |
 | Único | Float | N/D | N/D |
-| Double | Double | N/D | N/D |
+| Double (Duplo) | Double (Duplo) | N/D | N/D |
 | Decimal | Binário | Decimal | Decimal |
 | String | Binário | Utf8 | Utf8 |
 | DateTime | Int96 | N/D | N/D |
@@ -466,7 +466,7 @@ Exemplo: definir variável `_JAVA_OPTIONS` com valor `-Xms256m -Xmx16g` . A band
 | Char | Binário | Utf8 | Utf8 |
 | CharArray | Não suportado | N/D | N/D |
 
-## <a name="orc-format-legacy"></a><a name="orc-format"></a>Formato ORC (legado)
+## <a name="orc-format-legacy"></a><a name="orc-format"></a> Formato ORC (legado)
 
 >[!NOTE]
 >Conheça o novo modelo a partir do artigo de [formato ORC.](format-orc.md) As seguintes configurações no conjunto de dados da loja de dados baseado em ficheiros ainda são suportadas como é para compabitilidade retrógrada. Sugere-se que use o novo modelo para a frente.
@@ -508,17 +508,17 @@ Para a cópia em execução em IR auto-hospedado com serialização/deserializa�
 | Int64 | Longo |
 | UInt64 | String |
 | Único | Float |
-| Double | Double |
+| Double (Duplo) | Double (Duplo) |
 | Decimal | Decimal |
 | Cadeia | Cadeia |
-| DateTime | Carimbo de data/hora |
-| Início de execução de tempo de data | Carimbo de data/hora |
-| TimeSpan | Carimbo de data/hora |
+| DateTime | Timestamp |
+| Início de execução de tempo de data | Timestamp |
+| TimeSpan | Timestamp |
 | ByteArray | Binário |
 | GUID | String |
 | Char | Char(1) |
 
-## <a name="avro-format-legacy"></a><a name="avro-format"></a>Formato AVRO (legado)
+## <a name="avro-format-legacy"></a><a name="avro-format"></a> Formato AVRO (legado)
 
 >[!NOTE]
 >Conheça o novo modelo a partir do artigo de [formato Avro.](format-avro.md) As seguintes configurações no conjunto de dados da loja de dados baseado em ficheiros ainda são suportadas como é para compabitilidade retrógrada. Sugere-se que use o novo modelo para a frente.
@@ -538,7 +538,7 @@ Tenha em atenção os seguintes pontos:
 
 * [Os tipos de dados complexos](https://avro.apache.org/docs/current/spec.html#schema_complex) não são suportados (registos, números, matrizes, mapas, sindicatos e fixos).
 
-## <a name="compression-support-legacy"></a><a name="compression-support"></a>Suporte à compressão (legado)
+## <a name="compression-support-legacy"></a><a name="compression-support"></a> Suporte à compressão (legado)
 
 A Azure Data Factory suporta dados de compress/descompressão durante a cópia. Quando especifica `compression` a propriedade num conjunto de dados de entrada, a atividade de cópia lê os dados comprimidos da fonte e descomprimia-os; e quando especifica a propriedade num conjunto de dados de saída, a compressa da atividade da cópia, em seguida, escreva dados para a pia. Aqui estão alguns cenários de amostra:
 
@@ -595,6 +595,6 @@ Pode ver uma amostra que utiliza uma função Azure para [extrair o conteúdo de
 
 Também pode construir esta funcionalidade utilizando uma atividade de dotnet personalizada. Mais informações estão disponíveis [aqui](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba os mais recentes formatos e compressões de ficheiros suportados a partir de [formatos e compressões de ficheiros suportados](supported-file-formats-and-compression-codecs.md).

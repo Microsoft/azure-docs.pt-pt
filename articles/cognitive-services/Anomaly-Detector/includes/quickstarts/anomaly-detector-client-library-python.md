@@ -2,18 +2,18 @@
 title: Início rápido da biblioteca do cliente do detetor de anomalia Python
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/22/2020
-ms.author: aahi
-ms.openlocfilehash: ec13ee65595ccb0bdca1656522a7cd5f21b49a10
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.author: mbullwin
+ms.openlocfilehash: c0c766753fe7c865fe15af992817379b3a7f6e13
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91319274"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018468"
 ---
 Começa com a biblioteca de clientes do Detetor de Anomalias para python. Siga estes passos para instalar o pacote comece a usar os algoritmos fornecidos pelo serviço. O serviço Detetor de Anomalias permite-lhe encontrar anomalias nos dados da sua série de tempo utilizando automaticamente os modelos mais adequados, independentemente da indústria, cenário ou volume de dados.
 

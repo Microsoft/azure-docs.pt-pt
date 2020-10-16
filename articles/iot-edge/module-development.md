@@ -8,12 +8,12 @@ ms.date: 07/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 96bd6b461a5374b5f5bc578c5f58dbcd09cd7087
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eae36f6b4baabdcc9831b084602d340a299a7bac
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84699299"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047629"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>Desenvolva os seus próprios módulos IoT Edge
 
@@ -65,7 +65,7 @@ A ligação ao hub local IoT Edge a partir de um módulo envolve dois passos:
 1. Crie um exemplo de MóduloClient na sua aplicação.
 2. Certifique-se de que a sua candidatura aceita o certificado apresentado pelo hub IoT Edge nesse dispositivo.
 
-Crie uma instância ModuleClient para ligar o seu módulo ao hub IoT Edge em funcionamento no dispositivo, semelhante à forma como as instâncias DeviceClient ligam dispositivos IoT ao IoT Hub. Para obter mais informações sobre a classe MóduloClient e seus métodos de comunicação, consulte a referência API para a sua língua SDK preferida: [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C,](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h) [Python,](https://docs.microsoft.com/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?view=azure-python) [Java,](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable)ou [Node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).
+Crie uma instância ModuleClient para ligar o seu módulo ao hub IoT Edge em funcionamento no dispositivo, semelhante à forma como as instâncias DeviceClient ligam dispositivos IoT ao IoT Hub. Para obter mais informações sobre a classe MóduloClient e seus métodos de comunicação, consulte a referência API para a sua língua SDK preferida: [C#](/dotnet/api/microsoft.azure.devices.client.moduleclient), [C,](/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h) [Python,](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient) [Java,](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient)ou [Node.js](/javascript/api/azure-iot-device/moduleclient).
 
 ## <a name="language-and-architecture-support"></a>Apoio à linguagem e arquitetura
 
@@ -95,7 +95,7 @@ Para todos os idiomas da tabela seguinte, o IoT Edge suporta o desenvolvimento d
 | C | Estúdio Visual 2017/2019 |
 | C# | Código do Estúdio Visual (sem capacidades de depuração)<br>Estúdio Visual 2017/2019 |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Prepare o seu ambiente de desenvolvimento e teste para ioT Edge](development-environment.md)
 
@@ -103,4 +103,4 @@ Para todos os idiomas da tabela seguinte, o IoT Edge suporta o desenvolvimento d
 
 [Use o Código do Estúdio Visual para desenvolver módulos para IoT Edge](how-to-vs-code-develop-module.md)
 
-[Compreender e usar SDKs hub Azure IoT](../iot-hub/iot-hub-devguide-sdks.md)
+[Compreender e utilizar os SDKs do Hub IoT do Azure](../iot-hub/iot-hub-devguide-sdks.md)

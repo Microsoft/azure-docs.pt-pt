@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/22/2019
 ms.author: jeedes
 ms.openlocfilehash: 8fdb59db7e11e3c8b946be940a2f98bd42810b88
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91758358"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cloudpassage"></a>Tutorial: Azure Ative Directy integração única (SSO) com CloudPassage
@@ -88,7 +88,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     ![A screenshot mostra o portal CloudPassage com o link de documentação de configuração S S O chamado.](./media/cloudpassage-tutorial/tutorial_cloudpassage_05.png)
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL e URL de resposta de sôm. Contacte [a equipa de suporte do Cliente CloudPassage](https://www.cloudpassage.com/company/contact/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o URL e URL de resposta Sign-On reais. Contacte [a equipa de suporte do Cliente CloudPassage](https://www.cloudpassage.com/company/contact/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
 1. A aplicação CloudPassage espera as afirmações DE SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos.
 
@@ -96,7 +96,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação CloudPassage espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com o seu requisito.
 
-    | Name | Atributo de origem|
+    | Nome | Atributo de origem|
     | ---------------| --------------- |
     | nome de primeiro nome |user.givenname |
     | último nome |utilizador.sobrenome |

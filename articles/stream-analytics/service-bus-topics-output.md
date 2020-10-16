@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: cc09912bb0c9ab553d180ff5cc06fc52c4c5cc0c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91261065"
 ---
 # <a name="service-bus-topics-output-from-azure-stream-analytics"></a>Saída de tópicos de ônibus de serviço da Azure Stream Analytics
@@ -20,7 +20,7 @@ As filas de autocarros de serviço fornecem um método de comunicação um-para-
 
 A tabela que se segue lista os nomes dos imóveis e as suas descrições para a criação de uma saída de tópico de Service Bus.
 
-| Nome da propriedade | Description |
+| Nome da propriedade | Descrição |
 | --- | --- |
 | Alias de saída |Um nome amigável usado em consultas para direcionar a saída de consulta para este tópico de Service Bus. |
 | Espaço de nome de ônibus de serviço |Um contentor para um conjunto de entidades de mensagens. Quando criou um novo centro de eventos, também criou um espaço de nomes de Service Bus. |
@@ -61,7 +61,7 @@ No exemplo seguinte, os campos `DeviceId` são `DeviceStatus` adicionados aos me
 
 A imagem a seguir é das propriedades de mensagens de saída esperadas inspecionadas no EventHub utilizando [o Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
 
-:::image type="content" source="media/service-bus-topics-output/custom-properties.png" alt-text="Propriedades personalizadas do evento":::
+:::image type="content" source="media/service-bus-topics-output/custom-properties.png" alt-text="Colunas de propriedade":::
 
 ## <a name="system-properties"></a>Propriedades do sistema
 

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.openlocfilehash: 895e22d94122539ee68bcac8ee4debce2d824ff0
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88935284"
 ---
 # <a name="sentiment-cognitive-skill"></a>Capacidade cognitiva do sentimento
@@ -116,7 +116,7 @@ Se estiver vazio, uma pontuação de sentimento não é devolvida para esses reg
 ## <a name="error-cases"></a>Casos de erro
 Se uma língua não for suportada, um erro é gerado e nenhuma pontuação de sentimento é devolvida.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: bf8b8554aa2ea1d6d06f58f726ca65f77499ec5f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91440048"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Compreender as capacidades offline alargadas para dispositivos, módulos e dispositivos ioT Edge
@@ -138,7 +138,7 @@ Esta definição é uma propriedade desejada do hub IoT Edge, que é armazenado 
 
 As mensagens e as informações do estado do módulo são armazenadas no sistema de ficheiros de contentores locais do hub IoT Edge por padrão. Para uma maior fiabilidade, especialmente ao operar offline, também pode dedicar armazenamento no dispositivo IoT Edge do anfitrião. Para obter mais informações, consulte [Dar acesso aos módulos ao armazenamento local de um dispositivo](how-to-access-host-storage-from-module.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como configurar uma porta de entrada transparente para as ligações entre pais e filhos:
 

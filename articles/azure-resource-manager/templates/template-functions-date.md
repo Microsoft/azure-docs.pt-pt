@@ -4,10 +4,10 @@ description: Descreve as funções a utilizar num modelo de Gestor de Recursos A
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.openlocfilehash: abdc88ce15279b90f8f9dc05a38a2ae236498f12
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86058049"
 ---
 # <a name="date-functions-for-arm-templates"></a>Funções de data para modelos ARM
@@ -74,11 +74,11 @@ O modelo de exemplo a seguir mostra diferentes formas de adicionar valores de te
 
 Quando o modelo anterior é implantado com um tempo de base `2020-04-07 14:53:14Z` de, a saída é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| add3Years | String | 4/7/2023 14:53:14 |
-| subtrair9Days | String | 3/29/2020 14:53:14 |
-| add1Hour | String | 4/7/2020 15:53:14 |
+| add3Years | Cadeia | 4/7/2023 14:53:14 |
+| subtrair9Days | Cadeia | 3/29/2020 14:53:14 |
+| add1Hour | Cadeia | 4/7/2020 15:53:14 |
 
 O modelo de exemplo seguinte mostra como definir a hora de início para um horário de automação.
 
@@ -201,7 +201,7 @@ O modelo de exemplo a seguir mostra diferentes formatos para o valor da hora da 
 
 A saída do exemplo anterior varia para cada implantação, mas será semelhante a:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | utcOutput | string | 20190305T175318Z |
 | utcShortOutput | string | 03/05/2019 |
@@ -243,6 +243,6 @@ O exemplo seguinte mostra como utilizar um valor da função ao definir um valor
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter uma descrição das secções num modelo de Gestor de Recursos Azure, consulte [a estrutura e a sintaxe dos modelos ARM](template-syntax.md).

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/04/2019
 ms.author: jeedes
 ms.openlocfilehash: 3b8f91bca3650004472d8fe51d4e92b42ade3122
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91759828"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-claromentis"></a>Tutorial: Azure Ative Directy integração única (SSO) com Claromentis

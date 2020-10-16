@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/09/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5537b70f9852f5b5a17362c13e2c9b8e8e9fc43c
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91570611"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Pontos finais regionais para conta DB de Azure Cosmos

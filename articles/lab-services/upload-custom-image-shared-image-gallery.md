@@ -4,13 +4,13 @@ description: Descreve como fazer o upload de uma imagem personalizada para a Gal
 ms.date: 09/30/2020
 ms.topic: how-to
 ms.openlocfilehash: cd701215eb375b7f9b867ba05082afc7ed348ff7
-ms.sourcegitcommit: 5b69ba21787c07547edfbfd5254eaf34315cfadd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91712414"
 ---
-# <a name="upload-a-custom-image-to-shared-image-gallery"></a>Faça upload de uma imagem personalizada para a Galeria de Imagens Partilhadas
+# <a name="upload-a-custom-image-to-shared-image-gallery"></a>Carregar uma imagem personalizada para a Shared Image Gallery
 
 A Shared Image Gallery está disponível para você para importar suas próprias imagens personalizadas para criar laboratórios em Azure Lab Services. Os departamentos universitários de TI acharão as imagens importadoras especialmente benéficas pelas seguintes razões: 
 
@@ -59,7 +59,7 @@ Existem muitas opções para criar um VHD a partir de um ambiente de laboratóri
 
     Se expandiu o disco após a instalação do SISTEMA no VM Original, também terá de estender a unidade C no Windows para utilizar o espaço de disco não atribuído. Para isso, inicie sessão no modelo VM após a criação do laboratório e, em seguida, siga passos semelhantes ao mostrado em [Estender um volume básico](https://docs.microsoft.com/windows-server/storage/disk-management/extend-a-basic-volume). Existem opções para o fazer através da UI, bem como para utilizar o PowerShell.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 * [Visão geral da Galeria de Imagens Partilhada](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries)
 * [Como usar galeria de imagens partilhada](how-to-use-shared-image-gallery.md)

@@ -12,10 +12,10 @@ ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 06/19/2019
 ms.openlocfilehash: 5fca46e7bf80504632e0894deefa1805a080b3b9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91442727"
 ---
 # <a name="tutorial-add-an-azure-sql-database-to-an-autofailover-group"></a>Tutorial: Adicione uma Base de Dados Azure SQL a um grupo de autofailover
@@ -427,7 +427,7 @@ Não existem scripts disponíveis para o portal Azure.
 
 Pode encontrar aqui outros scripts da Base de Dados Azure SQL: [Azure PowerShell](powershell-script-content-guide.md) e [Azure CLI](az-cli-script-samples-content-guide.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, adicionou uma base de dados na Base de Dados Azure SQL a um grupo de failover, e testou o failover. Aprendeu a:
 

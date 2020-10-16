@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 04/02/2019
 ms.openlocfilehash: 9792641da4b3aebad047179e2c02dad757027801
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86045268"
 ---
 # <a name="geofencing-and-geospatial-aggregation-scenarios-with-azure-stream-analytics"></a>Cenários de geofencing e agregação geoespacial com Azure Stream Analytics
@@ -70,7 +70,7 @@ O dispositivo "C" está localizado dentro do ID 2 do edifício, o que não é pe
 
 ### <a name="site-with-multiple-allowed-devices"></a>Site com vários dispositivos permitidos
 
-Se um site permitir vários dispositivos, uma série de IDs do dispositivo pode ser definida `AllowedDeviceID` e uma Função Definida pelo Utilizador pode ser usada na `WHERE` cláusula para verificar se o ID do dispositivo de fluxo corresponde a qualquer ID do dispositivo nessa lista. Para mais informações, consulte o tutorial [do Javascript UDF](stream-analytics-javascript-user-defined-functions.md) para trabalhos em nuvem e o tutorial [C# UDF](stream-analytics-edge-csharp-udf.md) para trabalhos de borda.
+Se um site permitir vários dispositivos, uma série de IDs do dispositivo pode ser definida `AllowedDeviceID` e uma função User-Defined pode ser usada na `WHERE` cláusula para verificar se o ID do dispositivo de fluxo corresponde a qualquer ID do dispositivo nessa lista. Para mais informações, consulte o tutorial [do Javascript UDF](stream-analytics-javascript-user-defined-functions.md) para trabalhos em nuvem e o tutorial [C# UDF](stream-analytics-edge-csharp-udf.md) para trabalhos de borda.
 
 ## <a name="geospatial-aggregation"></a>Agregação geoespacial
 
@@ -122,7 +122,7 @@ A imagem abaixo ilustra a saída da consulta para o painel Power BI.
 ![Saída de resultado no painel Power BI](./media/geospatial-scenarios/power-bi-output.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Introdução às funções geoespaciais stream Analytics](stream-analytics-geospatial-functions.md)
 * [Funções GeoSpatiais (Azure Stream Analytics)](https://docs.microsoft.com/stream-analytics-query/geospatial-functions)

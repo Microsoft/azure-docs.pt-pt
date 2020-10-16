@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: makromer
 ms.openlocfilehash: 841484a647d2737d621c75ebe63f65f2de829a26
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91666509"
 ---
 # <a name="dedupe-rows-and-find-nulls-using-data-flow-snippets"></a>Dedupe linhas e encontrar nulos usando cortes de fluxo de dados
@@ -63,6 +63,6 @@ Ao utilizar os snippets de código no mapeamento dos fluxos de dados, pode facil
 
   Tem agora um fluxo de dados de funcionamento com verificações genéricas de deduping e NUS, retirando os fragmentos de código existentes da biblioteca data flow script e adicionando-os ao seu design existente.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 * Construa o resto da sua lógica de fluxo de dados utilizando [transformações](concepts-data-flow-overview.md)de fluxos de dados de mapeamento.

@@ -13,13 +13,13 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.openlocfilehash: e98bfbf58c179fe9df0d99e0522e5747d220ae52
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317026"
 ---
-# <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>As melhores práticas de configuração do cluster (SQL Server em VMs Azure)
+# <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Melhores práticas de configuração do cluster (SQL Server em VMs do Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Um cluster é utilizado para alta disponibilidade e recuperação de desastres (HADR) com SQL Server em Azure Virtual Machines (VMs). 

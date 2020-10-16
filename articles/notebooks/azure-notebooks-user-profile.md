@@ -4,10 +4,10 @@ description: Como criar e gerir o seu perfil de utilizador e iD do utilizador co
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.openlocfilehash: 9a1ff7f92faec21f537f068f0a33473700ddfed8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85831357"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks-preview"></a>O seu perfil e iD de utilizador para pré-visualização de cadernos Azure
@@ -58,7 +58,7 @@ Para editar o seu perfil, utilize o comando **de Informação de Perfil de Ediç
 | Definições de Privacidade | Fornece dois comandos:<ul><li>**Export My Profile**: cria e descarrega um ficheiro *.zip* contendo todas as informações que o Azure Notebooks guarda no seu perfil, incluindo a sua fotografia, informações de perfil e registos de segurança.</li><li>**Delete My Account**: Elimina permanentemente todas as suas informações pessoais armazenadas nos Cadernos Azure.</li></ul> |
 | Ativar funcionalidades do site | Permite-lhe controlar aspetos do comportamento dos Cadernos Azure:<ul><li>**Frontend Unificado para Cadernos**: permite uma startup de caderno mais rápida e uma melhor persistência.</li><li>**Executado no JupyterLab por padrão**: Por padrão, os Blocos de Notas Azure fornecem uma interface de utilizador simples que é adequada para a maioria dos utilizadores. O JupyterLab oferece uma interface mais rica mas complicada para utilizadores experientes.</li><li>**Website VNext**: permite o layout web modernizado mostrado nesta documentação.</li></ul> |
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Passos seguintes  
 
 > [!div class="nextstepaction"]
 > [Tutorial: criar e executar um caderno Jupyter para fazer regressão linear](tutorial-create-run-jupyter-notebook.md)

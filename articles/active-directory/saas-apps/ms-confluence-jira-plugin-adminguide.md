@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
 ms.openlocfilehash: 07bd9353f08e9440e495dfa92c608b4d6f70f5cf
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88543987"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Guia de administração Atlassian Jira e Confluence para o Azure Ative Directory
@@ -177,7 +177,7 @@ O plug-in funciona com versões no local de Jira e Confluence.
 
 ### <a name="does-the-plug-in-work-on-cloud-versions"></a>O plug-in funciona em versões em nuvem?
 
-Não. O plug-in suporta apenas versões no local de Jira e Confluence.
+N.º O plug-in suporta apenas versões no local de Jira e Confluence.
 
 ### <a name="which-versions-of-jira-and-confluence-does-the-plug-in-support"></a>Que versões da Jira e da Confluence suportam o plug-in?
 
@@ -221,7 +221,7 @@ Testámos o plug-in apenas em instalações do Windows Server de 64 bits de Jira
 
 ### <a name="does-the-plug-in-work-with-idps-other-than-azure-ad"></a>O plug-in funciona com IDPs para além do Azure AD?
 
-Não. Só funciona com a Azure AD.
+N.º Só funciona com a Azure AD.
 
 ### <a name="what-version-of-saml-does-the-plug-in-work-with"></a>Com que versão da SAML funciona o plug-in?
 
@@ -229,12 +229,12 @@ Funciona com SAML 2.0.
 
 ### <a name="does-the-plug-in-do-user-provisioning"></a>O plug-in faz o fornecimento do utilizador?
 
-Não. O plug-in fornece apenas SSO baseado em SAML 2.0. O utilizador tem de ser apresentado na aplicação antes da sso.in.
+N.º O plug-in fornece apenas SSO baseado em SAML 2.0. O utilizador tem de ser apresentado na aplicação antes da sso.in.
 
 ### <a name="does-the-plug-in-support-cluster-versions-of-jira-and-confluence"></a>As versões de suporte plug-in da Jira e Confluence?
 
-Não. O plug-in funciona com versões no local de Jira e Confluence.
+N.º O plug-in funciona com versões no local de Jira e Confluence.
 
 ### <a name="does-the-plug-in-work-with-http-versions-of-jira-and-confluence"></a>O plug-in funciona com versões HTTP da Jira e Confluence?
 
-Não. O plug-in funciona apenas com instalações ativadas por HTTPS.
+N.º O plug-in funciona apenas com instalações ativadas por HTTPS.

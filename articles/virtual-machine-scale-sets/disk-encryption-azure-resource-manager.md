@@ -10,10 +10,10 @@ ms.date: 10/10/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: 4284e94f8d8d0effd160c5048f54fcbede417e38
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86129760"
 ---
 # <a name="encrypt-virtual-machine-scale-sets-with-azure-resource-manager"></a>Criptografe conjuntos de escala de máquina virtual com O Gestor de Recursos Azure
@@ -42,7 +42,7 @@ Em seguida, siga estes passos:
 2. Preencha os campos necessários e, em seguida, concorde com os termos e condições.
 3. Clique **em Comprar** para implementar o modelo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Encriptação do disco Azure para conjuntos de escala de máquinas virtuais](disk-encryption-overview.md)
 - [Criptografe conjuntos de escala de máquina virtual usando o Azure CLI](disk-encryption-cli.md)

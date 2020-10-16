@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 273e9f7ce65cdd15000b1cc4ac7c19cde5992992
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91396778"
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Monitorar gateways VPN com resolução de problemas do Observador de Rede
@@ -36,7 +36,7 @@ Este cenário:
 - Criar um livro de bordo chamando o `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet para o estado de ligação de resolução de problemas
 - Ligue um horário ao livro de corridas
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Antes de iniciar este cenário, deve ter os seguintes pré-requisitos:
 

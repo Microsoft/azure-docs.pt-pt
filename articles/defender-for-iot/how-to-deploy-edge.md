@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
 ms.openlocfilehash: 06836673f1a567f64217d49cf8e0ca82e132111f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90938350"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Implemente um módulo de segurança no seu dispositivo IoT Edge
@@ -175,7 +175,7 @@ Se encontrar um problema, os registos de contentores são a melhor forma de apre
 
 1. Verifique se os seguintes recipientes estão em funcionamento:
 
-   | Name | IMAGEM |
+   | Nome | IMAGEM |
    | --- | --- |
    | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.2 |
    | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |

@@ -17,17 +17,17 @@ ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 94c0d1efa83af53804be89a9e86f4cafd5bc0ae0
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86057760"
 ---
 # <a name="change-license-assignments-for-a-user-or-group-in-azure-active-directory"></a>Alterar atribuições de licença para um utilizador ou grupo no Azure Ative Directory
 
 Este artigo descreve como mover utilizadores e grupos entre planos de licença de serviço no Azure Ative Directory (Azure AD). O objetivo Azure AD é garantir que não há perda de serviço ou dados durante a mudança de licença. Os utilizadores devem alternar entre os serviços sem problemas. As etapas de atribuição do plano de licença neste artigo descrevem a alteração de um utilizador ou grupo no Office 365 E1 para o Office 365 E3, mas os passos aplicam-se a todos os planos de licença. Quando atualiza as atribuições de licenças para um utilizador ou grupo, as remoção da atribuição de licenças e novas atribuições são feitas simultaneamente para que os utilizadores não percam o acesso aos seus serviços durante as alterações de licença ou vejam conflitos de licença entre planos.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Antes de atualizar as atribuições de licença, é importante verificar que certos pressupostos são verdadeiros para todos os utilizadores ou grupos serem atualizados. Se os pressupostos não forem verdadeiros para todos os utilizadores de um grupo, a migração pode falhar para alguns. Como resultado, alguns dos utilizadores podem perder acesso a serviços ou dados. Certifique-se de que:
 
@@ -73,7 +73,7 @@ A Azure AD aplica as novas licenças e remove as licenças antigas simultaneamen
 
 Para fornecer continuidade de serviço, a Azure AD aplica as novas licenças e remove as licenças antigas simultaneamente para todos os utilizadores do grupo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre outros cenários para a gestão de licenças através de grupos nos seguintes artigos:
 

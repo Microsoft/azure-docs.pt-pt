@@ -12,10 +12,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
 ms.openlocfilehash: f609cfb0945d79cfa8ae21b786a5761b92b9dabb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84324628"
 ---
 # <a name="reconfigure-the-azure-ssis-integration-runtime"></a>Reconfigurar o Azure-SSIS Integration Runtime
@@ -88,7 +88,7 @@ Depois de providenciar e iniciar um período de execução de integração Azure
    Remove-AzResourceGroup -Name $ResourceGroupName -Force 
    ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre o tempo de execução do Azure-SSIS, consulte os seguintes tópicos: 
 
 - [Tempo de execução da integração Azure-SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime). Este artigo fornece informações conceptuais sobre os tempos de integração em geral, incluindo o Azure-SSIS IR. 

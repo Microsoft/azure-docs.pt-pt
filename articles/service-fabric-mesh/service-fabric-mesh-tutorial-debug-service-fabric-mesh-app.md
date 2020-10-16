@@ -7,10 +7,10 @@ ms.date: 10/31/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 56cc8b4010dc17cf2b723a72898034de8d6a7175
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91843299"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Tutorial: Depurar uma aplicação do Service Fabric Mesh em execução no cluster de desenvolvimento local

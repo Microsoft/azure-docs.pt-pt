@@ -4,10 +4,10 @@ description: Este artigo fornece informações sobre como usar o Azure Service B
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: e5e97c6860c2cc01048f4f7caf9f40f9e07592d0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295605"
 ---
 # <a name="use-service-bus-explorer-to-perform-data-operations-on-service-bus-preview"></a>Utilize o Service Bus Explorer para realizar operações de dados no Service Bus (Preview)
@@ -51,7 +51,7 @@ Depois de escolher as **'Filas'** ou **'Tópicos',** escolha a fila ou tópico e
 
 Selecione o **'Service Bus Explorer (pré-visualização)'** a partir do menu de navegação à esquerda
 
-:::image type="content" source="./media/service-bus-explorer/left-navigation-menu-selected.png" alt-text="Menu de navegação esquerda SB Explorer":::
+:::image type="content" source="./media/service-bus-explorer/left-navigation-menu-selected.png" alt-text="Escolha de entidade":::
 
 ### <a name="sending-a-message-to-a-queue-or-topic"></a>Enviar uma mensagem para uma fila ou tópico
 
@@ -66,17 +66,17 @@ Para compor uma mensagem aqui -
 
 Uma vez composta a mensagem, acerte enviar.
 
-:::image type="content" source="./media/service-bus-explorer/send-experience.png" alt-text="Composição Mensagem":::
+:::image type="content" source="./media/service-bus-explorer/send-experience.png" alt-text="Escolha de entidade":::
 
 Quando a operação de envio estiver concluída com sucesso, 
 
 * Se enviar para a fila, o contador de métricas **de Mensagens Ativas** irá incrementar.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="Filas Após ADesempenhada":::
+    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="Escolha de entidade":::
 
 * Se enviar para o tópico, o contador de métricas **de Mensagens Ativas** incrementará na Subscrição para onde a mensagem foi encaminhada.
 
-    :::image type="content" source="./media/service-bus-explorer/topic-after-send-metrics.png" alt-text="TópicoAfterSendMetrics":::
+    :::image type="content" source="./media/service-bus-explorer/topic-after-send-metrics.png" alt-text="Escolha de entidade":::
 
 ### <a name="receiving-a-message-from-a-queue"></a>Receber uma mensagem de uma fila
 
@@ -93,18 +93,18 @@ Para receber uma mensagem de uma fila (ou da sua subqueue de carta morta)
 1. Clique no ***separador Receber*** no Service Bus Explorer.
 2. Verifique as métricas para ver se existem **Mensagens Ativas** ou **Mensagens com letras mortas** para receber.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="Filas Após ADesempenhada":::
+    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="Escolha de entidade":::
 
 3. Escolha entre a ***fila*** ou o subqueue ***da Carta Morta.***
 
-    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="QueueOrdeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="Escolha de entidade":::
 
 4. Clique no botão ***Receber,*** seguido de ***Sim*** para confirmar a operação 'Receber e Apagar'.
 
 
 Quando a operação de receção for bem sucedida, os detalhes da mensagem serão apresentados na grelha como abaixo. Pode selecionar a mensagem da grelha para mostrar os seus dados.
 
-:::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-2.png" alt-text="Screenshot da janela queues no Azure Service Bus Explorer com detalhes de mensagem apresentados para uma mensagem ativa que é selecionada na fila.":::
+:::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-2.png" alt-text="Escolha de entidade":::
 
 
 ### <a name="peeking-a-message-from-a-queue"></a>Espreitando uma mensagem de uma fila
@@ -113,21 +113,21 @@ Com a funcionalidade de espreitar, pode utilizar o Service Bus Explorer para vis
 
 1. Para espreitar a mensagem numa fila, clique no ***separador Peek*** no Service Bus Explorer.
 
-    :::image type="content" source="./media/service-bus-explorer/peek-tab-selected.png" alt-text="PeekTab":::
+    :::image type="content" source="./media/service-bus-explorer/peek-tab-selected.png" alt-text="Escolha de entidade":::
 
 2. Verifique as métricas para ver se existem **Mensagens Ativas** ou **Mensagens com letras mortas** para espreitar.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="Filas Após ADesempenhada":::
+    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="Escolha de entidade":::
 
 3. Em seguida, escolha entre a ***fila*** ou o subqueue ***da Carta Morta.***
 
-    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="QueueOrdeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="Escolha de entidade":::
 
 4. Clique no botão ***Peek.*** 
 
 Uma vez concluída a operação de espreitar, até 32 mensagens aparecerão na grelha como abaixo. Para ver os detalhes de uma determinada mensagem, selecione-a a partir da grelha. 
 
-:::image type="content" source="./media/service-bus-explorer/peek-message-from-queue-2.png" alt-text="PeekMessageFromQueue":::
+:::image type="content" source="./media/service-bus-explorer/peek-message-from-queue-2.png" alt-text="Escolha de entidade":::
 
 > [!NOTE]
 >
@@ -146,17 +146,17 @@ Tal como acontece com uma fila, a operação ***Receber*** pode ser executada co
 
 1. Clique no separador ***Receber*** e selecione a ***Subscrição*** específica do seletor de entrega.
 
-    :::image type="content" source="./media/service-bus-explorer/receive-subscription-tab-selected.png" alt-text="ReceberTabSelected":::
+    :::image type="content" source="./media/service-bus-explorer/receive-subscription-tab-selected.png" alt-text="Escolha de entidade":::
 
 2. Escolha entre a ***subscrição*** ou a sub-entidade ***DeadLetter.***
 
-    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="SubscriptionOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="Escolha de entidade":::
 
 3. Clique no botão ***Receber,*** seguido de ***Sim*** para confirmar a operação 'Receber e Apagar'.
 
 Quando a operação de receção for bem sucedida, a mensagem recebida será exibida na grelha como abaixo. Para ver os detalhes da mensagem, clique na mensagem.
 
-:::image type="content" source="./media/service-bus-explorer/receive-message-from-subscription.png" alt-text="Screenshot do separador Receber no Azure Service Bus Explorer com detalhes de mensagem apresentados para uma mensagem ativa que foi recebida.":::
+:::image type="content" source="./media/service-bus-explorer/receive-message-from-subscription.png" alt-text="Escolha de entidade":::
 
 ### <a name="peeking-a-message-from-a-subscription"></a>Espreitar uma mensagem de uma assinatura
 
@@ -164,17 +164,17 @@ Para simplesmente navegar nas mensagens de uma Subscrição ou da sua sub-entida
 
 1. Clique no ***separador Peek*** e selecione a ***Subscrição*** específica a partir do seletor de dropdown.
 
-    :::image type="content" source="./media/service-bus-explorer/peek-subscription-tab-selected.png" alt-text="PeekTabSeleed":::
+    :::image type="content" source="./media/service-bus-explorer/peek-subscription-tab-selected.png" alt-text="Escolha de entidade":::
 
 2. Escolha entre a ***Subscrição*** ou a ***sub-entidade DeadLetter.***
 
-    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="SubscriptionOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="Escolha de entidade":::
 
 3. Clique no botão ***Peek.***
 
 Uma vez concluída a operação de espreitar, até 32 mensagens aparecerão na grelha como abaixo. Para ver os detalhes de uma determinada mensagem, selecione-a a partir da grelha. 
 
-:::image type="content" source="./media/service-bus-explorer/peek-message-from-subscription.png" alt-text="PeekMessageFromSubscription":::
+:::image type="content" source="./media/service-bus-explorer/peek-message-from-subscription.png" alt-text="Escolha de entidade":::
 
 > [!NOTE]
 >

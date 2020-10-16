@@ -8,12 +8,12 @@ ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c010fa4ea0289ed91f439a250f0b63703517f5bc
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: a1c679ca5a7ff08a4d2490f94548b34e4db49f4d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447783"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966190"
 ---
 # <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Criar e providenciar um dispositivo IoT Edge simulado com um TPM virtual no Windows
 
@@ -75,19 +75,18 @@ Após a criação da inscrição individual, guarde o valor do ID de **inscriç�
 
 ## <a name="install-the-iot-edge-runtime"></a>Instale o tempo de execução IoT Edge
 
-O runtime do IoT Edge é implementado em todos os dispositivos do IoT Edge. Os seus componentes funcionam em contentores e permitem-lhe colocar recipientes adicionais no dispositivo para que possa executar código na borda.
+O runtime do IoT Edge é implementado em todos os dispositivos do IoT Edge. Os seus componentes funcionam em contentores e permitem-lhe colocar recipientes adicionais no dispositivo para que possa executar código na borda. Instale o tempo de funcionamento do IoT Edge no dispositivo que está a executar o TPM simulado.
 
-Necessitará das seguintes informações ao providenciar o seu dispositivo:
-
-* O valor do **ID Scope** DPS
-* O **ID de registo do** dispositivo que criou
-
-Instale o tempo de funcionamento do IoT Edge no dispositivo que está a executar o TPM simulado. Irá configurar o tempo de funcionamento do IoT Edge para o fornecimento automático, não manual.
+Siga os passos no [Instale o tempo de execução Azure IoT Edge](how-to-install-iot-edge.md)e, em seguida, volte a este artigo para disposir o dispositivo.
 
 > [!TIP]
 > Mantenha aberta a janela que está a executar o simulador TPM durante a sua instalação e teste.
 
-Para obter informações mais detalhadas sobre a instalação do IoT Edge no Windows, incluindo pré-requisitos e instruções para tarefas como gerir contentores e atualizar o IoT Edge, consulte [instalar o tempo de execução do IoT Edge Azure no Windows](how-to-install-iot-edge-windows.md).
+## <a name="configure-the-device-with-provisioning-information"></a>Configure o dispositivo com informações de provisionamento
+
+Uma vez instalado o tempo de funcionamento no seu dispositivo, configuure o dispositivo com as informações que utiliza para ligar ao Serviço de Provisionamento de Dispositivos e ao IoT Hub.
+
+1. Conheça o seu **ID Scope DPS** e o **ID de registo do** dispositivo que foram recolhidos nas secções anteriores.
 
 1. Abra uma janela PowerShell no modo de administrador. Certifique-se de que utiliza uma sessão AMD64 de PowerShell ao instalar ioT Edge, não PowerShell (x86).
 
@@ -98,7 +97,7 @@ Para obter informações mais detalhadas sobre a instalação do IoT Edge no Win
    Deploy-IoTEdge
    ```
 
-1. Neste ponto, os dispositivos IoT Core podem reiniciar automaticamente. Outros dispositivos Windows 10 ou Windows Server podem pedir-lhe para reiniciar. Em caso afirmativo, reinicie já o seu dispositivo. Assim que o seu dispositivo estiver pronto, volte a executar o PowerShell como administrador.
+1. Neste ponto, a saída pode levá-lo a reiniciar. Em caso afirmativo, reinicie já o seu dispositivo. Assim que o seu dispositivo estiver pronto, volte a executar o PowerShell como administrador.
 
 1. O comando **Initialize-IoTEdge** configura o tempo de funcionamento do IoT Edge na sua máquina. O comando não tem disposição manual com recipientes Windows. Utilize a `-Dps` bandeira para utilizar o Serviço de Provisionamento de Dispositivos em vez de provisionamento manual.
 
@@ -131,6 +130,6 @@ Listar módulos de execução.
 iotedge list
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 O processo de inscrição do Serviço de Provisionamento de Dispositivos permite-lhe definir o ID do dispositivo e as etiquetas gémeas do dispositivo ao mesmo tempo que fornece o novo dispositivo. Pode utilizar esses valores para direcionar dispositivos individuais ou grupos de dispositivos utilizando a gestão automática do dispositivo. Saiba como [implementar e monitorizar os módulos IoT Edge em escala utilizando o portal Azure](how-to-deploy-at-scale.md) ou utilizando o [Azure CLI](how-to-deploy-cli-at-scale.md)

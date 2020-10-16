@@ -7,10 +7,10 @@ ms.subservice: process-automation
 ms.date: 04/23/2020
 ms.topic: conceptual
 ms.openlocfilehash: acb056fb959fda320a14059e2b36a0f5e3fb0b37
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83837195"
 ---
 # <a name="authenticate-runbooks-with-amazon-web-services"></a>Autenticar runbooks com o Amazon Web Services
@@ -37,6 +37,6 @@ Depois de ter criado e copiado as suas chaves de segurança AWS, tem de criar um
 * **Nome do utilizador** - O seu ID de acesso
 * **Palavra-passe** - Nome da sua Chave Secreta 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para aprender a criar livros para automatizar tarefas em AWS, consulte [implementar um VM da Amazon Web Services com um livro de formulários](automation-scenario-aws-deployment.md).

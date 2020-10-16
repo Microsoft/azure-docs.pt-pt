@@ -15,10 +15,10 @@ ms.date: 07/09/2020
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 05ec19fd2351b3a9ac1f383ce4747404eeead936
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89067829"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Run an SSIS package with the Stored Procedure activity in Azure Data Factory (Executar um pacote do SSIS com a atividade Procedimento Armazenado no Azure Data Factory)

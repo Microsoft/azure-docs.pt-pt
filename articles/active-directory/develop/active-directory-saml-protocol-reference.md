@@ -1,6 +1,6 @@
 ---
 title: Como a plataforma de identidade da Microsoft utiliza o protocolo SAML
-description: Este artigo fornece uma visão geral dos perfis SAML de assinatura única e única sinalização no Diretório Ativo Azure.
+description: Este artigo fornece uma visão geral dos perfis de Sign-On e SAML single Sign-Out no Diretório Ativo Azure.
 services: active-directory
 author: kenwith
 manager: CelesteDG
@@ -13,10 +13,10 @@ ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
 ms.openlocfilehash: 06f80f94be25e42c9e8f0270e6cb15aca086ae18
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87552803"
 ---
 # <a name="how-microsoft-identity-platform-uses-the-saml-protocol"></a>Como a plataforma de identidade da Microsoft utiliza o protocolo SAML
@@ -31,7 +31,7 @@ A plataforma de identidade da Microsoft utiliza o **Metadadata URI** do serviço
 
 O Azure Ative Directory expõe pontos finais únicos de assinatura e assinatura únicos específicos e comuns (independentes do inquilino). Estes URLs representam locais endereçados, não são apenas identificadores, por isso podes ir ao ponto final ler os metadados.
 
-* O ponto final específico do inquilino está localizado em `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml` . O espaço reservado representa um nome de *\<TenantDomainName>* domínio registado ou TenantID GUID de um inquilino AZure AD. Por exemplo, os metadados da federação do inquilino contoso.com estão em:https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
+* O ponto final específico do inquilino está localizado em `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml` . O espaço reservado representa um nome de *\<TenantDomainName>* domínio registado ou TenantID GUID de um inquilino AZure AD. Por exemplo, os metadados da federação do inquilino contoso.com estão em: https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
 
 * O ponto final independente do inquilino está localizado em `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml` . Neste endereço de ponto final, **o comum** aparece em vez de um nome de domínio de inquilino ou ID.
 

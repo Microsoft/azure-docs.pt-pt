@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: chenyl
 ms.openlocfilehash: c3e317a87ba888fac3c069cc5327bd89c859e9de
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89514242"
 ---
 # <a name="upstream-settings"></a>Definições de origem
@@ -82,7 +82,7 @@ Ao `ManagedIdentity` selecionar, deve ativar uma identidade gerida no Serviço A
 3. Adicione URLs sob **o padrão de URL a montante.** Em seguida, as definições como **as Regras do Hub** mostrarão o valor predefinido.
 4. Para definir as definições para **as regras do hub**, **regras de eventos,** **regras de categoria**e **autenticação a montante,** selecione o valor das **regras**do Hub . Aparece uma página que lhe permite editar definições:
 
-    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Detalhes de definição a montante":::
+    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Definições de origem":::
 
 5. Para configurar **a Autenticação A montante,** certifique-se de que ativou uma identidade gerida primeiro. Em seguida, selecione **Use Managed Identity**. De acordo com as suas necessidades, pode escolher quaisquer opções em conformidade com **o ID de Recursos Auth.** Consulte [as identidades geridas para o Serviço Azure SignalR](howto-use-managed-identity.md) para obter mais detalhes.
 
@@ -166,7 +166,7 @@ O serviço calculará o código SHA256 para o `X-ASRS-Connection-Id` valor utili
 Hex_encoded(HMAC_SHA256(accessKey, connection-id))
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Identidades geridas para o Serviço Azure SignalR](howto-use-managed-identity.md)
 - [Desenvolvimento das Funções do Azure e configuração com o Azure SignalR Service](signalr-concept-serverless-development-config.md)

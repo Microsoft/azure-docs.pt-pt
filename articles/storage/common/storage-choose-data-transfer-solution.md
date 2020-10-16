@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: alkohli
 ms.openlocfilehash: 0e0bcde44ba28751761b7db3f6d6fcae8f7bd49c
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91400554"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>Escolher uma solução do Azure para a transferência de dados

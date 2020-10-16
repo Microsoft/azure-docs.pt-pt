@@ -9,10 +9,10 @@ ms.date: 03/19/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 317a480c13c5c6e00653fd61878a379df3f65ac4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67183995"
 ---
 ### <a name="what-is-expressroute-global-reach"></a>O que é ExpressRoute Global Reach?
@@ -41,11 +41,11 @@ Sim, pode, desde que os circuitos estejam nos países/regiões apoiados. Tens de
 
 ### <a name="can-i-enable-expressroute-global-reach-between-two-expressroute-circuits-at-the-same-peering-location"></a>Posso permitir o ExpressRoute Global Reach entre dois circuitos ExpressRoute no mesmo local de observação?
 
-Não. Os dois circuitos devem ser de locais de observação diferentes. Se um metro num país/região apoiado tiver mais do que um local de observação ExpressRoute, pode ligar os circuitos ExpressRoute criados em diferentes locais de observação naquele metro. 
+N.º Os dois circuitos devem ser de locais de observação diferentes. Se um metro num país/região apoiado tiver mais do que um local de observação ExpressRoute, pode ligar os circuitos ExpressRoute criados em diferentes locais de observação naquele metro. 
 
 ### <a name="if-expressroute-global-reach-is-enabled-between-circuit-x-and-circuit-y-and-between-circuit-y-and-circuit-z-will-my-on-premises-networks-connected-to-circuit-x-and-circuit-z-talk-to-each-other-via-microsofts-network"></a>Se o ExpressRoute Global Reach estiver ativado entre o circuito X e o circuito Y, e entre o circuito Y e o circuito Z, as minhas redes no local ligadas ao circuito X e ao circuito Z falarão entre si através da rede da Microsoft?
 
-Não. Para ativar a conectividade entre duas das suas redes no local, deve ligar explicitamente os circuitos ExpressRoute correspondentes. No exemplo acima, deve ligar o circuito X e o circuito Z. 
+N.º Para ativar a conectividade entre duas das suas redes no local, deve ligar explicitamente os circuitos ExpressRoute correspondentes. No exemplo acima, deve ligar o circuito X e o circuito Z. 
 
 ### <a name="what-is-the-network-throughput-i-can-expect-between-my-on-premises-networks-after-i-enable-expressroute-global-reach"></a>Qual é a produção da rede que posso esperar entre as minhas redes no local depois de eu permitir o ExpressRoute Global Reach?
 

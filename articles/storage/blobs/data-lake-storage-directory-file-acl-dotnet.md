@@ -10,10 +10,10 @@ ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 6533809be614210a88bfa605e24209d094bb679d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89019305"
 ---
 # <a name="use-net-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Utilize .NET para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2
@@ -368,7 +368,7 @@ public async Task ListFilesInDirectory(DataLakeFileSystemClient fileSystemClient
 
 Pode adicionar, atualizar e remover ACLs de forma recorrente nos itens infantis existentes de um diretório de pais sem ter de escamar estas alterações individualmente para cada item infantil. Para obter mais informações, consulte [as listas de controlo de acesso (ACLs) de forma recorrente para Azure Data Lake Storage Gen2](recursive-access-control-lists.md).
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 * [Documentação de referência da API](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake)
 * [Pacote (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files.DataLake)

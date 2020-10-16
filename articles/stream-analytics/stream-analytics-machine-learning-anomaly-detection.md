@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
 ms.openlocfilehash: 69824df1b84f6cdfafa08a662816281442ad44fd
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86044384"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Deteção de anomalias em Azure Stream Analytics
@@ -154,7 +154,7 @@ O código de amostra para executar as configurações não partitioned acima est
 ### <a name="identifying-bottlenecks"></a>Identificar estrangulamentos
 Utilize o painel métrica no seu trabalho Azure Stream Analytics para identificar estrangulamentos no seu oleoduto. **Reveja os eventos de entrada/saída** para produção e ["Atraso de marca de água"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) ou **eventos retrospados** para ver se o trabalho está a acompanhar a taxa de entrada. Para as métricas do Event Hub, procure **pedidos de aceleração** e ajuste as Unidades limiares em conformidade. Para as métricas da Cosmos DB, reveja **max consumiu RU/s por intervalo de chaves de partição** sob a produção para garantir que as suas gamas de chaves de partição são consumidas uniformemente. Para Azure SQL DB, monitorize **Log IO** e **CPU**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

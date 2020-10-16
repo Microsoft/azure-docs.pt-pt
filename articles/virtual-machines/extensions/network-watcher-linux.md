@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: mimckitt
 ms.openlocfilehash: 37a2724e28269d5f8b10d6ae7073aacc8272255b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86494773"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Extensão de máquina virtual do Agente do Observador de Rede para Linux
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 [O Azure Network Watcher](../../network-watcher/index.yml) é um serviço de monitorização, diagnóstico e análise de desempenho de rede que permite a monitorização das redes Azure. A extensão da máquina virtual do Network Watcher Agent (VM) é um requisito para algumas das funcionalidades do Observador de Rede em VMs Azure, como a captura do tráfego de rede a pedido e outras funcionalidades avançadas.
 
@@ -75,7 +75,7 @@ O JSON seguinte mostra o esquema para a extensão do Agente observador de rede. 
 
 ### <a name="property-values"></a>Valores patrimoniais
 
-| Name | Valor / Exemplo |
+| Nome | Valor / Exemplo |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publicador | Microsoft.Azure.NetworkWatcher |

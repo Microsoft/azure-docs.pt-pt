@@ -9,10 +9,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.openlocfilehash: 9ab45495283f8751912d93e9799958a8effc887a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87323745"
 ---
 # <a name="quickstart-manage-blobs-with-java-v8-sdk"></a>Quickstart: Gerir bolhas com Java v8 SDK

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 09/12/2020
+ms.date: 10/07/2020
 ms.author: aahi
-ms.openlocfilehash: 185a6a26350f7803d109e26d8985510380b8cc16
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: ed2a5b4688965f790567018bc11051b77c494e7a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056596"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977736"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Suporte linguístico API v3 de API de análise de texto 
 
@@ -27,8 +27,8 @@ ms.locfileid: "90056596"
 
 | Linguagem              | Código do idioma | v2 apoio | v3 suporte | Versão do modelo V3 inicial: |              Notas |
 |:----------------------|:-------------:|:----------:|:----------:|:--------------------------:|-------------------:|
-| Chinês-Simplificado    |   `zh-hans`   |     ✓      |     ✓      |         2019-10-01         | `zh` também aceitou |
-| Chinês-Tradicional   |   `zh-hant`   |            |     ✓      |         2019-10-01         |                    |
+| Chinese-Simplified    |   `zh-hans`   |     ✓      |     ✓      |         2019-10-01         | `zh` também aceitou |
+| Chinese-Traditional   |   `zh-hant`   |            |     ✓      |         2019-10-01         |                    |
 | Dinamarquês               |     `da`      |     ✓      |            |                            |                    |
 | Neerlandês                 |     `nl`      |     ✓      |            |                            |                    |
 | Inglês               |     `en`      |     ✓      |     ✓      |         2019-10-01         |                    |
@@ -36,6 +36,7 @@ ms.locfileid: "90056596"
 | Francês                |     `fr`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Alemão                |     `de`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Grego                 |     `el`      |     ✓      |            |                            |                    |
+| Hindi                 |     `hi`      |           |      ✓      |          2020-04-01                  |                    |
 | Italiano               |     `it`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Japonês              |     `ja`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Coreano                |     `ko`      |            |     ✓      |         2019-10-01         |                    |
@@ -64,8 +65,8 @@ ms.locfileid: "90056596"
 |:-----------------------|:-------------:|:----------:|:----------:|:-------------------------------:|:------------------:|
 | Árabe                |     `ar`      |     ✓      |            |                                 |                    |
 | Checo                 |     `cs`      |     ✓      |            |                                 |                    |
-| Chinês-Simplificado     |   `zh-hans`   |     ✓      |            |                                 | `zh` também aceitou |
-| Chinês-Tradicional   |   `zh-hant`   |     ✓      |            |                                 |                    |
+| Chinese-Simplified     |   `zh-hans`   |     ✓      |            |                                 | `zh` também aceitou |
+| Chinese-Traditional   |   `zh-hant`   |     ✓      |            |                                 |                    |
 | Dinamarquês                |     `da`      |     ✓      |            |                                 |                    |
 | Neerlandês                 |     `nl`      |     ✓      |            |                                 |                    |
 | Inglês                |     `en`      |     ✓      |     ✓      |           2019-10-01            |                    |
@@ -126,6 +127,6 @@ Se tiver conteúdo expresso num idioma menos utilizado, pode tentar a Deteção 
 
 ---
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 * [O que é a API de Análise de Texto?](overview.md)   

@@ -4,12 +4,12 @@ description: Conheça os cenários de segurança para um cluster de tecidos de s
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
-ms.openlocfilehash: 258a6dd141ccc31516e37dac9f265328f981bbf5
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 8d6f3e94a735a6a8880d726890f1eb7ac346c755
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261067"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946200"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Cenários de segurança do cluster de tecido de serviço
 
@@ -134,14 +134,14 @@ O conceito de criar clusters seguros é o mesmo, sejam eles clusters Linux ou Wi
 
 ### <a name="client-authentication-certificates-optional"></a>Certificados de autenticação do cliente (opcional)
 
-Qualquer número de certificados adicionais pode ser especificado para operações de administração ou cliente do utilizador. O cliente pode usar este certificado quando for necessária autenticação mútua. Normalmente, os certificados de cliente não são emitidos por um CA de terceiros. Em vez disso, a loja Pessoal da localização atual do utilizador normalmente contém certificados de cliente colocados lá por uma autoridade de raiz. O certificado deve ter um valor **de Autenticação** do **Cliente.**  
+Qualquer número de certificados adicionais pode ser especificado para operações de administração ou cliente do utilizador. O cliente pode utilizar estes certificados quando for necessária a autenticação mútua. Normalmente, os certificados de cliente não são emitidos por um CA de terceiros. Em vez disso, a loja Pessoal da localização atual do utilizador normalmente contém certificados de cliente colocados lá por uma autoridade de raiz. O certificado deve ter um valor **de Autenticação** do **Cliente.**  
 
 Por predefinição, o certificado de cluster tem privilégios de administração do cliente. Estes certificados de cliente adicionais não devem ser instalados no cluster, mas são especificados como sendo permitidos na configuração do cluster.  No entanto, os certificados de cliente precisam de ser instalados nas máquinas cliente para se conectarem ao cluster e realizarem quaisquer operações.
 
 > [!NOTE]
 > Todas as operações de gestão num cluster de Tecido de Serviço requerem certificados de servidor. Os certificados de cliente não podem ser usados para gestão.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Crie um cluster em Azure usando um modelo de Gestor de Recursos](service-fabric-cluster-creation-via-arm.md)
 * [Utilizar o portal do Azure para criar um cluster](service-fabric-cluster-creation-via-portal.md)

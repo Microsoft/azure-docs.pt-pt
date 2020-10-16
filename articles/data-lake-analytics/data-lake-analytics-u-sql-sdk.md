@@ -8,10 +8,10 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 03/01/2017
 ms.openlocfilehash: daf72fcf7baba289b4145d06d878c8a7232f1c6a
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132420"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Executar e testar U-SQL com Azure Data Lake U-SQL SDK
@@ -35,7 +35,7 @@ O Data Lake U-SQL SDK requer as seguintes dependências:
 
     ![Ferramentas do Lago de Dados para Estúdio Visual Gerido localMente Windows 10 SDK](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-windows-10-sdk.png)
 
-  - Instale [ferramentas do Lago de Dados para o Estúdio Visual.](https://aka.ms/adltoolsvs) Pode encontrar os ficheiros Visual C++ e Windows SDK pré-embalados em`C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK.`
+  - Instale [ferramentas do Lago de Dados para o Estúdio Visual.](https://aka.ms/adltoolsvs) Pode encontrar os ficheiros Visual C++ e Windows SDK pré-embalados em `C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK.`
 
     Neste caso, o compilador local U-SQL não consegue encontrar as dependências automaticamente. Tens de especificar o caminho do CppSDK para isso. Pode copiar os ficheiros para outro local ou usá-lo como está.
 
@@ -154,7 +154,7 @@ Seguem-se argumentos opcionais a **executar:**
 |-Verbose|Falso|Mostrar saídas detalhadas do tempo de execução|
 |-WorkDir|Diretório atual|Diretório para utilização e saídas do compilador|
 |-RunScopeCEP|0|Modo ScopeCEP para usar|
-|-ScopeCEPTempPath|temperatura|Caminho temporário a utilizar para dados de streaming|
+|-ScopeCEPTempPath|temp|Caminho temporário a utilizar para dados de streaming|
 |-OptFlags| |Lista separada por vírgula de bandeiras optimizadoras|
 
 Eis um exemplo:

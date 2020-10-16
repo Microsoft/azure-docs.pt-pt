@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 4dc768b92a9ffbeafc31ef81d065237f47fb645e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9b9fae8f32f9d7ffeee53df8e5a888394572cbd7
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331884"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015009"
 ---
 # <a name="secure-azure-digital-twins"></a>Secure Azure Digital Twins
 
@@ -80,6 +80,14 @@ Se um utilizador tentar executar uma ação não permitida pela sua função, po
 ## <a name="encryption-of-data-at-rest"></a>Encriptação de dados em repouso
 
 A Azure Digital Twins fornece encriptação de dados em repouso e em trânsito, tal como está escrito nos nossos centros de dados, e desencripta-os para si à medida que os acede. Esta encriptação ocorre utilizando uma chave de encriptação gerida pela Microsoft.
+
+## <a name="cross-origin-resource-sharing-cors"></a>Partilha de Recursos Transversais à Origem (CORS)
+
+A Azure Digital Twins não suporta atualmente **a partilha de recursos cross-origin (CORS)**. Como resultado, se estiver a chamar uma API REST a partir de uma aplicação de navegador, uma interface [de Gestão API (APIM)](../api-management/api-management-key-concepts.md) ou um conector [Power Apps,](https://docs.microsoft.com/powerapps/powerapps-overview) poderá ver um erro de política.
+
+Para resolver este erro, pode fazer um dos seguintes:
+* Retire o cabeçalho CORS `Access-Control-Allow-Origin` da mensagem. Este cabeçalho indica se a resposta pode ser partilhada. 
+* Em alternativa, crie um proxy CORS e faça o pedido de API para as Gémeas Digitais Azure. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

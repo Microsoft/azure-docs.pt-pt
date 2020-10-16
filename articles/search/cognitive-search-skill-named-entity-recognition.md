@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 8dc18af933a4570112beb025c1fb9163abafffff
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88935947"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Competência cognitiva de reconhecimento de entidades nomeada
@@ -153,7 +153,7 @@ Os parâmetros são sensíveis às maiúsculas e minúsculas.
 ## <a name="error-cases"></a>Casos de erro
 Se o código linguístico do documento não for suportado, um erro é devolvido e nenhuma entidade é extraída.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)

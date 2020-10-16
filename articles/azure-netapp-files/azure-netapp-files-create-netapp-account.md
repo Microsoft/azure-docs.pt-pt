@@ -15,16 +15,16 @@ ms.topic: how-to
 ms.date: 03/28/2018
 ms.author: b-juche
 ms.openlocfilehash: e5e0c43aa8c4fbf0db89065e0fab93ee174a4ede
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85483674"
 ---
 # <a name="create-a-netapp-account"></a>Criar uma conta NetApp
 Criar uma conta NetApp permite-lhe configurar um conjunto de capacidade e, em seguida, criar um volume. Pode utilizar o painel do Azure NetApp Files para criar uma nova conta NetApp.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 Deve ter recebido um e-mail da equipa do Azure NetApp Files confirmando que lhe foi concedido acesso ao serviço. Ver [Enviar um pedido de lista de espera para aceder ao serviço](azure-netapp-files-register.md#waitlist).
 
 Também deve ter registado a sua subscrição para utilizar o Fornecedor de Recursos NetApp. Consulte [registar o Fornecedor de Recursos NetApp.](azure-netapp-files-register.md#resource-provider)
@@ -62,7 +62,7 @@ Também deve ter registado a sua subscrição para utilizar o Fornecedor de Recu
 >
 > `{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"NotFound","message":"{\r\n \"error\": {\r\n \"code\": \"InvalidResourceType\",\r\n \"message\": \"The resource type could not be found in the namespace 'Microsoft.NetApp' for api version '2017-08-15'.\"\r\n }\r\n}"}]}`
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Passos seguintes  
 
 [Configurar um conjunto de capacidade](azure-netapp-files-set-up-capacity-pool.md)
 

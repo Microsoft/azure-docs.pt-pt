@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
 ms.openlocfilehash: 94c668e7ffaff81fed9c2e511bc38239069fa43e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87305215"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Conecte computadores sem acesso à Internet utilizando o gateway Log Analytics no Azure Monitor
@@ -140,8 +140,8 @@ Para instalar um gateway utilizando o assistente de configuração, siga estes p
 
    ![Screenshot da configuração para o proxy gateway](./media/gateway/gateway-wizard02.png)
 
-1. Se não tiver o Microsoft Update ativado, a página do Microsoft Update aparece e pode optar por ativer. Faça uma seleção e, em seguida, selecione **Next**. Caso contrário, continue para o próximo passo.
-1. Na página **'Pasta destino',** ou sai da pasta padrão C:\Program Files\OMS Gateway ou insira o local onde pretende instalar o gateway. Em seguida, selecione **Seguinte**.
+1. Se não tiver o Microsoft Update ativado, a página do Microsoft Update aparece e pode optar por ativer. Faça uma seleção e, em seguida, selecione **Next**. Caso contrário, avance para o passo seguinte.
+1. Na página **'Pasta destino',** ou sai da pasta padrão C:\Program Files\OMS Gateway ou insira o local onde pretende instalar o gateway. e selecione **Seguinte**.
 1. Na página **Pronto para instalar,** selecione **Instalar**. Se o Controlo da Conta do Utilizador solicitar a sua instalação, selecione **Sim**.
 1. Depois de terminar a configuração, **selecione Acabamento**. Para verificar se o serviço está em funcionamento, abra o snap-in do services.msc e verifique se o **OMS Gateway** aparece na lista de serviços e que o seu estado está **em execução**.
 
@@ -201,7 +201,7 @@ Para aprender a desenhar e implementar um cluster de equilíbrio de carga de red
 
     ![Gestor de equilíbrio de carga de rede – Adicionar anfitrião ao cluster: Connect](./media/gateway/nlb03.png) 
 
-### <a name="azure-load-balancer"></a>Azure Load Balancer
+### <a name="azure-load-balancer"></a>Balanceador de Carga do Azure
 
 Para aprender a desenhar e implementar um Equilibrador de Carga Azure, veja [o que é o Equilibr de Carga Azure?](../../load-balancer/load-balancer-overview.md) Para implantar um equilibrador de carga básico, siga os passos descritos neste [quickstart](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) excluindo os passos descritos na secção **Criar servidores de back-end**.   
 
@@ -306,7 +306,7 @@ Consulte a secção [de Configuração](../../automation/automation-hybrid-runbo
 Se o seu computador estiver registado automaticamente como Trabalhador de Runbook Híbrido, por exemplo, se a solução de Gestão de Atualização estiver ativada para um ou mais VMs, siga estes passos:
 
 1. Adicione os URLs do serviço de dados de execução de trabalho à lista de anfitriões permitidos no gateway 'Log Analytics'. Por exemplo: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
-1. Reinicie o serviço de gateway Log Analytics utilizando o seguinte cmdlet PowerShell:`Restart-Service OMSGatewayService`
+1. Reinicie o serviço de gateway Log Analytics utilizando o seguinte cmdlet PowerShell: `Restart-Service OMSGatewayService`
 
 Se o seu computador se juntar à Azure Automation utilizando o cmdlet de registo híbrido do Trabalhador runbook, siga estes passos:
 
@@ -321,8 +321,8 @@ Pode utilizar cmdlets para completar as tarefas para atualizar as definições d
 
 1. Instale o gateway 'Log Analytics' (Microsoft Windows Installer).
 1. Abra uma janela da consola PowerShell.
-1. Importe o módulo digitando este comando:`Import-Module OMSGateway`
-1. Se não ocorrerem erros na etapa anterior, o módulo foi importado com sucesso e os cmdlets podem ser utilizados. Inserir`Get-Module OMSGateway`
+1. Importe o módulo digitando este comando: `Import-Module OMSGateway`
+1. Se não ocorrerem erros na etapa anterior, o módulo foi importado com sucesso e os cmdlets podem ser utilizados. Introduza `Get-Module OMSGateway`
 1. Depois de utilizar os cmdlets para estois, reinicie o serviço OMS Gateway.
 
 Um erro no passo 3 significa que o módulo não foi importado. O erro pode ocorrer quando o PowerShell não encontrar o módulo. Pode encontrar o módulo no caminho de instalação do OMS Gateway: *C:\Program Files\Microsoft OMS Gateway\PowerShell\OmsGateway*.
@@ -332,7 +332,7 @@ Um erro no passo 3 significa que o módulo não foi importado. O erro pode ocorr
 | `Get-OMSGatewayConfig` |Chave |Obtém a configuração do serviço |`Get-OMSGatewayConfig` |  
 | `Set-OMSGatewayConfig` |Chave (necessária) <br> Valor |Altera a configuração do serviço |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |Obtém o endereço do proxy retransmissor (a montante) |`Get-OMSGatewayRelayProxy` |  
-| `Set-OMSGatewayRelayProxy` |Endereço<br> Nome de utilizador<br> Palavra-passe (cadeia segura) |Define o endereço (e credencial) do proxy relé (a montante) |1. Definir um representante e credencial de retransmissão:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Deite um representante de retransmissão que não necessite de autenticação:`Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. Limpe a definição de procuração de retransmissão:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
+| `Set-OMSGatewayRelayProxy` |Endereço<br> Nome de utilizador<br> Palavra-passe (cadeia segura) |Define o endereço (e credencial) do proxy relé (a montante) |1. Definir um representante e credencial de retransmissão:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Deite um representante de retransmissão que não necessite de autenticação: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. Limpe a definição de procuração de retransmissão:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
 | `Get-OMSGatewayAllowedHost` | |Obtém o anfitrião atualmente permitido (apenas o anfitrião localmente configurado, não automaticamente descarregado anfitriões permitidos) |`Get-OMSGatewayAllowedHost` | 
 | `Add-OMSGatewayAllowedHost` |Hospedeiro (obrigatório) |Adiciona o anfitrião à lista permitida |`Add-OMSGatewayAllowedHost -Host www.test.com` |  
 | `Remove-OMSGatewayAllowedHost` |Hospedeiro (obrigatório) |Remove o anfitrião da lista permitida |`Remove-OMSGatewayAllowedHost`<br> `-Host www.test.com` |  

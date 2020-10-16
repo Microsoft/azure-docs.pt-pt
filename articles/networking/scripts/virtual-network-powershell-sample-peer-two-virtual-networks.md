@@ -14,10 +14,10 @@ ms.date: 05/16/2017
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 55d034776c77b3e0156669ba8838dbff6b2869be
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89074683"
 ---
 # <a name="peer-two-virtual-networks"></a>Peering de rede de duas redes virtuais

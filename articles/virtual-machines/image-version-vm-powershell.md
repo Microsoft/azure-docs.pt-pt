@@ -10,10 +10,10 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: 757b297d3d74365928cda0934485c0018f28ffee
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88225653"
 ---
 # <a name="preview-create-an-image-from-a-vm"></a>Pré-visualização: Criar uma imagem a partir de um VM
@@ -27,7 +27,7 @@ As imagens numa galeria de imagens têm dois componentes, que iremos criar neste
 - Uma **versão de imagem** é o que é usado para criar um VM quando se utiliza uma Galeria de Imagens Partilhadas. Pode ter várias versões de uma imagem necessária para o seu ambiente. Quando se cria um VM, a versão de imagem é usada para criar novos discos para o VM. As versões de imagem podem ser usadas várias vezes.
 
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Para completar este artigo, você deve ter uma Galeria de Imagem Partilhada existente, e um VM existente em Azure para usar como fonte. 
 
@@ -136,7 +136,7 @@ $job.State
 > Também pode armazenar a sua imagem no armazenamento Premium `-StorageAccountType Premium_LRS` adicionando, ou Zone Redundant [Storage,](../storage/common/storage-redundancy.md) adicionando `-StorageAccountType Standard_ZRS` quando cria a versão de imagem.
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Uma vez verificada que a nova versão da imagem está a funcionar corretamente, pode criar um VM. Crie um VM a partir de uma [versão de imagem especializada](vm-specialized-image-version-powershell.md) ou de uma versão de imagem [generalizada](vm-generalized-image-version-powershell.md).
 

@@ -13,10 +13,10 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d177dce250d65b4f9d825c9d70916f70c4076d4b
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88077514"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Trabalhar com servidores proxy existentes no local
@@ -144,7 +144,7 @@ A utilização de um representante para a frente para a comunicação para a apl
 Para o ativar, siga os próximos passos:
 
 ### <a name="step-1-add-the-required-registry-value-to-the-server"></a>Passo 1: Adicione o valor de registo necessário ao servidor
-1. Para ativar a utilização do proxy predefinido, adicione o seguinte valor de registo (DWORD) `UseDefaultProxyForBackendRequests = 1` à chave de registo de configuração do Conector localizada em "HKEY_LOCAL_MACHINE\Software\Microsoft\Microsoft AAD App Proxy Connector".
+1. Para ativar a utilização do representante predefinido, adicione o seguinte valor de registo (DWORD) `UseDefaultProxyForBackendRequests = 1` à chave de registo de configuração do Conector localizada em "HKEY_LOCAL_MACHINE\Software\Microsoft\Microsoft AAD App Proxy Connector".
 
 ### <a name="step-2-configure-the-proxy-server-manually-using-netsh-command"></a>Passo 2: Configurar manualmente o servidor proxy usando o comando netsh
 1.  Ativar a política de grupo Fazer configurações de procuração por máquina. Isto encontra-se em: Configuração do computador\Políticas\Modelos administrativos\Componentes do Windows\Internet Explorer. Isto tem de ser definido em vez de ter esta política definida por utilizador.

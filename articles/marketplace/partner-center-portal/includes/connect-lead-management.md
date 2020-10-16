@@ -10,10 +10,10 @@ ms.custom: include file
 author: mingshen-ms
 ms.author: mingshen
 ms.openlocfilehash: 7709f26b30d41b932569227b8b6f05b5725dc98f
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88815674"
 ---
 Ao publicar a sua oferta no mercado comercial através do Partner Center, tem de ligar a sua oferta ao seu sistema CRM. Desta forma, pode receber informações de contacto do cliente imediatamente após um cliente expressar interesse ou implantar o seu produto.
@@ -26,7 +26,7 @@ Ao publicar a sua oferta no mercado comercial através do Partner Center, tem de
 
     Se o seu sistema CRM não estiver explicitamente suportado nesta lista, pode armazenar os dados de chumbo do cliente utilizando as seguintes opções. Em seguida, pode exportar ou importar estes dados para o seu sistema crm.
 
-    * [Mesa azul](../commercial-marketplace-lead-management-instructions-azure-table.md)
+    * [Tabela do Azure](../commercial-marketplace-lead-management-instructions-azure-table.md)
     * [Ponto final https](../commercial-marketplace-lead-management-instructions-https.md)
 
 1. Leia a documentação vinculada aplicável acima para saber como configurar o seu destino principal e receber pistas das suas ofertas de mercado comercial.

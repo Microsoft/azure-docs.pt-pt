@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6a881dee50195fe4995c77d793b4f4b75091d20b
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89231117"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Interprete o esquema de registos de registos AD AZure no Azure Monitor
@@ -143,7 +143,7 @@ Este artigo descreve o esquema de registo de registo de registo Azure Ative (Azu
 
 ## <a name="field-descriptions"></a>Descrições dos campos
 
-| Nome do campo | Description |
+| Nome do campo | Descrição |
 |------------|-------------|
 | Hora | A data e a hora, na UTC. |
 | ResourceId | Este valor não é mapeado, e você pode ignorar com segurança este campo.  |

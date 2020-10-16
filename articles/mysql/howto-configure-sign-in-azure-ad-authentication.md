@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 07/23/2020
 ms.openlocfilehash: 0418785fe558503b716ff1e798446fb64db998b1
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87799843"
 ---
 # <a name="use-azure-active-directory-for-authentication-with-mysql"></a>Utilize o Diretório Ativo Azure para autenticação com o MySQL
@@ -126,7 +126,7 @@ mysql -h mydb.mysql.database.azure.com \
 
 Considerações importantes na ligação:
 
-* `user@tenant.onmicrosoft.com`é o nome do utilizador ou grupo AZure AD que está a tentar ligar como
+* `user@tenant.onmicrosoft.com` é o nome do utilizador ou grupo AZure AD que está a tentar ligar como
 * Apecimos sempre o nome do servidor após o nome de utilizador/grupo AZure AD (por `@mydb` exemplo)
 * Certifique-se de que utiliza a forma exata como o utilizador AD AD ou o nome de grupo do Azure está escrito
 * O utilizador azure AD e os nomes de grupo são sensíveis a casos
@@ -202,7 +202,7 @@ A maioria dos controladores são suportados, no entanto certifique-se de usar as
 * Node.js
   * mysqljs: Não suportado (não envia ficha em texto claro sem patch)
   * nó-mysql2: Suportado
-* Rio Perl
+* Perl
   * DBD::mysql: Suportado
   * Net::MySQL: Não suportado
 * Ir

@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
 ms.openlocfilehash: f1b194f2c65f95ad4daff0353d05ca589db9ce51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79477668"
 ---
 # <a name="convert-to-indicator-values"></a>Converter em Valores Indicadores
@@ -41,15 +41,15 @@ Este módulo também produz uma definição da transformação usada para conver
 
 1. Envie o oleoduto.
 
-## <a name="results"></a>Resultados
+## <a name="results"></a>Results
 
 Suponha que tenha uma coluna com pontuações que indiquem se um servidor tem uma probabilidade alta, média ou baixa de falha.  
 
 | ID do servidor | Pontuação de falha |
 | --------- | ------------- |
-| 10301     | Baixa           |
+| 10301     | Baixo           |
 | 10302     | Médio        |
-| 10303     | Alta          |
+| 10303     | Alto          |
 
 Quando aplica **Converter para Valores Indicadores,** o designer converte uma única coluna de etiquetas em várias colunas contendo valores Boolean:  
 
@@ -98,7 +98,7 @@ Esta secção contém detalhes de implementação, dicas e respostas a perguntas
 
 -   Apenas colunas marcadas como categóricas podem ser convertidas em colunas indicadoras. Se vir o seguinte erro, é provável que uma das colunas selecionadas não seja categórica:  
 
-     Erro 0056: Coluna com nome \<column name> não está numa categoria permitida.  
+     Erro 0056: Coluna com nome  \<column name> não está numa categoria permitida.  
 
      Por predefinição, a maioria das colunas de cordas são manuseadas como funcionalidades de cadeia, pelo que deve marcar explicitamente como categóricas usando [metadados de edição](edit-metadata.md).  
 
@@ -115,6 +115,6 @@ Esta secção contém detalhes de implementação, dicas e respostas a perguntas
 - Para evitar adicionar demasiadas dimensões ao seu conjunto de dados. Recomendamos que verifique primeiro o número de valores na coluna e que coloque ou quantifica os dados adequadamente.  
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

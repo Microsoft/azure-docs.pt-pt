@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 08/01/2017
+ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5999ef8431ce1e128c3775450eedf13644505918
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 94a5459ade634f6a1de029808aa6bad4d16b9a5d
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91313540"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91874634"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>Configurar o túnel forçado utilizando o modelo de implementação clássico
 
@@ -48,7 +48,7 @@ Isto permite-lhe restringir e inspecionar o acesso à Internet a partir das suas
 
 ![Túnel forçado](./media/vpn-gateway-about-forced-tunneling/forced-tunnel.png)
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 Antes de iniciar a configuração, verifique se tem os seguintes itens:
 
 * Uma subscrição do Azure. Se ainda não tiver uma subscrição do Azure, pode ativar os [Benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
@@ -57,12 +57,7 @@ Antes de iniciar a configuração, verifique se tem os seguintes itens:
 
 ### <a name="to-sign-in"></a>Para iniciar sinscrevi-lo
 
-1. Abra a sua consola PowerShell com direitos elevados. Para mudar para a gestão de serviços, utilize este comando:
-
-   ```powershell
-   azure config mode asm
-   ```
-2. Ligar à sua conta. Utilize o exemplo seguinte para o ajudar na ligação:
+1. Abra a sua consola PowerShell com direitos elevados. Ligue-se à sua conta utilizando o seguinte exemplo:
 
    ```powershell
    Add-AzureAccount

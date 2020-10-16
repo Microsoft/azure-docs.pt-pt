@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
 ms.openlocfilehash: 3d5c47d3e3e9485c3a6de8f93782c654fb34a516
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91330643"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Adicione chit-chat a uma base de conhecimento
@@ -41,7 +41,7 @@ Para a consulta do `When is your birthday?` utilizador, cada personalidade tem u
 
 Os conjuntos de dados de chit-chat são suportados nos seguintes idiomas:
 
-|Linguagem|
+|Idioma|
 |--|
 |Chinês|
 |Inglês|
@@ -84,6 +84,6 @@ Selecione o seu KB e navegue para a página **Definições.** A sua fonte espec�
 > [!div class="nextstepaction"]
 > [Importar uma base de conhecimento](../Tutorials/migrate-knowledge-base.md)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 [Descrição geral do Criador de FAQ](../Overview/overview.md)

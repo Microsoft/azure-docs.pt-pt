@@ -15,10 +15,10 @@ ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 92046b3a944a747ce76d2426855eec7b6bc2cd70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84790251"
 ---
 # <a name="list-azure-deny-assignments-using-the-azure-portal"></a>Lista Azure nega atribuições usando o portal Azure
@@ -107,7 +107,7 @@ Siga estes passos para listar detalhes adicionais sobre uma atribuição de nega
 
     Na lâmina **propriedades,** pode ver o nome de atribuição de negação, ID, descrição e âmbito. O **Não se aplica a troca de crianças** indica se a atribuição de negação é herdada a subscópios. O **interruptor protegido do Sistema** indica se esta atribuição de negação é gerida pela Azure. Atualmente, este é **sim** em todos os casos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Compreenda que Azure nega atribuições](deny-assignments.md)
 * [Lista Azure nega atribuições usando Azure PowerShell](deny-assignments-powershell.md)

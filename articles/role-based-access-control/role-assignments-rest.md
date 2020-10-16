@@ -16,21 +16,21 @@ ms.date: 05/06/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: d66b4c8e9f41f661cfc399f72a9ad97405a860fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84790851"
 ---
-# <a name="add-or-remove-azure-role-assignments-using-the-rest-api"></a>Adicione ou remova atribuições de funções Azure usando a API REST
+# <a name="add-or-remove-azure-role-assignments-using-the-rest-api"></a>Utilizar a API REST para adicionar ou remover atribuições de funções do Azure
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]Este artigo descreve como atribuir funções usando a API REST.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Este artigo descreve como atribuir funções usando a API REST.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para adicionar ou remover atribuições de funções, você deve ter:
 
-- `Microsoft.Authorization/roleAssignments/write`e `Microsoft.Authorization/roleAssignments/delete` permissões, tais como [Administrador de Acesso ao Utilizador](built-in-roles.md#user-access-administrator) ou [Proprietário](built-in-roles.md#owner)
+- `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete` permissões, tais como [Administrador de Acesso ao Utilizador](built-in-roles.md#user-access-administrator) ou [Proprietário](built-in-roles.md#owner)
 
 ## <a name="add-a-role-assignment"></a>Adicionar uma atribuição de função
 
@@ -38,7 +38,7 @@ No Azure RBAC, para conceder acesso, adiciona-se uma atribuição de papéis. Pa
 
 1. Utilize as [Definições de Função - Liste](/rest/api/authorization/roledefinitions/list) API de REST ou consulte [funções incorporadas](built-in-roles.md) para obter o identificador para a definição de função que pretende atribuir.
 
-1. Utilize uma ferramenta GUID para gerar um identificador único que será utilizado para o identificador de atribuição de funções. O identificador tem o formato:`00000000-0000-0000-0000-000000000000`
+1. Utilize uma ferramenta GUID para gerar um identificador único que será utilizado para o identificador de atribuição de funções. O identificador tem o formato: `00000000-0000-0000-0000-000000000000`
 
 1. Comece com o seguinte pedido e corpo:
 
@@ -166,9 +166,9 @@ O seguinte mostra um exemplo da saída:
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [ListE Azure atribui funções utilizando a API REST](role-assignments-list-rest.md)
 - [Implementar recursos com modelos do Resource Manager e API REST do Resource Manager](../azure-resource-manager/templates/deploy-rest.md)
-- [Referência AZURE REST API](/rest/api/azure/)
+- [Referência à API REST do Azure](/rest/api/azure/)
 - [Criar ou atualizar funções personalizadas Azure usando a API REST](custom-roles-rest.md)

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 59f83d232874a7702598b6ea5fdd458c101e7e79
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89266583"
 ---
 # <a name="custom-controls-preview"></a>Controlos personalizados (pré-visualização)

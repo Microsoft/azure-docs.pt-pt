@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 1c25e48bd46f0d37330f693cb4d6538e7bc29c4b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85367245"
 ---
 # <a name="step-2-configure-your-security-solution-to-send-cef-messages"></a>PASSO 2: Configurar a sua solução de segurança para enviar mensagens CEF
@@ -57,7 +57,7 @@ Se não existir um conector para a sua solução de segurança específica, util
 
 1. Continue a PASSO 3: [valide a conectividade](connect-cef-verify.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste documento, aprendeu a ligar os aparelhos CEF ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)

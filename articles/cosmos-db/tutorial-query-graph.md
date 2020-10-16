@@ -10,10 +10,10 @@ ms.date: 12/03/2018
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
 ms.openlocfilehash: f5d3542527f73d4a172e26a0d9222eaa077523c3
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91409464"
 ---
 # <a name="tutorial-query-azure-cosmos-db-gremlin-api-by-using-gremlin"></a>Tutorial: Consultar a API do Gremlin do Azure Cosmos DB através do Gremlin

@@ -4,10 +4,10 @@ description: Aprenda a usar a Azure DevTest Labs para criar e gerir máquinas vi
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 6bcc1b8cfe1da7e5eafbee0af008a1defbe6f49d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85484116"
 ---
 # <a name="create-a-virtual-machine-with-devtest-labs-using-azure-powershell"></a>Crie uma máquina virtual com DevTest Labs usando Azure PowerShell
@@ -214,5 +214,5 @@ Set-AzureRmResource -ResourceId $VmResourceId -Properties $VmProperties -Force
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Ver o seguinte conteúdo: [Azure PowerShell documentação para Azure DevTest Labs](/powershell/module/az.devtestlabs/)

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: c30b82e44833e413c1576bf64e8fef263c58b246
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3bc245fa02f57a433a76a316caac67ed5d884fe9
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91264614"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072752"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Utilize a rede kubenet com as suas próprias gamas de endereços IP no Serviço Azure Kubernetes (AKS)
 
@@ -32,7 +32,7 @@ Este artigo mostra-lhe como usar a rede *kubenet* para criar e utilizar uma sub-
 > [!WARNING]
 > Para utilizar as piscinas de nó do Windows Server, tem de utilizar o Azure CNI. A utilização do kubenet como modelo de rede não está disponível para recipientes windows Server.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Precisa da versão Azure CLI 2.0.65 ou posteriormente instalada e configurada. Corre  `az --version` para encontrar a versão. Se necessitar de instalar ou atualizar, consulte [instalar o Azure CLI][install-azure-cli].
 
@@ -56,7 +56,7 @@ Com *o Azure CNI,* cada pod recebe um endereço IP na sub-rede IP, e pode comuni
 * Ao contrário dos clusters CNI do Azure, vários clusters kubenet não podem partilhar uma sub-rede.
 * As **funcionalidades não suportadas no kubenet** incluem:
    * [Políticas de rede Azure](use-network-policies.md#create-an-aks-cluster-and-enable-network-policy), mas as políticas de rede Calico são apoiadas no kubenet
-   * [Piscinas de nó de janelas](windows-node-limitations.md)
+   * [Piscinas de nó de janelas](./windows-faq.md)
    * [Complemento de nó virtuais](virtual-nodes-portal.md#known-limitations)
 
 ### <a name="ip-address-availability-and-exhaustion"></a>Disponibilidade e exaustão do endereço IP

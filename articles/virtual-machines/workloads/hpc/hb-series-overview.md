@@ -1,24 +1,18 @@
 ---
 title: Visão geral da série HB VM - Azure Virtual Machines Microsoft Docs
 description: Saiba mais sobre o suporte de pré-visualização para o tamanho VM da série HB em Azure.
-services: virtual-machines
-documentationcenter: ''
 author: vermagit
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines
-ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 7c66af5184c4a943fd4b3185a87623112fe0d954
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d11ec99d10d74956c43c24145abbd291d9e2d2a9
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691246"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996242"
 ---
 # <a name="hb-series-virtual-machines-overview"></a>Visão geral das máquinas virtuais da série HB
 

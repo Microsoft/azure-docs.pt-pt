@@ -14,7 +14,7 @@ ms.openlocfilehash: 847c69a18a73d67b9b994e72686a4073ddd6d27f
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91857542"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Tutorial: Configurar GitHub para fornecimento automático de utilizadores

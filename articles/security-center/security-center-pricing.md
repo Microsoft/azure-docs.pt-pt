@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
 ms.openlocfilehash: a01d4137217aa594d4636f3338d3f33dc03cc836
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91713743"
 ---
 # <a name="pricing-of-azure-security-center"></a>Preços do Centro de Segurança Azure
@@ -65,7 +65,7 @@ Abaixo está a página de preços para uma subscrição de exemplo. Você vai no
 > Pode ativar a proteção contra ameaças para **a Base de Dados Azure para MariaDB/ MySQL/ PostgreSQL apenas** ao nível dos recursos.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 Neste artigo, foi introduzido no preço do Centro de Segurança. Para materiais relacionados ver:
 
 - [Como otimizar os seus custos de carga de trabalho Azure](https://azure.microsoft.com/blog/how-to-optimize-your-azure-workload-costs/)

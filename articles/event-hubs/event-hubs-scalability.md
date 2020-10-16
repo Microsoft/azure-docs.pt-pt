@@ -4,10 +4,10 @@ description: Este artigo fornece informações sobre como escalar os Hubs de Eve
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 4dacb24ace2332f590db54959cbf1f06694b982b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86521960"
 ---
 # <a name="scaling-with-event-hubs"></a>Escalando com centros de eventos
@@ -46,7 +46,7 @@ Pode utilizar uma [chave de partição](event-hubs-programming-guide.md#partitio
 O publicador de eventos apenas tem conhecimento da respetiva chave de partição, não da partição onde os eventos são publicados. Este desacoplamento da chave e da partição faz com que o remetente não tenha necessidade de saber muito sobre o processamento a jusante. Uma identidade por dispositivo ou utilizador exclusivo faz com que uma chave de partição seja segura, mas outros atributos como a geografia também podem ser utilizados para agrupar os eventos relacionados numa única partição.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 
 - [Dimensionar automaticamente unidades de débito](event-hubs-auto-inflate.md)

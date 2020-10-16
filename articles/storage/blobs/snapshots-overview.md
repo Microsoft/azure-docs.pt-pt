@@ -10,10 +10,10 @@ ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: ab4c152f30ab96fe5e221a605a2339c773e32547
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89295410"
 ---
 # <a name="blob-snapshots"></a>Snapshots blob
@@ -153,7 +153,7 @@ A tabela seguinte descreve o comportamento de faturação de uma bolha que é ap
 | Se a eliminação suave e a versão macias estão ativadas | Todas as versões existentes com o comprimento total do conteúdo, independentemente do nível. |
 | Se a eliminação suave blob estiver ativada, mas a versão é desativada | Todos os instantâneos de exclusão suave existentes com todo o comprimento do conteúdo, independentemente do nível. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Versão blob](versioning-overview.md)
 - [Criar e gerir um instantâneo blob em .NET](snapshots-manage-dotnet.md)

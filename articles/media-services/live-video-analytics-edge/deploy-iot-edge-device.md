@@ -3,12 +3,12 @@ title: Implemente o Live Video Analytics num dispositivo IoT Edge - Azure
 description: Este artigo lista os passos que o ajudarão a implementar o Live Video Analytics no seu dispositivo IoT Edge. Fá-lo-ia, por exemplo, se tivesse acesso a uma máquina Linux local e/ou criasse previamente uma conta Azure Media Services.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: 211dd0d61bbca39c4f4ec2f388d950c4615bb023
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a64fc11d7afa70d5200fdbd24bd3facdb8a95a7e
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90887237"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019584"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Implemente o Live Video Analytics num dispositivo IoT Edge
 
@@ -20,7 +20,7 @@ Este artigo lista os passos que o ajudarão a implementar o Live Video Analytics
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um dispositivo x86-64 ou um ARM64 que executa um dos [sistemas operativos Linux suportados](https://docs.microsoft.com/azure/iot-edge/support#operating-systems)
+* Um dispositivo x86-64 ou um ARM64 que executa um dos [sistemas operativos Linux suportados](../../iot-edge/support.md#operating-systems)
 * Assinatura Azure para a qual tem [privilégios de proprietário](../../role-based-access-control/built-in-roles.md#owner)
 * [Criar e configurar o Hub IoT](../../iot-hub/iot-hub-create-through-portal.md)
 * [Registar dispositivo IoT Edge](../../iot-edge/how-to-register-device.md)
@@ -40,7 +40,7 @@ Consulte [Criar uma função personalizada de Gestor de Recursos Azure](create-c
 
 Se pretender utilizar o Live Video Analytics para gravar o vídeo continuamente na nuvem e, posteriormente, utilizar [APIs de consulta](playback-recordings-how-to.md#query-api) antes de reproduzi-lo, recomendamos a atualização do seu Serviço de Media para utilizar um [ponto final de streaming premium.](../latest/streaming-endpoint-concept.md#types)  
 
-Este é um passo opcional. Pode utilizar este comando Azure CLI para o fazer:
+Este passo é opcional. Pode utilizar este comando Azure CLI para o fazer:
 
 ```azurecli
 az ams streaming-endpoint scale --resource-group $RESOURCE_GROUP --account-name $AMS_ACCOUNT -n default --scale-units 1

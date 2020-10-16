@@ -9,10 +9,10 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
 ms.openlocfilehash: b667254ece93c083de95728abe0ddecd5cfed197
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91612375"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Gerir chaves de conta de armazenamento com Key Vault e Azure PowerShell
@@ -53,7 +53,7 @@ Key Vault é uma aplicação da Microsoft pré-registada em todos os inquilinos 
 Para completar este guia, deve primeiro fazer o seguinte:
 
 - [Instale o módulo Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.6.0).
-- [Criar um cofre de chaves](quick-create-powershell.md)
+- [Criar um cofre chave](quick-create-powershell.md)
 - [Criar uma conta de armazenamento Azure](../../storage/common/storage-account-create.md?tabs=azure-powershell). O nome da conta de armazenamento deve utilizar apenas letras e números minúsculos. O comprimento do nome deve ter entre 3 e 24 caracteres.
       
 

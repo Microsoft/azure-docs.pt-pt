@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 4f7db88da646c9787c70d04ff7e3478a27a09275
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: f9e52d931f8873cebf42534fd6bf03b144e61e23
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401644"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974673"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Gestão de endereços IP do HDInsight
 
@@ -59,7 +59,7 @@ Permitir o tráfego dos endereços IP listados para os serviços de saúde e ges
 | Austrália | Leste da Austrália | 104.210.84.115</br>13.75.152.195 | \*:443 | Entrada |
 | &nbsp; | Sudeste da Austrália | 13.77.2.56</br>13.77.2.94 | \*:443 | Entrada |
 | Brasil | Sul do Brasil | 191.235.84.104</br>191.235.87.113 | \*:443 | Entrada |
-| Canadá | Leste do Canadá | 52.229.127.96</br>52.229.123.172 | \*:443 | Entrada |
+| Canada | Leste do Canadá | 52.229.127.96</br>52.229.123.172 | \*:443 | Entrada |
 | &nbsp; | Canadá Central | 52.228.37.66</br>52.228.45.222 |\*: 443 | Entrada |
 | China | Norte da China | 42.159.96.170</br>139.217.2.219</br></br>42.159.198.178</br>42.159.234.157 | \*:443 | Entrada |
 | &nbsp; | Leste da China | 42.159.198.178</br>42.159.234.157</br></br>42.159.96.170</br>139.217.2.219 | \*:443 | Entrada |
@@ -85,6 +85,7 @@ Permitir o tráfego dos endereços IP listados para os serviços de saúde e ges
 | &nbsp; | E.U.A. Oeste | 13.64.254.98</br>23.101.196.19 | \*:443 | Entrada |
 | &nbsp; | E.U.A. Oeste 2 | 52.175.211.210</br>52.175.222.222 | \*:443 | Entrada |
 | &nbsp; | Uae Norte | 65.52.252.96</br>65.52.252.97 | \*:443 | Entrada |
+| &nbsp; | Centro dos Emirados Árabes Unidos | 20.37.76.96</br>20.37.76.99 | \*:443 | Entrada |
 
 Para obter informações sobre os endereços IP a utilizar para o Governo Azure, consulte o documento [Azure Government Intelligence + Analytics.](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics)
 
@@ -92,7 +93,7 @@ Para obter mais informações, consulte [o tráfego da rede de controlo.](./cont
 
 Se estiver a utilizar rotas definidas pelo utilizador (UDRs), deve especificar uma rota e permitir o tráfego de saída da rede virtual para os IPs acima com o próximo conjunto de lúpulo definido para "Internet".
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar redes virtuais para clusters Azure HDInsight](hdinsight-create-virtual-network.md)
 * [Etiquetas de serviço do grupo de segurança de rede (NSG) para Azure HDInsight](hdinsight-service-tags.md)

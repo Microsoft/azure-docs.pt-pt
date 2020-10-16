@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/30/2020
 ms.author: victorh
 ms.openlocfilehash: 3323f73c137905fbe677c68d3830d7f609fa0172
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85611582"
 ---
 # <a name="deploy-a-security-partner-provider"></a>Implementar um fornecedor de parceiros de segurança
@@ -39,10 +39,10 @@ Ignore esta secção se estiver a colocar um fornecedor de terceiros num centro 
    > Os fornecedores de parceiros de segurança ligam-se ao seu hub utilizando túneis VPN Gateway. Se eliminar o Gateway VPN, perdem-se as ligações com os fornecedores de parceiros de segurança.
 9. Se pretender implantar o Azure Firewall para filtrar o tráfego privado juntamente com o fornecedor de serviços de terceiros para filtrar o tráfego da Internet, selecione uma política para o Azure Firewall. Veja os [cenários apoiados.](trusted-security-partners.md#key-scenarios)
 10. Se pretender colocar apenas um fornecedor de segurança de terceiros no centro, selecione **Azure Firewall: Habilitado/Desativado** para o definir para **Desativado**. 
-11. Selecione **Seguinte: Fornecedor de parceiros de segurança**.
+11. Selecione  **Seguinte: Fornecedor de parceiros de segurança**.
 12. Definir **o fornecedor de parceiros de** segurança para **ativar**. 
 13. Selecione um parceiro. 
-14. Selecione **Seguinte: Revisão + criar**. 
+14. Selecione **Seguinte: Rever + criar**. 
 15. Reveja o conteúdo e, em seguida, **selecione Criar**.
 
 A colocação de gateway VPN pode demorar mais de 30 minutos.
@@ -109,6 +109,6 @@ Em seguida, pode verificar se as máquinas virtuais VNet ou o site da sucursal p
 
 Depois de terminar os passos de definição da rota, as máquinas virtuais VNet, bem como os sites de ramificação, são enviadas uma rota de serviço de 0/0 para terceiros. Não se pode pDR ou SSH nestas máquinas virtuais. Para iniciar sação, pode implantar o serviço [Azure Bastion](../bastion/bastion-overview.md) num VNet com par.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Tutorial: Proteja a sua rede de nuvem com o Azure Firewall Manager utilizando o portal Azure](secure-cloud-network.md)

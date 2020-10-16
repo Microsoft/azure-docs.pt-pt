@@ -5,10 +5,10 @@ tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 09/09/2020
 ms.openlocfilehash: fb7e476a5b4416282546d321a5e9a0127b7a4364
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91372243"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Resolver problemas comuns de erros de implementação do Azure com o Azure Resource Manager
@@ -25,7 +25,7 @@ Se procura informações sobre um código de erro e essa informação não é fo
 | ContaPropertyCannotBeSet | Verifique as propriedades da conta de armazenamento disponível. | [armazenamento Contas](/azure/templates/microsoft.storage/storageaccounts) |
 | AtribuiçãoFailada | O cluster ou região não tem recursos disponíveis ou não pode suportar o tamanho de VM solicitado. Reda o pedido mais tarde, ou solicite um tamanho VM diferente. | [Questões de provisionamento e atribuição de problemas de linux,](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-linux.md) [provisionamento e atribuição de](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-windows.md) falhas na atribuição de janelas e [resolução de problemas](../../virtual-machines/troubleshooting/allocation-failure.md)|
 | Outra OperaçãoInProgress | Aguarde que a operação simultânea esteja concluída. | |
-| Autorizações Destruídas | A sua conta ou diretor de serviço não tem acesso suficiente para completar a implementação. Verifique a função a que a sua conta pertence e o seu acesso ao âmbito de implementação.<br><br>Pode receber este erro quando um fornecedor de recursos necessário não estiver registado. | [Controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)<br><br>[Resolver o registo](error-register-resource-provider.md) |
+| Autorizações Destruídas | A sua conta ou diretor de serviço não tem acesso suficiente para completar a implementação. Verifique a função a que a sua conta pertence e o seu acesso ao âmbito de implementação.<br><br>Pode receber este erro quando um fornecedor de recursos necessário não estiver registado. | [Controlo de acesso baseado em funções do Azure (RBAC do Azure)](../../role-based-access-control/role-assignments-portal.md)<br><br>[Resolver o registo](error-register-resource-provider.md) |
 | BadRequest | Enviaste valores de implantação que não correspondem ao esperado pelo Gestor de Recursos. Verifique a mensagem de estado interior para obter ajuda com a resolução de problemas. | [Referência do modelo](/azure/templates/) e [locais suportados](resource-location.md) |
 | Conflito | Está a pedir uma operação que não é permitida no estado atual dos recursos. Por exemplo, o redimensionamento do disco só é permitido quando se cria um VM ou quando o VM é transacionado. | |
 | ImplementaçãoActiveAndUneditable | Aguarde a implementação simultânea deste grupo de recursos para completar. | |

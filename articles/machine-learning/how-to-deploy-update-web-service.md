@@ -5,15 +5,17 @@ description: Saiba como atualizar um serviço web que já está implantado no Az
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
+ms.reviewer: larryfr
 ms.author: gopalv
 author: gvashishtha
 ms.date: 07/31/2020
-ms.openlocfilehash: 5f2def8d41252b2267f2de736dc93825ac767540
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: deploy
+ms.openlocfilehash: 3d468048030cad009171622bed175531834b947d
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328331"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998786"
 ---
 # <a name="update-a-deployed-web-service"></a>Atualizar um serviço web implantado
 

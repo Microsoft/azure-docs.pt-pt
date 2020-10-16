@@ -9,10 +9,10 @@ ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
 ms.openlocfilehash: 11b41f4dcffad2c98ea5d1f70346ba150fd18c17
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91278639"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre Gateway de Aplicação
@@ -71,7 +71,7 @@ Se estiver a utilizar um endereço IP público como ponto final, encontrará as 
 
 Para o v2 SKU, abra o recurso IP público e selecione **Configuração**. O campo **de marca DNS (opcional)** está disponível para configurar o nome DNS.
 
-### <a name="what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout"></a>Quais são as definições para o tempo limite keep-alive e para o intervalo de tempo do TCP?
+### <a name="what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout"></a>Quais são as definições para Keep-Alive tempo limite e tempo de inatividade da TCP?
 
 *O tempo limite keep-alive* rege quanto tempo o Gateway de aplicação aguardará que um cliente envie outro pedido HTTP sobre uma ligação persistente antes de o reutilizar ou fechar. *O tempo limite de inatividade da TCP* regula o tempo de duração da ligação TCP em caso de não atividade. 
 
@@ -121,7 +121,7 @@ A maioria das implementações que utilizam o V2 SKU demoram cerca de 6 minutos 
 
 ### <a name="can-i-use-exchange-server-as-a-backend-with-application-gateway"></a>Posso usar o Exchange Server como backend com o Gateway de Aplicações?
 
-Não. Application Gateway não suporta protocolos de e-mail como SMTP, IMAP e POP3.
+N.º Application Gateway não suporta protocolos de e-mail como SMTP, IMAP e POP3.
 
 ### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>Existe orientação disponível para migrar do V1 SKU para o V2 SKU?
 
@@ -133,7 +133,7 @@ Sim. O Gateway de Aplicação v1 SKU continuará a ser suportado. No entanto, é
 
 ### <a name="does-application-gateway-v2-support-proxying-requests-with-ntlm-authentication"></a>O Application Gateway V2 suporta pedidos de procuração com autenticação NTLM?
 
-Não. O Gateway V2 de aplicação ainda não suporta pedidos de procuração com autenticação NTLM.
+N.º O Gateway V2 de aplicação ainda não suporta pedidos de procuração com autenticação NTLM.
 
 ### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>O cookie de afinidade do Portal de Aplicação suporta o atributo SameSite?
 Sim, a [atualização v80](https://chromiumdash.appspot.com/schedule) do [navegador de Crómio](https://www.chromium.org/Home) introduziu um mandato em cookies HTTP sem atributo SameSite para ser tratado como SameSite=Lax. Isto significa que o cookie de afinidade Do Gateway de Aplicação não será enviado pelo navegador num contexto de terceiros. 
@@ -158,7 +158,7 @@ Sim, o Gateway de Aplicação v2 SKU suporta autoscaling. Para obter mais inform
 
 ### <a name="does-manual-or-automatic-scale-up-or-scale-down-cause-downtime"></a>A escala manual ou automática para cima ou para baixo causa tempo de inatividade?
 
-Não. As instâncias são distribuídas por domínios de atualização e domínios de falhas.
+N.º As instâncias são distribuídas por domínios de atualização e domínios de falhas.
 
 ### <a name="does-application-gateway-support-connection-draining"></a>O Application Gateway suporta a drenagem da ligação?
 
@@ -180,7 +180,7 @@ Enquanto tiver conectividade IP, o Application Gateway pode comunicar com casos 
 
 ### <a name="can-i-deploy-anything-else-in-the-application-gateway-subnet"></a>Posso colocar mais alguma coisa na sub-rede de gateway de aplicação?
 
-Não. Mas pode implementar outros gateways de aplicações na sub-rede.
+N.º Mas pode implementar outros gateways de aplicações na sub-rede.
 
 ### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>Os grupos de segurança da rede são suportados na sub-rede de gateway de aplicação?
 
@@ -192,7 +192,7 @@ Consulte [as rotas definidas pelo utilizador suportadas na sub-rede Do Gateway d
 
 ### <a name="are-service-endpoint-policies-supported-in-the-application-gateway-subnet"></a>As políticas de ponto final de serviço são suportadas na sub-rede Application Gateway?
 
-Não. [As políticas de ponto final de serviço](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview) para contas de armazenamento não são suportadas na sub-rede Do Gateway de Aplicação e a configuração irá bloquear o tráfego de infraestruturas Azure.
+N.º [As políticas de ponto final de serviço](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview) para contas de armazenamento não são suportadas na sub-rede Do Gateway de Aplicação e a configuração irá bloquear o tráfego de infraestruturas Azure.
 
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>Quais são os limites do Gateway de Aplicação? Posso aumentar estes limites?
 
@@ -216,7 +216,7 @@ A arquitetura de microserviços é suportada. Para sondar diferentes portas, é 
 
 ### <a name="do-custom-probes-support-wildcards-or-regex-on-response-data"></a>As sondas personalizadas suportam wildcards ou regex em dados de resposta?
 
-Não. 
+N.º 
 
 ### <a name="how-are-routing-rules-processed-in-application-gateway"></a>Como são processadas as regras de encaminhamento no Application Gateway?
 
@@ -232,7 +232,7 @@ Sim. Consulte [o acesso restrito a IPs de origem específica](https://docs.micro
 
 ### <a name="can-i-use-the-same-port-for-both-public-facing-and-private-facing-listeners"></a>Posso usar o mesmo porto para ouvintes virados para o público e para os privados?
 
-Não.
+N.º
 
 ### <a name="does-application-gateway-support-ipv6"></a>O Application Gateway suporta o IPv6?
 

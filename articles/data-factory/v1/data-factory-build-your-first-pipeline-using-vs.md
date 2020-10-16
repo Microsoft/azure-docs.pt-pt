@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.custom: vs-azure
 ms.date: 01/22/2018
 ms.openlocfilehash: 65309bbd70a6fda2bf725ce96cc5595cd9b55083
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91569064"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Tutorial: Criar uma fábrica de dados com o Visual Studio
@@ -563,7 +563,7 @@ Pode encadear duas atividades (executar uma atividade após a outra) ao definir 
 
 ## <a name="see-also"></a>Consulte também
 
-| Tópico | Description |
+| Tópico | Descrição |
 |:--- |:--- |
 | [Pipelines](data-factory-create-pipelines.md) |Este artigo ajuda-o a compreender os pipelines e as atividades no Azure Data Factory e como os utilizar para construir fluxos de dados condicionados por dados para o seu cenário ou empresa. |
 | [Conjuntos de dados](data-factory-create-datasets.md) |Este artigo ajuda-o a compreender os conjuntos de dados no Azure Data Factory. |

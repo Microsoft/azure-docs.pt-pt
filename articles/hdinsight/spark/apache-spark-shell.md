@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/10/2020
 ms.openlocfilehash: 84298c9073f00f0388a9bcb7405369d7c60bcce1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86081184"
 ---
 # <a name="run-apache-spark-from-the-spark-shell"></a>Executar Apache Spark da Concha de Faísca
@@ -114,7 +114,7 @@ O comando Spark Shell `spark-shell` (, ou `pyspark` ) suporta muitos parâmetros
 | ...pacotes MAVEN_COORDS | Lista separada por vírgula de coordenadas de frascos para incluir nos caminhos de classe do condutor e do executor. Procure o repo maven local, em seguida maven central, em seguida, quaisquer repositórios remotos adicionais especificados com `--repositories` . O formato das coordenadas é *groupId*:*artifactId*:*versão*. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
 | --py-files LIST | Apenas para Python, uma lista separada por vírgula de .zip, .egg, ou .py files para colocar no PYTHONPATH. | `--pyfiles "samples.py"` |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte [a Introdução ao Apache Spark em Azure HDInsight](apache-spark-overview.md) para obter uma visão geral.
 - Consulte [Criar um cluster Apache Spark em Azure HDInsight](apache-spark-jupyter-spark-sql.md) para trabalhar com clusters Spark e SparkSQL.

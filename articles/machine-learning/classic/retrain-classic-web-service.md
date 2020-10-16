@@ -10,10 +10,10 @@ ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT, devx-track-csharp
 ms.date: 02/14/2019
 ms.openlocfilehash: 0064509c1158d8b016413046cb528bfd125b5f2f
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362321"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Retreine e implemente um serviço web clássico do Studio (clássico)

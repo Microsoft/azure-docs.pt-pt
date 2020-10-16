@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
 ms.openlocfilehash: c4ac9e182a7504ea96f73f2ab95d50fb9d859e47
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91665230"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-elium"></a>Tutorial: Azure Ative Directory integração única (SSO) com Elium
@@ -96,7 +96,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação Elium espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
 
-    | Name | Atributo de origem|
+    | Nome | Atributo de origem|
     | ---------------| ----------------|
     | e-mail   |user.mail |
     | first_name| user.givenname |
@@ -153,15 +153,15 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Clique no perfil do **Utilizador** a partir do canto superior direito e, em seguida, selecione **Definições**.
 
-    ![Configurar único sinal-on elium 01](./media/elium-tutorial/elium-01.png)
+    ![Configurar Sign-On Elium 01](./media/elium-tutorial/elium-01.png)
 
 1. Selecione **Segurança** em **Avançado**.
 
-    ![Configurar o elium único 02](./media/elium-tutorial/elium-02.png)
+    ![Configurar Sign-On Elium 02](./media/elium-tutorial/elium-02.png)
 
 1. Desloque-se até à secção **de inscrição única (SSO)** e execute os seguintes passos:
 
-    ![Configurar único sinal-on elium 03](./media/elium-tutorial/elium-03.png)
+    ![Configurar Sign-On Elium 03](./media/elium-tutorial/elium-03.png)
 
     a. Copie o valor de **Verificar se a autenticação SAML2 funciona para a sua conta** e colá-la na caixa de texto URL de **inscrição na** secção **Configuração Básica saml** no portal Azure.
 
@@ -176,11 +176,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     e. Procure a **entidadeID** no ficheiro **de metadados SP,** copie o valor **de ÍV** da entidade e cole-a na caixa de texto **identifier** na secção **configuração de SAML Básico** no portal Azure. 
 
-    ![Configurar o elium único 04](./media/elium-tutorial/elium-04.png)
+    ![Configurar Sign-On Elium 04](./media/elium-tutorial/elium-04.png)
 
     f. Procure o **Serviço de Afirmaçãoconsumer no** ficheiro de **metadados SP,** copie o valor **de Localização** e cole-o na caixa de texto **URL de resposta** na secção **Configuração Básica SAML** no portal Azure.
 
-    ![Configurar único sinal-on elium 05](./media/elium-tutorial/elium-05.png)
+    ![Configurar Sign-On Elium 05](./media/elium-tutorial/elium-05.png)
 
     exemplo, Abra o ficheiro de metadados descarregado do portal Azure para o bloco de notas, copie o conteúdo e cole-o na caixa de texto de **metadados IdP.**
 

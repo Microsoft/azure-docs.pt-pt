@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: dech
 ms.openlocfilehash: ebfb175de67d7bb8ea011ac340b57f5d62d9e223
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91318811"
 ---
 # <a name="work-with-data-using-azure-cosmos-explorer"></a>Trabalhar com dados com o explorador do Azure Cosmos 
@@ -35,7 +35,7 @@ O Azure Cosmos DB explorer é uma interface independente baseada na web que perm
 
 4. Abra a lâmina **do Data Explorer,** selecione **Abrir o Ecrã Completo**. A partir do diálogo pop-up, pode ver dois URLs de acesso – **Ler** e **Ler**. Estes URLs permitem-lhe partilhar a sua conta DB Azure Cosmos temporariamente com outros utilizadores. O acesso à conta expira em 24 horas após o qual pode voltar a ligar-se utilizando um novo URL de acesso ou a cadeia de ligação. 
 
-   **Ler-Escrever** – Quando partilha o URL de Leitura-Escrita com outros utilizadores, eles podem visualizar e modificar as bases de dados, coleções, consultas e outros recursos associados a essa conta específica.
+   **Ler -Escrever** – Quando partilha o URL Read-Write com outros utilizadores, eles podem visualizar e modificar as bases de dados, coleções, consultas e outros recursos associados a essa conta específica.
 
    **Ler** - Quando partilha o URL apenas de leitura com outros utilizadores, eles podem ver as bases de dados, coleções, consultas e outros recursos associados a essa conta específica. Por exemplo, se quiser partilhar resultados de uma consulta com os seus colegas de equipa que não têm acesso ao portal Azure ou à sua conta DB Azure Cosmos, pode fornecer-lhes este URL.
 

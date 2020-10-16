@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: inhenkel
-ms.openlocfilehash: 797ba00820e7ff9d96868acdfc1dddfff3d21623
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7941d542ca2cab1637b9edaef057f740a9a1b7ef
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91598282"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016830"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Embalagem dinâmica em Media Services v3
 
@@ -30,7 +30,7 @@ O Microsoft Azure Media Services pode ser utilizado para codificar muitos format
 Nos Media Services, um [ponto final de streaming](streaming-endpoint-concept.md) (origem) representa um serviço dinâmico (just-in-time) de embalagem e origem que pode entregar o seu conteúdo ao vivo e a pedido diretamente a uma aplicação de cliente. Utiliza um dos protocolos comuns de streaming mencionados na secção seguinte. *A embalagem dinâmica* é uma característica que vem de série em todos os pontos finais de streaming.
 
 > [!NOTE]
-> Você pode usar o [portal Azure](https://portal.azure.com/) para gerir [eventos v3 ao vivo,](live-events-outputs-concept.md)ver [ativos](assets-concept.md)v3, obter informações sobre o acesso a APIs. Para todas as outras tarefas de gestão (por exemplo, transformações e empregos), utilize o [REST API,](/rest/api/media/) [O CLI,](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs apoiados.](media-services-apis-overview.md#sdks)
+> Você pode usar o [portal Azure](https://portal.azure.com/) para gerir [eventos v3 ao vivo,](live-events-outputs-concept.md)ver [ativos](assets-concept.md)v3, obter informações sobre o acesso a APIs. Para todas as outras tarefas de gestão (por exemplo, transformações e empregos), utilize o [REST API,](/rest/api/media/) [O CLI,](/cli/azure/ams)ou um dos [SDKs apoiados.](media-services-apis-overview.md#sdks)
 
 ## <a name="to-prepare-your-source-files-for-delivery"></a>Para preparar os seus ficheiros de origem para entrega
 
@@ -88,7 +88,7 @@ Os passos seguintes mostram um fluxo de trabalho comum de streaming de Serviços
 1. [Faça o upload de um ficheiro](job-input-from-http-how-to.md) de entrada como um MP4, QuickTime/MOV ou outro formato de ficheiro suportado. Este ficheiro também é referido como o mezanino ou o ficheiro de origem. Para a lista de formatos suportados, consulte [Formatos Suportados pelo Codificadores Standard](media-encoder-standard-formats.md).
 1. [Codificar](#encode-to-adaptive-bitrate-mp4s) o seu ficheiro mezanino num conjunto de bitrate adaptativo H.264/AAC MP4.
 
-    Se já tiver ficheiros codificados e apenas quiser copiar e transmitir os ficheiros, utilize: [CopyVideo](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyvideo) e [CopyAudio](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyaudio) APIs. Um novo ficheiro MP4 com um manifesto de streaming (.ficheiro ism) será criado como resultado.
+    Se já tiver ficheiros codificados e apenas quiser copiar e transmitir os ficheiros, utilize: [CopyVideo](/rest/api/media/transforms/createorupdate#copyvideo) e [CopyAudio](/rest/api/media/transforms/createorupdate#copyaudio) APIs. Um novo ficheiro MP4 com um manifesto de streaming (.ficheiro ism) será criado como resultado.
 1. Publique o ativo de saída que contém o conjunto de BITRATE adaptativo MP4. Publica criando um [localizador de streaming.](streaming-locators-concept.md)
 1. Construa URLs que visam diferentes formatos (HLS, MPEG-DASH e Smooth Streaming). O *ponto final de streaming* cuidaria de servir o manifesto correto e os pedidos para todos estes formatos diferentes.
     

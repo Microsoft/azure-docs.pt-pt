@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: b-juche
 ms.openlocfilehash: b2e597ff8fc761b66de6228063c471933a364144
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91449644"
 ---
 # <a name="configure-an-nfs-client-for-azure-netapp-files"></a>Configurar um cliente NFS para o Azure NetApp Files
@@ -79,7 +79,7 @@ O exemplo seguinte consulta o servidor AD LDAP do cliente Ubuntu LDAP para um ut
 `root@cbs-k8s-varun4-04:/home/cbs# getent passwd hari1`   
 `hari1:*:1237:1237:hari1:/home/hari1:/bin/bash`   
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Passos seguintes  
 
 * [Criar um volume NFS para o Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Criar um volume de duplo protocolo para ficheiros Azure NetApp](create-volumes-dual-protocol.md)

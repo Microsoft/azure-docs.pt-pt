@@ -1,14 +1,14 @@
 ---
 title: Extensão da política Azure para Código do Estúdio Visual
 description: Saiba como usar a extensão da Política Azure para o Código do Estúdio Visual para procurar pseudónimos do Gestor de Recursos Azure.
-ms.date: 06/16/2020
+ms.date: 10/14/2020
 ms.topic: how-to
-ms.openlocfilehash: 9b3f27492bee5301e22e83ebf9734afa3de43897
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: ea05ffab9c57c50e451008a1ec7c534afbedf282
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89648331"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077937"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Use a extensão da política Azure para código de estúdio visual
 
@@ -64,13 +64,13 @@ Para avaliar recursos e procurar pseudónimos, tem de se ligar à sua conta Azur
 
      A partir da extensão da Política Azure, **selecione Iniciar súm em Azure**.
 
-     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Screenshot do Código do Estúdio Visual e o ícone para a extensão da Política Azure." border="false":::
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Screenshot de selecionar a nação Azure cloud iniciar súmite para Código de Estúdio Visual." border="false":::
 
    - Paleta de comando
 
      A partir da barra de menu, vá à **Paleta de**  >  **Comando,** e introduza **Azure: Iniciar Sedura**.
 
-     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Screenshot do sinal de nuvem Azure em opções para Código de Estúdio Visual a partir da Paleta de Comando." border="false":::
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Screenshot de selecionar a nação Azure cloud iniciar súmite para Código de Estúdio Visual." border="false":::
 
 1. Siga o sinal em instruções para iniciar seduca. Depois de conectado, o nome da sua conta Azure é mostrado na barra de estado na parte inferior da janela Visual Studio Code.
 
@@ -82,7 +82,7 @@ Quando iniciar a sua primeira sação, apenas os recursos e políticas de subscr
 
    - Paleta de comando: 
 
-     A partir da barra de menu, vá à **Paleta**  >  **de Comando,** e **introduza Azure: Selecione Subscrições**.
+     A partir da barra de menu, vá à **Paleta** > **de Comando,** e **introduza Azure: Selecione Subscrições**.
 
    - Rodapé da janela
 
@@ -125,7 +125,7 @@ Quando um recurso é selecionado, seja através da interface de pesquisa ou sele
 
 Uma vez que um recurso esteja aberto, pairando sobre o nome ou valor da propriedade do Gestor de Recursos exibe o pseudónimo da Política Azure se existir. Neste exemplo, o recurso é um `Microsoft.Compute/virtualMachines` tipo de recurso e as **propriedades.storageProfile.imageReference.offer** propriedade está sobreda. Pairar mostra os pseudónimos correspondentes.
 
-:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Screenshot da extensão da Política Azure para Visual Studio Code pairando sobre uma propriedade para exibir os nomes de pseudónimos." border="false":::
+:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Screenshot de selecionar a nação Azure cloud iniciar súmite para Código de Estúdio Visual." border="false":::
 
 > [!NOTE]
 > A extensão do Código VS expõe apenas as propriedades do modo Gestor de Recursos e não apresenta nenhumas propriedades [do modo Fornecedor de Recursos.](../concepts/definition-structure.md#mode)
@@ -156,7 +156,7 @@ Ao selecionar uma política ou atribuição, seja através da interface de pesqu
 
 A partir da barra de menu, vá à **Paleta de**Comando  >  **Ver,** e depois insira **Azure: Assine**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Rever exemplos nas [amostras da Azure Policy](../samples/index.md).
 - Reveja a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).

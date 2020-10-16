@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: efd73907a8ca691ceb451391477c9c8e2239c250
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7ff618024c269a010eddf08128e827ade7921c94
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87043904"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940604"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-azure-powershell"></a>Quickstart: set and recuperar um certificado do Azure Key Vault usando Azure PowerShell
 
@@ -73,7 +73,7 @@ $Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs
 Add-AzKeyVaultCertificate -VaultName "Contoso-Vault2" -Name "ExampleCertificate" -CertificatePolicy $Policy
 ```
 
-Pode agora fazer referência a este certificado que adicionou ao Azure Key Vault utilizando o seu URI. Use **https://Contoso-Vault2.vault.azure.net/certificates/ExampleCertificate** para obter a versão atual. 
+Pode agora fazer referência a este certificado que adicionou ao Azure Key Vault utilizando o seu URI. Use **' https://Contoso-Vault2.vault.azure.net/certificates/ExampleCertificate para** obter a versão atual. 
 
 Para ver o certificado previamente armazenado:
 
@@ -83,7 +83,7 @@ Get-AzKeyVaultCertificate -VaultName "Contoso-Vault2" -Name "ExampleCertificate"
 
 Criaste um Cofre-Chave, armazenaste um certificado e recuperaste-o.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Outros inícios rápidos e tutoriais desta coleção têm por base este início rápido. Se quiser continuar a trabalhar com os inícios rápidos e tutoriais subsequentes, pode manter estes recursos.
 Quando já não é necessário, pode utilizar o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos relacionados. Pode eliminar os recursos da seguinte forma:

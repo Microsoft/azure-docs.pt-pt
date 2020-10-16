@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2020
 ms.author: allensu
-ms.openlocfilehash: 66eafb818b09d6d1cde6c1f3e2dbcdaf55352248
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e9092e9564fadb07311b151948656bc6cd007323
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87002986"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951728"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Cobertura Azure CDN by Metro 
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Este artigo lista os atuais Metros que contêm localizações de ponto de presen
 
 | Região | Microsoft | Verizon | Akamai |
 | --- | --- | --- | --- |
-| América do Norte | Toronto<br />Vancouver<br />Montreal<br />Querétaro<br />San Juan<br />Ashburn, VA, EUA<br />Atlanta, GA, EUA<br />Raleigh, NC, EUA<br />Boston, MA, EUA<br />Cheyenne, WY, EUA<br />Chicago, IL, EUA<br /> Dallas, TX, EUA<br />Denver, CO, EUA<br />Honolulu, HI, EUA<br />Houston, TX, EUA<br />Las Vegas, NV, EUA<br />Los Angeles, CA, EUA<br />Miami, FL, EUA<br />Nova Iorque, NY, EUA<br />Newark, NJ, EUA<br />Phoenix, AZ, EUA<br />Portland, OR, EUA<br />San Antonio, TX, EUA<br />San Jose, CA, EUA<br />Seattle, WA, EUA | Guadalajara<br />Cidade do México, México<br />Puebla<br />Querétaro<br />Atlanta, GA, EUA<br />Boston, MA, EUA<br />Chicago, IL, EUA<br />Dallas, TX, EUA<br />Denver, CO, EUA<br />Detroit, MI, EUA<br />Los Angeles, CA, EUA<br />Miami, FL, EUA<br />Nova Iorque, NY, EUA<br />Filadélfia, PA, EUA<br />San Jose, CA, EUA<br />Seattle, WA, EUA<br />Washington, DC, EUA <br /> Ashburn, VA, EUA <br /> Phoenix, AZ, EUA | Canadá<br />México<br />E.U.A. |
+| América do Norte | Toronto<br />Vancouver<br />Montreal<br />Querétaro<br />San Juan<br />Ashburn, VA, EUA<br />Atlanta, GA, EUA<br />Raleigh, NC, EUA<br />Boston, MA, EUA<br />Cheyenne, WY, EUA<br />Chicago, IL, EUA<br /> Dallas, TX, EUA<br />Denver, CO, EUA<br />Honolulu, HI, EUA<br />Houston, TX, EUA<br />Las Vegas, NV, EUA<br />Los Angeles, CA, EUA<br />Miami, FL, EUA<br />Nova Iorque, NY, EUA<br />Newark, NJ, EUA<br />Phoenix, AZ, EUA<br />Portland, OR, EUA<br />San Antonio, TX, EUA<br />San Jose, CA, EUA<br />Seattle, WA, EUA | Guadalajara<br />Cidade do México, México<br />Puebla<br />Querétaro<br />Atlanta, GA, EUA<br />Boston, MA, EUA<br />Chicago, IL, EUA<br />Dallas, TX, EUA<br />Denver, CO, EUA<br />Detroit, MI, EUA<br />Los Angeles, CA, EUA<br />Miami, FL, EUA<br />Nova Iorque, NY, EUA<br />Filadélfia, PA, EUA<br />San Jose, CA, EUA<br />Seattle, WA, EUA<br />Washington, DC, EUA <br /> Ashburn, VA, EUA <br /> Phoenix, AZ, EUA | Canada<br />México<br />USA |
 | América do Sul | Campinas<br />Rio de Janeiro, Brasil<br />São Paulo<br />Santiago<br />Bogotá<br />Buenos Aires | Buenos Aires<br />Rio de Janeiro, Brasil<br />São Paulo<br />Valparaíso<br />Bogotá<br />Barranquilla<br />Medellin<br />Quito<br />Lima | Argentina<br />Brasil<br />Chile<br />Colômbia<br />Equador<br />Peru<br />Uruguai |
 | Europa | Viena<br />Bruxelas, Bélgica<br />Sofia<br />Zagreb<br />Praga, República Checa<br />Copenhague, Dinamarca<br /> Helsínquia, Finlândia<br /> Oslo<br />Marselha, França<br />Paris, França<br />Berlim, Alemanha<br />Frankfurt<br />Atenas<br />Budapeste<br />Dublin<br />Milão, Itália<br />Roma, Itália<br />Amsterdão, Holanda<br />Varsóvia<br />Lisboa, Portugal<br />Bucareste<br />Barcelona, Espanha<br />Madrid<br />Estocolmo, Suécia<br />Zurique<br />Genebra<br />Londres, Reino Unido<br />Manchester, Reino Unido | Viena<br />Copenhague, Dinamarca<br />Helsínquia, Finlândia<br />Marselha, França<br />Paris, França<br />Frankfurt<br />Milão, Itália<br />Riga<br />Amsterdão, Holanda<br />Varsóvia<br />Madrid<br />Estocolmo, Suécia<br />Londres, Reino Unido <br /> Manchester, Reino Unido| Áustria<br />Bulgária<br />Dinamarca<br />Finlândia<br />França<br />Alemanha<br />Grécia<br />Irlanda<br />Itália<br />Países Baixos<br />Polónia<br />Rússia<br />Espanha<br />Suécia<br />Suíça<br />Reino Unido |
 | África | Cidade do Cabo, África do Sul<br />Joanesburgo, África do Sul<br />Lagos<br />Nairobi | Joanesburgo, África do Sul <br/> Nairobi | África do Sul |

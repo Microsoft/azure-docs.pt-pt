@@ -4,10 +4,10 @@ description: Este artigo descreve como preparar o Azure Migrate para trabalhar c
 ms.topic: how-to
 ms.date: 06/10/2020
 ms.openlocfilehash: ed7652cb34705bac56a79b5c30e6bda3dac69af0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86103930"
 ---
 # <a name="prepare-to-work-with-an-isv-tool-or-movere"></a>Prepare-se para trabalhar com uma ferramenta ISV ou Movere
@@ -45,7 +45,7 @@ Para ferramentas ISV e Assistente de Migração de Bases de Dados Azure, permita
 **URL** | **Detalhes**
 --- | ---
 *.portal.azure.com  | Navegue para o portal do Azure. 
-*.windows.net<br/> *.msftauth.net<br/> *.msauth.net <br/> *.microsoft.com<br/> *.live.com   | Inscreva-se na sua assinatura Azure. 
+\*.windows.net<br/> *.msftauth.net<br/> *.msauth.net <br/> *.microsoft.com<br/> *.live.com   | Inscreva-se na sua assinatura Azure. 
 *.microsoftonline.com<br/> *.microsoftonline-p.com | Crie aplicativos Azure Ative Directory (AD) para o aparelho comunicar com a Azure Migrate. 
 management.azure.com | Faça chamadas Azure Resource Manager para o Projeto Azure Migrate.
 *.servicebus.windows.net | Comunicação entre o aparelho e o EventHub para o envio das mensagens.
@@ -56,7 +56,7 @@ management.azure.com | Faça chamadas Azure Resource Manager para o Projeto Azur
 1. Se ainda não tiver licença ou teste gratuito para a ferramenta, na entrada da ferramenta em Azure Migrate, no **Registo**, selecione **Saiba mais**.
 2. Na ferramenta, siga as instruções para ligar da ferramenta ao projeto Azure Migrate e enviar dados para a Azure Migrate.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Siga as instruções do seu ISV ou Movere para enviar dados para Azure Migrate.
 

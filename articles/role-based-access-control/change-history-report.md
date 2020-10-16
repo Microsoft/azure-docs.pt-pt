@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 332d9a9ec28c4309fb1cf1d3e24d3cfd2d7d13d9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87321977"
 ---
 # <a name="view-activity-logs-for-azure-rbac-changes"></a>Ver registos de atividade para alterações do RBAC do Azure
@@ -43,7 +43,7 @@ A forma mais fácil de dar início a este processo é ver os registos de ativida
 
 O registo de atividade no portal tem vários filtros. Aqui estão os filtros relacionados com o Azure RBAC:
 
-| Filtro | Valor |
+| Filtrar | Valor |
 | --------- | --------- |
 | Categoria de eventos | <ul><li>Administrativo</li></ul> |
 | Operação | <ul><li>Criar atribuição de funções</li><li>Eliminar atribuição de funções</li><li>Criar ou atualizar a definição de função personalizada</li><li>Eliminar definição de função personalizada</li></ul> |

@@ -8,10 +8,10 @@ ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ms.openlocfilehash: 5821a1d1f6713ef39d7475fb004164e7c0fd71ec
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87062062"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Compreenda os gémeos digitais e o seu gráfico gémeo
@@ -21,7 +21,7 @@ Numa solução Azure Digital Twins, as entidades do seu ambiente são representa
 > [!TIP]
 > "Azure Digital Twins" refere-se a este serviço Azure como um todo. "Digital twin(s)" ou apenas "twin(s)" refere-se a nódoas gémeas individuais dentro do seu caso do serviço.
 
-## <a name="digital-twins"></a>Gémeos digitais
+## <a name="digital-twins"></a>Digital Twins
 
 Antes de criar um gémeo digital na sua instância Azure Digital Twins, precisa de ter um *modelo* carregado para o serviço. Um modelo descreve o conjunto de propriedades, mensagens de telemetria e relacionamentos que um gémeo em particular pode ter, entre outras coisas. Para os tipos de informação que são definidos num modelo, consulte [*Conceitos: Modelos personalizados.*](concepts-models.md)
 
@@ -120,7 +120,7 @@ Quando representado como um objeto JSON, um gémeo digital apresentará os segui
 | `$metadata.{propertyName}.ackDescription` | [Apenas para propriedades writable] A `ack` descrição devolvida pela aplicação do dispositivo implementando o twin digital |
 | `{componentName}` | Um objeto JSON contendo os valores de propriedade e metadados do componente, semelhantes aos do objeto raiz. Este objeto existe mesmo que o componente não tenha propriedades. |
 | `{componentName}.{propertyName}` | O valor da propriedade do componente em JSON `string` (, tipo de número ou objeto) |
-| `{componentName}.$metadata` | A informação de metadados para o componente, semelhante ao nível de raiz`$metadata` |
+| `{componentName}.$metadata` | A informação de metadados para o componente, semelhante ao nível de raiz `$metadata` |
 
 Aqui está um exemplo de um gémeo digital formatado como um objeto JSON:
 

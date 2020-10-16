@@ -9,10 +9,10 @@ ms.date: 07/12/2017
 ms.author: cynthn
 ms.subservice: disks
 ms.openlocfilehash: f56118750fc980c249c88b796728f4ecb2641a88
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86510961"
 ---
 # <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>Mover ficheiros de e para um VM Linux usando SCP
@@ -67,6 +67,6 @@ scp -r azureuser@myserver.eastus.cloudapp.com:/home/azureuser/logs/. /tmp/
 
 A `-r` bandeira instrui a SCP a copiar novamente os ficheiros e diretórios do ponto do diretório listado no comando.  Note também que a sintaxe da linha de comando é semelhante a um `cp` comando de cópia.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Gerir utilizadores, SSH e verificar ou reparar discos em VMs Azure Linux utilizando a Extensão VMAccess](../extensions/vmaccess.md?toc=/azure/virtual-machines/linux/toc.json)

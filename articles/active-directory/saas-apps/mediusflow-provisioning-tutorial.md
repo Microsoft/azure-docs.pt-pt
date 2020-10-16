@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/30/2020
 ms.author: Zhchia
 ms.openlocfilehash: 71dc05e3949c2675be6255723530693304e1aa3e
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91850086"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>Tutorial: Configure MediusFlow para o provisionamento automático do utilizador
@@ -159,12 +159,12 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
    |---|---|
    |userName|String|
    |emails[type eq "work"].value|String|
-   |nome.displayName|String|
+   |nome.displayName|Cadeia|
    |active|Booleano|
    |name.givenName|String|
    |name.familyName|String|
-   |nome.formatado|String|
-   |externalID|String|
+   |nome.formatado|Cadeia|
+   |externalID|Cadeia|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Referência|
 
 

@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 07/02/2020
 ms.author: alkohli
 ms.openlocfilehash: 17fa361fa4cef194d910d08d4a0afe075b119109
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91742524"
 ---
 # <a name="tutorial-use-rest-apis-to-copy-data-to-azure-data-box-blob-storage"></a>Tutorial: Use APIs de REPOUSO para copiar dados para o armazenamento de blob da caixa de dados Azure  

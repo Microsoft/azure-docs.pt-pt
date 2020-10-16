@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp
 ms.date: 02/20/2020
 ms.author: cshoe
 ms.openlocfilehash: 326115a2a6cf29fcf211cdbd918edd0994fe45ed
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88212123"
 ---
 # <a name="signalr-service-input-binding-for-azure-functions"></a>Ligação de entrada de serviço SignalR para funções Azure

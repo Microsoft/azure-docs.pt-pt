@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.openlocfilehash: d839ea042dec2224885f9ba4a0cb6adef5108568
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89458625"
 ---
 # <a name="azure-encryption-overview"></a>Descrição geral da encriptação do Azure
@@ -30,7 +30,7 @@ Para uma discussão mais detalhada sobre como os dados em repouso são encriptad
 
 ## <a name="azure-encryption-models"></a>Modelos de encriptação Azure
 
-O Azure suporta vários modelos de encriptação, incluindo encriptação do lado do servidor que utiliza chaves geridas pelo serviço, chaves geridas pelo cliente no Key Vault ou chaves geridas pelo cliente em hardware controlado pelo cliente. Com a encriptação do lado do cliente, pode gerir e armazenar chaves no local ou em outro local seguro.
+O Azure suporta vários modelos de encriptação, incluindo encriptação do lado do servidor que utiliza chaves geridas pelo serviço, chaves geridas pelo cliente no Key Vault ou chaves geridas pelo cliente em hardware controlado pelo cliente. Com a encriptação do lado do cliente, pode gerir e armazenar chaves no local ou noutra localização segura.
 
 ### <a name="client-side-encryption"></a>Encriptação do lado do cliente
 
@@ -197,9 +197,9 @@ Para saber mais sobre encriptação de dados em trânsito em Data Lake, consulte
 
 Sem proteção e gestão adequadas das chaves, a encriptação torna-se inútil. Key Vault é a solução recomendada pela Microsoft para gerir e controlar o acesso a chaves de encriptação usadas pelos serviços na nuvem. As permissões de acesso às chaves podem ser atribuídas a serviços ou a utilizadores através de contas do Azure Ative Directory.
 
-Key Vault alivia as organizações da necessidade de configurar, corrigir e manter módulos de segurança de hardware (HSMs) e software de gestão de chaves. Quando se usa o Cofre de Chaves, mantém-se o controlo. A Microsoft nunca vê as suas chaves e as aplicações não têm acesso direto às mesmos. Também pode importar ou gerar chaves em HSMs.
+Com o Key Vault as organizações poupam tempo na configuração, aplicação de patches e manutenção dos módulos de segurança de hardware (HSMs) e software de gestão de chaves. Quando se usa o Cofre de Chaves, mantém-se o controlo. A Microsoft nunca vê as suas chaves e as aplicações não têm acesso direto às mesmos. Também pode importar ou gerar chaves em HSMs.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Descrição geral da segurança do Azure](get-started-overview.md)
 - [Visão geral da segurança da rede Azure](network-overview.md)

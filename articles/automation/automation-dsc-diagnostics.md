@@ -10,10 +10,10 @@ ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 425a7ff0553ddeac502c59e240f5ab152d6e0d79
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87015158"
 ---
 # <a name="integrate-with-azure-monitor-logs"></a>Integre-se com registos do Monitor Azure
@@ -100,7 +100,7 @@ Um dos nossos principais pedidos de clientes é a capacidade de enviar um e-mail
 Para criar uma regra de alerta, comece por criar uma pesquisa de registo para os registos de relatórios de configuração do Estado que devem invocar o alerta. Clique no botão **Nova Regra de Alerta** para criar e configurar a regra de alerta.
 
 1. A partir da página de visão geral do espaço de trabalho do Log Analytics, clique em **Registars**.
-1. Crie uma consulta de pesquisa de registo para o seu alerta digitando a seguinte pesquisa no campo de consulta:`Type=AzureDiagnostics Category='DscNodeStatus' NodeName_s='DSCTEST1' OperationName='DscNodeStatusData' ResultType='Failed'`
+1. Crie uma consulta de pesquisa de registo para o seu alerta digitando a seguinte pesquisa no campo de consulta:  `Type=AzureDiagnostics Category='DscNodeStatus' NodeName_s='DSCTEST1' OperationName='DscNodeStatusData' ResultType='Failed'`
 
    Se tiver configurado registos de mais de uma conta de Automação ou subscrição do seu espaço de trabalho, pode agrupar os seus alertas por subscrição e conta Demôm automação. Obtém o nome da conta Automation do `Resource` campo na procura dos `DscNodeStatusData` registos.
 1. Para abrir o ecrã **de regras Criar,** clique em **Nova Regra de Alerta** no topo da página. 
@@ -112,7 +112,7 @@ Para obter mais informações sobre as opções para configurar o alerta, consul
 Uma vantagem de utilizar registos do Azure Monitor é que pode procurar verificações falhadas através de nós. Para encontrar todas as instâncias de recursos da DSC que falharam:
 
 1. Na página de visão geral do espaço de trabalho do Log Analytics, clique em **Registos**.
-1. Crie uma consulta de pesquisa de registo para o seu alerta digitando a seguinte pesquisa no campo de consulta:`Type=AzureDiagnostics Category='DscNodeStatus' OperationName='DscResourceStatusData' ResultType='Failed'`
+1. Crie uma consulta de pesquisa de registo para o seu alerta digitando a seguinte pesquisa no campo de consulta:  `Type=AzureDiagnostics Category='DscNodeStatus' OperationName='DscResourceStatusData' ResultType='Failed'`
 
 ### <a name="view-historical-dsc-node-status"></a>Ver estado histórico do nó DSC
 

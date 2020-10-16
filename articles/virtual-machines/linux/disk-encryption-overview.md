@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 405ebbbfa4a662dd9ee3c8d10dde8f28e5ce9c66
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: a6f5526b01588649d1e094036241d616a8392949
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830449"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996487"
 ---
-# <a name="azure-disk-encryption-for-linux-vms"></a>Encriptação do disco Azure para VMs Linux 
+# <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption para VMs do Linux 
 
 A Azure Disk Encryption ajuda a proteger e a salvaguardar os seus dados para cumprir as obrigações de conformidade e segurança da sua organização. Utiliza a funcionalidade [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para fornecer encriptação de volume para o SISTEMA e discos de dados de máquinas virtuais Azure (VMs), e está integrado com [o Azure Key Vault](../../key-vault/index.yml) para ajudá-lo a controlar e gerir as chaves e segredos de encriptação do disco. 
 
@@ -26,7 +26,7 @@ Se utilizar [o Centro de Segurança Azure,](../../security-center/index.yml)é a
 > [!WARNING]
 > - Se já utilizou a Encriptação do Disco Azure com AZure AD para encriptar um VM, deve continuar a utilizar esta opção para encriptar o seu VM. Consulte [a encriptação do disco Azure com Azure AD (versão anterior)](disk-encryption-overview-aad.md) para obter mais detalhes. 
 > - Certas recomendações podem aumentar o uso de dados, redes ou recursos computativos, resultando em custos adicionais de licença ou subscrição. Você deve ter uma subscrição ativa válida Azure para criar recursos em Azure nas regiões apoiadas.
-> - Atualmente, os VMs da Geração 2 não suportam a Encriptação do Disco Azure. Consulte [o Suporte para Azure da Geração 2](../windows/generation-2.md) para obter mais detalhes.
+> - Atualmente, os VMs da Geração 2 não suportam a Encriptação do Disco Azure. Consulte [o Suporte para Azure da Geração 2](../generation-2.md) para obter mais detalhes.
 
 Pode aprender os fundamentos da Encriptação do Disco Azure para o Linux em poucos minutos com o [Create e encriptar um Linux VM com quickstart Azure CLI](disk-encryption-cli-quickstart.md) ou o [Create e encriptar um Linux VM com quickstart Azure PowerShell](disk-encryption-powershell-quickstart.md).
 
@@ -46,7 +46,7 @@ Uma vez concluído o processo de encriptação do disco OS em máquinas virtuais
 
 A Azure Disk Encryption também está disponível para VMs com armazenamento premium.
 
-A encriptação do disco Azure não está disponível em [VMs da Geração 2](generation-2.md#generation-1-vs-generation-2-capabilities)e [VMs da série Lsv2).](../lsv2-series.md) Para mais exceções, consulte [encriptação do disco Azure: cenários não suportados](disk-encryption-linux.md#unsupported-scenarios).
+A encriptação do disco Azure não está disponível em [VMs da Geração 2](../generation-2.md#generation-1-vs-generation-2-capabilities) e [VMs da série Lsv2](../lsv2-series.md). Para mais exceções, consulte [encriptação do disco Azure: cenários não suportados](disk-encryption-linux.md#unsupported-scenarios).
 
 ### <a name="supported-operating-systems"></a>Sistemas operativos suportados
 
@@ -108,8 +108,8 @@ Certifique-se de que as definições /etc/fstab estão configuradas corretamente
 Aqui está um exemplo dos comandos utilizados para montar os discos de dados e criar as entradas necessárias /etc/fstab:
 
 ```bash
-UUID0="$(blkid -s UUID -o value /dev/disk/azure/scsi1/lun0)"
-UUID1="$(blkid -s UUID -o value /dev/disk/azure/scsi1/lun1)"
+UUID0="$(blkid -s UUID -o value /dev/sda1)"
+UUID1="$(blkid -s UUID -o value /dev/sda2)"
 mkdir /data0
 mkdir /data1
 echo "UUID=$UUID0 /data0 ext4 defaults,nofail 0 0" >>/etc/fstab
@@ -144,7 +144,7 @@ A tabela a seguir define alguns dos termos comuns utilizados na documentação d
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Quickstart - Criar e encriptar um Linux VM com Azure CLI](disk-encryption-cli-quickstart.md)
+- [Quickstart - Criar e encriptar um Linux VM com Azure CLI ](disk-encryption-cli-quickstart.md)
 - [Quickstart - Criar e encriptar um Linux VM com Azure Powershell](disk-encryption-powershell-quickstart.md)
 - [Cenários do Azure Disk Encryption em VMs com Linux](disk-encryption-linux.md)
 - [Encriptação de disco Azure pré-requisitos do script CLI](https://github.com/ejarvi/ade-cli-getting-started)

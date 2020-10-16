@@ -14,10 +14,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
 ms.openlocfilehash: 8459ab364fc0af15dd1a1b0035e4ce27d192f7a9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91293463"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Continuidade de negócios e HADR para SQL Server em Máquinas Virtuais Azure
@@ -150,7 +150,7 @@ Para obter mais informações sobre a conectividade do cliente, consulte:
 * [Conecte os clientes a uma sessão de espelhamento de base de dados (SQL Server)](https://technet.microsoft.com/library/ms175484.aspx)
 * [Conectar-se ao Ouvinte do Grupo disponibilidade em IT híbrido](https://docs.microsoft.com/archive/blogs/sqlalwayson/connecting-to-availability-group-listener-in-hybrid-it)
 * [Disponibilidade De Ouvintes do Grupo, Conectividade do Cliente e Falha de Aplicação (SQL Server)](https://technet.microsoft.com/library/hh213417.aspx)
-* [Utilização de cadeias de ligação de espelhamento de base de dados com grupos de disponibilidade](https://technet.microsoft.com/library/hh213417.aspx)
+* [Utilizando Database-Mirroring cadeias de conexão com grupos de disponibilidade](https://technet.microsoft.com/library/hh213417.aspx)
 
 ### <a name="network-latency-in-hybrid-it"></a>Latência da rede em TI híbrido
 Implemente a sua solução HADR com o pressuposto de que pode haver períodos de alta latência de rede entre a sua rede no local e a Azure. Quando estiver a implementar réplicas para o Azure, use um compromisso assíncronos em vez de comprometer-se sincronizado para o modo de sincronização. Quando estiver a implementar servidores espelhados de base de dados tanto no local como no Azure, utilize o modo de alto desempenho em vez do modo de alta segurança.

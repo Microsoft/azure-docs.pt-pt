@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 09/25/2020
 ms.author: allensu
 ms.openlocfilehash: c41bf8bc6e5aa3749786bc1189343dfdebdc1508
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91321250"
 ---
 # <a name="monitoring-metrics-and-raw-logs-for-azure-cdn-from-microsoft"></a>Métricas de Monitorização e Registos Brutos para Azure CDN da Microsoft
@@ -61,7 +61,7 @@ Para configurar registos Raw para o seu Azure CDN a partir do perfil da Microsof
     * **Transmita para um centro de eventos**
         * Selecione o espaço de nome do centro de **eventos,** **nome do hub do evento (opcional)** e nome de política do centro de **eventos**. **Subscription**
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-02.png" alt-text="Configure o destino para as definições de registo." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-02.png" alt-text="Adicione a definição de diagnóstico para o perfil de CDN." border="true":::
 
 7. Selecione **Guardar**.
 
@@ -215,7 +215,7 @@ Para obter mais informações, consulte as [métricas do Monitor Azure.](https:/
 
 **Métricas suportadas pela Azure CDN da Microsoft**
 
-| Métricas         | Description                                                                                                      | Dimensão                                                                                   |
+| Métricas         | Descrição                                                                                                      | Dimensão                                                                                   |
 |-----------------|------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
 | Rácio bytes Hit* | A percentagem de saídas da cache CDN, calculada contra a saída total.                                      | Ponto final                                                                                    |
 | PedidoCount    | O número de pedidos de clientes servidos pela CDN.                                                                     | Ponto final </br> País cliente. </br> Região de clientes. </br> Estado de HTTP. </br> Grupo de status HTTP. |
@@ -235,23 +235,23 @@ Cenários excluídos no cálculo do rácio de impacto dos bytes:
 
 2. Em **Monitorização,** selecione **Métricas:**
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-03.png" alt-text="Métricas para o perfil de CDN." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-03.png" alt-text="Adicione a definição de diagnóstico para o perfil de CDN." border="true":::
 
 3. Selecione **Adicionar métrica,** selecione a métrica para adicionar:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-04.png" alt-text="Adicione e selecione a métrica para o perfil cdN." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-04.png" alt-text="Adicione a definição de diagnóstico para o perfil de CDN." border="true":::
 
 4. **Selecione Adicionar filtro** para adicionar um filtro:
     
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-05.png" alt-text="Aplique o filtro na métrica." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-05.png" alt-text="Adicione a definição de diagnóstico para o perfil de CDN." border="true":::
 
 5. Selecione **Aplicar** divisão para ver tendência por diferentes dimensões:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-06.png" alt-text="Aplicar divisão na métrica." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-06.png" alt-text="Adicione a definição de diagnóstico para o perfil de CDN." border="true":::
 
 6. Selecione **novo gráfico** para adicionar um novo gráfico:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-07.png" alt-text="Adicione um novo gráfico à vista métrica." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-07.png" alt-text="Adicione a definição de diagnóstico para o perfil de CDN." border="true":::
 
 ### <a name="alerts"></a>Alertas
 
@@ -259,7 +259,7 @@ Pode configurar alertas no Microsoft CDN selecionando Alertas **de Monitorizaç�
 
 Selecione **nova regra de alerta** para as métricas listadas na secção Métricas:
 
-:::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="Configure os alertas para o ponto final do CDN." border="true":::
+:::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="Adicione a definição de diagnóstico para o perfil de CDN." border="true":::
 
 O alerta será carregado com base no Monitor Azure. Para obter mais informações sobre alertas, consulte [os alertas do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
@@ -270,21 +270,21 @@ Pode ativar métricas adicionais usando Azure Log Analytics e troncos crus por u
 
 2. Selecione o espaço de trabalho Log Analytics que criou:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-09.png" alt-text="Selecione log analytics espaço de trabalho" border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-09.png" alt-text="Adicione a definição de diagnóstico para o perfil de CDN." border="true":::   
 
 3. Selecione **Registos** em **Geral** no espaço de trabalho de análise de registo.  Em seguida, **selecione Começar:**
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-10.png" alt-text="Log analytics recursos espaço de trabalho." border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-10.png" alt-text="Adicione a definição de diagnóstico para o perfil de CDN." border="true":::   
  
 4. Selecione **perfis CDN**.  Selecione uma consulta de exemplo para RUN ou feche o ecrã de exemplo para introduzir uma consulta personalizada:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-11.png" alt-text="Tela de consulta de exemplo." border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-11.png" alt-text="Adicione a definição de diagnóstico para o perfil de CDN." border="true":::   
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-12.png" alt-text="Execução de consultas." border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-12.png" alt-text="Adicione a definição de diagnóstico para o perfil de CDN." border="true":::   
 
 4. Para ver dados por gráfico, selecione **Gráfico**.  Selecione **Pin para painel de instrumentos** para fixar a tabela no painel Azure:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-13.png" alt-text="Gráfico pin para painel." border="true"::: 
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-13.png" alt-text="Adicione a definição de diagnóstico para o perfil de CDN." border="true"::: 
 
 ## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, ativou registos em bruto HTTP para o serviço Microsoft CDN.

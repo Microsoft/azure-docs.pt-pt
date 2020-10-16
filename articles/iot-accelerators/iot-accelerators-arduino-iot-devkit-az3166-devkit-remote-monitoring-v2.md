@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: isacabe
-ms.openlocfilehash: ed14d4cb79cb5794fa666f1bb96e062d69128d0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a9285ebe2e749f5ac7f248a2703518c8ac237bc
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87337675"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071681"
 ---
 # <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>Ligue um dispositivo IoT DevKit ao acelerador de solução de monitorização remota
 
@@ -28,7 +28,7 @@ O [MXChip IoT DevKit](https://aka.ms/iot-devkit) é um tabuleiro compatível com
 
 Para completar os passos neste tutorial, primeiro faça as seguintes tarefas:
 
-* Prepare o seu DevKit seguindo os passos no [Connect IoT DevKit AZ3166 para Azure IoT Hub na nuvem](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
+* Prepare o seu DevKit seguindo os passos no [Connect IoT DevKit AZ3166 para Azure IoT Hub na nuvem](../iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md).
 
 ## <a name="open-sample-project"></a>Projeto de amostra aberta
 
@@ -109,7 +109,7 @@ Para alterar a cor de um dos LEDs DevKit, utilize o método **LedColor:**
 
     ![IoT DevKit vermelho led](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-devkit-led.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se planear avançar para os tutoriais, deixe o acelerador de soluções de Monitorização Remota implementado.
 
@@ -128,5 +128,5 @@ Se tiver algum problema, consulte [as FAQs IoT DevKit](https://microsoft.github.
 
 Agora que aprendeu a ligar um dispositivo DevKit ao seu acelerador de solução de monitorização remota, aqui estão alguns passos sugeridos:
 
-* [Visão geral dos aceleradores de solução Azure IoT](https://docs.microsoft.com/azure/iot-accelerators/)
+* [Visão geral dos aceleradores de solução Azure IoT](./index.yml)
 * [Personalizar a IU](iot-accelerators-remote-monitoring-customize.md)

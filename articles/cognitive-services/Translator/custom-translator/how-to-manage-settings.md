@@ -10,10 +10,10 @@ ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: 184073ef3ee1b6a67c844754f7da81f88bbbdf62
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91757032"
 ---
 # <a name="how-to-manage-settings"></a>Como gerir as definições

@@ -13,10 +13,10 @@ ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 07/08/2020
 ms.openlocfilehash: 77c54d6ea463b5a8a4952d243886b80f38312d27
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91291491"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Estado dos cenários de migração suportados pelo Azure Database Migration Service

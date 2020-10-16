@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 3179324dd71ebf3bb44cb68f0fd84486bb88e2ce
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 987d4c7188c2bdc2ba6264805e33b79e7d2851d6
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91441048"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966292"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Troubleshoot Azure Windows virtual machine activation problems (Resolver problemas de ativação de máquinas virtuais do Windows no Azure)
 
@@ -54,14 +54,14 @@ De um modo geral, os problemas de ativação de VMs do Azure ocorrerão se a VM 
 
 Para o VM que é criado a partir de uma imagem personalizada, você deve configurar a chave de configuração do cliente KMS apropriado para o VM.
 
-1. Executar **slmgr.vbs /dlv** em um pedido de comando elevado. Verifique o valor descrição na saída e, em seguida, determine se foi criado a partir de meios de licença de retalho (canal de retalho) ou volume (VOLUME_KMSCLIENT):
+1. Executar **slmgr.vbs /dlv** num pedido de comando elevado. Verifique o valor descrição na saída e, em seguida, determine se foi criado a partir de meios de licença de retalho (canal de retalho) ou volume (VOLUME_KMSCLIENT):
   
 
     ```
     cscript c:\windows\system32\slmgr.vbs /dlv
     ```
 
-2. Se **slmgr.vbs /dlv** mostrar o canal RETAIL, execute os comandos seguintes para definir a [chave de configuração do cliente KMS](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys) relativa à versão do Windows Server que está a ser utilizada e force a repetição da ativação: 
+2. Se **slmgr.vbs /dlv** mostrar o canal RETAIL, execute os comandos seguintes para definir a [chave de configuração do cliente KMS](/windows-server/get-started/kmsclientkeys) relativa à versão do Windows Server que está a ser utilizada e force a repetição da ativação: 
 
     ```
     cscript c:\windows\system32\slmgr.vbs /ipk <KMS client setup key>
@@ -124,7 +124,7 @@ Não. A imagem no Azure Marketplace tem a chave de configuração do cliente KMS
 ### <a name="does-windows-activation-work-the-same-way-regardless-if-the-vm-is-using-azure-hybrid-use-benefit-hub-or-not"></a>A ativação do Windows funciona da mesma forma, independentemente de o VM estar a utilizar ou não o Benefício de Utilização Híbrida Azure (HUB) ou não? 
 
  
-Sim. 
+Yes. 
  
 
 ### <a name="what-happens-if-windows-activation-period-expires"></a>O que acontece se o período de ativação do Windows expirar? 

@@ -12,17 +12,17 @@ ms.date: 05/21/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.openlocfilehash: 7e7a1de24e5032b2dade2f325560fd6964c892d5
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86145692"
 ---
 # <a name="debug-application-proxy-connector-issues"></a>Depurar problemas de conectores do Proxy de Aplicações 
 
 Este artigo ajuda-o a resolver problemas com conectores de aplicação Proxy da aplicação Azure Ative(Azure AD). Se estiver a utilizar o serviço Application Proxy para acesso remoto a uma aplicação web no local, mas está com dificuldades em ligar-se à aplicação, use este fluxograma para depurar problemas de conector. 
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo pressupõe que instalou o conector Application Proxy e está com um problema. Ao resolver problemas problemas de aplicação Proxy, recomendamos que comece com este fluxo de resolução de problemas para determinar se os conectores Proxy da aplicação estão configurados corretamente. Se ainda tiver problemas em ligar-se à aplicação, siga o fluxo de resolução de problemas em problemas de [aplicação de aplicação de aplicação de aplicação de aplicação de depuração](application-proxy-debug-apps.md).  
 

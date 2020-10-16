@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.openlocfilehash: cf138248e878b21531df2035dfeda1b90162ea99
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91536108"
 ---
 # <a name="intents-in-your-luis-app"></a>Intenções na sua app LUIS
@@ -25,7 +25,7 @@ Defina um conjunto de intenções que corresponda às ações que os utilizadore
 Intenções de aplicativo de viagem   |   Expressões de exemplo   |
 ------|------|
  ReservarBilhete     |   "Reserve-me um voo para o Rio na próxima semana" <br/> "Voe-me para o Rio no dia 24" <br/> "Preciso de um bilhete de avião no próximo domingo para o Rio de janeiro"    |
- Saudação     |   "Olá" <br/>"Olá" <br/>"Bom dia"  |
+ Saudação     |   "Hi" (Viva) <br/>"Hello" (Olá) <br/>"Good morning" (Bom dia)  |
  CheckWeather | "Como está o tempo em Boston?" <br/> "Mostre-me a previsão para este fim de semana" |
  Nenhum         | "Arranja-me uma receita de biscoitos"<br>"Os Lakers ganharam?" |
 
@@ -63,7 +63,7 @@ Crie uma intenção quando a _intenção_ do utilizador desencadearia uma ação
 
 ## <a name="none-intent"></a>Intenção None (Nenhuma)
 
-A intenção **de Ninguém** é criada, mas deixada vazia de propósito. A intenção **de Nenhum** é uma intenção necessária e não pode ser apagada ou renomeada. Encha-o com expressões que estão fora do seu domínio.
+A intenção **de Ninguém** é criada, mas deixada vazia de propósito. A intenção **de Nenhum** é uma intenção necessária e não pode ser apagada ou renomeada. Preencha-a com expressões que estejam fora do seu domínio.
 
 A intenção **de None** é a intenção de recuo, importante em cada app, e deve ter 10% do total de declarações. É usado para ensinar expressões LUIS que não são importantes no domínio da aplicação (área de assunto). Se não adicionar nenhuma expressão para a intenção **de Ninguém,** LUIS força uma expressão que está fora do domínio em uma das intenções de domínio. Isto irá distorcer as notas de previsão ensinando a LUIS a intenção errada para a expressão.
 
@@ -98,7 +98,7 @@ Saiba mais sobre a combinação de apps de fabricantes LUIS e QnA com o [modelo 
 ### <a name="request-help-for-apps-with-significant-number-of-intents"></a>Pedir ajuda para apps com número significativo de intenções
 Se reduzir o número de intenções ou dividir as suas intenções em várias aplicações não funcionar para si, contacte o suporte. Se a sua subscrição Azure incluir serviços de suporte, contacte [o suporte técnico da Azure.](https://azure.microsoft.com/support/options/)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [as entidades,](luis-concept-entity-types.md)que são palavras importantes relevantes para as intenções
 * Saiba como [adicionar e gerir intenções](luis-how-to-add-intents.md) na sua app LUIS.

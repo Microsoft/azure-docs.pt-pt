@@ -4,10 +4,10 @@ description: Este artigo diz como resolver problemas e resolver problemas com o 
 ms.date: 09/02/2020
 ms.topic: conceptual
 ms.openlocfilehash: 36feb6a65ec52d99dfd664ae54cb099ea6a7e239
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90900685"
 ---
 # <a name="troubleshoot-the-connected-machine-agent-connection-issues"></a>Resolução de problemas dos problemas de ligação do agente da máquina conectado

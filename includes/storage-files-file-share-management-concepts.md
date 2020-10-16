@@ -9,10 +9,10 @@ ms.date: 12/26/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 8d26b6c92462abc13c42257d2c6e571156eacc0f
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90563470"
 ---
 As ações de ficheiros Azure são implantadas em contas de armazenamento, que são *objetos*de alto nível que representam um conjunto partilhado de armazenamento. Este conjunto de armazenamento pode ser usado para implantar várias partilhas de ficheiros, bem como outros recursos de armazenamento, tais como recipientes blob, filas ou mesas. Todos os recursos de armazenamento que são implantados numa conta de armazenamento partilham os limites que se aplicam a essa conta de armazenamento. Para ver os limites atuais para uma conta de armazenamento, consulte [os objetivos de escalabilidade e desempenho dos Ficheiros Azure](../articles/storage/files/storage-files-scale-targets.md).

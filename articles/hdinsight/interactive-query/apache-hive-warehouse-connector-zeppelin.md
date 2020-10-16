@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
 ms.openlocfilehash: 6ee1c70ec02af2a24f7867a6e6b06593361612b2
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86083122"
 ---
 # <a name="integrate-apache-zeppelin-with-hive-warehouse-connector-in-azure-hdinsight"></a>Integre Apache Zeppelin com Conector de Armazém de Colmeia em Azure HDInsight
@@ -139,7 +139,7 @@ hive.executeQuery("select * from testers").show()
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Operações do HWC e do Apache Spark](./apache-hive-warehouse-connector-operations.md)
 * [Integração do HWC no Apache Spark e no Apache Hive](./apache-hive-warehouse-connector.md)

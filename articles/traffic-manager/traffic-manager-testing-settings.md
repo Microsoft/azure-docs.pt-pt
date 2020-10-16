@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: duau
 ms.openlocfilehash: 4bb7458d4258dffb074d663e5cf712c7a0245cc7
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401525"
 ---
 # <a name="verify-traffic-manager-settings"></a>Verificar definições do Gestor de Tráfego
@@ -68,7 +68,7 @@ Para testar eficazmente um método de encaminhamento de tráfego de desempenho, 
 
 Em alternativa, existem serviços gratuitos de procura e escavação de DNS baseados na Web disponíveis. Algumas destas ferramentas dão-lhe a capacidade de verificar a resolução do nome DNS de vários locais do mundo. Faça uma pesquisa em "DNS searchup" por exemplo. Serviços de terceiros como Gomez ou Keynote podem ser usados para confirmar que os seus perfis estão a distribuir tráfego como esperado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Sobre os métodos de encaminhamento de tráfego do Traffic Manager](traffic-manager-routing-methods.md)
 * [Considerações de desempenho para o Gestor de Tráfego](traffic-manager-performance-considerations.md)

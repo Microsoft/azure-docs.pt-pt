@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 5/18/2020
 ms.author: derekol
 ms.openlocfilehash: 22cb179925f95fd0762371cc904fcbd02675339a
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540273"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-the-portal"></a>Associar o ASN do elemento de rede à subscrição do Azure com o portal
@@ -94,7 +94,7 @@ Modificar o PeerAsn não é suportado atualmente. Se precisar de modificar, cont
 ## <a name="delete-peerasn"></a>Eliminar PeerAsn
 A eliminação de um PeerAsn não é atualmente apoiada. Se precisar de eliminar o PeerAsn, contacte [a Microsoft a espreitar](mailto:peering@microsoft.com).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar ou modificar um peering Direto com o portal](howto-direct-portal.md)
 * [Converter um peering Direto legado para o recurso do Azure com o portal](howto-legacy-direct-portal.md)

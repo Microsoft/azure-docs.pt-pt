@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: mvc
 ms.openlocfilehash: 40f8c53394292a85f6fd032e445d79ed82e2d4e9
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260258"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integrar a Gestão da API com tecido de serviço em Azure

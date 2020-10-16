@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: sfrev
 ms.openlocfilehash: 7ad0d4f6d92ba8d85383df281bd14681f43bb6d4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86258730"
 ---
 # <a name="service-fabric-application-resource-model"></a>Modelo de recurso de aplicação de tecido de serviço
@@ -71,7 +71,7 @@ Neste tutorial, utilizamos o [pedido de amostra de voto.](https://github.com/Azu
 1. No Estúdio Visual, clique à direita no projeto **De Votação** e, em seguida, selecione **Pacote**.
 
    ![Aplicação de pacotes][PackageApplication]  
-1. Vá ao *diretório .\service-fabric-dotnet-quickstart\Vot\pkg\Debug.* Feche o conteúdo num ficheiro chamado *Voting.zip*. O *ficheiroApplicationManifest.xml* deve estar na raiz do ficheiro zip.
+1. Vá ao *diretório .\service-fabric-dotnet-quickstart\Vot\pkg\Debug.* Feche o conteúdo num ficheiro chamado *Voting.zip*. O * ficheiroApplicationManifest.xml* deve estar na raiz do ficheiro zip.
 
    ![Aplicação Zip][ZipApplication]  
 1. Mude o nome do ficheiro para alterar a extensão de .zip para *.sfpkg*.

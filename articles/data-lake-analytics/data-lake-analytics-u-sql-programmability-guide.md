@@ -8,17 +8,17 @@ ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: how-to
 ms.date: 06/30/2017
 ms.openlocfilehash: 1c22aa9fb91b0a86704b95586afc1779023e85b6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87288938"
 ---
 # <a name="u-sql-programmability-guide"></a>Guia de programabilidade U-SQL
 
 U-SQL é uma linguagem de consulta que é projetada para grandes cargas de trabalho tipo dado. Uma das características únicas do U-SQL é a combinação da linguagem declarativa semelhante ao SQL com a extensibilidade e programabilidade que é fornecida por C#. Neste guia, concentramo-nos na extensibilidade e programabilidade da linguagem U-SQL que é ativada por C#.
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 
 Descarregue e instale [ferramentas do Lago de Dados Azure para o Estúdio Visual.](https://www.microsoft.com/download/details.aspx?id=49504)
 
@@ -83,7 +83,7 @@ OUTPUT @rs1
 
 ### <a name="use-c-expressions-for-todays-date"></a>Use expressões C# para a data de hoje
 
-Para puxar a data de hoje, podemos usar a seguinte expressão C#:`DateTime.Now.ToString("M/d/yyyy")`
+Para puxar a data de hoje, podemos usar a seguinte expressão C#: `DateTime.Now.ToString("M/d/yyyy")`
 
 Aqui está um exemplo de como usar esta expressão num script:
 
@@ -529,9 +529,9 @@ A `IFormatter` interface serializa e des-serializa um gráfico de objeto com o t
 
 * **Serialize**: Serializa um objeto, ou gráfico de objetos, com a raiz dada ao fluxo fornecido.
 
-`MyType`exemplo: Instância do tipo.  
+`MyType` exemplo: Instância do tipo.  
 `IColumnWriter``IColumnReader`escritor/leitor: O fluxo de coluna subjacente.  
-`ISerializationContext`contexto: Enum que define um conjunto de bandeiras que especifica o contexto de origem ou destino para o fluxo durante a serialização.
+`ISerializationContext` contexto: Enum que define um conjunto de bandeiras que especifica o contexto de origem ou destino para o fluxo durante a serialização.
 
 * **Intermédio**: Especifica que o contexto de origem ou destino não é uma loja persistiu.
 
@@ -1071,7 +1071,7 @@ Pode ser útil desenvolver um extrator personalizado. Isto pode ser útil durant
 * Parse dados não estruturados, tais como páginas Web e e-mails, ou dados semi-estruturados como XML/JSON.
 * Parse dados em codificação não suportada.
 
-Para definir um extrator definido pelo utilizador, ou UDE, precisamos criar uma `IExtractor` interface. Todos os parâmetros de entrada para o exaustor, tais como limagem coluna/linha, e codificação, devem ser definidos no construtor da classe. A `IExtractor` interface deve também conter uma definição para a `IEnumerable<IRow>` sobreposição da seguinte forma:
+Para definir um extrator definido pelo utilizador, ou UDE, precisamos criar uma `IExtractor` interface. Todos os parâmetros de entrada para o exaustor, tais como limagem coluna/linha, e codificação, devem ser definidos no construtor da classe. A `IExtractor`  interface deve também conter uma definição para a `IEnumerable<IRow>` sobreposição da seguinte forma:
 
 ```csharp
 [SqlUserDefinedExtractor]
@@ -1259,9 +1259,9 @@ public class MyOutputter : IOutputter
 }
 ```
 
-* `Output`é chamado para cada linha de entrada. Devolve o `IUnstructuredWriter output` conjunto de linhas.
+* `Output` é chamado para cada linha de entrada. Devolve o `IUnstructuredWriter output` conjunto de linhas.
 * A classe Constructor é utilizada para passar parâmetros para o outputter definido pelo utilizador.
-* `Close`é usado para substituir opcionalmente para libertar estado caro ou determinar quando a última linha foi escrita.
+* `Close` é usado para substituir opcionalmente para libertar estado caro ou determinar quando a última linha foi escrita.
 
 O atributo **SqlUserDefinedOutputter** indica que o tipo deve ser registado como um outputter definido pelo utilizador. Esta classe não pode ser herdada.
 
@@ -2105,7 +2105,7 @@ O atributo **SqlUserDefinedReducer** indica que o tipo deve ser registado como u
 **SqlUserDefinedReducer** é um atributo opcional para uma definição de redução definida pelo utilizador. É usado para definir propriedade IsRecursive.
 
 * bool IsRecursive    
-* **verdadeiro** = Indica se este Redutor é associativo e comutativo
+* **verdadeiro**  = Indica se este Redutor é associativo e comutativo
 
 Os principais objetos de programabilidade são **a entrada** e **a saída.** O objeto de entrada é utilizado para enumerar linhas de entrada. A saída é utilizada para definir linhas de saída como resultado da redução da atividade.
 

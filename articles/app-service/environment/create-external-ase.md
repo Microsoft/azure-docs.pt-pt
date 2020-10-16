@@ -8,10 +8,10 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 03bc41a0159253359b4f87fd35d4de055b294cc4
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88961793"
 ---
 # <a name="create-an-external-app-service-environment"></a>Criar um ambiente de Serviço de Aplicações Externas
@@ -65,7 +65,7 @@ Para criar um ASE enquanto cria um plano de Serviço de Aplicações:
 
 2. Selecione a sua subscrição. A aplicação e o ASE são criados nas mesmas subscrições.
 
-3. Selecione ou crie um grupo de recursos. Com grupos de recursos, pode gerir recursos Azure relacionados como uma unidade. Os grupos de recursos também são úteis quando estabelece regras de Controlo de Acesso Baseado em Funções para as suas aplicações. Para obter mais informações, veja a [Descrição geral do Azure Resource Manager][ARMOverview].
+3. Selecione ou crie um grupo de recursos. Com grupos de recursos, pode gerir recursos Azure relacionados como uma unidade. Os grupos de recursos também são úteis quando estabelece as regras Role-Based Controlo de Acesso para as suas apps. Para obter mais informações, veja a [Descrição geral do Azure Resource Manager][ARMOverview].
 
 4. Selecione o seu SISTEMA (Windows, Linux ou Docker). 
 
@@ -103,7 +103,7 @@ Para criar um ASE enquanto cria um plano de Serviço de Aplicações:
 
 1. Selecione a sua subscrição. A aplicação e o ASE são criados nas mesmas subscrições.
 
-1. Selecione ou crie um grupo de recursos. Com grupos de recursos, pode gerir recursos Azure relacionados como uma unidade. Os grupos de recursos também são úteis quando estabelece regras de Controlo de Acesso Baseado em Funções para as suas aplicações. Para obter mais informações, veja a [Descrição geral do Azure Resource Manager][ARMOverview].
+1. Selecione ou crie um grupo de recursos. Com grupos de recursos, pode gerir recursos Azure relacionados como uma unidade. Os grupos de recursos também são úteis quando estabelece as regras Role-Based Controlo de Acesso para as suas apps. Para obter mais informações, veja a [Descrição geral do Azure Resource Manager][ARMOverview].
 
 1. Selecione o plano de Serviço de Aplicações e, em seguida, **selecione Criar Novo**. As aplicações web Linux e as aplicações web do Windows não podem estar no mesmo Plano de Serviço de Aplicações, mas podem estar no mesmo Ambiente de Serviço de Aplicações. 
 

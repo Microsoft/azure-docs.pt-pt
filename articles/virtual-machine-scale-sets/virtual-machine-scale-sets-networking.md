@@ -10,10 +10,10 @@ ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: 91157f625b328dfc03927cf0036aea1b6040cdbf
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88783727"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Trabalhar em rede em conjuntos de dimensionamento de máquinas virtuais do Azure

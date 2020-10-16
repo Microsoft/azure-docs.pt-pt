@@ -7,10 +7,10 @@ ms.date: 09/22/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: c9da2acac0957d7fe06d0249775fbed73b5f458d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91287343"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Ligar ao cliente de Ambiente de Trabalho do Windows

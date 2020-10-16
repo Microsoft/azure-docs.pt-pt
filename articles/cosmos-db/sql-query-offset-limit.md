@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: tisande
 ms.openlocfilehash: 9342c0c10ed4f7287716d21823fddfe992e0568f
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87432722"
 ---
 # <a name="offset-limit-clause-in-azure-cosmos-db"></a>Cláusula OFFSET LIMIT em Azure Cosmos DB
@@ -84,8 +84,8 @@ Os resultados são:
     ]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Introdução](sql-query-getting-started.md)
 - [Cláusula SELECT](sql-query-select.md)
-- [Cláusula ORDER BY](sql-query-order-by.md)
+- [ORDEM POR CLÁUSULA](sql-query-order-by.md)

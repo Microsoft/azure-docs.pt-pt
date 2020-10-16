@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 07/17/2020
 ms.author: tamram
 ms.openlocfilehash: 85e7cb86217340e77a6f597a357c3de1f91fb8d0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87070540"
 ---
-A Azurite suporta uma única conta fixa e uma chave de autenticação bem conhecida para a autenticação da Chave Partilhada. Esta conta e chave são as únicas credenciais de Chave Partilhada permitidas para uso com a Azurite. São:
+A Azurite suporta uma única conta fixa e uma chave de autenticação bem conhecida para a autenticação da Chave Partilhada. Esta conta e chave são as únicas credenciais de Chave Partilhada permitidas para uso com a Azurite. A saber:
 
 ```
 Account name: devstoreaccount1

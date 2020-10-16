@@ -12,10 +12,10 @@ ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse, devx-track-csharp
 ms.openlocfilehash: d32a51e391edbfd32cf57265562d4e0cb8fe0681
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362185"
 ---
 # <a name="troubleshooting-connectivity-issues-in-synapse-sql-pool"></a>Problemas de conectividade na piscina Sinaapse SQL

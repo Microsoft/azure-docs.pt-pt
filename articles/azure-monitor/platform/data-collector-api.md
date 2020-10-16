@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/14/2020
 ms.openlocfilehash: 40f688d6acd1714999210e67567d25faa14c5d6e
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87384859"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Envie dados de registo para O Monitor de Azure com a API do Colecionador de Dados HTTP (pré-visualização pública)
@@ -52,7 +52,7 @@ Para utilizar a API do Recotor de Dados HTTP, cria um pedido DE POST que inclui 
 | Cabeçalho | Descrição |
 |:--- |:--- |
 | Autorização |A assinatura da autorização. Mais tarde no artigo, pode ler sobre como criar um cabeçalho HMAC-SHA256. |
-| Tipo de registo |Especifique o tipo de registo dos dados que estão a ser submetidos. Só pode conter letras, números e sublinhar (_), e não pode exceder 100 caracteres. |
+| Log-Type |Especifique o tipo de registo dos dados que estão a ser submetidos. Só pode conter letras, números e sublinhar (_), e não pode exceder 100 caracteres. |
 | x-ms-data |A data em que o pedido foi processado, no formato RFC 1123. |
 | x-ms-AzureResourceId | ID de recursos do recurso Azure os dados devem ser associados. Isto povoa a [propriedade _ResourceId](log-standard-properties.md#_resourceid) e permite que os dados sejam incluídos em consultas de contexto [de recursos.](design-logs-deployment.md#access-mode) Se este campo não for especificado, os dados não serão incluídos em consultas de contexto de recursos. |
 | campo gerado pelo tempo | O nome de um campo nos dados que contém o tempotad do item de dados. Se especificar um campo, o seu conteúdo é utilizado para **o TimeGenerated**. Se este campo não for especificado, o padrão para **TimeGenerated** é o momento em que a mensagem é ingerida. O conteúdo do campo de mensagens deve seguir o formato ISO 8601 YYYY-MM-DDThh:mm:ssZ. |
@@ -137,7 +137,7 @@ Para identificar o tipo de dados de uma propriedade, o Azure Monitor adiciona um
 | Cadeia |_s |
 | Booleano |_b |
 | Double (Duplo) |_d |
-| Date/time |_t |
+| Data/hora |_t |
 | GUID (armazenado como uma corda) |_g |
 
 > [!NOTE]
@@ -562,7 +562,7 @@ Embora a API do Colecionador de Dados deva cobrir a maioria das suas necessidade
 | [Azure Data Explorer](/azure/data-explorer/ingest-data-overview) | Azure Data Explorer (ADX) é a plataforma de dados que alimenta o Application Insights Analytics e o Azure Monitor Logs. Agora geralmente disponível ("GA"), utilizando a plataforma de dados na sua forma bruta, proporciona-lhe total flexibilidade (mas requerendo a sobrecarga de gestão) sobre o cluster (RBAC, taxa de retenção, esquema, e assim por diante). O ADX fornece muitas [opções de ingestão,](/azure/data-explorer/ingest-data-overview#ingestion-methods) incluindo [ficheiros CSV, TSV e JSON.](/azure/kusto/management/mappings?branch=master) | <ul><li> Dados que não serão correlacionados com quaisquer outros dados no âmbito de Insights de Aplicação ou Registos. </li><li> Dados que requerem capacidades avançadas de ingestão ou processamento não disponíveis hoje em dia nos Registos do Monitor Azure. </li></ul> |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Utilize a [API de Pesquisa de Registo](../log-query/log-query-overview.md) para obter dados do espaço de trabalho Do Log Analytics.
 
 - Saiba mais sobre como [criar um pipeline de dados com a API do Colecionador de Dados](create-pipeline-datacollector-api.md) utilizando o fluxo de trabalho de Apps Lógicas para o Azure Monitor.

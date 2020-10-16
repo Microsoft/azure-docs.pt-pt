@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/21/2020
 ms.author: v-mibufo
-ms.openlocfilehash: b07033f96402edc24edd51de57661603e57472bc
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b13b61aff819271ed1722572f251f9a6d14b17ab
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91347767"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977002"
 ---
 # <a name="windows-stop-error---0xc000021a-status-system-process-terminated"></a>Erro de paragem do Windows - 0xC000021A Processo do sistema de estado encerrado
 
@@ -27,7 +27,7 @@ Este artigo fornece medidas para resolver problemas em que o sistema operativo (
 
 ## <a name="symptom"></a>Sintoma
 
-Quando utiliza [diagnósticos boot](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para visualizar a imagem do VM, a imagem mostra a mensagem de que o SO encontrou um erro durante o arranque, com a seguinte mensagem:
+Quando utiliza [diagnósticos boot](./boot-diagnostics.md) para visualizar a imagem do VM, a imagem mostra a mensagem de que o SO encontrou um erro durante o arranque, com a seguinte mensagem:
 
 **O seu PC teve um problema e precisa de reiniciar. Estamos só a recolher algumas informações de erro, e depois podes recomeçar. (##% completo) Se quiser saber mais, pode pesquisar online mais tarde por este erro: 0xC000021a**.
 
@@ -37,7 +37,7 @@ Quando utiliza [diagnósticos boot](https://docs.microsoft.com/azure/virtual-mac
 
 Erro 0xC000021A significa **STATUS_SYSTEM_PROCESS_TERMINATED**.
 
-Este erro ocorre quando um processo crítico, como o WinLogon (winlogon.exe) ou o Subsistema de Tempo de Execução do Servidor do Cliente (csrss.exe) falha. Uma vez que o núcleo deteta que qualquer um desses serviços parou, aumenta o erro **STOP 0xC00021A.** Este erro pode ter várias causas, incluindo:
+Este erro ocorre quando um processo crítico, como o WinLogon (winlogon.exe) ou o Subsistema Run-Time do Servidor de Clientes (csrss.exe) falha. Uma vez que o núcleo deteta que qualquer um desses serviços parou, aumenta o erro **STOP 0xC00021A.** Este erro pode ter várias causas, incluindo:
 
 - Foram instalados ficheiros de sistema desajustados.
 - Uma instalação de atualização de serviços ou KB falhou.
@@ -52,17 +52,17 @@ Para resolver este problema, o depósito de acidentes terá de ser analisado. Re
 
 ### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>Fixe o disco DE a um novo VM de reparação
 
-1.  Utilize os passos 1-3 dos Comandos de [Reparação VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) para preparar um VM de reparação.
+1.  Utilize os passos 1-3 dos Comandos de [Reparação VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) para preparar um VM de reparação.
 2.  Utilizando **ligação de ambiente de trabalho remoto,** ligue-se ao VM de reparação.
 
 ### <a name="locate-the-dump-file-and-submit-a-support-ticket"></a>Localize o ficheiro de despejo e envie um bilhete de apoio
 
 1.  Na vM de reparação, vá à pasta do janela no disco oss anexado. Se a carta do controlador que é atribuída ao disco de oss anexado for F, vá para F:\Windows.
 2.  Localize o ficheiro memory.dmp e, em seguida, [envie um bilhete de apoio](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) com o ficheiro de despejo de memória.
-3.  Se tiver dificuldade em localizar o ficheiro memory.dmp, pode desejar utilizar [chamadas de interrupção não mascarada (NMI) na consola em série.](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows#use-the-serial-console-for-nmi-calls) Pode seguir o guia para gerar um ficheiro de informação de falha de sistema através de chamadas NMI [aqui](https://docs.microsoft.com/windows/client-management/generate-kernel-or-complete-crash-dump).
+3.  Se tiver dificuldade em localizar o ficheiro memory.dmp, pode desejar utilizar [chamadas de interrupção não mascarada (NMI) na consola em série.](./serial-console-windows.md#use-the-serial-console-for-nmi-calls) Pode seguir o guia para gerar um ficheiro de informação de falha de sistema através de chamadas NMI [aqui](/windows/client-management/generate-kernel-or-complete-crash-dump).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para obter mais informações sobre resolução de [problemas, consulte os erros comuns de resolução de problemas](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-error-troubleshoot) de arranque ou como resolver [problemas num VM do Windows, fixando o disco OS a um VM de recuperação](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-windows). Deve também familiarizar-se com [a utilização de diagnósticos de arranque para resolver problemas com uma máquina virtual.](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics)
-- Para obter mais informações sobre a utilização do Gestor de Recursos, consulte [a visão geral do Gestor de Recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/overview).
-- Se não conseguir ligar-se ao seu VM, consulte [as ligações RDP de resolução de problemas a um Azure VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-rdp-connection).
+- Para obter mais informações sobre resolução de [problemas, consulte os erros comuns de resolução de problemas](./boot-error-troubleshoot.md) de arranque ou como resolver [problemas num VM do Windows, fixando o disco OS a um VM de recuperação](./troubleshoot-recovery-disks-windows.md). Deve também familiarizar-se com [a utilização de diagnósticos de arranque para resolver problemas com uma máquina virtual.](./boot-diagnostics.md)
+- Para obter mais informações sobre a utilização do Gestor de Recursos, consulte [a visão geral do Gestor de Recursos do Azure](../../azure-resource-manager/management/overview.md).
+- Se não conseguir ligar-se ao seu VM, consulte [as ligações RDP de resolução de problemas a um Azure VM](./troubleshoot-rdp-connection.md).

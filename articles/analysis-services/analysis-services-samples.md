@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2b06a7ee41a69e32f44c44cdec0da6a47ec4b284
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b63581b5192c93a8377a642c21eacbd291579b22
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82731871"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013683"
 ---
 # <a name="azure-analysis-services-samples"></a>Amostras de Serviços de Análise Azure
 
@@ -28,7 +28,7 @@ O repositório [de Serviços](https://github.com/Microsoft/Analysis-Services) de
 
 ## <a name="sample-database-on-azure"></a>Base de dados de amostras em Azure
 
-A Azure Synapse Analytics (SQL Data Warehouse) fornece uma base de dados adventureWorksDW que pode ser incluída num recurso aprovisionado. Para saber mais, consulte [Quickstart: Criar e consultar uma piscina SQL Azure Synapse Analytics](/azure/sql-data-warehouse/create-data-warehouse-portal).
+A Azure Synapse Analytics (SQL Data Warehouse) fornece uma base de dados adventureWorksDW que pode ser incluída num recurso aprovisionado. Para saber mais, consulte [Quickstart: Criar e consultar uma piscina SQL Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
 
 ## <a name="sample-databases-on-github"></a>Bases de dados de amostras no GitHub
 
@@ -46,5 +46,5 @@ Se tiver um servidor de Serviços de Análise no portal Azure, pode criar de for
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Tutorial de Obras de Aventura](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)   
-[Azure On-ins Data Gateway](analysis-services-gateway.md)  
+[Tutorial de Obras de Aventura](/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)   
+[Azure On-ins Data Gateway](analysis-services-gateway.md)

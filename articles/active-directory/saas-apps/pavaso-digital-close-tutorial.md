@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 4ef4515b7ecee3ea814d9a34d3bf3c217d551934
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31e05e45713100c321440d63fe51586204d07231
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543762"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996050"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pavaso-digital-close"></a>Tutorial: Integração do Diretório Ativo Azure com Pavaso Digital Close
 
@@ -99,7 +99,7 @@ Para configurar o Azure AD com [Nome da aplicação], execute os seguintes passo
 
 4. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    ![Pavaso Digital Close Domain e URLs informações únicas de súmito](common/idp-intiated.png)
+    ![Screenshot que mostra a configuração "Basic S A M L" com as caixas de texto "Identifier" e "Answer U R L" realçadas e a ação "Save" selecionada.](common/idp-intiated.png)
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://<SUBDOMAIN>.pavaso.com/AuthServices`
 

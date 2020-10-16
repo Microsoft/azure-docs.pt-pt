@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: reference
 keywords: kinect, azul, sensor, sdk, profundidade, rgb, record, reprodução, matroska, mkv
 ms.openlocfilehash: 3a78ed158c78df1c9a6eadcc0bfb2e40b22750bd
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87501785"
 ---
 # <a name="use-azure-kinect-sensor-sdk-to-record-file-format"></a>Utilize o Sensor Azure Kinect SDK para gravar o formato de ficheiro
@@ -22,7 +22,7 @@ Detalhes de baixo nível do formato do contentor .mkv podem ser encontrados no [
 
 | Nome da faixa | Formato Codec                          |
 |------------|---------------------------------------|
-| Cor      | Dependente do modo (MJPEG, NV12 ou YUY2) |
+| Cor      | Mode-Dependent (MJPEG, NV12 ou YUY2) |
 | PROFUNDIDADE      | b16g (16-bit Grayscale, Big-endian)   |
 | IR         | b16g (16-bit Grayscale, Big-endian)   |
 | IMU        | Estrutura personalizada, consulte [a estrutura da amostra IMU](record-file-format.md#imu-sample-structure) abaixo. |

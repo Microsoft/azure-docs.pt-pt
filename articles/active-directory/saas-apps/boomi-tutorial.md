@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/07/2020
 ms.author: jeedes
 ms.openlocfilehash: b8593873774575635b31176b162086795e8a1320
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91744292"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-boomi"></a>Tutorial: Azure Ative Directory integração única (SSO) com boomi
@@ -102,7 +102,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação Boomi espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
 
-    | Name |  Atributo de origem|
+    | Nome |  Atributo de origem|
     | ---------------|  --------- |
     | FEDERATION_ID | user.mail |
 
@@ -152,7 +152,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Clique no separador **Opções SSO** e execute abaixo dos passos.
 
-    ![Configurar um único sign-on on no lado da aplicação](./media/boomi-tutorial/tutorial_boomi_11.png)
+    ![Configurar Sign-On única no lado da aplicação](./media/boomi-tutorial/tutorial_boomi_11.png)
 
     a. Verifique ativar a caixa de verificação **DE Inscrição Única SAML.**
 

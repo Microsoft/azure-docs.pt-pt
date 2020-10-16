@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 07/30/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: fb90b2ae290752753b58b5e96c6c8a8b23f4c168
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89012080"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controlo de acesso de ônibus de serviço com assinaturas de acesso compartilhado
@@ -20,7 +20,7 @@ A SAS guarda acesso ao Service Bus com base nas regras de autorização. Estes s
 > [!NOTE]
 > A Azure Service Bus suporta autorizar o acesso a um espaço de nomes de Service Bus e suas entidades usando o Azure Ative Directory (Azure AD). Autorizar utilizadores ou aplicações utilizando o símbolo OAuth 2.0 devolvido pela Azure AD proporciona uma segurança superior e facilidade de utilização sobre assinaturas de acesso partilhada (SAS). Com o Azure AD, não há necessidade de armazenar os tokens no seu código e arriscar potenciais vulnerabilidades de segurança.
 >
-> A Microsoft recomenda a utilização do Azure AD com as suas aplicações Azure Service Bus, quando possível. Para obter mais informações, veja os seguintes artigos:
+> A Microsoft recomenda a utilização do Azure AD com as suas aplicações Azure Service Bus, quando possível. Para obter mais informações, veja os artigos seguintes:
 > - [Autenticar e autorizar uma aplicação com o Azure Ative Directory para aceder às entidades do Azure Service Bus.](authenticate-application.md)
 > - [Autenticar uma identidade gerida com o Azure Ative Directory para aceder aos recursos do Azure Service Bus](service-bus-managed-service-identity.md)
 
@@ -181,7 +181,7 @@ Se você der a um remetente ou cliente um sinal SAS, eles não têm a chave dire
 
 ## <a name="use-the-shared-access-signature-at-amqp-level"></a>Utilize a Assinatura de Acesso Partilhado (ao nível amQP)
 
-Na secção anterior, viu como utilizar o token SAS com um pedido HTTP POST para envio de dados para o Service Bus. Como sabe, pode aceder ao Service Bus utilizando o Protocolo de Fila de Mensagens Avançadas (AMQP) que é o protocolo preferido a utilizar por razões de desempenho, em muitos cenários. O uso de ficha sas com AMQP é descrito no documento [AMQP Claim-Based Security Version 1.0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) que está em funcionamento desde 2013 mas é apoiado pela Azure hoje.
+Na secção anterior, viu como utilizar o token SAS com um pedido HTTP POST para envio de dados para o Service Bus. Como sabe, pode aceder ao Service Bus utilizando o Protocolo de Fila de Mensagens Avançadas (AMQP) que é o protocolo preferido a utilizar por razões de desempenho, em muitos cenários. O uso de ficha sas com AMQP é descrito no documento [AMQP Claim-Based Security Version 1.0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) que está em funcionamento desde 2013 mas é apoiado pelo Azure hoje.
 
 Antes de começar a enviar dados para a Service Bus, a editora deve enviar o token SAS dentro de uma mensagem AMQP para um nó AMQP bem definido chamado **$cbs** (pode vê-lo como uma fila "especial" usada pelo serviço para adquirir e validar todos os tokens SAS). O editor deve especificar o campo **AnswerTo** dentro da mensagem AMQP; este é o nó em que o serviço responde ao editor com o resultado da validação simbólica (um simples padrão de pedido/resposta entre editor e serviço). Este nó de resposta é criado "on the fly", falando sobre a "criação dinâmica do nó remoto" como descrito pela especificação AMQP 1.0. Depois de verificar se o token SAS é válido, o editor pode avançar e começar a enviar dados para o serviço.
 

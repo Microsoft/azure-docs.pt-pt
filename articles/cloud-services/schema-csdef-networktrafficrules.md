@@ -14,10 +14,10 @@ caps.latest.revision: 17
 author: tgore03
 ms.author: tagore
 ms.openlocfilehash: e53c10395ec3168e656633cc43fb2d01902209fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79534733"
 ---
 # <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Azure Cloud Services Definition NetworkTrafficRules Schema
@@ -64,39 +64,39 @@ Permitir Elemento AllTraffic
 
 [Elemento FromRole](#FromRole)
 
-##  <a name="networktrafficrules-element"></a><a name="NetworkTrafficRules"></a>Elemento NetworkTrafficRules
+##  <a name="networktrafficrules-element"></a><a name="NetworkTrafficRules"></a> Elemento NetworkTrafficRules
 O `NetworkTrafficRules` elemento especifica quais as funções que podem comunicar com qual ponto final noutra função. Um serviço pode conter uma `NetworkTrafficRules` definição.
 
-##  <a name="onlyallowtrafficto-element"></a><a name="OnlyAllowTrafficTo"></a>Elemento OnlyAllowTrafficTo
+##  <a name="onlyallowtrafficto-element"></a><a name="OnlyAllowTrafficTo"></a> Elemento OnlyAllowTrafficTo
 O `OnlyAllowTrafficTo` elemento descreve uma coleção de pontos finais de destino e as funções que podem comunicar com eles. Pode especificar vários `OnlyAllowTrafficTo` nós.
 
-##  <a name="destinations-element"></a><a name="Destinations"></a>Elemento destinos
+##  <a name="destinations-element"></a><a name="Destinations"></a> Elemento destinos
 O `Destinations` elemento descreve uma coleção de RoleEndpoints com o que pode ser comunicado.
 
-##  <a name="roleendpoint-element"></a><a name="RoleEndpoint"></a>Elemento RoleEndpoint
+##  <a name="roleendpoint-element"></a><a name="RoleEndpoint"></a> Elemento RoleEndpoint
 O `RoleEndpoint` elemento descreve um ponto final sobre um papel para permitir comunicações com. Pode especificar `RoleEndpoint` vários elementos se houver mais de um ponto final na função.
 
-| Atributo      | Tipo     | Description |
+| Atributo      | Tipo     | Descrição |
 | -------------- | -------- | ----------- |
-| `endpointName` | `string` | Necessário. O nome do ponto final para permitir o tráfego.|
-| `roleName`     | `string` | Necessário. O nome da função web para permitir a comunicação.|
+| `endpointName` | `string` | Obrigatório. O nome do ponto final para permitir o tráfego.|
+| `roleName`     | `string` | Obrigatório. O nome da função web para permitir a comunicação.|
 
 ## <a name="allowalltraffic-element"></a>Permitir Elemento AllTraffic
 O `AllowAllTraffic` elemento é uma regra que permite que todas as funções se comuniquem com os pontos finais definidos no `Destinations` nó.
 
-##  <a name="whensource-element"></a><a name="WhenSource"></a>Quando Elemento DeOrigem
+##  <a name="whensource-element"></a><a name="WhenSource"></a> Quando Elemento DeOrigem
 O `WhenSource` elemento descreve uma coleção de papéis que pode comunicar com os pontos finais definidos no `Destinations` nó.
 
-| Atributo | Tipo     | Description |
+| Atributo | Tipo     | Descrição |
 | --------- | -------- | ----------- |
-| `matches` | `string` | Necessário. Especifica a regra a aplicar ao permitir comunicações. O único valor válido é `AnyRule` atualmente.|
+| `matches` | `string` | Obrigatório. Especifica a regra a aplicar ao permitir comunicações. O único valor válido é `AnyRule` atualmente.|
   
-##  <a name="fromrole-element"></a><a name="FromRole"></a>Elemento FromRole
+##  <a name="fromrole-element"></a><a name="FromRole"></a> Elemento FromRole
 O `FromRole` elemento especifica as funções que podem comunicar com os pontos finais definidos no `Destinations` nó. Pode especificar `FromRole` vários elementos se houver mais de uma função que possa comunicar com os pontos finais.
 
-| Atributo  | Tipo     | Description |
+| Atributo  | Tipo     | Descrição |
 | ---------- | -------- | ----------- |
-| `roleName` | `string` | Necessário. O nome para o papel a partir do qual permitir a comunicação.|
+| `roleName` | `string` | Obrigatório. O nome para o papel a partir do qual permitir a comunicação.|
 
 ## <a name="see-also"></a>Consulte também
 [Esquema de Definição de Cloud Service (clássico)](schema-csdef-file.md)

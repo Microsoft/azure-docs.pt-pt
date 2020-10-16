@@ -15,7 +15,7 @@ ms.openlocfilehash: c35fa28457e3cb9a063fa29c20d8651fcb4eeb45
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91856490"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Create a trigger that runs a pipeline on a tumbling window(Criar um acionador que execute um pipeline numa janela em cascata)
@@ -96,9 +96,9 @@ A tabela a seguir fornece uma visão geral de alto nível dos principais element
 
 | Elemento JSON | Descrição | Tipo | Valores permitidos | Necessário |
 |:--- |:--- |:--- |:--- |:--- |
-| **tipo** | O tipo do gatilho. O tipo é o valor fixo "TumblingWindowTrigger". | String | "TumblingWindowTrigger" | Sim |
-| **estado de tempo de execução** | O estado atual do tempo de execução do gatilho.<br/>**Nota:** Este elemento é \<readOnly> . | String | "Iniciado", "Parado", "Deficiente" | Sim |
-| **frequência** | Uma corda que representa a unidade de frequência (minutos ou horas) em que o gatilho se repete. Se os valores da data **de início do Tempo** forem mais granulares do que o valor da **frequência,** as datas **de início são** consideradas quando os limites da janela são calculados. Por exemplo, se o valor da **frequência** for de hora em hora e o valor inicial do Tempo de **Arranque** for 2017-09-01T10:10:10Z, a primeira janela é (2017-09-01T10:10:10Z, 2017-09-011:10:10Z). | String | "minuto", "hora"  | Sim |
+| **tipo** | O tipo do gatilho. O tipo é o valor fixo "TumblingWindowTrigger". | Cadeia | "TumblingWindowTrigger" | Sim |
+| **estado de tempo de execução** | O estado atual do tempo de execução do gatilho.<br/>**Nota:** Este elemento é \<readOnly> . | Cadeia | "Iniciado", "Parado", "Deficiente" | Sim |
+| **frequência** | Uma corda que representa a unidade de frequência (minutos ou horas) em que o gatilho se repete. Se os valores da data **de início do Tempo** forem mais granulares do que o valor da **frequência,** as datas **de início são** consideradas quando os limites da janela são calculados. Por exemplo, se o valor da **frequência** for de hora em hora e o valor inicial do Tempo de **Arranque** for 2017-09-01T10:10:10Z, a primeira janela é (2017-09-01T10:10:10Z, 2017-09-011:10:10Z). | Cadeia | "minuto", "hora"  | Sim |
 | **interval** | Um valor inteiro positivo que indica o intervalo do valor **frequency**, que determina o número de vezes que o acionador é executado. Por exemplo, se o **intervalo** for 3 e a **frequência** for "hora", o gatilho repete-se a cada 3 horas. <br/>**Nota:** O intervalo mínimo da janela é de 5 minutos. | Número inteiro | Um inteiro positivo. | Sim |
 | **horário de início**| A primeira ocorrência, que pode ser no passado. O primeiro intervalo de disparo é **(startTime**, intervalo **startTime**  +  **interval**). | DateTime | Um valor de DataTime. | Sim |
 | **endTime**| A última ocorrência, que pode ser no passado. | DateTime | Um valor de DataTime. | Sim |
@@ -106,7 +106,7 @@ A tabela a seguir fornece uma visão geral de alto nível dos principais element
 | **maxConcurrency** | O número de disparos simultâneos que são disparados para janelas que estão prontas. Por exemplo, voltar a encher as horas por hora para ontem resulta em 24 janelas. Se **maxConcurrency** = 10, os eventos de gatilho são disparados apenas para as primeiras 10 janelas (00:00-01:00 - 09:00-10:00). Depois de concluídas as primeiras 10 corridas de gasodutos acionados, o gatilho é disparado para as próximas 10 janelas (10:00-11:00 - 19:00-20:00). Continuando com este exemplo de **maxConcurrency** = 10, se houver 10 janelas prontas, existem 10 percursos totais de gasoduto. Se só houver uma janela pronta, só há 1 oleoduto. | Número inteiro | Um inteiro entre 1 e 50. | Sim |
 | **retriptaPolícia: Conde** | O número de retreições antes do curso do gasoduto é marcado como "Falhado".  | Número inteiro | Um inteiro, onde o padrão é 0 (sem retracências). | Não |
 | **retriptaPolícia: intervalosSegundos** | O atraso entre as tentativas de repetição especificadas em segundos. | Número inteiro | O número de segundos, onde o padrão é 30. | Não |
-| **dependsOn: tipo** | O tipo de TumblingWindowTriggerReference. Necessário se uma dependência for definida. | String |  "TumblingWindowTriggerDependencyReference", "SelfDependencyTumblingWindowTriggerReference" | Não |
+| **dependsOn: tipo** | O tipo de TumblingWindowTriggerReference. Necessário se uma dependência for definida. | Cadeia |  "TumblingWindowTriggerDependencyReference", "SelfDependencyTumblingWindowTriggerReference" | Não |
 | **dependsOn: tamanho** | O tamanho da janela de caindo de dependência. | Timespan<br/>(hh:mm:ss)  | Um valor de tempo positivo onde o padrão é o tamanho da janela do gatilho da criança  | Não |
 | **dependsOn: offset** | A compensação do gatilho da dependência. | Timespan<br/>(hh:mm:ss) |  Um valor de tempo que deve ser negativo numa auto-dependência. Se nenhum valor especificado, a janela é a mesma que o gatilho em si. | Auto-dependência: Sim<br/>Outros: Não  |
 

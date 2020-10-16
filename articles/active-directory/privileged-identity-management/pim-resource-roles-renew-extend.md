@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0f0d22fc540aae448a3da731b709a3b4ea13a69d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84742238"
 ---
 # <a name="extend-or-renew-azure-resource-role-assignments-in-privileged-identity-management"></a>Alargar ou renovar atribuições de funções de recursos Azure na Gestão de Identidade Privilegiada
@@ -130,7 +130,7 @@ Para visualizar uma lista de todas as atribuições de funções caducadas, no e
 
 ![Recursos Azure - Página de membros listando papéis caducados com links para renovar](media/pim-resource-roles-renew-extend/aadpim-rbac-renew-from-member-blade.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Aprovar ou negar pedidos de funções de recursos da Azure na Gestão de Identidade Privilegiada](pim-resource-roles-approval-workflow.md)
 - [Configurar configurações de funções de recursos Azure na Gestão de Identidade Privilegiada](pim-resource-roles-configure-role-settings.md)

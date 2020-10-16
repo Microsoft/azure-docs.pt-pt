@@ -13,10 +13,10 @@ ms.date: 03/16/2018
 ms.author: duau
 ms.custom: ''
 ms.openlocfilehash: f1a3cc5ccb326d6a198895f9f459e661f7805b1e
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401542"
 ---
 # <a name="traffic-manager-traffic-view"></a>Vista de tráfego do gestor de tráfego
@@ -90,7 +90,7 @@ Quando utiliza o Traffic View, é faturado com base no número de pontos de dado
 
 * [Como funciona a faturação da Traffic View?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-view-billing-work)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba [como funciona o Gestor de Tráfego](traffic-manager-overview.md)
 - Saiba mais sobre os [métodos de encaminhamento de tráfego suportados](traffic-manager-routing-methods.md) pelo Traffic Manager

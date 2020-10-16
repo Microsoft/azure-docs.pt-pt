@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 956428b6f197912e2ab7c3a94133ed9d59f37749
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89279929"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Federar várias instâncias do Azure AD com uma instância única do AD FS
@@ -69,5 +69,5 @@ Convert-MsolDomainToFederated -DomainName fabrikam.com -Verbose -SupportMultiple
  
 A operação acima irá federar o domínio fabrikam.com com o mesmo AD FS. Pode verificar as definições de domínio com o Get-MsolDomainFederationSettings para ambos os domínios.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Ligar o Active Directory ao Azure Active Directory](whatis-hybrid-identity.md)

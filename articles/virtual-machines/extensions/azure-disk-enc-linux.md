@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: ejarvi
-ms.openlocfilehash: 22568c7c23771f143f6cd583114949c380d15e3d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc82109c60ac077d9e92e4d4a52abdaf8577771f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80066925"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971188"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Encriptação do disco Azure para Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Overview (Descrição geral)
 
-A Azure Disk Encryption aproveita o subsistema dm-crypt em Linux para fornecer encriptação completa do disco nas [distribuições selecionadas do Azure Linux](https://aka.ms/adelinux).  Esta solução está integrada com o Azure Key Vault para gerir chaves e segredos de encriptação de discos.
+A Azure Disk Encryption aproveita o subsistema dm-crypt em Linux para fornecer encriptação completa do disco nas [distribuições selecionadas do Azure Linux](../linux/disk-encryption-overview.md).  Esta solução está integrada com o Azure Key Vault para gerir chaves e segredos de encriptação de discos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -141,25 +141,25 @@ O esquema 0.1 requer `AADClientID` e qualquer um ou `AADClientSecret` `AADClient
 
 ### <a name="property-values"></a>Valores patrimoniais
 
-| Name | Valor / Exemplo | Tipo de Dados |
+| Nome | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2019-07-01 | date |
-| publicador | Microsoft.Azure.Security | string |
-| tipo | AzureDiskEncryptionForLinux | string |
+| apiVersion | 2019-07-01 | data |
+| publicador | Microsoft.Azure.Security | cadeia |
+| tipo | AzureDiskEncryptionForLinux | cadeia |
 | typeHandlerVersion | 1.1, 0.1 | int |
 | (0.1 esquema) AADClientID | xxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxxxxxxxxx | guid | 
-| (0.1 esquema) AADClientSecret | palavra-passe | string |
-| (0.1 esquema) Certificado de AADClient | impressão digital | string |
-| (opcional) (0.1 esquema) Frase-passe | palavra-passe | string |
+| (0.1 esquema) AADClientSecret | palavra-passe | cadeia |
+| (0.1 esquema) Certificado de AADClient | impressão digital | cadeia |
+| (opcional) (0.1 esquema) Frase-passe | palavra-passe | cadeia |
 | DiskFormatQuery | {"dev_path":"""nome":"""file_system":""} | Dicionário JSON |
-| EncriptaçãoOperação | EnableEncryption, EnableEncryptionFormatAll | string | 
-| (opcional - padrão RSA-OAEP) KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |
-| KeyVaultURL | url | string |
-| KeyVaultResourceId | url | string |
-| (opcional) KeyEncryptionKeyURL | url | string |
-| (opcional) KekVaultResourceId | url | string |
-| (opcional) SequênciaVersão | uniqueidentifier | string |
-| VolumeType | OS, Dados, Todos | string |
+| EncriptaçãoOperação | EnableEncryption, EnableEncryptionFormatAll | cadeia | 
+| (opcional - padrão RSA-OAEP) KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | cadeia |
+| KeyVaultURL | url | cadeia |
+| KeyVaultResourceId | url | cadeia |
+| (opcional) KeyEncryptionKeyURL | url | cadeia |
+| (opcional) KekVaultResourceId | url | cadeia |
+| (opcional) SequênciaVersão | uniqueidentifier | cadeia |
+| VolumeType | OS, Dados, Todos | cadeia |
 
 ## <a name="template-deployment"></a>Implementação de modelos
 

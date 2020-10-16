@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 12/27/2019
 ms.openlocfilehash: 1094235f5bc5cc25cf6d8f3762dc242503952de6
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86083802"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>Analise os registos do site usando uma biblioteca de Python personalizada com aglomerado de faíscas Apache em HDInsight
@@ -78,7 +78,7 @@ Assim que os seus dados são guardados como uma tabela de Colmeia Apache, na sec
     sc.addPyFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
     ```
 
-1. `iislogparser`fornece uma função `parse_log_line` que retorna `None` se uma linha de log for uma linha de cabeçalho, e devolve uma instância da `LogLine` classe se encontrar uma linha de log. Utilize a `LogLine` classe para extrair apenas as linhas de registo do RDD:
+1. `iislogparser` fornece uma função `parse_log_line` que retorna `None` se uma linha de log for uma linha de cabeçalho, e devolve uma instância da `LogLine` classe se encontrar uma linha de log. Utilize a `LogLine` classe para extrair apenas as linhas de registo do RDD:
 
     ```pyspark
     def parse_line(l):
@@ -198,7 +198,7 @@ Assim que os seus dados são guardados como uma tabela de Colmeia Apache, na sec
 
 1. Depois de terminar a execução da aplicação, deve desligar o caderno para libertar os recursos. Para tal, no menu **File** (Ficheiro) do bloco de notas, selecione **Close and Halt** (Fechar e Parar). Esta ação vai encerrar e fechar o caderno.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Explore os seguintes artigos:
 

@@ -8,13 +8,13 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 7a4408b54b663b2cd8abc22772ac1b799ea50de0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87083774"
 ---
-# <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configurar a recuperação de desastres para uma aplicação web baseada em IIS de vários níveis
+# <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configurar a recuperação após desastre para uma aplicação baseada em IIS de vários escalões
 
 O software de aplicações é o motor da produtividade do negócio numa organização. Várias aplicações web podem servir diferentes propósitos numa organização. Algumas aplicações, como aplicações utilizadas para processamento de folha de pagamento, aplicações financeiras e websites voltados para o cliente, podem ser cruciais para uma organização. Para evitar a perda de produtividade, é importante que a organização tenha estas aplicações continuamente em funcionamento. Mais importante ainda, ter estas aplicações consistentemente disponíveis pode ajudar a prevenir danos à marca ou imagem da organização.
 
@@ -62,8 +62,8 @@ Cenário | Para um site secundário | Para o Azure
 --- | --- | ---
 Hyper-V | Sim | Sim
 VMware | Sim | Sim
-Servidor físico | Não | Yes
-Azure|ND|Yes
+Servidor físico | Não | Sim
+Azure|ND|Sim
 
 ## <a name="replicate-virtual-machines"></a>Replicar máquinas virtuais
 

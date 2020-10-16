@@ -11,10 +11,10 @@ ms.date: 08/08/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: d230bc8a1e9bf388e1cca4e3a3a691223146d734
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85387988"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Configurar inscrição e inscrição com uma conta QQ utilizando o Azure Ative Directory B2C
@@ -29,20 +29,20 @@ Para utilizar uma conta QQ como fornecedor de identidade no Azure Ative Director
 
 1. Inscreva-se no portal do [desenvolvedor QQ](http://open.qq.com) com as suas credenciais de conta QQ.
 1. Depois de se inscrever, vá [https://open.qq.com/reg](https://open.qq.com/reg) registar-se como um desenvolvedor.
-1. Selecione**个人**(desenvolvedor individual).
-1. Introduza as informações necessárias e selecione**下一步**(passo seguinte).
+1. Selecione **个人** (desenvolvedor individual).
+1. Introduza as informações necessárias e selecione **下一步** (passo seguinte).
 1. Complete o processo de verificação de e-mail. Terá de esperar alguns dias para ser aprovado depois de se registar como desenvolvedor.
 
 ### <a name="register-a-qq-application"></a>Registar uma aplicação QQ
 
 1. Vai [https://connect.qq.com/index.html](https://connect.qq.com/index.html) para.
-1. Selecione**应用管理**(gestão de aplicações).
-1. Selecione**创建应用**(criar app) e introduza as informações necessárias.
-1. Introduza `https://your-tenant-name.b2clogin.com/your-tenant-name}.onmicrosoft.com/oauth2/authresp` em**授权回调域**(URL de retorno). Por exemplo, se o seu `tenant_name` é contoso, desemosse o `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp` URL.
-1. Selecione**创建应用**(criar app).
-1. Na página de confirmação, selecione**应用管理**(gestão de aplicações) para voltar à página de gestão de aplicações.
-1. Selecione**查看**(vista) ao lado da aplicação que criou.
-1. Selecione**修改**(editar).
+1. Selecione **应用管理** (gestão de aplicações).
+1. Selecione **创建应用** (criar app) e introduza as informações necessárias.
+1. Introduza `https://your-tenant-name.b2clogin.com/your-tenant-name}.onmicrosoft.com/oauth2/authresp` em **授权回调域** (URL de retorno). Por exemplo, se o seu `tenant_name` é contoso, desemosse o `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp` URL.
+1. Selecione **创建应用** (criar app).
+1. Na página de confirmação, selecione **应用管理** (gestão de aplicações) para voltar à página de gestão de aplicações.
+1. Selecione **查看** (vista) ao lado da aplicação que criou.
+1. Selecione **修改** (editar).
 1. Copie o **ID app** e **a CHAVE APP.** Precisa de ambos estes valores para adicionar o fornecedor de identidade ao seu inquilino.
 
 ## <a name="configure-qq-as-an-identity-provider"></a>Configure qQ como fornecedor de identidade

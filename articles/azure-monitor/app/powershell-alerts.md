@@ -4,10 +4,10 @@ description: Automatizar a configuração do Application Insights para obter e-m
 ms.topic: conceptual
 ms.date: 07/23/2016
 ms.openlocfilehash: 74d477b6660c0f7ec2ee32b34169bb85886936e5
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87322470"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Utilizar o PowerShell para definir alertas no Application Insights
@@ -100,7 +100,7 @@ Add-AzMetricAlertRule -Name "poor sales" `
 
 A mesma regra pode ser usada para a métrica relatada utilizando o parâmetro de [medição](./api-custom-events-metrics.md#properties) de outra chamada de rastreio, como TrackEvent ou trackPageView.
 
-## <a name="metric-names"></a>Nomes métricos
+## <a name="metric-names"></a>Nomes das métricas
 | Nome da métrica | Nome do ecrã | Descrição |
 | --- | --- | --- |
 | `basicExceptionBrowser.count` |Exceções de browser |Contagem de exceções não realizadas no navegador. |
@@ -138,7 +138,7 @@ As métricas são enviadas por diferentes módulos de telemetria:
 ## <a name="webhooks"></a>Webhooks
 Pode [automatizar a sua resposta a um alerta.](../platform/alerts-webhooks.md) O Azure irá ligar para um endereço web à sua escolha quando um alerta for levantado.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 * [Script para configurar insights de aplicações](./create-new-resource.md#creating-a-resource-automatically)
 * [Criar Insights de Aplicação e recursos de teste web a partir de modelos](powershell.md)
 * [Automatizar o acoplamento do Microsoft Azure Diagnostics a Application Insights](powershell-azure-diagnostics.md)

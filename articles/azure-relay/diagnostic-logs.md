@@ -4,10 +4,10 @@ description: Este artigo fornece uma visão geral de todos os registos de ativid
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.openlocfilehash: 980f2f7a737d3f2460c17a84c472cbf56f5eb90f
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87533007"
 ---
 # <a name="enable-diagnostics-logs-for-azure-relay-hybrid-connections"></a>Ativar registos de diagnóstico para ligações híbridas Azure Relay
@@ -30,7 +30,7 @@ Para visualizar registos de atividade para o seu espaço de nomes Azure Relay, m
 
 Para ativar registos de diagnóstico, faça os seguintes passos:
 
-1. No [portal Azure,](https://portal.azure.com)aceda ao seu espaço de nomes Azure Relay e, em seguida, em **Monitorização,** selecione **definições de Diagnóstico**.
+1. No [portal Azure,](https://portal.azure.com)aceda ao seu espaço de nomes Azure Relay e, em seguida, em **Monitorização,** selecione  **definições de Diagnóstico**.
 1. Na página de **definições de Diagnóstico,** selecione **Adicionar a definição de diagnóstico**.  
 
    ![A ligação "Adicionar definição de diagnóstico"](./media/diagnostic-logs/add-diagnostic-setting.png)

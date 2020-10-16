@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/12/2020
 ms.author: jeedes
 ms.openlocfilehash: ff6ba71f4606b3caf51007a9d75f3ca36bc99cda
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91826480"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ezofficeinventory"></a>Tutorial: Azure Ative Directory integração única (SSO) com EZOfficeInventory
@@ -85,7 +85,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<SUBDOMAIN>.ezofficeinventory.com/users/sign_in`
 
     > [!NOTE]
-    > O valor não é real. Atualize o valor com o URL de inscrição real. Contacte [a equipa de suporte ao cliente da EZOfficeInventory](mailto:support@ezofficeinventory.com) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > O valor não é real. Atualize o valor com o URL de Sign-On real. Contacte [a equipa de suporte ao cliente da EZOfficeInventory](mailto:support@ezofficeinventory.com) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
 1. A aplicação EZOfficeInventory espera as afirmações SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos.
 

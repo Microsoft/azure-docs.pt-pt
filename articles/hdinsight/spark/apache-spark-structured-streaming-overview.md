@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/24/2019
 ms.openlocfilehash: 46a65720c9998a7a56d0ca269c344f85c5955546
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86086148"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Visão geral do Fluxo Estruturado de Faíscas Apache Spark
@@ -148,7 +148,7 @@ Normalmente constrói uma aplicação Spark Streaming localmente num ficheiro JA
 
 O estado de todos os pedidos também pode ser verificado com um pedido GET contra um ponto final LIVY. Finalmente, pode terminar um pedido de execução emitindo um pedido de DELETE contra o ponto final LIVY. Para mais detalhes sobre a API LIVY, consulte [trabalhos remotos com Apache LIVY](apache-spark-livy-rest-interface.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar um cluster Apache Spark em HDInsight](../hdinsight-hadoop-create-linux-clusters-portal.md)
 * [Guia de programação estruturado de streaming de faíscas Apache Spark](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html)

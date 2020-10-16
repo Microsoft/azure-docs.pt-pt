@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a2be5daf5bcad0f5b4530ba7a76986dae4833aa5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5e401fb35e6524e8a32cbe09bf5b9c7feafbf5da
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331272"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974741"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implementação em IBM DB2 do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP
 
@@ -55,9 +55,9 @@ Para obter informações sobre produtos SAP suportados e tipos Azure VM, consult
 
 ## <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>IBM Db2 para Diretrizes de Configuração de Linux, UNIX e Windows para instalações SAP em VMs Azure
 ### <a name="storage-configuration"></a>Configuração do Armazenamento
-Para uma visão geral dos tipos de armazenamento Azure para a carga de trabalho SAP, consulte os [tipos de armazenamento Azure para a carga de trabalho SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage) Todos os ficheiros de base de dados devem ser armazenados em discos montados de armazenamento de blocos Azure (Windows: NFFS, Linux: xfs, ext4 ou ext3). Qualquer tipo de unidades de rede ou partilhas remotas como os seguintes serviços Azure **NÃO** são suportados para ficheiros de base de dados: 
+Para uma visão geral dos tipos de armazenamento Azure para a carga de trabalho SAP, consulte os [tipos de armazenamento Azure para a carga de trabalho SAP](./planning-guide-storage.md) Todos os ficheiros de base de dados devem ser armazenados em discos montados de armazenamento de blocos Azure (Windows: NFFS, Linux: xfs, ext4 ou ext3). Qualquer tipo de unidades de rede ou partilhas remotas como os seguintes serviços Azure **NÃO** são suportados para ficheiros de base de dados: 
 
-* [Microsoft Azure File Service](https://docs.microsoft.com/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
+* [Microsoft Azure File Service](/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
 
 * [Azure NetApp Files](https://azure.microsoft.com/services/netapp/)
 
@@ -162,7 +162,7 @@ O Microsoft Cluster Server (MSCS) não é suportado.
 
 Db2 alta disponibilidade recuperação de desastres (HADR) é suportado. Se as máquinas virtuais da configuração HA tiverem resolução de nome de trabalho, a configuração em Azure não difere de qualquer configuração que seja feita no local. Não é aconselhável confiar apenas na resolução IP.
 
-Não utilize a Geo-Replicação para as contas de armazenamento que armazenam os discos de base de dados. Para obter mais informações, consulte o documento [Considerações para a implantação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](dbms_guide_general.md). 
+Não utilize Geo-Replication para as contas de armazenamento que armazenam os discos de base de dados. Para obter mais informações, consulte o documento [Considerações para a implantação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](dbms_guide_general.md). 
 
 ### <a name="accelerated-networking"></a>Redes Aceleradas
 Para implementações Db2 no Windows, é altamente recomendado utilizar a funcionalidade Azure de Rede Acelerada, conforme descrito no documento [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Considere igualmente as recomendações feitas em [considerações para a implantação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](dbms_guide_general.md). 
@@ -177,7 +177,7 @@ Para os discos que contêm os caminhos de armazenamento Db2 para os seus diretó
 <!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
 
-### <a name="other"></a>Outro
+### <a name="other"></a>Outros
 Todas as outras áreas gerais como os Conjuntos de Disponibilidade de Azure ou a monitorização SAP aplicam-se como descrito no documento [Considerações para a implantação de DBMS de máquinas virtuais Azure para](dbms_guide_general.md) a carga de trabalho SAP para implementações de VMs com a Base de Dados IBM também.
 
 [767598]:https://launchpad.support.sap.com/#/notes/767598

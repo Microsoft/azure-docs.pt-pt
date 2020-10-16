@@ -4,26 +4,23 @@ titleSuffix: Azure Digital Twins
 description: Ver como escrever código de autenticação numa aplicação ao cliente
 author: baanders
 ms.author: baanders
-ms.date: 4/22/2020
+ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: devx-track-js
-ms.openlocfilehash: 0438632a36fe14d35210cb5acb8d3a50d0f038b7
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: bb35b81a287179900485c7190a57c492cfc39203
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767828"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043039"
 ---
 # <a name="write-client-app-authentication-code"></a>Escreva código de autenticação de aplicativos de cliente
 
-Depois de [configurar uma instância e autenticação Azure Digital Twins,](how-to-set-up-instance-portal.md)pode criar uma aplicação ao cliente que utilizará para interagir com o caso. Depois de configurar um projeto de cliente inicial, este artigo mostra-lhe **como escrever código nessa aplicação do cliente para autenticá-lo** contra a instância Azure Digital Twins.
+Depois de [configurar uma instância e autenticação Azure Digital Twins,](how-to-set-up-instance-portal.md)pode criar uma aplicação ao cliente que utilizará para interagir com o caso. Uma vez configurado um projeto de cliente inicial, terá de **escrever código nessa aplicação do cliente para** o autenticar contra a instância Azure Digital Twins.
 
-Há duas abordagens para o código de amostra neste artigo. Podes usar o que é certo para ti, dependendo da tua linguagem de eleição:
-* A primeira secção do código de amostra utiliza o Azure Digital Twins .NET (C#) SDK. O SDK faz parte do Azure SDK para .NET, e está localizado aqui: [*Biblioteca de clientes Azure IoT Digital Twin para .NET*](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). Existem também SDKs suportados para [Java](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar ) e [JavaScript](https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1), que podem ser usados de forma semelhante.
-* A segunda secção do código de amostra destina-se a utilizadores que não utilizem um SDK fornecido e, em vez disso, utilizem SDKs gerados por AutoR em outras línguas. Para obter mais informações sobre esta estratégia, consulte [*Como-a-fazer: Crie SDKs personalizados para Azure Digital Twins com AutoRest*](how-to-create-custom-sdks.md).
+A Azure Digital Twins realiza a autenticação utilizando [tokens de segurança Azure AD com base em AAUTH 2.0](../active-directory/develop/security-tokens.md#json-web-tokens-jwts-and-claims). Para autenticar o seu SDK, terá de obter um token ao portador com as permissões certas para a Azure Digital Twins e passá-lo juntamente com as suas chamadas API. 
 
-Também pode ler mais sobre as APIs e SDKs para Azure Digital Twins em [*Como-a-: Use as APIs e SDKs das Gémeas Digitais Azure*](how-to-use-apis-sdks.md).
+Este artigo descreve como obter credenciais usando a biblioteca do `Azure.Identity` cliente. Enquanto este artigo mostra exemplos de código em C#, como o que escreveria para o [.NET (C#) SDK,](https://www.nuget.org/packages/Azure.DigitalTwins.Core)pode utilizar uma versão `Azure.Identity` de independentemente do que está a usar (para mais informações sobre os SDKs disponíveis para as Gémeas Digitais Azure, ver [*Como:: Use as APIs e SDKs de Gémeos Digitais Azure).*](how-to-use-apis-sdks.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -31,31 +28,89 @@ Em primeiro lugar, complete os passos de configuração em [*Como-a: Configurar 
 
 Para prosseguir, você precisará de um projeto de aplicação de cliente no qual você escreve o seu código. Se ainda não tiver um projeto de aplicação de clientes configurado, crie um projeto básico no seu idioma de eleição para usar com este tutorial.
 
-## <a name="authentication-and-client-creation-net-c-sdk"></a>Autenticação e criação de clientes: .NET (C#) SDK
+## <a name="common-authentication-methods-with-azureidentity"></a>Métodos comuns de autenticação com Azure.Identidade
 
-Esta secção mostra um exemplo em C# para a utilização do .NET SDK fornecido.
+`Azure.Identity` é uma biblioteca de clientes que fornece vários métodos de obtenção de credenciais que você pode usar para obter um token portador e autenticar com o seu SDK. Embora este artigo dê exemplos em C#, você pode ver `Azure.Identity` para várias línguas, incluindo...
+* [.NET (C#)](/dotnet/api/azure.identity?preserve-view=true&view=azure-dotnet)
+* [Java](/java/api/overview/azure/identity-readme?preserve-view=true&view=azure-java-stable)
+* [JavaScript](/javascript/api/overview/azure/identity-readme?preserve-view=true&view=azure-node-latest)
+* [Python](/python/api/overview/azure/identity-readme?preserve-view=true&view=azure-python)
 
-Em primeiro lugar, inclua os seguintes pacotes no seu projeto para utilizar as ferramentas de autenticação .NET SDK e para este modo de como:
-* `Azure.DigitalTwins.Core`
-* `Azure.Identity`
+Três métodos comuns de obtenção de credenciais `Azure.Identity` são:
+* [O DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) fornece um fluxo de autenticação predefinido `TokenCredential` para aplicações que serão implantadas no Azure, e é **a escolha recomendada para o desenvolvimento local.** Pode também ser habilitado a experimentar os outros dois métodos recomendados neste artigo; envolve `ManagedIdentityCredential` e pode aceder com uma `InteractiveBrowserCredential` variável de configuração.
+* [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential?preserve-view=true&view=azure-dotnet) funciona muito bem nos casos em que precisa de [identidades geridas (MSI)](../active-directory/managed-identities-azure-resources/overview.md)e é um bom candidato para trabalhar com as Funções Azure e implantar para os serviços Azure.
+* [InteractiveBrowserCredential destina-se](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet) a aplicações interativas, e pode ser usado para criar um cliente SDK autenticado
 
-Dependendo das suas ferramentas de eleição, pode incluir os pacotes utilizando o gestor de pacotes Visual Studio ou a `dotnet` ferramenta da linha de comando. 
+O exemplo a seguir mostra como utilizar cada um destes com o .NET (C#) SDK.
 
-Também necessitará das seguintes declarações:
+## <a name="authentication-examples-net-c-sdk"></a>Exemplos de autenticação: .NET (C#) SDK
+
+Esta secção mostra um exemplo em C# para utilizar o .NET SDK fornecido para escrever código de autenticação.
+
+Em primeiro lugar, inclua o pacote SDK `Azure.DigitalTwins.Core` e o pacote no seu `Azure.Identity` projeto. Dependendo das suas ferramentas de eleição, pode incluir os pacotes utilizando o gestor de pacotes Visual Studio ou a `dotnet` ferramenta da linha de comando. 
+
+Também terá de adicionar as seguintes declarações ao seu código de projeto:
 
 ```csharp
 using Azure.Identity;
 using Azure.DigitalTwins.Core;
 ```
-Para autenticar com o .NET SDK, utilize um dos métodos de obtenção de credenciais definidos na biblioteca [Azure.Identity.](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) Aqui estão dois que são comumente usados (mesmo juntos na mesma aplicação):
 
-* [InteractiveBrowserCredential destina-se](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) a aplicações interativas, e pode ser usado para criar um cliente SDK autenticado
-* [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet&preserve-view=true) funciona muito bem em casos em que você precisa de identidades geridas (MSI), e é um bom candidato para trabalhar com as Funções Azure
+Em seguida, adicione código para obter credenciais usando um dos métodos em `Azure.Identity` .
+
+### <a name="defaultazurecredential-method"></a>Método DefaultAzureCredential
+
+[O DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) fornece um fluxo de autenticação predefinido `TokenCredential` para aplicações que serão implantadas no Azure, e é **a escolha recomendada para o desenvolvimento local.**
+
+Para utilizar as credenciais Azure predefinidas, você precisará do URL da instância Azure Digital Twins[(instruções para encontrar).](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)
+
+Aqui está uma amostra de código para adicionar um `DefaultAzureCredential` ao seu projeto:
+
+```csharp
+// The URL of your instance, starting with the protocol (https://)
+private static string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-URL>";
+
+//...
+
+DigitalTwinsClient client;
+try
+{
+    var credential = new DefaultAzureCredential();
+    client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
+} catch(Exception e)
+{
+    Console.WriteLine($"Authentication or client creation error: {e.Message}");
+    Environment.Exit(0);
+}
+```
+
+### <a name="managedidentitycredential-method"></a>Método ManageIdentityCredential
+
+O método [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential?preserve-view=true&view=azure-dotnet) funciona muito bem nos casos em que precisa de [identidades geridas (MSI)](../active-directory/managed-identities-azure-resources/overview.md)— por exemplo, ao trabalhar com as Funções Azure.
+
+Isto significa que pode utilizar `ManagedIdentityCredential` no mesmo projeto que `DefaultAzureCredential` `InteractiveBrowserCredential` ou, para autenticar uma parte diferente do projeto.
+
+Para utilizar as credenciais Azure predefinidas, você precisará do URL da instância Azure Digital Twins[(instruções para encontrar).](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)
+
+Numa função Azure, pode utilizar as credenciais de identidade geridas como esta:
+
+```csharp
+ManagedIdentityCredential cred = new ManagedIdentityCredential(adtAppId);
+DigitalTwinsClientOptions opts = 
+    new DigitalTwinsClientOptions { Transport = new HttpClientTransport(httpClient) });
+client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, opts);
+```
 
 ### <a name="interactivebrowsercredential-method"></a>Método InteractiveBrowserCredential
-O método [InteractiveBrowserCredential destina-se](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) a aplicações interativas e irá criar um navegador web para autenticação.
 
-Para utilizar as credenciais de navegador interativas para criar um cliente SDK autenticado, adicione este código:
+O método [InteractiveBrowserCredential destina-se](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet) a aplicações interativas e irá criar um navegador web para autenticação. Pode usá-lo em vez de `DefaultAzureCredential` nos casos em que necessita de autenticação interativa.
+
+Para utilizar as credenciais de navegador interativas, você precisará de um **registo de aplicação** que tenha permissões para as APIs de Gémeos Digitais Azure. Para obter etapas sobre como configurar este registo de aplicações, consulte as permissões de [*acesso configurar para*](how-to-set-up-instance-portal.md#set-up-access-permissions-for-client-applications) a secção de aplicações do cliente de *Como-a-: Configurar uma instância e autenticação.* Assim que o registo da aplicação estiver configurado, você precisará...
+* ID de inscrição da aplicação *(cliente)*
+* ID do Diretório de Registo de aplicações *(inquilino)*
+* URL da instância Azure Digital Twins[(instruções para encontrar)](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)
+
+Aqui está um exemplo do código para criar um cliente SDK autenticado usando `InteractiveBrowserCredential` .
 
 ```csharp
 // Your client / app registration ID
@@ -63,7 +118,7 @@ private static string clientId = "<your-client-ID>";
 // Your tenant / directory ID
 private static string tenantId = "<your-tenant-ID>";
 // The URL of your instance, starting with the protocol (https://)
-private static string adtInstanceUrl = "<your-Azure-Digital-Twins-instance-URL>";
+private static string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-URL>";
 
 //...
 
@@ -82,122 +137,18 @@ try
 >[!NOTE]
 > Embora possa colocar o ID do cliente, o ID do inquilino e o URL de instância diretamente no código, como mostrado acima, é uma boa ideia que o seu código obtenha estes valores a partir de um ficheiro de configuração ou variável ambiental.
 
-### <a name="managedidentitycredential-method"></a>Método ManageIdentityCredential
- O método [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet&preserve-view=true) funciona muito bem nos casos em que precisa de [identidades geridas (MSI)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)— por exemplo, ao trabalhar com as Funções Azure.
-Numa função Azure, pode utilizar as credenciais de identidade geridas como esta:
-
-```csharp
-ManagedIdentityCredential cred = new ManagedIdentityCredential(adtAppId);
-DigitalTwinsClientOptions opts = 
-    new DigitalTwinsClientOptions { Transport = new HttpClientTransport(httpClient) });
-client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, opts);
-```
+#### <a name="other-notes-about-authenticating-azure-functions"></a>Outras notas sobre a autenticação de Funções Azure
 
 Ver [*Como fazer: Configurar uma função Azure para o processamento de dados*](how-to-create-azure-function.md) para um exemplo mais completo que explica algumas das escolhas importantes de configuração no contexto das funções.
 
 Além disso, para utilizar a autenticação em função, lembre-se de:
-* [Ativar a identidade gerida](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet)
-* Utilize [variáveis ambientais](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables?tabs=csharp) conforme apropriado
+* [Ativar a identidade gerida](../app-service/overview-managed-identity.md?tabs=dotnet)
+* Utilize [variáveis ambientais](/sandbox/functions-recipes/environment-variables?tabs=csharp) conforme apropriado
 * Atribua permissões à aplicação de funções que lhe permitem aceder às APIs das Gémeas Digitais. Para obter mais informações sobre os processos de Funções Azure, consulte [*Como fazer: Configurar uma função Azure para o processamento de dados*](how-to-create-azure-function.md).
 
-## <a name="authentication-with-an-autorest-generated-sdk"></a>Autenticação com um SDK gerado por AutoResc
+## <a name="other-credential-methods"></a>Outros métodos de credencial
 
-Se não estiver a utilizar um dos SDKs fornecidos (.NET, Java, JavaScript), poderá optar por construir uma biblioteca SDK num idioma à sua escolha, como descrito em [*Como-a-: Criar SDKs personalizados para Gémeos Digitais Azure com AutoRest*](how-to-create-custom-sdks.md).
-
-Esta secção explica como autenticar nesse caso.
-
-### <a name="prerequisites"></a>Pré-requisitos
-
-Em primeiro lugar, deverá completar os passos para criar um SDK personalizado com AutoRest, utilizando os passos em [*Como-a-: Criar SDKs personalizados para Gémeos Digitais Azure com AutoRest*](how-to-create-custom-sdks.md).
-
-Este exemplo utiliza um SDK typescript gerado com AutoRest. Como resultado, também requer:
-* [msal-js](https://github.com/AzureAD/microsoft-authentication-library-for-js)
-* [ms-rest-js](https://github.com/Azure/ms-rest-js)
-
-### <a name="minimal-authentication-code-sample"></a>Amostra de código de autenticação mínima
-
-Para autenticar uma aplicação com os serviços Azure, pode utilizar o seguinte código mínimo dentro da sua aplicação cliente.
-
-Você precisará do seu *ID de Aplicação (cliente)* e *Diretório (inquilino) ID* de anteriormente, bem como o URL da sua instância Azure Digital Twins.
-
-> [!TIP]
-> O URL da instância Azure Digital Twins é feito adicionando *https://* ao início do *nome de anfitrião*da sua instância Azure Digital Twins . Para ver o *nome do anfitrião,* juntamente com todas as propriedades do seu caso, pode `az dt show --dt-name <your-Azure-Digital-Twins-instance>` correr. Pode utilizar o `az account show --query tenantId` comando para ver o seu *ID do Diretório (inquilino).* 
-
-```javascript
-import * as Msal from "msal";
-import { TokenCredentials } from "@azure/ms-rest-js";
-// Autorest-generated SDK
-import { AzureDigitalTwinsAPI } from './azureDigitalTwinsAPI';
-
-// Client / app registration ID
-var ClientId = "<your-client-ID>";
-// Azure tenant / directory ID
-var TenantId = "<your-tenant-ID>";
-// URL of the Azure Digital Twins instance
-var AdtInstanceUrl = "<your-instance-URL>"; 
-
-var AdtAppId = "https://digitaltwins.azure.net";
-
-let client = null;
-
-export async function login() {
-
-    const msalConfig = {
-        auth: {
-            clientId: ClientId,
-            redirectUri: "http://localhost:3000",
-            authority: "https://login.microsoftonline.com/"+TenantId
-        }
-    };
-
-    const msalInstance = new Msal.UserAgentApplication(msalConfig);
-
-    msalInstance.handleRedirectCallback((error, response) => {
-        // handle redirect response or error
-    });
-
-    var loginRequest = {
-        scopes: [AdtAppId + "/.default"] 
-    };
-
-    try {
-        await msalInstance.loginPopup(loginRequest)
-        var accessToken;
-        // if the user is already logged in you can acquire a token
-        if (msalInstance.getAccount()) {
-            var tokenRequest = {
-                scopes: [AdtAppId + "/.default"]
-            };
-            try {
-                const response = await msalInstance.acquireTokenSilent(tokenRequest);
-                accessToken = response.accessToken;
-            } catch (err) {
-                if (err.name === "InteractionRequiredAuthError") {
-                    const response = await msalInstance.acquireTokenPopup(tokenRequest)
-                    accessToken = response.accessToken;
-                }
-            }
-        }
-        if (accessToken!=null)
-        {
-            var tokenCredentials = new TokenCredentials(accessToken);
-                
-            // Add token and server URL to service instance
-            const clientConfig = {
-                baseUri: AdtInstanceUrl
-            };
-            client = new AzureDigitalTwinsAPI(tokenCredentials, clientConfig);
-            appDataStore.client = client;
-        }
-    } catch (err) {
-        ...
-    }
-}
-```
-
-Note mais uma vez que quando o código acima coloca o ID do cliente, iD do inquilino e URL de exemplo diretamente no código para a simplicidade, é uma boa ideia ter o seu código obter estes valores a partir de um ficheiro de configuração ou variável ambiental em vez disso.
-
-A MSAL tem muitas mais opções que pode usar, para implementar coisas como caching e outros fluxos de autenticação. Para obter mais informações sobre este documento, consulte [*a visão geral da Biblioteca de Autenticação da Microsoft (MSAL)*](../active-directory/develop/msal-overview.md).
+Se os cenários de autenticação acima referidos não cobrirem as necessidades da sua aplicação, poderá explorar outros tipos de autenticação oferecidas na plataforma de identidade da [**Microsoft.**](../active-directory/develop/v2-overview.md#getting-started) A documentação desta plataforma abrange cenários de autenticação adicional, organizados por tipo de aplicação.
 
 ## <a name="next-steps"></a>Passos seguintes
 

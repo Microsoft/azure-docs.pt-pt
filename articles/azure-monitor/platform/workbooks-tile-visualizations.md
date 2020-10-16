@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: lagayhar
 ms.openlocfilehash: 07de9fcd01559e59a1bcd5d8928075aebcf79cc7
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89664944"
 ---
 # <a name="tile-visualizations"></a>Visualizações de azulejos
@@ -122,7 +122,7 @@ O autor tem a opção de definir a largura do azulejo nas definições de azulej
 
      ![Screenshot exibindo azulejos de largura de tamanho completo](./media/workbooks-tile-visualizations/tiles-full.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Os azulejos também suportam o renderizador de barras compósitos. Para saber mais visite [a documentação do Bar Composto.](workbooks-composite-bar.md)
 * Para saber mais sobre parâmetros de tempo como `TimeRange` visitar [a documentação dos parâmetros do tempo](workbooks-time.md)do livro.

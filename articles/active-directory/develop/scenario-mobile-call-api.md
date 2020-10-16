@@ -14,10 +14,10 @@ ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: 781406a1bfd253f0ab3eb333f23917be4aeb3ba9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83771745"
 ---
 # <a name="call-a-web-api-from-a-mobile-app"></a>Ligue para uma API web a partir de uma aplicação móvel
@@ -29,17 +29,17 @@ Neste artigo, vamos primeiro olhar para o resultado do MSAL. Então vamos ver co
 ## <a name="msal-result"></a>Resultado da MSAL
 A MSAL fornece os seguintes valores: 
 
-- `AccessToken`chama APIs web protegidos num pedido do portador HTTP.
-- `IdToken`contém informações úteis sobre o utilizador inscrito. Esta informação inclui o nome do utilizador, o inquilino da casa, e um identificador único para armazenamento.
-- `ExpiresOn`é o tempo de expiração do símbolo. A MSAL trata da atualização automática de uma aplicação.
-- `TenantId`é o identificador do inquilino onde o utilizador inscreveu. Para os utilizadores convidados em Azure Ative Directory (Azure AD) B2B, este valor identifica o inquilino onde o utilizador se inscreveu. O valor não identifica o inquilino da casa do utilizador.  
-- `Scopes`indica os âmbitos que foram concedidos com o seu símbolo. Os âmbitos concedidos podem ser um subconjunto dos âmbitos que pediu.
+- `AccessToken` chama APIs web protegidos num pedido do portador HTTP.
+- `IdToken` contém informações úteis sobre o utilizador inscrito. Esta informação inclui o nome do utilizador, o inquilino da casa, e um identificador único para armazenamento.
+- `ExpiresOn` é o tempo de expiração do símbolo. A MSAL trata da atualização automática de uma aplicação.
+- `TenantId` é o identificador do inquilino onde o utilizador inscreveu. Para os utilizadores convidados em Azure Ative Directory (Azure AD) B2B, este valor identifica o inquilino onde o utilizador se inscreveu. O valor não identifica o inquilino da casa do utilizador.  
+- `Scopes` indica os âmbitos que foram concedidos com o seu símbolo. Os âmbitos concedidos podem ser um subconjunto dos âmbitos que pediu.
 
 O MSAL também fornece uma abstração para um `Account` valor. Um `Account` valor representa a conta de assinatura do utilizador atual:
 
-- `HomeAccountIdentifier`identifica o inquilino da casa do utilizador.
-- `UserName`é o nome de utilizador preferido do utilizador. Este valor pode estar vazio para os utilizadores do Azure AD B2C.
-- `AccountIdentifier`identifica o utilizador inscrito. Na maioria dos casos, este valor é o mesmo que o `HomeAccountIdentifier` valor, a menos que o utilizador seja hóspede em outro inquilino.
+- `HomeAccountIdentifier` identifica o inquilino da casa do utilizador.
+- `UserName` é o nome de utilizador preferido do utilizador. Este valor pode estar vazio para os utilizadores do Azure AD B2C.
+- `AccountIdentifier` identifica o utilizador inscrito. Na maioria dos casos, este valor é o mesmo que o `HomeAccountIdentifier` valor, a menos que o utilizador seja hóspede em outro inquilino.
 
 ## <a name="call-an-api"></a>Chame uma API
 
@@ -87,7 +87,7 @@ Depois de ter o token de acesso, pode ligar para uma API web. A sua aplicação 
 
 ### <a name="msal-for-ios-and-macos"></a>MSAL para iOS e macOS
 
-Os métodos para adquirir fichas devolvem um `MSALResult` objeto. `MSALResult`expõe uma `accessToken` propriedade. Pode usar `accessToken` para chamar uma API web. Adicione esta propriedade ao cabeçalho de autorização HTTP antes de ligar para aceder à API web protegida.
+Os métodos para adquirir fichas devolvem um `MSALResult` objeto. `MSALResult` expõe uma `accessToken` propriedade. Pode usar `accessToken` para chamar uma API web. Adicione esta propriedade ao cabeçalho de autorização HTTP antes de ligar para aceder à API web protegida.
 
 ```objc
 NSMutableURLRequest *urlRequest = [NSMutableURLRequest new];
@@ -157,7 +157,7 @@ catch(MsalUiRequiredException ex)
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Mover-se para a produção](scenario-mobile-production.md)
+> [Mover para produção](scenario-mobile-production.md)

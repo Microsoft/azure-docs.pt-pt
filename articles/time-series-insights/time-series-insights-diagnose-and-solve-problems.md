@@ -12,10 +12,10 @@ ms.topic: troubleshooting
 ms.date: 09/29/2020
 ms.custom: seodec18
 ms.openlocfilehash: 231f2e4df1445c60378ac06aab0d0e56f410c1c8
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91530141"
 ---
 # <a name="diagnose-and-solve-issues-in-your-azure-time-series-insights-gen1-environment"></a>Diagnosticar e resolver problemas no seu ambiente Azure Time Series Insights Gen1
@@ -135,7 +135,7 @@ Os seguintes valores não serão apresentados:
 * *Ícone do calendário*: Indica que o Azure Time Series Insights está a ler os valores dos dados como valores de data.
 * *#*: Indica que a Azure Time Series Insights está a ler os valores de dados como inteiros.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Leia sobre [como mitigar a latência em Azure Time Series Insights](time-series-insights-environment-mitigate-latency.md).
 

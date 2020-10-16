@@ -6,14 +6,14 @@ ms.service: virtual-machines-linux
 ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 06/15/2020
+ms.date: 10/14/2020
 ms.author: danis
-ms.openlocfilehash: 7ddbb48f3598780988feb25a11729a5086d31fde
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 87cb4a233470fadc9cde616790aff0d5cd7b151b
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869274"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096662"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>suporte cloud-init para máquinas virtuais em Azure
 Este artigo explica o suporte que existe para [configurar](https://cloudinit.readthedocs.io) uma máquina virtual (VM) ou uma escala de máquina virtual em tempo de provisionamento em Azure. Estas configurações de cloud-init são executadas na primeira bota uma vez que os recursos foram a provisionados pela Azure.  
@@ -77,7 +77,7 @@ Existem duas fases para disponibilizar cloud-init para o endossado Linux distro 
 
 | Editor / Versão | Oferta | SKU | Versão | imagem nuvem-init pronto | suporte pacote de cloud-init em Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|Oráculo 7.7 |Oráculo-Linux |77-ci |7.7.01| imagem de pré-visualização (nota: esta é uma imagem de pré-visualização, e uma vez que todas as imagens Oracle 7.7 suportam cloud-init, esta será removida em meados de 2020, aviso será dado) | não, na pré-visualização, o pacote é: *18.5-3.0.1.el7*
+|Oráculo 7.7 |Oracle-Linux |77-ci |7.7.01| imagem de pré-visualização (nota: esta é uma imagem de pré-visualização, e uma vez que todas as imagens Oracle 7.7 suportam cloud-init, esta será removida em meados de 2020, aviso será dado) | não, na pré-visualização, o pacote é: *18.5-3.0.1.el7*
 
 ### <a name="suse-sles"></a>SUSE SLES
 Estas imagens SLES foram atualizadas para a oferta usando o cloud-init, as variantes de imagem Gen2 também foram atualizadas.
@@ -97,10 +97,10 @@ Estas imagens SLES foram atualizadas para a oferta usando o cloud-init, as varia
 ### <a name="debian"></a>Debian
 | Editor / Versão | Oferta | SKU | Versão | imagem nuvem-init pronto | suporte pacote de cloud-init em Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| debian (Gen1) |debian-10 | 10-cloudinit |cloud-init-preview| sim (apenas pré-visualização) | Não, na pré-estreia. |
-| debian (Gen2) |debian-10 | 10-cloudinit-gen2 |cloud-init-preview| sim (apenas pré-visualização) | Não, na pré-estreia. |
-
-
+| debian (Gen1) |debian-10 | 10-cloudinit |cloud-init-preview| sim (nota: esta é uma imagem de pré-visualização, e não **deve** ser usada mais, esta será removida a 1 de janeiro de 2021) | Não, na pré-estreia. |
+| debian (Gen2) |debian-10 | 10-cloudinit-gen2 |cloud-init-preview| sim (nota: esta é uma imagem de pré-visualização, e não **deve** ser usada mais, esta será removida a 1 de janeiro de 2021) | Não, na pré-estreia. |
+| debian (Gen1) |debian-10 | 10-cloudinit |10:0.20201013.422| sim | sim - suporte da versão do pacote: `20.2-2~deb10u1` |
+| debian (Gen2) |debian-10 | 10-cloudinit-gen2 |0.20201013.422| sim | sim - suporte da versão do pacote: `20.2-2~deb10u1` |
 
 
 Atualmente, o Azure Stack irá suportar o fornecimento de imagens ativadas por cloud-in.
@@ -152,7 +152,7 @@ az vm create \
 
 Quando o VM foi criado, o Azure CLI mostra informações específicas para a sua implantação. Tome nota do `publicIpAddress`. Este endereço é utilizado para aceder à VM.  Demora algum tempo para que o VM seja criado, os pacotes para instalar e a aplicação para começar. Existem tarefas em segundo plano que continuam em execução após a CLI do Azure o devolver à linha de comandos. Pode entrar no SSH no VM e utilizar os passos descritos na secção de resolução de problemas para visualizar os registos de inibição de nuvens. 
 
-Também pode implementar um VM ativado por nuvem, passando os [parâmetros no modelo ARM](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli#inline-parameters).
+Também pode implementar um VM ativado por nuvem, passando os [parâmetros no modelo ARM](../../azure-resource-manager/templates/deploy-cli.md#inline-parameters).
 
 ## <a name="troubleshooting-cloud-init"></a>Resolução de problemas na nuvem
 Uma vez que o VM tenha sido a provisionado, o cloud-init irá percorrer todos os módulos e scripts definidos `--custom-data` de forma a configurar o VM.  Se precisar de resolver quaisquer erros ou omissões da configuração, tem de procurar o nome do módulo `disk_setup` `runcmd` (ou, por exemplo) no registo de ini por parte da nuvem - localizado em **/var/log/cloud-init.log**.
@@ -173,4 +173,3 @@ Para exemplos de alterações de configuração em nuvem, consulte os seguintes 
 - [Executar um gestor de pacotes para atualizar os pacotes existentes na primeira bota](cloudinit-update-vm.md)
 - [Alterar nome de anfitrião local VM](cloudinit-update-vm-hostname.md) 
 - [Instale um pacote de aplicações, atualize ficheiros de configuração e injete teclas](tutorial-automate-vm-deployment.md)
- 

@@ -4,10 +4,10 @@ description: Este artigo contém os procedimentos de backup e recuperação de m
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.openlocfilehash: fc4e34e11e2474521082b1c23f600e9a5ca7a9fe
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89378003"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Faça backup de máquinas virtuais Hyper-V com servidor de backup Azure
@@ -84,7 +84,7 @@ Estes são os pré-requisitos para o backup de máquinas virtuais Hiper-V com MA
 
 5. Na página **Selecionar Método de Proteção de Dados** , especifique o nome do grupo de proteção. Selecione **Pretendo proteção de curta duração com disco** e **Pretendo proteção online** se pretender fazer uma cópia de segurança dos dados para o Azure ao utilizar o serviço do Microsoft Azure Backup.
 
-6. Na gama de retenção **de objetivos de curto prazo,**  >  **Retention range**especifique quanto tempo pretende reter dados de disco. Na **frequência de sincronização,** especifique com que frequência as cópias de segurança incrementais dos dados devem ser executadas. Em alternativa, em vez de selecionar um intervalo para as cópias de segurança incrementais, pode ativar **Apenas antes de um ponto de recuperação**. Com esta definição ativada, o MABS executará uma cópia de segurança completa expressa pouco antes de cada ponto de recuperação programado.
+6. No **intervalo De retenção de objetivos Short-Term,**  >  **Retention range**especifique quanto tempo pretende reter dados de disco. Na **frequência de sincronização,** especifique com que frequência as cópias de segurança incrementais dos dados devem ser executadas. Em alternativa, em vez de selecionar um intervalo para as cópias de segurança incrementais, pode ativar **Apenas antes de um ponto de recuperação**. Com esta definição ativada, o MABS executará uma cópia de segurança completa expressa pouco antes de cada ponto de recuperação programado.
 
     > [!NOTE]
     >
@@ -153,6 +153,6 @@ Quando for possível recuperar uma máquina virtual com cópia de segurança, ut
 
 7. O ecrã **Estado de Recuperação** fornece informações sobre a tarefa de recuperação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Recuperar dados do Azure Backup Server](./backup-azure-alternate-dpm-server.md)

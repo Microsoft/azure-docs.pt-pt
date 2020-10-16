@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: b65697c224f612a1bc9d5bfa193355832cafd73f
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88799252"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Conceitos de desenvolvimento do Catálogo de Dados Azure
@@ -169,8 +169,8 @@ Os tipos comuns podem ser usados como tipos de propriedades, mas não são itens
 <tr><td></td><td>objectType</td><td>string</td><td>Descreve o tipo de objeto na fonte de dados. Por exemplo: Tabela, Vista para SQL Server.</td></tr>
 
 <tr><td>DataSourceLocation</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>protocolo</td><td>string</td><td>Necessário. Descreve um protocolo usado para comunicar com a fonte de dados. Por exemplo: `tds` para SQL Server, `oracle` para Oráculo, etc. Consulte a [especificação de referência de fonte de dados - Estrutura DSL](data-catalog-dsr.md) para a lista de protocolos atualmente suportados.</td></tr>
-<tr><td></td><td>address</td><td>Cadeia de &lt; dicionário, objeto&gt;</td><td>Necessário. O endereço é um conjunto de dados específicos do protocolo que é utilizado para identificar a fonte de dados que está a ser referenciada. Os dados de endereços a um determinado protocolo, o que significa que não faz sentido sem conhecer o protocolo.</td></tr>
+<tr><td></td><td>protocolo</td><td>string</td><td>Obrigatório. Descreve um protocolo usado para comunicar com a fonte de dados. Por exemplo: `tds` para SQL Server, `oracle` para Oráculo, etc. Consulte a [especificação de referência de fonte de dados - Estrutura DSL](data-catalog-dsr.md) para a lista de protocolos atualmente suportados.</td></tr>
+<tr><td></td><td>address</td><td>Cadeia de &lt; dicionário, objeto&gt;</td><td>Obrigatório. O endereço é um conjunto de dados específicos do protocolo que é utilizado para identificar a fonte de dados que está a ser referenciada. Os dados de endereços a um determinado protocolo, o que significa que não faz sentido sem conhecer o protocolo.</td></tr>
 <tr><td></td><td>autenticação</td><td>string</td><td>Opcional. O esquema de autenticação utilizado para comunicar com a fonte de dados. Por exemplo: janelas, ausuth, etc.</td></tr>
 <tr><td></td><td>conexõesProperties</td><td>Cadeia de &lt; dicionário, objeto&gt;</td><td>Opcional. Informações adicionais sobre como ligar-se a uma fonte de dados.</td></tr>
 

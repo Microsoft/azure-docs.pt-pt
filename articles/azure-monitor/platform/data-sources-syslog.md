@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/22/2019
 ms.openlocfilehash: d9efdb11ffd30c68a0ac8ea8e8156fe707f188de
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87322317"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Syslog data sources in Azure Monitor (Origens de dados de Syslog no Azure Monitor)
@@ -155,8 +155,8 @@ log { source(src); filter(f_user_oms); destination(d_oms); };
 ### <a name="collecting-data-from-additional-syslog-ports"></a>Recolha de dados a partir de portas Syslog adicionais
 O agente do Log Analytics ouve mensagens Syslog no cliente local na porta 25224.  Quando o agente é instalado, uma configuração de sísloge predefinida é aplicada e encontrada no seguinte local:
 
-* Rsyslog:`/etc/rsyslog.d/95-omsagent.conf`
-* Syslog-ng:`/etc/syslog-ng/syslog-ng.conf`
+* Rsyslog: `/etc/rsyslog.d/95-omsagent.conf`
+* Syslog-ng: `/etc/syslog-ng/syslog-ng.conf`
 
 Pode alterar o número de porta criando dois ficheiros de configuração: um ficheiro config FluentD e um ficheiro rsyslog-or-syslog-ng dependendo do daemon Syslog que instalou.  
 

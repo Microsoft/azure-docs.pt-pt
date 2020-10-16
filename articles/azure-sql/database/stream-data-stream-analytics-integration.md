@@ -12,10 +12,10 @@ ms.author: ajetasi
 ms.reviewer: sstein
 ms.date: 11/04/2019
 ms.openlocfilehash: 640dcfc49d1b467cbb852e8b07b113c1180daf7f
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91617099"
 ---
 # <a name="stream-data-into-azure-sql-database-using-azure-stream-analytics-integration-preview"></a>Transmitir dados para a Base de Dados Azure SQL utilizando a integração Azure Stream Analytics (pré-visualização)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1106ec63e79d336b740b444a187244de64c03f5
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 955e77bc947baed889de24ce34e7acec737164f6
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269578"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097308"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como: Planeie o seu Azure Ative Directory híbrido junte-se à implementação
 
@@ -56,7 +56,7 @@ A Hybrid AZure AD junta-se a suportes a uma vasta gama de dispositivos Windows. 
 
 - Windows 10
 - Windows Server 2016
-  - **Nota:** Azure National cloud customers require versão 1809
+  - **Nota:** Azure National cloud customers require versão 1803
 - Windows Server 2019
 
 Para os dispositivos que executam o sistema operativo windows desktop, a versão suportada está listada neste artigo [informações de lançamento do Windows 10](/windows/release-information/). Como uma boa prática, a Microsoft recomenda o upgrade para a versão mais recente do Windows 10.
@@ -130,7 +130,7 @@ Estes cenários não requerem que configures um servidor da federação para aut
 Um ambiente federado deve ter um fornecedor de identidade que apoie os seguintes requisitos. Se tiver um ambiente federado utilizando os Serviços da Federação de Diretórios Ativos (FS AD), então os requisitos abaixo já estão suportados.
 
 - **WIAORMULTIAUTHN reivindicação:** Esta alegação é necessária para fazer a junção híbrida Azure AD para dispositivos de nível baixo do Windows.
-- **Protocolo WS-Trust:** Este protocolo é necessário para autenticar dispositivos híbridos Azure AD atuais do Windows com Azure AD. Quando estiver a utilizar o AD FS, tem de ativar os seguintes pontos finais da WS-Trust: `/adfs/services/trust/2005/windowstransport`  
+- **Protocolo WS-Trust:** Este protocolo é necessário para autenticar dispositivos híbridos Azure AD atuais do Windows com Azure AD. Quando estiver a utilizar o AD FS, tem de ativar os seguintes pontos finais WS-Trust: `/adfs/services/trust/2005/windowstransport`  
 `/adfs/services/trust/13/windowstransport`  
   `/adfs/services/trust/2005/usernamemixed` 
   `/adfs/services/trust/13/usernamemixed`
@@ -138,7 +138,7 @@ Um ambiente federado deve ter um fornecedor de identidade que apoie os seguintes
   `/adfs/services/trust/13/certificatemixed` 
 
 > [!WARNING] 
-> Tanto **adfs/serviços/trust/2005/windowstransport** ou **adfs/services/trust/13/windowstransport** devem ser ativados apenas como pontos finais virados para a intranet e NÃO devem ser expostos como pontos finais virados para a extranet através do Proxy da Aplicação Web. Para saber mais sobre como desativar os pontos finais do Windows WS-Trust, consulte [os pontos finais do Windows WS-Trust desativado no proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Pode ver quais os pontos finais que estão ativados através da consola de gestão AD FS em **Service**  >  **Endpoints**.
+> Tanto **adfs/serviços/trust/2005/windowstransport** ou **adfs/services/trust/13/windowstransport** devem ser ativados apenas como pontos finais virados para a intranet e NÃO devem ser expostos como pontos finais virados para a extranet através do Proxy da Aplicação Web. Para saber mais sobre como desativar WS-Trust pontos finais do Windows, consulte [pontos finais do Windows desativar WS-Trust no proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Pode ver quais os pontos finais que estão ativados através da consola de gestão AD FS em **Service**  >  **Endpoints**.
 
 > [!NOTE]
 > A Azure AD não suporta smartcards ou certificados em domínios geridos.
@@ -162,7 +162,7 @@ Por vezes, os seus utilizadores de AD no local, UPNs, podem ser diferentes dos s
 
 O quadro abaixo fornece detalhes sobre o suporte para estes UPNs AD no local no Windows 10 Hybrid AD
 
-| Tipo de UPN AD no local | Tipo de domínio | Versão do Windows 10 | Descrição |
+| Tipo de UPN AD no local | Tipo de domínio | Versão do Windows 10 | Description |
 | ----- | ----- | ----- | ----- |
 | Roteável | Federados | A partir de 1703 lançamento | Disponível em Geral |
 | Não-encaminhável | Federados | A partir de 1803 lançamento | Disponível em Geral |

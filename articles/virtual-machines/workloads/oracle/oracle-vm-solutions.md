@@ -1,24 +1,18 @@
 ---
 title: Soluções Oráculosas em máquinas virtuais Azure Microsoft Docs
 description: Saiba mais sobre configurações suportadas e limitações de imagens de máquinas virtuais Oracle no Microsoft Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: dbakevlar
-manager: ''
-tags: azure-resource-management
-ms.assetid: ''
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: kegorman
-ms.openlocfilehash: 352c8c887899a2e15eed9736e8885c1b2cffec2b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.reviewer: cynthn
+ms.openlocfilehash: 32e79e12eae9997df8163401d2abc5f06bc02fc0
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331374"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993498"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Imagens Oracle VM e sua implementação no Microsoft Azure
 
@@ -111,7 +105,7 @@ Estas capacidades são possíveis porque o Azure NetApp Files é baseado no NetA
 
 ## <a name="licensing-oracle-database--software-on-azure"></a>Licenciamento Oracle Database & software em Azure
 
-O Microsoft Azure é um ambiente em nuvem autorizado para executar a Oracle Database. A tabela Oracle Core Fator não é aplicável ao licenciar bases de dados oracle na nuvem. Em vez disso, ao utilizar VMs com tecnologia hiper-threading ativada para bases de dados da Enterprise Edition, conte dois vCPUs como equivalente a uma licença de processador Oracle se estiver ativado a hiper-leitura (conforme indicado no documento de política). Os detalhes da apólice podem ser [consultados aqui.](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf)
+O Microsoft Azure é um ambiente em nuvem autorizado para executar a Oracle Database. A tabela Oracle Core Fator não é aplicável ao licenciar bases de dados oracle na nuvem. Em vez disso, ao utilizar VMs com tecnologia Hyper-Threading ativada para bases de dados da Enterprise Edition, conte dois vCPUs como equivalente a uma licença de processador Oracle se estiver ativado a hiper-leitura (conforme indicado no documento de política). Os detalhes da apólice podem ser [consultados aqui.](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf)
 As bases de dados do Oráculo geralmente requerem memória mais alta e IO. Por esta razão, [recomenda-se vMs otimizados de memória](../../sizes-memory.md) para estas cargas de trabalho. Para otimizar ainda mais as suas cargas de trabalho, os [vCPUs do Núcleo Constrangido](../../constrained-vcpu.md) são recomendados para as cargas de trabalho da Oracle Database que requerem alta memória, armazenamento e largura de banda de I/O, mas não uma contagem elevada de núcleo.
 
 Ao migrar o software e cargas de trabalho da Oracle de instalações para o Microsoft Azure, a Oracle fornece mobilidade de licença, conforme indicado no [Oráculo em Azure FAQ](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)
@@ -132,7 +126,7 @@ Com a Oracle Data Guard, a alta disponibilidade pode ser alcançada com uma base
 
 O tutorial [Implement Oracle GoldenGate on Azure](configure-oracle-golden-gate.md) acompanha-o através do procedimento básico de configuração em Azure.
 
-Além de ter uma solução HA e DR arquivada em Azure, deverá ter uma estratégia de backup no local para restaurar a sua base de dados. O tutorial [backup e recuperar uma Base de Dados Oráculos](oracle-backup-recovery.md) acompanha-o através do procedimento básico para estabelecer uma cópia de segurança consistente.
+Além de ter uma solução HA e DR arquivada em Azure, deverá ter uma estratégia de backup no local para restaurar a sua base de dados. O tutorial [backup e recuperar uma Base de Dados Oráculos](./oracle-overview.md) acompanha-o através do procedimento básico para estabelecer uma cópia de segurança consistente.
 
 ## <a name="support-for-jd-edwards"></a>Apoio a JD Edwards
 

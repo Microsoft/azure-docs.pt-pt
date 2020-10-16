@@ -7,10 +7,10 @@ ms.date: 09/11/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 9e5b9017854465724724638bfe5d32783a031030
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90056458"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrações de parceiros de desktop virtual do Windows
@@ -236,7 +236,7 @@ Login VSI é um fornecedor de serviços de valor acrescentado virtual do Windows
 
 A Nasuni Corp., o fornecedor líder de serviços de ficheiros em nuvem e um parceiro isv global de topo da Azure, oferece a plataforma de software-as-as-a-service da Nasuni como a solução moderna de armazenamento de ficheiros para desktops virtuais modernos. A Nasuni, quando combinada com o Azure Blob Storage, consolida o armazenamento de ficheiros primários (NAS), a cópia de segurança dos ficheiros, a recuperação de desastres e a sincronização de ficheiros entre regiões numa solução unificada. Com a Nasuni, as empresas podem implementar desktops virtuais do Windows para mais casos de uso e em mais regiões Azure, simplificar a administração e garantir a continuidade do negócio. 
 
-Sendo uma solução VDI em nuvem moderna, o Windows Virtual Desktop requer armazenamento moderno de ficheiros em nuvem. Tradicionalmente, o armazenamento de ficheiros VDI tem sido baseado em armazenamento ligado à rede (NAS) e hardware de servidor de ficheiros localizado no local, e a tecnologia necessária para fornecer backups de ficheiros, restauração e recuperação de desastres. Estas abordagens tradicionais são caras, complexas para manter e administrar, e não escalam facilmente. Também introduzem latência se forem utilizados com uma solução VDI em nuvem moderna, como o Windows Virtual Desktop, devido à distância física e às ligações WAN mais lentas entre os desktops baseados em Azure e o armazenamento de ficheiros baseados nas instalações. A Nasuni, uma plataforma de serviços de ficheiros construída especificamente para o Azure, oferece capacidade ilimitada de armazenamento de ficheiros e acesso a ficheiros de alto desempenho. Nasuni pode ser co-localizado com o Windows Virtual Desktop nas mesmas regiões do Azure para fornecer acesso de ficheiros económicos e de alto desempenho a um único espaço de nome global. A Nasuni oferece o armazenamento de ficheiros Virtual Desktop do Windows a uma fração do custo dos servidores tradicionais de ficheiros NAS e Windows e inclui cópias de segurança incorporadas e recuperação de desastres para reduzir ainda mais os custos e libertar recursos de TI.
+Sendo uma solução VDI em nuvem moderna, o Windows Virtual Desktop requer armazenamento moderno de ficheiros em nuvem. Tradicionalmente, o armazenamento de ficheiros VDI tem sido baseado em Network-Attached de armazenamento (NAS) e hardware de servidor de ficheiros localizado no local, e a tecnologia necessária para fornecer backups de ficheiros, restauração e recuperação de desastres. Estas abordagens tradicionais são caras, complexas para manter e administrar, e não escalam facilmente. Também introduzem latência se forem utilizados com uma solução VDI em nuvem moderna, como o Windows Virtual Desktop, devido à distância física e às ligações WAN mais lentas entre os desktops baseados em Azure e o armazenamento de ficheiros baseados nas instalações. A Nasuni, uma plataforma de serviços de ficheiros construída especificamente para o Azure, oferece capacidade ilimitada de armazenamento de ficheiros e acesso a ficheiros de alto desempenho. Nasuni pode ser co-localizado com o Windows Virtual Desktop nas mesmas regiões do Azure para fornecer acesso de ficheiros económicos e de alto desempenho a um único espaço de nome global. A Nasuni oferece o armazenamento de ficheiros Virtual Desktop do Windows a uma fração do custo dos servidores tradicionais de ficheiros NAS e Windows e inclui cópias de segurança incorporadas e recuperação de desastres para reduzir ainda mais os custos e libertar recursos de TI.
 
 - [Vá ao site do parceiro.](https://www.nasuni.com/partner/microsoft/#wvd)
 - [Consulte o resumo da solução comum](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4FaeS).
@@ -406,7 +406,7 @@ O Workspot alarga o valor do Windows Virtual Desktop simplificando o processo de
 - [Consulte o resumo da solução comum](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oL8P).
 - [Vá ao site do parceiro.](https://www.workspot.com/wvd)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba mais sobre o Windows Virtual Desktop](overview.md).
 - [Criar um inquilino no Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).

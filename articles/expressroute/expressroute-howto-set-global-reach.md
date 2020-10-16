@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: duau
 ms.openlocfilehash: dd4c6f0b9d518acf06f7d018a65cc2b9b92db33d
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89395456"
 ---
 # <a name="configure-expressroute-global-reach"></a>Configurar o Alcance Global do ExpressRoute
 
 Este artigo ajuda-o a configurar o ExpressRoute Global Reach usando o PowerShell. Para mais informações, consulte [ExpressRoute Global Reach](expressroute-global-reach.md).
 
- ## <a name="before-you-begin"></a>Before you begin
+ ## <a name="before-you-begin"></a>Antes de começar
 
 Antes de iniciar a configuração, confirme o seguinte:
 
@@ -108,7 +108,7 @@ Utilize o seguinte comando para verificar a configuração do circuito onde a co
 $ckt1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
 ```
 
-Se simplesmente executar *$ckt1* em PowerShell, vê *CircuitConnectionStatus* na saída. Diz-lhe se a conectividade está estabelecida, "Conectada", ou "Desligada". 
+Se simplesmente executar *$ckt 1* em PowerShell, vê *CircuitConnectionStatus* na saída. Diz-lhe se a conectividade está estabelecida, "Conectada", ou "Desligada". 
 
 ## <a name="disable-connectivity"></a>Desativar a conectividade
 
@@ -124,7 +124,7 @@ Pode executar a operação Get para verificar o estado.
 
 Após a conclusão da operação anterior, já não tem conectividade entre a rede no local através dos circuitos ExpressRoute.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 1. [Saiba mais sobre o ExpressRoute Global Reach](expressroute-global-reach.md)
 2. [Verificar conectividade ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
 3. [Ligue um circuito ExpressRoute a uma rede virtual Azure](expressroute-howto-linkvnet-arm.md)

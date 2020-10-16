@@ -14,10 +14,10 @@ ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 04e1d35ab17a49dd1c4e9bd2bd19289de2b8658a
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89565859"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Adicione marca à página de inscrição do Azure Ative Directory da sua organização

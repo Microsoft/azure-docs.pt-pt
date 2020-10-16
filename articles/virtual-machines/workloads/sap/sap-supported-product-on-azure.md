@@ -17,10 +17,10 @@ ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 217d5b060ca1b7d32cd334049db9b7c68b7949a0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87065083"
 ---
 # <a name="what-sap-software-is-supported-for-azure-deployments"></a>Qual o software SAP suportado para implementações do Azure
@@ -86,7 +86,7 @@ Conhecendo as versões DBMS suportadas com a infraestrutura Azure direcionada, �
 ## <a name="sap-hana-support"></a>Suporte SAP HANA
 Em Azure existem dois serviços, que podem ser usados para executar a base de dados HANA:
 
-- Máquinas Virtuais do Azure
+- Máquinas Virtuais do Microsoft Azure
 - [Grandes Instâncias HANA](./hana-overview-architecture.md)
 
 Para executar SAP HANA, a SAP tem condições mais e mais fortes que a infraestrutura precisa de satisfazer do que para executar aplicações NetWeaver ou outras aplicações SAP e DBMS. Como resultado, um número menor de VMs Azure qualificam-se para executar o SAP HANA DBMS. A lista de infraestruturas Azure suportadas apoiadas para SAP HANA pode ser encontrada no chamado [diretório de hardware SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). 
@@ -117,7 +117,7 @@ Para os VMs Azure, estes números de produção SAPS estão documentados na [not
 
 Analisando a [nota de apoio da SAP #1928533,](https://launchpad.support.sap.com/#/notes/1928533)aplicam-se as seguintes observações:
 
-- **Para os VMs Azure série M-Series e VMs Azure série Mv2, aplicam-se diferentes versões de SO mínimas do que para outros tipos de VM Azure**. A exigência de versões de OS mais recentes baseia-se em alterações que os diferentes fornecedores do sistema operativo tiveram de fornecer nas suas versões do sistema operativo para permitir que os seus sistemas operativos funcionassem nos tipos específicos de VM do Azure ou otimizassem o desempenho e a produção da carga de trabalho SAP nesses tipos de VM
+- **Para os VMs M-Series Azure e Mv2-Series VMs Azure, aplicam-se diferentes versões de SO mínimas do que para outros tipos de VM Azure**. A exigência de versões de OS mais recentes baseia-se em alterações que os diferentes fornecedores do sistema operativo tiveram de fornecer nas suas versões do sistema operativo para permitir que os seus sistemas operativos funcionassem nos tipos específicos de VM do Azure ou otimizassem o desempenho e a produção da carga de trabalho SAP nesses tipos de VM
 - Existem duas tabelas que especificam diferentes tipos de VM. O segundo quadro especifica a produção DE SAPS para os tipos Azure VM que suportam apenas o armazenamento padrão Azure. A implantação de DBMS nas unidades especificadas na segunda tabela da nota não é suportada
 
 

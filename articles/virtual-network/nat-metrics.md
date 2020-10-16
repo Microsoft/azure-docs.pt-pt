@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/04/2020
 ms.author: allensu
 ms.openlocfilehash: e3c47a60a6cda074eba7b5c3292577c29f50c2ab
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87424056"
 ---
 # <a name="azure-virtual-network-nat-metrics"></a>Métricas NAT de rede virtual Azure
@@ -38,11 +38,11 @@ Os recursos de gateway NAT fornecem as seguintes métricas multidimensionais no 
 
 | Métrica | Descrição | Agregação recomendada | Dimensões |
 |---|---|---|---|
-| Bytes | Bytes processados de entrada e saída | Som | Direção (Em; Out), Protocolo (6 TCP; 17 UDP) |
-| Pacotes | Pacotes processados de entrada e saída | Som | Direção (Em; Out), Protocolo (6 TCP; 17 UDP) |
-| Pacotes abandonados | Pacotes deixados pela porta de entrada da NAT | Som | / |
-| Contagem de ligação SNAT | Transições estatais por intervalo | Som | Estado de Ligação, Protocolo (6 TCP; 17 UDP) |
-| Contagem total de ligação SNAT | Ligações SNAT ativas atuais (~ portas SNAT em uso) | Som | Protocolo (6 TCP; 17 UDP) |
+| Bytes | Bytes processados de entrada e saída | Soma | Direção (Em; Out), Protocolo (6 TCP; 17 UDP) |
+| Pacotes | Pacotes processados de entrada e saída | Soma | Direção (Em; Out), Protocolo (6 TCP; 17 UDP) |
+| Pacotes abandonados | Pacotes deixados pela porta de entrada da NAT | Soma | / |
+| Contagem de ligação SNAT | Transições estatais por intervalo | Soma | Estado de Ligação, Protocolo (6 TCP; 17 UDP) |
+| Contagem total de ligação SNAT | Ligações SNAT ativas atuais (~ portas SNAT em uso) | Soma | Protocolo (6 TCP; 17 UDP) |
 
 
 ## <a name="alerts"></a>Alertas
@@ -53,7 +53,7 @@ Os alertas para as métricas podem ser configurados no Monitor Azure para cada u
 
 A Saúde dos Recursos não é apoiada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [a Rede Virtual NAT](nat-overview.md)
 * Saiba mais sobre [o recurso de gateway NAT](nat-gateway-resource.md)

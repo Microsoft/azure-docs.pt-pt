@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
 ms.openlocfilehash: a9f050bb25873e4b6ede234c800b00f2c34085d3
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86085281"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Portas utilizadas pelos serviços apache Hadoop em HDInsight
@@ -41,7 +41,7 @@ Todos os nós de um cluster HDInsight estão localizados numa Rede Virtual Azure
 | sshd |23 |SSH |Liga clientes ao sshd no headnode secundário. Para obter mais informações, consulte [Use SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | Ambari |443 |HTTPS |UI web Ambari. Consulte [Manage HDInsight usando o Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) |
 | Ambari |443 |HTTPS |Ambari REST API. Ver [Gerir HDInsight utilizando a API Apache Ambari REST](hdinsight-hadoop-manage-ambari-rest-api.md) |
-| WebHCat |443 |HTTPS |HCatalog REST API. Ver [utilizar mapaReduce com curl](hadoop/apache-hadoop-use-mapreduce-curl.md) |
+| WebHCat |443 |HTTPS |HCatalog REST API. Ver  [utilizar mapaReduce com curl](hadoop/apache-hadoop-use-mapreduce-curl.md) |
 | HiveServer2 |443 |ODBC |Liga-se à Colmeia utilizando o ODBC. Consulte [o Connect Excel para HDInsight com o controlador Microsoft ODBC](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md). |
 | HiveServer2 |443 |JDBC |Conecta-se ao ApacheHive usando jDBC. Consulte [a Ligação à Colmeia Apache em HDInsight utilizando o controlador Hive JDBC](hadoop/apache-hadoop-connect-hive-jdbc-driver.md) |
 
@@ -81,7 +81,7 @@ Todos os serviços expostos publicamente na internet devem ser autenticados:
 
 Exemplos:
 
-* Ambari REST API:`curl -u admin "http://10.0.0.11:8080/api/v1/clusters"`
+* Ambari REST API: `curl -u admin "http://10.0.0.11:8080/api/v1/clusters"`
 
 ### <a name="hdfs-ports"></a>Portas HDFS
 

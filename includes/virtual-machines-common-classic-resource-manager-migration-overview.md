@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: virtual-machines
 author: tanmaygore
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
 ms.openlocfilehash: b874cefc2521089da02b90b9241be93e80836d6e
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87507438"
 ---
 Este artigo descreve como migrar a infraestrutura como um serviço (IaaS) recursos dos modelos de implementação Classic to Resource Manager e detalhes como conectar recursos dos dois modelos de implementação que coexistem na sua subscrição usando gateways de rede virtual site-to-site. Pode ler mais sobre [funcionalidades e benefícios do Azure Resource Manager](../articles/azure-resource-manager/management/overview.md). 
@@ -120,7 +120,7 @@ As seguintes configurações não são suportadas atualmente.
 
 | Serviço | Configuração | Recomendação |
 | --- | --- | --- |
-| Resource Manager |Controlo de Acesso Baseado em Função (RBAC) para recursos clássicos |Como o URI dos recursos é modificado após a migração, recomenda-se que planeie as atualizações políticas do RBAC que precisam de acontecer após a migração. |
+| Resource Manager |Role-Based Controlo de Acesso (RBAC) para recursos clássicos |Como o URI dos recursos é modificado após a migração, recomenda-se que planeie as atualizações políticas do RBAC que precisam de acontecer após a migração. |
 | Computação |Múltiplas sub-redes associadas a um VM |Atualize a configuração da sub-rede para apenas uma sub-rede. Isto pode exigir que remova um NIC secundário (que se refere a outra sub-rede) do VM e o recoloque após a migração ter terminado. |
 | Computação |Máquinas virtuais que pertencem a uma rede virtual mas não têm uma sub-rede explícita atribuída |Pode eliminar opcionalmente o VM. |
 | Computação |Máquinas virtuais que têm alertas, políticas de autoescala |A migração passa e estas configurações são abandonadas. É altamente recomendável que avalie o seu ambiente antes de fazer a migração. Em alternativa, pode reconfigurar as definições de alerta após a conclusão da migração. |
@@ -136,4 +136,4 @@ As seguintes configurações não são suportadas atualmente.
 | Serviço de Aplicações do Azure |Redes virtuais que contêm ambientes de Serviço de Aplicações |Atualmente, isto não é apoiado. |
 | Azure HDInsight |Redes virtuais que contêm serviços HDInsight |Atualmente, isto não é apoiado. |
 | Serviços de ciclo de vida da Microsoft Dynamics |Redes virtuais que contêm máquinas virtuais que são geridas pela Dynamics Lifecycle Services |Atualmente, isto não é apoiado. |
-| API Management do Azure |Redes virtuais que contêm implementações de Gestão API da Azure |Atualmente, isto não é apoiado. Para migrar o IaaS VNET, mude o VNET da implementação da API Management, que não é uma operação de inatividade. |
+| Gestão de API do Azure |Redes virtuais que contêm implementações de Gestão API da Azure |Atualmente, isto não é apoiado. Para migrar o IaaS VNET, mude o VNET da implementação da API Management, que não é uma operação de inatividade. |

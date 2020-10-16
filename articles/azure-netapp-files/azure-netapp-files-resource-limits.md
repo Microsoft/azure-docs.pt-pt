@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 9/16/2020
+ms.date: 10/14/2020
 ms.author: b-juche
-ms.openlocfilehash: 0ddb9998c1e1b9b70303aeb4608bc0b53bc103ae
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6963a1f39534573bca39431febe391e89d462875
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325492"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072786"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limites de recurso para os Azure NetApp Files
 
@@ -65,7 +65,7 @@ O serviço ajusta dinamicamente o limite máximo para um volume baseado no seu t
 |    > 3 TiB mas <= 4 TiB    |    80 milhões     |
 |    > 4 TiB                 |    100 milhões    |
 
-Se já alocou pelo menos 4 TiB de quota para um volume, pode iniciar um pedido de [apoio](#limit_increase) para aumentar o limite máximo para além de 100 milhões.
+Se já alocou pelo menos 4 TiB de quota para um volume, pode iniciar um pedido de [apoio](#limit_increase) para aumentar o limite máximo para além de 100 milhões. Por cada 100 milhões de ficheiros que aumenta (ou uma fração dos mesmos), é necessário aumentar a quota de volume correspondente em 4 TiB.  Por exemplo, se aumentar o limite máximo de 100 milhões de ficheiros para 200 milhões de ficheiros (ou qualquer número no meio), precisa de aumentar a quota de volume de 4 TiB para 8 TiB.
 
 ## <a name="request-limit-increase"></a>Aumento do limite de pedido <a name="limit_increase"></a> 
 

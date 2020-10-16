@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.openlocfilehash: 63629f32c97611fa8bc57ecdac968552375125f4
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89381203"
 ---
 # <a name="how-to-create-plans-for-your-saas-offer"></a>Como criar planos para a sua oferta SaaS
@@ -150,7 +150,7 @@ As ações disponíveis na coluna de **ação** do separador **Plano** variam co
 - Se o estado do plano for **Projeto,** o link na coluna **ação** dirá **eliminar o projeto**.
 - Se o estado do plano for **live,** o link na coluna **Action** será ou Parar o **plano de venda** ou **sincronizar o público privado**. O link **de audiência privada Sync** publicará apenas as alterações ao seu público privado, sem publicar quaisquer outras atualizações que possa ter feito à oferta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Aprenda a comercializar a sua oferta SaaS](create-new-saas-offer-marketing.md) através da **Co-venda com a Microsoft** e Revenda através de programas **CSPs.**
 - [Como testar e publicar uma oferta SaaS para o mercado comercial.](test-publish-saas-offer.md)

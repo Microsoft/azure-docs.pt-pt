@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
 ms.openlocfilehash: 876a96f579bff8d30e454e927054a951734f44ba
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89441104"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
@@ -245,7 +245,7 @@ Apesar de as alterações efetuadas diretamente na partilha de ficheiros Azure d
 > [!Important]  
 > O domínio que une a sua conta de armazenamento ao Ative Directory não é necessário para implementar com sucesso o Azure File Sync. Este é um passo estritamente opcional que permite que a partilha de ficheiros Azure aplique ACLs no local quando os utilizadores montam a partilha de ficheiros Azure diretamente.
 
-## <a name="networking"></a>Rede
+## <a name="networking"></a>Redes
 O agente Azure File Sync comunica com o seu Serviço de Sincronização de Armazenamento e partilha de ficheiros Azure utilizando o protocolo Azure File Sync REST e o protocolo FileREST, ambos os quais utilizam sempre HTTPS sobre a porta 443. O SMB nunca é utilizado para carregar ou transferir dados entre o seu Servidor do Windows e a partilha de ficheiros Azure. Como a maioria das organizações permite o tráfego HTTPS sobre a porta 443, como requisito para visitar a maioria dos websites, a configuração especial de rede não é geralmente necessária para implementar O Azure File Sync.
 
 Com base na política da sua organização ou requisitos regulamentares únicos, poderá necessitar de uma comunicação mais restritiva com o Azure, pelo que o Azure File Sync fornece vários mecanismos para configurar a rede. Com base nos seus requisitos, pode:
@@ -381,7 +381,7 @@ Se preferir utilizar uma solução de backup no local, as cópias de segurança 
 ## <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente do Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Considere as definições de firewall e proxy](storage-sync-files-firewall-and-proxy.md)
 * [Planear uma implementação de Ficheiros do Azure](storage-files-planning.md)
 * [Implementar os Ficheiros do Azure](storage-files-deployment-guide.md)

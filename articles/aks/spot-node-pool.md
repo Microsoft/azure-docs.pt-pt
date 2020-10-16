@@ -6,10 +6,10 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/25/2020
 ms.openlocfilehash: dbb003c287a18810c2c14c4f2ea401fa55cca427
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87987295"
 ---
 # <a name="preview---add-a-spot-node-pool-to-an-azure-kubernetes-service-aks-cluster"></a>Pré-visualização - Adicione uma piscina de nó de ponto a um cluster Azure Kubernetes Service (AKS)
@@ -28,7 +28,7 @@ Esta funcionalidade encontra-se em pré-visualização.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Quando criar um cluster para utilizar uma piscina de nó de ponto, esse cluster também deve usar conjuntos de balança de máquina virtual para piscinas de nó e o balançador de carga *SKU padrão.* Também deve adicionar uma piscina adicional de nó depois de criar o seu cluster para usar uma piscina de nó de ponto. A adição de um conjunto adicional de nós é coberta num passo posterior, mas primeiro precisa de ativar uma funcionalidade de pré-visualização.
 

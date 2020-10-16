@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: rohogue
 ms.openlocfilehash: e5c33144dcebe491757dfafb2879fe51545827ce
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88272795"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planear o seu sistema Avere vFXT
@@ -76,7 +76,7 @@ Siga estas orientações ao planear a infraestrutura de rede do seu cluster Aver
   | Grupo de recursos | Sim, se estiver vazio. | Deve estar vazio.|
   | Conta de armazenamento | **Sim,** se ligar um recipiente Blob existente após a criação do cluster <br/>  **Não** se criar um novo recipiente Blob durante a criação de clusters | Recipiente blob existente deve estar vazio <br/> &nbsp; |
   | Rede virtual | Sim | Deve incluir um ponto final de serviço de armazenamento se criar um novo recipiente Azure Blob |
-  | Subrede | Sim | Não pode conter outros recursos |
+  | Sub-rede | Sim | Não pode conter outros recursos |
 
 ## <a name="ip-address-requirements"></a>Requisitos de endereço IP
 

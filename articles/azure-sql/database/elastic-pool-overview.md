@@ -12,10 +12,10 @@ ms.author: moslake
 ms.reviewer: ninarn, sstein
 ms.date: 07/28/2020
 ms.openlocfilehash: 7be0b5f2688198da8926f2039f60bf9ba592e2f3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91330794"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>Piscinas elásticas ajudam a gerir e escalar várias bases de dados na Base de Dados Azure SQL

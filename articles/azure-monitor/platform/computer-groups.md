@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
 ms.openlocfilehash: 217be627f81406f671118d5290cd5f67f52c01d2
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86112117"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Grupos de computador em consultas de registo do Monitor Azure
@@ -50,7 +50,7 @@ A tabela seguinte descreve as propriedades que definem um grupo de computador.
 
 | Propriedade | Descrição |
 |:---|:---|
-| Name   | Nome da consulta a exibir no portal. |
+| Nome   | Nome da consulta a exibir no portal. |
 | Pseudónimo de função | Um pseudónimo único usado para identificar o grupo de computador numa consulta. |
 | Categoria       | Categoria para organizar as consultas no portal. |
 
@@ -134,6 +134,6 @@ Um registo é criado no espaço de trabalho Log Analytics para cada membro do gr
 | `ManagementGroupName` |O nome do grupo de gestão para agentes do SCOM.  Para outros agentes, este é o AOI...\<workspace ID\> |
 | `TimeGenerated` |Data e hora em que o grupo informático foi criado ou atualizado. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais [sobre consultas de registo](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de fontes de dados e soluções.  
 

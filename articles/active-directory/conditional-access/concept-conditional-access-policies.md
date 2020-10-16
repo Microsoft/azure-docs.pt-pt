@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36ab632010ec2bbbc19ac71cbeccab2ff6b3565f
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 8a79b046170a5a3f3574895490aa649fd02da082
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948390"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016132"
 ---
 # <a name="building-a-conditional-access-policy"></a>Construção de uma política de acesso condicional
 
@@ -126,6 +126,8 @@ Uma política de acesso condicional deve conter, no mínimo, o seguinte a aplica
 O artigo [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md) inclui algumas políticas que pensamos que seriam úteis para a maioria das organizações.
 
 ## <a name="next-steps"></a>Passos seguintes
+
+[Criar uma política de acesso condicional](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json#create-a-conditional-access-policy)
 
 [Simular sinal no comportamento usando o acesso condicional E se a ferramenta](troubleshoot-conditional-access-what-if.md)
 

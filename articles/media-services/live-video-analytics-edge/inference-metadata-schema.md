@@ -3,12 +3,12 @@ title: Esquema de metadados de inferência - Azure
 description: Neste artigo, você vai aprender sobre esquema de metadados de inferência.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 6239713fc92b75b8ed026a8f04953e92a24c4596
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2de437577dc00692fb98c46fec32bfaa6612dc99
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88691952"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019499"
 ---
 # <a name="inference-metadata-schema"></a>Esquema de metadados de inferência 
 
@@ -18,7 +18,7 @@ Cada objeto de inferência, independentemente da utilização de contrato basead
 
 ![Modelo de objeto](./media/inference-metadata-schema/object-model.png)
  
-|Definição de Tipo|Descrição|
+|Definição de Tipo|Description|
 |---|---|
 |Etiqueta|Etiqueta ou etiqueta associada ao resultado. Alng com marcação, até obtém o valor de confiança associado com a etiqueta.|
 |Atributo|Atributos adicionais associados ao resultado. Pode adicionar novos atributos que recebe do motor de inferencing juntamente com o valor de confiança.|
@@ -29,7 +29,7 @@ Cada objeto de inferência, independentemente da utilização de contrato basead
 |Evento|Evento detetado na amostra. Quando um evento é detetado na amostra, o nome do evento e as propriedades específicas do evento são devolvidos.|
 |Movimento|Movimento detetado na amostra. Quando o movimento é detetado na amostra, as coordenadas de uma caixa de delimitação retangular onde o movimento é detetado, são devolvidas.|
 |Texto|O texto associado à amostra juntamente com o tempo de início e fim do texto é devolvido.|
-|Outros|Devolve outras informações genéricas de carga útil.|
+|Outro|Devolve outras informações genéricas de carga útil.|
 
 O exemplo abaixo contém um único evento com alguns tipos de inferência suportados:
 
@@ -123,5 +123,5 @@ O exemplo abaixo contém um único evento com alguns tipos de inferência suport
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Contrato de dados gRPC](grpc-data-contract.md)
-- [Contrato de dados HTTP](http-data-contract.md)
+- [Contrato de dados gRPC](./grpc-extension-protocol.md)
+- [Contrato de dados HTTP](./http-extension-protocol.md)

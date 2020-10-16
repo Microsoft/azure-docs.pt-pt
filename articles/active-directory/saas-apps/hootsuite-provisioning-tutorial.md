@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/15/2020
 ms.author: Zhchia
 ms.openlocfilehash: c4c040c6d5b8eb4041db3ffaaab58657a9f9c7da
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91358054"
 ---
 # <a name="tutorial-configure-hootsuite-for-automatic-user-provisioning"></a>Tutorial: Configurar Hootsuite para o fornecimento automático de utilizadores

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bebd32d2773ca86638de221d305079bb262e3e5e
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91631431"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Resolver problemas com a ferramenta What If no Acesso Condicional

@@ -14,10 +14,10 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 9f0a3c3a96a73bd71a9b0c769a3ceff85ae428f1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89017622"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Introdução aos serviços ligados (projetos de serviços cloud) Armazenamento de Filas do Azure e o Visual Studio
@@ -149,7 +149,7 @@ int? cachedMessageCount = messageQueue.ApproximateMessageCount;
 Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 ```
 
-## <a name="use-the-async-await-pattern-with-common-azure-queue-apis"></a>Use o padrão assínc-await com APIs comuns da fila de Azure
+## <a name="use-the-async-await-pattern-with-common-azure-queue-apis"></a>Use o padrão de Async-Await com APIs comuns da fila Azure
 Este exemplo mostra como usar o padrão Async-Await com APIs comuns da Fila Azure. A amostra chama a versão async de cada um dos métodos dados, isto pode ser visto pela pós-correcção **assínc** de cada método. Quando um método de assínc é usado, o padrão de espera de assínc suspende a execução local até que a chamada termine. Este comportamento permite que o fio atual faça outros trabalhos que ajudem a evitar estrangulamentos de desempenho e melhorem a capacidade de resposta geral da sua aplicação. Para obter mais detalhes sobre como utilizar o padrão Async-Await no .NET, consulte [Async-Await (C# e Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
 
 ```csharp

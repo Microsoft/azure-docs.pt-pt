@@ -5,10 +5,10 @@ ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
 ms.openlocfilehash: 5a408dc07e83e790a63f8a252d4ed3f84bf66be4
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89181685"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Funcionalidades de segurança para ajudar a proteger backups híbridos que usam backup Azure
@@ -88,7 +88,7 @@ Como parte da adição de uma camada extra de autenticação para operações cr
 
 Para receber este PIN:
 
-1. Inicie sessão no portal do Azure.
+1. Inicie sessão no Portal do Azure.
 2. Navegue para o **cofre dos serviços de recuperação**  >  **Propriedades de**  >  **configurações**.
 3. Em **Pin de segurança,** selecione **Gerar**. Isto abre um painel que contém o PIN a ser introduzido na interface de utilizador do agente Azure Recovery Services.
     Este PIN é válido por apenas cinco minutos, e é gerado automaticamente após esse período.

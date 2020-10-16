@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 07/14/2020
 ms.custom: references_regions
 ms.openlocfilehash: 37784c4a294ccf296818f2afb1a8a345cb9d813e
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89658248"
 ---
 # <a name="replicate-machines-with-private-endpoints"></a>Máquinas de replicar com pontos finais privados
@@ -57,7 +57,7 @@ O acesso à identidade gerido é essencial quando se utiliza o serviço de links
 
 1. Vai para o cofre dos Serviços de Recuperação. Selecione **identidade** em _Definições_.
 
-   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/enable-managed-identity-in-vault.png" alt-text="Mostra o portal Azure e a página Serviços de Recuperação.":::
+   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/enable-managed-identity-in-vault.png" alt-text="Arquitetura de referência para Recuperação de Sítio com pontos finais privados.":::
 
 1. Alterar o **Estado** para _On_ e selecionar **Guardar**.
 
@@ -73,21 +73,21 @@ Crie o primeiro ponto final privado para o seu cofre dentro da sua rede virtual 
 
 1. Na barra de pesquisa do portal Azure, procure e selecione "Private Link". Esta ação leva-o ao Centro de Ligação Privada.
 
-   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/search-private-links.png" alt-text="Mostra a pesquisa no portal Azure para o Private Link Center.":::
+   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/search-private-links.png" alt-text="Arquitetura de referência para Recuperação de Sítio com pontos finais privados.":::
 
 1. Na barra de navegação à esquerda, selecione **Private Endpoints**. Uma vez na página Private Endpoints, ** \+ selecione Adicionar** para começar a criar um ponto final privado para o seu cofre.
 
-   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/create-private-endpoints.png" alt-text="Mostra a criação de um ponto final privado no Private Link Center.":::
+   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/create-private-endpoints.png" alt-text="Arquitetura de referência para Recuperação de Sítio com pontos finais privados.":::
 
 1. Uma vez na experiência "Create Private Endpoint", é-lhe exigido que especifique detalhes para criar a sua ligação ao ponto final privado.
 
    1. **Fundamentos**: Preencha os detalhes básicos para os seus pontos finais privados. A região deve ser a mesma que as máquinas de origem.
 
-      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/create-private-endpoints-basic-tab.png" alt-text="Mostra o separador Basic, detalhes do projeto, subscrição e outros campos relacionados para a criação de um ponto final privado no portal Azure.":::
+      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/create-private-endpoints-basic-tab.png" alt-text="Arquitetura de referência para Recuperação de Sítio com pontos finais privados.":::
 
    1. **Recurso**: Este separador requer que mencione o recurso plataforma-as-a-service para o qual pretende criar a sua ligação. Selecione _Microsoft.RecoveryServices/vaults_ do **tipo de recurso** para a subscrição selecionada. Em seguida, escolha o nome do seu cofre de Serviços de Recuperação para **recursos** e desloja _a recuperação do local de Azure_ como **sub-recurso alvo**.
 
-      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/create-private-endpoints-resource-tab.png" alt-text="Mostra o separador recursos, tipo de recurso, recurso e campos de sub-recursos alvo para ligação a um ponto final privado no portal Azure.":::
+      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/create-private-endpoints-resource-tab.png" alt-text="Arquitetura de referência para Recuperação de Sítio com pontos finais privados.":::
 
    1. **Configuração**: Na configuração, especifique a rede virtual e a sub-rede onde pretende que o ponto final privado seja criado. Esta rede virtual é a rede onde a máquina virtual está presente. Permitir a integração com a zona privada de DNS selecionando **Sim**. Escolha uma zona DNS já criada ou crie uma nova. Selecionar **Sim** liga automaticamente a zona à rede virtual de origem e adiciona os registos DNS que são necessários para a resolução de DNS de novos IPs e nomes de domínio totalmente qualificados criados para o ponto final privado.
 
@@ -97,7 +97,7 @@ Crie o primeiro ponto final privado para o seu cofre dentro da sua rede virtual 
 
       Para criar manualmente a zona privada de DNS, siga os passos em [criar zonas privadas de DNS e adicione registos DNS manualmente](#create-private-dns-zones-and-add-dns-records-manually).
 
-      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/create-private-endpoints-configuration-tab.png" alt-text="Mostra o separador Configuração com campos de integração em rede e DNS para configuração de um ponto final privado no portal Azure.":::
+      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/create-private-endpoints-configuration-tab.png" alt-text="Arquitetura de referência para Recuperação de Sítio com pontos finais privados.":::
 
    1. **Etiquetas**: Opcionalmente, pode adicionar etiquetas para o seu ponto final privado.
 
@@ -115,7 +115,7 @@ Se o utilizador que cria o ponto final privado for também o proprietário do co
 
 Pode recorrer ao recurso de ponto final privado para rever o estado da ligação antes de prosseguir.
 
-:::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/vault-private-endpoint-connections.png" alt-text="Mostra a página de ligações de ponto final privado do cofre e a lista de ligações no portal Azure.":::
+:::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/vault-private-endpoint-connections.png" alt-text="Arquitetura de referência para Recuperação de Sítio com pontos finais privados.":::
 
 ## <a name="optional-create-private-endpoints-for-the-cache-storage-account"></a><a name="create-private-endpoints-for-the-cache-storage-account"></a>(Opcional) Criar pontos finais privados para a conta de armazenamento de cache
 
@@ -140,7 +140,7 @@ Antes de permitir a replicação de máquinas virtuais, a identidade gerida do c
   - [Contribuinte de Dados do Armazenamento de Blobs](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
 - Contas de armazenamento baseadas em gestores de recursos (Tipo Premium):
   - [Contribuinte](../role-based-access-control/built-in-roles.md#contributor)
-  - [Proprietário de dados blob de armazenamento](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
+  - [Proprietário dos Dados do Armazenamento de Blobs](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
 - Contas clássicas de armazenamento:
   - [Colaborador clássico da conta de armazenamento](../role-based-access-control/built-in-roles.md#classic-storage-account-contributor)
   - [Papel clássico do serviço do operador chave de armazenamento de armazenamento](../role-based-access-control/built-in-roles.md#classic-storage-account-key-operator-service-role)
@@ -151,13 +151,11 @@ Os seguintes passos descrevem como adicionar uma atribuição de papel às suas 
 
 1. Uma vez no **controlo de acesso (IAM)**, na caixa "Adicionar uma atribuição de função" selecione **Adicionar**.
 
-   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/storage-role-assignment.png" alt-text="Mostra a página de controlo de acesso (IAM) numa conta de armazenamento e o botão 'Adicionar uma atribuição de função' no portal Azure.":::
+   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/storage-role-assignment.png" alt-text="Arquitetura de referência para Recuperação de Sítio com pontos finais privados.":::
 
 1. Na página lateral "Adicionar uma atribuição de funções", escolha o papel da lista acima na entrega de **funções.** Introduza o **nome** do cofre e selecione **Save**.
 
-   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/storage-role-assignment-select-role.png" alt-text="Mostra a página de Controlo de Acesso (IAM) numa conta de armazenamento e as opções para selecionar uma Função e qual principal conceder essa função no portal Azure.":::
-
-Além destas permissões, os serviços de confiança da MS também precisam de ser autorizados a ter acesso. Vá a "Firewalls e redes virtuais" e selecione "Permitir que serviços fidedignos da Microsoft acedam a esta conta de armazenamento" em **Exceções**.
+   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/storage-role-assignment-select-role.png" alt-text="Arquitetura de referência para Recuperação de Sítio com pontos finais privados." em **Exceções**.
 
 ## <a name="protect-your-virtual-machines"></a>Proteja as suas máquinas virtuais
 
@@ -173,13 +171,13 @@ Crie uma zona privada de DNS para permitir ao agente de mobilidade resolver nome
 
    1. Procure "Zona privada de DNS" na barra de pesquisa **de todos os serviços** e selecione "Zonas PRIVADAs de DNS" a partir do drop-down.
 
-      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Mostra a procura de zona privada de dns na página de novos recursos no portal Azure.":::
+      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Arquitetura de referência para Recuperação de Sítio com pontos finais privados.":::
 
    1. Uma vez na página "Zonas DNS Privadas", selecione o botão ** \+ Adicionar** para começar a criar uma nova zona.
 
    1. Na página "Criar zona privada de DNS", preencha os detalhes necessários. Insira o nome da zona privada do DNS como `privatelink.siterecovery.windowsazure.com` . Pode escolher qualquer grupo de recursos e qualquer subscrição para criá-lo.
 
-      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/create-private-dns-zone.png" alt-text="Mostra o separador Básico da página da zona de DNS Criar EsU E detalhes relacionados do projeto no portal Azure.":::
+      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/create-private-dns-zone.png" alt-text="Arquitetura de referência para Recuperação de Sítio com pontos finais privados.":::
 
    1. Continue a fazer o separador **'Revisão' \+ ** para rever e criar a zona DNS.
 
@@ -191,29 +189,16 @@ Crie uma zona privada de DNS para permitir ao agente de mobilidade resolver nome
 
    1. Preencha os detalhes necessários. Os campos **de subscrição** e **rede Virtual** devem ser preenchidos com os detalhes correspondentes da rede virtual onde os seus servidores existem. Os outros campos devem ser deixados como estão.
 
-      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/add-virtual-network-link.png" alt-text="Mostra a página para adicionar uma ligação de rede virtual com o nome de link, subscrição e rede virtual relacionada no portal Azure.":::
-
-1. Adicionar registos DNS
-
-   Depois de ter criado as zonas de DNS privadas e os pontos finais privados, tem de adicionar registos DNS às suas zonas dns.
-
-   > [!NOTE]
-   > Caso utilize uma zona de DNS privada personalizada, certifique-se de que as entradas semelhantes são feitas conforme discutido abaixo.
-
-   Este passo requer que faça entradas para cada nome de domínio totalmente qualificado no seu ponto final privado na sua zona privada de DNS.
-
-   1. Vá à sua zona privada de DNS e navegue para a secção **Geral** no lado esquerdo da página. Uma vez lá, selecione ** \+ Record set** para começar a adicionar registos.
-
-   1. Na página "Adicionar conjunto de registos" que abre, adicione uma entrada para cada nome de domínio totalmente qualificado e IP privado como um registo tipo _A._ A lista de nomes de domínios e IPs totalmente qualificados pode ser obtida a partir da página "Private Endpoint" em **Visão Geral**. Como mostrado no exemplo abaixo, o primeiro nome de domínio totalmente qualificado do ponto final privado é adicionado ao recorde estabelecido na zona privada de DNS.
+      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/add-virtual-network-link.png" alt-text="Arquitetura de referência para Recuperação de Sítio com pontos finais privados." em **Visão Geral**. Como mostrado no exemplo abaixo, o primeiro nome de domínio totalmente qualificado do ponto final privado é adicionado ao recorde estabelecido na zona privada de DNS.
 
       Estes nomes de domínio totalmente qualificados correspondem ao padrão: `{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
 
-      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/add-record-set.png" alt-text="Mostra a página para adicionar um registo tipo DNS A para o nome de domínio totalmente qualificado ao ponto final privado no portal Azure.":::
+      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/add-record-set.png" alt-text="Arquitetura de referência para Recuperação de Sítio com pontos finais privados.":::
 
    > [!NOTE]
    > Depois de permitir a replicação, são criados mais dois nomes de domínio totalmente qualificados nos pontos finais privados de ambas as regiões. Certifique-se de que adiciona os registos DNS para estes nomes de domínio recentemente criados e totalmente qualificados também.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que ativou pontos finais privados para a sua replicação de máquinas virtuais, consulte estas outras páginas para obter informações adicionais e relacionadas:
 

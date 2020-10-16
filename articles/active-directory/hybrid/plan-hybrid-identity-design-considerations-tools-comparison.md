@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d9c8f5a75fea6ddd85026407fe4784c8a4589e33
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89278314"
 ---
 # <a name="hybrid-identity-directory-integration-tools-comparison"></a>Comparação das ferramentas de integração de diretórios de identidade híbrida
@@ -32,5 +32,5 @@ Ao longo dos anos, as ferramentas de integração de diretórios cresceram e evo
 
 Para saber mais sobre as diferenças entre a sincronização Azure AD Connect e o provisionamento em nuvem Azure AD Connect, consulte o artigo [O que é a azure AD Connect provisioning cloud?](../cloud-provisioning/what-is-cloud-provisioning.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

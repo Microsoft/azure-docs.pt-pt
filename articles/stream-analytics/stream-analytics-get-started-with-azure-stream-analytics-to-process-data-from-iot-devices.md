@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 11/26/2019
 ms.openlocfilehash: a40f92e88d2d8e5ca253446b9c67ad30df538a5b
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86043432"
 ---
 # <a name="process-real-time-iot-data-streams-with-azure-stream-analytics"></a>Processar fluxos de dados IoT em tempo real com Azure Stream Analytics
@@ -23,7 +23,7 @@ Neste artigo, aprende-se a criar lógica de processamento de streaming para reco
 * Crie uma [subscrição gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Descarregue a consulta de amostras e ficheiros de dados do [GitHub.](https://aka.ms/azure-stream-analytics-get-started-iot)
 
-## <a name="scenario"></a>Scenario
+## <a name="scenario"></a>Cenário
 
 A Contoso, uma empresa de automatização industrial, automatizou por completo o processo de fabrico. Nesta fábrica, as máquinas têm sensores que emitem transmissões de dados em tempo real. Neste cenário, um gestor do piso de produção pretende ter conhecimentos aprofundados e em tempo real sobre os sensores de dados e tomar medidas relativamente aos mesmos. Pode utilizar o Stream Analytics Query Language (SAQL) sobre os dados do sensor para encontrar padrões interessantes a partir do fluxo de dados que chegam.
 

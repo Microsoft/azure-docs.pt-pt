@@ -13,10 +13,10 @@ ms.author: vanto
 ms.reviwer: ''
 ms.date: 04/23/2020
 ms.openlocfilehash: d234a121ee8f36389c79228d69a11d9fe999eb5f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91444775"
 ---
 # <a name="configure-always-encrypted-by-using-the-windows-certificate-store"></a>Configure Sempre Encriptado utilizando a loja de certificados Windows
@@ -532,7 +532,7 @@ Para utilizar o SSMS para aceder aos dados de texto simples, pode adicionar o **
 > [!NOTE]
 > Se ligar com SSMS (ou qualquer cliente) a partir de um computador diferente, não terá acesso às chaves de encriptação e não será capaz de desencriptar os dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de criar uma base de dados que utiliza Sempre Encriptado, poderá querer fazer o seguinte:
 

@@ -17,10 +17,10 @@ ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 51983e52643d587fc497a1a67fcb0cd29dbb7f17
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91306570"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planeamento Azure Ative Directy Access Reviews implementação
@@ -192,9 +192,9 @@ A função administrativa necessária para criar, gerir ou ler uma Revisão de A
 
 | Tipo de recurso| Criar e gerir avaliações de acesso (Criadores)| Ler resultados da revisão do acesso |
 | - | - | -|
-| Grupo ou aplicação| Administrador Global <p>Administrador do Utilizador| Criadores e Administrador de Segurança |
+| Grupo ou aplicação| Administrador Global <p>Administrador de Utilizadores| Criadores e Administrador de Segurança |
 | Papéis privilegiados em Azure AD| Administrador Global <p>Administrador privilegiado| Criadores <p>Leitor de Segurança<p>Administrador de Segurança |
-| Funções privilegiadas em Azure (recursos)| Administrador Global<p>Administrador do Utilizador<p>Proprietário de Recursos| Criadores |
+| Funções privilegiadas em Azure (recursos)| Administrador Global<p>Administrador de Utilizadores<p>Proprietário de Recursos| Criadores |
 | Pacote de acesso| Administrador Global<p>Pacote de Criador de Acesso| Administrador Global apenas |
 
 
@@ -246,7 +246,7 @@ Para criar uma política de revisão de acesso, tem de ter as seguintes informa�
 | **Recursos a rever**| Acesso à Microsoft Dynamics |
 | **Frequência de revisão**| Mensalmente |
 | **Quem realiza a revisão**| Gestores de programas do grupo de negócios Dynamics |
-| **Notificação**| E-mail 24 horas antes de rever para pseudónimo Dynamics-Pms<p>Incluir mensagem personalizada encorajadora para os revisores para garantir a sua entrada |
+| **Notificação**| E-mail 24 horas antes de rever o pseudónimo Dynamics-Pms<p>Incluir mensagem personalizada encorajadora para os revisores para garantir a sua entrada |
 | **Linha cronológica**| 48 horas a partir da notificação |
 |**Ações automáticas**| Remova o acesso de qualquer conta que não tenha qualquer sômposições interativas no prazo de 90 dias, removendo o utilizador do acesso dinâmico do grupo de segurança. <p>*Executar ações se não for revisto dentro da linha do tempo.* |
 | **Ações manuais**| Os revisores podem efetuar a aprovação de remoção antes da ação automatizada, se desejar. |
@@ -361,7 +361,7 @@ Pode utilizar os resultados de uma Revisão de Acesso em grupos no local e proce
 
 * Utilizar o Microsoft Graph para aceder programaticamente a resultados e decisões em análises de acesso concluídas.
 
-Por exemplo, para aceder aos resultados de um grupo gerido pelo Windows AD, utilize este [script da amostra PowerShell](https://github.com/microsoft/access-reviews-samples/tree/master/AzureADAccessReviewsOnPremises). O script descreve as chamadas de gráficos necessárias e exporta os comandos AD-PowerShell do Windows para realizar as alterações.
+Por exemplo, para aceder aos resultados de um grupo gerido pelo Windows AD, utilize este [script da amostra PowerShell](https://github.com/microsoft/access-reviews-samples/tree/master/AzureADAccessReviewsOnPremises). O script descreve as chamadas de gráficos necessárias e exporta os comandos windows AD-PowerShell para realizar as alterações.
 
 ## <a name="plan-access-reviews-for-applications"></a>Planear revisões de acesso para aplicações 
 
@@ -395,7 +395,7 @@ O Access Reviews permite que os revisores ateste se os utilizadores ainda precis
 
 * Administrador Global
 
-* Administrador do Utilizador
+* Administrador de Utilizadores
 
 * Administrador de Autenticação Privilegiada
 
@@ -419,7 +419,7 @@ Depois de ter preparado uma estratégia e um plano para rever o acesso aos recur
 
 Para reduzir o risco de acesso à estagnação, os administradores podem permitir revisões periódicas de utilizadores que tenham atribuições ativas a um pacote de acesso. Siga as instruções no link abaixo:
 
-| Artigos de procedimentos| Description |
+| Artigos de procedimentos| Descrição |
 | - | - |
 | [Criar comentários de acesso](entitlement-management-access-reviews-create.md)| Ativar comentários sobre pacote de acesso. |
 | [Realizar comentários de acesso](entitlement-management-access-reviews-review-access.md)| Execute comentários de acesso a outros utilizadores que estejam atribuídos a um Pacote de Acesso. |
@@ -433,7 +433,7 @@ Para reduzir o risco de acesso à estagnação, os administradores podem permiti
 
 As necessidades de acesso a grupos e aplicações para funcionários e hóspedes provavelmente mudam ao longo do tempo. Para reduzir o risco associado a atribuições de acessos à porta, os administradores podem criar revisões de acesso para membros do grupo ou acesso a aplicações. Siga as instruções no link abaixo:
 
-| Artigos de procedimentos| Description |
+| Artigos de procedimentos| Descrição |
 | - | - |
 | [Criar comentários de acesso](create-access-review.md)| Crie uma ou mais avaliações de acesso para membros do grupo ou acesso a aplicações. |
 | [Realizar comentários de acesso](perform-access-review.md)| Realize uma revisão de acesso para membros de um grupo ou utilizadores com acesso a uma aplicação. |
@@ -450,7 +450,7 @@ Para reduzir o risco associado a atribuições de papéis antigos, deve rever re
 
 Siga as instruções nos links abaixo:
 
-| Artigos de procedimentos | Description |
+| Artigos de procedimentos | Descrição |
 | - | - |
  [Criar comentários de acesso](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Criar avaliações de acesso para funções privilegiadas da Azure AD em PIM |
 | [Autorreveja o seu acesso](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Se estiver designado para uma função administrativa, aprove ou negue o acesso ao seu papel |
@@ -465,7 +465,7 @@ Para reduzir o risco associado a atribuições de funções velhas, deve rever r
 
 Siga as instruções nos links abaixo:
 
-| Artigos de procedimentos| Description |
+| Artigos de procedimentos| Descrição |
 | - | -|
 | [Criar comentários de acesso](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Criar avaliações de acesso para funções privilegiadas de recursos Azure em PIM |
 | [Autorreveja o seu acesso](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Se estiver designado para uma função administrativa, aprove ou negue o acesso ao seu papel |

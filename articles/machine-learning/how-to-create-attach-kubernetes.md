@@ -12,10 +12,10 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/02/2020
 ms.openlocfilehash: cade5a4329cdfc11c1b256ba01e9764f60a476a6
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91667865"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Criar e anexar um cluster de serviço Azure Kubernetes
@@ -304,7 +304,7 @@ az ml computetarget detach -n myaks -g myresourcegroup -w myworkspace
 
 No estúdio Azure Machine Learning, __selecione Compute,__ __Inference clusters__e o cluster que deseja remover. Utilize a __ligação Detach__ para separar o cluster.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 * [Como e onde implementar um modelo](how-to-deploy-and-where.md)
 * [Implementar um modelo para um cluster de serviço Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md)

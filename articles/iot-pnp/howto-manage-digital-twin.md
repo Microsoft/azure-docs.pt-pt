@@ -7,16 +7,16 @@ ms.date: 07/20/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: a0fa8c1c3d897ce65c70b6097dd323139716b8c7
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 5f1c52b764634f8086763aca67dfc32b507d2edd
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91613395"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042852"
 ---
 # <a name="manage-iot-plug-and-play-digital-twins"></a>Gerir ioT plug e jogar gémeos digitais
 
-IoT Plug and Play suporta **Obter twin digital** e atualizar operações digitais **twin** para gerir gémeos digitais. Pode utilizar as [APIs REST](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin) ou um dos [SDKs](libraries-sdks.md)de serviço.
+IoT Plug and Play suporta **Obter twin digital** e atualizar operações digitais **twin** para gerir gémeos digitais. Pode utilizar as [APIs REST](/rest/api/iothub/service/digitaltwin) ou um dos [SDKs](libraries-sdks.md)de serviço.
 
 No momento da escrita, a versão digital gémea da API é `2020-09-30` .
 
@@ -194,5 +194,5 @@ As atualizações podem falhar se os valores reportados de um dispositivo não e
 Agora que aprendeu sobre gémeos digitais, aqui estão alguns recursos adicionais:
 
 - [Interagir com um dispositivo a partir da sua solução](quickstart-service-node.md)
-- [IoT Digital Twin REST API](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
+- [IoT Digital Twin REST API](/rest/api/iothub/service/digitaltwin)
 - [Explorador de Azure IoT](howto-use-iot-explorer.md)

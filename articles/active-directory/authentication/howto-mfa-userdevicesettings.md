@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/20/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49c389170e9d586a2001009226c6542d4d152f7f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 7705792e58a50371a11d0b733b36ffa325681045
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87418224"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968638"
 ---
 # <a name="manage-user-settings-for-azure-multi-factor-authentication"></a>Gerir as definições do utilizador para autenticação multi-factor Azure
 
@@ -52,7 +52,7 @@ Para eliminar as palavras-passe da aplicação de um utilizador, complete os seg
 1. **Selecione Gerir as definições**do utilizador, em seguida, verifique a caixa para Eliminar todas as **palavras-passe de aplicações existentes geradas pelos utilizadores selecionados**, como mostrado no exemplo seguinte: ![ Eliminar todas as palavras-passe de aplicações existentes](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
 1. Selecione **guardar**e, em seguida, **fechar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo mostrou-lhe como configurar as definições individuais do utilizador. Para configurar as definições globais do serviço de autenticação multi-factor Azure, consulte as definições de [autenticação multi-factor Configure Azure](howto-mfa-mfasettings.md).
 

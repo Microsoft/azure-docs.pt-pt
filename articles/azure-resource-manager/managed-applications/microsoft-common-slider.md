@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/10/2020
 ms.author: tomfitz
 ms.openlocfilehash: bb168a4bff6d2570f539307530232b5063bb535c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87098533"
 ---
 # <a name="microsoftcommonslider-ui-element"></a>Microsoft.Common.Slider UI elemento
@@ -40,7 +40,7 @@ O controlo Slider permite que os utilizadores selecionem a partir de uma gama de
 }
 ```
 
-## <a name="sample-output"></a>Resultado da amostra
+## <a name="sample-output"></a>Saída de exemplo
 
 ```json
 26

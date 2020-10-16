@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/04/2020
 ms.author: jingwang
 ms.openlocfilehash: 08f117e2fc4939eee1458c0807cac5a292785608
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84669890"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Copiar dados do Marketo utilizando a Azure Data Factory (Preview)
@@ -50,7 +50,7 @@ As seguintes secções fornecem detalhes sobre propriedades que são usadas para
 
 As seguintes propriedades são suportadas para o serviço ligado ao Marketo:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | O tipo de propriedade deve ser definido para: **Marketo** | Sim |
 | endpoint | O ponto final do servidor Marketo. (isto é, 123-ABC-321.mktorest.com)  | Sim |
@@ -85,7 +85,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados do Marketo, defina o tipo de propriedade do conjunto de dados para **o MarketoObject**. As seguintes propriedades são suportadas:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo do conjunto de dados deve ser definida para: **MarketoObject** | Sim |
 | tableName | O nome da mesa. | Não (se for especificada "consulta" na fonte de atividade) |
@@ -115,7 +115,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados do Marketo, desagrafe o tipo de origem na atividade de cópia ao **MarketoSource.** As seguintes propriedades são suportadas na secção fonte de **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | O tipo de propriedade da fonte de atividade de cópia deve ser definido para: **MarketoSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM Activitiy_Types"`. | Não (se for especificado "tableName" no conjunto de dados) |
@@ -157,5 +157,5 @@ Para copiar dados do Marketo, desagrafe o tipo de origem na atividade de cópia 
 Para obter detalhes sobre as propriedades, consulte [a atividade de Lookup](control-flow-lookup-activity.md).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter uma lista de lojas de dados suportadas como fontes e sumidouros pela atividade de cópia na Azure Data Factory, consulte lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)

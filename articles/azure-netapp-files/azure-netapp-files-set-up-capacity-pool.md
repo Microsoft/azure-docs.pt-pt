@@ -15,17 +15,17 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: b-juche
 ms.openlocfilehash: 2b52ad50854092cddd7b9e79cbeebd4a83017081
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91325420"
 ---
 # <a name="set-up-a-capacity-pool"></a>Configurar um conjunto de capacidade
 
 Configurar um conjunto de capacidade permite-lhe criar volumes no mesmo.  
 
-## <a name="before-you-begin"></a>Before you begin 
+## <a name="before-you-begin"></a>Antes de começar 
 
 É necessário que já tenha criado uma conta NetApp.   
 
@@ -64,12 +64,12 @@ Configurar um conjunto de capacidade permite-lhe criar volumes no mesmo.
 
     ![Novo conjunto de capacidade](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
 
-4. Clique em **Create** (Criar).
+4. Clique em **Criar**.
 
 ## <a name="next-steps"></a>Passos seguintes 
 
 - [Hierarquia de Armazenamento](azure-netapp-files-understand-storage-hierarchy.md) 
 - [Níveis de serviços do Azure NetApp Files](azure-netapp-files-service-levels.md)
 - [Página de preços do Azure NetApp Files](https://azure.microsoft.com/pricing/details/storage/netapp/)
-- [Gerir um pool manual de capacidade QoS](manage-manual-qos-capacity-pool.md)
+- [Gerir um conjunto de capacidade QoS manual](manage-manual-qos-capacity-pool.md)
 - [Delegar uma sub-rede ao Azure NetApp Files](azure-netapp-files-delegate-subnet.md)

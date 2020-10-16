@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 805ab0e78f0679ce483af3a73203b41132be2a59
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90054777"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Use storSimple Snapshot Manager para criar e gerir grupos de volume
@@ -125,7 +125,7 @@ Utilize o seguinte procedimento para eliminar um grupo de volume.
    
     O grupo de volume eliminado desaparece da lista no painel **de resultados** e todas as cópias de segurança associadas a esse grupo de volume são eliminadas do catálogo de cópias de segurança.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba como [utilizar o StorSimple Snapshot Manager para administrar a sua solução StorSimple](storsimple-snapshot-manager-admin.md).
 * Saiba como [utilizar o StorSimple Snapshot Manager para criar e gerir políticas de backup.](storsimple-snapshot-manager-manage-backup-policies.md)
 

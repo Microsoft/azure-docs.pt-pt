@@ -4,10 +4,10 @@ description: Este artigo fornece uma visão geral da proteção do servidor de b
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: 7661d64e487c8b8badca240852d17bcf736ba8cf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91254436"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Apoiar uma quinta sharePoint para Azure com DPM
@@ -69,9 +69,9 @@ Para aprender a restaurar um item SharePoint a partir de um disco com DPM, consu
     ![DPM SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. Neste ponto, siga os passos de recuperação mais cedo neste artigo para recuperar uma base de dados de conteúdos SharePoint do disco.
 
-## <a name="switching-the-front-end-web-server"></a>Mudar o servidor web frontal
+## <a name="switching-the-front-end-web-server"></a>Mudar o servidor web Front-End
 
-Se tiver mais do que um servidor web frontal e quiser mudar o servidor que o DPM utiliza para proteger a quinta, siga as instruções para [mudar o Servidor Web front-end](/system-center/dpm/back-up-sharepoint#switching-the-front-end-web-server).
+Se tiver mais do que um servidor web frontal e quiser mudar o servidor que o DPM utiliza para proteger a quinta, siga as instruções para [mudar o Front-End Web Server](/system-center/dpm/back-up-sharepoint#switching-the-front-end-web-server).
 
 ## <a name="next-steps"></a>Passos seguintes
 

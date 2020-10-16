@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/21/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: e439f7d2b0232a2e1c36517f24723e4e16f7e6bb
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91537604"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Crie um sugestivo para permitir resultados autocompletos e sugeridos numa consulta
@@ -169,7 +169,7 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 
 + [DotNetHowToAutocomplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) é uma amostra mais antiga que contém código C# e Java. Também demonstra uma construção sugestiva, consultas sugeridas, navegação autocompleta e facetada. Esta amostra de código utiliza os dados da amostra [do NYCJobs hospedados.](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Recomendamos o seguinte artigo para saber mais sobre como os pedidos de formulação.
 

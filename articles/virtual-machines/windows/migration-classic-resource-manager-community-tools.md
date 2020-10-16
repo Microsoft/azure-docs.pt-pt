@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
 ms.openlocfilehash: afc20a39a5b426f37d6a6752056e3dd35dd8438a
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88504964"
 ---
 # <a name="community-tools-to-migrate-iaas-resources-from-classic-to-azure-resource-manager"></a>Ferramentas comunitárias para migrar recursos iaaS do clássico para o Azure Resource Manager

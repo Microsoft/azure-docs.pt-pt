@@ -36,6 +36,10 @@
           href: connect-ios.md
         - name: Ligar ao cliente da Microsoft Store
           href: connect-microsoft-store.md
+        - name: Ligar a dispositivos Linux
+          href: linux-overview.md
+    - name: Configurar redirecionamentos de dispositivo
+      href: configure-device-redirections.md
     - name: Configurar o módulo do PowerShell
       href: powershell-module.md
     - name: Criar um conjunto de anfitriões e anfitriões de sessões
@@ -102,6 +106,8 @@
       href: azure-advisor.md
     - name: Resolver as recomendações
       href: azure-advisor-recommendations.md
+    - name: Configurar um plano de recuperação após desastre
+      href: disaster-recovery.md
 - name: Conceitos
   items:
     - name: Autenticação

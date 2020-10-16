@@ -13,10 +13,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 290990e312a7f591539686ecce1eec1ac742dd60
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89443029"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Mover dados da Amazon Redshift usando a Azure Data Factory
@@ -61,12 +61,12 @@ A tabela seguinte fornece descrições para os elementos JSON que são específi
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| **tipo** |Esta propriedade deve ser definida para **AmazonRedshift.** |Yes |
-| **servidor** |O endereço IP ou o nome de anfitrião do servidor Amazon Redshift. |Yes |
+| **tipo** |Esta propriedade deve ser definida para **AmazonRedshift.** |Sim |
+| **servidor** |O endereço IP ou o nome de anfitrião do servidor Amazon Redshift. |Sim |
 | **porto** |O número da porta TCP que o servidor Amazon Redshift utiliza para ouvir as ligações dos clientes. |Não (o padrão é 5439) |
-| **base de dados** |O nome da base de dados Amazon Redshift. |Yes |
-| **nome de utilizador** |O nome do utilizador que tem acesso à base de dados. |Yes |
-| **palavra-passe** |A palavra-passe para a conta de utilizador. |Yes |
+| **base de dados** |O nome da base de dados Amazon Redshift. |Sim |
+| **nome de utilizador** |O nome do utilizador que tem acesso à base de dados. |Sim |
+| **palavra-passe** |A palavra-passe para a conta de utilizador. |Sim |
 
 ## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
@@ -87,7 +87,7 @@ Para a Atividade de Cópia, quando a fonte é do tipo **AmazonRedshiftSource,** 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | **consulta** | Utilize a consulta personalizada para ler os dados. |Não (se for especificada a propriedade do nome de **tabela** de um conjunto de dados) |
-| **redshiftUnloadSettings** | Contém o grupo de propriedade ao utilizar o comando Redshift **UNLOAD.** | No |
+| **redshiftUnloadSettings** | Contém o grupo de propriedade ao utilizar o comando Redshift **UNLOAD.** | Não |
 | **s3LinkedServiceName** | O Amazon S3 para usar como loja provisória. O serviço ligado é especificado utilizando um nome Azure Data Factory do tipo **AwsAccessKey**. | Necessário ao utilizar a propriedade **redshiftUnloadSettings** |
 | **baldeName** | Indica o balde Amazon S3 para utilizar para armazenar os dados provisórios. Se esta propriedade não for fornecida, copy Activity gera automaticamente um balde. | Necessário ao utilizar a propriedade **redshiftUnloadSettings** |
 
@@ -335,12 +335,12 @@ Os seguintes mapeamentos são utilizados quando a Copy Activity converte os dado
 | DECIMAL |Decimal |
 | REAL |Único |
 | DUPLA PRECISÃO |Double (Duplo) |
-| BOOLEANA |String |
-| CHAR |String |
-| RIO VARCHAR |String |
-| DATA |Data e Hora |
-| TIMETAMP |Data e Hora |
-| TEXT |String |
+| BOOLEANA |Cadeia |
+| CHAR |Cadeia |
+| RIO VARCHAR |Cadeia |
+| DATE |DateTime |
+| TIMETAMP |DateTime |
+| TEXT |Cadeia |
 
 ## <a name="map-source-to-sink-columns"></a>Fonte do mapa para afundar colunas
 Para aprender a mapear colunas no conjunto de dados de origem para colunas no conjunto de dados da pia, consulte [as colunas de conjunto de dados de mapeamento na Azure Data Factory](data-factory-map-columns.md).
@@ -351,5 +351,5 @@ Ao copiar dados de uma loja de dados relacional, tenha em mente a repetibilidade
 ## <a name="performance-and-tuning"></a>Desempenho e otimização
 Conheça os factores-chave que afetam o desempenho da Copy Activity e formas de otimizar o desempenho no [Copy Activity Performance and Afinando Guide](data-factory-copy-activity-performance.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter instruções passo a passo para a criação de um oleoduto com a Atividade de Cópia, consulte o [tutorial de Atividade de Cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).

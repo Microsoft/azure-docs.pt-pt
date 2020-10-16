@@ -10,10 +10,10 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
 ms.openlocfilehash: 3b1e71a5aadbe9e6a4fa89d4b3ec0fb6b1d9e6ce
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90530459"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Pontos finais de serviço de rede virtual para Azure Key Vault
@@ -75,7 +75,7 @@ Aqui está uma lista de serviços fidedignos que podem aceder a um cofre chave s
 |Storage do Azure|[Encriptação do serviço de armazenamento utilizando chaves geridas pelo cliente no Cofre da Chave Azure](../../storage/common/storage-service-encryption-customer-managed-keys.md).|
 |Azure Data Lake Store|[Encriptação de dados na Azure Data Lake Store](../../data-lake-store/data-lake-store-encryption.md) com uma chave gerida pelo cliente.|
 |Azure Databricks|[Serviço de análise rápido, fácil e colaborativo apache spark baseado em Apache Spark](../../azure-databricks/what-is-azure-databricks.md)|
-|API Management do Azure|[Implementar certificados para domínio personalizado a partir do Cofre de Chaves usando MSI](../../api-management/api-management-howto-use-managed-service-identity.md#use-ssl-tls-certificate-from-azure-key-vault)|
+|Gestão de API do Azure|[Implementar certificados para domínio personalizado a partir do Cofre de Chaves usando MSI](../../api-management/api-management-howto-use-managed-service-identity.md#use-ssl-tls-certificate-from-azure-key-vault)|
 |Azure Data Factory|[Buscar credenciais de loja de dados no Cofre de Dados da Data Factory](https://go.microsoft.com/fwlink/?linkid=2109491)|
 |Azure Event Hubs|[Permitir o acesso a um cofre chave para cenário de chaves geridas pelo cliente](https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key)|
 |Service Bus do Azure|[Permitir o acesso a um cofre chave para cenário de chaves geridas pelo cliente](https://docs.microsoft.com/azure/service-bus-messaging/configure-customer-managed-key)|

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/12/2017
 ms.author: rclaus
 ms.openlocfilehash: 5a9dd8aaeed0642461e4244a72a3dab5c96a77b6
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87372251"
 ---
 # <a name="common-azure-cli-commands-for-managing-azure-resources"></a>Comandos comuns da CLI do Azure para gerir recursos do Azure
@@ -23,14 +23,14 @@ Este artigo requer a versão Azure CLI 2.0.4 ou posterior. Executar `az --versio
 Para uma ajuda mais detalhada com comutadores e opções específicos da linha de comando, pode utilizar a ajuda e opções de comando on-line digitando `az <command> <subcommand> --help` .
 
 ### <a name="create-vms"></a>Criar VMs
-| Tarefa | Comandos da CLI Azure |
+| Tarefa | Comandos da CLI do Azure |
 | --- | --- |
 | Criar um grupo de recursos | `az group create --name myResourceGroup --location eastus` |
 | Criar uma VM do Linux | `az vm create --resource-group myResourceGroup --name myVM --image ubuntults` |
 | Criar uma VM do Windows | `az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter` |
 
 ### <a name="manage-vm-state"></a>Gerir o estado VM
-| Tarefa | Comandos da CLI Azure |
+| Tarefa | Comandos da CLI do Azure |
 | --- | --- |
 | Iniciar uma VM | `az vm start --resource-group myResourceGroup --name myVM` |
 | Parar uma VM | `az vm stop --resource-group myResourceGroup --name myVM` |
@@ -40,7 +40,7 @@ Para uma ajuda mais detalhada com comutadores e opções específicos da linha d
 | Eliminar uma VM | `az vm delete --resource-group myResourceGroup --name myVM` |
 
 ### <a name="get-vm-info"></a>Obtenha informações VM
-| Tarefa | Comandos da CLI Azure |
+| Tarefa | Comandos da CLI do Azure |
 | --- | --- |
 | Listar VMs | `az vm list` |
 | Obter informações sobre uma VM | `az vm show --resource-group myResourceGroup --name myVM` |
@@ -48,7 +48,7 @@ Para uma ajuda mais detalhada com comutadores e opções específicos da linha d
 | Obter todos os tamanhos de VM disponíveis | `az vm list-sizes --location eastus` |
 
 ## <a name="disks-and-images"></a>Discos e imagens
-| Tarefa | Comandos da CLI Azure |
+| Tarefa | Comandos da CLI do Azure |
 | --- | --- |
 | Adicionar um disco de dados a uma VM | `az vm disk attach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk --size-gb 128 --new` |
 | Remover um disco de dados de uma VM | `az vm disk detach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk` |

@@ -9,12 +9,12 @@ ms.date: 04/26/2019
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 manager: carmonm
-ms.openlocfilehash: 3393cb66735ffb881520a11bf9d1680c35d3d374
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: 3c5e19a948298dead5ab3fc1183fb11b09acf455
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89424808"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976135"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Executar scripts PowerShell no seu Windows VM utilizando o Comando Run
 
@@ -43,7 +43,7 @@ Aplicam-se as seguintes restrições quando utiliza o Comando de Execução:
 * Não é aconselhável executar um script que irá causar uma paragem ou atualização do Agente VM. Isto pode permitir a extensão em um estado de transição, levando a um tempo limite.
 
 > [!NOTE]
-> Para funcionar corretamente, o Comando de Execução requer conectividade (porta 443) para endereços IP públicos Azure. Se a extensão não tiver acesso a estes pontos finais, os scripts podem ser executados com sucesso, mas não devolvem os resultados. Se estiver a bloquear o tráfego na máquina virtual, pode utilizar [tags de serviço](../../virtual-network/security-overview.md#service-tags) para permitir o tráfego para endereços IP públicos Azure utilizando a `AzureCloud` etiqueta.
+> Para funcionar corretamente, o Comando de Execução requer conectividade (porta 443) para endereços IP públicos Azure. Se a extensão não tiver acesso a estes pontos finais, os scripts podem ser executados com sucesso, mas não devolvem os resultados. Se estiver a bloquear o tráfego na máquina virtual, pode utilizar [tags de serviço](../../virtual-network/network-security-groups-overview.md#service-tags) para permitir o tráfego para endereços IP públicos Azure utilizando a `AzureCloud` etiqueta.
 
 ## <a name="available-commands"></a>Comandos disponíveis
 
@@ -110,6 +110,6 @@ Executar um comando requer a `Microsoft.Compute/virtualMachines/runCommand/actio
 
 Pode utilizar uma das [funções incorporadas](../../role-based-access-control/built-in-roles.md) ou criar um [papel personalizado](../../role-based-access-control/custom-roles.md) para utilizar o Comando Run.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber sobre outras formas de executar scripts e comandos remotamente no seu VM, consulte [scripts executar no seu VM do Windows](run-scripts-in-vm.md).

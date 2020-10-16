@@ -12,10 +12,10 @@ ms.author: moslake
 ms.reviewer: sstein
 ms.date: 09/16/2020
 ms.openlocfilehash: 2792a93748600d71c37972058c8e496928543c9b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91330711"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Dimensione recursos de piscina elástica na Base de Dados Azure SQL

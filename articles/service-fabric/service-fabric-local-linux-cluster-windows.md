@@ -4,10 +4,10 @@ description: Este artigo abrange como configurar clusters de Service Fabric Linu
 ms.topic: conceptual
 ms.date: 11/20/2017
 ms.openlocfilehash: 83d494d777a4a1e1586707c8848056ca8fe9780a
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91537077"
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Crie um cluster de tecido de serviço Linux na sua máquina de desenvolvedores Windows
@@ -110,7 +110,7 @@ Para instalar um recipiente local do Docker e ter um conjunto de tecido de servi
  
  * O serviço DNS não é executado e não é suportado [Problema #132](https://github.com/Microsoft/service-fabric/issues/132)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Começa com o [Eclipse](./service-fabric-get-started-eclipse.md)
 * Confira outras [amostras de Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 

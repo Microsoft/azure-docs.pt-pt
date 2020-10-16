@@ -3,19 +3,19 @@ title: Glossário de aconselhamento de métricas
 titleSuffix: Azure Cognitive Services
 description: Ideias e conceitos-chave para o serviço Metrics Advisor
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.author: aahi
-ms.openlocfilehash: 25e5cb6e34624f3272e83e1e7c1cd847b865ae8e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.author: mbullwin
+ms.openlocfilehash: 34f9d480234ecaef0d581cfecd68e2cdd1cf6fdc
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938797"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046779"
 ---
 # <a name="metrics-advisor-glossary-of-common-vocabulary-and-concepts"></a>Métricas Advisor glossário de vocabulário e conceitos comuns
 
@@ -60,7 +60,7 @@ Neste exemplo, *a categoria* e o *mercado* são dimensões. *A receita* é o Ind
 
 Suponha que tem dados para o número de erros registados numa aplicação. Os dados das suas séries de tempo podem ser mais ou menos assim:
 
-| Timestamp | Componente de aplicação | Region | Contagem de erros |
+| Timestamp | Componente de aplicação | Região | Contagem de erros |
 | ----------|----------|--------|----- |
 | 2020-6-1 | Base de dados dos funcionários | UE OCIDENTAL | 9000 |
 | 2020-6-1 | Fila de mensagens | LESTE DOS EUA | 1000 |

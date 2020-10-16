@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/02/2019
 ms.openlocfilehash: c2ddcd8ea3524b4afdfa7f70d21f0cba96975f72
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86085366"
 ---
 # <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Registos do Monitor de Consulta Azure para monitorizar clusters HDInsight
@@ -33,7 +33,7 @@ Deve ter configurado um cluster HDInsight para utilizar registos do Monitor Azur
 Aprenda a procurar métricas específicas para o seu cluster HDInsight.
 
 1. Abra o espaço de trabalho Log Analytics que está associado ao seu cluster HDInsight a partir do portal Azure.
-1. Em **Geral,** selecione **Registos**.
+1. Em **Geral**, selecione **Registos**.
 1. Digite a seguinte consulta na caixa de pesquisa para procurar todas as métricas para todas as métricas disponíveis para todos os clusters HDInsight configurados para usar registos do Monitor Azure e, em seguida, selecione **Executar**. Reveja os resultados.
 
     ```kusto
@@ -94,7 +94,7 @@ search in (metrics_resourcemanager_queue_root_default_CL) *
 O primeiro passo para criar um alerta é chegar a uma consulta com base na qual o alerta é desencadeado. Pode utilizar qualquer consulta que queira criar um alerta.
 
 1. Abra o espaço de trabalho Log Analytics que está associado ao seu cluster HDInsight a partir do portal Azure.
-1. Em **Geral,** selecione **Registos**.
+1. Em **Geral**, selecione **Registos**.
 1. Faça a seguinte consulta sobre a qual pretende criar um alerta e, em seguida, selecione **Executar**.
 
     ```kusto
@@ -127,7 +127,7 @@ O primeiro passo para criar um alerta é chegar a uma consulta com base na qual 
 
 Para obter mais informações, consulte [Criar, ver e gerir alertas métricos utilizando o Azure Monitor](../azure-monitor/platform/alerts-metric.md).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
-* [Começa com consultas de registo no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+* [Introdução às consultas de registos no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 * [Crie vistas personalizadas utilizando o View Designer no Azure Monitor](../azure-monitor/platform/view-designer.md)

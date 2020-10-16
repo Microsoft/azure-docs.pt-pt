@@ -12,10 +12,10 @@ ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: c0fe3c3808709de732bec8ce0599d380094405e8
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91368486"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>Tutorial: Começa com a Azure Machine Learning no teu ambiente de desenvolvimento (parte 1 de 4)

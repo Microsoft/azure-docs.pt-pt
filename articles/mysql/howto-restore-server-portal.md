@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 6/30/2020
 ms.openlocfilehash: 7c9e7cda862fe1112cce7ed8cff270843f0a8475
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90902790"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Como fazer backup e restaurar um servidor na Base de Dados Azure para o MySQL utilizando o portal Azure
@@ -41,7 +41,7 @@ O período de retenção de backup pode ser alterado num servidor através dos s
 2. Selecione a base de dados Azure para o servidor MySQL. Esta ação abre a página **de visão geral.**
 3. Selecione **O Nível de Preços** do menu, em **DEFINIÇÕES**. Utilizando o slider pode alterar o **Período de Retenção de Cópia** de Segurança para a sua preferência entre 7 e 35 dias.
 Na imagem abaixo foi aumentado para 34 dias.
-:::image type="content" source="./media/howto-restore-server-portal/3-increase-backup-days.png" alt-text="Período de retenção de backup aumentado":::
+:::image type="content" source="./media/howto-restore-server-portal/3-increase-backup-days.png" alt-text="Nível de Preços - Escolha redundância de backup":::
 
 4. Clique **em OK** para confirmar a alteração.
 
@@ -57,11 +57,11 @@ Os seguintes passos restauram o servidor da amostra num ponto no tempo:
 
 2. Na barra de ferramentas da página **'Visão Geral'** do servidor, selecione **'Restaurar'.**
 
-   :::image type="content" source="./media/howto-restore-server-portal/2-server.png" alt-text="Base de Dados Azure para MySQL - Visão geral - Botão de restauro":::
+   :::image type="content" source="./media/howto-restore-server-portal/2-server.png" alt-text="Nível de Preços - Escolha redundância de backup":::
 
 3. Preencha o formulário Restaurar com as informações necessárias:
 
-   :::image type="content" source="./media/howto-restore-server-portal/3-restore.png" alt-text="Azure Database for MySQL - Restaurar informações":::
+   :::image type="content" source="./media/howto-restore-server-portal/3-restore.png" alt-text="Nível de Preços - Escolha redundância de backup":::
    - **Ponto de restauro**: Selecione o ponto a tempo a que pretende restabelecer.
    - **Servidor-alvo**: Forneça um nome para o novo servidor.
    - **Localização**: Não é possível selecionar a região. Por padrão, é o mesmo que o servidor de origem.
@@ -86,13 +86,13 @@ Se configurar o servidor para cópias de segurança geograficamente redundantes,
 
 1. Selecione o botão **De recurso** (+) no canto superior esquerdo do portal. Selecione **Base de Dados**  >  **Azure Databases para o MySQL**.
 
-   :::image type="content" source="./media/howto-restore-server-portal/1_navigate-to-mysql.png" alt-text="Navegue para a Base de Dados Azure para o MySQL.":::
+   :::image type="content" source="./media/howto-restore-server-portal/1_navigate-to-mysql.png" alt-text="Nível de Preços - Escolha redundância de backup":::
  
 2. Forneça a subscrição, o grupo de recursos e o nome do novo servidor. 
 
 3. Selecione **Backup** como **fonte de dados**. Esta ação carrega uma redução que fornece uma lista de servidores que têm cópias de segurança geo redundantes ativadas.
    
-   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="Selecione fonte de dados.":::
+   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="Nível de Preços - Escolha redundância de backup":::
     
    > [!NOTE]
    > Quando um servidor é criado pela primeira vez, pode não estar imediatamente disponível para restauro geo. Pode levar algumas horas para que os metadados necessários sejam povoados.
@@ -100,21 +100,21 @@ Se configurar o servidor para cópias de segurança geograficamente redundantes,
 
 4. Selecione o **dropdown de backup.**
    
-   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore-backup.png" alt-text="Selecione o dropdown de reserva.":::
+   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore-backup.png" alt-text="Nível de Preços - Escolha redundância de backup":::
 
 5. Selecione o servidor de origem para restaurar a partir de.
    
-   :::image type="content" source="./media/howto-restore-server-portal/5-select-backup.png" alt-text="Selecione backup.":::
+   :::image type="content" source="./media/howto-restore-server-portal/5-select-backup.png" alt-text="Nível de Preços - Escolha redundância de backup":::
 
-6. O servidor irá predefinir para valores para o número de **vCores**, Período de **Retenção de Cópia**de Segurança , **Opção de Redundância de Backup,** **Versão do Motor**e **credenciais de administração**. **Selecione Continuar**. 
+6. O servidor irá predefinir para valores para o número de **vCores**, Período de **Retenção de Cópia**de Segurança , **Opção de Redundância de Backup,** **Versão do Motor**e **credenciais de administração**. Selecione **Continuar**. 
    
-   :::image type="content" source="./media/howto-restore-server-portal/6-accept-backup.png" alt-text="Continue com reforços.":::
+   :::image type="content" source="./media/howto-restore-server-portal/6-accept-backup.png" alt-text="Nível de Preços - Escolha redundância de backup":::
 
 7. Preencha o resto do formulário com as suas preferências. Pode selecionar qualquer **localização.**
 
     Depois de selecionar a localização, pode selecionar o **servidor Configure** para atualizar a **Geração computacional** (se disponível na região escolhida), número de **vCores,** Período de **Retenção de Backup**e **Opção de Redundância de Backup**. A alteração **do nível de preços** (Final básico, geral ou otimizado da memória) ou o tamanho do **armazenamento** durante a restauração não é suportado.
 
-   :::image type="content" source="./media/howto-restore-server-portal/7-create.png" alt-text="Preencher formulário."::: 
+   :::image type="content" source="./media/howto-restore-server-portal/7-create.png" alt-text="Nível de Preços - Escolha redundância de backup"::: 
 
 8. Selecione **Review + crie** para rever as suas seleções. 
 

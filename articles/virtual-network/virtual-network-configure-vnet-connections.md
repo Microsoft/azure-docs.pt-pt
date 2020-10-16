@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: f25e42b1785f83e0b93c346e260055247a4ab29d
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: d6532747c50311ada4df6a0038bd0e05f4d9ce31
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400711"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089695"
 ---
 # <a name="configure-and-validate-virtual-network-or-vpn-connections"></a>Configurar e validar ligações de rede virtual ou VPN
 
@@ -122,7 +122,7 @@ Pode criar uma ligação entre redes virtuais que estão em diferentes subscriç
 
 Para configurar uma ligação entre uma rede virtual clássica e uma rede virtual Resource Manager, consulte [ligar redes virtuais de diferentes modelos de implementação utilizando o portal Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal).
 
-![Ligação virtual clássica à rede virtual Azure Resource Manager](./media/virtual-network-configure-vnet-connections/4034389_en_2.png)
+![Diagrama que mostra uma ligação virtual clássica à rede virtual Azure Resource Manager.](./media/virtual-network-configure-vnet-connections/4034389_en_2.png)
 
 Para verificar a configuração quando ligar uma rede virtual clássica a uma rede virtual Azure Resource Manager, siga estas instruções.
 

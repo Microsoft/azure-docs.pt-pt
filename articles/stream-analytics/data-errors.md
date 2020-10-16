@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 08/07/2020
-ms.openlocfilehash: 1c649499fd9eaedac0ca4ff9c182e13a9da223ef
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 48f178a74dea0403ff8926cf34fd64cdd9c6839f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053155"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072004"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Erros de dados do Azure Stream Analytics
 
@@ -211,6 +211,10 @@ Consulte [o Troubleshoot Azure Stream Analytics utilizando registos de diagnóst
 ```
 
 ## <a name="output-data-errors"></a>Erros de dados de saída
+
+O Azure Stream Analytics pode identificar erros de dados de saída com ou sem pedido de E/S para o lavatório de saída dependendo da configuração. Por exemplo, a falta de uma coluna necessária, por  `PartitionKey` exemplo, quando utilizar a saída da Tabela Azure pode ser identificada sem um pedido de E/S. No entanto, as violações de restrição na saída SQL requerem um pedido de E/S.
+
+Existem vários erros de dados que só podem ser detetados depois de fazer uma chamada para o lavatório de saída, o que pode abrandar o processamento. Para resolver isto, altere a configuração do seu trabalho ou a consulta que está a causar o erro de dados.
 
 ### <a name="outputdataconversionerrorrequiredcolumnmissing"></a>OutputDataConversionError.RequiredColumnMissing
 

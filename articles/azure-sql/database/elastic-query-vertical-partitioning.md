@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: daa1bbbace55281f81e04c4639b083b3e934b9f8
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91443083"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Consulta através de bases de dados em nuvem com esquemas diferentes (pré-visualização)
@@ -189,7 +189,7 @@ Pode utilizar as cadeias regulares de ligação do SQL Server para ligar as suas
 * Certifique-se de que a base de dados de ponto final de consulta elástica teve acesso à base de dados remota, permitindo o acesso aos Serviços Azure na sua configuração de firewall Azure SQL Database. Certifique-se também de que a credencial fornecida na definição de fonte de dados externa pode entrar com sucesso na base de dados remota e tem as permissões para aceder à tabela remota.  
 * A consulta elástica funciona melhor para consultas onde a maior parte do cálculo pode ser feito nas bases de dados remotas. Normalmente obtém o melhor desempenho de consulta com predicados de filtro seletivos que podem ser avaliados nas bases de dados remotas ou junções que podem ser realizadas completamente na base de dados remota. Outros padrões de consulta podem ter de carregar grandes quantidades de dados a partir da base de dados remota e podem ter um desempenho fraco.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter uma visão geral da consulta elástica, consulte [a visão geral da consulta elástica](elastic-query-overview.md).
 * Para obter um tutorial de partição vertical, consulte [Começar com consulta de base de dados cruzada (partição vertical)](elastic-query-getting-started-vertical.md).

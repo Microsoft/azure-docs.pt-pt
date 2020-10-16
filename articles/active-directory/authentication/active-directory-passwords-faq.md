@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/20/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1927cc103ba14b4b9b545eca82aee28cd32eeb2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 078b24e7fc3668e9b5832f0bfa46024db9b33848
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90052392"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965561"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>Redefinição de senha de autosserviço frequentemente feita perguntas
 

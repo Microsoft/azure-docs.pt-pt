@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: tomfitz
 ms.openlocfilehash: e4255f0d42e28a72ad55d9b7f81d0dc49b2950cb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87040990"
 ---
 # <a name="createuidefinition-functions"></a>Funções createUiDefinition
@@ -36,7 +36,7 @@ Se for caso disso, pode referenciar propriedades da saída de uma função utili
 "[func().prop1]"
 ```
 
-## <a name="collection-functions"></a>Funções de recolha
+## <a name="collection-functions"></a>Funções de coleção
 
 Estas funções podem ser usadas com coleções, como cordas JSON, matrizes e objetos.
 
@@ -45,7 +45,7 @@ Estas funções podem ser usadas com coleções, como cordas JSON, matrizes e ob
 * [filtro](create-ui-definition-collection-functions.md#filter)
 * [primeiro](create-ui-definition-collection-functions.md#first)
 * [último](create-ui-definition-collection-functions.md#last)
-* [comprimento](create-ui-definition-collection-functions.md#length)
+* [length](create-ui-definition-collection-functions.md#length)
 * [mapa](create-ui-definition-collection-functions.md#map)
 * [saltar](create-ui-definition-collection-functions.md#skip)
 * [divisão](create-ui-definition-collection-functions.md#split)
@@ -60,7 +60,7 @@ Estas funções podem ser utilizadas para converter valores entre tipos de dados
 * [decodeUriComponent](create-ui-definition-conversion-functions.md#decodeuricomponent)
 * [codificarBase64](create-ui-definition-conversion-functions.md#encodebase64)
 * [encodeUriComponent](create-ui-definition-conversion-functions.md#encodeuricomponent)
-* [flutuar](create-ui-definition-conversion-functions.md#float)
+* [flutuante](create-ui-definition-conversion-functions.md#float)
 * [int](create-ui-definition-conversion-functions.md#int)
 * [parse](create-ui-definition-conversion-functions.md#parse)
 * [cadeia](create-ui-definition-conversion-functions.md#string)
@@ -76,7 +76,7 @@ Estas funções podem ser utilizadas para converter valores entre tipos de dados
 
 Estas funções podem ser utilizadas em condicional. Algumas funções podem não suportar todos os tipos de dados JSON.
 
-* [e](create-ui-definition-logical-functions.md#and)
+* [and](create-ui-definition-logical-functions.md#and)
 * [coalesce](create-ui-definition-logical-functions.md#coalesce)
 * [é igual a](create-ui-definition-logical-functions.md#equals)
 * [greater](create-ui-definition-logical-functions.md#greater)

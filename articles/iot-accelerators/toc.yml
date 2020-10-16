@@ -198,31 +198,31 @@
 - name: Recursos
   items:
     - name: Opções de suporte e ajuda
-      href: /azure/iot-fundamentals/iot-support-help
+      href: ../iot-fundamentals/iot-support-help.md
     - name: Serviços de IoT do Azure
       items:
         - name: IoT Hub
-          href: /azure/iot-hub
+          href: ../iot-hub/index.yml
         - name: Serviço de Aprovisionamento de Dispositivos no Hub IoT
-          href: /azure/iot-dps
+          href: ../iot-dps/index.yml
         - name: Centro de IoT
-          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+          href: /microsoft-iot-central/
         - name: IoT Edge
-          href: /azure/iot-edge
+          href: ../iot-edge/index.yml
         - name: Aceleradores de soluções IoT
-          href: /azure/iot-accelerators
+          href: ./index.yml
         - name: IoT Plug and Play
-          href: /azure/iot-pnp
+          href: ../iot-pnp/index.yml
         - name: Azure Maps
-          href: /azure/azure-maps
+          href: ../azure-maps/index.yml
         - name: Time Series Insights
-          href: /azure/time-series-insights
+          href: ../time-series-insights/index.yml
     - name: SDKs do Azure IoT
       items:
         - name: SDKs do Serviço de IoT
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+          href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
         - name: SDKs do Dispositivo IoT
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+          href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
     - name: Monitorização remota
       items:
         - name: Guia de referência para programadores (.NET)
@@ -252,7 +252,7 @@
     - name: Repositório do GitHub de manutenção preditiva
       href: 'https://github.com/Azure/azure-iot-predictive-maintenance'
     - name: Arquitetura de Referência
-      href: iot-accelerators-architecture-overview.md
+      href: /azure/architecture/reference-architectures/iot
       items:
         - name: Download
           href: 'https://aka.ms/iotrefarchitecture'
@@ -269,4 +269,4 @@
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-iot-suite'
     - name: Monitorização Remota V1
-      href: 'https://docs.microsoft.com/previous-versions/azure/iot-suite/'
+      href: /previous-versions/azure/iot-suite/

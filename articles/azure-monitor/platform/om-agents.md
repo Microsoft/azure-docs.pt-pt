@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/24/2020
 ms.openlocfilehash: 2a4f24da51b9e9e78c3df3e7d1437a380306e300
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87318356"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Connect Operations Manager ao Azure Monitor

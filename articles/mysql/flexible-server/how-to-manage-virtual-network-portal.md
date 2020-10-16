@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
 ms.openlocfilehash: 28506ea5afe085e9f52e40495d9931ae0aeddf32
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90937311"
 ---
 # <a name="create-and-manage-virtual-networks-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Criar e gerir redes virtuais para Azure Database for MySQL - Servidor Flexível utilizando o portal Azure
@@ -33,7 +33,7 @@ Para criar um servidor flexível numa rede virtual, é necessário:
     > [!Note]
     > A rede virtual e a sub-rede devem estar na mesma região e subscrição que o seu servidor flexível.
 
--  [Delegar uma sub-rede](../../virtual-network/manage-subnet-delegation.md#delegate-a-subnet-to-an-azure-service) para **Microsoft.DBforMySQL/flexibleServers**. Esta delegação significa que apenas os Servidores Flexíveis da Base de Dados do Azure para MySQL podem utilizar essa sub-rede. Nenhum outro tipo de recurso do Azure pode estar na sub-rede delegada.
+-  Para [delegar uma sub-rede](../../virtual-network/manage-subnet-delegation.md#delegate-a-subnet-to-an-azure-service) para **Microsoft.DBforMySQL/flexibleServers**. Esta delegação significa que apenas os Servidores Flexíveis da Base de Dados do Azure para MySQL podem utilizar essa sub-rede. Nenhum outro tipo de recurso do Azure pode estar na sub-rede delegada.
 
 ## <a name="create-azure-database-for-mysql-flexible-server-in-an-already-existing-virtual-network"></a>Criar base de dados Azure para o MySQL Flexible Server numa rede virtual já existente
 

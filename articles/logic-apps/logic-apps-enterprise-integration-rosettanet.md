@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: f02cbdc7ca8822c5fcc91b106856d7f8f547536b
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91565110"
 ---
 # <a name="exchange-rosettanet-messages-for-b2b-enterprise-integration-in-azure-logic-apps"></a>Trocar mensagens RosettaNet para integração empresarial B2B em Azure Logic Apps
@@ -81,9 +81,9 @@ Para adicionar uma configuração de processo PIP à sua conta de integração, 
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Nome** | Yes | O seu nome PIP |
-   | **Código PIP** | Yes | O código PIP de três dígitos. Para obter mais informações, consulte [os PIPs da RosettaNet](/biztalk/adapters-and-accelerators/accelerator-rosettanet/rosettanet-pips). |
-   | **Versão PIP** | Yes | O número da versão PIP, que está disponível com base no seu código PIP selecionado |
+   | **Nome** | Sim | O seu nome PIP |
+   | **Código PIP** | Sim | O código PIP de três dígitos. Para obter mais informações, consulte [os PIPs da RosettaNet](/biztalk/adapters-and-accelerators/accelerator-rosettanet/rosettanet-pips). |
+   | **Versão PIP** | Sim | O número da versão PIP, que está disponível com base no seu código PIP selecionado |
    ||||
 
    Para mais informações sobre estas propriedades PIP, visite o site da [RosettaNet.](https://resources.gs1us.org/RosettaNet-Standards/Standards-Library/PIP-Directory#1043208-pipsreg)
@@ -112,15 +112,15 @@ Para adicionar uma configuração de processo PIP à sua conta de integração, 
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Nome** | Yes | O nome do acordo |
-   | **Tipo de acordo** | Yes | Selecione **RosettaNet**. |
-   | **Parceiro anfitrião** | Yes | Um acordo requer tanto um anfitrião como um parceiro convidado. O parceiro anfitrião representa a organização que configura o acordo. |
-   | **Identidade do anfitrião** | Yes | Um identificador para o parceiro anfitrião |
-   | **Parceiro Convidado** | Yes | Um acordo requer tanto um anfitrião como um parceiro convidado. O parceiro convidado representa a organização que está a fazer negócios com o parceiro anfitrião. |
-   | **Identidade do Hóspede** | Yes | Um identificador para o parceiro convidado |
+   | **Nome** | Sim | O nome do acordo |
+   | **Tipo de acordo** | Sim | Selecione **RosettaNet**. |
+   | **Parceiro anfitrião** | Sim | Um acordo requer tanto um anfitrião como um parceiro convidado. O parceiro anfitrião representa a organização que configura o acordo. |
+   | **Identidade do anfitrião** | Sim | Um identificador para o parceiro anfitrião |
+   | **Parceiro Convidado** | Sim | Um acordo requer tanto um anfitrião como um parceiro convidado. O parceiro convidado representa a organização que está a fazer negócios com o parceiro anfitrião. |
+   | **Identidade do Hóspede** | Sim | Um identificador para o parceiro convidado |
    | **Receber Definições** | Varia | Estas propriedades aplicam-se a todas as mensagens recebidas pelo parceiro anfitrião |
    | **Enviar Definições** | Varia | Estas propriedades aplicam-se a todas as mensagens enviadas pelo parceiro anfitrião |  
-   | **Referências PIP rosettaNet** | Yes | As referências do PIP para o acordo. Todas as mensagens RosettaNet requerem configurações PIP. |
+   | **Referências PIP rosettaNet** | Sim | As referências do PIP para o acordo. Todas as mensagens RosettaNet requerem configurações PIP. |
    ||||
 
 1. Para configurar o seu acordo para receber mensagens recebidas do parceiro convidado, selecione **'Receber Definições'.**
@@ -131,9 +131,9 @@ Para adicionar uma configuração de processo PIP à sua conta de integração, 
 
       | Propriedade | Necessário | Descrição |
       |----------|----------|-------------|
-      | **Mensagem deve ser assinada** | No | Assine mensagens recebidas com o certificado selecionado. |
+      | **Mensagem deve ser assinada** | Não | Assine mensagens recebidas com o certificado selecionado. |
       | **Certificado** | Sim, se a assinatura estiver ativada | O certificado a utilizar para a assinatura |
-      | **Ativar encriptação de mensagens** | No | Criptografe as mensagens recebidas com o certificado selecionado. |
+      | **Ativar encriptação de mensagens** | Não | Criptografe as mensagens recebidas com o certificado selecionado. |
       | **Certificado** | Sim, se a encriptação estiver ativada | O certificado a usar para encriptação |
       ||||
 
@@ -147,10 +147,10 @@ Para adicionar uma configuração de processo PIP à sua conta de integração, 
 
       | Propriedade | Necessário | Descrição |
       |----------|----------|-------------|
-      | **Ativar a assinatura de mensagens** | No | Assine mensagens de saída com o algoritmo de assinatura selecionado e certificado. |
+      | **Ativar a assinatura de mensagens** | Não | Assine mensagens de saída com o algoritmo de assinatura selecionado e certificado. |
       | **Algoritmo de assinatura** | Sim, se a assinatura estiver ativada | O algoritmo de assinatura a utilizar, com base no certificado selecionado |
       | **Certificado** | Sim, se a assinatura estiver ativada | O certificado a utilizar para a assinatura |
-      | **Ativar encriptação de mensagens** | No | Criptografe a saída com o algoritmo de encriptação selecionado e certificado. |
+      | **Ativar encriptação de mensagens** | Não | Criptografe a saída com o algoritmo de encriptação selecionado e certificado. |
       | **Algoritmo de encriptação** | Sim, se a encriptação estiver ativada | O algoritmo de encriptação a utilizar, com base no certificado selecionado |
       | **Certificado** | Sim, se a encriptação estiver ativada | O certificado a usar para encriptação |
       ||||
@@ -159,8 +159,8 @@ Para adicionar uma configuração de processo PIP à sua conta de integração, 
 
       | Propriedade | Necessário | Descrição |
       |----------|----------|-------------|
-      | **URL de ação** |  Yes | O URL a utilizar para o envio de mensagens de ação. O URL é um campo necessário para mensagens sincronizadas e assíncronos. |
-      | **URL de reconhecimento** | Yes | O URL a utilizar para o envio de mensagens de reconhecimento. O URL é um campo necessário para mensagens assíncronos. |
+      | **URL de ação** |  Sim | O URL a utilizar para o envio de mensagens de ação. O URL é um campo necessário para mensagens sincronizadas e assíncronos. |
+      | **URL de reconhecimento** | Sim | O URL a utilizar para o envio de mensagens de reconhecimento. O URL é um campo necessário para mensagens assíncronos. |
       ||||
 
 1. Para estabelecer o seu acordo com as referências PIP rosettaNet para parceiros, selecione **referências PIP RosettaNet**. Em **Nome PIP,** selecione o nome do pip anteriormente criado.
@@ -201,9 +201,9 @@ Para acelerar o desenvolvimento e recomendar padrões de integração, pode util
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Mensagem** | Yes | A mensagem RosettaNet para descodificar  |
-   | **Cabeçalhos** | Yes | Os cabeçalhos HTTP que fornecem os valores para a versão, que é a versão RNIF, e o tipo de resposta, que indica o tipo de comunicação entre os parceiros e pode ser sincronizado ou assíncronos |
-   | **Role** | Yes | O papel do parceiro anfitrião no PIP |
+   | **Mensagem** | Sim | A mensagem RosettaNet para descodificar  |
+   | **Cabeçalhos** | Sim | Os cabeçalhos HTTP que fornecem os valores para a versão, que é a versão RNIF, e o tipo de resposta, que indica o tipo de comunicação entre os parceiros e pode ser sincronizado ou assíncronos |
+   | **Role** | Sim | O papel do parceiro anfitrião no PIP |
    ||||
 
    A partir da ação RosettaNet Decode, a saída, juntamente com outras propriedades, inclui **o sinal de saída,** que pode optar por codificar e voltar ao parceiro, ou tomar qualquer outra ação nessa saída.
@@ -230,14 +230,14 @@ Para acelerar o desenvolvimento e recomendar padrões de integração, pode util
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Mensagem** | Yes | A mensagem RosettaNet para codificar  |
-   | **Parceiro anfitrião** | Yes | O nome do parceiro anfitrião |
-   | **Parceiro convidado** | Yes | O nome do parceiro convidado |
-   | **Código PIP** | Yes | O código PIP |
-   | **Versão PIP** | Yes | A versão PIP |  
-   | **Identidade de instância PIP** | Yes | O identificador único para esta mensagem PIP |  
-   | **Tipo de mensagem** | Yes | O tipo de mensagem para codificar |  
-   | **Role** | Yes | O papel do parceiro anfitrião |
+   | **Mensagem** | Sim | A mensagem RosettaNet para codificar  |
+   | **Parceiro anfitrião** | Sim | O nome do parceiro anfitrião |
+   | **Parceiro convidado** | Sim | O nome do parceiro convidado |
+   | **Código PIP** | Sim | O código PIP |
+   | **Versão PIP** | Sim | A versão PIP |  
+   | **Identidade de instância PIP** | Sim | O identificador único para esta mensagem PIP |  
+   | **Tipo de mensagem** | Sim | O tipo de mensagem para codificar |  
+   | **Role** | Sim | O papel do parceiro anfitrião |
    ||||
 
    A mensagem codificada está agora pronta para enviar ao parceiro.

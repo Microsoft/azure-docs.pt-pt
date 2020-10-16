@@ -2,20 +2,20 @@
 title: Bloqueio de conta de resolução de problemas nos Serviços de Domínio Azure AD Microsoft Docs
 description: Saiba como resolver problemas comuns que fazem com que as contas dos utilizadores sejam bloqueadas nos Serviços de Domínio do Diretório Ativo do Azure.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 4a5ae321a4a97df5b5fa91bb239589c76c6601fc
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.author: joflore
+ms.openlocfilehash: 340811ee1c518cdccb5bbb0ae9b5f215f5564cfa
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039760"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967618"
 ---
 # <a name="troubleshoot-account-lockout-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Problemas de bloqueio de conta de resolução de problemas com um domínio gerido por serviços de domínio do diretório ativo Azure
 
@@ -84,7 +84,7 @@ AADDomainServicesAccountManagement
 | sort by TimeGenerated asc
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre políticas de senha de grão fino para ajustar os limiares de bloqueio de conta, consulte [as políticas de bloqueio de senha e de bloqueio de conta][configure-fgpp].
 

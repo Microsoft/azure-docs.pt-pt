@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c8d03b8f13a016dc21e37b82f66abc8050ef17d8
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89266787"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Ative Directory gestão de dispositivos FAQ
@@ -215,7 +215,7 @@ Este comportamento:
 
 - As suas credenciais de utilizador já não são válidas.
 - O seu computador não consegue comunicar com o Azure Ative Directory. Verifique se há problemas de conectividade de rede.
-- As entradas federadas requerem que o servidor da federação suporte pontos finais WS-Trust que estejam ativados e acessíveis. 
+- As inscrições federadas exigem que o servidor da federação suporte WS-Trust pontos finais que estejam ativados e acessíveis. 
 - Habilitado a autenticação pass-through. Portanto, a sua senha temporária precisa de ser alterada quando iniciar sôs o seu sôm.
 
 ---

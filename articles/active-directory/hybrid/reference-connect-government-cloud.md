@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c083b319b11807a88461b2464153821fa2ad0b67
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89276189"
 ---
 # <a name="hybrid-identity-considerations-for-the-azure-government-cloud"></a>Considerações de identidade híbridas para a nuvem do Governo do Azure
@@ -74,9 +74,9 @@ Se utilizar a Autenticação Pass-through como método de entrada, não é neces
 
   Caso contrário, permita o acesso às gamas IP do datacenter Azure, que são atualizadas semanalmente. Este pré-requisito só se aplica quando ativar a funcionalidade. Não é necessário para as inscrições reais do utilizador.
 
-### <a name="roll-out-seamless-single-sign-on"></a>Desenrolar sem emenda único sign-on
+### <a name="roll-out-seamless-single-sign-on"></a>Desenrolar Sign-On single sem emenda
 
-Pode lançar gradualmente o Azure AD Single Sign-On para os seus utilizadores utilizando as seguintes instruções. Começa por adicionar o URL AD AD do Azure `https://autologon.microsoft.us` às definições da zona intranet de todos ou selecionados dos utilizadores, utilizando a Política de Grupo no Diretório Ativo.
+Pode lançar gradualmente o Azure AD Seamless Single Sign-On aos seus utilizadores utilizando as seguintes instruções. Começa por adicionar o URL AD AD do Azure `https://autologon.microsoft.us` às definições da zona intranet de todos ou selecionados dos utilizadores, utilizando a Política de Grupo no Diretório Ativo.
 
 Também é necessário ativar a definição de política de zona **intranet Permitir atualizações para a barra de estado através do script através da Política de Grupo**.
 
@@ -100,7 +100,7 @@ Se tiver ultrapassado as  `AuthNegotiateDelegateAllowlist`   definições ou
 
 Se tiver ultrapassado as  `AuthNegotiateDelegateWhitelist`   definições ou `AuthServerWhitelist`   definições de política no seu ambiente, certifique-se de que lhe adiciona o URL AD `https://autologon.microsoft.us` Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Autenticação pass-through](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites)
 - [Único sign-on](how-to-connect-sso-quick-start.md#step-1-check-the-prerequisites)

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 950447aa146f05714b6ec5ea3d6e47c368a2140e
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 46805427e6d00e858cf869eef68bf68549f57fb9
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229315"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018122"
 ---
 # <a name="tutorial-connect-with-power-bi-desktop"></a>Tutorial: Ligar com o Power BI Desktop
 
@@ -65,9 +65,9 @@ No **portal do Azure** > servidor > **Descrição geral** > **Nome do servidor**
 
     Dispense alguns minutos para explorar o modelo de exemplo adventureworks ao criar visualizações diferentes e repartir em dados e métricas. Quando estiver satisfeito com o relatório, não se esqueça de o guardar.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se já não for preciso, não guarde o relatório ou elimine o ficheiro se o tiver guardado.
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste tutorial, aprendeu a utilizar o Power BI Desktop para ligar a um modelo de dados num servidor e criar um relatório básico. Se não estiver familiarizado com a forma de criar um modelo de dados, consulte o [tutorial de modelação de dados tabulares de vendas de internet Adventure Works](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial) nos docs dos Serviços de Análise de Servidores SQL.
+Neste tutorial, aprendeu a utilizar o Power BI Desktop para ligar a um modelo de dados num servidor e criar um relatório básico. Se não estiver familiarizado com a forma de criar um modelo de dados, consulte o [tutorial de modelação de dados tabulares de vendas de internet Adventure Works](/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial) nos docs dos Serviços de Análise de Servidores SQL.

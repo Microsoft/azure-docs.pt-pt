@@ -14,18 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: cc784afe5db64ccc4aad13fae7a2fa748e4befa3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef6677b6f1103c26bd719a3585800765a029f7fb
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77587996"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056843"
 ---
 # <a name="connect-zscaler-internet-access-to-azure-sentinel"></a>Ligue o acesso à Internet Zscaler ao Azure Sentinel
-
-> [!IMPORTANT]
-> O conector de dados Zscaler em Azure Sentinel está atualmente em pré-visualização pública.
-> Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Este artigo explica como ligar o seu aparelho Zscaler Internet Access ao Azure Sentinel. O conector de dados Zscaler permite-lhe ligar facilmente os seus registos Zscaler Internet Access (ZIA) com o Azure Sentinel, para visualizar dashboards, criar alertas personalizados e melhorar a investigação. A utilização do Zscaler no Azure Sentinel irá fornecer-lhe mais informações sobre o uso da Internet da sua organização e aumentará as suas capacidades de operação de segurança. 
 

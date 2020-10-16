@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 7317fd66303aaabf5232106aa7391439880bebaf
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260294"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
@@ -20,7 +20,7 @@ Consultar e enviar comandos para o serviço de gerente de reparação.
 |Comando|Descrição|
 | --- | --- |
 | aprovar força | Força a aprovação da tarefa de reparação dada. |
-| eliminação | Elimina uma tarefa de reparação completa. |
+| delete | Elimina uma tarefa de reparação completa. |
 | lista | Obtém uma lista de tarefas de reparação correspondentes aos filtros dados. |
 
 ## <a name="sfctl-rpm-approve-force"></a>sfctl rpm aprovar força

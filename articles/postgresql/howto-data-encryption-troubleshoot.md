@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 02/13/2020
 ms.openlocfilehash: ee0a1ebe483dd4719fd1a84fec37906329116eba
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86117904"
 ---
 # <a name="troubleshoot-data-encryption-in-azure-database-for-postgresql---single-server"></a>Encriptação de dados de resolução de problemas na Base de Dados Azure para PostgreSQL - Servidor Único
@@ -57,6 +57,6 @@ As seguintes configurações erradas causam a maioria dos problemas com a encrip
 - Identifique o cofre da chave e vá para o cofre chave no portal Azure.
 - Certifique-se de que a chave URI identifica uma chave que está presente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Utilize o portal Azure para configurar encriptação de dados com uma chave gerida pelo cliente na Base de Dados Azure para PostgreSQL](howto-data-encryption-portal.md)

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 07/10/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 20bedf7e48b2e40cd67e33ea024a3ae0a9d305a6
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91707545"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>Criar e gerir réplicas de leitura do Azure CLI, REST API
@@ -207,6 +207,6 @@ Quando elimina um servidor primário, a replicação de todas as réplicas lidas
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}?api-version=2017-12-01
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre [as réplicas lidas na Base de Dados Azure para PostgreSQL](concepts-read-replicas.md).
 * Saiba como [criar e gerir réplicas de leitura no portal Azure.](howto-read-replicas-portal.md)

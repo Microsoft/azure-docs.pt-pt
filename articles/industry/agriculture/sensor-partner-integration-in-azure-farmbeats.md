@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 88a8dcb53ab2f845f52121b11c96c23ad0a3e791
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87078921"
 ---
 # <a name="sensor-partner-integration"></a>Integração de parceiros de sensores
@@ -96,7 +96,7 @@ Aqui estão os cabeçalhos de pedido mais comuns que precisam de ser especificad
 **Cabeçalho** | **Descrição e exemplo**
 --- | ---
 Content-Type | O formato de pedido (Tipo de Conteúdo: aplicação/ <format> ). Para as APIs do FarmBeats Datahub, o formato é JSON. Tipo de conteúdo: aplicação/json
-Autorização | Especifica o token de acesso necessário para fazer uma chamada da API. Autorização: Portador <> Access-Token
+Autorização | Especifica o token de acesso necessário para fazer uma chamada da API. Autorização: <Access-Token> portador
 Aceitar | O formato de resposta. Para as APIs do FarmBeats Datahub, o formato é JSON. Aceitar: candidatura/json
 
 **Pedidos de API**
@@ -137,7 +137,7 @@ O FarmBeats Datahub tem as seguintes APIs que permitem aos parceiros de disposit
   Fabricante  | Nome do fabricante |
   Código de Produto  | Código do produto do dispositivo ou nome ou número do modelo. Por exemplo, EnviroMonitor#6800. |
   Portas  | Nome e tipo portuário, que é digital ou analógico.  |
-  Name  | Nome para identificar recurso. Por exemplo, nome do modelo ou nome do produto. |
+  Nome  | Nome para identificar recurso. Por exemplo, nome do modelo ou nome do produto. |
   Descrição  | Forneça uma descrição significativa do modelo. |
   Propriedades  | Propriedades adicionais do fabricante. |
   **Dispositivo** | **Descrição** |
@@ -146,7 +146,7 @@ O FarmBeats Datahub tem as seguintes APIs que permitem aos parceiros de disposit
   ReporteInterval |Intervalo de reportagem em segundos. |
   Localização    |Latitude do dispositivo (-90 a +90), longitude (-180 a 180) e elevação (em metros). |
   ParentDeviceId | ID do dispositivo-mãe ao qual este dispositivo está ligado. Por exemplo, se um nó estiver ligado a um gateway, o nó tem o paiDeviceID como porta de entrada. |
-  Name  | Nome para identificar o recurso. Os parceiros do dispositivo precisam de enviar um nome consistente com o nome do dispositivo no lado do parceiro do dispositivo. Se o nome do dispositivo for definido pelo utilizador no lado do parceiro do dispositivo, o mesmo nome definido pelo utilizador deve ser propagado ao FarmBeats.  |
+  Nome  | Nome para identificar o recurso. Os parceiros do dispositivo precisam de enviar um nome consistente com o nome do dispositivo no lado do parceiro do dispositivo. Se o nome do dispositivo for definido pelo utilizador no lado do parceiro do dispositivo, o mesmo nome definido pelo utilizador deve ser propagado ao FarmBeats.  |
   Descrição  | Forneça uma descrição significativa.  |
   Propriedades  |Propriedades adicionais do fabricante.  |
   **SensorModel** | **Descrição** |
@@ -160,7 +160,7 @@ O FarmBeats Datahub tem as seguintes APIs que permitem aos parceiros de disposit
   SensorMeasures > A agregaçãoType  | Ou nenhuma, média, máxima, mínima ou StandardDeviation.
   SensorMeasures > Profundidade  | A profundidade do sensor em centímetros. Por exemplo, a medição da humidade a 10 cm debaixo do solo.
   SensorMeasures > Descrição  | Fornecer uma descrição significativa da medição.
-  Name  | Nome para identificar recurso. Por exemplo, o nome do modelo ou o nome do produto.
+  Nome  | Nome para identificar recurso. Por exemplo, o nome do modelo ou o nome do produto.
   Descrição  | Forneça uma descrição significativa do modelo.
   Propriedades  | Propriedades adicionais do fabricante.
   **Sensor**  | **Descrição** |
@@ -169,7 +169,7 @@ O FarmBeats Datahub tem as seguintes APIs que permitem aos parceiros de disposit
   Localização  | Latitude sensora (-90 a +90), longitude (-180 a 180) e elevação (em metros).
   Nome > Do Porto  |Nome e tipo da porta à qual o sensor está ligado ao dispositivo. Este deve ter o mesmo nome definido no modelo do dispositivo.
   DeviceId  | Identificação do dispositivo a que o sensor está ligado.
-  Name  | Nome para identificar o recurso. Por exemplo, o nome do sensor ou nome do produto e o número do modelo ou código do produto.
+  Nome  | Nome para identificar o recurso. Por exemplo, o nome do sensor ou nome do produto e o número do modelo ou código do produto.
   Descrição  | Forneça uma descrição significativa.
   Propriedades  | Propriedades adicionais do fabricante.
 

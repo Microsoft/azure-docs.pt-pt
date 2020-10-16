@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: aahi
 ms.openlocfilehash: d6b1085d51d7345b233087986127cbc97c0597e1
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362066"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Migrar da API do Discurso do Tradutor para o serviço de Discurso
@@ -64,7 +64,7 @@ Se você ou a sua organização tiverem aplicações em desenvolvimento ou produ
 * [Experimente o serviço de fala gratuitamente](overview.md#try-the-speech-service-for-free)
 * [Quickstart: Reconhecer o discurso numa aplicação UWP utilizando o Speech SDK](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 * [O que é o serviço de fala](overview.md)
 * [Serviço de fala e documentação SDK de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg)

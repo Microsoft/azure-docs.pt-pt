@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: damendo
 ms.openlocfilehash: c04da65af27ebd5ac654bc059ae004c157a20f33
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84737534"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Ver a topologia de uma rede virtual Azure
@@ -30,7 +30,7 @@ Pode utilizar o [portal Azure,](#azure-portal)o [Azure CLI](#azure-cli)ou [o Pow
 
 1. Inicie sessão no [portal Azure](https://portal.azure.com) com uma conta que tenha as [permissões necessárias.](required-rbac-permissions.md)
 2. No topo, canto esquerdo do portal, selecione **Todos os serviços**.
-3. Na caixa de **filtros de todos os serviços,** *insira o Observador de Rede*. Quando a opção **Observador de Rede** aparecer nos resultados, selecione-a.
+3. Na caixa de **filtros de todos os serviços,** *insira o Observador de Rede*. Quando **o Observador de Rede** aparecer nos resultados, selecione-o.
 4. Selecione **Topologia**. Gerar uma topologia requer um observador de rede na mesma região em que a rede virtual que você quer gerar a topologia para existe. Se não tiver um observador de rede ativado na região que a rede virtual para a qual pretende gerar uma topologia está, os observadores de rede são automaticamente criados para si em todas as regiões. Os observadores de rede são criados num grupo de recursos chamado **NetworkWatcherRG**.
 5. Selecione uma subscrição, o grupo de recursos de uma rede virtual para a quais deseja visualizar a topologia e, em seguida, selecione a rede virtual. Na imagem seguinte, é mostrada uma topologia para uma rede virtual chamada *MyVnet,* no grupo de recursos chamado *MyResourceGroup*:
 
@@ -145,7 +145,7 @@ Todos os recursos devolvidos numa topologia têm as seguintes propriedades:
     - **Nome**: O nome do recurso referenciado.
     - **ResourceId**: - O URI do recurso referenciado na associação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [diagnosticar um problema de filtro de tráfego de rede de ou para um VM](diagnose-vm-network-traffic-filtering-problem.md) utilizando a capacidade de verificação do fluxo IP do Observador de Rede
 - Saiba como [diagnosticar um problema de encaminhamento de tráfego de rede a partir de um VM](diagnose-vm-network-routing-problem.md) utilizando a próxima capacidade de lúpulo do Network Watcher

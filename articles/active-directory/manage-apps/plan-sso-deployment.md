@@ -14,10 +14,10 @@ ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: 87d455a77096a2ae9339c578f3405c629d79fa76
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90603344"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planear uma implementação de início de sessão único
@@ -313,11 +313,11 @@ Os seguintes links apresentam cenários de resolução de problemas. Pode querer
 
 [Protocolo SAML de assinatura única](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference)
 
-[Protocolo SAML de assinatura única](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-out-protocol-reference)
+[Protocolo SAML de Sign-Out único](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-out-protocol-reference)
 
 [Azure AD B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) (para utilizadores externos, como parceiros e fornecedores)
 
-[Acesso condicional Azure Ad](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
+[Acesso Condicional do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
 
 [Proteção de Identidade Azure](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
 

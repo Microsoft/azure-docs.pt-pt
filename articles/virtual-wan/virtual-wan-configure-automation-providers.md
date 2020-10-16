@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
 ms.openlocfilehash: 0029f3fbcf96036a247356042e4c39d59f86a224
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88208350"
 ---
-# <a name="automation-guidelines-for-virtual-wan-partners"></a>Diretrizes de automação para parceiros Virtuais WAN
+# <a name="automation-guidelines-for-virtual-wan-partners"></a>Diretrizes de automatização para parceiros de WAN Virtual
 
 Este artigo ajuda-o a entender como configurar o ambiente de automatização para conectar e configurar um dispositivo de filial (um dispositivo VPN ou SDWAN CPE) para Azure Virtual WAN. Se é um fornecedor que fornece dispositivos de ramificação que podem acomodar a conectividade VPN sobre iPsec/IKEv2 ou IPsec/IKEv1, este artigo é para si.
 

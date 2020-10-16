@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.subservice: alerts
 ms.openlocfilehash: f76d28018fdf55314593dabc44ef1e9a1dab9494
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91403131"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Como desencadear ações complexas com alertas do Azure Monitor

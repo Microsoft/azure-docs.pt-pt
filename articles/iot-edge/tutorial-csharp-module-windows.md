@@ -9,18 +9,18 @@ ms.date: 08/03/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, amqp, devx-track-csharp
-ms.openlocfilehash: b9451bcf6f67eb6afc6d06f4aa0cbec83ce75d6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1e34bacb905bf48fc5f7cd44e66cf4a4326de91
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855264"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044654"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutorial: Desenvolver um módulo C# IoT Edge para dispositivos Windows
 
 Utilize o Visual Studio para desenvolver o código C# e implemente-o num dispositivo Windows que executa o Azure IoT Edge.
 
-Pode utilizar os módulos do Azure IoT Edge para implementar código que aplica a sua lógica de negócio diretamente aos seus dispositivos IoT Edge. Este tutorial explica-lhe como criar e implementar um módulo do IoT Edge que filtra dados de sensores. Neste tutorial, ficará a saber como:
+Pode utilizar os módulos do Azure IoT Edge para implementar código que aplica a sua lógica de negócio diretamente aos seus dispositivos IoT Edge. Este tutorial explica-lhe como criar e implementar um módulo do IoT Edge que filtra dados de sensores. Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -50,8 +50,8 @@ Antes de iniciar este tutorial, deveria ter passado pelo tutorial anterior para 
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) no escalão gratuito ou standard no Azure.
 * Um [dispositivo Windows em execução Azure IoT Edge](quickstart.md).
-* Um registo de contentores, como [o Registo de Contentores de Azure.](https://docs.microsoft.com/azure/container-registry/)
-* [Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) configurado com a extensão [Azure IoT Edge Tools.](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools)
+* Um registo de contentores, como [o Registo de Contentores de Azure.](../container-registry/index.yml)
+* [Visual Studio 2019](/visualstudio/install/install-visual-studio) configurado com a extensão [Azure IoT Edge Tools.](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools)
 * [Docker Desktop](https://docs.docker.com/docker-for-windows/install/) configurado para executar recipientes Windows.
 
 > [!TIP]
@@ -353,7 +353,7 @@ Usamos o módulo CSharpModule twin para definir o limiar de temperatura em 25 gr
 
 5. Monitorize as mensagens de entrada de dispositivo para nuvem. Deve ver as mensagens paradas até que o novo limiar de temperatura seja atingido.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se planeia avançar para o próximo artigo recomendado, pode manter os recursos e as configurações que criou e reutilizá-los. Também pode continuar a utilizar o mesmo dispositivo IoT Edge como um dispositivo de teste.
 

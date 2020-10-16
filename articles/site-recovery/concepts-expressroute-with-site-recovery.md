@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
 ms.openlocfilehash: 68671a98c7703514af11de2f8c505110129fe713
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91398651"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure ExpressRoute com recuperação do local de Azure

@@ -13,10 +13,10 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/07/2019
 ms.openlocfilehash: ee218253309995e721c97f4a7f7b4547b32f7c36
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85986646"
 ---
 # <a name="general-purpose-service-tier---azure-sql-database-and-azure-sql-managed-instance"></a>Nível de serviço para fins gerais - Base de Dados Azure SQL e Azure SQL Gestão de Instância
@@ -30,7 +30,7 @@ A Azure SQL Database e Azure SQL Managed Instance são baseados na arquitetura d
 Existem dois níveis de serviço utilizados pela Base de Dados Azure SQL e pela SQL Managed Instance: 
 
 - Fins Gerais
-- Critical de negócios
+- Crítico para a Empresa
 
 A Azure SQL Database também tem um terceiro nível de serviço, que atualmente está indisponível para Azure SQL Managed Instance:
 
@@ -53,7 +53,7 @@ Sempre que o motor de base de dados ou o sistema operativo forem atualizados, al
 
 O nível de serviço de finalidade geral é um nível de serviço predefinido na Base de Dados Azure SQL e na Azure SQL Managed Instance que é projetado para a maioria das cargas de trabalho genéricas. Se necessitar de um motor de base de dados totalmente gerido com 99,99% SLA com latência de armazenamento entre 5 e 10 ms que combine com o SQL Server numa máquina virtual Azure na maioria dos casos, o nível de Finalidade Geral é a opção para si.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Encontrar características de recurso (número de núcleos, E/S, memória) do nível de finalidade geral/padrão em [SQL Managed Instance](../managed-instance/resource-limits.md#service-tier-characteristics), base de dados única no [modelo vCore](resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen4) ou [modelo DTU,](resource-limits-dtu-single-databases.md#single-database-storage-sizes-and-compute-sizes)ou piscina elástica no [modelo vCore](resource-limits-vcore-elastic-pools.md#general-purpose---provisioned-compute---gen4) e [modelo DTU](resource-limits-dtu-elastic-pools.md#standard-elastic-pool-limits).
 - Saiba mais sobre os níveis [de Business Critical](service-tier-business-critical.md) e [Hyperscale.](service-tier-hyperscale.md)

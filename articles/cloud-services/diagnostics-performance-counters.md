@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: tagore
-ms.openlocfilehash: 3b4028a09f69acd5d7a6579b4610785ed32e227d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39843ad83830a72b5d6b01cc00ecd65269c02e12
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77469532"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078600"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Colete contadores de desempenho para o seu Azure Cloud Service
 
@@ -70,7 +70,7 @@ Get-Counter -ListSet * | Where-Object CounterSetName -eq "Processor" | Select -E
 \Processor(*)\C3 Transitions/sec
 ```
 
-Estes caminhos de contra-ataque individuais podem ser adicionados à estrutura de diagnósticos que o seu serviço de nuvem utiliza. Para obter mais informações sobre como um contra-caminho de desempenho é construído, consulte [especificar um contra-caminho](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85)).
+Estes caminhos de contra-ataque individuais podem ser adicionados à estrutura de diagnósticos que o seu serviço de nuvem utiliza. Para obter mais informações sobre como um contra-caminho de desempenho é construído, consulte [especificar um contra-caminho](/windows/win32/perfctrs/specifying-a-counter-path).
 
 ## <a name="collect-a-performance-counter"></a>Colete um balcão de performance
 
@@ -290,8 +290,5 @@ Como indicado anteriormente, os contadores de desempenho que pretende recolher s
 
 - [Application Insights para os Serviços Cloud do Azure](../azure-monitor/app/cloudservices.md#performance-counters)
 - [Contadores de desempenho do sistema em Insights de Aplicações](../azure-monitor/app/performance-counters.md)
-- [Especificando um caminho de contra-ataque](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
+- [Especificando um caminho de contra-ataque](/windows/win32/perfctrs/specifying-a-counter-path)
 - [Azure Diagnostics Schema - Contadores de desempenho](../azure-monitor/platform/diagnostics-extension-schema-windows.md#performancecounters-element)
-
-
-

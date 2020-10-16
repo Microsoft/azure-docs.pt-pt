@@ -10,10 +10,10 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.openlocfilehash: 62edee6a882191551ce2409646ea8b617576c059
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89651156"
 ---
 # <a name="distributed-training-with-azure-machine-learning"></a>Treino distribuído com Azure Machine Learning
@@ -48,7 +48,7 @@ No paralelismo modelo, também conhecido como paralelismo de rede, o modelo é s
 
 No paralelismo modelo, os nós dos trabalhadores só precisam de sincronizar os parâmetros partilhados, geralmente uma vez para cada passo de propagação para a frente ou para trás. Além disso, modelos maiores não são uma preocupação, uma vez que cada nó opera numa subsecção do modelo nos mesmos dados de treino.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Aprenda a [usar alvos de computação para o treino de modelo](how-to-set-up-training-targets.md) com o Python SDK.
 * Para um exemplo técnico, consulte o [cenário de arquitetura de referência.](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/training-deep-learning)

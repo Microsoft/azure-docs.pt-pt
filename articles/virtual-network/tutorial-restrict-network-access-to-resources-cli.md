@@ -18,10 +18,10 @@ ms.date: 03/14/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 2be9b5e6fd489b331982d31693bf810d488d92b1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87484169"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Restringir o acesso à rede aos recursos paaS com pontos finais de serviço de rede virtual usando o Azure CLI
@@ -336,7 +336,7 @@ az storage share list \
 
 O acesso é negado e recebe um Este pedido não está autorizado a executar este erro *de funcionamento,* porque o seu computador não se encontra na sub-rede *Privada* da rede virtual *MyVirtualNetwork.*
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, utilize [o grupo AZ para remover](/cli/azure) o grupo de recursos e todos os recursos que contém.
 

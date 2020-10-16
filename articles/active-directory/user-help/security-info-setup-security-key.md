@@ -12,10 +12,10 @@ ms.topic: end-user-help
 ms.date: 07/18/2019
 ms.author: curtand
 ms.openlocfilehash: c056e439deac71417ff14dcfc3f2c3c95db41946
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88797671"
 ---
 # <a name="set-up-a-security-key-as-your-verification-method"></a>Crie uma chave de segurança como o seu método de verificação
@@ -49,7 +49,7 @@ O seu administrador ou organização fornecer-lhe-á uma chave de segurança se 
 > [!Note]
 > Se não conseguir utilizar uma chave de segurança FIDO2, existem outros métodos de verificação sem palavras-passe que pode utilizar, como a aplicação Microsoft Authenticator ou o Windows Hello. Para obter mais informações sobre a aplicação Microsoft Authenticator, consulte [o que é a aplicação microsoft Authenticator?](user-help-auth-app-overview.md) Para mais informações sobre o Windows Hello, consulte [a visão geral do Windows Hello](https://www.microsoft.com/windows/windows-hello).
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Antes de poder registar a sua chave de segurança, o seguinte deve ser verdadeiro:
 

@@ -1,20 +1,20 @@
 ---
 title: Tutorial - Configurar LDAPS para Azure Ative Directory Domain Services / Microsoft Docs
 description: Neste tutorial, você aprende a configurar o protocolo de acesso de diretório leve seguro (LDAPS) para um domínio gerido Azure Ative Directory Domain Services.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 1164d838a45496a075d356995a60beb967cdfcca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: f5ebe594f1f50c7b7490e5ead8cb3fe7636f0ce7
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88054345"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967482"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configurar LDAP seguro para um domínio gerido por Azure Ative Directory Domain Services
 
@@ -24,7 +24,7 @@ Com o Azure AD DS, pode configurar o domínio gerido para utilizar o Protocolo d
 
 Este tutorial mostra-lhe como configurar LDAPS para um domínio gerido AZure AD DS.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar um certificado digital para uso com Azure AD DS
@@ -280,7 +280,7 @@ Para ver os objetos armazenados no seu domínio gerido:
 
 Para consultar diretamente um recipiente específico, a partir do menu **View > Tree,** pode especificar um **BaseDN** como *OU=AADDC Users,DC=AADDSCONTOSO,DC=COM* ou *OU=AADDC Computers,DC=AADDSCONTOSO,DC=COM*. Para obter mais informações sobre como formatar e criar consultas, consulte o [básico da consulta LDAP][ldap-query-basics].
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se adicionar uma entrada de DNS ao ficheiro de anfitriões locais do seu computador para testar a conectividade para este tutorial, remova esta entrada e adicione um registo formal na sua zona de DNS. Para remover a entrada do ficheiro dos anfitriões locais, complete os seguintes passos:
 

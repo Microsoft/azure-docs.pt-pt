@@ -17,15 +17,15 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7cfbca2e7542315b59d741a9e8f6f9eb92af6ebf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84760223"
 ---
 # <a name="how-to-configure-an-application-proxy-application-to-use-pingaccess"></a>Como configurar uma aplicação Proxy de aplicação para usar o PingAccess
 
-A nossa colaboração com o PingAccess permite-lhe agora alargar os benefícios do Application Proxy a aplicações que utilizam a autenticação baseada em cabeçalho. Se as suas aplicações não utilizarem cabeçalhos, consulte a nossa [documentação de 'Sign-On' única](application-proxy-configure-single-sign-on-with-kcd.md) para obter mais informações sobre outras opções.
+A nossa colaboração com o PingAccess permite-lhe agora alargar os benefícios do Application Proxy a aplicações que utilizam a autenticação baseada em cabeçalho. Se as suas aplicações não utilizarem cabeçalhos, consulte a nossa [documentação single Sign-On](application-proxy-configure-single-sign-on-with-kcd.md) para obter detalhes sobre outras opções.
 
 ## <a name="overview-of-steps-and-recommended-documents"></a>Visão geral das etapas e documentos recomendados
 
@@ -39,4 +39,4 @@ Para configurar uma aplicação com PingAccess, existem quatro passos:
 
 4.  Configure aplicações no PingAccess
 
-Para mais detalhes sobre cada um destes passos, consulte a nossa [documentação Single Sign-On com Cabeçalhos](application-proxy-configure-single-sign-on-with-ping-access.md).
+Para mais detalhes sobre cada um destes passos, consulte o nosso [single Sign-On com documentação headers](application-proxy-configure-single-sign-on-with-ping-access.md).

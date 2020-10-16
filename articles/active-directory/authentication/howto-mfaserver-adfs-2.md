@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/11/2018
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5bcb63a325ca6bbf464faf9c5f9934879ccf9a3
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 9dc11faa502e5a6d8ede761d35d1ba24305b7688
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949665"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91964184"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>Configurar o Servidor Multi-Factor Authentication do Azure para trabalhar com o AD FS 2.0
 
@@ -45,10 +45,10 @@ Para proteger o AD FS 2.0 com um proxy, instale o Servidor Multi-Factor Authenti
 
    ![Janela de autenticação do servidor do MFA IIS](./media/howto-mfaserver-adfs-2/setup1.png)
 
-4. Para detetar automaticamente o nome de utilizador, palavra-passe e variáveis de domínio, introduza o URL de login `https://sso.contoso.com/adfs/ls` (como) dentro da caixa de diálogo do Site baseado em formulários de configuração automática e clique **em OK**.
+4. Para detetar automaticamente o nome de utilizador, palavra-passe e variáveis de domínio, introduza o URL de login `https://sso.contoso.com/adfs/ls` (como) dentro da caixa de diálogo do site Form-Based Configurar automaticamente e clique **em OK**.
 5. Selecione a caixa de correspondência de utilizador **Exigir autenticação Azure Multi-Factor Authentication** se todos os utilizadores tiverem sido ou forem importados para o Servidor e forem sujeitos à verificação em dois passos. Se um número significativo de utilizadores ainda não tiverem sido importados para o Servidor e/ou forem excluídos da verificação em dois passos, deixe a caixa desmarcada.
 6. Se as variáveis da página não puderem ser detetadas automaticamente, clique no botão **Especificar Manualmente...** na caixa de diálogo Autoconfigurar Web site Baseado em Formulários.
-7. Na caixa de diálogo do site baseado em formulários, introduza o URL na página de login AD FS no campo URL de submissão `https://sso.contoso.com/adfs/ls` (como) e introduza um nome de Aplicação (opcional). O nome da Aplicação aparece nos relatórios do Multi-Factor Authentication do Azure e poderá ser apresentado nas mensagens de autenticação SMS ou da Aplicação Móvel.
+7. Na caixa de diálogo do Site Add Form-Based, introduza o URL na página de login AD FS no campo URL de submissão `https://sso.contoso.com/adfs/ls` (como) e introduza um nome de Aplicação (opcional). O nome da Aplicação aparece nos relatórios do Multi-Factor Authentication do Azure e poderá ser apresentado nas mensagens de autenticação SMS ou da Aplicação Móvel.
 8. Defina o formato do Pedido como **POST ou GET**.
 9. Introduza a variável de Nome de Utilizador (ctl00$ContentPlaceHolder1$UsernameTextBox) e a variável de Palavra-passe (ctl00$ContentPlaceHolder1$PasswordTextBox). Se a página de início de sessão baseada em formulários apresentar uma caixa de texto do domínio, introduza também a variável de Domínio. para localizar os nomes das caixas de entrada na página de início de sessão num browser; clique com o botão direito do rato na página e selecione **Ver Origem** .
 10. Selecione a caixa de correspondência de utilizador **Exigir autenticação Azure Multi-Factor Authentication** se todos os utilizadores tiverem sido ou forem importados para o Servidor e forem sujeitos à verificação em dois passos. Se um número significativo de utilizadores ainda não tiverem sido importados para o Servidor e/ou forem excluídos da verificação em dois passos, deixe a caixa desmarcada.

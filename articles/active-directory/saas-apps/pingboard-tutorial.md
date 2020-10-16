@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 0e7b09c13cd27bd8197f6b65a1213d3154db6ac3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f96f7eb358907bc27303735f4d8a111efeb6a3dc
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88553843"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996656"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Tutorial: Integração do Diretório Ativo Azure com Pingboard
 
@@ -101,7 +101,7 @@ Para configurar o Azure AD com o Pingboard, execute os seguintes passos:
 
 4. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    ![Pingboard Domain e URLs informações únicas de súmis](common/idp-intiated.png)
+    ![Screenshot que mostra a configuração "Basic S A M L" com as caixas de texto "Identifier" e "Answer U R L" realçadas e o botão "Save" selecionado.](common/idp-intiated.png)
 
     a. Na caixa de texto **identifier,** digite um URL: `http://app.pingboard.com/sp`
 

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
 ms.openlocfilehash: f908e37c7785744c2f26b6a9cd542ccde228eb38
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91255744"
 ---
 # <a name="tutorial-configure-reward-gateway-for-automatic-user-provisioning"></a>Tutorial: Configure Reward Gateway para o fornecimento automático de utilizadores
@@ -118,7 +118,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![E-mail de Notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Save** (Guardar).
+7. Clique em **Guardar**.
 
 8. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users to Reward Gateway**.
 

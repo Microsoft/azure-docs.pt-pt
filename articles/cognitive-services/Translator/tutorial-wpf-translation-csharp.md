@@ -12,10 +12,10 @@ ms.date: 05/26/2020
 ms.author: swmachan
 ms.custom: devx-track-csharp
 ms.openlocfilehash: ef5384abd63dcd9aeb4789dc4955f4b80068d330
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88921244"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Tutorial: Criar uma aplicação de tradução com o WPF
@@ -43,7 +43,7 @@ Esta lista inclui os Serviços Cognitivos utilizados neste tutorial. Siga o link
 | Tradutor | [Obter Línguas](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages) | Recupere uma lista completa de idiomas suportados para tradução de texto. |
 | Tradutor | [Traduzir](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) | Traduza o texto em mais de 70 línguas. |
 | Tradutor | [Detetar](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) | Detetar a linguagem do texto de entrada. Inclui pontuação de confiança para deteção. |
-| Verificação Ortográfica do Bing | [Verificação Ortográfica](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Erros ortográficos corretos para melhorar a precisão da tradução. |
+| Verificação Ortográfica do Bing | [Verificação ortográfica](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Erros ortográficos corretos para melhorar a precisão da tradução. |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

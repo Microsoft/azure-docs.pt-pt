@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: fd737a22a37d6edc47c2769a470af00537d720eb
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87124158"
 ---
 # <a name="azure-custom-roles"></a>Funções personalizadas do Azure
@@ -117,15 +117,15 @@ A tabela a seguir descreve o que significam as propriedades de funções persona
 
 | Propriedade | Necessário | Tipo | Descrição |
 | --- | --- | --- | --- |
-| `Name`</br>`roleName` | Sim | Cadeia | O nome de exibição do papel personalizado. Embora uma definição de papel seja um grupo de gestão ou recurso de nível de subscrição, uma definição de papel pode ser usada em várias subscrições que partilham o mesmo diretório AD Azure. Este nome de exibição deve ser único no âmbito do diretório AZure AD. Pode incluir letras, números, espaços e caracteres especiais. O número máximo de caracteres é de 128. |
-| `Id`</br>`name` | Yes | Cadeia | A identificação única do papel personalizado. Para a Azure PowerShell e Azure CLI, este ID é gerado automaticamente quando cria um novo papel. |
-| `IsCustom`</br>`roleType` | Yes | Cadeia | Indica se este é um papel personalizado. Definir para `true` ou `CustomRole` para papéis personalizados. Definir para `false` ou `BuiltInRole` para papéis embutidos. |
-| `Description`</br>`description` | Yes | Cadeia | A descrição do papel personalizado. Pode incluir letras, números, espaços e caracteres especiais. O número máximo de caracteres é de 1024. |
-| `Actions`</br>`actions` | Yes | Corda[] | Um conjunto de cordas que especifica as operações de gestão que o papel permite ser executado. Para mais informações, consulte [Ações.](role-definitions.md#actions) |
-| `NotActions`</br>`notActions` | No | Corda[] | Um conjunto de cordas que especifica as operações de gestão que são excluídas do permitido `Actions` . Para mais informações, consulte [NotActions](role-definitions.md#notactions). |
-| `DataActions`</br>`dataActions` | No | Corda[] | Um conjunto de cordas que especifica as operações de dados que a função permite ser realizada aos seus dados dentro desse objeto. Se criar uma função personalizada `DataActions` com, essa função não pode ser atribuída no âmbito do grupo de gestão. Para obter mais informações, consulte [DataActions](role-definitions.md#dataactions). |
-| `NotDataActions`</br>`notDataActions` | No | Corda[] | Um conjunto de cordas que especifica as operações de dados que são excluídas do permitido `DataActions` . Para obter mais informações, consulte [NotDataActions](role-definitions.md#notdataactions). |
-| `AssignableScopes`</br>`assignableScopes` | Yes | Corda[] | Uma variedade de cordas que especifica os âmbitos que o papel personalizado está disponível para atribuição. Só é possível definir um grupo de gestão num `AssignableScopes` papel personalizado. A adição de um grupo de gestão `AssignableScopes` está atualmente em pré-visualização. Para mais informações, consulte [OsScopes Atribuíveis](role-definitions.md#assignablescopes). |
+| `Name`</br>`roleName` | Sim | String | O nome de exibição do papel personalizado. Embora uma definição de papel seja um grupo de gestão ou recurso de nível de subscrição, uma definição de papel pode ser usada em várias subscrições que partilham o mesmo diretório AD Azure. Este nome de exibição deve ser único no âmbito do diretório AZure AD. Pode incluir letras, números, espaços e caracteres especiais. O número máximo de caracteres é de 128. |
+| `Id`</br>`name` | Sim | String | A identificação única do papel personalizado. Para a Azure PowerShell e Azure CLI, este ID é gerado automaticamente quando cria um novo papel. |
+| `IsCustom`</br>`roleType` | Sim | String | Indica se este é um papel personalizado. Definir para `true` ou `CustomRole` para papéis personalizados. Definir para `false` ou `BuiltInRole` para papéis embutidos. |
+| `Description`</br>`description` | Sim | String | A descrição do papel personalizado. Pode incluir letras, números, espaços e caracteres especiais. O número máximo de caracteres é de 1024. |
+| `Actions`</br>`actions` | Sim | Corda[] | Um conjunto de cordas que especifica as operações de gestão que o papel permite ser executado. Para mais informações, consulte [Ações.](role-definitions.md#actions) |
+| `NotActions`</br>`notActions` | Não | Corda[] | Um conjunto de cordas que especifica as operações de gestão que são excluídas do permitido `Actions` . Para mais informações, consulte [NotActions](role-definitions.md#notactions). |
+| `DataActions`</br>`dataActions` | Não | Corda[] | Um conjunto de cordas que especifica as operações de dados que a função permite ser realizada aos seus dados dentro desse objeto. Se criar uma função personalizada `DataActions` com, essa função não pode ser atribuída no âmbito do grupo de gestão. Para obter mais informações, consulte [DataActions](role-definitions.md#dataactions). |
+| `NotDataActions`</br>`notDataActions` | Não | Corda[] | Um conjunto de cordas que especifica as operações de dados que são excluídas do permitido `DataActions` . Para obter mais informações, consulte [NotDataActions](role-definitions.md#notdataactions). |
+| `AssignableScopes`</br>`assignableScopes` | Sim | Corda[] | Uma variedade de cordas que especifica os âmbitos que o papel personalizado está disponível para atribuição. Só é possível definir um grupo de gestão num `AssignableScopes` papel personalizado. A adição de um grupo de gestão `AssignableScopes` está atualmente em pré-visualização. Para mais informações, consulte [OsScopes Atribuíveis](role-definitions.md#assignablescopes). |
 
 ## <a name="wildcard-permissions"></a>Permissões wildcard
 

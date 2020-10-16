@@ -9,10 +9,10 @@ ms.service: iot-dps
 ms.custom: devx-track-azurecli
 services: iot-dps
 ms.openlocfilehash: 237ca1f0041283bb86b24ad456ab781dc13eeb86
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90980519"
 ---
 # <a name="how-to-use-azure-cli-and-the-iot-extension-to-manage-the-iot-hub-device-provisioning-service"></a>Como utilizar o Azure CLI e a extensão IoT para gerir o serviço de provisionamento de dispositivos IoT Hub

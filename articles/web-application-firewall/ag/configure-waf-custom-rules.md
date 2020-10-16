@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/21/2020
 ms.author: victorh
 ms.openlocfilehash: 2572e30c02552859eb5c61915a9ef524c0c6cc70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83758967"
 ---
 # <a name="configure-web-application-firewall-v2-on-application-gateway-with-a-custom-rule-using-azure-powershell"></a>Configure Web Application Firewall v2 no Gateway de aplicações com uma regra personalizada usando Azure PowerShell
@@ -21,7 +21,7 @@ ms.locfileid: "83758967"
 
 As regras personalizadas permitem-lhe criar as suas próprias regras avaliadas para cada pedido que passa através do Web Application Firewall (WAF) v2. Estas regras têm uma prioridade maior do que o resto das regras nos conjuntos de regras geridos. As regras personalizadas têm uma ação (para permitir ou bloquear), uma condição de correspondência e um operador para permitir a personalização completa.
 
-Este artigo cria um Gateway WAF v2 de aplicação que utiliza uma regra personalizada. A regra personalizada bloqueia o tráfego se o cabeçalho de pedido contiver *o evilbot*do Agente utilizador .
+Este artigo cria um Gateway WAF v2 de aplicação que utiliza uma regra personalizada. A regra personalizada bloqueia o tráfego se o cabeçalho do pedido contiver User-Agent *evilbot*.
 
 Para ver mais exemplos de regras personalizadas, consulte [Criar e utilizar regras de firewall de aplicações web personalizadas](create-custom-waf-rules.md)
 
@@ -151,6 +151,6 @@ $policy.CustomRules.Add($rule)
 Set-AzApplicationGatewayFirewallPolicy -InputObject $policy
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba mais sobre firewall de aplicação web no Gateway de aplicações](ag-overview.md)

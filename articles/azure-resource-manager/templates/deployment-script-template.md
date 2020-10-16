@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/24/2020
 ms.author: jgao
 ms.openlocfilehash: fb6d1c9e0e2ca545be850af22df15b342cf8d82c
-ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89667493"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Utilize scripts de implementação em modelos (Pré-visualização)
@@ -344,7 +344,7 @@ Utilizando o Azure PowerShell, pode gerir scripts de implementação no âmbito 
 - [Remove-AzDeploymentScript:](/powershell/module/az.resources/remove-azdeploymentscript)Remove um script de implementação e os seus recursos associados.
 - [Save-AzDeploymentScriptLog](/powershell/module/az.resources/save-azdeploymentscriptlog): Guarda o registo de uma execução de script de implementação para o disco.
 
-A saída Get-AzDeploymentScript é semelhante a:
+A Get-AzDeploymentScript produção é semelhante a:
 
 ```output
 Name                : runPowerShellInlineWithOutput
@@ -588,7 +588,7 @@ Depois de o script ser testado com sucesso, pode usá-lo como um script de imple
 | ImplementaçãoScriptContainerGroupInNonterminalState | Ao criar a instância do recipiente Azure (ACI), outro script de implantação está a utilizar o mesmo nome ACI no mesmo âmbito (mesma subscrição, nome de grupo de recursos e nome de recurso). |
 | ImplementaçãoScriptContainerGroupNameInvalid | O nome de instância do contentor Azure (ACI) especificado não satisfaz os requisitos de ACI. Consulte [questões comuns de resolução de problemas em instâncias de contentores Azure](../../container-instances/container-instances-troubleshooting.md#issues-during-container-group-deployment).|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a usar scripts de implantação. Para percorrer um tutorial de script de implementação:
 

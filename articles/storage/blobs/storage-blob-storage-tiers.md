@@ -9,10 +9,10 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
 ms.openlocfilehash: 569e785cd8fc3ec4bbf9960cef63258e83496847
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91460735"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Armazenamento de blobs do Azure: camadas de armazenamento frequente, esporádico e de arquivo
@@ -243,7 +243,7 @@ Sim, pode alterar o nível de conta predefinido definindo o atributo **de nível
 
 **Posso definir a camada de acesso de conta predefinida como arquivo?**
 
-Não. Apenas os níveis de acesso quente e fresco podem ser definidos como o nível de acesso da conta predefinido. A camada de arquivo só pode ser definida ao nível do objeto. No upload do blob, especifica o nível de acesso à sua escolha para ser quente, fresco ou arquivado, independentemente do nível de conta predefinido. Esta funcionalidade permite-lhe escrever dados diretamente no nível de arquivo para perceber economias de custos a partir do momento em que cria dados no armazenamento de bolhas.
+N.º Apenas os níveis de acesso quente e fresco podem ser definidos como o nível de acesso da conta predefinido. A camada de arquivo só pode ser definida ao nível do objeto. No upload do blob, especifica o nível de acesso à sua escolha para ser quente, fresco ou arquivado, independentemente do nível de conta predefinido. Esta funcionalidade permite-lhe escrever dados diretamente no nível de arquivo para perceber economias de custos a partir do momento em que cria dados no armazenamento de bolhas.
 
 **Em que regiões estão disponíveis os níveis de acesso quente, fresco e arquivado?**
 
@@ -283,7 +283,7 @@ O portal, o PowerShell e as ferramentas da CLI do Azure e as bibliotecas de.NET,
 
 O armazenamento de dados juntamente com outros limites são definidos ao nível da conta e não por nível de acesso. Pode optar por utilizar todo o seu limite num só nível ou nos três níveis. Para obter mais informações, consulte [os objetivos de Escalabilidade e desempenho para as contas de armazenamento padrão.](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Avalie o calor, o frio e o arquivo nas contas de armazenamento de GPv2 e Blob
 

@@ -11,10 +11,10 @@ ms.date: 06/25/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: f7d89942ad5209b854b8df486ad3e59a3976edfc
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91259056"
 ---
 # <a name="tutorial-for-configuring-typingdna-with-azure-active-directory-b2c"></a>Tutorial para configurar o TNA da tipografia com o Azure Ative Directory B2C

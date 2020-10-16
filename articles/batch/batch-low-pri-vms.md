@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 09/08/2020
 ms.custom: seodec18
 ms.openlocfilehash: bd5b73cf55110985a2e7eecbc161c77ca6d645cb
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89568460"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Utilizar VMs de baixa prioridade com o Batch
@@ -168,8 +168,8 @@ Para piscinas de configuração de máquinas virtuais, o Batch também faz o seg
 
 Novas métricas estão disponíveis no [portal Azure](https://portal.azure.com) para nós de baixa prioridade. Estas métricas são:
 
-- Contagem de nó de baixa prioridade
-- Contagem de núcleo de baixa prioridade
+- Conde Low-Priority nó
+- Contagem do Núcleo de Low-Priority
 - Contagem de nódoaista preventiva
 
 Para ver métricas no portal Azure:
@@ -180,7 +180,7 @@ Para ver métricas no portal Azure:
 
 ![Screenshot mostrando seleção métrica para nós de baixa prioridade.](media/batch-low-pri-vms/low-pri-metrics.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Conheça o fluxo de trabalho do [serviço Batch e os recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.
 - Saiba mais sobre o [Ferramentas e APIs do Batch](batch-apis-tools.md) disponíveis para criação de soluções para o Batch.

@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 09/23/2019
 ms.author: v-miegge
 ms.openlocfilehash: d2f97d0b889186324aef9613847e3eddbfe1eb02
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83684839"
 ---
 # <a name="data-to-collect-when-opening-a-case-for-microsoft-azure-automation"></a>Dados a recolher quando abre um incidente da Automatização do Microsoft Azure
@@ -87,7 +87,7 @@ Para além dos [dados básicos,](#basic-data)reúna as seguintes informações:
 * Imagens de quaisquer mensagens de erro.
 * Screenshots dos módulos atuais e os seus números de versão.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se precisar de mais ajuda:
 

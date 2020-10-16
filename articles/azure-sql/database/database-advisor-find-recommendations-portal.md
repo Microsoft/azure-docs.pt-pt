@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 12/19/2018
 ms.openlocfilehash: 0b7aab13871f1450a3c6907b30b446869b2fefa7
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91443893"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Encontre e aplique recomendações de desempenho
@@ -160,7 +160,7 @@ Depois de as recomendações serem implementadas com sucesso (atualmente, opera�
 
 A Azure SQL Database fornece recomendações para melhorar o desempenho da base de dados. Ao fornecer scripts T-SQL, obtém assistência na otimização da sua base de dados e, em última análise, na melhoria do desempenho da consulta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Monitorize as suas recomendações e continue a aplicá-las para aperfeiçoar o desempenho. As cargas de trabalho da base de dados são dinâmicas e mudam continuamente. A Azure SQL Database continua a monitorizar e a fornecer recomendações que podem potencialmente melhorar o desempenho da sua base de dados.
 

@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
 ms.openlocfilehash: 8c3e76f1a7edffefc8773dfa548773ec0932fae6
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86129861"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Windows mostra "CRITICAL SERVICE FAILED" no ecrã azul ao iniciar um VM Azure
@@ -117,7 +117,7 @@ Para analisar os registos de despejo, siga estes passos:
 3. Iniciar **Editor de Registo** (regedit.exe).
 4. Selecione a **tecla HKEY_LOCAL_MACHINE.** No menu, selecione **File**  >  **Load Hive**.
 5. Navegue na pasta **\windows\system32\config\SYSTEM** no disco OS que anexou. Para o nome da colmeia, **insira BROKENSYSTEM**. A nova colmeia de registo é exibida sob a tecla **HKEY_LOCAL_MACHINE.**
-6. Navegue para **HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Control\Control\CrashControl** e esconce as seguintes alterações:
+6. Navegue para **HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Control\CrashControl** e esconce as seguintes alterações:
 
     Autoreboot = 0
 

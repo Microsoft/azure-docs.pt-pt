@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: dc1599fc0c2f8c55c709ab674c10dd53c8d8dc04
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84887708"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Analisar o desempenho do nó de extremidade na CDN do Microsoft Azure
@@ -173,8 +173,8 @@ Cada relatório deste módulo contém um gráfico e estatísticas sobre a largur
 | Tipos de compressão |Contém um gráfico de donuts que decompõe os ativos solicitados se foram comprimidos pelos nossos servidores de borda. A percentagem de ativos comprimidos é decompoda pelo tipo de compressão utilizada. Informações detalhadas são fornecidas abaixo do gráfico para cada tipo e estado de compressão. |
 | Tipos de Ficheiros |Contém um gráfico de barras que exibe os 10 melhores tipos de ficheiros que foram solicitados através do nosso CDN para a sua conta. Para efeitos deste relatório, um tipo de ficheiro é definido pela extensão do nome do ficheiro do ativo e pelo tipo de mídia da Internet (por exemplo, .html \[ text/html \] , .htm \[ text/html \] , .aspx \[ text/html \] , etc.). Informações detalhadas são fornecidas abaixo do gráfico para os 100 melhores tipos de ficheiros. |
 | Ficheiros Únicos |Contém um gráfico que traça o número total de ativos únicos que foram solicitados num determinado dia durante um determinado período de tempo. |
-| Resumo token Auth |Contém um gráfico de tartes que fornece uma visão geral rápida sobre se os ativos solicitados foram protegidos pela Autenticação Baseada em Token. Os ativos protegidos são apresentados na tabela de acordo com os resultados da sua tentativa de autenticação. |
-| Token Auth Negar Detalhes |Contém um gráfico de barras que lhe permite ver os 10 principais pedidos que foram negados devido à Autenticação Baseada em Token. |
+| Resumo token Auth |Contém um gráfico de tartes que fornece uma visão geral rápida sobre se os ativos solicitados foram protegidos por Token-Based Autenticação. Os ativos protegidos são apresentados na tabela de acordo com os resultados da sua tentativa de autenticação. |
+| Token Auth Negar Detalhes |Contém um gráfico de barras que lhe permite ver os 10 principais pedidos que foram negados devido à Token-Based Autenticação. |
 | Códigos de resposta HTTP |Fornece uma desagregação dos códigos de estado HTTP (por exemplo, 200 OK, 403 Proibidos, 404 Não Encontrados, etc.) que foram entregues aos seus clientes HTTP pelos nossos servidores de borda. Um gráfico de tartes permite-lhe avaliar rapidamente como os seus bens foram servidos. São fornecidos dados estatísticos detalhados para cada código de resposta abaixo do gráfico. |
 | 404 Erros |Contém um gráfico de barras que lhe permite visualizar os 10 principais pedidos que resultaram num código de resposta 404 Não Encontrado. |
 | 403 Erros |Contém um gráfico de barras que lhe permite ver os 10 principais pedidos que resultaram num código de resposta 403 Proibido. Um código de resposta 403 Proibido ocorre quando um pedido é negado por um servidor de origem do cliente ou por um servidor de borda no nosso POP. |
@@ -183,7 +183,7 @@ Cada relatório deste módulo contém um gráfico e estatísticas sobre a largur
 | 502 Erros |Contém um gráfico de barras que lhe permite ver os 10 principais pedidos que resultaram num código de resposta Bad Gateway 502. Um código de resposta Bad Gateway 502 ocorre quando ocorre uma falha do protocolo HTTP entre um servidor e um representante HTTP. No caso do nosso CDN, um código de resposta Bad Gateway 502 ocorre normalmente quando um servidor de origem do cliente devolve uma resposta inválida a um servidor de borda. Uma resposta é inválida se não puder ser analisada ou se estiver incompleta. |
 | Erros 5xx |Contém um gráfico de barras que lhe permite ver os 10 principais pedidos que resultaram num código de resposta na gama 500.  Excluídos deste relatório estão 502 Bad Gateway e 504 códigos de resposta gateway timeout. |
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 * [Descrição geral da CDN do Azure](cdn-overview.md)
 * [Estatísticas em tempo real no Microsoft Azure CDN](cdn-real-time-stats.md)
 * [Comportamento HTTP predefinido que predefinindo usando o motor de regras](cdn-rules-engine.md)

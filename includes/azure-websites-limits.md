@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/04/2020
 ms.author: jroth
 ms.openlocfilehash: 557e20dcafabb2db0bc66c9dfda4977aca50de50
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91745420"
 ---
 | Recurso | Gratuito | Partilhado | Básica | Standard | Premium (v3) | Isolado </th> |
@@ -30,7 +30,7 @@ ms.locfileid: "91745420"
 | Domínios personalizados por app</a> |0 (apenas azurewebsites.net subdomínio)|500 |500 |500 |500 |500 |
 | Suporte [SSL](../articles/app-service/configure-ssl-certificate.md) de domínio personalizado |Não suportado, certificado wildcard para \* .azurewebsites.net disponível por padrão|Não suportado, certificado wildcard para \* .azurewebsites.net disponível por padrão|Conexões SNI SSL ilimitadas |Conexões SNI SSL ilimitadas e 1 IP SSL incluídas |Conexões SNI SSL ilimitadas e 1 IP SSL incluídas | Conexões SNI SSL ilimitadas e 1 IP SSL incluídas|
 | Ligações híbridas | | | 5 por plano | 25 por plano | 200 por app | 200 por app |
-| [Integração da Rede Virtual](../articles/app-service/web-sites-integrate-with-vnet.md) | | |   |  X |  X  |  X  |
+| [Integração de Rede Virtual](../articles/app-service/web-sites-integrate-with-vnet.md) | | |   |  X |  X  |  X  |
 | Equilibrador de carga integrado | |X |X |X |X |X<sup>10</sup> |
 | [Sempre ligado](../articles/app-service/configure-common.md) | | |X |X |X |X |
 | [Backups programados](../articles/app-service/manage-backup.md) | | | | Backups programados a cada 2 horas, no máximo 12 backups por dia (manual + programado) | Backups programados a cada hora, um máximo de 50 backups por dia (manual + programado) | Backups programados a cada hora, um máximo de 50 backups por dia (manual + programado) |

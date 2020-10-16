@@ -3,21 +3,21 @@ title: Instale e execute os recipientes Docker para a API do Detetor de Anomalia
 titleSuffix: Azure Cognitive Services
 description: Use os algoritmos da API do Detetor de Anomalias para encontrar anomalias nos seus dados, no local usando um recipiente Docker.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 09/28/2020
-ms.author: aahi
+ms.author: mbullwin
 ms.custom: cog-serv-seo-aug-2020
 keywords: no local, Docker, contentor, streaming, algoritmos
-ms.openlocfilehash: ff4d15b33cb261e71ea883c0245afe5781005e38
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: e20ff5022b9b4a5b601160516f255af991a540c6
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91460005"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018615"
 ---
 # <a name="install-and-run-docker-containers-for-the-anomaly-detector-api"></a>Instale e execute os recipientes Docker para a API do Detetor de Anomalias 
 
@@ -192,7 +192,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para descarregar, instalar 
 > [!IMPORTANT]
 > Os recipientes dos Serviços Cognitivos não estão licenciados para funcionar sem estarem ligados ao Azure para a medição. Os clientes precisam de permitir que os contentores comuniquem informações de faturação com o serviço de medição em todos os momentos. Os contentores dos Serviços Cognitivos não enviam dados dos clientes (por exemplo, os dados da série de tempo que está a ser analisado) para a Microsoft.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Rever recipientes de configuração](anomaly-detector-container-configuration.md) para configurações de configuração
 * [Implantar um detetor de anomalias em instâncias de contentores de Azure](how-to/deploy-anomaly-detection-on-container-instances.md)

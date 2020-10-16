@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc
 ms.openlocfilehash: eeafc58a1f61ed0439fb29fb08e4ce8c5dd4350c
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89656993"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implementar no Azure Container Instances a partir do Azure Container Registry
@@ -162,7 +162,7 @@ Se mantiver imagens de contentores num registo de contentores Azure, pode facilm
 
     ![Vista de detalhes para o grupo de contentores Azure Container Instances][aci-detailsview]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a autenticação do Registo do Contentor Azure, consulte [Authenticate com um registo de contentores Azure](../container-registry/container-registry-authentication.md).
 

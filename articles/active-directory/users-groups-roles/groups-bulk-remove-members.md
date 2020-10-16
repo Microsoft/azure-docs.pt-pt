@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: acf3cba5046a20b99212e89b378327765d22fa23
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87421642"
 ---
 # <a name="bulk-remove-group-members-in-azure-active-directory"></a>A granel remove membros do grupo no Azure Ative Directory
@@ -76,7 +76,7 @@ Para mais detalhes sobre cada item de linha dentro da operação a granel, selec
 
 Cada atividade a granel para remover uma lista de membros do grupo pode funcionar até uma hora. Isto permite a remoção de uma lista de pelo menos 40.000 membros.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Membros do grupo de importação a granel](groups-bulk-import-members.md)
 - [Descarregue membros de um grupo](groups-bulk-download-members.md)

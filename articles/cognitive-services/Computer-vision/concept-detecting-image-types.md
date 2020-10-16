@@ -1,7 +1,7 @@
 ---
-title: Deteção de tipo de imagem - Visão computorizada
+title: Deteção de tipo de imagem - Visão de Computador
 titleSuffix: Azure Cognitive Services
-description: Conceitos relacionados com a funcionalidade de deteção do tipo de imagem da API da Visão Computacional.
+description: Conceitos relacionados com a funcionalidade de deteção de tipo de imagem da API de Visão Computacional.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -12,30 +12,30 @@ ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 4e6c2db5333962d7ae43534998ffc1c48b0dba45
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80244567"
 ---
 # <a name="detecting-image-types-with-computer-vision"></a>Deteção de tipos de imagem com visão de computador
 
-Com a [API de imagem de análise,](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) a Computer Vision pode analisar o tipo de conteúdo das imagens, indicando se uma imagem é clip art ou um desenho de linha.
+Com a [API de Imagem de Análise,](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) a Visão Computacional pode analisar o tipo de conteúdo de imagens, indicando se uma imagem é clip art ou um desenho de linha.
 
-## <a name="detecting-clip-art"></a>Deteção de clipart
+## <a name="detecting-clip-art"></a>Deteção de clip-art
 
-A Computer Vision analisa uma imagem e classifica a probabilidade de a imagem ser clip art numa escala de 0 a 3, como descrito na tabela seguinte.
+A Visão Computacional analisa uma imagem e classifica a probabilidade de a imagem ser clip art numa escala de 0 a 3, como descrito na tabela seguinte.
 
 | Valor | Significado |
 |-------|---------|
 | 0 | Não é ClipArt |
 | 1 | Ambíguo |
-| 2 | Clip-art normal |
-| 3 | Boa clip-art |
+| 2 | Arte normal |
+| 3 | Boa arte-clip |
 
-### <a name="clip-art-detection-examples"></a>Exemplos de deteção de clipart
+### <a name="clip-art-detection-examples"></a>Exemplos de deteção de clipes
 
-As seguintes respostas da JSON ilustram o que a Computer Vision retorna ao classificar a probabilidade de as imagens de exemplo serem clip art.
+As seguintes respostas JSON ilustram o que a Visão Computacional retorna ao classificar a probabilidade de as imagens de exemplo serem clip art.
 
 ![Uma imagem de clip art de uma fatia de queijo](./Images/cheese_clipart.png)
 
@@ -54,7 +54,7 @@ As seguintes respostas da JSON ilustram o que a Computer Vision retorna ao class
 }
 ```
 
-![Uma casa azul e o quintal da frente](./Images/house_yard.png)
+![Uma casa azul e o jardim da frente](./Images/house_yard.png)
 
 ```json
 {
@@ -73,11 +73,11 @@ As seguintes respostas da JSON ilustram o que a Computer Vision retorna ao class
 
 ## <a name="detecting-line-drawings"></a>Deteção de desenhos de linhas
 
-A Computer Vision analisa uma imagem e devolve um valor booleano indicando se a imagem é um desenho de linha.
+A Visão Computacional analisa uma imagem e devolve um valor boolean que indica se a imagem é um desenho de linha.
 
 ### <a name="line-drawing-detection-examples"></a>Exemplos de deteção de desenho de linha
 
-As seguintes respostas da JSON ilustram o que a Visão de Computador retorna ao indicar se as imagens de exemplo são desenhos de linha.
+As seguintes respostas JSON ilustram o que a Visão Computacional retorna ao indicar se as imagens de exemplo são desenhos de linha.
 
 ![Uma imagem de desenho de linha de um leão](./Images/lion_drawing.png)
 
@@ -115,7 +115,7 @@ As seguintes respostas da JSON ilustram o que a Visão de Computador retorna ao 
 
 ## <a name="use-the-api"></a>Utilizar a API
 
-A funcionalidade de deteção do tipo de imagem faz parte da [API de Imagem de Análise.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) Você pode chamar isto de API através de um SDK nativo ou através de chamadas REST. Incluir `ImageType` no parâmetro de consulta **visualFeatures.** Em seguida, quando obtém a resposta completa da JSON, `"imageType"` basta analisar a corda para o conteúdo da secção.
+A funcionalidade de deteção de tipo de imagem faz parte da [API de Imagem de Análise.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) Você pode chamar esta API através de um SDK nativo ou através de chamadas REST. Incluir `ImageType` no parâmetro de consulta **visualFeatures.** Em seguida, quando tiver a resposta JSON completa, basta analisar a corda para o conteúdo da `"imageType"` secção.
 
-* [Quickstart: Computer Vision .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
-* [Quickstart: Analise uma imagem (REST API)](./quickstarts/csharp-analyze.md)
+* [Quickstart: Visão por Computador .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Quickstart: Analisar uma imagem (REST API)](./quickstarts/csharp-analyze.md)

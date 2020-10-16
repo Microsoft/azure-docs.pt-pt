@@ -12,10 +12,10 @@ author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
 ms.openlocfilehash: d33af7a9c2d48ded84bd675364469dab09a79d3a
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91711475"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Criar um cluster de cálculo de aprendizagem automática Azure
@@ -210,7 +210,7 @@ Ver [Configurar identidade gerida em estúdio](how-to-create-attach-compute-stud
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-default.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Use o seu cluster de cálculo para:
 

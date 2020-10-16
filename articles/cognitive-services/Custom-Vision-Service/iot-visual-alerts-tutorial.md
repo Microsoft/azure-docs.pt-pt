@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.openlocfilehash: ebc6ca630ea3cabb519805ae8505abf336a2a9ea
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90604296"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>Tutorial: Use a Visão Personalizada com um dispositivo IoT para reportar estados visuais
@@ -56,7 +56,7 @@ A aplicação IoT Visual Alerts funciona em ciclo contínuo, alternando entre qu
 
 Os seguintes ficheiros tratam da funcionalidade principal da aplicação.
 
-| Ficheiro | Description |
+| Ficheiro | Descrição |
 |-------------|-------------|
 | [MainPage.xaml](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/MainPage.xaml) | Este ficheiro define a interface de utilizador XAML. Acolhe o controlo da câmara web e contém as etiquetas utilizadas para atualizações de estado.|
 | [MainPage.xaml.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/MainPage.xaml.cs) | Este código controla o comportamento da UI XAML. Contém o código de processamento da máquina estatal.|

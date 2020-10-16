@@ -9,10 +9,10 @@ ms.date: 05/08/2020
 ms.author: aapowell
 ms.custom: devx-track-js
 ms.openlocfilehash: 72b1bd4d46b0b04364b25a8460361d6a008d42a6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91250135"
 ---
 # <a name="tutorial-publish-a-vuepress-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicar um site da VuePress para visualização de aplicações web estáticas Azure
@@ -127,7 +127,7 @@ Os passos seguintes mostram-lhe como criar uma nova aplicação estática de Web
 
 1. Para _SKU_, selecione **Grátis**.
 
-   :::image type="content" source="./media/publish-vuepress/basic-app-details.png" alt-text="Detalhes preenchidos":::
+   :::image type="content" source="./media/publish-vuepress/basic-app-details.png" alt-text="Criar uma Web Apps estática (pré-visualização) no portal":::
 
 1. Clique **no botão Iniciar sin com GitHub.**
 
@@ -137,7 +137,7 @@ Os passos seguintes mostram-lhe como criar uma nova aplicação estática de Web
 
 1. Para o _Branch_ selecione **master**.
 
-   :::image type="content" source="./media/publish-vuepress/completed-github-info.png" alt-text="Informação completa do GitHub":::
+   :::image type="content" source="./media/publish-vuepress/completed-github-info.png" alt-text="Criar uma Web Apps estática (pré-visualização) no portal":::
 
 ### <a name="build"></a>Compilar
 
@@ -151,7 +151,7 @@ Em seguida, adiciona definições de configuração que o processo de construç�
 
 Um valor para _a localização_ da API não é necessário, uma vez que não está a implementar uma API neste momento.
 
-   :::image type="content" source="./media/publish-vuepress/build-details.png" alt-text="Configurações de construção":::
+   :::image type="content" source="./media/publish-vuepress/build-details.png" alt-text="Criar uma Web Apps estática (pré-visualização) no portal":::
 
 ### <a name="review-and-create"></a>Rever e criar
 
@@ -163,7 +163,7 @@ Um valor para _a localização_ da API não é necessário, uma vez que não est
 
 1. No ecrã de recursos, clique no link _URL_ para abrir a aplicação implementada. Pode ter de esperar um minuto ou dois para que a Ação GitHub esteja concluída.
 
-   :::image type="content" source="./media/publish-vuepress/deployed-app.png" alt-text="Aplicação implantada":::
+   :::image type="content" source="./media/publish-vuepress/deployed-app.png" alt-text="Criar uma Web Apps estática (pré-visualização) no portal":::
 
 ### <a name="clean-up-resources"></a>Limpar os recursos
 

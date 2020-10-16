@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.openlocfilehash: 0471bd594dcf1b0654d6b4c496e5d39ade2739fd
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91539525"
 ---
 # <a name="tutorial-use-sql-on-demand-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>Tutorial: Use SQL on-demand para analisar conjuntos de dados Azure Open e visualizar os resultados no Azure Synapse Studio
@@ -215,7 +215,7 @@ Os resultados da consulta indicam que a diminuição do número de passeios de t
 
 Este tutorial mostrou como um analista de dados pode rapidamente realizar análises exploratórias de dados, combinar facilmente diferentes conjuntos de dados usando SQL on-demand, e visualizar os resultados usando o Azure Synapse Studio.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender a ligar o SQL on-demand ao Power BI Desktop e criar relatórios, consulte [Connect SQL on-demand ao Power BI Desktop e crie relatórios](tutorial-connect-power-bi-desktop.md).
  

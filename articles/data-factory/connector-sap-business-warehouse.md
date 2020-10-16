@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
 ms.openlocfilehash: 86d4f82b70a6b6b3ceed262cf96fa291e26dd53c
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87534384"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse utilizando a Azure Data Factory
@@ -181,27 +181,27 @@ Ao copiar dados da SAP BW, os seguintes mapeamentos são usados desde os tipos d
 | Tipo de dados SAP BW | Tipo de dados provisórios da fábrica de dados |
 |:--- |:--- |
 | ACCP | int |
-| CHAR | String |
-| CLNT | String |
+| CHAR | Cadeia |
+| CLNT | Cadeia |
 | CURR | Decimal |
-| RIO CUKY | String |
+| RIO CUKY | Cadeia |
 | DEC | Decimal |
 | FLTP | Double (Duplo) |
 | INT1 | Byte |
 | INT2 | Int16 |
 | INT4 | int |
-| LANG | String |
-| LCHR | String |
+| LANG | Cadeia |
+| LCHR | Cadeia |
 | RIO LRAW | Byte[] |
 | PREC | Int16 |
 | QUAN | Decimal |
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
-| CORDA | String |
-| UNIDADE | String |
-| DATS | String |
-| NUMC | String |
-| TIMS | String |
+| CORDA | Cadeia |
+| UNIDADE | Cadeia |
+| DATS | Cadeia |
+| NUMC | Cadeia |
+| TIMS | Cadeia |
 
 
 ## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura

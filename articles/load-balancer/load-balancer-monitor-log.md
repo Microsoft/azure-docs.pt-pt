@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
 ms.openlocfilehash: 42ec5a661bd7b42ba5de5bfa99b3898291cc60fa
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88935607"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Registos do Azure Monitor para o Balanceador de Carga Básico público

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 3ee0a376b28676e3f74ac2e53010c2c953ad9d7b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8c3b47659486ef32bdb0a9a26d1b0f39c5bcd7a9
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317825"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949756"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Quadro de segurança: Dados sensíveis / Mitigações 
 | Produto/Serviço | Artigo |
@@ -34,7 +34,7 @@ ms.locfileid: "91317825"
 | **Fronteira da Confiança Azure IaaS VM Boundary** | <ul><li>[Use encriptação do disco Azure para encriptar discos utilizados por Máquinas Virtuais](#disk-vm)</li></ul> | 
 | **Limite de confiança do tecido de serviço** | <ul><li>[Criptografe segredos em aplicações de Tecido de Serviço](#fabric-apps)</li></ul> | 
 | **Dynamics CRM** | <ul><li>[Realizar modelação de segurança e utilizar Unidades/Equipas de Negócio sempre que necessário](#modeling-teams)</li><li>[Minimizar o acesso à funcionalidade de partilha em entidades críticas](#entities)</li><li>[Treine os utilizadores sobre os riscos associados à funcionalidade Dynamics CRM Share e boas práticas de segurança](#good-practices)</li><li>[Inclua uma regra de regra de desenvolvimento proscrevindo detalhes config na gestão de exceções](#exception-mgmt)</li></ul> | 
-| **Armazenamento do Azure** | <ul><li>[Utilize encriptação do serviço de armazenamento Azure (SSE) para dados em repouso (pré-visualização)](#sse-preview)</li><li>[Utilize encriptação do lado do cliente para armazenar dados sensíveis no Armazenamento Azure](#client-storage)</li></ul> | 
+| **Armazenamento do Azure** | <ul><li>[Utilize encriptação do serviço de armazenamento Azure (SSE) para dados em repouso (pré-visualização)](#sse-preview)</li><li>[Utilize Client-Side Encriptação para armazenar dados sensíveis no Azure Storage](#client-storage)</li></ul> | 
 | **Cliente Móvel** | <ul><li>[Encriptar dados sensíveis ou PII escritos para telefones armazenamento local](#pii-phones)</li><li>[Obfuscate gerou binários antes de distribuir aos utilizadores finais](#binaries-end)</li></ul> | 
 | **WCF** | <ul><li>[Definir clienteTipo de Identificação Para Certificado ou Janelas](#cert)</li><li>[O modo de segurança WCF não está ativado](#security)</li></ul> | 
 
@@ -88,7 +88,7 @@ ms.locfileid: "91317825"
   <system.webServer>
    <httpProtocol>
     <customHeaders>
-        <add name="Cache-Control" value="no-cache" />
+        <add name="Cache-Control" value="no-store" />
         <add name="Pragma" value="no-cache" />
         <add name="Expires" value="-1" />
     </customHeaders>
@@ -332,7 +332,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **Referências**              | [Encriptação do serviço de armazenamento Azure para dados em repouso (pré-visualização)](https://azure.microsoft.com/documentation/articles/storage-service-encryption/) |
 | **Passos** | <p>A Azure Storage Service Encryption (SSE) for Data at Rest ajuda-o a proteger e a salvaguardar os seus dados para cumprir os seus compromissos de segurança organizacional e conformidade. Com esta funcionalidade, o Armazenamento do Azure encripta automaticamente os dados antes de continuar a armazenar e desencriptar antes da obtenção. A encriptação, desencriptação e gestão de chaves é totalmente transparente para os utilizadores. A SSE aplica-se apenas a bolhas de blocos, bolhas de página e bolhas de apêndice. Os outros tipos de dados, incluindo tabelas, filas e ficheiros, não serão encriptados.</p><p>Fluxo de trabalho de encriptação e desencriptação:</p><ul><li>O cliente permite encriptação na conta de armazenamento</li><li>Quando o cliente escreve novos dados (PUT Blob, PUT Block, PUT Page, etc.) para o armazenamento blob; cada escrita é encriptada usando encriptação AES de 256 bits, uma das cifras de bloco mais fortes disponíveis</li><li>Quando o cliente precisa de aceder aos dados (GET Blob, etc.), os dados são automaticamente desencriptados antes de regressarem ao utilizador</li><li>Se a encriptação for desativada, as novas escritas deixaram de ser encriptadas e os dados encriptados existentes permanecem encriptados até serem reescritos pelo utilizador. Enquanto a encriptação estiver ativada, as escritas para o armazenamento blob serão encriptadas. O estado dos dados não muda com o utilizador a mexer entre permitir/desativar a encriptação para a conta de armazenamento</li><li>Todas as chaves de encriptação são armazenadas, encriptadas e geridas pela Microsoft</li></ul><p>Por favor, note que neste momento, as chaves utilizadas para a encriptação são geridas pela Microsoft. A Microsoft gera as teclas originalmente e gere o armazenamento seguro das teclas, bem como a rotação regular, tal como definida pela política interna da Microsoft. No futuro, os clientes terão a capacidade de gerir as suas próprias chaves de encriptação >e fornecer um caminho de migração das chaves geridas pela Microsoft para as chaves geridas pelo cliente.</p>| 
 
-## <a name="use-client-side-encryption-to-store-sensitive-data-in-azure-storage"></a><a id="client-storage"></a>Utilize encriptação do lado do cliente para armazenar dados sensíveis no Armazenamento Azure
+## <a name="use-client-side-encryption-to-store-sensitive-data-in-azure-storage"></a><a id="client-storage"></a>Utilize Client-Side Encriptação para armazenar dados sensíveis no Azure Storage
 
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |

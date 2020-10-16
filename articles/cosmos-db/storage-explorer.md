@@ -8,10 +8,10 @@ ms.date: 08/24/2020
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
 ms.openlocfilehash: 938968599f1824416666818a46cc73a1d33c5341
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987736"
 ---
 # <a name="manage-azure-cosmos-db-resources-by-using-azure-storage-explorer"></a>Gerir os recursos DB da Azure Cosmos utilizando o Azure Storage Explorer
@@ -38,19 +38,19 @@ Para instalar os mais recentes bits do Azure Storage Explorer, consulte [o Azure
 
 1. Selecione **Adicionar uma Conta do Azure** e selecione **Iniciar Sessão**.
 
-   :::image type="content" source="./media/storage-explorer/connect-to-azure-subscription.png" alt-text="Screenshot da janela de armazenamento Connect to Azure mostrando o botão de rádio Add azure Account selecionado e o menu suspenso Azure Environment.":::
+   :::image type="content" source="./media/storage-explorer/connect-to-azure-subscription.png" alt-text="Screenshot mostrando o ícone plug-in no painel esquerdo.":::
 
 1. Na caixa de diálogo **Azure' Insira,** selecione **Iniciar súplica**e, em seguida, insira as suas credenciais Azure.
 
-    :::image type="content" source="./media/storage-explorer/sign-in.png" alt-text="Screenshot do Sinal na janela mostrando onde introduzir as suas credenciais para a sua subscrição Azure.":::
+    :::image type="content" source="./media/storage-explorer/sign-in.png" alt-text="Screenshot mostrando o ícone plug-in no painel esquerdo.":::
 
 1. Selecione a sua subscrição na lista e selecione **Aplicar**.
 
-    :::image type="content" source="./media/storage-explorer/apply-subscription.png" alt-text="Screenshot do painel de Gestão de Contas, mostrando uma lista de subscrições e o botão Aplicar.":::
+    :::image type="content" source="./media/storage-explorer/apply-subscription.png" alt-text="Screenshot mostrando o ícone plug-in no painel esquerdo.":::
 
     O painel explorer atualiza e mostra as contas na subscrição selecionada.
 
-    :::image type="content" source="./media/storage-explorer/account-list.png" alt-text="Screenshot do painel Explorer, atualizado para mostrar as contas na subscrição selecionada.":::
+    :::image type="content" source="./media/storage-explorer/account-list.png" alt-text="Screenshot mostrando o ícone plug-in no painel esquerdo.":::
 
     A sua **conta Cosmos DB** está ligada à sua subscrição Azure.
 
@@ -60,7 +60,7 @@ Pode utilizar uma cadeia de ligação para ligar a um Azure Cosmos DB. Este mét
 
 1. Encontre **Local e Anexado** na árvore esquerda, clique à direita **nas contas DB do Cosmos**e, em seguida, selecione **Connect to Cosmos DB**.
 
-    :::image type="content" source="./media/storage-explorer/connect-to-db-by-connection-string.png" alt-text="Screenshot mostrando o menu suspenso depois de clicar à direita, com Connect to Azure Cosmos D B em destaque.":::
+    :::image type="content" source="./media/storage-explorer/connect-to-db-by-connection-string.png" alt-text="Screenshot mostrando o ícone plug-in no painel esquerdo.":::
 
 2. Na janela **DB de Connect to Cosmos:**
    1. Selecione a API no menu suspenso.
@@ -68,7 +68,7 @@ Pode utilizar uma cadeia de ligação para ligar a um Azure Cosmos DB. Este mét
    1. Introduza uma **etiqueta de conta**e, em seguida, selecione **Seguinte** para verificar o resumo.
    1. Selecione **Connect** para ligar a conta DB Azure Cosmos.
 
-      :::image type="content" source="./media/storage-explorer/connection-string.png" alt-text="Screenshot da janela Connect to Cosmos D B, mostrando o menu suspenso da API, a caixa de cordas de ligação e a caixa de etiquetas conta.":::
+      :::image type="content" source="./media/storage-explorer/connection-string.png" alt-text="Screenshot mostrando o ícone plug-in no painel esquerdo.":::
 
 ## <a name="use-a-local-emulator-to-connect-to-azure-cosmos-db"></a>Use um emulador local para ligar ao Azure Cosmos DB
 
@@ -78,14 +78,14 @@ Utilize os seguintes passos para ligar a um Azure Cosmos DB com um emulador. Est
 
 1. Encontre **Local e Anexado** na árvore esquerda, clique à direita **nas contas de DB do Cosmos**e, em seguida, selecione **Connect to Cosmos DB Emulator**.
 
-    :::image type="content" source="./media/storage-explorer/emulator-entry.png" alt-text="Screenshot mostrando o menu que aparece depois de clicar à direita, com Connect to Azure Cosmos D B Emulator realçado.":::
+    :::image type="content" source="./media/storage-explorer/emulator-entry.png" alt-text="Screenshot mostrando o ícone plug-in no painel esquerdo.":::
 
 1. Na janela **DB de Connect to Cosmos:**
    1. Cole a corda de ligação na caixa **de cordas Connection.** Para obter informações sobre a recuperação da cadeia de ligação primária, consulte [obter a cadeia de ligação](manage-with-powershell.md#list-keys).
    1. Introduza uma **etiqueta de conta**e, em seguida, selecione **Seguinte** para verificar o resumo.
    1. Selecione **Connect** para ligar a conta DB Azure Cosmos.
 
-      :::image type="content" source="./media/storage-explorer/emulator-dialog.png" alt-text="Screenshot da janela Connect to Cosmos D B, mostrando a caixa de cordas de ligação e a caixa de etiquetas conta.":::
+      :::image type="content" source="./media/storage-explorer/emulator-dialog.png" alt-text="Screenshot mostrando o ícone plug-in no painel esquerdo.":::
 
 ## <a name="azure-cosmos-db-resource-management"></a>Gestão de recursos do Azure Cosmos DB
 
@@ -105,13 +105,13 @@ Pode clicar com o direito numa subscrição no painel Explorer para executar mui
 
 * Clique com o botão direito numa conta ou base de dados DB do Azure Cosmos e, em seguida, selecione **Abrir no Portal** para gerir o recurso no navegador no portal Azure.
 
-  :::image type="content" source="./media/storage-explorer/open-in-portal.png" alt-text="Screenshot mostrando o menu que aparece depois de clicar à direita, com Open no Portal realçado.":::
+  :::image type="content" source="./media/storage-explorer/open-in-portal.png" alt-text="Screenshot mostrando o ícone plug-in no painel esquerdo.":::
 
 * Clique com o direito numa conta DB, base de dados ou recolha do Azure Cosmos e, em seguida, **selecione Adicionar ao Acesso Rápido** para adicioná-lo ao menu Acesso Rápido.
 
 * Selecione **Procurar aqui** para ativar a pesquisa de palavras-chave no caminho selecionado.
 
-    :::image type="content" source="./media/storage-explorer/search-from-here.png" alt-text="Screenshot mostrando a caixa de pesquisa realçada.":::
+    :::image type="content" source="./media/storage-explorer/search-from-here.png" alt-text="Screenshot mostrando o ícone plug-in no painel esquerdo.":::
 
 ### <a name="database-and-collection-management"></a>Gestão de bases de dados e coleções
 
@@ -119,7 +119,7 @@ Pode clicar com o direito numa subscrição no painel Explorer para executar mui
 
 1. Clique com o botão direito na conta DB do Azure Cosmos e, em seguida, selecione **Criar Base de Dados**.
 
-   :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="Screenshot mostrando o menu que aparece depois de clicar no botão direito, com a Base de Dados Create em destaque.":::
+   :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="Screenshot mostrando o ícone plug-in no painel esquerdo.":::
 
 1. Introduza o nome da base de dados e, em seguida, prima **Enter** para completar.
 
@@ -127,28 +127,28 @@ Pode clicar com o direito numa subscrição no painel Explorer para executar mui
 
 1. Clique com o botão direito na base de dados e, em seguida, selecione **Eliminar Base de Dados**. 
 
-   :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="Screenshot mostrando o menu que aparece depois de clicar à direita, com a Base de Dados delete realçada.":::
+   :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="Screenshot mostrando o ícone plug-in no painel esquerdo.":::
 
 1. Selecione **Sim** na janela pop-up. O nó da base de dados é eliminado e a conta do Azure Cosmos DB é atualizada automaticamente.
 
-   :::image type="content" source="./media/storage-explorer/delete-database2.png" alt-text="Screenshot da janela de confirmação com o botão Sim realçado.":::
+   :::image type="content" source="./media/storage-explorer/delete-database2.png" alt-text="Screenshot mostrando o ícone plug-in no painel esquerdo.":::
 
 #### <a name="create-a-collection"></a>Criar uma coleção
 
 1. Clique com o botão direito na sua base de dados e, em seguida, selecione **Create Collection**.
 
-   :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="Screenshot mostrando o menu que aparece depois de clicar à direita, com a Coleção Create em destaque.":::
+   :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="Screenshot mostrando o ícone plug-in no painel esquerdo.":::
 
 1. Na janela Create Collection, insira as informações solicitadas, como **iD** de recolha e **capacidade de armazenamento,** e assim por diante. Selecione **OK** para terminar.
 
-   :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="Screenshot da janela Create Collection, mostrando a caixa I D da coleção e os botões de capacidade de armazenamento.":::
+   :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="Screenshot mostrando o ícone plug-in no painel esquerdo.":::
 
 1. Selecione **Unlimited** para que possa especificar uma chave de partição e, em seguida, selecione **OK** para terminar.
 
    > [!NOTE]
    > Se for utilizada uma chave de partição quando se cria uma coleção, uma vez concluída a criação, não pode alterar o valor da chave de partição na coleção.
 
-    :::image type="content" source="./media/storage-explorer/partitionkey.png" alt-text="Screenshot da janela Create Collection, mostrando ilimitado selecionado para capacidade de armazenamento, e a caixa de chaves de partição realçada.":::
+    :::image type="content" source="./media/storage-explorer/partitionkey.png" alt-text="Screenshot mostrando o ícone plug-in no painel esquerdo.":::
 
 #### <a name="delete-a-collection"></a>Delete a collection (Eliminar uma coleção)
 
@@ -156,7 +156,7 @@ Pode clicar com o direito numa subscrição no painel Explorer para executar mui
 
     O nó da coleção é eliminado e a base de dados é atualizada automaticamente.
 
-    :::image type="content" source="./media/storage-explorer/delete-collection.png" alt-text="Screenshot mostrando o menu que aparece depois de clicar à direita, com a Delete Collection em destaque.":::
+    :::image type="content" source="./media/storage-explorer/delete-collection.png" alt-text="Screenshot mostrando o ícone plug-in no painel esquerdo.":::
 
 ### <a name="document-management"></a>Gestão de documentos
 
@@ -165,7 +165,7 @@ Pode clicar com o direito numa subscrição no painel Explorer para executar mui
 - Abrir **Documentos** no painel esquerdo, selecionar **Novo Documento,** editar o conteúdo no painel direito e, em seguida, selecionar **Guardar**.
 - Também pode atualizar um documento existente e, em seguida, selecionar **Guardar**. Para descartar alterações, **selecione Descartar**.
 
-  :::image type="content" source="./media/storage-explorer/document.png" alt-text="Screenshot mostrando documentos destacados no painel esquerdo. No painel direito, destacam-se novos documentos, guardar e descartar.":::
+  :::image type="content" source="./media/storage-explorer/document.png" alt-text="Screenshot mostrando o ícone plug-in no painel esquerdo.":::
 
 #### <a name="delete-a-document"></a>Eliminar um documento
 
@@ -175,7 +175,7 @@ Pode clicar com o direito numa subscrição no painel Explorer para executar mui
 
 * Para editar o filtro de documentos, introduza uma [consulta SQL](how-to-sql-query.md)e, em seguida, selecione **Apply**.
 
-  :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Screenshot do painel direito, mostrando botões Filter e Apply, o número de ID e a caixa de consulta realçada.":::
+  :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Screenshot mostrando o ícone plug-in no painel esquerdo.":::
 
 ### <a name="graph-management"></a>Gestão de gráficos
 
@@ -184,7 +184,7 @@ Pode clicar com o direito numa subscrição no painel Explorer para executar mui
 * Para criar um novo vértice, abra o **Gráfico** a partir do painel esquerdo, selecione **New Vertex,** edite o conteúdo e, em seguida, selecione **OK**.
 * Para modificar um vértice existente, selecione o ícone da caneta no painel direito.
 
-   :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Screenshot mostra gráfico selecionado no painel esquerdo e mostrando New Vertex e o ícone da caneta realçado no painel direito.":::
+   :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Screenshot mostrando o ícone plug-in no painel esquerdo.":::
 
 #### <a name="delete-a-graph"></a>Eliminar um gráfico
 
@@ -194,7 +194,7 @@ Pode clicar com o direito numa subscrição no painel Explorer para executar mui
 
 * Para editar o filtro de gráfico, introduza uma [consulta de gremlin](gremlin-support.md)e, em seguida, selecione **Apply Filter**.
 
-   :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="Screenshot mostra gráfico selecionado no painel esquerdo e mostra o Filtro de Aplicação e a caixa de consulta realçada no painel direito.":::
+   :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="Screenshot mostrando o ícone plug-in no painel esquerdo.":::
 
 ### <a name="table-management"></a>Gestão de tabelas
 
@@ -206,7 +206,7 @@ Pode clicar com o direito numa subscrição no painel Explorer para executar mui
    1. Selecione o botão **Adicionar Propriedade** para adicionar uma propriedade.
    1. Selecione **Inserir**.
 
-      :::image type="content" source="./media/storage-explorer/table.png" alt-text="Screenshot mostrando Entidades destacadas no painel esquerdo, e mostrando Adicionar, Editar, Adicionar Propriedade e Inserir em destaque no painel direito.":::
+      :::image type="content" source="./media/storage-explorer/table.png" alt-text="Screenshot mostrando o ícone plug-in no painel esquerdo.":::
 
 * Para modificar uma tabela, **selecione Editar,** modifique o conteúdo e, em seguida, selecione **Update**.
 
@@ -217,26 +217,26 @@ Pode clicar com o direito numa subscrição no painel Explorer para executar mui
 * Para importar, selecione o botão **Importar** e, em seguida, escolha uma tabela existente.
 * Para exportar, selecione o botão **Exportação** e, em seguida, escolha um destino.
 
-   :::image type="content" source="./media/storage-explorer/table-import-export.png" alt-text="Screenshot mostrando os botões de importação e exportação realçados no painel direito.":::
+   :::image type="content" source="./media/storage-explorer/table-import-export.png" alt-text="Screenshot mostrando o ícone plug-in no painel esquerdo.":::
 
 #### <a name="delete-entities"></a>Eliminar entidades
 
 * Selecione as entidades e, em seguida, selecione o botão **Eliminar.**
 
-  :::image type="content" source="./media/storage-explorer/table-delete.png" alt-text="Screenshot mostrando o botão Delete realçado no painel direito, e uma janela pop-up de confirmação com Sim realçado.":::
+  :::image type="content" source="./media/storage-explorer/table-delete.png" alt-text="Screenshot mostrando o ícone plug-in no painel esquerdo.":::
 
 #### <a name="query-a-table"></a>Consulta de uma mesa
 
 - Selecione o botão **Desíduo,** insira uma condição de consulta e, em seguida, selecione o botão **'Executar'.** Para fechar o painel de perguntas, selecione o **botão Desativação.**
 
-  :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="Screenshot do painel direito, mostrando o botão 'Executar consulta' e o botão Desativação De Fecho realçado.":::
+  :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="Screenshot mostrando o ícone plug-in no painel esquerdo.":::
 
 ### <a name="manage-stored-procedures-triggers-and-udfs"></a>Gerir procedimentos armazenados, acionadores e UDFs
 
 * Para criar um procedimento armazenado:
   1. Na árvore esquerda, clique com o botão direito **Procedimentos armazenados**e, em seguida, selecione **Create Stored Procedure**.
   
-     :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="Screenshot do painel esquerdo, mostrando o menu que aparece depois de clicar à direita, com o Procedimento Armazenado em destaque.":::
+     :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="Screenshot mostrando o ícone plug-in no painel esquerdo.":::
   
   1. Introduza um nome à esquerda, introduza os scripts de procedimento armazenados no painel direito e, em seguida, selecione **Criar**.
   
@@ -296,7 +296,7 @@ Se não conseguir recuperar as suas subscrições depois de iniciar sôm, experi
   * .extaccounts
 * Prima a tecla F12 para abrir a consola do desenvolvedor. Observe a consola para obter mensagens de erro quando iniciar sôs a saúde.
 
-   :::image type="content" source="./media/storage-explorer/console.png" alt-text="Screenshot da consola de ferramentas de desenvolvimento, mostrando consola em destaque.":::
+   :::image type="content" source="./media/storage-explorer/console.png" alt-text="Screenshot mostrando o ícone plug-in no painel esquerdo.":::
 
 #### <a name="unable-to-see-the-authentication-page"></a>Não é possível ver a página de autenticação
 
@@ -331,19 +331,19 @@ Não é possível listar os nós DB do Azure Cosmos na árvore esquerda quando c
 
 Não há resposta depois de selecionar o nó **de Desenvolvimento** sob o nó Local **e Anexado** na árvore esquerda. O comportamento é esperado.
 
-:::image type="content" source="./media/storage-explorer/development.png" alt-text="Screenshot mostrando o nó de Desenvolvimento selecionado.":::
+:::image type="content" source="./media/storage-explorer/development.png" alt-text="Screenshot mostrando o ícone plug-in no painel esquerdo.":::
 
 ### <a name="attach-an-azure-cosmos-db-account-in-the-local-and-attached-node-error"></a>Anexar uma conta DB Azure Cosmos no erro do nó **local e anexo**
 
 Se vir o seguinte erro depois de anexar uma conta DB Azure Cosmos no nó **Local e Anexado,** certifique-se de que está a utilizar a cadeia de ligação correta.
 
-:::image type="content" source="./media/storage-explorer/attached-error.png" alt-text="Screenshot da Janela pop-up de erro de recursos infantis, indicando getaddrinfo ENOTFOUND.":::
+:::image type="content" source="./media/storage-explorer/attached-error.png" alt-text="Screenshot mostrando o ícone plug-in no painel esquerdo.":::
 
 ### <a name="expand-azure-cosmos-db-node-error"></a>Erro ao expandir o nó do Azure Cosmos DB
 
 Pode ver o seguinte erro quando tentar expandir os nós na árvore esquerda.
 
-:::image type="content" source="./media/storage-explorer/expand-error.png" alt-text="Screenshot da janela pop-up de erro de recursos infantis, indicando não conseguir ligar-se a esta conta Cosmos D B.":::
+:::image type="content" source="./media/storage-explorer/expand-error.png" alt-text="Screenshot mostrando o ícone plug-in no painel esquerdo.":::
 
 Experimente estas sugestões:
 

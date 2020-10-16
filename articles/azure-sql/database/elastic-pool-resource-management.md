@@ -12,10 +12,10 @@ ms.author: dfurman
 ms.reviewer: sstein
 ms.date: 09/16/2020
 ms.openlocfilehash: 9674c319cfd51726218e2c6a20197ea15d0ee683
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91330728"
 ---
 # <a name="resource-management-in-dense-elastic-pools"></a>Gestão de recursos em conjuntos elásticos densos
@@ -52,7 +52,7 @@ Para evitar a degradação do desempenho devido à contenção de recursos, os c
 
 A Azure SQL Database fornece várias métricas que são relevantes para este tipo de monitorização. Exceder o valor médio recomendado para cada métrica indica contenção de recursos na piscina, e deve ser abordado usando uma das ações mencionadas anteriormente.
 
-|Nome da métrica|Description|Valor médio recomendado|
+|Nome da métrica|Descrição|Valor médio recomendado|
 |----------|--------------------------------|------------|
 |`avg_instance_cpu_percent`|Utilização do CPU do processo SQL associado a uma piscina elástica, medida pelo sistema operativo subjacente. Disponível na [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) vista em todas as bases de dados e na [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) vista na base `master` de dados. Esta métrica também é emitida para o Azure Monitor, onde é [nomeado](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftsqlserverselasticpools) `sqlserver_process_core_percent` , e pode ser vista no portal Azure. Este valor é o mesmo para cada base de dados na mesma piscina elástica.|Abaixo dos 70%. Picos curtos ocasionais até 90% podem ser aceitáveis.|
 |`max_worker_percent`|[Utilização do fio]( https://docs.microsoft.com/sql/relational-databases/thread-and-task-architecture-guide) do trabalhador. Fornecido para cada base de dados na piscina, bem como para a própria piscina. Existem limites diferentes no número de fios de trabalhadores ao nível da base de dados, e ao nível da piscina, pelo que é recomendada a monitorização desta métrica em ambos os níveis. Disponível na [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) vista em todas as bases de dados e na [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) vista na base `master` de dados. Esta métrica também é emitida para o Azure Monitor, onde é [nomeado](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftsqlserverselasticpools) `workers_percent` , e pode ser vista no portal Azure.|Abaixo dos 80%. Picos até 100% farão com que tentativas de ligação e consultas falhem.|
@@ -66,7 +66,7 @@ A Azure SQL Database fornece várias métricas que são relevantes para este tip
 
 Além destas métricas, a Azure SQL Database fornece uma visão que devolve os limites reais de governação dos recursos, bem como pontos de vista adicionais que devolvem estatísticas de utilização de recursos ao nível do pool de recursos, e ao nível do grupo de carga de trabalho.
 
-|Ver nome|Description|  
+|Ver nome|Descrição|  
 |-----------------|--------------------------------|  
 |[sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database)|Devolve as configurações reais e as definições de capacidade utilizadas pelos mecanismos de governação dos recursos na base de dados atual ou na piscina elástica.|
 |[sys.dm_resource_governor_resource_pools](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-transact-sql)|Devolve informações sobre o estado atual do pool de recursos, a configuração atual dos pools de recursos e as estatísticas acumuladas de conjunto de recursos.|

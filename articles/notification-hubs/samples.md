@@ -13,10 +13,10 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/28/2019
 ms.openlocfilehash: be6845075c5f3fe5e5fd74e643550c61c6c85e43
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87901798"
 ---
 # <a name="azure-notification-hubs-samples"></a>Amostras de centros de notificação Azure

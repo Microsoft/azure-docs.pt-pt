@@ -4,17 +4,17 @@ description: Utilize o Código de Estúdio Visual com as Ferramentas IoT Azure p
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/8/2019
+ms.date: 10/13/2020
 ms.topic: conceptual
 ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e4ac1a6e56cdbf47fd174d5244fc6ab51c63fb07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccc87b1b3103e799a5974542de602090df8e1e4b
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82133888"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048394"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Implementar módulos Azure IoT Edge a partir do Código do Estúdio Visual
 
@@ -25,7 +25,10 @@ Este artigo mostra como criar um manifesto de implementação JSON e, em seguida
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um [hub IoT](../iot-hub/iot-hub-create-through-portal.md) na sua assinatura Azure.
-* Um [dispositivo IoT Edge](how-to-register-device.md#register-with-visual-studio-code) com o tempo de execução IoT Edge instalado.
+* Um dispositivo IoT Edge
+
+  Se não tiver um dispositivo IoT Edge configurado, pode criar um numa máquina virtual Azure. Siga os passos num dos artigos de arranque rápido para [criar um dispositivo Linux virtual](quickstart-linux.md) ou criar um dispositivo Virtual [Windows](quickstart.md).
+
 * [Visual Studio Code](https://code.visualstudio.com/).
 * [Ferramentas Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview) para Código de Estúdio Visual.
 
@@ -37,12 +40,15 @@ Para implementar módulos utilizando o Código do Estúdio Visual, guarde o mani
 
 Aqui está um manifesto básico de implantação com um módulo como exemplo:
 
+>[!NOTE]
+>Este manifesto de implantação da amostra utiliza a versão 1.1 do esquema para o agente e o hub IoT Edge. A versão 1.1 do Schema foi lançada juntamente com a versão 1.0.10 do IoT Edge e permite funcionalidades como a ordem de arranque do módulo e a priorização da rota.
+
    ```json
    {
      "modulesContent": {
        "$edgeAgent": {
          "properties.desired": {
-           "schemaVersion": "1.0",
+           "schemaVersion": "1.1",
            "runtime": {
              "type": "docker",
              "settings": {
@@ -85,7 +91,7 @@ Aqui está um manifesto básico de implantação com um módulo como exemplo:
        },
        "$edgeHub": {
          "properties.desired": {
-           "schemaVersion": "1.0",
+           "schemaVersion": "1.1",
            "routes": {
                "route": "FROM /messages/* INTO $upstream"
            },

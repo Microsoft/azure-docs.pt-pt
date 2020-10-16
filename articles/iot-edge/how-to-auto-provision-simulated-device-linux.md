@@ -8,12 +8,12 @@ ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0583852f0be590eb1c6a4b53047f94b3ea0fbaa4
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: c69e919c76c0aecb6cf8a3ee5e9b7e5d286c168a
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447821"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046048"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Criar e providenciar um dispositivo IoT Edge com um TPM no Linux
 
@@ -33,7 +33,7 @@ As tarefas são as seguintes:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma máquina de desenvolvimento Windows com [Hiper-V ativada](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v). Este artigo utiliza o Windows 10 com um Ubuntu Server VM.
+* Uma máquina de desenvolvimento Windows com [Hiper-V ativada](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v). Este artigo utiliza o Windows 10 com um Ubuntu Server VM.
 * Um hub IoT ativo.
 
 > [!NOTE]
@@ -174,15 +174,40 @@ Quando cria uma inscrição em DPS, tem a oportunidade de declarar um **Estado G
 
 Agora que existe uma inscrição para este dispositivo, o tempo de execução IoT Edge pode automaticamente abastecer o dispositivo durante a instalação.
 
-## <a name="install-the-iot-edge-runtime"></a>Instale o tempo de execução IoT Edge
+## <a name="install-the-iot-edge-runtime"></a>Instalar o runtime do IoT Edge
 
 O runtime do IoT Edge é implementado em todos os dispositivos do IoT Edge. Os seus componentes funcionam em contentores e permitem-lhe colocar recipientes adicionais no dispositivo para que possa executar código na borda. Instale o tempo de funcionação do IoT Edge na sua máquina virtual.
 
-Conheça o seu **ID Scope DPS** e o **ID de registo** do dispositivo antes de iniciar o artigo que corresponde ao tipo de dispositivo. Se instalou o servidor Ubuntu exemplo, utilize as instruções **x64.** Certifique-se de configurar o tempo de funcionamento IoT Edge para o provisionamento automático e não manual.
+Siga os passos no [Instale o tempo de execução Azure IoT Edge](how-to-install-iot-edge.md)e, em seguida, volte a este artigo para disposir o dispositivo.
 
-Quando chegar ao passo para configurar o daemon de segurança, certifique-se e escolha [a Opção 2 De Provisionamento Automático](how-to-install-iot-edge-linux.md#option-2-automatic-provisioning) e configuração para atestado TPM.
+## <a name="configure-the-device-with-provisioning-information"></a>Configure o dispositivo com informações de provisionamento
 
-[Instale o tempo de execução Azure IoT Edge no Linux](how-to-install-iot-edge-linux.md)
+Uma vez instalado o tempo de funcionamento no seu dispositivo, configuure o dispositivo com as informações que utiliza para ligar ao Serviço de Provisionamento de Dispositivos e ao IoT Hub.
+
+1. Conheça o seu **ID Scope DPS** e o **ID de registo do** dispositivo que foram recolhidos nas secções anteriores.
+
+1. Abra o ficheiro de configuração no dispositivo IoT Edge.
+
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
+
+1. Encontre a secção de configurações de provisionamento do ficheiro. Descompromessar as linhas para o provisionamento de TPM, e certifique-se de que quaisquer outras linhas de provisionamento são comentadas.
+
+   A `provisioning:` linha não deve ter espaço branco anterior, e os itens aninhados devem ser recortados por dois espaços.
+
+   ```yml
+   # DPS TPM provisioning configuration
+   provisioning:
+     source: "dps"
+     global_endpoint: "https://global.azure-devices-provisioning.net"
+     scope_id: "<SCOPE_ID>"
+     attestation:
+       method: "tpm"
+       registration_id: "<REGISTRATION_ID>"
+   ```
+
+1. Atualize os valores de e com as informações do `scope_id` seu `registration_id` DPS e dispositivo.
 
 ## <a name="give-iot-edge-access-to-the-tpm"></a>Dar acesso a IoT Edge ao TPM
 
@@ -283,6 +308,6 @@ iotedge list
 
 Pode verificar se foi utilizada a inscrição individual que criou no Serviço de Provisionamento de Dispositivos. Navegue para a sua instância de Serviço de Provisionamento de Dispositivos no portal Azure. Abra os detalhes das inscrições para a inscrição individual que criou. Note que o estado da inscrição é **atribuído** e o ID do dispositivo está listado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 O processo de inscrição DPS permite definir o ID do dispositivo e as etiquetas gémeas do dispositivo ao mesmo tempo que fornece o novo dispositivo. Pode utilizar esses valores para direcionar dispositivos individuais ou grupos de dispositivos utilizando a gestão automática do dispositivo. Aprenda a [implementar e monitorizar os módulos IoT Edge em escala utilizando o portal Azure](how-to-deploy-at-scale.md) ou utilizando o [Azure CLI](how-to-deploy-cli-at-scale.md).

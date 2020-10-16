@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3e64ffe5007d27a44167f08807a9694875fe48c4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 28f414c5eaaea7b987f2c3694cb8fc73b70838e9
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050454"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018769"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Gerir o Azure Analysis Services com o PowerShell
 
@@ -33,11 +33,11 @@ Para operações de servidor utilizando cmdlets Azure PowerShell, a sua conta ou
 Módulo de instalação - [Az.AnalysisServices](https://www.powershellgallery.com/packages/Az.AnalysisServices)   
 Documentação - [Referência Az.AnalysisServices](/powershell/module/az.analysisservices)
 
-## <a name="database-operations"></a>Operações de base de dados
+## <a name="database-operations"></a>Operações da base de dados
 
 As operações de base de dados dos Serviços de Análise Azure utilizam o mesmo módulo SqlServer que os SqL Server Analysis Services. No entanto, nem todos os cmdlets são suportados para os Serviços de Análise Azure. 
 
-O módulo SqlServer fornece cmdlets de gestão de bases de dados específicos de tarefas, bem como o cmdlet Invoke-ASCmd de propósito geral que aceita uma consulta ou script de script de script de modelo tabular (TMSL). Os cmdlets seguintes no módulo SqlServer são suportados para serviços de análise Azure.
+O módulo SqlServer fornece cmdlets de gestão de bases de dados específicos de tarefas, bem como o cmdlet de Invoke-ASCmd de propósito geral que aceita uma consulta ou script de script de script de script de modelo tabular (TMSL). Os cmdlets seguintes no módulo SqlServer são suportados para serviços de análise Azure.
 
 Módulo de instalação - [SqlServer](https://www.powershellgallery.com/packages/SqlServer)   
 Documentação - [Referência SqlServer](/powershell/module/sqlserver)
@@ -46,21 +46,21 @@ Documentação - [Referência SqlServer](/powershell/module/sqlserver)
 
 |Cmdlet|Descrição|
 |------------|-----------------| 
-|[Membro do Add-Role](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Adicione um membro a uma função de base de dados.| 
-|[Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase)|Faça cópia de segurança de uma base de dados dos Serviços de Análise.|  
-|[Membro de remoção de rolemember](https://docs.microsoft.com/powershell/module/sqlserver/remove-rolemember)|Remova um membro de uma função de base de dados.|   
-|[Invocar-ASCmd](https://docs.microsoft.com/powershell/module/sqlserver/invoke-ascmd)|Execute um script TMSL.|
-|[Invocar-ProcessoASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processasdatabase)|Processe uma base de dados.|  
-|[Invocar processopartição](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processpartition)|Processe uma divisória.| 
-|[Invocar-ProcessTable](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processtable)|Processe uma mesa.|  
-|[Fusão-Partição](https://docs.microsoft.com/powershell/module/sqlserver/merge-partition)|Funda uma divisória.|  
-|[Restore-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/restore-asdatabase)|Restaurar uma base de dados dos Serviços de Análise.| 
+|[Membro do Add-Role](/powershell/module/sqlserver/Add-RoleMember)|Adicione um membro a uma função de base de dados.| 
+|[Backup-ASDatabase](/powershell/module/sqlserver/backup-asdatabase)|Faça cópia de segurança de uma base de dados dos Serviços de Análise.|  
+|[Membro de remoção de rolemember](/powershell/module/sqlserver/remove-rolemember)|Remova um membro de uma função de base de dados.|   
+|[Invocar-ASCmd](/powershell/module/sqlserver/invoke-ascmd)|Execute um script TMSL.|
+|[Invocar-ProcessoASDatabase](/powershell/module/sqlserver/invoke-processasdatabase)|Processe uma base de dados.|  
+|[Invocar processopartição](/powershell/module/sqlserver/invoke-processpartition)|Processe uma divisória.| 
+|[Invocar-ProcessTable](/powershell/module/sqlserver/invoke-processtable)|Processe uma mesa.|  
+|[Fusão-Partição](/powershell/module/sqlserver/merge-partition)|Funda uma divisória.|  
+|[Restore-ASDatabase](/powershell/module/sqlserver/restore-asdatabase)|Restaurar uma base de dados dos Serviços de Análise.| 
   
 
 ## <a name="related-information"></a>Informações relacionadas
 
-* [SQL Server PowerShell](https://docs.microsoft.com/sql/powershell/sql-server-powershell)      
-* [Baixar módulo PowerShell do servidor SQL](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
-* [Baixar SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
+* [SQL Server PowerShell](/sql/powershell/sql-server-powershell)      
+* [Baixar módulo PowerShell do servidor SQL](/sql/ssms/download-sql-server-ps-module)   
+* [Baixar SSMS](/sql/ssms/download-sql-server-management-studio-ssms)   
 * [Módulo SqlServer na Galeria PowerShell](https://www.powershellgallery.com/packages/SqlServer)    
-* [Programação do Modelo Tabular para o Nível de Compatibilidade 1200 e superior](https://docs.microsoft.com/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200)
+* [Programação do Modelo Tabular para o Nível de Compatibilidade 1200 e superior](/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200)

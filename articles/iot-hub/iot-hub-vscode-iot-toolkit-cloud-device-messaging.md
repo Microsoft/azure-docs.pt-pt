@@ -11,10 +11,10 @@ ms.author: junhan
 ms.custom:
 - 'Role: Cloud Development'
 ms.openlocfilehash: b9d8f0c2a573ba1749b414a389cd7181ddd5f95a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87321688"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Utilize ferramentas IoT Azure para o Código do Estúdio Visual para enviar e receber mensagens entre o seu dispositivo e o IoT Hub
@@ -43,7 +43,7 @@ Aprende a usar ferramentas Azure IoT para o Código do Estúdio Visual monitoriz
 
 * [Visual Studio Code](https://code.visualstudio.com/)
 
-* [Ferramentas Azure IoT para código VS](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) ou copiar e colar este URL numa janela do navegador:`vscode:extension/vsciot-vscode.azure-iot-tools`
+* [Ferramentas Azure IoT para código VS](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) ou copiar e colar este URL numa janela do navegador: `vscode:extension/vsciot-vscode.azure-iot-tools`
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>Inscreva-se para aceder ao seu hub IoT
 

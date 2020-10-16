@@ -3,12 +3,12 @@ title: Descrição geral do exemplo de esquema Fundação do CAF
 description: Descrição geral e arquitetura do exemplo de esquema da Fundação do Framework de Adoção da Cloud (CAF) para o Azure.
 ms.date: 09/14/2020
 ms.topic: sample
-ms.openlocfilehash: cce5ea001b32ae92542f38f8f11427e85075cee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77e8b79ec7cf217161099808cee4364e31c6d6dd
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531700"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950283"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Descrição geral do exemplo de esquema Fundação do Microsoft Cloud Adoption Framework para o Azure
 
@@ -26,18 +26,19 @@ Esta implementação incorpora vários serviços do Azure utilizados para fornec
 
 - Uma instância do [Azure Key Vault](../../../../key-vault/general/overview.md) utilizada para alojar segredos utilizados para as VMs implementadas no ambiente de serviços partilhados
 - Uma implementação do [Log Analytics](../../../../azure-monitor/overview.md) para garantir que todos os serviços e ações são registados numa localização central desde o momento em que inicia a implementação segura em [Contas de Armazenamento](../../../../storage/common/storage-introduction.md) para registo de diagnósticos
-- Uma implementação do [Centro de Segurança do Azure](../../../../security-center/security-center-intro.md) (versão standard) que fornece proteção contra ameaças para as suas cargas de trabalho migradas
-- O esquema também define e implementa [Políticas do Azure](../../../policy/overview.md) para 
-  - Identificação (CostCenter) aplicada a grupos de recursos
-  - Acrescentar recursos no grupo de recursos com a etiqueta CostCenter
-  - Região do Azure permitida para Recursos e Grupos de Recursos
-  - SKUs de Conta de Armazenamento permitidos (escolha durante a implementação)
-  - SKUs de VM do Azure permitidos (escolha durante a implementação)
-  - Pedir a implementação do Observador de Rede 
-  - Pedir a Encriptação de transferência segura da Conta de Armazenamento do Azure
-  - Negar tipos de recurso (escolha durante a implementação)  
-- Iniciativas
-  - Ativar a monitorização no Centro de Segurança do Azure (mais de 100 definições de políticas)
+- Uma implementação do [Centro de Segurança do Azure](../../../../security-center/security-center-introduction.md) (versão standard) que fornece proteção contra ameaças para as suas cargas de trabalho migradas
+- O esquema também define e implementa as definições do [Azure Policy](../../../policy/overview.md):
+  - Definições do Policy:
+    - Identificação (CostCenter) aplicada a grupos de recursos
+    - Acrescentar recursos no grupo de recursos com a etiqueta CostCenter
+    - Região do Azure permitida para Recursos e Grupos de Recursos
+    - SKUs de Conta de Armazenamento permitidos (escolha durante a implementação)
+    - SKUs de VM do Azure permitidos (escolha durante a implementação)
+    - Pedir a implementação do Observador de Rede 
+    - Pedir a Encriptação de transferência segura da Conta de Armazenamento do Azure
+    - Negar tipos de recurso (escolha durante a implementação)  
+  - Iniciativas do Policy:
+    - Ativar a monitorização no Centro de Segurança do Azure (mais de 100 definições de políticas)
 
 Todos estes elementos obedecem às práticas comprovadas publicados no [Centro de Arquitetura do Azure - Arquiteturas de Referência](/azure/architecture/reference-architectures/).
 

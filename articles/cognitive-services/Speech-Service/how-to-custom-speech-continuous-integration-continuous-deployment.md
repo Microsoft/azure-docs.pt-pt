@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: kaprochi
 ms.openlocfilehash: 46bdc314e7aa0002937e808d7982f43c8e725d6f
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91357476"
 ---
 # <a name="cicd-for-custom-speech"></a>CI/CD para Voz Personalizada

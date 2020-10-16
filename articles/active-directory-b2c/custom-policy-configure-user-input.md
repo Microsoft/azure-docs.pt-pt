@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 47fdf445fa11693dd3a998b8c73ac0c3ed8452a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff9093872b2a5e069aef43ae2230b08447eea602
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85389365"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069862"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Adicione reclamações e personalize a entrada do utilizador usando políticas personalizadas no Azure Ative Directory B2C
 
@@ -95,12 +95,12 @@ Para recolher a reclamação da cidade durante a inscrição, deve ser adicionad
    </TechnicalProfile>
   </TechnicalProfiles>
 </ClaimsProvider>
-<ClaimsProvider>
 ```
 
 Para recolher a reclamação da cidade após a iniciação inicial com uma conta federada, deve ser adicionado como um pedido de saída ao `SelfAsserted-Social` perfil técnico. Para que os utilizadores de contas locais e federados possam editar os seus dados de perfil mais tarde, adicione a reivindicação de saída ao `SelfAsserted-ProfileUpdate` perfil técnico. Substitua estes perfis técnicos no ficheiro de extensão. Especifique toda a lista dos pedidos de saída para controlar a ordem que as reclamações são apresentadas no ecrã. Encontre o elemento **ClaimsProviders.** Adicione um novo ClaimsProviders da seguinte forma:
 
 ```xml
+<ClaimsProvider>
   <DisplayName>Self Asserted</DisplayName>
   <TechnicalProfiles>
     <!--Federated account first-time sign-in page-->

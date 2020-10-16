@@ -7,13 +7,13 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 01/13/2019
-ms.openlocfilehash: 65b6b1f783dbabc9ad2e1a4bf79008240d1b2726
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.date: 10/08/2020
+ms.openlocfilehash: 4715d7173dd959d12350229e457717c908a83756
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89659924"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873239"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Ligar a sistemas de ficheiros no local com o Azure Logic Apps
 
@@ -22,6 +22,9 @@ Com as Apps Lógicas Azure e o conector do Sistema de Ficheiros, pode criar tare
 - Criar, obter, apender, atualizar e eliminar ficheiros.
 - Listar ficheiros em pastas ou pastas de raiz.
 - Obtenha conteúdo de ficheiro e metadados.
+
+  > [!IMPORTANT]
+  > O conector do Sistema de Ficheiros suporta atualmente apenas sistemas de ficheiros Windows em sistemas operativos Windows.  
 
 Este artigo mostra como pode ligar-se a um sistema de ficheiros no local, conforme descrito por este cenário de exemplo: copiar um ficheiro que é enviado para o Dropbox para uma partilha de ficheiros e, em seguida, enviar um e-mail. Para conectar e aceder de forma segura aos sistemas no local, as aplicações lógicas utilizam o [portal de dados no local.](../logic-apps/logic-apps-gateway-connection.md) Se é novo em aplicações lógicas, [reveja o que é Azure Logic Apps?](../logic-apps/logic-apps-overview.md) Para obter informações técnicas específicas do conector, consulte a referência do [conector do Sistema de Ficheiros](/connectors/filesystem/).
 
@@ -70,12 +73,12 @@ Este artigo mostra como pode ligar-se a um sistema de ficheiros no local, confor
 
    | Propriedade | Necessário | Valor | Descrição |
    | -------- | -------- | ----- | ----------- |
-   | **Nome de conexão** | Yes | <*nome de conexão*> | O nome que deseja para a sua ligação |
-   | **Pasta raiz** | Yes | <*nome de pasta de raiz*> | A pasta raiz do seu sistema de ficheiros, por exemplo, se instalou o seu portal de dados no local, como uma pasta local no computador onde está instalado o gateway de dados no local ou a pasta para uma partilha de rede a que o computador pode aceder. <p>Por exemplo: `\\PublicShare\\DropboxFiles` <p>A pasta raiz é a pasta principal dos pais, que é usada para caminhos relativos para todas as ações relacionadas com o ficheiro. |
-   | **Tipo de autenticação** | No | <*auth-type*> | O tipo de autenticação que o seu sistema de ficheiros utiliza: **Windows** |
-   | **Nome de Utilizador** | Yes | <*domain* > \\ domínio < *nome de utilizador*> <p>-ou- <p><*local-computador* > \\ < *nome de utilizador*> | O nome de utilizador do computador onde tem a pasta do sistema de ficheiros. <p>Se a pasta do sistema de ficheiros estiver no mesmo computador que o gateway de dados no local, pode utilizar <nome de utilizador *local do computador* > \\ < *username*>. |
-   | **Palavra-passe** | Yes | <*sua senha*> | A palavra-passe para o computador onde tem o seu sistema de ficheiros |
-   | **porta de entrada** | Yes | <*instalado-gateway-name*> | O nome do seu gateway previamente instalado |
+   | **Nome de conexão** | Sim | <*nome de conexão*> | O nome que deseja para a sua ligação |
+   | **Pasta raiz** | Sim | <*nome de pasta de raiz*> | A pasta raiz do seu sistema de ficheiros, por exemplo, se instalou o seu portal de dados no local, como uma pasta local no computador onde está instalado o gateway de dados no local ou a pasta para uma partilha de rede a que o computador pode aceder. <p>Por exemplo: `\\PublicShare\\DropboxFiles` <p>A pasta raiz é a pasta principal dos pais, que é usada para caminhos relativos para todas as ações relacionadas com o ficheiro. |
+   | **Tipo de autenticação** | Não | <*auth-type*> | O tipo de autenticação que o seu sistema de ficheiros utiliza: **Windows** |
+   | **Nome de Utilizador** | Sim | <*domain* > \\ domínio < *nome de utilizador*> <p>-ou- <p><*local-computador* > \\ < *nome de utilizador*> | O nome de utilizador do computador onde tem a pasta do sistema de ficheiros. <p>Se a pasta do sistema de ficheiros estiver no mesmo computador que o gateway de dados no local, pode utilizar <nome de utilizador *local do computador* > \\ < *username*>. |
+   | **Palavra-passe** | Sim | <*sua senha*> | A palavra-passe para o computador onde tem o seu sistema de ficheiros |
+   | **porta de entrada** | Sim | <*instalado-gateway-name*> | O nome do seu gateway previamente instalado |
    |||||
 
 1. Quando tiver terminado, escolha **Create** (Criar).
@@ -101,7 +104,7 @@ Para obter mais detalhes técnicos sobre este conector, tais como gatilhos, aç�
 > [!NOTE]
 > Para aplicações lógicas num ambiente de [serviço de integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)a versão com rótulo ISE deste conector utiliza os limites de [mensagem ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [ligar-se aos dados no local](../logic-apps/logic-apps-gateway-connection.md) 
 * Saiba mais sobre [outros conectores de Apps Lógicas](../connectors/apis-list.md)

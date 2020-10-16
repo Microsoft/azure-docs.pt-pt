@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/02/2019
 ms.author: jeedes
-ms.openlocfilehash: cfa81b52e8479851fc22b12cbc96a9507f0b2dc7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e49fc29f03269096bfc7d6bb6e905187bb8788ff
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551392"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944109"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-harness"></a>Tutorial: Azure Ative Directy integração única (SSO) com Arnês
 
@@ -138,15 +138,15 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 4. No topo-direito da página, clique em **Definições de**Autenticação contínua  >  **de gestão de acesso a**segurança  >  **Authentication Settings**.
 
-    ![Configuração do arnês](./media/harness-tutorial/configure01.png)
+    ![Screenshot que mostra o menu "Segurança Contínua" com "Gestão de Acesso" e "Definições de autenticação" selecionados.](./media/harness-tutorial/configure01.png)
 
 5. Na secção **SSO Providers,** clique em **+ Adicionar Fornecedores SSO**  >  **SAML**.
 
-    ![Configuração do arnês](./media/harness-tutorial/configure03.png)
+    ![Screenshot que mostra os "S S O Providers" com "+ Add S S O Providers - S A M L" selecionados.](./media/harness-tutorial/configure03.png)
 
 6. No pop-up **do SAML Provider,** execute os seguintes passos:
 
-    ![Configuração do arnês](./media/harness-tutorial/configure02.png)
+    ![Screenshot que mostra o pop-up "S A M L Provider" com os campos "U R L" e "Display Name" realçados, e os botões "Escolha Ficheiro" e "Enviar" selecionados.](./media/harness-tutorial/configure02.png)
 
     a. Copie o **No seu Provedor SSO, por favor, ative o login baseado em SAML e, em seguida, introduza a seguinte** instância URL e cole-a na caixa de texto URL resposta na secção de **configuração SAML básica** no portal Azure.
 
@@ -166,11 +166,11 @@ Para permitir que os utilizadores de Azure AD inscrevam-se no Harness, devem ser
 
 1. No topo-direito da página, clique em **Utilizadores de**  >  **Gestão**de Acesso de Segurança Contínua  >  **Users**.
 
-    ![Configuração do arnês](./media/harness-tutorial/configure04.png)
+    ![Screenshot que mostra o menu "Segurança Contínua" com "Gestão de Acesso" e "Utilizadores" selecionados.](./media/harness-tutorial/configure04.png)
 
 1. No lado direito da página, clique em **+ Adicionar Utilizador**.
 
-    ![Configuração do arnês](./media/harness-tutorial/configure05.png)
+    ![Screenshot que mostra a página "Utilizadores" com a ação "+ Adicionar Utilizador" selecionada.](./media/harness-tutorial/configure05.png)
 
 1. No pop-up **do Utilizador Add,** execute os seguintes passos:
 

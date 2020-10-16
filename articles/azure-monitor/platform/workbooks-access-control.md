@@ -2,19 +2,16 @@
 title: Controlo de acesso a livros de trabalho do Azure Monitor
 description: Simplificar relatórios complexos com livros de trabalho parametrizados pré-construídos e personalizados com controlo de acesso baseado em função
 services: azure-monitor
-author: mrbullwinkle
-manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.author: mbullwin
-ms.openlocfilehash: dc6e1d738bf255fe7baa244556bad4519979b1df
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9c0b5dd72cf82649e7f659d23606d23aea62ac82
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539300"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91932554"
 ---
 # <a name="access-control"></a>Controlo de acesso
 
@@ -39,6 +36,6 @@ Para o controlo de acesso personalizado baseado em funções:
 
 Adicione `microsoft.insights/workbooks/write` para guardar livros partilhados. Para mais detalhes, consulte a função [de Contribuinte de Livro.](../../role-based-access-control/built-in-roles.md#monitoring-contributor)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Começar a](workbooks-visualizations.md) aprender mais sobre livros de trabalho muitas opções de visualizações ricas.

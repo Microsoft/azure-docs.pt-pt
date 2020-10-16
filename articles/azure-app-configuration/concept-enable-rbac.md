@@ -7,10 +7,10 @@ ms.date: 02/13/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
 ms.openlocfilehash: 7e7b524f125eda406adc9be2300c94e5944e1819
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91715950"
 ---
 # <a name="authorize-access-to-azure-app-configuration-using-azure-active-directory"></a>Autorizar o acesso à Configuração de Aplicações Azure utilizando o Azure Ative Directory
@@ -41,5 +41,5 @@ O Azure fornece as seguintes funções incorporadas do Azure para autorizar o ac
 > [!NOTE]
 > Atualmente, o portal Azure e o CLI apenas suportam a autenticação HMAC para aceder aos dados de Configuração de Aplicações. A autenticação AD AZure não é suportada. Por isso, os utilizadores do portal Azure e do CLI exigem que o *contributo* recupere as chaves de acesso do recurso de Configuração da Aplicação. A concessão de funções *de Leitor de Dados de Configuração de Aplicações* ou *de Data Owner de Configuração de Aplicações* não tem impacto no acesso através do portal e do CLI.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre a utilização [de identidades geridas](howto-integrate-azure-managed-service-identity.md) para administrar o seu serviço de Configuração de Aplicações.

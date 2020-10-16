@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 10beee563e4a93332cd817ee04c1e74bda6e9c51
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 54985cbd874f6a8a3dd0db08df3ceb4b53c72cac
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210361"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093281"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Utilização de serviços externos do serviço de Gestão API da Azure
 As políticas disponíveis no serviço de Gestão API da Azure podem fazer uma vasta gama de trabalho útil baseado apenas no pedido de entrada, na resposta de saída e na informação básica de configuração. No entanto, poder interagir com serviços externos a partir de políticas de gestão da API abre muitas mais oportunidades.
@@ -65,7 +65,7 @@ Slack tem a noção de ganchos de entrada na web. Ao configurar um gancho web de
 ### <a name="is-fire-and-forget-good-enough"></a>O fogo e esquecer é bom o suficiente?
 Há certas trocas quando se usa um estilo de pedido de fogo e esquecimento. Se, por alguma razão, o pedido falhar, então a falha não será reportada. Nesta situação específica, não se justifica a complexidade de ter um sistema de notificação de falhas secundárias e o custo adicional de desempenho da espera da resposta. Para cenários em que é essencial verificar a resposta, então a política [de pedido de envio](./api-management-advanced-policies.md#SendRequest) é uma opção melhor.
 
-## <a name="send-request"></a>Envio-Pedido
+## <a name="send-request"></a>Send-Request
 A `send-request` política permite utilizar um serviço externo para executar funções de processamento complexas e devolver dados ao serviço de gestão da API que pode ser usado para um processamento de políticas adicionais.
 
 ### <a name="authorizing-reference-tokens"></a>Autorizar fichas de referência
@@ -178,7 +178,7 @@ O primeiro passo para a construção do recurso dashboard é configurar uma nova
 ### <a name="making-the-requests"></a>Fazendo os pedidos
 Uma vez criada a operação, pode configurar uma política especificamente para essa operação. 
 
-![Operação dashboard](./media/api-management-sample-send-request/api-management-dashboard-policy.png)
+![Screenshot que mostra o ecrã de âmbito da Política.](./media/api-management-sample-send-request/api-management-dashboard-policy.png)
 
 O primeiro passo é extrair quaisquer parâmetros de consulta do pedido de entrada, para que possa reencaminha-los para o backend. Neste exemplo, o painel de instrumentos mostra informações com base num período de tempo e, portanto, tem um `fromDate` e `toDate` parâmetro. Pode utilizar a `set-variable` política para extrair as informações do URL de pedido.
 

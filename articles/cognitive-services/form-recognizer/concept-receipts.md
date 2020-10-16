@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
 ms.openlocfilehash: 0382c7c7f7d068ea227397ae7accf4bc410de04a
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761452"
 ---
 # <a name="receipt-concepts"></a>Conceitos de recibo
@@ -82,7 +82,7 @@ O [Recibo de Análise](https://westcentralus.dev.cognitive.microsoft.com/docs/se
 
 |Cabeçalho de resposta| URL de resultados |
 |:-----|:----|
-|Operação-Localização | `https://cognitiveservice/formrecognizer/v2.0/prebuilt/receipt/analyzeResults/56a36454-fc4d-4354-aa07-880cfbf0064f` |
+|Operation-Location | `https://cognitiveservice/formrecognizer/v2.0/prebuilt/receipt/analyzeResults/56a36454-fc4d-4354-aa07-880cfbf0064f` |
 
 ## <a name="the-get-analyze-receipt-result-operation"></a>A operação Obter Resultados de Recibos de Análise
 
@@ -456,7 +456,7 @@ A API de Receção também alimenta a [funcionalidade de Processamento de Recibo
 - Preencha um [início rápido da biblioteca do cliente Do Reconhecimento de Formulários](quickstarts/client-library.md) para começar a escrever uma aplicação de processamento de recibos com o Form Recogniser no idioma à sua escolha.
 - Ou, siga o [quickstart da API Python de receção](./quickstarts/python-receipts.md) para reconhecer os recibos usando a API REST.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 * [O que é o Reconhecedor de Formato?](./overview.md)
 * [REST API referenciar docs](https://docs.microsoft.com/azure/cognitive-services/form-recognizer)

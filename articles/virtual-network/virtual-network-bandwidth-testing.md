@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 10/06/2020
 ms.author: steveesp
 ms.openlocfilehash: 0b009b7c44084e76194c1447fefdb2ff59f8086a
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91812289"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Testes de largura de banda/produção (NTTTCP)

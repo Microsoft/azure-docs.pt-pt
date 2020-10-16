@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
 ms.openlocfilehash: af3d9e9fcf0dad6a5e51a3db87b63567d701970e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84687995"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-the-azure-portal"></a>Configure a preferência de encaminhamento para um VM utilizando o portal Azure
@@ -49,7 +49,7 @@ Inicie sessão no [portal do Azure](https://preview.portal.azure.com/).
     |---|---|
     |Nome|myVM|
     |Nome de utilizador| Introduza um nome de utilizador à sua escolha.|
-    |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe deve ter pelo menos 12 caracteres de comprimento e satisfazer os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscrição| Selecione a sua subscrição.|
     |Grupo de recursos| Selecione **Utilizar existente** e selecione **myResourceGroup**.|
     |Localização| Selecione **E.U.A. Leste**.|
@@ -74,7 +74,7 @@ Inicie sessão no [portal do Azure](https://preview.portal.azure.com/).
 11. Selecione **Networking**, em seguida, clique em nic **minica** e, em seguida, selecione o endereço ip público para confirmar que a preferência de encaminhamento é atribuída como **Internet**.
     ![Ver endereço IP público](./media/tutorial-routing-preference-virtual-machine-portal/pip-routing-internet-new.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o grupo de recursos e todos os recursos contidos no mesmo:
 
@@ -82,7 +82,7 @@ Quando já não for necessário, elimine o grupo de recursos e todos os recursos
 2. Selecione **Eliminar grupo de recursos**.
 3. Introduza *myResourceGroup* em **ESCREVER O NOME DO GRUPO DE RECURSOS:** e selecione **Eliminar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [IP público com preferência por encaminhamento](routing-preference-overview.md).
 - Saiba mais sobre [endereços IP públicos](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) em Azure.
 - Saiba mais sobre todas as [definições de endereços IP públicos](virtual-network-public-ip-address.md#create-a-public-ip-address).

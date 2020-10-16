@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: duau
 ms.openlocfilehash: 21076fe23301c189d9987f78706cc81691ce7a4f
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89400573"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Utilização do PowerShell para gerir o Gestor de Tráfego
@@ -109,7 +109,7 @@ Existem três tipos de pontos finais do Gestor de Tráfego:
 Em todos os três casos, os pontos finais podem ser adicionados de duas formas:
 
 1. Utilizando um processo de 3 passos descrito anteriormente. A vantagem deste método é que várias alterações no ponto final podem ser feitas numa única atualização.
-2. Utilizando o cmdlet New-AzTrafficManagerEndpoint. Este cmdlet adiciona um ponto final a um perfil de Gestor de Tráfego existente numa única operação.
+2. Utilizando o New-AzTrafficManagerEndpoint cmdlet. Este cmdlet adiciona um ponto final a um perfil de Gestor de Tráfego existente numa única operação.
 
 ## <a name="adding-azure-endpoints"></a>Adicionar pontos finais Azure
 
@@ -267,7 +267,7 @@ Para desativar um perfil de Gestor de Tráfego:
 Disable-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourceGroup
 ```
 
-O cmdlet Disable-AzTrafficManagerProfile solicita a confirmação. Esta indicação pode ser suprimida utilizando o parâmetro "Força".
+O Disable-AzTrafficManagerProfile cmdlet solicita confirmação. Esta indicação pode ser suprimida utilizando o parâmetro "Força".
 
 ### <a name="example-2-enabling-and-disabling-a-traffic-manager-endpoint"></a>Exemplo 2: Permitir e desativar um ponto final do Gestor de Tráfego
 
@@ -321,7 +321,7 @@ Esta sequência também pode ser canalizada:
 Get-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG | Remove-AzTrafficManagerProfile [-Force]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Monitorização do Gestor de Tráfego](traffic-manager-monitoring.md)
 

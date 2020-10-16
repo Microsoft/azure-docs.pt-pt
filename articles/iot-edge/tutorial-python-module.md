@@ -10,18 +10,18 @@ ms.date: 08/04/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 25e5c938b7471d7c1713ec8fb0e3d9c77dabff09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cc3db32650891c5f95be05267541f93ca49218e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91857401"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047969"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>Tutorial: Desenvolver e implementar um módulo Python IoT Edge para dispositivos Linux
 
 Utilize o Código do Estúdio Visual para desenvolver o código Python e implemente-o num dispositivo Linux que executa a Azure IoT Edge.
 
-Pode utilizar os módulos do Azure IoT Edge para implementar código que aplica a sua lógica de negócio diretamente aos seus dispositivos IoT Edge. Este tutorial acompanha-o através da criação e implementação de um módulo IoT Edge que filtra os dados do sensor no dispositivo IoT Edge que configura no arranque rápido. Neste tutorial, ficará a saber como:
+Pode utilizar os módulos do Azure IoT Edge para implementar código que aplica a sua lógica de negócio diretamente aos seus dispositivos IoT Edge. Este tutorial acompanha-o através da criação e implementação de um módulo IoT Edge que filtra os dados do sensor no dispositivo IoT Edge que configura no arranque rápido. Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -51,7 +51,7 @@ Antes de iniciar este tutorial, deveria ter passado pelo tutorial anterior para 
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) no escalão gratuito ou standard no Azure.
 * Um [dispositivo Linux executando Azure IoT Edge](quickstart-linux.md)
-* Um registo de contentores, como [o Registo de Contentores de Azure.](https://docs.microsoft.com/azure/container-registry/)
+* Um registo de contentores, como [o Registo de Contentores de Azure.](../container-registry/index.yml)
 * [Código de Estúdio Visual](https://code.visualstudio.com/) configurado com as [Ferramentas Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) configurado para executar contentores Linux.
 
@@ -259,7 +259,7 @@ Usamos o módulo PythonModule twin no manifesto de implantação para definir o 
 
 6. Monitorize as mensagens de entrada de dispositivo para nuvem. Deve ver as mensagens paradas até que o novo limiar de temperatura seja atingido.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se planeia avançar para o próximo artigo recomendado, pode manter os recursos e as configurações que criou e reutilizá-los. Também pode continuar a utilizar o mesmo dispositivo IoT Edge como um dispositivo de teste.
 

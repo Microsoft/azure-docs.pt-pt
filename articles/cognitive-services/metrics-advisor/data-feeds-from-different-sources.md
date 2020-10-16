@@ -3,19 +3,19 @@ title: Como adicionar feeds de dados de diferentes fontes ao Metrics Advisor
 titleSuffix: Azure Cognitive Services
 description: adicionar diferentes feeds de dados ao Metrics Advisor
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 09/04/2020
-ms.author: aahi
-ms.openlocfilehash: 343db078880f55701730e096c3da85a6a7e5428a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/12/2020
+ms.author: mbullwin
+ms.openlocfilehash: a37f3cfd250d152129245395680dbd847359e869
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324472"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046915"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Adicione feeds de dados de diferentes fontes de dados ao Metrics Advisor
 
@@ -23,7 +23,7 @@ Utilize este artigo para encontrar as configurações e requisitos para ligar di
 
 ## <a name="supported-authentication-types"></a>Tipos de autenticação suportados
 
-| Tipos de autenticação | Description |
+| Tipos de autenticação | Descrição |
 | ---------------------|-------------|
 |**Básica** | Terá de ser capaz de fornecer parâmetros básicos para aceder a fontes de dados. Por exemplo, uma cadeia de ligação ou uma chave. Os administradores de feed de dados são capazes de ver estas credenciais. |
 | **AzureManagedIdentity** | [Identidades geridas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para recursos Azure é uma característica do Azure Ative Directory. Fornece aos serviços Azure uma identidade gerida automaticamente no Azure AD. Pode utilizar a identidade para autenticar qualquer serviço que suporte a autenticação AZure AD.|
@@ -133,7 +133,7 @@ Apenas um calibre de tempo é permitido por ficheiro JSON.
 
 ## <a name="span-idkustoazure-data-explorer-kustospan"></a><span id="kusto">Azure Data Explorer (Kusto)</span>
 
-* **Cadeia de ligação**: Ver [e copiar uma cadeia de ligação](https://docs.microsoft.com/azure/data-explorer/kusto/api/connection-strings/kusto) para obter informações sobre como recuperar a cadeia de ligação do Azure Data Explorer (Kusto).
+* **Cadeia de ligação**: O Advisor de métricas suporta o acesso ao Azure Data Explorer (Kusto) utilizando a autenticação da aplicação Azure. Terá de criar e registar uma aplicação AD Azure e, em seguida, autorizá-la para aceder a uma base de dados do Azure Data Explorer. Para obter a sua cadeia de ligação, consulte a documentação do [Azure Data Explorer.](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app)
 
 * **Consulta**: Consulte [a Linguagem de Consulta de Kusto](https://docs.microsoft.com/azure/data-explorer/kusto/query) para obter e formular dados em dados multidimensionais da série temporal. Pode usar as `@StartTime` variáveis e `@EndTime` variáveis na sua consulta. Devem ser formatados: `yyyy-MM-dd HH:mm:ss` .
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 00d9de422e40ce5ccad3790a46463d2916069315
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 08f8c1b4a127c7ed5128bbbd119bc49869984649
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554720"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940652"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobi"></a>Tutorial: Integração do Azure Ative Directory com o MOBI
 
@@ -99,7 +99,7 @@ Para configurar o Azure AD com o MOBI, execute os seguintes passos:
 
 4. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    ![MOBI Domain e URLs informações únicas de súming](common/idp-intiated.png)
+    ![A screenshot mostra a Configuração BÁSICA SAML, onde pode introduzir o Identificador, Responder U R L e selecionar Guardar.](common/idp-intiated.png)
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://<subdomain>.thefutureis.mobi`
 
@@ -107,7 +107,7 @@ Para configurar o Azure AD com o MOBI, execute os seguintes passos:
 
 5. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    ![MOBI Domain e URLs informações únicas de súming](common/metadata-upload-additional-signon.png)
+    ![Screenshot mostra Definir U R Ls adicionais onde pode introduzir um sinal em U R L.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<subdomain>.thefutureis.mobi/login`
 

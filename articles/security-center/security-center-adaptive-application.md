@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: 12140b71f8ef720a9e48b486a43e683b5766d102
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: c580dd26c64a27b88b4416e85da101b78782013e
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91439004"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076985"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Utilize controlos de aplicação adaptativos para reduzir as superfícies de ataque das suas máquinas
 
@@ -54,7 +54,7 @@ Ao definir listas de aplicações conhecidas e gerar alertas quando qualquer out
 |Preços:|Requer [Azure Defender para servidores](defender-for-servers-introduction.md)|
 |Máquinas suportadas:|![Sim ](./media/icons/yes-icon.png) Azure e máquinas não-Azure que executam Windows e Linux<br>![Sim ](./media/icons/yes-icon.png) [Azure Arc](https://docs.microsoft.com/azure/azure-arc/) máquinas|
 |Funções e permissões necessárias:|**As** funções de Leitor de Segurança e **Leitor** podem ver grupos e listas de aplicações conhecidas e seguras<br>**As** funções de Administrador de Colaborador e **Segurança** podem editar grupos e listas de aplicações conhecidas e seguras|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 
@@ -150,6 +150,23 @@ Para editar as regras para um grupo de máquinas:
 1. Para aplicar as alterações, **selecione Guardar**.
 
 
+## <a name="review-and-edit-a-groups-settings"></a>Reveja e edite as definições de um grupo
+
+1. Para ver os detalhes e configurações do seu grupo, selecione **as definições do Grupo**
+
+    Este painel mostra o nome do grupo (que pode ser modificado), o tipo de SO, a localização e outros detalhes relevantes.
+
+    :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="Abertura de controlos de aplicação adaptativa a partir do Painel Azure" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
+
+    > [!IMPORTANT]
+    > A opção **Enforce,** nas definições do modo de proteção do tipo de ficheiro, está acinzentado em **todos os** cenários. Não há opções de execução disponíveis neste momento. 
+    >
+    > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="Abertura de controlos de aplicação adaptativa a partir do Painel Azure":::
+
+1. Opcionalmente, modifique o nome do grupo ou os modos de proteção do tipo de ficheiro.
+
+1. **Selecione Aplicar** e **Guardar**.
+
 
 
 ## <a name="respond-to-the-allowlist-rules-in-your-adaptive-application-control-policy-should-be-updated-recommendation"></a>Responder à recomendação "Allowlist na sua política de controlo de aplicações adaptativas deve ser atualizada"
@@ -225,7 +242,7 @@ Algumas das funções que estão disponíveis na API REST:
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu a utilizar o controlo de aplicações adaptativas no Azure Security Center para definir as listas de aplicações em execução nas suas máquinas Azure e não-Azure. Para saber mais sobre algumas das outras funcionalidades de proteção da carga de trabalho em nuvem do Security Center, consulte:
 
 * [Compreensão do acesso ao VM just-in-time (JIT)](just-in-time-explained.md)

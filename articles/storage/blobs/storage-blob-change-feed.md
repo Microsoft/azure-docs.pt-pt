@@ -9,10 +9,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
 ms.openlocfilehash: c3348356561ea74bb5e0b5bc46fccee1ada82755
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89568239"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Alterar suporte de alimentação no armazenamento de blob Azure
@@ -309,7 +309,7 @@ O feed de alteração é uma solução que fornece registo transacional de muta�
 ### <a name="should-i-use-change-feed-or-storage-events"></a>Devo utilizar eventos de feed ou armazenamento de alterações?
 Pode aproveitar ambas as funcionalidades, uma vez que os eventos de feed change e blob fornecem as [mesmas](storage-blob-event-overview.md) informações com a mesma garantia de fiabilidade de entrega, sendo a principal diferença a latência, encomenda e armazenamento de registos de eventos. O feed de alteração publica registos no registo dentro de poucos minutos após a alteração e também garante a ordem de mudança de operações por blob. Os eventos de armazenamento são empurrados em tempo real e podem não ser encomendados. Os eventos de feed change são conservados duravelmente dentro da sua conta de armazenamento como registos estáveis apenas de leitura com a sua própria retenção definida, enquanto os eventos de armazenamento são transitórios para serem consumidos pelo manipulador de eventos, a menos que os armazene explicitamente. Com o feed Change, qualquer número das suas aplicações pode consumir os registos à sua própria conveniência usando APIs blob ou SDKs. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Veja um exemplo de como ler o feed de alteração utilizando uma aplicação de cliente .NET. Consulte [os registos de alimentação de alteração de processo no armazenamento de blob Azure](storage-blob-change-feed-how-to.md).
 - Saiba como reagir aos acontecimentos em tempo real. Ver [reagir a eventos de armazenamento de blob](storage-blob-event-overview.md)

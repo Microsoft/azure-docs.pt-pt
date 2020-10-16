@@ -15,10 +15,10 @@ ms.custom:
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 10c396c4e4b4eac83f08ae0cbbe565f8621688a4
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91354977"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Resolução de problemas Azure Ative Directy B2B colaboração
@@ -36,7 +36,7 @@ Nos casos em que os utilizadores externos não são preenchidos na lista, o obje
 
 A capacidade de procurar utilizadores convidados existentes no picker de pessoas SharePoint Online (SPO) é OFF por padrão para corresponder ao comportamento do legado.
 
-Pode ativar esta funcionalidade utilizando a definição 'ShowPeoplePickerSuggestionsForGuestUsers' ao nível do arrendatário e da recolha do site. Pode definir a funcionalidade utilizando os cmdlets Set-SPOTenant e Set-SPOSite, que permitem aos membros pesquisar todos os utilizadores convidados existentes no diretório. As alterações no âmbito do arrendatário não afetam os sítios SPO já previstos.
+Pode ativar esta funcionalidade utilizando a definição 'ShowPeoplePickerSuggestionsForGuestUsers' ao nível do arrendatário e da recolha do site. Pode definir a funcionalidade utilizando os Set-SPOTenant e Set-SPOSite cmdlets, que permitem aos membros pesquisar todos os utilizadores convidados existentes no diretório. As alterações no âmbito do arrendatário não afetam os sítios SPO já previstos.
 
 ## <a name="invitations-have-been-disabled-for-directory"></a>Convites foram desativados para diretório
 

@@ -9,10 +9,10 @@ author: peterclu
 ms.author: peterlu
 ms.date: 01/18/2019
 ms.openlocfilehash: 434115ce6da775c4c8719081ad149e436de03b56
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362287"
 ---
 # <a name="get-support-and-training-for-azure-machine-learning-studio-classic"></a>Obtenha apoio e formação para o Azure Machine Learning Studio (clássico)

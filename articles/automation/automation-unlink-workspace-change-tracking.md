@@ -6,10 +6,10 @@ ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
 ms.openlocfilehash: 2be702ec6e820fe71dd8d2da7aa4cf831b52402e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83828258"
 ---
 # <a name="unlink-workspace-from-automation-account"></a>Desassociar uma área de trabalho da conta de Automatização
@@ -35,7 +35,7 @@ Em alternativa, pode desvincular o seu espaço de trabalho Log Analytics da sua 
 1. No seu espaço de trabalho, selecione **a Conta de Automação** em **Recursos Relacionados.** 
 2. Na página 'Conta Dem automação', selecione **'Desvincular'.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para trabalhar com o Change Tracking and Inventory, consulte [Gerir o Tracking e o Inventário de Mudanças.](change-tracking-file-contents.md)
 * Para resolver problemas gerais de recursos, consulte [problemas de rastreio e inventário de alterações de resolução de problemas](troubleshoot/change-tracking.md).

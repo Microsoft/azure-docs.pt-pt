@@ -10,10 +10,10 @@ ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: e851da0013cf3a9ff6bb1a0fc1c073b5b796c54d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78898543"
 ---
 # <a name="what-is-azure-scheduler"></a>O que é o Agendador do Azure?
@@ -39,7 +39,7 @@ Apesar de poder utilizar o Scheduler para criar, manter e executar cargas de tra
 
 Para criar, programar, gerir, atualizar ou apagar empregos e [coleções de emprego,](../scheduler/scheduler-concepts-terms.md)pode utilizar o código, o [Agendador REST API,](https://docs.microsoft.com/rest/api/scheduler/)ou os [cmdlets PowerShell do Agendador Azure](scheduler-powershell-reference.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Conceitos, terminologia e hierarquia de entidades do Agendador do Azure](scheduler-concepts-terms.md)
 * [Planos e faturação para Azure Scheduler](scheduler-plans-billing.md)

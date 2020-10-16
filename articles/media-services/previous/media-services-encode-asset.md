@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: juliako
-ms.openlocfilehash: 5d5a00488321c9c67dd1469b1d8476636675aa8f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e841d1922beb3f0276ff94cacbbdf566b23cdf6e
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91281019"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017289"
 ---
 # <a name="overview-of-azure-on-demand-media-encoders"></a>Visão geral dos codificadores de meios de comunicação a pedido da Azure on-demand
 
@@ -53,7 +53,7 @@ Por predefinição, cada conta de Serviços de Mídia pode ter uma tarefa de cod
 [Formatos e codecs](media-services-media-encoder-standard-formats.md)
 
 ### <a name="presets"></a>Predefinições
-O Media Encoder Standard está configurado utilizando uma das predefinições codificantes descritas [aqui](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+O Media Encoder Standard está configurado utilizando uma das predefinições codificantes descritas [aqui](./media-services-mes-presets-overview.md).
 
 ### <a name="input-and-output-metadata"></a>Metadados de entrada e saída
 Os metadados de entrada dos codificadores são descritos [aqui.](media-services-input-metadata-schema.md)

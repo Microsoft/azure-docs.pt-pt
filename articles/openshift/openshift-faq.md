@@ -7,10 +7,10 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 07/31/2020
 ms.openlocfilehash: a8b5ec48b64341ad9eabd087d7ee20bb703198c6
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88816240"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift FAQ
@@ -41,15 +41,15 @@ O Azure Red Hat OpenShift 3.11 tem um limite de 50 pod-per-node e um limite de 2
 
 ### <a name="can-a-cluster-have-compute-nodes-across-multiple-azure-regions"></a>Um cluster pode ter nóns computacional em várias regiões do Azure?
 
-Não. Todos os nós de um aglomerado Azure Red Hat OpenShift devem ter origem na mesma região de Azure.
+N.º Todos os nós de um aglomerado Azure Red Hat OpenShift devem ter origem na mesma região de Azure.
 
 ### <a name="can-a-cluster-be-deployed-across-multiple-availability-zones"></a>Um cluster pode ser implantado em várias zonas de disponibilidade?
 
-Yes. Isto acontece automaticamente se o seu cluster for implantado numa região do Azure que suporte zonas de disponibilidade. Para mais informações, consulte [as zonas de disponibilidade.](../availability-zones/az-overview.md#availability-zones)
+Sim. Isto acontece automaticamente se o seu cluster for implantado numa região do Azure que suporte zonas de disponibilidade. Para mais informações, consulte [as zonas de disponibilidade.](../availability-zones/az-overview.md#availability-zones)
 
 ### <a name="are-control-plane-nodes-abstracted-away-as-they-are-with-azure-kubernetes-service-aks"></a>Os nós dos aviões de controlo são abstraídos como estão com o Serviço Azure Kubernetes (AKS)?
 
-Não. Todos os recursos, incluindo os nós principais do cluster, funcionam na subscrição do seu cliente. Estes tipos de recursos são colocados num grupo de recursos apenas de leitura.
+N.º Todos os recursos, incluindo os nós principais do cluster, funcionam na subscrição do seu cliente. Estes tipos de recursos são colocados num grupo de recursos apenas de leitura.
 
 ### <a name="does-the-cluster-reside-in-a-customer-subscription"></a>O cluster reside numa subscrição de cliente? 
 
@@ -127,7 +127,7 @@ Para agrupamentos de 4.x, é necessário expor um registo seguro e configurar a 
 
 Para 3.11 clusters, o registo de imagem docker está disponível. O registo do Docker está disponível a partir de `https://docker-registry.apps.<clustername>.<region>.azmosa.io/` . Também pode utilizar o Registo do Contentor Azure.
 
-## <a name="networking"></a>Rede
+## <a name="networking"></a>Redes
 
 ### <a name="can-i-deploy-a-cluster-into-an-existing-virtual-network"></a>Posso colocar um cluster numa rede virtual existente?
 
@@ -163,15 +163,15 @@ O Azure Red Hat OpenShift utiliza o Balanceador de Carga Standard Azure, e não 
 
 ### <a name="can-an-admin-manage-users-and-quotas"></a>Pode um administrador gerir utilizadores e quotas?
 
-Yes. Um administrador Azure Red Hat OpenShift pode gerir utilizadores e quotas para além de aceder a todos os projetos criados pelo utilizador.
+Sim. Um administrador Azure Red Hat OpenShift pode gerir utilizadores e quotas para além de aceder a todos os projetos criados pelo utilizador.
 
 ### <a name="can-i-restrict-a-cluster-to-only-certain-azure-ad-users"></a>Posso restringir um cluster a apenas certos utilizadores de AD Azure?
 
-Yes. Pode restringir quais os utilizadores AZure AD que podem iniciar súpido num cluster configurando a Aplicação AD Azure. Para mais detalhes, consulte [Como: Restringir a sua aplicação a um conjunto de utilizadores.](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md)
+Sim. Pode restringir quais os utilizadores AZure AD que podem iniciar súpido num cluster configurando a Aplicação AD Azure. Para mais detalhes, consulte [Como: Restringir a sua aplicação a um conjunto de utilizadores.](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md)
 
 ### <a name="can-i-restrict-users-from-creating-projects"></a>Posso restringir os utilizadores à criação de projetos?
 
-Yes. Inicie sessão no seu cluster como administrador e execute este comando:
+Sim. Inicie sessão no seu cluster como administrador e execute este comando:
 
 ```
 oc adm policy \
@@ -222,4 +222,4 @@ Para 3.11 agrupamentos, duas classes de armazenamento são fornecidas por padrã
 
 ## <a name="does-aro-store-any-customer-data-outside-of-the-clusters-region"></a>A ARO armazena algum dado de cliente fora da região do cluster?
 
-Não. Todos os dados criados num cluster ARO são mantidos dentro da região do cluster.
+N.º Todos os dados criados num cluster ARO são mantidos dentro da região do cluster.

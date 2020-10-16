@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/15/2018
 ms.custom: mqtt
 ms.openlocfilehash: 307ab47c1f7498f71e61108a616d35ef1d4f61c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81730002"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Envie mensagens nuvem-para-dispositivo a partir de um hub IoT
@@ -76,8 +76,8 @@ Quando envia uma mensagem nuvem-a-dispositivo, o serviço pode solicitar a entre
 
 | Valor da propriedade Ack | Comportamento |
 | ------------ | -------- |
-| nenhum     | O hub IoT não gera uma mensagem de feedback (comportamento predefinido). |
-| positiva | Se a mensagem nuvem-para-dispositivo chegar ao estado *preenchido,* o hub IoT gera uma mensagem de feedback. |
+| nenhuma     | O hub IoT não gera uma mensagem de feedback (comportamento predefinido). |
+| positivo | Se a mensagem nuvem-para-dispositivo chegar ao estado *preenchido,* o hub IoT gera uma mensagem de feedback. |
 | negativo | Se a mensagem nuvem-para-dispositivo chegar ao estado *de letras Mortas,* o hub IoT gera uma mensagem de feedback. |
 | cheio     | O hub IoT gera uma mensagem de feedback em qualquer dos casos. |
 
@@ -166,7 +166,7 @@ Pode definir as opções de configuração de uma das seguintes formas:
         --set properties.cloudToDevice.feedback.lockDurationAsIso8601=PT0H1M0S
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações sobre os SDKs que pode utilizar para receber mensagens cloud-to-device, consulte [Azure IoT SDKs](iot-hub-devguide-sdks.md).
 

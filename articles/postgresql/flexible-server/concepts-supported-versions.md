@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 9d651a38361ccaa7f8788fb4a375b39b2953228b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90936970"
 ---
 # <a name="supported-postgresql-major-versions-in-azure-database-for-postgresql---flexible-server"></a>Versões postgresQL suportadas na Base de Dados Azure para PostgreSQL - Servidor Flexível

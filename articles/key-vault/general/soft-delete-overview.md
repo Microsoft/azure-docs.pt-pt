@@ -8,10 +8,10 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 09/30/2020
 ms.openlocfilehash: c8ae10fa059bb9cfd32b95f9bc6d21f30ad9f880
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91744207"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Descrição geral da eliminação recuperável do Azure Key Vault

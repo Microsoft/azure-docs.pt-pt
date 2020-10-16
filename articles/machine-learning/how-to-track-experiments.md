@@ -12,10 +12,10 @@ ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
 ms.openlocfilehash: 7eaa2fbe6033f801a252f6f2c7afa5eb726bce2f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91318250"
 ---
 # <a name="enable-logging-in-azure-ml-training-runs"></a>Ativar o registo nas execuções de preparação do Azure ML

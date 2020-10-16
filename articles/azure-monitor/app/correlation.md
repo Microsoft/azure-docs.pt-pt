@@ -7,12 +7,12 @@ ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: 53ce3764d074388213a3a4be08502b09743e28cb
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 5d8adea95708f4c7bbe3e7113c3e39e0484159ee
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91827612"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018054"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlação de telemetria em Insights de Aplicação
 
@@ -62,7 +62,7 @@ A Application Insights está em transição para [o Contexto de Rastreio W3C,](h
 - `traceparent`: Transporta o ID de operação globalmente único e identificador único da chamada.
 - `tracestate`: Transporta o contexto de rastreio específico do sistema.
 
-A versão mais recente do Application Insights SDK suporta o protocolo Trace-Context, mas poderá ter de optar por ele. (A retrocompatibilidade com o protocolo de correlação anterior suportado pelo Application Insights SDK será mantida.)
+A versão mais recente do Application Insights SDK suporta o protocolo Trace-Context, mas poderá ter de optar pelo mesmo. (A retrocompatibilidade com o protocolo de correlação anterior suportado pelo Application Insights SDK será mantida.)
 
 O [protocolo HTTP de correlação, também chamado Request-Id,](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md)está a ser depreciado. Este protocolo define dois cabeçalhos:
 
@@ -84,7 +84,7 @@ Para obter mais informações, consulte o [modelo de dados de telemetria Da Apli
 
 ### <a name="enable-w3c-distributed-tracing-support-for-net-apps"></a>Ativar suporte de rastreio distribuído W3C para aplicações .NET
 
-O rastreio distribuído baseado em W3C TraceContext é ativado por padrão em todos os SDKs de núcleo .NET/.NET, juntamente com compatibilidade retrógrada com o protocolo de Id pedido legado.
+O rastreio distribuído baseado em W3C TraceContext é ativado por padrão em todos os SDKs de núcleo .NET/.NET, juntamente com compatibilidade retrógrada com o protocolo legado Request-Id.
 
 ### <a name="enable-w3c-distributed-tracing-support-for-java-apps"></a>Ativar o suporte de rastreio distribuído pela W3C para aplicações Java
 
@@ -133,34 +133,21 @@ O rastreio distribuído baseado em W3C TraceContext é ativado por padrão em to
 
 Esta funcionalidade está em `Microsoft.ApplicationInsights.JavaScript` . É desativado por defeito. Para o ativar, utilize `distributedTracingMode` config. AI_AND_W3C é fornecida para retrocompatibilidade com quaisquer serviços legados instrumentados pela Application Insights.
 
-- **configuração npm (ignorar se utilizar a configuração snippet)**
+- **[configuração baseada em npm](./javascript.md#npm-based-setup)**
 
-  ```javascript
-  import { ApplicationInsights, DistributedTracingModes } from '@microsoft/applicationinsights-web';
-
-  const appInsights = new ApplicationInsights({ config: {
-    instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
+Adicione a seguinte configuração:
+  ```JavaScript
     distributedTracingMode: DistributedTracingModes.W3C
-    /* ...other configuration options... */
-  } });
-  appInsights.loadAppInsights();
   ```
   
-- **Configuração do snippet (ignore se utilizar a configuração npm)**
+- **[Configuração baseada em snippet](./javascript.md#snippet-based-setup)**
 
+Adicione a seguinte configuração:
   ```
-  <script type="text/javascript">
-  var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){i[e]=function(){var n=arguments;i.queue.push(function(){i[e].apply(i,n)})}}var i={config:e};i.initialize=!0;var a=document,t=window;setTimeout(function(){var n=a.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",a.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{i.cookie=a.cookie}catch(e){}i.queue=[],i.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var o="Track"+r[0];if(n("start"+o),n("stop"+o),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var s=t[r];t[r]=function(e,n,a,t,o){var c=s&&s(e,n,a,t,o);return!0!==c&&i["_"+r]({message:e,url:n,lineNumber:a,columnNumber:t,error:o}),c},e.autoExceptionInstrumented=!0}return i}
-  (
-    {
-      instrumentationKey:"INSTRUMENTATION_KEY",
       distributedTracingMode: 2 // DistributedTracingModes.W3C
-      /* ...other configuration options... */
-    }
-  );
-  window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
-  </script>
   ```
+> [!IMPORTANT] 
+> Para ver todas as configurações necessárias para permitir a correlação, consulte a documentação de [correlação JavaScript](/azure/azure-monitor/app/javascript#enable-correlation).
 
 ## <a name="telemetry-correlation-in-opencensus-python"></a>Correlação de telemetria em OpenCensus Python
 
@@ -170,7 +157,7 @@ Como referência, o modelo de dados OpenCensus pode ser consultado [aqui.](https
 
 ### <a name="incoming-request-correlation"></a>Correlação de pedido de entrada
 
-O OpenCensus Python correlaciona os cabeçalhos W3C Trace-Context de pedidos de entrada para os vãos que são gerados a partir dos próprios pedidos. O OpenCensus fá-lo-á automaticamente com integrações para estes quadros populares de aplicações web: Flask, Django e Pirâmide. Basta preencher os cabeçalhos W3C Trace-Context com o [formato correto](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format) e enviá-los com o pedido. Aqui está uma aplicação de amostra flask que demonstra isto:
+O OpenCensus Python correlaciona os cabeçalhos de Trace-Context W3C de pedidos de entrada para os vãos que são gerados a partir dos próprios pedidos. O OpenCensus fá-lo-á automaticamente com integrações para estes quadros populares de aplicações web: Flask, Django e Pirâmide. Basta preencher os cabeçalhos de Trace-Context W3C com o [formato correto](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format) e enviá-los com o pedido. Aqui está uma aplicação de amostra flask que demonstra isto:
 
 ```python
 from flask import Flask

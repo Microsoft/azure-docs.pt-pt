@@ -4,10 +4,10 @@ description: Saiba mais sobre as contas do Azure Batch e como são usadas do pon
 ms.topic: conceptual
 ms.date: 05/12/2020
 ms.openlocfilehash: 20a2a28d0eaa2c7997ea93e66d07ecb99bf297a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83791149"
 ---
 # <a name="batch-accounts-and-azure-storage-accounts"></a>Contas de lote e contas de armazenamento Azure
@@ -38,7 +38,7 @@ Para obter mais informações sobre contas de armazenamento, consulte [a visão 
 
 Pode associar uma conta de armazenamento à sua conta do Batch ao criar a conta do Batch, ou posteriormente. Considere os requisitos de desempenho e custo ao escolher uma conta de armazenamento. Por exemplo, as opções de conta de armazenamento GPv2 e BLOBs suportam [limites de escalabilidade e capacidade](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) mais elevados em comparação com a GPv1. (Contacte o Suporte Azure para solicitar um aumento do limite de armazenamento.) Estas opções de conta podem melhorar o desempenho de soluções Batch que contêm um grande número de tarefas paralelas que lêem ou escrevem na conta de armazenamento.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [nós e piscinas.](nodes-and-pools.md)
 - Saiba como criar uma conta Batch utilizando o [portal Azure](batch-account-create-portal.md).

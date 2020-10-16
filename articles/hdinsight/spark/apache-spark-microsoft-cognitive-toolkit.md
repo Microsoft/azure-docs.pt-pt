@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/14/2020
 ms.openlocfilehash: 659e44ddc13cf093d7e571e904e177136ed21127
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86084499"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Use o modelo de aprendizagem profunda do Microsoft Cognitive Toolkit com cluster Azure HDInsight Spark
@@ -61,10 +61,10 @@ Para obter instruções sobre como usar o portal Azure para executar a ação de
 |Propriedade |Valor |
 |---|---|
 |Tipo de script|- Personalizado|
-|Name| Instalar MCT|
+|Nome| Instalar MCT|
 |URI de guião de bash|`https://raw.githubusercontent.com/Azure-Samples/hdinsight-pyspark-cntk-integration/master/cntk-install.sh`|
 |Tipo de nó(s):|Cabeça, Trabalhador|
-|Parâmetros|Nenhuma|
+|Parâmetros|Nenhum|
 
 ## <a name="upload-the-jupyter-notebook-to-azure-hdinsight-spark-cluster"></a>Faça o upload do caderno Jupyter para o cluster Azure HDInsight Spark
 
@@ -82,7 +82,7 @@ Para utilizar o Microsoft Cognitive Toolkit com o cluster Azure HDInsight Spark,
 
 1. Depois de o caderno ser carregado, clique no nome do caderno e siga as instruções no próprio caderno sobre como carregar o conjunto de dados e executar o artigo.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 * [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 

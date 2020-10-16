@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 09/21/2020
 ms.openlocfilehash: 21e4189e56f704129710da5b1d39613c4e1b1df5
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91766893"
 ---
 # <a name="troubleshoot-database-corruption-in-azure-database-for-mysql"></a>Combate à corrupção na base de dados de resolução de problemas na Base de Dados Azure para o MySQL

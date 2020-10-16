@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.openlocfilehash: c817e2c7f609bbbec52eff1b898a8d7c53209a28
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87321314"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Deteção Inteligente - Anomalias de desempenho
@@ -60,7 +60,7 @@ Os e-mails sobre anomalias de desempenho de Smart Detections estão limitados a 
 ## <a name="faq"></a>FAQ
 
 * *Então, o pessoal da Microsoft olha para os meus dados?*
-  * Não. O serviço é totalmente automático. Só recebe as notificações. Os seus dados são [privados.](./data-retention-privacy.md)
+  * N.º O serviço é totalmente automático. Só recebe as notificações. Os seus dados são [privados.](./data-retention-privacy.md)
 * *Analisa todos os dados recolhidos pela Application Insights?*
   * De momento, não. Atualmente, analisamos o tempo de resposta do pedido, o tempo de resposta da dependência e o tempo de carga da página. A análise de métricas adicionais está no nosso atraso olhando para a frente.
 
@@ -76,7 +76,7 @@ Os e-mails sobre anomalias de desempenho de Smart Detections estão limitados a 
 
   * Fazemos a análise diariamente sobre a telemetria do dia anterior (dia inteiro no fuso horário utc).
 * *Isto substitui [os alertas métricos?](../platform/alerts-log.md)*
-  * Não.  Não nos comprometemos a detetar todos os comportamentos que possa supor anormais.
+  * N.º  Não nos comprometemos a detetar todos os comportamentos que possa supor anormais.
 
 
 * *Se eu não fizer nada em resposta a uma notificação, vou receber um lembrete?*

@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli
 manager: philmea
 ms.openlocfilehash: bd87f15ff63edf1da447faf986cad2f9591610dd
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87502975"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Gerir a IoT Central a partir de Azure CLI

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/04/2017
 ms.author: alkohli
 ms.openlocfilehash: 556a84acb3461fb39b3eb0390b54878254bafabf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514539"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Instale e opere com segurança o seu dispositivo StorSimple
@@ -148,11 +148,11 @@ Para reduzir o risco de calções, incêndio, explosão, ferimentos ou morte:
 
 ![Aviso de ícone ](./media/storsimple-safety/IC740881.png) **de aviso:**
 
-Ao transportar ou transportar as baterias por ar, siga o documento de orientação da bateria de lítio IATA disponível em[https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
+Ao transportar ou transportar as baterias por ar, siga o documento de orientação da bateria de lítio IATA disponível em [https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
 
 Depois de ter revisto estes avisos de segurança, os próximos passos são desempacotar, grelhar e cabo do seu dispositivo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para um dispositivo 8100, vá [instalar o seu dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md).
 * Para um dispositivo 8600, vá [instalar o seu dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).

@@ -11,10 +11,10 @@ ms.custom: mvc, devx-track-azurecli
 ms.date: 08/11/2020
 ms.author: sebansal
 ms.openlocfilehash: c768f6564884ade5d27199a64843437f5ce725f4
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90019160"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>Certificados de exportação do Azure Key Vault

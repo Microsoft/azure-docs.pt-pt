@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 07/11/2019
 ms.author: alkohli
 ms.openlocfilehash: dbdd4c7d23f56618c0e76649abe4faad86c5804c
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91743306"
 ---
 # <a name="open-a-support-ticket-for-azure-stack-edge-pro-and-azure-data-box-gateway"></a>Abra um bilhete de apoio para Azure Stack Edge Pro e Azure Data Box Gateway
@@ -39,7 +39,7 @@ Execute os seguintes passos para criar um pedido de apoio:
     7. Com base no tipo de problema selecionado, escolha um **subtipo de problema**correspondente .
     8. Selecione **Seguinte: Soluções >>**.
 
-        ![Informações básicas](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-1.png)
+        ![Noções básicas](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-1.png)
 
 3. No separador **Detalhes,** tome os seguintes passos:
 

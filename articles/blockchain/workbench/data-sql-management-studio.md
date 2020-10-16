@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 ms.openlocfilehash: 16e7f9a6c36ea42e1d0a4144e680baebee5a6c21
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87073096"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-sql-server-management-studio"></a>Utilizar os dados do Azure Blockchain Workbench com o SQL Server Management Studio

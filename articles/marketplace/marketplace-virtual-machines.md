@@ -9,10 +9,10 @@ author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 09/04/2020
 ms.openlocfilehash: cc6b040731cbeb7271d7a7c0de1c32fa2d007013
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89484193"
 ---
 # <a name="publishing-guide-for-virtual-machine-offers"></a>Guia de publicação para ofertas de máquinas virtuais
@@ -59,7 +59,7 @@ Utilize o tipo de oferta *de máquina virtual* quando colocar um aparelho virtua
 >[!Note]
 >O opt-in do canal parceiro Cloud Solution Provider (CSP) já está disponível. Para obter mais informações sobre o marketing da sua oferta através dos canais parceiros da Microsoft CSP, consulte [os Fornecedores de Soluções Cloud.](./cloud-solution-providers.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se ainda não o fez, aprenda a [fazer crescer o seu negócio na nuvem com o Azure Marketplace.](https://azuremarketplace.microsoft.com/sell)
 

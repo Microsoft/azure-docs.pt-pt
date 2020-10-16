@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: shants
 ms.openlocfilehash: 38532fba2be1fedd275ed2e7f9dfc1bf5752499d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86501658"
 ---
 # <a name="move-resources-in-a-maintenance-control-configuration-to-another-region"></a>Mover recursos numa configuração de Controlo de Manutenção para outra região
@@ -32,7 +32,7 @@ Antes de começar a mover os recursos associados a uma configuração de Control
 - Ao recuperar configurações para um recurso:
     - Certifique-se de que utiliza o ID de subscrição para a conta, não um ID do anfitrião dedicado Azure.
     - CLI: O parâmetro da tabela de saída é utilizado apenas para a legibilidade e pode ser eliminado ou alterado.
-    - PowerShell: O parâmetro Nome de tabela de formato é utilizado apenas para legibilidade e pode ser eliminado ou alterado.
+    - PowerShell: O parâmetro Format-Table Nome é utilizado apenas para a legibilidade e pode ser eliminado ou alterado.
     - Se utilizar o PowerShell, obtém-se um erro se tentar listar configurações para um recurso que não tenha configurações associadas. O erro será semelhante ao seguinte: "Operação falhada com estatuto: 'Não Encontrado'. Detalhes: 404 Erro do Cliente: Não encontrado para url".
 
     
@@ -91,6 +91,6 @@ Verifique os recursos na nova região e verifique as configurações associadas 
 Após a mudança, considere apagar os recursos movidos na região origem.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Siga [estas instruções](move-region-maintenance-configuration.md) se precisar de mover as configurações de manutenção. 

@@ -11,10 +11,10 @@ ms.reviewer: vanto
 ms.date: 06/17/2020
 ms.custom: azure-synapse
 ms.openlocfilehash: 74926411b659cf5973b03b2caca58d7666803f9c
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91444528"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Escreva auditoria a uma conta de armazenamento por trás do VNet e firewall
@@ -158,7 +158,7 @@ Pode configurar a auditoria para escrever eventos de base de dados numa conta de
 > [!NOTE]
 > A amostra ligada encontra-se num repositório público externo e é fornecida "como está", sem garantia, e não é suportada sob qualquer programa/serviço de suporte da Microsoft.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Utilize o PowerShell para criar um ponto final de serviço de rede virtual e, em seguida, uma regra de rede virtual para Azure SQL Database.](scripts/vnet-service-endpoint-rule-powershell-create.md)
 * [Regras de Rede Virtual: Operações com APIs REST](/rest/api/sql/virtualnetworkrules)

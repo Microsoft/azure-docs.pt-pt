@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: eed1b0e1b01d5d13330b927429eca9a28ff80658
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88009261"
 ---
 # <a name="tenant-and-host-pool-creation-in-windows-virtual-desktop-classic"></a>Criação de piscina de inquilino e anfitrião no Windows Virtual Desktop (clássico)
@@ -177,7 +177,7 @@ Para corrigir isto, faça as seguintes coisas:
 3. O menu de servidores DNS deve aparecer no lado direito do seu ecrã. Nesse menu, selecione **Custom**.
 4. Certifique-se de que os servidores DNS listados no Custom correspondem ao seu controlador de domínio ou ao domínio do Ative Directory. Se não vir o servidor DNS, pode adicioná-lo introduzindo o seu valor no campo do **servidor Add DNS.**
 
-### <a name="error-your-deployment-failedunauthorized"></a>Erro: A sua implantação falhou...\Não autorizada
+### <a name="error-your-deployment-failedunauthorized"></a>Erro: Falha na implementação...\Não autorizado
 
 ```Error
 {"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"Unauthorized","message":"{\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Target\": null,\r\n \"Details\": [\r\n {\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n },\r\n {\r\n \"Code\": \"Unauthorized\"\r\n },\r\n {\r\n \"ErrorEntity\": {\r\n \"ExtendedCode\": \"52020\",\r\n \"MessageTemplate\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Parameters\": [\r\n \"default\"\r\n ],\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n }\r\n }\r\n ],\r\n \"Innererror\": null\r\n}"}]}
@@ -198,7 +198,7 @@ Para corrigir isto, faça as seguintes coisas:
 
 **Correção:** Confirme que o ambiente de ambiente de trabalho virtual do Windows é saudável ao iniciar sessão com o PowerShell. Termine manualmente o registo VM em [Criar uma piscina de anfitriões com PowerShell](create-host-pools-powershell-2019.md).
 
-### <a name="error-the-admin-username-specified-isnt-allowed"></a>Erro: O nome de utilizador do administrador especificado não é permitido
+### <a name="error-the-admin-username-specified-isnt-allowed"></a>Erro: O Nome de Utilizador do Administrador especificado não é permitido
 
 > [!div class="mx-imgBorder"]
 > ![A imagem da sua implantação falhou na qual não é permitido um administrador especificado.](../media/f2b3d3700e9517463ef88fa41875bac9.png)
@@ -218,7 +218,7 @@ Exemplo de erro bruto:
 
 **Correção:** Atualizar o nome de utilizador ou utilizar diferentes utilizadores.
 
-### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Erro: A VM reportou uma falha ao processar a extensão
+### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Erro: A VM reportou uma falha durante o processamento da extensão
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot da operação de recursos concluída com estado de provisionamento terminal na Sua Implementação Falhou.](../media/49c4a1836a55d91cd65125cf227f411f.png)
@@ -375,7 +375,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDefinitionName "RDS Contributor" -SignInName <UPN>
 ```
 
-### <a name="error-user-requires-azure-multi-factor-authentication-mfa"></a>Erro: O utilizador requer autenticação multi-factor Azure (MFA)
+### <a name="error-user-requires-azure-multi-factor-authentication-mfa"></a>Erro: O utilizador requer o Multi-Factor Authentication (MFA) do Microsoft Azure
 
 > [!div class="mx-imgBorder"]
 > ![A screenshot da sua implementação falhou devido à falta de autenticação multi-factor (MFA)](../media/MFARequiredError.png)

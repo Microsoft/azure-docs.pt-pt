@@ -3,12 +3,12 @@ title: Ativar o Monitor Azure para contentores Microsoft Docs
 description: Este artigo descreve como ativar e configurar o Azure Monitor para contentores para que possa entender como o seu recipiente está a funcionar e quais as questões relacionadas com o desempenho que foram identificadas.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 1cb393faded714593ce635669f585d5979ee69b8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 69022643e3346444eee95f4487eeed292c4ef139
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320311"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994073"
 ---
 # <a name="enable-azure-monitor-for-containers"></a>Ativar o Monitor Azure para contentores
 
@@ -43,9 +43,9 @@ Antes de começar, certifique-se de que cumpriu os seguintes requisitos:
    Pode criar um espaço de trabalho quando ativar a monitorização do seu novo cluster AKS, ou pode deixar que a experiência de embarque crie um espaço de trabalho predefinido no grupo de recursos predefinido da subscrição do cluster AKS. 
    
    Se optar por criar o espaço de trabalho, pode criá-lo através de: 
-   - [Azure Resource Manager](../platform/template-workspace-configuration.md)
+   - [Azure Resource Manager](../samples/resource-manager-workspace.md)
    - [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)
-   - [O portal Azure](../learn/quick-create-workspace.md) 
+   - [O portal do Azure](../learn/quick-create-workspace.md) 
    
    Para obter uma lista dos pares de mapeamento suportados para o espaço de trabalho predefinido, consulte [o mapeamento da região para o Monitor Azure para recipientes](container-insights-region-mapping.md).
 
@@ -80,7 +80,7 @@ A tabela que se segue lista as informações de configuração de procuração e
 
 A tabela a seguir lista as informações de configuração proxy e firewall para Azure China 21Vianet:
 
-|Recursos do agente|Porta |Descrição | 
+|Recursos do agente|Porta |Description | 
 |--------------|------|-------------|
 | `*.ods.opinsights.azure.cn` | 443 | Ingestão de dados |
 | `*.oms.opinsights.azure.cn` | 443 | OMS a bordo |
@@ -88,7 +88,7 @@ A tabela a seguir lista as informações de configuração proxy e firewall para
 
 A tabela a seguir lista as informações de configuração de procuração e firewall para o Governo dos EUA:
 
-|Recursos do agente|Porta |Descrição | 
+|Recursos do agente|Porta |Description | 
 |--------------|------|-------------|
 | `*.ods.opinsights.azure.us` | 443 | Ingestão de dados |
 | `*.oms.opinsights.azure.us` | 443 | OMS a bordo |
@@ -131,4 +131,3 @@ Para ativar o Azure Monitor para recipientes, utilize um dos métodos descritos 
 ## <a name="next-steps"></a>Passos seguintes
 
 Agora que ativou a monitorização, pode começar a analisar o desempenho dos seus clusters Kubernetes que estão hospedados no Azure Kubernetes Service (AKS), Azure Stack ou noutro ambiente. Para aprender a utilizar o Azure Monitor para recipientes, consulte [o desempenho do cluster Kubernetes](container-insights-analyze.md).
-

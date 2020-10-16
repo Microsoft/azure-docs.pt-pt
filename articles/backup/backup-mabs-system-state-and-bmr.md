@@ -4,10 +4,10 @@ description: Utilize o Servidor de Backup Azure para fazer backup do estado do s
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.openlocfilehash: c5096158ca0e76ca03577347d8dd3e1419a33ca0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86538705"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-by-using-azure-backup-server"></a>Faça backup do estado do sistema e restaure para o metal nu, utilizando o Servidor de Backup Azure
@@ -26,18 +26,18 @@ A tabela que se segue resume o que pode recuar e recuperar. Para obter informaç
 |Backup|Problema|Recuperar do backup do Servidor de Backup do Azure|Recuperar a partir de uma cópia de segurança do estado do sistema|BMR|
 |----------|---------|---------------------------|------------------------------------|-------|
 |**Dados de ficheiros**<br /><br />Cópia de segurança de dados normal<br /><br />Cópia de segurança do estado do sistema/BMR|Dados de ficheiro perdidos|S|N|N|
-|**Dados de ficheiros**<br /><br />Backup Backup Backup backup de dados de ficheiros<br /><br />Cópia de segurança do estado do sistema/BMR|Sistema operativo perdido ou danificado|N|Y|Y|
+|**Dados de ficheiros**<br /><br />Backup Backup Backup backup de dados de ficheiros<br /><br />Cópia de segurança do estado do sistema/BMR|Sistema operativo perdido ou danificado|N|Y|S|
 |**Dados de ficheiros**<br /><br />Backup Backup Backup backup de dados de ficheiros<br /><br />Cópia de segurança do estado do sistema/BMR|Servidor perdido (volumes de dados intactos)|N|N|Y|
 |**Dados de ficheiros**<br /><br />Backup Backup Backup backup de dados de ficheiros<br /><br />Cópia de segurança do estado do sistema/BMR|Servidor perdido (volumes de dados perdidos)|S|N|Y<br /><br />BMR, seguido de recuperação regular de dados de ficheiros com apoio|
 |**Dados do SharePoint**<br /><br />Backup Backup backup do Azure Server de dados agrícolas<br /><br />Cópia de segurança do estado do sistema/BMR|Site perdido, listas, listas de itens, documentos|S|N|N|
-|**Dados do SharePoint**<br /><br />Backup Backup backup do Azure Server de dados agrícolas<br /><br />Cópia de segurança do estado do sistema/BMR|Sistema operativo perdido ou danificado|N|Y|Y|
+|**Dados do SharePoint**<br /><br />Backup Backup backup do Azure Server de dados agrícolas<br /><br />Cópia de segurança do estado do sistema/BMR|Sistema operativo perdido ou danificado|N|Y|S|
 |**Dados do SharePoint**<br /><br />Backup Backup backup do Azure Server de dados agrícolas<br /><br />Cópia de segurança do estado do sistema/BMR|Recuperação após desastre|N|N|N|
 |Windows Server 2012 R2 Hyper-V<br /><br />Backup Backup Backup backup do anfitrião hiper-V ou convidado<br /><br />Cópia de segurança de anfitrião do estado do sistema/BMR|VM perdida|S|N|N|
-|Hyper-V<br /><br />Backup Backup Backup backup do anfitrião hiper-V ou convidado<br /><br />Cópia de segurança de anfitrião do estado do sistema/BMR|Sistema operativo perdido ou danificado|N|Y|Y|
+|Hyper-V<br /><br />Backup Backup Backup backup do anfitrião hiper-V ou convidado<br /><br />Cópia de segurança de anfitrião do estado do sistema/BMR|Sistema operativo perdido ou danificado|N|Y|S|
 |Hyper-V<br /><br />Backup Backup Backup backup do anfitrião hiper-V ou convidado<br /><br />Cópia de segurança de anfitrião do estado do sistema/BMR|Anfitrião de Hyper-V perdido (VMs intactas)|N|N|Y|
 |Hyper-V<br /><br />Backup Backup Backup backup do anfitrião hiper-V ou convidado<br /><br />Cópia de segurança de anfitrião do estado do sistema/BMR|Anfitrião de Hyper-V perdido (VMs perdidas)|N|N|Y<br /><br />BMR, seguido da recuperação regular do Servidor de Backup do Azure|
 |SQL Server/Exchange<br /><br />Backup de aplicativo Azure Backup Server<br /><br />Cópia de segurança do estado do sistema/BMR|Dados da aplicação perdidos|S|N|N|
-|SQL Server/Exchange<br /><br />Backup de aplicativo Azure Backup Server<br /><br />Cópia de segurança do estado do sistema/BMR|Sistema operativo perdido ou danificado|N|Y|Y|
+|SQL Server/Exchange<br /><br />Backup de aplicativo Azure Backup Server<br /><br />Cópia de segurança do estado do sistema/BMR|Sistema operativo perdido ou danificado|N|Y|S|
 |SQL Server/Exchange<br /><br />Backup de aplicativo Azure Backup Server<br /><br />Cópia de segurança do estado do sistema/BMR|Servidor perdido (base de dados/registos de transações intactos)|N|N|Y|
 |SQL Server/Exchange<br /><br />Backup de aplicativo Azure Backup Server<br /><br />Cópia de segurança do estado do sistema/BMR|Servidor perdido (base de dados/registos de transações perdidos)|N|N|Y<br /><br />Recuperação de BMR, seguida de recuperação regular do Servidor de Backup do Azure|
 
@@ -83,21 +83,21 @@ Quando a cópia de segurança terminar, o ficheiro é transferido para o computa
 
 * Para a proteção do BMR, ao contrário da proteção do estado do sistema, o Backup Server não tem requisitos de espaço no computador protegido. O Windows Server Backup transfere diretamente cópias de segurança para o computador Backup Server. O trabalho de transferência de cópias de segurança não aparece na vista backup Server **Jobs.**
 
-* Backup Server reserva 30 GB de espaço no volume de réplica para BMR. Pode alterar este loteamento de espaço na página de atribuição de **discos** no Assistente do Grupo de Proteção modificar. Ou pode utilizar os cmdlets Get-DatasourceDiskAllocation e Set-DatasourceDiskAllocation PowerShell. No volume do ponto de recuperação, a proteção do BMR requer cerca de 6 GB para uma retenção de cinco dias.
+* Backup Server reserva 30 GB de espaço no volume de réplica para BMR. Pode alterar este loteamento de espaço na página de atribuição de **discos** no Assistente do Grupo de Proteção modificar. Ou pode usar os Get-DatasourceDiskAllocation e Set-DatasourceDiskAllocation comandantes PowerShell. No volume do ponto de recuperação, a proteção do BMR requer cerca de 6 GB para uma retenção de cinco dias.
   * Não é possível reduzir o tamanho do volume da réplica para menos de 15 GB.
   * O Backup Server não calcula o tamanho da fonte de dados do BMR. Assume 30 GB para todos os servidores. Altere o valor com base no tamanho das cópias de segurança BMR que espera no seu ambiente. Pode calcular aproximadamente o tamanho de uma cópia de segurança BMR como a soma do espaço usado em todos os volumes críticos. Volumes críticos = volume de arranque + volume do sistema + volume de hospedagem de dados do sistema, tais como Ative Directory.
 
-* Se mudar da proteção do estado do sistema para a proteção BMR, a proteção BMR requer menos espaço no volume do *ponto de recuperação*. No entanto, o espaço extra no volume não é recuperado. Pode reduzir manualmente o tamanho do volume na página de atribuição de **disco de modificação** do assistente do grupo de proteção modificar. Ou pode utilizar os cmdlets Get-DatasourceDiskAllocation e Set-DatasourceDiskAllocation PowerShell.
+* Se mudar da proteção do estado do sistema para a proteção BMR, a proteção BMR requer menos espaço no volume do *ponto de recuperação*. No entanto, o espaço extra no volume não é recuperado. Pode reduzir manualmente o tamanho do volume na página de atribuição de **disco de modificação** do assistente do grupo de proteção modificar. Ou pode usar os Get-DatasourceDiskAllocation e Set-DatasourceDiskAllocation comandantes PowerShell.
 
-    Se mudar da proteção do estado do sistema para a proteção BMR, a proteção BMR requer mais espaço no volume de *réplica*. O volume é automaticamente estendido. Se pretender alterar as alocações de espaço predefinidos, utilize o cmdlet De Modificação-DiskAllocation PowerShell.
+    Se mudar da proteção do estado do sistema para a proteção BMR, a proteção BMR requer mais espaço no volume de *réplica*. O volume é automaticamente estendido. Se quiser alterar as alocações de espaço predefinidos, utilize o cmdlet powershell Modify-DiskAllocation.
 
 * Se mudar de proteção BMR para proteção do estado do sistema, então precisa de mais espaço no volume do ponto de recuperação. O Backup Server pode tentar aumentar automaticamente o volume. Se a piscina de armazenamento não tiver espaço suficiente, ocorre um erro.
 
     Se mudar de proteção BMR para proteção do estado do sistema, então precisa de espaço no computador protegido. Precisa do espaço porque a proteção do estado do sistema primeiro escreve a réplica para o computador local e depois transfere a réplica para o computador Backup Server.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
-1. **Implementar o servidor de backup Azure**. Verifique se o Servidor de Cópia de Segurança está corretamente implantado. Para obter mais informações, veja:
+1. **Implementar o servidor de backup Azure**. Verifique se o Servidor de Cópia de Segurança está corretamente implantado. Para obter mais informações, consulte:
     * [Requisitos do sistema para O Servidor de Backup Azure](/system-center/dpm/install-dpm#setup-prerequisites)
     * [Matriz de proteção do servidor de backup](backup-mabs-protection-matrix.md)
 
@@ -121,11 +121,11 @@ Para apoiar o estado do sistema e o metal nu:
 
     A cópia de segurança a curto prazo é sempre para dissixar primeiro, com a opção de fazer backup do disco para o Azure utilizando o Azure Backup (a curto ou longo prazo). Uma alternativa à cópia de segurança a longo prazo da nuvem é configurar uma cópia de segurança a longo prazo para um dispositivo de fita autónomo ou biblioteca de fitas que esteja ligada ao Backup Server.
 
-1. Na página **'Selecionar Objetivos de Curto Prazo',** escolha como voltar ao armazenamento de curto prazo no disco:
+1. Na página **'Selecionar Short-Term Objetivos',** escolha como voltar ao armazenamento de curto prazo no disco:
     * Para **o intervalo de retenção,** escolha quanto tempo para manter os dados no disco.
     * Para **a frequência de sincronização,** escolha com que frequência executar uma cópia de segurança incremental no disco. Se não quiser definir um intervalo de backup, pode selecionar **antes de um ponto de recuperação**. O Backup Server executará uma cópia de segurança completa expressa pouco antes de cada ponto de recuperação ser programado.
 
-1. Se pretender armazenar dados em fita para armazenamento a longo prazo, então na página **'Especificar Objetivos a Longo Prazo',** escolha quanto tempo para manter os dados da fita (1 a 99 anos).
+1. Se pretender armazenar dados em fita para armazenamento a longo prazo, então na página **'Especificar Long-Term Objetivos',** escolha quanto tempo para manter os dados da fita (1 a 99 anos).
     1. Para **a frequência de cópia de segurança,** escolha a frequência com que executar a cópia de segurança para a fita. A frequência baseia-se na gama de retenção selecionada:
         * Quando a faixa de retenção for de 1 a 99 anos, pode apoiar-se diariamente, semanalmente, quinzenalmente, mensal, trimestral, semesear ou anualmente.
         * Quando a gama de retenção for de 1 a 11 meses, pode voltar a subir diariamente, semanalmente, quinzenalmente ou mensalmente.
@@ -159,7 +159,7 @@ Para apoiar o estado do sistema e o metal nu:
 
     Pode replicar-se sobre a rede ou fazer o back-up offline (sementeira offline). Uma cópia de segurança offline utiliza a função Azure Import. Para obter mais informações, consulte [o fluxo de trabalho de backup offline no Azure Backup](offline-backup-azure-data-box.md).
 
-1. Na página **Resumo,** reveja as suas definições. Depois de selecionar **Criar Grupo,** ocorre a replicação inicial dos dados. Quando a replicação de dados terminar, na página **'Estado',** o estado do grupo de proteção está **OK**. As cópias de segurança acontecem de acordo com as definições do grupo de proteção.
+1. Na página  **Resumo,** reveja as suas definições. Depois de selecionar **Criar Grupo,** ocorre a replicação inicial dos dados. Quando a replicação de dados terminar, na página **'Estado',** o estado do grupo de proteção está **OK**. As cópias de segurança acontecem de acordo com as definições do grupo de proteção.
 
 ## <a name="recover-system-state-or-bmr"></a>Recuperar o estado do sistema ou a BMR
 
@@ -173,7 +173,7 @@ Para executar a recuperação no computador Backup Server:
 
 1. Os pontos de recuperação disponíveis são indicados a negrito no calendário. Selecione a data e a hora para o ponto de recuperação que pretende utilizar.
 
-1. Na página **'Tipo de Recuperação' selecione** **Copy para uma pasta de rede**.
+1. Na página  **'Tipo de Recuperação' selecione** **Copy para uma pasta de rede**.
 
 1. Na página **'Destino Especificar',** selecione o destino para os dados copiados.
 
@@ -239,7 +239,7 @@ Para executar a cópia de segurança do Servidor do Windows:
 
 1. Na página **'Tipo de Recuperação' Selecione,** selecione **Estado do Sistema**.
 
-1. Na **página Select Location for System State Recovery,** selecione **Original Location**.
+1. Na **página Select Location for System State Recovery,** selecione  **Original Location**.
 
 1. Na página **Confirmação,** selecione **Recuperar**.
 

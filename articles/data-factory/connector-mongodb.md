@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 08/12/2019
-ms.openlocfilehash: eba63ff500aad4538f5b30f11bac168cf14816c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/28/2020
+ms.openlocfilehash: bb9768c2a4d3be9ac0e06844c5ac0835707cf455
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558172"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945877"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copiar dados da MongoDB utilizando a Azure Data Factory
 
@@ -48,10 +48,10 @@ As secções seguintes fornecem detalhes sobre propriedades que são usadas para
 
 As seguintes propriedades são suportadas para o serviço ligado a MongoDB:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo |A propriedade tipo deve ser definida para: **MongoDbV2** |Sim |
-| conexãoStragem |Especificar a cadeia de ligação MongoDB, por `mongodb://[username:password@]host[:port][/[database][?options]]` exemplo. Consulte o [manual mongoDB sobre a cadeia de ligação](https://docs.mongodb.com/manual/reference/connection-string/) para obter mais detalhes. <br/><br /> Também pode colocar uma palavra-passe no Cofre da Chave Azure e retirar a  `password`   configuração da cadeia de ligação. Consulte [as credenciais da Loja no Cofre de Chaves Azure](store-credentials-in-key-vault.md) com mais detalhes. |Sim |
+| conexãoStragem |Especificar a cadeia de ligação MongoDB, por `mongodb://[username:password@]host[:port][/[database][?options]]` exemplo. Consulte o [manual mongoDB sobre a cadeia de ligação](https://docs.mongodb.com/manual/reference/connection-string/) para obter mais detalhes. <br/><br /> Também pode colocar uma corda de ligação no Cofre da Chave Azure. Consulte [as credenciais da Loja no Cofre de Chaves Azure](store-credentials-in-key-vault.md) com mais detalhes. |Sim |
 | base de dados | Nome da base de dados a que pretende aceder. | Sim |
 | connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |Não |
 
@@ -78,7 +78,7 @@ As seguintes propriedades são suportadas para o serviço ligado a MongoDB:
 
 Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte [Datasets e serviços ligados](concepts-datasets-linked-services.md). As seguintes propriedades são suportadas para conjunto de dados MongoDB:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade do tipo do conjunto de dados deve ser definida para: **MongoDbV2Collection** | Sim |
 | coleçãoName |Nome da coleção na base de dados mongoDB. |Sim |
@@ -110,7 +110,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 As seguintes propriedades são suportadas na secção fonte de **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **MongoDbV2Source** | Sim |
 | filter | Especifica o filtro de seleção utilizando operadores de consulta. Para devolver todos os documentos numa coleção, omita este parâmetro ou passe um documento vazio ( {} ). | Não |

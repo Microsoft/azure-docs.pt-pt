@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
 ms.openlocfilehash: 6c9c54450788a89a7b1aadbb0b4682a60619c061
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91334604"
 ---
 # <a name="access-and-manage-ibm-db2-resources-by-using-azure-logic-apps"></a>Aceda e gere os recursos ibm DB2 utilizando apps Azure Logic
@@ -82,12 +82,12 @@ Para configurar a sua ligação, forneça estes detalhes de conexão quando soli
 
 | Propriedade | Necessário | Descrição |
 |----------|----------|-------------|
-| **Ligar através do portal no local** | No | Aplica-se apenas a ligações no local. |
-| **Nome de conexão** | Yes | O nome da sua ligação, por exemplo, "MyLogicApp-DB2-connection" |
-| **Servidor** | Yes | O endereço ou número da porta do cólon para o seu servidor DB2, por exemplo, "myDB2server.cloudapp.net:50000" <p><p>**Nota:** Este valor é uma cadeia que representa um endereço TCP/IP ou pseudónimo, quer no formato IPv4 quer IPv6, seguido de um cólon e um número de porta TCP/IP. |
-| **Base de dados** | Yes | O nome da sua base de dados <p><p>**Nota:** Este valor é uma cadeia que representa um nome de base de dados relacional DRDA (RDBNAM): <p>- DB2 para z/OS aceita uma cadeia de 16 bytes onde a base de dados é conhecida como uma localização "IBM DB2 para z/OS". <br>- DB2 para i aceita uma cadeia de 18 bytes onde a base de dados é conhecida como uma base de dados relacional "IBM DB2 para i". <br>- DB2 para LUW aceita uma corda de 8 bytes. |
-| **Nome de Utilizador** | Yes | O seu nome de utilizador para a base de dados <p><p>**Nota:** Este valor é uma cadeia cujo comprimento se baseia na base de dados específica: <p><p>- DB2 para z/OS aceita uma corda de 8 bytes. <br>- DB2 para eu aceitar uma corda de 10 bytes. <br>- DB2 para Linux ou UNIX aceita uma corda de 8 bytes. <br>- DB2 para Windows aceita uma cadeia de 30 bytes. |
-| **Palavra-passe** | Yes | A sua senha para a base de dados |
+| **Ligar através do portal no local** | Não | Aplica-se apenas a ligações no local. |
+| **Nome de conexão** | Sim | O nome da sua ligação, por exemplo, "MyLogicApp-DB2-connection" |
+| **Servidor** | Sim | O endereço ou número da porta do cólon para o seu servidor DB2, por exemplo, "myDB2server.cloudapp.net:50000" <p><p>**Nota:** Este valor é uma cadeia que representa um endereço TCP/IP ou pseudónimo, quer no formato IPv4 quer IPv6, seguido de um cólon e um número de porta TCP/IP. |
+| **Base de dados** | Sim | O nome da sua base de dados <p><p>**Nota:** Este valor é uma cadeia que representa um nome de base de dados relacional DRDA (RDBNAM): <p>- DB2 para z/OS aceita uma cadeia de 16 bytes onde a base de dados é conhecida como uma localização "IBM DB2 para z/OS". <br>- DB2 para i aceita uma cadeia de 18 bytes onde a base de dados é conhecida como uma base de dados relacional "IBM DB2 para i". <br>- DB2 para LUW aceita uma corda de 8 bytes. |
+| **Nome de Utilizador** | Sim | O seu nome de utilizador para a base de dados <p><p>**Nota:** Este valor é uma cadeia cujo comprimento se baseia na base de dados específica: <p><p>- DB2 para z/OS aceita uma corda de 8 bytes. <br>- DB2 para eu aceitar uma corda de 10 bytes. <br>- DB2 para Linux ou UNIX aceita uma corda de 8 bytes. <br>- DB2 para Windows aceita uma cadeia de 30 bytes. |
+| **Palavra-passe** | Sim | A sua senha para a base de dados |
 ||||
 
 Por exemplo:
@@ -102,14 +102,14 @@ Antes de criar a sua ligação, já deve ter o seu portal de dados no local inst
 
 | Propriedade | Necessário | Descrição |
 |----------|----------|-------------|
-| **Ligar através do portal no local** | Yes | Aplica-se quando pretende uma ligação no local e mostra as propriedades de ligação no local. |
-| **Nome de conexão** | Yes | O nome da sua ligação, por exemplo, "MyLogicApp-DB2-connection" | 
-| **Servidor** | Yes | O endereço ou número da porta do cólon para o seu servidor DB2, por exemplo, "myDB2server:50000" <p><p>**Nota:** Este valor é uma cadeia que representa um endereço TCP/IP ou pseudónimo, quer no formato IPv4 quer IPv6, seguido de um cólon e um número de porta TCP/IP. |
-| **Base de dados** | Yes | O nome da sua base de dados <p><p>**Nota:** Este valor é uma cadeia que representa um nome de base de dados relacional DRDA (RDBNAM): <p>- DB2 para z/OS aceita uma cadeia de 16 bytes onde a base de dados é conhecida como uma localização "IBM DB2 para z/OS". <br>- DB2 para i aceita uma cadeia de 18 bytes onde a base de dados é conhecida como uma base de dados relacional "IBM DB2 para i". <br>- DB2 para LUW aceita uma corda de 8 bytes. |
-| **Autenticação** | Yes | O tipo de autenticação para a sua ligação, por exemplo, "Básico" <p><p>**Nota:** Selecione este valor da lista, que inclui Básico ou Windows (Kerberos). |
-| **Nome de Utilizador** | Yes | O seu nome de utilizador para a base de dados <p><p>**Nota:** Este valor é uma cadeia cujo comprimento se baseia na base de dados específica: <p><p>- DB2 para z/OS aceita uma corda de 8 bytes. <br>- DB2 para eu aceitar uma corda de 10 bytes. <br>- DB2 para Linux ou UNIX aceita uma corda de 8 bytes. <br>- DB2 para Windows aceita uma cadeia de 30 bytes. |
-| **Palavra-passe** | Yes | A sua senha para a base de dados |
-| **Porta de entrada** | Yes | O nome do seu portal de dados instalado no local <p><p>**Nota:** Selecione este valor da lista, que inclui todos os gateways de dados instalados dentro do seu grupo de subscrição e recursos Azure. |
+| **Ligar através do portal no local** | Sim | Aplica-se quando pretende uma ligação no local e mostra as propriedades de ligação no local. |
+| **Nome de conexão** | Sim | O nome da sua ligação, por exemplo, "MyLogicApp-DB2-connection" | 
+| **Servidor** | Sim | O endereço ou número da porta do cólon para o seu servidor DB2, por exemplo, "myDB2server:50000" <p><p>**Nota:** Este valor é uma cadeia que representa um endereço TCP/IP ou pseudónimo, quer no formato IPv4 quer IPv6, seguido de um cólon e um número de porta TCP/IP. |
+| **Base de dados** | Sim | O nome da sua base de dados <p><p>**Nota:** Este valor é uma cadeia que representa um nome de base de dados relacional DRDA (RDBNAM): <p>- DB2 para z/OS aceita uma cadeia de 16 bytes onde a base de dados é conhecida como uma localização "IBM DB2 para z/OS". <br>- DB2 para i aceita uma cadeia de 18 bytes onde a base de dados é conhecida como uma base de dados relacional "IBM DB2 para i". <br>- DB2 para LUW aceita uma corda de 8 bytes. |
+| **Autenticação** | Sim | O tipo de autenticação para a sua ligação, por exemplo, "Básico" <p><p>**Nota:** Selecione este valor da lista, que inclui Básico ou Windows (Kerberos). |
+| **Nome de Utilizador** | Sim | O seu nome de utilizador para a base de dados <p><p>**Nota:** Este valor é uma cadeia cujo comprimento se baseia na base de dados específica: <p><p>- DB2 para z/OS aceita uma corda de 8 bytes. <br>- DB2 para eu aceitar uma corda de 10 bytes. <br>- DB2 para Linux ou UNIX aceita uma corda de 8 bytes. <br>- DB2 para Windows aceita uma cadeia de 30 bytes. |
+| **Palavra-passe** | Sim | A sua senha para a base de dados |
+| **Porta de entrada** | Sim | O nome do seu portal de dados instalado no local <p><p>**Nota:** Selecione este valor da lista, que inclui todos os gateways de dados instalados dentro do seu grupo de subscrição e recursos Azure. |
 ||||
 
 Por exemplo:
@@ -153,8 +153,8 @@ Para obter um registo numa tabela de bases de dados DB2, utilize a ação **de l
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Nome da mesa** | Yes | A tabela que tem o registo que deseja, como "AREA" neste exemplo |
-   | **ID de área** | Yes | O ID para o registo que deseja, como "99999" neste exemplo |
+   | **Nome da tabela** | Sim | A tabela que tem o registo que deseja, como "AREA" neste exemplo |
+   | **ID de área** | Sim | O ID para o registo que deseja, como "99999" neste exemplo |
    ||||
 
    ![Screenshot que mostra a ação "Get row (Preview)" com a lista de "Nome de mesa" aberta e o valor "AREA" selecionado.](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
@@ -233,10 +233,10 @@ Para adicionar um único registo a uma tabela de base de dados DB2, utilize a a�
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Nome da mesa** | Yes | A tabela onde adicionar o recorde, como "AREA" |
-   | **ID de área** | Yes | O ID para a área a adicionar, como "99999" |
-   | **Descrição da área** | Yes | A descrição para a área a adicionar, como "Área 99999" |
-   | **ID da região** | Yes | O ID para a região a adicionar, como "102" |
+   | **Nome da tabela** | Sim | A tabela onde adicionar o recorde, como "AREA" |
+   | **ID de área** | Sim | O ID para a área a adicionar, como "99999" |
+   | **Descrição da área** | Sim | A descrição para a área a adicionar, como "Área 99999" |
+   | **ID da região** | Sim | O ID para a região a adicionar, como "102" |
    |||| 
 
    Por exemplo:
@@ -280,11 +280,11 @@ Para atualizar um único registo numa tabela de base de dados DB2, utilize a aç
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Nome da mesa** | Yes | A tabela onde atualizar o registo, como "AREA" |
-   | **ID de linha** | Yes | O ID para o registo a atualizar, como "99999" |
-   | **ID de área** | Yes | O novo ID da área, como "99999" |
-   | **Descrição da área** | Yes | A nova descrição da área, como "Atualizado 99999" |
-   | **ID da região** | Yes | O novo ID da região, como o "102" |
+   | **Nome da tabela** | Sim | A tabela onde atualizar o registo, como "AREA" |
+   | **ID de linha** | Sim | O ID para o registo a atualizar, como "99999" |
+   | **ID de área** | Sim | O novo ID da área, como "99999" |
+   | **Descrição da área** | Sim | A nova descrição da área, como "Atualizado 99999" |
+   | **ID da região** | Sim | O novo ID da região, como o "102" |
    ||||
 
    Por exemplo:
@@ -328,8 +328,8 @@ Para eliminar um único registo de uma tabela de bases de dados DB2, utilize a a
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Nome da mesa** | Yes | A tabela onde apagar o registo, como "AREA" |
-   | **ID de linha** | Yes | O ID para que o registo apague, como "99999" |
+   | **Nome da tabela** | Sim | A tabela onde apagar o registo, como "AREA" |
+   | **ID de linha** | Sim | O ID para que o registo apague, como "99999" |
    ||||
 
    Por exemplo:

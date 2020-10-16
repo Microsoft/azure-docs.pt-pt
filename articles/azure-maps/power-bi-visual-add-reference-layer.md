@@ -10,13 +10,13 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: eb6c9fed42f263ca6cfaa1ea975d31cb8f4a75cf
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86261948"
 ---
-# <a name="add-a-reference-layer"></a>Adicione uma camada de referência
+# <a name="add-a-reference-layer"></a>Adicionar uma camada de referência
 
 A função de camada de referência permite que um conjunto de dados espaciais secundário seja carregado para o visual e sobreposto no mapa para fornecer contexto de adição. Este conjunto de dados é hospedado pelo Power BI e deve ser um [ficheiro GeoJSON](https://wikipedia.org/wiki/GeoJSON) com uma `.json` extensão de `.geojson` ficheiro ou de ficheiro.
 
@@ -31,7 +31,7 @@ O mapa a seguir é exibido [em 2016 recenseamentos para o Colorado](https://gith
 
 Seguem-se todas as definições no painel **de formato** que estão disponíveis na secção camada **de referência.**
 
-| Definição              | Descrição   |
+| Definições              | Descrição   |
 |----------------------|---------------|
 | Dados da camada de referência | O ficheiro GeoJSON de dados para carregar para o visual como uma camada adicional dentro do mapa. O botão **de ficheiro + Adicionar local** abre um diálogo de ficheiro que o utilizador pode usar para selecionar um ficheiro GeoJSON que tenha uma `.json` extensão de ficheiro ou de `.geojson` ficheiro. |
 

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 33b70ba8ab7ffef90c42f53e58a2d27e619862f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84806785"
 ---
 # <a name="use-private-ip-for-internal-routing-for-an-ingress-endpoint"></a>Use IP privado para encaminhamento interno para um ponto final ingress 

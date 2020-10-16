@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: baa03499cc11bda24ead986dd64621572484cbb1
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89279657"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Conceitos de design
@@ -197,5 +197,5 @@ Leia [Adicione o seu nome de domínio personalizado ao Azure Ative Directory](..
 
 O Azure AD Connect deteta se estiver a funcionar num ambiente de domínio não roteado e avisa-o adequadamente de avançar com as definições expressas. Se estiver a operar num domínio não-encaminhável, é provável que a UPN, dos utilizadores, também tenha sufixos não-roteáveis. Por exemplo, se estiver a funcionar sob contoso.local, o Azure AD Connect sugere que utilize definições personalizadas em vez de utilizar definições expressas. Utilizando definições personalizadas, é possível especificar o atributo que deve ser usado como UPN para iniciar sação no Azure depois de os utilizadores serem sincronizados com a Azure AD.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

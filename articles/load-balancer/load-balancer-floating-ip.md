@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 07/13/2020
 ms.author: allensu
 ms.openlocfilehash: e15aab3ebfe82fa97f5716769b5ff9675b4b3dc4
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91637440"
 ---
 # <a name="azure-load-balancer-floating-ip-configuration"></a>Configuração IP flutuante do balançador de carga Azure

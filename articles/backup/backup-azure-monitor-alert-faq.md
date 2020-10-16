@@ -5,10 +5,10 @@ ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.openlocfilehash: cf6929b9b926a6e6469f3fa789a19e60d5883d21
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89181498"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Alerta de monitorização de backup Azure - FAQ
@@ -60,7 +60,7 @@ Um alerta é levantado dentro de 20 minutos da falha do Backup Azure.
 
 ### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Existe algum caso em que um e-mail não será enviado se as notificações estiverem configuradas?
 
-Yes. Nas seguintes situações, as notificações não são enviadas:
+Sim. Nas seguintes situações, as notificações não são enviadas:
 
 * Se as notificações forem configuradas de hora em hora, e um alerta for levantado e resolvido dentro de uma hora
 * Quando um trabalho é cancelado

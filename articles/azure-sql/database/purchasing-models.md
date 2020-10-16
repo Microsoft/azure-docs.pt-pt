@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/28/2020
 ms.openlocfilehash: aef29eef7eb53c4cc4ffcc4926f9efe533374178
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319457"
 ---
 # <a name="choose-between-the-vcore-and-dtu-purchasing-models---azure-sql-database-and-sql-managed-instance"></a>Escolha entre os modelos de compra vCore e DTU - Azure SQL Database e SQL Managed Instance
@@ -162,7 +162,7 @@ Os clientes com cargas de trabalho sensíveis a alterações de hardware ou clie
 
 ### <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-service-tier-to-a-vcore-based-service-tier"></a>Preciso de tirar a minha aplicação offline para converter de um nível de serviço baseado em DTU para um nível de serviço baseado em vCore?
 
-Não. Não precisas de desligar a aplicação. Os novos níveis de serviço oferecem um método simples de conversão on-line semelhante ao processo existente de upgrade de bases de dados do padrão para o nível de serviço premium e o contrário. Pode iniciar esta conversão utilizando o portal Azure, PowerShell, O Azure CLI, T-SQL ou a API REST. Consulte [Gerir bases de dados únicas](single-database-scale.md) e gerir [piscinas elásticas.](elastic-pool-overview.md)
+N.º Não precisas de desligar a aplicação. Os novos níveis de serviço oferecem um método simples de conversão on-line semelhante ao processo existente de upgrade de bases de dados do padrão para o nível de serviço premium e o contrário. Pode iniciar esta conversão utilizando o portal Azure, PowerShell, O Azure CLI, T-SQL ou a API REST. Consulte [Gerir bases de dados únicas](single-database-scale.md) e gerir [piscinas elásticas.](elastic-pool-overview.md)
 
 ### <a name="can-i-convert-a-database-from-a-service-tier-in-the-vcore-based-purchasing-model-to-a-service-tier-in-the-dtu-based-purchasing-model"></a>Posso converter uma base de dados de um nível de serviço no modelo de compra baseado em vCore para um nível de serviço no modelo de compra baseado em DTU?
 

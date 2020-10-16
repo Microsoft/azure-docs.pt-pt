@@ -9,17 +9,17 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 2a196e717dd6e02570e4bdf830a24ce342b47ece
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88140552"
 ---
 # <a name="create-the-azure-vmware-solution-by-cloudsimple-service"></a>Crie a Solução Azure VMware by CloudSimple
 
 Para começar com a Azure VMware Solution by CloudSimple, crie o serviço Azure VMware Solution by CloudSimple no portal Azure.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Aloque um bloco CIDR /28 para a sub-rede gateway. Uma sub-rede de gateway é necessária por serviço CloudSimple e é única na região em que é criada. A sub-rede gateway é utilizada para serviços de rede de borda e requer um bloco CIDR /28. O espaço de endereço da sub-rede gateway deve ser único. Não deve sobrepor-se a qualquer rede que comunique com o ambiente CloudSimple. As redes que comunicam com o CloudSimple incluem redes no local e redes virtuais Azure.
 
@@ -45,7 +45,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 O serviço é criado e adicionado à lista de serviços.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [providenciar os nóns](create-nodes.md)
 * Saiba como [criar uma nuvem privada](create-private-cloud.md)

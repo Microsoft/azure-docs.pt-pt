@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 7f9677bfd793e7ff21ff2c6c7e6760b630dc074b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90898532"
 ---
 # <a name="decision-forest-regression-module"></a>Módulo de Regressão Florestal de Decisão
@@ -38,7 +38,7 @@ As árvores de decisão têm estas vantagens:
 
 Este modelo de regressão consiste num conjunto de árvores de decisão. Cada árvore numa decisão de regressão a floresta produz uma distribuição gaussiana como uma previsão. Uma agregação é realizada sobre o conjunto de árvores para encontrar uma distribuição gaussiana mais próxima da distribuição combinada para todas as árvores do modelo.
 
-Para obter mais informações sobre o enquadramento teórico deste algoritmo e a sua implementação, consulte este artigo: [Decisão Florestas: Um Quadro Unificado de Classificação, Regressão, Estimativa de Densidade, Aprendizagem de Variedades e Aprendizagem Semi-Supervisionada](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#)
+Para obter mais informações sobre o enquadramento teórico deste algoritmo e a sua implementação, consulte este artigo: [Decisão Florestas: Um Quadro Unificado para a Classificação, Regressão, Estimativa de Densidade, Aprendizagem de Variedades e Aprendizagem Semi-Supervised](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#)
 
 ## <a name="how-to-configure-decision-forest-regression-model"></a>Como configurar o modelo de regressão florestal da decisão
 
@@ -96,7 +96,7 @@ Para obter mais informações sobre o enquadramento teórico deste algoritmo e a
 
 10. Envie o oleoduto.
 
-### <a name="results"></a>Resultados
+### <a name="results"></a>Results
 
 Após o treino estar completo:
 

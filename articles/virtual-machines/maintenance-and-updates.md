@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/22/2020
 ms.author: shants
-ms.openlocfilehash: 5dcf4ad7acb3becd2ca04407bc8e5b3ac45701f1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3cf126caaaa0c518574418aca194ebd82cc4d6b9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86501709"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972072"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Manutenção de máquinas virtuais no Azure
 
@@ -23,7 +23,7 @@ As atualizações raramente afetam os VMs hospedados. Quando as atualizações t
 - Se a atualização não necessitar de um reboot, o VM é interrompido enquanto o hospedeiro é atualizado, ou o VM é migrado ao vivo para um hospedeiro já atualizado. 
 - Se a manutenção necessitar de um reboot, é notificado da manutenção planeada. O Azure também fornece uma janela de tempo na qual você pode iniciar a manutenção por si mesmo, numa altura que funciona para si. A janela de auto-manutenção é normalmente de 35 dias, a menos que a manutenção seja urgente. O Azure está a investir em tecnologias para reduzir o número de casos em que a manutenção planeada da plataforma exige que os VM sejam reiniciados. Para obter instruções sobre a gestão da manutenção planeada, consulte as notificações de manutenção planeadas utilizando o Azure [CLI,](maintenance-notifications-cli.md) [PowerShell](maintenance-notifications-powershell.md) ou [portal](maintenance-notifications-portal.md).
 
-Esta página descreve como a Azure executa ambos os tipos de manutenção. Para obter mais informações sobre eventos não planeados (interrupções), consulte [Gerir a disponibilidade de VMs para Windows](./windows/manage-availability.md) ou o artigo correspondente para o [Linux.](./linux/manage-availability.md)
+Esta página descreve como a Azure executa ambos os tipos de manutenção. Para obter mais informações sobre eventos não planeados (interrupções), consulte [Gerir a disponibilidade de VMs para Windows](./manage-availability.md) ou o artigo correspondente para o [Linux.](./manage-availability.md)
 
 Dentro de um VM, você pode obter notificações sobre a próxima manutenção [usando Eventos Agendados para Windows](./windows/scheduled-events.md) ou para [Linux](./linux/scheduled-events.md).
 
@@ -41,7 +41,7 @@ Estas operações de manutenção que não requerem um reboot são aplicadas um 
 
 Este tipo de atualizações pode afetar algumas aplicações. Quando o VM é migrado ao vivo para um hospedeiro diferente, algumas cargas de trabalho sensíveis podem mostrar uma ligeira degradação do desempenho nos poucos minutos que antecedem a pausa VM. Para preparar a manutenção de VM e reduzir o impacto durante a manutenção do Azure, tente [utilizar Eventos Programados para Windows](./windows/scheduled-events.md) ou [Linux](./linux/scheduled-events.md) para tais aplicações. 
 
-Para um maior controlo em todas as atividades de manutenção, incluindo atualizações de impacto zero e rebootless, pode utilizar a função de Controlo de Manutenção. Deve utilizar anfitriões [dedicados Azure](./linux/dedicated-hosts.md) ou um [VM isolado.](../security/fundamentals/isolation-choices.md) O controlo de manutenção dá-lhe a opção de ignorar todas as atualizações da plataforma e aplicar as atualizações à sua escolha dentro de uma janela de 35 dias. Para obter mais informações, consulte [atualizações de Controlo com o Controlo de Manutenção e o CLI Azure](maintenance-control.md).
+Para um maior controlo em todas as atividades de manutenção, incluindo atualizações de impacto zero e rebootless, pode utilizar a função de Controlo de Manutenção. Deve utilizar anfitriões [dedicados Azure](./dedicated-hosts.md) ou um [VM isolado.](../security/fundamentals/isolation-choices.md) O controlo de manutenção dá-lhe a opção de ignorar todas as atualizações da plataforma e aplicar as atualizações à sua escolha dentro de uma janela de 35 dias. Para obter mais informações, consulte [atualizações de Controlo com o Controlo de Manutenção e o CLI Azure](maintenance-control.md).
 
 
 ### <a name="live-migration"></a>Migração em direto
@@ -87,7 +87,7 @@ Dentro de um conjunto de disponibilidade, os VM individuais são distribuídos p
 
 Os *conjuntos* de escala de máquina virtual são um recurso de computação Azure que pode usar para implementar e gerir um conjunto de VMs idênticos como um único recurso. O conjunto de escala é automaticamente implantado em UDs, como VMs em um conjunto de disponibilidade. Tal como acontece com os conjuntos de disponibilidade, quando utiliza conjuntos de escala, apenas um UD é atualizado a qualquer momento durante a manutenção programada.
 
-Para obter mais informações sobre a configuração dos seus VMs para uma elevada disponibilidade, consulte [Gerir a disponibilidade dos seus VMs para Windows](./windows/manage-availability.md) ou o artigo correspondente para o [Linux.](./linux/manage-availability.md)
+Para obter mais informações sobre a configuração dos seus VMs para uma elevada disponibilidade, consulte [Gerir a disponibilidade dos seus VMs para Windows](./manage-availability.md) ou o artigo correspondente para o [Linux.](./manage-availability.md)
 
 #### <a name="availability-zones"></a>Zonas de disponibilidade
 
@@ -97,6 +97,6 @@ Uma zona de disponibilidade é uma combinação de um domínio de falha e um dom
 
 Cada atualização de infraestrutura sai de zona por zona, dentro de uma única região. Mas, você pode ter a implantação em curso na Zona 1, e diferente implementação indo na Zona 2, ao mesmo tempo. As implementações não são todas serializadas. Mas, uma única implantação só sai uma zona de cada vez para reduzir o risco.
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 
-Pode utilizar o [Azure CLI,](maintenance-notifications-cli.md) [a Azure PowerShell](maintenance-notifications-powershell.md) ou o [portal](maintenance-notifications-portal.md) para gerir a manutenção planeada. 
+Pode utilizar o [Azure CLI,](maintenance-notifications-cli.md) [a Azure PowerShell](maintenance-notifications-powershell.md) ou o [portal](maintenance-notifications-portal.md) para gerir a manutenção planeada.

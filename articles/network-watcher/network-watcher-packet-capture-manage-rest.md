@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 38d55c14690a838e853c873a066eae6534d49c6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84725074"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>Gerir capturas de pacotes com O Observador de Rede Azure usando AZure REST API
@@ -40,7 +40,7 @@ Este artigo leva-o através das diferentes tarefas de gestão que estão atualme
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Neste cenário, ligue para a API de Repouso do Observador de Rede para executar a Verificação do Fluxo IP. A ARMclient é utilizada para chamar a API REST usando o PowerShell. ARMClient é encontrado em chocolate no [ARMClient em Chocolatey](https://chocolatey.org/packages/ARMClient)
 
@@ -299,7 +299,7 @@ armclient delete "https://management.azure.com/subscriptions/${subscriptionId}/R
 > [!NOTE]
 > A eliminação de uma captura de pacotes não elimina o ficheiro na conta de armazenamento
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter instruções sobre o descarregamento de ficheiros a partir de contas de armazenamento azul, consulte para [começar com o armazenamento Azure Blob usando .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Storage Explorer. Mais informações sobre o Storage Explorer podem ser encontradas aqui no seguinte link: [Storage Explorer](https://storageexplorer.com/)
 

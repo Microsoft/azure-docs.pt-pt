@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: absha
 ms.openlocfilehash: d33ec829e490ae45d38d33f5784126a71ae2d0aa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86506558"
 ---
 # <a name="how-an-application-gateway-works"></a>Como funciona um gateway de aplicações
@@ -64,6 +64,6 @@ Os valores válidos para x-forward-proto são HTTP ou HTTPS. A porta x-reencamin
 
 Pode configurar o gateway de aplicações para modificar os cabeçalhos de pedido e resposta e URL utilizando [cabeçalhos e URL HTTP de reescrita](rewrite-http-headers-url.md) ou modificar o caminho URI utilizando uma definição de sobreposição de caminhos. No entanto, a menos que configurado para fazê-lo, todos os pedidos de entrada são proxiemente para o backend.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba mais sobre os componentes do gateway de aplicações](application-gateway-components.md)

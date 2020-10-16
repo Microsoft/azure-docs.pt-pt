@@ -5,20 +5,20 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: overview
-ms.date: 09/01/2020
+ms.date: 10/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: 680eb8414696109e8cc15d82d8bd5f2c5740f488
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f4aa1ef29ffb27efb29d969e48af4cf5288e08ae
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89291879"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014788"
 ---
 # <a name="what-is-azure-bastion"></a>O que é o Azure Bastion?
 
-O serviço Azure Bastion é um novo serviço PaaS totalmente gerido pela plataforma que fornece dentro da sua rede virtual. Fornece conectividade RDP/SSH segura e sem emenda às suas máquinas virtuais diretamente no portal Azure sobre TLS. Ao ligar-se através do Azure Bastion, as suas máquinas virtuais não precisam de um endereço IP público.
+Azure Bastion é um serviço que implementa e permite ligar-se a uma máquina virtual utilizando o seu navegador e o portal Azure. O serviço Azure Bastion é um serviço PaaS totalmente gerido pela plataforma que fornece dentro da sua rede virtual. Fornece conectividade RDP/SSH segura e sem emenda às suas máquinas virtuais diretamente do portal Azure sobre TLS. Quando se conecta através do Azure Bastion, as suas máquinas virtuais não necessitam de um endereço IP público, agente ou software especial para clientes.
 
-A Bastion proporciona uma conectividade segura de PDR e SSH a todos os VMs da rede virtual em que é alovisionado. A utilização do Azure Bastion protege as suas máquinas virtuais de expor portas RDP/SSH ao mundo exterior, ao mesmo tempo que fornece acesso seguro utilizando RDP/SSH. Com o Azure Bastion, liga-se à máquina virtual diretamente a partir do portal Azure. Não precisa de um cliente adicional, agente ou software.
+A Bastion proporciona uma conectividade segura de PDR e SSH a todos os VMs da rede virtual em que é alovisionado. A utilização do Azure Bastion protege as suas máquinas virtuais de expor portas RDP/SSH ao mundo exterior, ao mesmo tempo que fornece acesso seguro utilizando RDP/SSH.
 
 ## <a name="architecture"></a>Arquitetura
 
@@ -57,5 +57,5 @@ Subscreva o feed RSS e veja as últimas atualizações da funcionalidade Azure B
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Criar um recurso de anfitrião Azure Bastion](bastion-create-host-portal.md).
+* [Tutorial: Criar um hospedeiro Azure Bastion e ligar-se a um Windows VM](tutorial-create-host-portal.md).
 * Saiba mais sobre algumas das outras principais [capacidades de rede](../networking/networking-overview.md) do Azure.

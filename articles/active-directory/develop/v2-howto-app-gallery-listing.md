@@ -13,10 +13,10 @@ ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
 ms.openlocfilehash: dc271fa768bee66107e66a1b8d4f16c1188ce418
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89439749"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publique a sua app na galeria de aplicações AZure AD
@@ -143,8 +143,8 @@ Se a sua aplicação suportar SAML 2.0, pode integrá-la diretamente com um inqu
 
 A Microsoft não fornece, nem recomenda, bibliotecas para implementações SAML. Há muitas bibliotecas de código aberto disponíveis.
 
-### <a name="implement-ws-fed"></a>Implementar wS-fed
-Para saber mais sobre a WS-Fed em ASP.NET Core, consulte [os utilizadores autenticados com a WS-Federation em ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/authentication/ws-federation).
+### <a name="implement-ws-fed"></a>Implementar WS-Fed
+Para saber mais sobre WS-Fed no ASP.NET Core, consulte [os utilizadores autenticados com WS-Federation no ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/authentication/ws-federation).
 
 ### <a name="implement-password-vaulting"></a>Implementar abóbada de senha
 
@@ -238,7 +238,7 @@ Se pretender adicionar a sua aplicação à lista na galeria utilizando o OpenID
 
 Se pretender adicionar a sua candidatura à lista na galeria utilizando **SAML 2.0** ou **WS-Fed,** selecione **SAML 2.0/WS-Fed** como mostrado.
 
-![Listando uma aplicação SAML 2.0 ou WS-Fed na galeria](./media/howto-app-gallery-listing/saml.png)
+![Listando um pedido DE SAML 2.0 ou WS-Fed na galeria](./media/howto-app-gallery-listing/saml.png)
 
 Se pretender adicionar a sua aplicação à lista na galeria utilizando a palavra-passe SSO, selecione **Password SSO** como mostrado.
 
@@ -260,7 +260,7 @@ Pode atualizar ou remover uma aplicação de galeria existente no portal da [Red
 
 ### <a name="timelines"></a>Linhas cronológicas
 
-A cronologia para o processo de listagem de uma aplicação SAML 2.0 ou WS-Fed na galeria é de 7 a 10 dias úteis.
+A cronologia do processo de listagem de um pedido DE SAML 2.0 ou WS-Fed na galeria é de 7 a 10 dias úteis.
 
 ![Cronologia para listar uma aplicação SAML na galeria](./media/howto-app-gallery-listing/timeline.png)
 
@@ -277,6 +277,6 @@ Para qualquer escalada, envie um e-mail para a [Equipa de Integração Azure AD 
 A Microsoft Partner Network fornece acesso instantâneo a recursos exclusivos, programas, ferramentas e conexões. Para aderir à rede e criar o seu plano de mercado, consulte [os clientes comerciais Reach.](https://partner.microsoft.com/explore/commercial#gtm)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Construa um ponto final SCIM e configuure o fornecimento de utilizadores](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 * [Cenários de autenticação para Azure AD](authentication-flows-app-scenarios.md)

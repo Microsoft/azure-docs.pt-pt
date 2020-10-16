@@ -17,10 +17,10 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6140f5fd431a0b089b45892130e075bde02a2eb2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91299770"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health frequentemente fez perguntas
@@ -70,10 +70,10 @@ O Azure AD Connect Health não é suportado na Cloud da Alemanha, exceto na [fun
 
 | Funções | Funcionalidades | Apoiado na Nuvem Alemã |
 | ------ | --------------- | --- |
-| Conecte saúde para sincronização | Monitorização / Insight / Alertas / Análise | No |
-|  | Relatório de erro sincronizado | Yes |
-| Ligar saúde para ADFS | Monitorização / Insight / Alertas / Análise | No |
-| Conecte saúde para ADDS | Monitorização / Insight / Alertas / Análise | No |
+| Conecte saúde para sincronização | Monitorização / Insight / Alertas / Análise | Não |
+|  | Relatório de erro sincronizado | Sim |
+| Ligar saúde para ADFS | Monitorização / Insight / Alertas / Análise | Não |
+| Conecte saúde para ADDS | Monitorização / Insight / Alertas / Análise | Não |
 
 Para garantir a conectividade do agente da Connect Health para sincronização, por favor, configure o [requisito de instalação](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) em conformidade.
 
@@ -98,7 +98,7 @@ Os seguintes números são uma aproximação:
 
 **P: Terei de reiniciar os meus servidores durante a instalação dos Agentes de Saúde AZure AD Connect?**
 
-Não. A instalação dos agentes não exigirá que reinicie o servidor. No entanto, a instalação de alguns passos pré-requisitos pode exigir um reinício do servidor.
+N.º A instalação dos agentes não exigirá que reinicie o servidor. No entanto, a instalação de alguns passos pré-requisitos pode exigir um reinício do servidor.
 
 Por exemplo, no Windows Server 2008 R2, a instalação do Quadro .NET 4.5 requer um reboot do servidor.
 
@@ -115,7 +115,7 @@ Se precisar de configurar um representante durante o registo do agente, poderá 
 
 **P: A Azure AD Connect Health suporta a autenticação básica ao ligar-se a proxies HTTP?**
 
-Não. Um mecanismo para especificar um nome de utilizador arbitrário e uma palavra-passe para a autenticação básica não é suportado atualmente.
+N.º Um mecanismo para especificar um nome de utilizador arbitrário e uma palavra-passe para a autenticação básica não é suportado atualmente.
 
 **P: Que portas de firewall preciso de abrir para que o Agente de Saúde AD Connect AZure funcione?**
 
@@ -131,7 +131,7 @@ Neste caso, elimine manualmente a entrada que pertence ao servidor mais antigo. 
 
 **P: Posso instalar o agente de saúde Azure AD Connect no Windows Server Core?**
 
-Não.  A instalação no Núcleo do Servidor não é suportada.
+N.º  A instalação no Núcleo do Servidor não é suportada.
 
 ## <a name="health-agent-registration-and-data-freshness"></a>Registo de agentes de saúde e frescura de dados
 

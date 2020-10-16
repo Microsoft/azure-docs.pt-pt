@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
 ms.openlocfilehash: 167028cda6962445373b22c5f3d0a9e56c3e608a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89255415"
 ---
 # <a name="manage-azure-media-services-v2-accounts"></a>Gerir contas V2 da Azure Media Services

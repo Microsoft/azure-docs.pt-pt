@@ -5,22 +5,22 @@ ms.topic: include
 ms.date: 06/19/2020
 ms.author: alkohli
 ms.openlocfilehash: 526b3ad89e128d264b5d14d8cc87d9a81d431a9c
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
-ms.translationtype: MT
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86210469"
 ---
-Antes de iniciar a cópia de dados:
+Antes de começar a cópia dos dados:
 
-1. Descarregue o registo de *cópias*. Na página **'Ligar e copiar',** selecione **Copy log**. Quando solicitado, guarde o registo no seu sistema. 
+1. Transfira o *registo da cópia*. Na página **Ligar e copiar**, selecione **Registo da cópia**. Quando lhe for pedido, guarde o registo no seu sistema. 
 
-    ![Baixar registo de cópia 1](../articles/databox/media/data-box-deploy-export-copy-data/download-copy-log-1.png)
+    ![Transferir o registo da cópia 1](../articles/databox/media/data-box-deploy-export-copy-data/download-copy-log-1.png)
 
   
-    Repita os passos para descarregar o *registo verbose*. 
+    Repita os passos para transferir o *registo verboso*. 
 
-2. Reveja o *registo verboso*. O *registo verboso* contém uma lista de todos os ficheiros que foram exportados com sucesso da conta de Armazenamento Azure. O registo também contém o tamanho do ficheiro e a computação checkum.
+2. Examine o *registo verboso*. O *registo verboso* contém uma lista de todos os ficheiros exportados com êxito da conta do Armazenamento do Azure. O registo também contém o tamanho dos ficheiros e o cálculo da soma de verificação.
 
     ```powershell
     <File CloudFormat="BlockBlob" Path="validblobdata/test1.2.3.4" Size="1024" crc64="7573843669953104266">
@@ -52,9 +52,9 @@ Antes de iniciar a cópia de dados:
     </File>
     ``````
 
-3. Reveja o registo de *cópias* para eventuais erros. Este registo indica os ficheiros que não puderam ser copiados devido a erros.
+3. Examine o *registo da cópia* para detetar possíveis erros. Este registo mostra os ficheiros que não foram copiados devido a erros.
 
-    Aqui está uma saída de amostra de registo de cópia quando não houve erros e todos os ficheiros foram copiados durante a cópia de dados do dispositivo Azure para data box.
+    Aqui está um exemplo de saída do registo da cópia quando não existem erros e todos os ficheiros foram copiados durante a cópia dos dados do Azure para o dispositivo do Data Box.
 
     ```powershell
     <CopyLog Summary="Summary">
@@ -63,7 +63,7 @@ Antes de iniciar a cópia de dados:
       <FilesErrored>0</FilesErrored>
     </CopyLog>
     ``` 
-    Aqui está uma saída de amostra quando o registo de cópia sofre erros e alguns dos ficheiros não copiaram do Azure.
+    Aqui está um exemplo de saída quando o registo da cópia apresenta erros e alguns dos ficheiros não foram copiados do Azure.
 
     ```powershell
     <ErroredEntity CloudFormat="AppendBlob" Path="export-ut-appendblob/wastorage.v140.3.0.2.nupkg">
@@ -90,5 +90,5 @@ Antes de iniciar a cópia de dados:
 
     Tem as seguintes opções para exportar esses ficheiros: 
 
-    - Pode transferir os ficheiros que não puderam ser copiados pela rede. 
-    - Se o seu tamanho de dados for maior do que a capacidade do dispositivo utilizável, então ocorre uma cópia parcial e todos os ficheiros que não foram copiados estão listados neste registo. Pode utilizar este registo como um XML de entrada para criar uma nova encomenda de Caixa de Dados e, em seguida, copiar sobre estes ficheiros.
+    - Pode transferir os ficheiros que não foi possível copiar através da rede. 
+    - Se o tamanho dos dados for superior à capacidade utilizável do dispositivo, ocorre uma cópia parcial e todos os ficheiros que não foram copiados são listados neste registo. Pode utilizar este registo como XML de entrada para criar uma nova encomenda do Data Box e, em seguida, copiar esses ficheiros.

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2018
 ms.openlocfilehash: 1e674bf157d55c9b5f7cf49e8df5e17acb99ee3a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86539402"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guia de referência para ver peças de visualização do designer no Azure Monitor
@@ -31,7 +31,7 @@ Os tipos de azulejos disponíveis do View Designer são descritos na tabela segu
 | [Dois números e lista](#two-numbers-and-list-part) |O cabeçalho apresenta dois números que mostram registos de consultas de registo separadas. A lista apresenta os dez primeiros resultados de uma consulta, com um gráfico que indica o valor relativo de uma coluna numérica ou a sua alteração ao longo do tempo. |
 | [Donut e lista](#donut-and-list-part) |O cabeçalho apresenta um único número que resume uma coluna de valor numa consulta de registo. O donut apresenta graficamente os resultados dos três melhores registos. |
 | [Duas cronologias e lista](#two-timelines-and-list-part) |O cabeçalho apresenta os resultados de duas consultas de registo ao longo do tempo como gráficos de colunas, com uma chamada que apresenta um único número que resume uma coluna de valor numa consulta de registo. A lista apresenta os dez primeiros resultados de uma consulta, com um gráfico que indica o valor relativo de uma coluna numérica ou a sua alteração ao longo do tempo. |
-| [Informações](#information-part) |O cabeçalho apresenta texto estático e um link opcional. A lista apresenta um ou mais itens com um título e texto estáticos. |
+| [Informação](#information-part) |O cabeçalho apresenta texto estático e um link opcional. A lista apresenta um ou mais itens com um título e texto estáticos. |
 | [Gráfico de linha, chamada e lista](#line-chart-callout-and-list-part) |O cabeçalho apresenta um gráfico de linha, com várias séries de uma consulta de registo ao longo do tempo e uma chamada com um valor resumido. A lista apresenta os dez primeiros resultados de uma consulta, com um gráfico que indica o valor relativo de uma coluna numérica ou a sua alteração ao longo do tempo. |
 | [Gráfico de linha e lista](#line-chart-and-list-part) |O cabeçalho apresenta um gráfico de linha, com várias séries a partir de uma consulta de log ao longo do tempo. A lista apresenta os dez primeiros resultados de uma consulta, com um gráfico que indica o valor relativo de uma coluna numérica ou a sua alteração ao longo do tempo. |
 | [Pilha de fichas de linha parte](#stack-of-line-charts-part) |Apresenta três gráficos de linha separados, com várias séries de uma consulta de registo ao longo do tempo. |
@@ -80,10 +80,10 @@ O cabeçalho apresenta um único número que mostra uma contagem de registos de 
 | Color |A cor das barras ou das linhas de faísca. |
 | Separador de nome e valor |O delimiter de caracteres únicos para usar para analisar a propriedade do texto em múltiplos valores. Para obter mais informações, consulte [As Definições Comuns](#sparklines). |
 | Navegação por clique | Ação tomada quando clica num item da lista.  Para obter mais informações, consulte [As Definições Comuns](#click-through-navigation). |
-| **Lista** |**Títulos da Coluna>** |
-| Name |O texto que é exibido no topo da primeira coluna. |
+| **Lista** |** Títulos da Coluna>** |
+| Nome |O texto que é exibido no topo da primeira coluna. |
 | Valor |O texto que é exibido no topo da segunda coluna. |
-| **Lista** |**Limiares de>** |
+| **Lista** |** Limiares de>** |
 | Ativar limiares |Selecione este link para ativar os limiares. Para obter mais informações, consulte [As Definições Comuns](#thresholds). |
 
 ## <a name="two-numbers-and-list-part"></a>Dois números e parte da lista
@@ -111,10 +111,10 @@ O cabeçalho tem dois números que mostram uma contagem de registos de consultas
 | Operação |A operação para executar para a linha de faísca. Para obter mais informações, consulte [As Definições Comuns](#sparklines). |
 | Separador de nome e valor |O delimiter de caracteres únicos para usar para analisar a propriedade do texto em múltiplos valores. Para obter mais informações, consulte [As Definições Comuns](#sparklines). |
 | Navegação por clique | Ação tomada quando clica num item da lista.  Para obter mais informações, consulte [As Definições Comuns](#click-through-navigation). |
-| **Lista** |**Títulos da Coluna>** |
-| Name |O texto que é exibido no topo da primeira coluna. |
+| **Lista** |** Títulos da Coluna>** |
+| Nome |O texto que é exibido no topo da primeira coluna. |
 | Valor |O texto que é exibido no topo da segunda coluna. |
-| **Lista** |**Limiares de>** |
+| **Lista** |** Limiares de>** |
 | Ativar limiares |Selecione este link para ativar os limiares. Para obter mais informações, consulte [As Definições Comuns](#thresholds). |
 
 ## <a name="donut-and-list-part"></a>Donut e parte da lista
@@ -135,7 +135,7 @@ O cabeçalho apresenta um único número que resume uma coluna de valor numa con
 | **Anel** | |
 | Consulta |A consulta para correr para o donut. A primeira propriedade é um valor de texto, e a segunda propriedade é um valor numérico. |
 | Navegação por clique | Ação tomada quando clica no cabeçalho.  Para obter mais informações, consulte [As Definições Comuns](#click-through-navigation). |
-| **Anel** |**Centro>** |
+| **Anel** |** Centro>** |
 | Texto |O texto que é mostrado sob o valor dentro do donut. |
 | Operação |A operação para executar na propriedade de valor para resumi-la como um único valor.<ul><li>Soma: Acrescenta os valores de todos os registos.</li><li>Percentagem: O rácio dos registos devolvidos pelos valores em **Valores de Resultado utilizados na operação central** para o total de registos na consulta.</li></ul> |
 | Valores de resultados utilizados na operação central |Opcionalmente, selecione o sinal de mais (+) para adicionar um ou mais valores. Os resultados da consulta estão limitados a registos com os valores de propriedade que especifica. Se não forem adicionados valores, todos os registos estão incluídos na consulta. |
@@ -152,10 +152,10 @@ O cabeçalho apresenta um único número que resume uma coluna de valor numa con
 | Operação |A operação para executar para a linha de faísca. Para obter mais informações, consulte [As Definições Comuns](#sparklines). |
 | Separador de nome e valor |O delimiter de caracteres únicos para usar para analisar a propriedade do texto em múltiplos valores. Para obter mais informações, consulte [As Definições Comuns](#sparklines). |
 | Navegação por clique | Ação tomada quando clica num item da lista.  Para obter mais informações, consulte [As Definições Comuns](#click-through-navigation). |
-| **Lista** |**Títulos da Coluna>** |
-| Name |O texto que é exibido no topo da primeira coluna. |
+| **Lista** |** Títulos da Coluna>** |
+| Nome |O texto que é exibido no topo da primeira coluna. |
 | Valor |O texto que é exibido no topo da segunda coluna. |
-| **Lista** |**Limiares de>** |
+| **Lista** |** Limiares de>** |
 | Ativar limiares |Selecione este link para ativar os limiares. Para obter mais informações, consulte [As Definições Comuns](#thresholds). |
 
 ## <a name="two-timelines-and-list-part"></a>Duas linhas de tempo e parte da lista
@@ -184,10 +184,10 @@ O cabeçalho apresenta os resultados de duas consultas de registo ao longo do te
 | Color |A cor das barras ou das linhas de faísca. |
 | Operação |A operação para executar para a linha de faísca. Para obter mais informações, consulte [As Definições Comuns](#sparklines). |
 | Navegação por clique | Ação tomada quando clica num item da lista.  Para obter mais informações, consulte [As Definições Comuns](#click-through-navigation). |
-| **Lista** |**Títulos da Coluna>** |
-| Name |O texto que é exibido no topo da primeira coluna. |
+| **Lista** |** Títulos da Coluna>** |
+| Nome |O texto que é exibido no topo da primeira coluna. |
 | Valor |O texto que é exibido no topo da segunda coluna. |
-| **Lista** |**Limiares de>** |
+| **Lista** |** Limiares de>** |
 | Ativar limiares |Selecione este link para ativar os limiares. Para obter mais informações, consulte [As Definições Comuns](#thresholds). |
 
 ## <a name="information-part"></a>Parte da informação
@@ -226,14 +226,14 @@ O cabeçalho apresenta um gráfico de linha com várias séries a partir de uma 
 | **Cabeçalho** | |
 | Título |O texto que é mostrado na parte superior do cabeçalho. |
 | Subtítulo |O texto que é exibido sob o título no topo do cabeçalho. |
-| **Gráfico de linhas** | |
+| **Gráfico de linha** | |
 | Consulta |A consulta para correr para o gráfico de linha. A primeira propriedade é um valor de texto, e a segunda propriedade é um valor numérico. Esta consulta normalmente utiliza a palavra-chave da *medida* para resumir os resultados. Se a consulta utilizar a palavra-chave de *intervalo,* o eixo x do gráfico utiliza este intervalo de tempo. Se a consulta não incluir a palavra-chave de *intervalo,* o eixo x utiliza intervalos de hora. |
 | Navegação por clique | Ação tomada quando clica no cabeçalho.  Para obter mais informações, consulte [As Definições Comuns](#click-through-navigation). |
-| **Gráfico de linhas** |**> Callout** |
+| **Gráfico de linha** |**> Callout** |
 | Título de chamada |O texto que é apresentado acima do valor de chamada. |
 | Nome da série |Valor da propriedade para a série a usar para o valor de chamada. Se não forem fornecidas séries, todos os registos da consulta são utilizados. |
 | Operação |A operação para executar na propriedade de valor para resumi-la como um único valor para a chamada.<ul><li>Média: A média dos valores de todos os registos.</li><li>Contagem: A contagem de todos os registos que são devolvidos pela consulta.</li><li>Última amostra: o valor do último intervalo incluído na tabela.</li><li>Max: O valor máximo dos intervalos incluídos na tabela.</li><li>Min: O valor mínimo dos intervalos incluídos na tabela.</li><li>Soma: A soma dos valores de todos os registos.</li></ul> |
-| **Gráfico de linhas** |**> eixo Y** |
+| **Gráfico de linha** |**> eixo Y** |
 | Use a escala logarítmica |Selecione este link para utilizar uma escala logarítmica para o eixo y. |
 | Unidades |Especifique as unidades para que os valores sejam devolvidos pela consulta. Estas informações são utilizadas para exibir etiquetas de gráficos que indicam os tipos de valor e, opcionalmente, para converter os valores. O tipo *de Unidade* especifica a categoria da unidade e define os valores de tipo Unidade *De Corrente* disponíveis. Se selecionar um valor em *Converter para,* os valores numéricos são convertidos do tipo *Unidade Atual* para o *Converse para* o tipo. |
 | Etiqueta personalizada |O texto que é apresentado para o eixo y ao lado da etiqueta para o tipo *Unidade.* Se não for especificada nenhuma etiqueta, apenas é apresentado o tipo *Unidade.* |
@@ -245,10 +245,10 @@ O cabeçalho apresenta um gráfico de linha com várias séries a partir de uma 
 | Operação |A operação para executar para a linha de faísca. Para obter mais informações, consulte [As Definições Comuns](#sparklines). |
 | Separador de nome e valor |O delimiter de caracteres únicos para usar para analisar a propriedade do texto em múltiplos valores. Para obter mais informações, consulte [As Definições Comuns](#sparklines). |
 | Navegação por clique | Ação tomada quando clica num item da lista.  Para obter mais informações, consulte [As Definições Comuns](#click-through-navigation). |
-| **Lista** |**Títulos da Coluna>** |
-| Name |O texto que é exibido no topo da primeira coluna. |
+| **Lista** |** Títulos da Coluna>** |
+| Nome |O texto que é exibido no topo da primeira coluna. |
 | Valor |O texto que é exibido no topo da segunda coluna. |
-| **Lista** |**Limiares de>** |
+| **Lista** |** Limiares de>** |
 | Ativar limiares |Selecione este link para ativar os limiares. Para obter mais informações, consulte [As Definições Comuns](#thresholds). |
 
 ## <a name="line-chart-and-list-part"></a>Gráfico de linha e parte da lista
@@ -266,10 +266,10 @@ O cabeçalho apresenta um gráfico de linha com várias séries a partir de uma 
 | **Cabeçalho** | |
 | Título |O texto que é mostrado na parte superior do cabeçalho. |
 | Subtítulo |O texto que é exibido sob o título no topo do cabeçalho. |
-| **Gráfico de linhas** | |
+| **Gráfico de linha** | |
 | Consulta |A consulta para correr para o gráfico de linha. A primeira propriedade é um valor de texto, e a segunda propriedade é um valor numérico. Esta consulta normalmente utiliza a palavra-chave da *medida* para resumir os resultados. Se a consulta utilizar a palavra-chave de *intervalo,* o eixo x do gráfico utiliza este intervalo de tempo. Se a consulta não incluir a palavra-chave de *intervalo,* o eixo x utiliza intervalos de hora. |
 | Navegação por clique | Ação tomada quando clica no cabeçalho.  Para obter mais informações, consulte [As Definições Comuns](#click-through-navigation). |
-| **Gráfico de linhas** |**> eixo Y** |
+| **Gráfico de linha** |**> eixo Y** |
 | Use a escala logarítmica |Selecione este link para utilizar uma escala logarítmica para o eixo y. |
 | Unidades |Especifique as unidades para que os valores sejam devolvidos pela consulta. Estas informações são utilizadas para exibir etiquetas de gráficos que indicam os tipos de valor e, opcionalmente, para converter os valores. O tipo *de Unidade* especifica a categoria da unidade e define os valores de tipo Unidade *De Corrente* disponíveis. Se selecionar um valor em *Converter para,* os valores numéricos são convertidos do tipo *Unidade Atual* para o *Converse para* o tipo. |
 | Etiqueta personalizada |O texto que é apresentado para o eixo y ao lado da etiqueta para o tipo *Unidade.* Se não for especificada nenhuma etiqueta, apenas é apresentado o tipo *Unidade.* |
@@ -281,10 +281,10 @@ O cabeçalho apresenta um gráfico de linha com várias séries a partir de uma 
 | Operação |A operação para executar para a linha de faísca. Para obter mais informações, consulte [As Definições Comuns](#sparklines). |
 | Separador de nome e valor |O delimiter de caracteres únicos para usar para analisar a propriedade do texto em múltiplos valores. Para obter mais informações, consulte [As Definições Comuns](#sparklines). |
 | Navegação por clique | Ação tomada quando clica num item da lista.  Para obter mais informações, consulte [As Definições Comuns](#click-through-navigation). |
-| **Lista** |**Títulos da Coluna>** |
-| Name |O texto que é exibido no topo da primeira coluna. |
+| **Lista** |** Títulos da Coluna>** |
+| Nome |O texto que é exibido no topo da primeira coluna. |
 | Valor |O texto que é exibido no topo da segunda coluna. |
-| **Lista** |**Limiares de>** |
+| **Lista** |** Limiares de>** |
 | Ativar limiares |Selecione este link para ativar os limiares. Para obter mais informações, consulte [As Definições Comuns](#thresholds). |
 
 ## <a name="stack-of-line-charts-part"></a>Pilha de fichas de linha parte
@@ -298,10 +298,10 @@ A pilha de gráficos de linha apresenta três gráficos de linha separados, com 
 | Título de grupo |O texto que é exibido no topo do azulejo. |
 | Novo Grupo |Selecione este link para criar um novo grupo na vista, começando pela vista atual. |
 | Ícone |O ficheiro de imagem que é apresentado ao lado do resultado no cabeçalho. |
-| **Gráfico 1 <br> Gráfico 2 <br> Gráfico 3** |**Cabeçalho>** |
+| **Gráfico 1 <br> Gráfico 2 <br> Gráfico 3** |** Cabeçalho>** |
 | Título |O texto que é exibido no topo da tabela. |
 | Subtítulo |O texto que é exibido sob o título no topo da tabela. |
-| **Gráfico 1 <br> Gráfico 2 <br> Gráfico 3** |**Gráfico de linhas** |
+| **Gráfico 1 <br> Gráfico 2 <br> Gráfico 3** |**Gráfico de linha** |
 | Consulta |A consulta para correr para o gráfico de linha. A primeira propriedade é um valor de texto, e a segunda propriedade é um valor numérico. Esta consulta normalmente utiliza a palavra-chave da *medida* para resumir os resultados. Se a consulta utilizar a palavra-chave de *intervalo,* o eixo x do gráfico utiliza este intervalo de tempo. Se a consulta não incluir a palavra-chave de *intervalo,* o eixo x utiliza intervalos de hora. |
 | Navegação por clique | Ação tomada quando clica no cabeçalho.  Para obter mais informações, consulte [As Definições Comuns](#click-through-navigation). |
 | **Gráfico** |**> eixo Y** |
@@ -352,9 +352,9 @@ O quadro que se segue descreve as definições dos limiares:
 | Definições | Descrição |
 |:--- |:--- |
 | Ativar limiares |Selecione este link para exibir um ícone de cor à esquerda de cada valor. O ícone indica a saúde do valor em relação aos limiares especificados. |
-| Name |O nome do valor limiar. |
+| Nome |O nome do valor limiar. |
 | Limiar |O valor para o limiar. A cor de saúde de cada item da lista é definida para a cor do valor limiar mais elevado que é ultrapassado pelo valor do item. Se não forem ultrapassados os valores limiares, é utilizada uma cor padrão. |
 | Color |A cor que indica o valor limiar. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais [sobre consultas de registo](../log-query/log-query-overview.md) para suportar as consultas em peças de visualização.

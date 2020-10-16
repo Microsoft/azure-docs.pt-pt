@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: e6a9560cfe0daf158dad03a3171047669a19eade
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13dd930842cb724d12711ac9e7704fd9af4e29d8
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88547968"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944472"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oneteam"></a>Tutorial: Integração do Diretório Ativo Azure com a Oneteam
 
@@ -101,7 +101,7 @@ Para configurar o Azure AD com one-on one-on, execute os seguintes passos:
 
 4. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    ![Informações únicas de sign-on do domínio oneteam e URLs](common/idp-intiated.png)
+    ![Screenshot que mostra a secção "Configuração Básica S A M L" com as caixas de texto "Identifier" e "Answer U R L" realçadas e o botão "Save" selecionado.](common/idp-intiated.png)
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://api.one-team.io/teams/<team name>`
 

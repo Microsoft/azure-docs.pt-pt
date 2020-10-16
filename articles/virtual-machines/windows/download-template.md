@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 11/17/2017
 ms.author: cynthn
 ms.openlocfilehash: 5b7e50ebe6f09de2555af03a47641ef6ca92e92a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87288297"
 ---
 # <a name="download-the-template-for-a-vm"></a>Transferir o modelo para uma VM

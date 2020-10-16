@@ -7,10 +7,10 @@ ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.openlocfilehash: 948e4f74763efd641bc0f089c679cdaf7c2f784e
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91530073"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Tutorial: Estabelecer acesso ao site privado Azure Functions
@@ -67,7 +67,7 @@ O primeiro passo neste tutorial é criar uma nova máquina virtual dentro de uma
     | _Subscrição_ | A sua subscrição | A subscrição sob a qual os seus recursos são criados. |
     | [_Grupo de recursos_](../azure-resource-manager/management/overview.md) | myResourceGroup | Escolha o grupo de recursos para conter todos os recursos para este tutorial.  A utilização do mesmo grupo de recursos facilita a limpeza dos recursos quando termina este tutorial. |
     | _Nome da máquina virtual_ | myVM | O nome VM tem de ser único no grupo de recursos |
-    | [_Region_](https://azure.microsoft.com/regions/) | (EUA) Centro-Norte dos EUA | Escolha uma região perto de si ou perto das funções a aceder. |
+    | [_Região_](https://azure.microsoft.com/regions/) | (EUA) Centro-Norte dos EUA | Escolha uma região perto de si ou perto das funções a aceder. |
     | _Portas de entrada públicas_ | Nenhum | **Selecione Nenhum** para garantir que não existe conectividade de entrada para o VM a partir da internet. O acesso remoto ao VM será configurado através do serviço Azure Bastion. |
 
 1. Escolha o _separador 'Rede'_ e selecione **Criar novo** para configurar uma nova rede virtual.
@@ -223,7 +223,7 @@ Aceder à função através de um navegador web (utilizando o serviço Azure Bas
 
 [!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 
 > [!div class="nextstepaction"]

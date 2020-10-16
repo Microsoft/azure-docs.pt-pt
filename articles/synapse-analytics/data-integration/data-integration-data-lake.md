@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
 ms.openlocfilehash: cc5c72c2d0db7c17fdbc29e7fb815f1d06134730
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90033222"
 ---
 # <a name="ingest-data-into-azure-data-lake-storage-gen2"></a>Ingerir dados no Azure Data Lake Storage Gen2 
@@ -70,6 +70,6 @@ Neste passo, aciona manualmente o gasoduto publicado no passo anterior.
 1. Verifique se os seus dados estão corretamente escritos na piscina SQL.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a integração de dados para a Synapse Analytics, consulte os [dados de Ingeste num artigo de piscina SQL.](data-integration-sql-pool.md)

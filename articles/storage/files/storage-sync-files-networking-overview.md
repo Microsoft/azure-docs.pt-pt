@@ -8,10 +8,10 @@ ms.date: 06/03/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: b291bd45b4003dd2241f40c810ed9d78af9f8bc9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91267793"
 ---
 # <a name="azure-file-sync-networking-considerations"></a>Considerações de networking de arquivo azure
@@ -170,6 +170,6 @@ As ligações efetuadas do agente Azure File Sync à sua partilha de ficheiros A
 
 Para obter mais informações sobre encriptação em trânsito, consulte [a necessidade de transferência segura no armazenamento Azure](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 - [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)
 - [Implementar o Azure File Sync](storage-sync-files-deployment-guide.md)

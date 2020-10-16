@@ -10,10 +10,10 @@ ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.openlocfilehash: c03051e2c8fddc21e4399375faeff6a40fb4d0d4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91288108"
 ---
 # <a name="use-file-metadata-in-queries"></a>Use metadados de ficheiros em consultas

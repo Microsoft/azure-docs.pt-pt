@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 61177d1338be30ae14ccea3ff94c5e0e554aa331
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89077335"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Introdução ao Azure Data Lake Analytics com o Azure PowerShell
@@ -125,7 +125,7 @@ Transfira o ficheiro de saída com `Export-AdlStoreItem`.
 Export-AdlStoreItem -Account $adls -Path "/data.csv" -Destination "C:\data.csv"
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 * Para ver o mesmo tutorial, utilizando outras ferramentas, clique nos seletores de separador no topo da página.
 * Para saber mais sobre U-SQL, consulte [Introdução à linguagem U-SQL da Análise do Azure Data Lake](data-lake-analytics-u-sql-get-started.md).

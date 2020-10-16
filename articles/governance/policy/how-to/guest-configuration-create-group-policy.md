@@ -3,12 +3,12 @@ title: Como criar definições de política de configuração de convidados a pa
 description: Saiba como converter a Política de Grupo do Windows Server 2019 Base de Segurança numa definição de política.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 58fe4fa3e5056192fa5febe4883a1457d130871b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: dce22885981ab01fe37fac8588899d12a5afb87d
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547773"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893378"
 ---
 # <a name="how-to-create-guest-configuration-policy-definitions-from-group-policy-baseline-for-windows"></a>Como criar definições de política de configuração de convidados a partir da linha de base da Política de Grupo para Windows
 
@@ -87,7 +87,7 @@ Em seguida, convertemos o Base de Base do Servidor 2019 descarregado num Pacote 
 
 ## <a name="create-azure-policy-guest-configuration"></a>Criar configuração de convidados de política azul
 
-O próximo passo é publicar o ficheiro para o armazenamento de bolhas. 
+O próximo passo é publicar o ficheiro no Azure Blob Storage. 
 
 1. O script abaixo contém uma função que pode utilizar para automatizar esta tarefa. Note que os comandos utilizados na `publish` função requerem o `Az.Storage` módulo.
 
@@ -145,7 +145,7 @@ O próximo passo é publicar o ficheiro para o armazenamento de bolhas.
     $blob = 'Server2019Baseline.zip' 
     ```
 
-1. Utilize a função de publicação com os parâmetros atribuídos para publicar o pacote de Configuração de Convidados para o armazenamento de bolhas públicas.
+1. Utilize a função de publicação com os parâmetros atribuídos para publicar o pacote de Configuração de Convidados para o armazenamento público de blob.
 
 
    ```azurepowershell-interactive

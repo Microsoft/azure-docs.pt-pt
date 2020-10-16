@@ -4,10 +4,10 @@ description: Para os parceiros da CSP, a gestão de recursos delegada da Azure a
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: 27bb1c4f82fe3c9ff8abe74b74bef19f16a8a874
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90967168"
 ---
 # <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Farol Azure e o programa Cloud Solution Provider

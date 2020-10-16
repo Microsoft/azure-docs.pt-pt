@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 07/10/2019
 ms.author: danlep
 ms.openlocfilehash: 2b28cc742bb981e0db535d39cb0c7fbf027470ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83673769"
 ---
 ### <a name="identity-tier"></a>Nível de identidade 
 
-A parceria Microsoft-Oracle permite-lhe configurar uma identidade unificada através do Azure, OCI e da sua aplicação Oracle. Para a suíte de aplicação JD Edwards EnterpriseOne ou PeopleSoft, é necessário um exemplo do Servidor HTTP (OHS) do Oracle HTTP para configurar um único registo entre Azure AD e Oracle IDCS.
+A parceria Microsoft-Oracle permite-lhe criar uma identidade unificada em toda a Azure, OCI e a sua aplicação Oracle. Para a suíte de aplicação JD Edwards EnterpriseOne ou PeopleSoft, é necessário um exemplo do Servidor HTTP (OHS) do Oracle HTTP para configurar um único registo entre Azure AD e Oracle IDCS.
 
 O OHS funciona como um representante inverso ao nível de aplicação, o que significa que todos os pedidos para os pedidos finais passam por ele. Oracle Access Manager WebGate é um plugin de servidor web OHS que interceta todos os pedidos que vão para a aplicação final. Se um recurso que está a ser acedido for protegido (requer uma sessão autenticada), o WebGate inicia o fluxo de autenticação OIDC com o Serviço de Nuvem de Identidade através do navegador do utilizador. Para obter mais informações sobre os fluxos suportados pelo WebGate OpenID Connect, consulte a [documentação](https://docs.oracle.com/cd/E52734_01/oam/AIAAG/GUID-1E927D1B-FB83-425B-8768-85DB441821A4.htm#AIAAG7327)do Oracle Access Manager .
 

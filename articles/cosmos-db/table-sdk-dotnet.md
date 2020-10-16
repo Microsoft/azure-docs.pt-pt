@@ -10,10 +10,10 @@ ms.topic: reference
 ms.date: 08/17/2018
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: bc984e330085430db10298380dfdc9767f1aa770
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91261945"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB Table .NET API: Baixar e lançar notas
@@ -120,6 +120,6 @@ ao tentar utilizar o pacote Microsoft.Azure.CosmosDB.Table NuGet, tem duas opç�
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 Para saber mais sobre a API da Tabela DB AZure Cosmos, consulte [Introdução à Tabela DB API da Azure Cosmos](table-introduction.md). 

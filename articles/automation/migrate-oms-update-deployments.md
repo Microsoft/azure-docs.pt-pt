@@ -6,10 +6,10 @@ ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: dabe914ffd4e84e8ded5c0e3b519036479fe33ec
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987593"
 ---
 # <a name="migrate-azure-monitor-logs-update-deployments-to-azure-portal"></a>Migrar Azure Monitor regista atualização de implementações para o portal Azure
@@ -43,7 +43,7 @@ O portal Da Suite de Gestão de Operações (OMS) está a ser [depreciado.](../a
 
 Todas as implementações de atualização criadas no portal OMS têm uma [pesquisa guardada](../azure-monitor/platform/computer-groups.md) também conhecida como um grupo de computador, com o mesmo nome que a implementação da atualização que existe. A pesquisa guardada contém a lista de máquinas que estavam programadas na implementação da atualização.
 
-:::image type="content" source="media/migrate-oms-update-deployments/oms-deployment.png" alt-text="Screenshot da página 'Actualização' com os campos Nome e Servidores destacados.":::
+:::image type="content" source="media/migrate-oms-update-deployments/oms-deployment.png" alt-text="Screenshot da página de gestão de atualização.":::
 
 Para utilizar esta pesquisa guardada existente, siga estes passos:
 

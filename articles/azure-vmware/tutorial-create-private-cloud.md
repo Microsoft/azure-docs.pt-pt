@@ -3,12 +3,12 @@ title: Tutorial - Implantar o cluster vSphere em Azure
 description: Aprenda a implementar um cluster vSphere em Azure usando Azure VMWare Solution
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 3fab49640364ef1b2e68953d366b20f77556b486
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: b673a67fac734c9cb63e96b6a0c3dc9182f4b994
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91578326"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952289"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>Tutorial: Implementar uma nuvem privada Azure VMware Solution em Azure
 
@@ -16,7 +16,7 @@ A Azure VMware Solution dá-lhe a capacidade de implantar um cluster vSphere em 
 
 Como a Azure VMware Solution não lhe permite gerir a sua nuvem privada com o vCenter no local no lançamento, é necessária uma configuração adicional. Estes procedimentos e pré-requisitos conexos estão abrangidos por este tutorial.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar uma nuvem privada Azure VMware Solution
@@ -43,7 +43,7 @@ Pode criar uma nuvem privada Azure VMware Solution utilizando o [portal Azure](#
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Em vez do portal Azure para criar uma nuvem privada Azure VMware Solution, pode utilizar o Azure CLI utilizando a Azure Cloud Shell.  Para obter uma lista de comandos que pode utilizar com a Solução VMware [Azure, consulte os comandos Azure Vmware](https://docs.microsoft.com/cli/azure/ext/vmware/vmware).
+Em vez do portal Azure para criar uma nuvem privada Azure VMware Solution, pode utilizar o Azure CLI utilizando a Azure Cloud Shell.  Para obter uma lista de comandos que pode utilizar com a Solução VMware [Azure, consulte os comandos Azure Vmware](/cli/azure/ext/vmware/vmware).
 
 #### <a name="open-azure-cloud-shell"></a>Abrir o Azure Cloud Shell
 
@@ -96,7 +96,7 @@ Uma vez que uma nuvem privada é eliminada, não há como recuperar as máquinas
 
 ## <a name="azure-vmware-commands"></a>Comandos Azure VMware
 
-Para obter uma lista de comandos que pode utilizar com a Solução VMware [Azure, consulte os comandos Azure Vmware](https://docs.microsoft.com/cli/azure/ext/vmware/vmware).
+Para obter uma lista de comandos que pode utilizar com a Solução VMware [Azure, consulte os comandos Azure Vmware](/cli/azure/ext/vmware/vmware).
 
 ## <a name="next-steps"></a>Passos seguintes
 

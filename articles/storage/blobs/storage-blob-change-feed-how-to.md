@@ -10,10 +10,10 @@ ms.subservice: blobs
 ms.reviewer: sadodd
 ms.custom: devx-track-csharp
 ms.openlocfilehash: f0e89fdfba852fc056cf48efd1b92daabb272cf0
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89568256"
 ---
 # <a name="process-change-feed-in-azure-blob-storage"></a>Alterar o feed de mudança de processo no armazenamento de blob Azure
@@ -214,6 +214,6 @@ public async Task<List<BlobChangeFeedEvent>> ChangeFeedBetweenDatesAsync(string 
 
 A hora de início que fornece é arredondada para a hora mais próxima e o tempo final é arredondado até a hora mais próxima. É possível que os utilizadores possam ver eventos que ocorreram antes da hora de início e depois do fim do tempo. Também é possível que alguns eventos que ocorrem entre o início e o fim do tempo não apareçam. Isto porque os eventos podem ser registados durante a hora anterior à hora de início ou durante a hora após o fim do tempo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre alterar registos de feed. Ver [Alterar feed no armazenamento de blob Azure](storage-blob-change-feed.md)

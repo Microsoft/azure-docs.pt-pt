@@ -11,10 +11,10 @@ ms.date: 09/11/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 2d00942331b7e6c881803af366d1c08e173462b3
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90023793"
 ---
 # <a name="relyingparty"></a>RelyingParty
@@ -104,7 +104,7 @@ O elemento **DefaultUserJourney** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ReferenceId | Yes | Um identificador da viagem de utilizador na apólice. Para mais informações, consulte [as viagens de utilizador](userjourneys.md) |
+| ReferenceId | Sim | Um identificador da viagem de utilizador na apólice. Para mais informações, consulte [as viagens de utilizador](userjourneys.md) |
 
 ## <a name="userjourneybehaviors"></a>UserJourneyBehaviors
 
@@ -125,9 +125,9 @@ O elemento **SingleSignOn** contém no seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Âmbito | Yes | O âmbito do comportamento de um único sinal. Valores possíveis: `Suppressed` `Tenant` , , ou `Application` `Policy` . O `Suppressed` valor indica que o comportamento é suprimido e o utilizador é sempre solicitado para uma seleção de fornecedor de identidade.  O `Tenant` valor indica que o comportamento é aplicado a todas as políticas do arrendatário. Por exemplo, um utilizador que navegue através de duas viagens políticas para um inquilino não é solicitado para uma seleção de fornecedor de identidade. O `Application` valor indica que o comportamento é aplicado a todas as políticas para a aplicação que faz o pedido. Por exemplo, um utilizador que navega através de duas viagens políticas para uma aplicação não é solicitado para uma seleção de fornecedor de identidade. O `Policy` valor indica que o comportamento só se aplica a uma política. Por exemplo, um utilizador que navegue através de duas viagens políticas para um quadro de confiança é solicitado para uma seleção do fornecedor de identidade ao alternar entre políticas. |
-| KeepAliveInDays | Yes | Controla quanto tempo o utilizador permanece assinado. Definir o valor para 0 desliga a funcionalidade KMSI. Para mais informações, consulte [Keep me signed in.](custom-policy-keep-me-signed-in.md) |
-|EnforceIdTokenHintOnLogout| No|  Forçar a passar um token de ID previamente emitido para o ponto final do logout como uma dica sobre a sessão autenticada atual do utilizador final com o cliente. Valores possíveis: `false` (padrão), ou `true` . Para obter mais informações, consulte [o web-in com OpenID Connect](openid-connect.md).  |
+| Âmbito | Sim | O âmbito do comportamento de um único sinal. Valores possíveis: `Suppressed` `Tenant` , , ou `Application` `Policy` . O `Suppressed` valor indica que o comportamento é suprimido e o utilizador é sempre solicitado para uma seleção de fornecedor de identidade.  O `Tenant` valor indica que o comportamento é aplicado a todas as políticas do arrendatário. Por exemplo, um utilizador que navegue através de duas viagens políticas para um inquilino não é solicitado para uma seleção de fornecedor de identidade. O `Application` valor indica que o comportamento é aplicado a todas as políticas para a aplicação que faz o pedido. Por exemplo, um utilizador que navega através de duas viagens políticas para uma aplicação não é solicitado para uma seleção de fornecedor de identidade. O `Policy` valor indica que o comportamento só se aplica a uma política. Por exemplo, um utilizador que navegue através de duas viagens políticas para um quadro de confiança é solicitado para uma seleção do fornecedor de identidade ao alternar entre políticas. |
+| KeepAliveInDays | Sim | Controla quanto tempo o utilizador permanece assinado. Definir o valor para 0 desliga a funcionalidade KMSI. Para mais informações, consulte [Keep me signed in.](custom-policy-keep-me-signed-in.md) |
+|EnforceIdTokenHintOnLogout| Não|  Forçar a passar um token de ID previamente emitido para o ponto final do logout como uma dica sobre a sessão autenticada atual do utilizador final com o cliente. Valores possíveis: `false` (padrão), ou `true` . Para obter mais informações, consulte [o web-in com OpenID Connect](openid-connect.md).  |
 
 
 ## <a name="journeyinsights"></a>JourneyInsights
@@ -136,12 +136,12 @@ O elemento **JourneyInsights** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| TelemetriaEngine | Yes | O valor deve `ApplicationInsights` ser. |
-| InstrumentaçãoKey | Yes | A cadeia que contém a chave de instrumentação para o elemento de insights de aplicação. |
-| DeveloperMode | Yes | Valores possíveis: `true` ou `false` . Se, `true` Application Insights acelerar a telemetria através do gasoduto de processamento. Este cenário é bom para o desenvolvimento, mas limitado em volumes elevados. Os registos de atividades detalhados destinam-se apenas a ajudar no desenvolvimento de políticas personalizadas. Não utilize o modo de desenvolvimento na produção. Os registos recolhem todas as reclamações enviadas de e para os fornecedores de identidade durante o desenvolvimento. Se for utilizado na produção, o desenvolvedor assume a responsabilidade pelo PII (PrivateLy Identifiable Information) recolhido no registo app Insights que possuem. Estes registos detalhados só são recolhidos quando este valor é definido para `true` .|
-| ClienteEnabled | Yes | Valores possíveis: `true` ou `false` . Se `true` , enviar o script do lado do cliente do Application Insights para visualização da página de rastreio e erros do lado do cliente. |
-| ServerEnabled | Yes | Valores possíveis: `true` ou `false` . Se `true` , enviar o Atual UserJourneyRecorder JSON como um evento personalizado para a Application Insights. |
-| TelemetriaVersão | Yes | O valor deve `1.0.0` ser. |
+| TelemetriaEngine | Sim | O valor deve `ApplicationInsights` ser. |
+| InstrumentaçãoKey | Sim | A cadeia que contém a chave de instrumentação para o elemento de insights de aplicação. |
+| DeveloperMode | Sim | Valores possíveis: `true` ou `false` . Se, `true` Application Insights acelerar a telemetria através do gasoduto de processamento. Este cenário é bom para o desenvolvimento, mas limitado em volumes elevados. Os registos de atividades detalhados destinam-se apenas a ajudar no desenvolvimento de políticas personalizadas. Não utilize o modo de desenvolvimento na produção. Os registos recolhem todas as reclamações enviadas de e para os fornecedores de identidade durante o desenvolvimento. Se for utilizado na produção, o desenvolvedor assume a responsabilidade pelo PII (PrivateLy Identifiable Information) recolhido no registo app Insights que possuem. Estes registos detalhados só são recolhidos quando este valor é definido para `true` .|
+| ClienteEnabled | Sim | Valores possíveis: `true` ou `false` . Se `true` , enviar o script do lado do cliente do Application Insights para visualização da página de rastreio e erros do lado do cliente. |
+| ServerEnabled | Sim | Valores possíveis: `true` ou `false` . Se `true` , enviar o Atual UserJourneyRecorder JSON como um evento personalizado para a Application Insights. |
+| TelemetriaVersão | Sim | O valor deve `1.0.0` ser. |
 
 Para mais informações, consulte [a recolha de registos](troubleshoot-with-application-insights.md)
 
@@ -163,7 +163,7 @@ O elemento **ContentDefinitionParameter** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Nome | Yes | O nome do par de valores chave. |
+| Nome | Sim | O nome do par de valores chave. |
 
 Para obter mais informações, consulte [configurar a UI com conteúdo dinâmico utilizando políticas personalizadas](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri)
 
@@ -173,7 +173,7 @@ O elemento **TécnicoProfile** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Yes | O valor deve `PolicyProfile` ser. |
+| Id | Sim | O valor deve `PolicyProfile` ser. |
 
 O **Ficheiro Técnico** contém os seguintes elementos:
 
@@ -190,7 +190,7 @@ O elemento **protocolo** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Nome | Yes | O nome de um protocolo válido suportado pelo Azure AD B2C que é utilizado como parte do perfil técnico. Valores possíveis: `OpenIdConnect` ou `SAML2` . O `OpenIdConnect` valor representa o padrão de protocolo OpenID Connect 1.0 de acordo com a especificação da fundação OpenID. O `SAML2` valor representa a norma do protocolo SAML 2.0 de acordo com a especificação OASIS. |
+| Nome | Sim | O nome de um protocolo válido suportado pelo Azure AD B2C que é utilizado como parte do perfil técnico. Valores possíveis: `OpenIdConnect` ou `SAML2` . O `OpenIdConnect` valor representa o padrão de protocolo OpenID Connect 1.0 de acordo com a especificação da fundação OpenID. O `SAML2` valor representa a norma do protocolo SAML 2.0 de acordo com a especificação OASIS. |
 
 ### <a name="metadata"></a>Metadados
 
@@ -198,12 +198,12 @@ Quando o protocolo é `SAML` , um elemento de metadados contém os seguintes ele
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| IdpInitiatedProfileEnabled | No | Indica se o fluxo iniciado pelo IDP é suportado. Valores possíveis: `true` ou `false` (predefinição). | 
-| XmlSignatureAlgorithm | No | O método que a Azure AD B2C utiliza para assinar a Resposta SAML. Valores possíveis: `Sha256` `Sha384` , , ou `Sha512` `Sha1` . Certifique-se de configurar o algoritmo de assinatura em ambos os lados com o mesmo valor. Use apenas o algoritmo que o seu certificado suporta. Para configurar a afirmação do SAML, consulte [metadados de perfil técnico do emitente SAML](saml-issuer-technical-profile.md#metadata). |
-| DataEncryptionMethod | No | Indica o método que o Azure AD B2C utiliza para encriptar os dados, utilizando algoritmos Advanced Encryption Standard (AES). Os metadados controlam o valor do `<EncryptedData>` elemento na resposta SAML. Valores possíveis: `Aes256` (padrão), `Aes192` `Sha512` ou ` Aes128` . |
-| KeyEncryptionMethod| No | Indica o método que o Azure AD B2C utiliza para encriptar a cópia da chave que foi usada para encriptar os dados. Os metadados controlam o valor do  `<EncryptedKey>` elemento na resposta SAML. Valores possíveis: ` Rsa15` (padrão) - RSA Public Key Cryptography Standard (PKCS) Algoritmo versão 1.5, ` RsaOaep` - RSA Optimal Encryption Estofamento de encriptação assimétrica (OAEP). |
-| Utilizar's DetachedKeys | No |  Valores possíveis: `true` , ou `false` (predefinição). Quando o valor é definido para `true` , Azure AD B2C altera o formato das afirmações encriptadas. A utilização de teclas separadas adiciona a afirmação encriptada como uma criança da EncrytedAssertion em oposição ao Dado Encriptado. |
-| Quer Respostas Assinadas| No | Indica se a Azure AD B2C assina a `Response` secção da resposta SAML. Valores possíveis: `true` (padrão) ou `false` . .  |
+| IdpInitiatedProfileEnabled | Não | Indica se o fluxo iniciado pelo IDP é suportado. Valores possíveis: `true` ou `false` (predefinição). | 
+| XmlSignatureAlgorithm | Não | O método que a Azure AD B2C utiliza para assinar a Resposta SAML. Valores possíveis: `Sha256` `Sha384` , , ou `Sha512` `Sha1` . Certifique-se de configurar o algoritmo de assinatura em ambos os lados com o mesmo valor. Use apenas o algoritmo que o seu certificado suporta. Para configurar a afirmação do SAML, consulte [metadados de perfil técnico do emitente SAML](saml-issuer-technical-profile.md#metadata). |
+| DataEncryptionMethod | Não | Indica o método que o Azure AD B2C utiliza para encriptar os dados, utilizando algoritmos Advanced Encryption Standard (AES). Os metadados controlam o valor do `<EncryptedData>` elemento na resposta SAML. Valores possíveis: `Aes256` (padrão), `Aes192` `Sha512` ou ` Aes128` . |
+| KeyEncryptionMethod| Não | Indica o método que o Azure AD B2C utiliza para encriptar a cópia da chave que foi usada para encriptar os dados. Os metadados controlam o valor do  `<EncryptedKey>` elemento na resposta SAML. Valores possíveis: ` Rsa15` (padrão) - RSA Public Key Cryptography Standard (PKCS) Algoritmo versão 1.5, ` RsaOaep` - RSA Optimal Encryption Estofamento de encriptação assimétrica (OAEP). |
+| Utilizar's DetachedKeys | Não |  Valores possíveis: `true` , ou `false` (predefinição). Quando o valor é definido para `true` , Azure AD B2C altera o formato das afirmações encriptadas. A utilização de teclas separadas adiciona a afirmação encriptada como uma criança da EncrytedAssertion em oposição ao Dado Encriptado. |
+| Quer Respostas Assinadas| Não | Indica se a Azure AD B2C assina a `Response` secção da resposta SAML. Valores possíveis: `true` (padrão) ou `false` . .  |
 
 ### <a name="outputclaims"></a>Resultados
 
@@ -217,9 +217,9 @@ O elemento **OutputClaim** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | Yes | Uma referência a um **ClaimType** já definido na secção **ClaimsSchema** no ficheiro de política. |
-| PadrãoValue | No | Um valor predefinido que pode ser usado se o valor da reclamação estiver vazio. |
-| PartnerClaimType | No | Envia a reclamação num nome diferente, tal como configurado na definição DeTipo de Reclamação. |
+| ClaimTypeReferenceId | Sim | Uma referência a um **ClaimType** já definido na secção **ClaimsSchema** no ficheiro de política. |
+| PadrãoValue | Não | Um valor predefinido que pode ser usado se o valor da reclamação estiver vazio. |
+| PartnerClaimType | Não | Envia a reclamação num nome diferente, tal como configurado na definição DeTipo de Reclamação. |
 
 ### <a name="subjectnaminginfo"></a>Nomeação de AssuntosInfo
 
@@ -231,8 +231,8 @@ O elemento **SubjectNamingInfo** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ClaimType | Yes | Uma referência ao **PartnerClaimType**de uma reclamação de saída. As reclamações de saída devem ser definidas na política do partido dependente Da recolha **OutputClaims.** |
-| Formato | No | Utilizado para as partes de confiança SAML para definir o **formato NameId** devolvido na Afirmação SAML. |
+| ClaimType | Sim | Uma referência ao **PartnerClaimType**de uma reclamação de saída. As reclamações de saída devem ser definidas na política do partido dependente Da recolha **OutputClaims.** |
+| Formato | Não | Utilizado para as partes de confiança SAML para definir o **formato NameId** devolvido na Afirmação SAML. |
 
 O exemplo a seguir mostra como definir uma parte de confiante OpenID Connect. A informação sobre o nome do sujeito é configurada `objectId` como:
 

@@ -3,12 +3,13 @@ title: Enviar eventos de armazenamento Blob para o ponto final da web - modelo
 description: Utilize a Grelha de Eventos Azure e um modelo de Gestor de Recursos Azure para criar uma conta de armazenamento Blob e subscreva os seus eventos. Envie os eventos para um Webhook.
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: fc6216142c6bec99cb12bf4e0bdae920f27f1bf2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: subject-armqs
+ms.openlocfilehash: bfaee324f3e46f64fd4ad0d8b7e1240331b56c27
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91598357"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093655"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-by-using-an-arm-template"></a>Quickstart: Route Blob storage events to web endpoint usando um modelo ARM
 
@@ -86,7 +87,7 @@ Quando já não for necessário, [elimine o grupo de recursos](../azure-resource
 
 Para obter mais informações sobre os modelos do Gestor de Recursos Azure, consulte os seguintes artigos:
 
-* [Documentação do Gestor de Recursos Azure](../azure-resource-manager/index.yml)
+* [Documentação do Azure Resource Manager](../azure-resource-manager/index.yml)
 * [Definir recursos nos modelos do Azure Resource Manager](/azure/templates/)
 * [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/)
 * [Modelos de grelha de eventos Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid).

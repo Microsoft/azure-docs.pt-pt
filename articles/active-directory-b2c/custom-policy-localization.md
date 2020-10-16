@@ -11,10 +11,10 @@ ms.date: 8/03/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 581811b1ed9738b98a734f5d52a025a872cd0846
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87540874"
 ---
 # <a name="localize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Localize a interface de utilizador da sua aplicação utilizando uma política personalizada no Azure Ative Directory B2C

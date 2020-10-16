@@ -9,13 +9,13 @@ ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 0d697f2100360732666c9f5ea8050800dad154b4
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88653822"
 ---
-# <a name="prepare-azure-for-on-premises-disaster-recovery-to-azure"></a>Prepare o Azure para a recuperação de desastres no local para Azure
+# <a name="prepare-azure-for-on-premises-disaster-recovery-to-azure"></a>Preparar o Azure para recuperação após desastre no local para o Azure
 
 Este artigo descreve como preparar recursos e componentes do Azure para que possa configurar a recuperação de desastres de VMware VMs, VMs hiper-V ou servidores físicos Windows/Linux para a Azure, utilizando o serviço [de Recuperação do Local Azure.](site-recovery-overview.md)
 

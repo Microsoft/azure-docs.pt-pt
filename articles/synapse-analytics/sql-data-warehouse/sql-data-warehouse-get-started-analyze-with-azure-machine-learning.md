@@ -12,12 +12,12 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-Synapse
-ms.openlocfilehash: 9cf65b2fdeb7faa03b950593db86dd32a4ef91a7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ea4038e88d41a089958d4199e4c5a00f0d2acabd
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495743"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015571"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analisar dados com o Azure Machine Learning
 
@@ -56,7 +56,7 @@ FROM [dbo].[vTargetMail]
 
 Uma vez que os dados estão disponíveis no Azure Data Lake Storage, datastores em Azure Machine Learning são usados para [ligar aos serviços de armazenamento Azure](https://docs.microsoft.com/azure/machine-learning/how-to-access-data). Siga os passos abaixo para criar uma Datastore e um conjunto de dados correspondente:
 
-1. Lance o estúdio de aprendizagem Azure Machine a partir do portal Azure ou inicie seduca no [estúdio Azure Machine Learning](https://ml.azure.com/).
+1. Lance o estúdio Azure Machine Learning a partir do portal Azure ou inicie seduca no [estúdio Azure Machine Learning](https://ml.azure.com/).
 
 1. Clique em **Datastores** no painel esquerdo na secção **Gestão** e clique em **New Datastore**.
 
@@ -90,7 +90,7 @@ Em seguida, siga os passos abaixo para configuração do designer:
 
 1. Arraste o conjunto de dados que criou anteriormente para a tela.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/import-dataset.png" alt-text="Screenshot do módulo de conjunto de dados na tela.":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/import-dataset.png" alt-text="Screenshot do painel esquerdo da interface Azure Machine Learning":::
 
 ## <a name="clean-the-data"></a>Limpar os dados
 
@@ -100,13 +100,13 @@ Para limpar os dados, largam colunas que não são relevantes para o modelo. Sig
 
 1. Arraste as **colunas selecionais no** módulo Dataset sob **a transformação de dados < manipulação** para a tela. Ligue este módulo ao módulo **Dataset.**
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-in.png" alt-text="Screenshot do módulo de seleção de colunas na tela." lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-out.png":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-in.png" alt-text="Screenshot do painel esquerdo da interface Azure Machine Learning" lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-out.png":::
 
 1. Clique no módulo para abrir o painel de propriedades. Clique na coluna Editar para especificar quais as colunas que deseja deixar cair.
 
-1. Exclua duas colunas: CustomerAlternateKey e GeographyKey. Clique em **Guardar**
+1. Exclua duas colunas: CustomerAlternateKey e GeographyKey. Clicar em **Guardar**
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/drop-columns.png" alt-text="Screenshot mostrando colunas que são largadas.":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/drop-columns.png" alt-text="Screenshot do painel esquerdo da interface Azure Machine Learning":::
 
 ## <a name="build-the-model"></a>Construir o modelo
 
@@ -116,7 +116,7 @@ Os dados dividem-se 80-20: 80% para treinar um modelo de aprendizagem automátic
 
 1. No painel de propriedades, introduza 0,8 para **fração de linhas no primeiro conjunto de dados de saída**.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/split-data.png" alt-text="Screenshot mostrando a relação de divisão de 0,8.":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/split-data.png" alt-text="Screenshot do painel esquerdo da interface Azure Machine Learning":::
 
 1. Arraste o módulo **Árvore de Decisões Elevada de Duas Classes** para a tela.
 
@@ -124,17 +124,17 @@ Os dados dividem-se 80-20: 80% para treinar um modelo de aprendizagem automátic
 
 1. Para o modelo train model, na opção **coluna Label** no painel Propriedades, selecione coluna Editar. Selecione a coluna **BikeBuyer** como a coluna para prever e selecionar **Guardar**.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/label-column.png" alt-text="Screenshot mostrando coluna de etiqueta, BikeBuyer, selecionado.":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/label-column.png" alt-text="Screenshot do painel esquerdo da interface Azure Machine Learning":::
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/train-model.png" alt-text="Screenshot mostrando módulo do modelo de trem ligado a dois módulos de decisão reforçados de duas classes e módulos de dados divididos.":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/train-model.png" alt-text="Screenshot do painel esquerdo da interface Azure Machine Learning":::
 
-## <a name="score-the-model"></a>Pontuar o modelo
+## <a name="score-the-model"></a>Classificar o modelo
 
 Agora, teste como o modelo funciona em dados de teste. Dois algoritmos diferentes serão comparados para ver qual deles tem um melhor desempenho. Siga os passos abaixo:
 
 1. Arraste o módulo **do Modelo de Pontuação** na tela e conecte-o aos módulos **Train Model** e **Split Data.**
 
-1. Arraste o **Pertron Averaged Perceptron de duas classes** para a tela de experimentação. Você vai comparar como este algoritmo funciona em comparação com a Árvore de Decisão Aumentada de Duas Classes.
+1. Arraste o **Pertron Averaged Perceptron de duas classes** para a tela de experimentação. Você vai comparar como este algoritmo funciona em comparação com a Two-Class Árvore de Decisão Reforçada.
 
 1. Copie e cole os módulos **Modelo de Comboio** e Modelo de **Pontuação** na tela.
 
@@ -142,11 +142,11 @@ Agora, teste como o modelo funciona em dados de teste. Dois algoritmos diferente
 
 1. Clique **em submeter-se** para configurar o curso do gasoduto.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-in.png" alt-text="Screenshot de todos os módulos restantes na tela." lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-out.png":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-in.png" alt-text="Screenshot do painel esquerdo da interface Azure Machine Learning" lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-out.png":::
 
 1. Assim que a execução terminar, clique com o botão direito no módulo **Modelo de Avaliação** e clique nos **resultados da Avaliação visualização.**
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/result-visualize-zoomed-out.png" alt-text="Screenshot dos resultados.":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/result-visualize-zoomed-out.png" alt-text="Screenshot do painel esquerdo da interface Azure Machine Learning":::
 
 As métricas fornecidas são a curva ROC, o diagrama de recuperação de precisão e a curva de elevação. Olhe para estas métricas para ver que o primeiro modelo teve um desempenho melhor do que o segundo. Para ver o que o primeiro modelo previu, clique com o botão direito no módulo 'Modelo de Pontuação' e clique em Visualizar Conjunto de dados Marcado para ver os resultados previstos.
 
@@ -157,7 +157,7 @@ Verá mais duas colunas adicionadas ao conjunto de dados do seu teste.
 
 Compare a coluna BikeBuyer (real) com as Etiquetas Pontuadas (previsão), para ver como o modelo se apresentou bem. Em seguida, pode usar este modelo para fazer previsões para novos clientes. Pode [publicar este modelo como um serviço web](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy) ou escrever resultados de volta à Azure Synapse.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a Azure Machine Learning, consulte a [Introdução à Aprendizagem automática em Azure.](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml)
 

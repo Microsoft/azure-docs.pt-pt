@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 810a08d2f72359b385d2a7567b796aa222c6ab14
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940777"
 ---
 # <a name="features-and-capabilities-of-azure-arc-enabled-sql-managed-instance"></a>Funcionalidades e Capacidades do Arco Azure ativaram a sql Gestão de Instância
@@ -33,25 +33,25 @@ Azure Arc habilitado SQL Managed Instance compartilham uma base de código comum
 
 ###  <a name="rdbms-high-availability"></a><a name="RDBMSHA"></a> Alta Disponibilidade RDBMS  
   
-|Funcionalidade|Azure Arc permitiu a SQL Gestão de Instância|
+|Funcionalidade|SQL Managed Instance preparado para o Azure Arc|
 |-------------|----------------|
-|Envio de registos|Yes| 
-|Compressão de backup|Yes|
-|Instantâneo da base de dados|Yes|
+|Envio de registos|Sim| 
+|Compressão de backup|Sim|
+|Instantâneo da base de dados|Sim|
 |Sempre na instância de cluster de failover<sup>1</sup>| Não aplicável. Capacidades semelhantes disponíveis |
 |Sempre em grupos de disponibilidade<sup>2</sup>|As capacidades ha estão planeadas.|
 |Grupos básicos de disponibilidade <sup>2</sup>|As capacidades ha estão planeadas.|
 |Réplica mínima compromete disponibilidade grupo <sup>2</sup>|As capacidades ha estão planeadas.|
-|Grupo de disponibilidade sem clusters|Yes|
-|Página online e restauro de ficheiros|Yes|
-|Indexação online|Yes|
-|Resumível índice online reconstrói|Yes|
-|Mudança de esquema on-line|Yes|
-|Recuperação rápida|Yes|
-|Backups espelhados|Yes|
-|Hot add memory e CPU|Yes|
-|Cópia de segurança encriptada|Yes|
-|Backup híbrido para Azure (backup para URL)|Yes|
+|Grupo de disponibilidade sem clusters|Sim|
+|Página online e restauro de ficheiros|Sim|
+|Indexação online|Sim|
+|Resumível índice online reconstrói|Sim|
+|Mudança de esquema on-line|Sim|
+|Recuperação rápida|Sim|
+|Backups espelhados|Sim|
+|Hot add memory e CPU|Sim|
+|Cópia de segurança encriptada|Sim|
+|Backup híbrido para Azure (backup para URL)|Sim|
 
 <sup>1</sup> No cenário em que há falha no pod, uma nova SQL Managed Instance iniciar-se-á e re-anexará ao volume persistente que contém os seus dados. [Saiba mais sobre os volumes persistentes da Kubernetes aqui.](https://kubernetes.io/docs/concepts/storage/persistent-volumes)
 
@@ -59,96 +59,96 @@ Azure Arc habilitado SQL Managed Instance compartilham uma base de código comum
 
 ###  <a name="rdbms-scalability-and-performance"></a><a name="RDBMSSP"></a> Escalabilidade e Desempenho RDBMS  
 
-|Funcionalidade|Azure Arc permitiu a SQL Gestão de Instância|
+|Funcionalidade|SQL Managed Instance preparado para o Azure Arc|
 |-------------|----------------|
-|Loja de Colunas|   Yes|
-|Binários de objetos grandes em índices de loja de colunas agrupados|    Yes|
-|Reconstrução do índice de colunas não-aglomerada online| Yes|
-|OLTP na Memória|    Yes|
-|Memória Principal Persistente|    Yes|
-|Divisórias de tabela e índice|  Yes
-|Compressão de dados|  Yes|
-|Resource Governor| Yes|
-|Paralelos de mesa dividida| Yes|
-|Uma memória de página e alocação de matriz de página grande e grande página|  Yes|
-|IO Governação de Recursos|    Yes|
-|Durabilidade atrasada|    Yes|
-|Otimização Automática|  Yes|
-|Conjuntos adaptáveis do modo de lote| Yes|
-|Feedback do subsídio de memória do modo de lote|  Yes|
-|Execução Intercalada para Funções Avaliadas em Tabela Multi-Declaração|  Yes|
-|Melhorias de inserção a granel   |Yes|
+|Loja de Colunas|   Sim|
+|Binários de objetos grandes em índices de loja de colunas agrupados|    Sim|
+|Reconstrução do índice de colunas não-aglomerada online| Sim|
+|OLTP na Memória|    Sim|
+|Memória Principal Persistente|    Sim|
+|Divisórias de tabela e índice|  Sim
+|Compressão de dados|  Sim|
+|Resource Governor| Sim|
+|Paralelos de mesa dividida| Sim|
+|Uma memória de página e alocação de matriz de página grande e grande página|  Sim|
+|IO Governação de Recursos|    Sim|
+|Durabilidade atrasada|    Sim|
+|Otimização Automática|  Sim|
+|Conjuntos adaptáveis do modo de lote| Sim|
+|Feedback do subsídio de memória do modo de lote|  Sim|
+|Execução Intercalada para Funções Avaliadas em Tabela Multi-Declaração|  Sim|
+|Melhorias de inserção a granel   |Sim|
 
 ###  <a name="rdbms-security"></a><a name="RDBMSS"></a> Segurança RDBMS  
-|Funcionalidade|Azure Arc permitiu a SQL Gestão de Instância|
+|Funcionalidade|SQL Managed Instance preparado para o Azure Arc|
 |-------------|----------------|
-|Segurança ao nível da linha|    Yes|
-|Sempre Encriptado|  Yes|
-|Sempre encriptado com enclaves seguros| No|
-|Máscara de dados dinâmica|  Yes|
-|Auditoria básica|    Yes|
-|Auditoria de grãos finos| Yes|
-|Encriptação transparente da base de dados|   Yes|
-|Funções definidas pelo utilizador|    Yes|
-|Bases de dados contidas|   Yes|
-|Encriptação para cópias de segurança|    Yes|
+|Segurança ao nível da linha|    Sim|
+|Sempre Encriptado|  Sim|
+|Sempre encriptado com enclaves seguros| Não|
+|Máscara de dados dinâmica|  Sim|
+|Auditoria básica|    Sim|
+|Auditoria de grãos finos| Sim|
+|Encriptação transparente da base de dados|   Sim|
+|Funções definidas pelo utilizador|    Sim|
+|Bases de dados contidas|   Sim|
+|Encriptação para cópias de segurança|    Sim|
 
 ###  <a name="rdbms-manageability"></a><a name="RDBMSM"></a> Gerenciabilidade de RDBMS  
 
-|Funcionalidade|Azure Arc permitiu a SQL Gestão de Instância|
+|Funcionalidade|SQL Managed Instance preparado para o Azure Arc|
 |-------------|----------------|
-|Conexão de administração dedicada|    Yes|
-|Suporte de script powerShell|  Yes|
-|Suporte para operações de componentes de aplicação de nível de dados - extrair, implantar, atualizar, eliminar| Yes
-|Automação de políticas (verificar o horário e a mudança)   |Yes|
-|Coletor de dados de desempenho|    Yes|
-|Relatórios de desempenho padrão   |Yes|
-|Planeie guias e planeie congelamento para guias de planos| Yes|
-|Consulta direta de pontos de vista indexados (usando sugestão NOEXPAND)|   Yes|
-|Manutenção automática de vistas indexadas    |Yes|
-|Vistas distribuídas por divisórias| Yes|
-|Operações indexadas paralelas    |Yes|
-|Utilização automática da vista indexada por otimizador de consulta|  Yes|
-|Verificação paralela de consistência |Yes|
+|Conexão de administração dedicada|    Sim|
+|Suporte de script powerShell|  Sim|
+|Suporte para operações de componentes de aplicação de nível de dados - extrair, implantar, atualizar, eliminar| Sim
+|Automação de políticas (verificar o horário e a mudança)   |Sim|
+|Coletor de dados de desempenho|    Sim|
+|Relatórios de desempenho padrão   |Sim|
+|Planeie guias e planeie congelamento para guias de planos| Sim|
+|Consulta direta de pontos de vista indexados (usando sugestão NOEXPAND)|   Sim|
+|Manutenção automática de vistas indexadas    |Sim|
+|Vistas distribuídas por divisórias| Sim|
+|Operações indexadas paralelas    |Sim|
+|Utilização automática da vista indexada por otimizador de consulta|  Sim|
+|Verificação paralela de consistência |Sim|
 
 
 ### <a name="programmability"></a><a name="Programmability"></a> Programabilidade  
 
-|Funcionalidade|Azure Arc permitiu a SQL Gestão de Instância|
+|Funcionalidade|SQL Managed Instance preparado para o Azure Arc|
 |-------------|----------------|
-|JSON|  Yes |       |
-|Arquivo de Consultas    |Yes    |       
-|Temporal|  Yes |       
-|Suporte nativo XML|    Yes |       
-|Indexação XML   |Yes    |       
-|& capacidades da UPSERT|   Yes |       
-|Data e hora de dados    |Yes    |       
-|Apoio à internacionalização|  Yes |       
-|Pesquisa completa e semântica |    No      |
-|Especificação da linguagem em consulta |Yes        |   
-|Corretor de Serviços (mensagens)|    Yes     |   
-|Pontos finais Transact-SQL|    Yes |       
-|Graph| Yes |   
-|Machine Learning Services| No  |   
-|PolyBase| No   |
+|JSON|  Sim |       |
+|Arquivo de Consultas    |Sim    |       
+|Temporal|  Sim |       
+|Suporte nativo XML|    Sim |       
+|Indexação XML   |Sim    |       
+|& capacidades da UPSERT|   Sim |       
+|Data e hora de dados    |Sim    |       
+|Apoio à internacionalização|  Sim |       
+|Pesquisa completa e semântica |    Não      |
+|Especificação da linguagem em consulta |Sim        |   
+|Corretor de Serviços (mensagens)|    Sim     |   
+|Pontos finais Transact-SQL|    Sim |       
+|Graph| Sim |   
+|Machine Learning Services| Não  |   
+|PolyBase| Não   |
 
 
 ### <a name="tools"></a>Ferramentas
 
 O Azure Arc ativou o SQL Managed Instance suportando várias ferramentas de dados que podem ajudá-lo a gerir os seus dados.
 
-| **Ferramenta** | Azure Arc permitiu a SQL Gestão de Instância|
+| **Ferramenta** | SQL Managed Instance preparado para o Azure Arc|
 | --- | --- | --- |
-| Portal Azure <sup>1</sup> | No |
-| CLI do Azure | No |
-| [Azure Data Studio](/sql/azure-data-studio/what-is) | Yes |
-| Azure PowerShell | Yes |
-| [Ficheiro BACPAC (exportação)](/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Yes |
-| [Ficheiro BACPAC (importação)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Yes |
-| [SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt) | Yes |
-| [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) | Yes |
-| [SQL Server PowerShell](/sql/relational-databases/scripting/sql-server-powershell) | Yes |
-| [SQL Server Profiler](/sql/tools/sql-server-profiler/sql-server-profiler) | Yes |
+| Portal Azure <sup>1</sup> | Não |
+| CLI do Azure | Não |
+| [Azure Data Studio](/sql/azure-data-studio/what-is) | Sim |
+| Azure PowerShell | Sim |
+| [Ficheiro BACPAC (exportação)](/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Sim |
+| [Ficheiro BACPAC (importação)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Sim |
+| [SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt) | Sim |
+| [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) | Sim |
+| [SQL Server PowerShell](/sql/relational-databases/scripting/sql-server-powershell) | Sim |
+| [SQL Server Profiler](/sql/tools/sql-server-profiler/sql-server-profiler) | Sim |
 
 <sup>1</sup> O portal Azure é utilizado apenas para visualizar Azure Arc ativado SQL Managed Instances no modo apenas de leitura durante a pré-visualização.
 
@@ -170,7 +170,7 @@ As seguintes funcionalidades e serviços não estão disponíveis para Azure Arc
 | **Agente do SQL Server** |  Subsistemas: CmdExec, PowerShell, Queue Reader, SSIS, SSAS, SSRS |
 | &nbsp; | Alertas |
 | &nbsp; | Cópia de Segurança Gerida |
-| **Elevada Disponibilidade** | Espelhamento da base de dados  |
+| **Alta Disponibilidade** | Espelhamento da base de dados  |
 | **Segurança** | Gestão de Chaves Extensíveis |
 | &nbsp; | Autenticação AD para Servidores Ligados | 
 | &nbsp; | Autenticação AD para Grupos de Disponibilidade (AGs) | 

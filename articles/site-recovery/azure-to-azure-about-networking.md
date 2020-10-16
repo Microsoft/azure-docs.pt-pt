@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: f0a3ac0c81291a1231ef660481d8e31b38c0e212
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 622f0d66f2c8a9f7cf0539d14499897acf7b68e6
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631346"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096339"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Sobre networking em Azure VM recuperação de desastres
 
@@ -40,13 +40,13 @@ Normalmente, as redes são protegidas utilizando firewalls e grupos de seguranç
 >[!IMPORTANT]
 > A utilização de um representante autenticado para controlar a conectividade da rede não é suportada pela Recuperação do Site, e a replicação não pode ser ativada.
 
+>[!NOTE]
+> A filtragem baseada em endereços IP não deve ser realizada para controlar a conectividade de saída.
+> Os endereços IP de recuperação do local de Azure não devem ser adicionados na tabela de encaminhamento Azure para controlar a conectividade de saída.
 
 ## <a name="outbound-connectivity-for-urls"></a>Conectividade de saída para URLs
 
 Se estiver a utilizar um proxy de firewall baseado em URL para controlar a conectividade de saída, permita que estes URLs de Recuperação do Site:
-
->[!NOTE]
-> A filtragem baseada em endereços IP não deve ser realizada para controlar a conectividade de saída.
 
 **URL** | **Detalhes**
 --- | ---
@@ -59,7 +59,7 @@ login.microsoftonline.com | Requerida autorização e autenticação para os URL
 
 ## <a name="outbound-connectivity-using-service-tags"></a>Conectividade de saída usando tags de serviço
 
-Se estiver a utilizar um NSG para controlar a conectividade de saída, estas etiquetas de serviço têm de ser permitidas.
+Ao utilizar o NSG para controlar a conectividade de saída, estas etiquetas de serviço precisam de ser permitidas.
 
 - Para as contas de armazenamento na região de origem:
     - Crie uma regra NSG baseada em [serviço de armazenamento](../virtual-network/security-overview.md#service-tags) para a região de origem.

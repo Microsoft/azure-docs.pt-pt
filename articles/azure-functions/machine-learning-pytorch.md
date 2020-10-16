@@ -7,10 +7,10 @@ ms.date: 02/28/2020
 ms.author: gopalv
 ms.custom: devx-track-python, devx-track-azurepowershell
 ms.openlocfilehash: dd8de1b56927e158a181df952ce0dbeed140d6b7
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89078661"
 ---
 # <a name="tutorial-deploy-a-pre-trained-image-classification-model-to-azure-functions-with-pytorch"></a>Tutorial: Implementar um modelo de classificação de imagem pré-treinado para funções Azure com PyTorch

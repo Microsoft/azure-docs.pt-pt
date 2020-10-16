@@ -7,13 +7,13 @@ ms.date: 04/01/2020
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: 74870d10348421bf726b9bdc58504a74cf4105a9
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86129920"
 ---
-# <a name="enable-replication-to-azure-for-vmware-vms"></a>Ativar a replicação do Azure para VMware VMs
+# <a name="enable-replication-to-azure-for-vmware-vms"></a>Ativar a replicação no Azure para as VMs VMware
 
 Este artigo descreve como permitir a replicação de máquinas virtuais VMware (VMware) no local para Azure.
 
@@ -73,16 +73,16 @@ Para ativar a replicação, siga estes passos:
 
    Selecione **Configurar agora para máquinas selecionadas** para aplicar a definição de rede em todas as máquinas virtuais que seleciona para proteção. Selecione **Configurar mais tarde** para selecionar a rede Azure por máquina virtual. Se não tem uma rede, tem de criar uma. Para criar uma rede utilizando o Azure Resource Manager, selecione **Criar novo**. Selecione uma sub-rede se aplicável e, em seguida, selecione **OK**.
 
-   :::image type="content" source="./media/vmware-azure-enable-replication/enable-rep3.png" alt-text="Ativar a janela alvo de replicação":::
+   :::image type="content" source="./media/vmware-azure-enable-replication/enable-rep3.png" alt-text="Ativar a janela de fonte de replicação":::
 
 1. Para **máquinas virtuais**  >  **Selecione máquinas virtuais,** selecione cada máquina virtual que pretende replicar. Só é possível selecionar máquinas virtuais para as quais a replicação pode ser ativada. Em seguida, selecione **OK**. Se não conseguir ver ou selecionar nenhuma máquina virtual em particular, consulte [a máquina Source não está listada no portal Azure](vmware-azure-troubleshoot-replication.md#step-3-troubleshoot-source-machines-that-arent-available-for-replication) para resolver o problema.
 
-   :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication5.png" alt-text="Ativar a replicação Selecione a janela das máquinas virtuais":::
+   :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication5.png" alt-text="Ativar a janela de fonte de replicação":::
 
 1. Para **propriedades de configuração de**  >  **propriedades**, selecione a conta que o servidor de processo utiliza para instalar automaticamente o serviço de Mobilidade de Recuperação do Site no VM. Além disso, escolha o tipo de disco gerido pelo alvo para usar para replicação com base nos seus padrões de churn de dados.
 1. Por predefinição, todos os discos de um VM de origem são replicados. Para excluir discos de replicação, **limpe** a caixa de verificação Incluir para quaisquer discos que não queira replicar. Em seguida, selecione **OK**. Pode definir as propriedades adicionais mais tarde. [Saiba mais](vmware-azure-exclude-disk.md) sobre a exclusão dos discos.
 
-   :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication6.png" alt-text="Ativar a janela de configuração de propriedades de replicação":::
+   :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication6.png" alt-text="Ativar a janela de fonte de replicação":::
 
 1. A partir das **definições de replicação,**  >  **certifique-se de que**a política de replicação correta está selecionada. Pode modificar as definições **Settings**de política de replicação nas  >  **definições de políticas de replicação**  >  _policy name_  >  **designar definições de edição**. As alterações aplicadas a uma política também se aplicam à replicação e às novas máquinas virtuais.
 1. Se pretender juntar máquinas virtuais num grupo de replicação, ative a **consistência multi-VM**. Especifique um nome para o grupo e, em seguida, selecione **OK**.
@@ -91,7 +91,7 @@ Para ativar a replicação, siga estes passos:
    > - As máquinas virtuais num grupo de replicação replicam-se juntas e partilharam pontos de recuperação consistentes e consistentes com falhas quando falham.
    > - Junte VMs e servidores físicos para que espelham as suas cargas de trabalho. Permitir a consistência multi-VM pode afetar o desempenho da carga de trabalho. Faça isto apenas se as máquinas virtuais estiverem a funcionar da mesma carga de trabalho e precisar de consistência.
 
-   :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication7.png" alt-text="Ativar a janela de replicação":::
+   :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication7.png" alt-text="Ativar a janela de fonte de replicação":::
 
 1. Selecione **Ativar a replicação**. Pode acompanhar o progresso do trabalho de **Proteção ativa** em **Definições**  >  **de**  >  **Empregos Locais de Recuperação .** Após o funcionaamento do trabalho **de Proteção Finalização,** a máquina virtual está pronta para o failover.
 
@@ -103,7 +103,7 @@ Em seguida, verifique as propriedades da máquina virtual de origem. Lembre-se d
 1. Em **Propriedades,** pode ver a replicação e informações de failover para o VM.
 1. Nas propriedades **compute e Network**  >  **Compute,** pode alterar várias propriedades VM.
 
-   :::image type="content" source="./media/vmware-azure-enable-replication/vmproperties.png" alt-text="Janela de propriedades de computação e rede":::
+   :::image type="content" source="./media/vmware-azure-enable-replication/vmproperties.png" alt-text="Ativar a janela de fonte de replicação":::
 
    - **Nome Azure VM**: Modifique o nome para satisfazer os requisitos de Azure, se necessário.
    - **Tamanho VM alvo ou tipo VM**: O tamanho VM predefinido é escolhido com base em parâmetros que incluem contagem de discos, contagem de NIC, contagem de núcleos de CPU, memória e tamanhos de função VM disponíveis na região de Azure alvo. A Azure Site Recovery escolhe o primeiro tamanho VM disponível que satisfaz todos os critérios. Pode selecionar um tamanho VM diferente com base nas suas necessidades a qualquer momento antes de falhar. O tamanho do disco VM também é baseado no tamanho do disco de origem, e só pode ser alterado após a falha. Saiba mais sobre os tamanhos dos discos e as taxas de IOPS no [Scalability e alvos de desempenho para discos VM no Windows](../virtual-machines/windows/disk-scalability-targets.md).
@@ -141,7 +141,7 @@ Os clientes da Microsoft Software Assurance podem utilizar o Azure Hybrid Benefi
 
 [Saiba mais](https://azure.microsoft.com/pricing/hybrid-benefit/) sobre o Azure Hybrid Benefit.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de a máquina virtual atingir um estado protegido, experimente um [failover](site-recovery-failover.md) para verificar se a sua aplicação aparece no Azure.
 

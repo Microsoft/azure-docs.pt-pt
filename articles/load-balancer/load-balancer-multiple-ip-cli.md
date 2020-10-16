@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
 ms.openlocfilehash: 9e9a74690108c0e089e99f9cd7f0f62e7a7d1778
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84809150"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-azure-cli"></a>Equilíbrio de carga em várias configurações IP usando Azure CLI
@@ -119,6 +119,6 @@ Para alcançar o cenário descrito neste artigo, complete os seguintes passos:
 
 13. Por fim, tem de configurar registos de recursos DNS para indicar o respetivo endereço IP frontal do Balanceador de Carga. Pode hospedar os seus domínios em Azure DNS. Para obter mais informações sobre a utilização do Azure DNS com balanceador de carga, consulte [utilizar o Azure DNS com outros serviços Azure](../dns/dns-for-azure-services.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre como combinar serviços de equilíbrio de carga em Azure em [Utilizar serviços de equilíbrio de carga em Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
 - Saiba como pode utilizar diferentes tipos de registos no Azure para gerir e resolver problemas no balançor de carga de [log para o Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).

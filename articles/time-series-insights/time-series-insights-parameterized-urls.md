@@ -11,10 +11,10 @@ ms.workload: big-data
 ms.date: 10/02/2020
 ms.custom: seodec18
 ms.openlocfilehash: 9bf857a66643b1e95ea2559601761a7217babad4
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91665332"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Partilhar vistas personalizadas com um URL parametrizado
@@ -134,7 +134,7 @@ O URL acima descreve e exibe a vista paratizada do Azure Time Series Insights Ex
 
   [![A vista de gráfico completo compartilhado.](media/parameterized-url/share-parameterized-url-full-chart.png)](media/parameterized-url/share-parameterized-url-full-chart.png#lightbox)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [consultar os dados utilizando C#](time-series-insights-query-data-csharp.md).
 

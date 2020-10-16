@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 7e9ce523efd12ce372d7bfef6c653e95f6689415
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: acd2f12150155efbccc668b99dcc4683d81b87e0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91856964"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047034"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Quickstart: Implemente o seu primeiro módulo IoT Edge num dispositivo Virtual Windows
 
@@ -74,11 +74,11 @@ Dispositivo IoT Edge
   Abra este ficheiro com Ligação de Ambiente de Trabalho Remoto para ligar à sua máquina virtual Do Windows utilizando o nome de administrador e a palavra-passe especificada com o `az vm create` comando.
 
 > [!NOTE]
-> A sua máquina virtual Windows começa com a versão 1809 do Windows (construa 17763), que é a mais recente [construção de suporte a longo prazo](https://docs.microsoft.com/windows/release-information/)do Windows . O Windows verifica automaticamente as atualizações a cada 22 horas por predefinição. Depois de uma verificação na sua máquina virtual, o Windows empurra uma atualização de versão incompatível com o IoT Edge para windows, o que impede a utilização posterior do IoT Edge para funcionalidades do Windows. Recomendamos limitar a utilização da sua máquina virtual dentro de 22 horas ou [interromper temporariamente as atualizações do Windows](https://support.microsoft.com/help/4028233/windows-10-manage-updates).
+> A sua máquina virtual Windows começa com a versão 1809 do Windows (construa 17763), que é a mais recente [construção de suporte a longo prazo](/windows/release-information/)do Windows . O Windows verifica automaticamente as atualizações a cada 22 horas por predefinição. Depois de uma verificação na sua máquina virtual, o Windows empurra uma atualização de versão incompatível com o IoT Edge para windows, o que impede a utilização posterior do IoT Edge para funcionalidades do Windows. Recomendamos limitar a utilização da sua máquina virtual dentro de 22 horas ou [interromper temporariamente as atualizações do Windows](https://support.microsoft.com/help/4028233/windows-10-manage-updates).
 >
 > Este arranque rápido utiliza uma máquina virtual de ambiente de trabalho do Windows para simplificar. Para obter informações sobre quais os sistemas operativos Windows geralmente disponíveis para cenários de produção, consulte [os sistemas suportados pelo Azure IoT Edge](support.md).
 >
-> Se estiver pronto para configurar o seu próprio dispositivo Windows para ioT Edge, incluindo dispositivos que executam o IoT Core, siga os passos na [Instalação do tempo de execução do Azure IoT Edge no Windows](how-to-install-iot-edge-windows.md).
+> Se pretender configurar o seu próprio dispositivo Windows para IoT Edge, siga os passos na [Instalação do tempo de execução Azure IoT Edge](how-to-install-iot-edge.md).
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
@@ -142,9 +142,7 @@ Os passos desta secção são todos realizados no seu dispositivo IoT Edge, pelo
 
 Utilize o PowerShell para transferir e instalar o runtime IoT Edge. Utilize a cadeia de ligação do dispositivo que obteve no hub IoT para configurar o dispositivo.
 
-1. Se ainda não o fez, siga os passos no [Registo de um novo dispositivo Azure IoT Edge](how-to-register-device.md) para registar o seu dispositivo e recuperar a cadeia de ligação do dispositivo.
-
-2. Na máquina virtual, executar o PowerShell como administrador.
+1. Na máquina virtual, executar o PowerShell como administrador.
 
    >[!NOTE]
    >Utilize uma sessão AMD64 de PowerShell para instalar ioT Edge, não PowerShell (x86). Se não tiver a certeza de que tipo de sessão está a utilizar, execute o seguinte comando:
@@ -153,25 +151,25 @@ Utilize o PowerShell para transferir e instalar o runtime IoT Edge. Utilize a ca
    >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
    >```
 
-3. O comando **Deploy-IoTEdge** verifica se a sua máquina Do Windows está numa versão suportada, liga a funcionalidade de contentores, descarrega o tempo de execução do Moby e, em seguida, descarrega o tempo de execução IoT Edge.
+2. O comando **Deploy-IoTEdge** verifica se a sua máquina Do Windows está numa versão suportada, liga a funcionalidade de contentores, descarrega o tempo de execução do Moby e, em seguida, descarrega o tempo de execução IoT Edge.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
    Deploy-IoTEdge -ContainerOs Windows
    ```
 
-4. A sua máquina pode reiniciar automaticamente. Se for solicitado pelo comando Deploy-IoTEdge para reiniciar, faça-o agora.
+3. A sua máquina pode reiniciar automaticamente. Se for solicitado pelo comando Deploy-IoTEdge para reiniciar, faça-o agora.
 
-5. Executar o PowerShell como administrador novamente.
+4. Executar o PowerShell como administrador novamente.
 
-6. O comando **Initialize-IoTEdge** configura o tempo de funcionamento do IoT Edge na sua máquina. O comando não tem disposição manual com recipientes Windows.
+5. O comando **Initialize-IoTEdge** configura o tempo de funcionamento do IoT Edge na sua máquina. O comando não tem disposição manual com recipientes Windows.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
    Initialize-IoTEdge -ContainerOs Windows
    ```
 
-7. Quando lhe for pedido **DeviceConnectionString**, indique a cadeia que copiou na secção anterior. Não inclua as aspas à volta da cadeia de ligação.
+6. Quando lhe for pedido **DeviceConnectionString**, indique a cadeia que copiou na secção anterior. Não inclua as aspas à volta da cadeia de ligação.
 
 ### <a name="view-the-iot-edge-runtime-status"></a>Ver o estado de runtime do IoT Edge
 
@@ -234,7 +232,7 @@ iotedge logs SimulatedTemperatureSensor -f
 
 Também pode ver as mensagens chegarem ao seu hub IoT utilizando a [extensão Azure IoT Hub para Código de Estúdio Visual](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se quiser avançar para os tutoriais do IoT Edge, pode utilizar o dispositivo que registou e configurou neste início rápido. Caso contrário, pode eliminar os recursos Azure que criou para evitar encargos.
 

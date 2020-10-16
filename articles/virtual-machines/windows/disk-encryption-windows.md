@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 951c1fd89f9e943b72c32492ff40dae3bd07bb61
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: cf7e596c8ed057a3244ed2b12de59d02c4ba2cae
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88794481"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977940"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Cenários do Azure Disk Encryption em VMs do Windows
 
@@ -44,7 +44,7 @@ Neste cenário, pode ativar a encriptação utilizando o modelo de Gestor de Rec
 ### <a name="enable-encryption-on-existing-or-running-vms-with-azure-powershell"></a>Ativar a encriptação em VMs existentes ou em execução com Azure PowerShell 
 Utilize o [cmdlet Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) para ativar a encriptação numa máquina virtual IaaS em funcionamento em Azure. 
 
--  **Criptografe um VM em execução:** O script abaixo inicializa as suas variáveis e executa o cmdlet Set-AzVMDiskEncryptionExtension. O grupo de recursos, VM e cofre-chave já deveriam ter sido criados como pré-requisitos. Substitua o MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM e MySecureVault com os seus valores.
+-  **Criptografe um VM em execução:** O script abaixo inicializa as suas variáveis e executa o Set-AzVMDiskEncryptionExtension cmdlet. O grupo de recursos, VM e cofre-chave já deveriam ter sido criados como pré-requisitos. Substitua o MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM e MySecureVault com os seus valores.
 
      ```azurepowershell
       $KVRGname = 'MyKeyVaultResourceGroup';
@@ -188,11 +188,11 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
 Pode [adicionar um novo disco a um Windows VM utilizando o PowerShell,](attach-disk-ps.md)ou [através do portal Azure](attach-managed-disk-portal.md). 
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-azure-powershell"></a>Ativar a encriptação num disco recém-adicionado com a Azure PowerShell
- Ao utilizar o PowerShell para encriptar um novo disco para VMs do Windows, deve ser especificada uma nova versão de sequência. A versão da sequência tem de ser única. O script abaixo gera um GUID para a versão de sequência. Em alguns casos, um disco de dados recém-adicionado pode ser encriptado automaticamente pela extensão de encriptação do disco Azure. A encriptação automática ocorre geralmente quando o VM reinicia após o novo disco estar online. Isto é normalmente causado porque "All" foi especificado para o tipo de volume quando a encriptação do disco foi previamente correu no VM. Se a encriptação automática ocorrer num disco de dados recém-adicionado, recomendamos que se recorra o cmdlet de configuração de Set-AzVmDiskEncryptionExtension novamente com nova versão de sequência. Se o seu novo disco de dados estiver encriptado automaticamente e não desejar ser encriptado, desencriptar todas as unidades primeiro, então reencrimar com uma nova versão de sequência especificando o SO para o tipo de volume. 
+ Ao utilizar o PowerShell para encriptar um novo disco para VMs do Windows, deve ser especificada uma nova versão de sequência. A versão da sequência tem de ser única. O script abaixo gera um GUID para a versão de sequência. Em alguns casos, um disco de dados recém-adicionado pode ser encriptado automaticamente pela extensão de encriptação do disco Azure. A encriptação automática ocorre geralmente quando o VM reinicia após o novo disco estar online. Isto é normalmente causado porque "All" foi especificado para o tipo de volume quando a encriptação do disco foi previamente correu no VM. Se ocorrer uma encriptação automática num disco de dados recém-adicionado, recomendamos que volte a executar o cmdlet Set-AzVmDiskEncryptionExtension com nova versão de sequência. Se o seu novo disco de dados estiver encriptado automaticamente e não desejar ser encriptado, desencriptar todas as unidades primeiro, então reencrimar com uma nova versão de sequência especificando o SO para o tipo de volume. 
   
  
 
--  **Criptografe um VM em execução:** O script abaixo inicializa as suas variáveis e executa o cmdlet Set-AzVMDiskEncryptionExtension. O grupo de recursos, VM e cofre-chave já deveriam ter sido criados como pré-requisitos. Substitua o MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM e MySecureVault com os seus valores. Este exemplo utiliza "All" para o parâmetro -VolumeType, que inclui volumes de SO e Dados. Se quiser apenas encriptar o volume de SO, utilize "OS" para o parâmetro -VolumeType. 
+-  **Criptografe um VM em execução:** O script abaixo inicializa as suas variáveis e executa o Set-AzVMDiskEncryptionExtension cmdlet. O grupo de recursos, VM e cofre-chave já deveriam ter sido criados como pré-requisitos. Substitua o MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM e MySecureVault com os seus valores. Este exemplo utiliza "All" para o parâmetro -VolumeType, que inclui volumes de SO e Dados. Se quiser apenas encriptar o volume de SO, utilize "OS" para o parâmetro -VolumeType. 
 
      ```azurepowershell
       $KVRGname = 'MyKeyVaultResourceGroup';
@@ -262,7 +262,7 @@ A Azure Disk Encryption não funciona para os seguintes cenários, funcionalidad
 - Encriptação de sistemas de ficheiros partilhados/distribuídos como (mas não limitados a) DFS, GFS, DRDB e CephFS.
 - Mover um VMs encriptado para outra subscrição ou região.
 - Criar uma imagem ou instantâneo de um VM encriptado e usá-lo para implementar VMs adicionais.
-- Gen2 VMs (ver: [Suporte para a geração 2 VMs em Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
+- Gen2 VMs (ver: [Suporte para a geração 2 VMs em Azure](../generation-2.md#generation-1-vs-generation-2-capabilities))
 - VMs da série M com discos de acelerador de escrita.
 - Aplicação de ADE a um VM que tenha discos encriptados com [encriptação do lado do servidor com teclas geridas pelo cliente](disk-encryption.md) (SSE + CMK). Aplicar SSE + CMK a um disco de dados num VM encriptado com ADE também é um cenário não suportado.
 - Migrar um VM que é encriptado com ADE, ou **que já** foi encriptado com ADE, para [encriptação do lado do servidor com teclas geridas pelo cliente](disk-encryption.md).

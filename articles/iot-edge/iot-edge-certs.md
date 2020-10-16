@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mqtt
 ms.openlocfilehash: d1d4abbcc0768915d7d2e693cfc76a699ed21a91
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89669632"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Entenda como Azure IoT Edge usa certificados
@@ -105,7 +105,7 @@ Pode ver a hierarquia da profundidade do certificado representada na imagem:
 | Certificado ca de carga de trabalho     | iotedge carga de trabalho ca                                                                                       |
 | Certificado de servidor IoT Edge Hub | iotedgegw.local (corresponde ao 'nome anfitrião' de config.yaml)                                            |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Compreender os módulos do Azure IoT Edge](iot-edge-modules.md)
 

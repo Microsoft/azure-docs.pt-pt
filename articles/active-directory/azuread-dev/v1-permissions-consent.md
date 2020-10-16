@@ -15,10 +15,10 @@ ms.reviewer: jesakowi
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: c600e1fddc0089a508ff0cfebbbb3476f3a90008
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88117622"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Permissões e consentimento no Azure Ative Directory v1.0 endpoint
@@ -98,9 +98,9 @@ As aplicações no Azure AD dependem de consentimento para ter acesso a recursos
 - Os recursos devem definir explicitamente as permissões `Read` e `ReadWrite` em separado.
 - Os recursos devem marcar todas as permissões que permitem acesso aos dados em limites do utilizador como permissões `Admin`.
 - Os recursos devem seguir o padrão de nomenclatura `Subject.Permission[.Modifier]`, em que:
-  - `Subject`corresponde ao tipo de dados que está disponível
-  - `Permission`corresponde à ação que um utilizador pode assumir sobre esses dados
-  - `Modifier`é usado opcionalmente para descrever especializações de outra permissão
+  - `Subject` corresponde ao tipo de dados que está disponível
+  - `Permission` corresponde à ação que um utilizador pode assumir sobre esses dados
+  - `Modifier` é usado opcionalmente para descrever especializações de outra permissão
     
     Por exemplo:
   - Mail.Read - permite aos utilizadores lerem correio.

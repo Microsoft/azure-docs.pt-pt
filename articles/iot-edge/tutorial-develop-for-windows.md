@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: a0bc934d32a2d09fcd6b52ec1f186855bf0da92c
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 0728e5d12b13164d127941a49603836ff92fd515
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449625"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045793"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Tutorial: Desenvolver módulos IoT Edge para dispositivos Windows
 
@@ -24,7 +24,7 @@ No arranque rápido, criou um dispositivo IoT Edge utilizando uma máquina virtu
 
 Este tutorial utiliza o exemplo de implantação de um **módulo C# num dispositivo Windows**. Este exemplo foi escolhido porque é o cenário de desenvolvimento mais comum. Se você está interessado em desenvolver em uma linguagem diferente, ou planejar implementar serviços Azure como módulos, este tutorial ainda será útil para aprender sobre as ferramentas de desenvolvimento. Assim que compreender os conceitos de desenvolvimento, poderá escolher o seu idioma preferido ou o serviço Azure para mergulhar nos detalhes.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -87,13 +87,13 @@ Este tutorial ensina os passos de desenvolvimento do Visual Studio 2019. Se esti
 
 1. Prepare o Visual Studio 2019 na sua máquina de desenvolvimento.
 
-   * Se ainda não tiver o Visual Studio na sua máquina de desenvolvimento, instale o [Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) com as seguintes cargas de trabalho:
+   * Se ainda não tiver o Visual Studio na sua máquina de desenvolvimento, instale o [Visual Studio 2019](/visualstudio/install/install-visual-studio) com as seguintes cargas de trabalho:
 
       * Desenvolvimento do Azure
       * Desenvolvimento de desktop com C++
       * Desenvolvimento de várias plataformas .NET core
 
-   * Se já tem o Visual Studio 2019 na sua máquina de desenvolvimento, siga os passos no [Modificar Visual Studio](https://docs.microsoft.com/visualstudio/install/modify-visual-studio) para adicionar as cargas de trabalho necessárias.
+   * Se já tem o Visual Studio 2019 na sua máquina de desenvolvimento, siga os passos no [Modificar Visual Studio](/visualstudio/install/modify-visual-studio) para adicionar as cargas de trabalho necessárias.
 
 2. Descarregue e instale a extensão [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) para Visual Studio 2019.
 
@@ -181,17 +181,17 @@ O modelo de solução que criou inclui código de amostra para um módulo IoT Ed
 
 Cada módulo pode ter múltiplas filas *de entrada* e *saída* declaradas no seu código. O hub IoT Edge em funcionamento no dispositivo encaminha as mensagens da saída de um módulo para a entrada de um ou mais módulos. O código específico para declarar entradas e saídas varia entre as línguas, mas o conceito é o mesmo em todos os módulos. Para obter mais informações sobre o encaminhamento entre módulos, consulte [as rotas de Declarar](module-composition.md#declare-routes).
 
-O código de amostra C# que vem com o modelo de projeto utiliza a [Classe MóduloClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet) do IoT Hub SDK para .NET.
+O código de amostra C# que vem com o modelo de projeto utiliza a [Classe MóduloClient](/dotnet/api/microsoft.azure.devices.client.moduleclient) do IoT Hub SDK para .NET.
 
 1. No ficheiro **program.cs,** encontre o método **SetInputMessageHandlerAsync.**
 
-2. O método [SetInputMessageHandlerAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync?view=azure-dotnet) configura uma fila de entrada para receber mensagens recebidas. Reveja este método e veja como iniciaisiza uma fila de entrada chamada **input1**.
+2. O método [SetInputMessageHandlerAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync) configura uma fila de entrada para receber mensagens recebidas. Reveja este método e veja como iniciaisiza uma fila de entrada chamada **input1**.
 
    ![Encontre o nome de entrada no construtor SetInputMessageHandlserAsync](./media/tutorial-develop-for-windows/declare-input-queue.png)
 
 3. Em seguida, encontre o método **SendEventAsync.**
 
-4. O método [SendEventAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.sendeventasync?view=azure-dotnet) processa mensagens recebidas e configura uma fila de saída para as transmitir. Reveja este método e faça com que inicialize uma fila de saída chamada **output1**.
+4. O método [SendEventAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.sendeventasync) processa mensagens recebidas e configura uma fila de saída para as transmitir. Reveja este método e faça com que inicialize uma fila de saída chamada **output1**.
 
    ![Encontre o nome de saída no construtor SendEventAsync](./media/tutorial-develop-for-windows/declare-output-queue.png)
 
@@ -329,7 +329,7 @@ Os comandos desta secção são para o seu dispositivo IoT Edge, não para a sua
 
    Os registos SimulatedTemperatureSensor e IotEdgeModule1 devem mostrar as mensagens que estão a processar. O módulo EdgeAgent é responsável por iniciar os outros módulos, pelo que os seus registos terão informações sobre a implementação do manifesto de implementação. Se algum módulo não estiver listado ou não estiver em execução, os registos edgeAgent provavelmente terão os erros. O módulo EdgeHub é responsável pelas comunicações entre os módulos e o IoT Hub. Se os módulos estiverem a funcionar, mas as mensagens não chegarem ao seu hub IoT, os registos edgeHub provavelmente terão os erros.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se planeia avançar para o próximo artigo recomendado, pode manter os recursos e as configurações que criou e reutilizá-los. Também pode continuar a utilizar o mesmo dispositivo IoT Edge como um dispositivo de teste.
 
@@ -337,7 +337,7 @@ Caso contrário, pode eliminar as configurações locais e os recursos Azure que
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, configura o Visual Studio 2019 na sua máquina de desenvolvimento e implementou o seu primeiro módulo IoT Edge a partir dele. Agora que conhece os conceitos básicos, tente adicionar funcionalidade a um módulo para que possa analisar os dados que passam por ele. Escolha o seu idioma preferido:
 

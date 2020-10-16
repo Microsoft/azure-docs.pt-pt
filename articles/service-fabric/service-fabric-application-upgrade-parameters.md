@@ -4,10 +4,10 @@ description: Descreve parâmetros relacionados com a atualização de uma aplica
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.openlocfilehash: 6b6116bf1188fcf191b2d672e6c698bb3c050e6c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86247970"
 ---
 # <a name="application-upgrade-parameters"></a>Parâmetros da atualização da aplicação
@@ -15,7 +15,7 @@ Este artigo descreve os vários parâmetros que se aplicam durante a atualizaç�
 - PowerShell
 - Visual Studio
 - SFCTL
-- [DESCANSE](/rest/api/servicefabric/sfclient-api-startapplicationupgrade)
+- [REST](/rest/api/servicefabric/sfclient-api-startapplicationupgrade)
 
 As atualizações de aplicações são iniciadas através de um dos três modos de atualização selecionáveis pelo utilizador. Cada modo tem o seu próprio conjunto de parâmetros de aplicação:
 - Monitorizado
@@ -52,7 +52,7 @@ Os parâmetros de avaliação da saúde são opcionais. Se os critérios de aval
 > | --- | --- | --- |
 > | AplicativoParameter |PS, VS| Especifica as sobreposições para os parâmetros de aplicação.<br>Os parâmetros de aplicação PowerShell são especificados como pares de nome/valor de hashtable. Por exemplo, "VotingData_MinReplicaSetSize" @ = "3"; "VotingData_PartitionCount" = "1" }.<br>Os parâmetros de aplicação do Estúdio Visual podem ser especificados no diálogo de aplicação de tecido de serviço de publicação no campo **de ficheiros de parâmetros de aplicação.**
 > | Confirmar |PS| Os valores permitidos são **verdadeiros** e **falsos.** Solicita a confirmação antes de executar o cmdlet. |
-> | ConsidereWarningAsError |PS, VS |Os valores permitidos são **verdadeiros** e **falsos.** O valor predefinido é **Falso**. Trate os eventos de saúde de advertência para a aplicação como erros ao avaliar a saúde da aplicação durante a atualização. Por padrão, o Service Fabric não avalia os eventos de saúde de aviso como falhas (erros), pelo que a atualização pode prosseguir mesmo que existam eventos de alerta. |
+> | ConsidereWarningAsError |PS, VS |Os valores permitidos são **verdadeiros** e **falsos.** O valor predefinido é **falso.** Trate os eventos de saúde de advertência para a aplicação como erros ao avaliar a saúde da aplicação durante a atualização. Por padrão, o Service Fabric não avalia os eventos de saúde de aviso como falhas (erros), pelo que a atualização pode prosseguir mesmo que existam eventos de alerta. |
 > | DefaultServiceTypeHealthPolicy | PS, VS |Especifica a política de saúde para o tipo de serviço predefinido a utilizar para a atualização monitorizada no formato MaxPercentUnhealthyPartitionsPerService, MaxPercentUnhealthyReplicasPerPartition, MaxPercentUnhealthyServices. Por exemplo, 5,10,15 indica os seguintes valores: MaxPercentUnhealthyPartitionsPerService = 5, MaxPercentUnhealthyReplicasPerPartition = 10, MaxPercentUnhealthyServices = 15. |
 > | Force | PS, VS | Os valores permitidos são **verdadeiros** e **falsos.** Indica que o processo de atualização ignora a mensagem de aviso e força a atualização mesmo quando o número da versão não foi alterado. Isto é útil para testes locais, mas não é recomendado para ser utilizado num ambiente de produção, uma vez que requer a remoção da implantação existente que causa tempo de inacomprêmo e potencial perda de dados. |
 > | ForceRestart |PS, VS |Se atualizar uma configuração ou pacote de dados sem atualizar o código de serviço, o serviço só será reiniciado se a propriedade ForceRestart estiver definida como **True**. Quando a atualização estiver concluída, o Service Fabric notifica o serviço de que está disponível um novo pacote de configuração ou pacote de dados. O serviço é responsável pela aplicação das alterações. Se necessário, o serviço pode reiniciar-se sozinho. |
@@ -101,7 +101,7 @@ política de saúde de serviço | Mapa codificado JSON com política de saúde t
 tempo limite | Especifica o período de tempo de ício em segundos para a operação. Padrão: 60. |
 upgrade-domain-timeout | O tempo que cada domínio de atualização tem de completar antes *da execução do FailureAction.* É interpretado pela primeira vez como uma corda que representa uma duração ISO 8601. Se isso falhar, então é interpretado como um número que representa o número total de milissegundos. O valor predefinido nunca é (Infinito) e deve ser personalizado adequadamente para a sua aplicação. Predefinição: P10675199DT02H48M05.4775807S. |
 upgrade-timeout | O tempo que cada domínio de atualização tem de completar antes *da execução do FailureAction.* É interpretado pela primeira vez como uma corda que representa uma duração ISO 8601. Se isso falhar, então é interpretado como um número que representa o número total de milissegundos. O valor predefinido nunca é (Infinito) e deve ser personalizado adequadamente para a sua aplicação. Predefinição: P10675199DT02H48M05.4775807S.|
-advertência como erro | Os valores permitidos são **verdadeiros** e **falsos.** O valor predefinido é **Falso**. Pode ser passado como uma bandeira. Trate os eventos de saúde de advertência para a aplicação como erros ao avaliar a saúde da aplicação durante a atualização. Por padrão, o Service Fabric não avalia os eventos de saúde de aviso como falhas (erros), pelo que a atualização pode prosseguir mesmo que existam eventos de alerta. |
+advertência como erro | Os valores permitidos são **verdadeiros** e **falsos.** O valor predefinido é **falso.** Pode ser passado como uma bandeira. Trate os eventos de saúde de advertência para a aplicação como erros ao avaliar a saúde da aplicação durante a atualização. Por padrão, o Service Fabric não avalia os eventos de saúde de aviso como falhas (erros), pelo que a atualização pode prosseguir mesmo que existam eventos de alerta. |
 
 ## <a name="next-steps"></a>Passos seguintes
 [A atualização da sua aplicação utilizando o Visual Studio](service-fabric-application-upgrade-tutorial.md) acompanha-o através de uma atualização de aplicações utilizando o Visual Studio.

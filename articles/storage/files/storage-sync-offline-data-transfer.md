@@ -8,10 +8,10 @@ ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: ae9404d366b24c0cc1bcf01ecffc71a427f949d4
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88034350"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync-with-azure-databox"></a>Migrar dados em massa para o Azure File Sync com o Azure DataBox
@@ -51,7 +51,7 @@ Eis como configurar o Azure File Sync de uma forma compatível com ferramentas d
 
 | Passo | Detalhes |
 |---|---------------------------------------------------------------------------------------|
-| ![Passo 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Encomende a sua Caixa de Dados.](../../databox/data-box-deploy-ordered.md) A família Data Box oferece [vários produtos](https://azure.microsoft.com/services/storage/databox/data) para atender às suas necessidades. Quando receber a sua Caixa de Dados, siga a sua [documentação para copiar os seus dados](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) para esta trajetória unc na Caixa de * \\ Dados:<DeviceIPAddres \> \<StorageAccountName_AzFile\> \<ShareName\> *. Aqui, *ShareName* é o nome da participação na encenação. Envie a Caixa de Dados de volta para Azure. |
+| ![Passo 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Encomende a sua Caixa de Dados.](../../databox/data-box-deploy-ordered.md) A família Data Box oferece [vários produtos](https://azure.microsoft.com/services/storage/databox/data) para atender às suas necessidades. Quando receber a sua Caixa de Dados, siga a sua [documentação para copiar os seus dados](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) para esta trajetória unc na Caixa de * \\ Dados:<DeviceIPAddres \> \<StorageAccountName_AzFile\> \<ShareName\> *. Aqui, *ShareName* é o nome da participação na encenação. Envie a Caixa de Dados de volta para Azure. |
 | ![Passo 2](media/storage-sync-files-offline-data-transfer/bullet_2.png) | Aguarde até que os seus ficheiros apareçam nas ações de ficheiros Azure que escolheu como ações de encenação temporária. *Não permita sincronizar estas ações.* |
 | ![Passo 3](media/storage-sync-files-offline-data-transfer/bullet_3.png) | <ul><li>Crie uma nova parte vazia para cada partilha de ficheiros que a Data Box criou para si. Esta nova participação deve estar na mesma conta de armazenamento que a partilha da Caixa de Dados. [Como criar uma nova partilha de ficheiros Azure](storage-how-to-create-file-share.md).</li><li>[Crie um grupo de sincronização](storage-sync-files-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint) num Serviço de Sincronização de Armazenamento. Refira a parte vazia como um ponto final de nuvem. Repita este passo para cada partilha de ficheiros da Caixa de Dados. [Configurar o Azure File Sync](storage-sync-files-deployment-guide.md).</li></ul> |
 | ![Passo 4](media/storage-sync-files-offline-data-transfer/bullet_4.png) | [Adicione o seu diretório de servidor ao vivo como um ponto final do servidor](storage-sync-files-deployment-guide.md#create-a-server-endpoint). No processo, especifique que mudou os ficheiros para Azure e faça referência às ações de encenação. Pode ativar ou desativar o nível da nuvem conforme necessário. Ao criar um ponto final do servidor no seu servidor ao vivo, consulte a partilha de encenação. Na lâmina de ponto final do **servidor Add,** em **Offline Data Transfer**, selecione **Ativado**e, em seguida, selecione a parte de paragem que deve estar na mesma conta de armazenamento que o ponto final da nuvem. Aqui, a lista de ações disponíveis é filtrada por conta de armazenamento e ações que ainda não estão a sincronizar. A imagem que se segue a esta tabela mostra como fazer referência à partilha DataBox durante a criação do ponto final do servidor no portal Azure. |

@@ -14,10 +14,10 @@ ms.date: 06/25/2020
 ms.author: kumud
 ms.reviewer: anavin
 ms.openlocfilehash: 88e576231e0231a105cd9ec303f63307b5eaff89
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87051622"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Criar um espreitamento de rede virtual - diferentes modelos de implementação e subscrições
@@ -57,7 +57,7 @@ Este tutorial utiliza contas diferentes para cada subscrição. Se estiver a uti
 6. Na lâmina **myVnetA - Controlo de acesso (IAM)** que aparece, clique **+ Adicione a atribuição de função**.
 7. Na lâmina **de atribuição de funções Adicionar** que aparece, selecione o contribuinte de **rede** na caixa **Role.**
 8. Na caixa **Select,** selecione UserB ou digite o endereço de e-mail do UtilizadorB para o procurar. A lista de utilizadores mostrados é do mesmo inquilino do Azure Ative Directory que a rede virtual que está a configurar. Clique no UserB quando aparecer na lista.
-9. Clique em **Save** (Guardar).
+9. Clique em **Guardar**.
 10. Faça login no portal como UserA e, em seguida, faça login como UserB.
 11. Clique **em + Nova**, *digite rede Virtual* na caixa De Procurar o **Mercado** e, em seguida, clique na rede **Virtual** nos resultados de pesquisa.
 12. Na lâmina **de rede virtual** que aparece, selecione **Classic** na caixa de modelo **de implementação** e, em seguida, clique em **Criar**.
@@ -72,7 +72,7 @@ Este tutorial utiliza contas diferentes para cada subscrição. Se estiver a uti
     - **Localização**: *Leste dos EUA*
 
 14. Na caixa **de recursos de busca** no topo do portal, digite *myVnetB*. Clique **no myVnetB** quando aparecer nos resultados da pesquisa. Aparece uma lâmina para a rede virtual **myVnetB.**
-15. Na lâmina **myVnetB** que aparece, clique em **Propriedades** a partir da lista vertical de opções no lado esquerdo da lâmina. Copie o **ID recurso,** que é utilizado num passo posterior. O ID de recurso é semelhante ao seguinte exemplo:`/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`
+15. Na lâmina **myVnetB** que aparece, clique em **Propriedades** a partir da lista vertical de opções no lado esquerdo da lâmina. Copie o **ID recurso,** que é utilizado num passo posterior. O ID de recurso é semelhante ao seguinte exemplo: `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`
 16. Passos completos 5-9 para o myVnetB, entrando no **UserA** no passo 8.
 17. Faça login no portal como UserB e faça login como UserA.
 18. Na caixa **de recursos de busca** no topo do portal, *digite myVnetA*. Clique **em myVnetA** quando aparecer nos resultados da pesquisa. Aparece uma lâmina para a rede virtual **myVnet.**
@@ -272,7 +272,7 @@ Este tutorial utiliza contas diferentes para cada subscrição. Se estiver a uti
 ## <a name="delete-resources"></a><a name="delete"></a>Eliminar recursos
 Quando terminar este tutorial, talvez queira apagar os recursos que criou no tutorial, para não incorrer em taxas de utilização. A eliminação de um grupo de recursos também elimina todos os recursos que estão no grupo de recursos.
 
-### <a name="azure-portal"></a><a name="delete-portal"></a>Portal Azure
+### <a name="azure-portal"></a><a name="delete-portal"></a>Portal do Azure
 
 1. Na caixa de pesquisa do portal, insira **o myResourceGroupA**. Nos resultados da pesquisa, clique **no myResourceGroupA**.
 2. Na lâmina **myResourceGroupA,** clique no ícone **Eliminar.**

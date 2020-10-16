@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 0b4890181721d08b741d327adb74bd097be5c9f2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c117f9697299b94a54d9184093e65c56822b8bd2
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87069158"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975676"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Passos de resolução de problemas de SSH detalhados relacionados com a ligação a uma VM do Linux no Azure
 Existem muitas razões possíveis para que o cliente SSH possa não ser capaz de chegar ao serviço SSH no VM. Se tiver seguido os passos mais [gerais de resolução de problemas do SSH,](troubleshoot-ssh-connection.md)tem de resolver ainda mais o problema da ligação. Este artigo guia-o através de etapas detalhadas de resolução de problemas para determinar onde a ligação SSH está falhando e como resolvê-la.
@@ -39,7 +39,7 @@ Os seguintes passos ajudam-no a isolar a origem da falha e a descobrir soluçõe
 
 2. Selecione **Definições** para examinar pontos finais, endereços IP, grupos de segurança de rede e outras definições.
 
-   O VM deve ter um ponto final definido para o tráfego SSH que pode ver em **Endpoints** ou **[grupo de segurança de rede](../../virtual-network/security-overview.md)**. Os pontos finais em VMs que foram criados através do Gestor de Recursos são armazenados num grupo de segurança de rede. Verifique se as regras foram aplicadas ao grupo de segurança da rede e são referenciadas na sub-rede.
+   O VM deve ter um ponto final definido para o tráfego SSH que pode ver em **Endpoints** ou **[grupo de segurança de rede](../../virtual-network/network-security-groups-overview.md)**. Os pontos finais em VMs que foram criados através do Gestor de Recursos são armazenados num grupo de segurança de rede. Verifique se as regras foram aplicadas ao grupo de segurança da rede e são referenciadas na sub-rede.
 
 Para verificar a conectividade da rede, verifique os pontos finais configurados e veja se pode ligar-se ao VM através de outro protocolo, como HTTP ou outro serviço.
 
@@ -114,7 +114,7 @@ Para eliminar o ponto final como fonte do problema, retire o ponto final atual, 
 
 ## <a name="source-4-network-security-groups"></a>Fonte 4: Grupos de segurança de rede
 Os grupos de segurança da rede permitem-lhe ter mais controlo granular do tráfego permitido de entrada e saída. Pode criar regras que abrangem sub-redes e serviços em nuvem numa rede virtual Azure. Verifique as regras do seu grupo de segurança de rede para garantir que o tráfego SSH de e para a Internet é permitido.
-Para obter mais informações, consulte [sobre grupos de segurança de rede.](../../virtual-network/security-overview.md)
+Para obter mais informações, consulte [sobre grupos de segurança de rede.](../../virtual-network/network-security-groups-overview.md)
 
 Também pode utilizar IP Verifique para validar a configuração NSG. Para obter mais informações, consulte [a visão geral da monitorização da rede Azure](../../network-watcher/network-watcher-monitoring-overview.md). 
 

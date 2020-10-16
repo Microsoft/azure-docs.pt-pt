@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.topic: conceptual
 ms.service: digital-twins
 services: digital-twins
-ms.openlocfilehash: 31da6a6b5375571f53cd7b478e957cc350ef591c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60aa6ed3f1b66d88d05751fdee2444120705f8d2
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86522351"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047697"
 ---
 # <a name="azure-digital-twins-customer-data-request-features"></a>Funcionalidades de pedido de dados do cliente da Azure Digital Twins
 
@@ -35,7 +35,7 @@ A Azure Digital Twins armazena o *ID* do objeto [Azure Ative Directory](../activ
 
 ## <a name="deleting-customer-data"></a>Eliminação dos dados dos clientes
 
-Os administradores da Azure Digital Twins podem utilizar o portal Azure para eliminar dados relacionados com os utilizadores. Também é possível realizar operações de eliminação em gémeos digitais individuais usando as APIs REST dos Gémeos Digitais Azure. Para obter mais informações sobre as APIs disponíveis, consulte [a documentação do Azure Digital Twins REST APIs](https://docs.microsoft.com/rest/api/azure-digitaltwins/).
+Os administradores da Azure Digital Twins podem utilizar o portal Azure para eliminar dados relacionados com os utilizadores. Também é possível realizar operações de eliminação em gémeos digitais individuais usando as APIs REST dos Gémeos Digitais Azure. Para obter mais informações sobre as APIs disponíveis, consulte [a documentação do Azure Digital Twins REST APIs](/rest/api/azure-digitaltwins/).
 
 ## <a name="exporting-customer-data"></a>Exportação de dados dos clientes
 
@@ -45,4 +45,4 @@ Os dados do cliente, incluindo as funções do utilizador e as atribuições de 
 
 ## <a name="links-to-additional-documentation"></a>Links para documentação adicional
 
-Para obter uma lista completa das APIs de serviço Azure Digital Twins, consulte a documentação do [Azure Digital Twins REST APIs](https://docs.microsoft.com/rest/api/azure-digitaltwins/).
+Para obter uma lista completa das APIs de serviço Azure Digital Twins, consulte a documentação do [Azure Digital Twins REST APIs](/rest/api/azure-digitaltwins/).

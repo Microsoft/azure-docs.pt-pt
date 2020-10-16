@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: duau
 ms.openlocfilehash: 25c0b18da1690557f11e36dd11dda693ddddb838
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401321"
 ---
 # <a name="enable-resource-logging-in-azure-traffic-manager"></a>Permitir a sessão de registo de recursos no Azure Traffic Manager
@@ -70,11 +70,11 @@ A tabela seguinte inclui esquema de registos específico do recurso de perfil do
 
 |Nome do Campo|Tipo de Campo|Definição|Exemplo|
 |----|----|---|---|
-|Nome de ponto final|String|O nome do ponto final do Gestor de Tráfego cujo estado de saúde está a ser registado.|*myPrimaryEndpoint*|
-|Estado|String|O estado de saúde do ponto final do Gerente de Trânsito que foi sondado. O estado pode ser **para cima** ou **para baixo**.|**Cima**|
+|Nome de ponto final|Cadeia|O nome do ponto final do Gestor de Tráfego cujo estado de saúde está a ser registado.|*myPrimaryEndpoint*|
+|Estado|Cadeia|O estado de saúde do ponto final do Gerente de Trânsito que foi sondado. O estado pode ser **para cima** ou **para baixo**.|**Cima**|
 |||||
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [monitorização do Gestor de Tráfego](traffic-manager-monitoring.md)
 

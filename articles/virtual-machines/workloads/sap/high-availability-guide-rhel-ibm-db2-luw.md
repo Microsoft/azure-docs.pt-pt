@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 02/13/2020
 ms.author: juergent
 ms.openlocfilehash: 527d9e2e43a4003dd5300c26fc58b1e456186351
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87077394"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-red-hat-enterprise-linux-server"></a>Elevada disponibilidade do IBM DB2 LUW nas VMs do Azure no Red Hat Enterprise Linux Server
@@ -41,7 +41,7 @@ Antes de iniciar uma instalação, consulte as seguintes notas e documentação 
 | [2191498] | SAP on Linux com Azure: Monitorização melhorada |
 | [2243692] | Linux on Azure (IaaS) VM: Emissões de licença sap |
 | [2002167] | Red Hat Enterprise Linux 7.x: Instalação e atualização |
-| [2694118] | Red Hat Enterprise Linux HA Add-On on Azure |
+| [2694118] | Red Hat Enterprise Linux HA Add-On em Azure |
 | [1999351] | Resolução de problemas melhorou a monitorização do Azure para o SAP |
 | [2233094] | DB6: Aplicações SAP no Azure que utilizam o IBM Db2 para Linux, UNIX e Windows - informações adicionais |
 | [1612105] | DB6: FAQ em Db2 com HADR |
@@ -54,11 +54,11 @@ Antes de iniciar uma instalação, consulte as seguintes notas e documentação 
 | [Azure Virtual Machines implantação para SAP em Linux][deployment-guide] (este artigo) |
 | [Implementação do sistema de gestão de bases de dados de máquinas virtuais Azure (DBMS) para SAP no][dbms-guide] guia Linux |
 | [Carga de trabalho sap na lista de verificação de planeamento e implantação da Azure][azr-sap-plancheck] |
-| [Visão geral do Add-On de Alta Disponibilidade para Red Hat Enterprise Linux 7][rhel-ha-addon] |
-| [Administração de complemento de alta disponibilidade][rhel-ha-admin] |
-| [Referência de complemento de alta disponibilidade][rhel-ha-ref] |
+| [Visão geral da Add-On de Alta Disponibilidade para Red Hat Enterprise Linux 7][rhel-ha-addon] |
+| [Alta Disponibilidade Add-On Administração][rhel-ha-admin] |
+| [Referência de Add-On de Alta Disponibilidade][rhel-ha-ref] |
 | [Políticas de suporte para clusters de alta disponibilidade RHEL - Microsoft Azure Virtual Machines como Membros do Cluster][rhel-azr-supp]
-| [Instalação e Configuração de um Red Hat Enterprise Linux 7.4 (e mais tarde) Cluster de Alta Disponibilidade no Microsoft Azure][rhel-azr-inst]
+| [Instalar e Configurar um Red Hat Enterprise Linux 7.4 (e mais tarde) High-Availability Cluster no Microsoft Azure][rhel-azr-inst]
 | [Implementação em IBM DB2 do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP][dbms-db2] |
 | [IBM Db2 HADR 11.1][db2-hadr-11.1] |
 | [IBM Db2 HADR 10.5][db2-hadr-10.5] |
@@ -113,7 +113,7 @@ Complete o processo de planeamento antes de executar a implementação. O planea
 | Máquinas virtuais que hospedam IBM Db2 LUW | Tamanho VM, armazenamento, rede, endereço IP. |
 | Nome de anfitrião virtual e IP virtual para base de dados IBM Db2| O ip virtual ou o nome do anfitrião que é usado para a ligação de servidores de aplicações SAP. **db-virt-hostname,** **db-virt-ip**. |
 | Esgrima azul | O método para evitar situações cerebrais divididas é evitado. |
-| Azure Load Balancer | Utilização de Porta-sonda Básica ou Padrão (recomendada), porta-sonda para base de dados Db2 (nossa recomendação 62500) **porta-sonda**. |
+| Balanceador de Carga do Azure | Utilização de Porta-sonda Básica ou Padrão (recomendada), porta-sonda para base de dados Db2 (nossa recomendação 62500) **porta-sonda**. |
 | Resolução de nomes| Como funciona a resolução de nomes no ambiente. O serviço DNS é altamente recomendado. O ficheiro de anfitriões locais pode ser usado. |
     
 Para obter mais informações sobre o Linux Pacemaker em Azure, consulte [configurar o Pacemaker no Red Hat Enterprise Linux em Azure][rhel-pcs-azr].
@@ -507,7 +507,7 @@ O arquivo de registos é realizado apenas pela base de dados primária. Se alter
 
 Recomendamos configurar uma partilha comum de NFS ou GlusterFS, onde os registos são escritos a partir de ambos os nós. A participação da NFS ou a GlusterFS tem de estar altamente disponível. 
 
-Você pode usar ações NFS altamente disponíveis ou GlusterFS para transportes ou um diretório de perfil. Para obter mais informações, veja:
+Você pode usar ações NFS altamente disponíveis ou GlusterFS para transportes ou um diretório de perfil. Para obter mais informações, consulte:
 
 - [GlusterFS nas VMs do Azure no Red Hat Enterprise Linux para o SAP NetWeaver][glusterfs] 
 - [Alta disponibilidade para SAP NetWeaver em VMs Azure em Red Hat Enterprise Linux com Ficheiros Azure NetApp para aplicações SAP][anf-rhel]

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.openlocfilehash: cb5ee7d3549e433fb184b8c55c28b9a28ed89272
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84982123"
 ---
 # <a name="custom-web-api-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Habilidade personalizada da API web em um oleoduto de enriquecimento de pesquisa cognitiva Azure
@@ -37,8 +37,8 @@ Os parâmetros são sensíveis às maiúsculas e minúsculas.
 | Nome do parâmetro     | Descrição |
 |--------------------|-------------|
 | `uri` | O URI da API Web para o qual será enviada a carga útil _JSON._ Apenas o esquema **https** URI é permitido |
-| `httpMethod` | O método a utilizar durante o envio da carga útil. Os métodos permitidos são `PUT` ou`POST` |
-| `httpHeaders` | Uma coleção de pares de valores-chave onde as teclas representam nomes e valores de cabeçalho representam valores de cabeçalho que serão enviados para a sua API Web juntamente com a carga útil. Os seguintes cabeçalhos estão proibidos de estar nesta coleção: `Accept` , , , , , , , , `Accept-Charset` , `Accept-Encoding` `Content-Length` `Content-Type` `Cookie` `Host` `TE` `Upgrade` ,`Via` |
+| `httpMethod` | O método a utilizar durante o envio da carga útil. Os métodos permitidos são `PUT` ou `POST` |
+| `httpHeaders` | Uma coleção de pares de valores-chave onde as teclas representam nomes e valores de cabeçalho representam valores de cabeçalho que serão enviados para a sua API Web juntamente com a carga útil. Os seguintes cabeçalhos estão proibidos de estar nesta coleção:  `Accept` , , , , , , , , `Accept-Charset` , `Accept-Encoding` `Content-Length` `Content-Type` `Cookie` `Host` `TE` `Upgrade` , `Via` |
 | `timeout` | (Opcional) Quando especificado, indica o tempo limite para o cliente http que e faz a chamada da API. Deve ser formatado como um valor XSD "dayTimeDuration" (um subconjunto restrito de um valor de [duração ISO 8601).](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) Por exemplo, `PT60S` durante 60 segundos. Se não estiver definido, é escolhido um valor predefinido de 30 segundos. O tempo limite pode ser definido para um máximo de 230 segundos e um mínimo de 1 segundo. |
 | `batchSize` | (Opcional) Indica quantos "registos de dados" (ver estrutura de carga útil _JSON_ abaixo) serão enviados por chamada da API. Se não for definido, é escolhido um padrão de 1000. Recomendamos que utilize este parâmetro para obter uma compensação adequada entre a produção de indexação e a carga na sua API |
 | `degreeOfParallelism` | (Opcional) Quando especificado, indica o número de chamadas que o indexante fará paralelamente ao ponto final que forneceu. Pode diminuir este valor se o seu ponto final estiver a falhar abaixo de uma carga de pedido demasiado elevada, ou aumentá-lo se o seu ponto final for capaz de aceitar mais pedidos e pretender um aumento no desempenho do indexante.  Se não for definido, é utilizado um valor predefinido de 5. Pode `degreeOfParallelism` ser definido para um máximo de 10 e um mínimo de 1. |
@@ -87,7 +87,7 @@ Não há saídas "predefinidas" para esta habilidade. Dependendo da resposta que
 Esta estrutura _JSON_ representa a carga útil que será enviada para a sua API Web.
 Seguirá sempre estes constrangimentos:
 
-* A entidade de alto nível é chamada `values` e será uma variedade de objetos. O número de tais objetos será no máximo o`batchSize`
+* A entidade de alto nível é chamada `values` e será uma variedade de objetos. O número de tais objetos será no máximo o `batchSize`
 * Cada objeto na `values` matriz terá
     * Uma `recordId` propriedade que é uma corda **única,** usada para identificar esse registo.
     * Uma `data` propriedade que é um objeto _JSON._ Os campos da `data` propriedade corresponderão aos "nomes" especificados na `inputs` secção da definição de habilidade. O valor desses campos será a partir `source` desses campos (que podem ser de um campo no documento, ou potencialmente de outra habilidade)
@@ -201,7 +201,7 @@ Além de a sua API Web não estar disponível, ou enviar códigos de estado não
 
 Para casos em que a API Web não esteja disponível ou devolva um erro HTTP, um erro amigável com quaisquer detalhes disponíveis sobre o erro HTTP será adicionado ao histórico de execução do indexante.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 + [Como definir um skillset](cognitive-search-defining-skillset.md)
 + [Adicione habilidade personalizada a um oleoduto de enriquecimento de IA](cognitive-search-custom-skill-interface.md)

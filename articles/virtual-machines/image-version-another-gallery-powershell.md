@@ -10,10 +10,10 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: 2f26716a4d04b574bf393f502758a725948419da
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89299954"
 ---
 # <a name="copy-an-image-from-another-gallery-using-powershell"></a>Copie uma imagem de outra galeria usando PowerShell
@@ -21,7 +21,7 @@ ms.locfileid: "89299954"
 Se tiver várias galerias na sua organização, pode criar imagens a partir de imagens armazenadas noutras galerias. Por exemplo, você pode ter uma galeria de desenvolvimento e teste para criar e testar novas imagens. Quando estiverem prontos para serem utilizados na produção, pode copiá-los numa galeria de produção utilizando este exemplo. Também pode criar uma imagem a partir de uma imagem em outra galeria usando o [Azure CLI](image-version-another-gallery-cli.md).
 
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Para completar este artigo, você deve ter uma galeria de origem existente, definição de imagem e versão de imagem. Você também deve ter uma galeria de destino. 
 
@@ -160,7 +160,7 @@ $job.State
 >
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Crie um VM a partir de uma versão de imagem [generalizada](vm-generalized-image-version-powershell.md) ou [especializada.](vm-specialized-image-version-powershell.md)
 

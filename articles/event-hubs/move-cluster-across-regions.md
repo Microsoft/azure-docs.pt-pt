@@ -4,10 +4,10 @@ description: Este artigo mostra-lhe como mover um cluster dedicado a Azure Event
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.openlocfilehash: 94be44ee8f9442a3a65e899d7a58524b2570f194
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89380836"
 ---
 # <a name="move-an-azure-event-hubs-dedicated-cluster-to-another-region"></a>Mover um cluster dedicado a Azure Event Hubs para outra região
@@ -50,7 +50,7 @@ Implemente o modelo para criar um cluster dedicado ao Event Hubs na região alvo
     4. Na secção **DEFINIÇÕES,** faça os seguintes passos:    
         1. Introduza o novo **nome de cluster**. 
 
-            :::image type="content" source="./media/move-cluster-across-regions/deploy-template.png" alt-text="Implementar o modelo do Gestor de Recursos":::
+            :::image type="content" source="./media/move-cluster-across-regions/deploy-template.png" alt-text="Baixar modelo de Gestor de Recursos":::
     5. Selecione **'Rever + criar'** na parte inferior da página. 
     1. Na página **'Rever + criar',** rever as definições e, em seguida, selecionar **Criar**.  
 
@@ -65,7 +65,7 @@ Para eliminar um cluster Desateia de Centros de Eventos (fonte ou alvo) utilizan
 2. Selecione o cluster para eliminar e **selecione Eliminar** a partir da barra de ferramentas. 
 3. Na página **Eliminar Cluster,** confirme a eliminação digitando o nome do **cluster**e, em seguida, selecione **Delete**. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, aprendeu a mover um cluster dedicado ao Event Hubs de uma região para outra. 
 
 Consulte os [espaços de nomes move event hubs em todas as regiões](move-across-regions.md) para obter instruções sobre a deslocação de um espaço de nome de uma região para outra região. 

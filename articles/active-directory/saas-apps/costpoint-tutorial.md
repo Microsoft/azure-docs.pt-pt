@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
 ms.openlocfilehash: 7b32c5576ef38f07d28777e1a72aafa935042930
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91775733"
 ---
 # <a name="tutorial-integrate-costpoint-with-azure-active-directory"></a>Tutorial: Integrar Costpoint com Diretório Ativo Azure
@@ -106,7 +106,7 @@ Siga estes passos para permitir que o Azure AD SSO no portal Azure:
 
    1. Selecione **Definir URLs adicionais**. Para **o Estado de Retransmissão**, introduza um valor utilizando o seguinte padrão: `system=[your system]` (por exemplo, **sistema=DELTEKCP**).
 
-1. Na **configuração de um único sign-on com** a página SAML, na secção **Certificado de Assinatura SAML,** selecione o ícone **Copy** para copiar o Url **de metadados da Federação de Aplicações** e guarde-o para o Bloco de Notas.
+1. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** selecione o ícone **Copy** para copiar o Url **de Metadados da Federação de Aplicações** e guarde-o para o Bloco de Notas.
 
    ![Certificado de assinatura SAML](common/copy-metadataurl.png)
 

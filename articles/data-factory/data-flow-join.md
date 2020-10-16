@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/15/2020
 ms.openlocfilehash: f95f35fe0d17afdeec864674d3360fc3b172cad1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83683386"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Junte-se à transformação no fluxo de dados de mapeamento
@@ -79,7 +79,7 @@ Em juntas, procura e transformação existente, se um ou ambos os fluxos de dado
 
 Não é aconselhável desativar a transmissão através da opção **Off,** a menos que as suas junções estejam a ter erros de tempo.
 
-## <a name="self-join"></a>Auto-juntar-se
+## <a name="self-join"></a>Self-Join
 
 Para se juntar a um fluxo de dados consigo mesmo, pseudónimo de um fluxo existente com uma transformação selecionada. Crie um novo ramo clicando no ícone plus ao lado de uma transformação e selecione **Novo ramo**. Adicione uma transformação selecionada ao pseudónimo do fluxo original. Adicione uma transformação de união e escolha o fluxo original como **o fluxo esquerdo** e a transformação selecionada como o fluxo **direito**.
 
@@ -143,6 +143,6 @@ LeftStream, RightStream
     )~> JoiningColumns
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de juntar dados, crie uma [coluna derivada](data-flow-derived-column.md) e [afunde](data-flow-sink.md) os seus dados numa loja de dados de destino.

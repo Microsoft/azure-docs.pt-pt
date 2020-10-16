@@ -6,10 +6,10 @@ ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
 ms.openlocfilehash: 136a5da8d9956e034532c14b6fce011e4e7ce415
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87563896"
 ---
 # <a name="enable-update-management-from-the-azure-portal"></a>Ativar a Gestão de Atualizações a partir do portal do Azure
@@ -60,7 +60,7 @@ Inscreva-se no Azure at https://portal.azure.com .
 
 8. **Selecione Ativar** para ativar a funcionalidade. Depois de ter ativado a Gestão de Atualização, pode demorar cerca de 15 minutos até poder ver a avaliação da atualização a partir deles.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para utilizar a Gestão de Atualização para VMs, consulte [Gerir atualizações e patches para os seus VMs](update-mgmt-manage-updates-for-vm.md).
 * Para resolver os erros gerais de Gestão de Atualização, consulte [problemas de Gestão de Atualização de Resolução de Problemas](../troubleshoot/update-management.md).

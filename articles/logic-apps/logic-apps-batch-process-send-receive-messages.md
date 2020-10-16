@@ -9,10 +9,10 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.date: 07/31/2020
 ms.openlocfilehash: 0985afe3ddfd0d9de3c36ad6b030b6f259708c88
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87458358"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Enviar, receber e processar mensagens em Azure Logic Apps
@@ -48,7 +48,7 @@ O seu recetor de lote e remetente de lote precisa de partilhar a mesma subscriç
 
 Antes de enviar mensagens para um lote, esse lote deve primeiro existir como destino para onde envia essas mensagens. Por isso, primeiro, tem de criar a aplicação lógica "recetor de lote", que começa com o gatilho **do Lote.** Assim, quando criar a aplicação lógica "batch sender", pode selecionar a aplicação lógica do recetor de lote. O recetor do lote continua a recolher mensagens até que os seus critérios especificados seja cumprido para libertar e processar essas mensagens. Embora os recetores de lotes não precisem de saber nada sobre os remetentes de lotes, os remetentes de lotes devem saber o destino onde enviam as mensagens.
 
-1. No [portal Azure](https://portal.azure.com) ou Visual Studio, crie uma aplicação lógica com este nome:`BatchReceiver`
+1. No [portal Azure](https://portal.azure.com) ou Visual Studio, crie uma aplicação lógica com este nome: `BatchReceiver`
 
 1. No Logic App Designer, adicione o gatilho **Batch,** que inicia o fluxo de trabalho da aplicação lógica. Na caixa de pesquisa, insira `batch` e selecione este gatilho: **Mensagens de lote**
 
@@ -126,7 +126,7 @@ Agora crie uma ou mais aplicações lógicas de remetente de lote que enviam men
 
 * Certifique-se de que o seu recetor de lote e o remetente do lote partilham a mesma região Azure *e* a subscrição do Azure. Se não o fizerem, não é possível selecionar o recetor do lote quando se cria o remetente do lote porque não são visíveis um para o outro.
 
-1. Crie outra aplicação lógica com este nome:`BatchSender`
+1. Crie outra aplicação lógica com este nome: `BatchSender`
 
    1. Na caixa de pesquisa, introduza `recurrence` como filtro. A partir da lista de gatilhos, selecione este gatilho: **Recorrência**
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.openlocfilehash: c6bdc09d37cf29458346eaea360b4cd9e0d1226f
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86187171"
 ---
 # <a name="troubleshoot-shared-resource-issues"></a>Problemas de recursos partilhados na resolução de problemas
@@ -97,7 +97,7 @@ Não é comum que todos os módulos AzureRM ou Az sejam necessários na mesma co
 > [!NOTE]
 > Evite importar a totalidade `Az.Automation` ou `AzureRM.Automation` módulo, que importa todos os módulos contidos.
 
-Se o processo de atualização suspender, adicione o `SimultaneousModuleImportJobCount` parâmetro aoUpdate-AzureModules.ps1script e forneça um valor inferior ao padrão de **Update-AzureModules.ps1** 10. Se implementar esta lógica, tente começar com um valor de 3 ou 5. `SimultaneousModuleImportJobCount`é um parâmetro do runbook do sistema **Update-AutomationAzureModulesForAccount** que é usado para atualizar módulos Azure. Se fizer este ajuste, o processo de atualização é mais longo, mas tem mais hipóteses de completar. O exemplo a seguir mostra o parâmetro e onde colocá-lo no livro de recortes:
+Se o processo de atualização suspender, adicione o `SimultaneousModuleImportJobCount` parâmetro aoUpdate-AzureModules.ps1script e forneça um valor inferior ao padrão de **Update-AzureModules.ps1** 10. Se implementar esta lógica, tente começar com um valor de 3 ou 5. `SimultaneousModuleImportJobCount` é um parâmetro do runbook do sistema **Update-AutomationAzureModulesForAccount** que é usado para atualizar módulos Azure. Se fizer este ajuste, o processo de atualização é mais longo, mas tem mais hipóteses de completar. O exemplo a seguir mostra o parâmetro e onde colocá-lo no livro de recortes:
 
  ```powershell
          $Body = @"

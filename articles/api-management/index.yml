@@ -10,12 +10,12 @@ metadata:
   author: georgewallace
   ms.author: gwallace
   ms.date: 03/08/2020
-  ms.openlocfilehash: 64e0d0e7837cd03e2761d8e79653d9ac8b68f41d
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 6813a3cb284f83c599344c7673f1a5d148adef0b
+  ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "90052822"
+  ms.lasthandoff: 10/15/2020
+  ms.locfileid: "92071171"
 landingContent:
 - title: Acerca da Gestão de API
   linkLists:
@@ -37,6 +37,8 @@ landingContent:
       url: powershell-create-service-instance.md
     - text: Visual Studio Code
       url: vscode-create-service-instance.md
+    - text: Modelo ARM
+      url: quickstart-arm-template.md
 - title: Gerir a Gestão de API
   linkLists:
   - linkListType: tutorial
@@ -68,7 +70,7 @@ landingContent:
     - text: Azure PowerShell
       url: powershell-samples.md
     - text: Incorporações do Azure Policy
-      url: ./policy-samples.md
+      url: ./policy-reference.md
 - title: Arquitetura
   linkLists:
   - linkListType: architecture

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 9/04/2020
 ms.author: lagayhar
 ms.openlocfilehash: 80846ecb1ad48d9f8ba49f0025772b4e131c23e2
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91776362"
 ---
 # <a name="composite-bar-renderer"></a>Renderizador de barras compósitos
@@ -91,7 +91,7 @@ Para adicionar definições de Grupo Por:
 
 ![Screenshot do grupo por definições.](./media/workbooks-composite-bar/group-by-settings.png)
 
-#### <a name="none"></a>Nenhuma
+#### <a name="none"></a>Nenhum
 
 Nenhuma agregação significa não apresentar resultados para a coluna para as linhas de grupo.
 

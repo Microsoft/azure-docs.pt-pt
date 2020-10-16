@@ -14,10 +14,10 @@ ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: d7938f24e408e72a84003c19e5c294d31f6b65b5
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91565127"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Backup automatizado para máquinas virtuais SQL Server 2014 (Gestor de Recursos)
@@ -57,7 +57,7 @@ Para utilizar a cópia de segurança automatizada, considere os seguintes pré-r
 
 A tabela a seguir descreve as opções que podem ser configuradas para cópia de segurança automatizada. Os passos de configuração reais variam consoante utilize o portal Azure ou os comandos Azure Windows PowerShell.
 
-| Definição | Alcance (Padrão) | Description |
+| Definição | Alcance (Padrão) | Descrição |
 | --- | --- | --- |
 | **Cópia de Segurança Automatizada** | Ativar/Desativar (Desativado) | Ativa ou desativa a Cópia de Segurança Automatizada para um Azure VM que executa o SQL Server 2014 Standard ou Enterprise. |
 | **Período de Retenção** | 1-30 dias (30 dias) | O número de dias para reter um reforço. |

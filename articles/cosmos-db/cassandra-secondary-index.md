@@ -8,10 +8,10 @@ ms.date: 04/04/2020
 ms.author: thvankra
 ms.reviewer: sngun
 ms.openlocfilehash: 7de38097acdbfa1f9c9b90f3051c68dec5465b32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80758030"
 ---
 # <a name="secondary-indexing-in-azure-cosmos-db-cassandra-api"></a>Indexação secundária em Azure Cosmos DB Cassandra API
@@ -71,6 +71,6 @@ Precisa saber qual é o nome do índice para baixar o índice. Faça o `desc sch
 drop index sampleks.t1_lastname_idx;
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba como funciona [a indexação automática](index-overview.md) em Azure Cosmos DB
 * [Funcionalidades do Apache Cassandra suportadas pela API para Cassandra do Azure Cosmos DB](cassandra-support.md)

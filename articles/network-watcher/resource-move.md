@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/27/2020
 ms.author: damendo
 ms.openlocfilehash: 97349071fee6a95623e5b5efdc0c9818cfe7b811
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87388458"
 ---
 # <a name="moving-azure-network-watcher-resources-across-regions"></a>Movimentação de recursos do Observador da Rede Azure em regiões

@@ -4,10 +4,10 @@ description: Aprenda a criar artefactos para usar com a Azure DevTest Labs para 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 85acfcc3811e671e58fadab08a23951778e1323d
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88270687"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Crie artefactos personalizados para a sua máquina virtual DevTest Labs
@@ -54,7 +54,7 @@ O exemplo a seguir mostra as secções que compõem a estrutura básica de um fi
 | parâmetros |Não |Valores fornecidos quando o comando de instalação do artefacto é executado numa máquina. Isto ajuda-o a personalizar o seu artefacto. |
 | runCommand |Sim |O comando de instalação de artefactos que é executado num VM. |
 
-### <a name="artifact-parameters"></a>Parâmetros de artefactos
+### <a name="artifact-parameters"></a>Parâmetros dos artefactos
 Na secção de parâmetros do ficheiro de definição, especifique quais os valores que um utilizador pode inserir quando instala um artefacto. Pode consultar estes valores no comando de instalação de artefactos.
 
 Para definir parâmetros, utilize a seguinte estrutura:

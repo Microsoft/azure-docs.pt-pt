@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 08/03/2020
 ms.author: amjads
 ms.openlocfilehash: 73738f339bea3e8e075530e5de564c1c0854d283
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87552055"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Azure virtual machine extensions and features (Extensões e funcionalidades das máquinas virtuais do Azure)
@@ -56,7 +56,7 @@ As informações de resolução de problemas para cada extensão podem ser encon
 | microsoft.recoveryservices.vmsnapshot | [Instantâneo para Windows](vmsnapshot-windows.md#troubleshoot-and-support) |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Para obter mais informações sobre como o Agente Linux e as extensões funcionam, consulte [extensões e funcionalidades do Azure VM para o Linux](features-linux.md).
 * Para obter mais informações sobre o funcionamento do Windows Guest Agent e das extensões, consulte [as extensões e funcionalidades do Azure VM para windows](features-windows.md).  
 * Para instalar o Windows Guest Agent, consulte [a visão geral do Agente de Máquinas Virtuais do Azure Windows](agent-windows.md).  

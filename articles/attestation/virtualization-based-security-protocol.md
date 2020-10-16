@@ -1,6 +1,6 @@
 ---
 title: Protocolo de Segurança (VBS) baseado em virtualização para a Azure Attestation
-description: Protocolo de atestação VBS
+description: Protocolo de atestado VBS
 services: attestation
 author: msmbaldwin
 ms.service: attestation
@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.openlocfilehash: e5cc3b5fb7ca38df196119de12d346f5d0346b58
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91346084"
 ---
 # <a name="virtualization-based-security-vbs-attestation-protocol"></a>Protocolo de atestado baseado em virtualização de segurança (VBS) 

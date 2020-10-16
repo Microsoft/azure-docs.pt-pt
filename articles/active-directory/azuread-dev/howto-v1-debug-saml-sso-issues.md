@@ -14,10 +14,10 @@ ms.custom: aaddev
 ms.reviewer: luleon, hirsin, paulgarn
 ROBOTS: NOINDEX
 ms.openlocfilehash: fcdb0a571a9d6b81e25d061c33d8a3a812da189f
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91819316"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Depurar o início de sessão único baseado em SAML para as aplicações no Azure Active Directory
@@ -77,7 +77,7 @@ Se não for fornecida nenhuma resolução para o erro de entrada, sugerimos que 
 1. Volte para a Azure AD e encontre a lâmina **de sinalização única do teste.**
 1. Na caixa de texto acima **Obtenha orientação de resolução,** cole a mensagem de erro.
 1. Clique **em Obter orientação de resolução** para exibir etapas para resolver o problema. A orientação pode requerer informações do pedido SAML ou da resposta SAML. Se não estiver a utilizar a extensão de entrada segura das minhas apps, poderá necessitar de uma ferramenta como [o Fiddler](https://www.telerik.com/fiddler) para recuperar o pedido e resposta do SAML.
-1. Verifique se o destino no pedido SAML corresponde ao URL de Serviço Único de Inscrição SAML obtido a partir de Azure AD.
+1. Verifique se o destino no pedido SAML corresponde ao URL de Serviço único Sign-On SAML obtido a partir da Azure AD.
 1. Verifique se o emitente no pedido DO SAML é o mesmo identificador que configuraste para o pedido em Azure AD. A Azure AD usa o emitente para encontrar uma aplicação no seu diretório.
 1. Verifique a AfirmaçãoConsumerServiceURL é onde a aplicação espera receber o token SAML da Azure AD. Você pode configurar este valor em Azure AD, mas não é obrigatório se faz parte do pedido da SAML.
 

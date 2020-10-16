@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
 ms.openlocfilehash: e378bc88d28173eaed0308db3034a54236d63098
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91262829"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Suporte linguístico e regional para a API de Pesquisa Web de Bing
@@ -68,7 +68,7 @@ Em alternativa, pode especificar o mercado com o `mkt` parâmetro de consulta e 
 
 ## <a name="markets"></a>Mercados
 
-|Pais/região|Linguagem|Código de Mercado|
+|Pais/região|Idioma|Código de Mercado|
 |-------|--------|-----------|
 |Argentina|Espanhol|es-AR|
 |Austrália|Inglês|en-AU|

@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 334d37ad36336d1aa737894482fd8f66e929c822
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87077679"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Monitorização da utilização de recursos e atividade de consulta na Azure Synapse Analytics
@@ -31,8 +31,8 @@ As seguintes métricas estão disponíveis no portal Azure para Synapse SQL. Est
 | Percentagem de CPU          | Utilização do CPU em todos os nós para o armazém de dados      | Avg, Min, Max    |
 | Percentagem de ES de Dados      | IO Utilização em todos os nós para o armazém de dados       | Avg, Min, Max    |
 | Percentagem de memória       | Utilização da memória (SQL Server) em todos os nós para o armazém de dados | Avg, Min, Max   |
-| Consultas ativas          | Número de consultas ativas executando no sistema             | Som              |
-| Consultas em fila          | Número de consultas em fila à espera de começar a executar          | Som              |
+| Consultas ativas          | Número de consultas ativas executando no sistema             | Soma              |
+| Consultas em fila          | Número de consultas em fila à espera de começar a executar          | Soma              |
 | Conexões bem sucedidas  | Número de ligações bem sucedidas (logins) na base de dados | Soma, Contagem       |
 | Ligações com Falhas      | Número de ligações falhadas (logins) na base de dados | Soma, Contagem       |
 | Bloqueado por Firewall     | Número de logins no armazém de dados que foi bloqueado     | Soma, Contagem       |

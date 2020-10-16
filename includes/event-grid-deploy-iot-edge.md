@@ -9,10 +9,10 @@ ms.date: 10/10/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 0fc6a62a94f31617209bcc60bfaa95bc8927551a
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86050299"
 ---
 ## <a name="deploy-event-grid-iot-edge-module"></a>Implementar módulo de borda IoT da grelha de eventos
@@ -27,7 +27,7 @@ Existem várias formas de implantar módulos para um dispositivo IoT Edge e todo
  
 ### <a name="select-your-iot-edge-device"></a>Selecione o seu dispositivo IoT Edge
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com)
+1. Inicie sessão no [portal do Azure](https://portal.azure.com)
 1. Navegue até ao seu Hub IoT.
 1. Selecione **IoT Edge** do menu na secção De Gestão automática de **Dispositivos.** 
 1. Clique no ID do dispositivo alvo a partir da lista de dispositivos
@@ -67,7 +67,7 @@ Um manifesto de implantação é um documento JSON que descreve quais os módulo
     }
 ```
 
- 1. Clique **em Guardar**
+ 1. Clicar em **Guardar**
  1. Clique **ao lado** para continuar na secção de rotas
 
     > [!NOTE]

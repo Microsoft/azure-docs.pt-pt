@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.openlocfilehash: 414271c269e72b942195d541a6192911e1ea0217
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91566453"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Criar a primeira fábrica de dados do Azure com o modelo Azure Resource Manager
@@ -49,7 +49,7 @@ O pipeline neste tutorial tem uma atividade: **atividade do HDInsight Hive**. Es
 
 ## <a name="in-this-tutorial"></a>Neste tutorial
 
-| Entidade | Description |
+| Entidade | Descrição |
 | --- | --- |
 | Serviço ligado do Storage do Azure |Liga a sua conta de Armazenamento do Azure à fábrica de dados. A conta de Armazenamento do Azure possui os dados de entrada e de saída do pipeline neste exemplo. |
 | Serviço ligado do HDInsight a pedido |Liga um cluster HDInsight a pedido à fábrica de dados. O cluster é automaticamente criado para que possa processar dados e é eliminado após o processamento estar concluído. |
@@ -620,7 +620,7 @@ Este modelo cria uma fábrica de dados com o nome GatewayUsingArmDF com um gatew
 
 ## <a name="see-also"></a>Consulte também
 
-| Tópico | Description |
+| Tópico | Descrição |
 |:--- |:--- |
 | [Pipelines](data-factory-create-pipelines.md) |Este artigo ajuda-o a compreender os pipelines e as atividades no Azure Data Factory e como os utilizar para construir fluxos de dados ponto a ponto condicionados por dados para o seu cenário ou empresa. |
 | [Conjuntos de dados](data-factory-create-datasets.md) |Este artigo ajuda-o a compreender os conjuntos de dados no Azure Data Factory. |

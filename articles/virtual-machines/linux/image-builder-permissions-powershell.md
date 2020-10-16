@@ -8,10 +8,10 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.openlocfilehash: cfe3efc77e065ac3685b72d0eab501034609b59b
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88068266"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-powershell"></a>Configure permissões do Serviço de Construtor de Imagem Azure usando PowerShell

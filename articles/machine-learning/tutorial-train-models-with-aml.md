@@ -11,10 +11,10 @@ ms.author: sgilley
 ms.date: 09/28/2020
 ms.custom: seodec18, devx-track-python
 ms.openlocfilehash: 40ee7ad74d1a1daaf6df5e76b5e51db52feea304
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91535074"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>Tutorial: Modelos de classificação de imagem de comboio com dados do MNIST e scikit-learn 
@@ -447,7 +447,7 @@ Também pode eliminar apenas o cluster Azure Machine Learning Compute. No entant
 compute_target.delete()
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial de Aprendizagem automática Azure, utilizou Python para as seguintes tarefas:
 

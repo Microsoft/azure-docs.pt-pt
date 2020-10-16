@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
 ms.openlocfilehash: 1e88fc64ea297f70f56478588312675fb233f221
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86085944"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Utilizar o Apache Oozie com o Apache Hadoop para definir e executar um fluxo de trabalho no Azure HDInsight baseado em Linux
@@ -37,7 +37,7 @@ Você também pode usar Oozie para agendar trabalhos específicos de um sistema,
 
 * **Uma Base de Dados Azure SQL**.  Consulte [a Base de Dados Azure SQL no portal Azure](../sql-database/sql-database-get-started.md).  Este artigo utiliza uma base de dados chamada **oozietest**.
 
-* O esquema URI para o armazenamento primário dos seus clusters. `wasb://`para o Azure Storage, `abfs://` para Azure Data Lake Storage Gen2 ou `adl://` para Azure Data Lake Storage Gen1. Se a transferência segura estiver ativada para o Armazenamento Azure, o URI será `wasbs://` . Consulte também, [transferência segura.](../storage/common/storage-require-secure-transfer.md)
+* O esquema URI para o armazenamento primário dos seus clusters. `wasb://` para o Azure Storage, `abfs://` para Azure Data Lake Storage Gen2 ou `adl://` para Azure Data Lake Storage Gen1. Se a transferência segura estiver ativada para o Armazenamento Azure, o URI será `wasbs://` . Consulte também, [transferência segura.](../storage/common/storage-require-secure-transfer.md)
 
 ## <a name="example-workflow"></a>Fluxo de trabalho exemplo
 
@@ -306,7 +306,7 @@ A definição de trabalho descreve onde encontrar o workflow.xml. Também descre
     |Valor reservado| Valor substituído|
     |---|---|
     |wasbs://mycontainer \@ mystorageaccount.blob.core.windows.net| Valor recebido do passo 1.|
-    |admin| O seu nome de login para o cluster HDInsight se não for administrador.|
+    |administração| O seu nome de login para o cluster HDInsight se não for administrador.|
     |nome do servidor| Nome do servidor do servidor Azure SQL Database.|
     |sqlLogin| Início do servidor de base de dados Azure SQL.|
     |sqlPassword| Senha de login do servidor Azure SQL Database.|
@@ -654,7 +654,7 @@ Pode utilizar o coordenador para especificar um início, um fim e a frequência 
 
     ![Separador de informações de trabalho de consola web OOzie](./media/hdinsight-use-oozie-linux-mac/coordinator-action-job.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a definir um fluxo de trabalho Oozie e como gerir um trabalho oozie. Para saber mais sobre como trabalhar com a HDInsight, consulte os seguintes artigos:
 

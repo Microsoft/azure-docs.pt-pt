@@ -10,10 +10,10 @@ ms.date: 09/29/2020
 ms.author: harshacs
 ms.custom: MVC
 ms.openlocfilehash: 83e2c46e1ce1977d0dd136e821c90843ce2de481
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91814606"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-azure-vmware-solution-to-azure"></a>Prepare recursos da Azure para a recuperação de desastres da Azure VMware Solution to Azure

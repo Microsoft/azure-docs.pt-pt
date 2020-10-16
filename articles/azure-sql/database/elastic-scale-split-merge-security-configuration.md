@@ -12,10 +12,10 @@ ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: b90f86576928e44e00c548f4f3ad3c22c27b8bb3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85829440"
 ---
 # <a name="split-merge-security-configuration"></a>Configuração de segurança de fusão dividida
@@ -59,8 +59,8 @@ Se essas opções não estiverem disponíveis, pode gerar **certificados auto-as
 
 ### <a name="create-a-new-self-signed-certificate"></a>Criar um novo certificado auto-assinado
 
-1. [Criar um certificado auto-assinado](#create-a-self-signed-certificate)
-2. [Criar ficheiro PFX para certificado TLS/SSL auto-assinado](#create-pfx-file-for-self-signed-tlsssl-certificate)
+1. [Criar um certificado de Self-Signed](#create-a-self-signed-certificate)
+2. [Criar ficheiro PFX para Self-Signed Certificado TLS/SSL](#create-pfx-file-for-self-signed-tlsssl-certificate)
 3. [Carregar certificado TLS/SSL para o Serviço de Cloud](#upload-tlsssl-certificate-to-cloud-service)
 4. [Atualização certificado TLS/SSL em ficheiro de configuração de serviço](#update-tlsssl-certificate-in-service-configuration-file)
 5. [Autoridade de Certificação TLS/SSL de Importação](#import-tlsssl-certification-authority)
@@ -78,10 +78,10 @@ Se essas opções não estiverem disponíveis, pode gerar **certificados auto-as
 São necessários certificados para clientes para autenticar pedidos ao serviço. Escolha o mais aplicável dos três cenários abaixo e execute todos os seus passos:
 
 ### <a name="turn-off-client-certificates"></a>Desligue os certificados de cliente
-1. [Desativar a autenticação baseada em certificados de cliente](#turn-off-client-certificate-based-authentication)
+1. [Desligue a autenticação Certificate-Based cliente](#turn-off-client-certificate-based-authentication)
 
 ### <a name="issue-new-self-signed-client-certificates"></a>Emite novos certificados de cliente auto-assinados
-1. [Criar uma Autoridade de Certificação Auto-Assinada](#create-a-self-signed-certification-authority)
+1. [Criar uma Autoridade de Certificação Self-Signed](#create-a-self-signed-certification-authority)
 2. [Faça upload do certificado CA para o Serviço cloud](#upload-ca-certificate-to-cloud-service)
 3. [Atualização certificado CA no ficheiro de configuração de serviço](#update-ca-certificate-in-service-configuration-file)
 4. [Emitir Certificados de Cliente](#issue-client-certificates)
@@ -105,8 +105,8 @@ O acesso aos pontos finais de serviço pode ser restringido a gamas específicas
 É necessário um certificado para encriptar as credenciais que são armazenadas na loja de metadados. Escolha o mais aplicável dos três cenários abaixo e execute todos os seus passos:
 
 ### <a name="use-a-new-self-signed-certificate"></a>Use um novo certificado auto-assinado
-1. [Criar um certificado auto-assinado](#create-a-self-signed-certificate)
-2. [Criar ficheiro PFX para certificado de encriptação auto-assinado](#create-pfx-file-for-self-signed-tlsssl-certificate)
+1. [Criar um certificado de Self-Signed](#create-a-self-signed-certificate)
+2. [Criar ficheiro PFX para Self-Signed Certificado de Encriptação](#create-pfx-file-for-self-signed-tlsssl-certificate)
 3. [Faça upload do certificado de encriptação para o serviço cloud](#upload-encryption-certificate-to-cloud-service)
 4. [Certificado de encriptação de atualização no ficheiro de configuração de serviço](#update-encryption-certificate-in-service-configuration-file)
 
@@ -437,7 +437,7 @@ Atualize o valor da impressão digital das seguintes definições no ficheiro de
 * Configure certificados de cliente
 
 ## <a name="find-certificate"></a>Encontrar certificado
-Siga estes passos.
+Siga estes passos:
 
 1. Corre mmc.exe.
 2. Arquivo -> Adicionar/Remover Snap-in...
@@ -488,7 +488,7 @@ No Certificado De Importação Assistente:
 9. Clique **em OK** em todas as janelas de diálogo.
 
 ## <a name="upload-certificate"></a>Carregar certificado
-No [portal do Azure](https://portal.azure.com/)
+No [portal Azure](https://portal.azure.com/)
 
 1. Selecione **Serviços cloud**.
 2. Selecione o serviço de nuvem.

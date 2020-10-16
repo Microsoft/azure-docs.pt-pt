@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
 ms.openlocfilehash: 6284e85d8c4e9ad9f9896081f04c6b7669b8e1c0
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91446950"
 ---
 # <a name="configure-azure-sql-edge"></a>Configure Azure SQL Edge
@@ -230,7 +230,7 @@ Para remover um recipiente de volume de dados, utilize o `docker volume rm` coma
 > Se eliminar o recipiente de volume de dados, quaisquer dados do Azure SQL Edge no recipiente são *permanentemente* eliminados.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Ligue-se à Borda Azure SQL](connect.md)
 - [Construa uma solução IoT de ponta a ponta com o SQL no Edge](tutorial-deploy-azure-resources.md)

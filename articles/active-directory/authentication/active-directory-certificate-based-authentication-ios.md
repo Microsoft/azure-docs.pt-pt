@@ -6,16 +6,16 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 04/17/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 584fb5c370fa0be629d057eb94dc4c2a8b9edc15
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 6fa6c28eaa75485e0b45bb4404e685b6ee223b46
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716440"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965595"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Autenticação baseada em certificados Azure Ative No iOS
 

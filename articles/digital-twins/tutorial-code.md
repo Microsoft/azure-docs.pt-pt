@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: bd8eee2fd6134bb36c0b0ab45492567f4fdbec26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e7ad721eba103679f55886053e8ba9e888573c0
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91297509"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057489"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutorial: Codificação com as APIs de Gémeos Digitais Azure
 
@@ -22,7 +22,7 @@ ms.locfileid: "91297509"
 > * Criar projeto
 > * Começar com o código do projeto   
 > * Amostra de código completa
-> * Limpar os recursos
+> * Limpar recursos
 > * Passos seguintes
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -181,7 +181,7 @@ No diretório onde criou o seu projeto, crie um novo ficheiro *.json* chamado *S
 > Se estiver a utilizar o Visual Studio para este tutorial, poderá querer selecionar o ficheiro JSON recém-criado e definir a propriedade *Copy to Output Directory* no inspetor de propriedade para *copiar se Newer* ou *Copy Always*. Isto permitirá ao Visual Studio encontrar o ficheiro JSON com o caminho predefinido quando executar o programa com **F5** durante o resto do tutorial.
 
 > [!TIP] 
-> Existe uma [amostra de DTDL Validador](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) agnóstico que pode usar para verificar documentos de modelo para se certificar de que o DTDL é válido. É construído sobre a biblioteca de parser DTDL, sobre a qual pode ler mais em [*Como-a: Parse e validar modelos.*](how-to-parse-models.md)
+> Existe uma [amostra de DTDL Validador](/samples/azure-samples/dtdl-validator/dtdl-validator) agnóstico que pode usar para verificar documentos de modelo para se certificar de que o DTDL é válido. É construído sobre a biblioteca de parser DTDL, sobre a qual pode ler mais em [*Como-a: Parse e validar modelos.*](how-to-parse-models.md)
 
 Em seguida, adicione mais um código para *Program.cs* para carregar o modelo que acabou de criar na sua instância Azure Digital Twins.
 
@@ -552,7 +552,7 @@ namespace minimal
     }
 }
 ```
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
  
 O caso utilizado neste tutorial pode ser reutilizado no próximo tutorial, [*Tutorial: Explore o básico com uma aplicação de cliente de amostra.*](tutorial-command-line-app.md) Se planeia continuar para o próximo tutorial, pode manter a instância Azure Digital Twins que instalou aqui.
  

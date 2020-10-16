@@ -4,13 +4,13 @@ description: Descreve como configurar a integração contínua em Pipelines Azur
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.openlocfilehash: 6784df30340e4c54b8b1d6e82b45046666824315
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91653405"
 ---
-# <a name="integrate-arm-templates-with-azure-pipelines"></a>Integrar modelos ARM com Gasodutos Azure
+# <a name="integrate-arm-templates-with-azure-pipelines"></a>Integrar modelos do Resource Manager com Pipelines do Azure
 
 Pode integrar os modelos Azure Resource Manager (modelos ARM) com Pipelines Azure para integração contínua e implementação contínua (CI/CD). A [integração tutorial contínua dos modelos ARM com Azure Pipelines](deployment-tutorial-pipeline.md) mostra como usar a [tarefa de implementação](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md) do modelo ARM para implementar um modelo a partir do seu repo GitHub. Esta abordagem funciona quando pretende implantar um modelo diretamente a partir de um repositório.
 

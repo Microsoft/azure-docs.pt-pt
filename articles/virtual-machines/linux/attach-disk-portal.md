@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: a37ed39f3c663f9f77daa1ed8f6946403348edd0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 565b781b5015f82cafe4e47be2170f2327660821
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89072643"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971596"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Utilizar o portal para anexar um disco de dados a uma VM do Linux 
 Este artigo mostra-lhe como ligar discos novos e existentes a uma máquina virtual Linux através do portal Azure. Também pode [anexar um disco de dados a um VM do Windows no portal Azure](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -20,7 +20,7 @@ Este artigo mostra-lhe como ligar discos novos e existentes a uma máquina virtu
 Antes de anexar discos ao seu VM, reveja estas dicas:
 
 * O tamanho da máquina virtual controla quantos discos de dados pode anexar. Para mais detalhes, consulte [tamanhos para máquinas virtuais.](../sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* Os discos ligados a máquinas virtuais são na verdade ficheiros .vhd armazenados em Azure. Para mais detalhes, consulte a nossa [Introdução aos discos geridos.](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* Os discos ligados a máquinas virtuais são na verdade ficheiros .vhd armazenados em Azure. Para mais detalhes, consulte a nossa [Introdução aos discos geridos.](../managed-disks-overview.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json)
 * Depois de fixar o disco, é necessário [ligar-se ao Linux VM para montar o novo disco](#connect-to-the-linux-vm-to-mount-the-new-disk).
 
 

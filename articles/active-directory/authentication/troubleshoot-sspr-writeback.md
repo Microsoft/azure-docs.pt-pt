@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 08/26/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50e202d26574c0fc8adfeb7f73eb150ebb1781af
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 94b8d744c964b07c1ed6a4d7e8b89bca2258c1bc
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89664633"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963963"
 ---
 # <a name="troubleshoot-self-service-password-reset-writeback-in-azure-active-directory"></a>Resolução de problemas de autosserviço redefiniu a gravação no Azure Ative Directory
 
@@ -104,29 +104,29 @@ O Azure AD Connect requer permissão de **senha de reset** AD DS para efetuar a 
 1. Inicie sedumento no servidor AZure AD Connect e inicie o **Gestor de Serviço de Sincronização** selecionando o Serviço de **Start**  >  **Sincronização Inicial**.
 1. No **separador Conectores,** selecione o conector **ative Directory Domain Services** e, em seguida, selecione **Propriedades**.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager.png" alt-text="Gestor de serviços de sincronização mostrando como editar propriedades" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager.png" alt-text="Reinicie o serviço Azure AD Sync utilizando o GUI" border="false":::
   
 1. Na janela pop-up, selecione **Connect to Ative Directory Forest** e tome nota da propriedade do nome do **utilizador.** Esta propriedade é a conta AD DS usada pela Azure AD Connect para realizar a sincronização do diretório.
 
     Para que o Azure AD Connect efetue a gravação de palavra-passe, a conta DS AD deve ter a permissão de senha de reset. Verifique as permissões nesta conta de utilizador nos seguintes passos.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager-properties.png" alt-text="Encontrar o serviço de sincronização Conta de utilizador do Ative Directory" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager-properties.png" alt-text="Reinicie o serviço Azure AD Sync utilizando o GUI" border="false":::
   
 1. Inicie sôms para um controlador de domínio no local e inicie a aplicação **Ative Directory Users and Computers.**
 1. Selecione **Ver** e certifique-se de que a opção **Funcionalidades Avançadas** está ativada.  
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-advanced-features.png" alt-text="Utilizadores e computadores de diretório ativo mostram funcionalidades avançadas" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-advanced-features.png" alt-text="Reinicie o serviço Azure AD Sync utilizando o GUI" border="false":::
   
 1. Procure a conta de utilizador da DS AD que pretende verificar. Clique com o botão direito no nome da conta e selecione **Propriedades.**  
 1. Na janela pop-up, vá ao separador **Segurança** e selecione **Advanced**.  
 1. Nas **Definições avançadas** de segurança para a janela pop-up do administrador, aceda ao **separador Acesso Efetivo.**
 1. Escolha **Selecione um utilizador**, selecione a conta DS AD utilizada pelo Azure AD Connect e, em seguida, selecione Ver acesso **eficaz**.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-effective-access.png" alt-text="Separador de acesso eficaz mostrando a Conta de Sincronização" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-effective-access.png" alt-text="Reinicie o serviço Azure AD Sync utilizando o GUI" border="false":::
   
 1. Desloque-se para baixo e procure **a palavra-passe Reset**. Se a entrada tiver uma marca de verificação, a conta DS AD tem permissão para redefinir a palavra-passe da conta de utilizador do Ative Directory selecionada.  
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/check-permissions.png" alt-text="Validando que a conta de sincronização tem a permissão de palavra-passe Reset" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/check-permissions.png" alt-text="Reinicie o serviço Azure AD Sync utilizando o GUI" border="false":::
 
 ## <a name="common-password-writeback-errors"></a>Erros comuns de descodão de palavra-passe
 
@@ -217,7 +217,7 @@ Para ajudá-lo corretamente, pedimos que forneça o máximo de detalhes possíve
 * **Código de suporte**: Qual foi o código de suporte que foi gerado quando o utilizador viu o erro?
    * Para encontrar este código, reproduza o erro, selecione a ligação **de código de suporte** na parte inferior do ecrã e envie ao engenheiro de suporte o GUIADOr que resulta.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-support-code.png" alt-text="O código de suporte está localizado no canto inferior direito da janela do navegador web.":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-support-code.png" alt-text="Reinicie o serviço Azure AD Sync utilizando o GUI":::
 
   * Se estiver numa página sem um código de suporte na parte inferior, selecione F12 e procure o SID e o CID e envie esses dois resultados para o engenheiro de suporte.
 * **Data, hora e fuso horário**: Inclua a data e a hora *exatas com o fuso horário* em que ocorreu o erro.
@@ -229,6 +229,6 @@ Para ajudá-lo corretamente, pedimos que forneça o máximo de detalhes possíve
 * **Licenciamento**: O utilizador tem uma licença AD Azure atribuída?
 * **Registo do evento**de aplicação : Se estiver a utilizar a gravação de palavra-passe e o erro estiver na sua infraestrutura no local, inclua uma cópia zipped do registo do evento da sua aplicação a partir do servidor Azure AD Connect.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a SSPR, veja [como funciona: Azure AD autosserviço de autosserviço reset](concept-sspr-howitworks.md) ou [Como é que a palavra-passe de autosserviço repõe o funcionamento em Azure AD?](concept-sspr-writeback.md)

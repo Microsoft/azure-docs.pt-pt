@@ -3,12 +3,12 @@ title: Iso 27001 CONTROLOs de amostra de amostra de carga de carga DE TRABALHO I
 description: Controlo do mapeamento do sistema iso 27001 App Service Environment/SQL Database amostra de amostra de carga de trabalho para Azure Policy e Azure RBAC.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 1d537a3447f794c501ac3a33caf6eb01b17bc470
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 662e5dce9c58cec3be36c3e492d7231ed0e83939
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91541225"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91929324"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Mapeamento de controlo da amostra de projeto de carga de trabalho DA ISO 27001 ASE/SQL
 
@@ -17,7 +17,7 @@ O artigo seguinte detalha como o Azure Blueprints ISO 27001 ASE/SQL Workload map
 Os seguintes mapeamentos são para os controlos **ISO 27001:2013.** Utilize a navegação no direito de saltar diretamente para um mapeamento de controlo específico. Muitos dos controlos mapeados são implementados com uma iniciativa [da Política Azure.](../../../policy/overview.md) Para rever a iniciativa completa, abra **a Política** no portal Azure e selecione a página **Definições.** Em seguida, encontre e selecione os ** \[ \] controlos iso 27001:2013 da Auditoria de Pré-visualização e implemente extensões VM específicas para apoiar os requisitos** de auditoria integrados na iniciativa política.
 
 > [!IMPORTANT]
-> Cada controlo abaixo está associado a uma ou mais definições [da Política Azure.](../../../policy/overview.md) Estas políticas podem ajudá-lo a avaliar o [cumprimento](../../../policy/how-to/get-compliance-data.md) do controlo; no entanto, muitas vezes não há um 1:1 ou um jogo completo entre um controlo e uma ou mais políticas. Como tal, **a Conformidade** na Política Azure refere-se apenas às próprias políticas; isto não garante que esteja totalmente em conformidade com todos os requisitos de um controlo. Além disso, a norma de conformidade inclui controlos que não são abordados por nenhuma definição da Política Azure neste momento. Portanto, o cumprimento da Política Azure é apenas uma visão parcial do seu estado de conformidade geral. As associações entre controlos e definições de Política Azure para esta amostra de projeto de conformidade podem mudar ao longo do tempo. Para ver a história da mudança, consulte o [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/iso27001-ase-sql-workload/control-mapping.md).
+> Cada controlo abaixo está associado a uma ou mais definições [da Política Azure.](../../../policy/overview.md) Estas políticas podem ajudá-lo a avaliar o [cumprimento](../../../policy/how-to/get-compliance-data.md) do controlo; no entanto, muitas vezes não há um para um ou um jogo completo entre um controlo e uma ou mais políticas. Como tal, **a Conformidade** na Política Azure refere-se apenas às próprias políticas; isto não garante que esteja totalmente em conformidade com todos os requisitos de um controlo. Além disso, a norma de conformidade inclui controlos que não são abordados por nenhuma definição da Política Azure neste momento. Portanto, o cumprimento da Política Azure é apenas uma visão parcial do seu estado de conformidade geral. As associações entre controlos e definições de Política Azure para esta amostra de projeto de conformidade podem mudar ao longo do tempo. Para ver a história da mudança, consulte o [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/iso27001-ase-sql-workload/control-mapping.md).
 
 ## <a name="a612-segregation-of-duties"></a>A.6.1.2 Segregação de funções
 
@@ -193,7 +193,7 @@ O plano ajuda-o a garantir que a transferência de informação com os serviços
 - Apenas devem ser ativadas ligações seguras à sua Cache Azure para Redis
 - A transferência segura para contas de armazenamento deve ser ativada
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que reviu o mapeamento de controlo da amostra de projeto de projeto de projeto de carga de trabalho do Serviço de Aplicações ISO 27001/ SQL Database, visite os seguintes artigos para saber sobre a arquitetura e como implementar esta amostra:
 

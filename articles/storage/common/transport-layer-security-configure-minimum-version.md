@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 4c88791815d248cc20546d7942e7b0f107071186
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90018582"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Impor uma versão mínima exigida de Segurança da Camada de Transporte (TLS) para pedidos a uma conta de armazenamento
@@ -69,7 +69,7 @@ StorageBlobLogs
 
 Os resultados mostram a contagem do número de pedidos feitos com cada versão do TLS:
 
-:::image type="content" source="media/transport-layer-security-configure-minimum-version/log-analytics-query-version.png" alt-text="Screenshot mostrando resultados da consulta de analítica de log para devolver a versão TLS":::
+:::image type="content" source="media/transport-layer-security-configure-minimum-version/log-analytics-query-version.png" alt-text="Screenshot mostrando como criar uma definição de diagnóstico para pedidos de registo":::
 
 ### <a name="query-logged-requests-by-caller-ip-address-and-user-agent-header"></a>Pedidos de consulta registados por endereço IP de chamada e cabeçalho do agente do utilizador
 
@@ -104,7 +104,7 @@ Para configurar a versão mínima TLS para uma conta de armazenamento existente 
 1. Selecione a **definição de configuração.**
 1. Na **versão Mínima TLS,** utilize a versão drop-down para selecionar a versão mínima de TLS necessária para aceder aos dados nesta conta de armazenamento, como mostra a seguinte imagem.
 
-    :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Screenshot mostrando como configurar a versão mínima do TLS no portal Azure":::
+    :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Screenshot mostrando como criar uma definição de diagnóstico para pedidos de registo":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -307,7 +307,7 @@ Para ver o relatório de conformidade no portal Azure, siga estes passos:
 1. Filtrar os resultados para o nome da atribuição de política que criou no passo anterior. O relatório mostra quantos recursos não estão em conformidade com a política.
 1. Pode aprofundar o relatório para obter mais detalhes, incluindo uma lista de contas de armazenamento que não estão em conformidade.
 
-    :::image type="content" source="media/transport-layer-security-configure-minimum-version/compliance-report-policy-portal.png" alt-text="Screenshot mostrando relatório de conformidade para a política de auditoria para a versão mínima TLS":::
+    :::image type="content" source="media/transport-layer-security-configure-minimum-version/compliance-report-policy-portal.png" alt-text="Screenshot mostrando como criar uma definição de diagnóstico para pedidos de registo":::
 
 ## <a name="use-azure-policy-to-enforce-the-minimum-tls-version"></a>Use a Política Azure para impor a versão mínima TLS
 
@@ -343,13 +343,13 @@ Depois de criar a política com o efeito Deny e atribuí-la a um âmbito, um uti
 
 A imagem a seguir mostra o erro que ocorre se tentar criar uma conta de armazenamento com a versão mínima TLS definida para TLS 1.0 (o padrão para uma nova conta) quando uma política com um efeito Deny requer que a versão mínima TLS seja definida para TLS 1.2.
 
-:::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="Screenshot mostrando o erro que ocorre ao criar uma conta de armazenamento em violação da política":::
+:::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="Screenshot mostrando como criar uma definição de diagnóstico para pedidos de registo":::
 
 ## <a name="network-considerations"></a>Considerações de rede
 
 Quando um cliente envia um pedido para a conta de armazenamento, o cliente estabelece uma ligação com o ponto final público da conta de armazenamento primeiro, antes de processar quaisquer pedidos. A definição mínima da versão TLS é verificada após a ligação ser estabelecida. Se o pedido utilizar uma versão anterior do TLS do que a especificada pela definição, a ligação continuará a ter sucesso, mas o pedido acabará por falhar. Para obter mais informações sobre os pontos finais públicos para o Armazenamento Azure, consulte [a sintaxe URI de recurso](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#resource-uri-syntax).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configure a Segurança da Camada de Transporte (TLS) para uma aplicação ao cliente](transport-layer-security-configure-client-version.md)
 - [Recomendações de segurança para armazenamento blob](../blobs/security-recommendations.md)

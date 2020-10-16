@@ -12,10 +12,10 @@ ms.author: bonova
 ms.reviewer: sstein
 ms.date: 09/25/2018
 ms.openlocfilehash: 1d68163a9fba3ba3bcd4c0c0f3fb5f442296e781
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619394"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Gerir dados históricos em tabelas temporais com política de retenção

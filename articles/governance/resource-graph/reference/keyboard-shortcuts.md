@@ -5,10 +5,10 @@ ms.date: 08/25/2020
 ms.topic: reference
 ms.custom: accessibility
 ms.openlocfilehash: 02471a6efc4ac4d002ca641b792c1c721ffeb3f7
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89146441"
 ---
 # <a name="keyboard-shortcuts-for-azure-resource-graph-explorer"></a>Atalhos de teclado para Azure Resource Graph Explorer
@@ -28,10 +28,10 @@ Este artigo lista os atalhos de teclado que funcionam na página Azure Resource 
 |Selecionar tudo |<kbd>CTRL</kbd> + <kbd>A</kbd> |<kbd>Cmd</kbd> + <kbd>A</kbd> |
 |Selecione para baixo |<kbd>MUDANÇA</kbd> + <kbd>↓</kbd> |<kbd>MUDANÇA</kbd> + <kbd>↓</kbd> |
 |Selecione direito |<kbd>MUDANÇA</kbd> + <kbd>→</kbd> |<kbd>MUDANÇA</kbd> + <kbd>→</kbd> |
-|Selecione esquerda |<kbd>MUDANÇA</kbd> + <kbd>≡</kbd> |<kbd>MUDANÇA</kbd> + <kbd>≡</kbd> |
+|Selecione esquerda |<kbd>MUDANÇA</kbd> + <kbd>←</kbd> |<kbd>MUDANÇA</kbd> + <kbd>←</kbd> |
 |Selecione para cima |<kbd>MUDANÇA</kbd> + <kbd>↑</kbd> |<kbd>MUDANÇA</kbd> + <kbd>↑</kbd> |
 |Selecione até o fim |<kbd>ALT</kbd> + <kbd>MUDANÇA</kbd> + <kbd>→</kbd> |<kbd>Cmd</kbd> + <kbd>MUDANÇA</kbd> + <kbd>→</kbd> |
-|Selecione para o início |<kbd>ALT</kbd> + <kbd>MUDANÇA</kbd> + <kbd>≡</kbd> |<kbd>Cmd</kbd> + <kbd>MUDANÇA</kbd> + <kbd>≡</kbd> |
+|Selecione para o início |<kbd>ALT</kbd> + <kbd>MUDANÇA</kbd> + <kbd>←</kbd> |<kbd>Cmd</kbd> + <kbd>MUDANÇA</kbd> + <kbd>←</kbd> |
 |Eliminar a linha atual |<kbd>CTRL</kbd> + <kbd>L,</kbd> <kbd>CTRL</kbd> + <kbd>D</kbd>  |<kbd>Cmd</kbd> + <kbd>L</kbd>, <kbd>Cmd</kbd> + <kbd>D</kbd> |
 |Mova-se para uma nova linha e adicione tubo `|` () |<kbd>CTRL</kbd> + <kbd>Inserir</kbd> |<kbd>Cmd</kbd> + <kbd>Inserir</kbd> |
 

@@ -9,10 +9,10 @@ ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4b61caecd67881eb08c82ea0c26522c63c3e8396
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84712059"
 ---
 # <a name="update-3-release-notes-for-your-storsimple-8000-series-device"></a>Atualizar 3 notas de lançamento para o seu dispositivo da série StorSimple 8000
@@ -41,19 +41,19 @@ As seguintes melhorias chave e correções de erros foram feitas no Update 3.
 ## <a name="issues-fixed-in-update-3"></a>Problemas corrigidos na Atualização 3
 As tabelas que se seguem fornecem um resumo das questões que foram corrigidas na Atualização 3.    
 
-| Não | Funcionalidade | Problema | Aplica-se ao dispositivo físico | Aplica-se a dispositivo virtual |
+| No | Destaque | Problema | Aplica-se ao dispositivo físico | Aplica-se a dispositivo virtual |
 | --- | --- | --- | --- | --- |
 | 1 |Migração de dados do lado do anfitrião |No lançamento anterior, o StorSimple Cloud Appliance estava desligado durante uma migração de dados do lado do hospedeiro. Esta questão é corrigida nesta versão. |Não |Sim |
 | 2 |volumes afixados localmente |No lançamento anterior, houve questões relacionadas com falhas de E/S, falhas de conversão de volume e falhas no datapath para volumes fixados localmente. Estas questões foram causadas por raízes e corrigidas nesta versão. |Sim |Não |
 | 3 |Monitorização |Houve vários problemas relacionados com unidades de reporte e monitorização, bem como gráficos de dashboard de dispositivos onde foram apresentadas informações incorretas para volumes fixados localmente. Estas questões são corrigidas nesta versão. |Sim |Não |
 | 4 |Pesado escreve I/O |Ao utilizar o StorSimple para cargas de trabalho que envolvam escritas pesadas, o utilizador desatambria um bug pouco frequente onde o conjunto de trabalho estava a ser colocado na nuvem. Este bug está fixo nesta versão. |Sim |Sim |
 | 5 |Backup |Em certos casos raros, nas versões anteriores do software, quando o utilizador fez uma cópia de segurança de um clone remoto, eles iriam encontrar erros na nuvem e a operação seria errada. Nesta versão, o problema é corrigido e a operação completa-se com sucesso. |Sim |Sim |
-| 6 |Política de cópia de segurança |Em certos casos raros, nas anteriores versões de software, houve um bug relacionado com a eliminação da política de backup. Esta questão é corrigida nesta versão. |Sim |Sim |
+| 6 |Política de cópias de segurança |Em certos casos raros, nas anteriores versões de software, houve um bug relacionado com a eliminação da política de backup. Esta questão é corrigida nesta versão. |Sim |Sim |
 
 ## <a name="known-issues-in-update-3"></a>Problemas conhecidos na Atualização 3
 A tabela seguinte fornece um resumo de questões conhecidas nesta versão.
 
-| Não. | Funcionalidade | Problema | Comentários / solução alternativa | Aplica-se ao dispositivo físico | Aplica-se a dispositivo virtual |
+| N.º | Funcionalidade | Problema | Comentários / solução alternativa | Aplica-se ao dispositivo físico | Aplica-se a dispositivo virtual |
 | --- | --- | --- | --- | --- | --- |
 | 1 |Quórum de disco |Em casos raros, se a maioria dos discos no recinto EBOD de um dispositivo 8600 forem desligados, resultando em nenhum quórum de disco, então a piscina de armazenamento ficará offline. Permanecerá offline mesmo que os discos estejam novamente ligados. |Terá de reiniciar o dispositivo. Se o problema persistir, contacte o Microsoft Support para os próximos passos. |Sim |Não |
 | 2 |ID do controlador incorreto |Quando uma substituição do controlador é efetuada, o controlador 0 pode aparecer como controlador 1. Durante a substituição do controlador, quando a imagem é carregada a partir do nó de pares, o ID do controlador pode aparecer inicialmente como ID do controlador de pares. Em casos raros, este comportamento também pode ser visto após um reboot do sistema. |Não é necessária qualquer ação do utilizador. Esta situação resolver-se-á após a substituição do controlador. |Sim |Não |

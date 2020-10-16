@@ -9,10 +9,10 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 10/14/2019
 ms.openlocfilehash: 119d9579cb139a6b1611b8ccec4ebf271e610d3c
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91841862"
 ---
 Se usou uma instância computacional ou VM de portátil, pare o VM quando não estiver a usá-lo para reduzir o custo.

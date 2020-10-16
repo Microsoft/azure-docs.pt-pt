@@ -9,10 +9,10 @@ ms.date: 03/19/2020
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: a00291182059506aeab9cde965fa4cbd5177ecf7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80132238"
 ---
 Se um utilizador não tiver o acesso necessário para aplicar tags, pode atribuir a função **De Colaborador tag** ao utilizador. Para obter mais informações, consulte [Tutorial: Conceder a um utilizador acesso aos recursos do Azure utilizando o RBAC e o portal Azure.](../articles/role-based-access-control/quickstart-assign-role-user-portal.md)

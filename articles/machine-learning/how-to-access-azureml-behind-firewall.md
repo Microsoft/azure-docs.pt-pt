@@ -12,10 +12,10 @@ ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, devx-track-python
 ms.openlocfilehash: 081c07be49178be2415edccbfc2026336eb8a8a5
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90604415"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Use espaço de trabalho atrás de uma firewall para aprendizagem de máquinas Azure
@@ -95,8 +95,8 @@ URLs necessários para as regiões do Governo de Azure.
 
 | **Nome do anfitrião** | **Objetivo** |
 | ---- | ---- |
-| **usgovarizona.api.ml.azure.us** | A região EUA-Arizona |
-| **usgovvirginia.api.ml.azure.us** | A região EUA-Virgínia |
+| **usgovarizona.api.ml.azure.us** | A região US-Arizona |
+| **usgovvirginia.api.ml.azure.us** | A região US-Virginia |
 
 ## <a name="next-steps"></a>Passos seguintes
 

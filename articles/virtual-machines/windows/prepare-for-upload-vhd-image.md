@@ -8,18 +8,18 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: genli
-ms.openlocfilehash: 3274e45738c079c89560f546fe58163f695e12df
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.openlocfilehash: 390cda604b71404735b7c14382d30067e154ef70
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91851106"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976189"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparar um VHD ou um VHDX do Windows para carregamento para o Azure
 
 Antes de carregar uma máquina virtual Windows (VM) das instalações para o Azure, tem de preparar o disco rígido virtual (VHD ou VHDX). O Azure suporta a geração 1 e a geração 2 VMs que estão em formato de ficheiro VHD e que têm um disco de tamanho fixo. O tamanho máximo permitido para o OS VHD numa geração 1 VM é de 2 TB.
 
-Pode converter um ficheiro VHDX em VHD, converter um disco de expansão dinâmica para um disco de tamanho fixo, mas não pode alterar a geração de um VM. Para mais informações, consulte [Devo criar uma geração 1 ou 2 VM em Hiper-V?](/windows-server/virtualization/hyper-v/plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V) [Support for generation 2 VMs on Azure](generation-2.md)
+Pode converter um ficheiro VHDX em VHD, converter um disco de expansão dinâmica para um disco de tamanho fixo, mas não pode alterar a geração de um VM. Para mais informações, consulte [Devo criar uma geração 1 ou 2 VM em Hiper-V?](/windows-server/virtualization/hyper-v/plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V) [Support for generation 2 VMs on Azure](../generation-2.md)
 
 Para obter informações sobre a política de suporte para VMs Azure, consulte o [suporte de software do servidor da Microsoft para VMs Azure](https://support.microsoft.com/help/2721672/).
 
@@ -71,7 +71,7 @@ Depois de concluída a verificação SFC, instale as Atualizações do Windows e
    netsh.exe winhttp reset proxy
    ```
 
-    Se o VM precisar de trabalhar com um representante específico, adicione uma exceção proxy para o endereço IP Azure[(168.63.129.16](/azure/virtual-network/what-is-ip-address-168-63-129-16)) para que o VM possa ligar-se ao Azure:
+    Se o VM precisar de trabalhar com um representante específico, adicione uma exceção proxy para o endereço IP Azure[(168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md)) para que o VM possa ligar-se ao Azure:
 
     ```
     $proxyAddress='<your proxy server>'
@@ -405,7 +405,7 @@ Normalmente corre `sysprep.exe` para criar um modelo a partir do qual pode imple
 Para criar apenas um VM a partir de um disco, não é preciso usar o Sysprep. Em vez disso, pode criar o VM a partir de uma *imagem especializada.* Para obter informações sobre como criar um VM a partir de um disco especializado, consulte:
 
 - [Criar uma VM a partir de um disco especializado](create-vm-specialized.md)
-- [Criar um VM a partir de um disco VHD especializado](/azure/virtual-machines/windows/create-vm-specialized-portal)
+- [Criar um VM a partir de um disco VHD especializado](./create-vm-specialized-portal.md)
 
 Para criar uma imagem generalizada, é preciso executar o Sysprep. Para obter mais informações, consulte [Como utilizar o Sysprep: Uma introdução](/previous-versions/windows/it-pro/windows-xp/bb457073(v=technet.10)).
 
@@ -430,7 +430,7 @@ Em particular, a Sysprep exige que as unidades sejam totalmente desencriptadas a
 1. Selecione **OK**.
 1. Quando o Sysprep terminar, desligue o VM. Não use **o Restart** para desligar o VM.
 
-Agora o VHD está pronto para ser carregado. Para obter mais informações sobre como criar um VM a partir de um disco generalizado, consulte [o Upload a Generalized VHD e use-o para criar um novo VM em Azure](sa-upload-generalized.md).
+Agora o VHD está pronto para ser carregado. Para obter mais informações sobre como criar um VM a partir de um disco generalizado, consulte [o Upload a Generalized VHD e use-o para criar um novo VM em Azure](/previous-versions/azure/virtual-machines/windows/sa-upload-generalized).
 
 >[!NOTE]
 > Um ficheiro *unattend.xml* personalizado não é suportado. Embora suportemos a propriedade **adicional deUnattendContent,** que fornece apenas suporte limitado para adicionar opções [de configuração microsoft-windows-shell](/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) no ficheiro *unattend.xml* que o agente de provisionamento Azure utiliza. Pode utilizar, por exemplo, [o Globalcontent adicional](/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet&preserve-view=true) para adicionar FirstLogonCommands e LogonCommands. Para obter mais informações, consulte [o exemplo adicional daUnattendContent FirstLogonCommands](https://github.com/Azure/azure-quickstart-templates/issues/1407).
@@ -468,7 +468,7 @@ Utilize um dos métodos nesta secção para converter e redimensionar o seu disc
 
 ### <a name="use-powershell-to-convert-the-disk"></a>Use o PowerShell para converter o disco
 
-Pode converter um disco virtual utilizando o [cmdlet Convert-VHD](/powershell/module/hyper-v/convert-vhd) em PowerShell. Se precisar de informações sobre a instalação deste cmdlet consulte [instalar a função Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
+Pode converter um disco virtual utilizando o [cmdlet Convert-VHD](/powershell/module/hyper-v/convert-vhd) em PowerShell. Se precisar de informações sobre a instalação deste cmdlet consulte [instalar a função Hyper-V](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
 
 O exemplo a seguir converte o disco de VHDX para VHD. Também converte o disco de um disco de expansão dinâmica para um disco de tamanho fixo.
 
@@ -488,7 +488,7 @@ Neste exemplo, substitua o valor de **Path** pelo caminho para o disco rígido v
 
 ### <a name="use-powershell-to-resize-the-disk"></a>Use o PowerShell para redimensionar o disco
 
-Pode redimensionar um disco virtual utilizando o cmdlet [Resize-VHD](/powershell/module/hyper-v/resize-vhd) em PowerShell. Se precisar de informações sobre a instalação deste cmdlet consulte [instalar a função Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
+Pode redimensionar um disco virtual utilizando o cmdlet [Resize-VHD](/powershell/module/hyper-v/resize-vhd) em PowerShell. Se precisar de informações sobre a instalação deste cmdlet consulte [instalar a função Hyper-V](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
 
 O exemplo a seguir redimensiona o disco de 100,5 MiB para 101 MiB para satisfazer o requisito de alinhamento Azure.
 
@@ -500,7 +500,7 @@ Neste exemplo, substitua o valor de **Path** pelo caminho para o disco rígido v
 
 ### <a name="convert-from-vmware-vmdk-disk-format"></a>Converter a partir do formato de disco VMDK VMDK
 
-Se tiver uma imagem VM do Windows no [formato de ficheiro VMDK,](https://en.wikipedia.org/wiki/VMDK)então pode utilizar [o Azure Migrate](https://docs.microsoft.com/azure/migrate/server-migrate-overview) para converter o VMDK e carregá-lo para Azure.
+Se tiver uma imagem VM do Windows no [formato de ficheiro VMDK,](https://en.wikipedia.org/wiki/VMDK)então pode utilizar [o Azure Migrate](../../migrate/server-migrate-overview.md) para converter o VMDK e carregá-lo para Azure.
 
 ## <a name="complete-the-recommended-configurations"></a>Complete as configurações recomendadas
 
@@ -520,4 +520,4 @@ As seguintes definições não afetam o upload de VHD. No entanto, recomendamos 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Faça o upload de uma imagem do Windows VM para Azure para implementações do Gestor de Recursos](upload-generalized-managed.md)
-- [Problemas de ativação do Azure Windows VM](troubleshoot-activation-problems.md)
+- [Problemas de ativação do Azure Windows VM](../troubleshooting/troubleshoot-activation-problems.md)

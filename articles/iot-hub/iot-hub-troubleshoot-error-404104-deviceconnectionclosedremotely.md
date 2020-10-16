@@ -10,10 +10,10 @@ ms.date: 01/30/2020
 ms.author: jlian
 ms.custom: mqtt
 ms.openlocfilehash: c8cb91aa0c7ce1610320d4107db282d3c34407ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81758721"
 ---
 # <a name="404104-deviceconnectionclosedremotely"></a>404104 DeviceConnectionClosedRemotely
@@ -58,20 +58,20 @@ O IoT Hub pode estar a passar por um problema transitório. Consulte a [causa do
 
 ## <a name="solutions"></a>Soluções
 
-### <a name="solution-1"></a>Solução 1
+### <a name="solution-1"></a>Solução 1
 
 Ver [solução IoTHubUnautized 401003](iot-hub-troubleshoot-error-401003-iothubunauthorized.md#solution-1)
 
-### <a name="solution-2"></a>Solução 2
+### <a name="solution-2"></a>Solução 2
 
 - Certifique-se de que o dispositivo tem uma boa conectividade com o IoT Hub [testando a ligação](tutorial-connectivity.md). Se a rede não for fiável ou intermitente, não recomendamos o aumento do valor de manter vivo porque pode resultar na deteção (através de alertas do Azure Monitor, por exemplo) demorando mais tempo. 
 
 - Utilize as versões mais recentes dos [SDKs IoT](iot-hub-devguide-sdks.md).
 
-### <a name="solution-3"></a>Solução 3
+### <a name="solution-3"></a>Solução 3
 
 Consulte [soluções para erros internos do servidor IoT Hub](iot-hub-troubleshoot-error-500xxx-internal-errors.md#solution).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Recomendamos a utilização de SDKs de dispositivo Azure IoT para gerir as ligações de forma fiável. Para saber mais, consulte [Gerir a conectividade e mensagens fiáveis utilizando SDKs de dispositivoS Azure IoT Hub](iot-hub-reliability-features-in-sdks.md)

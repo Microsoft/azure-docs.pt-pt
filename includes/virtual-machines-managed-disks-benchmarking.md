@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 5fea0cb8c6ac3f706cfef5e4a153fbbf4ff465b8
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91451494"
 ---
 *Aquecimento da Cache*  
@@ -62,24 +62,24 @@ Execute os passos abaixo para aquecer cache
 
 1. Criar duas especificações de acesso com valores apresentados abaixo,
 
-   | Name | Tamanho do pedido | % aleatório | Ler % |
+   | Nome | Tamanho do pedido | % aleatório | Ler % |
    | --- | --- | --- | --- |
    | RandomWrites \_ 1MB |1 MB |100 |0 |
    | RandomReads \_ 1MB |1 MB |100 |100 |
 1. Executar o teste de Iometer para inicializar o disco de cache com os seguintes parâmetros. Utilize três fios de trabalho para o volume de destino e uma profundidade de fila de 128. Desa cosar a duração do teste para 2 horas no separador "Configuração de Teste".
 
-   | Cenário | Volume-alvo | Name | Duração |
+   | Cenário | Volume-alvo | Nome | Duração |
    | --- | --- | --- | --- |
    | Inicializar o disco cache |CacheReads |RandomWrites \_ 1MB |2 horas |
 1. Executar o teste de Iometer para aquecer o disco de cache com os seguintes parâmetros. Utilize três fios de trabalho para o volume de destino e uma profundidade de fila de 128. Desa cosar a duração do teste para 2 horas no separador "Configuração de Teste".
 
-   | Cenário | Volume-alvo | Name | Duração |
+   | Cenário | Volume-alvo | Nome | Duração |
    | --- | --- | --- | --- |
    | Aquecer disco cache |CacheReads |RandomReads \_ 1MB |2 horas |
 
 Depois de aquecer o disco de cache, proceda com os cenários de teste listados abaixo. Para executar o teste do iometer, utilize pelo menos três fios de trabalho para **cada** volume de destino. Para cada fio do trabalhador, selecione o volume-alvo, desempate a profundidade da fila e selecione uma das especificações de ensaio guardadas, como indicado na tabela abaixo, para executar o cenário de teste correspondente. A tabela também mostra os resultados esperados para IOPS e Produção ao executar estes testes. Para todos os cenários, é utilizado um pequeno tamanho IO de 8 KB e uma alta profundidade de fila de 128.
 
-| Cenário de teste | Volume-alvo | Name | Resultado |
+| Cenário de teste | Volume-alvo | Nome | Resultado |
 | --- | --- | --- | --- |
 | Um máximo de Ler IOPS |CacheReads |RandomWrites \_ 8K |50.000 OPS |
 | Um máximo de Escrever iops |NoCacheWrites |RandomReads \_ 8K |64.000 OPS |

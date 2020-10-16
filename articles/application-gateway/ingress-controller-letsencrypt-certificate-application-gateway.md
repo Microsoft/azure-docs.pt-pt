@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: df8722e8160538daa1535711092790dbb2405097
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84807037"
 ---
 # <a name="use-certificates-with-letsencryptorg-on-application-gateway-for-aks-clusters"></a>Utilize certificados com LetsEncrypt.org no Gateway de Aplicações para clusters AKS
@@ -58,7 +58,7 @@ Siga os passos abaixo para instalar [o cert-manager](https://docs.cert-manager.i
 
     Criar um `ClusterIssuer` recurso. É exigido por `cert-manager` representar a autoridade de `Lets Encrypt` certificados onde os certificados assinados serão obtidos.
 
-    Ao utilizar o recurso não-nomeado, o `ClusterIssuer` cert-manager emitirá certificados que podem ser consumidos a partir de vários espaços de nome. `Let’s Encrypt`utiliza o protocolo ACME para verificar se controla um determinado nome de domínio e para lhe emitir um certificado. Mais detalhes sobre a configuração de `ClusterIssuer` propriedades [aqui.](https://docs.cert-manager.io/en/latest/tasks/issuers/index.html) `ClusterIssuer``cert-manager`instruir-se-á a emitir certificados utilizando o `Lets Encrypt` ambiente de preparação utilizado para testes (o certificado raiz não está presente nas lojas de confiança do navegador/cliente).
+    Ao utilizar o recurso não-nomeado, o `ClusterIssuer` cert-manager emitirá certificados que podem ser consumidos a partir de vários espaços de nome. `Let’s Encrypt` utiliza o protocolo ACME para verificar se controla um determinado nome de domínio e para lhe emitir um certificado. Mais detalhes sobre a configuração de `ClusterIssuer` propriedades [aqui.](https://docs.cert-manager.io/en/latest/tasks/issuers/index.html) `ClusterIssuer``cert-manager`instruir-se-á a emitir certificados utilizando o `Lets Encrypt` ambiente de preparação utilizado para testes (o certificado raiz não está presente nas lojas de confiança do navegador/cliente).
 
     O tipo de desafio padrão no YAML abaixo é `http01` . Outros desafios são documentados em [letsencrypt.org - Challenge Types](https://letsencrypt.org/docs/challenge-types/)
 
@@ -133,8 +133,8 @@ Siga os passos abaixo para instalar [o cert-manager](https://docs.cert-manager.i
 4. Certificado de Produção
 
     Uma vez que o seu certificado de encenação é configurado com sucesso, pode mudar para um servidor ACME de produção:
-    1. Substitua a anotação de encenação no seu recurso Ingress com:`certmanager.k8s.io/cluster-issuer: letsencrypt-prod`
-    1. Elimine a encenação existente `ClusterIssuer` que criou no passo anterior e crie uma nova substituindo o servidor ACME do ClusterIssuer YAML acima`https://acme-v02.api.letsencrypt.org/directory`
+    1. Substitua a anotação de encenação no seu recurso Ingress com: `certmanager.k8s.io/cluster-issuer: letsencrypt-prod`
+    1. Elimine a encenação existente `ClusterIssuer` que criou no passo anterior e crie uma nova substituindo o servidor ACME do ClusterIssuer YAML acima `https://acme-v02.api.letsencrypt.org/directory`
 
 5. Expiração e Renovação do Certificado
 

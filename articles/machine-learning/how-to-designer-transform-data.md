@@ -11,10 +11,10 @@ ms.date: 06/28/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
 ms.openlocfilehash: 9124bbfc7300f3a5116c572d569b41e15356ab8f
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90983833"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer"></a>Transforme dados em Azure Machine Learning designer

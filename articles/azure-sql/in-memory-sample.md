@@ -1,6 +1,6 @@
 ---
-title: Amostra na memória
-description: Experimente as tecnologias Azure SQL Database In-Memory com amostra de OLTP e columnstore.
+title: In-Memory amostra
+description: Experimente a Azure SQL Database In-Memory tecnologias com amostra de OLTP e columnstore.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -12,23 +12,23 @@ ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: 2829b1c71aebcc97452fc658e6509e4fae42da8c
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91616810"
 ---
-# <a name="in-memory-sample"></a>Amostra na memória
+# <a name="in-memory-sample"></a>In-Memory amostra
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
-As tecnologias in Memory na Base de Dados Azure SQL permitem-lhe melhorar o desempenho da sua aplicação e reduzir potencialmente o custo da sua base de dados. Ao utilizar tecnologias in-memory na Base de Dados Azure SQL, pode obter melhorias de desempenho com várias cargas de trabalho.
+In-Memory tecnologias na Base de Dados Azure SQL permitem-lhe melhorar o desempenho da sua aplicação e potencialmente reduzir o custo da sua base de dados. Ao utilizar tecnologias In-Memory na Base de Dados Azure SQL, pode obter melhorias de desempenho com várias cargas de trabalho.
 
-Neste artigo, você verá duas amostras que ilustram a utilização de OLTP in-memory, bem como índices de loja de colunas na Base de Dados Azure SQL.
+Neste artigo, você verá duas amostras que ilustram o uso de In-Memory OLTP, bem como índices de loja de colunas na Base de Dados Azure SQL.
 
 Para obter mais informações, consulte:
 
 - [Cenários gerais e de utilização da Memória OLTP](/sql/relational-databases/in-memory-oltp/overview-and-usage-scenarios) (inclui referências a estudos de caso de clientes e informações para começar)
-- [Documentação para OLTP in-memory](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)
+- [Documentação para In-Memory OLTP](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)
 - [Guia de Índices de Colunas](/sql/relational-databases/indexes/columnstore-indexes-overview)
 - Processamento híbrido transacional/analítico (HTAP), também conhecido como [análise operacional em tempo real](/sql/relational-databases/indexes/get-started-with-columnstore-for-real-time-operational-analytics)
 
@@ -36,11 +36,11 @@ Para obter mais informações, consulte:
 
 &nbsp;
 
-## <a name="1-install-the-in-memory-oltp-sample"></a>1. Instale a amostra OLTP in-memory
+## <a name="1-install-the-in-memory-oltp-sample"></a>1. Instale a amostra OLTP In-Memory
 
-Pode criar a base de dados de amostras AdventureWorksLT com alguns cliques no [portal Azure.](https://portal.azure.com/) Em seguida, os passos nesta secção explicam como pode enriquecer a sua base de dados AdventureWorksLT com objetos OLTP in-memory e demonstrar benefícios de desempenho.
+Pode criar a base de dados de amostras AdventureWorksLT com alguns cliques no [portal Azure.](https://portal.azure.com/) Em seguida, os passos nesta secção explicam como pode enriquecer a sua base de dados AdventureWorksLT com In-Memory objetos OLTP e demonstrar benefícios de desempenho.
 
-Para uma demonstração de desempenho mais simplista, mas visualmente mais apelativa para o OLTP in-memory, consulte:
+Para uma demonstração de desempenho mais simplista, mas visualmente mais apelativa para In-Memory OLTP, consulte:
 
 - Lançamento: [in-memory-oltp-demo-v1.0](https://github.com/Microsoft/sql-server-samples/releases/tag/in-memory-oltp-demo-v1.0)
 - Código [fonte: in-memory-oltp-demo-source-code](https://github.com/microsoft/sql-server-samples/tree/master/samples/features/in-memory-database)
@@ -51,7 +51,7 @@ Para uma demonstração de desempenho mais simplista, mas visualmente mais apela
 
 2. Ligue-se à base de dados com o SQL Server Management Studio [(SSMS.exe)](https://msdn.microsoft.com/library/mt238290.aspx).
 
-3. Copie o [script OLTP Transact-SQL na](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/sql_in-memory_oltp_sample.sql) sua área de transferência. O script T-SQL cria os objetos in-memory necessários na base de dados de amostras AdventureWorksLT que criou no passo 1.
+3. Copie o [script OLTP Transact-SQL na](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/sql_in-memory_oltp_sample.sql) sua área de transferência. O script T-SQL cria os objetos In-Memory necessários na base de dados de amostras AdventureWorksLT que criou no passo 1.
 
 4. Cole o script T-SQL em SSMS e, em seguida, execute o script. A `MEMORY_OPTIMIZED = ON` cláusula CRIAR Declarações DE TABELA são cruciais. Por exemplo:
 
@@ -70,7 +70,7 @@ Se tiver erro 40536 quando executar o script T-SQL, execute o seguinte script T-
 SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
 ```
 
-Um resultado de **0** significa que a Memória não é suportada, e **1** significa que é apoiada. Para diagnosticar o problema, certifique-se de que a base de dados está no nível de serviço Premium.
+Um resultado de **0** significa que In-Memory não é apoiado, e **1** significa que é apoiado. Para diagnosticar o problema, certifique-se de que a base de dados está no nível de serviço Premium.
 
 ### <a name="about-the-created-memory-optimized-items"></a>Sobre os itens criados otimizados pela memória
 
@@ -160,8 +160,8 @@ No VM, ou em qualquer anfitrião que escolher, instale os utilitários Replay Ma
 
 Para obter mais informações, consulte:
 
-- O ostress.exe discussão na [Base de Dados de Amostras para OLTP in-memory](https://msdn.microsoft.com/library/mt465764.aspx).
-- [Base de dados de amostras para OLTP na memória.](https://msdn.microsoft.com/library/mt465764.aspx)
+- A ostress.exe discussão na [Base de Dados de Amostras para In-Memory OLTP.](https://msdn.microsoft.com/library/mt465764.aspx)
+- [Base de dados de amostras para In-Memory OLTP](https://msdn.microsoft.com/library/mt465764.aspx).
 - O [blog para instalar ostress.exe. ](https://techcommunity.microsoft.com/t5/sql-server-support/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql/ba-p/317910)
 
 <!--
@@ -223,13 +223,13 @@ Depois de ter o resultado da *_inmem* correr, execute os seguintes passos para a
 
 #### <a name="expected-comparison-results"></a>Resultados de comparação esperados
 
-Os nossos testes in-memory mostraram que o desempenho melhorou **nove vezes** para esta carga de trabalho simplista, com `ostress` um VM Azure na mesma região de Azure que a base de dados.
+Os nossos testes In-Memory mostraram que o desempenho melhorou **nove vezes** para esta carga de trabalho simplista, com `ostress` um VM Azure na mesma região de Azure que a base de dados.
 
 <a id="install_analytics_manuallink" name="install_analytics_manuallink"></a>
 
 &nbsp;
 
-## <a name="2-install-the-in-memory-analytics-sample"></a>2. Instalar a amostra in-memory Analytics
+## <a name="2-install-the-in-memory-analytics-sample"></a>2. Instale a amostra In-Memory Analytics
 
 Nesta secção, compara-se os resultados do IO e das estatísticas quando se está a usar um índice de loja de colunas contra um índice tradicional de árvore b.
 
@@ -242,7 +242,7 @@ Para análises em tempo real numa carga de trabalho OLTP, é geralmente melhor u
    - Escolha qualquer nível de serviço Premium.
 
 2. Copie o [sql_in-memory_analytics_sample](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/sql_in-memory_analytics_sample.sql) para a sua área de transferência.
-   - O script T-SQL cria os objetos in-memory necessários na base de dados de amostras AdventureWorksLT que criou no passo 1.
+   - O script T-SQL cria os objetos In-Memory necessários na base de dados de amostras AdventureWorksLT que criou no passo 1.
    - O script cria a tabela Dimension e duas tabelas de factos. As tabelas de factos são povoadas com 3,5 milhões de linhas cada.
    - O guião pode levar 15 minutos para ser concluído.
 
@@ -250,7 +250,7 @@ Para análises em tempo real numa carga de trabalho OLTP, é geralmente melhor u
 
 4. Desapasse adventureWorksLT para o nível de compatibilidade 130:<br/>`ALTER DATABASE AdventureworksLT SET compatibility_level = 130;`
 
-    O nível 130 não está diretamente relacionado com as funcionalidades in-memory. Mas o nível 130 geralmente proporciona um desempenho de consulta mais rápido do que 120.
+    O nível 130 não está diretamente relacionado com In-Memory funcionalidades. Mas o nível 130 geralmente proporciona um desempenho de consulta mais rápido do que 120.
 
 #### <a name="key-tables-and-columnstore-indexes"></a>Tabelas-chave e índices de lojas de colunas
 
@@ -335,33 +335,33 @@ Numa base de dados com o nível de preços P2, pode esperar cerca de nove vezes 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Quickstart 1: In-Memory OLTP Technologies para um desempenho T-SQL mais rápido](https://msdn.microsoft.com/library/mt694156.aspx)
+- [Quickstart 1: In-Memory Tecnologias OLTP para um desempenho T-SQL mais rápido](https://msdn.microsoft.com/library/mt694156.aspx)
 
-- [Utilize o OLTP in-memory numa aplicação Azure SQL existente](in-memory-oltp-configure.md)
+- [Utilize In-Memory OLTP numa aplicação Azure SQL existente](in-memory-oltp-configure.md)
 
-- [Monitor de armazenamento OLTP in-memory](in-memory-oltp-monitor-space.md) para OLTP in-memory
+- [Monitor In-Memory armazenamento OLTP](in-memory-oltp-monitor-space.md) para In-Memory OLTP
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 ### <a name="deeper-information"></a>Informação mais profunda
 
-- [Saiba como o Qurum duplica a carga de trabalho da base de dados chave enquanto baixa a DTU em 70% com o OLTP in-memory na Base de Dados Azure SQL](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
+- [Saiba como o Qurum duplica a carga de trabalho da base de dados chave enquanto baixa a DTU em 70% com In-Memory OLTP na Base de Dados Azure SQL](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 
 - [In-Memory OLTP in Azure SQL Database Blog Post](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
-- [Saiba mais sobre o OLTP in-memory](https://msdn.microsoft.com/library/dn133186.aspx)
+- [Saiba mais sobre In-Memory OLTP](https://msdn.microsoft.com/library/dn133186.aspx)
 
 - [Saiba mais sobre índices de lojas de colunas](https://msdn.microsoft.com/library/gg492088.aspx)
 
 - [Conheça a análise operacional em tempo real](https://msdn.microsoft.com/library/dn817827.aspx)
 
-- Ver [Padrões de Carga de Trabalho Comuns e Considerações de Migração](https://msdn.microsoft.com/library/dn673538.aspx) (que descreve padrões de carga de trabalho em que o OLTP in-memory geralmente proporciona ganhos significativos de desempenho)
+- Ver [Padrões de Carga de Trabalho Comuns e Considerações de Migração](https://msdn.microsoft.com/library/dn673538.aspx) (que descreve padrões de carga de trabalho em que In-Memory OLTP geralmente proporciona ganhos significativos de desempenho)
 
 #### <a name="application-design"></a>Design da aplicação
 
 - [OLTP in-memory (otimização na memória)](https://msdn.microsoft.com/library/dn133186.aspx)
 
-- [Utilize o OLTP in-memory numa aplicação Azure SQL existente](in-memory-oltp-configure.md)
+- [Utilize In-Memory OLTP numa aplicação Azure SQL existente](in-memory-oltp-configure.md)
 
 #### <a name="tools"></a>Ferramentas
 

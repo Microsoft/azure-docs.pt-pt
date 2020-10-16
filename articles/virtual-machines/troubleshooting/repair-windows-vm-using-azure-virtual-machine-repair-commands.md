@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
 ms.openlocfilehash: 82bebcbda3110d51ae72df1fb4b18fedaa6c2f4e
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91597710"
 ---
 # <a name="repair-a-windows-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Reparar uma VM do Windows com os comandos de reparação da Máquina Virtual do Azure

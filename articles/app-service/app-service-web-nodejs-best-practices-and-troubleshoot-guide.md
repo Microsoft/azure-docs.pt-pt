@@ -9,10 +9,10 @@ ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: 3b4a9547a1bd62b7464b4a79fe68720572630f3d
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88961895"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Boas práticas e guia de resolução de problemas para aplicações de nó no Azure App Service Windows
@@ -143,7 +143,7 @@ let keepaliveAgent = new Agent({
 Poderá receber uma recomendação do Azure App Service no seu portal sobre o elevado consumo de CPU. Também pode configurar monitores para observar [determinadas métricas](web-sites-monitor.md). Ao verificar a utilização do CPU no [Painel do Portal Azure,](../azure-monitor/app/web-monitor-performance.md)verifique os valores MAX para CPU para que não perca os valores de pico.
 Se acredita que a sua aplicação está a consumir demasiado CPU e não consegue explicar porquê, pode perfilar a sua aplicação de nó para descobrir.
 
-#### <a name="profiling-your-node-application-on-azure-app-service-with-v8-profiler"></a>Perfilar a sua aplicação de nó no Azure App Service com O Perfil V8
+#### <a name="profiling-your-node-application-on-azure-app-service-with-v8-profiler"></a>Perfilar a sua aplicação de nó no Azure App Service com V8-Profiler
 
 Por exemplo, digamos que tem uma aplicação hello world que quer perfilar da seguinte forma:
 
@@ -205,7 +205,7 @@ O código anterior perfis a função WriteConsoleLog e, em seguida, escreve a sa
 
 ![Screenshot que mostra o ficheiro profile.cpuprofile.](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_profile.cpuprofile.png)
 
-Descarregue este ficheiro e abra-o com ferramentas Chrome F12. Prima F12 no Chrome e, em seguida, escolha o **separador Perfis.** Escolha o botão **Carregar.** Selecione o seu ficheiro profile.cpuprofile que descarregou. Clique no perfil que acabou de carregar.
+Descarregue este ficheiro e abra-o com ferramentas Chrome F12. Pressione F12 no Chrome e, em seguida, escolha o **separador Perfis.** Escolha o botão **Carregar.** Selecione o seu ficheiro profile.cpuprofile que descarregou. Clique no perfil que acabou de carregar.
 
 ![Screenshot que mostra o ficheiro profile.cpuprofile que carregou.](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/chrome_tools_view.png)
 

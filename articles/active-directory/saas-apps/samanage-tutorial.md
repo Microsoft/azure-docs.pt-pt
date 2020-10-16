@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.openlocfilehash: 8d4c19e1ce10ed618cda167cd6fa7efedf4111d0
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90707582"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-solarwinds-service-desk-previously-samanage"></a>Tutorial: Integração do Azure Ative Directory com o SolarWinds Service Desk (anteriormente Samanage)
@@ -73,7 +73,7 @@ Para um único sinal de trabalho, é necessário estabelecer uma relação de li
 Para configurar e testar o Azure AD com o SolarWinds, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o balcão de serviço SolarWinds Único Sinal-On](#configure-solarwinds-single-sign-on)** - para configurar as definições de Sign-On único no lado da aplicação.
+2. **[Configure o balcão de serviço SolarWinds Único Sinal-On](#configure-solarwinds-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create SolarWinds Service Desk test user](#create-solarwinds-test-user)** - para ter uma contraparte de Britta Simon no SolarWinds Service Desk que está ligada à representação AD AD do utilizador.
@@ -93,7 +93,7 @@ Para configurar o Azure AD com solarWinds, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -108,7 +108,7 @@ Para configurar o Azure AD com solarWinds, execute os seguintes passos:
     > [!NOTE] 
     > Estes valores não são reais. Atualize estes valores com o URL e o Identificador de Inscrição real, que é explicado mais tarde no tutorial. Para mais detalhes contacte [a equipa de suporte do Cliente Samanage.](https://www.samanage.com/support) Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-4. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+4. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -124,7 +124,7 @@ Para configurar o Azure AD com solarWinds, execute os seguintes passos:
 
 <a name="configure-solarwinds-single-sign-on"></a>
 
-### <a name="configure-solarwinds-service-desk-single-sign-on"></a>Configure solarwinds serviço único sinal de inscrição
+### <a name="configure-solarwinds-service-desk-single-sign-on"></a>Configure solarwinds service desk single Sign-On
 
 1. Numa janela diferente do navegador web, inicie sessão no site da empresa SolarWinds como administrador.
 
@@ -140,7 +140,7 @@ Para configurar o Azure AD com solarWinds, execute os seguintes passos:
    
     ![Faça login usando SAML](./media/samanage-tutorial/tutorial_samanage_003.png "Faça login usando SAML")
  
-    a. Clique **em Ativar o Sign-On único com SAML**.  
+    a. Clique **em Ativar Sign-On simples com SAML**.  
  
     b. Na caixa de texto **URL do Fornecedor de Identidade,** cole o valor do **Identificador Ad Azure** que copiou do portal Azure.    
  
@@ -187,7 +187,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **SolarWinds**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **SolarWinds**.
 

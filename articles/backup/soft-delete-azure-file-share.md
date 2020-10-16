@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 02/02/2020
 ms.custom: references_regions
 ms.openlocfilehash: 52a116320e07c25d4ee7f00b8063ca15faeb8560
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89179917"
 ---
 # <a name="accidental-delete-protection-for-azure-file-shares-using-azure-backup"></a>Eliminar acidentalmente a proteção para ações de ficheiros Azure usando o Backup Azure

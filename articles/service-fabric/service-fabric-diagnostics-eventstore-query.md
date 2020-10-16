@@ -7,10 +7,10 @@ ms.date: 02/25/2019
 ms.author: srrengar
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 614c8e5f76475c7e7af35db37334eb645ad553a3
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89018608"
 ---
 # <a name="query-eventstore-apis-for-cluster-events"></a>Consultas EventStore APIs para eventos de cluster

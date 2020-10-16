@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 05/04/2020
 ms.openlocfilehash: dbf5c06adcddb5b3dfa3cdf2e0127f8a36c59885
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91620108"
 ---
 # <a name="create-alerts-for-azure-sql-managed-instance-using-the-azure-portal"></a>Criar alertas para Azure SQL Managed Instance usando o portal Azure
@@ -24,7 +24,7 @@ ms.locfileid: "91620108"
 Este artigo mostra como configurar alertas para bases de dados na Base de Dados de Casos Geridos Azure SQL utilizando o portal Azure. Os alertas podem enviar-lhe um e-mail, chamar um webhook, executar uma Função do Azure, runbook, chamar um sistema de pedidos de suporte compatível com ITSM externo, ligar-lhe para o telefone ou enviar uma mensagem de texto quando alguma métrica como, por exemplo, o tamanho de armazenamento ou a utilização da CPU, atingir um limiar predefinido. Este artigo também fornece as melhores práticas para a definição de períodos de alerta.
 
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Pode receber um alerta baseado em métricas de monitorização ou eventos nos seus serviços Azure.
 

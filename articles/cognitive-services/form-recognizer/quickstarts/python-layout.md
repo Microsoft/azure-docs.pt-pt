@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: 9f136248b93283b02824ead7f34886a056ae0a33
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 72420019ead1ae47054ae62197d8cc310063a6b9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91762064"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969777"
 ---
 # <a name="quickstart-extract-text-and-layout-information-using-the-form-recognizer-rest-api-with-python"></a>Quickstart: Extrair informações de texto e layout usando a API do Reconhecimento de Formulários REST com Python
 
@@ -27,7 +27,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Para completar este arranque rápido, você deve ter:
 - [Python](https://www.python.org/downloads/) instalado (se quiser executar a amostra localmente).
-- Um documento de formulário. Pode descarregar uma imagem a partir do conjunto de [dados](https://go.microsoft.com/fwlink/?linkid=2090451) da amostra para este arranque rápido.
+- Um documento de formulário. Pode descarregar uma imagem a partir do conjunto de [dados](https://go.microsoft.com/fwlink/?linkid=2090451) da amostra (descarregar e extrair *sample_data.zip) *para este arranque rápido.
 
 > [!NOTE]
 > Este quickstart utiliza um documento armazenado localmente. Para utilizar a utilização de ficheiros remotos acedidos por URL, consulte a [documentação de referência](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync).

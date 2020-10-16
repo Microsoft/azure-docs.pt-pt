@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
 ms.openlocfilehash: 252ea54cf6be9dd381648d67e56a7a5ff2c7acc6
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91542293"
 ---
 # <a name="execute-r-script-module"></a>Executar módulo de script R
@@ -220,7 +220,7 @@ Os conjuntos de dados armazenados no designer são automaticamente convertidos p
 
 1. Envie o oleoduto.  
 
-## <a name="results"></a>Resultados
+## <a name="results"></a>Results
 
 Executar os módulos R Script podem devolver várias saídas, mas devem ser fornecidos como quadros de dados R. O designer converte automaticamente quadros de dados em conjuntos de dados para compatibilidade com outros módulos.
 
@@ -503,6 +503,6 @@ Os seguintes pacotes R pré-instalados estão atualmente disponíveis:
 | zeallot      | 0.1.0      | 
 | zoo          | 1.8-6      | 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

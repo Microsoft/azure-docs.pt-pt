@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/11/2020
 ms.author: jeedes
 ms.openlocfilehash: 780421d93916c7da7897dfa15d09dc895cf56280
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88552667"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-jamf-pro"></a>Tutorial: Azure Ative Directory SSO integração com Jamf Pro
@@ -71,8 +71,8 @@ Nesta secção, configura e testa O SSO Azure AD com o Jamf Pro.
 Nesta secção, você ativa Azure AD SSO no portal Azure.
 
 1. No [portal Azure,](https://portal.azure.com/)na página de integração da aplicação **Jamf Pro,** encontre a secção **Gerir** e selecione **Single Sign-On**.
-1. Na **página 'Selecione' Um Único Método de Inscrição,** selecione **SAML**.
-1. No **set up Single Sign-On com** a página SAML, selecione o ícone da caneta para **configuração SAML básica** para editar as definições.
+1. Na página **'Selecione' Um Método de Sign-On Único,** selecione **SAML**.
+1. Na **configuração single Sign-On com** a página SAML, selecione o ícone de caneta para **configuração SAML básica** para editar as definições.
 
    ![Editar a página básica de configuração SAML.](common/edit-urls.png)
 
@@ -87,7 +87,7 @@ Nesta secção, você ativa Azure AD SSO no portal Azure.
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Você receberá o valor do identificador real a partir da secção **Sign-On única** no portal Jamf Pro, que é explicado mais tarde no tutorial. Pode extrair o valor real do subdomínio do valor do identificador e utilizar essa informação de subdomínio como URL de inscrição e URL de resposta. Também pode consultar as fórmulas apresentadas na secção **Configuração Básica SAML** no portal Azure.
 
-1. Na **configuração de um único sinal com** a página SAML, aceda à secção de Certificado de Assinatura **SAML,** selecione o botão **de cópia** para copiar o URL **de metadados da Federação de Aplicações**e guarde-o para o seu computador.
+1. Na **configuração single Sign-On com** a página SAML, vá à secção **de Certificado de Assinatura SAML,** selecione o botão **de cópia** para copiar o URL **de metadados da Federação de Aplicações**e guarde-o para o seu computador.
 
     ![O link de descarregamento do Certificado de Assinatura SAML](common/copy-metadataurl.png)
 
@@ -139,15 +139,15 @@ Nesta secção, concedes acesso à B.Simon ao Jamf Pro.
 
 5. Selecione **um único sinal de inscrição**.
 
-    ![Selecione single sign-on in Jamf Pro](./media/jamfprosamlconnector-tutorial/configure2.png)
+    ![Selecione single Sign-On no Jamf Pro](./media/jamfprosamlconnector-tutorial/configure2.png)
 
 6. Na página **'Sign-On' único,** tome os seguintes passos.
 
-    ![A página de sign-on única no Jamf Pro](./media/jamfprosamlconnector-tutorial/configure3.png)
+    ![A página single Sign-On no Jamf Pro](./media/jamfprosamlconnector-tutorial/configure3.png)
 
     a. Selecione **Editar**.
 
-    b. Selecione a caixa **de verificação de autenticação única** ativada.
+    b. Selecione a caixa **de verificação de autenticação individual Sign-On** ativada.
 
   c. Selecione **Azure** como opção do menu drop-down do Fornecedor de **Identidade.**
 
@@ -162,7 +162,7 @@ Nesta secção, concedes acesso à B.Simon ao Jamf Pro.
 
 7. Na mesma página, desloque-se até à secção **de Mapeamento** do Utilizador. Então, dê os seguintes passos.
 
-    ![A secção de mapeamento do utilizador da página sign-on única no Jamf Pro.](./media/jamfprosamlconnector-tutorial/tutorial-jamfprosamlconnector-single.png)
+    ![A secção de mapeamento do utilizador da página single Sign-On no Jamf Pro.](./media/jamfprosamlconnector-tutorial/tutorial-jamfprosamlconnector-single.png)
 
     a. Selecione a opção **NameID** para **o mapeamento do utilizador do fornecedor de identidade.** Por predefinição, esta opção está definida como **NameID,** mas pode definir um atributo personalizado.
 
@@ -170,7 +170,7 @@ Nesta secção, concedes acesso à B.Simon ao Jamf Pro.
 
     c. Cole o valor `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups` no campo DE NOME DE ATRIBUTO DE GRUPO DE FORNECEDOR DE **IDENTIDADE.**
 
-    d. Na mesma página, desloque-se até à secção **de Segurança** e selecione **Deixe os utilizadores contornarem a autenticação sign-on única**. Como resultado, os utilizadores não serão redirecionados para a página de entrada do Fornecedor de Identidade para autenticação e podem iniciar sação diretamente no Jamf Pro. Quando um utilizador tenta aceder ao Jamf Pro através do Fornecedor de Identidade, ocorre a autenticação e autorização SSO iniciada pelo IdP.
+    d. Na mesma página, desloque-se até à secção **de Segurança** e selecione **Deixe os utilizadores contornarem a autenticação Sign-On única**. Como resultado, os utilizadores não serão redirecionados para a página de entrada do Fornecedor de Identidade para autenticação e podem iniciar sação diretamente no Jamf Pro. Quando um utilizador tenta aceder ao Jamf Pro através do Fornecedor de Identidade, ocorre a autenticação e autorização SSO iniciada pelo IdP.
 
     e. Selecione **Guardar**.
 

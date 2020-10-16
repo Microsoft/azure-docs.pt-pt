@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 08/28/2019
 ms.author: tiag
 ms.openlocfilehash: 5a2fd7fcfdae8559bfb39bffff7c73c7082a86aa
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87543287"
 ---
 # <a name="linux-vm-boots-to-grub-rescue"></a>Botas Linux VM para Grub Rescue
@@ -45,7 +45,7 @@ Siga os passos de mitigação abaixo, dependendo do erro que recebe:
 
     1. Certifique-se de `/etc/default/grub` que existe e tem configurações corretas/desejadas. Se não souber quais são as definições predefinições, pode verificar com um VM em funcionamento.
 
-    2. Em seguida, executar o seguinte comando para regenerar a sua configuração:`grub2-mkconfig -o /boot/grub2/grub.cfg`
+    2. Em seguida, executar o seguinte comando para regenerar a sua configuração: `grub2-mkconfig -o /boot/grub2/grub.cfg`
 
    * Se o ficheiro em falta for `/boot/grub/menu.lst` , este erro destina-se às versões de SISTEMA mais antigas **(RHEL 6.x**, **Centos 6.x** e **Ubuntu 14.04**) para que os comandos possam diferir. Terá de rodar um servidor antigo e testar para garantir que os comandos corretos são fornecidos.
 

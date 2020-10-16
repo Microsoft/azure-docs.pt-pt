@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
 ms.openlocfilehash: 61d7e678b2904ff6eda1866951cfafd0fa0d6688
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88534316"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>Tutorial: Integração do Azure Ative Directory com Reward Gateway
@@ -73,7 +73,7 @@ Para um único sinal de trabalho, é necessário estabelecer uma relação de li
 Para configurar e testar o Azure AD com um único sinal de entrada com Reward Gateway, você precisa completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure premiação Gateway Único Sinal-On](#configure-reward-gateway-single-sign-on)** - para configurar as definições de Sign-On único no lado da aplicação.
+2. **[Configure premiação Gateway Single Sign-On](#configure-reward-gateway-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Reward Gateway test user](#create-reward-gateway-test-user)** - para ter uma contraparte de Britta Simon em Reward Gateway que está ligada à representação AD AD do utilizador.
@@ -93,11 +93,11 @@ Para configurar o Azure AD com o Reward Gateway, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
-4. Na **configuração de um único sign-on com** a página SAML, execute os seguintes passos:
+4. Na **configuração single Sign-On com página SAML,** execute os seguintes passos:
 
     ![Premiar gateway domain e URLs informações únicas de entrada](common/idp-intiated.png)
 
@@ -118,7 +118,7 @@ Para configurar o Azure AD com o Reward Gateway, execute os seguintes passos:
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real. Para obter estes valores, comece a configurar uma Integração no Portal do Gestor de Recompensas. Detalhes podem ser encontrados em https://success.rewardgateway.com/hc/en-us/articles/360038650573-Microsoft-Azure-for-Authentication
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -132,7 +132,7 @@ Para configurar o Azure AD com o Reward Gateway, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-reward-gateway-single-sign-on"></a>Configure recompensa Gateway single sign-on
+### <a name="configure-reward-gateway-single-sign-on"></a>Configure Reward Gateway Single Sign-On
 
 Para configurar um único sinal no lado **do Reward Gateway,** comece a configurar uma Integração no Portal do Gestor de Recompensas. Utilize os metadados descarregados para obter o certificado de assinatura e carresse-os durante a configuração. Detalhes podem ser encontrados em https://success.rewardgateway.com/hc/en-us/articles/360038650573-Microsoft-Azure-for-Authentication
 
@@ -167,7 +167,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Reward Gateway**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **Reward Gateway**.
 

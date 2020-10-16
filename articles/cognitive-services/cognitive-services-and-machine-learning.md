@@ -8,23 +8,23 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.openlocfilehash: 0b034d0135c66852b07e0a2ed2fd69e8c3fdc4a6
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132845"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Serviços Cognitivos e aprendizagem automática
 
-Os Serviços Cognitivos fornecem capacidades de aprendizagem automática para resolver problemas gerais, como analisar texto para sentimento emocional ou analisar imagens para reconhecer objetos ou rostos. Não precisa de aprendizagem automática especial ou conhecimento de ciência de dados para usar estes serviços. 
+Os Serviços Cognitivos fornecem capacidades de aprendizagem automática para resolver problemas gerais, como analisar texto para sentimento emocional ou analisar imagens para reconhecer objetos ou rostos. Não precisa de conhecimentos de machine learning ou ciência de dados para utilizar estes serviços. 
 
 [Os Serviços Cognitivos](welcome.md) são um grupo de serviços, cada um apoiando diferentes capacidades de previsão generalizadas. Os serviços estão divididos em diferentes categorias para ajudá-lo a encontrar o serviço certo. 
 
 |Categoria de serviço|Objetivo|
 |--|--|
 |[Decisão](https://azure.microsoft.com/services/cognitive-services/directory/decision/)|Crie aplicações que obtenham recomendações para assegurar uma tomada de decisões informada e eficiente.|
-|[Idioma](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Permita que as suas aplicações processem linguagem natural através de scripts pré-criados, avalie sentimentos e saiba como reconhecer aquilo que os utilizadores pretendem.|
-|[Pesquisa](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Adicione APIs de Pesquisa do Bing às suas aplicações e explore a capacidade de combinar inúmeras páginas Web, imagens, vídeos e notícias numa única chamada à API.|
+|[Idioma](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Permita às suas aplicações processar linguagem natural com scripts pré-criados, avaliar sentimentos e aprender a reconhecer o que os utilizadores pretendem.|
+|[Pesquisa](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Adicione APIs da Pesquisa do Bing às suas aplicações e tire partida da capacidade de lidar com milhares de milhões de páginas Web, imagens, vídeos e notícias com uma única chamada à API.|
 |[Voz](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|Converta voz em texto e texto em voz natural. Traduza de um idioma para outro e ative o reconhecimento e a verificação de orador.|
 |[Visão](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|Reconheça, identifique, legende, indexe e modere as suas imagens, vídeos e conteúdo com tinta digital.|
 ||||
@@ -38,7 +38,7 @@ Utilize outra solução de aprendizagem automática quando:
 
 * Precisa escolher o algoritmo e precisa treinar em dados muito específicos.
 
-## <a name="what-is-machine-learning"></a>O que é a machine learning?
+## <a name="what-is-machine-learning"></a>O que é machine learning?
 
 Machine learning é um conceito em que se reúnem dados e um algoritmo para resolver uma necessidade específica. Uma vez treinados os dados e o algoritmo, a saída é um modelo que pode ser novamente utilizado com dados diferentes. O modelo treinado fornece insights com base nos novos dados. 
 
@@ -104,7 +104,7 @@ Os dados a seguir categorizam cada serviço pelo tipo de dados que permite ou re
 |[Orador Reconhecedor](./speaker-recognition/home.md)||x||
 |[Discurso Texto-a-discurso (TTS)](speech-service/text-to-speech.md)|x|x||
 |[Discurso Discurso-a-texto (STT)](speech-service/speech-to-text.md)|x|x||
-|[Tradução de Voz](speech-service/speech-translation.md)|x|||
+|[Tradução da fala](speech-service/speech-translation.md)|x|||
 |[Análise de Texto](./text-analytics/overview.md)|x|||
 |[Tradutor](./translator/translator-info-overview.md)|x|||
 |[Tradutor - tradutor personalizado](./translator/custom-translator/overview.md)||x||

@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: e4c0ee0b1a049a7e82cbd1fac8e261fff5fdf375
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 884b1b85da5b52101ae5a0053003d47260a1134d
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269731"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015826"
 ---
 # <a name="media-services-regulatory-compliance"></a>Conformidade regulamentar dos Serviços de Mídia
 
@@ -33,11 +33,11 @@ Serviços de Mídia Os serviços do Governo estão em conformidade com o DoD CC 
 
 A revisão dos Media Services pela 3PAO e pela JAB não está prevista para 2020.
 
-Leia mais sobre o cumprimento dos serviços [Azure nos serviços Azure pela FedRAMP e pelo artigo de auditoria do DoD CC SRG.](https://docs.microsoft.com/azure/azure-government/compliance/azure-services-in-fedramp-auditscope)
+Leia mais sobre o cumprimento dos serviços [Azure nos serviços Azure pela FedRAMP e pelo artigo de auditoria do DoD CC SRG.](../../azure-government/compliance/azure-services-in-fedramp-auditscope.md)
 
 ## <a name="azure-compliance-documentation"></a>Documentação de conformidade do Azure
 
-Se a sua organização precisar de cumprir as normas legais ou regulamentares para a Global, governo dos EUA, serviços regionais, financeiros, saúde, meios de comunicação e fabricação, comece com a documentação de conformidade da [Azure.](https://docs.microsoft.com/azure/compliance/)
+Se a sua organização precisar de cumprir as normas legais ou regulamentares para a Global, governo dos EUA, serviços regionais, financeiros, saúde, meios de comunicação e fabricação, comece com a documentação de conformidade da [Azure.](../../compliance/index.yml)
 
 Você também encontrará recursos adicionais de conformidade, tais como relatórios de auditoria, uma lista de verificação para privacidade e Regulamento Geral de Proteção de Dados (RGPD), plantas de conformidade, diretrizes nacionais e regionais, implementação e mapeamentos, bem como livros brancos e relatórios analistas.
 

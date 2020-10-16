@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/25/2020
 ms.custom: mvc
 ms.openlocfilehash: 46d3ad6afb1761ca9503676ad2176482b7e4530e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260741"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Resolver problemas comuns no Azure Container Instances
@@ -45,7 +45,7 @@ Se especificar uma imagem que as Instâncias do Contentor Azure não suportam, `
 }
 ```
 
-Este erro é encontrado mais frequentemente ao implementar imagens do Windows baseadas na versão semi-anual do Canal 1709 ou 1803, que não são suportadas. Para imagens suportadas do Windows em Instâncias de Contentores Azure, consulte [perguntas frequentes](container-instances-faq.md#what-windows-base-os-images-are-supported).
+Este erro é encontrado mais frequentemente ao implementar imagens do Windows que são baseadas no Semi-Annual lançamento do Canal 1709 ou 1803, que não são suportados. Para imagens suportadas do Windows em Instâncias de Contentores Azure, consulte [perguntas frequentes](container-instances-faq.md#what-windows-base-os-images-are-supported).
 
 ### <a name="unable-to-pull-image"></a>Incapaz de puxar a imagem
 
@@ -204,7 +204,7 @@ As instâncias do contentor Azure não expõem o acesso direto à infraestrutura
 
 Azure Container Instances ainda não suporta mapeamento de porta como com configuração regular de estivador. Se encontrar o endereço IP de um grupo de contentores não está acessível quando acredita que deve ser, certifique-se de que configura a sua imagem de contentor para ouvir as mesmas portas que expõe no seu grupo de contentores com a `ports` propriedade.
 
-Se quiser confirmar que as instâncias do recipiente Azure podem ouvir na porta que configuraram na sua imagem de contentor, teste uma colocação da `aci-helloworld` imagem que expõe a porta. Também execute a `aci-helloworld` aplicação para que ouça na porta. `aci-helloworld`aceita uma variável de ambiente opcional `PORT` para anular a porta padrão 80 que ouve. Por exemplo, para testar a porta 9000, desaprote a [variável ambiente](container-instances-environment-variables.md) quando criar o grupo de contentores:
+Se quiser confirmar que as instâncias do recipiente Azure podem ouvir na porta que configuraram na sua imagem de contentor, teste uma colocação da `aci-helloworld` imagem que expõe a porta. Também execute a `aci-helloworld` aplicação para que ouça na porta. `aci-helloworld` aceita uma variável de ambiente opcional `PORT` para anular a porta padrão 80 que ouve. Por exemplo, para testar a porta 9000, desaprote a [variável ambiente](container-instances-environment-variables.md) quando criar o grupo de contentores:
 
 1. Crie o grupo de contentores para expor a porta 9000 e passe o número da porta como o valor da variável ambiente. O exemplo é formatado para a casca bash. Se preferir outra concha, como PowerShell ou Command Prompt, terá de ajustar a atribuição variável em conformidade.
     ```azurecli

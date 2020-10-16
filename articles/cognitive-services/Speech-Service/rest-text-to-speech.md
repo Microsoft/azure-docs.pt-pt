@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.openlocfilehash: c7c43e02e6bdf75c9551ccdbb9dd8f75bf37a806
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91534986"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST de conversão de texto em voz
@@ -242,7 +242,7 @@ O código de estado HTTP para cada resposta indica sucesso ou erros comuns.
 
 Se o estado HTTP `200 OK` for, o corpo da resposta contém um ficheiro áudio no formato solicitado. Este ficheiro pode ser reproduzido à medida que é transferido, guardado para um tampão, ou guardado num ficheiro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar uma conta do Azure gratuita](https://azure.microsoft.com/free/cognitive-services/)
 - [Síntese assíncronea para áudio de forma longa](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)

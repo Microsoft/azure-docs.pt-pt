@@ -4,10 +4,10 @@ description: Este artigo descreve como obter a chave de acesso para um tópico o
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.openlocfilehash: e5694fe0b5f22f7f76285c344627005ea727ae3c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86105868"
 ---
 # <a name="get-access-keys-for-event-grid-resources-topics-or-domains"></a>Obtenha chaves de acesso para recursos da Grade de Eventos (tópicos ou domínios)
@@ -46,5 +46,5 @@ Utilize [a lista de chaves de domínio az eventgrid](/cli/azure/eventgrid/domain
 az eventgrid domain key list --resource-group <RESOURCE GROUP NAME> --name <DOMAIN NAME>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Ver o seguinte artigo: [Autenticar clientes editoriais](security-authenticate-publishing-clients.md). 

@@ -8,10 +8,10 @@ ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.topic: how-to
 ms.date: 11/30/2017
 ms.openlocfilehash: ca6fe4ad35e59472e8cf8f3b8476417e01c2668f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87131876"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Código C# definido pelo utilizador para trabalhos falhados de U-SQL
@@ -78,7 +78,7 @@ Se o código de utilizador não estiver incluído no ficheiro code-behind ou se 
 
 2. Obtenha o caminho da pasta do projeto para o projeto **FailedVertexDebugHost.** 
 
-3. Clique no projeto de código fonte de **montagem adicionado > Propriedades**, selecione o **separador Construir** à esquerda e cole o caminho copiado que termina com \bin\debug como saída > caminho de **saída**. O caminho de saída final é `<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\` como.
+3. Right-Click **o projeto de código fonte de montagem adicionado > Properties**, selecione o **separador Construir** à esquerda e cole o caminho copiado que termina com \bin\debug como saída > caminho de **saída**. O caminho de saída final é `<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\` como.
 
     ![Azure Data Lake Analytics U-SQL depurg set pdb path](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-set-pdb-path.png)
 

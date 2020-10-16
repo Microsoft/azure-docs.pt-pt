@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: how-to
 ms.date: 08/12/2020
 ms.author: alkohli
-ms.openlocfilehash: cfa2dee41f07e273d933da356f74063453cb1775
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: b09176ad8cb93d7710975b67de619b4f58eaa2f0
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142541"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951915"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-in-the-azure-portal"></a>Utilize o envio auto-gerido para a Caixa de Dados Azure no portal Azure
 
@@ -41,7 +41,7 @@ Quando escamada uma encomenda de Caixa de Dados, pode escolher a opção de envi
 2. Ao escolher o tipo de envio, selecione a opção **de envio auto-gerida.** Esta opção só está disponível se estiver numa região apoiada, conforme descrito nos pré-requisitos.
 
 3. Depois de ter fornecido o seu endereço de envio, terá de o validar e completar a sua encomenda.
-   ![Envio gerido automaticamente](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
+   ![Envio auto-gerido 2](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
 4. Uma vez preparado o dispositivo e receber uma notificação por e-mail, pode agendar uma recolha.
 
@@ -78,7 +78,7 @@ Quando escamada uma encomenda de Caixa de Dados, pode escolher a opção de envi
 
 9. Se recebeu uma marcação para entrega, a encomenda deve estar pronta para receber no estado **do datacenter Azure** no portal Azure. Siga as instruções previstas na **entrega do horário** para devolver o aparelho.
 
-   ![Visualização do seu código de autorização](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-02b.png)
+   ![Visualização do seu código de autorização 2](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-02b.png)
 
 10. Após a verificação do seu ID e código de autorização e de ter deixado o dispositivo no centro de dados, o estado da encomenda deve ser **recebido**.
 
@@ -86,6 +86,6 @@ Quando escamada uma encomenda de Caixa de Dados, pode escolher a opção de envi
 
 11. Uma vez que o dispositivo é recebido, a cópia de dados continuará. Quando a cópia terminar, a encomenda está completa.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Introdução ao Azure Data Box](data-box-quickstart-portal.md)

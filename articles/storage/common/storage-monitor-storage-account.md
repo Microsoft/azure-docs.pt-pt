@@ -10,10 +10,10 @@ ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
 ms.openlocfilehash: 4c78938e2f70342822a4009ed9195196ca486fe0
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88034673"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorizar uma conta de armazenamento no portal do Azure

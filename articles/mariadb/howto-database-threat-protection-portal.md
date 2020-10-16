@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.openlocfilehash: 0283688ca2de4e7978da69753d08dd4763d30a75
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90532312"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mariadb"></a>Proteção Avançada de Ameaças para Base de Dados de Azure para MariaDB

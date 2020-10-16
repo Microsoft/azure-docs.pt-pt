@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: victorh
 ms.openlocfilehash: 5acbc1f3b8c5519c22105f05219ab2cef5c15892
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90023878"
 ---
 # <a name="azure-monitor-logs-for-azure-firewall"></a>Registos do Monitor Azure para Azure Firewall
@@ -175,6 +175,6 @@ As seguintes amostras de registo mostram os dados incluídos numa entrada de reg
 ![entrada de log dois ](media/log-analytics-samples/log2.png)
 
 ![entrada de registo três](media/log-analytics-samples/log3.png)
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a monitorização e diagnósticos do Azure Firewall, consulte [Tutorial: Monitor Azure Firewall registos e métricas](tutorial-diagnostics.md).

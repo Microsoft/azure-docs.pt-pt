@@ -10,10 +10,10 @@ ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
 ms.openlocfilehash: 75b464c140bfda6c3f3559d3bfdbe1e6bc2e7f24
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87760741"
 ---
 # <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Planear e gerir os custos do armazenamento da Azure Blob

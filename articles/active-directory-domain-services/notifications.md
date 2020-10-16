@@ -2,7 +2,7 @@
 title: Notificações de email para Serviços de Domínio AZure AD / Microsoft Docs
 description: Saiba como configurar notificações de email para alertá-lo sobre problemas num domínio gerido por Serviços de Domínio do Diretório Ativo Azure
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: b9af1792-0b7f-4f3e-827a-9426cdb33ba6
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 149de14ed2430613e9ca6d5d12f8dce6ba425dfe
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.author: joflore
+ms.openlocfilehash: c273b1a6c497ec8dcb8c5bc5f50ccfccc9fce155
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039998"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968022"
 ---
 # <a name="configure-email-notifications-for-issues-in-azure-active-directory-domain-services"></a>Configure notificações de e-mail para problemas nos Serviços de Domínio do Diretório Ativo Azure
 
@@ -66,7 +66,7 @@ Para rever os destinatários de notificação de e-mail existentes ou adicionar 
 > [!WARNING]
 > Quando altera as definições de notificação, as definições de notificação para todo o domínio gerido são atualizadas e não apenas a si mesmo.
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 ### <a name="i-received-an-email-notification-for-an-alert-but-when-i-logged-on-to-the-azure-portal-there-was-no-alert-what-happened"></a>Recebi uma notificação por e-mail para um alerta, mas quando entrei no portal Azure não houve alerta. O que aconteceu?
 
@@ -80,7 +80,7 @@ Se não conseguir aceder à página de definições de notificação no portal A
 
 Verifique o seu spam ou pasta de lixo no seu e-mail para obter a notificação e certifique-se de permitir o remetente de `azure-noreply@microsoft.com` .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a resolução de problemas sobre alguns dos problemas que podem ser relatados, consulte [alertas resolvendo num domínio gerido][troubleshoot-alerts].
 

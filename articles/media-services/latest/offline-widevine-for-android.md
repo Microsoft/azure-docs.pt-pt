@@ -16,10 +16,10 @@ ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: devx-track-csharp
 ms.openlocfilehash: b8c4bed81a73957cc80318064f2aa2a58b3cfe11
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91597069"
 ---
 # <a name="offline-widevine-streaming-for-android-with-media-services-v3"></a>Streaming offline Widevine para Android com Media Services v3
@@ -154,7 +154,7 @@ A aplicação PWA de código aberto acima é da autoria em Node.js. Se pretender
 
 1. Problema CORS: O vídeo da amostra na aplicação da amostra está hospedado em https://storage.googleapis.com/biograf-video-files/videos/ . A Google criou o CORS para todas as suas amostras de teste hospedadas no balde de armazenamento do Google Cloud. São servidos com cabeçalhos CORS, especificando explicitamente a entrada CORS: `https://biograf-155113.appspot.com` (o domínio em que o Google hospeda a sua amostra) impedindo o acesso por qualquer outro sites. Se tentar, verá o seguinte erro HTTP: `Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'https:\//13.85.80.81:8080' is therefore not allowed access. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.`
 2. Emissão de certificado: A partir do Chrome v 58, a EME for Widevine requer HTTPS. Por isso, é necessário hospedar a aplicação da amostra em HTTPS com um certificado X509. Um certificado de ensaio habitual não funciona devido aos seguintes requisitos: É necessário obter um certificado que cumpra os seguintes requisitos mínimos:
-    - Chrome e Firefox exigem que a definição de Nome Alternativo san-subject exista no certificado
+    - Chrome e Firefox exigem SAN-Subject definição de Nome Alternativo para existir no certificado
     - O certificado deve ter confiado em AC e um certificado de desenvolvimento auto-assinado não funciona
     - O certificado deve ter um CN correspondente ao nome DNS do servidor web ou gateway
 

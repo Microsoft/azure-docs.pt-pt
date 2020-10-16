@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
 ms.openlocfilehash: 198a5da63ed90937c53f7f12f3559f15100e8f19
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88031428"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Monitorizar, receber e enviar eventos com Hubs de Eventos do Azure e Azure Logic Apps
@@ -77,7 +77,7 @@ Este exemplo mostra como pode iniciar um fluxo de trabalho de aplicações lógi
 
    ![Propriedades do acionador](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger.png)
 
-   | Propriedade | Obrigatório | Descrição |
+   | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
    | **Nome do Hub de Eventos** | Sim | O nome para o Centro de Eventos que pretende monitorizar |
    | **Tipo de conteúdo** | Não | O tipo de conteúdo do evento. A predefinição é `application/octet-stream`. |
@@ -89,7 +89,7 @@ Este exemplo mostra como pode iniciar um fluxo de trabalho de aplicações lógi
 
    **Propriedades adicionais**
 
-   | Propriedade | Obrigatório | Descrição |
+   | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
    | **Esquema de conteúdo** | Não | O esquema de conteúdo JSON para os eventos a ler no Centro de Eventos. Por exemplo, se especificar o esquema de conteúdo, pode desencadear a aplicação lógica apenas para os eventos que correspondam ao esquema. |
    | **Chave de partição mínima** | Não | Introduza o ID de [partição](../event-hubs/event-hubs-features.md#partitions) mínima para ler. Por predefinição, todas as divisórias são lidas. |
@@ -128,7 +128,7 @@ A partir da lista de ações, selecione esta ação: **Enviar evento - Centros d
 
    ![Selecione o nome do Centro de Eventos e forneça conteúdo de evento](./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action.png)
 
-   | Propriedade | Obrigatório | Descrição |
+   | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
    | **Nome do Hub de Eventos** | Sim | O Centro de Eventos onde pretende enviar o evento |
    | **Conteúdo** | Não | O conteúdo do evento que deseja enviar |

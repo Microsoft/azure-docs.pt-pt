@@ -7,23 +7,23 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 9d5add1349650663b226023b9f46868f242ac4f9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 94db8ce46fc240a6c48c0919b6d2c2cd148522ac
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87265216"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976055"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Carregar um VHD generalizado e utilizá-lo para criar VMs novas no Azure
 
-Este artigo acompanha-o usando o PowerShell para carregar um VHD de um VM generalizado para Azure, criar uma imagem a partir do VHD, e criar um novo VM a partir dessa imagem. Você pode carregar um VHD exportado de uma ferramenta de virtualização no local ou de outra nuvem. A utilização [de Discos Geridos](managed-disks-overview.md) para o novo VM simplifica a gestão de VM e proporciona uma melhor disponibilidade quando o VM é colocado num conjunto de disponibilidade. 
+Este artigo acompanha-o usando o PowerShell para carregar um VHD de um VM generalizado para Azure, criar uma imagem a partir do VHD, e criar um novo VM a partir dessa imagem. Você pode carregar um VHD exportado de uma ferramenta de virtualização no local ou de outra nuvem. A utilização [de Discos Geridos](../managed-disks-overview.md) para o novo VM simplifica a gestão de VM e proporciona uma melhor disponibilidade quando o VM é colocado num conjunto de disponibilidade. 
 
 Para obter um script de amostra, consulte [o script sample para carregar um VHD para Azure e criar um novo VM](../scripts/virtual-machines-windows-powershell-upload-generalized-script.md).
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 - Antes de enviar qualquer VHD para Azure, deve seguir [Preparar um VHD ou VHDX do Windows para fazer o upload para Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-- Plano de revisão [da migração para Discos Geridos](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) antes de iniciar a sua migração para [Discos Geridos.](managed-disks-overview.md)
+- Plano de revisão [da migração para Discos Geridos](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) antes de iniciar a sua migração para [Discos Geridos.](../managed-disks-overview.md)
 
  
 ## <a name="generalize-the-source-vm-by-using-sysprep"></a>Generalize a fonte VM utilizando o Sysprep
@@ -112,4 +112,4 @@ New-AzVm `
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Inscreva-se na sua nova máquina virtual. Para obter mais informações, consulte [Como ligar e iniciar sessão numa máquina virtual Azure que executa o Windows](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Inscreva-se na sua nova máquina virtual. Para obter mais informações, consulte [Como ligar e iniciar sessão numa máquina virtual Azure que executa o Windows](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

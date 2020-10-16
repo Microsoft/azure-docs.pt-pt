@@ -9,12 +9,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 06/26/2020
   ms.author: 
-  ms.openlocfilehash: 7c643d10971d93a3c6194bc7390d2271c1ed561b
-  ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+  ms.openlocfilehash: bc12e75904f375e2e40bce01d102186ec0d39f13
+  ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/24/2020
-  ms.locfileid: "88763770"
+  ms.lasthandoff: 10/14/2020
+  ms.locfileid: "92014261"
 landingContent:
 - title: Ligar clusters Kubernetes ao Azure utilizando Azure Arc
   linkLists:
@@ -36,3 +36,9 @@ landingContent:
       url: use-azure-policy.md
     - text: Implementar cargas de trabalho do Azure IoT Edge
       url: deploy-azure-iot-edge-workloads.md
+- title: Arquitetura de referência
+  linkLists:
+  - linkListType: architecture
+    links:
+    - text: Gerir implementações e configurações para clusters do Kubernetes híbridos
+      url: /azure/architecture/hybrid/arc-hybrid-kubernetes

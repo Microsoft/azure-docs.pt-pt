@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ef693a48dc52854e4e1fd8359ef24f65ce236f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85358587"
 ---
 # <a name="migrate-groups-from-one-forest-to-another-for-azure-ad-connect"></a>Grupos migram de uma floresta para outra para Azure AD Connect
@@ -25,7 +25,7 @@ Este artigo descreve como migrar grupos de uma floresta para outra para que os o
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Azure AD Connect versão 1.5.18.0 ou mais tarde
-- Atributo de âncora de origem definido para`mS-DS-ConsistencyGuid`
+- Atributo de âncora de origem definido para `mS-DS-ConsistencyGuid`
 
 ## <a name="migrate-groups"></a>Grupos migratórios
 
@@ -124,5 +124,5 @@ Set-ADGroup -Identity $dn -Replace @{'mS-DS-ConsistencyGuid'=$targetGuid} -Error
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre [a integração das suas identidades no local com o Azure Ative Directory](whatis-hybrid-identity.md).

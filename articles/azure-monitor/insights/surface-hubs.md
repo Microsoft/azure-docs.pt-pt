@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/16/2018
 ms.openlocfilehash: 7e3b0f92770b48ef5163846e67940efe80fb669a
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90085353"
 ---
 # <a name="monitor-surface-hubs-with-azure-monitor-to-track-their-health"></a>Monitorize os Hubs de Superfície com monitor Azure para acompanhar a sua saúde

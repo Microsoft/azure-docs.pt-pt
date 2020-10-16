@@ -6,7 +6,7 @@
       href: overview.md
     - name: 'Acerca de chaves, segredos e certificados'
       href: about-keys-secrets-certificates.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: CLI
@@ -162,6 +162,8 @@
       href: client-libraries.md
     - name: Códigos de erro da API REST - Azure Key Vault
       href: rest-error-codes.md
+    - name: Códigos de erro comuns - Azure Key Vault
+      href: common-error-codes.md
     - name: Parâmetros e cabeçalhos comuns
       href: common-parameters-and-headers.md
     - name: Versões do Key Vault

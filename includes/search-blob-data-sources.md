@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 05/02/2019
 ms.author: magottei
 ms.openlocfilehash: c4d727ffdd7e6517638b46f1f809890f5bb46354
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91403619"
 ---
 * PDF

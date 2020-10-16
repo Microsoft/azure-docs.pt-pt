@@ -8,10 +8,10 @@ ms.date: 07/17/2019
 ms.author: maquaran
 ms.custom: devx-track-csharp
 ms.openlocfilehash: dce10fb85ac181bb06aef0058768bef659462a5a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89019985"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Criar múltiplos gatilhos de funções Azure para Cosmos DB

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/02/2020
 ms.author: radeltch
-ms.openlocfilehash: edca4b44bd9e7aa9f100db3cea0bc69880a4c533
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 658470a3c19f8484ac56f6a1d88d23c3d7b4147e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91744852"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978110"
 ---
 # <a name="high-availability-of-sap-hana-scale-out-system-on-red-hat-enterprise-linux"></a>Alta disponibilidade do sistema de escala SAP HANA no Red Hat Enterprise Linux 
 
@@ -80,19 +80,19 @@ Antes de começar, consulte as seguintes notas e documentos SAP:
 * [Azure Virtual Machines DBMS implantação para SAP em Linux][dbms-guide]
 * [Requisitos da rede SAP HANA](https://www.sap.com/documents/2016/08/1cd2c2fb-807c-0010-82c7-eda71af511fa.html)
 * Documentação geral do RHEL
-  * [Visão geral do suplemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
-  * [Administração de complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
-  * [Referência de complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+  * [Visão geral Add-On de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
+  * [Alta Disponibilidade Add-On Administração](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
+  * [Referência de Add-On de Alta Disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
   * [Guia de rede linux da empresa de chapéu vermelho](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide)
-  * [Como posso configurar a replicação do sistema de escala SAP HANA em um cluster pacemaker com sistemas de ficheiros HANA em ações NFS](https://access.redhat.com/solutions/5423971)
+  * [Como configurar a replicação do sistema Scale-Out SAP HANA num cluster pacemaker com sistemas de ficheiros HANA em ações NFS](https://access.redhat.com/solutions/5423971)
 * Documentação RHEL específica do Azure:
   * [Instale SAP HANA no Red Hat Enterprise Linux para utilização no Microsoft Azure](https://access.redhat.com/public-cloud/microsoft-azure)
-  * [Solução Linux da Red Hat Enterprise para a escala de HANA e replicação do sistema](https://access.redhat.com/solutions/4386601)
+  * [Solução Linux da Red Hat Enterprise para Scale-Out e replicação do sistema SAP HANA](https://access.redhat.com/solutions/4386601)
 * [Aplicações NETApp SAP no Microsoft Azure utilizando ficheiros Azure NetApp][anf-sap-applications-azure]
 * [Documentação dos Ficheiros Azure NetApp][anf-azure-doc] 
 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Overview (Descrição geral)
 
 Um método para alcançar a alta disponibilidade de HANA para instalações de escala HANA, é configurar a replicação do sistema HANA e proteger a solução com o cluster Pacemaker para permitir a falha automática. Quando um nó ativo falha, o cluster falha sobre os recursos HANA para o outro local.  
 A configuração apresentada mostra três nós HANA em cada site, mais nó de fabricante maioritário para evitar cenário de cérebro dividido. As instruções podem ser adaptadas, para incluir mais VMs como nós HANA DB.  
@@ -100,7 +100,7 @@ A configuração apresentada mostra três nós HANA em cada site, mais nó de fa
 O sistema de ficheiros partilhados HANA `/hana/shared` na arquitetura apresentada é fornecido pela [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md). É montado via NFSv4.1 em cada nó HANA no mesmo local de replicação do sistema HANA. Sistemas de `/hana/data` ficheiros e `/hana/log` são sistemas de ficheiros locais e não são partilhados entre os nós HANA DB. O SAP HANA será instalado em modo não partilhado. 
 
 > [!TIP]
-> Para configurações de armazenamento SAP HANA recomendadas, consulte [as configurações de armazenamento SAP HANA Azure VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage).   
+> Para configurações de armazenamento SAP HANA recomendadas, consulte [as configurações de armazenamento SAP HANA Azure VMs](./hana-vm-operations-storage.md).   
 
 [![Escala SAP HANA com aglomerado de HSR e Pacemaker](./media/sap-hana-high-availability-rhel/sap-hana-high-availability-scale-out-hsr-rhel.png)](./media/sap-hana-high-availability-rhel/sap-hana-high-availability-scale-out-hsr-rhel-detail.png#lightbox)
 
@@ -128,7 +128,7 @@ Para a configuração apresentada neste documento, desloque sete máquinas virtu
   
    Para o nó de fabricante maioritário, você pode implementar um pequeno VM, uma vez que este VM não executam nenhum dos recursos SAP HANA. O VM criador maioritário é usado na configuração do cluster para alcançar um número ímpar de nós de cluster em um cenário de cérebro dividido. O fabricante maioritário VM só precisa de uma interface de rede virtual `client` na sub-rede neste exemplo.        
 
-   Implemente discos geridos locais para `/hana/data` e `/hana/log` . A configuração mínima recomendada de armazenamento para `/hana/data` e é descrita nas `/hana/log` [configurações de armazenamento SAP HANA Azure VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage).
+   Implemente discos geridos locais para `/hana/data` e `/hana/log` . A configuração mínima recomendada de armazenamento para `/hana/data` e é descrita nas `/hana/log` [configurações de armazenamento SAP HANA Azure VMs](./hana-vm-operations-storage.md).
 
    Implementar a interface de rede primária para cada VM na `client` sub-rede de rede virtual.  
    Quando o VM é implantado através do portal Azure, o nome da interface de rede é gerado automaticamente. Nestas instruções de simplicidade, referimo-nos às interfaces de rede primária geradas automaticamente, que estão ligadas à `client` sub-rede virtual Azure como **hana-s1-db1-cliente,** **hana-s1-db2-cliente,** **hana-s1-db3-cliente**, e assim por diante.  
@@ -229,7 +229,7 @@ Para a configuração apresentada neste documento, desloque sete máquinas virtu
 
 ### <a name="deploy-the-azure-netapp-files-infrastructure"></a>Implementar a infraestrutura de Ficheiros Azure NetApp 
 
-Implemente os volumes ANF para o `/hana/shared` sistema de ficheiros. Necessitará de um volume separado `/hana/shared` para cada site de replicação do sistema HANA. Para obter mais informações, consulte [configurar a infraestrutura Azure NetApp Files](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel#set-up-the-azure-netapp-files-infrastructure).
+Implemente os volumes ANF para o `/hana/shared` sistema de ficheiros. Necessitará de um volume separado `/hana/shared` para cada site de replicação do sistema HANA. Para obter mais informações, consulte [configurar a infraestrutura Azure NetApp Files](./sap-hana-scale-out-standby-netapp-files-rhel.md#set-up-the-azure-netapp-files-infrastructure).
 
 Neste exemplo, foram utilizados os seguintes volumes Azure NetApp Files: 
 
@@ -836,7 +836,7 @@ Inclua todas as máquinas virtuais, incluindo o fabricante maioritário no clust
     ```
 
    > [!TIP]
-   > Se a sua configuração inclui outros sistemas de ficheiros, além de / `hana/shared` , que são montados em NFS, então inclua `sequential=false` opção, de modo a que não existam dependências de encomenda entre os sistemas de ficheiros. Todos os sistemas de ficheiros montados em NFS devem iniciar-se antes do recurso de atributo correspondente, mas não precisam de começar por qualquer ordem em relação uns aos outros. Para obter mais [informações, consulte como configurar o HSR de escala SAP HANA em um cluster de pacemaker quando os sistemas de ficheiros HANA são ações NFS](https://access.redhat.com/solutions/5423971).  
+   > Se a sua configuração inclui outros sistemas de ficheiros, além de / `hana/shared` , que são montados em NFS, então inclua `sequential=false` opção, de modo a que não existam dependências de encomenda entre os sistemas de ficheiros. Todos os sistemas de ficheiros montados em NFS devem iniciar-se antes do recurso de atributo correspondente, mas não precisam de começar por qualquer ordem em relação uns aos outros. Para obter mais [informações, como configurar o SAP HANA Scale-Out HSR num cluster de pacemaker quando os sistemas de ficheiros HANA são ações NFS](https://access.redhat.com/solutions/5423971).  
 
 8. **[1]** Coloque o pacemaker em modo de manutenção, em preparação para a criação dos recursos de cluster HANA.  
     ```
@@ -1160,7 +1160,7 @@ Inclua todas as máquinas virtuais, incluindo o fabricante maioritário no clust
       ```
 
 
-Recomendamos testar cuidadosamente a configuração do cluster SAP HANA, realizando também os testes, documentados em [HA para SAP HANA em VMs Azure em RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#test-the-cluster-setup).
+Recomendamos testar cuidadosamente a configuração do cluster SAP HANA, realizando também os testes, documentados em [HA para SAP HANA em VMs Azure em RHEL](./sap-hana-high-availability-rhel.md#test-the-cluster-setup).
 
 
 ## <a name="next-steps"></a>Passos seguintes

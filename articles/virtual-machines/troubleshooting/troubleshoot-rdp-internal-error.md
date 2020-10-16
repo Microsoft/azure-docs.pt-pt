@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: 7cbb67a215d44759b2b503929c37cb50ea94709c
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: d4736515d8e011ce1e72c51ecb3ce1cfd2e1e1cd
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069769"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978531"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>An internal error occurs when you try to connect to an Azure VM through Remote Desktop (Um erro interno ocorre quando se tenta ligar a uma VM do Azure através do Ambiente de Trabalho Remoto)
 
@@ -97,7 +97,7 @@ Para começar, ligue-se à [Consola em Série e abra uma instância PowerShell](
         Set-NetFirewallRule -Name "RemoteDesktop-UserMode-In-TCP" -LocalPort <NEW PORT (decimal)>
         ```
 
-    3. [Atualize o grupo de segurança da rede para o novo porto](../../virtual-network/security-overview.md) no portal Azure RDP.
+    3. [Atualize o grupo de segurança da rede para o novo porto](../../virtual-network/network-security-groups-overview.md) no portal Azure RDP.
 
 #### <a name="step-2-set-correct-permissions-on-the-rdp-self-signed-certificate"></a>Passo 2: Definir permissões corretas no certificado auto-assinado RDP
 

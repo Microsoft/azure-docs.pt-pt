@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 1/25/2019
 ms.author: jeedes
 ms.openlocfilehash: ddc4e040824a7239aecbb24fc90123a88dc4e263
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91824639"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-idid-manager"></a>Tutorial: Integração do Diretório Ativo Azure com o iDiD Manager
@@ -73,7 +73,7 @@ Para um único pré-on para o trabalho, é necessário estabelecer uma relação
 Para configurar e testar o Azure AD com o iDiD Manager, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o iDiD Manager single sign-on](#configure-idid-manager-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure o iDiD Manager Single Sign-On](#configure-idid-manager-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create iDiD Manager test user](#create-idid-manager-test-user)** - para ter uma contraparte de Britta Simon no iDiD Manager que está ligada à representação AD AD do utilizador.
@@ -93,7 +93,7 @@ Para configurar o Azure AD com o iDiD Manager, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -110,11 +110,11 @@ Para configurar o Azure AD com o iDiD Manager, execute os seguintes passos:
     > [!NOTE]
     > O valor não é real. Atualize o valor com o URL de inscrição real. Contacte a equipa de [suporte do cliente iDiD Manager](mailto:support@idid.fi) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-6. Na **configuração de um único sinal com página SAML,** na secção certificado de assinatura **SAML,** clique no botão de cópia para copiar o **Url de metadados da Federação de Aplicações** e guarde-o no seu computador.
+6. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** clique no botão de cópia para copiar o **Url de Metadados da Federação de Aplicações** e guarde-o no seu computador.
 
     ![O link de descarregamento de certificado](common/copy-metadataurl.png)
 
-### <a name="configure-idid-manager-single-sign-on"></a>Configurar iDiD Manager único sign-on
+### <a name="configure-idid-manager-single-sign-on"></a>Configurar iDid Manager Single Sign-On
 
 Para configurar um único sign-on no lado **do gestor iDiD,** você precisa enviar o **Url de Metadados da Federação de Aplicações** para a [equipa de suporte iDiD Manager](mailto:support@idid.fi). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 

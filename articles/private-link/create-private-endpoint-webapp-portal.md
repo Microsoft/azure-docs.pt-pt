@@ -9,10 +9,10 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.openlocfilehash: 3e0f05240aba9b5c92689315e409aaabe793b3f4
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91772843"
 ---
 # <a name="connect-privately-to-a-web-app-by-using-azure-private-endpoint"></a>Conecte-se privadamente a uma aplicação web utilizando o Azure Private Endpoint

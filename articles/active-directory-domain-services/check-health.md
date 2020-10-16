@@ -2,7 +2,7 @@
 title: Verifique a saúde dos Serviços de Domínio do Diretório Ativo Azure ! Microsoft Docs
 description: Saiba como verificar a saúde de um domínio gerido pelo Azure Ative Directory (Azure AD DS) e compreenda as mensagens de estado utilizando o portal Azure.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 8999eec3-f9da-40b3-997a-7a2587911e96
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 34f4ecfd4cc3432babbd26d65bd37ea4d1fb882c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.author: joflore
+ms.openlocfilehash: bf65657ea60e94f167bfbb6585026702b64e9658
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040423"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962739"
 ---
 # <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Verifique a saúde de um domínio gerido pelos Serviços de Domínio do Diretório Ativo Azure
 
@@ -40,7 +40,7 @@ O estado no direito superior indica a saúde geral do domínio gerido. O estado 
 
 | Estado | Ícone | Explicação |
 | --- | :----: | --- |
-| A executar | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15" alt="Green check mark for running"> | O domínio gerido está a funcionar corretamente e não tem quaisquer alertas críticos ou de aviso. O domínio pode ter alertas informativos. |
+| Em Execução | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15" alt="Green check mark for running"> | O domínio gerido está a funcionar corretamente e não tem quaisquer alertas críticos ou de aviso. O domínio pode ter alertas informativos. |
 | Precisa de atenção (aviso) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15" alt="Yellow exclamation mark for warning"> | Não existem alertas críticos sobre o domínio gerido, mas há um ou mais alertas que devem ser abordados. |
 | Precisa de atenção (crítica) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15" alt="Red exclamation mark for critical"> | Há um ou mais alertas críticos sobre o domínio gerido que devem ser abordados. Pode também ter alertas e/ou alertas informativos. |
 | Implantação | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15" alt="Blue circular arrows for deploying"> | O domínio gerido está a ser implantado. |
@@ -53,7 +53,7 @@ O estado de saúde de um domínio gerido mostra dois tipos de informação - *mo
 
 Os monitores são áreas de um domínio gerido que são verificadas regularmente. Se houver alertas ativos para o domínio gerido, pode fazer com que um dos monitores reporte um problema. A Azure AD DS tem atualmente monitores para as seguintes áreas:
 
-* Backup
+* Cópia de segurança
 * Sincronização com Azure AD
 
 #### <a name="backup-monitor"></a>Monitor de reserva
@@ -80,7 +80,7 @@ Os alertas de estado de saúde são categorizados nos seguintes níveis de gravi
  * **Os alertas** notificam-no de problemas que podem afetar as operações de domínio geridos se o problema persistir. Estes alertas também oferecem recomendações para garantir o domínio gerido.
  * **Alertas informativos** são notificações que não afetam negativamente o domínio gerido. Os alertas informativos fornecem algumas informações sobre o que está a acontecer no domínio gerido.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre alertas que sejam mostrados na página do estado de saúde, consulte [alertas resolvedores no seu domínio gerido][troubleshoot-alerts]
 

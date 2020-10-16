@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: alkohli
 ms.openlocfilehash: 4f21e7f64338b7d50ca401081bf73ca0c1a1c88f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85504309"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Data transfer for small datasets with low to moderate network bandwidth (Transferência de dados para conjuntos de dados pequenos com pouca largura de banda de rede ou com largura de banda moderada)
@@ -61,7 +61,7 @@ A tabela seguinte resume as diferenças nas capacidades-chave.
 | Armazenamento permitido da fila | Gerir | Não  |Não | Sim, é personalizável|
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [transferir dados com o Azure Storage Explorer.](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azure-storage-explorer)
 - [Transferir dados com o AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)

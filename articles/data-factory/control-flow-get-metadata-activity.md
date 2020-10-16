@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: jingwang
 ms.openlocfilehash: e32115c590d73f5c93f322d3bd542096f2964a4c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91297611"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Obtenha atividade de metadados na Azure Data Factory
@@ -76,7 +76,7 @@ A atividade Get Metadados requer um conjunto de dados como uma entrada e devolve
 
 Pode especificar os seguintes tipos de metadados na lista de atividades do Get Metadata para recuperar as informações correspondentes:
 
-| Tipo de metadados | Description |
+| Tipo de metadados | Descrição |
 |:--- |:--- |
 | itemName | Nome do ficheiro ou pasta. |
 | itemType | Tipo de ficheiro ou pasta. O valor devolvido é `File` `Folder` ou. |
@@ -168,10 +168,10 @@ Atualmente, a atividade Get Metadata pode devolver os seguintes tipos de informa
 
 Propriedade | Descrição | Obrigatório
 -------- | ----------- | --------
-fieldList | Os tipos de informação de metadados necessários. Para obter mais informações sobre metadados suportados, consulte a secção de opções de [metadados](#metadata-options) deste artigo. | Yes 
-conjunto de dados | O conjunto de dados de referência cujos metadados devem ser recuperados pela atividade Get Metadados. Consulte a secção [Capabilities](#capabilities) para obter informações sobre conectores suportados. Consulte os tópicos específicos do conector para obter detalhes da sintaxe do conjunto de dados. | Yes
-formatoStas | Aplicar quando utilizar o conjunto de dados do tipo de formato. | No
-lojaSs | Aplicar quando utilizar o conjunto de dados do tipo de formato. | No
+fieldList | Os tipos de informação de metadados necessários. Para obter mais informações sobre metadados suportados, consulte a secção de opções de [metadados](#metadata-options) deste artigo. | Sim 
+conjunto de dados | O conjunto de dados de referência cujos metadados devem ser recuperados pela atividade Get Metadados. Consulte a secção [Capabilities](#capabilities) para obter informações sobre conectores suportados. Consulte os tópicos específicos do conector para obter detalhes da sintaxe do conjunto de dados. | Sim
+formatoStas | Aplicar quando utilizar o conjunto de dados do tipo de formato. | Não
+lojaSs | Aplicar quando utilizar o conjunto de dados do tipo de formato. | Não
 
 ## <a name="sample-output"></a>Saída de exemplo
 

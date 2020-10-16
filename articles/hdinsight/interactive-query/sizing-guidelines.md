@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.openlocfilehash: a81eff1dcf48996c319933aa4dd46170043b943b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83664936"
 ---
 # <a name="interactive-query-cluster-sizing-guide-in-azure-hdinsight"></a>Guia de dimensionamento de agrupamento de consultas interativas em Azure HDInsight
@@ -75,13 +75,13 @@ O cluster HDInsight padrão tem quatro daemons LLAP em execução em quatro nós
 
 ### <a name="tezamresourcememorymb-hivetezcontainersize"></a>tez.am.resource.memory.mb, hive.tez.container.size
 
-`tez.am.resource.memory.mb`define o tamanho principal da aplicação Tez.  
+`tez.am.resource.memory.mb` define o tamanho principal da aplicação Tez.  
 O valor recomendado é **de 4096 MB.**
 
-`hive.tez.container.size`define a quantidade de memória dada para o recipiente Tez. Este valor deve ser definido entre o tamanho mínimo do contentor YARN `yarn.scheduler.minimum-allocation-mb` e o tamanho máximo do recipiente YARN. `yarn.scheduler.maximum-allocation-mb`  
+`hive.tez.container.size` define a quantidade de memória dada para o recipiente Tez. Este valor deve ser definido entre o tamanho mínimo do contentor YARN `yarn.scheduler.minimum-allocation-mb` e o tamanho máximo do recipiente YARN. `yarn.scheduler.maximum-allocation-mb`  
 Recomenda-se que seja definido para **4096 MB.**  
 
-Uma regra geral é mantê-lo inferior à quantidade de memória por processador, considerando um processador por recipiente. `Rreserve`memória para o número de Tez AMs em um nó antes de dar a memória para o daemon LLAP. Por exemplo, se estiver a utilizar dois Tez AMs (4 GB cada) por nó, dê 82 GB de 90 GB para o daemon LLAP reservando 8 GB para dois Tez AMs.
+Uma regra geral é mantê-lo inferior à quantidade de memória por processador, considerando um processador por recipiente. `Rreserve` memória para o número de Tez AMs em um nó antes de dar a memória para o daemon LLAP. Por exemplo, se estiver a utilizar dois Tez AMs (4 GB cada) por nó, dê 82 GB de 90 GB para o daemon LLAP reservando 8 GB para dois Tez AMs.
 
 ### <a name="yarnschedulercapacityrootllapcapacity"></a>yarn.scheduler.capacity.root.llap.capacity
 
@@ -155,7 +155,7 @@ Para D14 v2, é recomendado definir este valor para **2048 MB**.
 
 Recomendamos que se ajuste este valor adequado para a sua carga de trabalho, uma vez que a definição deste valor demasiado baixo pode não utilizar uma função de autoconvertes. Defini-lo demasiado alto pode resultar em pausas de GC, o que pode afetar negativamente o desempenho da consulta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Diretrizes gateway](gateway-best-practices.md)
 * [Demistificar Apache Tez Memory Afinação - Passo a passo](https://community.cloudera.com/t5/Community-Articles/Demystify-Apache-Tez-Memory-Tuning-Step-by-Step/ta-p/245279)

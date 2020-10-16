@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
 ms.openlocfilehash: ad60436d82ccc8049a4509ba5bf1e244bee150ea
-ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89506683"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Restaurar máquinas virtuais Azure usando REST API
@@ -170,7 +170,7 @@ Location: https://management.azure.com/subscriptions//subscriptions/00000000-000
 X-Powered-By: ASP.NET
 ```
 
-Em seguida, rastreia a operação resultante utilizando o cabeçalho de localização ou o cabeçalho Azure-AsyncOperation com um simples comando *GET.*
+Em seguida, rastreia a operação resultante utilizando o cabeçalho de localização ou Azure-AsyncOperation cabeçalho com um simples comando *GET.*
 
 ```http
 GET https://management.azure.com/subscriptions//subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationResults/781a0f18-e250-4d73-b059-5e9ffed4069e?api-version=2019-05-13
@@ -351,7 +351,7 @@ Como [explicado acima,](#restore-operations)o corpo de pedido que se segue defin
 
 A resposta deve ser tratada da mesma forma [que explica acima para restaurar os discos.](#responses)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre as APIs de backup Azure, consulte os seguintes documentos:
 

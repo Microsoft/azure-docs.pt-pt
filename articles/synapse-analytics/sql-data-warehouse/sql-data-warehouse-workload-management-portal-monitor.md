@@ -12,10 +12,10 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 13b0dc3af524b16430408f8a920c7477c412414d
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362734"
 ---
 # <a name="azure-synapse-analytics--workload-management-portal-monitoring"></a>Azure Synapse Analytics – Monitorização do Portal de Gestão da Carga de Trabalho
@@ -26,7 +26,7 @@ Existem duas categorias diferentes de métricas do grupo de trabalho previstas p
 
 ## <a name="workload-management-metric-definitions"></a>Definições métricas de gestão da carga de trabalho
 
-|Nome da Métrica                    |Description  |Tipo de Agregação |
+|Nome da Métrica                    |Descrição  |Tipo de Agregação |
 |-------------------------------|-------------|-----------------|
 |Por cento efetivo do recurso cap | *A percentagem efetiva de recursos de capital* é um limite difícil para a percentagem de recursos acessíveis pelo grupo de carga de trabalho, tendo em conta a *percentagem efetiva de recursos min* atribuída a outros grupos de carga de trabalho. A métrica *de percentagem de recursos de tampa eficaz* é configurada utilizando o parâmetro na `CAP_PERCENTAGE_RESOURCE` sintaxe do GRUPO DE CARGA DE [CARGA CREATE.](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  O valor efetivo é descrito aqui.<br><br>Por exemplo, se um grupo de carga de trabalho `DataLoads` for criado com = `CAP_PERCENTAGE_RESOURCE` 100 e outro grupo de carga de trabalho for criado com uma percentagem efetiva de recursos min de 25%, o *adicional de recursos de limite efetivo* para o grupo de carga de trabalho é de `DataLoads` 75%.<br><br>A *percentagem de recursos de tampa eficaz* determina o limite superior da concuência (e, portanto, a produção potencial) que um grupo de carga de trabalho pode alcançar.  Se for necessário um rendimento adicional para além do que é atualmente reportado pela métrica *de recursos de limites eficazes,* ou aumente `CAP_PERCENTAGE_RESOURCE` o, diminua o `MIN_PERCENTAGE_RESOURCE` número de outros grupos de carga de trabalho ou aumente o caso para adicionar mais recursos.  Diminuir a `REQUEST_MIN_RESOURCE_GRANT_PERCENT` pode aumentar a conúnquidade, mas pode não aumentar a produção global.| Min, Avg, Max |
 |Por cento de recursos min eficazes |*O min resource por cento efetivo* é a percentagem mínima de recursos reservados e isolados para o grupo de trabalho, tendo em conta o nível mínimo de serviço.  A métrica de percentagem de recursos min eficaz é configurada utilizando o `MIN_PERCENTAGE_RESOURCE` parâmetro na sintaxe [do GRUPO DE CARGA DE TRABALHO CREATE.](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  O valor efetivo é descrito [aqui.](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#effective-values)<br><br>Utilize o tipo de agregação de Soma quando esta métrica não estiver filtrada e não for executada para monitorizar o isolamento total da carga de trabalho configurado no sistema.<br><br>O *min 000* de recursos eficazes determina o limite inferior de garantia de concuência (e, portanto, produção garantida) que um grupo de carga de trabalho pode alcançar.  Se forem necessários recursos garantidos adicionais para além do que é atualmente reportado pela métrica *de recursos min eficazes,* aumente o `MIN_PERCENTAGE_RESOURCE` parâmetro configurado para o grupo de carga de trabalho.  Diminuir a `REQUEST_MIN_RESOURCE_GRANT_PERCENT` pode aumentar a conúnquidade, mas pode não aumentar a produção global. |Min, Avg, Max|

@@ -8,10 +8,10 @@ ms.date: 11/22/2019
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.openlocfilehash: 814a4012ace95e84e75bcb4071c549822b2b0633
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89182433"
 ---
 # <a name="were-moving-virtual-machine-vm-images-on-azure-marketplace-to-managed-disk-storage"></a>Estamos a mover imagens de máquinas virtuais (VM) no Azure Marketplace para o armazenamento de discos geridos
@@ -38,11 +38,11 @@ Pode levar até 24 horas para completar a migração.
 
 ### <a name="do-i-need-to-take-any-action"></a>Preciso de tomar alguma ação?
 
-Não. Editores ou consumidores não precisam de tomar nenhuma ação.
+N.º Editores ou consumidores não precisam de tomar nenhuma ação.
 
 ### <a name="do-i-have-to-update-my-system-to-call-the-cloud-portal-apis-in-a-different-way-after-they-are-moved-to-managed-disk-storage"></a>Tenho de atualizar o meu sistema para ligar para as APIs do Cloud Portal de uma forma diferente depois de serem transferidas para o armazenamento do Disco Gerido?
 
-Não. As suas chamadas de API existentes continuarão a funcionar.
+N.º As suas chamadas de API existentes continuarão a funcionar.
 
 ### <a name="would-all-my-vm-images-be-moved-to-managed-disk-at-the-same-time"></a>Todas as minhas imagens em VM seriam movidas para o Disco Gerido ao mesmo tempo?
 

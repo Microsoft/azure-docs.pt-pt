@@ -7,10 +7,10 @@ author: rboucher
 ms.author: robb
 ms.date: 06/16/2020
 ms.openlocfilehash: 462358ab967d4ba26a265d7b5f401b995223815e
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85959847"
 ---
 # <a name="saved-queries-in-azure-monitor-log-analytics"></a>Consultas guardadas no Azure Monitor Log Analytics
@@ -108,7 +108,7 @@ Pode sempre aceder à experiência popup de consulta de amostras a partir do bot
 
 A experiência do explorador de consultas para guardar e partilhar consultas geradas pelo utilizador permanece inalterada por enquanto.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Começar com consultas KQL](get-started-queries.md)
 

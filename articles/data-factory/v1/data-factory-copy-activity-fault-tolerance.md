@@ -12,10 +12,10 @@ ms.date: 03/27/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 742c69709eee19a37abdb3e5330cd7fb8ce315b7
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89436396"
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Adicione a tolerância à falha na Atividade de Cópia saltando linhas incompatíveis
@@ -71,10 +71,10 @@ O exemplo a seguir fornece uma definição JSON para configurar saltar as linhas
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| **enableSkipIncompatibleRow** | Ativar o salto de linhas incompatíveis durante a cópia ou não. | Verdadeiro<br/>Falso (predefinição) | No |
-| **redireccionamentosIncompatíveis** | Um grupo de propriedades que podem ser especificadas quando pretende registar as linhas incompatíveis. | &nbsp; | No |
-| **linkedServiceName** | O serviço ligado do Azure Storage para armazenar o registo que contém as linhas ignoradas. | O nome de um serviço ligado [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) ou [AzureStorageSas,](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) que se refere à instância de armazenamento que pretende utilizar para armazenar o ficheiro de registo. | No |
-| **caminho** | O caminho do ficheiro de registo que contém as linhas ignoradas. | Especifique a trajetória de armazenamento Blob que pretende utilizar para registar os dados incompatíveis. Se não providenciar um caminho, o serviço cria um recipiente para si. | No |
+| **enableSkipIncompatibleRow** | Ativar o salto de linhas incompatíveis durante a cópia ou não. | Verdadeiro<br/>Falso (predefinição) | Não |
+| **redireccionamentosIncompatíveis** | Um grupo de propriedades que podem ser especificadas quando pretende registar as linhas incompatíveis. | &nbsp; | Não |
+| **linkedServiceName** | O serviço ligado do Azure Storage para armazenar o registo que contém as linhas ignoradas. | O nome de um serviço ligado [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) ou [AzureStorageSas,](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) que se refere à instância de armazenamento que pretende utilizar para armazenar o ficheiro de registo. | Não |
+| **caminho** | O caminho do ficheiro de registo que contém as linhas ignoradas. | Especifique a trajetória de armazenamento Blob que pretende utilizar para registar os dados incompatíveis. Se não providenciar um caminho, o serviço cria um recipiente para si. | Não |
 
 ## <a name="monitoring"></a>Monitorização
 Após o funcionamento da atividade da cópia, pode ver o número de linhas ignoradas na secção de monitorização:
@@ -89,5 +89,5 @@ data1, data2, data3, UserErrorInvalidDataValue,Column 'Prop_2' contains an inval
 data4, data5, data6, Violation of PRIMARY KEY constraint 'PK_tblintstrdatetimewithpk'. Cannot insert duplicate key in object 'dbo.tblintstrdatetimewithpk'. The duplicate key value is (data4).
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre a atividade de cópia da fábrica de dados Azure, consulte [os dados do Movimento utilizando a Copy Activity](data-factory-data-movement-activities.md).

@@ -8,10 +8,10 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 8f2b37181e5d743809bb1f60be4056cb4442a8d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78295883"
 ---
 # <a name="array_concat-azure-cosmos-db"></a>ARRAY_CONCAT (Azure Cosmos DB)
@@ -50,7 +50,7 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"]) AS arrayConcat
 
 Esta função do sistema não utilizará o índice.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Funções de matriz Azure Cosmos DB](sql-query-array-functions.md)
 - [Funciona O sistema Azure Cosmos DB](sql-query-system-functions.md)

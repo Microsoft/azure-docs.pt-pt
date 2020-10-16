@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/03/2020
 ms.author: v-miegge
-ms.openlocfilehash: f607ebb64b27c45ec696d7fcd431a0ba2342697f
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: e58e349d7b7385ec913986c39462c17deadcb61d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89447885"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969607"
 ---
 # <a name="windows-boot-manager-error---0xc0000428-status-invalid-image-hash"></a>Erro do gestor de arranque do Windows - 0xC0000428 Estado De imagem Inválida Hash
 
@@ -28,7 +28,7 @@ Este artigo fornece medidas para resolver problemas em que uma imagem de pré-vi
 
 ## <a name="symptom"></a>Sintoma
 
-Quando utilizar [diagnósticos boot](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para visualizar a imagem do VM, verá que a imagem mostra o Gestor de Boot do Windows com a mensagem:
+Quando utilizar [diagnósticos boot](./boot-diagnostics.md) para visualizar a imagem do VM, verá que a imagem mostra o Gestor de Boot do Windows com a mensagem:
 
   `File: \windows\system32\boot\winload.exe`
 
@@ -58,7 +58,7 @@ As imagens de pré-visualização têm um ciclo de vida designado e a imagem que
 
 `a699494373c04fc0bc8f2bb1389d6106__Windows-Server-Technical-Preview-201505.01-en.us-127GB.vhd`
 
-Não é possível prolongar a data de validade de uma imagem de pré-visualização. Uma vez expirada a pré-visualização, o VM deixará de poder arrancar.
+Não pode prolongar a data de expiração de uma imagem de visualização. Quando a pré-visualização expira, a VM deixa de arrancar.
 
 - Dependendo do produto, o período experimental pode variar. Por exemplo, as imagens de pré-visualização do Windows têm um período experimental de 180 dias.
 
@@ -66,7 +66,7 @@ Não é possível prolongar a data de validade de uma imagem de pré-visualizaç
 
 ## <a name="solution"></a>Solução
 
-Se a sua imagem for uma imagem de pré-visualização, não há forma de prolongar a data de validade da imagem utilizada, terá de [implementar um novo VM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) utilizando uma imagem de não pré-visualização. Os passos abaixo irão ajudá-lo a identificar se utilizou uma imagem de pré-visualização, bem como fornecer recursos para ajudá-lo a transferir dados deste VM para um novo VM. Se identificou positivamente a imagem como uma imagem de pré-visualização, a imagem não é recuperável, uma vez que está agora expirada.
+Se a sua imagem for uma imagem de pré-visualização, não há forma de prolongar a data de validade da imagem utilizada, terá de [implementar um novo VM](../windows/quick-create-portal.md) utilizando uma imagem de não pré-visualização. Os passos abaixo irão ajudá-lo a identificar se utilizou uma imagem de pré-visualização, bem como fornecer recursos para ajudá-lo a transferir dados deste VM para um novo VM. Se identificou positivamente a imagem como uma imagem de pré-visualização, a imagem não é recuperável, uma vez que está agora expirada.
 
 Dependendo da sua preferência, pode utilizar a Azure PowerShell ou a Azure CLI para consultar a sua imagem para determinar se se trata de uma imagem de pré-visualização. Pode utilizar estes comandos para confirmar que a imagem é uma imagem de pré-visualização.
 
@@ -103,7 +103,7 @@ Dependendo da sua preferência, pode utilizar a Azure PowerShell ou a Azure CLI 
 
 ### <a name="query-using-the-azure-cli"></a>Consulta utilizando o Azure CLI
 
-1. Se ainda não o fez, terá de [instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+1. Se ainda não o fez, terá de [instalar o Azure CLI](/cli/azure/install-azure-cli).
 1. Uma vez descarregado, use o Comando Prompt ou o PowerShell para introduzir o `az login` comando e, em seguida, inscreva-se com as credenciais da sua conta.
 1. Uma vez iniciado, insira os seguintes comandos:
 

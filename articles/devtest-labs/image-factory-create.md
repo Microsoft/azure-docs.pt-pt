@@ -4,10 +4,10 @@ description: Este artigo mostra-lhe como configurar uma fábrica de imagem perso
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 14c8338d6a5ae21847da3a9c774ea6dcdac33ae4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85482076"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Criar uma fábrica de imagem personalizada em Azure DevTest Labs
@@ -18,7 +18,7 @@ Uma fábrica de imagens é uma solução de configuração como código que cons
 
 O acelerador significativo para levar um ambiente de trabalho de desenvolvedor a um estado pronto na DevTest Labs está a usar imagens personalizadas. O lado negativo das imagens personalizadas é que há algo extra para manter no laboratório. Por exemplo, as versões de teste dos produtos expiram ao longo do tempo (ou) atualizações de segurança recentemente lançadas não são aplicadas, o que nos força a refrescar periodicamente a imagem personalizada. Com uma fábrica de imagens, você tem uma definição da imagem verificada para o controlo de código fonte e tem um processo automatizado para produzir imagens personalizadas com base na definição.
 
-A solução permite a rapidez de criar máquinas virtuais a partir de imagens personalizadas, eliminando custos adicionais de manutenção em curso. Com esta solução, pode automaticamente criar imagens personalizadas, distribuí-las para outros Laboratórios DevTest e retirar as imagens antigas. No vídeo seguinte, aprende-se sobre a fábrica de imagens e como é implementada com a DevTest Labs.  Todos os scripts Azure Powershell estão disponíveis e estão localizados aqui: [https://aka.ms/dtlimagefactory](https://aka.ms/dtlimagefactory) .
+A solução permite a rapidez de criar máquinas virtuais a partir de imagens personalizadas, eliminando custos adicionais de manutenção em curso. Com esta solução, pode automaticamente criar imagens personalizadas, distribuí-las para outros Laboratórios DevTest e retirar as imagens antigas. No vídeo seguinte, aprende-se sobre a fábrica de imagens e como é implementada com a DevTest Labs.  Todos os scripts Azure Powershell estão disponíveis e estão localizados aqui:  [https://aka.ms/dtlimagefactory](https://aka.ms/dtlimagefactory) .
 
 <br/>
 
@@ -48,5 +48,5 @@ Há uma implementação alternativa usando o script PowerShell para um cenário 
 - DevTest Labs que recebe imagens personalizadas pode não estar na mesma Subscrição Azure (subscrições de laboratórios abrangem)
 - Os scripts PowerShell devem ser reutilizáveis para que possamos girar fábricas adicionais conforme necessário
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Passe para o próximo artigo nesta secção: [Gere uma fábrica de imagem a partir de Azure DevOps](image-factory-set-up-devops-lab.md)

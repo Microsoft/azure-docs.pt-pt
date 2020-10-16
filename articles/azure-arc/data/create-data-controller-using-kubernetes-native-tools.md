@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: bfdda75c0826ed12fbce1eb47680f91abbde4934
-ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91661062"
 ---
 # <a name="create-azure-arc-data-controller-using-kubernetes-tools"></a>Criar controlador de dados Azure Arc utilizando ferramentas Kubernetes
@@ -280,7 +280,7 @@ Consulte a **Implementação de uma Instância Gerida SQL utilizando o Azure Arc
 
 Se encontrar algum problema com a criação, consulte o [guia de resolução de problemas.](troubleshoot-guide.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - [Crie um exemplo gerido pelo SQL utilizando ferramentas nativas de Kubernetes](./create-sql-managed-instance-using-kubernetes-native-tools.md)
 - [Criar um grupo de servidores de hiperescala PostgreSQL usando ferramentas nativas de Kubernetes](./create-postgresql-hyperscale-server-group-kubernetes-native-tools.md)

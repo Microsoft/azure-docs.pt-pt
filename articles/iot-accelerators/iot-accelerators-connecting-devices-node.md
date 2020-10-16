@@ -10,10 +10,10 @@ ms.date: 01/24/2018
 ms.author: dobett
 ms.custom: mqtt, devx-track-js
 ms.openlocfilehash: 7982c094117d3cd40d26873ca2250edbda81b1ad
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91261639"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Ligue o seu dispositivo ao acelerador de solução de monitorização remota (Node.js)

@@ -6,10 +6,10 @@ ms.author: chmant
 ms.date: 03/23/2020
 ms.topic: how-to
 ms.openlocfilehash: 180af30f57a8123b6e90cc8b11848b92b3c86db1
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91802179"
 ---
 # <a name="use-holographic-remoting-and-remote-rendering-in-unity"></a>Utilizar o Holographic Remoting e o Remote Rendering no Unity

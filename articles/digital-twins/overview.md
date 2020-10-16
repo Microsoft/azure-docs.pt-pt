@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: ea08843dc73ed7603181eee1cf36495fda82b8d4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7ff1e2f00b20344fc19d797ed5bafdfbc2113b66
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89003852"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044671"
 ---
 # <a name="what-is-azure-digital-twins"></a>O que é o Azure Digital Twins?
 
@@ -38,13 +38,13 @@ Os modelos são definidos numa linguagem semelhante a JSON chamada Linguagem de 
 * Os modelos definem **relações** semânticas entre as suas entidades para que possa ligar os seus gémeos a um gráfico de conhecimento que reflita as suas interações. Podes pensar nos modelos como substantivos numa descrição do teu mundo, e nas relações como verbos.
 * Também pode especializar gémeos usando a herança modelo. Um modelo pode herdar de outro.
 
-O DTDL é utilizado para modelos de dados em outros serviços Azure IoT, incluindo [IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) e [Time Series Insights (TSI)](../time-series-insights/time-series-insights-update-overview.md). Isto ajuda-o a manter a sua solução Azure Digital Twins conectada e compatível com outras partes do ecossistema Azure.
+O DTDL é utilizado para modelos de dados em outros serviços Azure IoT, incluindo [IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) e [Time Series Insights (TSI)](../time-series-insights/overview-what-is-tsi.md). Isto ajuda-o a manter a sua solução Azure Digital Twins conectada e compatível com outras partes do ecossistema Azure.
 
 ### <a name="live-execution-environment"></a>Ambiente de execução ao vivo
 
 Os modelos digitais em Azure Digital Twins são representações ao vivo e atualizadas do mundo real. Utilizando as relações nos seus modelos DTDL personalizados, irá ligar gémeos a um **gráfico ao vivo** que representa o seu ambiente.
 
-Pode ver uma visualização do seu gráfico Azure Digital Twins através da ajuda de uma aplicação de amostra, [**explorador de Gémeos Digitais Azure.**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)
+Pode ver uma visualização do seu gráfico Azure Digital Twins através da ajuda de uma aplicação de amostra, [**explorador de Gémeos Digitais Azure.**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)
 
 Aqui está uma visão de como a visualização da amostra parece:
 
@@ -84,7 +84,7 @@ Uma solução completa utilizando as Gémeas Digitais Azure pode conter as segui
 * Uma ou mais aplicações de clientes que impulsionam a instância Azure Digital Twins configurando modelos, criando topologia e extraindo insights do gráfico gémeo.
 * Um ou mais recursos de computação externos para processar eventos gerados pela Azure Digital Twins, ou fontes de dados conectadas, como dispositivos. Uma forma comum de fornecer recursos computacional é através das [Funções Azure.](../azure-functions/functions-overview.md)
 * Um hub IoT para fornecer capacidades de gestão de dispositivos e fluxo de dados IoT.
-* Serviços a jusante para lidar com tarefas como integração de fluxos de trabalho (como [Aplicações Lógicas,](../logic-apps/logic-apps-overview.md)armazenamento frio, integração de séries de tempo ou análise. 
+* Serviços a jusante para lidar com tarefas como integração de fluxos de trabalho (como [Aplicações Lógicas,](../logic-apps/logic-apps-overview.md)armazenamento frio, integração de séries de tempo ou análise).
 
 O diagrama que se segue mostra onde a Azure Digital Twins se encontra no contexto de uma solução Azure IoT maior.
 

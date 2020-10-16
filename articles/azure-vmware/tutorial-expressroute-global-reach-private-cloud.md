@@ -3,12 +3,12 @@ title: Tutorial - Ambientes de peer on-in para uma nuvem privada
 description: Saiba como criar o ExpressRoute Global Reach olhando para uma nuvem privada numa Solução VMware Azure.
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 07b7e1c2636f3754eda56af574586a1027403d3e
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 9de6cbe177ac8d2ca4957e80c7ca1072a0d7985e
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91576732"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948311"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>Tutorial: Ambientes de pares no local para uma nuvem privada
 
@@ -16,14 +16,14 @@ O ExpressRoute Global Reach liga o seu ambiente no local à sua nuvem privada Az
 
 O circuito ExpressRoute que utiliza quando [configura a rede de nuvem Azure-to-private](tutorial-configure-networking.md) requer que crie e utilize chaves de autorização quando espreita para gateways ExpressRoute ou com outros circuitos ExpressRoute usando o Global Reach. Já terá usado uma chave de autorização do circuito ExpressRoute, e neste tutorial criará uma segunda para espreitar com o circuito ExpressRoute no local.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar uma segunda chave de autorização para _o circuito 2_, o circuito expressRoute em nuvem privada
 > * Utilize o [portal Azure](#azure-portal-method) ou o [CLI Azure num método Cloud Shell](#azure-cli-in-a-cloud-shell-method) na subscrição do circuito _1_ para permitir o espreitamento do ExpressRoute Global Reach nas instalações para a nuvem privada ExpressRoute Global Reach
 
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Antes de permitir a conectividade entre dois circuitos ExpressRoute utilizando o ExpressRoute Global Reach, reveja a documentação sobre como permitir a [conectividade em diferentes subscrições do Azure](../expressroute/expressroute-howto-set-global-reach-cli.md#enable-connectivity-between-expressroute-circuits-in-different-azure-subscriptions).  
 
@@ -83,7 +83,7 @@ Agora que criou uma chave de autorização para o circuito expressRoute em nuvem
 Aumentámos os [comandos do CLI](../expressroute/expressroute-howto-set-global-reach-cli.md) com detalhes e exemplos específicos para o ajudar a configurar o ExpressRoute Global Reach a espreitar entre ambientes no local para uma nuvem privada Azure VMware Solution.  
 
 > [!TIP]  
-> Para a brevidade na saída do comando Azure CLI, estas instruções podem usar um [ `–query` argumento para executar uma consulta JMESPath apenas para mostrar os resultados necessários](https://docs.microsoft.com/cli/azure/query-azure-cli).
+> Para a brevidade na saída do comando Azure CLI, estas instruções podem usar um [ `–query` argumento para executar uma consulta JMESPath apenas para mostrar os resultados necessários](/cli/azure/query-azure-cli).
 
 
 1. Inscreva-se no portal Azure usando a mesma subscrição que o circuito ExpressRoute no local e abra uma Cloud Shell. Deixe a concha como Bash.
@@ -109,7 +109,7 @@ Neste tutorial, aprendeu a criar uma segunda chave de autorização para o circu
 Continue até ao próximo tutorial para aprender a implementar e configurar a solução VMware HCX para a sua nuvem privada Azure VMware Solution.
 
 > [!div class="nextstepaction"]
-> [Implementar e configurar VMware HCX](tutorial-deploy-vmware-hcx.md)
+> [Implementar e configurar o VMware HCX](tutorial-deploy-vmware-hcx.md)
 
 
 <!-- LINKS - external-->

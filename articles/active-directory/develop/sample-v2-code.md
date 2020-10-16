@@ -13,10 +13,10 @@ ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 948eea168b071813cf20e03d3a0744a824fd4c8c
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91773897"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Amostras de código da plataforma de identidade da Microsoft (ponto final v2.0)
@@ -140,7 +140,7 @@ As seguintes amostras mostram como proteger uma Função Azure usando httpTrigge
 
 Para conhecer [amostras](https://github.com/microsoftgraph/msgraph-community-samples/tree/master/samples#aspnet) e tutoriais que demonstrem diferentes padrões de utilização para a API do Microsoft Graph, incluindo a autenticação com AZure AD, consulte [amostras da Comunidade de Gráficos do Microsoft & tutoriais](https://github.com/microsoftgraph/msgraph-community-samples).
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 - [Guia do programador Azure Ative (v1.0)](../azuread-dev/v1-overview.md)
 - [Microsoft Graph API conceptual e referência](/graph/use-the-api?context=graph%2fapi%2fbeta&view=graph-rest-beta)

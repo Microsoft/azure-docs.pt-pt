@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/07/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e8f5564f9e7e1176db1fed5fae38eee58874c2eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3ad9c5d19d5d24154a8a63bfc412d6bbfdc1d8b
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204206"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949229"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico para um emitente de ficha jWT numa política personalizada do Azure Ative Directory B2C
 
@@ -26,14 +26,14 @@ O Azure Ative Directory B2C (Azure AD B2C) emite vários tipos de fichas de segu
 
 ## <a name="protocol"></a>Protocolo
 
-O **atributo nome** do elemento **Protocolo** tem de ser definido para `None` . Desacorda o elemento **OutputTokenFormat** para `JWT` .
+O **atributo nome** do elemento **Protocolo** tem de ser definido para `OpenIdConnect` . Desacorda o elemento **OutputTokenFormat** para `JWT` .
 
 O exemplo a seguir mostra um perfil técnico `JwtIssuer` para:
 
 ```xml
 <TechnicalProfile Id="JwtIssuer">
   <DisplayName>JWT Issuer</DisplayName>
-  <Protocol Name="OpenIdConnect" />
+  <Protocol Name="None" />
   <OutputTokenFormat>JWT</OutputTokenFormat>
   <Metadata>
     <Item Key="client_id">{service:te}</Item>
@@ -64,7 +64,7 @@ Os **elementos InputClaims,** **OutputClaims**e **PersistClaims** estão vazios 
 | rolling_refresh_token_lifetime_secs | Não | Refrescar a vida útil da janela deslizante. Após este período de tempo, o utilizador é obrigado a reautenticar, independentemente do período de validade do mais recente token de atualização adquirido pela aplicação. Se não quiser impor uma janela deslizante, desapece o valor de allow_infinite_rolling_refresh_token para `true` . O padrão é de 7.776.000 segundos (90 dias). O mínimo (inclusive) é de 86.400 segundos (24 horas). O máximo (inclusive) é de 31.536.000 segundos (365 dias). |
 | allow_infinite_rolling_refresh_token | Não | Se estiver `true` definido, a janela de deslizamento de torção de torção de atualização nunca expira. |
 | EmissãoClaimPattern | Não | Controla a reivindicação do Emitente (iss). Um dos valores:<ul><li>AuthorityAndTenantGuid - A alegação do ISS inclui o seu nome de domínio, como `login.microsoftonline` ou , e o seu `tenant-name.b2clogin.com` identificador de inquilino https: \/ /login.microsoftonline.com/00000000-0000-0000-0000-000000000000/v2.0/</li><li>AuthorityWithTfp - A alegação do ISS inclui o seu nome de domínio, como `login.microsoftonline` `tenant-name.b2clogin.com` ou, o seu identificador de inquilino e o nome da política do seu partido. https: \/ /login.microsoftonline.com/tfp/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-sign-in/v2.0/</li></ul> Valor predefinido: AuthorityAndTenantGuid |
-| AutenticaçãoContextReferenceClaimPattern | Não | Controla o valor da `acr` reclamação.<ul><li>Nenhum - Azure AD B2C não emite a alegação acr</li><li>PolicyId - a `acr` alegação contém o nome da apólice</li></ul>As opções para a definição deste valor são a TFP (política de enquadramento fiduciário) e a ACR (referência de contexto de autenticação). Recomenda-se definir este valor à TFP, para definir o valor, garantir o `<Item>` que existe e o valor é `Key="AuthenticationContextReferenceClaimPattern"` `None` . Na sua política partidária, adicione `<OutputClaims>` item, adicione este elemento `<OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />` . Certifique-se também de que a sua política contém o tipo de reclamação`<ClaimType Id="trustFrameworkPolicy">   <DisplayName>trustFrameworkPolicy</DisplayName>     <DataType>string</DataType> </ClaimType>` |
+| AutenticaçãoContextReferenceClaimPattern | Não | Controla o valor da `acr` reclamação.<ul><li>Nenhum - Azure AD B2C não emite a alegação acr</li><li>PolicyId - a `acr` alegação contém o nome da apólice</li></ul>As opções para a definição deste valor são a TFP (política de enquadramento fiduciário) e a ACR (referência de contexto de autenticação). Recomenda-se definir este valor à TFP, para definir o valor, garantir o `<Item>` que existe e o valor é `Key="AuthenticationContextReferenceClaimPattern"` `None` . Na sua política partidária, adicione `<OutputClaims>` item, adicione este elemento `<OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />` . Certifique-se também de que a sua política contém o tipo de reclamação `<ClaimType Id="trustFrameworkPolicy">   <DisplayName>trustFrameworkPolicy</DisplayName>     <DataType>string</DataType> </ClaimType>` |
 |RefreshTokenUserJourneyId| Não | O identificador de uma viagem de utilizador que deve ser executada durante a [atualização de um](authorization-code-flow.md#4-refresh-the-token) pedido de POST de acesso ao `/token` ponto final. |
 
 ## <a name="cryptographic-keys"></a>Chaves criptográficas

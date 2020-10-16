@@ -5,10 +5,10 @@ ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
 ms.openlocfilehash: 7c8e68da1c5da7b25d1385a82bf7dcc2f876306d
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89376286"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Backup do Estado do Sistema de Resolução de Problemas
@@ -92,7 +92,7 @@ Certifique-se de que o SISTEMA Local tem controlo total na pasta **informação 
 
 Certifique-se de que os serviços abaixo estão no estado de funcionamento:
 
-**Nome de serviço** | **Tipo de Arranque**
+**Nome do Serviço** | **Tipo de Arranque**
 --- | ---
 Chamada de Procedimento Remoto (RPC) | Automático
 Sistema de Eventos COM+(Sistema de Eventos) | Automático
@@ -145,6 +145,6 @@ Se o trabalho falhar, indica um problema WSB que resultaria na falha de backups 
 | -- | --
 | O agente MARS falha com a mensagem de erro: "A cópia de segurança do estado do sistema falhou à medida que a partição do sistema EFI está bloqueada. Isto pode ser devido ao acesso à partição do sistema por uma segurança de terceiros ou a um software de back-up" | - Se o problema for devido a um software de segurança de terceiros, então tem de contactar o fornecedor Anti Virus para que eles possam permitir o agente MARS <br/><br/> - Se um software de backup de terceiros estiver em execução, então espere que termine e, em seguida, volte a tentar
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre o estado do sistema Windows na implementação do Gestor de Recursos, consulte [o Estado do Sistema do Servidor do Windows](backup-azure-system-state.md)

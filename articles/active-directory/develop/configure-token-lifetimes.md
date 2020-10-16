@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.custom: aaddev, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
 ms.openlocfilehash: f70a11165f6433e580fd857f2d5a620deb6640c0
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91604340"
 ---
 # <a name="configure-token-lifetime-policies-preview"></a>Configure políticas de vida útil simbólicas (pré-visualização)

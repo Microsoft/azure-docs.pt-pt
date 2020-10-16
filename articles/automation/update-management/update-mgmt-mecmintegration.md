@@ -6,10 +6,10 @@ ms.subservice: update-management
 ms.date: 07/28/2020
 ms.topic: conceptual
 ms.openlocfilehash: 09c8ef818428157c7de8c3a87bcce8a7b80e62ea
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88245915"
 ---
 # <a name="integrate-update-management-with-microsoft-endpoint-configuration-manager"></a>Integre a gestão de atualização com o Gestor de Configuração de Endpoint da Microsoft

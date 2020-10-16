@@ -14,10 +14,10 @@ ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: apimpm
 ms.openlocfilehash: be8a8f35ece946d1be907b2ca13a640bebbb4ee5
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91627028"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importar uma Aplicação de Funções do Azure como uma API na Gestão de API do Azure

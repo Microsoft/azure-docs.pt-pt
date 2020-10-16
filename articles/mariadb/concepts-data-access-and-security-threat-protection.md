@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 8485907eba75f80c8f0ed4fd0cc7368c6147b9fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79532183"
 ---
 # <a name="azure-database-for-mariadb-advanced-threat-protection"></a>Base de Dados Azure para a Proteção Avançada de Ameaças MariaDB

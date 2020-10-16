@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 98f8554d6313147c03d4a0bec74e36043cdce342
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87285276"
 ---
 # <a name="azcopy-login"></a>azcopy login
@@ -95,7 +95,7 @@ azcopy login --service-principal --certificate-path /path/to/my/cert --applicati
 
 Trate `/path/to/my/cert` como um caminho para um ficheiro PEM ou PKCS12. A AzCopy não chega à loja de certificados do sistema para obter o seu certificado.
 
-`--certificate-path`é obrigatório quando se faz o serviço principal auth.
+`--certificate-path` é obrigatório quando se faz o serviço principal auth.
 
 ## <a name="options"></a>Opções
 
@@ -105,7 +105,7 @@ Trate `/path/to/my/cert` como um caminho para um ficheiro PEM ou PKCS12. A AzCop
 
 **--percurso de cadeia de certificados** Caminho para certificado para autenticação SPN. Obrigatório para o auth principal de serviço baseado em certificado.
 
-**...ajuda** para o `azcopy login` comando.
+**...ajuda**   para o `azcopy login` comando.
 
 **--identidade**   Faça login utilizando a identidade da máquina virtual, também conhecida como identidade de serviço gerida (MSI).
 
@@ -127,6 +127,6 @@ Trate `/path/to/my/cert` como um caminho para um ficheiro PEM ou PKCS12. A AzCop
 |--cadeia do tipo de saída|Formato da saída do comando. As escolhas incluem: texto, json. O valor predefinido é "texto".|
 |--cadeia de sufixos de confiança da Microsoft-Sufixes   |Especifica sufixos de domínio adicionais onde podem ser enviados tokens de login do Azure Ative Directory.  O padrão é '*.core.windows.net;*. core.chinacloudapi.cn; *.core.cloudapi.de;* core.usgovcloudapi.net.' Qualquer listado aqui é adicionado ao padrão. Para a segurança, só deve colocar os domínios microsoft Azure aqui. Separe várias entradas com pontos e vírgulas.|
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 - [azcopy](storage-ref-azcopy.md)

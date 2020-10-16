@@ -4,10 +4,10 @@ description: Comunicação segura dentro de um cluster autónomo ou no local do 
 ms.topic: conceptual
 ms.date: 10/15/2017
 ms.openlocfilehash: 18af6fd79e03cd67e77ed4d0d4b3b6291f90301d
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91841293"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Garantir um cluster autónomo no Windows utilizando certificados X.509

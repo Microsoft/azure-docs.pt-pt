@@ -4,10 +4,10 @@ description: Saiba mais sobre ficheiros e diretórios e como são usados num flu
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.openlocfilehash: eafea6c234c3b261521f8a791b7a03e25388f02a
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87552646"
 ---
 # <a name="files-and-directories-in-azure-batch"></a>Arquivos e diretórios em Azure Batch
@@ -45,6 +45,6 @@ O diretório de raiz contém a seguinte estrutura de diretórios:
 > [!IMPORTANT]
 > Quando um nó é removido do conjunto, todos os ficheiros que estão armazenados no nó são removidos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [o manuseamento e deteção de erros](error-handling.md) no Azure Batch.

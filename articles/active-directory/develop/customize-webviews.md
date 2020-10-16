@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: a8486ec87b5198231a33b1dab382ba457c8c8066
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85478132"
 ---
 # <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>Como: Personalizar navegadores e WebViews para iOS/macOS
@@ -36,7 +36,7 @@ Para iOS e macOS:
 - [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession?language=objc)
 - [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview?language=objc).
 
-O MSAL para o macOS só suporta `WKWebView` em versões de SISTEMA mais antigas. `ASWebAuthenticationSession`é suportado apenas no macOS 10.15 ou acima. 
+O MSAL para o macOS só suporta `WKWebView` em versões de SISTEMA mais antigas. `ASWebAuthenticationSession` é suportado apenas no macOS 10.15 ou acima. 
 
 ## <a name="system-browsers"></a>Navegadores de sistema
 
@@ -61,8 +61,8 @@ Por predefinição, o MSAL irá detetar dinamicamente a versão iOS e selecionar
 
 Os desenvolvedores também podem selecionar um navegador de sistema diferente para aplicações MSAL:
 
-- `SFAuthenticationSession`é a versão iOS 11 de `ASWebAuthenticationSession` .
-- `SFSafariViewController`é um propósito mais geral e fornece uma interface para navegar na web e pode ser usado também para fins de login. No iOS 9 e 10, os cookies e outros dados do site são partilhados com o Safari -- mas não no iOS 11 e posteriormente.
+- `SFAuthenticationSession` é a versão iOS 11 de `ASWebAuthenticationSession` .
+- `SFSafariViewController` é um propósito mais geral e fornece uma interface para navegar na web e pode ser usado também para fins de login. No iOS 9 e 10, os cookies e outros dados do site são partilhados com o Safari -- mas não no iOS 11 e posteriormente.
 
 ## <a name="in-app-browser"></a>Navegador in-app
 
@@ -171,6 +171,6 @@ typedef NS_ENUM(NSInteger, MSALWebviewType)
 };
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [fluxos de autenticação e cenários de aplicação](authentication-flows-app-scenarios.md)

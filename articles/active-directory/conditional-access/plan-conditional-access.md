@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f1d4c5b55dd2a24c1fb41540fdc5d3ae26849a2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3ef10f51f058739b0e545d341b77af4313dd9e97
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258681"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91992862"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planear a implementação do Acesso Condicional
 
@@ -89,7 +89,7 @@ Considere as suas necessidades organizacionais enquanto determina a estratégia 
 
 ### <a name="engage-the-right-stakeholders"></a>Envolver as partes interessadas certas
 
-Quando os projetos tecnológicos falham, normalmente fazem-no devido a expectativas desajustadas no impacto, resultados e responsabilidades. Para evitar estas armadilhas, [certifique-se de que está a envolver as partes interessadas certas](https://aka.ms/deploymentplans) e que as funções do projeto são claras.
+Quando os projetos tecnológicos falham, normalmente fazem-no devido a expectativas desajustadas no impacto, resultados e responsabilidades. Para evitar estas armadilhas, [certifique-se de que está a envolver as partes interessadas certas](../fundamentals/active-directory-deployment-plans.md) e que as funções do projeto são claras.
 
 ### <a name="plan-communications"></a>Planear as comunicações
 
@@ -493,7 +493,7 @@ Assim que tiver recolhido a informação, consulte os seguintes recursos:
 
 * [Problemas de login com Acesso Condicional](troubleshoot-conditional-access.md) – Compreenda os resultados inesperados de login relacionados com o Acesso Condicional utilizando mensagens de erro e registo de login AD Azure.
 
-* [Utilização da ferramenta What-If](troubleshoot-conditional-access-what-if.md) - Entenda por que uma política foi ou não aplicada a um utilizador em circunstância específica ou se uma política seria aplicada num estado conhecido.
+* [Utilizando a ferramenta What-If](troubleshoot-conditional-access-what-if.md) - Compreenda por que uma política foi ou não aplicada a um utilizador em circunstâncias específicas ou se uma política seria aplicada num estado conhecido.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

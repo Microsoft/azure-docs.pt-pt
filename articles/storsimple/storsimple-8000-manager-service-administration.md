@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/12/2017
 ms.author: alkohli
 ms.openlocfilehash: c8d8e3b9058b753dc2a6da35878449c94399225e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85508049"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-device"></a>Utilize o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple
@@ -64,7 +64,7 @@ Para obter mais informações sobre cada fluxo de trabalho, clique no procedimen
 | Sobre modelos de largura de banda</br>Adicione um modelo de largura de banda</br>Editar um modelo de largura de banda</br>Elimine um modelo de largura de banda</br>Use um modelo de largura de banda padrão</br>Crie um modelo de largura de banda durante todo o dia que comece num momento especificado |[Gerir modelos de largura de banda](storsimple-8000-manage-bandwidth-templates.md) |
 | Sobre registos de controlo de acessos</br>Criar um registo de controlo de acesso</br>Editar um registo de controlo de acesso</br>Apagar um registo de controlo de acesso |[Gerir registos de controlo de acessos](storsimple-8000-manage-acrs.md) |
 | Ver detalhes da tarefa</br>Cancelar um emprego |[Gerir tarefas](storsimple-8000-manage-jobs-u2.md) |
-| Receber notificações de alerta</br>Gerir alertas</br>Alertas de revisão |[Ver e gerir alertas StorSimple](storsimple-8000-manage-alerts.md) |
+| Receber notificações de alerta</br>Gerir alertas</br>Consultar alertas |[Ver e gerir alertas StorSimple](storsimple-8000-manage-alerts.md) |
 | Criar gráficos de monitorização |[Monitorize o seu dispositivo StorSimple](storsimple-monitor-device.md) |
 | Adicione um recipiente de volume</br>Modificar um recipiente de volume</br>Apagar um recipiente de volume |[Gerir contentores de volumes](storsimple-8000-manage-volume-containers.md) |
 | Adicione um volume</br>Modificar um volume</br>Desative o volume</br>Apagar um volume</br>Monitorize um volume |[Gerir volumes](storsimple-8000-manage-volumes-u2.md) |
@@ -72,7 +72,7 @@ Para obter mais informações sobre cada fluxo de trabalho, clique no procedimen
 | Ver configurações de procuração web |[Configure o representante web para o seu dispositivo](storsimple-8000-configure-web-proxy.md) |
 | Modificar a palavra-passe do administrador do dispositivo</br>Modificar a palavra-passe do Gestor instantâneo StorSimple |[Alterar palavras-passe StorSimple](storsimple-8000-change-passwords.md) |
 | Configure a gestão remota |[Ligue-se remotamente ao seu dispositivo StorSimple](storsimple-8000-remote-connect.md) |
-| Configurar definições de alerta |[Ver e gerir alertas StorSimple](storsimple-8000-manage-alerts.md) |
+| Configurar as definições de alertas |[Ver e gerir alertas StorSimple](storsimple-8000-manage-alerts.md) |
 | Configure CHAP para o seu dispositivo StorSimple |[Configure CHAP para o seu dispositivo StorSimple](storsimple-configure-chap.md) |
 | Adicionar uma política de cópias de segurança</br>Adicionar ou modificar um horário</br>Excluir uma política de backup</br>Pegue uma cópia de segurança manual</br>Crie uma política de backup personalizada com vários volumes e horários |[Gerir políticas de cópia de segurança](storsimple-8000-manage-backup-policies-u2.md) |
 | Parar controladores de dispositivos</br>Reiniciar controladores de dispositivos</br>Desligar controladores de dispositivos</br>Repôs o seu dispositivo em padrão de fábrica</br>(Acima são apenas para dispositivos no local) |[Gerir o controlador de dispositivo storSimple](storsimple-8000-manage-device-controller.md) |
@@ -80,7 +80,7 @@ Para obter mais informações sobre cada fluxo de trabalho, clique no procedimen
 | Criar um pacote de suporte |[Criar e gerir um pacote de suporte](storsimple-8000-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple) |
 | Instalar atualizações de software |[Atualizar o seu dispositivo](storsimple-update-device.md) |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se tiver algum problema com o funcionamento diário do seu dispositivo StorSimple ou com qualquer um dos seus componentes de hardware, consulte:
 

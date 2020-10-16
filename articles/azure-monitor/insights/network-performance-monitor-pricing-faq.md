@@ -7,10 +7,10 @@ author: agummadi
 ms.author: agummadi
 ms.date: 04/02/2018
 ms.openlocfilehash: f44afd84c58c94c6a8d3e6145e8a4f66e0e2e782
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86539657"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Alterações de preços para O Monitor de Desempenho da Rede Azure
@@ -47,7 +47,7 @@ O Monitor de Desempenho monitoriza a conectividade entre dois ou mais locais da 
 
 **Tenho duas sub-redes (A e B), e tenho vários agentes em cada sub-rede. O Monitor de Desempenho monitoriza a conectividade de todos os agentes na sub-rede A a todos os agentes da sub-rede B. Serei cobrado com base no número de ligações inter-sub-redes?**
 
-Não. Para efeitos de faturação, todas as ligações da sub-rede A à sub-rede B são agrupadas numa ligação de sub-rede. Estás cobrado por uma única ligação. O Monitor de Desempenho continua a monitorizar a conectividade entre vários agentes em cada sub-rede.
+N.º Para efeitos de faturação, todas as ligações da sub-rede A à sub-rede B são agrupadas numa ligação de sub-rede. Estás cobrado por uma única ligação. O Monitor de Desempenho continua a monitorizar a conectividade entre vários agentes em cada sub-rede.
 
 **Quais são os custos para a monitorização de uma ligação de sub-redes?**
 

@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/08/2018
 ms.openlocfilehash: 62f147104cf9e0e1605b02a420cb6d20190361b8
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89657450"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Criar declarações de switch que executam ações de fluxo de trabalho com base em valores específicos em Azure Logic Apps
@@ -124,7 +124,7 @@ Agora que criou uma aplicação lógica usando uma declaração de comutação, 
 * Para dúvidas, visite a página de perguntas do [Microsoft Q&Uma página de perguntas para aplicações Azure Logic](/answers/topics/azure-logic-apps.html).
 * Para submeter ou votar em funcionalidades ou sugestões, visite o site de feedback do [utilizador do Azure Logic Apps](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Passos de execução com base numa condição (declarações condicionais)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
 * [Executar e repetir passos (laços)](../logic-apps/logic-apps-control-flow-loops.md)

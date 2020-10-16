@@ -12,10 +12,10 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019, azure-synapse
 ms.openlocfilehash: a6550ff9bc3a7cec3d9c50b6c60a02ef1af851f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85213487"
 ---
 # <a name="create-table-as-select-ctas"></a>CRIAR TABELA COMO SELECT (CTAS)
@@ -414,6 +414,6 @@ Você pode ver que tipo de consistência e manter propriedades de anulação em 
 
 O CTAS é uma das declarações mais importantes no Sinaapse SQL. Certifique-se de compreendê-lo completamente. Consulte a [documentação ctas.](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais dicas de desenvolvimento, consulte a [visão geral](sql-data-warehouse-overview-develop.md)do desenvolvimento.

@@ -241,9 +241,9 @@
 - name: Resolução de Problemas com o Shared Image Gallery
   items:
     - name: Resolução de Problemas com o Shared Image Gallery - Windows
-      href: ../windows/troubleshooting-shared-images.md
+      href: ../troubleshooting-shared-images.md
     - name: Resolução de Problemas com o Shared Image Gallery - Linux
-      href: ../linux/troubleshooting-shared-images.md
+      href: ../troubleshooting-shared-images.md
 - name: Problemas da extensão da VM
   items:
     - name: Descrição geral da extensão do Azure

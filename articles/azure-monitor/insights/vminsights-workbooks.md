@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 8ae8c633bdfca72d6e383715cac9b1bcdddd9d17
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 43cdb9de111bdea5486e49a56d58d38279b685c7
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449790"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996379"
 ---
 # <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Criar relatórios interativos do Azure Monitor para VMs com livros
 
-Os livros combinam texto, [consultas de registo,](../log-query/query-language.md)métricas e parâmetros em ricos relatórios interativos. Os livros de trabalho são editáveis por quaisquer outros membros da equipa que tenham acesso aos mesmos recursos Azure.
+Os livros combinam texto, [consultas de registo,](/azure/data-explorer/kusto/query/)métricas e parâmetros em ricos relatórios interativos. Os livros de trabalho são editáveis por quaisquer outros membros da equipa que tenham acesso aos mesmos recursos Azure.
 
 Os livros de trabalho são úteis para cenários como:
 
@@ -26,7 +26,7 @@ Os livros de trabalho são úteis para cenários como:
 
 A tabela que se segue resume os livros que o Azure Monitor para VMs inclui para começar.
 
-| Livro | Descrição | Âmbito |
+| Livro | Description | Âmbito |
 |----------|-------------|-------|
 | Desempenho | Fornece uma versão personalizável da nossa visão top N List e Charts num único livro que aproveita todos os contadores de desempenho do Log Analytics que ativou.| Em escala |
 | Contadores de desempenho | Uma vista de gráfico top N através de um vasto conjunto de contadores de desempenho. | Em escala |
@@ -240,7 +240,7 @@ Para fixar uma ligação a um livro a um painel de instrumentos Azure:
 2. Clique no "..." botão ao lado do livro que quer fixar
 3. Clique em Pin para painel de **instrumentos**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para identificar limitações e desempenho geral do VM, consulte [Ver Azure VM Performance](vminsights-performance.md).
 

@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
 ms.openlocfilehash: e28ce4cd46cb802241e02e4060441747389d3989
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90888165"
 ---
 # <a name="create-external-stream-transact-sql"></a>CRIAR FLUXO EXTERNO (Transact-SQL)
@@ -26,8 +26,8 @@ A Azure SQL Edge suporta atualmente apenas as seguintes fontes de dados como ent
 
 | Tipo de fonte de dados | Input | Saída | Descrição |
 |------------------|-------|--------|------------------|
-| Hub Azure IoT Edge | Y | Y | Fonte de dados para ler e escrever dados de streaming para um hub Azure IoT Edge. Para mais informações, consulte [o IoT Edge Hub.](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub)|
-| Base de Dados SQL | N | Y | Ligação de fonte de dados para escrever dados de streaming para a Base de Dados SQL. A base de dados pode ser uma base de dados local em Azure SQL Edge, ou uma base de dados remota no SQL Server ou na Base de Dados Azure SQL.|
+| Hub Azure IoT Edge | S | S | Fonte de dados para ler e escrever dados de streaming para um hub Azure IoT Edge. Para mais informações, consulte [o IoT Edge Hub.](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub)|
+| SQL Database | N | Y | Ligação de fonte de dados para escrever dados de streaming para a Base de Dados SQL. A base de dados pode ser uma base de dados local em Azure SQL Edge, ou uma base de dados remota no SQL Server ou na Base de Dados Azure SQL.|
 | Kafka | S | N | Fonte de dados para ler dados de streaming de um tópico kafka. O suporte kafka não está disponível para a versão ARM64 do Azure SQL Edge.|
 
 
@@ -245,7 +245,7 @@ WITH
 ); 
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 - [FLUXO EXTERNO DROP (Transact-SQL)](drop-external-stream-transact-sql.md) 
 

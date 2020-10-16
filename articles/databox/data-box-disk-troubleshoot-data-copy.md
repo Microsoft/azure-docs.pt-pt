@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 06/13/2019
 ms.author: alkohli
 ms.openlocfilehash: 5d977fe0b7459af35f678e77681d3b27c31431cc
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85849179"
 ---
 # <a name="troubleshoot-data-copy-issues-in-azure-data-box-disk"></a>Problemas de cópia de dados de resolução de problemas no disco da caixa de dados do Azure
@@ -99,6 +99,6 @@ Os problemas observados ao utilizar uma ferramenta Split Copy para dividir os da
 |[Erro] Exceção emitida: sequência de escape JSON inválida. |Esta mensagem é reportada quando o config.json está num formato inválido. <br> Valide o `config.json` com [JSONlint](https://jsonlint.com/) antes de guardar o ficheiro.|
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [resolver problemas com as questões da ferramenta de validação](data-box-disk-troubleshoot.md).

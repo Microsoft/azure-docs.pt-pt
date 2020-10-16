@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
 ms.openlocfilehash: 9742f97832c1fc931a1679132e262f92c9f11225
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88037189"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurar, otimizar e resolver problemas AzCopy
@@ -32,7 +32,7 @@ Para configurar as definições de procuração para AzCopy, defina a `https_pro
 
 | Sistema operativo | Comando  |
 |--------|-----------|
-| **Windows** | Numa utilização rápida de comando:`set https_proxy=<proxy IP>:<proxy port>`<br> Na utilização do PowerShell:`$env:https_proxy="<proxy IP>:<proxy port>"`|
+| **Windows** | Numa utilização rápida de comando: `set https_proxy=<proxy IP>:<proxy port>`<br> Na utilização do PowerShell: `$env:https_proxy="<proxy IP>:<proxy port>"`|
 | **Linux** | `export https_proxy=<proxy IP>:<proxy port>` |
 | **macOS** | `export https_proxy=<proxy IP>:<proxy port>` |
 
@@ -191,7 +191,7 @@ Use qualquer um destes comandos.
 
 | Sistema operativo | Comando  |
 |--------|-----------|
-| **Windows** | PowerShell:`$env:AZCOPY_JOB_PLAN_LOCATION="<value>"` <br> Numa utilização imediata de comando::`set AZCOPY_JOB_PLAN_LOCATION=<value>` |
+| **Windows** | PowerShell:`$env:AZCOPY_JOB_PLAN_LOCATION="<value>"` <br> Numa utilização imediata de comando:: `set AZCOPY_JOB_PLAN_LOCATION=<value>` |
 | **Linux** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
 | **macOS** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
 
@@ -203,7 +203,7 @@ Use qualquer um destes comandos.
 
 | Sistema operativo | Comando  |
 |--------|-----------|
-| **Windows** | PowerShell:`$env:AZCOPY_LOG_LOCATION="<value>"` <br> Numa utilização imediata de comando::`set AZCOPY_LOG_LOCATION=<value>`|
+| **Windows** | PowerShell:`$env:AZCOPY_LOG_LOCATION="<value>"` <br> Numa utilização imediata de comando:: `set AZCOPY_LOG_LOCATION=<value>`|
 | **Linux** | `export AZCOPY_LOG_LOCATION=<value>` |
 | **macOS** | `export AZCOPY_LOG_LOCATION=<value>` |
 

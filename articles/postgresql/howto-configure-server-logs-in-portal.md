@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.openlocfilehash: 3b52cea1d440506caf5b8244c9643719edd8755c
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91704280"
 ---
 # <a name="configure-and-access-azure-database-for-postgresql---single-server-logs-from-the-azure-portal"></a>Configurar e aceder à Base de Dados Azure para postgresQL - Registos de servidor único a partir do portal Azure
@@ -63,7 +63,7 @@ Após o início do registo, pode ver uma lista de registos disponíveis e fazer 
 
    :::image type="content" source="./media/howto-configure-server-logs-in-portal/6-download.png" alt-text="Screenshot das opções de registos do Servidor":::
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 - Consulte [os registos do servidor Access no CLI](howto-configure-server-logs-using-cli.md) para aprender a descarregar registos programáticamente.
 - Saiba mais sobre [os registos de servidores](concepts-server-logs.md) na Base de Dados Azure para PostgreSQL. 
 - Para obter mais informações sobre as definições de parâmetros e o registo pós-SQL, consulte a documentação postgreSQL sobre [relatórios de erros e registos.](https://www.postgresql.org/docs/current/static/runtime-config-logging.html)

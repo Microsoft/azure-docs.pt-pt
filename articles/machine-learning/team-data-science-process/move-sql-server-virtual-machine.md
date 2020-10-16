@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 8350437d04fd019aab8fb22be8ad0e9a4a2831d7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87012183"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Mover dados para o SQL Server numa máquina virtual do Azure
@@ -28,8 +28,8 @@ A tabela seguinte resume as opções de deslocação de dados para o SQL Server 
 
 | <b>FONTE</b> | <b>DESTINO: SQL Server em Azure VM</b> |
 | --- | --- |
-| <b>Arquivo Plano</b> |1. <a href="#insert-tables-bcp">Utilitário de cópia a granel da linha de comando (BCP)</a><br> 2. <a href="#insert-tables-bulkquery">Consulta DE INSERÇÃO A granel SQL</a><br> 3. <a href="#sql-builtin-utilities">Utilitários incorporados gráficos no Servidor SQL</a> |
-| <b>Servidor SQL nas Instalações</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Implementar uma base de dados de servidor SQL para um assistente VM do Microsoft Azure</a><br> 2. <a href="#export-flat-file">Exportação para um arquivo plano</a><br> 3. <a href="#sql-migration">Assistente de migração da base de dados SQL</a> <br> 4. <a href="#sql-backup">Base de dados de volta e restauro</a><br> |
+| <b>Arquivo Plano</b> |1. <a href="#insert-tables-bcp">Utilitário de cópia a granel da linha de comando (BCP) </a><br> 2. <a href="#insert-tables-bulkquery">Consulta DE INSERÇÃO A granel SQL </a><br> 3. <a href="#sql-builtin-utilities">Utilitários incorporados gráficos no Servidor SQL</a> |
+| <b>Servidor SQL nas Instalações</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Implementar uma base de dados de servidor SQL para um assistente VM do Microsoft Azure</a><br> 2. <a href="#export-flat-file">Exportação para um arquivo plano </a><br> 3. <a href="#sql-migration">Assistente de migração da base de dados SQL </a> <br> 4. <a href="#sql-backup">Base de dados de volta e restauro </a><br> |
 
 Este documento pressupõe que os comandos SQL são executados a partir do SQL Server Management Studio ou do Visual Studio Database Explorer.
 
@@ -46,7 +46,7 @@ Este tutorial pressupõe que tem:
 * Servidor **SQL provisionado num VM Azure**. Para obter instruções, consulte [configurar uma máquina virtual do Azure SQL Server como um servidor de caderno IPython para análises avançadas](../data-science-virtual-machine/setup-sql-server-virtual-machine.md).
 * Instalado e configurado **Azure PowerShell** localmente. Para obter instruções, consulte [como instalar e configurar a Azure PowerShell](/powershell/azure/).
 
-## <a name="moving-data-from-a-flat-file-source-to-sql-server-on-an-azure-vm"></a><a name="filesource_to_sqlonazurevm"></a>Mover dados de uma fonte de ficheiro plana para SQL Server em um Azure VM
+## <a name="moving-data-from-a-flat-file-source-to-sql-server-on-an-azure-vm"></a><a name="filesource_to_sqlonazurevm"></a> Mover dados de uma fonte de ficheiro plana para SQL Server em um Azure VM
 Se os seus dados estiverem num ficheiro plano (dispostos num formato de linha/coluna), pode ser movido para SQL Server VM em Azure através dos seguintes métodos:
 
 1. [Utilitário de cópia a granel da linha de comando (BCP)](#insert-tables-bcp)

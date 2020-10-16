@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/05/2020
+ms.date: 10/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 10121243961d4c81ecc67d7453019c26743fe610
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 146f9ea918f75e0521209d9db712bdcab76a8e7e
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87845770"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096594"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Copie dados de uma fonte OData utilizando a Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -59,7 +59,8 @@ As seguintes propriedades são suportadas para um serviço ligado ao OData:
 |:--- |:--- |:--- |
 | tipo | A propriedade **tipo** deve ser definida para **OData**. |Sim |
 | url | O URL raiz do serviço OData. |Sim |
-| authenticationType | O tipo de autenticação utilizado para ligar à fonte OData. Os valores permitidos são **Anónimos,** **Básicos,** **Windows**e **AadServicePrincipal**. O OAuth baseado no utilizador não é suportado. | Sim |
+| authenticationType | O tipo de autenticação utilizado para ligar à fonte OData. Os valores permitidos são **Anónimos,** **Básicos,** **Windows**e **AadServicePrincipal**. O OAuth baseado no utilizador não é suportado. Pode ainda configurar cabeçalhos de autenticação em `authHeader` propriedade.| Sim |
+| authHeaders | Cabeçalhos adicionais de pedido DE HTTP para autenticação.<br/> Por exemplo, para utilizar a autenticação da chave API, pode selecionar o tipo de autenticação como "Anónimo" e especificar a tecla API no cabeçalho. | Não |
 | userName | Especifique **o nome do utilizador** se utilizar a autenticação Básica ou o Windows. | Não |
 | palavra-passe | Especifique a **palavra-passe** para a conta de utilizador especificada para **o nome de utilizador**. Marque este campo como um tipo **SecureString** para armazená-lo de forma segura na Data Factory. Também pode [fazer referência a um segredo armazenado no Cofre da Chave Azure.](store-credentials-in-key-vault.md) | Não |
 | servicePrincipalId | Especificar o ID do cliente do Azure Ative Directory. | Não |
@@ -197,6 +198,31 @@ As seguintes propriedades são suportadas para um serviço ligado ao OData:
 }
 ```
 
+**Exemplo 6: Utilização da autenticação da chave API**
+
+```json
+{
+    "name": "ODataLinkedService",
+    "properties": {
+        "type": "OData",
+        "typeProperties": {
+            "url": "<endpoint of OData source>",
+            "authenticationType": "Anonymous",
+            "authHeader": {
+                "APIKey": {
+                    "type": "SecureString",
+                    "value": "<API key>"
+                }
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
 ## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
 Esta secção fornece uma lista de propriedades que o conjunto de dados OData suporta.
@@ -299,7 +325,7 @@ Ao copiar dados do OData, são utilizados os seguintes mapeamentos entre os tipo
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
 | Edm.SByte | Int16 |
-| Edm.String | Cadeia |
+| Edm.String | String |
 | Edm.Tempo | TimeSpan |
 | Edm.DateTimeOffset | Início de execução de tempo de data |
 

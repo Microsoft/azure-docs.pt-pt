@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e39548a923e76fc118dec4158398d02577ec20c5
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 300b9b6279231079807f8c923570bddab657ff56
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91610063"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92095913"
 ---
 # <a name="initiate-a-storage-account-failover"></a>Iniciar uma falha na conta de armazenamento
 
@@ -45,13 +45,13 @@ Para obter mais informações sobre a redundância do Azure Storage, consulte [a
 Para iniciar uma falha de conta a partir do portal Azure, siga estes passos:
 
 1. Navegue até à sua conta de armazenamento.
-1. Em **Definições**, selecione **Geo-replicação**. A imagem a seguir mostra o estado de geo-replicação e falha de uma conta de armazenamento.
+1. Em **Definições**, selecione **Georreplicação**. A imagem a seguir mostra o estado de geo-replicação e falha de uma conta de armazenamento.
 
     :::image type="content" source="media/storage-initiate-account-failover/portal-failover-prepare.png" alt-text="Screenshot mostrando geo-replicação e estado de failover":::
 
 1. Verifique se a sua conta de armazenamento está configurada para armazenamento geo-redundante (GRS) ou armazenamento geo-redundante de acesso à leitura (RA-GRS). Se não for, selecione **Configuração** em **Definições** para atualizar a sua conta para ser geo-redundante.
 1. A **propriedade Last Sync Time** indica a distância do secundário a partir da primária. **O Último Tempo de Sincronização** fornece uma estimativa da extensão da perda de dados que irá experimentar após a conclusão da falha. Para obter mais informações sobre a verificação da propriedade **Last Sync Time,** consulte [a propriedade Last Sync Time para obter uma conta de armazenamento.](last-sync-time-get.md)
-1. **Selecione Prepare-se para o failover**.
+1. Selecione **Preparar ativação pós-falha**.
 1. Reveja o diálogo de confirmação. Quando estiver pronto, insira **Sim** para confirmar e iniciar a falha.
 
     :::image type="content" source="media/storage-initiate-account-failover/portal-failover-confirm.png" alt-text="Screenshot mostrando geo-replicação e estado de failover":::
@@ -107,6 +107,8 @@ az storage account failover \ --name accountName
 Quando inicia uma falha de conta na sua conta de armazenamento, os registos DNS para o ponto final secundário são atualizados de modo a que o ponto final secundário se torne o principal ponto final. Certifique-se de que compreende o impacto potencial na sua conta de armazenamento antes de iniciar uma falha.
 
 Para estimar a extensão da provável perda de dados antes de iniciar uma falha, verifique a propriedade **Last Sync Time.** Para obter mais informações sobre a verificação da propriedade **Last Sync Time,** consulte [a propriedade Last Sync Time para obter uma conta de armazenamento.](last-sync-time-get.md)
+
+O tempo que leva para falhar após o início pode variar embora tipicamente menos de uma hora.
 
 Após o failover, o seu tipo de conta de armazenamento é automaticamente convertido para armazenamento localmente redundante (LRS) na nova região primária. Pode ree capacitar o armazenamento geo-redundante (GRS) ou o armazenamento geo-redundante de acesso à leitura (RA-GRS) para a conta. Note que a conversão de LRS para GRS ou RA-GRS incorre num custo adicional. Para obter informações adicionais, consulte [detalhes de preços de largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/).
 
