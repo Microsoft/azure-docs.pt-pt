@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: c0f4c4deaa57b1414a3ef55226e4c451b53ba72c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 145aefbe5a31d71ae614826c63d285c37ac03571
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90971310"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123930"
 ---
 # <a name="tutorial-create-and-walk-through-the-solar-panel-monitoring-app-template"></a>Tutorial: Criar e passear através do modelo de aplicação de monitorização do painel solar 
 
@@ -25,7 +25,7 @@ Este tutorial guia-o através do processo de criação da aplicação de monitor
 > [!div class="checklist"]
 > * Crie gratuitamente a aplicação do painel solar
 > * Walk-through de aplicação
-> * Limpar os recursos
+> * Limpar recursos
 
 
 Se não tiver uma subscrição, [crie uma conta de teste gratuita](https://azure.microsoft.com/free)
@@ -96,7 +96,7 @@ Clique no **separador modelos do dispositivo** para ver o modelo do dispositivo 
 > ![Modelo de dispositivos de painel solar](media/tutorial-iot-central-solar-panel/solar-panel-device-templates.png)
 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 Se decidir não continuar a utilizar esta aplicação, elimine a sua aplicação com os seguintes passos:
 
 1. Do painel esquerdo, abra o separador administração
@@ -108,6 +108,6 @@ Se decidir não continuar a utilizar esta aplicação, elimine a sua aplicação
 ## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre a arquitetura de aplicativos de painel solar refere-se a 
 > [!div class="nextstepaction"]
-> [o artigo conceito](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-solar-panel-app)
+> [o artigo conceito](./concept-iot-central-solar-panel-app.md)
 * Crie modelos de aplicação de painel solar gratuitamente: [aplicativo painel solar](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
-* Saiba mais sobre o IoT Central, consulte [a visão geral do IoT Central](https://docs.microsoft.com/azure/iot-central/)
+* Saiba mais sobre o IoT Central, consulte [a visão geral do IoT Central](../index.yml)

@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: e0ac1ec93dba23eb6ab3380e342141618a1ab6e4
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 16e60b5015107c5f99e63f15bb21c5a375f05340
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92069664"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123257"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Escalões de preço na Base de Dados do Azure para PostgreSQL – Servidor Único
 
@@ -51,7 +51,7 @@ O armazenamento que fornece é a quantidade de capacidade de armazenamento dispo
 | IOPS | Variável |3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20.000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20.000 IOPS |
 
 > [!NOTE]
-> O armazenamento até 16TB e 20.000 IOPS é suportado nas seguintes regiões: Leste dos EUA, Leste dos EUA 2, Central EUA, Eua Ocidental, Eua Central Do Norte, Eua Central Do Sul, Europa do Norte, Europa Ocidental, Reino Unido, Reino Unido Oeste, Sudeste Asiático, Leste da Ásia, Japão Ocidental, Coreia Central, Coreia do Sul, Austrália Oriental, Austrália Sudeste, Oeste dos EUA E Canadá Central.
+> O armazenamento até 16TB e 20.000 IOPS é suportado nas seguintes regiões: Leste dos EUA, Leste dos EUA 2, Brasil Sul, Eua Central, Eua Ocidental, Eua Central Do Sul, América do Norte, Europa do Norte, Europa Ocidental, Reino Unido Sul, Reino Unido, Sudeste Asiático, Ásia Oriental, Japão Ocidental, Coreia Central, Coreia do Sul, Austrália Oriental, Austrália Sudeste, Oeste dos EUA , Canadá Leste, e Canadá Central.
 >
 > Todas as outras regiões suportam até 4TB de armazenamento e 6000 IOPS.
 >

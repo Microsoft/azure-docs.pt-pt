@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: 33ad1deff4d543564db1b52bce986b11758042c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc5bfb7c9cadea7aaa9cdedb2a17943014c6ef59
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445063"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124763"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Criação e utilização de geo-replicação ativa - Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -132,7 +132,7 @@ Por predefinição, a redundância de armazenamento de backup do secundário é 
 > A taxa de registo de transações no primário pode ser acelerada por razões não relacionadas com o tamanho do cálculo mais baixo num secundário. Este tipo de estrangulamento pode ocorrer mesmo que o secundário tenha o mesmo tamanho de computação ou maior do que o primário. Para mais detalhes, incluindo tipos de espera para diferentes tipos de taxa de registo, consulte a [governação da taxa de registo de transações](resource-limits-logical-server.md#transaction-log-rate-governance).
 
 > [!NOTE]
-> Azure SQL Database Configurable Backup Storage Despedimento está atualmente disponível em pré-visualização pública apenas na região do Sudeste Asiático Azure. Na pré-visualização, se a base de dados de origem for criada com redundância de backup local ou redundante, a criação de uma base de dados secundária numa região de Azure diferente não será suportada. 
+> Azure SQL Database Configurable Backup Storage Despedimento está atualmente disponível apenas na região do Sudeste Asiático Azure. Quando a base de dados de origem é criada com redundância de armazenamento de backup de segurança redundante local ou redundante, a criação de uma base de dados secundária numa região de Azure diferente não é suportada. 
 
 Para obter mais informações sobre os tamanhos de cálculo da Base de Dados [SQL, consulte quais são os Níveis de Serviço de Base de Dados SQL](purchasing-models.md).
 

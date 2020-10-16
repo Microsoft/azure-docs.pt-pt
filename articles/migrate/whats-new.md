@@ -4,12 +4,12 @@ description: Saiba mais sobre as novidades e novidades recentes no serviço Azur
 ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 0552402661397a2a8aa09f989189cc08b46e638e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a36e73496b07df18c61b07df9d90992c0ab399ce
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91667083"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124661"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Novidades em Azure Migrate
 
@@ -17,7 +17,7 @@ ms.locfileid: "91667083"
 
 ## <a name="update-september-2020"></a>Atualização (setembro 2020)
 - A migração de servidores para Zonas de Disponibilidade é agora suportada.
-- A migração de VMs e servidores físicos baseados na UEFI para a geração Azure 2 VMs é agora suportada
+- A migração de VMs e servidores físicos baseados na UEFI para Azure geração 2 VMs é agora suportada. Com esta versão, a ferramenta Azure Migrate: Server Migration não realizará a conversão da Gen 2 VM para a Gen 1 VM durante a migração.
 - Um novo painel de avaliação do Azure Migrate Power BI está disponível para ajudá-lo a comparar custos em diferentes definições de avaliação. O dashboard vem com um utilitário PowerShell que cria automaticamente as avaliações que se ligam ao painel Power BI. [Saiba mais.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/assessment-utility)
 - A análise da dependência (sem agente) pode agora ser executada simultaneamente em 1000 VMs.
 - A análise de dependência (sem agente) pode agora ser ativada ou desativada em escala utilizando scripts PowerShell. [Saiba mais.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: b48aab918b477f5c689a50ca476b0b1336642f0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd23dff3f60ab52a82633b9876b67c628a8e2dc7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77471861"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123532"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Perguntas frequentes (FAQ) sobre O Observador de Redes Azure
 O serviço [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) fornece um conjunto de ferramentas para monitorizar, diagnosticar, visualizar métricas e ativar ou desativar registos de recursos numa rede virtual Azure. Este artigo responde a perguntas comuns sobre o serviço.
@@ -80,6 +80,14 @@ O Network Watcher apenas precisa de ser ativado uma vez para uma subscrição pa
 
 ### <a name="how-can-i-manage-the-network-watcher-resource"></a>Como posso gerir o Recurso do Observador de Rede? 
 O recurso Network Watcher representa o serviço de backend para Network Watcher e é totalmente gerido pelo Azure. Os clientes não precisam de o gerir. Operações como o movimento não são suportadas no recurso. No entanto, [o recurso pode ser eliminado.](https://docs.microsoft.com/azure/network-watcher/network-watcher-create#delete-a-network-watcher-in-the-portal) 
+
+## <a name="service-availability-and-redundancy"></a>Disponibilidade de serviços e redundância 
+
+### <a name="is-the-network-watcher-service-zone-resilient"></a>A zona de serviço do Observador de Rede é resistente? 
+Sim. O serviço Network Watcher é resistente à zona por defeito. 
+
+### <a name="how-do-i-configure-the-network-watcher-service-to-be-zone-resilient"></a>Como posso configurar o serviço Network Watcher para ser resistente à zona? 
+Não é necessária nenhuma configuração do cliente para permitir a resiliência da zona. A resiliência da zona para os recursos do Network Watcher está disponível por padrão e gerida pelo próprio serviço. 
 
 ## <a name="nsg-flow-logs"></a>Registos de fluxo NSG
 

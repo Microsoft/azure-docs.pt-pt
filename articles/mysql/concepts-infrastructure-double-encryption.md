@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: c087d5eea88a3329d5486afdd2158e80f7ebf778
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24ec674c35a4e218c105febf6471ae8427f3c1c3
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531031"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125735"
 ---
 # <a name="azure-database-for-mysql-infrastructure-double-encryption"></a>Base de dados Azure para infraestrutura MySQL dupla encriptação
 
@@ -20,7 +20,7 @@ A Azure Database for MySQL utiliza encriptação de armazenamento [de dados em r
 A encriptação dupla da infraestrutura adiciona uma segunda camada de encriptação usando chaves geridas pelo serviço. Utiliza o módulo criptográfico validado FIPS 140-2, mas com um algoritmo de encriptação diferente. Isto fornece uma camada adicional de proteção para os seus dados em repouso. A chave utilizada na encriptação dupla infraestrutura também é gerida pela Base de Dados Azure para o serviço MySQL. A dupla encriptação da infraestrutura não é ativada por padrão, uma vez que a camada adicional de encriptação pode ter um impacto de desempenho.
 
 > [!NOTE]
-> Esta funcionalidade está disponível em todas as regiões do Azure onde a Base de Dados Azure para o MySQL suporta os níveis de preços "Final Geral" e "Memory Optimized".
+> Esta funcionalidade é suportada apenas para os níveis de preços "Final geral" e "Memory Optimized" na Base de Dados Azure para PostgreSQL.
 
 A encriptação Infrastructure Layer tem o benefício de ser implementada na camada mais próxima do dispositivo de armazenamento ou dos fios de rede. A Azure Database for MySQL implementa as duas camadas de encriptação utilizando chaves geridas pelo serviço. Apesar de ainda tecnicamente na camada de serviço, está muito perto do hardware que armazena os dados em repouso. Pode ainda ativar opcionalmente a encriptação de dados em repouso utilizando a [chave gerida pelo cliente](concepts-data-encryption-mysql.md) para o servidor MySQL fortalhado. 
 

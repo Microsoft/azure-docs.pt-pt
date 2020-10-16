@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 3181b88b0cf49516eb5230585460d0cc91bb4042
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c8143a19d7e18b24e202018698b37e1b2855db4
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575304"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125427"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Encomendar o Azure Data Box
 
@@ -55,7 +55,7 @@ Antes de começar, certifique-se de que:
 
 #### <a name="install-the-cli-locally"></a>Instalar a CLI localmente
 
-* Instale a versão [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 2.0.67 ou posterior. Em alternativa, pode [instalar-se utilizando o MSI.](https://aka.ms/installazurecliwindows)
+* Instale a versão [Azure CLI](/cli/azure/install-azure-cli) 2.0.67 ou posterior. Em alternativa, pode [instalar-se utilizando o MSI.](https://aka.ms/installazurecliwindows)
 
 **Iniciar sessão no Azure**
 
@@ -164,13 +164,13 @@ Verá a saída seguinte:
     WSManStackVersion              3.0
 ```
 
-Se a sua versão for inferior a 6.2.4, tem de atualizar a sua versão do Windows PowerShell. Para instalar a versão mais recente do Windows PowerShell, consulte [instalar a Azure PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-7).
+Se a sua versão for inferior a 6.2.4, tem de atualizar a sua versão do Windows PowerShell. Para instalar a versão mais recente do Windows PowerShell, consulte [instalar a Azure PowerShell](/powershell/scripting/install/installing-powershell?view=powershell-7).
 
 **Instalar módulos Azure PowerShell e Data Box**
 
 Terá de instalar os módulos Azure PowerShell para utilizar o Azure PowerShell para encomendar uma Caixa de Dados Azure. Para instalar os módulos Azure PowerShell:
 
-1. Instale o [módulo Azure PowerShell Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az).
+1. Instale o [módulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az).
 2. Em seguida, instale a Az.DataBox utilizando o comando `Install-Module -Name Az.DataBox` .
 
 ```azurepowershell
@@ -184,7 +184,7 @@ Version              Name                                Repository           De
 
 #### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Abra uma janela de comando Windows PowerShell e inscreva-se no Azure com o comando [Connect-AzAccount:](https://docs.microsoft.com/powershell/module/az.accounts/Connect-AzAccount)
+Abra uma janela de comando Windows PowerShell e inscreva-se no Azure com o comando [Connect-AzAccount:](/powershell/module/az.accounts/Connect-AzAccount)
 
 ```azurepowershell
 PS C:\Windows> Connect-AzAccount
@@ -202,7 +202,7 @@ gusp@contoso.com     MySubscription                            aaaaaaaa-aaaa-aaa
 PS C:\Windows\System32>
 ```
 
-Para obter informações detalhadas sobre como iniciar seduca no Azure usando o Windows PowerShell, consulte [Iniciar sôs-in com a Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
+Para obter informações detalhadas sobre como iniciar seduca no Azure usando o Windows PowerShell, consulte [Iniciar sôs-in com a Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 ---
 
@@ -338,7 +338,7 @@ Faça os seguintes passos utilizando o Azure CLI para encomendar um dispositivo:
    |consulta| A cadeia de consulta JMESPath. Para mais informações, consulte [o JMESPath.](http://jmespath.org/) | -consulta <string>|
    |verbose| Inclua a registo verboso. | -verbose |
 
-2. No seu pedido de comando de escolha ou terminal, utilize o trabalho de caixa de [dados az criar](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create) para criar a sua encomenda Azure Data Box.
+2. No seu pedido de comando de escolha ou terminal, utilize o trabalho de caixa de [dados az criar](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create) para criar a sua encomenda Azure Data Box.
 
    ```azurecli
    az databox job create --resource-group <resource-group> --name <order-name> --location <azure-location> --sku <databox-device-type> --contact-name <contact-name> --phone <phone-number> --email-list <email-list> --street-address1 <street-address-1> --street-address2 <street-address-2> --city "contact-city" --state-or-province <state-province> --country <country> --postal-code <postal-code> --company-name <company-name> --storage-account "storage-account"
@@ -431,7 +431,7 @@ Faça os seguintes passos utilizando a Azure PowerShell para encomendar um dispo
     $storAcct = Get-AzStorageAccount -Name "mystorageaccount" -ResourceGroup "myresourcegroup"
    ```
 
-2. Anote as suas definições para a sua encomenda de Caixa de Dados. Estas definições incluem as suas informações pessoais/empresariais, nome de subscrição, informações do dispositivo e informações de envio. Terá de utilizar estas definições como parâmetros ao executar o comando PowerShell para criar a ordem Caixa de Dados. A tabela seguinte mostra as definições de parâmetros utilizadas para [o New-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/New-AzDataBoxJob).
+2. Anote as suas definições para a sua encomenda de Caixa de Dados. Estas definições incluem as suas informações pessoais/empresariais, nome de subscrição, informações do dispositivo e informações de envio. Terá de utilizar estas definições como parâmetros ao executar o comando PowerShell para criar a ordem Caixa de Dados. A tabela seguinte mostra as definições de parâmetros utilizadas para [o New-AzDataBoxJob](/powershell/module/az.databox/New-AzDataBoxJob).
 
     | Definição (parâmetro) | Descrição |  Valor da amostra |
     |---|---|---|
@@ -452,7 +452,7 @@ Faça os seguintes passos utilizando a Azure PowerShell para encomendar um dispo
     |CompanyName| O nome da sua empresa para quem trabalha.| "Contoso, LTD" |
     |ArmazenamentoAccountResourceId [Obrigatório]| O ID da conta Azure Storage de onde pretende importar dados.| <AzStorageAccount>.id |
 
-3. No seu pedido de comando de escolha ou terminal, utilize o [New-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/New-AzDataBoxJob) para criar a sua encomenda Azure Data Box.
+3. No seu pedido de comando de escolha ou terminal, utilize o [New-AzDataBoxJob](/powershell/module/az.databox/New-AzDataBoxJob) para criar a sua encomenda Azure Data Box.
 
    ```azurepowershell
     PS> $storAcct = Get-AzureStorageAccount -StorageAccountName "mystorageaccount"
@@ -506,7 +506,7 @@ Em seguida, a Microsoft prepara e expede os seus dispositivos através de uma tr
 
 ### <a name="track-a-single-order"></a>Acompanhe uma única encomenda
 
-Para obter informações de rastreio sobre uma única encomenda existente da Caixa de Dados Azure, executar [az databox show](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show). O comando apresenta informações sobre a ordem, como, mas não se limitando a: nome, grupo de recursos, informações de rastreio, ID de subscrição, informações de contacto, tipo de envio e sku do dispositivo.
+Para obter informações de rastreio sobre uma única encomenda existente da Caixa de Dados Azure, executar [az databox show](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show). O comando apresenta informações sobre a ordem, como, mas não se limitando a: nome, grupo de recursos, informações de rastreio, ID de subscrição, informações de contacto, tipo de envio e sku do dispositivo.
 
    ```azurecli
    az databox job show --resource-group <resource-group> --name <order-name>
@@ -547,7 +547,7 @@ Para obter informações de rastreio sobre uma única encomenda existente da Cai
 
 ### <a name="list-all-orders"></a>Listar todas as encomendas
 
-Se encomendou vários dispositivos, pode executar [a lista de trabalho da caixa de dados az](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list) para visualizar todas as suas encomendas da Caixa de Dados Azure. O comando lista todas as ordens que pertencem a um grupo de recursos específicos. Também apresentado na saída: nome da encomenda, estado do envio, região Azure, tipo de entrega, estado da encomenda. As encomendas canceladas também estão incluídas na lista.
+Se encomendou vários dispositivos, pode executar [a lista de trabalho da caixa de dados az](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list) para visualizar todas as suas encomendas da Caixa de Dados Azure. O comando lista todas as ordens que pertencem a um grupo de recursos específicos. Também apresentado na saída: nome da encomenda, estado do envio, região Azure, tipo de entrega, estado da encomenda. As encomendas canceladas também estão incluídas na lista.
 O comando também apresenta selos temporais de cada ordem.
 
 ```azurecli
@@ -590,7 +590,7 @@ A tabela a seguir mostra as informações do parâmetro `az databox job list` pa
 
 ### <a name="track-a-single-order"></a>Acompanhe uma única encomenda
 
-Para obter informações de rastreio sobre uma única encomenda existente da Caixa de Dados Azure, execute [Get-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/Get-AzDataBoxJob). O comando apresenta informações sobre a ordem, como, mas não se limitando a: nome, grupo de recursos, informações de rastreio, ID de subscrição, informações de contacto, tipo de envio e sku do dispositivo.
+Para obter informações de rastreio sobre uma única encomenda existente da Caixa de Dados Azure, execute [Get-AzDataBoxJob](/powershell/module/az.databox/Get-AzDataBoxJob). O comando apresenta informações sobre a ordem, como, mas não se limitando a: nome, grupo de recursos, informações de rastreio, ID de subscrição, informações de contacto, tipo de envio e sku do dispositivo.
 
 > [!NOTE]
 > `Get-AzDataBoxJob` é utilizado para exibir encomendas individuais e múltiplas. A diferença é que você especifica o nome da encomenda para encomendas individuais.
@@ -623,7 +623,7 @@ Para obter informações de rastreio sobre uma única encomenda existente da Cai
 
 ### <a name="list-all-orders"></a>Listar todas as encomendas
 
-Se encomendou vários dispositivos, pode executar [o Get-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/Get-AzDataBoxJob) para visualizar todas as suas encomendas da Caixa de Dados Azure. O comando lista todas as ordens que pertencem a um grupo de recursos específicos. Também apresentado na saída: nome da encomenda, estado do envio, região Azure, tipo de entrega, estado da encomenda. As encomendas canceladas também estão incluídas na lista.
+Se encomendou vários dispositivos, pode executar [o Get-AzDataBoxJob](/powershell/module/az.databox/Get-AzDataBoxJob) para visualizar todas as suas encomendas da Caixa de Dados Azure. O comando lista todas as ordens que pertencem a um grupo de recursos específicos. Também apresentado na saída: nome da encomenda, estado do envio, região Azure, tipo de entrega, estado da encomenda. As encomendas canceladas também estão incluídas na lista.
 O comando também apresenta selos temporais de cada ordem.
 
 ```azurepowershell
@@ -666,7 +666,7 @@ Para eliminar uma encomenda cancelada, vá ao **Overview** e selecione **Delete*
 
 ### <a name="cancel-an-order"></a>Cancelar uma encomenda
 
-Para cancelar uma encomenda da Caixa de Dados Azure, executar [o trabalho da caixa de dados az cancelar](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel). É-lhe exigido que especifique a sua razão para cancelar a encomenda.
+Para cancelar uma encomenda da Caixa de Dados Azure, executar [o trabalho da caixa de dados az cancelar](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel). É-lhe exigido que especifique a sua razão para cancelar a encomenda.
 
    ```azurecli
    az databox job cancel --resource-group <resource-group> --name <order-name> --reason <cancel-description>
@@ -703,7 +703,7 @@ Para cancelar uma encomenda da Caixa de Dados Azure, executar [o trabalho da cai
 
 ### <a name="delete-an-order"></a>Apagar uma encomenda
 
-Se tiver cancelado uma encomenda da Caixa de Dados Azure, pode executar [o trabalho de databox az](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete) para eliminar a encomenda.
+Se tiver cancelado uma encomenda da Caixa de Dados Azure, pode executar [o trabalho de databox az](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete) para eliminar a encomenda.
 
    ```azurecli
    az databox job delete --name [-n] <order-name> --resource-group <resource-group> [--yes] [--verbose]
@@ -742,7 +742,7 @@ Aqui está um exemplo do comando com saída:
 
 ### <a name="cancel-an-order"></a>Cancelar uma encomenda
 
-Para cancelar uma encomenda da Caixa de Dados Azure, execute [Stop-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/stop-azdataboxjob). É-lhe exigido que especifique a sua razão para cancelar a encomenda.
+Para cancelar uma encomenda da Caixa de Dados Azure, execute [Stop-AzDataBoxJob](/powershell/module/az.databox/stop-azdataboxjob). É-lhe exigido que especifique a sua razão para cancelar a encomenda.
 
 ```azurepowershell
 Stop-AzDataBoxJob -ResourceGroup <String> -Name <String> -Reason <String>
@@ -776,7 +776,7 @@ PS C:\WINDOWS\system32>
 
 ### <a name="delete-an-order"></a>Apagar uma encomenda
 
-Se tiver cancelado uma encomenda da Caixa de Dados Azure, pode executar [Remove-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/remove-azdataboxjob) para apagar a encomenda.
+Se tiver cancelado uma encomenda da Caixa de Dados Azure, pode executar [Remove-AzDataBoxJob](/powershell/module/az.databox/remove-azdataboxjob) para apagar a encomenda.
 
 ```azurepowershell
 Remove-AzDataBoxJob -Name <String> -ResourceGroup <String>

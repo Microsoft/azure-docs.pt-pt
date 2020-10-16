@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: fbfd384787d35317a4e45c4f91cf8a3ad4ba5a61
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 3e8cef04e0711492b6e76d4c865695ac75e21422
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92000019"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125684"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Como configurar a persistência de dados para uma Cache Premium Azure para Redis
 Neste artigo, você aprenderá a configurar a persistência em um Azure Cache premium para redis exemplo através do portal Azure. O Azure Cache para Redis tem diferentes ofertas de cache, que proporcionam flexibilidade na escolha do tamanho e funcionalidades da cache, incluindo características de nível Premium, tais como clustering, persistência e suporte de rede virtual. 
@@ -63,7 +63,7 @@ A Persistência escreve dados do Redis numa conta de Armazenamento Azure que pos
    | Definição      | Valor sugerido  | Descrição |
    | ------------ |  ------- | -------------------------------------------------- |
    | **Frequência de reserva** | Drop-down e selecione um intervalo de backup, as escolhas incluem **15 Minutos**, **30 minutos**, **60 minutos**, **6 horas**, **12 horas**e **24 horas**. | Este intervalo começa a contagem rebatida após a operação de backup anterior ter sido concluída com sucesso e quando decorrer uma nova cópia de segurança é iniciada. | 
-   | **Conta de Armazenamento** | Drop-down e selecione a sua conta de armazenamento. | Você deve escolher uma conta de armazenamento na mesma região que a cache, e uma conta **de Armazenamento Premium** é recomendada porque o armazenamento premium tem maior rendimento.  | 
+   | **Conta de Armazenamento** | Drop-down e selecione a sua conta de armazenamento. | Você deve escolher uma conta de armazenamento na mesma região e subscrição que a cache, e uma conta **de Armazenamento Premium** é recomendada porque o armazenamento premium tem maior rendimento.  | 
    | **Chave de armazenamento** | Desça e escolha a **tecla Primária** ou **a chave secundária** para usar. | Se a chave de armazenamento da sua conta de persistência for regenerada, deve reconfigurar a chave desejada a partir da gota da chave de **armazenamento.** | 
 
     A primeira cópia de segurança é iniciada assim que o intervalo de frequência de reserva decorrer.
@@ -72,9 +72,9 @@ A Persistência escreve dados do Redis numa conta de Armazenamento Azure que pos
    
    | Definição      | Valor sugerido  | Descrição |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **Primeira Conta de Armazenamento** | Drop-down e selecione a sua conta de armazenamento. | Esta conta de armazenamento deve estar na mesma região que a cache, e uma conta **de Armazenamento Premium** é recomendada porque o armazenamento premium tem um rendimento mais elevado. | 
+   | **Primeira Conta de Armazenamento** | Drop-down e selecione a sua conta de armazenamento. | Esta conta de armazenamento deve estar na mesma região e subscrição que a cache, e uma conta **de Armazenamento Premium** é recomendada porque o armazenamento premium tem um rendimento mais elevado. | 
    | **Primeira chave de armazenamento** | Desça e escolha a **tecla Primária** ou **a chave secundária** para usar. | Se a chave de armazenamento da sua conta de persistência for regenerada, deve reconfigurar a chave desejada a partir da gota da chave de **armazenamento.** | 
-   | **Segunda Conta de Armazenamento** | (Opcional) Desça e escolha a **tecla Primária** ou **a chave secundária** para usar. | Pode configurar opcionalmente uma conta de armazenamento adicional. Se uma segunda conta de armazenamento for configurada, as cópias para a cache de réplica são escritas nesta segunda conta de armazenamento. | 
+   | **Segunda Conta de Armazenamento** | (Opcional) Drop-down e selecione a sua conta de armazenamento secundário. | Pode configurar opcionalmente uma conta de armazenamento adicional. Se uma segunda conta de armazenamento for configurada, as cópias para a cache de réplica são escritas nesta segunda conta de armazenamento. | 
    | **Segunda chave de armazenamento** | (Opcional) Desça e escolha a **tecla Primária** ou **a chave secundária** para usar. | Se a chave de armazenamento da sua conta de persistência for regenerada, deve reconfigurar a chave desejada a partir da gota da chave de **armazenamento.** | 
 
     Quando a persistência da AOF estiver ativada, as operações de escrita para a cache são guardadas na conta de armazenamento designada (ou contas se tiver configurado uma segunda conta de armazenamento). Em caso de falha catastrófica que derrube a cache primária e réplica, o log AOF armazenado é usado para reconstruir a cache.

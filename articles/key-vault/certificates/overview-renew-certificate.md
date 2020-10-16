@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 3809fa9e1ce17a5a0c3cf333ac20ef543db4b5a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2477bab244b8864fa9c82b52d5577d42fa47a7e0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588808"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124156"
 ---
 # <a name="renew-your-azure-key-vault-certificates"></a>Renove os seus certificados Azure Key Vault
 
@@ -25,12 +25,20 @@ Ao utilizar certificados de curta duração ou aumentando a frequência de rota�
 
 Este artigo discute como renovar os seus certificados Azure Key Vault.
 
-## <a name="get-notified-about-certificate-expirations"></a>Ser notificado sobre expirações de certificados
-Para ser notificado quando os seus certificados estiverem prestes a expirar, faça o seguinte:
+## <a name="get-notified-about-certificate-expiration"></a>Ser notificado sobre a expiração do certificado
+Para ser notificado sobre eventos de vida de certificado, você precisa adicionar contato certificado. Os contactos do certificado contêm informações de contacto para enviar notificações desencadeadas por eventos de vida de certificado. A informação dos contactos é partilhada por todos os certificados no cofre chave. É enviada uma notificação a todos os contactos especificados para um evento para qualquer certificado no cofre de chaves.
 
-Em primeiro lugar, adicione um contacto de certificado ao seu cofre de chaves utilizando o cmdlet PowerShell [Add-AzureKeyVaultCertificateContact](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact?view=azurermps-6.13.0).
+### <a name="steps-to-set-certificate-notifications"></a>Medidas para definir notificações de certificados:
+Primeiro, adicione um contato de certificado ao seu cofre de chaves. Pode adicionar utilizando o portal Azure ou o cmdlet PowerShell [`Add-AzureKeyVaultCertificateContact`](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact?view=azurermps-6.13.0) .
 
 Segundo, configuure-se quando pretender ser notificado sobre a expiração do certificado. Para configurar os atributos do ciclo de vida do certificado, consulte a [autorotação do certificado de configuração no Cofre-Chave](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-rotate-certificates#update-lifecycle-attributes-of-a-stored-certificate).
+
+Se a política de um certificado for definida para a renovação automática, então uma notificação é enviada nos seguintes eventos.
+
+- Antes da renovação do certificado
+- Após a renovação do certificado, indicando se o certificado foi renovado com sucesso, ou se houve um erro, exigindo a renovação manual do certificado.  
+
+  Quando uma política de certificado que está definida para ser renovada manualmente (apenas por e-mail), é enviada uma notificação quando é hora de renovar o certificado.  
 
 No Cofre-Chave, existem três categorias de certificados:
 -   Certificados criados com uma autoridade integrada de certificados (CA), tais como DigiCert ou GlobalSign

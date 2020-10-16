@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 51b985cd67e1b540e2f24f2f37b19f9bff4223db
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d244ed92cceb385f9f80690ae630e617e952c481
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962994"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124590"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Começa com a amostra de herói de chat de grupo
 
@@ -30,9 +30,9 @@ A amostra de **chat hero do grupo** de serviços de comunicação Azure mostra c
 Neste quickstart da amostra, vamos aprender como a amostra funciona antes de passarmos a amostra na sua máquina local. Em seguida, enviaremos a amostra para Azure usando os seus próprios recursos dos Serviços de Comunicação Azure.
 
 > [!IMPORTANT]
-> [Faça o download da amostra do GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Chat%20Hero%20Sample/Web/Chat)
+> [Faça o download da amostra do GitHub](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
-## <a name="overview"></a>Overview (Descrição geral)
+## <a name="overview"></a>Descrição geral
 
 A amostra tem uma aplicação do lado do cliente e uma aplicação do lado do servidor. A **aplicação do lado do cliente** é uma aplicação web React/Redux que utiliza a estrutura fluente da Microsoft. Esta aplicação envia pedidos para uma **aplicação do ASP.NET** Core que ajuda a aplicação do lado do cliente a ligar-se ao Azure. 
 
@@ -103,7 +103,7 @@ Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode
 ## <a name="next-steps"></a>Passos seguintes
 
 >[!div class="nextstepaction"] 
->[Faça o download da amostra do GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Chat%20Hero%20Sample/Web/Chat)
+>[Faça o download da amostra do GitHub](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
 Para obter mais informações, veja os seguintes artigos:
 

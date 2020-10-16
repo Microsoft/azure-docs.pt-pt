@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 4bbc25f98f494660fc4997af1c3a248172ef08d2
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: c2f6f386f4a8ea062980c0efc97d0cfb4f37f4f2
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873477"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124899"
 ---
 # <a name="tutorial-modify-and-build-the-live-video-analytics-gateway-modules"></a>Tutorial: Modificar e construir os módulos de gateway de vídeo ao vivo
 
@@ -28,8 +28,8 @@ Para completar os passos neste tutorial, você precisa:
 * [Node.js](https://nodejs.org/en/download/) v10 ou mais tarde
 * [Código de estúdio visual](https://code.visualstudio.com/Download) com extensão [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin) instalada
 * [Motor estivador](https://www.docker.com/products/docker-desktop)
-* Um [Registo de Contentores Azure](https://docs.microsoft.com/azure/container-registry/) para hospedar as suas versões dos módulos.
-* Uma conta [da Azure Media Services.](https://docs.microsoft.com/azure/media-services/) Se tiver completado os tutoriais anteriores, poderá reutilizar o que criou anteriormente.
+* Um [Registo de Contentores Azure](../../container-registry/index.yml) para hospedar as suas versões dos módulos.
+* Uma conta [da Azure Media Services.](../../media-services/index.yml) Se tiver completado os tutoriais anteriores, poderá reutilizar o que criou anteriormente.
 
 ## <a name="clone-the-repository"></a>Clonar o repositório
 

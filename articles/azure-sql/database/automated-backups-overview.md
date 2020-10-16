@@ -11,12 +11,12 @@ author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
 ms.date: 10/05/2020
-ms.openlocfilehash: 43551ca17180cbb3614c670490a19aeaae6c7701
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be40cd4a0bef43d81c792fd10508014f5b886fba
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91728663"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124191"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backups automatizados - Azure SQL Database & SQL Managed Instance
 
@@ -50,7 +50,7 @@ Para uma Base de Dados SQL, a redundância de armazenamento de backup pode ser c
 > Atualmente, o armazenamento redundante de zona só está disponível em [determinadas regiões.](../../storage/common/storage-redundancy.md#zone-redundant-storage) 
 
 > [!NOTE]
-> O dissibilamento de armazenamento de backup configurável para a Base de Dados Azure SQL está atualmente disponível apenas em visualização pública na região do Sudeste Asiático Azure. Esta funcionalidade ainda não está disponível para o nível Hyperscale. 
+> O dissiunite de armazenamento de backup configurável para a base de dados Azure SQL está atualmente disponível apenas na região de Azure do Sudeste Asiático. Esta funcionalidade ainda não está disponível para o nível Hyperscale. 
 
 ### <a name="backup-usage"></a>Utilização de backup
 

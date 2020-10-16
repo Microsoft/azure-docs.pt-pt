@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 31733abc945fe7c751f786649fb05b753a7c243d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80934dca73d7f8a205c62a49c418828cab1820e7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91408869"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123737"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>Monitorização da conectividade da rede com monitor de ligação (pré-visualização)
 
@@ -128,9 +128,9 @@ Todas as fontes, destinos e configurações de teste que adiciona a um grupo de 
 | 3 | A | E | Config 1 |
 | 4 | A | E | Config 2 |
 | 5 | B | D | Config 1 |
-| 6 | B | D | Config 2 |
-| 7 | B | E | Config 1 |
-| 8 | B | E | Config 2 |
+| 6 | N | D | Config 2 |
+| 7 | N | E | Config 1 |
+| 8 | N | E | Config 2 |
 | 9 | C | D | Config 1 |
 | 10 | C | D | Config 2 |
 | 11 | C | E | Config 1 |
@@ -143,9 +143,7 @@ Os monitores de ligação têm os seguintes limites de escala:
 * Monitores de ligação máximo por subscrição por região: 100
 * Grupos de teste máximos por monitor de ligação: 20
 * Fontes e destinos máximos por monitor de ligação: 100
-* Configurações máximas de teste por monitor de ligação: 
-    * 20 via ARMClient
-    * 2 através do portal Azure
+* Configurações máximas de teste por monitor de ligação: 20
 
 ## <a name="analyze-monitoring-data-and-set-alerts"></a>Analisar dados de monitorização e definir alertas
 
@@ -277,8 +275,8 @@ Quando utilizar métricas, desenhe o tipo de recurso como Microsoft.Network/netw
 | --- | --- | --- | --- | --- | --- |
 | ProbesFailedPercent | % Sondas Falhadas | Percentagem | Média | A percentagem de sondas de monitorização de conectividade falhou. | Sem dimensões |
 | Médias Desvelundos | Avg. Tempo de ida e volta (ms) | Milissegundos | Média | Rede média RTT para sondas de monitorização de conectividade enviadas entre a fonte e o destino. |             Sem dimensões |
-| ChecksFailedPercent (Pré-visualização) | % Verificações falhadas (pré-visualização) | Percentagem | Média | Percentagem de cheques falhados para um teste. | ConnectionMonitorResourceId <br>FonteAddress <br>Nome fonte <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinoAddress <br>Nome de destino <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
-| RoundTripTimeMs (Pré-visualização) | Tempo de ida e volta (ms) (Pré-visualização) | Milissegundos | Média | RTT para verificações enviadas entre a fonte e o destino. Este valor não é mediado. | ConnectionMonitorResourceId <br>FonteAddress <br>Nome fonte <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinoAddress <br>Nome de destino <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
+| ChecksFailedPercent (Pré-visualização) | % Verificações falhadas (pré-visualização) | Percentagem | Média | Percentagem de cheques falhados para um teste. | ConnectionMonitorResourceId <br>FonteAddress <br>Nome fonte <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinoAddress <br>Nome de destino <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Região |
+| RoundTripTimeMs (Pré-visualização) | Tempo de ida e volta (ms) (Pré-visualização) | Milissegundos | Média | RTT para verificações enviadas entre a fonte e o destino. Este valor não é mediado. | ConnectionMonitorResourceId <br>FonteAddress <br>Nome fonte <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinoAddress <br>Nome de destino <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Região |
 
 #### <a name="metric-based-alerts-for-connection-monitor"></a>Alertas métricos para o Monitor de Ligação
 

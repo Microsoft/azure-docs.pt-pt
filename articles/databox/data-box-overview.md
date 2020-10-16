@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 9f559587e1abca7642edfc6278018d760b55e774
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f946a657b5129f773319d73fb428fe0108bac20f
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86206218"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123567"
 ---
 # <a name="what-is-azure-data-box"></a>O que é o Azure Data Box?
 
@@ -144,7 +144,7 @@ A Data Box pode transferir dados com base na região em que o serviço é implan
 
 - **Disponibilidade de serviço** - Ao utilizar a Caixa de Dados para encomendas de importação ou exportação, para obter informações sobre a disponibilidade da região, aceda aos [produtos Azure disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all) A funcionalidade de exportação na Data Box está atualmente em pré-visualização. 
 
-    Para encomendas de importação, a Data Box também pode ser implantada na Nuvem do Governo de Azure. Para mais informações, veja [o que é o Governo Azure?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) 
+    Para encomendas de importação, a Data Box também pode ser implantada na Nuvem do Governo de Azure. Para mais informações, veja [o que é o Governo Azure?](../azure-government/documentation-government-welcome.md) 
 
 - **Contas de armazenamento de destino** - As contas de armazenamento que armazenam os dados estão disponíveis em todas as regiões do Azure onde o serviço está disponível.
 
@@ -154,7 +154,3 @@ A Data Box pode transferir dados com base na região em que o serviço é implan
 - Reveja os [requisitos de sistema do Data Box](data-box-system-requirements.md).
 - Compreenda os [limites do Data Box](data-box-limits.md).
 - Implemente rapidamente o [Azure Data Box](data-box-quickstart-portal.md) no portal do Azure.
-
-
-
-
