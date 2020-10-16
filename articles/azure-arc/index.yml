@@ -10,12 +10,12 @@ metadata:
   author: MGoedtel
   ms.author: magoedte
   ms.date: 09/23/2020
-  ms.openlocfilehash: 2ebc8329466df4fba7963a2838c19e2b7a1c539f
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: fc48de7ec0be6ce451caff91533dc24606a1e66c
+  ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91357833"
+  ms.lasthandoff: 10/16/2020
+  ms.locfileid: "92103072"
 highlightedContent:
   items:
   - title: Sobre o Azure Arc
@@ -86,7 +86,7 @@ conceptualContent:
     - url: ./servers/learn/tutorial-enable-vm-insights.md
       itemType: tutorial
       text: Monitorizar uma máquina híbrida com o Azure Monitor para VMs
-    - url: ./servers/policy-samples.md
+    - url: ./servers/policy-reference.md
       itemType: learn
       text: Políticas de controlo de acesso com o Azure Policy
     - url: ./servers/manage-vm-extensions.md

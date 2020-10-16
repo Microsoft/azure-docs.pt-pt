@@ -494,7 +494,16 @@
               href: functions-bindings-signalr-service-output.md
               displayName: SignalR Service
         - name: Table Storage
-          href: functions-bindings-storage-table.md
+          items:
+            - name: Descrição geral
+              href: functions-bindings-storage-table.md
+              displayName: Table storage
+            - name: Input
+              href: functions-bindings-storage-table-input.md
+              displayName: Table storage
+            - name: Saída
+              href: functions-bindings-storage-table-output.md
+              displayName: Table storage
         - name: Temporizador
           href: functions-bindings-timer.md
         - name: Twilio

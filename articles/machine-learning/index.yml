@@ -13,12 +13,12 @@ metadata:
   ms.author: jmartens
   ms.date: 09/21/2020
   ms.custom: contperfq1
-  ms.openlocfilehash: 444929b8fe7be180f3dcd1988cd12beea3fcf54b
-  ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+  ms.openlocfilehash: 0695af04856b5e67c6e3de86c6c3cd32007aee02
+  ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
   ms.translationtype: HT
   ms.contentlocale: pt-PT
   ms.lasthandoff: 10/15/2020
-  ms.locfileid: "92070321"
+  ms.locfileid: "92090323"
 landingContent:
 - title: 'Introdução: Primeiro o código'
   linkLists:
@@ -81,6 +81,6 @@ landingContent:
   - linkListType: overview
     links:
     - text: Página de destino do Studio (clássico)
-      url: /classic/
+      url: classic/index.yml
     - text: Studio (clássico) vs estúdio
       url: overview-what-is-machine-learning-studio.md
