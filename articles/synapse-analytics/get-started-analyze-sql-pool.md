@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: a42157223c0c9a0b326c400388ea2b564e42f7f2
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: c46adf9e9f5c1b2e74c1098ebf137c4556bfc58d
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088946"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147556"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Analisar dados com piscinas SQL dedicadas
 
@@ -24,6 +24,7 @@ O Azure Synapse Analytics fornece-lhe a capacidade de analisar dados com uma pis
 ## <a name="load-the-nyc-taxi-data-into-sqldb1"></a>Carregue os dados do táxi de NYC em SQLDB1
 
 1. No Synapse Studio, navegue para o centro **de Desenvolvimento** e, em seguida, crie um novo script SQL
+1. Selecione a piscina 'SQLDB1' (piscina criada no [PASSO 1](https://docs.microsoft.com/azure/synapse-analytics/get-started-create-workspace#create-a-sql-pool) deste tutorial) na secção 'Ligar a' do script.
 1. Introduza o seguinte código:
     ```
     CREATE TABLE [dbo].[Trip]

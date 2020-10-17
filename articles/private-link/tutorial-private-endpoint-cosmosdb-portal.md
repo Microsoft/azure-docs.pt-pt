@@ -1,24 +1,24 @@
 ---
 title: 'Tutorial: Ligue-se a uma conta Azure Cosmos usando um ponto final Azure Private'
 titleSuffix: Azure Private Link
-description: Começa com o Azure Private endpoint para ligar a uma conta da Azure Cosmos em privado.
+description: Começa com este tutorial usando o Azure Private endpoint para ligar a uma conta Azure Cosmos em privado.
 author: asudbring
 ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
-ms.openlocfilehash: 8b38c72efff5b76392d23837696c340e3cfb58de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd534fff5bfc56dbc4040db016563b06bef6d047
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91844279"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145695"
 ---
 # <a name="tutorial-connect-to-an-azure-cosmos-account-using-an-azure-private-endpoint"></a>Tutorial: Ligue-se a uma conta Azure Cosmos usando um Azure Private Endpoint
 
 O ponto final privado Azure é o bloco de construção fundamental para private link em Azure. Permite que os recursos do Azure, como máquinas virtuais (VMs), comuniquem com os recursos de Private Link em privado.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Crie uma rede virtual e um hospedeiro de bastião.
@@ -27,6 +27,10 @@ Neste tutorial, ficará a saber como:
 > * Teste conectividade à conta cosmos DB ponto final privado.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+* Uma subscrição do Azure
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -250,7 +254,7 @@ Nesta secção, você usará a máquina virtual que criou no passo anterior para
 
 11. No ecrã **de armazenamento 'Ligar a Azure',** selecione **Cancelar**.
 
-12. No Storage Explorer, o rato direito clica nas **Contas DB do Cosmos** e seleciona **Connect to Cosmos DB**.
+12. No Storage Explorer, selecione o botão do rato certo nas **contas DB cosmos** e selecione **Connect to Cosmos DB**.
 
 13. Deixe o padrão de **SQL** em **Select API**.
 
@@ -265,7 +269,7 @@ Nesta secção, você usará a máquina virtual que criou no passo anterior para
 18. Feche a ligação ao **myVM**.
 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se não continuar a utilizar esta aplicação, elimine a rede virtual, a máquina virtual e a conta DB cosmos com os seguintes passos:
 

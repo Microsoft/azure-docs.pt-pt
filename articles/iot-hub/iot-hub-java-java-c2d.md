@@ -13,12 +13,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-java
-ms.openlocfilehash: f4e5880a39d6ad299fd6e7f29bd0e3aefadc3bcd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 763b9e05adc07c02265dbb511c073b42df44ea95
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91446903"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146865"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Envie mensagens cloud-to-device com IoT Hub (Java)
 
@@ -51,7 +51,7 @@ No final deste tutorial, executam duas aplicações de consola Java:
 
 * Uma versão completa de funcionamento da [telemetria Enviar telemetria de um dispositivo para um quickstart do hub IoT](quickstart-send-telemetry-java.md) ou o encaminhamento de [mensagens Configure com tutorial IoT Hub.](tutorial-routing.md)
 
-* [Kit de Desenvolvimento Java SE 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Certifique-se de que seleciona **Java 8** sob **suporte a longo prazo** para obter downloads para JDK 8.
+* [Kit de Desenvolvimento Java SE 8](/java/azure/jdk/?view=azure-java-stable). Certifique-se de que seleciona **Java 8** sob **suporte a longo prazo** para obter downloads para JDK 8.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 

@@ -1,24 +1,24 @@
 ---
 title: 'Tutorial: Ligue-se a uma conta de armazenamento usando um ponto final Azure Private'
 titleSuffix: Azure Private Link
-description: Começa com o ponto final privado da Azure para ligar a uma conta de armazenamento em privado.
+description: Começa com este tutorial usando o Azure Private endpoint para ligar a uma conta de armazenamento privada.
 author: asudbring
 ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
-ms.openlocfilehash: 69bee753c2134b6eebe9c5df0a554c965208ad7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64856d0c9a06f57eb25a0cbc9279d1c09992f0d3
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91366230"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147594"
 ---
 # <a name="tutorial-connect-to-a-storage-account-using-an-azure-private-endpoint"></a>Tutorial: Ligue-se a uma conta de armazenamento usando um Azure Private Endpoint
 
 O ponto final privado Azure é o bloco de construção fundamental para private link em Azure. Permite que os recursos do Azure, como máquinas virtuais (VMs), comuniquem com os recursos de Private Link em privado.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Crie uma rede virtual e um hospedeiro de bastião.
@@ -27,6 +27,10 @@ Neste tutorial, ficará a saber como:
 > * Teste conectividade para armazenar conta privada ponto final.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+* Uma subscrição do Azure
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -238,7 +242,7 @@ Nesta secção, utilizará a máquina virtual que criou no passo anterior para l
 
 18. Feche a ligação ao **myVM**.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se não continuar a utilizar esta aplicação, elimine a rede virtual, a máquina virtual e a conta de armazenamento com os seguintes passos:
 

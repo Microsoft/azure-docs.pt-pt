@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Entenda como encaminhar eventos dentro da Azure Digital Twins e para outros Serviços Azure.
 author: baanders
 ms.author: baanders
-ms.date: 3/12/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 02b977a7b6abdb77deec3973bd94b82fae9c2af5
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: b49e6fc45a84f600131f571d1305c8160ddb1d21
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044297"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145983"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Rotas eventos dentro e fora de Azure Digital Twins
 
@@ -91,6 +91,20 @@ await client.CreateEventRoute("routeName", er);
 > Todas as funções SDK vêm em versões sincronizadas e assíncronos.
 
 As rotas também podem ser criadas usando o [CLI das Gémeas Digitais Azure.](how-to-use-cli.md)
+
+## <a name="dead-letter-events"></a>Eventos de cartas mortas
+Quando um ponto final não consegue entregar um evento dentro de um determinado período de tempo ou depois de tentar entregar o evento um certo número de vezes, pode enviar o evento não entregue para uma conta de armazenamento. Este processo é conhecido como **letra morta.** A Azure Digital Twins vai escrever um evento quando **uma das seguintes** condições for cumprida. 
+
+- Evento não é entregue dentro do período de tempo a viver
+- O número de tentativas para entregar o evento excedeu o limite
+
+Se uma das condições for cumprida, o evento é abandonado ou sem carta.  Por defeito, cada ponto final **não** liga letras mortas. Para o ativar, tem de especificar uma conta de armazenamento para realizar eventos não entregues ao criar o ponto final. Você puxa eventos desta conta de armazenamento para resolver entregas.
+
+Antes de definir o local da letra morta, deve ter uma conta de armazenamento com um recipiente. Forneça o URL para este recipiente ao criar o ponto final. A letra morta é fornecida como URL de contentor com um token SAS. Esse símbolo só precisa de `write` permissão para o contentor de destino dentro da conta de armazenamento. O URL totalmente formado será no formato de: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
+
+Para saber mais sobre fichas SAS, consulte: [ *Conceder acesso limitado aos recursos de Armazenamento Azure usando assinaturas de acesso partilhado (SAS)*](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+
+Para aprender a configurar uma letra morta ver [*Como fazer: Gerir pontos finais e rotas em Azure Digital Twins (APIs e CLI)*](./how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering).
 
 ### <a name="types-of-event-messages"></a>Tipos de mensagens de eventos
 

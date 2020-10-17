@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019, devx-track-azurepowershell
 ms.date: 01/22/2018
-ms.openlocfilehash: d148bc81e81c4afa32682fa1462ecfbf5427f164
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3db7112516941e53c07e1521f15140a8b9c28e47
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89079239"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147967"
 ---
 # <a name="tutorial-copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>Tutorial: Copiar dados de uma base de dados do SQL Server para o armazenamento do Azure Blob
 
@@ -45,7 +45,7 @@ Antes de começar, se não tiver uma subscrição do Azure, [crie uma conta grat
 ### <a name="azure-roles"></a>Funções do Azure
 Para criar casos de fábrica de dados, a conta de utilizador que utiliza para iniciar sessão no Azure deve ser atribuída a uma função *de Contribuinte* ou *Proprietário* ou deve ser *administradora* da subscrição Azure.
 
-Para ver as permissões que a sua subscrição tem, aceda ao portal do Azure, selecione o seu nome de utilizador, no canto superior direito, e selecione **Permissões**. Se tiver acesso a várias subscrições, selecione a subscrição apropriada. Para obter instruções de exemplo sobre como adicionar um utilizador a uma função, veja o artigo [Gerir o acesso através do RBAC e do portal do Azure](../role-based-access-control/role-assignments-portal.md).
+Para ver as permissões que a sua subscrição tem, aceda ao portal do Azure, selecione o seu nome de utilizador, no canto superior direito, e selecione **Permissões**. Se tiver acesso a várias subscrições, selecione a subscrição apropriada. Para obter instruções de amostra sobre a adição de um utilizador a uma função, consulte as atribuições de [funções Azure utilizando o artigo do portal Azure.](../role-based-access-control/role-assignments-portal.md)
 
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014, 2016 e 2017
 Neste tutorial, utiliza uma base de dados SQL Server como uma loja de dados *de origem.* O pipeline na fábrica de dados que cria neste tutorial copia dados desta base de dados sql Server (fonte) para armazenamento Azure Blob (pia). Vai criar uma tabela com o nome **emp** na sua base de dados do SQL Server e insira duas entradas de exemplo na mesma.

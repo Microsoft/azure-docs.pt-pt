@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: c51b99ed04357cdebaabbde2b2bd0400adcfef30
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: d0ee9680a6b1b7c3e145137c73dda84d1a755b06
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92134185"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147921"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Secure and isolate Azure HDInsight clusters com Private Link (pré-visualização)
 
@@ -56,7 +56,7 @@ O Private Link, que é desativado por padrão, requer um vasto conhecimento de n
 
 Quando `privateLink` estiver definido para *ativar,* são [criados os equilibradores de carga padrão internos](../load-balancer/load-balancer-overview.md) (SLB) e é alojado um Serviço de Ligação Privada Azure para cada SLB. O Serviço de Ligação Privada é o que lhe permite aceder ao cluster HDInsight a partir de pontos finais privados.
 
-Os equilibradores de carga padrão não fornecem automaticamente o NAT de saída pública, como fazem os equilibradores básicos de carga. Tem de fornecer a sua própria solução NAT, como [o Virtual Network NAT](../virtual-network/nat-overview.md) ou uma [firewall,](./hdinsight-restrict-outbound-traffic.md)para dependências de saída. O seu cluster HDInsight ainda precisa de acesso às suas dependências de saída. Se estas dependências de saída não forem permitidas, a criação do cluster pode falhar.
+Os equilibradores de carga padrão não fornecem automaticamente o [NAT de saída pública,](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) como fazem os equilibradores básicos de carga. Tem de fornecer a sua própria solução NAT, como [o Virtual Network NAT](../virtual-network/nat-overview.md) ou uma [firewall,](./hdinsight-restrict-outbound-traffic.md)para dependências de saída. O seu cluster HDInsight ainda precisa de acesso às suas dependências de saída. Se estas dependências de saída não forem permitidas, a criação do cluster pode falhar.
 
 ### <a name="prepare-your-environment"></a>Preparar o ambiente
 

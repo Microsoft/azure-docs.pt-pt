@@ -4,15 +4,15 @@ description: Estabelecer uma elevada disponibilidade de IBM Db2 LUW em máquinas
 author: msjuergent
 ms.service: virtual-machines
 ms.topic: article
-ms.date: 03/06/2020
+ms.date: 10/16/2020
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: 17df60cd039601d3f8036125c5c0098a8000667c
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 88a84cd90efb42ea096cad647d75f1c3736426f4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993305"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146429"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Alta disponibilidade de IBM Db2 LUW em VMs Azure no SUSE Linux Enterprise Server com Pacemaker
 
@@ -26,7 +26,7 @@ As versões IBM Db2 suportadas são 10.5 e posteriormente, como documentado na n
 
 Antes de iniciar uma instalação, consulte as seguintes notas e documentação SAP:
 
-| Nota SAP | Description |
+| Nota SAP | Descrição |
 | --- | --- |
 | [1928533] | Aplicações SAP no Azure: Produtos suportados e tipos de VM Azure |
 | [2015553] | SAP on Azure: Pré-requisitos de apoio |
@@ -393,6 +393,9 @@ Para configurar o Balançador de Carga Azure, recomendamos que utilize o [Azure 
 
 > [!NOTE]
 > O Balancer de Carga Padrão SKU tem restrições que acedem a endereços IP públicos a partir dos nós por baixo do Balanceador de Carga. O artigo [Conectividade de ponto final público para máquinas virtuais usando O Balanceador de Carga Padrão Azure em cenários de alta disponibilidade SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md) está descrevendo formas de permitir que esses nóns acedam a endereços IP públicos
+
+> [!IMPORTANT]
+> O IP flutuante não é suportado numa configuração IP secundária do NIC em cenários de equilíbrio de carga. Para mais detalhes consulte [as limitações do balançador de carga Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Se precisar de um endereço IP adicional para o VM, implante um segundo NIC.  
 
 1. Criar um pool IP frontal:
 

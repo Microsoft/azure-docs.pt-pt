@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: robinsh
-ms.openlocfilehash: 60d0ef30a1c7d948a9e837a8bc37c76ace415545
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21d8f513ea0f749f0318b9bc5926a746f840505b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82024970"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147828"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Gestão automática de módulos e dispositivos IoT com a CLI do Azure
 
@@ -36,7 +36,7 @@ As configurações automáticas são executadas pela primeira vez pouco depois d
 
 * Um [hub IoT](../iot-hub/iot-hub-create-using-cli.md) na sua assinatura Azure. 
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) no seu ambiente. No mínimo, a sua versão Azure CLI deve ser de 2.0.70 ou superior. Utilize `az –-version` para validar. Esta versão suporta comandos de extensão az e apresenta a arquitetura de comandos Knack. 
+* [Azure CLI](/cli/azure/install-azure-cli) no seu ambiente. No mínimo, a sua versão Azure CLI deve ser de 2.0.70 ou superior. Utilize `az –-version` para validar. Esta versão suporta comandos de extensão az e apresenta a arquitetura de comandos Knack. 
 
 * A [extensão IoT para Azure CLI](https://github.com/Azure/azure-cli).
 
@@ -235,8 +235,8 @@ Neste artigo, aprendeu a configurar e monitorizar dispositivos IoT em escala. Si
 Para explorar ainda mais as capacidades do IoT Hub, consulte:
 
 * [Guia de desenvolvimento do IoT Hub](iot-hub-devguide.md)
-* [Implementar o AI em dispositivos de ponta com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Implementar o AI em dispositivos de ponta com o Azure IoT Edge](../iot-edge/quickstart-linux.md)
 
 Para explorar utilizando o serviço de provisionamento de dispositivos IoT Hub para permitir o fornecimento de zero toques, just-in-time, consulte: 
 
-* [Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure](/azure/iot-dps)
+* [Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure](../iot-dps/index.yml)

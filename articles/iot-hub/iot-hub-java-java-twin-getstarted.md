@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: mqtt, devx-track-java
-ms.openlocfilehash: b433ab29ab5a2520f503e002e630068126ddb328
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68908b7d62b8211c202262112831d5d2b523f594
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91838692"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146971"
 ---
 # <a name="get-started-with-device-twins-java"></a>Começar com os gémeos do dispositivo (Java)
 
@@ -31,7 +31,7 @@ Neste tutorial, cria-se duas aplicações para consolas Java:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Kit de Desenvolvimento Java SE 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Certifique-se de que seleciona **Java 8** sob **suporte a longo prazo** para obter downloads para JDK 8.
+* [Kit de Desenvolvimento Java SE 8](/java/azure/jdk/?view=azure-java-stable). Certifique-se de que seleciona **Java 8** sob **suporte a longo prazo** para obter downloads para JDK 8.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 
@@ -39,7 +39,7 @@ Neste tutorial, cria-se duas aplicações para consolas Java:
 
 * Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste artigo utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode ser bloqueado em alguns ambientes de rede corporativa e educacional. Para obter mais informações e formas de contornar esta questão, consulte [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 

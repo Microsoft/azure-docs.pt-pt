@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4a02fc8a04da658b3b6cbbb41e57114d6c4a0527
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d01808eac854e0a694608fc963bd97b035d29ac8
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89231491"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146178"
 ---
 # <a name="azure-security-baseline-for-data-lake-analytics"></a>Linha de segurança Azure para Data Lake Analytics
 
@@ -412,7 +412,7 @@ Também pode ativar um acesso Just-In-Time utilizando a Azure AD Privileged Iden
 
 * [Como criar e usar Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
-* [Gerir o Controlo de Acesso Role-Based](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-role-based-access-control)
+* [Gerir o controlo de acesso baseado em funções do Azure](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-azure-role-based-access-control)
 
 * [Regras de Firewall](https://docs.microsoft.com/rest/api/datalakeanalytics/firewallrules)
 
@@ -460,7 +460,7 @@ Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os 
 
 **Orientação**: Utilize o controlo de acesso baseado em funções Azure (Azure RBAC) para controlar a forma como os utilizadores interagem com o serviço.
 
-* [Gerir a Azure RBAC](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-role-based-access-control)
+* [Gerir a Azure RBAC](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-azure-role-based-access-control)
 
 **Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 

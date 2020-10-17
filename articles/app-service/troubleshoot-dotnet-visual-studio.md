@@ -6,16 +6,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 72df946ed35dfdfd2811089a51ab9403d2e0567c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 346b1f83a9c18e35b009e88ae82d6984274fd4e4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90982999"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147751"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Resolução de problemas de uma aplicação no Azure App Service usando o Visual Studio
 ## <a name="overview"></a>Descrição geral
-Este tutorial mostra como usar ferramentas do Visual Studio para ajudar a depurar uma aplicação no Serviço de [Aplicações](https://go.microsoft.com/fwlink/?LinkId=529714), executando em [modo de depurar](/visualstudio/debugger/) remotamente ou visualizando registos de aplicações e registos de servidores web.
+Este tutorial mostra como usar ferramentas do Visual Studio para ajudar a depurar uma aplicação no Serviço de [Aplicações](./overview.md), executando em [modo de depurar](/visualstudio/debugger/) remotamente ou visualizando registos de aplicações e registos de servidores web.
 
 Ficará a saber:
 
@@ -49,7 +49,7 @@ O Visual Studio fornece acesso a um subconjunto das funções de gestão de apli
    >
    >
 
-    Para obter mais informações sobre a ligação aos recursos da Azure a partir do Visual Studio, consulte [Manage Accounts, Subscrições e Funções Administrativas.](https://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert)
+    Para obter mais informações sobre a ligação aos recursos da Azure a partir do Visual Studio, consulte [Manage Accounts, Subscrições e Funções Administrativas.](../role-based-access-control/role-assignments-portal.md)
 2. No **Server Explorer,** expanda **o Azure** e expanda o **Serviço de Aplicações**.
 3. Expandir o grupo de recursos que inclui a aplicação que criou na [Criar uma aplicação ASP.NET no Azure App Service](quickstart-dotnet-framework.md), e depois clicar com o direito no nó da aplicação e clicar em **Definições de Visualização.**
 
@@ -125,7 +125,7 @@ Esta secção mostra como depurar remotamente usando o projeto que cria na [Crea
     }
     ```
 
-1. [Coloque um ponto de rutura](https://docs.microsoft.com/visualstudio/debugger/) na `ViewBag.Message` linha.
+1. [Coloque um ponto de rutura](/visualstudio/debugger/) na `ViewBag.Message` linha.
 
 1. No **Solution Explorer,** clique com o botão direito no projeto e clique em **Publicar**.
 
@@ -176,7 +176,7 @@ A depuragem remota funciona apenas com WebJobs contínuos. WebJobs agendados e a
 
 2. No projeto ContosoAdsWebJob, open *Functions.cs*.
 
-3. [Desaponte um ponto de rutura](https://docs.microsoft.com/visualstudio/debugger/) na primeira declaração do `GnerateThumbnail` método.
+3. [Desaponte um ponto de rutura](/visualstudio/debugger/) na primeira declaração do `GnerateThumbnail` método.
 
     ![Definir ponto de rutura](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 
@@ -241,7 +241,7 @@ Se a sua função [escreveu registos,](https://github.com/Azure/azure-webjobs-sd
       <httpRuntime targetFramework="4.5" />
     </system.web>
     ```
-* Se descobrir que o depurador não entra no código que pretende depurar, poderá ter de alterar a definição Just My Code.  Para obter mais informações, consulte [Especificar se deve depurar apenas o código do utilizador utilizando o Just My Code in Visual Studio](https://docs.microsoft.com/visualstudio/debugger/just-my-code).
+* Se descobrir que o depurador não entra no código que pretende depurar, poderá ter de alterar a definição Just My Code.  Para obter mais informações, consulte [Especificar se deve depurar apenas o código do utilizador utilizando o Just My Code in Visual Studio](/visualstudio/debugger/just-my-code).
 * Um temporizador começa no servidor quando ativa a função de depuragem remota e, após 48 horas, a funcionalidade é automaticamente desligada. Este limite de 48 horas é feito por razões de segurança e desempenho. Pode facilmente voltar a ligar o recurso quantas vezes quiser. Recomendamos deixá-lo desativado quando não estiver a depurar ativamente.
 * Pode anexar manualmente o depurar a qualquer processo, não só o processo de aplicação (w3wp.exe). Para obter mais informações sobre como usar o modo de depuragem no Estúdio Visual, consulte [Debugging no Visual Studio](/visualstudio/debugger/debugging-in-visual-studio).
 
@@ -330,7 +330,7 @@ Para obter informações sobre como criar registos de aplicações em WebJobs, c
     ```
 
 `WebPageTraceListener`Permite-lhe visualizar a saída de vestígios navegando para `/trace.axd` .
-1. Adicione um <a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">elemento de rastreio</a> no ficheiro `<system.web>` Web.config, tal como o seguinte exemplo:
+1. Adicione um <a href="/previous-versions/dotnet/netframework-4.0/6915t83k(v=vs.100)">elemento de rastreio</a> no ficheiro `<system.web>` Web.config, tal como o seguinte exemplo:
 
     ``` xml
     <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
@@ -481,7 +481,7 @@ Storage accounts offer more storage and longer-lasting retention for logs compar
     This setting specifies which Azure datacenter will host your storage account. For this tutorial your choice won't make a noticeable difference, but for a production web app you want your web server and your storage account to be in the same region to minimize latency and data egress charges. The web app (which you'll create later) should run in a region as close as possible to the browsers accessing your web app in order to minimize latency.
 3. Set the **Replication** drop-down list to **Locally redundant**.
    
-    When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage/common/storage-create-storage-account.md).
+    When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage/common/storage-account-create.md).
 4. Click **Create**.
 
     ![New storage account](./media/web-sites-dotnet-troubleshoot-visual-studio/newstorage.png)    
@@ -600,7 +600,7 @@ Para obter mais informações sobre aplicações de resolução de problemas no 
 Para obter ajuda com uma questão específica de resolução de problemas, inicie um fio num dos seguintes fóruns:
 
 * [O fórum Azure no site ASP.NET.](https://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET)
-* [O fórum Azure no Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-webapps.html).
+* [O fórum Azure no Microsoft Q&A](/answers/topics/azure-webapps.html).
 * [StackOverflow.com.](https://www.stackoverflow.com)
 
 ### <a name="debugging-in-visual-studio"></a>Debugging no Estúdio Visual

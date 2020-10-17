@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 9f8fba617eb0274a8db7adc5d36c6ff50be10924
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09dbe0fbefb8b90b4c4e1ddef57abf3b13856183
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761384"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148081"
 ---
 # <a name="security-recommendations-for-app-service"></a>Recomendações de segurança para o Serviço de Aplicações
 
@@ -56,7 +56,7 @@ Este artigo contém recomendações de segurança para o Azure App Service. A im
 
 | Recomendação | Comentários |
 |-|-|
-|Use o nível padrão do Centro de Segurança Azure | [O Azure Security Center](https://docs.microsoft.com/azure/security-center/defender-for-app-service-introduction) está nativamente integrado com o Azure App Service. Pode fazer avaliações e fornecer recomendações de segurança. |
+|Use o nível padrão do Centro de Segurança Azure | [O Azure Security Center](../security-center/defender-for-app-service-introduction.md) está nativamente integrado com o Azure App Service. Pode fazer avaliações e fornecer recomendações de segurança. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

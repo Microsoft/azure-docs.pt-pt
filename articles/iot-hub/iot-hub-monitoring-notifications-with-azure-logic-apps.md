@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
-ms.openlocfilehash: 2720f9acfa308294b30f9203ba80e3f9b426e1e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 37f8016e087642ae0a7455e35f3ce18d7229e169
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81680709"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146650"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Monitorização remota IoT e notificações com Azure Logic Apps que ligam o seu hub IoT e caixa de correio
 
@@ -22,7 +22,7 @@ ms.locfileid: "81680709"
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[As Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) podem ajudá-lo a orquestrar fluxos de trabalho em todos os locais e serviços na nuvem, uma ou mais empresas, e através de vários protocolos. Uma aplicação lógica começa com um gatilho, que é seguido por uma ou mais ações que podem ser sequenciadas usando controlos incorporados, tais como condições e iteradores. Esta flexibilidade faz das Aplicações Lógicas uma solução IoT ideal para cenários de monitorização de IoT. Por exemplo, a chegada de dados de telemetria de um dispositivo num ponto final do IoT Hub pode iniciar fluxos de trabalho de aplicações lógicas para armazenar os dados numa bolha de armazenamento Azure, enviar alertas de e-mail para alertar para anomalias de dados, agendar uma visita de um técnico se um dispositivo reportar uma falha, e assim por diante.
+[As Azure Logic Apps](../logic-apps/index.yml) podem ajudá-lo a orquestrar fluxos de trabalho em todos os locais e serviços na nuvem, uma ou mais empresas, e através de vários protocolos. Uma aplicação lógica começa com um gatilho, que é seguido por uma ou mais ações que podem ser sequenciadas usando controlos incorporados, tais como condições e iteradores. Esta flexibilidade faz das Aplicações Lógicas uma solução IoT ideal para cenários de monitorização de IoT. Por exemplo, a chegada de dados de telemetria de um dispositivo num ponto final do IoT Hub pode iniciar fluxos de trabalho de aplicações lógicas para armazenar os dados numa bolha de armazenamento Azure, enviar alertas de e-mail para alertar para anomalias de dados, agendar uma visita de um técnico se um dispositivo reportar uma falha, e assim por diante.
 
 ## <a name="what-you-learn"></a>O que irá aprender
 
@@ -104,7 +104,7 @@ Crie um espaço de nomes e uma fila do Service Bus. Mais tarde neste tópico, cr
 
 ## <a name="add-a-custom-endpoint-and-routing-rule-to-your-iot-hub"></a>Adicione uma regra de ponto final personalizado e encaminhamento ao seu hub IoT
 
-Adicione um ponto final personalizado para a fila do Service Bus ao seu hub IoT e crie uma regra de encaminhamento de mensagens para mensagens diretas que contenham um alerta de temperatura para esse ponto final, onde serão captadas pela sua aplicação lógica. A regra de encaminhamento utiliza uma consulta de encaminhamento, `temperatureAlert = "true"` para encaminhar mensagens com base no valor da propriedade da `temperatureAlert` aplicação definida pelo código do cliente em execução no dispositivo. Para saber mais, consulte [a consulta de encaminhamento de mensagens com base nas propriedades da mensagem](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#message-routing-query-based-on-message-properties).
+Adicione um ponto final personalizado para a fila do Service Bus ao seu hub IoT e crie uma regra de encaminhamento de mensagens para mensagens diretas que contenham um alerta de temperatura para esse ponto final, onde serão captadas pela sua aplicação lógica. A regra de encaminhamento utiliza uma consulta de encaminhamento, `temperatureAlert = "true"` para encaminhar mensagens com base no valor da propriedade da `temperatureAlert` aplicação definida pelo código do cliente em execução no dispositivo. Para saber mais, consulte [a consulta de encaminhamento de mensagens com base nas propriedades da mensagem](./iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-properties).
 
 ### <a name="add-a-custom-endpoint"></a>Adicione um ponto final personalizado
 

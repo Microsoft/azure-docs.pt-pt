@@ -16,12 +16,12 @@ ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7616ceed812b21f471609d95f59a0d0270dd7f52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a4f8987a8daccc012f9d6da53e46fe7c4e8b43ad
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658512"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146356"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologias do Azure AD Connect
 Este artigo descreve várias topologias no local e Azure Ative Directory (Azure AD) que utilizam a sincronização Azure AD Connect como a solução-chave de integração. Este artigo inclui configurações suportadas e não apoiadas.
@@ -31,14 +31,14 @@ Aqui está a lenda para as fotos no artigo:
 
 | Descrição | Símbolo |
 | --- | --- |
-| Floresta de Diretório Ativo no local |![Floresta de Diretório Ativo no local](./media/plan-connect-topologies/LegendAD1.png) |
-| Diretório ativo no local com importação filtrada |![Diretório ativo com importação filtrada](./media/plan-connect-topologies/LegendAD2.png) |
-| Servidor de sincronização Azure Ad Connect |![Servidor de sincronização Azure Ad Connect](./media/plan-connect-topologies/LegendSync1.png) |
-| Azure AD Connect sync server "modo de encenação" |![Azure AD Connect sync server "modo de encenação"](./media/plan-connect-topologies/LegendSync2.png) |
-| GALSync com Gestor de Identidade da Vanguarda (FIM) 2010 ou Microsoft Identity Manager (MIM) 2016 |![GALSync com FIM 2010 ou MIM 2016](./media/plan-connect-topologies/LegendSync3.png) |
-| Servidor de sincronização Azure AD Connect, detalhado |![Servidor de sincronização Azure AD Connect, detalhado](./media/plan-connect-topologies/LegendSync4.png) |
-| Azure AD |![Azure Active Directory](./media/plan-connect-topologies/LegendAAD.png) |
-| Cenário não suportado |![Cenário não suportado](./media/plan-connect-topologies/LegendUnsupported.png) |
+| Floresta de Diretório Ativo no local |![Floresta de Diretório Ativo no local](./media/plan-connect-topologies/legendad1.png) |
+| Diretório ativo no local com importação filtrada |![Diretório ativo com importação filtrada](./media/plan-connect-topologies/legendad2.png) |
+| Servidor de sincronização Azure Ad Connect |![Servidor de sincronização Azure Ad Connect](./media/plan-connect-topologies/legendsync1.png) |
+| Azure AD Connect sync server "modo de encenação" |![Azure AD Connect sync server "modo de encenação"](./media/plan-connect-topologies/legendsync2.png) |
+| GALSync com Gestor de Identidade da Vanguarda (FIM) 2010 ou Microsoft Identity Manager (MIM) 2016 |![GALSync com FIM 2010 ou MIM 2016](./media/plan-connect-topologies/legendsync3.png) |
+| Servidor de sincronização Azure AD Connect, detalhado |![Servidor de sincronização Azure AD Connect, detalhado](./media/plan-connect-topologies/legendsync4.png) |
+| Azure AD |![Azure Active Directory](./media/plan-connect-topologies/legendaad.png) |
+| Cenário não suportado |![Cenário não suportado](./media/plan-connect-topologies/legendunsupported.png) |
 
 
 > [!IMPORTANT]
@@ -46,17 +46,17 @@ Aqui está a lenda para as fotos no artigo:
 
 
 ## <a name="single-forest-single-azure-ad-tenant"></a>Floresta única, único inquilino AZure AD
-![Topologia para uma única floresta e um único inquilino](./media/plan-connect-topologies/SingleForestSingleDirectory.png)
+![Topologia para uma única floresta e um único inquilino](./media/plan-connect-topologies/singleforestsingledirectory.png)
 
 A topologia mais comum é uma única floresta no local, com um ou vários domínios, e um único inquilino AD Azure. Para a autenticação Azure AD, é utilizada sincronização de hash de palavra-passe. A instalação expressa do Azure AD Connect suporta apenas esta topologia.
 
 ### <a name="single-forest-multiple-sync-servers-to-one-azure-ad-tenant"></a>Floresta única, múltiplos servidores de sincronização para um inquilino AZure AD
-![Topologia não suportada e filtrada para uma única floresta](./media/plan-connect-topologies/SingleForestFilteredUnsupported.png)
+![Topologia não suportada e filtrada para uma única floresta](./media/plan-connect-topologies/singleforestfilteredunsupported.png)
 
 Não é suportado vários servidores de sincronização Azure AD Connect ligados ao mesmo inquilino AD AZure, exceto para um [servidor de preparação](#staging-server). Não é suportado mesmo que estes servidores estejam configurados para sincronizar com um conjunto de objetos mutuamente exclusivos. Você poderia ter considerado esta topologia se você não pode alcançar todos os domínios na floresta a partir de um único servidor, ou se você quiser distribuir carga em vários servidores.
 
 ## <a name="multiple-forests-single-azure-ad-tenant"></a>Múltiplas florestas, único inquilino AZure AD
-![Topologia para múltiplas florestas e um único inquilino](./media/plan-connect-topologies/MultiForestSingleDirectory.png)
+![Topologia para múltiplas florestas e um único inquilino](./media/plan-connect-topologies/multiforestsingledirectory.png)
 
 Muitas organizações têm ambientes com múltiplas florestas de Ative Directory. Existem várias razões para ter mais do que uma floresta de Diretório Ativo no local. Exemplos típicos são desenhos com florestas de recursos de conta e o resultado de uma fusão ou aquisição.
 
@@ -81,16 +81,16 @@ Se o seu ambiente não corresponder a estes pressupostos, as seguintes coisas ac
 Pode encontrar mais detalhes na [Compreensão da configuração padrão.](concept-azure-ad-connect-sync-default-configuration.md)
 
 ### <a name="multiple-forests-multiple-sync-servers-to-one-azure-ad-tenant"></a>Múltiplas florestas, vários servidores de sincronização para um inquilino AD AZure
-![Topologia não suportada para múltiplas florestas e servidores de sincronização múltiplas](./media/plan-connect-topologies/MultiForestMultiSyncUnsupported.png)
+![Topologia não suportada para múltiplas florestas e servidores de sincronização múltiplas](./media/plan-connect-topologies/multiforestmultisyncunsupported.png)
 
 Ter mais de um servidor de sincronização Azure AD Connect ligado a um único inquilino AZure AD não é suportado. A exceção é a utilização de um servidor de [encenação.](#staging-server)
 
 Esta topologia difere da abaixo na medida em que **vários servidores de sincronização ligados** a um único inquilino AD Azure não são suportados.
 
 ### <a name="multiple-forests-single-sync-server-users-are-represented-in-only-one-directory"></a>Múltiplas florestas, servidor de sincronização única, os utilizadores são representados em apenas um diretório
-![Opção para representar os utilizadores apenas uma vez em todos os diretórios](./media/plan-connect-topologies/MultiForestUsersOnce.png)
+![Opção para representar os utilizadores apenas uma vez em todos os diretórios](./media/plan-connect-topologies/multiforestusersonce.png)
 
-![Representação de múltiplas florestas e topologias separadas](./media/plan-connect-topologies/MultiForestSeparateTopologies.png)
+![Representação de múltiplas florestas e topologias separadas](./media/plan-connect-topologies/multiforestseparatetopologies.png)
 
 Neste ambiente, todas as florestas no local são tratadas como entidades separadas. Nenhum utilizador está presente em qualquer outra floresta. Cada floresta tem a sua própria organização de intercâmbio, e não há GALSync entre as florestas. Esta topologia pode ser a situação após uma fusão/aquisição ou numa organização onde cada unidade de negócio opera de forma independente. Estas florestas estão na mesma organização em Azure AD e aparecem com uma GAL unificada. Na imagem anterior, cada objeto em cada floresta é representado uma vez no metaverso e agregado no inquilino AZure AD alvo.
 
@@ -98,9 +98,9 @@ Neste ambiente, todas as florestas no local são tratadas como entidades separad
 Comum a todos estes cenários é que os grupos de distribuição e segurança podem conter uma mistura de utilizadores, contactos e principais de segurança estrangeira (FSPs). Os FSPs são utilizados em Serviços de Domínio de Diretório Ativo (DS AD) para representar membros de outras florestas num grupo de segurança. Todos os FSPs são resolvidos com o objeto real em Azure AD.
 
 ### <a name="multiple-forests-full-mesh-with-optional-galsync"></a>Múltiplas florestas: malha completa com GALSync opcional
-![Opção para usar o atributo de correio para combinar quando existem identidades de utilizador em vários diretórios](./media/plan-connect-topologies/MultiForestUsersMail.png)
+![Opção para usar o atributo de correio para combinar quando existem identidades de utilizador em vários diretórios](./media/plan-connect-topologies/multiforestusersmail.png)
 
-![Topologia de malha completa para múltiplas florestas](./media/plan-connect-topologies/MultiForestFullMesh.png)
+![Topologia de malha completa para múltiplas florestas](./media/plan-connect-topologies/multiforestfullmesh.png)
 
 Uma topologia de malha completa permite que os utilizadores e recursos sejam localizados em qualquer floresta. Normalmente, existem fundos bidirecionais entre as florestas.
 
@@ -109,9 +109,9 @@ Se o Exchange estiver presente em mais de uma floresta, pode haver (opcionalment
 Neste cenário, os objetos de identidade são unidos através do atributo de correio. Um utilizador que tenha uma caixa de correio numa floresta junta-se aos contactos nas outras florestas.
 
 ### <a name="multiple-forests-account-resource-forest"></a>Múltiplas florestas: floresta de recursos conta
-![Opção para utilizar os atributos ObjectSID e msExchMasterAccountSID para combinar quando existem identidades em vários diretórios](./media/plan-connect-topologies/MultiForestUsersObjectSID.png)
+![Opção para utilizar os atributos ObjectSID e msExchMasterAccountSID para combinar quando existem identidades em vários diretórios](./media/plan-connect-topologies/multiforestusersobjectsid.png)
 
-![Topologia florestal de recursos de conta para múltiplas florestas](./media/plan-connect-topologies/MultiForestAccountResource.png)
+![Topologia florestal de recursos de conta para múltiplas florestas](./media/plan-connect-topologies/multiforestaccountresource.png)
 
 Numa topologia florestal de recursos de conta, você tem uma ou mais florestas *de conta* com contas de utilizador ativas. Também tem uma ou mais florestas *de recursos* com contas com deficiência.
 
@@ -128,7 +128,7 @@ Algumas cargas de trabalho da Microsoft 365 têm certas restrições em topologi
 Se é uma organização maior, então deve considerar utilizar a funcionalidade [DeLocalização de Dados Preferenciais da Microsoft 365.](how-to-connect-sync-feature-preferreddatalocation.md) Permite definir em que região de datacenter os recursos do utilizador estão localizados.
 
 ## <a name="staging-server"></a>Servidor de encenação
-![Servidor de encenação em uma topologia](./media/plan-connect-topologies/MultiForestStaging.png)
+![Servidor de encenação em uma topologia](./media/plan-connect-topologies/multiforeststaging.png)
 
 O Azure AD Connect suporta a instalação de um segundo servidor no *modo de preparação*. Um servidor neste modo lê dados de todos os diretórios conectados, mas não escreve nada para diretórios conectados. Utiliza o ciclo normal de sincronização e, portanto, tem uma cópia atualizada dos dados de identidade.
 
@@ -144,12 +144,12 @@ Também pode utilizar este método para substituir o servidor de sincronização
 Recomendamos ter um único inquilino em Azure AD para uma organização.
 Antes de planear utilizar vários inquilinos da AD Azure, veja o artigo [Gestão de unidades administrativas em Azure AD.](../users-groups-roles/directory-administrative-units.md) Abrange cenários comuns onde se pode usar um único inquilino.
 
-![Topologia para múltiplas florestas e múltiplos inquilinos](./media/plan-connect-topologies/MultiForestMultiDirectory.png)
+![Topologia para múltiplas florestas e múltiplos inquilinos](./media/plan-connect-topologies/multiforestmultidirectory.png)
 
 Há uma relação 1:1 entre um servidor de sincronização Azure AD Connect e um inquilino da AD Azure. Para cada inquilino AZure AD, você precisa de uma instalação do servidor de sincronização Azure AD Connect. As instâncias de inquilinos da AD AZure são isoladas pelo design. Ou seja, os utilizadores de um inquilino não podem ver os utilizadores no outro inquilino. Se quiser esta separação, esta é uma configuração suportada. Caso contrário, deve usar o modelo único de inquilino Azure AD.
 
 ### <a name="each-object-only-once-in-an-azure-ad-tenant"></a>Cada objeto apenas uma vez em um inquilino AD Azure
-![Topologia filtrada para uma única floresta](./media/plan-connect-topologies/SingleForestFiltered.png)
+![Topologia filtrada para uma única floresta](./media/plan-connect-topologies/singleforestfiltered.png)
 
 Nesta topologia, um servidor de sincronização Azure AD Connect está ligado a cada inquilino AD AZure. Os servidores de sincronização Azure AD Connect devem ser configurados para filtragem de modo a que cada um tenha um conjunto de objetos mutuamente exclusivo para operar. Pode, por exemplo, estender cada servidor a um determinado domínio ou unidade organizacional.
 
@@ -161,17 +161,20 @@ Um domínio DNS pode ser registado em apenas um único inquilino AZure AD. As UP
 
 Esta topologia tem as seguintes restrições em cenários apoiados de outra forma:
 
-* Apenas um dos inquilinos da AD AZure pode permitir um híbrido Exchange com o local de diretório ativo.
+* Um máximo de 5 inquilinos do Azure Ative Directory podem ter Exchange Hybrid com o local de diretório ativo. Este cenário é descrito em [setembro de 2020 A Atualização híbrida do assistente de configuração](https://techcommunity.microsoft.com/t5/exchange-team-blog/september-2020-hybrid-configuration-wizard-update/ba-p/1687698).
+* O Assistente de Configuração Híbrida do Servidor de Câmbio deve ser cu18 ou CU7 de 2016 ou mais tarde.
+* Cada instância AD Connect Azure deve estar a funcionar numa máquina ligada a domínios.
+* O Azure AD Connect deve ser configurado utilizando a opção de filtragem Domain/OU para filtrar os utilizadores do seu diretório no local. A utilização desta opção garante que os utilizadores apareçam apenas num único inquilino online da Exchange.
 * Os dispositivos Windows 10 podem ser associados apenas a um inquilino AZure AD.
 * A opção de inscrição única (SSO) para sincronização de hash de palavra-passe e autenticação pass-through pode ser usada com apenas um inquilino AZure AD.
 
-A exigência de um conjunto de objetos mutuamente exclusivos também se aplica à gravação. Algumas funcionalidades de writeback não são suportadas com esta topologia porque assumem uma única configuração no local. Estas funcionalidades incluem:
+A exigência de um conjunto de objetos mutuamente exclusivos também se aplica à gravação. Algumas funcionalidades de writeback não são suportadas com esta topologia porque assumem uma única configuração no local. Essas funcionalidades incluem:
 
 * Writeback de grupo com configuração predefinida.
 * Reversão do dispositivo.
 
 ### <a name="each-object-multiple-times-in-an-azure-ad-tenant"></a>Cada objeto várias vezes em um inquilino AD Azure
-![Topologia não suportada para uma única floresta e vários inquilinos](./media/plan-connect-topologies/SingleForestMultiDirectoryUnsupported.png) ![Topologia não suportada para uma única floresta e conectores múltiplos](./media/plan-connect-topologies/SingleForestMultiConnectorsUnsupported.png)
+![Topologia não suportada para uma única floresta e vários inquilinos](./media/plan-connect-topologies/singleforestmultidirectoryunsupported.png) ![Topologia não suportada para uma única floresta e conectores múltiplos](./media/plan-connect-topologies/singleforestmulticonnectorsunsupported.png)
 
 Estas tarefas não são apoiadas:
 
@@ -180,7 +183,7 @@ Estas tarefas não são apoiadas:
 * Modifique a sincronização Azure AD Connect para ligar a vários inquilinos AZure AD.
 
 ### <a name="galsync-by-using-writeback"></a>GALSync usando writeback
-![Topologia não suportada para múltiplas florestas e vários diretórios, com GALSync focado no Azure AD](./media/plan-connect-topologies/MultiForestMultiDirectoryGALSync1Unsupported.png) ![Topologia não suportada para múltiplas florestas e vários diretórios, com GALSync focado no Ative Directory no local](./media/plan-connect-topologies/MultiForestMultiDirectoryGALSync2Unsupported.png)
+![Topologia não suportada para múltiplas florestas e vários diretórios, com GALSync focado no Azure AD](./media/plan-connect-topologies/multiforestmultidirectorygalsync1unsupported.png) ![Topologia não suportada para múltiplas florestas e vários diretórios, com GALSync focado no Ative Directory no local](./media/plan-connect-topologies/multiforestmultidirectorygalsync2unsupported.png)
 
 Os inquilinos da AD AZure são isolados pelo design. Estas tarefas não são apoiadas:
 
@@ -188,7 +191,7 @@ Os inquilinos da AD AZure são isolados pelo design. Estas tarefas não são apo
 * Exportar os utilizadores como contactos para outro local, instância ative directy, utilizando a sincronização Azure AD Connect.
 
 ### <a name="galsync-with-on-premises-sync-server"></a>GALSync com servidor de sincronização no local
-![GALSync em topologia para múltiplas florestas e vários diretórios](./media/plan-connect-topologies/MultiForestMultiDirectoryGALSync.png)
+![GALSync em topologia para múltiplas florestas e vários diretórios](./media/plan-connect-topologies/multiforestmultidirectorygalsync.png)
 
 Pode utilizar o FIM 2010 ou o MIM 2016 no local para sincronizar os utilizadores (via GALSync) entre duas organizações de Intercâmbio. Os utilizadores de uma organização aparecem como utilizadores/contactos estrangeiros na outra organização. Estes diferentes casos de Ative Directory podem então ser sincronizados com os seus próprios inquilinos AD Azure.
 

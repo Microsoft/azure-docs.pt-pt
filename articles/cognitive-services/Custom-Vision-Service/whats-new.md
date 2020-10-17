@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: overview
 ms.date: 06/29/2020
 ms.author: pafarley
-ms.openlocfilehash: 019a9264beddafbd4585810967551e064592e94d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4fbfbd1d578eb77d50d91413efb9f9fbf28e115f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90602528"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146311"
 ---
 # <a name="whats-new-in-custom-vision"></a>Novidades na Visão Personalizada
 
@@ -23,9 +23,9 @@ Saiba o que há de novo no serviço. Estes itens podem ser notas de lançamento,
 
 ## <a name="july-2020"></a>Julho de 2020
 
-### <a name="role-based-access-control"></a>Controlo de acesso baseado em funções
+### <a name="azure-role-based-access-control"></a>Controlo de acesso baseado em funções do Azure
 
-* A Custom Vision suporta o controlo de acesso baseado em funções Azure (Azure RBAC), um sistema de autorização para gerir o acesso individual aos recursos Azure. Para aprender a gerir o acesso aos seus projetos de Visão Personalizada, consulte o [controlo de acesso baseado em funções.](./role-based-access-control.md)
+* A Custom Vision suporta o controlo de acesso baseado em funções Azure (Azure RBAC), um sistema de autorização para gerir o acesso individual aos recursos Azure. Para aprender a gerir o acesso aos seus projetos de Visão Personalizada, consulte [o controlo de acesso baseado em funções da Azure.](./role-based-access-control.md)
 
 ### <a name="subset-training"></a>Treinamento de subconjunto
 

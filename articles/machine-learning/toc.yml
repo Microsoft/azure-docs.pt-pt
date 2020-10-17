@@ -152,13 +152,31 @@
       href: concept-onnx.md
     - name: Pipelines de ML
       href: concept-ml-pipelines.md
-    - name: Preparação e segurança para empresas
+    - name: Segurança
       items:
         - name: Descrição geral da segurança empresarial
           displayName: authorization authentication encryption aad azure active directory
           href: concept-enterprise-security.md
         - name: Linha de base de segurança
           href: security-baseline.md
+    - name: ML responsável
+      items:
+        - name: Descrição geral do ML responsável
+          displayName: 'responsible,ml'
+          href: concept-responsible-ml.md
+        - name: Capacidade de interpretação do modelo
+          displayName: explainability
+          href: how-to-machine-learning-interpretability.md
+        - name: Justiça no Machine Learning
+          displayName: fairness
+          href: concept-fairness-ml.md
+        - name: Privacidade Diferencial
+          displayName: 'differential,privacy'
+          href: concept-differential-privacy.md
+- name: Guias de procedimentos
+  items:
+    - name: Segurança
+      items:
         - name: Gestão de identidades e acessos
           items:
             - name: Configurar autenticação
@@ -212,22 +230,6 @@
         - name: Auditar e gerir a conformidade
           href: how-to-integrate-azure-policy.md
           displayName: policy
-    - name: ML responsável
-      items:
-        - name: Descrição geral do ML responsável
-          displayName: 'responsible,ml'
-          href: concept-responsible-ml.md
-        - name: Capacidade de interpretação do modelo
-          displayName: explainability
-          href: how-to-machine-learning-interpretability.md
-        - name: Justiça no Machine Learning
-          displayName: fairness
-          href: concept-fairness-ml.md
-        - name: Privacidade Diferencial
-          displayName: 'differential,privacy'
-          href: concept-differential-privacy.md
-- name: Guias de procedimentos
-  items:
     - name: Criar e gerir áreas de trabalho
       items:
         - name: Utilizar o portal do Azure
