@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: ccf470abadb28919e4fca3c4862b71946a5bb204
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9423069b917c37e77b70a4466e489918cd330c4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87800505"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143926"
 ---
 # <a name="azure-resource-logs"></a>Registos de recursos do Azure
 Os registos de recursos Azure são [registos de plataformas](platform-logs-overview.md) que fornecem informações sobre operações que foram realizadas dentro de um recurso Azure. O conteúdo dos registos de recursos varia consouros e de tipo de recurso. Os registos de recursos não são recolhidos por predefinição. Tem de criar uma definição de diagnóstico para cada recurso Azure para enviar os seus registos de recursos para um espaço de trabalho do Log Analytics para utilizar com [registos do Monitor Azure,](data-platform-logs.md)Azure Event Hubs para encaminhar para fora do Azure, ou para o Azure Storage para arquivar.
@@ -27,7 +27,7 @@ Consulte [Criar definições de diagnóstico para enviar registos e métricas da
 - Use consultas de registo para realizar análises complexas e obtenha informações profundas sobre dados de registo.
 - Utilize alertas de registo com lógica de alerta complexa.
 
-[Crie uma definição de diagnóstico](diagnostic-settings.md) para enviar registos de recursos para um espaço de trabalho Log Analytics. Estes dados são armazenados em tabelas conforme descrito na [Estrutura de Registos monitores Azure](../log-query/logs-structure.md). As tabelas utilizadas pelos registos de recursos dependem do tipo de recolha que o recurso está a utilizar:
+[Crie uma definição de diagnóstico](diagnostic-settings.md) para enviar registos de recursos para um espaço de trabalho Log Analytics. Estes dados são armazenados em tabelas conforme descrito na [Estrutura de Registos monitores Azure](./data-platform-logs.md). As tabelas utilizadas pelos registos de recursos dependem do tipo de recolha que o recurso está a utilizar:
 
 - Diagnósticos Azure - Todos os dados escritos são para a tabela _AzureDiagnostics._
 - Específico de recursos - Os dados são escritos para tabela individual para cada categoria do recurso.

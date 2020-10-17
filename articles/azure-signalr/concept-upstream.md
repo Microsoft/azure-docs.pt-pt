@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: chenyl
-ms.openlocfilehash: c3e317a87ba888fac3c069cc5327bd89c859e9de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d51f5e8d2fac1e2b180a608c840d0a322e76271
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89514242"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143236"
 ---
 # <a name="upstream-settings"></a>Definições de origem
 
@@ -88,7 +88,7 @@ Ao `ManagedIdentity` selecionar, deve ativar uma identidade gerida no Serviço A
 
 ## <a name="create-upstream-settings-via-resource-manager-template"></a>Criar definições a montante através do modelo de Gestor de Recursos
 
-Para criar configurações a montante utilizando um [modelo de Gestor de Recursos Azure,](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)defina a propriedade na `upstream` `properties` propriedade. O seguinte corte mostra como definir a `upstream` propriedade para criar e atualizar configurações a montante.
+Para criar configurações a montante utilizando um [modelo de Gestor de Recursos Azure,](../azure-resource-manager/templates/overview.md)defina a propriedade na `upstream` `properties` propriedade. O seguinte corte mostra como definir a `upstream` propriedade para criar e atualizar configurações a montante.
 
 ```JSON
 {

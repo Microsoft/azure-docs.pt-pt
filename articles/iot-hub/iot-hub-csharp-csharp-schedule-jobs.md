@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
-ms.openlocfilehash: d99cc571394ad7a9c85fb7367c672f96a7302362
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0391afe5562238f488fde7e50d914c46a5c32944
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018506"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142465"
 ---
 # <a name="schedule-and-broadcast-jobs-net"></a>Horários e trabalhos de transmissão (.NET)
 
@@ -58,7 +58,7 @@ No final deste tutorial, tem duas aplicações de consola .NET (C#):
 
 * Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste artigo utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode ser bloqueado em alguns ambientes de rede corporativa e educacional. Para obter mais informações e formas de contornar esta questão, consulte [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -261,7 +261,7 @@ Nesta secção, cria-se uma aplicação de consola .NET (utilizando C#) que util
     ```
 
     > [!NOTE]
-    > Para obter mais informações sobre a sintaxe de consulta, consulte [o idioma de consulta IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language).
+    > Para obter mais informações sobre a sintaxe de consulta, consulte [o idioma de consulta IoT Hub](./iot-hub-devguide-query-language.md).
     >
 
 1. Por fim, adicione as seguintes linhas ao método **Main**:
@@ -311,4 +311,4 @@ Neste tutorial, utilizou um trabalho para agendar um método direto para um disp
 
 * Para continuar a trabalhar com o IoT Hub e padrões de gestão de dispositivos como o controlo remoto sobre a atualização do firmware aéreo, leia [Tutorial: Como fazer uma atualização de firmware](tutorial-firmware-update.md).
 
-* Para aprender sobre a implementação de IA para dispositivos de borda com Azure IoT Edge, consulte [Começar com IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).
+* Para aprender sobre a implementação de IA para dispositivos de borda com Azure IoT Edge, consulte [Começar com IoT Edge](../iot-edge/quickstart-linux.md).

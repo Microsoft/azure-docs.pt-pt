@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/06/2019
-ms.openlocfilehash: 2e96ac5052221475d9aec11d4ed96e8f9c308d70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 024fa2f86890c6e8e791b5cf66a4e67328f62f63
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710112"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143887"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension-in-azure-monitor"></a>Resolver problemas da extensão de VM do Log Analytics no Azure Monitor
 Este artigo fornece falhas de resolução de problemas que pode experimentar com a extensão VM do Log Analytics para máquinas virtuais Windows e Linux em funcionamento no Microsoft Azure, e sugere possíveis soluções para resolvê-los.
@@ -52,7 +52,7 @@ Se o agente Log Analytics para a extensão *Linux* VM não estiver a instalar ou
 
 1. Se o estado da extensão for *desconhecido,* verifique se o agente Azure VM está instalado e funciona corretamente, revendo o ficheiro de registo do agente VM `/var/log/waagent.log`
    * Se o registo não existir, o agente VM não está instalado.
-   * [Instale o Agente VM Azure em VMs Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#installation)
+   * [Instale o Agente VM Azure em VMs Linux](../../virtual-machines/extensions/agent-linux.md#installation)
 2. Para outros estados insalubres, reveja o agente Log Analytics para ficheiros de registos de extensão Linux VM `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` e `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`
 3. Se o estado de extensão for saudável, mas os dados não estão a ser carregados, reveja o agente Log Analytics para ficheiros de registo Linux `/var/opt/microsoft/omsagent/log/omsagent.log`
 
@@ -60,5 +60,4 @@ Para obter mais informações, consulte [as extensões linux de resolução de p
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter orientações adicionais de resolução de problemas relacionadas com o agente Log Analytics para Linux hospedado em computadores fora de Azure, consulte [o Relatório Linux do Log Analytics de Troubleshoot Azure Log.](agent-linux-troubleshoot.md)  
-
+Para obter orientações adicionais de resolução de problemas relacionadas com o agente Log Analytics para Linux hospedado em computadores fora de Azure, consulte [o Relatório Linux do Log Analytics de Troubleshoot Azure Log.](agent-linux-troubleshoot.md)

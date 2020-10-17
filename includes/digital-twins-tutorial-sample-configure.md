@@ -5,18 +5,18 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: 4ac748c606d8ec3c8ba754c34d9c9e7512344a83
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b44e15e4592de5e874ee50ebd390940e8ab16a22
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91292719"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92157974"
 ---
 ## <a name="configure-the-sample-project"></a>Configure o projeto da amostra
 
 Em seguida, crie uma aplicação de cliente de amostra que irá interagir com a sua instância Azure Digital Twins.
 
-Navegue na sua máquina para o arquivar mais cedo a partir de amostras de [*Azure Digital Twins*](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples) (e desaperte-a se ainda não o fez).
+Navegue na sua máquina para o arquivar mais cedo a partir de amostras de ponta a ponta da [*Azure Digital Twins*](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples) (e desaperte-as se ainda não o fez).
 
 Uma vez dentro da pasta, navegue no _AdtSampleApp_. Open _**AdtE2ESample.sln**_ in Visual Studio 2019. 
 

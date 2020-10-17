@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: d7d41a875d8e0c30085bafd346e316672359de26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 039bea98090edcc5966be3cea54b31c61c18dc10
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87374972"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92157955"
 ---
 :::row:::
     :::column span="3":::
@@ -25,7 +25,7 @@ ms.locfileid: "87374972"
 
 Para consumir o pacote do seu projeto Android Studio, faça as seguintes alterações:
 
-1. No ficheiro *build.gradle* de nível de projeto, adicione o seguinte à `repository` secção:
+1. No ficheiro *build.gradle* de nível de projeto, adicione o seguinte à `repositories` secção:
   ```gradle
   maven { url 'https://csspeechstorage.blob.core.windows.net/maven/' }
   ```

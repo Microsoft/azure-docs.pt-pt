@@ -6,19 +6,19 @@ ms.author: aul
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: 19fd1d064a3f106d7b770481d1e456c51cf1e166
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3179daec361aa287b79c5e9a468908d0ccdd2982
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87759432"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143959"
 ---
 # <a name="azure-monitor-view-designer-to-workbooks-transition-guide"></a>Azure Monitor vê designer para guia de transição de livros
 [O view designer](view-designer.md) é uma funcionalidade do Azure Monitor que lhe permite criar visualizações personalizadas para o ajudar a visualizar dados no seu espaço de trabalho Log Analytics, com gráficos, listas e linhas de tempo. Foram transitados para livros de trabalho para fornecer uma tela flexível para análise de dados e criação de relatórios visuais ricos dentro do portal Azure. Este artigo ajuda-o a fazer a transição de View designer para Workbooks. 
 
 
 ## <a name="workbooks-overview"></a>Visão geral dos livros de trabalho
-[Os livros combinam](../insights/vminsights-workbooks.md) texto, [consultas de registo,](../log-query/query-language.md)métricas e parâmetros em ricos relatórios interativos. Os membros da equipa com o mesmo acesso aos recursos do Azure também podem editar livros de trabalho.
+[Os livros combinam](../insights/vminsights-workbooks.md) texto, [consultas de registo,](/azure/data-explorer/kusto/query/)métricas e parâmetros em ricos relatórios interativos. Os membros da equipa com o mesmo acesso aos recursos do Azure também podem editar livros de trabalho.
 
 Os livros de trabalho são úteis para cenários como:
 
