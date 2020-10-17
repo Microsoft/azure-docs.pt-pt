@@ -16,12 +16,12 @@ ms.custom:
 - 'Role: Operations'
 - devx-track-js
 - devx-track-csharp
-ms.openlocfilehash: c7ad38dc43280164fc9dbca5d5f2381e613dc1ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dbe277c7451b02887ec5657b1a183fcd001d134e
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91281339"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148298"
 ---
 # <a name="control-access-to-iot-hub"></a>Controlar o acesso ao Hub IoT
 
@@ -454,7 +454,7 @@ Aqui estão os principais passos do padrão de serviço simbólico:
 4. O dispositivo/módulo utiliza o símbolo diretamente com o hub IoT.
 
 > [!NOTE]
-> Pode utilizar a classe .NET [SharedAccessSignatureBuilder](https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx) ou a classe Java [IotHubServiceSasToken](/java/api/com.microsoft.azure.sdk.iot.service.auth.iothubservicesastoken) para criar um símbolo no seu serviço de token.
+> Pode utilizar a classe .NET [SharedAccessSignatureBuilder](/dotnet/api/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder) ou a classe Java [IotHubServiceSasToken](/java/api/com.microsoft.azure.sdk.iot.service.auth.iothubservicesastoken) para criar um símbolo no seu serviço de token.
 
 O serviço token pode definir a expiração do símbolo conforme desejado. Quando o token expira, o hub IoT corta a ligação dispositivo/módulo. Em seguida, o dispositivo/módulo deve solicitar um novo token do serviço token. Um curto prazo de validade aumenta a carga tanto no dispositivo como no módulo e no serviço token.
 

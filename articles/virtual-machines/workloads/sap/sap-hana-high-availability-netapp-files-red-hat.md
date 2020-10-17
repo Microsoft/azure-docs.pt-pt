@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/30/2020
+ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: ce24bf541c5a71c50bb34f5e42aa3452f01b871c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8800adae73de2672dd89678a6346fe6b0df755ba
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978174"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144189"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Alta disponibilidade de ESCALA SAP HANA com ficheiros Azure NetApp no Red Hat Enterprise Linux
 
@@ -91,7 +91,7 @@ Leia primeiro as seguintes notas e artigos SAP:
     - [Configurar a replicação do sistema de escala SAP HANA quando os sistemas de ficheiros HANA estiverem em ações NFS](https://access.redhat.com/solutions/5156571)
 - [Aplicações NETApp SAP no Microsoft Azure utilizando ficheiros Azure NetApp](https://www.netapp.com/us/media/tr-4746.pdf)
 
-## <a name="overview"></a>Overview (Descrição geral)
+## <a name="overview"></a>Descrição geral
 
 Tradicionalmente em ambiente de escala, todos os sistemas de ficheiros para SAP HANA são montados a partir do armazenamento local. A criação de alta disponibilidade de replicação do sistema SAP HANA no Red Hat Enterprise Linux é publicada no guia [Configurar a replicação do sistema SAP HANA no RHEL](./sap-hana-high-availability-rhel.md)
 
@@ -227,6 +227,13 @@ Primeiro, tem de criar os volumes dos Ficheiros Azure NetApp. Em seguida, faça 
 5.  Criar Máquina Virtual 1 **(hanadb1).** 
 6.  Criar Máquina Virtual 2 **(hanadb2).**  
 7.  Ao criar uma máquina virtual, não adicionaremos nenhum disco, uma vez que todos os nossos pontos de montagem estarão nas ações da NFS a partir de Ficheiros Azure NetApp. 
+
+> [!IMPORTANT]
+> O IP flutuante não é suportado numa configuração IP secundária do NIC em cenários de equilíbrio de carga. Para mais detalhes consulte [as limitações do balançador de carga Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Se precisar de um endereço IP adicional para o VM, implante um segundo NIC.    
+
+> [!NOTE] 
+> Quando os VMs sem endereços IP públicos forem colocados no pool de backend de saldos de carga standard Azure (sem endereço IP público), não haverá conectividade de saída na Internet, a menos que seja realizada uma configuração adicional para permitir o encaminhamento para pontos finais públicos. Para obter detalhes sobre como alcançar a conectividade de saída, consulte [a conectividade do ponto final público para máquinas virtuais utilizando o Azure Standard Load Balancer em cenários de alta disponibilidade SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).
+
 8.  Se utilizar o balanceador de carga padrão, siga estes passos de configuração:
     1.  Primeiro, crie um pool IP frontal:
         1.  Abra o balançador de carga, selecione **o pool IP frontend**e selecione **Adicionar**.
@@ -255,8 +262,6 @@ Primeiro, tem de criar os volumes dos Ficheiros Azure NetApp. Em seguida, faça 
         1.  Certifique-se de que ativa o **IP flutuante**.
         1.  Selecione **OK**.
 
-> [!NOTE] 
-> Quando os VMs sem endereços IP públicos forem colocados no pool de backend de saldos de carga standard Azure (sem endereço IP público), não haverá conectividade de saída na Internet, a menos que seja realizada uma configuração adicional para permitir o encaminhamento para pontos finais públicos. Para obter detalhes sobre como alcançar a conectividade de saída, consulte [a conectividade do ponto final público para máquinas virtuais utilizando o Azure Standard Load Balancer em cenários de alta disponibilidade SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).
 
 9. Em alternativa, se o seu cenário ditar a utilização do balanceador de carga básico, siga estes passos de configuração:
     1.  Configure o equilibrador de carga. Primeiro, crie um pool IP frontal:

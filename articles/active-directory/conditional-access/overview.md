@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 10/12/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4, azuread-video-2020
-ms.openlocfilehash: b0dec57a67053c3791e68fb40e28d83d5b97777b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d46dfba9d9dedea57b6be872a6853bc522a0bc8c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962161"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145252"
 ---
 # <a name="what-is-conditional-access"></a>O que é o Acesso Condicional?
 
@@ -84,13 +84,6 @@ Muitas organizações têm [preocupações de acesso comuns que as políticas de
 - Bloquear ou conceder acesso a partir de locais específicos
 - Bloquear comportamentos de sinalização de risco
 - Exigir dispositivos geridos pela organização para aplicações específicas
-
-## <a name="customer-case-studies"></a>Casos práticos de clientes
-
-Descubra como outras organizações usam acesso condicional Azure AD para definir e implementar decisões automatizadas de controlo de acesso. As seguintes histórias em destaque demonstram como estas necessidades dos clientes são satisfeitas.
-
-* [O Wipro impulsiona a produtividade móvel com ferramentas de segurança na nuvem da Microsoft para melhorar os compromissos com os clientes.](https://customers.microsoft.com/story/wipro-professional-services-enterprise-mobility-security) As políticas de Acesso Condicional em Azure AD permitiram à empresa partilhar documentos, recursos e aplicações com entidades externas de confiança--- que podem usar as suas próprias credenciais--- mantendo o controlo sobre os seus próprios dados corporativos.
-* [Aramex delivery limited - Empresa global de logística e transporte cria escritório ligado à nuvem com solução de gestão de identidade e acesso.](https://customers.microsoft.com/story/aramex-azure-active-directory-travel-transportation-united-arab-emirates-en) Garantir o acesso seguro foi especialmente difícil com os funcionários remotos da Aramex. A empresa está agora a aplicar o Acesso Condicional para permitir que estes colaboradores remotos acedam às suas aplicações SaaS de fora da rede. A regra de Acesso Condicional decidirá se aplicará a Autenticação Multi-Factor, dando apenas às pessoas certas o acesso certo.
 
 ## <a name="license-requirements"></a>Requisitos de licença
 

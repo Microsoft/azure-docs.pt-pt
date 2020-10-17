@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: philmea
-ms.openlocfilehash: d4a5ad36e9d6d71ad88d0b5c56b6079f34483347
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c665e30ed9b284f7c93cf8588b710c9f22457a0a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021435"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151670"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Elevada disponibilidade e recuperação após desastre do Hub IoT
 
-Como primeiro passo para a implementação de uma solução IoT resiliente, arquitetos, desenvolvedores e empresários devem definir os objetivos de uptime para as soluções que estão construindo. Estes objetivos podem ser definidos principalmente com base em objetivos específicos de negócio para cada cenário. Neste contexto, o artigo [Azure Business Continuity Technical Guidance](https://docs.microsoft.com/azure/architecture/resiliency/) descreve um quadro geral para ajudá-lo a pensar na continuidade do negócio e na recuperação de desastres. O trabalho [de recuperação de desastres e alta disponibilidade para aplicações Azure](https://docs.microsoft.com/azure/architecture/reliability/disaster-recovery) fornece orientação de arquitetura sobre estratégias para aplicações Azure para alcançar alta disponibilidade (HA) e recuperação de desastres (DR).
+Como primeiro passo para a implementação de uma solução IoT resiliente, arquitetos, desenvolvedores e empresários devem definir os objetivos de uptime para as soluções que estão construindo. Estes objetivos podem ser definidos principalmente com base em objetivos específicos de negócio para cada cenário. Neste contexto, o artigo [Azure Business Continuity Technical Guidance](/azure/architecture/resiliency/) descreve um quadro geral para ajudá-lo a pensar na continuidade do negócio e na recuperação de desastres. O trabalho [de recuperação de desastres e alta disponibilidade para aplicações Azure](/azure/architecture/reliability/disaster-recovery) fornece orientação de arquitetura sobre estratégias para aplicações Azure para alcançar alta disponibilidade (HA) e recuperação de desastres (DR).
 
 Este artigo discute as funcionalidades HA e DR oferecidas especificamente pelo serviço IoT Hub. As grandes áreas discutidas neste artigo são:
 
@@ -64,7 +64,7 @@ Uma vez concluída a operação de failover para o hub IoT, espera-se que todas 
 >
 > - Se utilizar funções Azure ou Azure Stream Analytics para ligar o ponto final de Eventos incorporados, poderá ter de realizar um **Restart**. Isto porque durante o failover anteriores as compensações deixaram de ser válidas.
 >
-> - Ao encaminhar para o armazenamento, recomendamos listar as bolhas ou ficheiros e, em seguida, iterar sobre eles, para garantir que todas as bolhas ou ficheiros são lidos sem fazer quaisquer suposições de partição. O intervalo de partição pode potencialmente mudar durante uma falha de falha iniciada pela Microsoft ou falha manual. Pode utilizar a [Lista Blobs API](https://docs.microsoft.com/rest/api/storageservices/list-blobs) para enumerar a lista de blobs ou [Lista ADLS Gen2 API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/list) para a lista de ficheiros. Para saber mais, consulte [o Azure Storage como um ponto final de encaminhamento](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
+> - Ao encaminhar para o armazenamento, recomendamos listar as bolhas ou ficheiros e, em seguida, iterar sobre eles, para garantir que todas as bolhas ou ficheiros são lidos sem fazer quaisquer suposições de partição. O intervalo de partição pode potencialmente mudar durante uma falha de falha iniciada pela Microsoft ou falha manual. Pode utilizar a [Lista Blobs API](/rest/api/storageservices/list-blobs) para enumerar a lista de blobs ou [Lista ADLS Gen2 API](/rest/api/storageservices/datalakestoragegen2/path/list) para a lista de ficheiros. Para saber mais, consulte [o Azure Storage como um ponto final de encaminhamento](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
 
 ## <a name="microsoft-initiated-failover"></a>Falha iniciada pela Microsoft
 

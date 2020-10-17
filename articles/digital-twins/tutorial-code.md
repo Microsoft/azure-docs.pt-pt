@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 8e7ad721eba103679f55886053e8ba9e888573c0
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 830052237580101d9141bbf812c050430c6269f2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057489"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144565"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutorial: Codificação com as APIs de Gémeos Digitais Azure
 
@@ -320,13 +320,20 @@ Note que não se comete nenhum erro quando os gémeos são criados pela segunda 
 
 Em seguida, pode criar **relações** entre os gémeos que criou, para ligá-los a um **gráfico gémeo.** [Os gráficos gémeos](concepts-twins-graph.md) são usados para representar todo o seu ambiente.
 
-Para ser capaz de criar relacionamentos, você precisará do espaço de `Azure.DigitalTwins.Core.Serialization` nome. Acrescentou isto ao projeto mais cedo com esta `using` declaração:
+Para ajudar a criar relacionamentos, esta amostra de código usa o `Azure.DigitalTwins.Core.Serialization` espaço de nome. Acrescentou isto ao projeto mais cedo com esta `using` declaração:
 
 ```csharp
 using Azure.DigitalTwins.Core.Serialization;
 ```
 
+>[!NOTE]
+>`Azure.DigitalTwins.Core.Serialization` não é necessário trabalhar com gémeos digitais e relações; é um espaço de nome opcional que pode ajudar a colocar dados no formato certo. Algumas alternativas à sua utilização incluem:
+>* Cordas concatenating para formar um objeto JSON
+>* Usando um analisador JSON gosta `System.Text.Json` de construir um objeto JSON dinamicamente
+>* Modelar os seus tipos personalizados em C#, instantaneamente e serializá-los em cordas
+
 Adicione um novo método estático à `Program` classe, por baixo do `Main` método:
+
 ```csharp
 public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId)
 {
@@ -348,7 +355,8 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
 }
 ```
 
-Em seguida, adicione o seguinte código ao fim do `Main` método para ligar para o `CreateRelationship` código:
+Em seguida, adicione o seguinte código ao fim do `Main` método, para ligar para o `CreateRelationship` método e usar o código que acabou de escrever:
+
 ```csharp
 // Connect the twins with relationships
 await CreateRelationship(client, "sampleTwin-0", "sampleTwin-1");

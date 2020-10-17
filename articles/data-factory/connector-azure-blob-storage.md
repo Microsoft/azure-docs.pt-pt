@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/12/2020
-ms.openlocfilehash: 38f3aaeddbdedb073d83a64a508eb9f4578f1c97
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 7aef08f4ba1948c32fe83a2d0064a21459c003b4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948441"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148949"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copiar e transformar dados no armazenamento da Azure Blob utilizando a Azure Data Factory
 
@@ -223,7 +223,7 @@ Para utilizar a autenticação principal do serviço, siga estes passos:
     - Chave de aplicação
     - ID do inquilino
 
-2. Conceda ao diretor de serviço a permissão adequada no armazenamento da Azure Blob. Para obter mais informações sobre as funções, consulte [Gerir os direitos de acesso aos dados de armazenamento do Azure com o RBAC.](../storage/common/storage-auth-aad-rbac.md)
+2. Conceda ao diretor de serviço a permissão adequada no armazenamento da Azure Blob. Para obter mais informações sobre as funções, consulte [utilizar o portal Azure para atribuir uma função Azure para acesso a dados de bolhas e filas](../storage/common/storage-auth-aad-rbac-portal.md).
 
     - **Como fonte**, no **Controlo de Acesso (IAM)**, conceda pelo menos a função de Leitor de **Dados blob de armazenamento.**
     - **Como sink**, in **Access control (IAM)**, concede pelo menos a função de Contribuinte de **Dados blob de armazenamento.**
@@ -280,7 +280,7 @@ Para obter informações gerais sobre a autenticação do Armazenamento Azure, c
 
 1. [A Fábrica de Dados de Recuperação geriu informações](data-factory-service-identity.md#retrieve-managed-identity) de identidade copiando o valor do ID do objeto de identidade gerido gerado juntamente com a sua fábrica.
 
-2. Conceda a permissão de identidade gerida no armazenamento da Azure Blob. Para obter mais informações sobre as funções, consulte [Gerir os direitos de acesso aos dados de armazenamento do Azure com o RBAC.](../storage/common/storage-auth-aad-rbac.md)
+2. Conceda a permissão de identidade gerida no armazenamento da Azure Blob. Para obter mais informações sobre as funções, consulte [utilizar o portal Azure para atribuir uma função Azure para acesso a dados de bolhas e filas](../storage/common/storage-auth-aad-rbac-portal.md).
 
     - **Como fonte**, no **Controlo de Acesso (IAM)**, conceda pelo menos a função de Leitor de **Dados blob de armazenamento.**
     - **Como sink**, in **Access control (IAM)**, concede pelo menos a função de Contribuinte de **Dados blob de armazenamento.**

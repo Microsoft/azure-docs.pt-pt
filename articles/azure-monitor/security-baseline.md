@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: fd68f720f372ee61f7c441ea83bd365bc2a6f36a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15026c378c4c399915e99b0910f1e6518f5adfc8
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90032746"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151852"
 ---
 # <a name="azure-security-baseline-for-azure-monitor"></a>Linha de segurança Azure para O Monitor Azure
 
@@ -22,7 +22,7 @@ O Azure Monitor faz parte dos serviços centrais do Azure e o Serviço de Monito
 
 ## <a name="network-security"></a>Segurança da rede
 
-*Para obter mais informações, consulte o [Azure Security Benchmark: Segurança da rede](/azure/security/benchmarks/security-control-network-security).*
+*Para obter mais informações, consulte o [Azure Security Benchmark: Segurança da rede](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1: Proteger os recursos do Azure nas redes virtuais
 
@@ -80,7 +80,7 @@ Ao utilizar o Azure Monitor com Private Link, obtém acesso ao registo de rede, 
 
 - [Conecte computadores sem acesso à Internet utilizando o gateway Log Analytics no Azure Monitor](platform/gateway.md) 
 
-- [Ver a começar com a Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview#get-started)
+- [Ver a começar com a Application Insights](./app/app-insights-overview.md#get-started)
 
 - [Como configurar testes web de disponibilidade](app/monitor-web-app-availability.md)
 
@@ -92,7 +92,7 @@ Ao utilizar o Azure Monitor com Private Link, obtém acesso ao registo de rede, 
 
 **Orientação**: Utilize o Registo de Atividades Azure para monitorizar as configurações dos recursos e detetar alterações nos recursos da sua rede relacionadas com o Azure Monitor. Crie alertas dentro do Azure Monitor que irão desencadear quando ocorrerem alterações a esses recursos críticos da rede.
 
-- [Como visualizar e recuperar eventos de Registo de Atividades Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Como visualizar e recuperar eventos de Registo de Atividades Azure](./platform/activity-log.md#view-the-activity-log)
 
 - [Como criar alertas no Azure Monitor](platform/alerts-activity-log.md)
 
@@ -102,7 +102,7 @@ Ao utilizar o Azure Monitor com Private Link, obtém acesso ao registo de rede, 
 
 ## <a name="logging-and-monitoring"></a>Início de sessão e monitorização
 
-*Para obter mais informações, consulte o [Benchmark de Segurança Azure: Registar e monitorizar](/azure/security/benchmarks/security-control-logging-monitoring).*
+*Para obter mais informações, consulte o [Benchmark de Segurança Azure: Registar e monitorizar](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="22-configure-central-security-log-management"></a>2.2: Configurar a gestão central dos registos de segurança
 
@@ -178,15 +178,15 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 ## <a name="identity-and-access-control"></a>Identidade e controlo de acesso
 
-*Para mais informações, consulte o [Benchmark de Segurança Azure: Identidade e controlo de acessos](/azure/security/benchmarks/security-control-identity-access-control).*
+*Para mais informações, consulte o [Benchmark de Segurança Azure: Identidade e controlo de acessos](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Manter um inventário das contas administrativas
 
 **Orientação**: O controlo de acesso baseado em funções (Azure RBAC) permite-lhe gerir o acesso aos recursos Azure através de atribuições de funções. Pode atribuir estas funções aos utilizadores, grupos de diretores de serviço e identidades geridas. Existem funções incorporadas pré-definidas para determinados recursos, e estas funções podem ser inventariadas ou consultadas através de ferramentas como Azure CLI, Azure PowerShell ou o portal Azure.
 
-- [Como obter um papel de diretório em Azure AD com PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Como obter um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [Como obter membros de um papel de diretório em Azure AD com PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Como obter membros de um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
@@ -242,7 +242,7 @@ Também pode ativar um Just-In-Time / Just-Enough-Access utilizando funções pr
 
 **Orientação**: Utilize relatórios de segurança do Azure Ative Directory e monitoriem para detetar quando ocorrem atividades suspeitas ou inseguras no ambiente. Utilize o Centro de Segurança Azure para monitorizar a atividade de identidade e acesso. 
 
-- [Como identificar utilizadores de AD Azure sinalizados para atividade de risco](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [Como identificar utilizadores de AD Azure sinalizados para atividade de risco](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Como monitorizar a identidade e a atividade de acesso dos utilizadores no Centro de Segurança Azure](../security-center/security-center-identity-access.md)
 
@@ -274,7 +274,7 @@ Também pode ativar um Just-In-Time / Just-Enough-Access utilizando funções pr
 
 **Orientação**: A Azure AD fornece registos para ajudar a descobrir contas velhas. Além disso, utilize a Azure Identity Access Reviews para gerir eficientemente os membros do grupo, o acesso a aplicações empresariais e atribuições de funções. O acesso ao utilizador pode ser revisto regularmente para garantir que apenas os Utilizadores certos tenham acesso continuado. 
 
-- [Compreenda a Azure AD reportando](/azure/active-directory/reports-monitoring/)
+- [Compreenda a Azure AD reportando](../active-directory/reports-monitoring/index.yml)
 
 - [Como utilizar comentários sobre acesso à identidade do Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -286,7 +286,7 @@ Também pode ativar um Just-In-Time / Just-Enough-Access utilizando funções pr
 
 **Orientação**: Tem acesso a fontes de registo de registo de registos de registos, auditorias e eventos de risco Azure, que lhe permitem integrar-se com qualquer ferramenta SIEM/Monitoring. Pode agilizar este processo criando Definições de Diagnóstico para contas de utilizadores do Azure Ative Directory e enviando os registos de auditoria e registos de login para um espaço de trabalho do Log Analytics. Pode configurar os alertas desejados dentro do log analytics workspace.
 
-- [Como integrar os Registos de Atividades do Azure no Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Como integrar os Registos de Atividades do Azure no Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Monitorização do Centro de Segurança Azure:** Unet. Por favor, forneça um valor no item de trabalho.
 
@@ -296,7 +296,7 @@ Também pode ativar um Just-In-Time / Just-Enough-Access utilizando funções pr
 
 **Orientação**: Utilize funcionalidades de Proteção de Risco e Identidade Azure AD para configurar respostas automatizadas para detetar ações suspeitas relacionadas com identidades do utilizador. Você também pode ingerir dados em Azure Sentinel para mais investigação.
 
-- [Como ver a Azure AD a entrar em risco](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Como ver a Azure AD a entrar em risco](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Como configurar e permitir políticas de risco de proteção de identidade](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -308,13 +308,13 @@ Também pode ativar um Just-In-Time / Just-Enough-Access utilizando funções pr
 
 ## <a name="data-protection"></a>Proteção de dados
 
-*Para obter mais informações, consulte o [Benchmark de Segurança Azure: Proteção de dados](/azure/security/benchmarks/security-control-data-protection).*
+*Para obter mais informações, consulte o [Benchmark de Segurança Azure: Proteção de dados](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: Manter um inventário de informação sensível
 
 **Orientação**: Utilize tags sempre que possível para ajudar a rastrear os recursos do Azure Monitor que armazenam ou processam informações sensíveis como os espaços de trabalho do Log Analytics.
 
-- [Como criar e usar tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar tags](../azure-resource-manager/management/tag-resources.md)
 
 - [Gerir o acesso a dados de registo e áreas de trabalho no Azure Monitor](platform/manage-access.md)
 
@@ -326,11 +326,11 @@ Também pode ativar um Just-In-Time / Just-Enough-Access utilizando funções pr
 
 **Orientação**: Implementar o isolamento utilizando assinaturas e grupos de gestão separados para domínios de segurança individuais, tais como o tipo de ambiente e o nível de sensibilidade aos dados. Pode restringir o nível de acesso ao seu Azure Monitor e recursos relacionados que as suas aplicações e ambientes empresariais exigem. Pode controlar o acesso ao Azure Monitor através do controlo de acesso baseado em funções do Azure Ative Directory.
 
-- [Como criar subscrições adicionais do Azure](/azure/billing/billing-create-subscription)
+- [Como criar subscrições adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Como criar Grupos de Gestão](/azure/governance/management-groups/create)
+- [Como criar Grupos de Gestão](../governance/management-groups/create-management-group-portal.md)
 
-- [Como criar e usar tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar tags](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -399,7 +399,7 @@ Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os 
 
 ## <a name="vulnerability-management"></a>Gestão de vulnerabilidades
 
-*Para obter mais informações, consulte o [Azure Security Benchmark: Gestão de vulnerabilidades](/azure/security/benchmarks/security-control-vulnerability-management).*
+*Para obter mais informações, consulte o [Azure Security Benchmark: Gestão de vulnerabilidades](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5.5: Utilize um processo de classificação de risco para priorizar a reparação de vulnerabilidades descobertas
 
@@ -411,15 +411,15 @@ Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os 
 
 ## <a name="inventory-and-asset-management"></a>Gestão de recursos e inventário
 
-*Para mais informações, consulte o [Azure Security Benchmark: Inventário e gestão de ativos.](/azure/security/benchmarks/security-control-inventory-asset-management)*
+*Para mais informações, consulte o [Azure Security Benchmark: Inventário e gestão de ativos.](../security/benchmarks/security-control-inventory-asset-management.md)*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6.1: Utilize uma solução automatizada de descoberta de ativos
 
 **Orientação**: Utilize o CLI Azure para consultar e descobrir os recursos do Azure Monitor dentro das suas subscrições. Certifique-se de permissões (de leitura) adequadas no seu inquilino e enumera todas as subscrições do Azure, bem como os recursos dentro das suas subscrições.
 
-- [Azure Monitor CLI](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest)
+- [Azure Monitor CLI](/cli/azure/monitor?view=azure-cli-latest)
 
-- [Como ver as suas Subscrições Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Como ver as suas Subscrições Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 - [Compreender Azure RBAC](../role-based-access-control/overview.md)
 
@@ -433,7 +433,7 @@ Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os 
 
 **Orientação**: Aplique etiquetas nos recursos do Azure Monitor, dando metadados para organizar logicamente numa taxonomia.
 
-- [Como criar e usar tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar tags](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -443,11 +443,11 @@ Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os 
 
 **Orientação**: Utilize a marcação, grupos de gestão e assinaturas separadas, se for caso disso, para organizar e rastrear os recursos relacionados com o Azure Monitor. Conciliar o inventário regularmente e garantir que os recursos não autorizados sejam eliminados da subscrição em tempo útil.
 
-- [Como criar subscrições adicionais do Azure](/azure/billing/billing-create-subscription)
+- [Como criar subscrições adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Como criar Grupos de Gestão](/azure/governance/management-groups/create)
+- [Como criar Grupos de Gestão](../governance/management-groups/create-management-group-portal.md)
 
-- [Como criar e usar tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar tags](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -491,7 +491,7 @@ Utilize o Gráfico de Recursos Azure para consultar e descobrir recursos dentro 
 
 - [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md) 
 
-- [Como negar um tipo específico de recurso com a Política Azure](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Como negar um tipo específico de recurso com a Política Azure](../governance/policy/samples/index.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -509,7 +509,7 @@ Utilize o Gráfico de Recursos Azure para consultar e descobrir recursos dentro 
 
 ## <a name="secure-configuration"></a>Configuração segura
 
-*Para obter mais informações, consulte o [Benchmark de Segurança Azure: Configuração segura](/azure/security/benchmarks/security-control-secure-configuration).*
+*Para obter mais informações, consulte o [Benchmark de Segurança Azure: Configuração segura](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Estabelecer configurações seguras para todos os recursos da Azure
 
@@ -523,7 +523,7 @@ Se utilizar as capacidades de streaming APM ao vivo, torne o canal seguro com um
 
 - [Fluxo de métricas ao vivo seguro APM](app/live-stream.md#secure-the-control-channel)
 
-- [Como ver pseudónimos disponíveis da Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Como ver pseudónimos disponíveis da Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [Tutorial: Criar e gerir políticas para impor o cumprimento](../governance/policy/tutorials/create-and-manage.md)
 
@@ -553,7 +553,7 @@ Se utilizar as capacidades de streaming APM ao vivo, torne o canal seguro com um
 
 **Orientação**: Utilize Azure DevOps para armazenar e gerir de forma segura o seu código como políticas Azure personalizadas e modelos de Gestor de Recursos Azure. Para aceder aos recursos que gere em Azure DevOps, pode conceder ou negar permissões a utilizadores específicos, grupos de segurança incorporados ou grupos definidos no Azure Ative Directory (Azure AD) se integrados com Azure DevOps, ou Ative Directory se integrados com TFS.
 
-- [Como armazenar código em Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Como armazenar código em Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
 - [Sobre permissões e grupos em Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -591,9 +591,9 @@ Se utilizar as capacidades de streaming APM ao vivo, torne o canal seguro com um
 
 - [Serviços que suportam identidades geridas para recursos da Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)
 
-- [Como criar um Cofre-Chave](/azure/key-vault/quick-create-portal)
+- [Como criar um Cofre-Chave](../key-vault/secrets/quick-create-portal.md)
 
-- [Como fornecer a autenticação do Cofre-Chave com uma identidade gerida](/azure/key-vault/managed-identity)
+- [Como fornecer a autenticação do Cofre-Chave com uma identidade gerida](../key-vault/general/assign-access-policy-portal.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -621,7 +621,7 @@ Se utilizar as capacidades de streaming APM ao vivo, torne o canal seguro com um
 
 ## <a name="malware-defense"></a>Defesa contra malware
 
-*Para mais informações, consulte o [Azure Security Benchmark: Malware defense](/azure/security/benchmarks/security-control-malware-defense).*
+*Para mais informações, consulte o [Azure Security Benchmark: Malware defense](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8.2: Ficheiros de pré-digitalização a serem enviados para recursos Azure não computados
 
@@ -633,7 +633,7 @@ Utilize a deteção de ameaças do Azure Security Center para detetar malware en
 
 - [Compreenda o Anti-malware da Microsoft para serviços em nuvem azure e máquinas virtuais](../security/fundamentals/antimalware.md)
 
-- [Compreenda a deteção de ameaças do Azure Security Center para serviços de dados](/azure/security-center/security-center-alerts-data-services)
+- [Compreenda a deteção de ameaças do Azure Security Center para serviços de dados](../security-center/azure-defender.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -641,13 +641,13 @@ Utilize a deteção de ameaças do Azure Security Center para detetar malware en
 
 ## <a name="data-recovery"></a>Recuperação de dados
 
-*Para obter mais informações, consulte o [Azure Security Benchmark: Data Recovery](/azure/security/benchmarks/security-control-data-recovery).*
+*Para obter mais informações, consulte o [Azure Security Benchmark: Data Recovery](../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: Garantir cópias de back-ups automáticas regulares
 
 **Orientação**: Utilize o Gestor de Recursos Azure para exportar o Monitor Azure e recursos relacionados num modelo javaScript Object Notation (JSON) que pode ser usado como cópia de segurança para o Monitor Azure e configurações relacionadas.  Utilize a Azure Automation para executar automaticamente os scripts de reserva. 
 
-- [Gerir o espaço de trabalho do Log Analytics utilizando modelos de Gestor de Recursos Azure](/azure/azure-monitor/platform/template-workspace-configuration)
+- [Gerir o espaço de trabalho do Log Analytics utilizando modelos de Gestor de Recursos Azure](./samples/resource-manager-workspace.md)
 
 - [Exportação única e multi-recursos para um modelo no portal Azure](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -661,11 +661,11 @@ Utilize a deteção de ameaças do Azure Security Center para detetar malware en
 
 **Orientação**: Utilize o Gestor de Recursos Azure para exportar o Monitor Azure e recursos relacionados num modelo javaScript Object Notation (JSON) que pode ser usado como cópia de segurança para o Monitor Azure e configurações relacionadas.  Chaves geridas pelo cliente de backup dentro do Cofre de Chaves Azure se os recursos relacionados com o Azure Monitor estiverem a usar chaves geridas pelo cliente, 
 
-- [Gerir o espaço de trabalho do Log Analytics utilizando modelos de Gestor de Recursos Azure](/azure/azure-monitor/platform/template-workspace-configuration)
+- [Gerir o espaço de trabalho do Log Analytics utilizando modelos de Gestor de Recursos Azure](./samples/resource-manager-workspace.md)
 
 - [Exportação única e multi-recursos para um modelo no portal Azure](../azure-resource-manager/templates/export-template-portal.md)
 
-- [Como backup chaves chave cofre em Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Como backup chaves chave cofre em Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -675,9 +675,9 @@ Utilize a deteção de ameaças do Azure Security Center para detetar malware en
 
 **Orientação**: Certifique-se de que a restauração é executada periodicamente utilizando ficheiros de modelos apoiados pelo Azure Resource Manager.  Teste de restauração de chaves geridas pelo cliente.
 
-- [Gerir o espaço de trabalho do Log Analytics utilizando modelos de Gestor de Recursos Azure](/azure/azure-monitor/platform/template-workspace-configuration)
+- [Gerir o espaço de trabalho do Log Analytics utilizando modelos de Gestor de Recursos Azure](./samples/resource-manager-workspace.md)
 
-- [Como restaurar chaves chave do cofre em Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Como restaurar chaves chave do cofre em Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -689,13 +689,13 @@ Utilize a deteção de ameaças do Azure Security Center para detetar malware en
 
 Além disso, Ative Soft-Delete e purpurar a proteção no Cofre de Chaves para proteger as chaves contra a eliminação acidental ou maliciosa. Se o Azure Storage for utilizado para armazenar cópias de segurança do modelo do Azure Resource Manager, ative a eliminação suave para guardar e recuperar os seus dados quando as bolhas ou as imagens blob forem eliminadas. 
 
-- [Como armazenar código em Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Como armazenar código em Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
 - [Sobre permissões e grupos em Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
-- [Como permitir a proteção de Soft-Delete e purga no Cofre de Chaves](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Como permitir a proteção de Soft-Delete e purga no Cofre de Chaves](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
-- [Eliminação de forma recuperável dos blobs do Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Eliminação de forma recuperável dos blobs do Armazenamento do Microsoft Azure](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -703,7 +703,7 @@ Além disso, Ative Soft-Delete e purpurar a proteção no Cofre de Chaves para p
 
 ## <a name="incident-response"></a>Resposta a incidentes
 
-*Para mais informações, consulte o [Benchmark de Segurança Azure: Resposta a incidentes](/azure/security/benchmarks/security-control-incident-response).*
+*Para mais informações, consulte o [Benchmark de Segurança Azure: Resposta a incidentes](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: Criar um guia de resposta a incidentes
 
@@ -727,7 +727,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 - [Alertas de segurança no Centro de Segurança do Azure](../security-center/security-center-alerts-overview.md)
 
-- [Utilizar etiquetas para organizar os seus recursos do Azure](/azure/azure-resource-manager/resource-group-using-tags)
+- [Utilizar etiquetas para organizar os seus recursos do Azure](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -777,7 +777,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Testes de penetração e exercícios da Red Team
 
-*Para obter mais informações, consulte o [Azure Security Benchmark: Testes de penetração e exercícios de equipa vermelha](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Para obter mais informações, consulte o [Azure Security Benchmark: Testes de penetração e exercícios de equipa vermelha](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Realizar testes regulares de penetração dos seus recursos Azure e garantir a reparação de todas as conclusões críticas de segurança
 
@@ -793,5 +793,5 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Consulte a [referência de segurança Azure](/azure/security/benchmarks/overview)
-- Saiba mais sobre [as linhas de base de segurança da Azure](/azure/security/benchmarks/security-baselines-overview)
+- Consulte a [referência de segurança Azure](../security/benchmarks/overview.md)
+- Saiba mais sobre [as linhas de base de segurança da Azure](../security/benchmarks/security-baselines-overview.md)

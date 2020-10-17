@@ -4,12 +4,12 @@ description: Este artigo fornece orientação de arquitetura de referência para
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: e0791fb6c4de3da8108ffbd296c681f993c6b6cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b9652009a4e3c7bfdea029f204429a86562a552
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91367755"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144555"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>Azure DevTest Labs referencia arquitetura para empresas
 Este artigo fornece arquitetura de referência para ajudá-lo a implementar uma solução baseada na Azure DevTest Labs em uma empresa. Inclui o seguinte:
@@ -30,7 +30,7 @@ Estes são os elementos-chave da arquitetura de referência:
     - Tem dados no local que não podem ser movidos para a nuvem.
     - Prefere juntar as máquinas virtuais do laboratório ao domínio do local.
     - Você pretende forçar todo o tráfego de rede dentro e fora do ambiente de nuvem através de uma firewall no local para segurança/conformidade.
-- **Grupos de segurança de rede**: Uma forma comum de restringir o tráfego ao ambiente em nuvem (ou dentro do ambiente de nuvem) com base em endereços IP de origem e destino é utilizar um grupo de segurança de [rede](../virtual-network/security-overview.md). Por exemplo, só pretende permitir o tráfego originário da rede corporativa para as redes do laboratório.
+- **Grupos de segurança de rede**: Uma forma comum de restringir o tráfego ao ambiente em nuvem (ou dentro do ambiente de nuvem) com base em endereços IP de origem e destino é utilizar um grupo de segurança de [rede](../virtual-network/network-security-groups-overview.md). Por exemplo, só pretende permitir o tráfego originário da rede corporativa para as redes do laboratório.
 - **Gateway remoto do ambiente de trabalho**: As empresas normalmente bloqueiam ligações de ambiente de trabalho remotos de saída na firewall corporativa. Existem várias opções para permitir a conectividade ao ambiente baseado na nuvem em DevTest Labs, incluindo:
   - Utilize um [gateway remoto de secretária](/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture)e permita o endereço IP estático do equilibrador de carga gateway.
   - [Direcione todo](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) o tráfego RDP de entrada sobre a ligação ExpressRoute/site-to-site VPN. Esta funcionalidade é uma consideração comum quando as empresas planeiam uma implantação da DevTest Labs.

@@ -7,15 +7,15 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 0a25ae41a5f4ed73148f629799ca4865d756a769
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91fd974c730037907258cb4a670f6fa836bfda6c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962456"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144875"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Melhores Práticas do Serviço de Aplicações do Azure
-Este artigo resume as melhores práticas para a utilização [do Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). 
+Este artigo resume as melhores práticas para a utilização [do Azure App Service](./overview.md). 
 
 ## <a name="colocation"></a><a name="colocation"></a>Colocação
 Quando os recursos Azure que compõem uma solução como uma aplicação web e uma base de dados estão localizados em diferentes regiões, pode ter os seguintes efeitos:

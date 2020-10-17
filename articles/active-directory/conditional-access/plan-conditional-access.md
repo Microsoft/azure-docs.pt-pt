@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 06/09/2020
+ms.date: 10/16/2020
 ms.author: baselden
 author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ef10f51f058739b0e545d341b77af4313dd9e97
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: b90ca2812651e139fb62d86ba0bf4d181d5e9d76
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992862"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145282"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planear a implementação do Acesso Condicional
 
@@ -291,11 +291,7 @@ O diretório ativo Azure permite-lhe criar [localizações nomeadas.](location-c
 
 ### <a name="plan-your-policy-deployment"></a>Planeie a sua implementação de políticas
 
-Quando novas políticas estiverem prontas para o seu ambiente, certifique-se de que revê cada política antes de a lançar para evitar resultados indesejáveis. Consulte a seguinte documentação para compreender informações importantes sobre como as políticas são aplicadas e como evitar problemas
-
-* [O que deve saber](best-practices.md)
-
-* [O que deve evitar fazer](best-practices.md)
+Quando novas políticas estiverem prontas para o seu ambiente, certifique-se de que revê cada política antes de a lançar para evitar resultados indesejáveis.
 
 ## <a name="common-policies"></a>Políticas comuns
 
@@ -462,10 +458,6 @@ A condição de localização de uma política de CA permite-lhe ligar as defini
 ### <a name="terms-of-use"></a>Termos de utilização
 
 Antes de aceder a determinadas aplicações em nuvem no seu ambiente, pode obter o consentimento dos utilizadores aceitando os seus Termos de Utilização (ToU). Siga este [Quickstart para criar Termos de Utilização](require-tou.md).
-
-### <a name="classic-policies"></a>Políticas clássicas
-
-No [portal Azure,](https://portal.azure.com/)pode encontrar as suas políticas de CA no âmbito do Azure Ative Directory > Security > Acesso Condicional. A sua organização também pode ter políticas de CA mais antigas não criadas usando esta página. Estas políticas são conhecidas como políticas clássicas. Recomendamos que [considere migrar estas políticas clássicas no portal Azure.](best-practices.md)
 
 ## <a name="troubleshoot-conditional-access"></a>Resolver problemas de acesso condicional
 

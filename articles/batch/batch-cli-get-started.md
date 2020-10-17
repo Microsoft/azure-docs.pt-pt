@@ -4,12 +4,12 @@ description: Obtenha uma introdução rápida aos comandos do Batch na CLI do Az
 ms.topic: how-to
 ms.date: 07/24/2018
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: 92d5e60f549855b39185564f7f6d2902b765cf76
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: bee25d9b8985f1627a5cfc05bfb336b83be60f74
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055516"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144759"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gerir os recursos do Batch com a CLI do Azure
 
@@ -79,7 +79,7 @@ Tem duas opções para se autenticar na conta do Batch:
     
     Ao iniciar sessão no Azure interativamente, conforme descrito na secção anterior, as suas credenciais são colocadas em cache, para que a CLI do Azure possa iniciar sessão por si na conta do Batch com as mesmas. Se iniciar sessão no Azure com um principal de serviço, essas credenciais também são utilizadas para iniciar sessão na sua conta do Batch.
 
-    Uma vantagem do Azure AD é o facto de oferecer o controlo de acesso baseado em funções (RBAC). Com o RBAC, o acesso dos utilizadores depende da função que lhes é atribuída e não no facto de terem ou não as chaves das contas. Em vez de gerir as chaves da conta, pode gerir as funções do Azure e deixar o Azure AD tratar do acesso e da autenticação.  
+    Uma vantagem do Azure AD é que oferece o controlo de acesso baseado em funções Azure (Azure RBAC). Com o Azure RBAC, o acesso de um utilizador depende do seu papel atribuído, em vez de possuir ou não as chaves da conta. Em vez de gerir as chaves da conta, pode gerir as funções do Azure e deixar o Azure AD tratar do acesso e da autenticação.  
 
      Para iniciar sessão na sua conta do Batch com o Azure AD, chame o comando [az batch account login](/cli/azure/batch/account#az-batch-account-login): 
 

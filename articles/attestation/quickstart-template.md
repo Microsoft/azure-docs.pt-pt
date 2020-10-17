@@ -7,13 +7,13 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mbaldwin
-ms.date: 08/31/2020
-ms.openlocfilehash: a73294e41f27a15d70ab95b3aa7b100cab5320b4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/16/2020
+ms.openlocfilehash: 8c56a37ebcc799b0170785666212eb4e3b00a5f0
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89237388"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144969"
 ---
 # <a name="quickstart-create-an-azure-attestation-provider-with-an-arm-template"></a>Quickstart: Criar um fornecedor de atestado Azure com um modelo ARM
 
@@ -25,56 +25,18 @@ Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utili
 
 [![Implementar para Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-attestation-provider-create%2Fazuredeploy.json)
 
+## <a name="prerequisites"></a>Pré-requisitos
+
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="review-the-template"></a>Rever o modelo
 
 O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-attestation-provider-create).
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "name": {
-      "type": "string"
-    },
-    "location": {
-      "type": "string"
-    },
-    "tags": {
-      "type": "Object"
-    },
-    "policySigningCertificates": {
-      "type": "string"
-    }
-  },
-  "variables": {
-    "PolicySigningCertificates": {
-      "PolicySigningCertificates": {
-        "keys": [
-          {
-            "kty": "RSA",
-            "use": "sig",
-            "x5c": [ "[parameters('policySigningCertificates')]" ]
-          }
-        ]
-      }
-    }
-  },
-  "resources": [
-    {
-      "apiVersion": "2018-09-01-preview",
-      "name": "[parameters('name')]",
-      "location": "[parameters('location')]",
-      "type": "Microsoft.Attestation/attestationProviders",
-      "tags": "[parameters('tags')]",
-      "Properties": "[if(empty(parameters('policySigningCertificates')), json('{}'), variables('PolicySigningCertificates'))]"
-    }
-  ]
-}
-```
+:::code language="json" source="~/quickstart-templates/101-attestation-provider-create/azuredeploy.json":::
 
 Recursos azuis definidos no modelo:
+
 - Microsoft.Attestation/attestationProviders
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
@@ -83,15 +45,15 @@ Recursos azuis definidos no modelo:
 
     [![Implementar para Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-attestation-provider-create%2Fazuredeploy.json)
 
-2. Selecione ou introduza os seguintes valores.
+1. Selecione ou introduza os seguintes valores.
 
     A menos que seja especificado, use o valor padrão para criar o fornecedor de atestado.
 
-    * **nome**: Selecione um nome para o seu fornecedor de Azure Attestation.
-    * **localização**: Selecione um local. Por exemplo, **E.U.A. Central**.
-    * **tags**: selecione um local. Por exemplo, **E.U.A. Central**.
+    - **Nome do Provedor de Attestation**: Selecione um nome para o seu fornecedor de atestado Azure.
+    - **Localização**: Selecione uma localização. Por exemplo, **E.U.A. Central**.
+    - **Etiquetas**: Selecione uma localização. Por exemplo, **E.U.A. Central**.
 
-3. Selecione **Comprar**. Após a implementação do recurso atestado com sucesso, recebe uma notificação:
+1. Selecione **Comprar**. Depois de o recurso de atestado ter sido implementado com sucesso, recebe uma notificação.
 
 O portal do Azure é utilizado para implementar o modelo. Além do portal Azure, também pode utilizar o Azure PowerShell, Azure CLI e REST API. Para aprender outros métodos de implementação, consulte [os modelos de implementação](../azure-resource-manager/templates/deploy-powershell.md).
 
@@ -103,7 +65,7 @@ Pode utilizar o portal Azure para verificar o recurso de atestado.
 
 Outros Azure Attestation constroem-se sobre este arranque rápido. Se quiser continuar a trabalhar com os inícios rápidos e tutoriais subsequentes, pode manter estes recursos.
 
-Quando já não for necessário, elimine o grupo de recursos, que elimina o recurso Attestation . Para eliminar o grupo de recursos utilizando a Azure CLI ou a Azure PowerShell:
+Quando já não for necessário, elimine o grupo de recursos, que elimina o recurso Attestation. Para eliminar o grupo de recursos utilizando a Azure CLI ou a Azure PowerShell:
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 

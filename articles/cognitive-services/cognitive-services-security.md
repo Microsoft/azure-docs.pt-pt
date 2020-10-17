@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: erhopf
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 9b90d886923f4bbdab3715130bde15ecb5921636
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ceaa04fdf8776d4fab1db4cfb1b3df4298f28de9
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326818"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152281"
 ---
 # <a name="azure-cognitive-services-security"></a>Segurança dos Serviços Cognitivos Azure
 
@@ -33,7 +33,7 @@ Para utilizadores .NET, considere as <a href="https://docs.microsoft.com/dotnet/
 
 ## <a name="authentication"></a>Autenticação
 
-Quando se discute a autenticação, existem vários equívocos comuns. A autenticação e a autorização são muitas vezes confundidas umas com as outras. A identidade é também um componente importante na segurança. Uma identidade é uma recolha de informação sobre um <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">principal. <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Os fornecedores de identidade (IdP) fornecem identidades aos serviços de autenticação. A autenticação é o ato de verificar a identidade de um utilizador. A autorização é a especificação dos direitos de acesso e dos privilégios aos recursos para uma determinada identidade. Várias das ofertas de Serviços Cognitivos incluem o controlo de acesso baseado em funções (RBAC). O RBAC poderia ser usado para simplificar parte da cerimónia envolvida com os diretores de gestão manual. Para mais detalhes, consulte [o controlo de acesso baseado em funções para recursos Azure.](../role-based-access-control/overview.md)
+Quando se discute a autenticação, existem vários equívocos comuns. A autenticação e a autorização são muitas vezes confundidas umas com as outras. A identidade é também um componente importante na segurança. Uma identidade é uma recolha de informação sobre um <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">principal. <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Os fornecedores de identidade (IdP) fornecem identidades aos serviços de autenticação. A autenticação é o ato de verificar a identidade de um utilizador. A autorização é a especificação dos direitos de acesso e dos privilégios aos recursos para uma determinada identidade. Várias das ofertas de Serviços Cognitivos incluem o controlo de acesso baseado em funções Azure (Azure RBAC). O Azure RBAC poderia ser usado para simplificar parte da cerimónia envolvida com os diretores de gestão manual. Para mais detalhes, consulte o [controlo de acesso baseado em funções da Azure para os recursos da Azure.](../role-based-access-control/overview.md)
 
 Para obter mais informações sobre a autenticação com chaves de subscrição, tokens de acesso e Diretório Ativo Azure (AAD), consulte <a href="https://docs.microsoft.com/azure/cognitive-services/authentication" target="_blank">pedidos autenticados <span class="docon docon-navigate-external x-hidden-focus"></span> aos Serviços Cognitivos da Azure.</a>
 
@@ -206,7 +206,7 @@ O Lockbox do cliente está disponível para este Serviço Cognitivo:
 Para os seguintes serviços, os engenheiros da Microsoft não acederão a quaisquer dados do cliente no nível E0: 
 
 * Compreensão de Idiomas
-* Rostos
+* Face
 * Content Moderator
 * Personalizador
 

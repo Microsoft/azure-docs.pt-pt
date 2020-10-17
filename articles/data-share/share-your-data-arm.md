@@ -7,12 +7,12 @@ ms.service: data-share
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 08/19/2020
-ms.openlocfilehash: 76ef44d438b9af7ada6c1c464705a22ee10f4c58
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f72fbad579bcb08a36c2dd29c387e18953f26c09
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88654111"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146147"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-and-resource-manager-templates"></a>Quickstart: Partilhar dados utilizando modelos de partilha de dados e gestor de recursos do Azure
 
@@ -60,7 +60,7 @@ Este modelo é criado para fins de aprendizagem. Na prática, normalmente tem al
 "Missing permissions for DataShareAcccount on resource 'subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>' (Code: 5006)"
 ```
 
-É porque a implementação está a tentar criar o conjunto de dados antes da atribuição do RBAC ser finalizada. Apesar da mensagem de erro, a implementação pode ser bem sucedida.  Você ainda seria capaz de andar através [de recursos implantados da Revisão.](#review-deployed-resources)
+É porque a implementação está a tentar criar o conjunto de dados antes da atribuição de funções Azure ser finalizada. Apesar da mensagem de erro, a implementação pode ser bem sucedida.  Você ainda seria capaz de andar através [de recursos implantados da Revisão.](#review-deployed-resources)
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 

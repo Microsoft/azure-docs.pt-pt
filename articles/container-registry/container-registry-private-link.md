@@ -3,12 +3,12 @@ title: Configurar link privado
 description: Crie um ponto final privado num registo de contentores e permita o acesso a uma ligação privada numa rede virtual local. O acesso a ligações privadas é uma característica do nível de serviço Premium.
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 793003edea853922f78b36f0dc1a6e35205cdadb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bea4b2a6bedeac9dd0ff36631ba46adf4be4f8f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743646"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148479"
 ---
 # <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>Conecte-se privadamente a um registo de contentores Azure usando a Azure Private Link
 
@@ -240,7 +240,7 @@ Crie um link privado quando criar um registo ou adicionar um link privado a um r
     | Grupo de recursos | Insira o nome de um grupo existente ou crie um novo.|
     | **Detalhes da instância** |  |
     | Name | Insira um nome. |
-    |Region|selecione uma região.|
+    |Região|selecione uma região.|
     |||
 5. Selecione **Seguinte: Recurso**.
 6. Insira ou selecione as seguintes informações:
@@ -375,7 +375,7 @@ az acr private-endpoint-connection list \
   --registry-name $REGISTRY_NAME 
 ```
 
-Quando configura uma ligação de ponto final privado utilizando os passos deste artigo, o registo aceita automaticamente ligações de clientes e serviços que tenham permissões de RBAC no registo. Pode configurar o ponto final para exigir a aprovação manual das ligações. Para obter informações sobre como aprovar e rejeitar ligações privadas de ponto final, consulte [Gerir uma Ligação de Pontos de Terminação Privadas](../private-link/manage-private-endpoint.md).
+Quando configura uma ligação de ponto final privado utilizando os passos deste artigo, o registo aceita automaticamente ligações de clientes e serviços que tenham permissões Azure RBAC no registo. Pode configurar o ponto final para exigir a aprovação manual das ligações. Para obter informações sobre como aprovar e rejeitar ligações privadas de ponto final, consulte [Gerir uma Ligação de Pontos de Terminação Privadas](../private-link/manage-private-endpoint.md).
 
 ## <a name="add-zone-records-for-replicas"></a>Adicionar registos de zona para réplicas
 
@@ -389,7 +389,7 @@ O ponto final privado neste exemplo integra-se com uma zona privada de DNS assoc
 
 O link privado suporta cenários adicionais de configuração de DNS que utilizam a zona privada, incluindo com soluções DE DNS personalizadas. Por exemplo, pode ter uma solução DE DNS personalizada implantada na rede virtual, ou no local de uma rede que liga à rede virtual utilizando um gateway VPN. Para resolver o FQDN público do registo para o endereço IP privado nestes cenários, é necessário configurar um reencaminhador de nível de servidor para o serviço Azure DNS (168.63.129.16). As opções e passos de configuração exata dependem das redes existentes e do DNS. Por exemplo, consulte [a configuração do DNS do Ponto Final Privado Azure](../private-link/private-endpoint-dns.md).
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se criou todos os recursos Azure no mesmo grupo de recursos e já não precisa deles, pode eliminar opcionalmente os recursos utilizando um único comando [de eliminação do grupo AZ:](/cli/azure/group)
 

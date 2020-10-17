@@ -11,12 +11,12 @@ ms.author: wesmc
 ms.custom:
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: 0d3afc8d24b95f170bd22b3dc2cf29e7f97e77c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5147d6d7f1bd1fcd43835f6a66196c7642ad4ff
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839559"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151942"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Ligue ioT DevKit AZ3166 a Azure IoT Hub
 
@@ -33,7 +33,7 @@ Pode utilizar o [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-develo
 
 Ainda não tem um DevKit? Experimente o [simulador DevKit](https://azure-samples.github.io/iot-devkit-web-simulator/) ou [compre um DevKit](https://aka.ms/iot-devkit-purchase).
 
-Pode encontrar o código fonte para todos os tutoriais de DevKit da galeria de [amostras](https://docs.microsoft.com/samples/browse/?term=mxchip)de código .
+Pode encontrar o código fonte para todos os tutoriais de DevKit da galeria de [amostras](/samples/browse/?term=mxchip)de código .
 
 ## <a name="what-you-need"></a>O que precisa
 
@@ -66,7 +66,7 @@ Para ligar o DevKit ao seu computador, siga estes passos:
 
 O quickstart utiliza firmware DevKit pré-compilado para enviar a telemetria para o IoT Hub. Antes de executá-lo, cria um hub IoT e regista um dispositivo com o hub.
 
-### <a name="create-an-iot-hub"></a>Criar um hub IoT
+### <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -267,7 +267,7 @@ Em vez de aprovisionar o Azure IoT Hub e o dispositivo a partir do portal Azure,
 
     ![Selecione sub](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-subscription.png)
 
-1. Em seguida, selecione ou crie um novo [grupo de recursos.](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#terminology)
+1. Em seguida, selecione ou crie um novo [grupo de recursos.](../azure-resource-manager/management/overview.md#terminology)
 
     ![Selecionar o grupo de recursos](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-resource-group.png)
 

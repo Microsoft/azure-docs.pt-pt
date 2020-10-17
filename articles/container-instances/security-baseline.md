@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a26581b61a4b99bd11f48a3d431a1bb85148d66b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3248085a0719628bcf7fe42253156d9652b86cd
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89393433"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148635"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Linha de base de segurança Azure para instâncias de contentores
 
@@ -73,7 +73,7 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 * [Como implantar a Firewall do Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Compreender a Azure Security Center Integrada Desespionagem de Ameaças](../security-center/threat-protection.md)
+* [Compreender a Azure Security Center Integrada Desespionagem de Ameaças](../security-center/azure-defender.md)
 
 * [Compreender o Hardenive de Rede Adaptável do Centro de Segurança Azure](../security-center/security-center-adaptive-network-hardening.md)
 
@@ -143,7 +143,7 @@ Também pode utilizar grupos de segurança de aplicações para ajudar a simplif
 
 * [Compreender e utilizar tags de serviço](../virtual-network/service-tags-overview.md) 
 
-* [Compreender e utilizar grupos de segurança de aplicações](../virtual-network/security-overview.md#application-security-groups)
+* [Compreender e utilizar grupos de segurança de aplicações](../virtual-network/network-security-groups-overview.md#application-security-groups)
 
 * [Implantar numa rede virtual - Azure Container Instances](./container-instances-vnet.md)
 
@@ -159,7 +159,7 @@ Também pode utilizar grupos de segurança de aplicações para ajudar a simplif
 
 * [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
 
-* [Amostras da Política Azure para networking](/azure/governance/policy/samples/#network)
+* [Amostras da Política Azure para networking](../governance/policy/samples/built-in-policies.md#network)
 
 * [Como criar uma Planta Azure](../governance/blueprints/create-blueprint-portal.md)
 
@@ -498,7 +498,7 @@ Etiquetar e ver imagens de contentores, para ajudar a rastrear imagens que armaz
 
 * [Como criar subscrições adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Como criar grupos de gestão](../governance/management-groups/create.md)
+* [Como criar grupos de gestão](../governance/management-groups/create-management-group-portal.md)
 
 * [Como criar e usar tags](../azure-resource-manager/management/tag-resources.md)
 
@@ -613,7 +613,7 @@ Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os 
 
 * [Considerações de segurança para instâncias de contentores Azure](./container-instances-image-security.md)
 
-* [Integração do Registo de Contentores Azure com o Centro de Segurança](../security-center/azure-container-registry-integration.md)
+* [Integração do Registo de Contentores Azure com o Centro de Segurança](../security-center/defender-for-container-registries-introduction.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -652,7 +652,7 @@ Utilize uma solução personalizada ou de terceiros para remendar as imagens do 
 
 * [Considerações de segurança para instâncias de contentores Azure](./container-instances-image-security.md)
 
-* [Integração do Registo de Contentores Azure com o Centro de Segurança](../security-center/azure-container-registry-integration.md)
+* [Integração do Registo de Contentores Azure com o Centro de Segurança](../security-center/defender-for-container-registries-introduction.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -664,7 +664,7 @@ Utilize uma solução personalizada ou de terceiros para remendar as imagens do 
 
 * [Considerações de segurança para instâncias de contentores Azure](./container-instances-image-security.md)
 
-* [Integração do Registo de Contentores Azure com o Centro de Segurança](../security-center/azure-container-registry-integration.md)
+* [Integração do Registo de Contentores Azure com o Centro de Segurança](../security-center/defender-for-container-registries-introduction.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -707,7 +707,7 @@ Embora os recursos clássicos do Azure possam ser descobertos através do Gráfi
 
 * [Como criar subscrições adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Como criar Grupos de Gestão](../governance/management-groups/create.md)
+* [Como criar Grupos de Gestão](../governance/management-groups/create-management-group-portal.md)
 
 * [Como criar e usar Tags](../azure-resource-manager/management/tag-resources.md)
 
@@ -755,7 +755,7 @@ Monitorar registos de instâncias de contentores Azure para comportamento anóma
 * [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
 * [Considerações de segurança para instâncias de contentores Azure](./container-instances-image-security.md)
-* [Integração do Registo de Contentores Azure com o Centro de Segurança](../security-center/azure-container-registry-integration.md)
+* [Integração do Registo de Contentores Azure com o Centro de Segurança](../security-center/defender-for-container-registries-introduction.md)
 
 
 
@@ -789,7 +789,7 @@ Monitorar registos de instâncias de contentores Azure para comportamento anóma
 
 * [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
 
-* [Como negar um tipo específico de recurso com a Política Azure](/azure/governance/policy/samples/not-allowed-resource-types)
+* [Como negar um tipo específico de recurso com a Política Azure](../governance/policy/samples/index.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -825,7 +825,7 @@ Gerir e rever o acesso aos recursos do Azure Container Instances utilizando dife
 
 * [Como criar subscrições adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Como criar grupos de gestão](../governance/management-groups/create.md)
+* [Como criar grupos de gestão](../governance/management-groups/create-management-group-portal.md)
 
 * [Implantar numa rede virtual - Azure Container Instances](./container-instances-vnet.md)
 
@@ -900,7 +900,7 @@ Utilize uma solução personalizada ou de terceiros para remendar as imagens do 
 
 * [Recomendações de segurança de monitorização e digitalização de contentores para instâncias de contentores Azure](./container-instances-image-security.md)
 
-* [Integração do Registo de Contentores Azure com o Centro de Segurança](../security-center/azure-container-registry-integration.md)
+* [Integração do Registo de Contentores Azure com o Centro de Segurança](../security-center/defender-for-container-registries-introduction.md)
 * [Sobre as atualizações de imagem base para as tarefas do Registo de Contentores Azure](../container-registry/container-registry-tasks-base-images.md)
 
 
@@ -1105,7 +1105,7 @@ Opcionalmente, redimensione as imagens dos contentores importando de um registo 
 
 **Orientação**: Pode permitir Soft-Delete no Cofre da Chave Azure para proteger as chaves contra a eliminação acidental ou maliciosa.
 
-* [Como permitir Soft-Delete em Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+* [Como permitir Soft-Delete em Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 

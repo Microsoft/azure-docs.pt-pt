@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.date: 10/16/2020
 ms.custom: subject-armqs
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: aad41ed1fb270acb38ec599484e137fbe5a6dceb
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 173c6ff8bb4bcee7ecc40f9f277fae0e4cb8dd13
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131348"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152354"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>Quickstart: Criar app de Serviço de Aplicações usando um modelo ARM
 
-Inicie-se com o [Azure App Service](overview.md) implementando uma aplicação na nuvem usando um modelo de Gestor de Recursos Azure (modelo ARM) e [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) em Cloud Shell. Como utiliza um nível de Serviço de Aplicações gratuito, não tem custos para completar este arranque rápido.
+Inicie-se com o [Azure App Service](overview.md) implementando uma aplicação na nuvem usando um modelo de Gestor de Recursos Azure (modelo ARM) e [Azure CLI](/cli/azure/get-started-with-azure-cli) em Cloud Shell. Como utiliza um nível de Serviço de Aplicações gratuito, não tem custos para completar este arranque rápido.
 
  [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -38,7 +38,7 @@ Utilize o seguinte botão para implantar no **Windows**:
 ## <a name="review-the-template"></a>Rever o modelo
 
 ::: zone pivot="platform-windows"
-O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-app-service-docs-windows). Implementa um plano de Serviço de Aplicações e uma aplicação de Serviço de Aplicações no Windows. É compatível com aplicações .NET Core, .NET Framework, PHP, Node.js e Static HTML. Para Java, consulte [a aplicação Create Java.](app-service-web-get-started-java.md)
+O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-app-service-docs-windows). Implementa um plano de Serviço de Aplicações e uma aplicação de Serviço de Aplicações no Windows. É compatível com aplicações .NET Core, .NET Framework, PHP, Node.js e Static HTML. Para Java, consulte [a aplicação Create Java.](./quickstart-java.md)
 
 :::code language="json" source="~/quickstart-templates/101-app-service-docs-windows/azuredeploy.json":::
 
@@ -51,8 +51,8 @@ Este modelo contém vários parâmetros que são predefinidos para a sua conveni
 
 | Parâmetros | Tipo    | Valor predefinido                | Descrição |
 |------------|---------|------------------------------|-------------|
-| webAppName | string  | **[`<uniqueString>`](/azure/azure-resource-manager/templates/template-functions-string#uniquestring)**"webApp-" | Nome da aplicação |
-| localização   | string  | ["[grupo de recursos().localização]"](/azure/azure-resource-manager/templates/template-functions-resource#resourcegroup) | Região de aplicações |
+| webAppName | string  | **[`<uniqueString>`](../azure-resource-manager/templates/template-functions-string.md#uniquestring)**"webApp-" | Nome da aplicação |
+| localização   | string  | ["[grupo de recursos().localização]"](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup) | Região de aplicações |
 | sku        | string  | "F1"                         | Tamanho da instância (F1 = Nível Livre) |
 | language   | string  | ".net"                       | Pilha de linguagem de programação (.net, php, nó, html) |
 | OláWorld | boolean | Falso                        | True = Implementar a aplicação "Hello World" |
@@ -72,8 +72,8 @@ Este modelo contém vários parâmetros que são predefinidos para a sua conveni
 
 | Parâmetros | Tipo    | Valor predefinido                | Descrição |
 |------------|---------|------------------------------|-------------|
-| webAppName | string  | **[`<uniqueString>`](/azure/azure-resource-manager/templates/template-functions-string#uniquestring)**"webApp-" | Nome da aplicação |
-| localização   | string  | ["[grupo de recursos().localização]"](/azure/azure-resource-manager/templates/template-functions-resource#resourcegroup) | Região de aplicações |
+| webAppName | string  | **[`<uniqueString>`](../azure-resource-manager/templates/template-functions-string.md#uniquestring)**"webApp-" | Nome da aplicação |
+| localização   | string  | ["[grupo de recursos().localização]"](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup) | Região de aplicações |
 | sku        | string  | "F1"                         | Tamanho da instância (F1 = Nível Livre) |
 | linuxFxVersion   | string  | "DOTNETCORE&#124;3.0        | "Pilha de linguagem de programação &#124; versão" |
 | repoUrl    | string  | " "                          | Repo Git externo (opcional) |
@@ -145,7 +145,7 @@ Quando já não for necessário, [elimine o grupo de recursos](../azure-resource
 > [PHP com MySQL](tutorial-php-mysql-app.md)
 
 > [!div class="nextstepaction"]
-> [Ligue à base de dados Azure SQL com a Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
+> [Ligue à base de dados Azure SQL com a Java](../azure-sql/database/connect-query-java.md?toc=%252fazure%252fjava%252ftoc.json)
 
 > [!div class="nextstepaction"]
 > [Mapear domínio personalizado](app-service-web-tutorial-custom-domain.md)

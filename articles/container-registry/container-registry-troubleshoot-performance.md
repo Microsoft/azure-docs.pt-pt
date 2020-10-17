@@ -3,12 +3,12 @@ title: Resolver problemas de desempenho de registo
 description: Sintomas, causas e resolução de problemas comuns com o desempenho de um registo
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 414e3a92b8ebd4ff58528fc5e9ec4794471bd775
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15129ebe1da2e52fac106a34863f609c440549ad
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88227475"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148412"
 ---
 # <a name="troubleshoot-registry-performance"></a>Resolver problemas de desempenho de registo
 
@@ -115,7 +115,5 @@ Se não resolver o seu problema aqui, consulte as seguintes opções.
   * [Login de registo de resolução de problemas](container-registry-troubleshoot-login.md)
   * [Problemas de rede de resolução de problemas com registo](container-registry-troubleshoot-access.md)
 * [Opções de apoio comunitário](https://azure.microsoft.com/support/community/)
-* [Perguntas e Respostas da Microsoft](https://docs.microsoft.com/answers/products/)
+* [Perguntas e Respostas da Microsoft](/answers/products/)
 * [Abrir um pedido de suporte](https://azure.microsoft.com/support/create-ticket/)
-
-

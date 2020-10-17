@@ -2,19 +2,22 @@
 title: Tutorial - Implementar e configurar VMware HCX
 description: Aprenda a implementar e configurar a solução VMware HCX para a sua nuvem privada Azure VMware Solution.
 ms.topic: tutorial
-ms.date: 10/02/2020
-ms.openlocfilehash: 58fd8b4518f60f1f736d8c19ddcf62729353f251
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.date: 10/16/2020
+ms.openlocfilehash: 69df9b6337674233e1f257cc509115d5f58d2e7f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058000"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152055"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Implementar e configurar o VMware HCX
 
-Neste artigo, percorremos os procedimentos para implementar e configurar o VMware HCX no local "Connector" para a sua nuvem privada Azure VMware Solution. O VMware HCX permite a migração das suas cargas de trabalho VMware para a Azure VMware Solution e outros sites conectados através de vários tipos de migração. A Azure VMware Solution já implementou e configura o "Cloud Manager", pelo que o descarregamento, ativação e configuração do "Conector" é exigido pelo cliente no seu centro de dados VMware no local.
+Neste artigo, percorremos os procedimentos para implementar e configurar o VMware HCX no local "Connector" para a sua nuvem privada Azure VMware Solution. Com o VMware HCX, pode migrar as suas cargas de trabalho VMware para Azure VMware Solution e outros sites conectados através de vários tipos de migração.  Uma vez que a Azure VMware Solution implementa e configura o "Cloud Manager", tem de descarregar, ativar e configurar o "Connector" no centro de dados VMware no local.  
 
-O VMware HCX Advanced Connector (pré-implantado na Solução VMware Azure) suporta até três ligações do local (no local para nuvem, ou nuvem para nuvem). Se forem necessárias mais de três ligações de site, os clientes têm a opção de ativar o addon [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) (que está atualmente em *Pré-visualização)* através da apresentação de um pedido de [suporte](https://rc.portal.azure.com/#create/Microsoft.Support). VMware HCX Enterprise Edition (EE) está disponível com a Azure VMware Solution como uma função/serviço *de pré-visualização.* Enquanto vMware HCX EE para Azure VMware Solution está em *Pré-visualização,* é uma função/serviço gratuito e sujeito a termos e condições de serviço de pré-visualização. Assim que o serviço VMware HCX EE for classificado, receberá um aviso de 30 dias de que a faturação irá mudar. Também terá a opção de desligar/excluir o serviço.
+O VMware HCX Advanced Connector, que está pré-implantado na Solução VMware Azure, suporta até três ligações do site (no local para nuvem, ou nuvem para nuvem). Se necessitar de mais de três ligações de site, envie um [pedido](https://rc.portal.azure.com/#create/Microsoft.Support) de suporte para ativar o addon [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) (atualmente em *Pré-visualização).*  
+
+>[!NOTE]
+>VMware HCX Enterprise Edition (EE) está disponível com a Azure VMware Solution como uma função/serviço *de pré-visualização.* Enquanto vMware HCX EE para Azure VMware Solution está em *Pré-visualização,* é uma função/serviço gratuito e sujeito a termos e condições de serviço de pré-visualização. Assim que o serviço VMware HCX EE for classificado, receberá um aviso de 30 dias de que a faturação irá mudar. Também pode desligar/excluir o serviço.
 
 Antes de começar, reveja minuciosamente [Antes de começar,](#before-you-begin) [os requisitos de versão de software](#software-version-requirements)e [pré-requisitos](#prerequisites). 
 
@@ -31,18 +34,18 @@ Uma vez terminado, pode seguir os próximos passos recomendados no final deste a
 
 ## <a name="before-you-begin"></a>Antes de começar
    
-* Reveja a [série tutorial](tutorial-network-checklist.md)básica do Software Defined Datacenter (SDDC) do Azure VMware Solution .
+* Reveja a base da Solução Azure VMware Software-Defined [séries tutoriais](tutorial-network-checklist.md)datacenter (SDDC).
 * Reveja e refira a [documentação VMware HCX,](https://docs.vmware.com/en/VMware-HCX/index.html)incluindo o guia do utilizador HCX.
 * Rever VMware docs [Migrando Máquinas Virtuais com VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g).
 * Rever opcionalmente [as considerações de implantação de VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/install-checklist/GUID-C0A0E820-D5D0-4A3D-AD8E-EEAA3229F325.html).
 * Analise opcionalmente materiais VMware relacionados em HCX, como a [série de blogs](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html) VMware vSphere em HCX. 
 * Opcionalmente solicite uma ativação Azure VMware Solution HCX Enterprise através de canais de suporte Azure VMware Solution.
 * Rever opcionalmente [as portas de rede necessárias para o HCX](https://ports.vmware.com/home/VMware-HCX).
-* Enquanto o Azure VMware Solution HCX CLoud Manager vem pré-configurado a partir do /22 que é fornecido para a nuvem privada Azure VMware Solution, o Conector de instalações HCX requer que as gamas de rede sejam atribuídas pelo cliente a partir da sua rede no local. Estas redes e gamas são descritas mais abaixo no documento.
+* Enquanto o Azure VMware Solution HCX Cloud Manager vem pré-configurado a partir do /22 fornecido para a nuvem privada Azure VMware Solution, o Conector de instalações HCX requer que as gamas de rede sejam atribuídas pelo cliente a partir da sua rede no local. Estas redes e gamas são descritas mais abaixo no documento.
 
 Dimensionar cargas de trabalho contra os recursos de computação e armazenamento é um passo essencial de planeamento. Aborde o passo de dimensionamento como parte do planeamento inicial do ambiente em nuvem privada. 
 
-Também pode dimensionar cargas de trabalho completando uma Avaliação de [Solução VMware Azure](../migrate/how-to-create-azure-vmware-solution-assessment.md) no portal Azure Migrate.
+Também pode dimensionar cargas de trabalho completando uma Avaliação de [Solução VMware Azure,](../migrate/how-to-create-azure-vmware-solution-assessment.md) o portal Azure Migrate.
 
 ## <a name="software-version-requirements"></a>Requisitos de versão de software
 
@@ -52,7 +55,7 @@ Os componentes da infraestrutura devem estar a executar a versão mínima necess
 | --- | --- | --- |
 | vCenter Server   | 5.1<br/><br/>Se utilizar 5.5 U1 ou mais cedo, utilize a interface de utilizador HCX autónoma para operações de HCX.  | 6.0 U2 e superior   |
 | ESXi   | 5.0    | ESXi 6.0 e superior   |
-| NSX    | Para a extensão da rede HCX de comutadores lógicos na fonte: NSXv 6.2+ ou NSX-T 2.4+   | NSXv 6.2+ ou NSX-T 2.4+<br/><br/>Para o encaminhamento de proximidade HCX: NSXv 6.4+ (O Encaminhamento de proximidade não é suportado com NSX-T) |
+| NSX    | Para a extensão da rede HCX de comutadores lógicos na fonte: NSXv 6.2+ ou NSX-T 2.4+   | NSXv 6.2+ ou NSX-T 2.4+<br/><br/>Para o Encaminhamento de Proximidade HCX: NSXv 6.4+ (O Encaminhamento de Proximidade não é suportado com NSX-T) |
 | vCloud Diretor   | Não é necessário - sem interoperabilidade com vCloud Diretor no site de origem | Ao integrar o ambiente de destino com o vCloud Diretor, o mínimo é 9.1.0.2.  |
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -82,7 +85,7 @@ Os componentes da infraestrutura devem estar a executar a versão mínima necess
 
 1. Selecione o link **de descarregamento** para descarregar o ficheiro VMware HCX Connector OVA.
 
-1. Vá ao seu vCenter no local e selecione um modelo OVF, que é o ficheiro OVA que descarregou, para implementar o Conector HCX para o seu vCenter no local.  
+1. A partir do seu vCenter no local, selecione um modelo OVF, que é o ficheiro OVA que descarregou, para implementar o Conector HCX para o seu vCenter no local.  
 
    :::image type="content" source="media/tutorial-vmware-hcx/select-ovf-template.png" alt-text="Vá ao vCenter no local e selecione um modelo OVF para implementar no seu vCenter no local." lightbox="media/tutorial-vmware-hcx/select-ovf-template.png":::
 
@@ -111,7 +114,7 @@ Para obter uma visão geral deste passo, consulte o vídeo de implementação do
 
 ## <a name="activate-vmware-hcx"></a>Ativar VMware HCX
 
-Depois de ter implantado o VMware HCX Connector OVA no local e de iniciar o aparelho, está pronto para ser ativado, mas primeiro precisa de recuperar uma chave de licença do portal Azure VMware Solution em Azure.
+Depois de colocar o VMware HCX Connector OVA no local e de ligar o aparelho, está pronto para o ativar. Em primeiro lugar, precisa de obter uma chave de licença do portal Azure VMware Solution em Azure.
 
 1. No portal Azure VMware Solution, vá à Conectividade **Gestão,**  >  **Connectivity**selecione o separador **HCX** e, em seguida, selecione **Adicionar**.
 
@@ -125,7 +128,7 @@ Depois de ter implantado o VMware HCX Connector OVA no local e de iniciar o apar
     > [!NOTE]
     > VMware HCX Manager deve ter acesso à internet aberto ou um proxy configurado.
 
-1. Na **Localização do Datacenter,** forneça o local mais próximo onde instala o VMware HCX Manager no local.
+1. Na **Localização do Datacenter,** forneça a localização mais próxima para instalar o VMware HCX Manager no local.
 
 1. Modifique o **Nome do Sistema** ou aceite o padrão.
    
@@ -136,7 +139,7 @@ Depois de ter implantado o VMware HCX Connector OVA no local e de iniciar o apar
 1. Em **Configurar SSO/PSC,** forneça o endereço FQDN ou IP do seu CPE e, em seguida, selecione **Continue**.
    
    >[!NOTE]
-   >Tipicamente o mesmo que o seu vCenter FQDN/IP.
+   >Tipicamente, o mesmo que o seu vCenter FQDN/IP.
 
 1. Verifique se todas as entradas estão corretas e **selecione Restart**.
     
@@ -173,7 +176,7 @@ Pode ligar (emparelhamento) o VMware HCX Cloud Manager na Solução VMware Azure
    >
    > A **palavra-passe** será a mesma palavra-passe que usou para iniciar ser no vCenter. Definiu esta palavra-passe no ecrã inicial de implantação.
 
-   Vê um ecrã que mostra o seu HCX CLoud Manager na Solução VMware Azure e o seu Conector HCX ligado (emparelhado).
+   Vê um ecrã que mostra o seu HCX Cloud Manager na Solução VMware Azure e o seu Conector HCX ligado (emparelhado).
 
    :::image type="content" source="media/tutorial-vmware-hcx/site-pairing-complete.png" alt-text="Vá ao vCenter no local e selecione um modelo OVF para implementar no seu vCenter no local.":::
 
@@ -183,7 +186,7 @@ Para uma visão geral deste passo, consulte o vídeo de emparelhamento do [site 
 
 ### <a name="create-network-profiles"></a>Criar perfis de rede
 
-O VMware HCX implementa um subconjunto de aparelhos virtuais (automatizados) que requerem vários segmentos IP.  Ao criar os seus perfis de rede, define os segmentos IP, que identificou durante a [fase de preparação e planeamento de pré-implantação e planeamento da rede VMware HCX.](production-ready-deployment-steps.md#vmware-hcx-network-segments)
+O VMware HCX implementa um subconjunto de aparelhos virtuais (automatizados) que requerem vários segmentos IP.  Ao criar os seus perfis de rede, define os segmentos IP identificados durante a [fase de preparação e planeamento de pré-implantação e planeamento dos Segmentos de Rede VMware HCX](production-ready-deployment-steps.md#vmware-hcx-network-segments).
 
 Criará quatro perfis de rede:
 
@@ -203,7 +206,7 @@ Criará quatro perfis de rede:
 Para uma visão geral deste passo, consulte a [Solução Azure VMware - VMware HCX criar](https://www.youtube.com/embed/NhyEcLco4JY) vídeo de perfil de rede.
 
 
-### <a name="create-compute-profile"></a>Criar perfil computacional
+### <a name="create-a-compute-profile"></a>Criar um perfil computacional
 
 1. Selecione **Perfis compute**  >  **create Compute Profile**.
 
@@ -216,9 +219,9 @@ Para uma visão geral deste passo, consulte a [Solução Azure VMware - VMware H
 1. Selecione os serviços para ativar, tais como migração, extensão de rede ou recuperação de desastres, e, em seguida, **selecione Continue**.
   
    > [!NOTE]
-   > Geralmente, nada será mudado aqui.
+   > Geralmente, nada muda aqui.
 
-1. Em **Select Service Resources**, selecione um ou mais recursos de serviço (clusters) para permitir os serviços VMware HCX selecionados.  
+1. Em **Select Service Resources**, selecione um ou mais recursos de serviço (clusters) para ativar os serviços VMware HCX selecionados.  
 
 1. Quando vir os clusters no seu datacenter no local, selecione **Continue**.
 
@@ -344,4 +347,7 @@ Para uma visão geral deste passo, consulte o vídeo de extensão da [rede VMwar
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se tiver chegado a este ponto e o aparelho interligar o estado do túnel é **UP** e verde, pode migrar e proteger VMs de Solução VMware Azure utilizando VMware HCX.  A Azure VMware Solution suporta migrações de carga de trabalho (com ou com uma extensão de rede).  Você ainda pode fazer migrações de carga de trabalho no seu ambiente vSphere criação de redes e implantação de VMs para essas redes.  Para obter mais informações, consulte [a documentação VMware HCX](https://docs.vmware.com/en/VMware-HCX/index.html) e [máquinas virtuais migratórias com VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g) na documentação técnica VMware para mais detalhes sobre a utilização do HCX.
+Se tiver chegado a este ponto e o aparelho interligar o estado do túnel é **UP** e verde, pode migrar e proteger VMs de Solução VMware Azure utilizando VMware HCX.  A Azure VMware Solution suporta migrações de carga de trabalho (com ou com uma extensão de rede).  Você ainda pode migrar cargas de trabalho no seu ambiente vSphere criação de redes e implantação de VMs para essas redes.  Para obter mais informações sobre a utilização do HCX, aceda à documentação técnica da VMware:
+
+* [Documentação VMware HCX](https://docs.vmware.com/en/VMware-HCX/index.html)
+* [Máquinas virtuais migratórias com VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g) 

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 06/22/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 9694dd06b67219e0f02c3fe1c7c53d1fc103a0c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8043e85db1ee1aadc814e98db12cab10ec17e129
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258630"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145234"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Perguntas de acesso condicionado a Azure Ative
 
@@ -63,4 +63,4 @@ Para ver os separadores afetados tem de utilizar o cliente web do Teams no Edge,
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para configurar políticas de acesso condicional para o seu ambiente, consulte as [melhores práticas de acesso condicional no Diretório Ativo Azure.](best-practices.md) 
+- Para configurar políticas de acesso condicional para o seu ambiente, consulte o artigo [Planeie uma implementação de Acesso Condicional.](plan-conditional-access.md) 

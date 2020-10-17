@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: d3fd553e6903951de64c301df94ea9f2fc3eb471
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 68e47fe3cc674542a807ecbabd37cc6b624d5c03
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132096"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145580"
 ---
 # <a name="understand-how-provisioning-integrates-with-azure-monitor-logs"></a>Entenda como o provisionamento se integra com os registos do Azure Monitor
 
@@ -26,7 +26,7 @@ O provisionamento integra-se com os registos do Azure Monitor e com o Log Analyt
 
 Já deve estar familiarizado com a monitorização do Azure e com o Log Analytics. Caso contrário, salte para saber sobre eles e volte a aprender sobre registos de fornecimento de aplicações. Para saber mais sobre a monitorização do Azure, consulte [a visão geral do Azure Monitor](../../azure-monitor/overview.md). Para saber mais sobre os registos do Azure Monitor e o Log Analytics, consulte [a visão geral das consultas de registo no Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
 
-Uma vez configurado na monitorização do Azure, pode ativar registos para o provisionamento de aplicações. A opção está localizada na página **de definições de Diagnóstico.**
+Uma vez configurado a monitorização do Azure, pode ativar registos para o provisionamento de aplicações. A opção está localizada na página **de definições de Diagnóstico.**
 
 :::image type="content" source="media/application-provisioning-log-analytics/diagnostic-settings.png" alt-text="Aceder às definições de diagnóstico" lightbox="media/application-provisioning-log-analytics/diagnostic-settings.png":::
 

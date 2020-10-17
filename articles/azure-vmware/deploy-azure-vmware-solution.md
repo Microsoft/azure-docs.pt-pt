@@ -4,12 +4,12 @@ description: Saiba como utilizar as informações recolhidas na fase de planeame
 ms.topic: tutorial
 ms.author: tredavis
 ms.date: 10/02/2020
-ms.openlocfilehash: c20bf0f4a8c182d5ade1caec0dd66100c4613204
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0839048c2d0ad5944566a48f54cca07a4daeb754
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776430"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152023"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Implementar e configurar a solução VMware Azure
 
@@ -82,7 +82,7 @@ Siga o [segmento de rede Criar NSX-T no tutorial Azure VMware Solution](tutorial
 
 Volte para as rotas de rede Verificar o passo [anunciado.](#verify-network-routes-advertised) Verá uma rota adicional na lista que representa o(s) segmento(s) de rede que criou no passo anterior.  
 
-Para máquinas virtuais, irá atribuir o segmento(s) que criou no segmento [NSX-T anunciado.](#verify-advertised-nsx-t-segment)  
+Para máquinas virtuais, irá atribuir o segmento(s) que criou no [segmento de rede criar no passo Azure VMware Solution.](#create-a-network-segment-on-azure-vmware-solution)  
 
 Como o DNS é necessário, identifique o servidor DNS que pretende utilizar.  
 

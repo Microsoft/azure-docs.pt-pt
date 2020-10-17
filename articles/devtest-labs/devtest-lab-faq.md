@@ -3,12 +3,12 @@ title: Azure DevTest Labs FAQ Microsoft Docs
 description: Este artigo fornece respostas a algumas das perguntas frequentes (FAQ) sobre Azure DevTest Labs.
 ms.topic: article
 ms.date: 07/17/2020
-ms.openlocfilehash: 3f36b8238ccb69b3b1f14166b522e47d5debe54e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f4c0e34242677eca6a32af4731817085be12436
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87289377"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144591"
 ---
 # <a name="azure-devtest-labs-faq"></a>FAQ de Azure DevTest Labs
 Obtenha respostas para algumas das perguntas mais comuns sobre a Azure DevTest Labs.
@@ -145,7 +145,7 @@ Cenário de grupo de recursos separados:
 -   A DevTest Labs cria um grupo de recursos para máquinas IP partilhadas que pertencem ao mesmo tamanho.
 
 Cenário comum de grupo de recursos:
--   Todas as máquinas virtuais são giradas no grupo de recursos comuns que especifica. Saiba mais [alocação de grupos de recursos para o laboratório.](https://aka.ms/RGControl)
+-   Todas as máquinas virtuais são giradas no grupo de recursos comuns que especifica. Saiba mais [alocação de grupos de recursos para o laboratório.](./resource-group-control.md)
 
 ### <a name="how-do-i-maintain-a-naming-convention-across-my-devtest-labs-environment"></a>Como mantenho uma convenção de nomeação através do meu ambiente de DevTest Labs?
 Você pode querer estender as convenções de nomeação de empresas atuais para as operações Azure e torná-las consistentes em todo o ambiente DevTest Labs. Ao implementar a DevTest Labs, recomendamos que tenha políticas de partida específicas. Você implementa estas políticas por um script central e modelos JSON para impor a consistência. As políticas de nomeação podem ser implementadas através das políticas Azure aplicadas ao nível da subscrição. Para amostras JSON para Azure Policy, consulte [as amostras da Política Azure](../governance/policy/samples/index.md).
@@ -200,7 +200,7 @@ Para copiar os seus VMs existentes para a DevTest Labs:
 Sim, pode anexar vários discos aos seus VMs.
 
 ### <a name="are-gen-2-images-supported-by-devtest-labs"></a>As imagens da Gen 2 são apoiadas pela DevTest Labs?
-Sim. O serviço DevTest Labs suporta [imagens da Gen 2.](../virtual-machines/windows/generation-2.md) No entanto, se ambas as versões Gen 1 e Gen 2 estiverem disponíveis para uma imagem, a DevTest Labs mostra apenas a versão Gen 1 da imagem ao criar um VM. Vê-se a imagem se só houver versão da Gen 2 disponível. 
+Sim. O serviço DevTest Labs suporta [imagens da Gen 2.](../virtual-machines/generation-2.md) No entanto, se ambas as versões Gen 1 e Gen 2 estiverem disponíveis para uma imagem, a DevTest Labs mostra apenas a versão Gen 1 da imagem ao criar um VM. Vê-se a imagem se só houver versão da Gen 2 disponível. 
 
 ### <a name="if-i-want-to-use-a-windows-os-image-for-my-testing-do-i-have-to-purchase-an-msdn-subscription"></a>Se eu quiser usar uma imagem do Windows OS para os meus testes, tenho de comprar uma subscrição da MSDN?
 Para utilizar imagens DE OS do cliente Do Windows (Windows 7 ou versão posterior) para o seu desenvolvimento ou teste em Azure, tome um dos seguintes passos:

@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: article
 ms.date: 06/8/2020
 ms.author: chenyl
-ms.openlocfilehash: cc7082744bc43baad2e26d09a83907540cf6a1df
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 9b6141e6009cb868d63429836f8c8f050c792ee5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094080"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152310"
 ---
 # <a name="managed-identities-for-azure-signalr-service"></a>Identidades geridas para o Serviço Azure SignalR
 
@@ -62,20 +62,20 @@ O Serviço Azure SignalR é um serviço totalmente gerido, pelo que não pode ut
     - Vazio
     - ID de aplicação (cliente) do principal serviço
     - ID URI de aplicação do diretor de serviço
-    - [ID de recursos de um serviço Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-azure-ad-authentication)
+    - [ID de recursos de um serviço Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)
 
     > [!NOTE]
     > Se validar um token de acesso por si mesmo no seu serviço, pode escolher qualquer um dos formatos de recursos. Certifique-se apenas de que o valor **do recurso** nas definições **de Auth** e a validação são consistentes. Se utilizar o controlo de acesso baseado em funções (Azure RBAC) para um plano de dados, deve utilizar o recurso que o prestador de serviços solicita.
 
 ### <a name="validate-access-tokens"></a>Validar fichas de acesso
 
-O símbolo no `Authorization` cabeçalho é um token de acesso à plataforma de identidade da [Microsoft.](https://docs.microsoft.com/azure/active-directory/develop/access-tokens#validating-tokens)
+O símbolo no `Authorization` cabeçalho é um token de acesso à plataforma de identidade da [Microsoft.](../active-directory/develop/access-tokens.md#validating-tokens)
 
 Para validar os tokens de acesso, a sua aplicação também deve validar o público e os tokens de assinatura. Estes devem ser validados contra os valores do documento de descoberta OpenID. Por exemplo, consulte a [versão independente do inquilina do documento.](https://login.microsoftonline.com/common/.well-known/openid-configuration)
 
-O middleware Azure Ative Directory (Azure AD) tem capacidades incorporadas para validar fichas de acesso. Pode navegar pelas nossas [amostras](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code) para encontrar uma na linguagem à sua escolha.
+O middleware Azure Ative Directory (Azure AD) tem capacidades incorporadas para validar fichas de acesso. Pode navegar pelas nossas [amostras](../active-directory/develop/sample-v2-code.md) para encontrar uma na linguagem à sua escolha.
 
-Fornecemos bibliotecas e amostras de código que mostram como lidar com a validação de fichas. Existem também várias bibliotecas parceiras de código aberto disponíveis para validação JSON Web Token (JWT). Há pelo menos uma opção para quase todas as plataformas e idiomas lá fora. Para obter mais informações sobre bibliotecas de autenticação AD AZure e amostras de código, consulte [as bibliotecas de autenticação da plataforma de identidade da Microsoft.](https://docs.microsoft.com/azure/active-directory/develop/reference-v2-libraries)
+Fornecemos bibliotecas e amostras de código que mostram como lidar com a validação de fichas. Existem também várias bibliotecas parceiras de código aberto disponíveis para validação JSON Web Token (JWT). Há pelo menos uma opção para quase todas as plataformas e idiomas lá fora. Para obter mais informações sobre bibliotecas de autenticação AD AZure e amostras de código, consulte [as bibliotecas de autenticação da plataforma de identidade da Microsoft.](../active-directory/develop/reference-v2-libraries.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

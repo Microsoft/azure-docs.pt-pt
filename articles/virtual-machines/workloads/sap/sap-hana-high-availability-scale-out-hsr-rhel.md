@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/02/2020
+ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 658470a3c19f8484ac56f6a1d88d23c3d7b4147e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 520a7649942fc5186d32020853b98297ef8b34d7
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978110"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152108"
 ---
 # <a name="high-availability-of-sap-hana-scale-out-system-on-red-hat-enterprise-linux"></a>Alta disponibilidade do sistema de escala SAP HANA no Red Hat Enterprise Linux 
 
@@ -92,7 +92,7 @@ Antes de começar, consulte as seguintes notas e documentos SAP:
 * [Documentação dos Ficheiros Azure NetApp][anf-azure-doc] 
 
 
-## <a name="overview"></a>Overview (Descrição geral)
+## <a name="overview"></a>Descrição geral
 
 Um método para alcançar a alta disponibilidade de HANA para instalações de escala HANA, é configurar a replicação do sistema HANA e proteger a solução com o cluster Pacemaker para permitir a falha automática. Quando um nó ativo falha, o cluster falha sobre os recursos HANA para o outro local.  
 A configuração apresentada mostra três nós HANA em cada site, mais nó de fabricante maioritário para evitar cenário de cérebro dividido. As instruções podem ser adaptadas, para incluir mais VMs como nós HANA DB.  
@@ -219,6 +219,9 @@ Para a configuração apresentada neste documento, desloque sete máquinas virtu
       1. Certifique-se de que ativa o **IP flutuante**.
       1. Selecione **OK**.
 
+   > [!IMPORTANT]
+   > O IP flutuante não é suportado numa configuração IP secundária do NIC em cenários de equilíbrio de carga. Para mais detalhes consulte [as limitações do balançador de carga Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Se precisar de um endereço IP adicional para o VM, implante um segundo NIC.    
+   
    > [!Note]
    > Quando os VMs sem endereços IP públicos forem colocados no pool de backend de saldos de carga standard Azure (sem endereço IP público), não haverá conectividade de saída na Internet, a menos que seja realizada uma configuração adicional para permitir o encaminhamento para pontos finais públicos. Para obter detalhes sobre como alcançar a conectividade de saída, consulte [a conectividade do ponto final público para máquinas virtuais utilizando o Azure Standard Load Balancer em cenários de alta disponibilidade SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 

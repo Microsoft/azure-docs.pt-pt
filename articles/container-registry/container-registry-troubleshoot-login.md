@@ -3,12 +3,12 @@ title: Início de sessão de resolução de problemas para o registo
 description: Sintomas, causas e resolução de problemas comuns ao iniciar sessão num registo de contentores Azure
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: d5071a1e759d26ce43d2eb5d9b8215781d813d33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7bac49a79d32af3a0e533f4c4e3431c62b82172
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91253359"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148438"
 ---
 # <a name="troubleshoot-registry-login"></a>Login de registo de resolução de problemas
 
@@ -95,7 +95,7 @@ Links relacionados:
 
 ### <a name="confirm-credentials-are-authorized-to-access-registry"></a>Confirme credenciais são autorizadas a aceder ao registo
 
-Confirme as permissões de registo que estão associadas às credenciais, como o papel do `AcrPull` RBAC para retirar imagens do registo, ou a `AcrPush` função de empurrar imagens. 
+Confirme as permissões de registo que estão associadas às credenciais, como o `AcrPull` papel de Azure para retirar imagens do registo, ou a `AcrPush` função de empurrar imagens. 
 
 O acesso a um registo no portal ou na gestão do registo utilizando o CLI Azure requer pelo menos o `Reader` papel para executar operações do Azure Resource Manager.
 
@@ -103,7 +103,7 @@ Você ou um proprietário do registo devem ter privilégios suficientes na subsc
 
 Links relacionados:
 
-* [Funções e permissões do RBAC - Registo de Contentores Azure](container-registry-roles.md)
+* [Funções e permissões Azure - Registo de Contentores Azure](container-registry-roles.md)
 * [Iniciar sessão com token de âmbito repositório](container-registry-repository-scoped-permissions.md)
 * [Adicionar ou remover atribuições de funções do Azure com o portal do Azure](../role-based-access-control/role-assignments-portal.md)
 * [Utilizar o portal para criar uma aplicação e um principal de serviço do Azure AD que possam aceder aos recursos](../active-directory/develop/howto-create-service-principal-portal.md)
@@ -142,7 +142,5 @@ Se não resolver o seu problema aqui, consulte as seguintes opções.
   * [Problemas de rede de resolução de problemas com registo](container-registry-troubleshoot-access.md)
   * [Resolver problemas de desempenho de registo](container-registry-troubleshoot-performance.md)
 * [Opções de apoio comunitário](https://azure.microsoft.com/support/community/)
-* [Perguntas e Respostas da Microsoft](https://docs.microsoft.com/answers/products/)
+* [Perguntas e Respostas da Microsoft](/answers/products/)
 * [Abra um bilhete de apoio](https://azure.microsoft.com/support/create-ticket/) - com base nas informações que fornece, pode ser executado um diagnóstico rápido para falhas de autenticação no seu registo
-
-

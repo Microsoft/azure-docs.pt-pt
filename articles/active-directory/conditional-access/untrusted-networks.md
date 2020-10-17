@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 11/21/2019
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b2f9a6e13fdc39ab18a2056fab15982aa9fb0e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab9d544cc205d2971b2097110d8c36c5d85fa1fd
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88948169"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144999"
 ---
 # <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Como: Exigir MFA para acesso a partir de redes não fidedquipantes com Acesso Condicional   
 
@@ -26,10 +26,7 @@ Este artigo dá-lhe a informação necessária para configurar uma política de 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo pressupõe que está familiarizado com: 
-
-- Os [conceitos básicos](overview.md) de Acesso Condicional AD Azure 
-- As [melhores práticas](best-practices.md) para configurar políticas de acesso condicional no portal Azure
+Este artigo assume que está familiarizado com os [conceitos básicos](overview.md) de Acesso Condicional. 
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -65,7 +62,7 @@ Em vez de tentar definir quais são todos os locais que não são de confiança,
 
 ## <a name="policy-deployment"></a>Implementação da Política
 
-Com a abordagem descrita neste artigo, pode agora configurar uma política de acesso condicional para locais não fidedignais. Para garantir que a sua política funciona como esperado, a melhor prática recomendada é testá-la antes de a lançar para a produção. Idealmente, use um inquilino de teste para verificar se a sua nova apólice funciona como pretendido. Para mais informações, consulte [Como implementar uma nova política.](best-practices.md#how-should-you-deploy-a-new-policy) 
+Com a abordagem descrita neste artigo, pode agora configurar uma política de acesso condicional para locais não fidedignais. Para garantir que a sua política funciona como esperado, a melhor prática recomendada é testá-la antes de a lançar para a produção. Idealmente, use um inquilino de teste para verificar se a sua nova apólice funciona como pretendido.
 
 ## <a name="next-steps"></a>Passos seguintes
 

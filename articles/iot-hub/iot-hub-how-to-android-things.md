@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: robinsh
-ms.openlocfilehash: a06583e9aab4b082517d47c1022f7bec5184b9bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d824c94a2c5751013b78c69ed5abd048c50856b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78673389"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151722"
 ---
 # <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>Desenvolver para plataforma Android Things usando Azure IoT SDKs
 
-[Os Azure IoT Hub SDKs](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) fornecem suporte de primeira linha para plataformas populares como Windows, Linux, OSX, MBED e plataformas móveis como Android e iOS.  Como parte do nosso compromisso de permitir uma maior escolha e flexibilidade nas implementações de IoT, o Java SDK também suporta a plataforma [Android Things.](https://developer.android.com/things/)  Os desenvolvedores podem aproveitar os benefícios do sistema operativo Android Things no lado do dispositivo, enquanto usam o [Azure IoT Hub](about-iot-hub.md) como o centro de mensagens central que escala para milhões de dispositivos simultaneamente conectados.
+[Os Azure IoT Hub SDKs](./iot-hub-devguide-sdks.md) fornecem suporte de primeira linha para plataformas populares como Windows, Linux, OSX, MBED e plataformas móveis como Android e iOS.  Como parte do nosso compromisso de permitir uma maior escolha e flexibilidade nas implementações de IoT, o Java SDK também suporta a plataforma [Android Things.](https://developer.android.com/things/)  Os desenvolvedores podem aproveitar os benefícios do sistema operativo Android Things no lado do dispositivo, enquanto usam o [Azure IoT Hub](about-iot-hub.md) como o centro de mensagens central que escala para milhões de dispositivos simultaneamente conectados.
 
 Este tutorial descreve os passos para construir uma aplicação lateral do dispositivo no Android Things usando o Azure IoT Java SDK.
 
@@ -30,7 +30,7 @@ Este tutorial descreve os passos para construir uma aplicação lateral do dispo
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -95,7 +95,7 @@ Execute os seguintes comandos no Azure Cloud Shell, ao substituir `YourIoTHubNam
 az iot hub monitor-events --device-id MyAndroidThingsDevice --hub-name YourIoTHubName
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 

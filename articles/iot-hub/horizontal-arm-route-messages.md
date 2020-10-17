@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/24/2020
 ms.author: robinsh
 ms.custom: mvc, subject-armqs
-ms.openlocfilehash: 4112e8aae485e229beb16d21e90280750e1465e1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7c53d720aef029d79d95cacd558c3bf9d35b4af6
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89462671"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148923"
 ---
 # <a name="quickstart-deploy-an-azure-iot-hub-and-a-storage-account-using-an-arm-template"></a>Quickstart: Implementar um Hub Azure IoT e uma conta de armazenamento usando um modelo ARM
 
@@ -46,7 +46,7 @@ Esta secção fornece os passos para implantar o modelo, criar um dispositivo vi
 
     [![Implementar para Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-iothub-auto-route-messages%2Fazuredeploy.json)
 
-1. Faça o download e desaperte as [amostras IoT C#](https://docs.microsoft.com/samples/azure-samples/azure-iot-samples-csharp/azure-iot-samples-for-csharp-net/).
+1. Faça o download e desaperte as [amostras IoT C#](/samples/azure-samples/azure-iot-samples-csharp/azure-iot-samples-for-csharp-net/).
 
 1. Abra uma janela de comando e vá para a pasta onde desapertou as amostras IoT C#. Encontre a pasta com o ficheiro arm-read-write.csproj. Cria-se as variáveis ambientais nesta janela de comando. Entre no portal [Azure], https://portal.azure.com para obter as chaves. Selecione **grupos de recursos** e, em seguida, selecione o grupo de recursos utilizado para este arranque rápido.
 
@@ -134,4 +134,4 @@ Para remover os recursos adicionados durante este arranque rápido, inicie sess�
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Crie e implemente o seu primeiro modelo ARM](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [Tutorial: Crie e implemente o seu primeiro modelo ARM](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

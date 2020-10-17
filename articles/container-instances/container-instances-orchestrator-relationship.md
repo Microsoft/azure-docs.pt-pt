@@ -4,12 +4,12 @@ description: Entenda como os casos de contentores Azure interagem com os orquest
 ms.topic: article
 ms.date: 04/15/2019
 ms.custom: mvc
-ms.openlocfilehash: f3f8693d1a9a12e7c35d126ab3e3ca53448e5e40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7faeecfcc3a1d006cc923b48339a1242a0b9e9b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74533667"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148590"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Instâncias de contentores de Azure e orquestradores de contentores
 
@@ -54,7 +54,7 @@ Em vez de escalonar o número de máquinas virtuais no seu agrupamento, e depois
 
 Para escalar rapidamente as cargas de trabalho de aplicação num cluster [Azure Kubernetes Service](../aks/intro-kubernetes.md) (AKS), pode utilizar *nós virtuais criados* dinamicamente em Instâncias de Contentores Azure. Os nós virtuais permitem a comunicação de rede entre as cápsulas que funcionam no ACI e no cluster AKS. 
 
-Os nós virtuais suportam atualmente as instâncias do contentor Linux. Começa com nós virtuais utilizando o [portal Azure CLI](https://go.microsoft.com/fwlink/?linkid=2047538) ou [Azure](https://go.microsoft.com/fwlink/?linkid=2047545).
+Os nós virtuais suportam atualmente as instâncias do contentor Linux. Começa com nós virtuais utilizando o [portal Azure CLI](../aks/virtual-nodes-cli.md) ou [Azure](../aks/virtual-nodes-portal.md).
 
 Os nós virtuais usam o [Kubelet Virtual de][aci-connector-k8s] código aberto para imitar o [kubelet][kubelet-doc] Kubernetes, registando-se como um nó com capacidade ilimitada. O Kubelet Virtual despacha a criação de cápsulas como [grupos][pod-doc] de contentores em Instâncias de Contentores Azure.
 
