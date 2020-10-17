@@ -7,18 +7,18 @@ ms.topic: overview
 ms.custom: devx-track-dotnet
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 5d6b46e288007bc0bbac53a97b1bdd5e727b8ac8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 910de9efbd132fb98a0c4bd596867800f65f5ad5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91405127"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150955"
 ---
 # <a name="azure-signalr-service-faq"></a>Azure SignalR Service FAQ
 
 ## <a name="is-azure-signalr-service-ready-for-production-use"></a>O Serviço Azure SignalR está pronto para ser utilizado pela produção?
 
-Sim, tanto o suporte para [ASP.NET Core SignalR](https://dotnet.microsoft.com/apps/aspnet/signalr) como [ASP.NET SignalR](https://docs.microsoft.com/aspnet/signalr/overview/getting-started/introduction-to-signalr) estão geralmente disponíveis.
+Sim, tanto o suporte para [ASP.NET Core SignalR](https://dotnet.microsoft.com/apps/aspnet/signalr) como [ASP.NET SignalR](/aspnet/signalr/overview/getting-started/introduction-to-signalr) estão geralmente disponíveis.
 
 ## <a name="when-there-are-multiple-application-servers-are-client-messages-sent-to-all-servers-or-just-one-of-them"></a>Quando existem vários servidores de aplicações, as mensagens do cliente são enviadas para todos os servidores ou apenas um deles?
 
@@ -44,11 +44,11 @@ Pode [verificar o código de origem.](https://github.com/Azure/azure-signalr/blo
 
 ## <a name="can-i-configure-the-transports-available-in-azure-signalr-service-on-the-server-side-with-aspnet-core-signalr-for-example-can-i-disable-websocket-transport"></a>Posso configurar os transportes disponíveis no Serviço Azure SignalR do lado do servidor com ASP.NET Core SignalR? Por exemplo, posso desativar o transporte WebSocket?
 
-N.º
+Não.
 
 O Serviço Azure SignalR fornece os três transportes que ASP.NET o Core SignalR suporta por padrão. Não é configurável. O Serviço Azure SignalR tratará de ligações e transportes para todas as ligações do cliente.
 
-Pode configurar os transportes do lado do cliente, conforme documentado na [configuração do Core SignalR ASP.NET](https://docs.microsoft.com/aspnet/core/signalr/configuration#configure-allowed-transports-1).
+Pode configurar os transportes do lado do cliente, conforme documentado na [configuração do Core SignalR ASP.NET](/aspnet/core/signalr/configuration#configure-allowed-transports-1).
 
 ## <a name="what-is-the-meaning-of-metrics-like-message-count-or-connection-count-shown-in-the-azure-portal-which-kind-of-aggregation-type-should-i-choose"></a>Qual é o significado de métricas como a contagem de mensagens ou a contagem de ligação mostrada no portal Azure? Que tipo de agregação devo escolher?
 

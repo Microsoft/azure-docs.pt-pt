@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 13e11bb6064888ac36a2d2801fee3db1e9e9fcba
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 85cda8458dca4ce24fed9433af1527f49a2393ad
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89050510"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150982"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Início rápido: Transmitir mensagens em tempo real a partir da aplicação de consola
 
@@ -64,7 +64,7 @@ Também pode encontrar como gerar um token de acesso para autenticar com o Azure
 
 ### <a name="build-the-executable-file"></a>Criar o ficheiro executável
 
-Utilizamos o macOS osx.10.13-x64 como exemplo. Pode encontrar a [referência](https://docs.microsoft.com/dotnet/core/rid-catalog) sobre como criar noutras plataformas.
+Utilizamos o macOS osx.10.13-x64 como exemplo. Pode encontrar a [referência](/dotnet/core/rid-catalog) sobre como criar noutras plataformas.
 
 ```bash
 cd AzureSignalR-samples/samples/Serverless/

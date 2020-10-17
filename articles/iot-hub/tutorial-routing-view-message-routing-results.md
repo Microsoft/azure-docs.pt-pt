@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: ddba41acfcfe497059a661b701906cda0d4d77c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14f6fc685e99060474a17503cb13ba09a61a5a9a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398379"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149213"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Tutorial: Parte 2 - Ver as mensagens encaminhadas
 
@@ -270,7 +270,7 @@ Poderá ver os dados em ambos os gráficos. Este resultado significa que as segu
 
 Pode atualizar as tabelas para ver os dados mais recentes selecionando o botão Refresh na parte superior da janela Power BI. 
 
-## <a name="clean-up-resources"></a>Limpar os recursos 
+## <a name="clean-up-resources"></a>Limpar recursos 
 
 Se quiser remover todos os recursos do Azure que criou através de ambas as partes deste tutorial, elimine o grupo de recursos. Esta ação também elimina todos os recursos contidos no grupo. Neste caso, remove o hub IoT, o espaço de nomes e a fila do Service Bus, a Aplicação Lógica, a conta de armazenamento e o próprio grupo de recursos. Também pode remover os recursos do Power BI e limpar os e-mails enviados durante o tutorial.
 
@@ -280,7 +280,7 @@ Inicie sessão na sua conta do [Power BI](https://powerbi.microsoft.com/). Vá 
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>Use o CLI Azure para limpar recursos
 
-Para remover o grupo de recursos, utilize o comando [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). `$resourceGroup` foi definido para **ContosoResources** de volta no início deste tutorial.
+Para remover o grupo de recursos, utilize o comando [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete). `$resourceGroup` foi definido para **ContosoResources** de volta no início deste tutorial.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
@@ -288,7 +288,7 @@ az group delete --name $resourceGroup
 
 ### <a name="use-powershell-to-clean-up-resources"></a>Use o PowerShell para limpar recursos
 
-Para remover o grupo de recursos, utilize o comando [Remove-AzResourceGroup.](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) `$resourceGroup` foi definido para **ContosoResources** de volta no início deste tutorial.
+Para remover o grupo de recursos, utilize o comando [Remove-AzResourceGroup.](/powershell/module/az.resources/remove-azresourcegroup) `$resourceGroup` foi definido para **ContosoResources** de volta no início deste tutorial.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $resourceGroup

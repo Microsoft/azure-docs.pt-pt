@@ -4,24 +4,24 @@ titleSuffix: Azure App Configuration
 description: Aprenda a criar uma loja de configuração de aplicativos Azure utilizando o modelo Azure Resource Manager (modelo ARM).
 author: ZhijunZhao
 ms.author: zhijzhao
-ms.date: 09/21/2020
+ms.date: 10/16/2020
 ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 840f907015e9673caba46998493b5cb705de5fb7
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: feabac62564729338e41bf30eaf8d9f5a6317126
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91824184"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148996"
 ---
 # <a name="quickstart-create-an-azure-app-configuration-store-by-using-an-arm-template"></a>Quickstart: Criar uma loja de configuração de aplicativos Azure usando um modelo ARM
 
 Este quickstart descreve como:
 
-- Implemente uma loja de configuração de aplicativos usando o modelo ARM
-- Crie valores-chave numa loja de configuração de aplicativos utilizando o modelo ARM
-- Leia os valores-chave numa loja de configuração de aplicativos a partir do modelo ARM
+- Implemente uma loja de configuração de aplicativos utilizando um modelo de Gestor de Recursos Azure (modelo ARM).
+- Crie valores-chave numa loja de configuração de aplicativos utilizando o modelo ARM.
+- Leia os valores-chave numa loja de configuração de aplicações a partir do modelo ARM.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -35,14 +35,14 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="review-the-template"></a>Rever o modelo
 
-O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/en-us/resources/templates/101-app-configuration-store-kv/). Cria uma nova loja de Configuração de Aplicações com dois valores-chave no interior. Em seguida, utiliza a `reference` função para desau o valor dos dois recursos de valor-chave. A leitura do valor da chave desta forma permite que seja usada em outros lugares do modelo.
+O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-app-configuration-store-kv/). Cria uma nova loja de Configuração de Aplicações com dois valores-chave no interior. Em seguida, utiliza a `reference` função para desau o valor dos dois recursos de valor-chave. A leitura do valor da chave desta forma permite que seja usada em outros lugares do modelo.
 
 O quickstart utiliza o `copy` elemento para criar múltiplas instâncias de recurso de valor-chave. Para saber mais sobre o `copy` elemento, consulte [a iteração de recursos nos modelos ARM](../azure-resource-manager/templates/copy-resources.md).
 
 > [!IMPORTANT]
 > Este modelo requer a versão do fornecedor de recursos de configuração de aplicação `2020-07-01-preview` ou posterior. Esta versão utiliza a `reference` função para ler valores-chave. A `listKeyValue` função que foi utilizada para ler valores-chave na versão anterior não está disponível a partir da versão `2020-07-01-preview` .
 
-:::code language="json" source="~/quickstart-templates/101-app-configuration-store-kv/azuredeploy.json" range="1-88" highlight="52-58,61-75,80,84":::
+:::code language="json" source="~/quickstart-templates/101-app-configuration-store-kv/azuredeploy.json":::
 
 Dois recursos Azure são definidos no modelo:
 
@@ -83,13 +83,13 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 
 ## <a name="review-deployed-resources"></a>Revisão dos recursos implantados
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com)
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Na caixa de pesquisa do portal Azure, **escreva configuração de aplicação**. Selecione configuração de **aplicação** da lista.
 1. Selecione o recurso de configuração de aplicação recém-criado.
-1. Em **Operações,** clique no **explorador de configuração.**
+1. Em **Operações**, clique no **explorador de configuração**.
 1. Verifique se existem dois valores-chave.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, elimine o grupo de recursos, a loja de Configuração de Aplicações e todos os recursos relacionados. Se estiver a planear utilizar a loja de Configuração de Aplicações no futuro, pode não a excluir. Se não continuar a utilizar esta loja, elimine todos os recursos criados por este arranque rápido executando o seguinte cmdlet:
 

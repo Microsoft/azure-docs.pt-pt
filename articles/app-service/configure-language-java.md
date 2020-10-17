@@ -10,12 +10,12 @@ ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 736d80c4bcfe31a499b84bb24c1c377e69e84218
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ed511f25132ea6bb766736804a5257ad7f6eff0a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976016"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149063"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Configure um aplicativo Java para o Azure App Service
 
@@ -696,7 +696,7 @@ Se optar por fixar a versão menor, terá de atualizar periodicamente a versão 
 
 ### <a name="jdk-versions-and-maintenance"></a>Versões e manutenção JDK
 
-O Kit de Desenvolvimento java suportado pela Azure (JDK) é [o Zulu](https://www.azul.com/downloads/azure-only/zulu/) fornecido através [da Azul Systems.](https://www.azul.com/) As construções da Azul Zulu Enterprise da OpenJDK são uma distribuição sem custos, multi-plataforma, pronta para a produção do OpenJDK para Azure e Azure Stack, apoiado pela Microsoft e pela Azul Systems. Contêm todos os componentes para compilar e executar aplicações Java SE. Pode instalar o JDK a partir da [Instalação Java JDK.](https://aka.ms/azure-jdks)
+O Kit de Desenvolvimento java suportado pela Azure (JDK) é [o Zulu](https://www.azul.com/downloads/azure-only/zulu/) fornecido através [da Azul Systems.](https://www.azul.com/) As construções da Azul Zulu Enterprise da OpenJDK são uma distribuição sem custos, multi-plataforma, pronta para a produção do OpenJDK para Azure e Azure Stack, apoiado pela Microsoft e pela Azul Systems. Contêm todos os componentes para compilar e executar aplicações Java SE. Pode instalar o JDK a partir da [Instalação Java JDK.](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 
 As principais atualizações da versão serão fornecidas através de novas opções de tempo de execução no Azure App Service. Os clientes atualizam estas versões mais recentes da Java configurando a sua implementação do Serviço de Aplicações e são responsáveis por testar e garantir que a grande atualização atende às suas necessidades.
 

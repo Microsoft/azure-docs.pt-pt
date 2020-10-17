@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 9f1b8435f7d51ad586484ddb7e9bbabf9d067926
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: f490038e6257829e63b1b28591d17eee76e17eb4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996756"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92139373"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
@@ -27,38 +27,19 @@ Veja [a lista de questões conhecidas](resource-known-issues.md) para conhecer b
 ### <a name="azure-machine-learning-sdk-for-python-v1160"></a>Azure Machine Learning SDK para Python v1.16.0
 + **Correções e melhorias de bugs**
   + **azure-cli-ml**
-    + O AKSWebservice e o AKSEndpoints suportam agora os limites de CPU e de recursos de memória ao nível do pod. Estes limites opcionais podem ser definidos através de 1. Definição `cpu_cores_limit` e `memory_gb_limit` parâmetros no `AKSEndpoint.deploy_configuration()` e método `AKSWebservice.deploy_configuration()` 2. Configuração `--cpu-cores-limit` e `--memory-gb-limit` bandeiras nas chamadas CLI aplicáveis 3. Configuração `cpuLimit` e `memoryInGBLimit` na `containerResourceRequirements` configuração de implementação .json/.yml ficheiros Mais informações sobre recursos e limites de Kubernetes podem ser encontradas em https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
-  + **azureml-contrib-interpret**
-    + corrigir descrições de pacotes que causam erro de upload para pypi para azureml-interpret, azureml-explain-model, azureml-contrib-interpret e azureml-tensorboard
-  + **azureml-contrib-k8s**
-    + Suporte adicionado para anexar o cálculo arcKubernetes
-  + **azureml-contrib-mir**
-    + O AKSWebservice e o AKSEndpoints suportam agora os limites de CPU e de recursos de memória ao nível do pod. Estes limites opcionais podem ser definidos através de 1. Definição `cpu_cores_limit` e `memory_gb_limit` parâmetros no `AKSEndpoint.deploy_configuration()` e método `AKSWebservice.deploy_configuration()` 2. Configuração `--cpu-cores-limit` e `--memory-gb-limit` bandeiras nas chamadas CLI aplicáveis 3. Configuração `cpuLimit` e `memoryInGBLimit` na `containerResourceRequirements` configuração de implementação .json/.yml ficheiros Mais informações sobre recursos e limites de Kubernetes podem ser encontradas em https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
-  + **azureml-contrib-servidor**
-    + O AKSWebservice e o AKSEndpoints suportam agora os limites de CPU e de recursos de memória ao nível do pod. Estes limites opcionais podem ser definidos através de 1. Definição `cpu_cores_limit` e `memory_gb_limit` parâmetros no `AKSEndpoint.deploy_configuration()` e método `AKSWebservice.deploy_configuration()` 2. Configuração `--cpu-cores-limit` e `--memory-gb-limit` bandeiras nas chamadas CLI aplicáveis 3. Configuração `cpuLimit` e `memoryInGBLimit` na `containerResourceRequirements` configuração de implementação .json/.yml ficheiros Mais informações sobre recursos e limites de Kubernetes podem ser encontradas em https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
+    + O AKSWebservice e o AKSEndpoints suportam agora os limites de CPU e de recursos de memória ao nível do pod. Estes limites opcionais podem ser usados através da definição `--cpu-cores-limit` e `--memory-gb-limit` bandeiras em chamadas CLI aplicáveis
   + **azureml-core**
     + Pin principais versões de dependências diretas do azureml-core
-    + O AKSWebservice e o AKSEndpoints suportam agora os limites de CPU e de recursos de memória ao nível do pod. Mais informações sobre recursos e limites de Kubernetes podem ser encontrados em https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
+    + O AKSWebservice e o AKSEndpoints suportam agora os limites de CPU e de recursos de memória ao nível do pod. Mais informações sobre [recursos e limites da Kubernetes](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits)
     + Atualizado run.log_table para permitir que as linhas individuais sejam registadas.
-    + Método estático adicionado `Run.get(workspace, run_id)` para recuperar uma corrida apenas usando um espaço de trabalho - método de instância adicionado para recuperar uma corrida dentro do espaço de `Workspace.get_run(run_id)` trabalho
+    + Método estático adicionado `Run.get(workspace, run_id)` para recuperar uma corrida apenas usando um espaço de trabalho 
+    + Método de instância adicionado `Workspace.get_run(run_id)` para recuperar uma corrida dentro do espaço de trabalho
     + Introduzindo a propriedade de comando na configuração de execução que permitirá que os utilizadores submetam o comando em vez de argumentos & script.
-  + **azureml-dataprep-nativo**
-    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` apoiar oficialmente Python 3.8.
-  + **azureml-explain-modelo**
-    + corrigir descrições de pacotes que causam erro de upload para pypi para azureml-interpret, azureml-explain-model, azureml-contrib-interpret e azureml-tensorboard
   + **azureml-interpret**
     + cliente de explicação fixa is_raw comportamento de bandeira em azureml-interpret
-    + corrigir descrições de pacotes que causam erro de upload para pypi para azureml-interpret, azureml-explain-model, azureml-contrib-interpret e azureml-tensorboard
-  + **azureml-pipeline-core**
-    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` apoiar oficialmente Python 3.8.
   + **azureml-sdk**
-    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` apoiar oficialmente Python 3.8.
-  + **azureml-tensorboard**
-    + corrigir descrições de pacotes que causam erro de upload para pypi para azureml-interpret, azureml-explain-model, azureml-contrib-interpret e azureml-tensorboard
-  + **azureml-train**
-    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` apoiar oficialmente Python 3.8.
+    + `azureml-sdk` apoiar oficialmente Python 3.8.
   + **azureml-train-core**
-    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` apoiar oficialmente Python 3.8.
     + Adicionar tensorFlow 2.3 ambiente curado
     + Introduzindo a propriedade de comando na configuração de execução que permitirá que os utilizadores submetam o comando em vez de argumentos & script.
   + **azureml-widgets**
@@ -720,7 +701,7 @@ Agora pode criar, editar e partilhar cadernos e ficheiros de machine learning di
 
 Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
     
-| Ferramenta baseada na web  |     Description  |
+| Ferramenta baseada na web  |     Descrição  |
 |---|---|
 | Cadernos do estúdio Azure ML   |     Primeira autoria em classe para ficheiros de portátil e suporte a toda a operação disponível no Azure ML Python SDK. | 
 
@@ -1232,7 +1213,7 @@ A partir do estúdio, você pode treinar, testar, implementar e gerir ativos de 
 
 Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
 
-| Ferramenta baseada na web | Description | 
+| Ferramenta baseada na web | Descrição | 
 |-|-|-|
 | VM do portátil (pré-visualização) | Estação de trabalho totalmente gerida em nuvem | 
 | [Aprendizagem automática de máquinas](tutorial-first-experiment-automated-ml.md) (pré-visualização) | Nenhuma experiência de código para automatizar o desenvolvimento de modelos de aprendizagem automática | 
@@ -1737,7 +1718,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
     + Mais classes para obter população dos EUA por concelho e zip.
   + **azureml-pipeline-core**
     + Adicionou propriedade de etiqueta às definições de porta de entrada e saída.
-  + **azureml-telemetry**
+  + **azureml-telemetria**
     + Corrigiu uma configuração de telemetria incorreta.
   + **azureml-train-automl**
     + Corrigiu o bug onde, na falha de configuração, o erro não estava a ser registado no campo "erros" para a execução da configuração e, por isso, não foi armazenado em "erros" de execução dos pais.

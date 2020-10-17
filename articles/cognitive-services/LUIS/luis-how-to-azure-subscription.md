@@ -7,12 +7,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 949ad4176cc7bf65e07e40323fc72a0a144b53b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: adc0c253648ed7ae869a20b92c42e7f6478501b7
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327226"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151585"
 ---
 # <a name="create-luis-resources"></a>Criar recursos LUIS
 
@@ -31,7 +31,7 @@ A LUIS permite três tipos de recursos Azure e um recurso não-Azure:
 |--|--|--|--|
 |Recurso de autoria|Permite-lhe criar, gerir, treinar, testar e publicar as suas aplicações. [Crie um recurso de autoria LUIS](luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal) se pretender autoriar aplicações LUIS programáticas ou a partir do Portal LUIS. Primeiro, tem de [migrar a sua conta LUIS](luis-migration-authoring.md#what-is-migration) para poder ligar os seus recursos Azure à sua aplicação. Pode controlar permissões ao recurso de autoria atribuindo as pessoas ao [papel de contribuinte](#contributions-from-other-authors). <br><br> Existe um nível de avialável para o recurso de autoria LUIS:<br> * **Recurso gratuito de autoria F0** que lhe dá 1M Transações de autoria gratuitas e 1000 pedidos de previsão de teste gratuito mensalmente. |`LUIS.Authoring`|`Cognitive Services`|
 |Recurso de previsão| Depois de publicar a sua aplicação LUIS, utilize o recurso/chave de previsão para consultar pedidos de ponto final de previsão. Crie um recurso de previsão LUIS antes que a sua aplicação do cliente solicite previsões para além dos 1.000 pedidos fornecidos pela Autoria ou pelo recurso inicial. <br><br> Existem dois níveis de avialável para o recurso de previsão:<br> * **Recurso gratuito de previsão de F0** que lhe dá 10.000 pedidos de previsão gratuita mensalmente<br> * **Recurso de previsão padrão S0** que é o nível pago. [Saiba mais sobre os detalhes dos preços](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)|`LUIS`|`Cognitive Services`|
-|Recurso inicial/experimental|Permite-lhe criar, gerir, treinar, testar e publicar as suas aplicações. Isto é criado por surdo se escolher a opção de recurso inicial enquanto se inscreve pela primeira vez no tp LUIS. No entanto, a chave de arranque acabará por ser depreciada e todos os utilizadores de LUIS terão de [migrar as suas contas](luis-migration-authoring.md#what-is-migration) e ligar as suas aplicações LUIS a um recurso de autoria. Este recurso não lhe permite o controlo de acesso baseado em funções como o recurso de autoria. <br><br> Tal como o recurso de autoria, o recurso inicial dá-lhe 1M transações de autoria gratuitas e 1000 pedidos de previsão de teste gratuitos.|-|Não é um recurso Azure|
+|Recurso inicial/experimental|Permite-lhe criar, gerir, treinar, testar e publicar as suas aplicações. Isto é criado por surdo se escolher a opção de recurso inicial enquanto se inscreve pela primeira vez no tp LUIS. No entanto, a chave de arranque acabará por ser depreciada e todos os utilizadores de LUIS terão de [migrar as suas contas](luis-migration-authoring.md#what-is-migration) e ligar as suas aplicações LUIS a um recurso de autoria. Este recurso não lhe dá permissões para o controlo de acesso baseado em funções Azure, como o recurso de autoria. <br><br> Tal como o recurso de autoria, o recurso inicial dá-lhe 1M transações de autoria gratuitas e 1000 pedidos de previsão de teste gratuitos.|-|Não é um recurso Azure|
 |[Chave de recursos multi-serviço do Serviço Cognitivo](../cognitive-services-apis-create-account-cli.md?tabs=windows#create-a-cognitive-services-resource)|Pedidos de previsão de consulta partilhados com LUIS e outros Serviços Cognitivos apoiados.|`CognitiveServices`|`Cognitive Services`|
 
 

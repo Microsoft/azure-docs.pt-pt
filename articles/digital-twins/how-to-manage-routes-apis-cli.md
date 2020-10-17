@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Veja como configurar e gerir pontos finais e rotas de eventos para os dados da Azure Digital Twins.
 author: alexkarcher-msft
 ms.author: alkarche
-ms.date: 6/23/2020
+ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 65e7a425fdf8ee1b253bcb696792b569b7195d4c
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 14edc97115735f8b6763171a07b5f739fc745e9f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047374"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151248"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gerir pontos finais e rotas em Azure Digital Twins (APIs e CLI)
 
@@ -84,6 +84,70 @@ az dt endpoint create servicebus --endpoint-name <Service-Bus-endpoint-name> --s
 * Adicionar ponto final do Event Hubs (requer recurso de Centros de Eventos pré-criado)
 ```azurecli
 az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --eventhub-resource-group <Event-Hub-resource-group> --eventhub-namespace <Event-Hub-namespace> --eventhub <Event-Hub-name> --eventhub-policy <Event-Hub-policy> -n <your-Azure-Digital-Twins-instance-name>
+```
+
+### <a name="create-an-endpoint-with-dead-lettering"></a>Criar um ponto final com letras mortas
+
+Quando um ponto final não consegue entregar um evento dentro de um determinado período de tempo ou depois de tentar entregar o evento um certo número de vezes, pode enviar o evento não entregue para uma conta de armazenamento. Este processo é conhecido como **letra morta.**
+
+Para criar um ponto final com letras mortas ativadas, deve utilizar as [APIs ARM](https://docs.microsoft.com/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) para criar o seu ponto final. 
+
+Antes de definir o local da letra morta, deve ter uma conta de armazenamento com um recipiente. Forneça o URL para este recipiente ao criar o ponto final. A letra morta é fornecida como URL de contentor com um token SAS. Esse símbolo só precisa de `write` permissão para o contentor de destino dentro da conta de armazenamento. O URL totalmente formado será no formato de: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
+
+Para saber mais sobre fichas SAS, consulte: [Conceder acesso limitado aos recursos de Armazenamento Azure usando assinaturas de acesso partilhado (SAS)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+
+Para saber mais sobre letras mortas, consulte [Conceitos: Rotas do Evento](./concepts-route-events.md#dead-letter-events)
+
+#### <a name="configuring-the-endpoint"></a>Configurar o ponto final
+
+Ao criar um ponto final, adicione um `deadLetterSecret` ao objeto no corpo do `properties` pedido, que contém um URL de contentor e um símbolo SAS para a sua conta de armazenamento.
+
+```json
+{
+  "properties": {
+    "endpointType": "EventGrid",
+    "TopicEndpoint": "https://contosoGrid.westus2-1.eventgrid.azure.net/api/events",
+    "accessKey1": "xxxxxxxxxxx",
+    "accessKey2": "xxxxxxxxxxx",
+    "deadLetterSecret":"https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>"
+  }
+}
+```
+
+Para mais informações, consulte a documentação AZure Digital Twins REST API: [Endpoints - DigitalTwinsEndpoint CreateOrUpdate](https://docs.microsoft.com/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
+
+### <a name="message-storage-schema"></a>Esquema de armazenamento de mensagens
+
+As mensagens com letras mortas serão armazenadas no seguinte formato na sua conta de armazenamento:
+
+`{container}/{endpointName}/{year}/{month}/{day}/{hour}/{eventId}.json`
+
+As mensagens com letras mortas corresponderão ao esquema do evento original que se destinava a ser entregue no seu ponto final original.
+
+Aqui está um exemplo de uma mensagem de letra morta para uma [notificação de criação de gémeos:](./how-to-interpret-event-data.md#digital-twin-life-cycle-notifications)
+
+```json
+{
+  "specversion": "1.0",
+  "id": "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "type": "Microsoft.DigitalTwins.Twin.Create",
+  "source": "<yourInstance>.api.<yourregion>.da.azuredigitaltwins-test.net",
+  "data": {
+    "$dtId": "<yourInstance>xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "$etag": "W/\"xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
+    "TwinData": "some sample",
+    "$metadata": {
+      "$model": "dtmi:test:deadlettermodel;1",
+      "room": {
+        "lastUpdateTime": "2020-10-14T01:11:49.3576659Z"
+      }
+    }
+  },
+  "subject": "<yourInstance>xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "time": "2020-10-14T01:11:49.3667224Z",
+  "datacontenttype": "application/json",
+  "traceparent": "00-889a9094ba22b9419dd9d8b3bfe1a301-f6564945cb20e94a-01"
+}
 ```
 
 ## <a name="event-routes-with-apis-and-the-c-sdk"></a>Rotas de eventos (com APIs e o C# SDK)

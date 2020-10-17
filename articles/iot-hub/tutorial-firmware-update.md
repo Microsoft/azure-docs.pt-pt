@@ -14,18 +14,18 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-js
-ms.openlocfilehash: 304ded466aeb734388c13b87331eb4813e850e56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1410b9e8287b34c8b40e841ff513de784e1730a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842823"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150559"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Tutorial: Implementar um processo de atualização de firmware do dispositivo
 
 Pode ter de atualizar o firmware nos dispositivos ligados ao hub IoT. Por exemplo, pode querer adicionar novas funcionalidades ao firmware ou aplicar patches de segurança. Em muitos cenários de IoT, não é prático visitar fisicamente e, em seguida, aplicar manualmente as atualizações de firmware aos dispositivos. Este tutorial mostra como pode iniciar e monitorizar o processo de atualização de firmware remotamente através de uma aplicação de back-end ligada ao seu hub.
 
-Para criar e monitorizar o processo de atualização de firmware, a aplicação de back-end neste tutorial cria uma _configuração_ no hub IoT. A [gestão de dispositivos automática](iot-hub-auto-device-config.md) do Hub IoT utiliza esta configuração para atualizar um conjunto de _propriedades pretendidas dos dispositivos duplos_ em todos os dispositivos chiller. As propriedades pretendidas especificam os detalhes da atualização de firmware necessária. Embora os dispositivos chiller estejam a executar o processo de atualização de firmware, reportam o respetivo estado à aplicação de back-end através das _propriedades reportadas dos dispositivos duplos_. A aplicação de back-end pode utilizar a configuração para monitorizar as propriedades reportadas enviadas a partir do dispositivo e controlar o processo de atualização de firmware para conclusão:
+Para criar e monitorizar o processo de atualização de firmware, a aplicação de back-end neste tutorial cria uma _configuração_ no hub IoT. A [gestão de dispositivos automática](./iot-hub-automatic-device-management.md) do Hub IoT utiliza esta configuração para atualizar um conjunto de _propriedades pretendidas dos dispositivos duplos_ em todos os dispositivos chiller. As propriedades pretendidas especificam os detalhes da atualização de firmware necessária. Embora os dispositivos chiller estejam a executar o processo de atualização de firmware, reportam o respetivo estado à aplicação de back-end através das _propriedades reportadas dos dispositivos duplos_. A aplicação de back-end pode utilizar a configuração para monitorizar as propriedades reportadas enviadas a partir do dispositivo e controlar o processo de atualização de firmware para conclusão:
 
 ![Processo de atualização de firmware](media/tutorial-firmware-update/Process.png)
 
@@ -194,7 +194,7 @@ Uma vez que as configurações automáticas do dispositivo são executadas na ho
 
 ![Ver a configuração no portal](./media/tutorial-firmware-update/portalview.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se tenciona concluir o próximo tutorial, saia do grupo de recursos e do hub do IoT e reutilize-os mais tarde.
 

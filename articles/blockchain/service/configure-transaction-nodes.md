@@ -4,12 +4,12 @@ description: Como configurar os nóns de transação do Serviço Azure Blockchai
 ms.date: 11/20/2019
 ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: b3a4650977f1ad1a7a6967daa162adc8d2ef7bff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50f9b2aa0f5e1a1b1095b6c799ce0706b6e541de
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530391"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150871"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Configurar os nosdes de transação do Serviço Blockchain Azure
 
@@ -75,7 +75,7 @@ Para conceder ao Azure AD o controlo de acesso ao seu ponto final:
 
 1. **Selecione Guardar** para adicionar a atribuição de funções.
 
-Para obter mais informações sobre o controlo de acesso a Azure, consulte [Gerir o acesso aos recursos do Azure utilizando o RBAC e o portal Azure](../../role-based-access-control/role-assignments-portal.md)
+Para obter mais informações sobre o controlo de acesso a Azure, consulte [adicionar ou remover atribuições de funções Azure utilizando o portal Azure](../../role-based-access-control/role-assignments-portal.md)
 
 Para obter mais informações sobre como ligar usando a autenticação AZure AD, consulte [a ligação ao seu nó utilizando a autenticação AAD](configure-aad.md).
 

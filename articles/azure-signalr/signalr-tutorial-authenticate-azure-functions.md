@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.custom: devx-track-js
-ms.openlocfilehash: e0bb4df611c6a9cfecf0aadbdfc3a577243856ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6df47d3fd62083a5d0940a1d6da50ac5d7d955f4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327623"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150915"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Tutorial: autenticação do Azure SignalR Service com as Funções do Azure Functions
 
@@ -356,13 +356,13 @@ Uma conta de Armazenamento Azure é exigida por uma aplicação de função em e
 
 ### <a name="configure-function-app-for-authentication"></a>Configurar a aplicação de funções para autenticação
 
-Até agora, a aplicação de chat funciona anonimamente. No Azure, utilizará a [Autenticação do Serviço de Aplicações](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) para autenticar o utilizador. O ID ou nome de utilizador autenticado pode ser transmitido ao enlace *SignalRConnectionInfo* para gerar informações de ligação que são autenticadas como o utilizador.
+Até agora, a aplicação de chat funciona anonimamente. No Azure, utilizará a [Autenticação do Serviço de Aplicações](../app-service/overview-authentication-authorization.md) para autenticar o utilizador. O ID ou nome de utilizador autenticado pode ser transmitido ao enlace *SignalRConnectionInfo* para gerar informações de ligação que são autenticadas como o utilizador.
 
 Ao enviar uma mensagem, a aplicação pode decidir se a envia para todos os clientes ligados ou apenas para os clientes que tenham sido autenticados para um determinado utilizador.
 
 1. No Código VS, abrir **negociação/function.jsem**.
 
-1. Insira uma [expressão de enlace](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings) na propriedade *userId* do enlace *SignalRConnectionInfo*: `{headers.x-ms-client-principal-name}`. É definido o valor para o nome do utilizador autenticado. O atributo deverá ter agora o seguinte aspeto.
+1. Insira uma [expressão de enlace](../azure-functions/functions-triggers-bindings.md) na propriedade *userId* do enlace *SignalRConnectionInfo*: `{headers.x-ms-client-principal-name}`. É definido o valor para o nome do utilizador autenticado. O atributo deverá ter agora o seguinte aspeto.
 
     ```json
     {
@@ -431,11 +431,11 @@ A Autenticação do Serviço de Aplicações suporta a autenticação com o Azur
 
 1. Siga a documentação para o fornecedor de início de sessão da sua preferência para concluir a configuração.
 
-    - [Azure Active Directory](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
-    - [Facebook](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-facebook)
-    - [Twitter](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-twitter)
-    - [Conta Microsoft](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-microsoft)
-    - [Google](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-google)
+    - [Azure Active Directory](../app-service/configure-authentication-provider-aad.md)
+    - [Facebook](../app-service/configure-authentication-provider-facebook.md)
+    - [Twitter](../app-service/configure-authentication-provider-twitter.md)
+    - [Conta Microsoft](../app-service/configure-authentication-provider-microsoft.md)
+    - [Google](../app-service/configure-authentication-provider-google.md)
 
 ### <a name="update-the-web-app"></a>Atualizar a aplicação Web
 
@@ -503,7 +503,7 @@ Parabéns! Implementou uma aplicação de chat sem servidor em tempo real!
 
 [Tendo problemas? Deixe-nos saber.](https://aka.ms/asrs/qsauth)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para limpar os recursos criados neste tutorial, elimine o grupo de recursos no portal do Azure.
 
@@ -517,4 +517,3 @@ Neste tutorial, aprendeu a utilizar as Funções do Azure com o Azure SignalR Se
 > [Construir aplicativos em tempo real com funções Azure](signalr-concept-azure-functions.md)
 
 [Tendo problemas? Deixe-nos saber.](https://aka.ms/asrs/qsauth)
-

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: menchi
 ms.custom: devx-track-python
-ms.openlocfilehash: 6ed0290abe91453058589b032fb5ed2dd71fe98a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 665281adc892e6b3655c0b1d0533cb3148e62940
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87872570"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92139399"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-python"></a>Começa com a identidade do módulo IoT Hub e módulo twin (Python)
 
@@ -38,7 +38,7 @@ No final deste tutorial, você tem três aplicativos Python:
 
 [!INCLUDE [iot-hub-include-python-v2-installation-notes](../../includes/iot-hub-include-python-v2-installation-notes.md)]
 
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -270,4 +270,4 @@ Para continuar a introdução ao Hub IoT e explorar outros cenários de IoT, vej
 
 * [Getting started with device management (Introdução à gestão de dispositivos)](iot-hub-node-node-device-management-get-started.md)
 
-* [Introdução ao IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Introdução ao IoT Edge](../iot-edge/quickstart-linux.md)

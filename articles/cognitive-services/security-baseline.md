@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 796ef0b82c15940ce9200e0b50916ca657f10b99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0837184528582a84d93ab92cde4662b352666f53
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89393898"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150348"
 ---
 # <a name="azure-security-baseline-for-cognitive-services"></a>Linha de segurança Azure para Serviços Cognitivos
 
@@ -992,7 +992,7 @@ Também pode utilizar a função de gestão do ciclo de vida para fazer backup d
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: Garantir a proteção das cópias de segurança e das chaves geridas pelo cliente
 
-**Orientação**: Utilize Azure DevOps para armazenar e gerir de forma segura os seus modelos de Gestor de Recursos Azure. Para proteger os recursos que gere em Azure DevOps, pode conceder ou negar permissões a utilizadores específicos, grupos de segurança incorporados ou grupos definidos no Azure Ative Directory (Azure AD) se estiverem integrados com Azure DevOps ou Ative Directory se integrados com TFS.  Utilize o controlo de acesso baseado em funções para proteger as chaves geridas pelo cliente. Ativar Soft-Delete e limpar a proteção no Cofre de Chaves para proteger as chaves contra a eliminação acidental ou maliciosa. 
+**Orientação**: Utilize Azure DevOps para armazenar e gerir de forma segura os seus modelos de Gestor de Recursos Azure. Para proteger os recursos que gere em Azure DevOps, pode conceder ou negar permissões a utilizadores específicos, grupos de segurança incorporados ou grupos definidos no Azure Ative Directory (Azure AD) se estiverem integrados com Azure DevOps ou Ative Directory se integrados com TFS.  Utilize o controlo de acesso baseado em funções Azure para proteger as chaves geridas pelo cliente. Ativar Soft-Delete e limpar a proteção no Cofre de Chaves para proteger as chaves contra a eliminação acidental ou maliciosa. 
 
 * [Como armazenar código em Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
 

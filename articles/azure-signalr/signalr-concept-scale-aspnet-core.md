@@ -7,22 +7,22 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: d104e0f1f2c6a978a5fce2c046a36e50a7056970
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90853b5ff769b710c6c95e4f6e62b3a4aa19fadf
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88928505"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151073"
 ---
 # <a name="scale-aspnet-core-signalr-applications-with-azure-signalr-service"></a>Dimensionar aplicações do SignalR do ASP.NET Core com o Azure SignalR Service
 
 ## <a name="developing-signalr-apps"></a>Desenvolver aplicações SignalR
 
-Atualmente, pode utilizar [duas versões](https://docs.microsoft.com/aspnet/core/signalr/version-differences) do SignalR com as suas aplicações Web: SignalR para ASP.NET e ASP.NET Core SignalR, que é a versão mais recente. O Azure SignalR Service é um serviço gerido pelo Azure criado sobre o ASP.NET Core SignalR.
+Atualmente, pode utilizar [duas versões](/aspnet/core/signalr/version-differences) do SignalR com as suas aplicações Web: SignalR para ASP.NET e ASP.NET Core SignalR, que é a versão mais recente. O Azure SignalR Service é um serviço gerido pelo Azure criado sobre o ASP.NET Core SignalR.
 
 O ASP.NET Core SignalR é uma reescrita da versão anterior. Como resultado, o ASP.NET Core SignalR não é retrocompatível com a versão anterior do SignalR. As APIs e os comportamentos são diferentes. O ASP.NET Core SignalR SDK tem como alvo o .NET Standard, pelo que pode continuar a utilizá-lo com o .NET Framework. No entanto, tem de utilizar as APIs novas em vez das antigos. Se estiver a utilizar o SignalR e quiser passar para o ASP.NET Core SignalR ou para o Azure SignalR, tem de alterar o código para que este possa lidar com as diferenças nas APIs.
 
-Com o Azure SignalR Service, o componente do lado do servidor do ASP.NET Core SignalR é alojado no Azure. Contudo, uma vez que a tecnologia é criada sobre o ASP.NET Core, tem a possibilidade de executar a aplicação Web real em várias plataformas (Windows, Linux e MacOS) enquanto aloja com o [Serviço de Aplicações do Azure](../app-service/overview.md), o [IIS](https://docs.microsoft.com/aspnet/core/host-and-deploy/iis/index), o [Nginx](https://docs.microsoft.com/aspnet/core/host-and-deploy/linux-nginx), o [Apache](https://docs.microsoft.com/aspnet/core/host-and-deploy/linux-apache) e o [Docker](https://docs.microsoft.com/aspnet/core/host-and-deploy/docker/index). Também pode utilizar o alojamento automático no seu próprio processo.
+Com o Azure SignalR Service, o componente do lado do servidor do ASP.NET Core SignalR é alojado no Azure. Contudo, uma vez que a tecnologia é criada sobre o ASP.NET Core, tem a possibilidade de executar a aplicação Web real em várias plataformas (Windows, Linux e MacOS) enquanto aloja com o [Serviço de Aplicações do Azure](../app-service/overview.md), o [IIS](/aspnet/core/host-and-deploy/iis/index), o [Nginx](/aspnet/core/host-and-deploy/linux-nginx), o [Apache](/aspnet/core/host-and-deploy/linux-apache) e o [Docker](/aspnet/core/host-and-deploy/docker/index). Também pode utilizar o alojamento automático no seu próprio processo.
 
 Se os objetivos da sua aplicação incluírem suportar a mais recente funcionalidade para atualizar clientes Web com atualizações de conteúdos em tempo real, executar em várias plataformas (Azure, Windows, Linux e macOS) e alojar em diferentes ambientes, a melhor opção é tirar partido do Azure SignalR Service.
 
@@ -34,7 +34,7 @@ Um dos principais motivos para utilizar o Azure SignalR Service é a simplicidad
 
 Além disso, os WebSockets são, normalmente, a técnica preferencial para suportar as atualizações de conteúdos em tempo real. No entanto, à medida que dimensiona, fazer o balanceamento de carga de um grande número de ligações persistentes de WebSocket pode tornar-se problemático. As soluções comuns tiram partido do balanceamento de carga do DNS, dos balanceadores de carga do hardware e do balanceamento de carga do software. O Azure SignalR Service lida com este problema por si.
 
-Outro motivo poderá ser o facto de que talvez não tenha necessidade de realmente alojar uma aplicação Web de todo. A lógica da aplicação Web poderá tirar partido da [computação sem servidor](https://azure.microsoft.com/overview/serverless-computing/). Por exemplo, talvez o código só seja alojado e executado a pedido com acionadores das [Funções do Azure](https://docs.microsoft.com/azure/azure-functions/). Este cenário pode ser complicado, porque o seu código só é executado a pedido e não mantém ligações longas com os clientes. O Azure SignalR Service pode tratar desta situação, uma vez que já faz a gestão das ligações por si. Veja a [descrição geral sobre como utilizar o SignalR Service com as Funções do Azure](signalr-concept-azure-functions.md) para obter mais detalhes.
+Outro motivo poderá ser o facto de que talvez não tenha necessidade de realmente alojar uma aplicação Web de todo. A lógica da aplicação Web poderá tirar partido da [computação sem servidor](https://azure.microsoft.com/overview/serverless-computing/). Por exemplo, talvez o código só seja alojado e executado a pedido com acionadores das [Funções do Azure](../azure-functions/index.yml). Este cenário pode ser complicado, porque o seu código só é executado a pedido e não mantém ligações longas com os clientes. O Azure SignalR Service pode tratar desta situação, uma vez que já faz a gestão das ligações por si. Veja a [descrição geral sobre como utilizar o SignalR Service com as Funções do Azure](signalr-concept-azure-functions.md) para obter mais detalhes.
 
 ## <a name="how-does-it-scale"></a>Como é dimensionado?
 

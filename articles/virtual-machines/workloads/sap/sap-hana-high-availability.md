@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/08/2020
+ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 1efa00962e63274c2cc02c8758725e5b11d70a9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9efdbb32683c9a244226012bd2d4bfcab6046678
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89567831"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151164"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidade de SAP HANA em VMs Azure no SUSE Linux Enterprise Server
 
@@ -133,6 +133,13 @@ Para implementar o modelo, siga estes passos:
    - Utilize uma imagem SLES4SAP na galeria Azure que é suportada para SAP HANA no tipo VM que selecionou.
    - Selecione o conjunto de disponibilidade criado no passo 3. 
 1. Adicione discos de dados.
+
+> [!IMPORTANT]
+> O IP flutuante não é suportado numa configuração IP secundária do NIC em cenários de equilíbrio de carga. Para mais detalhes consulte [as limitações do balançador de carga Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Se precisar de um endereço IP adicional para o VM, implante um segundo NIC.   
+
+> [!Note]
+> Quando os VMs sem endereços IP públicos forem colocados no pool de backend de saldos de carga standard Azure (sem endereço IP público), não haverá conectividade de saída na Internet, a menos que seja realizada uma configuração adicional para permitir o encaminhamento para pontos finais públicos. Para obter detalhes sobre como alcançar a conectividade de saída, consulte [a conectividade do ponto final público para máquinas virtuais utilizando o Azure Standard Load Balancer em cenários de alta disponibilidade SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
+
 1. Se utilizar o balanceador de carga padrão, siga estes passos de configuração:
    1. Primeiro, crie um pool IP frontal:
    
@@ -168,9 +175,6 @@ Para implementar o modelo, siga estes passos:
       1. Aumente o **tempo de 30** minutos.
       1. Certifique-se de que ativa o **IP flutuante**.
       1. Selecione **OK**.
-
-   > [!Note]
-   > Quando os VMs sem endereços IP públicos forem colocados no pool de backend de saldos de carga standard Azure (sem endereço IP público), não haverá conectividade de saída na Internet, a menos que seja realizada uma configuração adicional para permitir o encaminhamento para pontos finais públicos. Para obter detalhes sobre como alcançar a conectividade de saída, consulte [a conectividade do ponto final público para máquinas virtuais utilizando o Azure Standard Load Balancer em cenários de alta disponibilidade SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 1. Em alternativa, se o seu cenário ditar a utilização do balanceador de carga básico, siga estes passos de configuração:
    1. Primeiro, crie um pool IP frontal:

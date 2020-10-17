@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 06/30/2020
-  ms.openlocfilehash: 272c5091d99697a77e7fb8420ac8ef2498a7790d
-  ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+  ms.openlocfilehash: 931a6cf2ce644d84553cf35d1c5d912ca2d81160
+  ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91874378"
+  ms.lasthandoff: 10/16/2020
+  ms.locfileid: "92123856"
 highlightedContent:
   items:
   - title: O que é o IoT Central?
@@ -134,10 +134,10 @@ additionalContent:
   - items:
     - title: APIs do IoT Central
       summary: Explore as APIs do IoT Central.
-      url: https://docs.microsoft.com/rest/api/iotcentral/
+      url: /rest/api/iotcentral/
     - title: IoT Central no Microsoft Learn
       summary: Explore o IoT Central num ambiente de sandbox gratuito.
-      url: https://docs.microsoft.com/learn/browse/?products=azure-iot-central
+      url: /learn/browse/?products=azure-iot-central
     - title: Atualizações recentes
       summary: Veja as novidades no IoT Central.
       url: https://azure.microsoft.com/updates/?status=nowavailable&updateType=features&category=iot&query=azure%20iot%20central

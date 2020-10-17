@@ -4,7 +4,7 @@ description: Como configurar dispositivos a jusante ou de folhas para ligar aos 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/02/2020
+ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 4faec8f79d856b86052745ad530e17b9b25634e8
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 979ed3d21986ad43d805446a520a59333a6798ed
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045844"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149330"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Ligar um dispositivo a jusante a um gateway do Azure IoT Edge
 
@@ -25,11 +25,11 @@ Este artigo fornece instruções para estabelecer uma ligação fidedigna entre 
 
 Existem três passos gerais para estabelecer uma ligação transparente de gateway bem sucedida. Este artigo abrange o terceiro passo:
 
-1. Configure o dispositivo gateway como um servidor para que os dispositivos a jusante possam ligar-se a ele de forma segura. Configurar o portal para receber mensagens de dispositivos a jusante e encaminhá-las para o destino adequado. Para obter mais informações, consulte [configurar um dispositivo IoT Edge para funcionar como um gateway transparente.](how-to-create-transparent-gateway.md)
-2. Crie uma identidade do dispositivo para o dispositivo a jusante para que possa autenticar com o IoT Hub. Configure o dispositivo a jusante para enviar mensagens através do dispositivo gateway. Para obter mais informações, consulte [Autenticar um dispositivo a jusante para o Azure IoT Hub](how-to-authenticate-downstream-device.md).
+1. Configure o dispositivo gateway como um servidor para que os dispositivos a jusante possam ligar-se a ele de forma segura. Configurar o portal para receber mensagens de dispositivos a jusante e encaminhá-las para o destino adequado. Para esses passos, consulte [configurar um dispositivo IoT Edge para funcionar como um gateway transparente](how-to-create-transparent-gateway.md).
+2. Crie uma identidade do dispositivo para o dispositivo a jusante para que possa autenticar com o IoT Hub. Configure o dispositivo a jusante para enviar mensagens através do dispositivo gateway. Para esses passos, consulte [Autenticar um dispositivo a jusante para o Azure IoT Hub](how-to-authenticate-downstream-device.md).
 3. **Ligue o dispositivo a jusante ao dispositivo gateway e comece a enviar mensagens.**
 
-Este artigo identifica problemas comuns com ligações a jusante do dispositivo e orienta-o na configuração dos seus dispositivos a jusante:
+Este artigo discute conceitos básicos para ligações a jusante do dispositivo e guia-o na configuração dos seus dispositivos a jusante:
 
 * Explicando a segurança da camada de transporte (TLS) e os fundamentos dos certificados.
 * Explicando como as bibliotecas TLS funcionam em diferentes sistemas operativos e como cada sistema operativo lida com certificados.
@@ -67,7 +67,7 @@ Quando um cliente se conecta a um servidor, o servidor apresenta uma cadeia de c
 
 Quando um dispositivo se conecta ao Azure IoT Hub, o dispositivo é o cliente e o serviço de nuvem IoT Hub é o servidor. O serviço de nuvem IoT Hub é apoiado por um certificado de CA raiz chamado **Baltimore CyberTrust Root**, que está disponível ao público e amplamente utilizado. Uma vez que o certificado IoT Hub CA já está instalado na maioria dos dispositivos, muitas implementações TLS (OpenSSL, Schannel, LibreSSL) usam-no automaticamente durante a validação do certificado do servidor. No entanto, um dispositivo que se conecta com sucesso ao IoT Hub pode ter problemas ao tentar ligar-se a um gateway IoT Edge.
 
-Quando um dispositivo se liga a um gateway IoT Edge, o dispositivo a jusante é o cliente e o dispositivo gateway é o servidor. O Azure IoT Edge permite que os operadores (ou utilizadores) construam cadeias de certificados de gateway como entenderem. O operador pode optar por utilizar um certificado de CA público, como Baltimore, ou utilizar um certificado de CA de raiz auto-assinado (ou interno). Os certificados de CA públicos têm frequentemente um custo associado a eles, por isso são normalmente usados em cenários de produção. Os certificados de CA auto-assinados são preferidos para desenvolvimento e teste. Os artigos transparentes de configuração do gateway listados na introdução utilizam certificados de CA de raiz auto-assinados.
+Quando um dispositivo se liga a um gateway IoT Edge, o dispositivo a jusante é o cliente e o dispositivo gateway é o servidor. O Azure IoT Edge permite-lhe construir cadeias de certificados de gateway como entenderem. Você pode optar por usar um certificado de CA público, como Baltimore, ou usar um certificado de CA de raiz auto-assinado (ou interno). Os certificados de CA públicos têm frequentemente um custo associado a eles, por isso são normalmente usados em cenários de produção. Os certificados de CA auto-assinados são preferidos para desenvolvimento e teste. Se estiver a usar os certificados de demonstração, são certificados de CA de raiz auto-assinados.
 
 Quando utilizar um certificado de CA de raiz auto-assinado para um gateway IoT Edge, este precisa de ser instalado ou fornecido a todos os dispositivos a jusante que tentam ligar-se ao gateway.
 
@@ -80,6 +80,8 @@ Para saber mais sobre certificados IoT Edge e algumas implicações de produçã
 Para verificar os certificados do dispositivo gateway, o dispositivo a jusante necessita da sua própria cópia do certificado de CA raiz. Se usou os scripts fornecidos no repositório IoT Edge git para criar certificados de teste, então o certificado de CA raiz é chamado **azure-iot-test-only.root.ca.cert.pem**. Se ainda não fez parte das outras etapas de preparação do dispositivo a jusante, mova este ficheiro de certificado para qualquer diretório do seu dispositivo a jusante. Pode utilizar um serviço como [o Azure Key Vault](../key-vault/index.yml) ou uma função como o protocolo de cópia [Secure](https://www.ssh.com/ssh/scp/) para mover o ficheiro de certificado.
 
 ## <a name="install-certificates-in-the-os"></a>Instalar certificados no SISTEMA
+
+Uma vez que o certificado de CA raiz esteja no dispositivo a jusante, você precisa ter certeza de que as aplicações que estão conectando ao gateway podem aceder ao certificado.
 
 A instalação do certificado de CA raiz na loja de certificados do sistema operativo geralmente permite que a maioria das aplicações utilize o certificado de CA raiz. Existem algumas exceções, como as aplicações NodeJS que não utilizam a loja de certificados OS, mas sim a loja de certificados internos do Nó. Se não conseguir instalar o certificado ao nível do sistema operativo, avance para [utilizar certificados com SDKs Azure IoT](#use-certificates-with-azure-iot-sdks).
 
@@ -192,7 +194,7 @@ Esta secção introduz uma aplicação de amostra para ligar um cliente de dispo
 
 ## <a name="test-the-gateway-connection"></a>Teste a ligação gateway
 
-Utilize este comando de amostra para testar que o seu dispositivo a jusante pode ligar-se ao dispositivo gateway:
+Utilize este comando de amostra no dispositivo a jusante para testar que pode ligar-se ao dispositivo gateway:
 
 ```cmd/sh
 openssl s_client -connect mygateway.contoso.com:8883 -CAfile <CERTDIR>/certs/azure-iot-test-only.root.ca.cert.pem -showcerts

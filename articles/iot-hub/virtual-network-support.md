@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 09/24/2020
 ms.author: jlian
-ms.openlocfilehash: 6c562f7a5d9c7c02c737898821eef5ee5271eea4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3deffe6f1dbffcaae5676b8ddf3c0fc2dc934401
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613905"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149087"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Suporte ioT Hub para redes virtuais com Ligação Privada e Identidade Gerida
 
@@ -224,7 +224,7 @@ Agora, o seu ponto final de serviço personalizado está configurado para usar a
 
 ### <a name="egress-connectivity-to-storage-accounts-for-file-upload"></a>Conectividade Egressa para contas de armazenamento para upload de ficheiros
 
-A funcionalidade de upload de ficheiros do IoT Hub permite que os dispositivos carreguem ficheiros para uma conta de armazenamento do cliente. Para permitir o funcionamento do upload do ficheiro, ambos os dispositivos e ioT Hub precisam de ter conectividade com a conta de armazenamento. Se as restrições de firewall estiverem em vigor na conta de armazenamento, os seus dispositivos precisam de utilizar qualquer mecanismo da conta de armazenamento suportada (incluindo [pontos finais privados,](../private-link/create-private-endpoint-storage-portal.md) [pontos finais](../virtual-network/virtual-network-service-endpoints-overview.md)de serviço ou [configuração de firewall direta](../storage/common/storage-network-security.md)) para ganhar conectividade. Da mesma forma, se as restrições de firewall estiverem em vigor na conta de armazenamento, o IoT Hub precisa de ser configurado para aceder ao recurso de armazenamento através da exceção de serviços fidedignos da Microsoft. Para isso, o seu Hub IoT deve ter uma identidade gerida. Uma vez que uma identidade gerida é aprovisionada, siga os passos abaixo para dar permissão ao RBAC para a identidade de recursos do seu hub para aceder à sua conta de armazenamento.
+A funcionalidade de upload de ficheiros do IoT Hub permite que os dispositivos carreguem ficheiros para uma conta de armazenamento do cliente. Para permitir o funcionamento do upload do ficheiro, ambos os dispositivos e ioT Hub precisam de ter conectividade com a conta de armazenamento. Se as restrições de firewall estiverem em vigor na conta de armazenamento, os seus dispositivos precisam de utilizar qualquer mecanismo da conta de armazenamento suportada (incluindo [pontos finais privados,](../private-link/tutorial-private-endpoint-storage-portal.md) [pontos finais](../virtual-network/virtual-network-service-endpoints-overview.md)de serviço ou [configuração de firewall direta](../storage/common/storage-network-security.md)) para ganhar conectividade. Da mesma forma, se as restrições de firewall estiverem em vigor na conta de armazenamento, o IoT Hub precisa de ser configurado para aceder ao recurso de armazenamento através da exceção de serviços fidedignos da Microsoft. Para isso, o seu Hub IoT deve ter uma identidade gerida. Uma vez que uma identidade gerida é aprovisionada, siga os passos abaixo para dar permissão ao RBAC para a identidade de recursos do seu hub para aceder à sua conta de armazenamento.
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
@@ -252,7 +252,7 @@ Esta funcionalidade requer conectividade desde o IoT Hub até à conta de armaze
 
 3. Navegue para o separador **Firewalls e redes virtuais** na sua conta de armazenamento e permita o acesso a partir da opção **de redes selecionadas.** Na lista **de Exceções,** verifique a caixa para **permitir que os serviços fidedignos da Microsoft tenham acesso a esta conta de armazenamento.** Clique no botão **Guardar**.
 
-Pode agora utilizar as APIs Azure IoT REST para criar postos de trabalho de [exportação](https://docs.microsoft.com/rest/api/iothub/service/jobs/getimportexportjobs) de importação para obter informações sobre como utilizar a funcionalidade de importação/exportação a granel. Terá de fornecer o `storageAuthenticationType="identityBased"` corpo e a utilização no seu corpo de pedido `inputBlobContainerUri="https://..."` e como `outputBlobContainerUri="https://..."` URLs de entrada e saída da sua conta de armazenamento, respectivamente.
+Pode agora utilizar as APIs Azure IoT REST para criar postos de trabalho de [exportação](/rest/api/iothub/service/jobs/getimportexportjobs) de importação para obter informações sobre como utilizar a funcionalidade de importação/exportação a granel. Terá de fornecer o `storageAuthenticationType="identityBased"` corpo e a utilização no seu corpo de pedido `inputBlobContainerUri="https://..."` e como `outputBlobContainerUri="https://..."` URLs de entrada e saída da sua conta de armazenamento, respectivamente.
 
 O Azure IoT Hub SDKs também suporta esta funcionalidade no gestor de registo do cliente de serviço. O seguinte código snippet mostra como iniciar uma tarefa de importação ou de exportação na utilização do C# SDK.
 
@@ -295,4 +295,4 @@ Use os links abaixo para saber mais sobre as funcionalidades do IoT Hub:
 
 * [Encaminhamento de mensagens](./iot-hub-devguide-messages-d2c.md)
 * [Upload de arquivo](./iot-hub-devguide-file-upload.md)
-* [Importação/exportação de dispositivos a granel](./iot-hub-bulk-identity-mgmt.md) 
+* [Importação/exportação de dispositivos a granel](./iot-hub-bulk-identity-mgmt.md)

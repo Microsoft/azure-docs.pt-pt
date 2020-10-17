@@ -6,13 +6,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
-ms.date: 10/02/2020
-ms.openlocfilehash: 620fe1e693a177123e166220ab94bbd74c4826ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/15/2020
+ms.openlocfilehash: 1b61b643ea4b195878a1d12fc1ac4bb7fef23027
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761537"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151365"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Resolver problemas comuns no Azure Data Share 
 
@@ -61,12 +61,20 @@ Se esta for a primeira vez que partilha ou recebe dados da loja de dados Azure, 
 A partilha baseada em SQL requer permissões adicionais. Consulte [a partilha de fontes SQL](how-to-share-from-sql.md) para obter uma lista detalhada de pré-requisitos.
 
 ## <a name="snapshot-failed"></a>O instantâneo falhou
-O instantâneo pode falhar devido a uma variedade de razões. Pode encontrar uma mensagem de erro detalhada clicando na hora de início do instantâneo e, em seguida, no estado de cada conjunto de dados. Seguem-se as razões pelas quais o instantâneo falha:
+O instantâneo pode falhar devido a uma variedade de razões. Pode encontrar uma mensagem de erro detalhada clicando na hora de início do instantâneo e, em seguida, no estado de cada conjunto de dados. Seguem-se razões comuns para a falha do instantâneo:
 
 * A Data Share não tem permissão para ler a partir da loja de dados de origem ou escrever para a loja de dados-alvo. Consulte [as funções e os requisitos](concepts-roles-permissions.md) para requisitos de permissão detalhados. Se esta for a primeira vez que está a tirar uma fotografia, pode levar alguns minutos para que o recurso Data Share tenha acesso à loja de dados Azure. Espere alguns minutos e tente de novo.
 * Data Partilhar a ligação à loja de dados de origem ou alvo é bloqueada por firewall.
 * O conjunto de dados partilhado, ou a loja de dados de origem ou alvo é eliminada.
-* Para a partilha de SQL, os tipos de dados não são suportados pelo processo instantâneo ou pela loja de dados-alvo. Consulte [a partilhar a partir de fontes SQL](how-to-share-from-sql.md#supported-data-types) para obter mais detalhes.
+
+Para as fontes SQL, as seguintes são causas adicionais de falhas de instantâneo. 
+
+* O script SQL de origem ou alvo para conceder a permissão de Partilha de Dados não é executado, ou é executado usando a autenticação SQL em vez da autenticação do Azure Ative Directory.  
+* A loja de dados SQL de origem ou alvo é pausada.
+* Os tipos de dados SQL não são suportados pelo processo instantâneo ou pela loja de dados-alvo. Consulte [a partilhar a partir de fontes SQL](how-to-share-from-sql.md#supported-data-types) para obter mais detalhes.
+* A loja de dados SQL de origem ou alvo é bloqueada por outros processos. A Azure Data Share não aplica fechaduras à loja de dados de origem e alvo SQL. No entanto, as fechaduras existentes na loja de dados SQL de origem e alvo causarão falhas instantâneas.
+* A tabela SQL alvo é referenciada por uma restrição de chave estrangeira. Durante o instantâneo, se existir uma tabela-alvo com o mesmo nome, o Azure Data Share deixa cair a tabela e cria uma nova tabela. Se a tabela SQL-alvo for referenciada por uma restrição de chave estrangeira, a tabela não pode ser largada.
+* O ficheiro CSV alvo é gerado, mas os dados não podem ser lidos no Excel. Isto pode acontecer quando a tabela SQL de origem contém dados com caracteres não ingleses. No Excel, selecione o separador 'Obter Dados' e escolha o ficheiro CSV, selecione a origem do ficheiro como 65001: Unicode (UTF-8) e carregue os dados.
 
 ## <a name="next-steps"></a>Passos seguintes
 

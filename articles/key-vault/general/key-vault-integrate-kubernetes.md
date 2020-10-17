@@ -6,12 +6,12 @@ ms.author: sudbalas
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: 0398c035eeac7d02ac38f798cb58c513279fc709
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa9f58f7d94396e3b26c6e05f52c210c980bc30a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819995"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149120"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Tutorial: Configurar e executar o fornecedor Azure Key Vault para o motorista CSI Secrets Store em Kubernetes
 
@@ -20,7 +20,7 @@ ms.locfileid: "91819995"
 
 Neste tutorial, você acede e obtém segredos do seu cofre de chaves Azure usando o controlador Secrets Store Container Storage Interface (CSI) para montar os segredos em cápsulas Kubernetes.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Crie um principal de serviço ou utilize identidades geridas.
@@ -214,8 +214,6 @@ Se estiver a usar identidades geridas, atribua funções específicas ao cluster
     ```azurecli
     RESOURCE_GROUP=contosoResourceGroup
     az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$RESOURCE_GROUP
-
-    az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$RESOURCE_GROUP
     
     az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
     

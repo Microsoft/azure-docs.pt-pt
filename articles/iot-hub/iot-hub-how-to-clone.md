@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: robinsh
-ms.openlocfilehash: c54853717f7e0b234df013e5aee575682d0d3d97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 370ea2f16632ae18142f0770742e5a52d3cabae0
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75429156"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151650"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Como clonar um hub Azure IoT para outra região
 
@@ -385,7 +385,7 @@ O portal valida agora o seu modelo e implanta o seu hub clonado. Se tiver dados 
 
 Agora que tens o teu clone a funcionar, tens de copiar todos os dispositivos do centro original para o clone. 
 
-Há várias maneiras de conseguir isto. Ou usou originalmente [o Serviço de Provisionamento de Dispositivos (DPS)](/azure/iot-dps/about-iot-dps)para forragem dos dispositivos, ou não o fez. Se o fez, isto não é difícil. Se não o fez, isto pode ser muito complicado. 
+Há várias maneiras de conseguir isto. Ou usou originalmente [o Serviço de Provisionamento de Dispositivos (DPS)](../iot-dps/about-iot-dps.md)para forragem dos dispositivos, ou não o fez. Se o fez, isto não é difícil. Se não o fez, isto pode ser muito complicado. 
 
 Se não utilizar o DPS para forragens dos seus dispositivos, pode saltar a secção seguinte e começar com a [Utilização de Importação/Exportação para mover os dispositivos para o novo hub](#using-import-export-to-move-the-devices-to-the-new-hub).
 
@@ -601,4 +601,4 @@ Para mais informações sobre o IoT Hub e desenvolvimento para o centro, consult
 
 * [Visão geral da gestão de dispositivos IoT Hub](iot-hub-device-management-overview.md)
 
-* Se pretender implementar a aplicação da amostra, consulte a [implementação da aplicação .NET Core](https://docs.microsoft.com/dotnet/core/deploying/index).
+* Se pretender implementar a aplicação da amostra, consulte a [implementação da aplicação .NET Core](/dotnet/core/deploying/index).

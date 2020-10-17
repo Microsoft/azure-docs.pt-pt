@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: c8ede3c4a186b4b24d56651deb8172fdcde8e5ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3201870d2d738a867f89166904d668b5596cbcdf
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89420885"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149080"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Adicionar um certificado TLS/SSL no Serviço de Aplicações do Azure
 
@@ -145,8 +145,8 @@ Na página **Key Vault Status,** clique no **Repositório do Cofre de Chaves** p
 | Grupo de recursos | Como recomendação, selecione o mesmo grupo de recursos que o certificado de Serviço de Aplicações. |
 | Localização | Selecione o mesmo local que a sua aplicação App Service. |
 | Escalão de preço | Para obter informações, consulte [os detalhes dos preços do Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
-| Políticas de acesso| Define as aplicações e o acesso permitido aos recursos do cofre. Pode configurgê-lo mais tarde, seguindo os passos na [política de acesso a Um Cofre de Chaves](/azure/key-vault/general/assign-access-policy-portal). |
-| Acesso virtual à rede | Restringir o acesso ao cofre a certas redes virtuais Azure. Pode configugá-lo mais tarde, seguindo os passos em [Configure Azure Key Vault Firewalls e Redes Virtuais](/azure/key-vault/general/network-security) |
+| Políticas de acesso| Define as aplicações e o acesso permitido aos recursos do cofre. Pode configurgê-lo mais tarde, seguindo os passos na [política de acesso a Um Cofre de Chaves](../key-vault/general/assign-access-policy-portal.md). |
+| Acesso virtual à rede | Restringir o acesso ao cofre a certas redes virtuais Azure. Pode configugá-lo mais tarde, seguindo os passos em [Configure Azure Key Vault Firewalls e Redes Virtuais](../key-vault/general/network-security.md) |
 
 Assim que tiver selecionado o cofre, feche a página do **Repositório** do Cofre de Chaves. A opção **Passo 1: A** opção de loja deve mostrar uma marca de verificação verde para o sucesso. Mantenha a página aberta para o próximo passo.
 
@@ -189,7 +189,7 @@ Quando a operação estiver concluída, consulte o certificado na lista **de Cer
 Se utilizar o Azure Key Vault para gerir os seus certificados, pode importar um certificado PKCS12 da Key Vault para o Serviço de Aplicações, desde que [satisfaça os requisitos.](#private-certificate-requirements)
 
 ### <a name="authorize-app-service-to-read-from-the-vault"></a>Autorizar o Serviço de Aplicações a ler a partir do cofre
-Por padrão, o fornecedor de recursos do Serviço de Aplicações não tem acesso ao Cofre de Chaves. Para utilizar um Cofre-Chave para uma colocação de certificado, é necessário [autorizar o fornecedor de recursos a ler o acesso ao KeyVault](../key-vault/general/group-permissions-for-apps.md#grant-access-to-your-key-vault). 
+Por padrão, o fornecedor de recursos do Serviço de Aplicações não tem acesso ao Cofre de Chaves. Para utilizar um Cofre-Chave para uma colocação de certificado, é necessário [autorizar o fornecedor de recursos a ler o acesso ao KeyVault](../key-vault/general/assign-access-policy-cli.md). 
 
 `abfa0a7c-a6b6-4736-8310-5855508787cd`  é o nome principal do serviço de fornecedor de recursos para o Serviço de Aplicações, e é o mesmo para todas as subscrições do Azure. Para o ambiente em nuvem do Governo Azure, use `6a02c803-dafd-4136-b4c3-5a6f318b4714` como nome principal do serviço de prestador de recursos.
 

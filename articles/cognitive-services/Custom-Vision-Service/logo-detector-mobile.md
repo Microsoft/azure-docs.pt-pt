@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 98d94e9544e75f762d4532101a92d14106d6a575
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b56824e386709bd330339f1f6acfd2812e040de
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88931799"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150931"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Tutorial: Reconhecer logotipos de serviço Azure em imagens de câmara
 
@@ -104,7 +104,7 @@ Em seguida, abra o ficheiro *Source\VisualProvision\AppSettings.cs* e povoe as `
 
 ## <a name="create-a-service-principal"></a>Criar um principal de serviço
 
-A aplicação requer uma conta principal do serviço Azure para implementar serviços na sua subscrição Azure. Um diretor de serviço permite-lhe delegar permissões específicas numa aplicação usando o controlo de acesso baseado em funções. Para saber mais, consulte o [guia dos principais serviços.](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals)
+A aplicação requer uma conta principal do serviço Azure para implementar serviços na sua subscrição Azure. Um diretor de serviço permite-lhe delegar permissões específicas numa aplicação usando o controlo de acesso baseado em funções Azure. Para saber mais, consulte o [guia dos principais serviços.](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals)
 
 Pode criar um principal de serviço utilizando a Azure Cloud Shell ou o Azure CLI, como mostrado aqui. Para começar, inicie sinsutil e selecione a subscrição que pretende utilizar.
 
@@ -172,7 +172,7 @@ Siga estes passos para executar a aplicação:
 
     ![Um ecrã de aplicativo mostrando campos para a região de implementação e grupo de recursos](media/azure-logo-tutorial/app-deployment-options.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se seguiu todos os passos deste cenário e utilizou a app para implantar os serviços Azure na sua conta, vá ao [portal Azure.](https://ms.portal.azure.com/) Aí, cancele os serviços que não quer usar.
 

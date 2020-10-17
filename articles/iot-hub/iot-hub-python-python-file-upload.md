@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: robinsh
 ms.custom: mqtt, devx-track-python
-ms.openlocfilehash: 988077a8a14339dea51bc36fdf6405b0f2f549ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1112df382fb10051ac06c4461a9e4328e1663388
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90019466"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92139306"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-python"></a>Faça upload de ficheiros do seu dispositivo para a nuvem com IoT Hub (Python)
 
@@ -109,7 +109,7 @@ Nesta secção, cria-se a aplicação do dispositivo para fazer o upload de um f
             return (False, ex)
     ```
 
-    Esta função analisa a estrutura *blob_info* que passou para criar um URL que utiliza para inicializar [um azure.storage.blob.BlobClient](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.blobclient?view=azure-python). Em seguida, envia o seu ficheiro para o armazenamento de blob Azure usando este cliente.
+    Esta função analisa a estrutura *blob_info* que passou para criar um URL que utiliza para inicializar [um azure.storage.blob.BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient?view=azure-python). Em seguida, envia o seu ficheiro para o armazenamento de blob Azure usando este cliente.
 
 1. Adicione o seguinte código para ligar o cliente e fazer o upload do ficheiro:
 
@@ -209,6 +209,6 @@ Neste tutorial, aprendeu a usar as capacidades de upload de ficheiros do IoT Hub
 
 Saiba mais sobre o Azure Blob Storage com os seguintes links:
 
-* [Documentação de armazenamento Azure Blob](https://docs.microsoft.com/azure/storage/blobs/)
+* [Documentação de armazenamento Azure Blob](../storage/blobs/index.yml)
 
-* [Armazenamento Azure Blob para documentação python API](https://docs.microsoft.com/python/api/overview/azure/storage-blob-readme?view=azure-python)
+* [Armazenamento Azure Blob para documentação python API](/python/api/overview/azure/storage-blob-readme?view=azure-python)

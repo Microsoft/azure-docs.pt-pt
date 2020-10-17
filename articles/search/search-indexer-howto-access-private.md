@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: ef8b3865b0914c0d06ff69d20396f1ff368642bc
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: bcacd6c2e1353c71d8e4e25c95ee2b563e7b3fba
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102732"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150411"
 ---
 # <a name="indexer-connections-through-a-private-endpoint-azure-cognitive-search"></a>Ligações indexantes através de um ponto final privado (Azure Cognitive Search)
 
@@ -33,7 +33,7 @@ Através da sua API de Gestão REST, a Azure Cognitive Search fornece uma opera�
 
 As ligações privadas de ponto final a alguns recursos só podem ser criadas com a versão de pré-visualização da API de gestão de pesquisa `2020-08-01-Preview` (ou posterior), indicada com a etiqueta de "pré-visualização" na tabela abaixo. Os recursos sem a tag "pré-visualização" podem ser criados utilizando a versão API de pré-visualização ou geralmente disponível `2020-08-01` (ou posteriormente).
 
-Segue-se a lista de recursos Azure para os quais os pontos finais privados de saída podem ser criados a partir da Pesquisa Cognitiva Azure. `groupId` listado no quadro abaixo deve ser usado exatamente (sensível a caso) na API para criar um recurso de ligação privada compartilhado.
+Segue-se a lista de recursos Azure para os quais os pontos finais privados de saída podem ser criados a partir da Pesquisa Cognitiva Azure. Os `groupId` valores listados no quadro abaixo devem ser utilizados exatamente como escritos (sensíveis a casos) na API para criar um recurso de ligação privada partilhado.
 
 | Recurso do Azure | ID do Grupo |
 | --- | --- |
@@ -47,7 +47,7 @@ Segue-se a lista de recursos Azure para os quais os pontos finais privados de sa
 
 A lista de recursos Azure para os quais as ligações de ponto final privado de saída são suportadas também pode ser consultada usando a [Lista Suportada API](/rest/api/searchmanagement/privatelinkresources/listsupported).
 
-Neste artigo, uma mistura de [ARMClient](https://github.com/projectkudu/ARMClient) e [Carteiro](https://www.postman.com/) são usadas para demonstrar as chamadas REST API.
+No restante deste artigo, uma mistura de [ARMClient](https://github.com/projectkudu/ARMClient) e [Carteiro](https://www.postman.com/) são usadas para demonstrar as chamadas REST API.
 
 > [!NOTE]
 > Ao longo deste artigo, suponha que o nome do serviço de pesquisa é __contoso-search__ que existe no grupo de recursos __contoso__ de uma subscrição com iD de assinatura ID __000000-0000-0000-0000-000000000000000000000000__. O ID de recursos deste serviço de pesquisa será `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search`

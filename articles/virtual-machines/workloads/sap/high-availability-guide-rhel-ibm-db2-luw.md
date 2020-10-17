@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/13/2020
+ms.date: 10/16/2020
 ms.author: juergent
-ms.openlocfilehash: 527d9e2e43a4003dd5300c26fc58b1e456186351
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d613da4d9abdfe22fc20f1b74da41e4a65cbff33
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87077394"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151577"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-red-hat-enterprise-linux-server"></a>Elevada disponibilidade do IBM DB2 LUW nas VMs do Azure no Red Hat Enterprise Linux Server
 
@@ -113,7 +113,7 @@ Complete o processo de planeamento antes de executar a implementação. O planea
 | Máquinas virtuais que hospedam IBM Db2 LUW | Tamanho VM, armazenamento, rede, endereço IP. |
 | Nome de anfitrião virtual e IP virtual para base de dados IBM Db2| O ip virtual ou o nome do anfitrião que é usado para a ligação de servidores de aplicações SAP. **db-virt-hostname,** **db-virt-ip**. |
 | Esgrima azul | O método para evitar situações cerebrais divididas é evitado. |
-| Balanceador de Carga do Azure | Utilização de Porta-sonda Básica ou Padrão (recomendada), porta-sonda para base de dados Db2 (nossa recomendação 62500) **porta-sonda**. |
+| Azure Load Balancer | Utilização de Porta-sonda Básica ou Padrão (recomendada), porta-sonda para base de dados Db2 (nossa recomendação 62500) **porta-sonda**. |
 | Resolução de nomes| Como funciona a resolução de nomes no ambiente. O serviço DNS é altamente recomendado. O ficheiro de anfitriões locais pode ser usado. |
     
 Para obter mais informações sobre o Linux Pacemaker em Azure, consulte [configurar o Pacemaker no Red Hat Enterprise Linux em Azure][rhel-pcs-azr].
@@ -403,6 +403,8 @@ Para configurar o Balançador de Carga Azure, recomendamos que utilize o [Azure 
 > [!NOTE]
 > O Balancer de Carga Padrão SKU tem restrições que acedem a endereços IP públicos a partir dos nós por baixo do Balanceador de Carga. O artigo [Conectividade de ponto final público para máquinas virtuais usando O Balanceador de Carga Padrão Azure em cenários de alta disponibilidade SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md) está descrevendo formas de permitir que esses nóns acedam a endereços IP públicos
 
+> [!IMPORTANT]
+> O IP flutuante não é suportado numa configuração IP secundária do NIC em cenários de equilíbrio de carga. Para mais detalhes consulte [as limitações do balançador de carga Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Se precisar de um endereço IP adicional para o VM, implante um segundo NIC.  
 
 
 1. Criar um pool IP frontal:

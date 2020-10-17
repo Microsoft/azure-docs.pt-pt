@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 10/02/2020
-ms.openlocfilehash: 3f243a1a8d4f4b3ee4688ac3942debee5282a9a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/15/2020
+ms.openlocfilehash: 1bf5966ab3e4bb62c2be302a7791cadad9761a70
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761928"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150377"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Partilhar e receber dados da Base de Dados SQL do Azure e do Azure Synapse Analytics
 
@@ -244,7 +244,7 @@ Quando partilha dados a partir de fonte SQL, os seguintes mapeamentos são usado
 | binary |Byte[] |
 | bit |Booleano |
 | char |String, Char[] |
-| date |DateTime |
+| data |DateTime |
 | Datetime |DateTime |
 | datetime2 |DateTime |
 | Datatimeoff |Início de execução de tempo de data |
@@ -271,13 +271,29 @@ Quando partilha dados a partir de fonte SQL, os seguintes mapeamentos são usado
 | uniqueidentifier |GUID |
 | varbinário |Byte[] |
 | varchar |String, Char[] |
-| xml |Cadeia |
+| xml |String |
 
 >[!NOTE]
 > 1. Para os tipos de dados que mapeiam para o tipo de decimal provisório, atualmente o instantâneo suporta precisão até 28. Se tiver dados que exijam precisão superior a 28, considere converter-se numa corda. 
 > 1.  Se estiver a partilhar dados da base de dados Azure SQL para a Azure Synapse Analytics, nem todos os tipos de dados são suportados. Consulte os [tipos de dados de tabela na piscina Synapse SQL](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types) para obter mais detalhes. 
 
+## <a name="sql-always-encrypted-or-dynamic-data-masking"></a>SQL Sempre Encriptado ou Dinâmico Mascaramento de Dados
+Atualmente, a Azure Data Share não suporta bases de dados Azure SQL com sempre configurado. 
+
+Para as tabelas SQL de origem com máscara de dados dinâmica, os dados aparecerão mascarados no lado do destinatário.
+
+## <a name="sql-snapshot-performance"></a>Desempenho instantâneo SQL
+O desempenho do instantâneo SQL é impactado por uma série de fatores. É sempre recomendado realizar o seu próprio teste de desempenho. Abaixo estão alguns fatores de exemplo que impactam o desempenho.
+
+* Configuração de hardware (por exemplo, vCores, memória, DWU) da loja de dados sql de origem e alvo. 
+* Acesso simultâneo às lojas de dados de origem e alvo. Se estiver a partilhar várias tabelas e vistas da mesma loja de dados SQL, ou receber várias tabelas e vistas para a mesma loja de dados SQL, o desempenho será impactado.   
+* Localização das lojas de dados de origem e alvo. 
+
+## <a name="troubleshoot-sql-snapshot-failure"></a>Falha de instantâneo SQL de resolução de problemas
+A causa mais comum de falha instantânea é que a Data Share não tem permissão para a fonte ou loja de dados alvo. Para conceder permissão de Partilha de Dados à loja de dados de origem ou SQL alvo, deve executar o script SQL fornecido ao ligar-se à base de dados SQL utilizando a autenticação do Azure Ative Directory. Para resolver problemas adicionais de falha de instantâneo SQL, consulte a [falha do instantâneo de resolução de problemas](data-share-troubleshoot.md#snapshot-failed).
 
 ## <a name="next-steps"></a>Passos seguintes
-Aprendeu a partilhar e receber dados da conta de armazenamento utilizando o serviço Azure Data Share. Para saber mais sobre a partilha de outras fontes de dados, continue a [apoiar as lojas de dados.](supported-data-stores.md)
+Aprendeu a partilhar e a receber dados de fontes SQL utilizando o serviço Azure Data Share. Para saber mais sobre a partilha de outras fontes de dados, continue a [apoiar as lojas de dados.](supported-data-stores.md)
+
+
 

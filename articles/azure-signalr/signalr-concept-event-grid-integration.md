@@ -8,20 +8,20 @@ ms.reviewer: zhshang
 ms.date: 11/13/2019
 ms.topic: conceptual
 ms.service: signalr
-ms.openlocfilehash: 105b40da2a612d2a2e9958eff52bfb786c500bc1
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 77c8887ac19c6ce4c7d83734bdd2b44d9213914d
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876078"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151105"
 ---
 # <a name="reacting-to-azure-signalr-service-events"></a>Reagir aos eventos do Azure SignalR Service
 
 Os eventos do Serviço Azure SignalR permitem que as aplicações reajam às ligações do cliente conectadas ou desligadas utilizando arquiteturas modernas sem servidor. Fá-lo sem a necessidade de um código complicado ou de serviços de sondagens dispendiosos e ineficientes.  Em vez disso, os eventos são empurrados através [da Azure Event Grid](https://azure.microsoft.com/services/event-grid/) para assinantes como [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), ou até mesmo para o seu próprio ouvinte personalizado. Com o Azure SignalR, só se paga pelo que consome.
 
-Os eventos do Serviço Azure SignalR são enviados de forma fiável para o serviço de Grade de Eventos que fornece serviços de entrega fiáveis às suas aplicações através de políticas de relagem ricas e entrega de cartas mortas. Para saber mais, consulte a [entrega de mensagens de Event Grid e retentou.](https://docs.microsoft.com/azure/event-grid/delivery-and-retry)
+Os eventos do Serviço Azure SignalR são enviados de forma fiável para o serviço de Grade de Eventos que fornece serviços de entrega fiáveis às suas aplicações através de políticas de relagem ricas e entrega de cartas mortas. Para saber mais, consulte a [entrega de mensagens de Event Grid e retentou.](../event-grid/delivery-and-retry.md)
 
-![Modelo de grelha de evento](https://docs.microsoft.com/azure/event-grid/media/overview/functional-model.png)
+![Modelo de grelha de evento](/azure/event-grid/media/overview/functional-model.png)
 
 ## <a name="serverless-state"></a>Estado sem servidor
 Os eventos do Serviço Azure SignalR só estão ativos quando as ligações do cliente estão num estado sem servidor. Se um cliente não se encaminhar para um servidor de hub, ele vai para o estado sem servidor. O modo clássico só funciona quando o hub a que as ligações do cliente se ligam não tem um servidor hub. O modo serverless é recomendado como uma boa prática. Para obter mais detalhes sobre o modo de serviço, consulte [Como escolher o Modo de Serviço](https://github.com/Azure/azure-signalr/blob/dev/docs/faq.md#what-is-the-meaning-of-service-mode-defaultserverlessclassic-how-can-i-choose).

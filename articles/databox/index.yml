@@ -14,12 +14,12 @@ metadata:
   ms.date: 08/16/2019
   ms.custom: seo-azure-migrate
   keywords: cloud data transfer, data migration to cloud, azure data box, data transfer service, data transfer services, azure data transfer
-  ms.openlocfilehash: be5571d44f86d5ba12f604088ca5aab19a973b85
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 6b3ef7ace8bfb481b294ca4d823ccc1c6c2f7367
+  ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "89177079"
+  ms.lasthandoff: 10/16/2020
+  ms.locfileid: "92125239"
 landingContent:
 - title: Acerca da família do Data Box
   linkLists:
@@ -34,7 +34,7 @@ landingContent:
   - linkListType: architecture
     links:
     - text: Escolher as opções de transferência de dados do Azure
-      url: /azure/storage/common/storage-choose-data-transfer-solution
+      url: ../storage/common/storage-choose-data-transfer-solution.md
 - title: Introdução
   linkLists:
   - linkListType: quickstart
@@ -48,7 +48,7 @@ landingContent:
   - linkListType: learn
     links:
     - text: Importar dados offline com o Data Box
-      url: https://docs.microsoft.com/learn/modules/move-data-with-azure-data-box/
+      url: /learn/modules/move-data-with-azure-data-box/
 - title: Ver requisitos
   linkLists:
   - linkListType: concept
