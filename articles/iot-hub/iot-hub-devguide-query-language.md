@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 77becbf4777d0668991adcd74b722cd28ac36f03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dbdc1c079f7ef2a06ece553e9fec542cbc05ea54
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90031182"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147669"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguagem de consulta do Hub IoT do dispositivo e módulos duplos, tarefas e encaminhamento de mensagens
 
@@ -234,7 +234,7 @@ O objeto de consulta expõe vários valores **Seguintes,** dependendo da opção
 ### <a name="limitations"></a>Limitações
 
 > [!IMPORTANT]
-> Os resultados da consulta podem ter alguns minutos de atraso no que diz respeito aos valores mais recentes em gémeos do dispositivo. Se consultar os gémeos individuais do dispositivo por ID, utilize a [API REST twin get twin](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.devicetwin?view=azure-java-stable). Esta API devolve sempre os valores mais recentes e tem limites de estrangulamento mais elevados. Pode emitir diretamente a API REST ou utilizar a funcionalidade equivalente num dos [SDKs de serviço Azure IoT Hub](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
+> Os resultados da consulta podem ter alguns minutos de atraso no que diz respeito aos valores mais recentes em gémeos do dispositivo. Se consultar os gémeos individuais do dispositivo por ID, utilize a [API REST twin get twin](/java/api/com.microsoft.azure.sdk.iot.device.devicetwin?view=azure-java-stable). Esta API devolve sempre os valores mais recentes e tem limites de estrangulamento mais elevados. Pode emitir diretamente a API REST ou utilizar a funcionalidade equivalente num dos [SDKs de serviço Azure IoT Hub](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
 
 Atualmente, as comparações são suportadas apenas entre tipos primitivos (sem objetos), por `... WHERE properties.desired.config = properties.reported.config` exemplo, só são suportadas se essas propriedades tiverem valores primitivos.
 
@@ -366,7 +366,7 @@ SELECT [TOP <max number>] <projection list>
 
 Atualmente, cláusulas de seleção diferentes **do SELECT*** são suportadas apenas em consultas agregadas em gémeos de dispositivos.
 
-## <a name="group-by-clause"></a>GRUPO POR CLÁUSULA
+## <a name="group-by-clause"></a>Cláusula GROUP BY
 
 A cláusula **GROUP BY <group_specification>** é um passo opcional que executa após o filtro especificado na cláusula WHERE, e antes da projeção especificada no SELECT. Agru cria documentos com base no valor de um atributo. Estes grupos são utilizados para gerar valores agregados conforme especificado na cláusula SELECT.
 

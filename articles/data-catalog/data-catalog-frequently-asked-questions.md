@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 3af8a7de7dad3ce20d4f0247892bca83f06c9d22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f893f8e2ec03681697f15cd85685d4c99b13de6
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397305"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151959"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Catálogo de Dados Azure frequentemente fez perguntas
 Este artigo fornece respostas a perguntas frequentes relacionadas com o serviço Azure Data Catalog.
@@ -87,7 +87,7 @@ As propriedades específicas diferem da fonte de dados para a fonte de dados mas
 >
 
 > [!NOTE]
-> Para fontes de dados como os SQL Server Analysis Services que possuem uma propriedade de **descrição** de primeira classe, a ferramenta de registo de fonte de dados do Catálogo de Dados extrai esse valor da propriedade. Para bases *de dados* relacionais do SQL Server que não dispõem de uma propriedade **descritiva** de primeira classe, a ferramenta de registo de fonte de dados do Catálogo de Dados extrai o valor da **propriedade ms_description** estendida para objetos e colunas. Esta propriedade não é suportada para SQL Azure. Para obter mais informações, consulte [a utilização de propriedades estendidas em objetos de base de dados.](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx)
+> Para fontes de dados como os SQL Server Analysis Services que possuem uma propriedade de **descrição** de primeira classe, a ferramenta de registo de fonte de dados do Catálogo de Dados extrai esse valor da propriedade. Para bases *de dados* relacionais do SQL Server que não dispõem de uma propriedade **descritiva** de primeira classe, a ferramenta de registo de fonte de dados do Catálogo de Dados extrai o valor da **propriedade ms_description** estendida para objetos e colunas. Esta propriedade não é suportada para SQL Azure. Para obter mais informações, consulte [a utilização de propriedades estendidas em objetos de base de dados.](/previous-versions/sql/sql-server-2008-r2/ms190243(v=sql.105))
 >
 >
 
@@ -122,7 +122,7 @@ O Data Catalog é um serviço de nuvem que pode funcionar com fontes de dados em
 ## <a name="can-i-extract-more-or-richer-metadata-from-the-data-sources-i-register"></a>Posso extrair metadados mais ou mais ricos das fontes de dados que registo?
 Estamos a trabalhar ativamente para expandir as capacidades do Catálogo de Dados. Se pretender extrair metadados adicionais da fonte de dados durante o registo, sugira-os (ou votem nele, se já tiver sido sugerido) no Catálogo de [Dados dos Fóruns de Feedback Azure](https://feedback.azure.com/forums/906052-data-catalog). 
 
-Se pretender incluir metadados de coluna/esquema, pré-visualizações ou perfis de dados, para fontes de dados em que estes metadados não são extraídos pela ferramenta de registo de fonte de dados, pode utilizar a API do Catálogo de Dados para adicionar estes metadados. Para obter informações adicionais, consulte [a AZure Data Catalog REST API](https://docs.microsoft.com/rest/api/datacatalog/).
+Se pretender incluir metadados de coluna/esquema, pré-visualizações ou perfis de dados, para fontes de dados em que estes metadados não são extraídos pela ferramenta de registo de fonte de dados, pode utilizar a API do Catálogo de Dados para adicionar estes metadados. Para obter informações adicionais, consulte [a AZure Data Catalog REST API](/rest/api/datacatalog/).
 
 ## <a name="how-do-i-restrict-the-visibility-of-registered-data-assets-so-that-only-certain-people-can-discover-them"></a>Como posso restringir a visibilidade dos ativos de dados registados, para que apenas certas pessoas os possam descobrir?
 Selecione os ativos de dados no Catálogo de Dados e, em seguida, clique no botão **Tomar Posse.** Os proprietários de ativos de dados no Catálogo de Dados podem alterar as definições de visibilidade para permitir que todos os utilizadores descubram os ativos detidos ou restringir a visibilidade a utilizadores específicos. Para obter informações adicionais, consulte [Gerir os ativos de dados no Catálogo de Dados Azure.](data-catalog-how-to-manage.md)

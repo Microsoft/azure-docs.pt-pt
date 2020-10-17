@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: d4f77cec793e13ff943c173d88948eb5b5de0957
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3649ac786c07459695a1e6ca6ad52620e23d59f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91356252"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148795"
 ---
 # <a name="door-monitor----using-azure-functions-and-sendgrid-send-email-when-a-door-is-opened"></a>Monitor de porta -- Usando funções Azure e SendGrid, envie e-mail quando uma porta é aberta           
 
@@ -197,4 +197,4 @@ Se encontrar problemas, consulte o [IoT DevKit FAQ](https://microsoft.github.io/
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Aprendeu a ligar um dispositivo DevKit ao seu acelerador de solução de monitorização remota Azure IoT e utilizou o serviço SendGrid para enviar um e-mail. Eis o próximo passo sugerido: Visão geral do[acelerador de solução de monitorização remota Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
+Aprendeu a ligar um dispositivo DevKit ao seu acelerador de solução de monitorização remota Azure IoT e utilizou o serviço SendGrid para enviar um e-mail. Eis o próximo passo sugerido: Visão geral do[acelerador de solução de monitorização remota Azure IoT](/azure/iot-suite/)

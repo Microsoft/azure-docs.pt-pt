@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: dcabe4b1520c66b8d5bfa398dc1248972587cd32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cacef205b614170df210e03ddf3978a64a90ea22
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940801"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151923"
 ---
 # <a name="delete-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Eliminar um grupo de servidores de hiperescala pós-escala Azure
 
@@ -57,7 +57,7 @@ Para listar os PVCs, executar este comando:
 kubectl get pvc [-n <namespace name>]
 ```
 
-Devolve a lista de PVSs, em particular os PVCs para o grupo de servidores que eliminou. Por exemplo:
+Devolve a lista de PVCs, em particular os PVCs para o grupo de servidores que eliminou. Por exemplo:
 ```console
 kubectl get pvc
 NAME                STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
