@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: a8bfa91ac9b70c0ff4f461bd9e10899d1170b24d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29ab7def6209483ee891dc0d26bf8163cdc39a23
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272526"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165246"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instâncias de cluster de failover com servidor SQL em Máquinas Virtuais Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -49,7 +49,7 @@ O SQL Server em VMs Azure oferece várias opções como solução de armazenamen
 ||[Discos partilhados do Azure](../../../virtual-machines/windows/disks-shared.md)|[Ações de ficheiros premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Espaços de armazenamento Direto (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
 |**Versão mínima do SO**| Todos |Windows Server 2012|Windows Server 2016|
-|**Versão mínima do SqL Server**|Todos|SQL Server 2012|SQL Server 2016|
+|**Versão mínima do SqL Server**|Todos|SQL Server 2012|SQL Server 2016|
 |**Disponibilidade de VM suportada** |Conjuntos de disponibilidade com grupos de colocação de proximidade |Conjuntos de disponibilidade e zonas de disponibilidade|Conjuntos de disponibilidade |
 |**Suporta FileStream**|Sim|Não|Sim |
 |**Cache de bolha de Azure**|Não|Não|Sim|
@@ -140,7 +140,7 @@ Para soluções de armazenamento partilhado e replicação de dados dos parceiro
 
 ## <a name="connectivity"></a>Conectividade
 
-Casos de cluster de failover com SQL Server em Azure Virtual Machines usam um [nome de rede distribuído (DNN)](hadr-distributed-network-name-dnn-configure.md) ou um nome de rede virtual [(VNN) com Azure Load Balancer](hadr-vnn-azure-load-balancer-configure.md) para encaminhar o tráfego para a instância do SQL Server, independentemente do qual o nó detém atualmente os recursos agrupados. Existem considerações adicionais ao utilizar certas funcionalidades e o DNN com um SQL Server FCI. Consulte [a interoperabilidade do DNN com o SQL Server FCI](failover-cluster-instance-dnn-interoperability.md) para saber mais. 
+Casos de cluster de failover com SQL Server em Azure Virtual Machines usam um [nome de rede distribuído (DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md) ou um nome de rede virtual [(VNN) com Azure Load Balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) para encaminhar o tráfego para a instância do SQL Server, independentemente do qual o nó detém atualmente os recursos agrupados. Existem considerações adicionais ao utilizar certas funcionalidades e o DNN com um SQL Server FCI. Consulte [a interoperabilidade do DNN com o SQL Server FCI](failover-cluster-instance-dnn-interoperability.md) para saber mais. 
 
 Para obter mais detalhes sobre as opções de conectividade do cluster, consulte [as ligações Route HADR ao SQL Server em VMs Azure](hadr-cluster-best-practices.md#connectivity). 
 

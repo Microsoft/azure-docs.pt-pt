@@ -13,12 +13,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 03/23/2020
-ms.openlocfilehash: 7be78a0c05942aebb9e3154a79035d71f87becd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca458bebf75f8e77774236166704794b817b7c3f
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334918"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167139"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Autorizar o acesso à base de dados SQL, à SqL Managed Instance e ao Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -42,7 +42,7 @@ Quando um utilizador tenta ligar-se a uma base de dados, fornece uma conta de ut
 - [Autenticação SQL](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication).
 
   Com este método de autenticação, o utilizador submete um nome de conta de utilizador e senha associada para estabelecer uma ligação. Esta palavra-passe é armazenada na base de dados principal para contas de utilizador ligadas a um login ou armazenadas na base de dados que contém as contas de utilizador *não* ligadas a um login.
-- [Autenticação do Diretório Ativo Azure](authentication-aad-overview.md)
+- [Autenticação do Azure Active Directory](authentication-aad-overview.md)
 
   Com este método de autenticação, o utilizador submete um nome de conta de utilizador e solicita que o serviço utilize as informações credenciais armazenadas no Diretório Azure Ative (Azure AD).
 
@@ -65,7 +65,7 @@ Para identificar as contas do administrador de uma base de dados, abra o portal 
 
 ![Administradores do SQL Server](./media/logins-create-manage/sql-admins.png)
 
-![Administradores do SQL Server](./media/logins-create-manage/sql-admins2.png)
+![Screenshot que realça a opção do menu Propriedades.](./media/logins-create-manage/sql-admins2.png)
 
 > [!IMPORTANT]
 > O nome de login não pode ser alterado depois de ter sido criado. Para redefinir a palavra-passe para a administração do servidor, aceda ao [portal Azure](https://portal.azure.com), clique em **SQL Servers**, selecione o servidor da lista e, em seguida, clique em **Redefinir a Palavra-passe**. Para redefinir a palavra-passe para a SqL Managed Instance, vá ao portal Azure, clique na instância e clique na **palavra-passe Reset**. Também pode utilizar o PowerShell ou o Azure CLI.

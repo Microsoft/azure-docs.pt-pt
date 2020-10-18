@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/25/2020
+ms.date: 10/16/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2653742b788ab24fc295ebc156090d1db5f85268
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1af2e741b2ab8a6a0aa6257272798961f5962c43
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978497"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167343"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Prepare a infraestrutura Azure para o SAP HA utilizando um cluster de failover do Windows e disco partilhado para SAP ASCS/SCS
 
@@ -201,6 +201,9 @@ Os nomes dos anfitriões e os endereços IP para o cenário apresentado são:
 
 SAP ASCS, SAP SCS e o novo SAP ERS2, utilizem o nome de hospedeiro virtual e endereços IP virtuais. No Azure é necessário um [equilibrador](../../../load-balancer/load-balancer-overview.md) de carga para utilizar um endereço IP virtual. Recomendamos vivamente a utilização [do balanceador de carga Standard](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). 
 
+> [!IMPORTANT]
+> O IP flutuante não é suportado numa configuração IP secundária do NIC em cenários de equilíbrio de carga. Para mais detalhes consulte [as limitações do balançador de carga Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Se precisar de um endereço IP adicional para o VM, implante um segundo NIC.    
+
 
 A lista a seguir mostra a configuração do balançador de carga (A)SCS/ERS. A configuração tanto para SAP ASCS como ERS2 executada no mesmo equilibrador de carga Azure.  
 
@@ -261,7 +264,7 @@ As seguintes entradas de registo devem ser alteradas em ambos os nós do cluster
 - KeepAliveTime
 - KeepAliveInterval
 
-| Caminho| Nome da variável | Tipo variável  | Valor | Documentation |
+| Caminho| Nome da variável | Tipo variável  | Valor | Documentação |
 | --- | --- | --- |---| ---|
 | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parâmetros |KeepAliveTime |REG_DWORD (Decimal) |120000 |[KeepAliveTime](/previous-versions/windows/it-pro/windows-2000-server/cc957549(v=technet.10)) |
 | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parâmetros |KeepAliveInterval |REG_DWORD (Decimal) |120000 |[KeepAliveInterval](/previous-versions/windows/it-pro/windows-2000-server/cc957548(v=technet.10)) |

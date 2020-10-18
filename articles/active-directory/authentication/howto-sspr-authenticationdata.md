@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/17/2020
+ms.date: 10/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cba2517f536c9044ad15c628c793529f93b988ce
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ed2366884f53eafe89800e7ae60a6a560dc292b4
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966496"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165009"
 ---
 # <a name="pre-populate-user-authentication-contact-information-for-azure-active-directory-self-service-password-reset-sspr"></a>Pré-povoar informações de contacto de autenticação do utilizador para reposição da palavra-passe de autosserviço do Azure Ative Directory (SSPR)
 
@@ -48,16 +48,14 @@ Depois de um utilizador verificar o seu número de telemóvel, o campo *Telefone
 
 ## <a name="authentication-contact-info"></a>Informação de contacto de autenticação
 
-Na página de **métodos de autenticação** para um utilizador Azure AD no portal Azure, um Administrador Global pode definir manualmente as informações de contacto de autenticação, como mostra o seguinte exemplo de imagem:
+Na página de **métodos de autenticação** para um utilizador Azure AD no portal Azure, um Administrador Global pode definir manualmente as informações de contacto de autenticação. Pode rever os métodos existentes na secção *métodos de autenticação utilizável* ou **+Adicionar métodos de autenticação,** como mostra o seguinte exemplo de screenshot:
 
-![Informação de contacto de autenticação em um utilizador em Azure AD][Contact]
+:::image type="content" source="media/howto-sspr-authenticationdata/user-authentication-contact-info.png" alt-text="Gerir métodos de autenticação a partir do portal Azure":::
 
 Aplicam-se as seguintes considerações a esta informação de contacto de autenticação:
 
 * Se o campo *Telefone* estiver preenchido e o *telemóvel* estiver ativado na política SSPR, o utilizador vê esse número na página de registo de redefinição da palavra-passe e durante o fluxo de trabalho de redefinição da palavra-passe.
-* O campo *de telefone alternativo* não é utilizado para reset de senha.
 * Se o campo *de Email* estiver preenchido e o *Email* estiver ativado na política SSPR, o utilizador vê esse e-mail na página de registo de redefinição de palavra-passe e durante o fluxo de trabalho de redefinição da palavra-passe.
-* Se o campo *de e-mail Alternativo* estiver preenchido e o *Email* estiver ativado na política SSPR, o utilizador não verá esse e-mail na página de registo de redefinição de palavra-passe, mas vê-o durante o fluxo de trabalho de redefinição da palavra-passe.
 
 ## <a name="security-questions-and-answers"></a>Perguntas e respostas de segurança
 
@@ -169,5 +167,3 @@ Uma vez que as informações de contacto de autenticação são pré-povoadas pa
 
 > [!div class="nextstepaction"]
 > [Ativar o reset da palavra-passe de autosserviço AZure AD](tutorial-enable-sspr.md)
-
-[Contact]: ./media/howto-sspr-authenticationdata/user-authentication-contact-info.png "Os administradores globais podem modificar as informações de contacto de autenticação de um utilizador"

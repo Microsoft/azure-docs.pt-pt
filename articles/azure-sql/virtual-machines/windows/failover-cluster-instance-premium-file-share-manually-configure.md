@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 1b10489ef74e681eab59694d24c4babc3ce69163
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6e33f32c6adcea12952474e3f09b45834b85c1e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91298716"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164419"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Criar um FCI com uma partilha de ficheiros premium (SQL Server em VMs Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,7 +37,7 @@ Antes de completar as instruções deste artigo, já deve ter:
 - Uma conta que tem permissões para criar objetos tanto em máquinas virtuais Azure como no Ative Directory.
 - [Duas ou mais máquinas virtuais do Windows Azure preparadas](failover-cluster-instance-prepare-vm.md) num [conjunto de disponibilidades](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) ou [diferentes zonas de disponibilidade](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address).
 - Uma [partilha de ficheiro premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) para ser usada como unidade agrupada, com base na quota de armazenamento da sua base de dados para os seus ficheiros de dados.
-- A versão mais recente do [PowerShell.](/powershell/azure/install-az-ps?view=azps-4.2.0) 
+- A versão mais recente do [PowerShell.](/powershell/azure/install-az-ps) 
 
 ## <a name="mount-premium-file-share"></a>Monte partilha de arquivo premium
 
@@ -194,7 +194,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>Configurar a conectividade 
 
-Para encaminhar o tráfego adequadamente para o nó primário atual, configufique a opção de conectividade adequada para o seu ambiente. Pode criar um [equilibrador de carga Azure](hadr-vnn-azure-load-balancer-configure.md) ou, se estiver a utilizar o SQL Server 2019 e o Windows Server 2016 (ou mais tarde), pode visualizar a funcionalidade [de nome de rede distribuída.](hadr-distributed-network-name-dnn-configure.md) 
+Para encaminhar o tráfego adequadamente para o nó primário atual, configufique a opção de conectividade adequada para o seu ambiente. Pode criar um [equilibrador de carga Azure](failover-cluster-instance-vnn-azure-load-balancer-configure.md) ou, se estiver a utilizar o SQL Server 2019 CU2 (ou mais tarde) e o Windows Server 2016 (ou mais tarde), pode utilizar a funcionalidade [de nome de rede distribuída.](failover-cluster-instance-distributed-network-name-dnn-configure.md) 
 
 ## <a name="limitations"></a>Limitações
 
@@ -204,7 +204,8 @@ Para encaminhar o tráfego adequadamente para o nó primário atual, configufiqu
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se ainda não o fez, configugue a conectividade com o seu FCI com um [nome de rede virtual e um equilibrador de carga Azure](hadr-vnn-azure-load-balancer-configure.md) ou nome de rede distribuído [(DNN)](hadr-distributed-network-name-dnn-configure.md). 
+Se ainda não o fez, configugue a conectividade com o seu FCI com um [nome de rede virtual e um equilibrador de carga Azure](failover-cluster-instance-vnn-azure-load-balancer-configure.md) ou nome de rede distribuído [(DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md). 
+
 
 Se as ações de ficheiros premium não forem a solução de armazenamento fci adequada para si, considere criar o seu FCI utilizando [discos partilhados Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md) ou [Espaços de Armazenamento Direto.](failover-cluster-instance-storage-spaces-direct-manually-configure.md) 
 

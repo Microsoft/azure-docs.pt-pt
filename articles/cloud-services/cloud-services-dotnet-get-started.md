@@ -11,12 +11,12 @@ ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
-ms.openlocfilehash: e4598cb1d54fbbeb09e3bc5f58f0cce949b3c848
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 404fc887cf40ee5d88b2824e8d2324d103226973
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073806"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164368"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução ao Cloud Services do Azure e ao ASP.NET
 
@@ -64,7 +64,7 @@ A aplicação armazena anúncios numa SQL Database, utilizando o Entity Framewor
 
 Quando um utilizador carrega uma imagem, o front-end em execução numa função da Web armazena a imagem num [blob do Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) e armazena as informações do anúncio na base de dados com um URL que aponta para o blob. Ao mesmo tempo, escreve uma mensagem para uma fila do Azure. Um processo de back-end em execução numa função de trabalho consulta periodicamente a fila para verificar se existem novas mensagens. Quando for apresentada uma nova mensagem, a função de trabalho cria uma miniatura dessa imagem e atualiza o campo da base de dados de URLs de miniaturas desse anúncio. O diagrama seguinte mostra como interagem as partes da aplicação.
 
-![Arquitetura dos Anúncios da Contoso](./media/cloud-services-dotnet-get-started/apparchitecture.png)
+![Diagrama que mostra como as partes da aplicação interagem.](./media/cloud-services-dotnet-get-started/apparchitecture.png)
 
 [!INCLUDE [install-sdk](../../includes/install-sdk-2017-2015-2013.md)]
 
@@ -217,7 +217,7 @@ Utilizará uma [transformação Web.config](https://www.asp.net/mvc/tutorials/de
 6. Selecione e copie a cadeia de ligação (sem as aspas) para utilização nos passos seguintes para configurar o projeto de função de trabalho.
 7. No **Explorador de Soluções**, em **Funções** no projeto do serviço em nuvem, clique com o botão direito do rato em **ContosoAdsWorker** e, em seguida, em **Propriedades**.
 
-    ![Propriedades da função](./media/cloud-services-dotnet-get-started/rolepropertiesworker.png)
+    ![Screenshot que realça a opção do menu Propriedades.](./media/cloud-services-dotnet-get-started/rolepropertiesworker.png)
 8. Clique no separador **Definições**.
 9. Altere **Configuração do Serviço** para **Nuvem**.
 10. Selecione o campo **Valor** para a definição `ContosoAdsDbConnectionString` e, em seguida, cole a cadeia de ligação que copiou na secção anterior do tutorial.
@@ -378,7 +378,7 @@ Nesta secção, deverá configurar o Armazenamento do Azure e as cadeias de liga
 2. Guarde as alterações.
 3. No projeto ContosoAdsCloudService, clique com o botão direito do rato em ContosoAdsWeb em **Funções** e, em seguida, clique em **Propriedades**.
 
-    ![Propriedades da função](./media/cloud-services-dotnet-get-started/roleproperties.png)
+    ![Screenshot que realça a opção do menu Propriedades em Roles.](./media/cloud-services-dotnet-get-started/roleproperties.png)
 4. Na janela de propriedades **ContosoAdsWeb [Role],** clique no separador **Definições** e, em seguida, clique em **Adicionar Definição**.
 
     Deixe **Configuração do Serviço** definida para **Todas as Configurações**.

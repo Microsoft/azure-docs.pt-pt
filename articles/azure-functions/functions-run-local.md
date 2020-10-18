@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: 094449ddcbfc2baf41657d00de030ef3c1cddbb5
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 17daef18d87c4b5c906694ab1394694b32b6b130
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108495"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164873"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com o Azure Functions Core Tools
 
@@ -309,7 +309,7 @@ Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
 
 Também pode especificar estas opções no comando utilizando os seguintes argumentos:
 
-| Argumento     | Description                            |
+| Argumento     | Descrição                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--csx`** | (Versão 2.x e versões posteriores.) Gera os mesmos modelos de script C# (.csx) utilizados na versão 1.x e no portal. |
 | **`--language`**, **`-l`**| A linguagem de programação do modelo, como C#, F#ou JavaScript. Esta opção é necessária na versão 1.x. Nas versões 2.x e posteriores, não utilize esta opção nem escolha um idioma que corresponda ao tempo de funcionação do trabalhador. |
@@ -574,15 +574,11 @@ A forma recomendada de monitorizar a execução das suas funções é integrando
 
 ### <a name="application-insights-integration"></a>Integração de Insights de Aplicação
 
-A integração do Application Insights deve ser ativada quando criar a sua aplicação de função no Azure. Se por alguma razão a sua aplicação de função não estiver ligada a uma instância de Insights de Aplicação, é fácil fazer esta integração no portal Azure. 
-
-[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
+A integração do Application Insights deve ser ativada quando criar a sua aplicação de função no Azure. Se por alguma razão a sua aplicação de função não estiver ligada a uma instância de Insights de Aplicação, é fácil fazer esta integração no portal Azure. Para saber mais, consulte [a integração de Enable Application Insights](configure-monitoring.md#enable-application-insights-integration).
 
 ### <a name="enable-streaming-logs"></a>Ativar registos de streaming
 
 Pode ver um fluxo de ficheiros de registo gerado pelas suas funções numa sessão de linha de comando no computador local. 
-
-#### <a name="native-streaming-logs"></a>Troncos de streaming nativos
 
 [!INCLUDE [functions-streaming-logs-core-tools](../../includes/functions-streaming-logs-core-tools.md)]
 

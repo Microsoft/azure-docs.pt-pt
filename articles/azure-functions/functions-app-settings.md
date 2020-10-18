@@ -3,12 +3,12 @@ title: Referência das definições de aplicação para as Funções do Azure
 description: Documentação de referência para as definições da aplicação Azure Functions ou variáveis ambientais.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: b17db828aeb19c3347c0db4babf0eee2b9d5f280
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d22ab643fb4ed7eae477c8f77d9621266d9146be
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589305"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165776"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência das definições de aplicação para as Funções do Azure
 
@@ -23,7 +23,7 @@ Existem outras opções de configuração global no [host.jsno](functions-host-j
 
 ## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 
-A chave de instrumentação para Insights de Aplicação. Utilize apenas um de `APPINSIGHTS_INSTRUMENTATIONKEY` ou `APPLICATIONINSIGHTS_CONNECTION_STRING` . Para obter mais informações, consulte [as Funções Do Monitor Azure](functions-monitoring.md). 
+A chave de instrumentação para Insights de Aplicação. Utilize apenas um de `APPINSIGHTS_INSTRUMENTATIONKEY` ou `APPLICATIONINSIGHTS_CONNECTION_STRING` . Quando o Application Insights correr numa nuvem soberana, use `APPLICATIONINSIGHTS_CONNECTION_STRING` . Para obter mais informações, consulte [como configurar a monitorização para as funções de Azure](configure-monitoring.md). 
 
 |Chave|Valor da amostra|
 |---|------------|
@@ -31,7 +31,12 @@ A chave de instrumentação para Insights de Aplicação. Utilize apenas um de `
 
 ## <a name="applicationinsights_connection_string"></a>APPLICATIONINSIGHTS_CONNECTION_STRING
 
-O fio de ligação para Insights de Aplicação. A utilização `APPLICATIONINSIGHTS_CONNECTION_STRING` em vez de quando a sua `APPINSIGHTS_INSTRUMENTATIONKEY` aplicação de função requer as personalizações adicionais suportadas através da cadeia de ligação. Para obter mais informações, consulte [as cordas de ligação.](../azure-monitor/app/sdk-connection-string.md) 
+O fio de ligação para Insights de Aplicação. Utilização `APPLICATIONINSIGHTS_CONNECTION_STRING` em vez de nos `APPINSIGHTS_INSTRUMENTATIONKEY` seguintes casos:
+
++ Quando a sua aplicação de função requer as personalizações adicionais suportadas através da cadeia de ligação. 
++ Quando a sua instância Application Insights corre numa nuvem soberana, o que requer um ponto final personalizado.
+
+Para obter mais informações, consulte [as cordas de ligação.](../azure-monitor/app/sdk-connection-string.md) 
 
 |Chave|Valor da amostra|
 |---|------------|
@@ -204,7 +209,7 @@ Para saber mais, consulte [dependências personalizadas](functions-reference-pyt
 
 _Esta definição está atualmente em pré-visualização._  
 
-Esta definição controla o registo do controlador de escala Azure Functions. Para obter mais informações, consulte [os registos do controlador scale](functions-monitoring.md#scale-controller-logs-preview).
+Esta definição controla o registo do controlador de escala Azure Functions. Para obter mais informações, consulte [os registos do controlador scale](functions-monitoring.md#scale-controller-logs).
 
 |Chave|Valor da amostra|
 |-|-|

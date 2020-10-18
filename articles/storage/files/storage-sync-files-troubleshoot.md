@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: a93c127d0b04667b0f28949f4b384f22769bace4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41fb34055b9992b83a11bc3e4d47e3a389147860
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90018599"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164232"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos dados localmente, incluindo SMB, NFS e FTPS. Podes ter o número de caches que precisares em todo o mundo.
@@ -734,7 +734,7 @@ Este erro ocorre porque o ponto final da nuvem foi criado com conteúdo já exis
 | **Cadeia do erro** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |
 | **Remediação necessária** | Sim |
 
-Nos casos em que existem muitos erros por sincronização de ficheiros, as sessões de sincronização podem começar a falhar. <!-- To troubleshoot this state, see [Troubleshooting per file/directory sync errors]().-->
+As sessões de sincronização falham com um destes erros quando existem muitos ficheiros que não estão a sincronizar com erros por item. Execute os passos documentados na [secção Como ver se existem ficheiros ou pastas específicas que não estão a sincronizar?](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) Para ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED de erro sincronizado, abra um caso de suporte.
 
 > [!NOTE]
 > O Azure File Sync cria uma imagem temporária do VSS uma vez por dia no servidor para sincronizar ficheiros que têm pegas abertas.

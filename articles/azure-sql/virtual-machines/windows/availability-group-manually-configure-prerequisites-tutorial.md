@@ -14,18 +14,20 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 812fb35f404092453ad35b2f70c4a5b1697fbfe0
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: ea9c8b91237f4590d1999c99fbb356d78994390d
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075710"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166901"
 ---
-# <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Pré-requisitos para criar grupos de disponibilidade sempre em sql server em máquinas virtuais Azure
+# <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Tutorial: Pré-requisitos para criar grupos de disponibilidade no SQL Server em Azure Virtual Machines
 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Este tutorial mostra como completar os pré-requisitos para a criação de um [sql servidor sempre em grupo de disponibilidade em Azure Virtual Machines (VMs)](availability-group-manually-configure-tutorial.md). Quando tiver concluído os pré-requisitos, terá um controlador de domínio, dois SQL Server VMs e um servidor de testemunhas num único grupo de recursos.
+
+Embora este artigo configure manualmente o ambiente de grupo de disponibilidade, também é possível fazê-lo utilizando o [portal Azure](availability-group-azure-portal-configure.md), [PowerShell ou o Azure CLI](availability-group-az-commandline-configure.md), ou [modelos Azure Quickstart](availability-group-quickstart-template-configure.md) também. 
 
 **Estimativa do tempo**: Pode levar algumas horas para completar os pré-requisitos. Grande parte deste tempo é gasto a criar máquinas virtuais.
 
@@ -35,7 +37,7 @@ O diagrama seguinte ilustra o que se constrói no tutorial.
 
 ## <a name="review-availability-group-documentation"></a>Documentação do grupo de disponibilidade de revisão
 
-Este tutorial pressupõe que você tem uma compreensão básica do SQL Server Always On availability groups. Se não estiver familiarizado com esta tecnologia, consulte [a visão geral dos Grupos de Disponibilidade Sempre Disponível (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
+Este tutorial pressupõe que você tem uma compreensão básica do SQL Server Always On availability groups. Se não estiver familiarizado com esta tecnologia, consulte [a visão geral de sempre em grupos de disponibilidade (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
 
 
 ## <a name="create-an-azure-account"></a>Criar uma conta do Azure
@@ -60,7 +62,7 @@ Precisa de uma conta do Azure. Pode [abrir uma conta Azure gratuita](https://sig
 8. Selecione uma localização. A localização é a região de Azure onde pretende criar o grupo de disponibilidade. Este artigo constrói todos os recursos numa localização Azure.
 9. Verifique se o Pin para o painel de **instrumentos** está verificado. Esta definição opcional coloca um atalho para o grupo de recursos no painel do portal Azure.
 
-   ![Grupo de recursos](./media/availability-group-manually-configure-prerequisites-tutorial-/01-resourcegroup.png)
+   ![Atalho do grupo de recursos para o portal Azure](./media/availability-group-manually-configure-prerequisites-tutorial-/01-resourcegroup.png)
 
 10. Selecione **Criar** para criar o grupo de recursos.
 
@@ -118,13 +120,13 @@ A nova rede virtual tem uma sub-rede, chamada **Administrador.** Os controladore
 
     Note a sub-rede que já criou.
 
-   ![Configurar a rede virtual](./media/availability-group-manually-configure-prerequisites-tutorial-/07-addsubnet.png)
+   ![Note a sub-rede que já criou](./media/availability-group-manually-configure-prerequisites-tutorial-/07-addsubnet.png)
 
 5. Para criar uma segunda sub-rede, selecione **+ Sub-rede**.
 6. Na **sub-rede Add**, configurar a sub-rede digitando **sqlsubnet** em **nome**. O Azure especifica automaticamente uma gama de **endereços**válida. Verifique se este intervalo de endereços tem pelo menos 10 endereços. Num ambiente de produção, pode precisar de mais endereços.
 7. Selecione **OK**.
 
-    ![Configurar a rede virtual](./media/availability-group-manually-configure-prerequisites-tutorial-/08-configuresubnet.png)
+    ![Sub-redes de configuração](./media/availability-group-manually-configure-prerequisites-tutorial-/08-configuresubnet.png)
 
 A tabela a seguir resume as definições de configuração da rede:
 

@@ -11,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: 50dd6038a8642f13cea7840fff723a5cf12ce2dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a15ccd6d67b4819ba5dd6233a2a001015037c404
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81000253"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165677"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Tutorial: Criar uma aplicação de análise na loja no Azure IoT Central
 
@@ -34,7 +34,7 @@ Desenvolve a solução de check-out e monitorização de condições em três pa
 * Personalize o painel de instrumentos para permitir aos operadores monitorizarem e gerirem dispositivos
 * Configure a exportação de dados para permitir aos gestores de lojas executar analítica e visualizar insights
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 > [!div class="checklist"]
 > * Use o Azure IoT Central **In-store analytics - modelo de check-out** para criar uma aplicação de loja de retalho
 > * Personalize as definições de aplicação
@@ -148,7 +148,7 @@ Para adicionar um modelo de dispositivo RuuviTag à sua aplicação:
 
 1. Selecione **Seguinte: Customize** (Seguinte: Personalizar).
 
-    ![Modelo de dispositivo de sensor RuuviTag central de Azure IoT](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template.png)
+    ![Screenshot que realça o seguinte: Personalizar o botão.](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template.png)
 
 1. Selecione **Criar**. A aplicação adiciona o modelo do dispositivo RuuviTag.
 
@@ -191,7 +191,7 @@ Para o `humidity` tipo de telemetria, es faça as seguintes alterações:
 
 1. Selecione **Guardar** para guardar as alterações.
 
-    ![Azure IoT Central RuuviTag design de design de dispositivo](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template-customize.png)
+    ![Screenshot que mostra o ecrã Personalizar e realça o botão Guardar.](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template-customize.png)
 
 Para adicionar uma propriedade em nuvem a um modelo de dispositivo na sua aplicação:
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 8bd896573dbd0b24df11c0d66009098de19654ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fbcacd7f2094f9b0b9dcea3fea4d804fd96923e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74974943"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165320"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Como gerir as inscrições de dispositivos com o Portal Azure
 
@@ -24,7 +24,7 @@ Uma *inscrição de dispositivo* cria um registo de um único dispositivo ou de 
 
 Existem duas formas de inscrever os seus dispositivos com o serviço de fornecimento:
 
-* Um **grupo de inscrições** é uma entrada para um grupo de dispositivos que partilham um mecanismo comum de atestado de certificados X.509, assinados pelo mesmo certificado de assinatura, que pode ser o [certificado raiz](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) ou o [certificado intermédio,](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate)utilizado para produzir certificado de dispositivo em dispositivo físico. Recomendamos a utilização de um grupo de inscrições para um grande número de dispositivos que partilham uma configuração inicial desejada, ou para dispositivos que vão todos para o mesmo inquilino. Note que só pode inscrever dispositivos que utilizem o mecanismo de atestado X.509 como *grupos de inscrição*. 
+* Um **grupo de inscrições** é uma entrada para um grupo de dispositivos que partilham um mecanismo comum de atestado de certificados X.509, assinados pelo mesmo certificado de assinatura, que pode ser o [certificado raiz](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) ou o [certificado intermédio,](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate)utilizado para produzir certificado de dispositivo em dispositivo físico. Recomendamos a utilização de um grupo de inscrições para um grande número de dispositivos que partilham uma configuração inicial desejada, ou para dispositivos que vão todos para o mesmo inquilino. 
 
     Pode criar um grupo de inscrições no portal para um grupo de dispositivos utilizando os seguintes passos:
 

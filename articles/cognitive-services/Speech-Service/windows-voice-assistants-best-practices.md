@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: adamwa
-ms.openlocfilehash: 948fbcd57514f4ef77483b05c60324e867e0e3ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76a29af80891142fcf7f56f93f5c7acc5c58ab04
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89293647"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165150"
 ---
 # <a name="design-assistant-experiences-for-windows-10"></a>Experiências de assistente de design para o Windows 10
 
@@ -70,7 +70,7 @@ Mesmo que os Estados mudem rapidamente, vale a pena considerar fornecer UX para 
 Quando a aplicação assistente tem foco, a intenção do cliente é claramente interagir com a app, pelo que todas as experiências de ativação de voz devem ser tratadas pela visão principal da aplicação. Esta vista pode ser redimensionada pelo cliente. Para ajudar a explicar as interações de fachada do assistente, o resto deste documento usa o exemplo concreto de um assistente de serviço financeiro chamado Contoso. Neste e posterior diagrama, o que o cliente diz aparecerá em bolhas de discurso de desenho animado à esquerda com respostas de assistentes em bolhas de desenhos animados à direita.
 
 **Vista na aplicação. Estado inicial quando a ativação de voz começa:** 
- ![ Screenshot do assistente de voz no Windows antes da ativação](media/voice-assistants/windows_voice_assistant/initial_state.png)
+ ![ Screenshot mostrando a aplicação de assistente de finanças Contoso aberta à sua tela padrão. Uma bolha do discurso dos desenhos animados à direita diz "Contoso".](media/voice-assistants/windows_voice_assistant/initial_state.png)
 
 **Vista na aplicação. Após ativação de voz bem sucedida, começa a experiência de audição:** Screenshot do assistente de voz no Windows ![ enquanto o assistente de voz está a ouvir](media/voice-assistants/windows_voice_assistant/listening.png)
 
@@ -108,9 +108,9 @@ O assistente deve implementar a orientação de despedimento nesta secção para
 - Se a aplicação estiver &quot; a ser &quot; utilizada, pode continuar acima do bloqueio. &quot;em uso &quot; constitui qualquer entrada ou saída. Por exemplo, quando o streaming de música ou vídeo a aplicação pode continuar acima do bloqueio. &quot;Siga &quot; e outros passos de diálogo multi-volta são permitidos para manter a aplicação acima do bloqueio.
 - **Os detalhes de implementação sobre o despedimento do pedido** podem ser encontrados no guia de [implementação do bloqueio acima.](windows-voice-assistants-implementation-guide.md#closing-the-application)
 
-![Screenshot do assistente de voz no Windows antes da ativação](media/voice-assistants/windows_voice_assistant/above_lock_response.png)
+![Screenshot mostrando a vista de bloqueio acima da aplicação assistente financeira Contoso.](media/voice-assistants/windows_voice_assistant/above_lock_response.png)
 
-![Screenshot do assistente de voz no Windows antes da ativação](media/voice-assistants/windows_voice_assistant/lock_screen2.png)
+![Screenshot de um ambiente de trabalho mostrando o ecrã de bloqueio do Windows.](media/voice-assistants/windows_voice_assistant/lock_screen2.png)
 
 ### <a name="privacy-amp-security-considerations-above-lock"></a>&amp;Considerações de segurança de privacidade acima do bloqueio
 

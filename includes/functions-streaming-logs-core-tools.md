@@ -4,12 +4,12 @@ ms.author: glenga
 ms.date: 7/24/2019
 ms.topic: include
 ms.service: azure-functions
-ms.openlocfilehash: 1928a8238cd73087e3c199675574dd1395f4d76d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0159ceb6e5d6d64a7a9bda383396607e4ce05b84
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68881339"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164874"
 ---
 #### <a name="built-in-log-streaming"></a>Transmissão em fluxo de registos incorporada
 
@@ -19,9 +19,12 @@ Utilize a opção `logstream` para começar a receber registos de transmissão e
 func azure functionapp logstream <FunctionAppName>
 ```
 
+>[!NOTE]
+>O streaming de registos incorporado ainda não está ativado em Core Tools para aplicações de função que executam no Linux num plano de Consumo. Para estes planos de hospedagem, você precisa, em vez disso, usar live metrics stream para ver os registos em tempo quase real.
+
 #### <a name="live-metrics-stream"></a>Live Metrics Stream
 
-Também pode ver o [Live Metrics Stream](../articles/azure-monitor/app/live-stream.md) para a sua aplicação de funções numa nova janela do browser, incluindo a opção `--browser`, como no exemplo seguinte:
+Pode ver o [Live Metrics Stream](../articles/azure-monitor/app/live-stream.md) para a sua aplicação de função numa nova janela do navegador, incluindo a `--browser` opção, como no exemplo seguinte:
 
 ```bash
 func azure functionapp logstream <FunctionAppName> --browser

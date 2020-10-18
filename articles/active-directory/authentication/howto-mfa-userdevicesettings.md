@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 10/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7705792e58a50371a11d0b733b36ffa325681045
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2006422d3516aa67076233b0b4b9d3e7c58a7232
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968638"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166522"
 ---
 # <a name="manage-user-settings-for-azure-multi-factor-authentication"></a>Gerir as definições do utilizador para autenticação multi-factor Azure
 
@@ -36,8 +36,8 @@ Se lhe for atribuída a função *de Administrador de Autenticação,* pode exig
       > Os métodos de autenticação atualmente registados do utilizador não são eliminados quando um administrador requer re-inscrição para MFA. Depois de um utilizador voltar a registar-se para mFA, recomendamos que revejam as suas informações de segurança e apaguem quaisquer métodos de autenticação previamente registados que já não sejam utilizáveis.
    
    - **A Revogação das Sessões de MFA** limpa as sessões de MFA lembradas do utilizador e exige que realizem MFA da próxima vez que for exigida pela política do dispositivo.
-
-   ![Gerir métodos de autenticação a partir do portal Azure](./media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png)
+   
+    :::image type="content" source="media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png" alt-text="Gerir métodos de autenticação a partir do portal Azure":::
 
 ## <a name="delete-users-existing-app-passwords"></a>Eliminar as palavras-passe de aplicações existentes dos utilizadores
 

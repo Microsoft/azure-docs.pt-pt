@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 04/13/2020
 ms.author: v-umha
-ms.openlocfilehash: 1665c535d4b1fb6190ee5736b688b402f8b4a541
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bdd59d078da1df021b7e23ec858ba7305f72cfa1
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81683894"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164215"
 ---
 # <a name="disaster-recovery-for-farmbeats"></a>Recuperação de desastres para FarmBeats
 
@@ -45,18 +45,18 @@ Pode iniciar falhas e recuperar dados armazenados para os quais, cada uma das lo
 Copie a chave de acesso do Cosmos DB restaurado e atualize o novo Cofre de Chaves FarmBeats Datahub.
 
 
-  ![Recuperação Após Desastre](./media/disaster-recovery-for-farmbeats/key-vault-secrets.png)
+  ![Screenshot que realça onde obter a cópia da chave de acesso.](./media/disaster-recovery-for-farmbeats/key-vault-secrets.png)
 
 > [!NOTE]
 > Copie o URL do Cosmos DB restaurado e atualize-o na nova Configuração de Serviço de Aplicações FarmBeats Datahub. Agora pode eliminar a conta DB da Cosmos na nova implementação do FarmBeats.
 
-  ![Recuperação Após Desastre](./media/disaster-recovery-for-farmbeats/configuration.png)
+  ![Screenshot que mostra onde copiar o URL da Cosmos DB restaurada.](./media/disaster-recovery-for-farmbeats/configuration.png)
 
 ### <a name="configure-storage-account"></a>Conta de Armazenamento Configure
 
 Copie a chave de acesso da conta de armazenamento restaurada e atualize-a no novo Cofre de Chaves FarmBeats Datahub.
 
-![Recuperação Após Desastre](./media/disaster-recovery-for-farmbeats/key-vault-7-secrets.png)
+![Screenshot que mostra onde copiar a chave de acesso da conta de armazenamento restaurada.](./media/disaster-recovery-for-farmbeats/key-vault-7-secrets.png)
 
 >[!NOTE]
 > Certifique-se de atualizar o nome da conta de armazenamento no novo ficheiro farmbeats Batch VM config.

@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/06/2020
+ms.date: 10/16/2020
 tags: connectors
-ms.openlocfilehash: a50a171536d7f81de42da415960398d31ec64827
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a2fb2180acfe8fed5701ae4320ea0d1424ed9e0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326784"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166289"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Automatizar fluxos de trabalho para uma base de dados SQL utilizando apps Azure Logic
 
@@ -67,6 +67,9 @@ Agora, continue com estes passos:
 
 ### <a name="connect-to-azure-sql-database-or-managed-instance"></a>Ligue à Base de Dados SQL do Azure ou à Instância Gerida
 
+Para aceder a uma Instância Gerida Azure SQL sem utilizar o ambiente de porta de dados ou de serviço de integração no local, tem de [configurar o ponto final público na Instância Gerida Azure SQL](../azure-sql/managed-instance/public-endpoint-configure.md). O ponto final público utiliza a porta 3342, por isso certifique-se de que especifica este número de porta quando criar a ligação a partir da sua aplicação lógica.
+
+
 A primeira vez que adiciona um [gatilho SQL](#add-sql-trigger) ou [uma ação SQL,](#add-sql-action)e não criou previamente uma ligação à sua base de dados, é solicitado que complete estes passos:
 
 1. Para **Tipo de Autenticação**, selecione a autenticação necessária e ativada na sua base de dados na Base de Dados Azure SQL ou na Instância Gerida Azure SQL:
@@ -85,11 +88,11 @@ A primeira vez que adiciona um [gatilho SQL](#add-sql-trigger) ou [uma ação SQ
 
 1. Selecione estes valores para a sua base de dados:
 
-   | Propriedade | Necessário | Descrição |
+   | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
    | **Nome do servidor** | Yes | O endereço do seu servidor SQL, por exemplo, `Fabrikam-Azure-SQL.database.windows.net` |
    | **Nome da base de dados** | Sim | O nome da sua base de dados SQL, por exemplo, `Fabrikam-Azure-SQL-DB` |
-   | **Nome da tabela** | Sim | A mesa que quer usar, por exemplo, `SalesLT.Customer` |
+   | **Nome da mesa** | Sim | A mesa que quer usar, por exemplo, `SalesLT.Customer` |
    ||||
 
    > [!TIP]
@@ -127,7 +130,7 @@ A primeira vez que adiciona um [gatilho SQL](#add-sql-trigger) ou [uma ação SQ
 
 1. Selecione ou forneça os seguintes valores para a sua base de dados SQL:
 
-   | Propriedade | Necessário | Descrição |
+   | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
    | **Nome do servidor SQL** | Sim | O endereço do seu servidor SQL, por exemplo, `Fabrikam-Azure-SQL.database.windows.net` |
    | **Nome da base de dados SQL** | Sim | O nome da sua base de dados SQL Server, por exemplo, `Fabrikam-Azure-SQL-DB` |
@@ -248,6 +251,18 @@ Quando se chama um procedimento armazenado utilizando o conector SQL Server, a s
 
 1. Para fazer referência às propriedades do conteúdo JSON, clique no interior das caixas de edição onde pretende referenciar essas propriedades para que a lista de conteúdos dinâmicos apareça. Na lista, no título [**Parse JSON,**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) selecione os tokens de dados para as propriedades de conteúdo JSON que deseja.
 
+## <a name="troubleshoot-problems"></a>Resolução de problemas
+
+É muito comum encontrar problemas de conectividade. Segue-se um exemplo de uma mensagem de erro:
+
+> `A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.`
+>
+> `(provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) (Microsoft SQL Server, Error: 53)`
+>
+> `(provider: TCP Provider, error: 0 - No such host is known.) (Microsoft SQL Server, Error: 11001)`
+
+Por favor, siga [a resolução de erros de conectividade no SQL Server](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server) para resolver problemas.
+
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
 Para obter informações técnicas sobre os gatilhos, ações e limites deste conector, consulte a [página de referência do conector,](/connectors/sql/)que é gerada a partir da descrição do Swagger.
@@ -255,4 +270,3 @@ Para obter informações técnicas sobre os gatilhos, ações e limites deste co
 ## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [outros conectores para Apps Azure Logic](../connectors/apis-list.md)
-
