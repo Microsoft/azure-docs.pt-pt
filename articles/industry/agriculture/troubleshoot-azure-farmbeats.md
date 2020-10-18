@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: c66d3d6fd3ee0bcba01db61183f40cd3ccf3f39d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc2eb7ecb7f0587c065aac1cfb57cfae10b732ac
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797943"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168295"
 ---
 # <a name="troubleshoot-azure-farmbeats"></a>Resolver problemas do Azure FarmBeats
 
@@ -174,7 +174,7 @@ Enquanto está a apagar um dispositivo, poderá encontrar um dos seguintes cená
 
 Se já lhe foi concedido acesso e enfrentar este erro, tente novamente refrescando a página. Se o erro persistir, contacte-nos com a mensagem de erro/registos.
 
-![Projeto FarmBeats](./media/troubleshoot-azure-farmbeats/accelerator-troubleshooting-1.png)
+![Screenshot que mostra o erro de autorização.](./media/troubleshoot-azure-farmbeats/accelerator-troubleshooting-1.png)
 
 ### <a name="accelerator-issues"></a>Problemas de acelerador  
 
@@ -293,7 +293,7 @@ Este problema pode ocorrer se estiverem a ser feitas atividades de manutenção 
 6. No painel esquerdo, selecione **Blob Containers**e, em seguida, selecione **registos de trabalho** para registos da Azure Data Factory ou **registos de aplicações** para registos do Serviço de Aplicações.
 7. Selecione **Baixar** e transferir os registos para uma pasta local na sua máquina.
 
-    ![Projeto FarmBeats](./media/troubleshoot-azure-farmbeats/collecting-logs-manually-1.png)
+    ![Screenshot que mostra os ficheiros de registo descarregados.](./media/troubleshoot-azure-farmbeats/collecting-logs-manually-1.png)
 
 ### <a name="collect-azure-data-factory-job-logs-or-app-service-logs-for-accelerator"></a>Recolher registos de trabalho da Azure Data Factory ou registos de Serviço de Aplicações para Acelerador
 
@@ -327,26 +327,26 @@ Este problema pode ocorrer se estiverem a ser feitas atividades de manutenção 
 > [!NOTE]
 > Para ver as etiquetas dos serviços dentro do grupo de recursos, clique em "Editar Colunas" e adicione "Tags" à vista do grupo de recursos
 
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-1.png" alt-text="Projeto FarmBeats":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-1.png" alt-text="Screenshot que destaca a etiqueta sku:Datahub.":::
 
 3. Na página geral da fábrica de dados, clique em **Autor e Monitor.** Um novo separador abre no seu navegador. Clique no **Monitor**
 
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-2.png" alt-text="Projeto FarmBeats":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-2.png" alt-text="Screenshot que destaca a etiqueta sku:Datahub.":::
 
 4. Verá uma lista de oleodutos que fazem parte da execução do trabalho meteorológico. Clique no Trabalho para o que pretende recolher registos
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-3.png" alt-text="Projeto FarmBeats":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-3.png" alt-text="Screenshot que destaca a etiqueta sku:Datahub.":::
 
 5. Na página geral do pipeline, verá a lista de atividades. Tome nota dos IDs de execução das atividades para as quais pretende recolher registos
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-4.png" alt-text="Projeto FarmBeats":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-4.png" alt-text="Screenshot que destaca a etiqueta sku:Datahub.":::
 
 6. Volte para o seu grupo de recursos FarmBeats no portal Azure e clique na Conta de Armazenamento com o nome **datahublogs-XXXX**
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-5.png" alt-text="Projeto FarmBeats":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-5.png" alt-text="Screenshot que destaca a etiqueta sku:Datahub.":::
 
 7. Clique em **contentores**  ->  **adfjobs**. Na caixa de Pesquisa, insira o trabalho Executar ID que notou no passo 5 acima.
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-6.png" alt-text="Projeto FarmBeats":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-6.png" alt-text="Screenshot que destaca a etiqueta sku:Datahub.":::
 
 8. O resultado da pesquisa conterá a pasta que tem os registos relativos ao trabalho. Descarregue os registos e farmbeatssupport@microsoft.com envie-os para assistência na depuragem do problema.

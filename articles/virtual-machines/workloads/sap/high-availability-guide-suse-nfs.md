@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/26/2020
+ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: d522d66642abf55e478cea7579e36bdc64a8cf79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d121430452e0ed445af19f9b1ac89cfdfccdcdae
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87085168"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167326"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidade para NFS em VMs Azure no SUSE Linux Enterprise Server
 
@@ -211,6 +211,9 @@ Primeiro, é necessário criar as máquinas virtuais para este cluster NFS. Em s
             * Repita os passos acima para a porta 2049 e TCP para NW2
          1. UDP 2049 para NW2
             * Repita os passos acima para o porto 2049 e UDP para NW2
+
+> [!IMPORTANT]
+> O IP flutuante não é suportado numa configuração IP secundária do NIC em cenários de equilíbrio de carga. Para mais detalhes consulte [as limitações do balançador de carga Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Se precisar de um endereço IP adicional para o VM, implante um segundo NIC.  
 
 > [!Note]
 > Quando os VMs sem endereços IP públicos forem colocados no pool de backend de saldos de carga standard Azure (sem endereço IP público), não haverá conectividade de saída na Internet, a menos que seja realizada uma configuração adicional para permitir o encaminhamento para pontos finais públicos. Para obter detalhes sobre como alcançar a conectividade de saída, consulte [a conectividade do ponto final público para máquinas virtuais utilizando o Azure Standard Load Balancer em cenários de alta disponibilidade SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  

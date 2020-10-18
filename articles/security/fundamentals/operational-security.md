@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: b6e5a22a073a2a61db4a630388fee886e2f4ed26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5decd3e222af11c402cbff4585532a0cf22282e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87543338"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168057"
 ---
 # <a name="azure-operational-security"></a>Segurança Operacional Azure
 ## <a name="introduction"></a>Introdução
@@ -70,8 +70,8 @@ A funcionalidade principal dos registos do Azure Monitor é fornecida por um con
 | :------------- | :-------------|
 | Registos do Azure Monitor | Monitorizar e analisar a disponibilidade e o desempenho de diferentes recursos, incluindo computadores e máquinas virtuais. |
 |Automatização | Automatizar processos manuais e impor configurações para computadores e máquinas virtuais. |
-| Backup | Fazer o back up e restaurar os dados críticos. |
-| Site Recovery | Providenciar elevada disponibilidade para aplicações críticas. |
+| Cópia de segurança | Fazer o back up e restaurar os dados críticos. |
+| Recuperação de sites | Providenciar elevada disponibilidade para aplicações críticas. |
 
 ### <a name="azure-monitor-logs"></a>Registos do Azure Monitor
 
@@ -81,7 +81,7 @@ A funcionalidade principal dos registos do Azure Monitor é fornecida por um con
 Este método permite-lhe consolidar dados de várias fontes, para que possa combinar dados dos seus serviços Azure com o ambiente existente no local. Também separa claramente a recolha dos dados das ações tomadas em relação aos mesmos, para que todas as ações estejam disponíveis para todos os tipos de dados.
 
 
-![Registos do Azure Monitor](./media/operational-security/azure-operational-security-fig2.png)
+![Diagrama que mostra a consolidação de dados de várias fontes, para que possa combinar dados dos seus serviços Azure com o ambiente existente no local.](./media/operational-security/azure-operational-security-fig2.png)
 
 O serviço Azure Monitor gere os seus dados baseados na nuvem de forma segura, utilizando os seguintes métodos:
 -   segregação de dados

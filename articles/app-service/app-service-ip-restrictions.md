@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ce5882f2621dc5b8c48bcf5be6d4ea3a2f723bfe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 782fa75cee5ffb5f9c86082a86e2b3552914c274
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962966"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168227"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Restrições de acesso ao Serviço de Aplicações Azure
 
@@ -36,7 +36,7 @@ Para adicionar uma regra de restrição de acesso à sua aplicação, use o menu
 
 A partir do UI de Restrições de Acesso, pode rever a lista de regras de restrição de acesso definidas para a sua aplicação.
 
-![listar restrições de acesso](media/app-service-ip-restrictions/access-restrictions-browse.png)
+![Screenshot do ecrã de Restrições de Acesso no portal Azure mostrando a lista de regras de restrição de acesso definidas para a aplicação selecionada.](media/app-service-ip-restrictions/access-restrictions-browse.png)
 
 A lista mostrará todas as restrições atuais que estão na sua aplicação. Se tiver uma restrição VNet na sua aplicação, a tabela mostrará se os pontos finais do serviço estão ativados para o Microsoft.Web. Quando não houver restrições definidas na sua aplicação, a sua aplicação estará acessível a partir de qualquer lugar.  
 
@@ -68,11 +68,11 @@ Com os pontos finais de serviço, pode configurar a sua aplicação com gateways
 
 Pode clicar em qualquer linha para editar uma regra de restrição de acesso existente. As edições são efetivas imediatamente, incluindo alterações na encomenda prioritária.
 
-![editar uma regra de restrição de acesso](media/app-service-ip-restrictions/access-restrictions-ip-edit.png)
+![Screenshot do diálogo de restrição IP editar no portal Azure mostrando os campos para uma regra de restrição de acesso existente.](media/app-service-ip-restrictions/access-restrictions-ip-edit.png)
 
 Quando edita uma regra, não é possível alterar o tipo entre uma regra de endereço IP e uma regra de Rede Virtual. 
 
-![editar uma regra de restrição de acesso](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
+![Screenshot do diálogo de restrição IP editar no portal Azure mostrando as definições de uma regra de Rede Virtual.](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
 
 Para eliminar uma regra, clique **na** sua regra e clique em **Remover**.
 
@@ -90,7 +90,7 @@ Para o cenário em que os utilizadores pretendem bloquear explicitamente um úni
 
 Além de conseguir controlar o acesso à sua app, também pode restringir o acesso ao site scm utilizado pela sua app. O site scm é o ponto final de implementação web e também a consola Kudu. Pode atribuir separadamente restrições de acesso ao site scm a partir da aplicação ou usar o mesmo conjunto tanto para a aplicação como para o site scm. Quando verifica a caixa para ter as mesmas restrições que a sua aplicação, tudo é apagado. Se desmarca a caixa, as definições que tinha anteriormente no site scm são aplicadas. 
 
-![listar restrições de acesso](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
+![Screenshot do ecrã de Restrições de Acesso no portal Azure mostrando que não estão definidas restrições de acesso para o site scm ou para a aplicação.](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
 
 ## <a name="programmatic-manipulation-of-access-restriction-rules"></a>Manipulação programática das regras de restrição de acesso ##
 

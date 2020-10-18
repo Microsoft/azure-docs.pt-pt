@@ -5,12 +5,12 @@ author: anthonychu
 ms.author: antchu
 ms.date: 8/18/2020
 ms.topic: article
-ms.openlocfilehash: f3106553def982eb90ccc90822206e75a11ce354
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 402ce1e9e92ab87689abe9c18a503a479d7421f9
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89294599"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164555"
 ---
 # <a name="azure-functions-custom-handlers-preview"></a>Azure Functions manipuladores personalizados (pré-visualização)
 
@@ -566,7 +566,7 @@ As Funções acolhem mensagens de registo extra, incluindo informações relacio
 
 Localmente, os registos são impressos na consola.
 
-Em Azure, [a consulta Application Insights rastreia os traços](functions-monitoring.md#query-telemetry-data) para visualizar as mensagens de registo. Se a sua aplicação produzir um grande volume de registos, apenas um subconjunto de mensagens de registo são enviados para o Application Insights. [Desative](functions-monitoring.md#configure-sampling) a amostragem para garantir que todas as mensagens estão registadas.
+Em Azure, [a consulta Application Insights rastreia os traços](analyze-telemetry-data.md#query-telemetry-data) para visualizar as mensagens de registo. Se a sua aplicação produzir um grande volume de registos, apenas um subconjunto de mensagens de registo são enviados para o Application Insights. [Desative](configure-monitoring.md#configure-sampling) a amostragem para garantir que todas as mensagens estão registadas.
 
 ### <a name="test-custom-handler-in-isolation"></a>Teste manipulador personalizado em isolamento
 

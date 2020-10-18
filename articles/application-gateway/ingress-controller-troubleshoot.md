@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/18/2020
 ms.author: caya
-ms.openlocfilehash: 0fdfa6265b81140fa6536082fe7ad4c5fa687fc4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbb62509472d6f86ba30e13c95ce2c2bfd343765
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207165"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168193"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>Resolução de problemas comuns ou problemas com o Controlador Ingress
 
@@ -85,15 +85,15 @@ Depois de uma implementação bem sucedida da aplicação acima do seu cluster A
 Obtenha a lista de cápsulas com [Cloud Shell:](https://shell.azure.com/) `kubectl get pods -o wide` .
 Esperamos que tenha sido criado um pod chamado "test-agic-app-pod". Terá um endereço IP. Este endereço deve estar dentro do VNET do Gateway de aplicação, que é utilizado com AKS.
 
-![vagens](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-pods.png)
+![Screenshot da janela Bash em Azure Cloud Shell mostrando uma lista de cápsulas que inclui test-agic-app-pod na lista.](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-pods.png)
 
 Obtenha a lista de serviços: `kubectl get services -o wide` . Esperamos ver um serviço chamado "test-agic-app-service".
 
-![vagens](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-services.png)
+![Screenshot da janela Bash em Azure Cloud Shell mostrando uma lista de serviços que inclui test-agic-app-pod na lista.](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-services.png)
 
 Obtenha a lista dos ingressess: `kubectl get ingress` . Esperamos que tenha sido criado um recurso Ingress chamado "test-agic-app-ingress". O recurso terá um nome de anfitrião 'test.agic.contoso.com'.
 
-![vagens](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-ingress.png)
+![Screenshot da janela Bash em Azure Cloud Shell mostrando uma lista de ingresses que inclui test-agic-app-ingresss na lista.](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-ingress.png)
 
 Uma das cápsulas será a AGIC. `kubectl get pods` apresentará uma lista de cápsulas, uma das quais começará com "ingresss-azure". Obtenha todos os registos da cápsula `kubectl logs <name-of-ingress-controller-pod>` para verificar se tivemos uma implementação bem sucedida. Uma implementação bem sucedida teria adicionado as seguintes linhas ao registo:
 ```
@@ -120,7 +120,7 @@ Finalmente podemos usar o `cURL` comando de dentro da Cloud [Shell](https://shel
 1. Utilize `kubectl get ingress` para obter o endereço IP público do Gateway de aplicações
 2. Utilizar o comando `curl -I -H 'test.agic.contoso.com' <publitc-ip-address-from-previous-command>`
 
-![vagens](./media/application-gateway-ingress-controller-troubleshooting/tsg--curl.png)
+![Screenshot da janela Bash em Azure Cloud Shell mostrando um comando cURL com sucesso estabelecendo uma ligação HTTP à aplicação de teste.](./media/application-gateway-ingress-controller-troubleshooting/tsg--curl.png)
 
 Um resultado `HTTP/1.1 200 OK` indica que o sistema Application Gateway + AKS + AGIC está a funcionar como esperado.
 

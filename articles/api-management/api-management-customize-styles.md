@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 664686511df8f310295a9f6ed6bc689b3a999544
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a654454c1ef3d5ea1ff7e6eb525bb153f7875c1
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75430739"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168210"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>Personalize o estilo das páginas do portal do desenvolvedor
 
@@ -31,7 +31,7 @@ Existem três formas mais comuns de personalizar o portal de desenvolvedores na 
 
 Neste artigo, aprende-se a personalizar o estilo de elementos nas páginas do portal de **desenvolvedores** legados e a visualizar as suas alterações.
 
-![personalizar estilo](./media/modify-developer-portal-style/developer_portal.png)
+![Screenshot que mostra onde altera as suas definições no portal legado Developer.](./media/modify-developer-portal-style/developer_portal.png)
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
@@ -49,7 +49,7 @@ Neste artigo, aprende-se a personalizar o estilo de elementos nas páginas do po
 2. Clique no botão **portal Developer (legado)** na parte superior da janela **'Vista Geral'.**
 3. No canto superior esquerdo do ecrã, verá um ícone com dois pincéis. Coloque o cursor sobre este ícone para abrir o menu de personalização do portal.
 
-    ![personalizar estilo](./media/modify-developer-portal-style/modify-developer-portal-style01.png)
+    ![Screenshot que destaca o ícone com duas escovas de tinta.](./media/modify-developer-portal-style/modify-developer-portal-style01.png)
 4. Selecione **Estilos** no menu para abrir o painel de personalização de estilos.
 
     Todos os elementos que pode personalizar com **Estilos** aparecem na página

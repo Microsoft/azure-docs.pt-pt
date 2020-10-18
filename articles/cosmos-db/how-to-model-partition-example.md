@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: 7274627ccf0aaab29f3ca569568e0085d53f1dea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91589a88712b093acfbb88df146074ad91ba0ea2
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91818100"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168380"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Como modelar e criar partições de dados no Azure Cosmos DB com um exemplo do mundo real
 

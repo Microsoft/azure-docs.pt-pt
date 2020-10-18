@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 423fdcdf48d90b4c428497f22cb6924900de8931
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f22473d4a865e2925ecbfe74d68811c12f7c26d7
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107526"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168091"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Linha de segurança Azure para Funções Azure
 
@@ -315,7 +315,7 @@ Opcionalmente, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de ter
 
 - [Como ativar as definições de diagnóstico para funções Azure](./functions-monitor-log-analytics.md)
 
-- [Como ativar insights de aplicação para funções Azure](./functions-monitoring.md#enable-application-insights-integration)
+- [Como ativar insights de aplicação para funções Azure](./configure-monitoring.md#enable-application-insights-integration)
 
 - [Como criar alertas dentro do Azure](../azure-monitor/learn/tutorial-response.md)
 
@@ -369,7 +369,7 @@ Opcionalmente, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de ter
 
 **Orientação**: O acesso do avião ao Azure Functions é controlado através do Azure Ative Directory (AD). A Azure AD não tem o conceito de senhas padrão.
 
-O acesso a um avião de dados pode ser controlado através de vários meios, incluindo chaves de autorização, restrições de rede e validação de uma identidade AAD. As chaves de autorização são utilizadas pelos clientes que se ligam aos seus pontos finais Azure Functions HTTP e podem ser regeneradas a qualquer momento. Estas teclas são geradas para novos pontos finais HTTP por padrão.
+O acesso a um avião de dados pode ser controlado através de vários meios, incluindo chaves de autorização, restrições de rede e validação de uma identidade AD AZure. As chaves de autorização são utilizadas pelos clientes que se ligam aos seus pontos finais Azure Functions HTTP e podem ser regeneradas a qualquer momento. Estas teclas são geradas para novos pontos finais HTTP por padrão.
 
 Vários métodos de implementação estão disponíveis para funcionar apps, alguns dos quais podem alavancar um conjunto de credenciais geradas. Reveja os métodos de implementação que serão utilizados para a sua aplicação.
 
@@ -463,7 +463,7 @@ Além disso, utilize deteções de risco Azure AD para visualizar alertas e rela
 
 - [Como configurar a sua app Azure Functions para utilizar o login AZure AD](../app-service/configure-authentication-provider-aad.md)
 
-- [Como criar e configurar um caso AAD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [Como criar e configurar uma instância AD Azure](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 

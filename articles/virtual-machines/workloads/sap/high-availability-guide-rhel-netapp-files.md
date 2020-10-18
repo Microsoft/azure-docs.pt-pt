@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/04/2020
+ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 51da96ab5c42c0b48f53969139bd8b87690b8319
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14c5cd480f17e137965ae4bbf6700a36eb92cc3e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329283"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167836"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux-with-azure-netapp-files-for-sap-applications"></a>Azure Virtual Machines alta disponibilidade para SAP NetWeaver em Red Hat Enterprise Linux com Ficheiros Azure NetApp para aplicações SAP
 
@@ -249,6 +249,9 @@ Primeiro, tem de criar os volumes dos Ficheiros Azure NetApp. Desdobre os VMs. E
          * Repita os passos acima em "d" para as portas 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14,**5 00**16 e TCP para o ASCS
       1. Portos adicionais para o ASCS ERS
          * Repita os passos acima em "d" para as portas 32**01**, 33**01**, 5**01**13, 5**01**14, 5**01**16 e TCP para o ASCS ERS
+
+      > [!IMPORTANT]
+      > O IP flutuante não é suportado numa configuração IP secundária do NIC em cenários de equilíbrio de carga. Para mais detalhes consulte [as limitações do balançador de carga Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Se precisar de um endereço IP adicional para o VM, implante um segundo NIC.  
 
       > [!Note]
       > Quando os VMs sem endereços IP públicos forem colocados no pool de backend de saldos de carga standard Azure (sem endereço IP público), não haverá conectividade de saída na Internet, a menos que seja realizada uma configuração adicional para permitir o encaminhamento para pontos finais públicos. Para obter detalhes sobre como alcançar a conectividade de saída, consulte [a conectividade do ponto final público para máquinas virtuais utilizando o Azure Standard Load Balancer em cenários de alta disponibilidade SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  

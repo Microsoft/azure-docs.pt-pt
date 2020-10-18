@@ -8,12 +8,12 @@ ms.date: 03/20/2020
 author: timsander1
 ms.author: tisande
 ms.custom: seodec18
-ms.openlocfilehash: 18a9f97d2cee9dd17345a1c8c0ae0efe442d79a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c9ea401a4a62f617b5acf6f96c60532d929ff1c
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85799399"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167973"
 ---
 # <a name="connect-to-an-azure-cosmos-account-using-studio-3t"></a>Ligue-se a uma conta Azure Cosmos usando o Studio 3T
 

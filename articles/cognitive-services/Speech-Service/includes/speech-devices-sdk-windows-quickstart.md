@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: d2160a5cd38fcd24c3af5d32ccbbbee8ac723b2f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6ce0006c493228d99131ca564a34600800f0ab5e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88226581"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92169110"
 ---
 Neste arranque rápido, aprenderá a usar o SDK de Dispositivos de Fala para o Windows para construir um produto ativado por discurso ou usá-lo como dispositivo [de transcrição de conversação.](../conversation-transcription-service.md) Para a Transcrição de Conversação apenas o [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) é suportado. Para outros suportes de microfone linear de uso de fala que fornecem uma geometria da matriz do microfone são suportados.
 
@@ -44,7 +44,7 @@ Se pretender utilizar as intenções, precisará de uma subscrição do [Serviç
 
 1. No **Eclipse IDE Launcher,** no campo **Workspace,** insira o nome de um novo diretório de espaço de trabalho. Em seguida, selecione **Iniciar**.
 
-   ![Captura de ecrã do Iniciador do Eclipse](../media/speech-devices-sdk/eclipse-launcher.png)
+   ![Screenshot que mostra o Launcher Eclipse onde você inserem o nome do diretório do espaço de trabalho.](../media/speech-devices-sdk/eclipse-launcher.png)
 
 1. Dentro de momentos, é apresentada a janela principal do IDE do Eclipse. Feche o ecrã de Boas-Vindas, se existir.
 
@@ -52,7 +52,7 @@ Se pretender utilizar as intenções, precisará de uma subscrição do [Serviç
 
 1. O novo assistente **do Projeto Java** começa. **Procure** a localização do projeto da amostra. Selecione **Concluir**.
 
-   ![Captura de ecrã do assistente Novo Projeto Java](../media/speech-devices-sdk/eclipse-new-java-project.png)
+   ![Screenshot que mostra o assistente do Projeto New Java.](../media/speech-devices-sdk/eclipse-new-java-project.png)
 
 1. No **explorador do Pacote,** clique com o botão direito do seu projeto. Escolha **Configurar**  >  **Converter para Projeto Maven** a partir do menu de contexto. Selecione **Concluir**.
 
@@ -127,11 +127,11 @@ Se pretender utilizar as intenções, precisará de uma subscrição do [Serviç
 
 1. A aplicação exemplo SDK dos Dispositivos de Fala começa e apresenta as seguintes opções:
 
-   ![Aplicação e opções de exemplo de dispositivos de fala de amostra SDK](../media/speech-devices-sdk/java-sample-app-windows.png)
+   ![Screenshot de uma aplicação e opções SDK de dispositivos de fala de amostra.](../media/speech-devices-sdk/java-sample-app-windows.png)
 
 1. Experimente a nova demonstração de **Transcrição** de Conversação. Comece a transcrever com **início de sessão**  >  **Start**. Por defeito, todos são convidados. No entanto, se tiver as assinaturas de voz dos participantes, podem ser colocadas num ficheiro `participants.properties` no **alvo/classes**da pasta do projeto . Para gerar a assinatura de voz, veja [as conversas transcrever (SDK)](../how-to-use-conversation-transcription-service.md).
 
-   ![Pedido de transcrição de conversação de demonstração](../media/speech-devices-sdk/cts-sample-app-windows.png)
+   ![Screenshot de uma aplicação de transcrição de conversação de demonstração.](../media/speech-devices-sdk/cts-sample-app-windows.png)
 
 ## <a name="create-and-run-a-standalone-application"></a>Criar e executar uma aplicação autónoma
 
@@ -139,11 +139,11 @@ Se pretender utilizar as intenções, precisará de uma subscrição do [Serviç
 
 1. Aparece a janela **de exportação.** Expanda **o Java** e selecione **o ficheiro RUNNable JAR** e, em seguida, selecione **Next**.
 
-   ![Screenshot da janela de exportação](../media/speech-devices-sdk/eclipse-export-windows.png)
+   ![Screenshot que mostra a janela Exportação onde seleciona o ficheiro JAR runnable.](../media/speech-devices-sdk/eclipse-export-windows.png)
 
 1. Aparece a janela **runnable JAR File Export.** Escolha um **destino de exportação** para a aplicação e, em seguida, selecione **Acabamento**.
 
-   ![Screenshot da exportação de ficheiros runnable JAR](../media/speech-devices-sdk/eclipse-export-jar-windows.png)
+   ![Screenshot que mostra a janela runnable JAR File Export onde você escolhe o destino de exportação.](../media/speech-devices-sdk/eclipse-export-jar-windows.png)
 
 1. Por `kws.table` favor, coloque , e na pasta de destino escolhida `participants.properties` `unimic_runtime.dll` `pma.dll` `Microsoft.CognitiveServices.Speech.extension.pma.dll` acima, uma vez que estes ficheiros são necessários pela aplicação.
 

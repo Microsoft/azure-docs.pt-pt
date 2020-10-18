@@ -3,12 +3,12 @@ title: Tutorial - Implementar e configurar VMware HCX
 description: Aprenda a implementar e configurar a solução VMware HCX para a sua nuvem privada Azure VMware Solution.
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 69df9b6337674233e1f257cc509115d5f58d2e7f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a52b2d06e65de0d056653f12065e36d83d6d8e0c
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152055"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167768"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Implementar e configurar o VMware HCX
 
@@ -90,7 +90,7 @@ Os componentes da infraestrutura devem estar a executar a versão mínima necess
    :::image type="content" source="media/tutorial-vmware-hcx/select-ovf-template.png" alt-text="Vá ao vCenter no local e selecione um modelo OVF para implementar no seu vCenter no local." lightbox="media/tutorial-vmware-hcx/select-ovf-template.png":::
 
 
-1. Selecione um nome e localização, um recurso/cluster onde está a implementar o Conector HCX e, em seguida, reveja os detalhes e os recursos necessários.  
+1. Selecione um nome e localização, um recurso/cluster onde implementa o Conector HCX e, em seguida, reveja os detalhes e os recursos necessários.  
 
    :::image type="content" source="media/tutorial-vmware-hcx/configure-template.png" alt-text="Vá ao vCenter no local e selecione um modelo OVF para implementar no seu vCenter no local." lightbox="media/tutorial-vmware-hcx/configure-template.png":::
 
@@ -268,7 +268,7 @@ Para uma visão geral deste passo, consulte a [Solução Azure VMware - VMware H
 
    :::image type="content" source="media/tutorial-vmware-hcx/compute-profile-done.png" alt-text="Vá ao vCenter no local e selecione um modelo OVF para implementar no seu vCenter no local." lightbox="media/tutorial-vmware-hcx/compute-profile-done.png":::
 
-Para uma visão geral deste passo, consulte a [Solução Azure VMware - VMware HCX criar vídeo de perfil computacional.](https://www.youtube.com/embed/qASXi5xrFzM)
+Para uma visão geral deste passo, consulte a [Solução Azure VMware - VMware HCX criar um](https://www.youtube.com/embed/qASXi5xrFzM) vídeo de perfil computacional.
 
 
 
@@ -296,7 +296,9 @@ Agora é hora de configurar a malha de serviço entre as instalações e a Azure
 
 1. Rever os serviços que serão ativados e, em seguida, selecione **Continue**.  
 
-1. Em **Configuração Avançada - Os perfis de rede de uplink de override** selecionam **Continue**.  Os perfis de rede de ligação ligam-se à rede através da qual os aparelhos de interligação do site remoto podem ser alcançados.  
+1. Em **Configuração Avançada - Os perfis de rede de uplink de override** selecionam **Continue**.  
+
+   Os perfis de rede de ligação ligam-se à rede através da qual os aparelhos de interligação do site remoto podem ser alcançados.  
   
 1. Em **Configuração Avançada - Escala de aparelho de extensão de rede para fora,** reveja e selecione **Continue**. 
 

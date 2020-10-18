@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configurar um servidor SQL sempre no grupo de disponibilidade'
-description: Este tutorial mostra como criar um sql servidor sempre on availability group em Azure Virtual Machines.
+description: Este tutorial mostra como criar um sql servidor sempre no grupo de disponibilidade em Azure Virtual Machines.
 services: virtual-machines
 documentationCenter: na
 author: MashaMSFT
@@ -14,28 +14,29 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 30c7d525f821b828dcc4c389c32a27123b79a56b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee249a33187c3f8776cfc8fc750590c58f74579e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360927"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168159"
 ---
-# <a name="tutorial-configure-a-sql-server-availability-group-on-azure-virtual-machines-manually"></a>Tutorial: Configurar um grupo de disponibilidade de servidor SQL em Azure Virtual Machines manualmente
-
+# <a name="tutorial-manually-configure-an-availability-group-sql-server-on-azure-vms"></a>Tutorial: Configurar manualmente um grupo de disponibilidade (SQL Server em VMs Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Este tutorial mostra como criar um sql servidor sempre on availability group em Azure Virtual Machines. O tutorial completo cria um Grupo de Disponibilidade com uma réplica de base de dados em dois Servidores SQL.
+Este tutorial mostra como criar um grupo de disponibilidade Always On para O Servidor SQL em Máquinas Virtuais Azure (VMs). O tutorial completo cria um grupo de disponibilidade com uma réplica de base de dados em dois SqL Servers.
 
-**Estimativa do tempo**: Demora cerca de 30 minutos a ser concluído uma vez que os pré-requisitos são cumpridos.
+Embora este artigo configure manualmente o ambiente de grupo de disponibilidade, também é possível fazê-lo utilizando o [portal Azure](availability-group-azure-portal-configure.md), [PowerShell ou o Azure CLI](availability-group-az-commandline-configure.md), ou [modelos Azure Quickstart](availability-group-quickstart-template-configure.md) também. 
 
-O diagrama ilustra o que se constrói no tutorial.
 
-![Grupo de Disponibilidade](./media/availability-group-manually-configure-tutorial/00-EndstateSampleNoELB.png)
+**Estimativa do tempo**: Demora cerca de 30 minutos a ser concluído uma vez que os [pré-requisitos são cumpridos.](availability-group-manually-configure-prerequisites-tutorial.md)
+
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O tutorial pressupõe que você tem uma compreensão básica do SQL Server Always On Availability Groups. Se precisar de mais informações, consulte [a visão geral dos grupos de disponibilidade sempre (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
+O tutorial pressupõe que tem uma compreensão básica dos grupos de disponibilidade do SQL Server Always On. Se precisar de mais informações, consulte [a visão geral dos grupos de disponibilidade always on (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
+
+Antes de iniciar o tutorial, tem de [completar os pré-requisitos para criar grupos de disponibilidade sempre em máquinas virtuais Azure.](availability-group-manually-configure-prerequisites-tutorial.md) Se estes pré-requisitos já estiverem concluídos, pode saltar para [criar cluster.](#CreateCluster)
 
 A tabela a seguir enumera os pré-requisitos necessários para completar antes de iniciar este tutorial:
 
@@ -49,11 +50,8 @@ A tabela a seguir enumera os pré-requisitos necessários para completar antes d
 |:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Adicionar funcionalidade de clustering failover** | Ambas as instâncias do SQL Server requerem esta funcionalidade |
 |:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Conta de domínio de instalação** | - Administrador local em cada Servidor SQL <br/> - Membro do sql server sysadmin papel de servidor fixo para cada instância do SQL Server  |
 
-
-Antes de iniciar o tutorial, tem de [completar os pré-requisitos para criar grupos sempre em disponibilidade em máquinas virtuais Azure.](availability-group-manually-configure-prerequisites-tutorial.md) Se estes pré-requisitos já estiverem concluídos, pode saltar para [criar cluster.](#CreateCluster)
-
-  >[!NOTE]
-  > Muitos dos passos fornecidos neste tutorial podem agora ser automatizados com [modelos Azure SQL VM CLI](availability-group-az-cli-configure.md) e [Azure Quickstart.](availability-group-quickstart-template-configure.md)
+>[!NOTE]
+> Muitos dos passos fornecidos neste tutorial podem agora ser automatizados com o [portal Azure,](availability-group-azure-portal-configure.md) [PowerShell e os](availability-group-az-cli-configure.md) Modelos AZ CLI e [Azure Quickstart.](availability-group-quickstart-template-configure.md)
 
 
 <!--**Procedure**: *This is the first "step". Make titles H2's and short and clear – H2's appear in the right pane on the web page and are important for navigation.*-->
@@ -97,7 +95,7 @@ Após a conclusão dos pré-requisitos, o primeiro passo é criar um Cluster de 
 
 3. Selecione **O Endereço IP Estático** e especifique um endereço disponível a partir da mesma sub-rede que as suas máquinas virtuais.
 
-4. Na secção **Cluster Core Resources,** clique com o nome do cluster com clique direito e selecione **Bring Online**. Aguarde até que ambos os recursos estejam online. Quando o recurso de nome cluster entra on-line, atualiza o servidor do controlador de domínio (DC) com uma nova conta de computador Ative Directory (AD). Utilize esta conta AD para executar o serviço agrupamento do Grupo Availability mais tarde.
+4. Na secção **Cluster Core Resources,** clique com o nome do cluster com clique direito e selecione **Bring Online**. Aguarde até que ambos os recursos estejam online. Quando o recurso de nome cluster entra on-line, atualiza o servidor do controlador de domínio (DC) com uma nova conta de computador Ative Directory (AD). Utilize esta conta AD para executar o serviço agrupado do grupo de disponibilidade mais tarde.
 
 ### <a name="add-the-other-sql-server-to-cluster"></a><a name="addNode"></a>Adicione o outro SqL Server ao cluster
 
@@ -139,7 +137,7 @@ Neste exemplo, o cluster Windows utiliza uma partilha de ficheiros para criar um
 
 1. Clique com direito **Em Ações**e selecione **New Share...**.
 
-   ![Nova Partilha](./media/availability-group-manually-configure-tutorial/48-newshare.png)
+   ![Ações de clique à direita e selecione nova ação](./media/availability-group-manually-configure-tutorial/48-newshare.png)
 
    Utilize **criar um assistente de pasta partilhada** para criar uma partilha.
 
@@ -153,7 +151,7 @@ Neste exemplo, o cluster Windows utiliza uma partilha de ficheiros para criar um
 
 1. Certifique-se de que a conta utilizada para criar o cluster tem controlo total.
 
-   ![Nova Partilha](./media/availability-group-manually-configure-tutorial/50-filesharepermissions.png)
+   ![Certifique-se de que a conta usada para criar o cluster tem controlo total](./media/availability-group-manually-configure-tutorial/50-filesharepermissions.png)
 
 1. Selecione **OK**.
 
@@ -169,7 +167,7 @@ Em seguida, coloque o quórum do cluster.
 
 1. In **Failover Cluster Manager**, clique com o botão direito no cluster, aponte para Mais **Ações**, e selecione **Configurações de Quorum de Cluster Configurações de Configuração do Cluster Configure...**.
 
-   ![Nova Partilha](./media/availability-group-manually-configure-tutorial/52-configurequorum.png)
+   ![Selecione configurar configurar configurar as definições do quórum do cluster](./media/availability-group-manually-configure-tutorial/52-configurequorum.png)
 
 1. In **Configure Cluster Quorum Wizard**, selecione **Next**.
 
@@ -191,13 +189,13 @@ Os recursos do núcleo do cluster estão configurados com uma testemunha de part
 
 ## <a name="enable-availability-groups"></a>Ativar grupos de disponibilidade
 
-Em seguida, ative a função **Grupos de Disponibilidade AlwaysOn.** Faça estes passos em ambos os Servidores SQL.
+Em seguida, ative a funcionalidade **de grupos de disponibilidade AlwaysOn.** Faça estes passos em ambos os Servidores SQL.
 
 1. A partir do ecrã **Iniciar,** lance **o Gestor de Configuração do Servidor SQL**.
 2. Na árvore do navegador, selecione **os Serviços de Servidor SQL,** clique com o botão direito no serviço **SQL Server (MSSQLSERVER)** e selecione **Propriedades**.
-3. Selecione o separador **AlwaysOn High Availability** e, em seguida, selecione **Ative AlwaysOn Availability Groups**, da seguinte forma:
+3. Selecione o separador **Disponibilidade Máxima AlwaysOn** e, em seguida, selecione **Ative AlwaysOn grupos de disponibilidade**, da seguinte forma:
 
-    ![Ativar grupos de disponibilidade alwaysOn](./media/availability-group-manually-configure-tutorial/54-enableAlwaysOn.png)
+    ![Ativar grupos de disponibilidade AlwaysOn](./media/availability-group-manually-configure-tutorial/54-enableAlwaysOn.png)
 
 4. Selecione **Aplicar**. Selecione **OK** no diálogo pop-up.
 
@@ -208,7 +206,7 @@ Repita estes passos no outro SQL Server.
 <!-----------------
 ## <a name="endpoint-firewall"></a>Open firewall for the database mirroring endpoint
 
-Each instance of SQL Server that participates in an Availability Group requires a database mirroring endpoint. This endpoint is a TCP port for the instance of SQL Server that is used to synchronize the database replicas in the Availability Groups on that instance.
+Each instance of SQL Server that participates in an availability group requires a database mirroring endpoint. This endpoint is a TCP port for the instance of SQL Server that is used to synchronize the database replicas in the availability groups on that instance.
 
 On both SQL Servers, open the firewall for the TCP port for the database mirroring endpoint.
 
@@ -242,7 +240,7 @@ Repeat these steps on the second SQL Server.
 
 1. Clique com direito **Em Ações**e selecione **New Share...**.
 
-   ![Nova Partilha](./media/availability-group-manually-configure-tutorial/48-newshare.png)
+   ![Selecione Nova Partilha](./media/availability-group-manually-configure-tutorial/48-newshare.png)
 
    Utilize **criar um assistente de pasta partilhada** para criar uma partilha.
 
@@ -256,7 +254,7 @@ Repeat these steps on the second SQL Server.
 
 1. Certifique-se de que o serviço SQL Server e SQL Server Agent têm controlo total.
 
-   ![Nova Partilha](./media/availability-group-manually-configure-tutorial/68-backupsharepermission.png)
+   ![Certifique-se de que o serviço SQL Server e SQL Server Agent têm controlo total.](./media/availability-group-manually-configure-tutorial/68-backupsharepermission.png)
 
 1. Selecione **OK**.
 
@@ -264,38 +262,38 @@ Repeat these steps on the second SQL Server.
 
 ### <a name="take-a-full-backup-of-the-database"></a>Faça uma cópia de segurança completa da base de dados
 
-É necessário fazer o reforço da nova base de dados para rubricar a cadeia de registos. Se não fizer uma cópia de segurança da nova base de dados, esta não poderá ser incluída num Grupo de Disponibilidade.
+É necessário fazer o reforço da nova base de dados para rubricar a cadeia de registos. Se não fizer uma cópia de segurança da nova base de dados, esta não poderá ser incluída num grupo de disponibilidade.
 
 1. No **Object Explorer,** clique à direita na base de dados, aponte para **As Tarefas...**, selecione **Back Up**.
 
 1. Selecione **OK** para levar uma cópia de segurança completa para a localização de backup predefinido.
 
-## <a name="create-the-availability-group"></a>Criar o Grupo de Disponibilidade
+## <a name="create-the-availability-group"></a>Criar o grupo de disponibilidade
 
-Está agora pronto para configurar um Grupo de Disponibilidade utilizando os seguintes passos:
+Está agora pronto para configurar um grupo de disponibilidade utilizando os seguintes passos:
 
 * Crie uma base de dados no primeiro SQL Server.
 * Pegue uma cópia de segurança completa e uma cópia de segurança da base de dados.
 * Restaurar as cópias de segurança completas e registar o segundo SQL Server com a opção **NORECOVERY.**
-* Crie o Grupo disponibilidade **(AG1)** com compromisso sincronizado, falha automática e réplicas secundárias legíveis.
+* Crie o grupo de disponibilidade **(AG1)** com compromisso sincronizado, falha automática e réplicas secundárias legíveis.
 
-### <a name="create-the-availability-group"></a>Criar o Grupo disponibilidade:
+### <a name="create-the-availability-group"></a>Criar o grupo de disponibilidade:
 
-1. Em sessão de ambiente de trabalho remoto para o primeiro SQL Server. No **Object Explorer** em SSMS, clique à direita Na Disponibilidade **Máxima** e selecione o Novo Assistente do Grupo **de Disponibilidade**.
+1. Em sessão de ambiente de trabalho remoto para o primeiro SQL Server. No **Object Explorer** em SSMS, clique à direita Na Disponibilidade Máxima do **AlwaysOn** e selecione **Novo Assistente do grupo de disponibilidade**.
 
     ![Lançar novo assistente do grupo de disponibilidade](./media/availability-group-manually-configure-tutorial/56-newagwiz.png)
 
-2. Na página **Introdução,** selecione **Seguinte**. Na página **'Especificar o Nome do Grupo disponibilidade',** digite um nome para o grupo Availability em **availability group name**. Por **exemplo, AG1**. Selecione **Seguinte**.
+2. Na página **Introdução,** selecione **Seguinte**. Na página **'Nome do grupo de disponibilidade de disponibilidade' especifique,** escreva um nome para o grupo de disponibilidade no **nome do grupo Availability**. Por exemplo, **AG1**. Selecione **Seguinte**.
 
-    ![Novo assistente do grupo de disponibilidade, especificar o nome do grupo de disponibilidade](./media/availability-group-manually-configure-tutorial/58-newagname.png)
+    ![Novo assistente do grupo de disponibilidade, especifique o nome do grupo de disponibilidade](./media/availability-group-manually-configure-tutorial/58-newagname.png)
 
 3. Na página **'Selecionar bases de dados',** selecione a base de dados e, em seguida, selecione **Seguinte**.
 
    >[!NOTE]
-   >A base de dados satisfaz os pré-requisitos para um Grupo de Disponibilidade porque você tomou pelo menos uma cópia de segurança completa na réplica primária pretendida.
+   >A base de dados satisfaz os pré-requisitos para um grupo de disponibilidade porque você tomou pelo menos uma cópia de segurança completa na réplica primária pretendida.
    >
 
-   ![Novo assistente de grupo de disponibilidade, selecione bases de dados](./media/availability-group-manually-configure-tutorial/60-newagselectdatabase.png)
+   ![Novo assistente do grupo de disponibilidade, selecione bases de dados](./media/availability-group-manually-configure-tutorial/60-newagselectdatabase.png)
 
 4. Na página **'Especificar réplicas',** selecione **Adicionar Réplica.**
 
@@ -307,65 +305,67 @@ Está agora pronto para configurar um Grupo de Disponibilidade utilizando os seg
 
    ![Novo assistente do grupo de disponibilidade, especificar réplicas (completa)](./media/availability-group-manually-configure-tutorial/64-newagreplica.png)
 
-6. Selecione **Pontos de** final para ver o ponto final espelhante da base de dados para este Grupo de Disponibilidade. Utilize a mesma porta que utilizou quando definiu a regra de [firewall para pontos finais espelhadores de base de dados](availability-group-manually-configure-prerequisites-tutorial.md#endpoint-firewall).
+6. Selecione **Endpoints** para ver o ponto final espelhante da base de dados para este grupo de disponibilidade. Utilize a mesma porta que utilizou quando definiu a regra de [firewall para pontos finais espelhadores de base de dados](availability-group-manually-configure-prerequisites-tutorial.md#endpoint-firewall).
 
     ![Novo assistente do grupo de disponibilidade, selecione a sincronização inicial de dados](./media/availability-group-manually-configure-tutorial/66-endpoint.png)
 
 8. Na página **de sincronização de dados iniciais,** selecione **Full** e especifique uma localização de rede partilhada. Para a localização, utilize a [parte de reserva que criou.](#backupshare) No exemplo foi, ** \\ \\<Primeiro Servidor SQL \> \Backup \\ **. Selecione **Seguinte**.
 
    >[!NOTE]
-   >A sincronização total requer uma cópia de segurança completa da base de dados na primeira instância do SQL Server e restaura-a para a segunda instância. Para grandes bases de dados, a sincronização total não é recomendada porque pode demorar muito tempo. Pode reduzir este tempo, tomando manualmente uma cópia de segurança da base de dados e restaurando-a com `NO RECOVERY` . Se a base de dados já estiver restaurada `NO RECOVERY` no segundo SQL Server antes de configurar o Grupo de Disponibilidade, escolha **apenas 'Juntar'.** Se pretender fazer a cópia de segurança depois de configurar o Grupo Disponibilidade, escolha **a sincronização inicial de dados**.
+   >A sincronização total requer uma cópia de segurança completa da base de dados na primeira instância do SQL Server e restaura-a para a segunda instância. Para grandes bases de dados, a sincronização total não é recomendada porque pode demorar muito tempo. Pode reduzir este tempo, tomando manualmente uma cópia de segurança da base de dados e restaurando-a com `NO RECOVERY` . Se a base de dados já estiver restaurada `NO RECOVERY` no segundo SQL Server antes de configurar o grupo de disponibilidade, escolha **apenas 'Juntar'.** Se pretender fazer a cópia de segurança depois de configurar o grupo de disponibilidade, escolha **a sincronização inicial de dados**.
    >
 
-   ![Novo assistente do grupo de disponibilidade, selecione a sincronização inicial de dados](./media/availability-group-manually-configure-tutorial/70-datasynchronization.png)
+   ![Escolha ignorar a sincronização inicial de dados](./media/availability-group-manually-configure-tutorial/70-datasynchronization.png)
 
 9. Na página **de Validação,** selecione **Seguinte**. Esta página deve ser semelhante à seguinte imagem:
 
-    ![Novo Assistente do Grupo de Disponibilidade, Validação](./media/availability-group-manually-configure-tutorial/72-validation.png)
+    ![Novo grupo de disponibilidade Assistente, Validação](./media/availability-group-manually-configure-tutorial/72-validation.png)
 
     >[!NOTE]
-    >Existe um aviso para a configuração do ouvinte porque não configura um ouvinte do Grupo disponibilidade. Pode ignorar este aviso porque nas máquinas virtuais Azure cria-se o ouvinte depois de criar o equilibrador de carga Azure.
+    >Existe um aviso para a configuração do ouvinte porque não configura um ouvinte de grupo de disponibilidade. Pode ignorar este aviso porque nas máquinas virtuais Azure cria-se o ouvinte depois de criar o equilibrador de carga Azure.
 
-10. Na página **Resumo,** selecione **Terminar,** em seguida, aguarde enquanto o assistente configura o novo Grupo de Disponibilidade. Na página **'Progresso',** pode selecionar **Mais detalhes** para ver o progresso detalhado. Uma vez terminado o assistente, inspecione a página **Resultados** para verificar se o Grupo de Disponibilidade foi criado com sucesso.
+10. Na página **Resumo,** selecione **Terminar**e, em seguida, aguarde enquanto o assistente configura o novo grupo de disponibilidade. Na página **'Progresso',** pode selecionar **Mais detalhes** para ver o progresso detalhado. Uma vez terminado o assistente, inspecione a página **Resultados** para verificar se o grupo de disponibilidade foi criado com sucesso.
 
      ![Novo assistente do grupo de disponibilidade, resultados](./media/availability-group-manually-configure-tutorial/74-results.png)
 
 11. Selecione **Perto** da saída do assistente.
 
-### <a name="check-the-availability-group"></a>Consulte o Grupo disponibilidade
+### <a name="check-the-availability-group"></a>Consulte o grupo de disponibilidade
 
-1. No **Object Explorer,** expanda **a disponibilidade de sempre,** e depois expanda **os Grupos de Disponibilidade**. Deverá agora consultar o novo Grupo Availability neste recipiente. Clique com o botão direito no Grupo de Disponibilidade e selecione **Mostrar Painel**.
+1. No **Object Explorer,** expanda **a disponibilidade de alwaysOn high disponibilidade**e, em seguida, expanda os **grupos de disponibilidade**. Deverá agora ver o novo grupo de disponibilidade neste recipiente. Clique com o botão direito no grupo de disponibilidade e selecione **Show Dashboard**.
 
    ![Mostrar painel de grupo de disponibilidade](./media/availability-group-manually-configure-tutorial/76-showdashboard.png)
 
    O seu **Painel AlwaysOn** deve ser semelhante à seguinte imagem:
 
-   ![Painel de instrumentos do Grupo disponibilidade](./media/availability-group-manually-configure-tutorial/78-agdashboard.png)
+   ![painel de grupo de disponibilidade](./media/availability-group-manually-configure-tutorial/78-agdashboard.png)
 
    Pode ver as réplicas, o modo de falha de cada réplica e o estado de sincronização.
 
-2. No **Failover Cluster Manager,** selecione o seu cluster. Selecione **Funções**. O nome do Grupo Disponibilidade que usou é um papel no cluster. Este Grupo disponibilidade não tem um endereço IP para ligações ao cliente porque não configura um ouvinte. Configurará o ouvinte depois de criar um equilibrador de carga Azure.
+2. No **Failover Cluster Manager,** selecione o seu cluster. Selecione **Funções**. O nome de grupo de disponibilidade que usou é um papel no cluster. Este grupo de disponibilidade não tem um endereço IP para ligações ao cliente porque não configura um ouvinte. Configurará o ouvinte depois de criar um equilibrador de carga Azure.
 
-   ![Grupo de Disponibilidade no Gestor de Cluster Failover](./media/availability-group-manually-configure-tutorial/80-clustermanager.png)
+   ![grupo de disponibilidade no Failover Cluster Manager](./media/availability-group-manually-configure-tutorial/80-clustermanager.png)
 
    > [!WARNING]
-   > Não tente falhar sobre o Grupo Availability do Gestor de Cluster Failover. Todas as operações de failover devem ser realizadas a partir do **Painel AlwaysOn** em SSMS. Para obter mais informações, consulte [as restrições de utilização do gestor de cluster de failover com grupos de disponibilidade.](https://msdn.microsoft.com/library/ff929171.aspx)
+   > Não tente falhar sobre o grupo de disponibilidade do Gestor de Cluster Failover. Todas as operações de failover devem ser realizadas a partir do **Painel AlwaysOn** em SSMS. Para obter mais informações, consulte [as restrições de utilização do Gestor de Cluster Failover com grupos de disponibilidade](https://msdn.microsoft.com/library/ff929171.aspx).
     >
 
-Neste momento, tem um Grupo de Disponibilidade com réplicas em duas instâncias do SQL Server. Pode mover o Grupo disponibilidade entre instâncias. Ainda não é possível ligar-se ao Grupo disponibilidade porque ainda não tem um ouvinte. Nas máquinas virtuais Azure, o ouvinte necessita de um equilibrador de carga. O próximo passo é criar o equilibrador de carga em Azure.
+Neste momento, você tem um grupo de disponibilidade com réplicas em duas instâncias do SQL Server. Pode mover o grupo de disponibilidade entre instâncias. Ainda não é possível ligar-se ao grupo de disponibilidade porque não tem um ouvinte. Nas máquinas virtuais Azure, o ouvinte necessita de um equilibrador de carga. O próximo passo é criar o equilibrador de carga em Azure.
 
 <a name="configure-internal-load-balancer"></a>
 
 ## <a name="create-an-azure-load-balancer"></a>Criar um balanceador de carga do Azure
 
-Nas máquinas virtuais Azure, um Grupo de Disponibilidade de Servidor SQL requer um equilibrador de carga. O equilibrador de carga contém os endereços IP para os ouvintes do Grupo Availability e o Cluster de Falha do Servidor do Windows. Esta secção resume como criar o equilibrador de carga no portal Azure.
+[!INCLUDE [sql-ag-use-dnn-listener](../../includes/sql-ag-use-dnn-listener.md)]
+
+Nas máquinas virtuais Azure, um grupo de disponibilidade de servidor SQL requer um equilibrador de carga. O equilibrador de carga contém os endereços IP para os ouvintes do grupo de disponibilidade e o Cluster de Failover do Servidor do Windows. Esta secção resume como criar o equilibrador de carga no portal Azure.
 
 Um equilibrador de carga em Azure pode ser um Balanceador de Carga Padrão ou um Balanceador de Carga Básico. O Balanceador de Carga Padrão tem mais funcionalidades do que o Balanceador de Carga Básica. Para um grupo de disponibilidade, o Balanceador de Carga Padrão é necessário se utilizar uma Zona de Disponibilidade (em vez de um Conjunto de Disponibilidade). Para obter mais informações sobre a diferença entre o balançador de carga SKUs, consulte [a comparação SKU do Balanceador de Carga](../../../load-balancer/skus.md).
 
 1. No portal Azure, vá ao grupo de recursos onde estão os seus SqL Servers e selecione **+ Adicionar**.
 1. Procurar **balanceador de carga**. Escolha o equilibrador de carga publicado pela Microsoft.
 
-   ![Grupo de Disponibilidade no Gestor de Cluster Failover](./media/availability-group-manually-configure-tutorial/82-azureloadbalancer.png)
+   ![Escolha o equilibrador de carga publicado pela Microsoft](./media/availability-group-manually-configure-tutorial/82-azureloadbalancer.png)
 
 1. Selecione **Criar**.
 1. Configure os seguintes parâmetros para o equilibrador de carga.
@@ -492,10 +492,10 @@ O endereço IP WSFC também precisa estar no equilibrador de carga.
 
 ## <a name="configure-the-listener"></a><a name="configure-listener"></a> Configure o ouvinte
 
-A próxima coisa a fazer é configurar um ouvinte do Grupo Availability no cluster de failover.
+A próxima coisa a fazer é configurar um ouvinte de grupo de disponibilidade no cluster de failover.
 
 > [!NOTE]
-> Este tutorial mostra como criar um único ouvinte, com um endereço IP ILB. Para criar um ou mais ouvintes utilizando um ou mais endereços IP, consulte [Criar O Grupo de Disponibilidade e equilibrador de carga ! Azure.](availability-group-listener-powershell-configure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> Este tutorial mostra como criar um único ouvinte, com um endereço IP ILB. Para criar um ou mais ouvintes utilizando um ou mais endereços IP, consulte [Criar o ouvinte do grupo de disponibilidade e o balanceador de carga ! Azure.](availability-group-listener-powershell-configure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 >
 
 [!INCLUDE [ag-listener-configure](../../../../includes/virtual-machines-ag-listener-configure.md)]
@@ -506,13 +506,13 @@ No SQL Server Management Studio, desemote a porta do ouvinte.
 
 1. Lance o SQL Server Management Studio e ligue-se à réplica primária.
 
-1. Navigate to **AlwaysOn High Availability**  >  **Availability Groups**  >  **Availability Group Listeners**.
+1. Navegue para grupos de disponibilidade **de disponibilidade de disponibilidade AlwaysOn High**  >  **Availability.**  >  **availability group Listeners**
 
 1. Deve agora ver o nome do ouvinte que criou no Failover Cluster Manager. Clique com o botão direito no nome do ouvinte e selecione **Propriedades**.
 
-1. Na caixa **de Porta,** especifique o número da porta para o ouvinte do Grupo disponibilidade. 1433 é o padrão. Selecione **OK**.
+1. Na caixa **de porta,** especifique o número da porta para o ouvinte do grupo de disponibilidade. 1433 é o padrão. Selecione **OK**.
 
-Tem agora um Grupo de Disponibilidade de Servidor SQL em máquinas virtuais Azure em funcionamento no modo Gestor de Recursos.
+Tem agora um grupo de disponibilidade de servidor SQL em máquinas virtuais Azure em funcionamento no modo Gestor de Recursos.
 
 ## <a name="test-connection-to-listener"></a>Ligação de teste ao ouvinte
 

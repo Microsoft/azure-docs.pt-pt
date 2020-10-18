@@ -4,12 +4,12 @@ description: Aprenda a desenvolver e testar funções Azure utilizando a extens�
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
-ms.openlocfilehash: 1614ac0711c6a83d7e303b5a4b6ebbdf23ba2e03
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: c851f5284b87f224932b027fd10ce720327639c2
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104075"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167904"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desenvolver as Funções do Azure com o Visual Studio Code
 
@@ -384,15 +384,13 @@ Para saber mais, consulte [os registos de streaming.](functions-monitoring.md#st
 [!INCLUDE [functions-enable-log-stream-vs-code](../../includes/functions-enable-log-stream-vs-code.md)]
 
 > [!NOTE]
-> Os registos de streaming suportam apenas uma única instância do anfitrião Funções. Quando a sua função é dimensionada para múltiplas instâncias, os dados de outras instâncias não são mostrados no fluxo de registo. [Live Metrics Stream](../azure-monitor/app/live-stream.md) in Application Insights suporta várias instâncias. Embora também em tempo quase real, a análise de streaming baseia-se em [dados amostrados.](functions-monitoring.md#configure-sampling)
+> Os registos de streaming suportam apenas uma única instância do anfitrião Funções. Quando a sua função é dimensionada para múltiplas instâncias, os dados de outras instâncias não são mostrados no fluxo de registo. [Live Metrics Stream](../azure-monitor/app/live-stream.md) in Application Insights suporta várias instâncias. Embora também em tempo quase real, a análise de streaming baseia-se em [dados amostrados.](configure-monitoring.md#configure-sampling)
 
 ### <a name="application-insights"></a>Application Insights
 
-Recomendamos que monitorize a execução das suas funções integrando a sua aplicação de função com o Application Insights. Quando cria uma aplicação de função no portal Azure, esta integração ocorre por padrão. Quando criar a sua aplicação de função durante a publicação do Visual Studio, tem de integrar o Application Insights.
+Recomendamos que monitorize a execução das suas funções integrando a sua aplicação de função com o Application Insights. Quando cria uma aplicação de função no portal Azure, esta integração ocorre por padrão. Quando criar a sua aplicação de função durante a publicação do Visual Studio, tem de integrar o Application Insights. Para saber como, consulte [a integração de Enable Application Insights](configure-monitoring.md#enable-application-insights-integration).
 
-[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
-
-Para saber mais, consulte [as Funções Do Monitor Azure](functions-monitoring.md).
+Para saber mais sobre a monitorização utilizando o Application Insights, consulte [as Funções Do Monitor Azure](functions-monitoring.md).
 
 ## <a name="c-script-projects"></a>Projetos \# de script C
 
@@ -410,7 +408,7 @@ Depois de completar estes passos, as chamadas feitas para as Ferramentas Core su
 
 A extensão Azure Functions fornece uma interface gráfica útil na área para interagir com as suas aplicações de função em Azure. A mesma funcionalidade também está disponível como comandos na paleta de comandos (F1). Estes comandos Azure Functions estão disponíveis:
 
-|Comando de Funções Azure  | Description  |
+|Comando de Funções Azure  | Descrição  |
 |---------|---------|
 |**Adicionar novas definições**  |  Cria uma nova definição de aplicação em Azure. Para saber mais, consulte [as definições de aplicação da Publicação](#publish-application-settings). Também poderá ter de [descarregar esta definição para as suas definições locais](#download-settings-from-azure). |
 | **Configure Fonte de Implantação** | Liga a sua aplicação de função em Azure a um repositório local de Git. Para saber mais, consulte [a implementação contínua para Funções Azure](functions-continuous-deployment.md). |

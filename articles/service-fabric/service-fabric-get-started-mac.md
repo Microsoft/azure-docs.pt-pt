@@ -2,22 +2,20 @@
 title: Configurar o seu ambiente dev no macOS
 description: Instale o runtime, o SDK e as ferramentas e crie um cluster de desenvolvimento local. Depois de completar esta configuração, estará pronto para construir aplicações no macOS.
 ms.topic: conceptual
-ms.date: 11/17/2017
+ms.date: 10/16/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 0d5a31f22fb0472882e3854488fbd1c3249879d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: adec05a4d8e34374fe260343c73b1ecd14ba04f1
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539865"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168176"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurar o ambiente de desenvolvimento no Mac OS X
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started.md)
 > * [Linux](service-fabric-get-started-linux.md)
-> * [OSX](service-fabric-get-started-mac.md)
->
->  
+> * [Mac OS X](service-fabric-get-started-mac.md)
 
 Pode criar aplicações do Azure Service Fabric para serem executadas em clusters do Linux através do Mac OS X. Este documento descreve como configurar o seu Mac para desenvolvimento.
 
@@ -53,31 +51,41 @@ Para configurar um contentor do Docker local e executar um cluster do Service Fa
     >[!TIP]
     >Recomendamos que aumente os recursos alocados ao Docker quando testar aplicações grandes. Pode fazê-lo selecionando o **Ícone do Docker** e, em seguida, selecionando **Avançadas** para ajustar o número de núcleos e memória.
 
-2. Num novo diretório, crie um ficheiro com o nome `Dockerfile` para criar a Imagem do Service Fabric:
-
-    ```Dockerfile
-    FROM mcr.microsoft.com/service-fabric/onebox:latest
-    WORKDIR /home/ClusterDeployer
-    RUN ./setup.sh
-    #Generate the local
-    RUN locale-gen en_US.UTF-8
-    #Set environment variables
-    ENV LANG=en_US.UTF-8
-    ENV LANGUAGE=en_US:en
-    ENV LC_ALL=en_US.UTF-8
-    EXPOSE 19080 19000 80 443
-    #Start SSH before running the cluster
-    CMD /etc/init.d/ssh start && ./run.sh
+2. Inicie o agrupamento.<br/>
+    <b>Ubuntu 18.04 LTS:</b>
+    ```bash
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u18
     ```
 
+    <b>Ubuntu 16.04 LTS:</b>
+    ```bash
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u16
+    ```
+
+    >[!TIP]
+    > Por predefinição, isto irá extrair a imagem com a versão mais recente do Service Fabric. Para revisões específicas, visite a página do [Hub do Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/).
+
+
+
+3. Opcional: Construa a sua imagem de Tecido de Serviço alargado.
+
+    Num novo diretório, crie um ficheiro chamado `Dockerfile` para construir a sua imagem personalizada:
+
     >[!NOTE]
-    >Pode adaptar este ficheiro para adicionar mais programas ou dependências ao contentor.
+    >Pode adaptar a imagem acima com um Dockerfile para adicionar programas ou dependências adicionais no seu recipiente.
     >Por exemplo, se adicionar `RUN apt-get install nodejs -y` irá permitir o suporte para aplicações `nodejs` como convidado executáveis.
+    ```Dockerfile
+    FROM mcr.microsoft.com/service-fabric/onebox:u18
+    RUN apt-get install nodejs -y
+    EXPOSE 19080 19000 80 443
+    WORKDIR /home/ClusterDeployer
+    CMD ["./ClusterDeployer.sh"]
+    ```
     
     >[!TIP]
-    > Por predefinição, isto irá extrair a imagem com a versão mais recente do Service Fabric. Para revisões específicas, visite a página [do Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/)
+    > Por predefinição, isto irá extrair a imagem com a versão mais recente do Service Fabric. Para revisões específicas, visite a página do [Hub do Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/).
 
-3. Para criar a imagem reutilizável a partir do `Dockerfile`, abra um terminal e `cd` para o diretório que contém o `Dockerfile` e, em seguida, execute:
+    Para construir a sua imagem reutilizável a partir `Dockerfile` do, abra um terminal e `cd` para a segura direta da sua `Dockerfile` execução:
 
     ```bash 
     docker build -t mysfcluster .
@@ -86,7 +94,7 @@ Para configurar um contentor do Docker local e executar um cluster do Service Fa
     >[!NOTE]
     >Esta operação irá demorar algum tempo, mas só é necessária uma vez.
 
-4. Agora, pode iniciar rapidamente uma cópia local do Service Fabric, sempre que necessário, ao executar:
+    Agora pode iniciar rapidamente uma cópia local do Service Fabric sempre que precisar, executando:
 
     ```bash 
     docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mysfcluster
@@ -97,18 +105,17 @@ Para configurar um contentor do Docker local e executar um cluster do Service Fa
     >
     >Se a aplicação estiver a escutar em determinadas portas, as portas têm de ser especificada através da utilização de etiquetas `-p` adicionais. Por exemplo, se a sua aplicação estiver em escuta na porta 8080, adicione a seguinte etiqueta `-p`:
     >
-    >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest`
+    >`docker run -itd -p 19000:19000 -p 19080:19080 -p 8080:8080 --name sfonebox mcr.microsoft.com/service-fabric/onebox:u18`
     >
 
-5. O aglomerado vai demorar um pouco para começar. Quando estiver em funcionamento, pode visualizar registos utilizando o seguinte comando ou saltar para o painel de instrumentos para ver a saúde dos `http://localhost:19080` clusters:
+4. O aglomerado vai demorar um pouco para começar. Quando estiver em funcionamento, pode visualizar registos utilizando o seguinte comando ou saltar para o painel de instrumentos para ver a saúde dos clusters: `http://localhost:19080`
 
     ```bash 
     docker logs sftestcluster
     ```
 
 
-
-6. Para parar e limpar o recipiente, utilize o seguinte comando. No entanto, vamos utilizar este contentor no próximo passo.
+5. Para parar e limpar o recipiente, utilize o seguinte comando. No entanto, vamos utilizar este contentor no próximo passo.
 
     ```bash 
     docker rm -f sftestcluster
@@ -118,7 +125,8 @@ Para configurar um contentor do Docker local e executar um cluster do Service Fa
  
  Seguem-se as limitações conhecidas do cluster local em execução num contentor para Mac: 
  
- * O serviço DNS não é executado e não é suportado [Problema #132](https://github.com/Microsoft/service-fabric/issues/132)
+ * O serviço DNS não funciona e não está atualmente suportado dentro do contentor. [Emissão #132](https://github.com/Microsoft/service-fabric/issues/132)
+ * A execução de aplicações baseadas em contentores requer a execução de SF num anfitrião Linux. As aplicações de contentores aninhados não são suportadas atualmente.
 
 ## <a name="set-up-the-service-fabric-cli-sfctl-on-your-mac"></a>Configurar a CLI do Service Fabric (sfctl) no seu Mac
 
@@ -185,9 +193,9 @@ Depois de criar e compilar a aplicação do Service Fabric, pode implementá-la 
     bash install.sh
     ```
 
-## <a name="set-up-net-core-20-development"></a>Configurar o desenvolvimento em .NET Core 2.0
+## <a name="set-up-net-core-31-development"></a>Configurar o desenvolvimento .NET Core 3.1
 
-Instale o [.NET Core 2.0 SDK for Mac](https://www.microsoft.com/net/core#macos) para começar a [criar aplicações do Service Fabric em C#](service-fabric-create-your-first-linux-application-with-csharp.md). Os pacotes para aplicações do Service Fabric do .NET Core 2.0 são alojados no NuGet.org, que está atualmente em pré-visualização.
+Instale o [.NET Core 3.1 SDK para o Mac](https://www.microsoft.com/net/core#macos) começar a [criar aplicações C# Service Fabric](service-fabric-create-your-first-linux-application-with-csharp.md). Os pacotes para aplicações de tecido de serviço .NET Core fabric são hospedados em NuGet.org.
 
 ## <a name="install-the-service-fabric-plug-in-for-eclipse-on-your-mac"></a>Instalar o plug-in do Service Fabric para Eclipse no seu Mac
 

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
-ms.openlocfilehash: 3dd209d90947ebef7eb7b074992a55305005e7bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ac044666b8f723e3cc26fd7a30f5dd8a8f77d90
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399538"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168040"
 ---
 # <a name="azure-security-technical-capabilities"></a>Capacidades técnicas da segurança do Azure
 Este artigo fornece uma introdução aos serviços de segurança em Azure que o ajudam a proteger os seus dados, recursos e aplicações na nuvem e a atender às necessidades de segurança do seu negócio.
@@ -167,7 +167,7 @@ Uma das chaves para a proteção de dados na nuvem é a contabilização dos pos
 - Repouso: Isto inclui todos os objetos de armazenamento de informação, recipientes e tipos que existem estáticamente em meios físicos, seja em disco magnético ou ótico.
 - Em trânsito: Quando os dados são transferidos entre componentes, locais ou programas, como através da rede, através de um autocarro de serviço (de instalações para nuvem e vice-versa, incluindo ligações híbridas como o ExpressRoute), ou durante um processo de entrada/saída, é considerado como estando em movimento.
 
-### <a name="encryption-at-rest"></a>Encriptação inativa
+### <a name="encryption-at-rest"></a>Encriptação de dados inativos
 
 A encriptação em repouso é discutida em detalhe na [Encriptação de Dados Azure-at-Rest](encryption-atrest.md).
 
@@ -367,7 +367,8 @@ O Centro de Segurança recolhe, analisa e integra automaticamente os dados de re
 
 As aplicações em nuvem são complexas com muitas partes móveis. A monitorização fornece dados para garantir que a sua aplicação permanece em funcionamento em um estado saudável. Também o ajuda a evitar potenciais problemas ou resolver problemas.
 
-![Além ](./media/technical-capabilities/azure-security-technical-capabilities-fig10.png) disso, pode utilizar dados de monitorização para obter informações profundas sobre a sua aplicação. Esse conhecimento pode ajudá-lo a melhorar o desempenho da aplicação ou a manutenção, ou automatizar ações que de outra forma exigiriam uma intervenção manual.
+![Diagrama que mostra que pode usar dados de monitorização para obter informações profundas sobre a sua aplicação.](./media/technical-capabilities/azure-security-technical-capabilities-fig10.png)
+Além disso, pode utilizar dados de monitorização para obter informações profundas sobre a sua aplicação. Esse conhecimento pode ajudá-lo a melhorar o desempenho da aplicação ou a manutenção, ou automatizar ações que de outra forma exigiriam uma intervenção manual.
 
 A auditoria da segurança da sua rede é vital para detetar vulnerabilidades de rede e garantir o cumprimento do seu modelo de segurança de TI e governação regulamentar. Com a vista do Grupo de Segurança, pode recuperar as regras de segurança do Grupo de Segurança de Rede configuradas e as regras de segurança, bem como as regras de segurança eficazes. Com a lista de regras aplicadas, pode determinar as portas que estão abertas e a vulnerabilidade da rede SS.
 

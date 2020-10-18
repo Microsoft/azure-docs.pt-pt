@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: alkohli
-ms.openlocfilehash: 0c54b4e3015e255a6948202a6c3ea7a83362032f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30a5f92e0092d3e20db25b519fec46e6018dd543
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514914"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168023"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Solução automatizada de recuperação de desastres utilizando a recuperação do site Azure para ações de ficheiros hospedadas no StorSimple
 
@@ -294,7 +294,7 @@ Consulte o guia de acompanhantes [do Diretório Ativo DR Solution](../site-recov
 1. No portal Azure, selecione Planos de recuperação de **serviços de** &gt; **recuperação de serviços (Recuperação de locais)** &gt; **recoveryplan_name** criados para o servidor de ficheiros VM.
 1. Na lâmina do plano **More** de recuperação, clique &gt; **em "Mais Planeada" falha.**  
 
-   ![Plano de Recuperação](./media/storsimple-disaster-recovery-using-azure-site-recovery/image9.png)
+   ![Screenshot que destaca as opções planeadas de failover e Failover.](./media/storsimple-disaster-recovery-using-azure-site-recovery/image9.png)
 1. Na lâmina **de failover planeada,** escolha as localizações de origem e alvo e selecione a rede alvo e clique no ícone de verificação ✓ para iniciar o processo de failover.
 1. Depois de serem criadas máquinas virtuais réplicas, estão num estado pendente. Clique **em Comprometer-se** a cometer o failover.
 1. Após a replicação estar concluída, as máquinas virtuais iniciam-se no local secundário.

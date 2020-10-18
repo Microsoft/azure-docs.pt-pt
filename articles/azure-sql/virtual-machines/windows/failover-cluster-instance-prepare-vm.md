@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: f42d6c8015061406958bdc16473dc0f042d3143a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5eff13c9ec672937258cf35274d2f5f7bc66f18
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272506"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164249"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Preparar máquinas virtuais para um FCI (SQL Server em VMs Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -101,14 +101,14 @@ Depois de não ter sido registado no fornecedor de recursos, pode desinstalar o 
 
 Em cada máquina virtual, abra a porta TCP do Windows Firewall que o SQL Server utiliza. Por predefinição, esta é a porta 1433. Mas pode alterar a porta do Servidor SQL numa implementação Azure VM, de modo a abrir a porta que o SQL Server utiliza no seu ambiente. Esta porta é automaticamente aberta em imagens sql Server implementadas a partir do Azure Marketplace. 
 
-Se utilizar um [equilibrador de carga,](hadr-vnn-azure-load-balancer-configure.md)também terá de abrir a porta que a sonda de saúde utiliza. Por predefinição, esta é a porta 59999. Mas pode ser qualquer porta TCP que especifique quando cria o equilibrador de carga. 
+Se utilizar um [equilibrador de carga,](failover-cluster-instance-vnn-azure-load-balancer-configure.md)também terá de abrir a porta que a sonda de saúde utiliza. Por predefinição, esta é a porta 59999. Mas pode ser qualquer porta TCP que especifique quando cria o equilibrador de carga. 
 
 Esta tabela detalha as portas que poderá ter de abrir, dependendo da configuração do FCI: 
 
    | Objetivo | Porta | Notas
    | ------ | ------ | ------
    | SQL Server | TCP 1433 | Porta normal para instâncias padrão do SQL Server. Se utilizar uma imagem da galeria, esta porta é aberta automaticamente. </br> </br> **Utilizado por:** Todas as configurações do FCI. |
-   | Sonda de estado de funcionamento | TCP 59999 | Qualquer porta TCP aberta. Configure a [sonda de saúde](hadr-vnn-azure-load-balancer-configure.md#configure-health-probe) do balanceador de carga e o cluster para utilizar esta porta. </br> </br> **Utilizado por**: FCI com equilibrador de carga. |
+   | Sonda de estado de funcionamento | TCP 59999 | Qualquer porta TCP aberta. Configure a [sonda de saúde](failover-cluster-instance-vnn-azure-load-balancer-configure.md#configure-health-probe) do balanceador de carga e o cluster para utilizar esta porta. </br> </br> **Utilizado por**: FCI com equilibrador de carga. |
    | Partilha de ficheiros | UDP 445 | Port que o serviço de partilha de ficheiros usa. </br> </br> **Utilizado por:** FCI com partilha de ficheiros Premium. |
 
 ## <a name="join-the-domain"></a>Associar o domínio
