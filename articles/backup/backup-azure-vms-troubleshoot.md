@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a resolver problemas com os erros encontrados
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 908c7e4bc0ca15d952ef1d4d969c5bf686e0bdc3
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: da650453006b77490769d1cef57fc3d4f4447e40
+ms.sourcegitcommit: a75ca63da5c0cc2aff5fb131308853b9edb41552
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058119"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92169375"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Falhas de backup de resolução de problemas em máquinas virtuais Azure
 
@@ -324,6 +324,16 @@ Se depois de restaurado, nota que os discos estão offline então:
 * Verifique se a máquina onde o script é executado satisfaz os requisitos de SO. [Saiba mais](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#system-requirements).  
 * Certifique-se de que não está a restaurar a mesma fonte, [Saiba mais](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#original-backed-up-machine-versus-another-machine).
 
+### <a name="usererrorinstantrpnotfound---restore-failed-because-the-snapshot-of-the-vm-was-not-found"></a>UserErrorInstantRpNotFound - Restauro falhou porque a imagem do VM não foi encontrada
+
+Código de erro: UserErrorInstantRpNotFound <br>
+Error message: Restore failed because the snapshot of the VM was not found. A foto pode ter sido apagada, por favor verifique.<br>
+
+Este erro ocorre quando se está a tentar restaurar a partir de um ponto de recuperação que não foi transferido para o cofre e foi eliminado na fase de instantâneo. 
+<br>
+Para resolver este problema, tente restaurar o VM de um ponto de restauro diferente.<br>
+
+#### <a name="common-errors"></a>Erros comuns 
 | Detalhes do erro | Solução |
 | --- | --- |
 | Restaurar falhou com um erro interno na nuvem. |<ol><li>O serviço de nuvem a que está a tentar restaurar está configurado com as definições de DNS. Pode verificar: <br>**$deployment = Get-AzureDeployment -ServiceName "ServiceName" - Slot "Production" Get-AzureDns -DnsSettings $deployment. DnsSettings**.<br>Se **o Endereço** estiver configurado, as definições de DNS são configuradas.<br> <li>O serviço de nuvem ao qual está a tentar restaurar está configurado com **o ReservedIP**, e os VM existentes no serviço de nuvem estão no estado parado. Pode verificar se um serviço de nuvem reservou um IP utilizando os seguintes cmdlets PowerShell: **$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep. Nome Reservado.** <br><li>Está a tentar restaurar uma máquina virtual com as seguintes configurações especiais de rede no mesmo serviço de nuvem: <ul><li>Máquinas virtuais em configuração do balanceador de carga, internas e externas.<li>Máquinas virtuais com múltiplos IPs reservados. <li>Máquinas virtuais com vários NICs. </ul><li>Selecione um novo serviço de nuvem na UI ou consulte [considerações de restauro](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) para VMs com configurações especiais de rede.</ol> |
@@ -395,7 +405,7 @@ A cópia de segurança VM baseia-se na emissão de comandos instantâneos para o
 * **Se mais de quatro VMs partilharem o mesmo serviço de nuvem, espalhe os VMs através de várias políticas de backup**. Escalonar os tempos de reserva, por isso não mais do que quatro backups VM começam ao mesmo tempo. Tente separar os tempos ini por uma hora nas apólices.
 * **O VM funciona com cpu alto ou memória**. Se a máquina virtual funciona com alta memória ou utilização de CPU, mais de 90%, a sua tarefa instantânea é a sua tarefa de instantâneo estão na fila e atrasadas. Eventualmente, acaba por ser assim. Se este problema acontecer, tente um backup a pedido.
 
-## <a name="networking"></a>Rede
+## <a name="networking"></a>Redes
 
 O DHCP deve ser ativado dentro do hóspede para que o backup IaaS VM funcione. Se precisar de um IP estático privado, configurá-lo através do portal Azure ou PowerShell. Certifique-se de que a opção DHCP dentro do VM está ativada.
 Obtenha mais informações sobre como configurar um IP estático através do PowerShell:
