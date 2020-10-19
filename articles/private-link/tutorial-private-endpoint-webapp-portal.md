@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 10/19/2020
-ms.openlocfilehash: 4b12c71390a6b03de2f6f6a4bd79707cbc357dfe
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 6d4d9fd901337b9c05c7d7d7f271974273e9fe37
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92169046"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170071"
 ---
 # <a name="tutorial-connect-to-a-web-app-using-an-azure-private-endpoint"></a>Tutorial: Conecte-se a uma aplicação web usando um Azure Private Endpoint
 
@@ -206,7 +206,7 @@ Nesta secção, utilizará a máquina virtual que criou no passo anterior para l
 
 7. Abra o Windows PowerShell no servidor depois de ligar.
 
-8. Introduza `nslookup <webapp-name>.azurewebsites.net`. **\<webapp-name>** Substitua-o pelo nome da conta de armazenamento que criou nos passos anteriores.  Receberá uma mensagem semelhante à que é exibida abaixo:
+8. Introduza `nslookup <webapp-name>.azurewebsites.net`. **\<webapp-name>** Substitua-o pelo nome da aplicação web que criou nos passos anteriores.  Receberá uma mensagem semelhante à que é exibida abaixo:
 
     ```powershell
     Server:  UnKnown

@@ -4,16 +4,16 @@ description: Neste arranque rápido, implementamos uma aplicação Cloud spring 
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 09/08/2020
+ms.date: 09/18/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: fe6f72b60257a1101765dcb539cc3e0eb1d2346e
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 2ec79c9c1fc3b461037b2005da7198f81cbbab34
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090051"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170366"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Quickstart: Implemente a sua primeira aplicação Azure Spring Cloud
 
@@ -419,10 +419,10 @@ O procedimento a seguir constrói e implementa a aplicação utilizando o Azure 
     az spring-cloud app create -n hellospring -s <service instance name> -g <resource group name> --is-public
     ```
 
-1. Implementar o ficheiro Jar para a aplicação:
+1. Implementar o ficheiro Jar para a aplicação `target\hellospring-0.0.1-SNAPSHOT.jar` (no Windows):
 
     ```azurecli
-    az spring-cloud app deploy -n hellospring -s <service instance name> -g <resource group name> --jar-path target\hellospring-0.0.1-SNAPSHOT.jar
+    az spring-cloud app deploy -n hellospring -s <service instance name> -g <resource group name> --jar-path <jar file path>
     ```
     
 1. Demora alguns minutos a terminar a implementação da aplicação. Para confirmar que foi implementado, vá à lâmina **apps** no portal Azure. Devia ver o estado do pedido.

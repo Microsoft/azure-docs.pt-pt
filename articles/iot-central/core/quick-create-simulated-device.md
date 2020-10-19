@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 26aba84fcc38fddf43c04550b1c3d1ce2d70b21f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 757575b31bde1a0e25cc3e70aad0cca0fdd45953
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87001961"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170326"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>Quickstart: Adicione um dispositivo simulado à sua aplicação IoT Central
 
@@ -71,7 +71,7 @@ Um modelo de dispositivo pode incluir propriedades na nuvem. As propriedades em 
     | Nome a Apresentar      | Tipo semântico | Esquema |
     | ----------------- | ------------- | ------ |
     | Data da Última Assistência | Nenhum          | Date   |
-    | Nome do Cliente     | Nenhum          | Cadeia |
+    | Nome do Cliente     | Nenhum          | String |
 
 1. **Selecione Guardar** para guardar as suas alterações:
 
@@ -128,7 +128,7 @@ Para adicionar um dispositivo simulado à sua aplicação, utilize o modelo de d
 
 1. Para adicionar um novo dispositivo como operador, escolha **dispositivos** no painel esquerdo. O separador **Dispositivos** mostra **todos os dispositivos** e o modelo do dispositivo **MXChip IoT DevKit.** Selecione **MXChip IoT DevKit**.
 
-1. Para adicionar um dispositivo DevKit simulado, selecione **+** . Utilize o **ID do dispositivo** sugerido ou introduza o seu próprio **ID do dispositivo**minúsculo . Também pode introduzir um nome para o seu novo dispositivo. Certifique-se de que o toggle **simulado** está **ligado** e, em seguida, selecione **Criar**.
+1. Para adicionar um dispositivo DevKit simulado, selecione **+** . Utilize o **ID do dispositivo** sugerido ou introduza o seu próprio. Um ID do dispositivo pode conter letras, números e `-` o caráter. Também pode introduzir um nome para o seu novo dispositivo. Certifique-se de que o toggle **simulado** está **ligado** e, em seguida, selecione **Criar**.
 
     ![Dispositivo simulado](./media/quick-create-simulated-device/simulated-device.png)
 

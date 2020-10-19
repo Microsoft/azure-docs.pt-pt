@@ -7,12 +7,12 @@ ms.date: 08/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 9a93602327b5c5294d6c17c1804c04c6603dcf37
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 9ebf07a5125995e66297d89643845b54aad246b8
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999881"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170304"
 ---
 # <a name="how-to-connect-devices-with-x509-certificates-using-nodejs-device-sdk-for-iot-central-application"></a>Como ligar dispositivos com certificados X.509 utilizando Node.js dispositivo SDK para aplicação central IoT
 
@@ -50,12 +50,15 @@ Nesta secção, utiliza-se um certificado X.509 para ligar um dispositivo com um
     npm install
     ```
 
-1. Crie um certificado de raiz e, em seguida, obtém um certificado de dispositivo executando o script. Certifique-se de que utiliza apenas alfanuméricos e hífenes inferiores para o nome do certificado:
+1. Crie um certificado de raiz e, em seguida, obtém um certificado de dispositivo executando o script:
 
     ```cmd/sh
     node create_test_cert.js root mytestrootcert
     node create_test_cert.js device mytestdevice mytestrootcert
     ```
+
+    > [!TIP]
+    > Um ID do dispositivo pode conter letras, números e `-` o caráter.
 
 Estes comandos produzem três ficheiros cada para a raiz e o certificado do dispositivo
 

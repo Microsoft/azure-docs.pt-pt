@@ -80,6 +80,10 @@
       href: concepts/event-handling.md
     - name: Notificações
       href: concepts/notifications.md
+    - name: Registo e diagnóstico
+      href: concepts/logging-and-diagnostics.md
+    - name: Métricas
+      href: concepts/metrics.md
 - name: Amostras
   items:
     - name: Exemplo de destaque das chamadas em grupo
