@@ -31,6 +31,8 @@
       href: tutorial-private-endpoint-storage-portal.md
     - name: "Ligar a uma conta do Cosmos\_DB"
       href: tutorial-private-endpoint-cosmosdb-portal.md
+    - name: Ligar a uma aplicação Web
+      href: tutorial-private-endpoint-webapp-portal.md
 - name: Conceitos
   items:
     - name: Ponto Final Privado
