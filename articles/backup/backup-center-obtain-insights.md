@@ -3,16 +3,16 @@ title: Obtenha insights usando o Backup Center
 description: Aprenda a analisar tendências históricas e a obter informações mais profundas sobre as suas cópias de segurança com o Backup Center.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 5964f285089feea721a0b452efed884e905b89cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0f687ee123abe2f95ad0d23a6fe302f4a5c22e1
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90996052"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173748"
 ---
 # <a name="obtain-insights-using-backup-center"></a>Obtenha insights usando o Backup Center
 
-Para analisar tendências históricas e obter informações mais profundas sobre as suas cópias de segurança, o Backup Center fornece uma interface para [Relatórios de Backup](configure-reports.md), que utiliza [registos de monitores Azure](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs) e [livros de trabalho Azure.](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) Os Relatórios de Cópia de Segurança oferecem as seguintes capacidades:
+Para analisar tendências históricas e obter informações mais profundas sobre as suas cópias de segurança, o Backup Center fornece uma interface para [Relatórios de Backup](configure-reports.md), que utiliza [registos de monitores Azure](../azure-monitor/platform/data-platform-logs.md) e [livros de trabalho Azure.](../azure-monitor/platform/workbooks-overview.md) Os Relatórios de Cópia de Segurança oferecem as seguintes capacidades:
 
 - Alocação e previsão de armazenamento em nuvem consumido.
 
@@ -32,7 +32,7 @@ Para analisar tendências históricas e obter informações mais profundas sobre
 
 ### <a name="configure-your-vaults-to-send-data-to-a-log-analytics-workspace"></a>Configure os seus cofres para enviar dados para um espaço de trabalho Log Analytics
 
-[Saiba como configurar as definições de diagnóstico em escala para os seus cofres](https://docs.microsoft.com/azure/backup/configure-reports#get-started)
+[Saiba como configurar as definições de diagnóstico em escala para os seus cofres](./configure-reports.md#get-started)
 
 ### <a name="view-backup-reports-in-the-backup-center-portal"></a>Ver Relatórios de Backup no portal do Backup Center
 
@@ -42,17 +42,17 @@ A seleção do item do menu **Relatórios de Cópia de Segurança** no Backup Ce
 
 Seguem-se as vistas disponíveis:
 
-1. **Resumo** - Use este separador para obter uma visão geral de alto nível da sua propriedade de reserva. [Saiba mais](https://docs.microsoft.com/azure/backup/configure-reports#summary)
+1. **Resumo** - Use este separador para obter uma visão geral de alto nível da sua propriedade de reserva. [Saiba mais](./configure-reports.md#summary)
 
-1. **Itens de reserva** - Utilize este separador para ver informações e tendências sobre o armazenamento na nuvem consumidas a um nível de produto de backup. [Saiba mais](https://docs.microsoft.com/azure/backup/configure-reports#backup-items)
+1. **Itens de reserva** - Utilize este separador para ver informações e tendências sobre o armazenamento na nuvem consumidas a um nível de produto de backup. [Saiba mais](./configure-reports.md#backup-items)
 
-1. **Utilização** - Utilize este separador para visualizar os parâmetros de faturação das chaves para as suas cópias de segurança. [Saiba mais](https://docs.microsoft.com/azure/backup/configure-reports#usage)
+1. **Utilização** - Utilize este separador para visualizar os parâmetros de faturação das chaves para as suas cópias de segurança. [Saiba mais](./configure-reports.md#usage)
 
-1. **Empregos** - Utilize este separador para ver as tendências de longo prazo em matéria de empregos, como o número de empregos falhados por dia e as principais causas de insuficiência de emprego. [Saiba mais](https://docs.microsoft.com/azure/backup/configure-reports#jobs)
+1. **Empregos** - Utilize este separador para ver as tendências de longo prazo em matéria de empregos, como o número de empregos falhados por dia e as principais causas de insuficiência de emprego. [Saiba mais](./configure-reports.md#jobs)
 
-1. **Políticas** - Utilize este separador para visualizar informações sobre todas as suas políticas ativas, tais como o número de itens associados e o armazenamento total de nuvem consumido por itens apoiados por uma determinada política. [Saiba mais](https://docs.microsoft.com/azure/backup/configure-reports#policies)
+1. **Políticas** - Utilize este separador para visualizar informações sobre todas as suas políticas ativas, tais como o número de itens associados e o armazenamento total de nuvem consumido por itens apoiados por uma determinada política. [Saiba mais](./configure-reports.md#policies)
 
-1. **Otimize** - Use este separador para ganhar visibilidade em potenciais oportunidades de otimização de custos para as suas cópias de segurança. [Saiba mais](https://docs.microsoft.com/azure/backup/configure-reports#optimize)
+1. **Otimize** - Use este separador para ganhar visibilidade em potenciais oportunidades de otimização de custos para as suas cópias de segurança. [Saiba mais](./configure-reports.md#optimize)
 
 ## <a name="next-steps"></a>Passos seguintes
 

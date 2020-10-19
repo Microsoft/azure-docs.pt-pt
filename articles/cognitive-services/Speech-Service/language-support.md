@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 3b449913c9d1abbbec84f0ff77f7a1c1bc5321bf
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 7d5dd7d2d0aa3d10f439b5cf3604e2d595456f86
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048462"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172265"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Suporte linguístico e de voz para o serviço de fala
 
@@ -170,7 +170,7 @@ Para obter mais informações sobre a disponibilidade regional, consulte [as reg
 | `fr-CH` <sup>Novo</sup> | Francês (Suíça) | Mulheres | `fr-CH-ArianeNeural` | Geral |
 | `fr-FR` | Francês (França) | Mulheres | `fr-FR-DeniseNeural` | Geral |
 | `fr-FR` <sup>Novo</sup> | Francês (França) | Homens | `fr-FR-HenriNeural` | Geral |
-| `he-IL` <sup>Novo</sup> | Hebraico (Isareal) | Mulheres | `he-IL-HilaNeural` | Geral |
+| `he-IL` <sup>Novo</sup> | Hebraico (Israel) | Mulheres | `he-IL-HilaNeural` | Geral |
 | `hi-IN` | Hindi (Índia) | Mulheres | `hi-IN-SwaraNeural` | Geral |
 | `hr-HR` <sup>Novo</sup> | Croata (Croácia) | Mulheres | `hr-HR-GabrijelaNeural` | Geral |
 | `hu-HU` <sup>Novo</sup> | Húngaro (Hungria) | Mulheres | `hu-HU-NoemiNeural` | Geral |

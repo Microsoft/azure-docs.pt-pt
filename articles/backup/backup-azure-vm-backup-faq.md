@@ -4,12 +4,12 @@ description: Neste artigo, descubra respostas a perguntas comuns sobre o backup 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 51c54aa732259180a5393488891b21956553f581
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: f318d785fdfa5b72050bdd805ecfe801d307b9a7
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056723"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172834"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas frequentes-Back up Azure VMs
 
@@ -24,7 +24,7 @@ Quando criar um VM, pode ativar a cópia de segurança para VMs que [executam si
 ### <a name="why-initial-backup-is-taking-lot-of-time-to-complete"></a>Por que motivo a conclusão da cópia de segurança inicial está a demorar muito tempo?
 
 A cópia de segurança inicial é sempre uma cópia de segurança completa e dependerá do tamanho dos dados e quando a cópia de segurança for processada. <br>
-Para melhorar o desempenho de backup ver, [backup boas práticas;](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#best-practices) [Considerações de backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-and-restore-considerations) e [desempenho de backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-performance)<br>
+Para melhorar o desempenho de backup ver, [backup boas práticas;](./backup-azure-vms-introduction.md#best-practices) [Considerações de backup](./backup-azure-vms-introduction.md#backup-and-restore-considerations) e [desempenho de backup](./backup-azure-vms-introduction.md#backup-performance)<br>
 Apesar de o tempo total das cópias de segurança incrementais ser inferior a 24 horas, este poderá não ser o caso para a primeira cópia de segurança.
 
 ### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>O custo de reserva está incluído no custo do VM?
@@ -109,7 +109,7 @@ O Azure Backup suporta agora a cópia de segurança seletiva do disco e restaura
 
 ### <a name="are-managed-identities-preserved-if-a-tenant-change-occurs-during-backup"></a>As identidades geridas são preservadas se uma mudança de inquilino ocorrer durante o backup?
 
-Se [ocorrerem alterações](https://docs.microsoft.com/azure/devops/organizations/accounts/change-azure-ad-connection) no inquilino, é obrigado a desativar e a reativar [identidades geridas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para fazer com que as cópias de segurança voltem a funcionar.
+Se [ocorrerem alterações](/azure/devops/organizations/accounts/change-azure-ad-connection) no inquilino, é obrigado a desativar e a reativar [identidades geridas](../active-directory/managed-identities-azure-resources/overview.md) para fazer com que as cópias de segurança voltem a funcionar.
 
 ## <a name="restore"></a>Restauro
 
@@ -207,6 +207,6 @@ Sim, há um limite de 100 VMs que podem ser associados à mesma política de bac
 
 Atualmente, pode ver as definições de retenção a um nível de backup item (VM) com base na política de backup que é atribuída ao VM.
 
-Uma forma de visualizar as definições de retenção para as suas cópias de segurança é navegar para o [painel de instrumentos](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#view-vms-on-the-dashboard) de reserva para o seu VM, no portal Azure. A seleção do link para a sua política de backup ajuda-o a visualizar a duração de retenção de todos os pontos de retenção diários, semanais, mensais e anualmente associados ao VM.
+Uma forma de visualizar as definições de retenção para as suas cópias de segurança é navegar para o [painel de instrumentos](./backup-azure-manage-vms.md#view-vms-on-the-dashboard) de reserva para o seu VM, no portal Azure. A seleção do link para a sua política de backup ajuda-o a visualizar a duração de retenção de todos os pontos de retenção diários, semanais, mensais e anualmente associados ao VM.
 
-Também pode utilizar [o Backup Explorer](https://docs.microsoft.com/azure/backup/monitor-azure-backup-with-backup-explorer) para visualizar as definições de retenção de todos os seus VMs dentro de um único painel de vidro. Navegue para o Backup Explorer a partir de qualquer cofre dos Serviços de Recuperação, vá ao separador **Itens de Reserva** e selecione a Vista Avançada para ver informações detalhadas de retenção para cada VM.
+Também pode utilizar [o Backup Explorer](./monitor-azure-backup-with-backup-explorer.md) para visualizar as definições de retenção de todos os seus VMs dentro de um único painel de vidro. Navegue para o Backup Explorer a partir de qualquer cofre dos Serviços de Recuperação, vá ao separador **Itens de Reserva** e selecione a Vista Avançada para ver informações detalhadas de retenção para cada VM.

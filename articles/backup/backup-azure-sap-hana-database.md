@@ -3,12 +3,12 @@ title: Faça o backup de uma base de dados SAP HANA para Azure com Azure Backup
 description: Neste artigo, aprenda a fazer backup de uma base de dados SAP HANA para máquinas virtuais Azure com o serviço Azure Backup.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 3e19701abe152e947e87ef624a003538ab7062a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0a03a0d126845b1beba6d247f82950b0a9a35ab
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91271805"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172987"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Fazer cópias de segurança de bases de dados SAP HANA nas VMs do Azure
 
@@ -57,7 +57,7 @@ Os pontos finais privados permitem-lhe ligar-se de forma segura a partir de serv
 
 #### <a name="nsg-tags"></a>Etiquetas NSG
 
-Se utilizar grupos de segurança de rede (NSG), utilize a etiqueta de serviço *AzureBackup* para permitir o acesso de saída ao Azure Backup. Além da etiqueta Azure Backup, também precisa de permitir a conectividade para a autenticação e transferência de dados, criando [regras de NSG semelhantes](../virtual-network/security-overview.md#service-tags) para Azure*AD (AzureActiveDirectory)* e Azure Storage *(Armazenamento).*  Os seguintes passos descrevem o processo para criar uma regra para a etiqueta de backup Azure:
+Se utilizar grupos de segurança de rede (NSG), utilize a etiqueta de serviço *AzureBackup* para permitir o acesso de saída ao Azure Backup. Além da etiqueta Azure Backup, também precisa de permitir a conectividade para a autenticação e transferência de dados, criando [regras de NSG semelhantes](../virtual-network/network-security-groups-overview.md#service-tags) para Azure*AD (AzureActiveDirectory)* e Azure Storage *(Armazenamento).*  Os seguintes passos descrevem o processo para criar uma regra para a etiqueta de backup Azure:
 
 1. Em **Todos os Serviços,** vá aos **grupos de segurança da Rede** e selecione o grupo de segurança da rede.
 

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 9b57a1f3dc1f2d86b992ce2480acd9c44df8d1e7
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 65357642d940453b5bbfabf2fbb726ca909ce6f5
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122505"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173127"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-postgresql-single-server"></a>Compreender as alterações na alteração Root CA para Azure Database para o servidor Single PostgreSQL
 
@@ -104,7 +104,7 @@ Se não atualizar o certificado de raiz antes de 15 de fevereiro de 2021 (02/15/
 ### <a name="4-what-is-the-impact-if-using-app-service-with-azure-database-for-postgresql"></a>4. Qual é o impacto se utilizar o Serviço de Aplicações com Base de Dados Azure para PostgreSQL?
 Para os serviços de aplicações Azure, conectando-se à Base de Dados Azure para PostgreSQL, podemos ter dois cenários possíveis e depende de como você está usando SSL com a sua aplicação.
 *   Este novo certificado foi adicionado ao Serviço de Aplicações a nível da plataforma. Se estiver a utilizar os certificados SSL incluídos na plataforma Do Serviço de Aplicações na sua aplicação, então não é necessária qualquer ação.
-*   Se estiver explicitamente a incluir o caminho para o ficheiro SSL cert no seu código, então terá de descarregar o novo certificado e atualizar o código para utilizar o novo certificado.
+*   Se estiver explicitamente a incluir o caminho para o ficheiro SSL cert no seu código, então terá de descarregar o novo certificado e atualizar o código para utilizar o novo certificado. Um bom exemplo deste cenário é quando utiliza recipientes personalizados no Serviço de Aplicações como partilhado na documentação do [Serviço de Aplicações](/app-service/tutorial-multi-container-app#configure-database-variables-in-wordpress.md)
 
 ### <a name="5-what-is-the-impact-if-using-azure-kubernetes-services-aks-with-azure-database-for-postgresql"></a>5. Qual é o impacto se utilizar os Serviços Azure Kubernetes (AKS) com a Base de Dados Azure para PostgreSQL?
 Se estiver a tentar ligar-se à Base de Dados Azure para PostgreSQL utilizando os Serviços Azure Kubernetes (AKS), é semelhante ao acesso a partir de um ambiente de hospedagem dedicado aos clientes. Consulte os passos [aqui.](../aks/ingress-own-tls.md)

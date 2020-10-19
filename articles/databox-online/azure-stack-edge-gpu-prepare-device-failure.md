@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: alkohli
-ms.openlocfilehash: 0d36a09b67e110551470f3908800e77c35b1e3be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7c7caf6c01c2e7ea9aaf141a2597ef338735d3d
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91844017"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173607"
 ---
 # <a name="prepare-for-an-azure-stack-edge-pro-gpu-device-failure"></a>Prepare-se para uma falha do dispositivo GPU Azure Stack Edge Pro
 
@@ -66,7 +66,8 @@ As seguintes soluções de proteção de dados de terceiros podem fornecer uma s
 | Software de terceiros           | Referência à solução                               |
 |--------------------------------|---------------------------------------------------------|
 | Coesidade                       | https://www.cohesity.com/solution/cloud/azure/ <br> Para mais detalhes, contacte a Coesity.          |
-| Veritas                        | Para mais detalhes, contacte a Veritas.   |
+| Commvault                      | https://www.commvault.com/azure <br> Para mais informações, contacte a Commvault.          |
+| Veritas                        | http://veritas.com/azure <br> Para mais detalhes, contacte a Veritas.   |
 
 
 ## <a name="protect-files-and-folders-on-vms"></a>Proteger ficheiros e pastas em VMs
@@ -78,7 +79,8 @@ O Azure Stack Edge trabalha com a Azure Backup e outras soluções de proteção
 |-------------------------|----------------|--------------------------------------------------------------------------|
 | Agente dos Serviços de Recuperação do Microsoft Azure (MARS) para backup do Azure | Windows        | [Acerca do agente MARS](/azure/backup/backup-azure-about-mars)    |
 | Coesidade                | Windows, Linux | [Resumo da solução de integração, backup e recuperação da Microsoft Azure](https://www.cohesity.com/solution/cloud/azure) <br>Para mais detalhes, contacte a Coesity.                          |
-| Veritas                 | Windows, Linux | Para mais detalhes, contacte a Veritas.                    |
+| Commvault               | Windows, Linux | https://www.commvault.com/azure <br>Para mais informações, contacte a Commvault.                          |
+| Veritas                 | Windows, Linux | http://veritas.com/azure <br> Para mais detalhes, contacte a Veritas.                    |
 
 
 

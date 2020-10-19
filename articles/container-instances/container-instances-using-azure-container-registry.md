@@ -5,12 +5,12 @@ services: container-instances
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc
-ms.openlocfilehash: eeafc58a1f61ed0439fb29fb08e4ce8c5dd4350c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5ba56271950c2d14c7fbf0b9154afb371bcbabc
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89656993"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173644"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implementar no Azure Container Instances a partir do Azure Container Registry
 
@@ -22,19 +22,18 @@ ms.locfileid: "89656993"
 
 **Azure CLI**: Os exemplos da linha de comando neste artigo utilizam o [Azure CLI](/cli/azure/) e são formatados para a casca bash. Pode [instalar o Azure CLI](/cli/azure/install-azure-cli) localmente ou utilizar a [Azure Cloud Shell][cloud-shell-bash].
 
+## <a name="limitations"></a>Limitações
+
+* Não é possível autenticar o Registo de Contentores Azure para retirar imagens durante a colocação do grupo de contentores utilizando uma [identidade gerida](container-instances-managed-identity.md) configurada no mesmo grupo de contentores.
+* Não é possível extrair imagens do Registo de [Contentores Azure](../container-registry/container-registry-vnet.md) implantados numa Rede Virtual Azure neste momento.
+
 ## <a name="configure-registry-authentication"></a>Configurar a autenticação do registo
 
 Num cenário de produção em que se fornece acesso a serviços e aplicações "sem cabeça", recomenda-se configurar o acesso ao registo através de um [principal serviço.](../container-registry/container-registry-auth-service-principal.md) Um chefe de serviço [permite-lhe fornecer o controlo de acesso baseado em funções (Azure RBAC)](../container-registry/container-registry-roles.md) às imagens do seu contentor. Por exemplo, pode configurar um principal de serviço com acesso a um registo apenas por pedido.
 
 O Registo de Contentores Azure oferece opções de [autenticação](../container-registry/container-registry-authentication.md)adicionais.
 
-> [!NOTE]
-> Não é possível autenticar o Registo de Contentores Azure para retirar imagens durante a colocação do grupo de contentores utilizando uma [identidade gerida](container-instances-managed-identity.md) configurada no mesmo grupo de contentores.
-
-> [!NOTE]
-> Não é possível extrair imagens do Registo de [Contentores Azure](../container-registry/container-registry-vnet.md) implantados numa Rede Virtual Azure neste momento.
-
-Na secção seguinte, você cria um cofre de chaves Azure e um diretor de serviço, e armazena as credenciais do diretor de serviço no cofre. 
+Na secção seguinte, você cria um cofre de chaves Azure e um diretor de serviço, e armazena as credenciais do diretor de serviço no cofre.
 
 ### <a name="create-key-vault"></a>Criar o cofre de chaves
 

@@ -7,12 +7,12 @@ ms.date: 01/27/2020
 ms.topic: how-to
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 7fd04428edc28315e714b9e81af0bea0e9344e52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7486cee351880dc0465a43b1259a5f07ef31c77b
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763810"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173291"
 ---
 # <a name="quota-increase-requests"></a>Pedidos de aumento de quota
 
@@ -22,6 +22,9 @@ O primeiro nível é o limite total regional de vCPUs em todas as séries VM. O 
 Pode solicitar um aumento do limite de quota vCPUs para a série VM a partir do portal Azure. Um aumento do contingente da série VM aumenta automaticamente o limite total regional de vCPUs pelo mesmo montante.
 
 Quando uma nova subscrição é criada, os vCPUs regionais por defeito podem não ser iguais à soma das quotas vCPU padrão para todas as séries VM individuais. Este facto pode resultar numa subscrição com quota suficiente para cada série VM individual que pretende implementar. Pode não ter quota suficiente para os vCPUs regionais totais para todas as implantações. Neste caso, terá de apresentar um pedido para aumentar explicitamente o limite total de vCPUs regional. O limite total de vCPUs regionais não pode exceder a soma da quota aprovada em todas as séries VM para a região.
+
+> [!NOTE]
+> Se pretender elevar o limite ou quota acima do limite por defeito, [abra gratuitamente um pedido de apoio ao cliente online.](https://docs.microsoft.com/azure/azure-resource-manager/templates/error-resource-quota#solution)
 
 Para obter mais informações sobre quotas, consulte [as quotas vCPU da máquina virtual](../../virtual-machines/windows/quotas.md) e os [limites de subscrição e serviço da Azure, quotas e restrições.](../../azure-resource-manager/management/azure-subscription-service-limits.md)
 

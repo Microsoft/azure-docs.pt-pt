@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: dffd12f319bd2766decda5874299cd7115f0502b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9517eef8976e79db21fbe552861d0d59923e8ba
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91309205"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173954"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Como: Utilizar o Text Analytics para a saúde (pré-visualização)
 
@@ -227,7 +227,11 @@ Para mais informações, consulte a documentação da NGINX sobre a rescisão do
 
 
 ## <a name="example-api-request"></a>Exemplo pedido de API
-O contentor fornece APIs de ponto final de predição de consulta com base em REST.
+O contentor fornece APIs de ponto final de predição de consulta com base em REST.  Também fornecemos uma ferramenta de visualização no recipiente que é acessível por anexar a **demonstração** ao ponto final do recipiente, por exemplo:
+
+```bash
+http://<serverURL>:5000/demo
+```
 
 Utilize o pedido de cURL de exemplo abaixo para submeter uma consulta ao recipiente que implementou substituindo a `serverURL` variável pelo valor adequado.
 
@@ -417,7 +421,7 @@ A saída de extração de relação contém referências URI à *origem* da rela
 ]
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Descrição geral da Análise de Texto](../overview.md)
 * [Categorias de entidades nomeadas](../named-entity-types.md)

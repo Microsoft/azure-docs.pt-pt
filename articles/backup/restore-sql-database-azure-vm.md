@@ -3,12 +3,12 @@ title: Restaurar bases de dados do SQL Server num Azure VM
 description: Este artigo descreve como restaurar as bases de dados do SQL Server que estão a funcionar num Azure VM e que são cópias de segurança do Azure. Também pode utilizar o Cross Region Restore para restaurar as suas bases de dados para uma região secundária.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 0d6feb512ab4ebcc5b5eaffafe607602fc552984
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbafd179f4b2f4e91a4bf19da41ffc14e4775e5c
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985376"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172165"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restaurar bases de dados do SQL Server em VMs do Azure
 
@@ -30,7 +30,7 @@ Antes de restaurar uma base de dados, note o seguinte:
 - Pode restaurar a base de dados a um exemplo de um SQL Server na mesma região do Azure.
 - O servidor de destino deve estar registado no mesmo cofre que a fonte.
 - Para restaurar uma base de dados encriptada TDE para outro SqL Server, é necessário restaurar primeiro [o certificado no servidor de destino](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
-- [As](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) bases de dados ativadas pelo CDC devem ser restauradas utilizando a opção [Restaurar como ficheiros.](#restore-as-files)
+- [As](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) bases de dados ativadas pelo CDC devem ser restauradas utilizando a opção [Restaurar como ficheiros.](#restore-as-files)
 - Antes de restaurar a base de dados "master", inicie a instância do SQL Server no modo de utilizador único utilizando a opção de arranque **-m AzureWorkloadBackup**.
   - O valor para **-m** é o nome do cliente.
   - Apenas o nome do cliente especificado pode abrir a ligação.

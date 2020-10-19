@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a resolver problemas com os erros encontrados
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: da650453006b77490769d1cef57fc3d4f4447e40
-ms.sourcegitcommit: a75ca63da5c0cc2aff5fb131308853b9edb41552
+ms.openlocfilehash: 6da91248c197eae12fbc59f2da8c5294d95117b6
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/19/2020
-ms.locfileid: "92169375"
+ms.locfileid: "92173838"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Falhas de backup de resolução de problemas em máquinas virtuais Azure
 
@@ -129,9 +129,9 @@ Para verificar, navegue nos ***registos de aplicações do Visualizador de Siste
 
 Solução:
 
-* Verifique se há possibilidades de distribuir a carga pelos discos VM. Isto reduzirá a carga em discos individuais. Pode [verificar o estrangulamento dos IOPs, permitindo métricas de diagnóstico ao nível de armazenamento](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics#install-and-run-performance-diagnostics-on-your-vm).
+* Verifique se há possibilidades de distribuir a carga pelos discos VM. Isto reduzirá a carga em discos individuais. Pode [verificar o estrangulamento dos IOPs, permitindo métricas de diagnóstico ao nível de armazenamento](../virtual-machines/troubleshooting/performance-diagnostics.md#install-and-run-performance-diagnostics-on-your-vm).
 * Mude a política de backup para efetuar backups durante as horas de ponta, quando a carga no VM estiver no seu nível mais baixo.
-* Atualize os discos Azure para suportar IOPs mais elevados. [Saiba mais aqui](https://docs.microsoft.com/azure/virtual-machines/disks-types)
+* Atualize os discos Azure para suportar IOPs mais elevados. [Saiba mais aqui](../virtual-machines/disks-types.md)
 
 ### <a name="extensionfailedvssserviceinbadstate---snapshot-operation-failed-due-to-vss-volume-shadow-copy-service-in-bad-state"></a>ExtensionFailedVssServiceInBadState – A operação de instantâneo falhou devido ao serviço VSS (Serviço de Cópia Sombra de Volumes) estar num estado incorreto
 
@@ -157,15 +157,15 @@ Código de erro: Mensagem de erro Do UtilizadorErrorSkuNotAvailable Error: A cri
 
 Este erro ocorre porque o tamanho VM selecionado durante a operação de restauro é um tamanho não suportado. <br>
 
-Para resolver este problema, utilize a opção [de restaurar os discos](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) durante a operação de restauro. Utilize estes discos para criar um VM a partir da lista de [tamanhos VM suportados disponíveis utilizando](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-compute-support) [cmdlets Powershell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks).
+Para resolver este problema, utilize a opção [de restaurar os discos](./backup-azure-arm-restore-vms.md#restore-disks) durante a operação de restauro. Utilize estes discos para criar um VM a partir da lista de [tamanhos VM suportados disponíveis utilizando](./backup-support-matrix-iaas.md#vm-compute-support) [cmdlets Powershell](./backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
 ### <a name="usererrormarketplacevmnotsupported---vm-creation-failed-due-to-market-place-purchase-request-being-not-present"></a>UserErrorMarketPlaceVMNotSupported - VM criação falhou devido ao pedido de compra do Market Place não estar presente
 
 Código de erro: UtilizadorErrorMarketPlaceVMNotSupported Error message: A criação de VM falhou devido ao pedido de compra do Market Place não estar presente.
 
-O Azure Backup suporta a cópia de segurança e a restauração de VMs que estão disponíveis no Azure Marketplace. Este erro ocorre quando está a tentar restaurar um VM (com uma definição específica de Plan/Publisher) que já não está disponível no Azure Marketplace, [Saiba mais aqui](https://docs.microsoft.com/legal/marketplace/participation-policy#offering-suspension-and-removal).
+O Azure Backup suporta a cópia de segurança e a restauração de VMs que estão disponíveis no Azure Marketplace. Este erro ocorre quando está a tentar restaurar um VM (com uma definição específica de Plan/Publisher) que já não está disponível no Azure Marketplace, [Saiba mais aqui](/legal/marketplace/participation-policy#offering-suspension-and-removal).
 
-* Para resolver este problema, utilize a opção [de restauro](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) dos discos durante a operação de restauro e, em seguida, utilize cmdlets [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks) ou [Azure CLI](https://docs.microsoft.com/azure/backup/tutorial-restore-disk) para criar o VM com as informações mais recentes do mercado correspondentes ao VM.
+* Para resolver este problema, utilize a opção [de restauro](./backup-azure-arm-restore-vms.md#restore-disks) dos discos durante a operação de restauro e, em seguida, utilize cmdlets [PowerShell](./backup-azure-vms-automation.md#create-a-vm-from-restored-disks) ou [Azure CLI](./tutorial-restore-disk.md) para criar o VM com as informações mais recentes do mercado correspondentes ao VM.
 * Se o editor não tiver nenhuma informação do Marketplace, pode utilizar os discos de dados para recuperar os seus dados e pode anexá-los a um VM existente.
 
 ### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensãoConfigParsingFailure - Falha na análise do config para a extensão de backup
@@ -321,8 +321,8 @@ Se tiver uma Política Azure que [regule as etiquetas dentro](../governance/poli
 
 Se depois de restaurado, nota que os discos estão offline então:
 
-* Verifique se a máquina onde o script é executado satisfaz os requisitos de SO. [Saiba mais](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#system-requirements).  
-* Certifique-se de que não está a restaurar a mesma fonte, [Saiba mais](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#original-backed-up-machine-versus-another-machine).
+* Verifique se a máquina onde o script é executado satisfaz os requisitos de SO. [Saiba mais](./backup-azure-restore-files-from-vm.md#system-requirements).  
+* Certifique-se de que não está a restaurar a mesma fonte, [Saiba mais](./backup-azure-restore-files-from-vm.md#original-backed-up-machine-versus-another-machine).
 
 ### <a name="usererrorinstantrpnotfound---restore-failed-because-the-snapshot-of-the-vm-was-not-found"></a>UserErrorInstantRpNotFound - Restauro falhou porque a imagem do VM não foi encontrada
 
@@ -405,7 +405,7 @@ A cópia de segurança VM baseia-se na emissão de comandos instantâneos para o
 * **Se mais de quatro VMs partilharem o mesmo serviço de nuvem, espalhe os VMs através de várias políticas de backup**. Escalonar os tempos de reserva, por isso não mais do que quatro backups VM começam ao mesmo tempo. Tente separar os tempos ini por uma hora nas apólices.
 * **O VM funciona com cpu alto ou memória**. Se a máquina virtual funciona com alta memória ou utilização de CPU, mais de 90%, a sua tarefa instantânea é a sua tarefa de instantâneo estão na fila e atrasadas. Eventualmente, acaba por ser assim. Se este problema acontecer, tente um backup a pedido.
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 
 O DHCP deve ser ativado dentro do hóspede para que o backup IaaS VM funcione. Se precisar de um IP estático privado, configurá-lo através do portal Azure ou PowerShell. Certifique-se de que a opção DHCP dentro do VM está ativada.
 Obtenha mais informações sobre como configurar um IP estático através do PowerShell:

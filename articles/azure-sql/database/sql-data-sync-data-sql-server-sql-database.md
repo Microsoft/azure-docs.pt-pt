@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: 268455e582e54dfa8eb73fe81eaad19f453e303b
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: d888266ae13b500abc5b03fa6a699c9f34b782a6
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057897"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173561"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>O que é SQL Data Sync para Azure?
 
@@ -109,7 +109,7 @@ Data Sync não é a solução preferida para os seguintes cenários:
 
 Uma vez que o Data Sync é baseado no gatilho, a consistência transacional não é garantida. A Microsoft garante que todas as alterações são feitas eventualmente e que o Data Sync não causa perda de dados.
 
-### <a name="performance-impact"></a>Impacto de desempenho
+### <a name="performance-impact"></a>Impacto no desempenho
 
 Data Sync utiliza inserção, atualização e elimina os gatilhos para rastrear as alterações. Cria tabelas laterais na base de dados do utilizador para o rastreio de alterações. Estas atividades de rastreio de alterações têm impacto na carga de trabalho da sua base de dados. Avalie o seu nível de serviço e atualize se necessário.
 
@@ -137,6 +137,7 @@ O fornecimento e desprovisionamento durante a criação, atualização e elimina
 - Os nomes dos objetos (bases de dados, tabelas e colunas) não podem conter o período de caracteres imprimíveis (.), suporte quadrado esquerdo ([) ou suporte quadrado direito (]).
 - A autenticação do Diretório Ativo Azure não é suportada.
 - Se houver tabelas com o mesmo nome mas esquemas diferentes (por exemplo, dbo.clientes e vendas.clientes) apenas uma das tabelas pode ser adicionada em sincronização.
+- Um nome de mesa não pode ter caracteres que tenham um valor ASCII menor ou igual ao '--'.
 - Colunas com User-Defined Tipos de Dados não são suportadas
 - A movimentação de servidores entre diferentes subscrições não é suportada. 
 

@@ -3,12 +3,12 @@ title: Tutorial - Apoiar bases de dados SAP HANA em VMs Azure
 description: Neste tutorial, aprenda a apoiar as bases de dados SAP HANA em execução na Azure VM até um cofre dos Serviços de Recuperação de Backup Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 0e0f6ff89f59b862ea15148124f44abc3ed196bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8de567b9f895ea0b3fa4a0f85a8bbad8bf82588f
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91254352"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173770"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutorial: Apoiar as bases de dados SAP HANA num Azure VM
 
@@ -65,7 +65,7 @@ Os pontos finais privados permitem-lhe ligar-se de forma segura a partir de serv
 
 ### <a name="nsg-tags"></a>Etiquetas NSG
 
-Se utilizar grupos de segurança de rede (NSG), utilize a etiqueta de serviço *AzureBackup* para permitir o acesso de saída ao Azure Backup. Além da etiqueta Azure Backup, também precisa de permitir a conectividade para a autenticação e transferência de dados, criando [regras de NSG semelhantes](../virtual-network/security-overview.md#service-tags) para Azure*AD (AzureActiveDirectory)* e Azure Storage *(Armazenamento).* Os seguintes passos descrevem o processo para criar uma regra para a etiqueta de backup Azure:
+Se utilizar grupos de segurança de rede (NSG), utilize a etiqueta de serviço *AzureBackup* para permitir o acesso de saída ao Azure Backup. Além da etiqueta Azure Backup, também precisa de permitir a conectividade para a autenticação e transferência de dados, criando [regras de NSG semelhantes](../virtual-network/network-security-groups-overview.md#service-tags) para Azure*AD (AzureActiveDirectory)* e Azure Storage *(Armazenamento).* Os seguintes passos descrevem o processo para criar uma regra para a etiqueta de backup Azure:
 
 1. Em **Todos os Serviços,** vá aos **grupos de segurança da Rede** e selecione o grupo de segurança da rede.
 
@@ -75,7 +75,7 @@ Se utilizar grupos de segurança de rede (NSG), utilize a etiqueta de serviço *
 
 1. **Selecione Adicionar** para salvar a regra de segurança de saída recém-criada.
 
-Pode igualmente criar [regras de segurança de saída NSG](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview#service-tags) para Azure Storage e Azure AD. Para obter mais informações sobre etiquetas de serviço, consulte [este artigo.](../virtual-network/service-tags-overview.md)
+Pode igualmente criar [regras de segurança de saída NSG](../virtual-network/network-security-groups-overview.md#service-tags) para Azure Storage e Azure AD. Para obter mais informações sobre etiquetas de serviço, consulte [este artigo.](../virtual-network/service-tags-overview.md)
 
 ### <a name="azure-firewall-tags"></a>Tags Azure Firewall
 

@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/30/2020
-ms.openlocfilehash: 4ba7ec73ac70723e21b6acad571d62d14edd250a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89bad470d5ead43b79e3691343b53fff796f7abc
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91828126"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172776"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Configure Azure Private Link para um espaço de trabalho de aprendizagem de máquinas Azure
 
@@ -39,20 +39,28 @@ A utilização de um espaço de trabalho de aprendizagem automática Azure com l
 
 ## <a name="create-a-workspace-that-uses-a-private-endpoint"></a>Criar um espaço de trabalho que use um ponto final privado
 
-Utilize um dos seguintes métodos para criar um espaço de trabalho com um ponto final privado:
+Utilize um dos seguintes métodos para criar um espaço de trabalho com um ponto final privado. Cada um __destes métodos requer uma rede virtual existente:__
 
 > [!TIP]
-> O modelo Azure Resource Manager pode criar uma nova rede virtual, se necessário. Todos os outros métodos requerem uma rede virtual existente.
-
-# <a name="resource-manager-template"></a>[Modelo de gestor de recursos](#tab/azure-resource-manager)
-
-O modelo Azure Resource Manager [https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced) proporciona uma forma fácil de criar um espaço de trabalho com um ponto final privado e rede virtual.
-
-Para obter informações sobre a utilização deste modelo, incluindo pontos finais privados, consulte [utilize um modelo de Gestor de Recursos Azure para criar um espaço de trabalho para a aprendizagem automática Azure](how-to-create-workspace-template.md).
+> Se quiser criar um espaço de trabalho, um ponto final privado e uma rede virtual ao mesmo tempo, consulte [use um modelo de Gestor de Recursos Azure para criar um espaço de trabalho para a Azure Machine Learning](how-to-create-workspace-template.md).
 
 # <a name="python"></a>[Python](#tab/python)
 
 A Azure Machine Learning Python SDK fornece a classe [PrivateEndpointConfig,](https://docs.microsoft.com/python/api/azureml-core/azureml.core.privateendpointconfig?view=azure-ml-py) que pode ser usada com [Workspace.create()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-) para criar um espaço de trabalho com um ponto final privado. Esta classe requer uma rede virtual existente.
+
+```python
+from azureml.core import Workspace
+from azureml.core import PrivateEndPointConfig
+
+pe = PrivateEndPointConfig(name='myprivateendpoint', vnet_name='myvnet', vnet_subnet_name='default')
+ws = Workspace.create(name='myworkspace',
+    subscription_id='<my-subscription-id>',
+    resource_group='myresourcegroup',
+    location='eastus2',
+    private_endpoint_config=pe,
+    private_endpoint_auto_approval=True,
+    show_output=True)
+```
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -67,6 +75,78 @@ A [extensão Azure CLI para machine learning](reference-azure-machine-learning-c
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 O __separador Networking__ no estúdio Azure Machine Learning permite-lhe configurar um ponto final privado. No entanto, requer uma rede virtual existente. Para obter mais informações, consulte [Criar espaços de trabalho no portal.](how-to-manage-workspace.md)
+
+---
+
+## <a name="add-a-private-endpoint-to-a-workspace"></a>Adicione um ponto final privado a um espaço de trabalho
+
+Utilize um dos seguintes métodos para adicionar um ponto final privado a um espaço de trabalho existente:
+
+> [!IMPORTANT]
+>
+> Deve ter uma rede virtual existente para criar o ponto final privado. Também deve [desativar as políticas de rede para pontos finais privados](../private-link/disable-private-endpoint-network-policy.md) antes de adicionar o ponto final privado.
+
+> [!WARNING]
+>
+> Se tiver quaisquer metas de computação existentes associadas a este espaço de trabalho, e não estiverem por trás da mesma rede virtual em que o ponto final privado é criado, eles não funcionarão.
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+from azureml.core import Workspace
+from azureml.core import PrivateEndPointConfig
+
+pe = PrivateEndPointConfig(name='myprivateendpoint', vnet_name='myvnet', vnet_subnet_name='default')
+ws = Workspace.from_config()
+ws.add_private_endpoint(private_endpoint_config=pe, private_endpoint_auto_approval=True, show_output=True)
+```
+
+Para obter mais informações sobre as classes e métodos utilizados neste exemplo, consulte [PrivateEndpointConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.privateendpointconfig?view=azure-ml-py) e [Workspace.add_private_endpoint](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#add-private-endpoint-private-endpoint-config--private-endpoint-auto-approval-true--location-none--show-output-true--tags-none-).
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+A [extensão Azure CLI para machine learning](reference-azure-machine-learning-cli.md) fornece o comando de [az ml workspace private-endpoint.](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace/private-endpoint?view=azure-cli-latest#ext_azure_cli_ml_az_ml_workspace_private_endpoint_add)
+
+```azurecli
+az ml workspace private-endpoint add -w myworkspace  --pe-name myprivateendpoint --pe-auto-approval true --pe-vnet-name myvnet
+```
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+A partir do espaço de trabalho Azure Machine Learning no portal, selecione __ligações de ponto final privado e,__ em seguida, selecione __+ ponto final privado__. Use os campos para criar um novo ponto final privado.
+
+* Ao selecionar a __Região,__ selecione a mesma região que a sua rede virtual. 
+* Ao selecionar __o tipo de recurso,__ utilize __o Microsoft.MachineLearningServices/workspaces__. 
+* Desaprote o __recurso__ para o nome do seu espaço de trabalho.
+
+Por fim, __selecione Criar__ para criar o ponto final privado.
+
+---
+
+## <a name="remove-a-private-endpoint"></a>Remover um ponto final privado
+
+Utilize um dos seguintes métodos para remover um ponto final privado de um espaço de trabalho:
+
+# <a name="python"></a>[Python](#tab/python)
+
+Utilize [Workspace.delete_private_endpoint_connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#delete-private-endpoint-connection-private-endpoint-connection-name-) para remover um ponto final privado.
+
+```python
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+# get the connection name
+_, _, connection_name = ws.get_details()['privateEndpointConnections'][0]['id'].rpartition('/')
+ws.delete_private_endpoint_connection(private_endpoint_connection_name=connection_name)
+```
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+A [extensão Azure CLI para machine learning](reference-azure-machine-learning-cli.md) fornece o comando de [exclusão do espaço de trabalho az ml.](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace/private-endpoint?view=azure-cli-latest#ext_azure_cli_ml_az_ml_workspace_private_endpoint_delete)
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+A partir do espaço de trabalho Azure Machine Learning no portal, selecione __as ligações de ponto final privados__e, em seguida, selecione o ponto final que pretende remover. Por fim, selecione __Remover__.
 
 ---
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3cb22bc2cd032e51dcdb7429e2c0684c578b0870
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a7dedea2937c9cafb4216da3628aa1360ad6993
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89005654"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173010"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Gestão do consumo de recursos e carga em Tecido de Serviço com métricas
 *As métricas* são os recursos que os seus serviços preocupam e que são fornecidos pelos nós no cluster. Uma métrica é tudo o que pretende gerir para melhorar ou monitorizar o desempenho dos seus serviços. Por exemplo, pode ver o consumo de memória para saber se o seu serviço está sobrecarregado. Outra utilidade é descobrir se o serviço poderia mover-se para outro lugar onde a memória é menos limitada para obter um melhor desempenho.
@@ -19,7 +19,7 @@ ms.locfileid: "89005654"
 Coisas como memória, disco e uso de CPU são exemplos de métricas. Estas métricas são métricas físicas, recursos que correspondem a recursos físicos no nó que precisam de ser geridos. As métricas também podem ser (e geralmente são) métricas lógicas. Métricas lógicas são coisas como "MyWorkQueueDepth" ou "MessagesToProcess" ou "TotalRecords". As métricas lógicas são definidas pela aplicação e correspondem indiretamente a algum consumo físico de recursos. As métricas lógicas são comuns porque pode ser difícil medir e reportar o consumo de recursos físicos numa base de serviço. A complexidade de medir e reportar as suas próprias métricas físicas é também a razão pela qual o Service Fabric fornece algumas métricas padrão.
 
 ## <a name="default-metrics"></a>Métricas padrão
-Digamos que quer começar a escrever e a implementar o seu serviço. Neste momento não sabe que recursos físicos ou lógicos consome. Não há problema! O Gestor de Recursos do Cluster de Tecido de Serviço utiliza algumas métricas padrão quando não são especificadas outras métricas. A saber:
+Digamos que quer começar a escrever e a implementar o seu serviço. Neste momento não sabe que recursos físicos ou lógicos consome. Não há problema! O Gestor de Recursos do Cluster de Tecido de Serviço utiliza algumas métricas padrão quando não são especificadas outras métricas. São:
 
   - PrimaryCount - contagem de réplicas primárias no nó 
   - ReplicaCount - contagem de réplicas totais no nó
@@ -29,7 +29,7 @@ Digamos que quer começar a escrever e a implementar o seu serviço. Neste momen
 | --- | --- | --- | --- | --- |
 | Contagem primária |0 |0 |1 |Alto |
 | ReplicaCount |0 |1 |1 |Médio |
-| Contagem |1 |1 |1 |Baixo |
+| de palavras |1 |1 |1 |Baixo |
 
 
 Para cargas de trabalho básicas, as métricas padrão proporcionam uma distribuição decente do trabalho no cluster. No exemplo seguinte, vamos ver o que acontece quando criamos dois serviços e dependemos das métricas padrão para equilibrar. O primeiro serviço é um serviço imponente com três divisórias e uma réplica de três tamanhos. O segundo serviço é um serviço apátrida com uma divisória e uma contagem de três casos.
@@ -138,12 +138,13 @@ Agora, vamos analisar cada uma destas configurações com mais detalhes e falar 
 ## <a name="load"></a>Carregamento
 O objetivo de definir métricas é representar alguma carga. *A carga* é a quantidade de uma determinada métrica consumida por alguma instância de serviço ou réplica num dado nó. A carga pode ser configurada em quase qualquer ponto. Por exemplo:
 
-  - A carga pode ser definida quando um serviço é criado. Isto chama-se _carga predefinida._
-  - As informações métricas, incluindo cargas predefinidos, para um serviço podem ser atualizadas após a criação do serviço. Isto _chama-se atualizar um serviço._ 
-  - As cargas para uma determinada partição podem ser reiniciadas para os valores predefinidos para esse serviço. Isto _chama-se reposição da carga de partição._
-  - A carga pode ser reportada numa base de objeto de serviço dinamicamente durante o tempo de funcionaamento. Isto chama-se _carga de reportagem._ 
-  
-Todas estas estratégias podem ser usadas dentro do mesmo serviço ao longo da sua vida. 
+  - A carga pode ser definida quando um serviço é criado. Este tipo de configuração de carga chama-se _carga predefinida_.
+  - As informações métricas, incluindo cargas predefinidos, para um serviço podem ser atualizadas após a criação do serviço. Esta atualização métrica é feita _através da atualização de um serviço._
+  - As cargas para uma determinada partição podem ser reiniciadas para os valores predefinidos para esse serviço. Esta atualização métrica chama-se _reposição da carga de partição_.
+  - A carga pode ser reportada por cada objeto de serviço, dinamicamente durante o tempo de funcionaamento. Esta atualização métrica chama-se _carga de reporte_.
+  - A carga para réplicas ou instâncias de partição também pode ser atualizada reportando valores de carga através de uma chamada de API de tecido. Esta atualização métrica chama-se _carga de reporte para uma partição_.
+
+Todas estas estratégias podem ser usadas dentro do mesmo serviço ao longo da sua vida.
 
 ## <a name="default-load"></a>Carga predefinida
 *A carga predefinitiva* é a quantidade de métrica que cada objeto de serviço (instância apátrida ou réplica imponente) deste serviço consome. O Cluster Resource Manager utiliza este número para a carga do objeto de serviço até receber outras informações, como um relatório de carga dinâmico. Para serviços mais simples, a carga predefinida é uma definição estática. A carga predefinida nunca é atualizada e é utilizada durante o tempo de vida do serviço. As cargas predefinidos funcionam muito bem para cenários simples de planeamento de capacidade, onde determinadas quantidades de recursos são dedicadas a diferentes cargas de trabalho e não mudam.
@@ -175,6 +176,67 @@ this.Partition.ReportLoad(new List<LoadMetric> { new LoadMetric("CurrentConnecti
 ```
 
 Um serviço pode reportar qualquer uma das métricas definidas para ele no momento da criação. Se um serviço reportar a carga para uma métrica que não está configurada para usar, o Service Fabric ignora esse relatório. Se houver outras métricas reportadas ao mesmo tempo que sejam válidas, esses relatórios são aceites. O código de serviço pode medir e reportar todas as métricas que sabe fazer, e os operadores podem especificar a configuração métrica a utilizar sem terem de alterar o código de serviço. 
+
+## <a name="reporting-load-for-a-partition"></a>Carga de reporte para uma partição
+A secção anterior descreve como as réplicas de serviço ou casos reportam a si mesmos. Existe uma opção adicional para reportar dinamicamente a carga com o FabricClient. Ao reportar a carga para uma partição, pode apresentar-se para várias divisórias ao mesmo tempo.
+
+Esses relatórios serão utilizados exatamente da mesma forma que os relatórios de carga provenientes das réplicas ou dos próprios casos. Os valores reportados serão válidos até que sejam reportados novos valores de carga, quer pela réplica, quer por exemplo, quer por reportar um novo valor de carga para uma partição.
+
+Com esta API, existem várias formas de atualizar a carga no cluster:
+
+  - Uma divisória de serviço estatal pode atualizar a sua carga de réplica primária.
+  - Tanto os serviços apátridas como os serviços estatais podem atualizar a carga de todas as suas réplicas secundárias ou instâncias.
+  - Tanto os serviços apátridas como os serviços estatais podem atualizar a carga de uma réplica ou instância específica num nó.
+
+Também é possível combinar qualquer uma dessas atualizações por partição ao mesmo tempo.
+
+A atualização das cargas para múltiplas divisórias é possível com uma única chamada API, caso em que a saída conterá uma resposta por partição. Caso a atualização da partição não seja aplicada com sucesso por qualquer motivo, serão ignoradas atualizações para essa partição e será fornecido o código de erro correspondente para uma partição direcionada:
+
+  - PartitionNotFound - ID de partição especificada não existe.
+  - Reconfiguração Gastos - A partição está atualmente a reconfigurar.
+  - InvalidForStatelessServices - Foi feita uma tentativa de alterar a carga de uma réplica primária para uma partição pertencente a um serviço apátrida.
+  - ReplicaDoesNotExist - Réplica ou instância secundária não existe num nó especificado.
+  - InválidaOperação - Pode acontecer em dois casos: a atualização da carga para uma partição que pertence à aplicação do Sistema ou a atualização da carga prevista não está ativada.
+
+Se alguns desses erros forem devolvidos, pode atualizar a entrada para uma partição específica e voltar a tentar a atualização para uma partição específica.
+
+Código:
+
+```csharp
+Guid partitionId = Guid.Parse("53df3d7f-5471-403b-b736-bde6ad584f42");
+string metricName0 = "CustomMetricName0";
+List<MetricLoadDescription> newPrimaryReplicaLoads = new List<MetricLoadDescription>()
+{
+    new MetricLoadDescription(metricName0, 100)
+};
+
+string nodeName0 = "NodeName0";
+List<MetricLoadDescription> newSpecificSecondaryReplicaLoads = new List<MetricLoadDescription>()
+{
+    new MetricLoadDescription(metricName0, 200)
+};
+
+OperationResult<UpdatePartitionLoadResultList> updatePartitionLoadResults =
+    await this.FabricClient.UpdatePartitionLoadAsync(
+        new UpdatePartitionLoadQueryDescription
+        {
+            PartitionMetricLoadDescriptionList = new List<PartitionMetricLoadDescription>()
+            {
+                new PartitionMetricLoadDescription(
+                    partitionId,
+                    newPrimaryReplicaLoads,
+                    new List<MetricLoadDescription>(),
+                    new List<ReplicaMetricLoadDescription>()
+                    {
+                        new ReplicaMetricLoadDescription(nodeName0, newSpecificSecondaryReplicaLoads)
+                    })
+            }
+        },
+        this.Timeout,
+        cancellationToken);
+```
+
+Com este exemplo, irá realizar uma atualização da última carga reportada para uma partição _53df3d7f-5471-403b-b736-bde6ad584f42_. A carga de réplica primária para um _Nome métrico PersonalizadoMétrico será_ atualizada com o valor 100. Ao mesmo tempo, a carga para a mesma métrica para uma réplica secundária específica localizada no _nó NodeName0_, será atualizada com o valor 200.
 
 ### <a name="updating-a-services-metric-configuration"></a>Atualizar a configuração métrica de um serviço
 A lista de métricas associadas ao serviço, e as propriedades dessas métricas podem ser atualizadas dinamicamente enquanto o serviço está ao vivo. Isto permite a experimentação e flexibilidade. Alguns exemplos de quando isto é útil são:

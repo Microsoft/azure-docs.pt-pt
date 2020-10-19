@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a configurar, iniciar e gerir operações de 
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 42af6ae69699be7eefac0aca2bcd22b1e25720b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ba22c51c7a6c26a232ed20aec21fc83d2c54b37
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89506632"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171452"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Faça backup do Azure VM usando Azure Backup via REST API
 
@@ -437,7 +437,7 @@ Se o VM Azure já estiver apoiado, pode especificar a lista de discos a apoiar o
 > [!IMPORTANT]
 > O órgão de pedido acima é sempre a cópia final dos discos de dados a excluir ou incluído. Isto não *aumenta* a configuração anterior. Por exemplo: Se atualizar a proteção como "excluir o disco de dados 1" e depois repetir com "excluir o disco de dados 2", apenas o *disco de dados 2 está excluído* nas cópias de segurança subsequentes e o disco de dados 1 será incluído. Esta é sempre a lista final que será incluída/excluída nas cópias de segurança subsequentes.
 
-Para obter a lista atual de discos excluídos ou incluídos, obtenha as informações de produto protegido, conforme [mencionado aqui.](https://docs.microsoft.com/rest/api/backup/protecteditems/get) A resposta fornecerá a lista de LUNs de disco de dados e indica se estão incluídas ou excluídas.
+Para obter a lista atual de discos excluídos ou incluídos, obtenha as informações de produto protegido, conforme [mencionado aqui.](/rest/api/backup/protecteditems/get) A resposta fornecerá a lista de LUNs de disco de dados e indica se estão incluídas ou excluídas.
 
 ### <a name="stop-protection-but-retain-existing-data"></a>Parar a proteção, mas reter os dados existentes
 

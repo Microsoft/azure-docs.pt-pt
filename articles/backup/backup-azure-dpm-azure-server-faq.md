@@ -4,12 +4,12 @@ description: Neste artigo, descubra respostas a perguntas comuns sobre o Microso
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.openlocfilehash: d0a5c1b5800bbc626453ba8896dc706a0cd5bfd4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd974181c78586f915dad6cc6ed39d9255a1456b
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324948"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172576"
 ---
 # <a name="azure-backup-server-and-dpm---faq"></a>Azure Backup Server e DPM - FAQ
 
@@ -23,11 +23,11 @@ Sim.
 
 ### <a name="can-i-register-the-server-to-multiple-vaults"></a>Posso registar o servidor em vários cofres?
 
-N.º Um servidor DPM ou Azure Backup pode ser registado em apenas um cofre.
+Não. Um servidor DPM ou Azure Backup pode ser registado em apenas um cofre.
 
 ### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>Posso usar o DPM para fazer o back up apps em Azure Stack?
 
-N.º Pode utilizar o Azure Backup para proteger o Azure Stack, o Azure Backup não suporta o uso de DPM para apoiar aplicações em Azure Stack.
+Não. Pode utilizar o Azure Backup para proteger o Azure Stack, o Azure Backup não suporta o uso de DPM para apoiar aplicações em Azure Stack.
 
 ### <a name="if-ive-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-back-up-on-premises-workloads-to-azure"></a>Se instalei o agente Azure Backup para proteger os meus ficheiros e pastas, posso instalar o System Center DPM para fazer cópias de segurança no local para o Azure?
 
@@ -39,7 +39,7 @@ Para os servidores DPM com fontes de dados protegidas à nuvem (utilizando um ro
 
 ### <a name="are-there-recommendations-for-configuring-exclusions-for-antivirus-software"></a>Existem recomendações para configurar exclusões para software antivírus?
 
-Sim, é recomendado para configurar a exclusão antivírus. Para obter exclusões para DPM, consulte [executar o software antivírus no servidor DPM](https://docs.microsoft.com/system-center/dpm/run-antivirus-server). Para exclusões para MABS, consulte [o antivírus configurado para o servidor MABS](backup-azure-mabs-troubleshoot.md#configure-antivirus-for-mabs-server).
+Sim, é recomendado para configurar a exclusão antivírus. Para obter exclusões para DPM, consulte [executar o software antivírus no servidor DPM](/system-center/dpm/run-antivirus-server). Para exclusões para MABS, consulte [o antivírus configurado para o servidor MABS](backup-azure-mabs-troubleshoot.md#configure-antivirus-for-mabs-server).
 
 ## <a name="vmware-and-hyper-v-backup"></a>Backup VMware e Hyper-V
 

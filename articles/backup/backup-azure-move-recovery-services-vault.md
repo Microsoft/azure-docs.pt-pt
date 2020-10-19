@@ -4,12 +4,12 @@ description: Instruções sobre como mover um cofre dos Serviços de Recuperaç�
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 55c906585e6f6d4a2ae3f2279b2c3ffbaaccb025
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: bd1870e803f5051e2a65a6cddbb72406421d4fc3
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056434"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171605"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Mover um cofre de serviços de recuperação através de subscrições e grupos de recursos Azure
 
@@ -178,7 +178,7 @@ Se precisar de manter os dados protegidos atuais no cofre antigo e continuar a p
   - Só poderá restaurar os dados de apoio para pontos de recuperação não passados no antigo cofre.
   - Uma nova réplica inicial dos dados terá de ser criada no novo cofre.
 
-- Para um Azure VM, pode [parar a proteção com os dados](backup-azure-manage-vms.md#stop-protecting-a-vm) de retenção para o VM no cofre antigo, mover o VM para outro grupo de recursos e, em seguida, proteger o VM no novo cofre. Consulte [orientação e limitações](https://docs.microsoft.com/azure/azure-resource-manager/management/move-limitations/virtual-machines-move-limitations) para mover um VM para outro grupo de recursos.
+- Para um Azure VM, pode [parar a proteção com os dados](backup-azure-manage-vms.md#stop-protecting-a-vm) de retenção para o VM no cofre antigo, mover o VM para outro grupo de recursos e, em seguida, proteger o VM no novo cofre. Consulte [orientação e limitações](../azure-resource-manager/management/move-limitations/virtual-machines-move-limitations.md) para mover um VM para outro grupo de recursos.
 
   Um VM só pode ser protegido num cofre de cada vez. No entanto, o VM do novo grupo de recursos pode ser protegido no novo cofre, uma vez que é considerado um VM diferente.
 

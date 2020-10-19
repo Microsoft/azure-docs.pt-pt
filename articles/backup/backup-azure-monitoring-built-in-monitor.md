@@ -4,16 +4,18 @@ description: Neste artigo, conheça as capacidades de monitorização e notifica
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: d04f57c19e31b946f7c360edb796bc4f0f5fcf71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 978e98bc623cecd768b1f2dda0a129e0459521da
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89377408"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174010"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitorização das cargas de trabalho de backup do Azure
 
 O Azure Backup fornece múltiplas soluções de backup baseadas na necessidade de backup e topologia de infraestrutura (On-premis vs Azure). Qualquer utilizador ou administrador de backup deve ver o que se passa em todas as soluções e pode esperar ser notificado em cenários importantes. Este artigo detalha as capacidades de monitorização e notificação fornecidas pelo serviço Azure Backup.
+
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 ## <a name="backup-jobs-in-recovery-services-vault"></a>Trabalhos de reserva no cofre dos Serviços de Recuperação
 
@@ -36,6 +38,9 @@ Não são apresentados trabalhos do Gestor de Proteção de Dados do Centro de S
 > Cargas de trabalho azure como as cópias de segurança SQL e SAP HANA dentro dos VMs Azure têm um grande número de trabalhos de backup. Por exemplo, os backups de registo podem ser executados a cada 15 minutos. Assim, para tais cargas de trabalho DB, apenas são apresentadas operações acionadas pelo utilizador. As operações de reserva programadas não são apresentadas.
 
 ## <a name="backup-alerts-in-recovery-services-vault"></a>Alertas de backup no cofre dos Serviços de Recuperação
+
+> [!NOTE]
+> A visualização de alertas através de cofres não é suportada no Backup Center. Tens de navegar até um cofre individual para ver alertas para aquele cofre.
 
 Os alertas são principalmente cenários em que os utilizadores são notificados para que possam tomar medidas relevantes. A secção **alertas de cópia** de segurança mostra alertas gerados pelo serviço Azure Backup. Estes alertas são definidos pelo serviço e o utilizador não pode criar alertas personalizados.
 
@@ -63,7 +68,7 @@ Para soluções de backup de carga de trabalho Azure, como SQL e SAP HANA, os ba
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>Exceções quando um alerta não é levantado
 
-Há poucas exceções quando um alerta não é levantado sobre um fracasso. A saber:
+Há poucas exceções quando um alerta não é levantado sobre um fracasso. São:
 
 - O utilizador cancelou explicitamente o trabalho de execução
 - O trabalho falha porque outro trabalho de reserva está em andamento (nada para agir aqui, uma vez que só temos que esperar que o trabalho anterior termine)

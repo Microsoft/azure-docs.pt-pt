@@ -3,12 +3,12 @@ title: Configurar relatórios do Azure Backup
 description: Configure e veja relatórios para Azure Backup usando diários de log analytics e Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: d40da1ebd87ef7d7a43d0be9ae0d34911e854d0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11893488c59781bb78cf913a30069e920c66bc71
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567439"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172456"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios do Azure Backup
 
@@ -30,6 +30,8 @@ Hoje, a Azure Backup fornece uma solução de reporte que utiliza [registos do A
 - Se é um utilizador do [Azure Lighthouse](../lighthouse/index.yml) com acesso delegado às subscrições dos seus clientes, pode utilizar estes relatórios com o Farol Azure para visualizar relatórios em todos os seus inquilinos.
 - Atualmente, os dados podem ser vistos em Relatórios de Backup em um máximo de 100 log analytics workspaces (entre inquilinos).
 - Os dados relativos aos trabalhos de backup de registos atualmente não estão nos relatórios.
+
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 ## <a name="get-started"></a>Introdução
 

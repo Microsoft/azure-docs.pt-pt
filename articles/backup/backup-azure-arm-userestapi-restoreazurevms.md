@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a gerir as operações de restauro da Cópia 
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: ad60436d82ccc8049a4509ba5bf1e244bee150ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 260c78af39c46e493ebb79c26ff1c55153a41c1d
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89506683"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174030"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Restaurar máquinas virtuais Azure usando REST API
 
@@ -122,7 +122,7 @@ Depois de selecionar o [ponto de restauro relevante,](#select-recovery-point)pro
 ***Todas as operações de restauro no item de backup são realizadas com a mesma *API POST.* Apenas o corpo pedido muda com os cenários de restauro.***
 
 > [!IMPORTANT]
-> Todos os detalhes sobre várias opções de restauro e suas dependências são mencionados [aqui.](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-options) Por favor, reveja antes de começar a desencadear estas operações.
+> Todos os detalhes sobre várias opções de restauro e suas dependências são mencionados [aqui.](./backup-azure-arm-restore-vms.md#restore-options) Por favor, reveja antes de começar a desencadear estas operações.
 
 Desencadear operações de restauro é um pedido *de CORREIO.* Para saber mais sobre a API, consulte a [API DE "gatilho restaurador".](/rest/api/backup/restores/trigger)
 
@@ -246,7 +246,7 @@ O seguinte pedido do corpo define as propriedades necessárias para desencadear 
 
 ### <a name="restore-disks-selectively"></a>Restaurar os discos seletivamente
 
-Se estiver [a fazer o backup seletivo](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup)dos discos, a lista de discos com suporte atual é fornecida no resumo do ponto de [recuperação](#select-recovery-point) e [na resposta detalhada](https://docs.microsoft.com/rest/api/backup/recoverypoints/get). Também pode restaurar seletivamente os discos e mais detalhes são fornecidos [aqui.](selective-disk-backup-restore.md#selective-disk-restore) Para restaurar seletivamente um disco entre a lista de discos retroseridos, encontre o LUN do disco a partir da resposta do ponto de recuperação e adicione a propriedade **restauradaDiskLunList** ao [corpo de pedido acima,](#example-request) como mostrado abaixo.
+Se estiver [a fazer o backup seletivo](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup)dos discos, a lista de discos com suporte atual é fornecida no resumo do ponto de [recuperação](#select-recovery-point) e [na resposta detalhada](/rest/api/backup/recoverypoints/get). Também pode restaurar seletivamente os discos e mais detalhes são fornecidos [aqui.](selective-disk-backup-restore.md#selective-disk-restore) Para restaurar seletivamente um disco entre a lista de discos retroseridos, encontre o LUN do disco a partir da resposta do ponto de recuperação e adicione a propriedade **restauradaDiskLunList** ao [corpo de pedido acima,](#example-request) como mostrado abaixo.
 
 ```json
 {

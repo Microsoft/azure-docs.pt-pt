@@ -4,12 +4,12 @@ description: Neste artigo, aprenda sobre a cópia de segurança seletiva do disc
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: ce7e53bc740882a819e8a21e3ac95ab47d3b876a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21e4ead8b3302ceef4cc53c126b9eab5784544b4
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91271380"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174114"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Backup seletivo de disco e restauro para máquinas virtuais Azure
 
@@ -185,7 +185,7 @@ az backup item show -c {vmname} -n {vmname} --vault-name {vaultname} --resource-
 
 Quando executar estes comandos, `"diskExclusionProperties": null` verá.
 
-## <a name="using-powershell"></a>Com o PowerShell
+## <a name="using-powershell"></a>Utilizar o PowerShell
 
 Certifique-se de que está a utilizar a versão 3.7.0 ou superior do Azure PowerShell.
 
@@ -240,6 +240,8 @@ Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "
 ```
 
 ## <a name="using-the-azure-portal"></a>Utilizar o portal do Azure
+
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 Utilizando o portal Azure, pode ver os discos incluídos e excluídos do painel de detalhes de backup VM e o painel de detalhes do trabalho de backup.  Durante a restauração, quando selecionar o ponto de recuperação para restaurar, pode visualizar os discos retrossacos nesse ponto de recuperação.
 

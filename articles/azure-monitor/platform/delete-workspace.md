@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: 292e446d5b713a43f77ee5e579d7e6dd5905ff69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ce048ea8c9a4414b1c9f049569251c39d931c9a
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448533"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174161"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Apagar e recuperar o espaço de trabalho do Azure Log Analytics
 
@@ -78,7 +78,7 @@ Pode recuperar o seu espaço de trabalho durante o período de eliminação suav
 - ID da subscrição
 - Nome do Grupo de Recursos
 - Nome da área de trabalho
-- Region
+- Região
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -112,6 +112,9 @@ Deve ter pelo menos permissões *do Log Analytics Contributor* para eliminar um 
 * Se receber uma mensagem de erro *Este nome do espaço de trabalho já está em uso* ou em *conflito* ao criar um espaço de trabalho, pode ser desde:
   * O nome do espaço de trabalho não está disponível e é usado por alguém da sua organização, ou por outro cliente.
   * O espaço de trabalho foi apagado nos últimos 14 dias e o seu nome manteve-se reservado para o período de eliminação suave. Para anular o soft-delete e eliminar permanentemente o seu espaço de trabalho para criar um novo espaço de trabalho com o mesmo nome, siga estes passos para recuperar primeiro o espaço de trabalho e realizar a eliminação permanente:<br>
-     1. [Recupere](#recover-workspace) o seu espaço de trabalho.
-     2. [Elimine permanentemente](#permanent-workspace-delete) o seu espaço de trabalho.
-     3. Crie um novo espaço de trabalho usando o mesmo nome do espaço de trabalho.
+    1. [Recupere](#recover-workspace) o seu espaço de trabalho.
+    2. [Elimine permanentemente](#permanent-workspace-delete) o seu espaço de trabalho.
+    3. Crie um novo espaço de trabalho usando o mesmo nome do espaço de trabalho.
+* Se vir um código de resposta 204 que mostre *recursos não encontrados,* a causa pode ser tentativas consecutivas de utilização da operação de espaço de trabalho. 204 é uma resposta vazia, o que geralmente significa que o recurso não existe, então a eliminação completa sem fazer nada.
+  Após a chamada de eliminação ter sido concluída com sucesso na parte de trás, pode restaurar o espaço de trabalho e completar a operação de eliminação permanente num dos métodos sugeridos anteriormente.
+
