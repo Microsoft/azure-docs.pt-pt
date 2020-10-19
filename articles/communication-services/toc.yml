@@ -34,6 +34,8 @@
           href: quickstarts/voice-video-calling/getting-started-with-calling.md
         - name: Utilizar a biblioteca de cliente de chamadas
           href: quickstarts/voice-video-calling/calling-client-samples.md
+        - name: Associe a sua aplicação de chamadas a uma reunião do Teams
+          href: quickstarts/voice-video-calling/get-started-teams-interop.md
 - name: Tutorials (Tutoriais)
   expanded: false
   items:
@@ -62,6 +64,8 @@
           href: concepts/voice-video-calling/calling-sdk-features.md
         - name: Conceitos de voz e vídeo
           href: concepts/voice-video-calling/about-call-types.md
+        - name: Interoperabilidade com o Teams
+          href: concepts/voice-video-calling/teams-interop.md
     - name: Arquitetura de cliente e servidor
       href: concepts/client-and-server-architecture.md
     - name: Fluxos de chamada

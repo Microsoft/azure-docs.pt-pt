@@ -482,7 +482,11 @@
               href: ../cosmos-db/configure-synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Ligar ao Azure Synapse Link para Cosmos DB
               href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
-            - name: Consultar loja analítica do Cosmos DB com o Apache Spark para o Azure Synapse Analytics
+            - name: Utilizar o Power BI e o conjunto de SQL sem servidor para analisar o Azure Cosmos DB
+              href: ../cosmos-db/synapse-link-power-bi.mdtoc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Consultar dados do Azure Cosmos DB com o conjunto de SQL sem servidor
+              href: ./sql/query-cosmos-db-analytical-store.md
+            - name: Consultar o arquivo de análise do Azure Cosmos DB com o Apache Spark
               href: ./synapse-link/how-to-query-analytical-store-spark.md
             - name: Copiar dados do Synapse Link para um conjunto de SQL com o Apache Spark
               href: ./synapse-link/how-to-copy-to-sql-pool.md

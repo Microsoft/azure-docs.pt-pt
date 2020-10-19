@@ -37,6 +37,8 @@
       href: create-certificate.md
     - name: Criar pedido de assinatura de certificado
       href: create-certificate-signing-request.md
+    - name: Controlo de acesso a certificados
+      href: certificate-access-control.md
 - name: Guias de procedimentos
   items:
     - name: Integrar o Key Vault na AC da DigiCert

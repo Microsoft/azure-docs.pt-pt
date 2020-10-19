@@ -6,10 +6,8 @@
       href: introduction.md
 - name: Início rápido
   items:
-    - name: Processo de pré-implementação
+    - name: 0 - Planear a implementação
       href: production-ready-deployment-steps.md
-    - name: Lista de verificação de pré-implementação
-      href: pre-deployment-checklist.md
     - name: 1 - Implementar o Azure VMware Solution
       href: deploy-azure-vmware-solution.md
     - name: 2 - Ligar no local
@@ -104,3 +102,7 @@
           href: fix-deployment-provisioning-failures.md
     - name: FAQ
       href: faq.md
+- name: Referência
+  items:
+    - name: Azure PowerShell
+      href: /powershell/module/az.vmware
