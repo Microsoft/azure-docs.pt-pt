@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: 848894518077ca41d3166570bf0dc39914f1c439
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 5fb00fb6382bb53f40ad63a95c880c47f91cae2f
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131161"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201669"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Quickstart - Explore uma amostra do cenário Azure Digital Twins usando o ADT Explorer
 
@@ -47,18 +47,17 @@ O primeiro passo para trabalhar com a Azure Digital Twins é criar uma **instân
 
 Também irá configurar permissões para o ADT Explorer funcionar no seu computador e aceder à sua instância Azure Digital Twins. Isto permitir-lhe-á utilizar a aplicação da amostra para explorar o seu exemplo e os seus dados.
 
-### <a name="set-up-azure-digital-twins-instance"></a>Configurar a instância Azure Digital Twins
+### <a name="set-up-azure-digital-twins-instance-and-app-registration"></a>Configurar a instância Azure Digital Twins e o registo de aplicações
 
-Em primeiro lugar, crie uma instância Azure Digital Twins e a autenticação necessária para poder trabalhar com ela. Para isso, siga as instruções em [*Como-a-: Configurar uma instância e autenticação*](how-to-set-up-instance-portal.md). Dependendo da sua experiência preferida, o artigo de configuração é oferecido para o [portal Azure,](how-to-set-up-instance-portal.md) [CLI,](how-to-set-up-instance-cli.md)ou [amostra de script de implementação automatizada da Cloud Shell](how-to-set-up-instance-scripted.md). Todas as versões das instruções também contêm passos para verificar se completou cada passo com sucesso e estão prontos para passar a usar a sua nova instância.
+Em primeiro lugar, **crie uma instância Azure Digital Twins** e a autenticação necessária para poder trabalhar com ela. Para isso, siga as instruções em [*Como-a-: Configurar uma instância e autenticação*](how-to-set-up-instance-portal.md). Dependendo da sua experiência preferida, o artigo de configuração é oferecido para o [portal Azure,](how-to-set-up-instance-portal.md) [CLI,](how-to-set-up-instance-cli.md)ou [amostra de script de implementação automatizada da Cloud Shell](how-to-set-up-instance-scripted.md). Todas as versões das instruções também contêm passos para verificar se completou cada passo com sucesso e estão prontos para passar a usar a sua nova instância.
+* Depois de configurar o seu exemplo Azure Digital Twins, você precisará do nome de **_anfitrião_** do caso[(encontre no portal).](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)
 
-Neste arranque rápido, necessitará dos seguintes valores a partir de quando configurar o seu caso. Se precisar de voltar a recolher estes valores, utilize os links abaixo para as secções correspondentes no artigo de configuração para os encontrar no [portal Azure](https://portal.azure.com).
-* Nome **_de anfitrião_** de exemplo de Azure Digital Twins[(encontre no portal)](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)
-* Aplicação de registo de aplicações AD AZure **_(cliente) ID_** [(find in portal)](how-to-set-up-instance-portal.md#collect-important-values)
-* Diretório de registo de aplicativoS Azure **_AD (inquilino) ID_** [(find in portal)](how-to-set-up-instance-portal.md#collect-important-values)
+Para autenticar a aplicação ADT Explorer, também terá de configurar um **registo de aplicações.** Siga as instruções em [*Como-a: Crie um registo de aplicações*](how-to-create-app-registration.md) para configurar isto. 
+* Uma vez que tenha um registo de aplicações, você precisará do ID de **_Aplicação (cliente)_** do registo e **_diretório (inquilino)_** [(encontre-os no portal.](how-to-create-app-registration.md#collect-client-id-and-tenant-id)
 
 ### <a name="set-adt-explorer-permissions"></a>Definir permissões do Explorador ADT
 
-Em seguida, prepare a instância Azure Digital Twins que criou para trabalhar com o ADT Explorer, que é uma aplicação web hospedada localmente. Visite a página [de registos](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) da App no portal Azure e selecione o nome do registo da sua aplicação na lista.
+Em seguida, prepare a instância Azure Digital Twins que criou para trabalhar com o ADT Explorer, que é uma aplicação web hospedada localmente. Visite a página [de registos](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) da App no portal Azure e selecione o nome do registo da sua **aplicação** que criou na secção anterior da lista.
 
 Selecione *autenticação* no menu do registo e *acerte + Adicione uma plataforma*.
 

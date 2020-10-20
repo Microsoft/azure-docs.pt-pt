@@ -5,14 +5,14 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: f3fd214fa62d95430bd8ca62e78fd3df30c77d19
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4a3325592c2085034473163cb886ba2b8b416a30
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91652453"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205834"
 ---
-# <a name="quickstart-convert-a-model-for-rendering"></a>Quickstart: Converter um modelo para renderização
+# <a name="quickstart-convert-a-model-for-rendering"></a>Início Rápido: Converter um modelo para composição
 
 Em [Quickstart: Rendere um modelo com Unidade,](render-model.md)aprendeu a usar o projeto de amostra de Unidade para tornar um modelo incorporado. Este guia mostra como converter os seus próprios modelos.
 
@@ -27,7 +27,7 @@ Vai aprender a:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [Quickstart Completo: Rendere um modelo com Unidade](render-model.md)
-* Instalar Azure PowerShell [(documentação)](https://docs.microsoft.com/powershell/azure/)
+* Instalar Azure PowerShell [(documentação)](/powershell/azure/)
   * Abrir um PowerShell com direitos de administração
   * Corra: `Install-Module -Name Az -AllowClobber`
 
@@ -166,7 +166,7 @@ Connect-AzAccount
 ```
 
 > [!NOTE]
-> Caso a sua organização tenha mais do que uma subscrição, poderá necessitar de especificar os argumentos do SubscriptionId e do Inquilino. Encontre detalhes na [documentação Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
+> Caso a sua organização tenha mais do que uma subscrição, poderá necessitar de especificar os argumentos do SubscriptionId e do Inquilino. Encontre detalhes na [documentação Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 Mude para o `azure-remote-rendering\Scripts` diretório e execute o script de conversão:
 

@@ -5,18 +5,18 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
-ms.openlocfilehash: 31fde0c7af652bc50eb5f06743c5dd5807a1762e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 536f5e7d2fa12d1f9a9f09a31b463d2096dcad37
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91323730"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207415"
 ---
 # <a name="system-requirements"></a>Requisitos de sistema
 
 > [!IMPORTANT]
 > **A Azure Remote Rendering** está atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Este capítulo enumera os requisitos mínimos do sistema para trabalhar com *a renderização remota Azure* (ARR).
 
@@ -80,7 +80,7 @@ Certifique-se de que as suas firewalls (no dispositivo, no interior dos routers,
 Deve ser instalado o seguinte software:
 
 * A mais recente versão do **Visual Studio 2019** [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
-* [Ferramentas de Estúdio Visual para Realidade Mista.](https://docs.microsoft.com/windows/mixed-reality/install-the-tools) Especificamente, as seguintes instalações *de carga de trabalho* são obrigatórias:
+* [Ferramentas de Estúdio Visual para Realidade Mista.](/windows/mixed-reality/install-the-tools) Especificamente, as seguintes instalações *de carga de trabalho* são obrigatórias:
   * **Desenvolvimento de desktop com C++**
   * **Desenvolvimento da Plataforma Universal windows (UWP)**
 * **Windows SDK 10.0.18362.0** [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)

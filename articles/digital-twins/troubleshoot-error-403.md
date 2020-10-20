@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: bc4fbbc265bef00be27c890c3f090a49591dc415
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86fd6a5d7ca1cb9c828a4ad095720f1664b82caa
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90562745"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201448"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>O pedido de serviço falhou. Estado: 403 (Proibido)
 
@@ -29,9 +29,9 @@ Na maioria das vezes, este erro indica que as permissões de controlo de acesso 
 
 ### <a name="cause-2"></a>Causa #2
 
-Se estiver a utilizar uma aplicação para clientes para comunicar com a Azure Digital Twins, este erro pode acontecer porque o seu registo de aplicações [Azure Ative (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) não tem permissões configuradas para o serviço Azure Digital Twins.
+Se estiver a utilizar uma aplicação de cliente para comunicar com a Azure Digital Twins que está a autenticar com um [registo de aplicações](how-to-create-app-registration.md), este erro pode acontecer porque o registo da sua aplicação não tem permissões configurada para o serviço Azure Digital Twins.
 
-O registo da aplicação é necessário para ter permissões de acesso configuradas para as APIs das Gémeas Digitais Azure. Em seguida, quando a aplicação do seu cliente autenticar contra o registo da aplicação, serão concedidas as permissões que o registo da aplicação configura.
+O registo da aplicação deve ter permissões de acesso configuradas para as APIs das Gémeas Digitais Azure. Em seguida, quando a aplicação do seu cliente autenticar contra o registo da aplicação, serão concedidas as permissões que o registo da aplicação configura.
 
 ## <a name="solutions"></a>Soluções
 
@@ -59,23 +59,33 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 
 Para obter mais detalhes sobre este requisito de função e o processo de atribuição, consulte a secção de [ *permissões* ](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) de acesso do seu utilizador de *Como-a-: Configurar uma instância e autenticação (CLI ou portal)*.
 
-Se já tem esta função e ainda encontra a edição 403, continue para a próxima solução.
+Se já tem esta atribuição de funções *e* está a utilizar um registo de aplicações AD AZure para autenticar uma aplicação de clientes, pode continuar a solução seguinte se esta solução não resolver a questão 403.
 
 ### <a name="solution-2"></a>#2 de solução
 
-A segunda solução é verificar se o registo da aplicação AZure AD tem permissões configuradas para o serviço Azure Digital Twins. Se isto não estiver configurado, instale-os.
+Se estiver a utilizar um registo de aplicações AD AZure para autenticar uma aplicação para clientes, a segunda solução possível é verificar se o registo da aplicação tem permissões configuradas para o serviço Azure Digital Twins. Se estes não estiverem configurados, instale-os.
 
 #### <a name="check-current-setup"></a>Verifique a configuração atual
 
-[!INCLUDE [digital-twins-setup-verify-app-registration-1.md](../../includes/digital-twins-setup-verify-app-registration-1.md)]
+Para verificar se as permissões foram configuradas corretamente, navegue para a página geral de registo da [aplicação AD Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) no portal Azure. Você mesmo pode chegar a esta página procurando *registos de Aplicações* na barra de pesquisa do portal.
+
+Mude para o separador *Todas as aplicações* para ver todos os registos de aplicações que foram criados na sua subscrição.
+
+Você deve ver o registo de aplicações que acabou de criar na lista. Selecione-o para abrir os seus detalhes.
+
+:::image type="content" source="media/troubleshoot-error-403/app-registrations.png" alt-text="Página de registos de aplicativos no portal Azure":::
 
 Em primeiro lugar, verifique se as permissões das permissões Azure Digital Twins foram corretamente definidas no registo. Para isso, selecione *Manifesto* da barra de menu para ver o código manifesto do registo da aplicação. Percorra a parte inferior da janela de código e procure estes campos sob `requiredResourceAccess` . Os valores devem corresponder aos da imagem abaixo:
 
-[!INCLUDE [digital-twins-setup-verify-app-registration-2.md](../../includes/digital-twins-setup-verify-app-registration-2.md)]
+:::image type="content" source="media/troubleshoot-error-403/verify-manifest.png" alt-text="Página de registos de aplicativos no portal Azure":::
+
+Em seguida, selecione *permissões API* da barra de menu para verificar se este registo de aplicações contém permissões de Read/Write para Azure Digital Twins. Devia ver uma entrada como esta:
+
+:::image type="content" source="media/troubleshoot-error-403/verify-api-permissions.png" alt-text="Página de registos de aplicativos no portal Azure":::
 
 #### <a name="fix-issues"></a>Corrigir problemas
 
-Se alguma destas coisas aparecer de forma diferente da descrita, siga as instruções sobre como configurar um registo de aplicações na secção [ *De acesso a aplicações do cliente* ](how-to-set-up-instance-cli.md#set-up-access-permissions-for-client-applications) de *Como-a-: Configurar uma instância e autenticação (CLI ou portal)*.
+Se alguma destas coisas aparecer de forma diferente da descrita, siga as instruções sobre como configurar um registo de aplicações em [*How-to: Criar um registo de aplicações*](how-to-create-app-registration.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

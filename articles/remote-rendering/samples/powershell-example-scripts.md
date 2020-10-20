@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c17750fbe016e8bfa86569f34f9af26b1c6de3bd
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 32d0ebc3f37f7af4d9cdb1940f1870dbf51f86b4
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055856"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206136"
 ---
 # <a name="example-powershell-scripts"></a>Scripts do PowerShell de exemplo
 
@@ -27,13 +27,13 @@ O [repositório de amostras de ARR](https://github.com/Azure/azure-remote-render
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para executar os scripts de amostra, precisa de uma configuração funcional do [Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
+Para executar os scripts de amostra, precisa de uma configuração funcional do [Azure PowerShell](/powershell/azure/).
 
 1. Instalar o Azure PowerShell:
     1. Abra uma janela PowerShell com direitos de administração.
     1. Corra: `Install-Module -Name Az -AllowClobber`
 
-1. Se tiver erros em executar scripts, certifique-se de que a sua [política de execução](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) está definida adequadamente:
+1. Se tiver erros em executar scripts, certifique-se de que a sua [política de execução](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) está definida adequadamente:
     1. Abra uma janela PowerShell com direitos de administração.
     1. Corra: `Set-ExecutionPolicy -ExecutionPolicy Unrestricted`
 
@@ -44,7 +44,7 @@ Para executar os scripts de amostra, precisa de uma configuração funcional do 
     1. Corra: `Connect-AzAccount` e siga as instruções no ecrã.
 
     > [!NOTE]
-    > Caso a sua organização tenha mais do que uma subscrição, poderá necessitar de especificar os argumentos do SubscriptionId e do Inquilino. Encontre detalhes na [documentação Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
+    > Caso a sua organização tenha mais do que uma subscrição, poderá necessitar de especificar os argumentos do SubscriptionId e do Inquilino. Encontre detalhes na [documentação Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 1. Descarregue a pasta *Scripts* a partir do [repositório GithHub de renderização remota do Azure.](https://github.com/Azure/azure-remote-rendering)
 
@@ -276,5 +276,5 @@ Utilize `-Poll` para aguardar até que a conversão seja feita ou ocorreu um err
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Quickstart: Renderiza um modelo com Unidade](../quickstarts/render-model.md)
-- [Quickstart: Converter um modelo para renderização](../quickstarts/convert-model.md)
+- [Início Rápido: Converter um modelo para composição](../quickstarts/convert-model.md)
 - [Conversão de modelo](../how-tos/conversion/model-conversion.md)

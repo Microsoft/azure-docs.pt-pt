@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 18ee64e6866764e250cfa08a1d4721674bb66e5a
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 31660d13fe69d393a19167eaea8a69bfb6260467
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097342"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202077"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute para Fornecedores de Soluções em Nuvem (CSP)
 A Microsoft fornece serviços de hiper escala para revendedores e distribuidores (CSP) tradicionais de forma a aprovisionar novos serviços e soluções para os seus clientes sem a necessidade de investir no desenvolvimento destes novos serviços. Para permitir que o Fornecedor de Soluções em Nuvem (CSP) possa gerir diretamente estes novos serviços, a Microsoft disponibiliza programas e APIs que permitem ao CSP gerir os recursos do Microsoft Azure em nome dos seus clientes. Um destes recursos é o ExpressRoute. O ExpressRoute permite ao CSP ligar os recursos existentes do cliente aos serviços do Azure. ExpressRoute é uma ligação de comunicações privadas de alta velocidade aos serviços em Azure. 
@@ -28,7 +28,7 @@ O ExpressRoute é composto por um par de circuitos para alta disponibilidade que
 O Microsoft Azure fornece um crescente número de serviços que pode oferecer aos seus clientes. O ExpressRoute ajuda-o a si e aos seus clientes a aproveitar estes serviços, proporcionando acesso de baixa latência de alta velocidade ao ambiente microsoft Azure.
 
 ## <a name="microsoft-azure-management"></a>Gestão do Microsoft Azure
-A Microsoft fornece CSPs com APIs para gerir as subscrições de clientes Azure, permitindo a integração programática com os seus próprios sistemas de Gestão de Serviços. As capacidades de gestão suportadas podem ser encontradas [aqui](https://msdn.microsoft.com/library/partnercenter/dn974944.aspx).
+A Microsoft fornece CSPs com APIs para gerir as subscrições de clientes Azure, permitindo a integração programática com os seus próprios sistemas de Gestão de Serviços. As capacidades de gestão suportadas podem ser encontradas [aqui](/previous-versions/windows/mt844538(v=win.10)).
 
 ## <a name="microsoft-azure-resource-management"></a>Gestão dos recursos do Microsoft Azure
 O contrato celebrado com o seu cliente, este determinará a forma como a subscrição será gerida. O CSP pode gerir diretamente a criação e manutenção de recursos ou o cliente pode manter o controlo da subscrição do Microsoft Azure e criar os recursos Azure à medida que são necessários. Se o seu cliente gerir a criação de recursos na sua subscrição Microsoft Azure, utilizará um de dois modelos: modelo "*Connect-Through*" ou "*Direct-To*". Estes modelos são descritos em detalhe nas secções seguintes.  
@@ -129,6 +129,6 @@ O serviço do Fornecedor de Soluções em Nuvem permite-lhe aumentar o seu valor
 
 Pode encontrar informações adicionais nas seguintes ligações:
 
-[Programa do Fornecedor de Soluções do Azure na Cloud](https://docs.microsoft.com/azure/cloud-solution-provider).  
+[Programa do Fornecedor de Soluções do Azure na Cloud](/azure/cloud-solution-provider).  
 [Preparar-se para transacionar como um Fornecedor de Solução em Nuvem](https://partner.microsoft.com/solutions/cloud-reseller-pre-launch).  
 [Recursos do Fornecedor de Soluções do Microsoft Cloud](https://partner.microsoft.com/solutions/cloud-reseller-resources).

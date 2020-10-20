@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: a81af14992c8557c245ab3a1073f031a6c505084
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 93cf29651110356023752f2377c9a0fc358982a7
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019397"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203058"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Gerir & aumentar quotas de recursos com a Azure Machine Learning
 
@@ -178,11 +178,13 @@ Para solicitar um subsídio para estes cenários, utilize as seguintes etapas:
     | Tipo de problema | Parte Técnica |
     | Serviço | Os meus serviços. Selecione __Machine Learning__ na lista de dropdown. |
     | Tipo de problema | Configuração do espaço de trabalho, SDK e CLI |
-    | Subtipo de problema | Problema com o aprovisionamento ou a gestão da área de trabalho |
+    | Subtipo de problema | Pedido de subsídio de subsídio de Endpoint Privado e DNS Zone privado |
 
 2. A partir da secção __Detalhes,__ utilize o campo __Descrição__ para fornecer a região Azure que pretende utilizar e o cenário que pretende utilizar. Se precisar de solicitar aumentos de quota para várias subscrições, liste também os IDs de subscrição neste campo.
 
 3. Selecione __Criar__ para criar o pedido.
+
+:::image type="content" source="media/how-to-manage-quotas/quota-increase-private-endpoint.png" alt-text="Screenshot de um ponto final privado e pedido de aumento de quota de DNS privado":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

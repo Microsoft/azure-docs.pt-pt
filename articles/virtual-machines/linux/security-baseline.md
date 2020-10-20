@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9468b9c2c906ffe26bae400dc9e4746630a66e0e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ab266e1a94a647c4c1f0c42cc75fe6b6a68d9afa
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970321"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205154"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Linha de segurança Azure para Máquinas Virtuais Linux
 
@@ -760,7 +760,7 @@ Além de utilizar o Change Tracking para monitorização de aplicações de soft
 
 * [Uma introdução à Automatização do Azure](../../automation/automation-intro.md)
 
-* [Compreender o rastreio da mudança](../../automation/change-tracking.md)
+* [Compreender o rastreio da mudança](../../automation/change-tracking/overview.md)
 
 **Monitorização do Centro de Segurança Azure**: Não Disponível
 
@@ -1128,7 +1128,7 @@ Se estiver a utilizar a encriptação do disco Azure, pode restaurar o Azure VM 
 
 * [Alertas de segurança no Centro de Segurança do Azure](../../security-center/security-center-alerts-overview.md)
 
-* [Utilizar etiquetas para organizar os seus recursos do Azure](../../azure-resource-manager/management/tag-resources.md)
+* [Utilizar etiquetas para organizar os recursos do Azure](../../azure-resource-manager/management/tag-resources.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 

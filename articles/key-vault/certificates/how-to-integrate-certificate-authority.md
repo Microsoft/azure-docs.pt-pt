@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: 01383acad9f221e376f814ecf99794eb0431d0cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d02568dbb5dfc6b7feb38d353e1ba0ecd8ae25d6
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588930"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203998"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Integrar o Key Vault com a Autoridade de Certificação DigiCert
 
@@ -136,10 +136,17 @@ Para obter mais informações, consulte as operações do [Certificado na refer�
 
 - Posso gerar um certificado de wildcard digicert através do KeyVault? 
    Sim. Depende de como configuraste a tua conta de digicert.
-- Se criássemos um certificado EV, como especificar isso? 
-   Ao criar um certificado, clique na Configuração de Política Avançada e, em seguida, especifique o tipo de Certificado. Os valores suportados são: OV-SSL, EV-SSL
+- Como posso criar **certificado OV-SSL ou EV-SSL** com DigiCert?? 
+   O cofre-chave suporta a criação de certificados OV e EV SSL. Ao criar um certificado, clique na Configuração de Política Avançada e, em seguida, especifique o tipo de Certificado. Os valores suportados são: OV-SSL, EV-SSL
+   
+   Poderá criar este tipo de certificado no cofre-chave se a sua conta Digicert o permitir. Para este tipo de certificado, a validação é realizada pela DigiCert e a sua equipa de suporte poderá ajudá-lo melhor com a solução, caso a validação falhe. Pode adicionar informações adicionais ao criar um certificado definindo-as no nome do sujeito.
+
+Exemplo
+    ```SubjectName="CN = docs.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"
+    ```
+   
 - Existe um atraso de tempo na criação de certificado digicert através da integração vs aquisição de certificado através do digicert diretamente?
-   N.º Ao criar um certificado, é o processo de verificação que pode demorar e que a verificação depende do processo que a DigiCert segue.
+   Não. Ao criar um certificado, é o processo de verificação que pode demorar e que a verificação depende do processo que a DigiCert segue.
 
 
 ## <a name="next-steps"></a>Passos seguintes

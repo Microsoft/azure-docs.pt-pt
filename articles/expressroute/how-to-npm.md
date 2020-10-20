@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: duau
-ms.openlocfilehash: 7810afffd5da6d46439ff27ddb3f5b0aafdc2341
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8127a60a4685a615bc07e21a1efb4dd216c5b8c
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90981326"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201057"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurar o Monitor de Desempenho de Rede para o ExpressRoute
 
@@ -54,7 +54,7 @@ Crie um espaço de trabalho na subscrição que tenha a ligação VNets ao circu
 1. No [portal Azure,](https://portal.azure.com)selecione a Subscrição que tem os VNETs espreitados para o seu circuito ExpressRoute. Em seguida, procure a lista de serviços no **Marketplace** para 'Network Performance Monitor'. Na devolução, clique para abrir a página do Monitor de Desempenho da **Rede.**
 
    >[!NOTE]
-   >Pode criar um novo espaço de trabalho ou utilizar um espaço de trabalho existente. Se quiser utilizar um espaço de trabalho existente, deve certificar-se de que o espaço de trabalho foi migrado para a nova linguagem de consulta. [Mais informações...](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-upgrade)
+   >Pode criar um novo espaço de trabalho ou utilizar um espaço de trabalho existente. Se quiser utilizar um espaço de trabalho existente, deve certificar-se de que o espaço de trabalho foi migrado para a nova linguagem de consulta. [Mais informações...](../azure-monitor/log-query/log-query-overview.md)
    >
 
    ![portal](./media/how-to-npm/3.png)<br><br>
@@ -92,7 +92,7 @@ Crie um espaço de trabalho na subscrição que tenha a ligação VNets ao circu
 Recomendamos que instale pelo menos dois agentes em cada lado da ligação ExpressRoute para redundância (por exemplo, no local, VNETs Azure). O agente deve ser instalado num Servidor do Windows (2008 SP1 ou posterior). A monitorização dos circuitos ExpressRoute utilizando o Windows Desktop OS e o Linux OS não é suportado. Utilize os seguintes passos para instalar agentes:
    
   >[!NOTE]
-  >Os agentes pressionados pela SCOM (inclui [MMA)](https://technet.microsoft.com/library/dn465154(v=sc.12).aspx)podem não ser capazes de detetar consistentemente a sua localização se estiverem hospedados em Azure. Recomendamos que não utilize estes agentes em VNETs Azure para monitorizar o ExpressRoute.
+  >Os agentes pressionados pela SCOM (inclui [MMA)](/previous-versions/system-center/system-center-2012-R2/dn465154(v=sc.12))podem não ser capazes de detetar consistentemente a sua localização se estiverem hospedados em Azure. Recomendamos que não utilize estes agentes em VNETs Azure para monitorizar o ExpressRoute.
   >
 
 1. Executar **configuração** para instalar o agente em cada servidor que pretende utilizar para monitorizar o ExpressRoute. O servidor que utiliza para monitorização pode ser um VM, ou no local, e deve ter acesso à Internet. Tem de instalar pelo menos um agente no local e um agente em cada segmento de rede que pretende monitorizar no Azure.
@@ -118,7 +118,7 @@ Recomendamos que instale pelo menos dois agentes em cada lado da ligação Expre
 
 ### <a name="23-configure-proxy-settings-optional"></a><a name="proxy"></a>2.3: Configurações de procuração de configuração (opcional)
 
-Se estiver a utilizar um representante web para aceder à Internet, utilize os seguintes passos para configurar as definições de procuração para o Agente de Monitorização da Microsoft. Execute estes passos para cada servidor. Se tiver vários servidores que necessita configurar, poderá considerar mais fácil utilizar um script para automatizar este processo. Em caso afirmativo, consulte [Configurar as definições de procuração para o Agente de Monitorização da Microsoft utilizando um script](../log-analytics/log-analytics-windows-agent.md).
+Se estiver a utilizar um representante web para aceder à Internet, utilize os seguintes passos para configurar as definições de procuração para o Agente de Monitorização da Microsoft. Execute estes passos para cada servidor. Se tiver vários servidores que necessita configurar, poderá considerar mais fácil utilizar um script para automatizar este processo. Em caso afirmativo, consulte [Configurar as definições de procuração para o Agente de Monitorização da Microsoft utilizando um script](../azure-monitor/platform/agent-windows.md).
 
 Para configurar as definições de procuração para o agente de monitorização da Microsoft utilizando o Painel de Controlo:
 
@@ -161,7 +161,7 @@ Nos servidores do agente, abra uma janela PowerShell com privilégios administra
 
 Para monitorizar os servidores de agentes que estão em Azure, é necessário configurar as regras do grupo de segurança da rede (NSG) para permitir o tráfego de TCP numa porta utilizada pela NPM para transações sintéticas. A porta padrão é 8084. Isto permite que um agente de monitorização instalado num VM Azure comunique com um agente de monitorização no local.
 
-Para obter mais informações sobre o NSG, consulte [grupos de segurança de rede.](../virtual-network/virtual-networks-create-nsg-arm-portal.md)
+Para obter mais informações sobre o NSG, consulte [grupos de segurança de rede.](../virtual-network/tutorial-filter-network-traffic.md)
 
 >[!NOTE]
 >Certifique-se de que instalou os agentes (tanto o agente do servidor no local como o agente do servidor Azure) e executou o script PowerShell antes de prosseguir com este passo.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: 1841c4eb8975c865c5f15a0e8fe3a6b5f0522820
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8c4eea10b0c2230e50b5ded710b3455539f6493
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89435410"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206038"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>O que é monitorizado pelo Azure Monitor?
 Este artigo descreve as diferentes aplicações e serviços que são monitorizados pelo Azure Monitor. 
@@ -57,118 +57,118 @@ A tabela que se segue lista os serviços Azure e os dados que recolhem no Azure 
 
 | Serviço | Métricas | Registos | Informações | Notas |
 |:---|:---|:---|:---|:---|
-|Active Directory | No | Sim | [Sim](../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md) |  |
-|Active Directory B2C | Não | Não | Não |  |
-|Active Directory Domain Services | Não | Sim | Não |  |
-|Registo de atividades | Não | Sim | Não | |
-|Proteção Avançada Contra Ameaças | Não | Não | Não |  |
-|Assistente | Não | Não | Não |  |
-|AI Builder | Não | Não | Não |  |
-|Analysis Services | Sim | Sim | Não |  |
-|API para FHIR | Não | Não | Não |  |
-|Gestão de API | Sim | Sim | Não |  |
-|Serviço de Aplicações | Sim | Sim | Não |  |
-|AppConfig | Não | Não | Não |  |
-|Gateway de Aplicação | Sim | Sim | Não |  |
-|Serviço de Attestation | Não | Não | Não |  |
-|Automatização | Sim | Sim | Não |  |
-|Gestor de Serviços Azure (RDFE) | Não | Não | Não |  |
-|Backup | Não | Sim | Não |  |
-|Bastion | Não | Não | Não |  |
-|Batch | Sim | Sim | Não |  |
-|Batch AI | Não | Não | Não |  |
-|Serviço Blockchain | Não | Sim | Não |  |
-|Blueprints | Não | Não | Não |  |
-|Serviço de Bot | Não | Não | Não |  |
-|Serviços Cloud | Sim | Sim | Não | Agente necessário para monitorizar o sistema operativo dos hóspedes e os fluxos de trabalho.  |
-|Cloud Shell | Não | Não | Não |  |
-|Serviços Cognitivos | Sim | Sim | Não |  |
-|Container Instances | Sim | Não | Não |  |
-|Registo de Contentor | Sim | Sim | Não |  |
-|Rede de Entrega de Conteúdos (CDN) | Não | Sim | Não |  |
-|BD do Cosmos | Sim | Sim | [Sim](insights/cosmosdb-insights-overview.md) |  |
-|Cost Management | Não | Não | Não |  |
-|Data Box | Não | Não | Não |  |
-|Catálogo de Dados Gen2 | Não | Não | Não |  |
-|Data Explorer | Sim | Sim | Não |  |
-|Data Factory | Sim | Sim | Não |  |
-|Fábrica de Dados v2 | Não | Sim | Não |  |
-|Data Share | Não | Não | Não |  |
-|Database for MariaDB | Sim | Sim | Não |  |
-|Base de Dados para MySQL | Sim | Sim | Não |  |
-|Base de Dados para PostgreSQL | Sim | Sim | Não |  |
-|Database Migration Service | Não | Não | Não |  |
-|Databricks | Não | Sim | Não |  |
-|Proteção contra DDOS | Sim | Sim | Não |  |
-|DevOps | Não | Não | Não |  |
-|DNS | Sim | Não | Não |  |
-|Nomes de domínio | Não | Não | Não |  |
-|DPS | Não | Não | Não |  |
-|Dinâmica 365 Envolvimento do Cliente | Não | Não | Não |  |
-|Dinâmica 365 Finanças e Operações | Não | Não | Não |  |
-|Event Grid | Sim | Não | Não |  |
-|Hubs de Eventos | Sim | Sim | Não |  |
-|ExpressRoute | Sim | Sim | Não |  |
-|Firewall | Sim | Sim | Não |  |
-|Front Door | Sim | Sim | Não |  |
-|Funções | Sim | Sim | Não |  |
-|HDInsight | Não | Sim | Não |  |
-|HPC Cache | Não | Não | Não |  |
-|Information Protection | Não | Sim | Não |  |
-|Intune | Não | Sim | Não |  |
-|IoT Central | Não | Não | Não |  |
-|IoT Hub | Sim | Sim | Não |  |
-|Cofre de Chaves | Sim | Sim | [Sim](./insights/key-vault-insights-overview.md) |  |
-|Serviço do Kubernetes (AKS) | Não | Não | [Sim](insights/container-insights-overview.md)  |  |
-|Load balancer | Sim | Não | Não |  |
-|Aplicações Lógicas | Sim | Sim | Não |  |
-|Serviço Machine Learning | Não | Não | Não |  |
-|Aplicações Geridas  | Não | Não | Não |  |
-|Mapas  | Não | Não | Não |  |
-|Serviços de Multimédia | Sim | Sim | Não |  |
-|Microsoft Flow | Não | Não | Não |  |
-|Ambiente de Trabalho Gerido da Microsoft | Não | Não | Não |  |
-|Microsoft PowerApps | Não | Não | Não |  |
-|Microsoft Social Engagement | Não | Não | Não |  |
-|Microsoft Stream | Sim | Sim | Não |  |
-|Migrar | Não | Não | Não |  |
-|Multi-Factor Authentication | Não | Sim | Não |  |
-|Observador de Rede | Sim | Sim | Não |  |
-|Hubs de Notificação | Sim | Não | Não |  |
-|Open Datasets | Não | Não | Não |  |
-|Política | Não | Não | Não |  |
-|Power BI Embedded | Sim | Sim | Não |  |
-|Ligação Privada | Não | Não | Não |  |
-|Plataforma de Comunicação de Spool de Projeto | Não | Não | Não |  |
-|Red Hat OpenShift | Não | Não | Não |  |
-|Cache de Redis | Sim | Sim | [Sim](insights/redis-cache-insights-overview.md) | |
-|Gráfico de Recursos | Não | Não | Não |  |
-|Resource Manager | Não | Não | Não |  |
-|Pesquisa de Varejo - por Bing | Não | Não | Não |  |
-|Pesquisa | Sim | Sim | Não |  |
-|Service Bus | Sim | Sim | Não |  |
-|Service Fabric | Não | Sim | Não | Agente necessário para monitorizar o sistema operativo dos hóspedes e os fluxos de trabalho.  |
-|Portal de Inscrição | Não | Não | Não |  |
-|Site Recovery | Não | Sim | Não |  |
-|Serviço cloud de primavera | Não | Não | Não |  |
-|Azure Synapse Analytics | Sim | Sim | Não |  |
-|SQL Database | Sim | Sim | Não |  |
-|SQL Server Stretch Database | Sim | Sim | Não |  |
-|Pilha | Não | Não | Não |  |
-|Armazenamento | Sim | Não | [Sim](insights/storage-insights-overview.md) |  |
-|Cache de armazenamento | Não | Não | Não |  |
-|Serviços de Sincronização de Armazenamento | Não | Não | Não |  |
-|Stream Analytics | Sim | Sim | Não |  |
-|Time Series Insights | Sim | Sim | Não |  |
-|TINA | Não | Não | Não |  |
-|Gestor de Tráfego | Sim | Sim | Não |  |
-|Impressão Universal | Não | Não | Não |  |
-|Conjuntos de Dimensionamento de Máquinas Virtuais | Não | Sim | [Sim](insights/vminsights-overview.md) | Agente necessário para monitorizar o sistema operativo dos hóspedes e os fluxos de trabalho. |
-|Máquinas Virtuais | Sim | Sim | [Sim](insights/vminsights-overview.md) | Agente necessário para monitorizar o sistema operativo dos hóspedes e os fluxos de trabalho. |
-|Rede Virtual | Sim | Sim | [Sim](insights/network-insights-overview.md) |  |
-|Rede Virtual - Registos de Fluxo NSG | Não | Sim | Não |  |
-|Gateway de VPN | Sim | Sim | Não |  |
-|Windows Virtual Desktop | Não | Não | Não |  |
+|Active Directory | No | Yes | [Sim](../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md) |  |
+|Active Directory B2C | No | No | No |  |
+|Active Directory Domain Services | No | Yes | No |  |
+|Registo de atividades | No | Yes | No | |
+|Proteção Avançada Contra Ameaças | No | No | No |  |
+|Assistente | No | No | No |  |
+|AI Builder | No | No | No |  |
+|Analysis Services | Yes | Yes | No |  |
+|API para FHIR | No | No | No |  |
+|Gestão de API | Yes | Yes | No |  |
+|Serviço de Aplicações | Yes | Yes | No |  |
+|AppConfig | No | No | No |  |
+|Gateway de Aplicação | Yes | Yes | No |  |
+|Serviço de Attestation | No | No | No |  |
+|Automatização | Yes | Yes | No |  |
+|Gestor de Serviços Azure (RDFE) | No | No | No |  |
+|Cópia de segurança | No | Yes | No |  |
+|Bastion | No | No | No |  |
+|Batch | Yes | Yes | No |  |
+|Batch AI | No | No | No |  |
+|Blockchain Service | No | Yes | No |  |
+|Esquemas | No | No | No |  |
+|Serviço de Bot | No | No | No |  |
+|Serviços Cloud | Yes | Yes | No | Agente necessário para monitorizar o sistema operativo dos hóspedes e os fluxos de trabalho.  |
+|Cloud Shell | No | No | No |  |
+|Serviços Cognitivos | Yes | Yes | No |  |
+|Container Instances | Yes | No | No |  |
+|Registo de Contentor | Yes | Yes | No |  |
+|Rede de Entrega de Conteúdos (CDN) | No | Yes | No |  |
+|BD do Cosmos | Yes | Yes | [Sim](insights/cosmosdb-insights-overview.md) |  |
+|Cost Management | No | No | No |  |
+|Data Box | No | No | No |  |
+|Catálogo de Dados Gen2 | No | No | No |  |
+|Data Explorer | Yes | Yes | No |  |
+|Data Factory | Yes | Yes | No |  |
+|Fábrica de Dados v2 | No | Yes | No |  |
+|Data Share | No | No | No |  |
+|Database for MariaDB | Yes | Yes | No |  |
+|Base de Dados para MySQL | Yes | Yes | No |  |
+|Base de Dados para PostgreSQL | Yes | Yes | No |  |
+|Database Migration Service | No | No | No |  |
+|Databricks | No | Yes | No |  |
+|Proteção contra DDOS | Yes | Yes | No |  |
+|DevOps | No | No | No |  |
+|DNS | Yes | No | No |  |
+|Nomes de domínio | No | No | No |  |
+|DPS | No | No | No |  |
+|Dinâmica 365 Envolvimento do Cliente | No | No | No |  |
+|Dinâmica 365 Finanças e Operações | No | No | No |  |
+|Event Grid | Yes | No | No |  |
+|Hubs de Eventos | Yes | Yes | No |  |
+|ExpressRoute | Yes | Yes | No |  |
+|Firewall | Yes | Yes | No |  |
+|Front Door | Yes | Yes | No |  |
+|Funções | Yes | Yes | No |  |
+|HDInsight | No | Yes | No |  |
+|HPC Cache | No | No | No |  |
+|Information Protection | No | Yes | No |  |
+|Intune | No | Yes | No |  |
+|Centro de IoT | No | No | No |  |
+|IoT Hub | Yes | Yes | No |  |
+|Cofre de Chaves | Yes | Yes | [Sim](./insights/key-vault-insights-overview.md) |  |
+|Serviço do Kubernetes (AKS) | No | No | [Sim](insights/container-insights-overview.md)  |  |
+|Load balancer | Yes | No | No |  |
+|Aplicações Lógicas | Yes | Yes | No |  |
+|Serviço Machine Learning | No | No | No |  |
+|Aplicações Geridas  | No | No | No |  |
+|Mapas  | No | No | No |  |
+|Serviços de Multimédia | Yes | Yes | No |  |
+|Microsoft Flow | No | No | No |  |
+|Ambiente de Trabalho Gerido da Microsoft | No | No | No |  |
+|Microsoft PowerApps | No | No | No |  |
+|Microsoft Social Engagement | No | No | No |  |
+|Microsoft Stream | Yes | Yes | No |  |
+|Migrar | No | No | No |  |
+|Multi-Factor Authentication | No | Yes | No |  |
+|Observador de Rede | Yes | Yes | No |  |
+|Hubs de Notificação | Yes | No | No |  |
+|Conjuntos de Dados Abertos | No | No | No |  |
+|Política | No | No | Não |  |
+|Power BI Embedded | Yes | Yes | No |  |
+|Ligação Privada | No | No | No |  |
+|Plataforma de Comunicação de Spool de Projeto | No | No | No |  |
+|Red Hat OpenShift | No | No | No |  |
+|Cache de Redis | Yes | Yes | [Sim](insights/redis-cache-insights-overview.md) | |
+|Gráfico de Recursos | No | No | No |  |
+|Resource Manager | No | No | No |  |
+|Pesquisa de Varejo - por Bing | No | No | No |  |
+|Pesquisa | Yes | Yes | No |  |
+|Service Bus | Yes | Yes | No |  |
+|Service Fabric | No | Yes | No | Agente necessário para monitorizar o sistema operativo dos hóspedes e os fluxos de trabalho.  |
+|Portal de Inscrição | No | No | No |  |
+|Site Recovery | No | Yes | No |  |
+|Serviço cloud de primavera | No | No | No |  |
+|Azure Synapse Analytics | Yes | Yes | No |  |
+|SQL Database | Yes | Yes | No |  |
+|SQL Server Stretch Database | Yes | Yes | No |  |
+|Pilha | No | No | No |  |
+|Armazenamento | Yes | No | [Sim](insights/storage-insights-overview.md) |  |
+|Cache de armazenamento | No | No | No |  |
+|Serviços de Sincronização de Armazenamento | No | No | No |  |
+|Stream Analytics | Yes | Yes | No |  |
+|Time Series Insights | Yes | Yes | No |  |
+|TINA | No | No | No |  |
+|Gestor de Tráfego | Yes | Yes | No |  |
+|Impressão Universal | No | No | No |  |
+|Conjuntos de Dimensionamento de Máquinas Virtuais | No | Yes | [Sim](insights/vminsights-overview.md) | Agente necessário para monitorizar o sistema operativo dos hóspedes e os fluxos de trabalho. |
+|Virtual Machines | Yes | Yes | [Sim](insights/vminsights-overview.md) | Agente necessário para monitorizar o sistema operativo dos hóspedes e os fluxos de trabalho. |
+|Rede Virtual | Yes | Yes | [Sim](insights/network-insights-overview.md) |  |
+|Rede Virtual - Registos de Fluxo NSG | No | Yes | No |  |
+|Gateway de VPN | Yes | Yes | No |  |
+|Windows Virtual Desktop | No | No | No |  |
 
 
 ## <a name="product-integrations"></a>Integrações de produtos
@@ -176,7 +176,7 @@ Os serviços e soluções na tabela seguinte armazenam os seus dados num espaço
 
 | Produto/Serviço | Descrição |
 |:---|:---|
-| [Automatização do Azure](../automation/index.yml) | Gerir as atualizações do sistema operativo e rastrear as alterações nos computadores Windows e Linux. Ver [Change Tracking](../automation/change-tracking.md) and Update [Management](../automation/update-management/update-mgmt-overview.md). |
+| [Automatização do Azure](../automation/index.yml) | Gerir as atualizações do sistema operativo e rastrear as alterações nos computadores Windows e Linux. Ver [Change Tracking](../automation/change-tracking/overview.md) and Update [Management](../automation/update-management/update-mgmt-overview.md). |
 | [Proteção de Informação Azure ](/azure/information-protection/) | Classifique e proteja opcionalmente documentos e e-mails. Consulte [a Central de Informação para Proteção de Informações Azure](/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports). |
 | [Centro de Segurança do Azure](../security-center/index.yml) | Recolher e analisar eventos de segurança e realizar análises de ameaças. Ver [recolha de dados no Azure Security Center](../security-center/security-center-enable-data-collection.md) |
 | [Azure Sentinel](../sentinel/index.yml) | Conecta-se a diferentes fontes, incluindo o Office 365 e o Amazon Web Services Cloud Trail. Consulte [as fontes de dados do Connect](../sentinel/connect-data-sources.md). |

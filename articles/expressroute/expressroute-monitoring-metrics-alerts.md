@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: duau
-ms.openlocfilehash: 6f502b8ad8ac268cc937150f4effdf9edf8eef15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d92b5685722b8a37de3945caa1305a76b3cabb8a
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91252634"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206242"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Monitorização, métricas e alertas do ExpressRoute
 
@@ -70,7 +70,7 @@ Você pode ver perto da disponibilidade em tempo real de BGP através de pares e
 
 ### <a name="arp-availability---split-by-peering"></a>Disponibilidade ARP - Dividida por Peering  
 
-Você pode ver perto da disponibilidade em tempo real de [ARP](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-arp-resource-manager) através de pares e pares (routers ExpressRoute Primário e Secundário). Este dashboard mostra a sessão private peering ARP em ambos os pares, mas completa para baixo para a Microsoft espreitando através de espreitar. A agregação padrão (Média) foi utilizada em ambos os pares.  
+Você pode ver perto da disponibilidade em tempo real de [ARP](./expressroute-troubleshooting-arp-resource-manager.md) através de pares e pares (routers ExpressRoute Primário e Secundário). Este dashboard mostra a sessão private peering ARP em ambos os pares, mas completa para baixo para a Microsoft espreitando através de espreitar. A agregação padrão (Média) foi utilizada em ambos os pares.  
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erArpAvailabilityMetrics.jpg" alt-text="métricas de circuito":::
 
@@ -162,7 +162,7 @@ Também pode ver as métricas ExpressRoute navegando para o seu recurso de circu
 |**Coluna**|**Tipo**|**Descrição**|
 | --- | --- | --- |
 |TimeGrain|string|PT1M (os valores métricos são empurrados a cada minuto)|
-|Contagem|real|Normalmente igual a 2 (cada MSEE empurra um único valor métrico a cada minuto)|
+|de palavras|real|Normalmente igual a 2 (cada MSEE empurra um único valor métrico a cada minuto)|
 |Mínimo|real|O mínimo dos dois valores métricos empurrados pelos dois MSEEs|
 |Máximo|real|O maxiumum dos dois valores métricos empurrados pelos dois MSEEs|
 |Média|real|Igual a (Mínimo + Máximo)/2|

@@ -5,12 +5,12 @@ author: aagup
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: f98bf4f4518abd5f1b1a826e355c851acc055852
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d881033b8dde6cc55a9720ec94084bd876116f1
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86246695"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207398"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Restaurar a cópia de segurança no Tecido de Serviço Azure
 
@@ -190,6 +190,10 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 Você pode acompanhar o progresso de um restauro com TrackRestoreProgress.
 
+> [!NOTE]
+> Quando utilizar o Powershell para restaurar a partição, se a localização de backup tiver '$', escape-a usando '~'
+>
+
 ### <a name="using-service-fabric-explorer"></a>Usando o Explorador de Tecido de Serviço
 Pode desencadear uma restauração do Service Fabric Explorer. Certifique-se de que o Modo Avançado foi ativado nas definições do Explorador de Tecidos de Serviço.
 1. Selecione as divisórias desejadas e clique em Ações. 
@@ -250,6 +254,10 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 ```
 
 Pode acompanhar o progresso do restauro utilizando trackRestoreProgress.
+
+> [!NOTE]
+> Quando utilizar o Powershell para restaurar a partição, se a localização de backup tiver '$', escape-a usando '~'
+>
 
 ## <a name="track-restore-progress"></a>Faixa restaurar o progresso
 

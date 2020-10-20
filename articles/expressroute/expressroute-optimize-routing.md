@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 07/11/2019
 ms.author: duau
-ms.openlocfilehash: 731101b1a8236e20a9af07f1bbf5a7b70d53c0ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f35f1d390762d3f83176d7b36db8959dc5ed0157
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653388"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204882"
 ---
 # <a name="optimize-expressroute-routing"></a>Otimizar o Encaminhamento do ExpressRoute
 Se tem vários circuitos do ExpressRoute, significa que tem mais do que um caminho para se ligar à Microsoft. Sendo assim, o encaminhamento poderá não ser o ideal, ou seja, o tráfego poderá optar por um caminho mais longo para chegar à Microsoft e da Microsoft à sua rede. Quanto mais longo for o caminho de rede, maior será a latência. A latência tem um impacto direto no desempenho das aplicações e na experiência do utilizador. Este artigo ilustra este problema e explica como otimizar o encaminhamento com as tecnologias de encaminhamento padrão.
@@ -64,7 +64,7 @@ Para otimizar o encaminhamento para os utilizadores dos dois escritório, é nec
 >
 
 ## <a name="suboptimal-routing-from-microsoft-to-customer"></a>Encaminhamento inferior ao ideal da Microsoft para o cliente
-Veja outro exemplo em que as ligações da Microsoft optam por um caminho mais longo para chegarem à sua rede. Neste caso, está a utilizar servidores do Exchange no local e o Exchange Online num [ambiente híbrido](https://technet.microsoft.com/library/jj200581%28v=exchg.150%29.aspx). Os seus escritórios estão ligados a uma WAN. Anuncia os prefixos dos servidores no local em ambos os escritórios para a Microsoft através de dois circuitos do ExpressRoute. O Exchange Online irá iniciar ligações aos servidores no local em casos como a migração da caixa de correio. Infelizmente, a ligação ao seu escritório em Los Angeles é encaminhada para o circuito do ExpressRoute nos E.U.A. Leste, atravessando todo o continente antes de voltar à costa oeste. A causa do problema é semelhante à anterior. Sem qualquer pista, a rede da Microsoft não consegue dizer qual o prefixo do cliente próximo do US East e qual é próximo do EUA West. E escolhe o caminho errado para o seu escritório em Los Angeles.
+Veja outro exemplo em que as ligações da Microsoft optam por um caminho mais longo para chegarem à sua rede. Neste caso, está a utilizar servidores do Exchange no local e o Exchange Online num [ambiente híbrido](/exchange/exchange-hybrid). Os seus escritórios estão ligados a uma WAN. Anuncia os prefixos dos servidores no local em ambos os escritórios para a Microsoft através de dois circuitos do ExpressRoute. O Exchange Online irá iniciar ligações aos servidores no local em casos como a migração da caixa de correio. Infelizmente, a ligação ao seu escritório em Los Angeles é encaminhada para o circuito do ExpressRoute nos E.U.A. Leste, atravessando todo o continente antes de voltar à costa oeste. A causa do problema é semelhante à anterior. Sem qualquer pista, a rede da Microsoft não consegue dizer qual o prefixo do cliente próximo do US East e qual é próximo do EUA West. E escolhe o caminho errado para o seu escritório em Los Angeles.
 
 ![Caso 2 do ExpressRoute - encaminhamento inferior ao ideal da Microsoft para o cliente](./media/expressroute-optimize-routing/expressroute-case2-problem.png)
 

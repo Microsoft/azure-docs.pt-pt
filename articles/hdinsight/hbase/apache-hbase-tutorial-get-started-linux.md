@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/14/2020
-ms.openlocfilehash: a19e2c6647f1ff072c61044e8e5777d5d3f8d2db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 114a0d6f97149baad0c9e76fb359c52996820575
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85958366"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207160"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Tutorial: Use Apache HBase em Azure HDInsight
 
 Este tutorial demonstra como criar um cluster Apache HBase em Azure HDInsight, criar tabelas HBase e tabelas de consultas usando a Colmeia Apache.  Para obter informações gerais do HBase, consulte o artigo [Descrição geral do HBase do HDInsight](./apache-hbase-overview.md).
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar cluster Apache HBase
@@ -207,6 +207,23 @@ Pode consultar dados nas tabelas HBase utilizando [a Colmeia Apache.](https://hi
 
 1. Para sair da sua ligação ssh, use `exit` .
 
+### <a name="separate-hive-and-hbase-clusters"></a>Agrupamentos separados de colmeias e Hbase
+
+A consulta da Hive para aceder aos dados da HBase não precisa de ser executada a partir do cluster HBase. Qualquer cluster que venha com a Colmeia (incluindo Spark, Hadoop, HBase ou Consulta Interativa) pode ser usado para consultar dados da HBase, desde que os seguintes passos estejam concluídos:
+
+1. Ambos os clusters devem ser ligados à mesma Rede Virtual e Sub-rede
+2. Cópia `/usr/hdp/$(hdp-select --version)/hbase/conf/hbase-site.xml` dos headnodes do cluster HBase para os headnodes do cluster hive
+
+### <a name="secure-clusters"></a>Aglomerados Seguros
+
+Os dados da HBase também podem ser consultados a partir da Hive utilizando hbase ativada por ESP: 
+
+1. Ao seguir um padrão de multi-cluster, ambos os agrupamentos devem estar habilitados a E. 
+2. Para permitir que a Hive questione os dados da HBase, certifique-se de que o `hive` utilizador tem permissões para aceder aos dados da HBase através do plugin Hbase Apache Ranger
+3. Ao utilizar agrupamentos separados, ativados por ESP, o conteúdo dos `/etc/hosts` headnodes do cluster HBase deve ser anexado aos `/etc/hosts` headnodes do cluster Hive. 
+> [!NOTE]
+> Depois de escalar ambos os aglomerados, `/etc/hosts` deve ser anexado novamente
+
 ## <a name="use-hbase-rest-apis-using-curl"></a>Utilizar APIs REST de HBase utilizando Curl
 
 A API de REST está protegida por [autenticação básica](https://en.wikipedia.org/wiki/Basic_access_authentication). Deve sempre efetuar pedidos com HTTP Secure (HTTPS) para ajudar a garantir que as credenciais são enviadas de forma segura para o servidor.
@@ -302,7 +319,7 @@ O HBase em HDInsight é fornecido com uma interface de utilizador da Web para mo
    - tarefas
    - atributos de software
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para evitar inconsistências, recomendamos que desative as tabelas do HBase antes de eliminar o cluster. Pode utilizar o comando HBase `disable 'Contacts'` . Se não continuar a utilizar esta aplicação, elimine o cluster HBase que criou com os seguintes passos:
 

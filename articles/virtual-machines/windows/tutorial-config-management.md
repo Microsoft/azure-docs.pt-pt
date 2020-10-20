@@ -8,18 +8,18 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2b88c053e1f9029f916d9a180221a3bb58629608
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25022cc70f3b6c8fc01aa556b6229ae8a6ccb82b
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87448869"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205095"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Tutorial: Monitorize alterações e atualize uma máquina virtual do Windows em Azure
 
-Com a Azure [Change Tracking](../../automation/change-tracking.md) and [Update Management,](../../automation/update-management/update-mgmt-overview.md)pode facilmente identificar alterações nas suas máquinas virtuais do Windows em Azure e gerir as atualizações do sistema operativo para esses VMs.
+Com a Azure [Change Tracking](../../automation/change-tracking/overview.md) and [Update Management,](../../automation/update-management/update-mgmt-overview.md)pode facilmente identificar alterações nas suas máquinas virtuais do Windows em Azure e gerir as atualizações do sistema operativo para esses VMs.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Gerir as atualizações do Windows.
@@ -114,7 +114,7 @@ Para agendar uma nova implementação de atualização para o VM, selecione **a 
 |**Sistema operativo**| Selecione **Linux** ou **Windows**.|
 | **Grupos a atualizar** |Para os VMs alojados no Azure, defina uma consulta com base numa combinação de subscrição, grupos de recursos, localizações e tags. Esta consulta constrói um grupo dinâmico de VMs azure-hosted para incluir na sua implementação. </br></br>Para VMs não hospedados no Azure, selecione uma pesquisa guardada existente. Com esta pesquisa, pode selecionar um grupo destes VMs para incluir na implementação. </br></br> Para saber mais, consulte [Grupos Dinâmicos.](../../automation/update-management/update-mgmt-groups.md)|
 | **Máquinas a atualizar** |Selecione **Pesquisa Save**, **Grupo importado**ou **Máquinas**.<br/><br/>Se selecionar **Máquinas,** pode escolher máquinas individuais da lista de drop-down. A prontidão de cada máquina é mostrada na coluna de **PRONTIDÃO DO AGENTE DE ATUALIZAÇÃO** da tabela.</br></br> Para conhecer os diferentes métodos de criação de grupos informáticos em registos do Monitor Azure, consulte [grupos de computador em registos do Monitor Azure](../../azure-monitor/platform/computer-groups.md) |
-|**Classificações de atualizações**|Escolha todas as classificações de atualização necessárias.|
+|**Atualizar classificações**|Escolha todas as classificações de atualização necessárias.|
 |**Incluir/excluir atualizações**|Selecione esta opção para abrir o painel **Incluir/Excluir.** As atualizações a incluir e as que serão excluídas estão em separado. Para obter mais informações sobre como a inclusão é tratada, consulte [Agendar uma Atualização.](../../automation/update-management/update-mgmt-deploy-updates.md#schedule-an-update-deployment) |
 |**Definições de agenda**|Escolha a hora de começar e selecione **uma vez** ou **recorrente**.|
 | **Pré-scripts + Post-scripts**|Escolha os scripts para executar antes e depois da sua implantação.|

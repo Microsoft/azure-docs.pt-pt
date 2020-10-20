@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: duau
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a731962f22985268093c547b09a8cd77c5b92660
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e8a1d48934d73f1035c6f2c4c76e56d9a0e4052
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89395813"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206975"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Ligue uma rede virtual a um circuito ExpressRoute utilizando o PowerShell (clássico)
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ Pode ligar até 10 redes virtuais a um circuito ExpressRoute. Todas as redes vir
    * Siga as instruções para [criar um circuito ExpressRoute](expressroute-howto-circuit-classic.md) e mandeça o seu fornecedor de conectividade para ativar o circuito.
    * Certifique-se de que tem o Azure a espreitar para o seu circuito. Consulte o artigo [de encaminhamento configurante](expressroute-howto-routing-classic.md) para obter instruções de encaminhamento.
    * Certifique-se de que o espreitamento privado do Azure está configurado e que o BGP está a espreitar entre a sua rede e a Microsoft para que possa ativar a conectividade de ponta a ponta.
-   * Você deve ter uma rede virtual e um gateway de rede virtual criado e totalmente a provisionado. Siga as instruções para [configurar uma rede virtual para o ExpressRoute](expressroute-howto-vnet-portal-classic.md).
+   * Você deve ter uma rede virtual e um gateway de rede virtual criado e totalmente a provisionado. Siga as instruções para [configurar uma rede virtual para o ExpressRoute](./expressroute-howto-add-gateway-portal-resource-manager.md).
 
 ### <a name="download-the-latest-powershell-cmdlets"></a>Descarregue os mais recentes cmdlets PowerShell
 

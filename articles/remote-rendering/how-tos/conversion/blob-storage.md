@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 6f0605077bd131c54f27e3bf46240331557fd92e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96a2fde3e510c6eb7146da9c92d93f69111e8c80
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80681652"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206548"
 ---
 # <a name="use-azure-blob-storage-for-model-conversion"></a>Utilizar o Armazenamento de Blobs do Azure para conversão de modelos
 
@@ -28,7 +28,7 @@ O serviço [de conversão de modelos](model-conversion.md) requer acesso ao arma
 A criação da conta de armazenamento e dos recipientes blob pode ser feita com uma das seguintes ferramentas:
 
 - [Portal do Azure](https://portal.azure.com)
-- [linha de comando az](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [linha de comando az](/cli/azure/install-azure-cli?view=azure-cli-latest)
 - [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/)
 - SDKs (C#, Python ... )
 
@@ -46,13 +46,13 @@ Siga os passos dados na secção [Criar uma Conta.](../create-an-account.md#link
 
 As assinaturas de acesso armazenadas (SAS) são usadas para conceder acesso de leitura para entrada e escrever acesso para saída. Recomendamos a geração de novos URIs cada vez que um modelo é convertido. Uma vez que os URIs expiram após algum tempo, persistência deles por uma duração mais longa pode correr o risco de quebrar a sua aplicação inesperadamente.
 
-Os detalhes sobre o SAS podem ser encontrados na [documentação sas.](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
+Os detalhes sobre o SAS podem ser encontrados na [documentação sas.](../../../storage/common/storage-sas-overview.md)
 
 Um SAS URI pode ser gerado usando um dos seguintes:
 
 - módulo PowerShell az
   - ver o [exemplo Scripts PowerShell](../../samples/powershell-example-scripts.md)
-- [linha de comando az](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [linha de comando az](/cli/azure/install-azure-cli?view=azure-cli-latest)
 - [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/)
   - clique no recipiente "Obter Assinatura de Acesso Partilhado" (ler, listar o acesso ao recipiente de entrada, escrever acesso para recipiente de saída)
 - SDKs (C#, Python ... )
@@ -64,11 +64,11 @@ Um exemplo de utilização de Assinaturas de Acesso Partilhado na conversão de 
 Para começar a converter um modelo, é necessário carregá-lo, utilizando uma das seguintes opções:
 
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) - um UI conveniente para carregar/descarregar/gerir ficheiros no armazenamento de blob azul
-- [Linha de comando Azure](https://docs.microsoft.com/azure/storage/common/storage-azure-cli)
-- [Módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-2.2.0)
+- [Linha de comando Azure](../../../storage/blobs/storage-quickstart-blobs-cli.md)
+- [Módulo do Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.2.0)
   - ver os [scripts Exemplo PowerShell](../../samples/powershell-example-scripts.md)
-- [Utilizando um SDK de armazenamento (Python, C# ... )](https://docs.microsoft.com/azure/storage/)
-- [Utilizando as APIs de REPOUSO DE ARMAZENAMENTO Azure](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api)
+- [Utilizando um SDK de armazenamento (Python, C# ... )](../../../storage/index.yml)
+- [Utilizando as APIs de REPOUSO DE ARMAZENAMENTO Azure](/rest/api/storageservices/blob-service-rest-api)
 
 Para um exemplo de como carregar dados para conversão consulte Conversion.ps1 dos [Scripts exemplo powershell](../../samples/powershell-example-scripts.md#script-conversionps1).
 

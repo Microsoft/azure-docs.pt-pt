@@ -7,12 +7,12 @@ ms.author: bwren
 ms.topic: conceptual
 ms.date: 07/15/2020
 ms.subservice: ''
-ms.openlocfilehash: f6272e3d976c7c3b04d5b1332e2d7b3410c3045c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 784ecd5c0539ee0dc84c8afd6b85dbc10a154982
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318883"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206888"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-or-external-partner"></a>Stream Azure monitorando dados para um centro de eventos ou parceiro externo
 
@@ -35,7 +35,7 @@ Antes de configurar o streaming para qualquer fonte de dados, precisa [de criar 
 | Escalão de serviço | Dados | Método |
 |:---|:---|:---|
 | [Inquilino do Azure](data-sources.md#azure-tenant) | Registos de auditoria do Azure Ative Directory | Configure um cenário de diagnóstico de inquilino no seu inquilino da AAD. Consulte  [tutorial: Stream Azure Ative Directory registra-se para um centro de eventos Azure](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) para mais detalhes. |
-| [Assinatura Azure](data-sources.md#azure-subscription) | Registo de Atividades do Azure | Crie um perfil de registo para exportar eventos de Registo de Atividades para Centros de Eventos.  Consulte [os registos da plataforma Stream Azure nos Hubs de Eventos Azure](./resource-logs.md#send-to-azure-event-hubs) para obter mais detalhes. |
+| [Subscrição do Azure](data-sources.md#azure-subscription) | Registo de Atividades do Azure | Crie um perfil de registo para exportar eventos de Registo de Atividades para Centros de Eventos.  Consulte [os registos da plataforma Stream Azure nos Hubs de Eventos Azure](./resource-logs.md#send-to-azure-event-hubs) para obter mais detalhes. |
 | [Recursos do Azure](data-sources.md#azure-resources) | Métricas de plataforma<br> Registos do recurso |Ambos os tipos de dados são enviados para um centro de eventos utilizando uma definição de diagnóstico de recursos. Consulte [os registos de recursos do Stream Azure num centro de eventos](./resource-logs.md#send-to-azure-event-hubs) para obter mais detalhes. |
 | [Sistema operativo (convidado)](data-sources.md#operating-system-guest) | Máquinas virtuais do Azure | Instale a [extensão de diagnóstico azure](diagnostics-extension-overview.md) em máquinas virtuais Windows e Linux em Azure. Consulte [os dados de Streaming Azure Diagnostics no caminho quente, utilizando os Centros de Eventos](diagnostics-extension-stream-event-hubs.md) para obter detalhes sobre VMs do Windows e [use a extensão de diagnóstico do Linux para monitorizar métricas e registos](../../virtual-machines/extensions/diagnostics-linux.md#protected-settings) para obter detalhes sobre Os VMs do Linux. |
 | [Código de aplicação](data-sources.md#application-code) | Application Insights | O Application Insights não fornece um método direto para transmitir dados para centros de eventos. Pode [configurar a exportação contínua](../app/export-telemetry.md) dos dados do Application Insights para uma conta de armazenamento e, em seguida, utilizar uma App Lógica para enviar os dados para um centro de eventos, conforme descrito no [streaming manual com a Logic App.](#manual-streaming-with-logic-app) |
@@ -50,13 +50,13 @@ Encaminhar os seus dados de monitorização para um centro de eventos com o Azur
 
 | Ferramenta | Hospedado em Azure | Descrição |
 |:---|:---| :---|
-|  IBM QRadar | Não | O Microsoft Azure DSM e o Microsoft Azure Event Hub Protocol estão disponíveis para download a partir do website de [suporte da IBM](https://www.ibm.com/support). Pode saber mais sobre a integração com o Azure na [configuração do DSM QRadar.](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0) |
-| Splunk | Não | [O Azure Monitor Add-On para a Splunk](https://splunkbase.splunk.com/app/3534/) é um projeto de código aberto disponível em Splunkbase. A documentação está disponível no [Azure Monitor Addon For Splunk](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).<br><br> Se não conseguir instalar um addon no seu caso Splunk, se, por exemplo, estiver a utilizar um proxy ou a correr em Splunk Cloud, pode encaminhar estes eventos para o Splunk HTTP Event Collector utilizando [a Função Azure Para Splunk,](https://github.com/Microsoft/AzureFunctionforSplunkVS)que é desencadeada por novas mensagens no centro de eventos. |
-| SumoLogic | Não | As instruções para a criação da SumoLogic para consumir dados de um centro de eventos estão disponíveis no [Collect Logs para a App de Auditoria Azure do Event Hub](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub). |
-| ArcSight | Não | O conector inteligente ArcSight Azure Event Hub está disponível como parte da coleção de [conector inteligente ArcSight](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852). |
-| Syslog server | Não | Se pretender transmitir os dados do Azure Monitor diretamente para um servidor sislog, pode utilizar uma [solução baseada numa função Azure](https://github.com/miguelangelopereira/azuremonitor2syslog/).
-| LogRhythm | Não| As instruções para configurar o LogRhythm para recolher registos de um centro de eventos estão disponíveis [aqui](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
-|Logz.io | Sim | Para obter mais informações, consulte [Começar com a monitorização e o registo utilizando Logz.io para aplicações Java em execução no Azure](/azure/developer/java/fundamentals/java-get-started-with-logzio)
+|  IBM QRadar | No | O Microsoft Azure DSM e o Microsoft Azure Event Hub Protocol estão disponíveis para download a partir do website de [suporte da IBM](https://www.ibm.com/support). Pode saber mais sobre a integração com o Azure na [configuração do DSM QRadar.](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0) |
+| Splunk | No | [Microsoft Azure Add-On para a Splunk](https://splunkbase.splunk.com/app/3757/) é um projeto de código aberto disponível em Splunkbase. <br><br> Se não conseguir instalar um addon no seu caso Splunk, se, por exemplo, estiver a utilizar um proxy ou a correr em Splunk Cloud, pode encaminhar estes eventos para o Splunk HTTP Event Collector utilizando [a Função Azure Para Splunk,](https://github.com/Microsoft/AzureFunctionforSplunkVS)que é desencadeada por novas mensagens no centro de eventos. |
+| SumoLogic | No | As instruções para a criação da SumoLogic para consumir dados de um centro de eventos estão disponíveis no [Collect Logs para a App de Auditoria Azure do Event Hub](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub). |
+| ArcSight | No | O conector inteligente ArcSight Azure Event Hub está disponível como parte da coleção de [conector inteligente ArcSight](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852). |
+| Syslog server | No | Se pretender transmitir os dados do Azure Monitor diretamente para um servidor sislog, pode utilizar uma [solução baseada numa função Azure](https://github.com/miguelangelopereira/azuremonitor2syslog/).
+| LogRhythm | No| As instruções para configurar o LogRhythm para recolher registos de um centro de eventos estão disponíveis [aqui](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
+|Logz.io | Yes | Para obter mais informações, consulte [Começar com a monitorização e o registo utilizando Logz.io para aplicações Java em execução no Azure](/azure/developer/java/fundamentals/java-get-started-with-logzio)
 
 Outros parceiros também podem estar disponíveis. Para obter uma lista mais completa de todos os parceiros do Azure Monitor e suas capacidades, consulte [as integrações de parceiros do Azure Monitor.](partners.md)
 

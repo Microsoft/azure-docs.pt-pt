@@ -1,18 +1,18 @@
 ---
 title: Gestão de recursos delegados do Azure
 description: A gestão de recursos delegados da Azure é uma parte fundamental do Farol de Azure, permitindo aos prestadores de serviços gerir recursos delegados em escala com agilidade e precisão.
-ms.date: 08/12/2020
+ms.date: 10/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9a499ceda546b7ea5c71cd8c770f1a4b99001b08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d484e61fc4ab3714eb362b26d64d449890065888
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88163531"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203862"
 ---
 # <a name="azure-delegated-resource-management"></a>Gestão de recursos delegados do Azure
 
-A gestão de recursos delegados da Azure é um dos componentes-chave do [Farol Azure.](../overview.md) Com a gestão de recursos delegada da Azure, os prestadores de serviços podem simplificar o envolvimento do cliente e as experiências de embarque, ao mesmo tempo que gerem recursos delegados em escala com agilidade e precisão.
+A gestão de recursos delegados da Azure é um dos componentes-chave do [Farol Azure.](../overview.md) Com a gestão de recursos delegada da Azure, os prestadores de serviços podem simplificar o envolvimento do cliente e as experiências de embarque, ao mesmo tempo que gerem recursos delegados em escala com agilidade e precisão. Os clientes mantêm o controlo sobre os quais os prestadores de serviços podem aceder ao seu inquilino, os Clientes mantêm o controlo sobre quem pode aceder ao seu inquilino, quais os recursos a que podem aceder e quais as ações que podem ser tomadas.
 
 ## <a name="what-is-azure-delegated-resource-management"></a>O que é a gestão de recursos delegada da Azure?
 
@@ -35,7 +35,8 @@ A um nível elevado, eis como a Azure delegada gestão de recursos funciona:
 2. Você especifica este acesso e a bordo do cliente para o Farol Azure de uma de duas maneiras:
    - [Publique uma oferta de serviço gerida aZure Marketplace](../how-to/publish-managed-services-offers.md) (privada ou pública) que o cliente aceitará
    - [Implementar um modelo de Gestor de Recursos Azure ao inquilino do cliente](../how-to/onboard-customer.md) para uma ou mais subscrições específicas ou grupos de recursos
-3. Uma vez que o cliente tenha sido acedido, os utilizadores autorizados podem iniciar sômência no seu inquilino gerente e executar tarefas no âmbito dado ao cliente, com base no acesso que definiu.
+
+3. Uma vez que o cliente tenha sido acedido, os utilizadores autorizados podem iniciar sômência no seu inquilino gerente e executar tarefas no âmbito dado ao cliente, com base no acesso que definiu. Os clientes podem rever as ações do prestador de serviços e têm a opção de remover o acesso, se necessário.
 
 > [!NOTE]
 > Pode gerir recursos delegados que estão localizados em [diferentes regiões.](../../availability-zones/az-overview.md#regions) No entanto, a delegação de assinaturas através de uma [nuvem nacional](../../active-directory/develop/authentication-national-cloud.md) e da nuvem pública de Azure, ou através de duas nuvens nacionais separadas, não é apoiada.

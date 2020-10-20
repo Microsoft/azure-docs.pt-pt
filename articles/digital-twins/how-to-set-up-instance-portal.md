@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c67add18dc653cc033d0cf4990f9c44f07633ac2
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: e874e7107af0eac60f16f5494c04905da56f785a
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047408"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205503"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configurar uma instância e autenticação Azure Digital Twins (portal)
 
@@ -24,7 +24,8 @@ Esta versão deste artigo passa por estes passos manualmente, um a um, utilizand
 * Para passar por estes passos manualmente utilizando o CLI, consulte a versão CLI deste artigo: [*Como-a-fazer: Configurar um caso e autenticação (CLI)*](how-to-set-up-instance-cli.md).
 * Para passar por uma configuração automatizada utilizando uma amostra de script de implementação, consulte a versão escrita deste artigo: [*Como-a-fazer: Configurar uma instância e autenticação (scripted)*](how-to-set-up-instance-scripted.md).
 
-[!INCLUDE [digital-twins-setup-steps-prereq.md](../../includes/digital-twins-setup-steps-prereq.md)]
+[!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
+[!INCLUDE [digital-twins-setup-permissions.md](../../includes/digital-twins-setup-permissions.md)]
 
 ## <a name="create-the-azure-digital-twins-instance"></a>Criar a instância Azure Digital Twins
 
@@ -94,72 +95,7 @@ Pode ver a atribuição de funções que estabeleceu no controlo de *acesso (IAM
 
 :::image type="content" source="media/how-to-set-up-instance/portal/verify-role-assignment.png" alt-text="Selecionando 'Criar um recurso' a partir da página inicial do portal Azure":::
 
-Tem agora uma instância Azure Digital Twins pronta a ser executada, e atribuiu permissões para geri-lo. Em seguida, irá configurar permissões para uma aplicação de clientes para aceder a ela.
-
-## <a name="set-up-access-permissions-for-client-applications"></a>Configurar permissões de acesso para aplicações de clientes
-
-[!INCLUDE [digital-twins-setup-app-registration.md](../../includes/digital-twins-setup-app-registration.md)]
-
-Comece por navegar para o [Azure Ative Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) no portal Azure (pode utilizar este link ou encontrá-lo com a barra de pesquisa do portal). Selecione *as inscrições* da App no menu de serviço e, em seguida, *+ Novo registo.*
-
-:::image type="content" source="media/how-to-set-up-instance/portal/new-registration.png" alt-text="Selecionando 'Criar um recurso' a partir da página inicial do portal Azure":::
-
-No *Registo de uma* página de candidatura que se segue, preencha os valores solicitados:
-* **Nome**: Nome de exposição de pedidos Azure AD para associar ao registo
-* **Tipos de conta suportados**: Selecione *contas apenas neste diretório organizacional (Diretório padrão - Inquilino único)*
-* **Redirecionamento URI**: *URL de resposta a pedido azure AD* para a aplicação AZure AD. Adicione um *cliente público/nativo (mobile & desktop)* URI para `http://localhost` .
-
-Quando terminar, acerte no botão *Registar.*
-
-:::image type="content" source="media/how-to-set-up-instance/portal/register-an-application.png" alt-text="Selecionando 'Criar um recurso' a partir da página inicial do portal Azure":::
-
-Quando a inscrição terminar a configuração, o portal irá redirecioná-lo para a página de detalhes.
-
-### <a name="provide-azure-digital-twins-api-permission"></a>Forneça permissão AZure Digital Twins API
-
-Em seguida, configurar o registo de aplicações que criou com permissões de base para as APIs das Gémeas Digitais Azure.
-
-A partir da página do portal para o registo da sua aplicação, selecione *permissões API* no menu. Na página de permissões seguintes, carregar no botão + Adicionar um botão *de permissão.*
-
-:::image type="content" source="media/how-to-set-up-instance/portal/add-permission.png" alt-text="Selecionando 'Criar um recurso' a partir da página inicial do portal Azure":::
-
-Na página de permissões da *API request* que se segue, mude para as *APIs a minha organização usa* o separador e procura *gémeos digitais azuis.* Selecione _**Azure Digital Twins**_ a partir dos resultados da pesquisa para proceder à atribuição de permissões para as APIs de Gémeos Digitais Azure.
-
-:::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1.png" alt-text="Selecionando 'Criar um recurso' a partir da página inicial do portal Azure":::
-
->[!NOTE]
-> Se a sua subscrição ainda tiver uma instância Azure Digital Twins existente da pré-visualização pública do serviço (antes de julho de 2020), terá de procurar e selecionar o _**Azure Smart Spaces Service.**_ Este é um nome mais antigo para o mesmo conjunto de APIs (note que o *ID de Aplicação (cliente)* é o mesmo que na imagem acima), e a sua experiência não será alterada para além deste passo.
-> :::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1-smart-spaces.png" alt-text="Selecionando 'Criar um recurso' a partir da página inicial do portal Azure":::
-
-Em seguida, você irá selecionar quais permissões conceder para estas APIs. Expanda a permissão **de Ler (1)** e verifique a caixa que diz *Ler.Escreva* para conceder a esta aplicação de registo de permissões e permissões de escritor.
-
-:::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-2.png" alt-text="Selecionando 'Criar um recurso' a partir da página inicial do portal Azure":::
-
-*Acerte As permissões* de adicionar quando terminar.
-
-### <a name="verify-success"></a>Verificar o sucesso
-
-De volta à página de permissões da *API,* verifique se existe agora uma entrada para as Gémeas Digitais Azure que refletem permissões de Leitura/Escrita:
-
-:::image type="content" source="media/how-to-set-up-instance/portal/verify-api-permissions.png" alt-text="Selecionando 'Criar um recurso' a partir da página inicial do portal Azure":::
-
-Também é possível verificar a ligação com a Azure Digital Twins dentro do *manifest.js*do registo da aplicação , que foi automaticamente atualizado com as informações da Azure Digital Twins quando adicionou as permissões da API.
-
-Para isso, *selecione Manifesto* no menu para ver o código manifesto do registo da aplicação. Percorra a parte inferior da janela de código e procure estes campos sob `requiredResourceAccess` . Os valores devem corresponder aos da imagem abaixo:
-
-:::image type="content" source="media/how-to-set-up-instance/portal/verify-manifest.png" alt-text="Selecionando 'Criar um recurso' a partir da página inicial do portal Azure":::
-
-### <a name="collect-important-values"></a>Recolher valores importantes
-
-Em seguida, *selecione Overview* da barra de menus para ver os detalhes do registo da aplicação:
-
-:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Selecionando 'Criar um recurso' a partir da página inicial do portal Azure":::
-
-Tome nota do ID de *Aplicação (cliente)* e *Diretório (inquilino)* mostrado na **sua** página. Estes valores serão necessários mais tarde para [autenticar uma aplicação do cliente contra as APIs das Gémeas Digitais Azure.](how-to-authenticate-client.md) Se você não é a pessoa que vai escrever código para tais aplicações, você deve compartilhar estes valores com a pessoa que será.
-
-### <a name="other-possible-steps-for-your-organization"></a>Outros passos possíveis para a sua organização
-
-[!INCLUDE [digital-twins-setup-additional-requirements.md](../../includes/digital-twins-setup-additional-requirements.md)]
+Tem agora uma instância Azure Digital Twins pronta a ser executada, e atribuiu permissões para geri-lo.
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -167,5 +103,5 @@ Teste as chamadas individuais da API REST no seu caso utilizando os comandos CLI
 * [az dt referência](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)
 * [*Como fazer: Use o CLI das Gémeas Digitais Azure*](how-to-use-cli.md)
 
-Ou, veja como ligar a aplicação do seu cliente ao seu caso escrevendo o código de autenticação da aplicação do cliente:
+Ou, veja como ligar uma aplicação do cliente ao seu caso com código de autenticação:
 * [*Como fazer: Escrever código de autenticação de aplicativos*](how-to-authenticate-client.md)

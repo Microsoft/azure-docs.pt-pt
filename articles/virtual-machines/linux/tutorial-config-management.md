@@ -15,18 +15,18 @@ ms.workload: infrastructure
 ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 31a8457b4b1ac069cafbfd9713f15fdad7142d10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 451b651be8036feb272d4444d00608bb61c1e438
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87445804"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204491"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Tutorial: Monitorize alterações e atualize uma máquina virtual Linux em Azure
 
-O Azure [Change Tracking](../../automation/change-tracking.md) permite-lhe identificar facilmente alterações e [a Gestão de Atualização](../../automation/update-management/update-mgmt-overview.md) permite-lhe gerir as atualizações do sistema operativo para os seus VMs Azure Linux.
+O Azure [Change Tracking](../../automation/change-tracking/overview.md) permite-lhe identificar facilmente alterações e [a Gestão de Atualização](../../automation/update-management/update-mgmt-overview.md) permite-lhe gerir as atualizações do sistema operativo para os seus VMs Azure Linux.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Gerir atualizações do Linux

@@ -5,12 +5,12 @@ author: sebastianpick
 ms.author: sepick
 ms.date: 02/04/2020
 ms.topic: article
-ms.openlocfilehash: ad9d135df428c79df745ad24d9e7382e06599168
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: f0951415bba22a226dadb7f2a115cede451399bc
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893208"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205647"
 ---
 # <a name="late-stage-reprojection"></a>Reprojeção da última fase
 
@@ -46,7 +46,7 @@ Planar LSR reprova melhor os objetos que se encontram perto do avião fornecido.
 
 ### <a name="configure-planar-lsr-in-unity"></a>Configure planar LSR em unidade
 
-Os parâmetros do avião são derivados de um chamado ponto de *foco,* que você tem que fornecer cada frame através `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame` . Consulte a [API](https://docs.microsoft.com/windows/mixed-reality/focus-point-in-unity) do Ponto de Foco de Unidade para obter mais detalhes. Se não definir um ponto de foco, será escolhido um recuo para si. No entanto, esse recuo automático conduz frequentemente a resultados sub-ideais.
+Os parâmetros do avião são derivados de um chamado ponto de *foco,* que você tem que fornecer cada frame através `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame` . Consulte a [API](/windows/mixed-reality/focus-point-in-unity) do Ponto de Foco de Unidade para obter mais detalhes. Se não definir um ponto de foco, será escolhido um recuo para si. No entanto, esse recuo automático conduz frequentemente a resultados sub-ideais.
 
 Pode calcular o ponto de focagem por si mesmo, embora possa fazer sentido baseá-lo no calculado pelo anfitrião de renderização remota. Ligue `RemoteManagerUnity.CurrentSession.GraphicsBinding.GetRemoteFocusPoint` para obter isso. É-lhe pedido que forneça um quadro de coordenadas para expressar o ponto de foco. Na maioria dos casos, só vai querer fornecer o resultado `UnityEngine.XR.WSA.WorldManager.GetNativeISpatialCoordinateSystemPtr` daqui.
 

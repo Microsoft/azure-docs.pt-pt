@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: duau
-ms.openlocfilehash: bf600d835e177ce51870ed2a8894adcd667e3901
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c44e6c6a7a9af4edc2c711b17ec50aa2bf62c98
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89398057"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202452"
 ---
 # <a name="about-expressroute-fastpath"></a>Acerca do ExpressRoute FastPath
 
@@ -41,7 +41,7 @@ Embora o FastPath suporte a maioria das configurações, não suporta as seguint
 
 * VNet Peering: Se tiver outras redes virtuais espreitadas com a que está ligada ao ExpressRoute, o tráfego de rede da sua rede no local para as outras redes virtuais (isto é, os chamados VNets "Spoke") continuará a ser enviado para o gateway de rede virtual. A solução é ligar todas as redes virtuais diretamente ao circuito ExpressRoute.
 
-* Balanceador de Carga Básica: Se implementar um balanceador de carga interno básico na sua rede virtual ou o serviço Azure PaaS que implementa na sua rede virtual utiliza um equilibrador de carga interno básico, o tráfego de rede da sua rede no local para os IPs virtuais alojados no balanceador de carga Básico será enviado para o portal de rede virtual. A solução é atualizar o balanceador de carga básico para um [balanceador de carga Standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview).
+* Balanceador de Carga Básica: Se implementar um balanceador de carga interno básico na sua rede virtual ou o serviço Azure PaaS que implementa na sua rede virtual utiliza um equilibrador de carga interno básico, o tráfego de rede da sua rede no local para os IPs virtuais alojados no balanceador de carga Básico será enviado para o portal de rede virtual. A solução é atualizar o balanceador de carga básico para um [balanceador de carga Standard](../load-balancer/load-balancer-overview.md).
 
 * Link Privado: Se ligar a um [ponto final privado](../private-link/private-link-overview.md) na sua rede virtual a partir da sua rede no local, a ligação passará pelo gateway de rede virtual.
  

@@ -3,14 +3,14 @@ title: Como criar alertas para a Azure Automation Update Management
 description: Este artigo diz como configurar alertas do Azure para notificar sobre o estado das avaliações ou implementações de atualização.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 10/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1a46b5bf6c4be4953e6cde9972aa143be71406a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8f832f0359bd8f9caf13008939f482b440faa1a
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90977005"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203182"
 ---
 # <a name="how-to-create-alerts-for-update-management"></a>Como criar alertas para a Gestão de Atualização
 
@@ -86,3 +86,8 @@ Uma vez configurados os alertas, pode criar um grupo de ação, que é um grupo 
 
 ## <a name="next-steps"></a>Passos seguintes
 
+* Saiba mais sobre [os alertas no Azure Monitor.](../../azure-monitor/platform/alerts-overview.md)
+
+* Saiba mais [sobre consultas de registo](../../azure-monitor/log-query/log-query-overview.md) para recuperar e analisar dados de um espaço de trabalho log analytics.
+
+* Gerir [o uso e os custos com os Registos do Monitor Azure](../../azure-monitor/platform/manage-cost-storage.md) descreve como controlar os seus custos alterando o período de retenção de dados e como analisar e alertar sobre a utilização dos seus dados.

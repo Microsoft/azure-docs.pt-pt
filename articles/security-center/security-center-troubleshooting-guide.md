@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: e2922d19dbcad7da2808a86896e39d21420e73d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9afc827d1cef4ae1f0ed304b3c1d3cfbfe89b82e
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904741"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201805"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guia de Resolução de Problemas do Centro de Segurança do Azure
 
@@ -91,7 +91,7 @@ O **estado da monitorização** define o motivo pelo qual o Centro de Segurança
 | A instalação falhou - o agente local já está instalado | A instalação do agente Log Analytics falhou. O Centro de Segurança identificou um agente local (Log Analytics ou Gestor de Operações do Centro de Sistema) já instalado no VM. Para evitar uma configuração de vários homing, onde o VM está a reportar a dois espaços de trabalho separados, a instalação do agente Log Analytics parou. | Existem duas formas de resolver isto: [instalar manualmente a extensão](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) e ligá-la à área de trabalho pretendida. Ou então definir a sua área de trabalho pretendida como a área de trabalho predefinida e ativar o aprovisionamento automático do agente.  Veja [ativar o aprovisionamento automático](security-center-enable-data-collection.md). |
 | O agente não consegue ligar à área de trabalho | Log Analytics agente instalado mas falhou devido à conectividade da rede.  Verifique se tem acesso à Internet ou se foi configurado um proxy HTTP válido para o agente. | Veja requisitos de rede do agente de monitorização. |
 | Agente ligado a área de trabalho em falta ou desconhecida | O Centro de Segurança identificou que o agente Log Analytics instalado no VM está ligado a um espaço de trabalho ao qual não tem acesso. | Isto pode acontecer em dois casos. A área de trabalho foi eliminada e já não existe. Reinstale o agente com a área de trabalho correta ou desinstale o agente e permita que o Centro de Segurança conclua a instalação de aprovisionamento automática. O segundo caso é quando a área de trabalho faz parte de uma subscrição para a qual o Centro de Segurança não tem permissões. O Centro de Segurança requer subscrições para permitir que o Fornecedor de Recursos de Segurança da Microsoft aceda às mesmas. Para ativar, registe a subscrição no Fornecedor de Recursos de Segurança da Microsoft. Isto pode ser feito por API, PowerShell, portal ou filtrando a subscrição no dashboard **Descrição Geral** do Centro de Segurança. Veja [Fornecedores e tipos de recursos](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) para obter mais informações. |
-| O agente não responde ou tem o ID em falta | O Centro de Segurança não consegue obter dados de segurança analisados a partir da VM, apesar de o agente estar instalado. | O agente não está a comunicar quaisquer dados, incluindo o heartbeat. O agente pode estar danificado ou algo está a bloquear o tráfego. Ou, o agente está a reportar dados, mas falta-lhe uma identificação de recurso Azure, por isso é impossível comparar os dados com o VM Azure. Para resolver problemas, consulte o [Guia de Resolução de Problemas do Agente de Análise de Registos para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal). Para resolver problemas do Windows, Veja [Resolução de Problemas das Máquinas Virtuais Windows](https://github.com/MicrosoftDocs/azure-docs/blob/8c53ac4371d482eda3d85819a4fb8dac09996a89/articles/log-analytics/log-analytics-azure-vm-extension.md#troubleshooting-windows-virtual-machines). |
+| O agente não responde ou tem o ID em falta | O Centro de Segurança não consegue obter dados de segurança analisados a partir da VM, apesar de o agente estar instalado. | O agente não está a comunicar quaisquer dados, incluindo o heartbeat. O agente pode estar danificado ou algo está a bloquear o tráfego. Ou, o agente está a reportar dados, mas falta-lhe uma identificação de recurso Azure, por isso é impossível comparar os dados com o VM Azure. Para resolver problemas, consulte o [Guia de Resolução de Problemas do Agente de Análise de Registos para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal). Para resolver problemas do Windows, Veja [Resolução de Problemas das Máquinas Virtuais Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows#troubleshoot-and-support). |
 | Agente não instalado | A recolha de dados está desativada. | Ligue a recolha de dados na política de segurança ou instale manualmente o agente Log Analytics. |
 
 ## <a name="troubleshooting-monitoring-agent-network-requirements"></a>Requisitos de resolução de problemas de rede do agente de monitorização <a name="mon-network-req"></a>
@@ -105,10 +105,10 @@ A tabela seguinte mostra os recursos necessários para a comunicação.
 
 | Recursos do Agente | Portas | Inspeção de HTTPS direto |
 |---|---|---|
-| *.ods.opinsights.azure.com | 443 | Sim |
-| *.oms.opinsights.azure.com | 443 | Sim |
-| *.blob.core.windows.net | 443 | Sim |
-| *.azure-automation.net | 443 | Sim |
+| *.ods.opinsights.azure.com | 443 | Yes |
+| *.oms.opinsights.azure.com | 443 | Yes |
+| *.blob.core.windows.net | 443 | Yes |
+| *.azure-automation.net | 443 | Yes |
 
 Se encontrar problemas de integração com o agente, certifique-se de que lê o artigo [How to troubleshoot Operations Management Suite onboarding issues](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) (Como resolver problemas de integração do Operations Management Suite).
 
@@ -136,7 +136,7 @@ Alguns problemas podem ser identificados usando as diretrizes fornecidas neste a
 
 ![Suporte da Microsoft](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 Neste documento, aprendeu a configurar as políticas de segurança no Centro de Segurança do Azure. Para saber mais acerca do Centro de Segurança do Azure, consulte o seguinte:
 

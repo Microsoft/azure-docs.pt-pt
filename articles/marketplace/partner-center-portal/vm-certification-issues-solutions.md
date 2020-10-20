@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 10/14/2020
-ms.openlocfilehash: 1a8dbbb42a548a8c4e9a1117166aa621e8734208
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.date: 10/16/2020
+ms.openlocfilehash: 48a044e53602b330e43b35ce2425b4b7a90582bf
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044501"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206582"
 ---
 # <a name="common-issues-when-certifying-virtual-machine-images-for-azure-marketplace"></a>Questões comuns ao certificar imagens de máquinas virtuais para o Azure Marketplace
 
@@ -35,7 +35,7 @@ Para corrigir este problema, recupere a imagem do Azure Marketplace e faça alte
 - [Imagens do Windows](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base)
 
 > [!Note]
-> Se estiver a utilizar uma imagem base linux não tirada do Marketplace, pode compensar a primeira partição até 2048 KB. Isto permite que o espaço não testado seja utilizado para adicionar novas informações de faturação e permite que a Azure avance com a publicação do seu VM no Marketplace.  
+> Se estiver a utilizar uma imagem base linux não tirada do Azure Marketplace, pode compensar a primeira partição até 2048 KB. Isto permite que o espaço não testado seja utilizado para adicionar novas informações de faturação e permite que a Azure avance com a publicação do seu VM para o Azure Marketplace.  
 
 ## <a name="vm-extension-failure"></a>Falha de extensão VM
 
@@ -87,7 +87,7 @@ Se estiver a tentar instalar o Visual Studio ou qualquer produto licenciado pelo
 
 Para obter mais informações sobre a seleção de uma base aprovada, consulte [Criar os seus ativos técnicos da máquina virtual Azure](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base).
 
-## <a name="tool-kit-test-case-execution-failed"></a>A execução do caso de teste do kit de ferramenta falhou 
+## <a name="tool-kit-test-case-execution-failed"></a>A execução do caso de teste do kit de ferramenta falhou
 
 O conjunto de ferramentas de certificação da Microsoft pode ajudá-lo a executar casos de teste e verificar se o seu VHD ou imagem é compatível com o ambiente Azure.
 
@@ -145,7 +145,7 @@ A tabela que se segue lista os casos de teste do Windows que o conjunto de ferra
 |16|Serviço de Nome da Internet do Windows|Serviço de Nome da Internet do Windows. Esta funcionalidade do servidor ainda não está suportada. A aplicação não deve depender desta funcionalidade.|
 |17|Serviço LAN Sem Fios|Serviço LAN sem fios. Esta funcionalidade do servidor ainda não está suportada. A aplicação não deve depender desta funcionalidade.|
 
-Se encontrar falhas com os casos de teste anteriores, consulte a coluna **Descrição** na tabela para obter a solução. Se precisar de mais informações, contacte a equipa de Apoio. 
+Se encontrar falhas com os casos de teste anteriores, consulte a coluna **Descrição** na tabela para obter a solução. Se precisar de mais informações, contacte a equipa de Apoio.
 
 ## <a name="data-disk-size-verification"></a>Verificação do tamanho do disco de dados
 
@@ -199,8 +199,8 @@ Atualize o núcleo com uma versão aprovada e reenvia o pedido. Pode encontrar a
 
 Se a sua imagem não estiver instalada com uma das seguintes versões de kernel, atualize-a com as correções corretas. Solicite a aprovação necessária da equipa de Suporte após a atualização da imagem com estes patches necessários:
 
-- CVE-2019-11477 
-- CVE-2019-11478 
+- CVE-2019-11477
+- CVE-2019-11478
 - CVE-2019-11479
 
 |Família osa|Versão|Kernel|
@@ -261,12 +261,12 @@ Se encontrar acesso a problemas negados enquanto está a executar os casos de te
 Verifique se o acesso adequado está ativado para a conta em que os casos de auto-teste estão a decorrer. Se o acesso não estiver ativado, ative-o para executar os casos de teste. Se não quiser ativar o acesso, poderá partilhar os resultados do caso de auto-teste com a equipa de Suporte.
 
 ## <a name="download-failure"></a>Falha no download
-    
+
 Consulte a tabela seguinte para quaisquer problemas que surjam quando descarrega a imagem VM utilizando um URL de assinatura de acesso partilhado (SAS).
 
 |Cenário|Erro|Razão|Solução|
 |---|---|---|---|
-|1|Blob não encontrado|O VHD pode ser eliminado ou deslocado do local especificado.|| 
+|1|Blob não encontrado|O VHD pode ser eliminado ou deslocado do local especificado.||
 |2|Bolha em uso|O VHD é utilizado por outro processo interno.|O VHD deve estar num estado usado quando o descarrega utilizando um URL SAS.|
 |3|URL DE SAS inválido|O URL SAS associado para o VHD está incorreto.|Obtenha o URL SAS correto.|
 |4|Assinatura inválida|O URL SAS associado para o VHD está incorreto.|Obtenha o URL SAS correto.|
@@ -317,7 +317,7 @@ Para soluções para erros relacionados com o disco de dados, utilize o seguinte
 
 ## <a name="remote-access-issue"></a>Problema de acesso remoto
 
-Se a opção "Remote Desktop Protocol" (RDP) não estiver ativada para a imagem do Windows, receberá este erro. 
+Se a opção "Remote Desktop Protocol" (RDP) não estiver ativada para a imagem do Windows, receberá este erro.
 
 Ativar o acesso rdp às imagens do Windows antes de as submeter.
 
@@ -334,11 +334,11 @@ Passo 2. Selecione a primeira opção "RunShellScript" e execute o comando abaix
 
 Comando: "cat /dev/null > ~/.bash_history && history -c" ![ Bash History command on Azure portal](./media/vm-certification-issues-solutions-4.png)
 
-Passo 3. Após a execução bem sucedida do comando, reinicie o VM.
+Passo 3.Depois de executar com sucesso o comando, reinicie o VM.
 
-Passo 4: Generalize o VM, pegue o VHD de imagem e pare o VM.
+Passo 4.Generalize o VM, pegue o VHD de imagem e pare o VM.
 
-Passo 5.     Re-Submit a imagem generalizada.
+Passo 5. Re-Submit a imagem generalizada.
 
 ## <a name="requesting-exceptions-custom-templates-on-vm-images-for-selective-tests"></a>Solicitando exceções (modelos personalizados) em imagens VM para testes seletivos
 
@@ -349,7 +349,7 @@ Nas secções abaixo, falaremos sobre os principais cenários em que são pedida
 
 Cenários de exceção
 
-Existem três cenários/casos em que os editores geralmente solicitam estas exceções. 
+Existem três cenários/casos em que os editores geralmente solicitam estas exceções.
 
 * **Exceção para um ou mais casos de teste:** Os editores podem contactar o [Marketplace Publisher Support pedir](https://aka.ms/marketplacepublishersupport) exceções para casos de teste. 
 
@@ -357,20 +357,22 @@ Existem três cenários/casos em que os editores geralmente solicitam estas exce
        Neste caso, os editores podem descarregar a [Ferramenta de Teste Certificada](https://aka.ms/AzureCertificationTestTool) aqui, e fornecer o relatório no [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport)
 
 
-* **Modelos personalizados:** Alguns editores publicam imagens VM que requerem um modelo ARM personalizado para implementar os VMs. Neste caso, solicita-se aos Editores que forneçam os modelos personalizados no [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport) para que o mesmo possa ser utilizado pela equipa de Certificação para validação. 
+* **Modelos personalizados:** Alguns editores publicam imagens VM que requerem um modelo ARM personalizado para implementar os VMs.
+
+Neste caso, solicita-se aos Editores que forneçam os modelos personalizados no [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport) para que o mesmo possa ser utilizado pela equipa de Certificação para validação.
 
 ### <a name="information-to-provide-for-exception-scenarios"></a>Informações para prever cenários de exceção
 
 Os editores devem contactar o suporte no [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport) para solicitar exceções para o cenário acima referido com as seguintes informações adicionais:
 
-   1.   Editor ID – O ID da editora no portal Partner Center
-   2.   ID/nome da oferta – O ID/nome da oferta para o qual é solicitada a exceção 
-   3.   SKU/Plan ID – O plano ID/sku da oferta VM para a qual é solicitada exceção
-   4.    Versão – A versão da oferta VM para a qual é pedida exceção
-   5.   Tipo de exceção (Testes, VM bloqueados, modelos personalizados
-   6.   Razão de pedido – Razão para esta exceção e informação sobre testes a isentar 
-   7. Linha do tempo - Data até à qual esta exceção foi solicitada 
-   8.   Anexo - Anexar quaisquer documentos de prova de importância. Para VMs bloqueados, anexe o relatório de teste e os modelos personalizados, forneça o modelo ARM personalizado como acessório. A não anexação do relatório para VMs bloqueados e o modelo ARM personalizado para modelos personalizados resultará em negação de pedido
+   1. Editor ID – O ID da editora no portal Partner Center
+   1. ID/nome da oferta – O ID/nome da oferta para o qual é solicitada a exceção 
+   1. SKU/Plan ID – O plano ID/sku da oferta VM para a qual é solicitada exceção
+   1. Versão – A versão da oferta VM para a qual é pedida exceção
+   1. Tipo de exceção (Testes, VM bloqueados, modelos personalizados
+   1. Razão de pedido – Razão para esta exceção e informação sobre testes a isentar 
+   1. Linha do tempo - Data até à qual esta exceção foi solicitada 
+   1. Anexo - Anexar quaisquer documentos de prova de importância. Para VMs bloqueados, anexe o relatório de teste e os modelos personalizados, forneça o modelo ARM personalizado como acessório. A não anexação do relatório para VMs bloqueados e o modelo ARM personalizado para modelos personalizados resultará em negação de pedido
 
 ## <a name="how-to-address-a-vulnerability-or-exploit-in-a-vm-offer"></a>Como lidar com uma vulnerabilidade ou exploração numa oferta VM
 
@@ -403,7 +405,7 @@ Para completar estes passos, precisará de preparar o ativo técnico para a imag
 1. No separador **Plano de Visão Geral,** na coluna **Nome,** selecione o plano a que pretende adicionar o VM.
 1. No separador **de configuração técnica,** em **Imagens VM,** selecione **+ Adicionar Imagem VM**.
    > [!NOTE]
-   > Pode adicionar apenas uma imagem VM a um plano de cada vez. Para adicionar várias imagens VM, publique a primeira e aguarde até chegar à fase _de sinalização_ da Publisher antes de adicionar a próxima imagem de VM.
+   > Pode adicionar apenas uma imagem VM a um plano de cada vez. Para adicionar várias imagens VM, publique cada uma ao vivo antes de adicionar a próxima imagem VM.
 1. Nas caixas que aparecem, forneça uma nova versão em disco e a imagem da máquina virtual.
 1. Selecione **Guardar rascunho**.
 1. Continue até à secção seguinte para remover a imagem VM com a vulnerabilidade de segurança.
@@ -425,6 +427,7 @@ Depois de ter removido ou substituído a imagem em VM, tem de republicar a ofert
 1. Selecione **Rever e publicar.**
 1. Se precisar de fornecer alguma informação à equipa de certificação, adicione-a às Notas para caixa **de certificação.**
 1. Selecione **Publicar**.
+1. Quando o estado de publicação chegar à fase de Publicação, selecione **Go live**.
 
 Para obter mais detalhes sobre o processo de publicação, consulte [Como rever e publicar uma oferta ao mercado comercial.](../review-publish-offer.md)
 
