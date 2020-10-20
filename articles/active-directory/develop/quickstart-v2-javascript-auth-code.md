@@ -12,20 +12,18 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 35362733849305ad2ad7e008840d53ba085fa987
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 45a6843c5ce55dca7ff72731752f3c1f24a5db6b
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91613446"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216662"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Quickstart: Inicie os utilizadores e obtenha um token de acesso num JavaScript SPA utilizando o fluxo de código auth
 
 Neste quickstart, você executou uma amostra de código que demonstra como uma aplicação de página única JavaScript (SPA) pode assinar em utilizadores de contas pessoais, contas de trabalho e contas escolares usando o fluxo de código de autorização. A amostra de código também demonstra obter um token de acesso para chamar uma API web, neste caso a Microsoft Graph API. Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 
 Este arranque rápido utiliza MSAL.js 2.0 com o fluxo de código de autorização. Para um quickstart semelhante que utiliza MSAL.js 1.0 com o fluxo implícito, consulte [Quickstart: Inicie nos utilizadores em aplicações de página única JavaScript](./quickstart-v2-javascript.md).
-
-[!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

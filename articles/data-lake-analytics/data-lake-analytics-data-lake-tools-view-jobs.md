@@ -2,15 +2,14 @@
 title: Use o navegador de trabalho & vista de emprego - Azure Data Lake Analytics
 description: Este artigo descreve como usar o Job Browser e Job View para trabalhos Azure Data Lake Analytics.
 ms.service: data-lake-analytics
-ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.topic: how-to
 ms.date: 08/02/2017
-ms.openlocfilehash: 717ad8bfaa9ddfcfa5775654408601ca13d3a636
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1e9a9df4c2ec57dfeec8cf5ddd5348228b9cc3e
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282617"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218685"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Utilizar o Browser de Tarefas e o Visualizador de Tarefas do Azure Data Lake Analytics
 Os arquivos do serviço Azure Data Lake Analytics submeteram empregos numa loja de consultas. Neste artigo, você aprende a usar Job Browser e Job View em Azure Data Lake Tools para o Visual Studio para encontrar as informações históricas do trabalho. 

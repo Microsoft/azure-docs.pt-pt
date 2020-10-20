@@ -1,18 +1,16 @@
 ---
 title: Começar com a linguagem U-SQL em Azure Data Lake Analytics
 description: Aprenda os fundamentos da língua U-SQL em Azure Data Lake Analytics. Escreva a sua primeira consulta usando variáveis para dados extra de ficheiros, transforme o conjunto de linhas e os dados agregados.
-services: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 06/23/2017
-ms.openlocfilehash: 6f2af2eed8aa01f35e1813bcd910f3ea22e2a335
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5920f2b5823e568d56d13107200eb0025a654db0
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87128850"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219926"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Começar com u-SQL em Azure Data Lake Analytics
 
@@ -21,7 +19,7 @@ U-SQL é um idioma que combina SQL declarativo com imperativo C# para permitir q
 ## <a name="learning-resources"></a>Recursos de aprendizagem
 
 * O [U-SQL Tutorial](https://aka.ms/usqltutorial) proporciona uma caminhada guiada através da maior parte da língua U-SQL. Este documento é recomendado de leitura para todos os desenvolvedores que desejam aprender U-SQL.
-* Para obter informações detalhadas sobre a **sintaxe linguística U-SQL,** consulte a [Referência linguística U-SQL](https://docs.microsoft.com/u-sql/).
+* Para obter informações detalhadas sobre a **sintaxe linguística U-SQL,** consulte a [Referência linguística U-SQL](/u-sql/).
 * Para compreender a **filosofia de design U-SQL,** consulte o post de blog do Estúdio Visual [introduzindo u-SQL – uma linguagem que torna o processamento de big data fácil.](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/)
 
 ## <a name="prerequisites"></a>Pré-requisitos

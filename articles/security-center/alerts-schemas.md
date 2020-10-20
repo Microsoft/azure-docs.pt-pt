@@ -2,7 +2,6 @@
 title: Schemas para o Centro de Segurança Azure alertas
 description: Este artigo descreve os diferentes esquemas usados pelo Azure Security Center para alertas de segurança.
 services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -12,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
-ms.openlocfilehash: 894fc4066ad408f0749e7a982011d82b205e6fec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 264cab08fa967af783b758ed1030826d2a179e8a
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90901349"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220674"
 ---
 # <a name="security-alerts-schemas"></a>Esquemas de alerta de segurança
 
@@ -68,7 +67,7 @@ Para mais informações sobre a Azure Sentinel, consulte [a documentação.](htt
 
 
 
-### <a name="azure-activity-log"></a>[Registo de atividades Azure](#tab/schema-activitylog)
+### <a name="azure-activity-log"></a>[Registo de Atividades do Azure](#tab/schema-activitylog)
 
 As auditorias do Azure Security Center geraram alertas de segurança como eventos no Registo de Atividades do Azure.
 
@@ -173,7 +172,7 @@ Pode ver os eventos de alerta de segurança no Registo de Atividades, procurando
 
 O Microsoft Graph é a porta de entrada para dados e inteligência na Microsoft 365. Fornece um modelo de programabilidade unificado que pode utilizar para aceder à enorme quantidade de dados no Microsoft 365, Windows 10 e Enterprise Mobility + Security. Use a riqueza de dados no Microsoft Graph para construir apps para organizações e consumidores que interagem com milhões de utilizadores.
 
-O esquema e uma representação JSON para alertas de segurança enviados para o MS Graph, estão disponíveis [na documentação do Microsoft Graph](https://docs.microsoft.com/graph/api/resources/alert?view=graph-rest-1.0).
+O esquema e uma representação JSON para alertas de segurança enviados para o MS Graph, estão disponíveis [na documentação do Microsoft Graph](https://docs.microsoft.com/graph/api/resources/alert?view=graph-rest-1.0&preserve-view=true).
 
 ---
 

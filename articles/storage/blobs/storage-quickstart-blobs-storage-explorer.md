@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: f8768a1b2542eb0461ef0c50c96e22c80eced57a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f920a937f4b9b51f9babd03ed0fb42dd3c7775d8
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87836467"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217794"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-create-a-blob"></a>Quickstart: Use o Azure Storage Explorer para criar uma bolha
 
@@ -38,7 +38,7 @@ Na primeira execução, é mostrada a janela **Explorador de Armazenamento do Mi
 
 **Selecione Adicionar uma Conta Azure** e clique em Iniciar **sôm.** Siga as instruções no ecrã para iniciar súm na sua conta Azure.
 
-![Explorador de Armazenamento do Microsoft Azure – Janela Ligar](media/storage-quickstart-blobs-storage-explorer/connect.png)
+![Screenshot que mostra o Microsoft Azure Storage Explorer - Connect window.](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
 Quando a ligação for concluída, o Explorador de Armazenamento do Azure é carregado com o separador **Explorador** mostrado. Esta vista dá-lhe uma visão de todas as suas contas de armazenamento Azure, bem como armazenamento local configurado através do [emulador de armazenamento Azurite,](../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) [contas cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) ou ambientes [Azure Stack.](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
@@ -70,7 +70,7 @@ Quando seleciona **OK**, os ficheiros selecionados são colocados em fila para c
 
 Na aplicação **Explorador de Armazenamento do Azure**, selecione um contentor numa conta de armazenamento. O painel principal apresenta uma lista dos blobs no contentor selecionado.
 
-![Explorador de Armazenamento do Microsoft Azure – Listar os blobs num contentor](media/storage-quickstart-blobs-storage-explorer/listblobs.png)
+![Screenshot que mostra onde seleciona um recipiente no Microsoft Azure Storage Explorer.](media/storage-quickstart-blobs-storage-explorer/listblobs.png)
 
 ## <a name="download-blobs"></a>Transferir blobs
 
@@ -80,7 +80,7 @@ Para transferir blobs através do **Explorador de Armazenamento do Azure**, com 
 
 O Explorador de Armazenamento do Azure permite criar e gerir [instantâneos](storage-blob-snapshots.md) dos blobs. Para criar um instantâneo de um blob, clique com o botão direito do rato no blob e selecione **Criar Instantâneo**. Para ver os instantâneos de um blob, clique com o botão direito do rato no blob e selecione **Gerir Instantâneos**. É apresentada uma lista dos instantâneos do blob no separador atual.
 
-![Explorador de Armazenamento do Microsoft Azure – Listar os blobs num contentor](media/storage-quickstart-blobs-storage-explorer/snapshots.png)
+![Screenshot que mostra uma lista de bolhas no Microsoft Azure Storage Explorer.](media/storage-quickstart-blobs-storage-explorer/snapshots.png)
 
 ## <a name="manage-access-policies"></a>Gerir políticas de acesso
 

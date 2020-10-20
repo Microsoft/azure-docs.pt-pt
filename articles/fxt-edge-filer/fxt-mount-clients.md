@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: ea963b143cedf36137d9c36bc57d323353da6786
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9ee50c146271106e2b9c693702827b2e1b52199
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86231357"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219552"
 ---
 # <a name="tutorial-mount-the-cluster"></a>Tutorial: Monte o aglomerado
 
@@ -20,6 +20,7 @@ Este tutorial ensina-o a montar clientes NFS no cluster Azure FXT Edge Filer. Os
 Este tutorial ensina:
 
 > [!div class="checklist"]
+>
 > * Estratégias para equilibrar os clientes em toda a gama de endereços IP voltados para o cliente
 > * Como construir um caminho de montagem a partir de um endereço IP virado para o cliente e junção de espaço de nome
 > * Que argumentos usar num comando de montagem

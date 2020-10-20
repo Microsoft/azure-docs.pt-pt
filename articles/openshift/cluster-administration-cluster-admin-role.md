@@ -7,15 +7,21 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: article
 ms.date: 09/25/2019
-ms.openlocfilehash: 38686ba35285159d7a27724b5402a6b6e2f3a696
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8b84461cc96c64ce2f97a8b4bb69246f5a0dccc
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88815526"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221184"
 ---
 # <a name="azure-red-hat-openshift-customer-administrator-role"></a>Papel de administrador de cliente azure Red Hat OpenShift
- 
+
+> [!IMPORTANT]
+> Azure Red Hat OpenShift 3.11 será retirado a 30 de junho de 2022. O apoio à criação de novos clusters Azure Red Hat OpenShift 3.11 continua até 30 de novembro de 2020. Após a reforma, os restantes clusters Azure Red Hat OpenShift 3.11 serão encerrados para evitar vulnerabilidades de segurança.
+> 
+> Siga este guia para [criar um cluster Azure Red Hat OpenShift 4](tutorial-create-cluster.md).
+> Se tiver questões específicas, [contacte-nos.](mailto:arofeedback@microsoft.com)
+
 És o administrador de um aglomerado de chapéus vermelhos Azure. A sua conta aumentou as permissões e o acesso a todos os projetos criados pelo utilizador.
 
 Quando a sua conta tem a função de autorização de cluster de administração do cliente vinculada a ela, pode gerir automaticamente um projeto.

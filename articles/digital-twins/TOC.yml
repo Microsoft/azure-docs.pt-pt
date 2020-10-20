@@ -193,7 +193,7 @@
       items:
         - name: Serviço de simulador de dispositivo
           href: 'https://github.com/Azure/device-simulation-dotnet/tree/master'
-        - name: Exemplos do Azure Digital Twins
+        - name: Amostras completas do Azure Digital Twins
           href: /samples/azure-samples/digital-twins-samples/digital-twins-samples/
         - name: Explorador do Azure Digital Twins (exemplo)
           href: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
@@ -201,10 +201,10 @@
           href: /samples/azure-samples/dtdl-validator/dtdl-validator/
         - name: Exemplo de integração do DPS e do Hub IoT
           href: /samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
-        - name: Swaggers personalizados do Azure Digital Twins para o conector do Logic Apps
-          href: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
         - name: Amostra de integração com o SignalR
           href: /samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/
+        - name: Swaggers personalizados do Azure Digital Twins para o conector do Logic Apps
+          href: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
     - name: Ferramentas do Azure
       items:
         - name: Azure Cloud Shell

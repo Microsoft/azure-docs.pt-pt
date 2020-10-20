@@ -15,16 +15,16 @@ ms.workload: infrastructure
 ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 451b651be8036feb272d4444d00608bb61c1e438
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: e233c7c4eb76e79e73d0c5fc386a9d908f0e35b5
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204491"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216696"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Tutorial: Monitorize alterações e atualize uma máquina virtual Linux em Azure
 
-O Azure [Change Tracking](../../automation/change-tracking/overview.md) permite-lhe identificar facilmente alterações e [a Gestão de Atualização](../../automation/update-management/update-mgmt-overview.md) permite-lhe gerir as atualizações do sistema operativo para os seus VMs Azure Linux.
+O Azure [Change Tracking](../../automation/change-tracking/overview.md) permite-lhe identificar facilmente alterações e [a Gestão de Atualização](../../automation/update-management/overview.md) permite-lhe gerir as atualizações do sistema operativo para os seus VMs Azure Linux.
 
 Neste tutorial, vai aprender a:
 
@@ -115,10 +115,10 @@ Para criar uma nova implementação de atualização, selecione **a implementaç
 | --- | --- |
 | Nome |O nome exclusivo para identificar a implementação de atualizações. |
 |Sistema Operativo| Linux ou Windows|
-| Grupos a atualizar |Para máquinas Azure, defina uma consulta com base numa combinação de subscrição, grupos de recursos, localizações e tags para construir um grupo dinâmico de VMs Azure para incluir na sua implementação. </br></br>Para máquinas não-Azure, selecione uma pesquisa guardada existente para selecionar um grupo de máquinas não-Azure para incluir na implementação. </br></br>Para saber mais, consulte [Grupos Dinâmicos](../../automation/update-management/update-mgmt-groups.md)|
+| Grupos a atualizar |Para máquinas Azure, defina uma consulta com base numa combinação de subscrição, grupos de recursos, localizações e tags para construir um grupo dinâmico de VMs Azure para incluir na sua implementação. </br></br>Para máquinas não-Azure, selecione uma pesquisa guardada existente para selecionar um grupo de máquinas não-Azure para incluir na implementação. </br></br>Para saber mais, consulte [Grupos Dinâmicos](../../automation/update-management/configure-groups.md)|
 | Máquinas a atualizar |Selecione uma pesquisa guardada, grupo importado ou escolha a Máquina a partir do drop-down e selecione máquinas individuais. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**.</br> Para conhecer os diferentes métodos de criação de grupos informáticos em registos do Monitor Azure, consulte [grupos de computador em registos do Monitor Azure](../../azure-monitor/platform/computer-groups.md) |
 |Classificações de atualizações|Selecione todas as classificações de atualização que precisa|
-|Incluir/excluir atualizações|Isto abre a página **Incluir/Excluir.** As atualizações a serem incluídas ou excluídas estão em separadores diferentes. Para obter mais informações sobre como a inclusão é tratada, consulte [Agendar uma Implementação de Atualização](../../automation/update-management/update-mgmt-deploy-updates.md#schedule-an-update-deployment) |
+|Incluir/excluir atualizações|Isto abre a página **Incluir/Excluir.** As atualizações a serem incluídas ou excluídas estão em separadores diferentes. Para obter mais informações sobre como a inclusão é tratada, consulte [Agendar uma Implementação de Atualização](../../automation/update-management/deploy-updates.md#schedule-an-update-deployment) |
 |Definições de agenda|Selecione a hora de início e selecione uma vez ou recorrente para a recorrência|
 | Pré-scripts + Post-scripts|Selecione os scripts para executar antes e depois da sua implantação|
 | Janela de manutenção |Número de minutos definidos para atualizações. O valor não pode ser inferior a 30 minutos e não mais de 6 horas |

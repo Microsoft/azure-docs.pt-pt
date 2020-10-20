@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 438d2fec9efc6a1ad3fcdaa2829573e7205820ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5473730484240f2c813c9ae279e1516ed93a45c5
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85385965"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92214962"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Adicione uma aplicação web API ao seu inquilino Azure Ative Directory B2C
 
@@ -34,7 +34,7 @@ Para registar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a nos
 1. Selecione **Registar**.
 1. Grave o **ID de Aplicação (cliente)** para utilização no código da API da sua web.
 
-Se tiver uma aplicação que implemente o fluxo de subvenção implícito, por exemplo uma aplicação de página única baseada em JavaScript (SPA), pode ativar o fluxo seguindo estes passos:
+Se tiver uma aplicação que implemente o fluxo de subvenção implícito, por exemplo, uma [aplicação de página única baseada em JavaScript (SPA),](tutorial-register-spa.md)pode ativar o fluxo seguindo estes passos:
 
 1. Em **Gestão**, **selecione Autenticação**.
 1. Sob **a concessão implícita,** selecione as caixas de verificação **de fichas de acesso** e **id.**

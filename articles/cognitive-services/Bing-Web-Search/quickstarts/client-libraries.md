@@ -9,15 +9,15 @@ zone_pivot_groups: programming-languages-set-ten
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/05/2020
+ms.date: 10/19/2020
 ms.author: aahi
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 2425ee05a4cac11689b9254356c641590950781c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: dd54c2e78eebfaef1d9fef3443c9d0713ab06850
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91298457"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217585"
 ---
 # <a name="quickstart-use-a-bing-web-search-client-library"></a>Quickstart: Use uma biblioteca de clientes Bing Web Search
 

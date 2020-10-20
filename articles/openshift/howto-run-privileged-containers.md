@@ -7,14 +7,20 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/05/2019
 keywords: aro, openshift, aquasec, twistlock, chapéu vermelho
-ms.openlocfilehash: e1c1dd9f27a207f78dd22e271f6b070c7f92f622
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 914b29410a0f30e5c3d3a893c2e278ecbb83b648
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78271363"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218872"
 ---
 # <a name="run-privileged-containers-in-an-azure-red-hat-openshift-cluster"></a>Executar contentores privilegiados num cluster do Azure Red Hat OpenShift
+
+> [!IMPORTANT]
+> Azure Red Hat OpenShift 3.11 será retirado a 30 de junho de 2022. O apoio à criação de novos clusters Azure Red Hat OpenShift 3.11 continua até 30 de novembro de 2020. Após a reforma, os restantes clusters Azure Red Hat OpenShift 3.11 serão encerrados para evitar vulnerabilidades de segurança.
+> 
+> Siga este guia para [criar um cluster Azure Red Hat OpenShift 4](tutorial-create-cluster.md).
+> Se tiver questões específicas, [contacte-nos.](mailto:arofeedback@microsoft.com)
 
 Não pode executar recipientes privilegiados arbitrários em aglomerados Azure Red Hat OpenShift.
 Duas soluções de monitorização e conformidade de segurança são permitidas em clusters ARO.
@@ -128,7 +134,7 @@ Criar um novo projeto OpenShift
 oc new-project twistlock
 ```
 
-Salte a secção opcional "Empurre as imagens da Nuvem Prisma para um registo privado". Não vai funcionar no Azure Red Hat Openshift. Use o registo on-line em vez disso.
+Salte a secção opcional "Empurre as imagens da Nuvem Prisma para um registo privado". Não vai funcionar no Azure Red Hat OpenShift. Use o registo on-line em vez disso.
 
 Pode seguir a documentação oficial enquanto aplica as correções descritas abaixo.
 Comece com a secção "Instalar consola".
