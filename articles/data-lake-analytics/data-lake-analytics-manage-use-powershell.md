@@ -1,20 +1,19 @@
 ---
 title: Gerir a Análise do Azure Data Lake com o Azure PowerShell
 description: Este artigo descreve como usar a Azure PowerShell para gerir contas data lake analytics, fontes de dados, utilizadores, & empregos.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.topic: how-to
 ms.date: 06/29/2018
-ms.openlocfilehash: 70a251db6c08f353f9c50512c41551e7a909a059
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: afa21e6aae769e69e8bc83b9fa0d4f9b76396f7e
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87125654"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220317"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Gerir a Análise do Azure Data Lake com o Azure PowerShell
+
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 Este artigo descreve como gerir as contas do Azure Data Lake Analytics, fontes de dados, utilizadores e empregos utilizando a Azure PowerShell.
@@ -23,7 +22,7 @@ Este artigo descreve como gerir as contas do Azure Data Lake Analytics, fontes d
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Para utilizar o PowerShell com data lake analytics, recolha as seguintes informações: 
+Para utilizar o PowerShell com data lake analytics, recolha as seguintes informações:
 
 * **ID de assinatura**: O ID da subscrição Azure que contém a sua conta Data Lake Analytics.
 * **Grupo de recursos**: O nome do grupo de recursos Azure que contém a sua conta Data Lake Analytics.
@@ -52,7 +51,7 @@ Faça login usando um ID de subscrição ou por nome de subscrição
 Connect-AzAccount -SubscriptionId $subId
 
 # Using subscription name
-Connect-AzAccount -SubscriptionName $subname 
+Connect-AzAccount -SubscriptionName $subname
 ```
 
 ## <a name="saving-authentication-context"></a>Contexto de autenticação de poupança
@@ -64,23 +63,22 @@ O `Connect-AzAccount` cmdlet sempre pede credenciais. Pode evitar ser solicitado
 Save-AzAccounts -Path D:\profile.json  
 
 # Load login session information
-Select-AzAccounts -Path D:\profile.json 
+Select-AzAccounts -Path D:\profile.json
 ```
 
 ### <a name="log-in-using-a-service-principal-identity-spi"></a>Faça login usando uma identidade principal de serviço (SPI)
 
 ```powershell
 $tenantid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"  
-$spi_appname = "appname" 
-$spi_appid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" 
-$spi_secret = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" 
+$spi_appname = "appname"
+$spi_appid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+$spi_secret = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 
 $pscredential = New-Object System.Management.Automation.PSCredential ($spi_appid, (ConvertTo-SecureString $spi_secret -AsPlainText -Force))
 Login-AzAccount -ServicePrincipal -TenantId $tenantid -Credential $pscredential -Subscription $subid
 ```
 
 ## <a name="manage-accounts"></a>Gerir contas
-
 
 ### <a name="list-accounts"></a>Contas de lista
 
@@ -94,7 +92,7 @@ Get-AdlAnalyticsAccount -ResourceGroupName $rg
 
 ### <a name="create-an-account"></a>Criar uma conta
 
-Cada conta de Data Lake Analytics requer uma conta de Data Lake Store predefinida que utiliza para armazenar registos. Pode reutilizar uma conta existente ou criar uma conta. 
+Cada conta de Data Lake Analytics requer uma conta de Data Lake Store predefinida que utiliza para armazenar registos. Pode reutilizar uma conta existente ou criar uma conta.
 
 ```powershell
 # Create a data lake store if needed, or you can re-use an existing one
@@ -117,12 +115,13 @@ Test-AdlAnalyticsAccount -Name $adla
 ```
 
 ## <a name="manage-data-sources"></a>Gerir origens de dados
+
 A Azure Data Lake Analytics suporta atualmente as seguintes fontes de dados:
 
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
 * [Armazenamento do Azure](../storage/common/storage-introduction.md)
 
-Cada conta Data Lake Analytics tem uma conta de Data Lake Store padrão. A conta padrão data lake store é usada para armazenar metadados de trabalho e registos de auditoria de trabalho. 
+Cada conta Data Lake Analytics tem uma conta de Data Lake Store padrão. A conta padrão data lake store é usada para armazenar metadados de trabalho e registos de auditoria de trabalho.
 
 ### <a name="find-the-default-data-lake-store-account"></a>Encontre a conta padrão data lake store
 
@@ -134,7 +133,7 @@ $dataLakeStoreName = $adla_acct.DefaultDataLakeAccount
 Pode encontrar a conta padrão data lake store filtrando a lista de fontes de dados pela `IsDefault` propriedade:
 
 ```powershell
-Get-AdlAnalyticsDataSource -Account $adla  | ? { $_.IsDefault } 
+Get-AdlAnalyticsDataSource -Account $adla  | ? { $_.IsDefault }
 ```
 
 ### <a name="add-a-data-source"></a>Adicionar uma origem de dados
@@ -148,7 +147,7 @@ Add-AdlAnalyticsDataSource -Account $adla -Blob $AzureStorageAccountName -Access
 
 # Add an additional Data Lake Store account.
 $AzureDataLakeStoreName = "<AzureDataLakeStoreAccountName"
-Add-AdlAnalyticsDataSource -Account $adla -DataLakeStore $AzureDataLakeStoreName 
+Add-AdlAnalyticsDataSource -Account $adla -DataLakeStore $AzureDataLakeStoreName
 ```
 
 ### <a name="list-data-sources"></a>Listar fontes de dados
@@ -170,8 +169,8 @@ Get-AdlAnalyticsDataSource -Account $adla | where -Property Type -EQ "Blob"
 
 ```powershell
 $script = @"
-@a  = 
-    SELECT * FROM 
+@a  =
+    SELECT * FROM
         (VALUES
             ("Contoso", 1500.0),
             ("Woodgrove", 2700.0)
@@ -182,7 +181,7 @@ OUTPUT @a
 "@
 
 $scriptpath = "d:\test.usql"
-$script | Out-File $scriptpath 
+$script | Out-File $scriptpath
 
 Submit-AdlJob -AccountName $adla -Script $script -Name "Demo"
 ```
@@ -191,7 +190,7 @@ Submit-AdlJob -AccountName $adla -Script $script -Name "Demo"
 
 ```powershell
 $scriptpath = "d:\test.usql"
-$script | Out-File $scriptpath 
+$script | Out-File $scriptpath
 Submit-AdlJob -AccountName $adla –ScriptPath $scriptpath -Name "Demo"
 ```
 
@@ -265,7 +264,6 @@ Get-AdlJob -Account $adla -Submitter "joe@contoso.com"
 
 O `-SubmittedAfter` é útil na filtragem para um intervalo de tempo.
 
-
 ```powershell
 # List  jobs submitted in the last day.
 $d = [DateTime]::Now.AddDays(-1)
@@ -283,7 +281,6 @@ Obtenha o estado de uma tarefa específica.
 ```powershell
 Get-AdlJob -AccountName $adla -JobId $job.JobId
 ```
-
 
 ### <a name="cancel-a-job"></a>Cancelar um emprego
 
@@ -320,7 +317,6 @@ $recurrences = Get-AdlJobRecurrence -Account $adla
 $recurrence = Get-AdlJobRecurrence -Account $adla -RecurrenceId "<recurrence ID>"
 ```
 
-
 ## <a name="manage-compute-policies"></a>Gerir políticas de cálculo
 
 ### <a name="list-existing-compute-policies"></a>Listar as políticas de computação existentes
@@ -340,9 +336,10 @@ $userObjectId = (Get-AzAdUser -SearchString "garymcdaniel@contoso.com").Id
 
 New-AdlAnalyticsComputePolicy -Account $adla -Name "GaryMcDaniel" -ObjectId $objectId -ObjectType User -MaxDegreeOfParallelismPerJob 50 -MinPriorityPerJob 250
 ```
+
 ## <a name="manage-files"></a>Gerir ficheiros
 
-### <a name="check-for-the-existence-of-a-file"></a>Verifique a existência de um ficheiro.
+### <a name="check-for-the-existence-of-a-file"></a>Verifique a existência de um ficheiro
 
 ```powershell
 Test-AdlStoreItem -Account $adls -Path "/data.csv"
@@ -353,7 +350,7 @@ Test-AdlStoreItem -Account $adls -Path "/data.csv"
 Faça o upload de um ficheiro.
 
 ```powershell
-Import-AdlStoreItem -AccountName $adls -Path "c:\data.tsv" -Destination "/data_copy.csv" 
+Import-AdlStoreItem -AccountName $adls -Path "c:\data.tsv" -Destination "/data_copy.csv"
 ```
 
 Faça o upload de uma pasta inteira novamente.
@@ -379,13 +376,13 @@ Export-AdlStoreItem -AccountName $adls -Path "/" -Destination "c:\myData\" -Recu
 
 ## <a name="manage-the-u-sql-catalog"></a>Gerir o catálogo U-SQL
 
-O catálogo U-SQL é usado para estruturar dados e códigos para que possam ser partilhados por scripts U-SQL. O catálogo permite o maior desempenho possível com dados em Azure Data Lake. Para obter mais informações, veja [Utilizar catálogo U-SQL](data-lake-analytics-use-u-sql-catalog.md).
+O catálogo U-SQL é usado para estruturar dados e códigos para que possam ser partilhados por scripts U-SQL. O catálogo permite o maior desempenho possível com dados em Azure Data Lake. Para obter mais informações, veja [Utilizar catálogo U-SQL](./data-lake-analytics-u-sql-get-started.md).
 
 ### <a name="list-items-in-the-u-sql-catalog"></a>Listar itens no catálogo U-SQL
 
 ```powershell
 # List U-SQL databases
-Get-AdlCatalogItem -Account $adla -ItemType Database 
+Get-AdlCatalogItem -Account $adla -ItemType Database
 
 # List tables within a database
 Get-AdlCatalogItem -Account $adla -ItemType Table -Path "database"
@@ -478,7 +475,6 @@ Set-AdlAnalyticsAccount -Name $adla -FirewallState Enabled
 Set-AdlAnalyticsAccount -Name $adla -FirewallState Disabled
 ```
 
-
 ## <a name="working-with-azure"></a>Trabalhar com a Azure
 
 ### <a name="get-error-details"></a>Obter detalhes de erro
@@ -556,4 +552,4 @@ Também pode utilizar um modelo do Grupo de Recursos Azure utilizando a seguinte
 ## <a name="next-steps"></a>Passos seguintes
 * [Descrição geral do Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * Começar com data lake analytics usando o [portal Azure](data-lake-analytics-get-started-portal.md)  |  [PowerShell](data-lake-analytics-get-started-powershell.md)  |  [Azure CLI](data-lake-analytics-get-started-cli.md)
-* Gerir a Azure Data Lake Analytics usando [o portal](data-lake-analytics-manage-use-portal.md)  |  [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)  |  [CLI](data-lake-analytics-manage-use-cli.md) 
+* Gerir a Azure Data Lake Analytics usando [o portal](data-lake-analytics-manage-use-portal.md)  |  [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)  |  [CLI](data-lake-analytics-manage-use-cli.md)
