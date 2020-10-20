@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/29/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: fcdc5d0e7254b8e491285baae6c2a1bc6979e437
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 4dbae9d08a4adf250c9317b392d80f8e04c53d56
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766319"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951014"
 ---
 ::: zone target="docs"
 
@@ -116,14 +116,14 @@ sudo mount -t nfs -o vers=2.1 10.126.76.138:/utSAC1_202006051000_BlockBlob /home
 Assim que estiver ligado às partilhas do Data Box, o passo seguinte é copiar os dados. Antes de começar a cópia de dados, reveja as seguintes considerações:
 
 * Verifique se copia os dados para as partilhas que correspondem ao formato de dados apropriado. Por exemplo, copie os dados de blobs de blocos para a partilha de blobs de blocos. Copie os VHDs para o blob de páginas. Se o formato de dados não corresponder ao tipo de partilha apropriado, num passo posterior, o carregamento de dados para o Azure falhará.
+* Crie sempre uma pasta na partilha para os ficheiros que quer copiar e, em seguida, copie os ficheiros para essa pasta. A pasta criada nas partilhas dos blobs de blocos e dos blobs de páginas representa um contentor para o qual os dados são carregados como blobs. Não pode copiar ficheiros diretamente para a pasta *raiz* na conta de armazenamento.
 * Ao copiar os dados, confirme se o tamanho está em conformidade com os limites descritos em [Limites de tamanho da conta de armazenamento do Azure](data-box-limits.md#azure-storage-account-size-limits).
-* Se os dados, que estão a ser carregados pelo Data Box, forem carregados em simultâneo por outras aplicações fora do Data Box, isto pode resultar em falhas da tarefa de carregamento e danos nos dados.
+* Se quiser preservar os metadados (ACLs, carimbos de data/hora e atributos de ficheiro) quando transferir dados para os Ficheiros do Azure, siga as orientações em [Preservar ACLs, atributos e carimbos de data/hora de ficheiros com o Azure Data Box](data-box-file-acls-preservation.md)  
+* Se os dados que estão a ser carregados pelo Data Box também estiverem a ser carregados em simultâneo por outra aplicação, fora do Data Box, isto pode resultar em falhas da tarefa de carregamento e danos nos dados.
 * É recomendável que:
   * Não utilize o SMB e o NFS ao mesmo tempo.
   * Copie os mesmos dados para o mesmo destino final no Azure.
-
   Nestes casos, não é possível determinar o resultado final.
-* Crie sempre uma pasta para os ficheiros que quer copiar na partilha e, em seguida, copie os ficheiros para essa pasta. A pasta criada nas partilhas dos blobs de blocos e dos blobs de páginas representa um contentor para o qual os dados são carregados como blobs. Não pode copiar ficheiros diretamente para a pasta *raiz* na conta de armazenamento.
 
 > [!IMPORTANT]
 > Certifique-se de que mantém uma cópia dos dados de origem até poder confirmar que o Data Box transferiu os seus dados para o Armazenamento do Azure.

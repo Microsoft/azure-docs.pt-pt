@@ -11,12 +11,12 @@ ms.date: 05/25/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: eed0527b69dcaacd3a8cd0cf7cd178aa2aca3468
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e1d76c5ef1f003fe9e01b866343ef7de7ab4166
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89433913"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92214928"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>A nova experiência de registos de aplicações para o Azure Ative Directory B2C
 
@@ -53,13 +53,13 @@ A experiência de registos de aplicações Azure AD B2C baseia-se na experiênci
 ## <a name="new-supported-account-types"></a>Novos tipos de conta suportados
 
 Na nova experiência, selecione um tipo de conta de suporte a partir das seguintes opções:
-- Contas só neste diretório organizacional.
-- Contas em qualquer diretório organizacional (Qualquer diretório AD Azure – Multitenant).
-- Contas em qualquer diretório organizacional ou qualquer fornecedor de identidade. Para autenticar utilizadores com Azure AD B2C.
+- Contas apenas neste diretório organizacional
+- Contas em qualquer diretório organizacional (Qualquer diretório AD Azure – Multitenant)
+- Contas em qualquer fornecedor de identidade ou diretório organizacional (para autenticar utilizadores com fluxos de utilizador)
 
 Para entender os diferentes tipos de conta, **selecione Ajude-me** a escolher na experiência de criação.
 
-Na experiência do legado, as aplicações foram sempre criadas como aplicações viradas para o cliente. Para essas aplicações, o tipo de conta é definido para **Contas em qualquer diretório organizacional ou qualquer fornecedor de identidade. Para autenticar utilizadores com Azure AD B2C**.
+Na experiência do legado, as aplicações foram sempre criadas como aplicações viradas para o cliente. Para essas aplicações, o tipo de conta é definido **para Contas em qualquer fornecedor de identidade ou diretório organizacional (para autenticar utilizadores com fluxos de utilizador)**.
 > [!NOTE]
 > Esta opção é necessária para poder executar os fluxos de utilizador Azure AD B2C para autenticar os utilizadores para esta aplicação. Saiba [como registar uma aplicação para utilização com fluxos de utilizador.](tutorial-register-applications.md)
 
@@ -96,13 +96,12 @@ Na nova experiência, em vez de **Keys,** usa a lâmina **de segredos & certific
 
 ## <a name="features-not-applicable-in-azure-ad-b2c-tenants"></a>Características não aplicáveis nos inquilinos Azure AD B2C
 As seguintes capacidades de registo de aplicações AD AD não são aplicáveis ou disponíveis em inquilinos Azure AD B2C:
-- **Funções e administradores** - Isto requer uma licença Azure AD Premium P1 ou P2 que não está atualmente disponível para Azure AD B2C.
+- **Funções e administradores** - Não disponível para Azure AD B2C.
 - **Branding** - A personalização UI/UX está configurada na experiência **de marca da Empresa** ou como parte de um fluxo de utilizador. Aprenda a [personalizar a interface do utilizador no Azure Ative Directory B2C](customize-ui-overview.md).
 - **Verificação de domínio de** editor - A sua aplicação está registada em *.onmicrosoft.com*, o que não é um domínio verificado. Além disso, o domínio da editora é usado principalmente para conceder o consentimento do utilizador, o que não se aplica às aplicações AZURE AD B2C para a autenticação do utilizador. [Saiba mais sobre o domínio da editora.](https://docs.microsoft.com/azure/active-directory/develop/howto-configure-publisher-domain)
 - **Configuração token** - O token é configurado como parte de um fluxo de utilizador em vez de uma aplicação.
 - A experiência **Quickstarts** não está atualmente disponível para inquilinos Azure AD B2C.
-- A lâmina **de assistente de integração** não está atualmente disponível para inquilinos Azure AD B2C.
-
+<!-- - The **Integration assistant** blade is currently not available for Azure AD B2C tenants. -->
 
 ## <a name="limitations"></a>Limitações
 A nova experiência tem as seguintes limitações:

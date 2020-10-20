@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/27/2019
-ms.openlocfilehash: 6edd32f8f3579238d1f08f55ce9fb1528fa5d211
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/20/2020
+ms.openlocfilehash: 5181ceb7d5959436b704202fd3179773c9654679
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81417484"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220487"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Copiar dados de/para o armazenamento de Tabelas do Azure com o Azure Data Factory
 
@@ -55,9 +55,9 @@ Pode criar um serviço ligado ao Azure Storage utilizando a chave da conta. Forn
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida como **AzureTableStorage**. |Sim |
-| conexãoStragem | Especifique as informações necessárias para ligar ao Armazenamento para a propriedade connectionString. <br/>Também pode colocar a chave de conta no Cofre da Chave Azure e retirar a `accountKey` configuração da cadeia de ligação. Consulte as seguintes amostras e [guarde as credenciais no artigo do Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. |Sim |
-| connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o Tempo de Execução da Integração Azure ou o Tempo de Execução de Integração Auto-hospedado (se a sua loja de dados estiver localizada numa rede privada). Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |Não |
+| tipo | A propriedade tipo deve ser definida como **AzureTableStorage**. |Yes |
+| conexãoStragem | Especifique as informações necessárias para ligar ao Armazenamento para a propriedade connectionString. <br/>Também pode colocar a chave de conta no Cofre da Chave Azure e retirar a `accountKey` configuração da cadeia de ligação. Consulte as seguintes amostras e [guarde as credenciais no artigo do Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. |Yes |
+| connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o Tempo de Execução da Integração Azure ou o Tempo de Execução de Integração Auto-hospedado (se a sua loja de dados estiver localizada numa rede privada). Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |No |
 
 >[!NOTE]
 >Se estava a utilizar o serviço de ligação tipo "AzureStorage", este ainda é suportado como está, enquanto é sugerido que utilize este novo tipo de serviço "AzureTableStorage" ligado.
@@ -124,9 +124,9 @@ Para utilizar a autenticação de assinatura de acesso partilhado, as seguintes 
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida como **AzureTableStorage**. |Sim |
-| SasUri | Especifique SAS URI da assinatura de acesso partilhado URI para a tabela. <br/>Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory. Também pode colocar o token SAS no Azure Key Vault para alavancar a rotação automática e remover a porção de token. Consulte as seguintes amostras e [guarde as credenciais no artigo do Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Sim |
-| connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o Tempo de Execução da Integração Azure ou o Tempo de Execução de Integração Auto-hospedado (se a sua loja de dados estiver localizada numa rede privada). Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |Não |
+| tipo | A propriedade tipo deve ser definida como **AzureTableStorage**. |Yes |
+| SasUri | Especifique SAS URI da assinatura de acesso partilhado URI para a tabela. <br/>Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory. Também pode colocar o token SAS no Azure Key Vault para alavancar a rotação automática e remover a porção de token. Consulte as seguintes amostras e [guarde as credenciais no artigo do Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Yes |
+| connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o Tempo de Execução da Integração Azure ou o Tempo de Execução de Integração Auto-hospedado (se a sua loja de dados estiver localizada numa rede privada). Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |No |
 
 >[!NOTE]
 >Se estava a utilizar o serviço de ligação tipo "AzureStorage", este ainda é suportado como está, enquanto é sugerido que utilize este novo tipo de serviço "AzureTableStorage" ligado.
@@ -195,8 +195,8 @@ Para copiar dados de e para a Tabela Azure, defina a propriedade tipo do conjunt
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade do tipo do conjunto de dados deve ser definida como **AzureTable**. |Sim |
-| tableName |O nome da tabela na caixa de dados de armazenamento de tabela a que o serviço ligado se refere. |Sim |
+| tipo | A propriedade do tipo do conjunto de dados deve ser definida como **AzureTable**. |Yes |
+| tableName |O nome da tabela na caixa de dados de armazenamento de tabela a que o serviço ligado se refere. |Yes |
 
 **Exemplo:**
 
@@ -235,9 +235,9 @@ Para copiar os dados da Tabela Azure, desapedaça o tipo de origem na atividade 
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para **AzureTableSource**. |Sim |
-| azureTableSourceQuery |Utilize a consulta de armazenamento de mesa personalizada para ler dados. Consulte os exemplos na secção seguinte. |Não |
-| azureTableSourceIgnoreTableNotFound |Indica se permite que a exceção da tabela não exista.<br/>Os valores permitidos são **verdadeiros** e **falsos** (padrão). |Não |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para **AzureTableSource**. |Yes |
+| azureTableSourceQuery |Utilize a consulta de armazenamento de mesa personalizada para ler dados.<br/>A consulta de origem é um mapa direto da `$filter` opção de consulta suportada pelo Azure Table Storage, saiba mais sobre a sintaxe [deste doc](https://docs.microsoft.com/rest/api/storageservices/querying-tables-and-entities#supported-query-options), e veja os exemplos na secção de [exemplos azureTableSourceQuery](#azuretablesourcequery-examples). |No |
+| azureTableSourceIgnoreTableNotFound |Indica se permite que a exceção da tabela não exista.<br/>Os valores permitidos são **verdadeiros** e **falsos** (padrão). |No |
 
 ### <a name="azuretablesourcequery-examples"></a>exemplos azureTableSourceQuery
 
@@ -264,11 +264,11 @@ Para copiar os dados para a Tabela Azure, desaperte o tipo de pia na atividade d
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade do tipo do lavatório de atividade de cópia deve ser definida para **AzureTableSink**. |Sim |
-| azureTableDefaultPartitionKeyValue |O valor da chave de partição padrão que pode ser usado pela pia. |Não |
-| azureTablePartitionKeyName |Especificar o nome da coluna cujos valores são utilizados como teclas de partição. Se não for especificado, "AzureTableDefaultPartitionKeyValue" é utilizado como chave de partição. |Não |
-| nome azureTableRowKey |Especificar o nome da coluna cujos valores de coluna são utilizados como tecla de linha. Se não for especificado, utilize um GUID para cada linha. |Não |
-| azureTableInsertType |O modo de inserir dados na Tabela Azure. Esta propriedade controla se as linhas existentes na tabela de saída com chaves de divisórias e linha correspondentes têm os seus valores substituídos ou fundidos. <br/><br/>Os valores permitidos são **a fusão** (padrão) e **a substituição.** <br/><br> Esta definição aplica-se ao nível da linha e não ao nível da tabela. Nenhuma das opções elimina linhas na tabela de saída que não existem na entrada. Para saber como funcionam as definições de fusão e substituição, consulte [insira ou funda a entidade](https://msdn.microsoft.com/library/azure/hh452241.aspx) e [insira ou substitua a entidade.](https://msdn.microsoft.com/library/azure/hh452242.aspx) |Não |
+| tipo | A propriedade do tipo do lavatório de atividade de cópia deve ser definida para **AzureTableSink**. |Yes |
+| azureTableDefaultPartitionKeyValue |O valor da chave de partição padrão que pode ser usado pela pia. |No |
+| azureTablePartitionKeyName |Especificar o nome da coluna cujos valores são utilizados como teclas de partição. Se não for especificado, "AzureTableDefaultPartitionKeyValue" é utilizado como chave de partição. |No |
+| nome azureTableRowKey |Especificar o nome da coluna cujos valores de coluna são utilizados como tecla de linha. Se não for especificado, utilize um GUID para cada linha. |No |
+| azureTableInsertType |O modo de inserir dados na Tabela Azure. Esta propriedade controla se as linhas existentes na tabela de saída com chaves de divisórias e linha correspondentes têm os seus valores substituídos ou fundidos. <br/><br/>Os valores permitidos são **a fusão** (padrão) e **a substituição.** <br/><br> Esta definição aplica-se ao nível da linha e não ao nível da tabela. Nenhuma das opções elimina linhas na tabela de saída que não existem na entrada. Para saber como funcionam as definições de fusão e substituição, consulte [insira ou funda a entidade](https://msdn.microsoft.com/library/azure/hh452241.aspx) e [insira ou substitua a entidade.](https://msdn.microsoft.com/library/azure/hh452242.aspx) |No |
 | escreverBatchSize |Insere dados na Tabela Azure quando escreverBatchSize ou escreverBatchTimeout é atingido.<br/>Os valores permitidos são inteiros (número de linhas). |Não (o padrão é 10.000) |
 | escreverBatchTimeout |Insere dados na Tabela Azure quando escreverBatchSize ou escreverBatchTimeout é atingido.<br/>Os valores permitidos são tempo. Um exemplo é "00:20:00" (20 minutos). |Não (o padrão é de 90 segundos, o tempo limite de tempo do cliente de armazenamento) |
 

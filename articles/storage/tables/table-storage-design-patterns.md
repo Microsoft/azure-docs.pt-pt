@@ -9,12 +9,12 @@ ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b200782d10ae3637fcade63feab1e638d40acddb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41e07087574989935e89ba2c1f4c09a3c12b192d
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89006351"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215608"
 ---
 # <a name="table-design-patterns"></a>Padrões de design da tabela
 Este artigo descreve alguns padrões adequados para utilização com soluções de serviço de mesa. Além disso, você verá como você pode praticamente abordar algumas das questões e trade-offs discutidos em outros artigos de design de armazenamento de mesa. O diagrama seguinte resume as relações entre os diferentes padrões:  
@@ -294,7 +294,7 @@ Numa base de dados relacional, é natural utilizar juntas em consultas para devo
 
 Assuma que está a armazenar entidades de empregados no serviço tabela utilizando a seguinte estrutura:  
 
-![Estrutura da entidade dos colaboradores](media/storage-table-design-guide/storage-table-design-IMAGE18.png)
+![Screenshot que mostra como pode armazenar entidades de empregados no serviço Table.](media/storage-table-design-guide/storage-table-design-IMAGE18.png)
 
 Também precisa de armazenar dados históricos relativos a avaliações e desempenho para cada ano que o colaborador tenha trabalhado para a sua organização e precisa de ter acesso a esta informação por ano. Uma opção é criar outra tabela que armazena entidades com a seguinte estrutura:  
 

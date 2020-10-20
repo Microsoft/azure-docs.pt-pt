@@ -1,17 +1,15 @@
 ---
 title: Gerir a Azure Data Lake Analytics usando O Azure CLI
 description: Este artigo descreve como usar o CLI Azure para gerir os empregos do Data Lake Analytics, fontes de dados, & utilizadores.
-services: data-lake-analytics
-ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 01/29/2018
-ms.openlocfilehash: f91619860b577981d9717904a3d4a3074c2eaf0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19b471d85a52fe38b72ad55847d022fb56b3c4f0
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320851"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220929"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Gerir a Azure Data Lake Analytics utilizando a Interface de linha de comando Azure (CLI)
 
@@ -19,18 +17,17 @@ ms.locfileid: "91320851"
 
 Saiba como gerir as contas Azure Data Lake Analytics, fontes de dados, utilizadores e empregos usando o Azure CLI. Para ver tópicos de gestão utilizando outras ferramentas, clique no separador acima.
 
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de iniciar este tutorial, deve ter os seguintes recursos:
 
-* Uma subscrição do Azure. Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+- Uma subscrição do Azure. Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* CLI do Azure. Consulte [instalar e configurar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+- CLI do Azure. Consulte [instalar e configurar a CLI do Azure](/cli/azure/install-azure-cli).
 
-  * Transfira e instale o **pré-lançamento** [Ferramentas CLI do Azure](https://github.com/MicrosoftBigData/AzureDataLake/releases) para concluir esta demonstração.
+  - Transfira e instale o **pré-lançamento** [Ferramentas CLI do Azure](https://github.com/MicrosoftBigData/AzureDataLake/releases) para concluir esta demonstração.
 
-* Autenticar utilizando o `az login` comando e selecionar a subscrição que pretende utilizar. Para mais informações sobre a autenticação através de uma conta escolar ou profissional, consulte [Ligar a uma subscrição do Azure a partir da CLI do Azure](/cli/azure/authenticate-azure-cli).
+- Autenticar utilizando o `az login` comando e selecionar a subscrição que pretende utilizar. Para mais informações sobre a autenticação através de uma conta escolar ou profissional, consulte [Ligar a uma subscrição do Azure a partir da CLI do Azure](/cli/azure/authenticate-azure-cli).
 
    ```azurecli
    az login
@@ -46,11 +43,11 @@ Antes de iniciar este tutorial, deve ter os seguintes recursos:
 
 ## <a name="manage-accounts"></a>Gerir contas
 
-Antes de executar quaisquer trabalhos de Data Lake Analytics, você deve ter uma conta Data Lake Analytics. Ao contrário do Azure HDInsight, não se paga uma conta Analytics quando não está a gerir um emprego. Só se paga pelo tempo em que está a gerir um emprego.  Para mais informações, consulte [a Visão Geral do Azure Data Lake Analytics](data-lake-analytics-overview.md).  
+Antes de executar quaisquer trabalhos de Data Lake Analytics, você deve ter uma conta Data Lake Analytics. Ao contrário do Azure HDInsight, não se paga uma conta Analytics quando não está a gerir um emprego. Só se paga pelo tempo em que está a gerir um emprego.  Para mais informações, consulte [a Visão Geral do Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
 ### <a name="create-accounts"></a>Criar contas
 
-Executar o seguinte comando para criar uma conta Data Lake, 
+Executar o seguinte comando para criar uma conta Data Lake,
 
    ```azurecli
    az dla account create --account "<Data Lake Analytics account name>" --location "<Location Name>" --resource-group "<Resource Group Name>" --default-data-lake-store "<Data Lake Store account name>"
@@ -88,10 +85,10 @@ Lista de dados contas do Lago Analytics dentro de um grupo de recursos específi
 
 Data Lake Analytics suporta atualmente as duas fontes de dados seguintes:
 
-* [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
-* [Armazenamento do Azure](../storage/common/storage-introduction.md)
+- [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
+- [Armazenamento do Azure](../storage/common/storage-introduction.md)
 
-Quando criar uma conta Analytics, tem de designar uma conta de Armazenamento de Data Lake Azure para ser a conta de armazenamento predefinida. A conta de armazenamento padrão data lake é usada para armazenar metadados de trabalho e registos de auditoria de trabalho. Depois de ter criado uma conta Analytics, pode adicionar contas adicionais de Armazenamento de Data Lake e/ou conta de Armazenamento Azure. 
+Quando criar uma conta Analytics, tem de designar uma conta de Armazenamento de Data Lake Azure para ser a conta de armazenamento predefinida. A conta de armazenamento padrão data lake é usada para armazenar metadados de trabalho e registos de auditoria de trabalho. Depois de ter criado uma conta Analytics, pode adicionar contas adicionais de Armazenamento de Data Lake e/ou conta de Armazenamento Azure.
 
 ### <a name="find-the-default-data-lake-store-account"></a>Encontre a conta padrão data lake store
 
@@ -127,7 +124,7 @@ Para atualizar uma chave de conta de armazenamento Blob existente:
    az dla account blob-storage update --access-key "<New Blob Storage Account Key>" --account "<Data Lake Analytics account name>" --storage-account-name "<Data Lake Store account name>"
    ```
 
-### <a name="list-data-sources"></a>Listar fontes de dados:
+### <a name="list-data-sources"></a>Listar fontes de dados
 
 Para listar as contas da Data Lake Store:
 
@@ -143,7 +140,7 @@ Para listar a conta de armazenamento Blob:
 
 ![Screenshot que mostra Azure C L I com as informações "dataLakeStoreAccounts:" realçadas.](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-data-source.png)
 
-### <a name="delete-data-sources"></a>Eliminar fontes de dados:
+### <a name="delete-data-sources"></a>Eliminar fontes de dados
 
 Para eliminar uma conta data lake store:
 
@@ -185,6 +182,7 @@ Deve ter uma conta data lake analytics antes de poder criar um emprego.  Para ob
 >    ```
 
 ### <a name="cancel-jobs"></a>Cancelar empregos
+
 Use o comando da lista para encontrar a identificação do trabalho e, em seguida, use o cancelamento para cancelar o trabalho.
 
    ```azurecli
@@ -212,7 +210,8 @@ az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recu
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Descrição geral do Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-* [Introdução ao Data Lake Analytics com o portal do Azure](data-lake-analytics-get-started-portal.md)
-* [Gerir a Azure Data Lake Analytics usando o portal Azure](data-lake-analytics-manage-use-portal.md)
-* [Monitorizar e resolver problemas das tarefas de Azure Data Lake Analytics com o portal do Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+
+- [Descrição geral do Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
+- [Introdução ao Data Lake Analytics com o portal do Azure](data-lake-analytics-get-started-portal.md)
+- [Gerir a Azure Data Lake Analytics usando o portal Azure](data-lake-analytics-manage-use-portal.md)
+- [Monitorizar e resolver problemas das tarefas de Azure Data Lake Analytics com o portal do Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

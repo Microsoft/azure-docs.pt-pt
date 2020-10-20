@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/02/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0122fa43c9d99c01797e3523748e4f31b4b7469a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6ae806b7666d83652e6b82bac16d89f2f9ce7aa
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91664856"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215438"
 ---
 # <a name="error-codes-azure-active-directory-b2c"></a>Códigos de erro: Azure Ative Directory B2C
 
@@ -61,6 +61,7 @@ Os seguintes erros podem ser devolvidos pelo serviço Azure Ative Directory B2C.
 | `AADB2C90055` | O âmbito {0} » »» fornecido a pedido deve especificar um recurso, como o https://example.com/calendar.read » |
 | `AADB2C90057` | O pedido fornecido não está configurado para permitir o fluxo implícito de OAuth. |
 | `AADB2C90058` | A aplicação fornecida não está configurada para permitir clientes públicos. |
+| `AADB2C99059` | O pedido fornecido deve apresentar um code_challenge. Necessário para aplicações de uma página única usando o fluxo de código de autorização.| 
 | `AADB2C90067` | O post logout redirecionando URI {0} ' ' tem um formato inválido. Especificar um URL baseado em https como https://example.com/return ' ou para clientes nativos usar o cliente nativo IETF URI 'urn:ietf:wg:oauth:2.0:oob'. |
 | `AADB2C90068` | A aplicação fornecida com ID {0} ' ' não é válida contra este serviço. Por favor, use uma aplicação criada através do portal B2C e tente novamente. |
 | `AADB2C90075` | A troca de reclamações {0} ' ' especificada em passo {1} ' ' devolveu resposta de erro HTTP com Código {2} ' e Razão {3} '. |
