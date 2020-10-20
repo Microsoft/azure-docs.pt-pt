@@ -3,12 +3,12 @@ title: Linha de Base de Segurança Azure para Azure DevTest Labs
 description: Linha de Base de Segurança Azure para Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 838501bf4195c99c4d4ef7805fb8f4cba79e05d2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 98f6ce7eee799b1baf29782d7eca11d62cf62353
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151884"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207296"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Linha de Base de Segurança Azure para Azure DevTest Labs
 
@@ -493,7 +493,7 @@ Além de utilizar o Change Tracking para monitorização de aplicações de soft
 **Orientação:** A Azure Automation fornece controlo total durante a implantação, operações e desmantelamento de cargas de trabalho e recursos. Como administrador de subscrição, poderá utilizar o Change Tracking para identificar todos os softwares instalados em VMs hospedados em DevTest Labs. Pode implementar o seu próprio processo ou utilizar a Configuração do Estado da Automação Azure para remover software não autorizado.
 
 - [Uma introdução à Automatização do Azure](../automation/automation-intro.md)
-- [Acompanhe as mudanças no seu ambiente com a solução Change Tracking](../automation/change-tracking.md)
+- [Acompanhe as mudanças no seu ambiente com a solução Change Tracking](../automation/change-tracking/overview.md)
 - [Visão geral da configuração do estado da Azure Automation](../automation/automation-dsc-overview.md)
 
 **Monitorização do Centro de Segurança Azure:** Não Disponível
@@ -581,7 +581,7 @@ Também pode utilizar recomendações do Azure Security Center como uma base de 
 - [Como ver pseudónimos disponíveis da Política Azure](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 - [Tutorial: Criar e gerir políticas para impor o cumprimento](../governance/policy/tutorials/create-and-manage.md)
 - [Exportação única e multi-recursos para um modelo no portal Azure](../azure-resource-manager/templates/export-template-portal.md)
-- [Recomendações de segurança - um guia de referência](../security-center/recommendations-reference.md)
+- [Recomendações de segurança: um guia de referência](../security-center/recommendations-reference.md)
 
 **Monitorização do Centro de Segurança Azure:** Não aplicável
 
@@ -591,7 +591,7 @@ Também pode utilizar recomendações do Azure Security Center como uma base de 
 **Orientação:** Use recomendações do Azure Security Center para manter as configurações de segurança em todos os recursos de computação subjacentes criados como parte da DevTest Labs. Além disso, pode utilizar imagens personalizadas do sistema operativo ou configuração do Estado da Automação Azure ou artefactos da DevTest Labs para estabelecer a configuração de segurança do sistema operativo exigido pela sua organização.
 
 - [Como monitorizar as recomendações do Centro de Segurança Azure](../security-center/security-center-recommendations.md)
-- [Recomendações de segurança - um guia de referência](../security-center/recommendations-reference.md)
+- [Recomendações de segurança: um guia de referência](../security-center/recommendations-reference.md)
 - [Visão geral da configuração do estado da Azure Automation](../automation/automation-dsc-overview.md)
 - [Faça upload de um VHD e use-o para criar novos VMs windows em Azure](../virtual-machines/windows/upload-generalized-managed.md)
 - [Criar um Linux VM a partir de um disco personalizado com o Azure CLI](../virtual-machines/linux/upload-vhd.md)
@@ -828,7 +828,7 @@ Se estiver a utilizar a encriptação do disco Azure, pode restaurar o Azure VM 
 Além disso, marque claramente as subscrições (para ex. produção, não-prod) usando tags e criar um sistema de nomeação para identificar e categorizar claramente os recursos Azure, especialmente aqueles que processam dados sensíveis. É da sua responsabilidade priorizar a reparação de alertas com base na criticidade dos recursos e ambiente do Azure onde ocorreu o incidente.
 
 - [Alertas de segurança no Centro de Segurança do Azure](../security-center/security-center-alerts-overview.md)
-- [Utilizar etiquetas para organizar os seus recursos do Azure](../azure-resource-manager/management/tag-resources.md)
+- [Utilizar etiquetas para organizar os recursos do Azure](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorização do Centro de Segurança Azure:** Sim, é o seu
 

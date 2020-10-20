@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: a862b978d7737d3d1c301d090012576f64a3ddda
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 70acacb9bacddaf403b79e11b460333c67641aae
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150733"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202213"
 ---
 # <a name="expressroute-faq"></a>FAQ do ExpressRoute
 
@@ -80,12 +80,12 @@ O ExpressRoute suporta três domínios de encaminhamento para vários tipos de [
 
 ### <a name="microsoft-peering"></a>Peering da Microsoft
 
-Se o seu circuito ExpressRoute estiver ativado para o Azure Microsoft, pode aceder às [gamas de endereços IP públicas utilizadas](../virtual-network/virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) no Azure sobre o circuito. O Azure Microsoft irá fornecer acesso aos serviços atualmente alojados no Azure (com geo-restrições dependendo do SKU do seu circuito). Para validar a disponibilidade de um serviço específico, pode consultar a documentação desse serviço para ver se existe uma gama reservada publicada para esse serviço. Em seguida, procure as gamas IP do serviço-alvo e compare com as gamas listadas nos [intervalos Azure IP Ranges and Service Tags – Public Cloud XML file](https://www.microsoft.com/download/details.aspx?id=56519). Em alternativa, pode abrir um bilhete de apoio para o serviço em questão para esclarecimento.
+Se o seu circuito ExpressRoute estiver ativado para o Azure Microsoft, pode aceder às [gamas de endereços IP públicas utilizadas](../virtual-network/public-ip-addresses.md#public-ip-addresses) no Azure sobre o circuito. O Azure Microsoft irá fornecer acesso aos serviços atualmente alojados no Azure (com geo-restrições dependendo do SKU do seu circuito). Para validar a disponibilidade de um serviço específico, pode consultar a documentação desse serviço para ver se existe uma gama reservada publicada para esse serviço. Em seguida, procure as gamas IP do serviço-alvo e compare com as gamas listadas nos [intervalos Azure IP Ranges and Service Tags – Public Cloud XML file](https://www.microsoft.com/download/details.aspx?id=56519). Em alternativa, pode abrir um bilhete de apoio para o serviço em questão para esclarecimento.
 
 **Apoiado:**
 
 * [Microsoft 365](/microsoft-365/enterprise/azure-expressroute)
-* Power BI - Disponível através de uma Comunidade Regional Azure, consulte [aqui](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) como descobrir a região do seu inquilino Power BI.
+* Power BI - Disponível através de uma Comunidade Regional Azure, consulte [aqui](/power-bi/service-admin-where-is-my-tenant-located) como descobrir a região do seu inquilino Power BI.
 * Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (comunidade Azure Global Services)
 * Endereços IP públicos Azure para IaaS (Máquinas Virtuais, Gateways de Rede Virtual, Equilibradores de Carga, etc.)  
@@ -118,7 +118,7 @@ Se vir a mensagem "Validação necessária", recolha os documentos que mostram q
 Os ambientes dinâmicos 365 e Common Data Service (CDS) estão hospedados no Azure e, por isso, os clientes beneficiam do apoio subjacente ao ExpressRoute para os recursos da Azure. Pode ligar-se aos seus pontos finais de serviço se o seu filtro de router incluir as regiões Azure onde estão hospedados os ambientes Dynamics 365/CDS.
 
 > [!NOTE]
-> [O ExpressRoute Premium](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#expressroute-premium) **não** é necessário para a conectividade Dynamics 365 via Azure ExpressRoute se o circuito ExpressRoute for implantado na mesma [região geopolítica.](https://docs.microsoft.com/azure/expressroute/expressroute-locations-providers#expressroute-locations)
+> [O ExpressRoute Premium](#expressroute-premium) **não** é necessário para a conectividade Dynamics 365 via Azure ExpressRoute se o circuito ExpressRoute for implantado na mesma [região geopolítica.](./expressroute-locations-providers.md#expressroute-locations)
 
 ## <a name="data-and-connections"></a>Dados e ligações
 
@@ -152,15 +152,15 @@ Não perderá a conectividade se uma das ligações cruzadas falhar. Uma ligaç�
 
 ### <a name="how-do-i-implement-redundancy-on-private-peering"></a>Como implemento o despedimento em olhares privados?
 
-Vários circuitos ExpressRoute de diferentes locais de observação ou até quatro ligações a partir do mesmo local de observação podem ser ligados à mesma rede virtual para fornecer alta disponibilidade no caso de um único circuito ficar indisponível. Em seguida, pode [atribuir pesos mais elevados](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) a uma das ligações locais para preferir um circuito específico. Recomenda-se vivamente que os clientes confendam pelo menos dois circuitos ExpressRoute para evitar pontos únicos de falha. 
+Vários circuitos ExpressRoute de diferentes locais de observação ou até quatro ligações a partir do mesmo local de observação podem ser ligados à mesma rede virtual para fornecer alta disponibilidade no caso de um único circuito ficar indisponível. Em seguida, pode [atribuir pesos mais elevados](./expressroute-optimize-routing.md#solution-assign-a-high-weight-to-local-connection) a uma das ligações locais para preferir um circuito específico. Recomenda-se vivamente que os clientes confendam pelo menos dois circuitos ExpressRoute para evitar pontos únicos de falha. 
 
-Consulte [aqui](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) para projetar para alta disponibilidade e [aqui](https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering) para projetar para recuperação de desastres.  
+Consulte [aqui](./designing-for-high-availability-with-expressroute.md) para projetar para alta disponibilidade e [aqui](./designing-for-disaster-recovery-with-expressroute-privatepeering.md) para projetar para recuperação de desastres.  
 
 ### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>Como implemento a redundância no olhar da Microsoft?
 
-É altamente recomendado quando os clientes estão a usar a Microsoft a espreitar para aceder a serviços públicos Azure, como o Azure Storage ou o Azure SQL, bem como os clientes que estão a usar a Microsoft a espreitar para o Microsoft 365, que implementam vários circuitos em diferentes locais de observação para evitar pontos únicos de falha. Os clientes podem anunciar o mesmo prefixo em ambos os circuitos e usar [prefixos AS PATH](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) ou anunciar prefixos diferentes para determinar o caminho a partir do local.
+É altamente recomendado quando os clientes estão a usar a Microsoft a espreitar para aceder a serviços públicos Azure, como o Azure Storage ou o Azure SQL, bem como os clientes que estão a usar a Microsoft a espreitar para o Microsoft 365, que implementam vários circuitos em diferentes locais de observação para evitar pontos únicos de falha. Os clientes podem anunciar o mesmo prefixo em ambos os circuitos e usar [prefixos AS PATH](./expressroute-optimize-routing.md#solution-use-as-path-prepending) ou anunciar prefixos diferentes para determinar o caminho a partir do local.
 
-Consulte [aqui](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) para desenhar para obter alta disponibilidade.
+Consulte [aqui](./designing-for-high-availability-with-expressroute.md) para desenhar para obter alta disponibilidade.
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Como posso garantir uma elevada disponibilidade numa rede virtual ligada ao ExpressRoute?
 
@@ -170,7 +170,7 @@ Pode obter uma elevada disponibilidade ligando até quatro circuitos ExpressRout
 
 Tem de implementar o atributo *Preferência Local* no seu router(s) para garantir que o caminho entre as instalações e o Azure é sempre preferido no seu(s) circuito ExpressRoute.
 
-Consulte detalhes adicionais [aqui](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#path-selection-on-microsoft-and-public-peerings) na seleção de caminhos BGP e configurações comuns do router. 
+Consulte detalhes adicionais [aqui](./expressroute-optimize-routing.md#path-selection-on-microsoft-and-public-peerings) na seleção de caminhos BGP e configurações comuns do router. 
 
 ### <a name="if-im-not-co-located-at-a-cloud-exchange-and-my-service-provider-offers-point-to-point-connection-do-i-need-to-order-two-physical-connections-between-my-on-premises-network-and-microsoft"></a><a name="onep2plink"></a>Se não estiver co-localizado numa troca de nuvens e o meu fornecedor de serviços oferecer ligação ponto-a-ponto, preciso de encomendar duas ligações físicas entre a minha rede no local e a Microsoft?
 
@@ -384,7 +384,7 @@ Consulte [os parceiros e locais da ExpressRoute](expressroute-locations.md) para
 Sim. Os pontos finais de serviço da Microsoft 365 são alcançáveis através da Internet, apesar de o ExpressRoute ter sido configurado para a sua rede. Por favor, consulte a equipa de networking da sua organização se a rede na sua localização está configurada para se ligar aos serviços da Microsoft 365 através do ExpressRoute.
 
 ### <a name="how-can-i-plan-for-high-availability-for-microsoft-365-network-traffic-on-azure-expressroute"></a>Como posso planear uma elevada disponibilidade para o tráfego de rede Microsoft 365 no Azure ExpressRoute?
-Consulte a recomendação de [Alta disponibilidade e failover com a Azure ExpressRoute](https://aka.ms/erhighavailability)
+Consulte a recomendação de [Alta disponibilidade e failover com a Azure ExpressRoute](/microsoft-365/enterprise/network-planning-with-expressroute)
 
 ### <a name="can-i-access-office-365-us-government-community-gcc-services-over-an-azure-us-government-expressroute-circuit"></a>Posso aceder aos serviços do Office 365 Government Community (GCC) sobre um circuito ExpressRoute do Governo dos EUA?
 
@@ -422,5 +422,4 @@ O circuito existente continuará a publicitar os prefixos para o Microsoft 365. 
 
 ### <a name="does-the-expressroute-service-store-customer-data"></a>O serviço ExpressRoute armazena os dados do cliente?
 
-Não. 
-
+Não.

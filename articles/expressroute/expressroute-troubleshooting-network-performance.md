@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 12/20/2017
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 6b9a951787df6775b5159433c7172e767ff955b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a021d658711e77c3e3be0df722223cefe506abba
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566080"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204593"
 ---
 # <a name="troubleshooting-network-performance"></a>Resolver problemas de desempenho da rede
 ## <a name="overview"></a>Descrição geral
@@ -177,7 +177,7 @@ Configuração do teste:
 >
 >
 
-| ExpressRoute<br/>Localização|Azure<br/>Region | Estimado<br/>Distância (km) | Latência|1 Sessão<br/>Largura de banda | Máximo<br/>Largura de banda |
+| ExpressRoute<br/>Localização|Azure<br/>Região | Estimado<br/>Distância (km) | Latência|1 Sessão<br/>Largura de banda | Máximo<br/>Largura de banda |
 | ------------------------------------------ | --------------------------- |  - | - | - | - |
 | Seattle | E.U.A. Oeste 2        |    191 km |   5 ms | 262,0 Mbits/seg |  3,74 Gbits/seg |
 | Seattle | E.U.A. Oeste          |  1.094 km |  18 ms |  82,3 Mbits/seg |  3,70 Gbits/seg |
@@ -209,6 +209,6 @@ Configuração do teste:
 <!--Link References-->
 [Performance Doc]: https://github.com/Azure/NetworkMonitoring/blob/master/AzureCT/PerformanceTesting.md
 [Availability Doc]: https://github.com/Azure/NetworkMonitoring/blob/master/AzureCT/AvailabilityTesting.md
-[Network Docs]: https://docs.microsoft.com/azure/index
+[Network Docs]: ../index.yml
 [Ticket Link]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview
 [ACT]: https://aka.ms/AzCT

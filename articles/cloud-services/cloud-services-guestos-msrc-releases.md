@@ -10,17 +10,72 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/12/2020
+ms.date: 10/19/2020
 ms.author: yohaddad
-ms.openlocfilehash: 6ceba8e81c4700963e0d147c10085760b9308319
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 3f088d248037ecf552bf7130e3fe4c86d7430695
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076662"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207993"
 ---
 # <a name="azure-guest-os"></a>Hóspede Azure OS
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao Azure Guest OS. Pes faça uma pesquisa neste artigo para determinar se uma determinada atualização se aplica ao so-os convidado que está a utilizar. As atualizações são sempre transmitidas para a [família][family-explain] em particular em que foram introduzidas.
+
+## <a name="october-2020-guest-os"></a>Os convidados de outubro de 2020
+>[!NOTE] 
+
+>O Os Hóspedes de outubro está a ser lançado para os VMs do Cloud Service que estão configurados para atualizações automáticas. Quando o lançamento estiver concluído, esta versão será disponibilizada para atualizações manuais através do portal Azure e ficheiros de configuração. Os seguintes patches estão incluídos no Os Convidados de outubro. Esta lista está sujeita a alterações. 
+
+| Product Category (Categoria de Produto) | Artigo KB dos pais | Descrição da Vulnerabilidade | SO convidado | Data Introduzida pela primeira vez |
+| --- | --- | --- | --- | --- |
+|  Rel 20-10 |  [4577010]  |  IE Atualização Cumulativa | 2.103, 3.90, 4.83 | 8 de set, 2020 |
+|  Rel 20-10 |  [4580325]  |  Atualização flash | 3.90, 4.83, 5.48, 6.24 | 13 out, 2020 |
+|  Rel 20-10 |  [4577668]  |  Última atualização cumulativa | 6.24 | 13 out, 2020 |
+|  Rel 20-10 |  [4580346]  |  Última atualização cumulativa | 5.48 | 13 out, 2020 |
+|  Rel 20-10 |  [4580970]  |  Atualização de Stack de Manutenção | 2.103 | 13 out, 2020 |
+|  Rel 20-10 |  [4580345]  |  Rollup mensal | 2.103 | 13 out, 2020 |
+|  Rel 20-10 |  [4578952]  |  .Net Framework 3.5.1 Rollup de segurança e qualidade | 2.103 | 13 out, 2020 |
+|  Rel 20-10 |  [4578955]  |  .Net Framework 4.5.2 Rollup de segurança e qualidade | 2.103 | 13 out, 2020 |
+|  Rel 20-10 |  [4566426]  |  Atualização de Stack de Manutenção | 3.90 | 14 de julho de 2020 |
+|  Rel 20-10 |  [4580382]  |  Rollup mensal | 3.90 | 13 out, 2020 |
+|  Rel 20-10 |  [4578950]  |  .Net Framework 3.5 Rollup de segurança e qualidade | 3.90 | 13 out, 2020 |
+|  Rel 20-10 |  [4578954]  |  .Net Framework 4.5.2 Rollup de segurança e qualidade | 3.90 | 13 out, 2020 |
+|  Rel 20-10 |  [4566425]  |  Atualização de Stack de Manutenção | 4.83 | 14 de julho de 2020 |
+|  Rel 20-10 |  [4580347]  |  Rollup mensal | 4.83 | 13 out, 2020 |
+|  Rel 20-10 |  [4578953]  |  .Net Framework 3.5 Rollup de segurança e qualidade | 4.83 | 13 out, 2020 |
+|  Rel 20-10 |  [4578956]  |  .Net Framework 4.5.2 Rollup de segurança e qualidade | 4.83 | 13 out, 2020 |
+|  Rel 20-10 |  [4578013]  |  Atualização de segurança autónoma | 4.83 | 19 de agosto de 2020 |
+|  Rel 20-10 |  [4576750]  |  Atualização de Stack de Manutenção | 5.48 | 8 de set, 2020 |
+|  Rel 20-10 |  [4494175]  |  Microcódigo | 5.48 | 1 de setembro de 2020 |
+|  Rel 20-10 |  [4577667]  |  Atualização da pilha de manutenção | 6.24 | 13 out, 2020 |
+|  Rel 20-10 |  [4578966]  |  .Net Framework 3.5 e 4.7.2 Atualização Cumulativa | 6.24 | 13 out, 2020 |
+|  Rel 20-10 |  [4494174]  |  Microcódigo | 6.24 | 3 de set, 2020 |
+
+
+[4577010]: https://support.microsoft.com/kb/4577010
+[4580325]: https://support.microsoft.com/kb/4580325
+[4577668]: https://support.microsoft.com/kb/4577668
+[4580346]: https://support.microsoft.com/kb/4580346
+[4580970]: https://support.microsoft.com/kb/4580970
+[4580345]: https://support.microsoft.com/kb/4580345
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4566426]: https://support.microsoft.com/kb/4566426
+[4580382]: https://support.microsoft.com/kb/4580382
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4566425]: https://support.microsoft.com/kb/4566425
+[4580347]: https://support.microsoft.com/kb/4580347
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578013]: https://support.microsoft.com/kb/4578013
+[4576750]: https://support.microsoft.com/kb/4576750
+[4494175]: https://support.microsoft.com/kb/4494175
+[4577667]: https://support.microsoft.com/kb/4577667
+[4578966]: https://support.microsoft.com/kb/4578966
+[4494174]: https://support.microsoft.com/kb/4494174
+
 
 ## <a name="september-2020-guest-os"></a>Os convidados de setembro de 2020
 

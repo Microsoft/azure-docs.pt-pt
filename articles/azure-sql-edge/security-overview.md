@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 17e3e8dca1c03f9783c0ca94350bb8a4ba5aca64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 737c7e61a7ae0573ca6de0d6daa8288313f70741
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90938647"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201907"
 ---
 # <a name="securing-azure-sql-edge"></a>Segurança Azure SQL Edge
 
@@ -92,8 +92,8 @@ Semelhante ao Azure SQL e ao Microsoft SQL Server, o Azure SQL Edge fornece o me
 
 As melhores práticas de segurança da Azure SQL Edge incluem a escrita de aplicações seguras para clientes. Para obter mais informações sobre como ajudar a proteger as aplicações do cliente na camada de rede, consulte a [Configuração da Rede do Cliente.](https://docs.microsoft.com/sql/database-engine/configure-windows/client-network-configuration)
 
-### <a name="sql-server-security-catalog-views-and-functions"></a>Vistas e funções do catálogo de segurança SQL Server  
- As informações de segurança são expostas em várias vistas e funções otimizadas para desempenho e utilidade. A tabela seguinte contém informações sobre vistas e funções de segurança.  
+### <a name="security-catalog-views-and-functions"></a>Vistas e funções do catálogo de segurança  
+As informações de segurança são expostas em várias vistas e funções otimizadas para desempenho e utilidade. A tabela seguinte contém informações sobre vistas e funções de segurança em Azure SQL Edge.  
   
 |Funções e vistas|Ligações|  
 |---------------------------|---------|  

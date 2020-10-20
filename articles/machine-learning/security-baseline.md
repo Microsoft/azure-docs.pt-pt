@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 831e72610690753a62c04b51e277110653e0d2c9
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 3cc8974be9adb81391134790d85336016a7d9f1c
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107679"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204338"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Linha de segurança Azure para Azure Machine Learning
 
@@ -721,7 +721,7 @@ Remova os recursos de Azure quando já não forem necessários.
 
 - [Como utilizar o Monitor de Integridade do Ficheiro](../security-center/security-center-file-integrity-monitoring.md)
 
-- [Compreender o rastreio e inventário de mudança de automatização da Azure](../automation/change-tracking.md)
+- [Compreender o rastreio e inventário de mudança de automatização da Azure](../automation/change-tracking/overview.md)
 
 - [Como ativar o inventário de máquinas virtuais Azure](../automation/automation-tutorial-installed-software.md)
 
@@ -820,7 +820,7 @@ A Azure Machine Learning apoia plenamente os repositórios de Git para o trabalh
 
 - [Exportação única e multi-recursos para um modelo no portal Azure](../azure-resource-manager/templates/export-template-portal.md)
 
-- [Recomendações de segurança - um guia de referência](../security-center/recommendations-reference.md)
+- [Recomendações de segurança: um guia de referência](../security-center/recommendations-reference.md)
 
 **Monitorização do Centro de Segurança Azure:** Não aplicável
 
@@ -834,7 +834,7 @@ O Azure Machine Learning tem um suporte variado em diferentes recursos compute e
 
 - [Como monitorizar as recomendações do Centro de Segurança Azure](../security-center/security-center-recommendations.md)
 
-- [Recomendações de segurança - um guia de referência](../security-center/recommendations-reference.md)
+- [Recomendações de segurança: um guia de referência](../security-center/recommendations-reference.md)
 
 - [Visão geral da configuração do estado da automação Azure](../automation/automation-dsc-overview.md)
 
@@ -1129,7 +1129,7 @@ Além disso, marque subscrições usando tags e crie um sistema de nomeação pa
 
 - [Alertas de segurança no Centro de Segurança do Azure](../security-center/security-center-alerts-overview.md)
 
-- [Utilizar etiquetas para organizar os seus recursos do Azure](/azure/azure-resource-manager/resource-group-using-tags)
+- [Utilizar etiquetas para organizar os recursos do Azure](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 

@@ -2,15 +2,15 @@
 title: Ativar a gestão da atualização de automação Azure a partir da conta Demótica
 description: Este artigo diz como ativar a Gestão de Atualização a partir de uma conta Demôm automação.
 services: automation
-ms.date: 09/09/2020
+ms.date: 10/15/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 787338be06c2e30aabb6421a42e7cb3aaabf8a2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81b46bd1e30efff81748389ef62c46410479fb4b
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89669513"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206633"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>Ativar a Gestão de Atualizações a partir de uma conta de Automatização
 
@@ -65,14 +65,14 @@ Máquinas ou máquinas instaladas manualmente que já reportam ao seu espaço de
 
     ![Pesquisas guardadas](media/update-mgmt-enable-automation-account/managemachines.png)
 
-3. Para ativar a Gestão de Atualização de todas as máquinas disponíveis que reportem no espaço de trabalho, selecione **Ative em todas as máquinas disponíveis** na página 'Máquinas de gestão'. Esta ação desativa o controlo para adicionar máquinas individualmente. Esta tarefa adiciona todos os nomes das máquinas que reportam ao espaço de trabalho ao grupo de computador que guarda a consulta de pesquisa `MicrosoftDefaultComputerGroup` . Quando selecionado, esta ação desativa o botão **'Gerir máquinas'.**
+3. Para ativar a Gestão de Atualização de todas as máquinas disponíveis que reportem no espaço de trabalho, selecione **Ative em todas as máquinas disponíveis** na página 'Máquinas de gestão'. Esta ação desativa o controlo para adicionar máquinas individualmente e adiciona todas as máquinas que reportam ao espaço de trabalho ao grupo de computador que guardou a consulta de pesquisa `MicrosoftDefaultComputerGroup` . Quando selecionada, esta ação desativa a opção **'Gerir máquinas'.**
 
-4. Para ativar a funcionalidade para todas as máquinas e máquinas futuras disponíveis, selecione **Ative em todas as máquinas disponíveis e futuras**. Esta opção elimina a configuração de pesquisa e alcance guardada do espaço de trabalho, e permite que a funcionalidade inclua todas as máquinas Azure e não-Azure que atualmente ou no futuro, reportem ao espaço de trabalho. Quando selecionado, esta ação desativa permanentemente o botão **'Gerir máquinas',** uma vez que não existe nenhuma configuração de âmbito disponível.
+4. Para ativar a funcionalidade para todas as máquinas e máquinas futuras disponíveis, selecione **Ative em todas as máquinas disponíveis e futuras**. Esta opção elimina a configuração de pesquisa e alcance guardada do espaço de trabalho, e permite que a funcionalidade inclua todas as máquinas Azure e não-Azure que atualmente ou no futuro, reportem ao espaço de trabalho. Quando selecionada, esta ação desativa permanentemente a opção **'Gerir máquinas',** uma vez que não existe nenhuma configuração de âmbito disponível.
 
     > [!NOTE]
-    > Uma vez que esta opção elimina as pesquisas guardadas e as configurações de âmbito dentro do Log Analytics, é importante remover quaisquer bloqueios de eliminação no espaço de trabalho do Log Analytics antes de selecionar esta opção. Caso não o faça, a opção não removerá as configurações e deve removê-las manualmente.
+    > Uma vez que esta opção elimina a configuração de pesquisa e alcance guardada no Log Analytics, é importante remover quaisquer bloqueios de eliminação no espaço de trabalho do Log Analytics antes de selecionar esta opção. Caso não o faça, a opção não removerá as configurações e deve removê-las manualmente.
 
-5. Se necessário, pode adicionar as configurações de alcance de volta, adicionando novamente a consulta de pesquisa guardada inicial. Para obter mais informações, consulte [o âmbito de implementação da Gestão de Atualização de Limites](update-mgmt-scope-configuration.md).
+5. Se necessário, pode adicionar de volta a configuração de âmbito, adicionando novamente a consulta inicial de pesquisa guardada. Para obter mais informações, consulte [o âmbito de implementação da Gestão de Atualização de Limites](update-mgmt-scope-configuration.md).
 
 6. Para ativar a função para uma ou mais máquinas, selecione **Ative em máquinas selecionadas** e selecione **Adicione** ao lado de cada máquina. Esta tarefa adiciona os nomes de máquinas selecionados ao grupo de computador que guardou a consulta de pesquisa para a funcionalidade.
 

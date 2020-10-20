@@ -7,12 +7,12 @@ ms.date: 10/03/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: github-actions-azure
-ms.openlocfilehash: d6f66993b0fb7f97c551f4fbcb305111cfb2097e
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f3bc407791b25e4dc1dddd61b60b3cefe0195919
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150284"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203199"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Implementar um recipiente personalizado para o Serviço de Aplicações utilizando ações do GitHub
 
@@ -190,15 +190,17 @@ jobs:
 
 ## <a name="deploy-to-an-app-service-container"></a>Implementar para um recipiente de Serviço de Aplicações
 
-Para implementar a sua imagem num recipiente personalizado no Serviço de Aplicações, utilize a `azure/webapps-deploy@v2` ação. Esta ação tem cinco parâmetros:
+Para implementar a sua imagem num recipiente personalizado no Serviço de Aplicações, utilize a `azure/webapps-deploy@v2` ação. Esta ação tem sete parâmetros:
 
 | **Parâmetro**  | **Explicação**  |
 |---------|---------|
 | **nome de aplicativo** | (Obrigatório) Nome da app App Service | 
-| **perfil de publicação** | (Opcional) Publique conteúdos de ficheiros de perfil com segredos de implementação da Web |
-| **imagens** | Nome de imagem de recipiente totalmente qualificado. Por exemplo, "myregistry.azurecr.io/nginx:latest" ou "python:3.7.2-alpine/". Para cenário de vários contentores podem ser fornecidos vários nomes de imagem de contentores (separados multi-linhas) |
+| **perfil de publicação** | (Opcional) Aplica-se a aplicações web (Windows e Linux) e recipientes de aplicações web (linux). Cenário de vários contentores não suportado. Publicar conteúdo \* de ficheiros (..publishsettings) com segredos de implementação da Web | 
 | **nome slot** | (Opcional) Introduza uma ranhura existente que não seja a ranhura de produção |
-| **ficheiro de configuração** | (Opcional) Caminho do arquivo Docker-Compose |
+| **pacote** | (Opcional) Aplica-se apenas à Web App: Caminho para o pacote ou pasta. \*.zip, \* .war, \* .jar ou uma pasta para implantar |
+| **imagens** | (Obrigatório) Aplica-se apenas aos recipientes de aplicações web: Especifique o(s) nome de imagem de recipiente totalmente qualificado. Por exemplo, "myregistry.azurecr.io/nginx:latest" ou "python:3.7.2-alpine/". Para uma aplicação multi-contentor, podem ser fornecidos vários nomes de imagem de contentor (separados multi-linhas) |
+| **ficheiro de configuração** | (Opcional) Aplica-se apenas a Recipientes de Aplicações Web: Caminho do ficheiro Docker-Compose. Deve ser um caminho totalmente qualificado ou em relação ao diretório de trabalho predefinido. Necessário para aplicações multi-contentores. |
+| **startup-comando** | (Opcional) Insira o comando de arranque. Para ex. dotnet run ou dotnet filename.dll |
 
 # <a name="publish-profile"></a>[Publicar perfil](#tab/publish-profile)
 

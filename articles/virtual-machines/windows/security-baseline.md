@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e79055c3dbc710be23a82eede98e1b55b17e10d5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5e52c09e6fc3d5e3d4210e213e0eb6af4e473559
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978025"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205035"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Linha de segurança Azure para Máquinas Virtuais do Windows
 
@@ -750,7 +750,7 @@ Além de utilizar o Change Tracking para monitorização de aplicações de soft
 
 * [Uma introdução à Automatização do Azure](../../automation/automation-intro.md)
 
-* [Acompanhe as mudanças no seu ambiente com a solução Change Tracking](../../automation/change-tracking.md)
+* [Acompanhe as mudanças no seu ambiente com a solução Change Tracking](../../automation/change-tracking/overview.md)
 
 * [Visão geral da configuração do estado da automação Azure](../../automation/automation-dsc-overview.md)
 
@@ -1125,7 +1125,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 * [Alertas de segurança no Centro de Segurança do Azure](../../security-center/security-center-alerts-overview.md)
 
-* [Utilizar etiquetas para organizar os seus recursos do Azure](../../azure-resource-manager/management/tag-resources.md)
+* [Utilizar etiquetas para organizar os recursos do Azure](../../azure-resource-manager/management/tag-resources.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 

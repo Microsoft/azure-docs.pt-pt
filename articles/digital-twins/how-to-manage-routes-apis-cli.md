@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 14edc97115735f8b6763171a07b5f739fc745e9f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5d0956634289713f691feb1a9182233e6795e319
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151248"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201738"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gerir pontos finais e rotas em Azure Digital Twins (APIs e CLI)
 
@@ -180,7 +180,7 @@ Uma rota deve permitir a seleção de várias notificações e tipos de eventos.
 
 ```csharp
 EventRoute er = new EventRoute("endpointName");
-er.Filter("true"); //Filter allows all messages
+er.Filter = "true"; //Filter allows all messages
 await client.CreateEventRoute("routeName", er);
 ```
 
@@ -202,7 +202,7 @@ try
     Pageable <EventRoute> result = client.GetEventRoutes();
     foreach (EventRoute r in result)
     {
-        Console.WriteLine($"Route {r.Id} to endpoint {r.EndpointId} with filter {r.Filter} ");
+        Console.WriteLine($"Route {r.Id} to endpoint {r.EndpointName} with filter {r.Filter} ");
     }
     Console.WriteLine("Deleting routes:");
     foreach (EventRoute r in result)
@@ -227,7 +227,7 @@ Sem filtragem, os pontos finais recebem uma variedade de eventos da Azure Digita
 
 Pode restringir os eventos que estão a ser enviados adicionando um **filtro** para um ponto final na sua rota de eventos.
 
-Para adicionar um filtro, pode utilizar um pedido PUT para *https://{YourHost}/EventRoutes/myNewRoute?api-version=2020-05-31-pré-visualização* com o seguinte corpo:
+Para adicionar um filtro, pode utilizar um pedido PUT para *https://{YourHost}/EventRoutes/myNewRoute?api-version=2020-10-31* com o seguinte corpo:
 
 ```json  
 {

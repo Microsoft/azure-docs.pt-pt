@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: duau
-ms.openlocfilehash: a5829399b70871903c8eb433b95e0cb09e5d2c60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 477145619e1b4d8b41c422389b57a46615597478
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89398091"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202553"
 ---
 # <a name="create-and-manage-expressroute-public-peering"></a>Criar e gerir o espreitamento público ExpressRoute
 
@@ -30,7 +30,7 @@ Este artigo ajuda-o a criar e gerir a configuração de encaminhamento de observ
 
 ## <a name="connectivity"></a>Conectividade
 
-A conectividade é sempre iniciada dos seus serviços WAN para Microsoft Azure. Os serviços da Microsoft Azure não serão capazes de iniciar ligações na sua rede através deste domínio de encaminhamento. Se o seu circuito ExpressRoute estiver ativado para o azure, pode aceder às [gamas IP públicas utilizadas em Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) sobre o circuito.
+A conectividade é sempre iniciada dos seus serviços WAN para Microsoft Azure. Os serviços da Microsoft Azure não serão capazes de iniciar ligações na sua rede através deste domínio de encaminhamento. Se o seu circuito ExpressRoute estiver ativado para o azure, pode aceder às [gamas IP públicas utilizadas em Azure](../virtual-network/public-ip-addresses.md#public-ip-addresses) sobre o circuito.
 
 Uma vez que o espreitamento público esteja ativado, você pode ligar-se à maioria dos serviços Azure. Não lhe permitimos escolher seletivamente serviços para os quais anunciamos rotas.
 
@@ -60,7 +60,7 @@ Para validar a disponibilidade de um serviço específico, pode consultar a docu
 [!INCLUDE [peering comparison](../../includes/expressroute-peering-comparison.md)]
 
 > [!NOTE]
-> O Azure public peering tem 1 endereço IP NAT associado a cada sessão de BGP. Para mais de 2 endereços IP NAT, mude para o olho da Microsoft. O estominho da Microsoft permite-lhe configurar as suas próprias alocações DE NAT, bem como utilizar filtros de rotas para anúncios de prefixos seletivos. Para obter mais informações, consulte [Move to Microsoft peering](https://docs.microsoft.com/azure/expressroute/how-to-move-peering).
+> O Azure public peering tem 1 endereço IP NAT associado a cada sessão de BGP. Para mais de 2 endereços IP NAT, mude para o olho da Microsoft. O estominho da Microsoft permite-lhe configurar as suas próprias alocações DE NAT, bem como utilizar filtros de rotas para anúncios de prefixos seletivos. Para obter mais informações, consulte [Move to Microsoft peering](./how-to-move-peering.md).
 >
 
 ## <a name="custom-route-filters"></a>Filtros de rota personalizados

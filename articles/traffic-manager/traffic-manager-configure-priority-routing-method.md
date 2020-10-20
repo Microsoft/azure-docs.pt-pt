@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: duau
-ms.openlocfilehash: 1be507f3676a5531855e3a8deb6801b1a5cb8e74
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 1835377f4690097c8390957bf7d897242ba7aace
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166720"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92208061"
 ---
 # <a name="tutorial-configure-priority-traffic-routing-method-in-traffic-manager"></a>Tutorial: Configurar método de encaminhamento prioritário de tráfego em Gerente de Tráfego
 
@@ -70,7 +70,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
     | Definição                | Valor                                              |
     | ---                    | ---                                                |
     | Tipo                   | Selecione o tipo de ponto final. |    
-    | Nome                   | Dê um nome para identificar este ponto final. |
+    | Name                   | Dê um nome para identificar este ponto final. |
     | Tipo de recurso de destino   | Selecione o tipo de recurso para o alvo. |
     | Recurso de destino        | Selecione o recurso da lista. |
     | Prioridade               | Dê um número prioritário para este ponto final. 1 é a maior prioridade. |
@@ -98,7 +98,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 1. Assim que o seu perfil de Gestor de Tráfego estiver a funcionar, edite o registo DNS no seu servidor DNS autoritário para apontar o nome de domínio da sua empresa para o nome de domínio do Gestor de Tráfego.
 
-## <a name="clean-up-resource"></a>Limpar recurso
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se já não necessitar do perfil do Gestor de Tráfego, localize o perfil e selecione **Excluir o perfil**.
 

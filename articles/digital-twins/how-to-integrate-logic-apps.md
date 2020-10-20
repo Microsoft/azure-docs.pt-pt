@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: cbd8c91391cc1e3afe930094f34e5015ea3c3450
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 21e72e63dae2c52d04aca0cd11971fe5cd23fb47
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097529"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207551"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integre com As Aplicações Lógicas usando um conector personalizado
 
@@ -40,16 +40,15 @@ Também precisa de completar os seguintes itens como parte da configuração pr�
 
 Para ligar uma instância Azure Digital Twins a Logic Apps neste artigo, terá de ter a **instância Azure Digital Twins** já configurada. 
 
-Em primeiro lugar, crie uma instância Azure Digital Twins e a autenticação necessária para poder trabalhar com ela. Para isso, siga as instruções em [*Como-a-: Configurar uma instância e autenticação*](how-to-set-up-instance-portal.md). Dependendo da sua experiência preferida, o artigo de configuração é oferecido para o [portal Azure,](how-to-set-up-instance-portal.md) [CLI,](how-to-set-up-instance-cli.md)ou [amostra de script de implementação automatizada da Cloud Shell](how-to-set-up-instance-scripted.md). Todas as versões das instruções também contêm passos para verificar se completou cada passo com sucesso e estão prontos para passar a usar a sua nova instância.
+Em primeiro lugar, **crie uma instância Azure Digital Twins** e a autenticação necessária para poder trabalhar com ela. Para isso, siga as instruções em [*Como-a-: Configurar uma instância e autenticação*](how-to-set-up-instance-portal.md). Dependendo da sua experiência preferida, o artigo de configuração é oferecido para o [portal Azure,](how-to-set-up-instance-portal.md) [CLI,](how-to-set-up-instance-cli.md)ou [amostra de script de implementação automatizada da Cloud Shell](how-to-set-up-instance-scripted.md). Todas as versões das instruções também contêm passos para verificar se completou cada passo com sucesso e estão prontos para passar a usar a sua nova instância.
+* Depois de configurar o seu exemplo Azure Digital Twins, você precisará do nome de **_anfitrião_** do caso[(encontre no portal Azure).](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)
 
-Neste tutorial, você precisará de vários valores a partir de quando configurar o seu caso. Se precisar de voltar a recolher estes valores, utilize os links abaixo para as secções correspondentes no artigo de configuração para os encontrar no [portal Azure](https://portal.azure.com).
-* Nome **_de anfitrião_** de exemplo de Azure Digital Twins[(encontre no portal)](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)
-* Aplicação de registo de aplicações AD AZure **_(cliente) ID_** [(find in portal)](how-to-set-up-instance-portal.md#collect-important-values)
-* Diretório de registo de aplicativoS Azure **_AD (inquilino) ID_** [(find in portal)](how-to-set-up-instance-portal.md#collect-important-values)
+Para autenticar a aplicação ADT Explorer, também terá de configurar um **registo de aplicações.** Siga as instruções em [*Como-a: Crie um registo de aplicações*](how-to-create-app-registration.md) para configurar isto. 
+* Uma vez que você tem um registro de aplicação, você precisará do ID de **_Aplicação (cliente)_** do registo e **_diretório (inquilino) ID (encontre_** [no portal Azure).](how-to-create-app-registration.md#collect-client-id-and-tenant-id)
 
 ### <a name="get-app-registration-client-secret"></a>Obtenha o segredo do cliente de registo de aplicativos
 
-Também terá de criar um segredo de **_Cliente_** para o seu registo de aplicações AZure AD. Para isso, navegue para a página [de registos](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) da App no portal Azure (pode utilizar este link ou procurá-lo na barra de pesquisa do portal). Selecione o seu registo na lista para abrir os seus detalhes. 
+Também terá de criar um segredo de **_Cliente_** para o seu registo de aplicações AZure AD. Para isso, navegue para a página [de registos](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) da App no portal Azure (pode utilizar este link ou procurá-lo na barra de pesquisa do portal). Selecione a sua inscrição que criou na secção anterior da lista, de forma a abrir os seus detalhes. 
 
 Bata *certificados e segredos* no menu do registo e selecione *+ Novo segredo do cliente.*
 

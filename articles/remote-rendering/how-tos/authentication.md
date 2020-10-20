@@ -5,21 +5,21 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: how-to
-ms.openlocfilehash: 8f3b144a7790c3122d59d27183b3037998ddadd1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e61767b9b8d904eae9a247f48d2d781fd0c95192
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85565855"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202723"
 ---
 # <a name="configure-authentication"></a>Configurar a autenticação
 
-A Azure Remote Rendering utiliza o mesmo mecanismo de autenticação que [as âncoras espaciais Azure (ASA)](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp). Os clientes precisam definir *um* dos seguintes para ligar para as APIs REST com sucesso:
+A Azure Remote Rendering utiliza o mesmo mecanismo de autenticação que [as âncoras espaciais Azure (ASA)](../../spatial-anchors/concepts/authentication.md?tabs=csharp). Os clientes precisam definir *um* dos seguintes para ligar para as APIs REST com sucesso:
 
 * **ContaKey**: pode ser obtido no separador "Chaves" para a conta de renderização remota no portal Azure. As chaves de conta são apenas recomendados para desenvolvimento/prototipagem.
     ![ID da Conta](./media/azure-account-primary-key.png)
 
-* **AutenticaçãoToken:** é um símbolo AD Azure, que pode ser obtido através da [biblioteca MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-overview). Existem vários fluxos diferentes disponíveis para aceitar credenciais de utilizador e usar essas credenciais para obter um token de acesso.
+* **AutenticaçãoToken:** é um símbolo AD Azure, que pode ser obtido através da [biblioteca MSAL](../../active-directory/develop/msal-overview.md). Existem vários fluxos diferentes disponíveis para aceitar credenciais de utilizador e usar essas credenciais para obter um token de acesso.
 
 * **MRAccessToken:** é um token MR, que pode ser obtido a partir do Azure Mixed Reality Security Token Service (STS). Recuperado do `https://sts.mixedreality.azure.com` ponto final usando uma chamada REST semelhante à chamada abaixo:
 
@@ -44,7 +44,7 @@ A Azure Remote Rendering utiliza o mesmo mecanismo de autenticação que [as ân
 
 As chaves da conta são recomendadas para prototipagem rápida, apenas durante o desenvolvimento. Recomenda-se não enviar a sua aplicação para a produção usando uma chave de conta incorporada. A abordagem recomendada é utilizar uma abordagem de autenticação AZure AD baseada no utilizador ou em serviço.
 
- A autenticação Azure AD é descrita na secção de autenticação do [utilizador Azure AD](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-user-authentication) do serviço [Azure Spatial Anchors (ASA).](https://docs.microsoft.com/azure/spatial-anchors/)
+ A autenticação Azure AD é descrita na secção de autenticação do [utilizador Azure AD](../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-user-authentication) do serviço [Azure Spatial Anchors (ASA).](../../spatial-anchors/index.yml)
 
  Para mais informações, consulte o [Tutorial: Assegurar a renderização remota do Azure e o armazenamento de modelos - Autenticação do Azure Ative Directory](../tutorials/unity/security/security.md#azure-active-directory-azure-ad-authentication)
 

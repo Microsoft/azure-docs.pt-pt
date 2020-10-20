@@ -4,16 +4,16 @@ description: Conheça os Azure Analysis Services, uma plataforma totalmente geri
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 09/08/2020
+ms.date: 10/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 11ab4e0404b7ebc8620cd1eb54edae9bb861e46b
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: a05da5fae748e799d7965c51415956c2e2a524b1
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018802"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201516"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
@@ -71,7 +71,7 @@ Este escalão destina-se a aplicações de produção críticas para o negócio,
 |S9v2 <sup> [1](#naar)</sup>    |    1280    |    400     |
 
 <a name="naar">1</a> - Não disponível em todas as regiões.   
-<a name="rec">2</a> - v2 é recomendado.
+<a name="rec">2</a> - S8 e S9 são [preprecados](https://azure.microsoft.com/updates/azure-s8-and-s9-analysis-services-skus-retiring-on-31-august-2023/). v2 é recomendado. 
 
 ## <a name="availability-by-region"></a>Armazenamento por região
 
@@ -85,7 +85,7 @@ O Azure Analysis Services é suportado em várias regiões em todo o mundo. A di
 |Canadá Central    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |E.U.A. Leste     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
 |E.U.A. Leste 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
-|E.U.A. Leste 2     |     S8, S9, S8v2, S9v2   |    1    |
+|E.U.A. Leste 2     |     S8v2, S9v2   |    1    |
 |E.U.A. Centro-Norte     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |E.U.A. Centro-Norte     |     S8v2, S9v2    |    1     |
 |E.U.A. Central     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
@@ -93,9 +93,9 @@ O Azure Analysis Services é suportado em várias regiões em todo o mundo. A di
 |E.U.A. Centro-Sul     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |E.U.A. Centro-Oeste   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |E.U.A. Oeste     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
-|E.U.A. Oeste     |    S8, S9, S8v2, S9v2   |    2  |
+|E.U.A. Oeste     |    S8v2, S9v2   |    2  |
 |E.U.A. Oeste 2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
-|E.U.A. Oeste 2    |    S8, S9, S8v2, S9v2  |    1     |
+|E.U.A. Oeste 2    |    S8v2, S9v2  |    1     |
 
 ### <a name="europe"></a>Europe
 
@@ -105,17 +105,18 @@ O Azure Analysis Services é suportado em várias regiões em todo o mundo. A di
 |Europa do Norte     |    S8v2, S9v2      |    3     |
 |Sul do Reino Unido     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
 |Europa Ocidental     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
-|Europa Ocidental    |   S8, S9, S8v2, S9v2  |  1  |
+|Europa Ocidental    |   S8v2, S9v2  |  1  |
 
 ### <a name="asia-pacific"></a>Ásia-Pacífico 
 
 |Região  | Planos suportados | Réplicas de consulta (Apenas planos standard) |
 |---------|---------|:---------:|
 |Leste da Austrália     |    B1, B2, S0, S1, S2, S4     |    3     |
-|Leste da Austrália     |    S8, S9, S8v2, S9v2    |    1     |
-|Sudeste da Austrália     | B1, B2, S0, S1, S2, S4, D1       |    1     |
+|Leste da Austrália     |    S8v2, S9v2    |    1     |
+|Austrália Sudeste     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Leste do Japão     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Sudeste Asiático     |     B1, B2, S0, S1, S2, S4, S8, S9, S8v2, S9v2, D1     |   1      |
+|Sudeste Asiático     |     B1, B2, S0, S1, S2, S4, D1     |   1      |
+|Sudeste Asiático     |     S8v2, S9v2     |   1      |
 |Oeste da Índia     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
 ## <a name="scale-to-your-needs"></a>Dimensionar para as suas necessidades
@@ -183,7 +184,7 @@ O Analysis Services utiliza a [autorização baseada em funções](/analysis-ser
   
 Os utilizadores finais não administrativos que consultam dados têm acesso através das funções de base de dados. Uma função de base de dados é criada como um objeto separado na base de dados e aplica-se apenas à base de dados na qual essa função é criada. As funções de base de dados são definidas pelas permissões (de base de dados) de Administrador, Leitura e Leitura e Processo. As contas de utilizadores e grupos são adicionadas através do SQL Server Management Studio ou PowerShell.
 
-### <a name="row-level-security"></a>Segurança ao nível da linha
+### <a name="row-level-security"></a>Segurança ao Nível da Linha
 
 Os modelos em tabela em todos os modelos de compatibilidade suportam a segurança ao nível da linha. A segurança ao nível da linha é configurada no modelo através de expressões DAX que definem as linhas numa tabela e as linhas nas direções de uma tabela relacionada que um utilizador pode consultar. Os filtros de linhas que utilizem expressões DAX são definidos para as permissões de Leitura e Leitura e Processo. 
 

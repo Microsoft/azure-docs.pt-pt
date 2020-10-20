@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 07/24/2019
 ms.author: duau
-ms.openlocfilehash: f413b6100fb2a7d1c8bc06d787468cc3e79c0169
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb4c34345ab902e243f22eae06fd5ea174fd2992
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89397479"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202196"
 ---
 # <a name="connecting-azure-with-public-clouds"></a>Ligando Azure com nuvens públicas
 
@@ -64,8 +64,5 @@ Consulte [o ExpressRoute FAQ][ER-FAQ] para mais perguntas sobre a conectividade 
 Ver [Configurar a ligação direta entre Azure e Oracle Cloud][ER-OCI] para a conectividade entre Azure e Oráculo
 
 <!--Link References-->
-[ER-FAQ]: https://docs.microsoft.com/azure/expressroute/expressroute-faqs
-[ER-OCI]: https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-azure-oci-networking
-
-
-
+[ER-FAQ]: ./expressroute-faqs.md
+[ER-OCI]: ../virtual-machines/workloads/oracle/configure-azure-oci-networking.md

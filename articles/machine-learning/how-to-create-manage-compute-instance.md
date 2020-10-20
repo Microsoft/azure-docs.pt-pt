@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 3b5698c782b691dd8ae91913115db184fc83a2eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca4ed58de030e372f97ebda87d12340a57a584d5
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91756624"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207092"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Criar e gerir um exemplo de cálculo de aprendizagem automática Azure
 
@@ -256,6 +256,7 @@ Pode instalar pacotes diretamente no Jupyter Notebook ou no RStudio:
 * Python: Adicione código de instalação e execute numa célula Jupyter Notebook.
 
 Ou pode instalar a partir de uma janela do terminal. Instale pacotes Python no ambiente **Python 3.6 - AzureML.**  Instale as embalagens R no ambiente **R.**
+As funções mágicas %pip e %conda instalam automaticamente pacotes no núcleo atualmente em funcionamento na sessão de cadernos Jupyter.
 
 ## <a name="add-new-kernels"></a>Adicione novos núcleos
 

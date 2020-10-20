@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/06/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 468d21abc861e905472d1d15405b1c8ba9e5be74
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d8905fbdcfc03f2683698cca57ab6c066e77863
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904875"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205936"
 ---
 # <a name="cut-planes"></a>Cortar planos
 
@@ -75,10 +75,10 @@ Exemplos:
 
 | Corte máscara de filtro de avião | Máscara de filtro de geometria  | Resultado da lógica `AND` | Avião cortado afeta a geometria?  |
 |--------------------|-------------------|-------------------|:----------------------------:|
-| (0000 0001) == 1   | (0000 0001) == 1  | (0000 0001) == 1  | Sim |
-| (1111 0000) == 240 | (0001 0001) == 17 | (0001 0000) == 16 | Sim |
-| (0000 0001) == 1   | (0000 0010) == 2  | (0000 0000) == 0  | Não |
-| (0000 0011) == 3   | (0000 1000) == 8  | (0000 0000) == 0  | Não |
+| (0000 0001) == 1   | (0000 0001) == 1  | (0000 0001) == 1  | Yes |
+| (1111 0000) == 240 | (0001 0001) == 17 | (0001 0000) == 16 | Yes |
+| (0000 0001) == 1   | (0000 0010) == 2  | (0000 0000) == 0  | No |
+| (0000 0011) == 3   | (0000 1000) == 8  | (0000 0000) == 0  | No |
 
 >[!TIP]
 > Definir um plano de corte `ObjectFilterMask` para 0 significa que não afetará qualquer geometria porque o resultado da lógica `AND` nunca pode ser nulo. O sistema de renderização não considerará esses aviões em primeiro lugar, então este é um método leve para desativar aviões de corte individuais. Estes aviões cortados também não contam contra o limite de 8 aviões ativos.
@@ -94,8 +94,8 @@ Cada plano de corte ativo incorre num pequeno custo durante a renderização. De
 
 ## <a name="api-documentation"></a>Documentação da API
 
-* [C# CutPlaneComponent classe](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.cutplanecomponent)
-* [Classe C++ CutPlaneComponent](https://docs.microsoft.com/cpp/api/remote-rendering/cutplanecomponent)
+* [C# CutPlaneComponent classe](/dotnet/api/microsoft.azure.remoterendering.cutplanecomponent)
+* [Classe C++ CutPlaneComponent](/cpp/api/remote-rendering/cutplanecomponent)
 
 ## <a name="next-steps"></a>Passos seguintes
 

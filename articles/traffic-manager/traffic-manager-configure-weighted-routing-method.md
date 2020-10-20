@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Configurar roteamento de tráfego redondo-robin ponderado com Azure Traffic Manager
+title: 'Tutorial: Configurar o encaminhamento de tráfego de rodada-robin ponderado com O Gestor de Tráfego Azure'
 description: Este tutorial explica como carregar o tráfego de equilíbrio usando um método de rodada-robin em Traffic Manager
 services: traffic-manager
 documentationcenter: ''
@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/2017
+ms.date: 10/19/2020
 ms.author: duau
-ms.openlocfilehash: dff7d4ec02c5a17b51d73b9d81f93984b95a7d22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: abcfce43b90c7371d5b38aa5b7a6d478e9d6a0dd
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401355"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207844"
 ---
 # <a name="tutorial-configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Tutorial: Configurar o método de encaminhamento de tráfego ponderado no Gestor de Tráfego
 
@@ -25,31 +25,102 @@ Um padrão comum de método de encaminhamento de tráfego é fornecer um conjunt
 > [!NOTE]
 > A Azure Web App já fornece funcionalidade de equilíbrio de carga de robin redondo para websites dentro de uma Região de Azure (que pode incluir vários centros de dados). O Gestor de Tráfego permite-lhe distribuir tráfego por websites em diferentes datacenters.
 
-## <a name="to-configure-the-weighted-traffic-routing-method"></a>Para configurar o método ponderado de encaminhamento de tráfego
+Neste tutorial, vai aprender a:
+> [!div class="checklist"]
+> - Crie um perfil de Gestor de Tráfego com encaminhamento ponderado.
+> - Utilize o perfil de Gestor de Tráfego.
+> - Apague o perfil do Gestor de Tráfego.
 
-1. Num browser, inicie sessão no [portal do Azure](https://portal.azure.com). Se ainda não tiver uma conta, pode inscrever-se para obter uma [avaliação gratuita durante um mês](https://azure.microsoft.com/free/). 
-2. Na barra de pesquisa do portal, procure os perfis do **Gestor de Tráfego** e, em seguida, clique no nome de perfil para o qual pretende configurar o método de encaminhamento.
-3. Na lâmina de **perfil do Gestor de Tráfego,** verifique se tanto os serviços na nuvem como os websites que pretende incluir na sua configuração estão presentes.
-4. Na secção **Definições,** clique em **Configuração**e na lâmina **de configuração,** completada da seguinte forma:
-    1. Para **as definições do método de encaminhamento de tráfego,** verifique se o método de encaminhamento de tráfego está **ponderado**. Se não for, clique em **Peso** da lista de suspensos.
-    2. Defina as definições do **monitor Endpoint idênticas** para todos os pontos finais deste perfil da seguinte forma:
-        1. Selecione o **Protocolo**apropriado e especifique o número **da porta.** 
-        2. Para **o Caminho** escreva um corte para a frente */* . Para monitorizar os pontos finais, tem de especificar um caminho e um nome de ficheiro. Um corte dianteiro "/" é uma entrada válida para o caminho relativo e implica que o ficheiro está no diretório raiz (predefinição).
-        3. No topo da página, clique em **Guardar**.
-5. Teste as alterações na sua configuração da seguinte forma:
-    1.  Na barra de pesquisa do portal, procure o nome do perfil do Gestor de Tráfego e clique no perfil de Gestor de Tráfego nos resultados que o apresentado.
-    2.  Na lâmina de perfil **do Gestor de Tráfego,** clique em **Visão Geral.**
-    3.  A lâmina **de perfil do Gestor de Tráfego** exibe o nome DNS do seu perfil de Gestor de Tráfego recém-criado. Isto pode ser usado por qualquer cliente (por exemplo, navegando para ele usando um navegador web) para ser encaminhado para o ponto final certo, conforme determinado pelo tipo de encaminhamento. Neste caso, todos os pedidos são encaminhados cada ponto final de uma forma redonda.
-6. Assim que o seu perfil de Gestor de Tráfego estiver a funcionar, edite o registo DNS no seu servidor DNS autoritário para apontar o nome de domínio da sua empresa para o nome de domínio do Gestor de Tráfego.
+## <a name="prerequisites"></a>Pré-requisitos
 
-![Configurar método de encaminhamento de tráfego ponderado utilizando o Gestor de Tráfego][1]
+* Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/)
+
+## <a name="configure-the-weighted-traffic-routing-method"></a>Configurar o método de encaminhamento do tráfego ponderado
+
+1. Num browser, inicie sessão no [portal do Azure](https://portal.azure.com).
+
+1. Na barra de pesquisa do portal, procure o nome de **perfil do Gestor de Tráfego** que criou na secção anterior e selecione o perfil do gestor de tráfego nos resultados que o apresentado.
+
+    :::image type="content" source="./media/traffic-manager-weighted-routing-method/search-traffic-manager-weighted-profile.png" alt-text="Pesquisa rumo ao perfil do Gestor de Tráfego&quot;:::
+
+1. Selecione **Configuração** e selecione ou introduza as seguintes definições:
+
+    | Definição         | Valor                                              |
+    | ---             | ---                                                |
+    | Método de encaminhamento            | **Selecione Ponderado**. |    
+    | Tempo DNS para viver (TTL) | Este valor controla com que frequência o servidor de nomes de caching local do cliente irá consultar o sistema de Gestor de Tráfego para entradas de DNS atualizadas. Qualquer alteração que ocorra com o Traffic Manager, como alterações no método de encaminhamento de tráfego ou alterações na disponibilidade de pontos finais adicionados, levará este período de tempo a ser atualizado em todo o sistema global de servidores DNS. |
+    | Protocolo    | Selecione um protocolo para monitorização do ponto final. *Opções: HTTP, HTTPS e TCP* |
+    | Porta | Especifique o número da porta. |
+    | Caminho | Para monitorizar os pontos finais, tem de especificar um caminho e um nome de ficheiro. Um corte dianteiro &quot;/" é uma entrada válida para o caminho relativo e implica que o ficheiro está no diretório raiz (predefinição). |
+    | Configurações personalizadas do cabeçalho | Configure os Cabeçalhos Personalizados no formato host:contoso.com,newheader:newvalue. O par máximo suportado é 8. Aplicável ao protocolo Http e Https. Aplicável a todos os pontos finais no perfil |
+    | Intervalos de código de estado esperados (padrão: 200) | Configurar os intervalos do Código de Estado no formato 200-299,301-301. O alcance máximo suportado é de 8. Aplicável ao protocolo Http e Https. Aplicável a todos os pontos finais no perfil |
+    | Intervalo de pesquisa | Configure o intervalo de tempo entre as sondas de saúde do ponto final. Pode escolher 10 ou 30 segundos. |
+    | Tolerar o número de falhas | Configure o número de falhas da sonda de saúde toleradas antes de uma falha no ponto final ser desencadeada. Pode introduzir um número entre 0 e 9. | 
+    | Tempo limite de sonda | Configure o tempo necessário antes de uma sonda de saúde de ponto final esgotar o tempo. Este valor deve ser pelo menos 5 e menor do que o valor do intervalo de sondagem. |
+
+1. **Selecione Guardar** para completar a configuração.
+
+    :::image type="content" source="./media/traffic-manager-weighted-routing-method/traffic-manager-weighted-configuration.png" alt-text="Pesquisa rumo ao perfil do Gestor de Tráfego&quot;:::
+
+1. Selecione **Configuração** e selecione ou introduza as seguintes definições:
+
+    | Definição         | Valor                                              |
+    | ---             | ---                                                |
+    | Método de encaminhamento            | **Selecione Ponderado**. |    
+    | Tempo DNS para viver (TTL) | Este valor controla com que frequência o servidor de nomes de caching local do cliente irá consultar o sistema de Gestor de Tráfego para entradas de DNS atualizadas. Qualquer alteração que ocorra com o Traffic Manager, como alterações no método de encaminhamento de tráfego ou alterações na disponibilidade de pontos finais adicionados, levará este período de tempo a ser atualizado em todo o sistema global de servidores DNS. |
+    | Protocolo    | Selecione um protocolo para monitorização do ponto final. *Opções: HTTP, HTTPS e TCP* |
+    | Porta | Especifique o número da porta. |
+    | Caminho | Para monitorizar os pontos finais, tem de especificar um caminho e um nome de ficheiro. Um corte dianteiro &quot;/"::: 
+
+1. Selecione **Endpoint** e configuure o peso de cada ponto final. O peso pode estar entre 1-1000. Quanto maior o peso, maior a prioridade.  
+
+    :::image type="content" source="./media/traffic-manager-weighted-routing-method/traffic-manager-configure-endpoints-weighted.png" alt-text="Pesquisa rumo ao perfil do Gestor de Tráfego&quot;:::
+
+1. Selecione **Configuração** e selecione ou introduza as seguintes definições:
+
+    | Definição         | Valor                                              |
+    | ---             | ---                                                |
+    | Método de encaminhamento            | **Selecione Ponderado**. |    
+    | Tempo DNS para viver (TTL) | Este valor controla com que frequência o servidor de nomes de caching local do cliente irá consultar o sistema de Gestor de Tráfego para entradas de DNS atualizadas. Qualquer alteração que ocorra com o Traffic Manager, como alterações no método de encaminhamento de tráfego ou alterações na disponibilidade de pontos finais adicionados, levará este período de tempo a ser atualizado em todo o sistema global de servidores DNS. |
+    | Protocolo    | Selecione um protocolo para monitorização do ponto final. *Opções: HTTP, HTTPS e TCP* |
+    | Porta | Especifique o número da porta. |
+    | Caminho | Para monitorizar os pontos finais, tem de especificar um caminho e um nome de ficheiro. Um corte dianteiro &quot;/"::: 
+
+## <a name="use-the-traffic-manager-profile"></a>Utilize o perfil do Gestor de Tráfego
+
+O **Perfil do Gestor de Tráfego** mostra o nome DNS do perfil que acabou de criar. O nome pode ser usado por qualquer cliente (por exemplo, navegando para ele usando um navegador web) para ser encaminhado para o ponto final direito, conforme determinado pelo tipo de encaminhamento. Neste caso, todos os pedidos são encaminhados cada ponto final de uma forma redonda.
+
+:::image type="content" source="./media/traffic-manager-weighted-routing-method/traffic-manager-weighted-overview.png" alt-text="Pesquisa rumo ao perfil do Gestor de Tráfego&quot;:::
+
+1. Selecione **Configuração** e selecione ou introduza as seguintes definições:
+
+    | Definição         | Valor                                              |
+    | ---             | ---                                                |
+    | Método de encaminhamento            | **Selecione Ponderado**. |    
+    | Tempo DNS para viver (TTL) | Este valor controla com que frequência o servidor de nomes de caching local do cliente irá consultar o sistema de Gestor de Tráfego para entradas de DNS atualizadas. Qualquer alteração que ocorra com o Traffic Manager, como alterações no método de encaminhamento de tráfego ou alterações na disponibilidade de pontos finais adicionados, levará este período de tempo a ser atualizado em todo o sistema global de servidores DNS. |
+    | Protocolo    | Selecione um protocolo para monitorização do ponto final. *Opções: HTTP, HTTPS e TCP* |
+    | Porta | Especifique o número da porta. |
+    | Caminho | Para monitorizar os pontos finais, tem de especificar um caminho e um nome de ficheiro. Um corte dianteiro &quot;/"::: 
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Se já não necessitar do perfil do Gestor de Tráfego, localize o perfil e selecione **Excluir o perfil**.
+
+:::image type="content" source="./media/traffic-manager-weighted-routing-method/delete-traffic-manager-weighted-profile.png" alt-text="Pesquisa rumo ao perfil do Gestor de Tráfego&quot;:::
+
+1. Selecione **Configuração** e selecione ou introduza as seguintes definições:
+
+    | Definição         | Valor                                              |
+    | ---             | ---                                                |
+    | Método de encaminhamento            | **Selecione Ponderado**. |    
+    | Tempo DNS para viver (TTL) | Este valor controla com que frequência o servidor de nomes de caching local do cliente irá consultar o sistema de Gestor de Tráfego para entradas de DNS atualizadas. Qualquer alteração que ocorra com o Traffic Manager, como alterações no método de encaminhamento de tráfego ou alterações na disponibilidade de pontos finais adicionados, levará este período de tempo a ser atualizado em todo o sistema global de servidores DNS. |
+    | Protocolo    | Selecione um protocolo para monitorização do ponto final. *Opções: HTTP, HTTPS e TCP* |
+    | Porta | Especifique o número da porta. |
+    | Caminho | Para monitorizar os pontos finais, tem de especificar um caminho e um nome de ficheiro. Um corte dianteiro &quot;/":::
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre [o método de encaminhamento de tráfego prioritário](traffic-manager-configure-priority-routing-method.md).
-- Saiba mais sobre [o método de encaminhamento de tráfego de desempenho](traffic-manager-configure-performance-routing-method.md).
-- Saiba mais sobre o [método de encaminhamento geográfico](traffic-manager-configure-geographic-routing-method.md).
-- Saiba como testar as [definições do Gestor de Tráfego](traffic-manager-testing-settings.md).
+Para saber mais sobre o método de encaminhamento ponderado, consulte:
 
-<!--Image references-->
-[1]: ./media/traffic-manager-weighted-routing-method/traffic-manager-weighted-routing-method.png
+> [!div class="nextstepaction"]
+> [Método de encaminhamento de tráfego ponderado](traffic-manager-routing-methods.md#weighted)

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 418be35cb7996acaa7f11f37627d065451c9c7c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42b86cadefea41bc438c8f2e91c5eaa86af172b0
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90055219"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204976"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Restringir permissões de acesso a hóspedes (pré-visualização) no Azure Ative Directory
 
@@ -139,27 +139,28 @@ Por apoio, queremos dizer que a experiência é como esperado; especificamente, 
 - Teams
 - Perspetivas (OWA)
 - SharePoint
+- Planejador em Equipas
+- Aplicativo web planejador
 
 ### <a name="services-currently-not-supported"></a>Serviços atualmente não suportados
 
 O serviço sem suporte atual pode ter problemas de compatibilidade com a nova configuração de restrição de hóspedes.
 
 - Formulários
-- Planejador em Equipas
-- Aplicativo de planejador
+- Aplicativo móvel planejador
 - Project
 - Yammer
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ)
+## <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
 
 Pergunta | Resposta
 -------- | ------
 Onde se aplicam estas permissões? | Estas permissões de nível de diretório são aplicadas em todos os serviços e portais AZure AD, incluindo o Microsoft Graph, PowerShell v2, o portal Azure e o portal My Apps. Os serviços da Microsoft 365 que aproveitam os grupos microsoft 365 para cenários de colaboração também são afetados, nomeadamente o Outlook, Microsoft Teams e SharePoint.
 Que partes do portal My Apps irá afetar esta funcionalidade? | A funcionalidade dos grupos no portal My Apps irá homenagear estas novas permissões. Isto inclui todos os caminhos para ver a lista de grupos e membros do grupo nas Minhas Apps. Não foram feitas alterações à disponibilidade de azulejos do grupo. A disponibilidade de azulejos de grupo ainda é controlada pela configuração do grupo existente no portal de administração Azure.
-Estas permissões substituem as definições de hóspedes do SharePoint ou da Microsoft Teams? | N.º As definições existentes ainda controlam a experiência e o acesso nessas aplicações. Por exemplo, se vir problemas no SharePoint, verifique duas vezes as definições de partilha externa.
-Quais são os problemas de compatibilidade conhecidos no Planner e no Yammer? | <li>Com permissões definidas para 'restrito', os hóspedes que iniciaram sessão na aplicação Planner ou que acedam ao Planner em Microsoft Teams não poderão aceder aos seus planos ou a quaisquer tarefas.<li>Com permissões definidas para 'restrito', os hóspedes que entrarem em Yammer não poderão sair do grupo.
+Estas permissões substituem as definições de hóspedes do SharePoint ou da Microsoft Teams? | Não. As definições existentes ainda controlam a experiência e o acesso nessas aplicações. Por exemplo, se vir problemas no SharePoint, verifique duas vezes as definições de partilha externa.
+Quais são os problemas de compatibilidade conhecidos no Planner e no Yammer? | <li>Com permissões definidas como "restritas", os hóspedes que iniciaram sessão na aplicação móvel Planner não poderão aceder aos seus planos ou a quaisquer tarefas.<li>Com permissões definidas para 'restrito', os hóspedes que entrarem em Yammer não poderão sair do grupo.
 As minhas permissões de hóspedes existentes serão alteradas no meu inquilino? | Não foram efetuadas alterações nas definições atuais. Mantemos a retrocompatibilidade com as definições existentes. Decide quando quer fazer mudanças.
-Estas permissões serão definidas por defeito? | N.º As permissões por defeito existentes permanecem inalteradas. Pode configurar opcionalmente as permissões para serem mais restritivas.
+Estas permissões serão definidas por defeito? | Não. As permissões por defeito existentes permanecem inalteradas. Pode configurar opcionalmente as permissões para serem mais restritivas.
 Existem requisitos de licença para esta funcionalidade? | Não, não há novos requisitos de licenciamento com esta funcionalidade.
 
 ## <a name="next-steps"></a>Passos seguintes

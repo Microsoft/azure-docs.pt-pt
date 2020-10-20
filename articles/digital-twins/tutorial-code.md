@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 830052237580101d9141bbf812c050430c6269f2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 19ce74046dd86885a01ad5e8dcc4bfda950dd884
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144565"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201358"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutorial: Codificação com as APIs de Gémeos Digitais Azure
 
@@ -104,40 +104,21 @@ Em seguida, irá adicionar código a este ficheiro para preencher alguma funcion
 
 A primeira coisa que a sua aplicação terá de fazer é autenticar contra o serviço Azure Digital Twins. Em seguida, pode criar uma classe de cliente de serviço para aceder às funções SDK.
 
-Para autenticar, necessita de três peças de informação:
-* O *ID do Diretório (inquilino)* para a sua subscrição
-* O *ID da Aplicação (cliente)* criado quando configura a instância Azure Digital Twins mais cedo
-* O *nome anfitrião* da sua instância Azure Digital Twins
+Para autenticar, precisa do *nome de anfitrião* da sua instância Azure Digital Twins.
 
->[!TIP]
-> Se não conhece o seu *ID do Diretório (inquilino),* pode obtê-lo executando este comando em [Azure Cloud Shell:](https://shell.azure.com)
-> 
-> ```azurecli
-> az account show --query tenantId
-> ```
-
-Em *Program.cs,* cole o seguinte código abaixo do "Olá, Mundo!" linha de impressão no `Main` método. Desa cota o valor do `adtInstanceUrl` seu *anfitrião de*instância Azure Digital Twins, `clientId` para o seu *ID de aplicação,* e `tenantId` para o seu *ID do Diretório*.
+Em *Program.cs,* cole o seguinte código abaixo do "Olá, Mundo!" linha de impressão no `Main` método. Desabine o valor do `adtInstanceUrl` seu exemplo Azure Digital Twins *anfitriãoName*.
 
 ```csharp
-string clientId = "<your-application-ID>";
-string tenantId = "<your-directory-ID>";
-string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>";
-var credentials = new InteractiveBrowserCredential(tenantId, clientId);
-DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
+string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>"; 
+var credential = new DefaultAzureCredential();
+DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
 Console.WriteLine($"Service client created – ready to go");
 ```
 
 Guarde o ficheiro. 
 
-Note que este exemplo usa uma credencial de navegador interativo:
-```csharp
-var credentials = new InteractiveBrowserCredential(tenantId, clientId);
-```
-
-Este tipo de credencial fará com que uma janela do navegador abra, pedindo-lhe que forneça as suas credenciais Azure. 
-
 >[!NOTE]
-> Para obter informações sobre outros tipos de credenciais, consulte a documentação das [bibliotecas de autenticação da plataforma de identidade da Microsoft.](../active-directory/develop/reference-v2-libraries.md)
+> Este exemplo utiliza um `DefaultAzureCredential` para autenticação. Para obter informações sobre outros tipos de credenciais, consulte a documentação para as [bibliotecas de autenticação da plataforma de identidade](../active-directory/develop/reference-v2-libraries.md)da Microsoft, ou o artigo da Azure Digital Twins sobre a [autenticação de aplicações do cliente.](how-to-authenticate-client.md)
 
 Na sua janela de comando, execute o código com este comando: 
 
@@ -463,11 +444,10 @@ namespace minimal
         {
             Console.WriteLine("Hello World!");
             
-            string clientId = "<your-application-ID>";
-            string tenantId = "<your-directory-ID>";
-            string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>";
-            var credentials = new InteractiveBrowserCredential(tenantId, clientId);
-            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
+            string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>"; 
+            
+            var credential = new DefaultAzureCredential();
+            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
             Console.WriteLine($"Service client created – ready to go");
 
             Console.WriteLine();
