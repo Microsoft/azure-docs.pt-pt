@@ -4,12 +4,12 @@ description: Saiba como usar o Azure Arc habilitado os servidores a gerir servid
 keywords: automação azul, DSC, powershell, configuração de estado desejada, gestão de atualização, rastreio de alterações, inventário, runbooks, python, gráfico, híbrido
 ms.date: 10/07/2020
 ms.topic: overview
-ms.openlocfilehash: c8d74bcaa7eb0b4adbb5aaf66626b9bfc349d639
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: b2875cfdeb80aa17b19cee462dc35eaa7a3de665
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108903"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92200972"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>O que são servidores preparados para o Azure Arc?
 
@@ -23,7 +23,7 @@ Quando liga a sua máquina a servidores ativados do Azure Arc, permite a capacid
 
 - Atribua [configurações de hóspedes da Azure Policy](../../governance/policy/concepts/guest-configuration.md) usando a mesma experiência que a atribuição de políticas para máquinas virtuais Azure. Hoje em dia, a maioria das políticas de Configuração de Hóspedes não aplica configurações, apenas auditam as definições dentro da máquina. Para compreender o custo da utilização das políticas de configuração de hóspedes da Azure Policy com servidores ativados pelo Arc, consulte o [guia de preços da](https://azure.microsoft.com/pricing/details/azure-policy/)Política Azure .
 
-- Informe sobre alterações de configuração sobre software instalado, serviços microsoft, registo do Windows e ficheiros, e daemons Linux em servidores monitorizados utilizando o Azure Automation [Change Change Tracking and Inventory](../../automation/change-tracking.md).
+- Informe sobre alterações de configuração sobre software instalado, serviços microsoft, registo do Windows e ficheiros, e daemons Linux em servidores monitorizados utilizando o Azure Automation [Change Change Tracking and Inventory](../../automation/change-tracking/overview.md).
 
 - Monitorize o desempenho do sistema operativo do hóspede da máquina conectada e descubra componentes de aplicação para monitorizar os seus processos e dependências com outros recursos que a aplicação comunica utilizando [o Azure Monitor para VMs](../../azure-monitor/insights/vminsights-overview.md).
 
