@@ -6,13 +6,13 @@ ms.topic: troubleshooting
 author: nisgoel
 ms.author: nisgoel
 ms.reviewer: jasonh
-ms.date: 03/05/2020
-ms.openlocfilehash: d843b942702d335065a5f3798572e34c71b4cd0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/05/2020
+ms.openlocfilehash: a102c9f375b37579cf6f92b08d67f762d3dfd26a
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78943972"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220895"
 ---
 # <a name="scenario-apache-hive-logs-are-filling-up-the-disk-space-on-the-head-nodes-in-azure-hdinsight"></a>Cenário: Os registos da Colmeia Apache estão a preencher o espaço do disco nos nos nóns da Cabeça em Azure HDInsight
 
@@ -24,6 +24,7 @@ Num aglomerado Apache Hive/LLAP, troncos indesejados estão ocupando todo o espa
 
 1. O acesso ao SSH falha por não ter espaço no nó da cabeça.
 2. Ambari dá *HTTP ERROR: 503 Serviço Indisponível*.
+3. A HiveServer2 Interactive não consegue reiniciar.
 
 Os `ambari-agent` registos mostrariam o seguinte quando o problema acontecesse.
 ```
@@ -35,7 +36,7 @@ ambari_agent - HostCheckReportFileHandler.py - [54697] - ambari_agent.HostCheckR
 
 ## <a name="cause"></a>Causa
 
-Nas configurações avançadas de Hive-log4j, o *parâmetro log4j.appender.RFA.MaxBackupIndex* é omitido. Causa uma geração interminável de ficheiros de registo.
+Nas configurações avançadas de hive-log4j, o atual calendário de eliminação por defeito é definido para ficheiros com mais de 30 dias com base na última data modificada.
 
 ## <a name="resolution"></a>Resolução
 
@@ -43,30 +44,28 @@ Nas configurações avançadas de Hive-log4j, o *parâmetro log4j.appender.RFA.M
 
 2. Aceda à `Advanced hive-log4j` secção dentro das definições Avançadas.
 
-3. Definir `log4j.appender.RFA` o parâmetro como RollingFileAppender. 
+3. Desa parte `appender.RFA.strategy.action.condition.age` para uma idade à sua escolha. Exemplo para 14 dias: `appender.RFA.strategy.action.condition.age = 14D`
 
-4. Definir `log4j.appender.RFA.MaxFileSize` e da seguinte `log4j.appender.RFA.MaxBackupIndex` forma.
+4. Se não vir nenhuma definição relacionada, apece estas seguintes definições.
+    ```
+    # automatically delete hive log
+    appender.RFA.strategy.action.type = Delete
+    appender.RFA.strategy.action.basePath = ${sys:hive.log.dir}
+    appender.RFA.strategy.action.condition.type = IfLastModified
+    appender.RFA.strategy.action.condition.age = 30D
+    appender.RFA.strategy.action.PathConditions.type = IfFileName
+    appender.RFA.strategy.action.PathConditions.regex = hive*.*log.*
+    ```
 
-```
-log4jhive.log.maxfilesize=1024MB
-log4jhive.log.maxbackupindex=10
-
-log4j.appender.RFA=org.apache.log4j.RollingFileAppender
-log4j.appender.RFA.File=${hive.log.dir}/${hive.log.file}
-log4j.appender.RFA.MaxFileSize=${log4jhive.log.maxfilesize}
-log4j.appender.RFA.MaxBackupIndex=${log4jhive.log.maxbackupindex}
-log4j.appender.RFA.layout=org.apache.log4j.PatternLayout
-log4j.appender.RFA.layout.ConversionPattern=%d{ISO8601} %-5p [%t] %c{2}: %m%n
-```
 5. Definido `hive.root.logger` para o `INFO,RFA` seguinte. A definição predefinida é DEBUG, o que faz com que os troncos se tornem muito grandes.
 
-```
-# Define some default values that can be overridden by system properties
-hive.log.threshold=ALL
-hive.root.logger=INFO,RFA
-hive.log.dir=${java.io.tmpdir}/${user.name}
-hive.log.file=hive.log
-```
+    ```
+    # Define some default values that can be overridden by system properties
+    hive.log.threshold=ALL
+    hive.root.logger=INFO,RFA
+    hive.log.dir=${java.io.tmpdir}/${user.name}
+    hive.log.file=hive.log
+    ```
 
 6. Guarde as configs e reinicie os componentes necessários.
 

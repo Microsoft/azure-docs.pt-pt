@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 9/29/2020
+ms.date: 10/19/2020
 ms.author: b-juche
-ms.openlocfilehash: b683719fa2d0c1e7b5333c2ddf9c93f2797ade9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edb084a3539f4ab25f328d4cc59ee4ef3279bf07
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91461483"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217053"
 ---
 # <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Configure encriptação NFSv4.1 Kerberos para ficheiros Azure NetApp
 
@@ -73,9 +73,9 @@ Os seguintes requisitos aplicam-se à encriptação do cliente NFSv4.1:
 
 Configuração de NFSv4.1 Kerberos cria duas contas de computador no Ative Directory:
 * Uma conta de computador para ações SMB
-* Uma conta de computador para NFSv4.1 -- Pode identificar esta conta através do prefixo `NFS-` . 
+* Uma conta de computador para NFSv4.1-- Pode identificar esta conta através do prefixo `NFS-` . 
 
-Depois de criar o primeiro volume NFSv4.1 Kerberos, deteta o tipo de encriptação ou a conta do computador utilizando o seguinte comando PowerShell:
+Depois de criar o primeiro volume NFSv4.1 Kerberos, dedique o tipo de encriptação para a conta do computador utilizando o seguinte comando PowerShell:
 
 `Set-ADComputer $NFSCOMPUTERACCOUNT -KerberosEncryptionType AES256`
 
@@ -96,11 +96,11 @@ Siga as instruções em [Configurar um cliente NFS para a Azure NetApp Files](co
 3. Crie o diretório (ponto de montagem) para o novo volume.  
 
 4. Desafine o tipo de encriptação padrão para AES 256 para a conta do computador:  
-    `Set-ADComputer $COMPUTERACCOUNT -KerberosEncryptionType AES256 -Credential $ANFSERVICEACCOUNT`
+    `Set-ADComputer $NFSCOMPUTERACCOUNT -KerberosEncryptionType AES256 -Credential $ANFSERVICEACCOUNT`
 
     * Só precisa de executar este comando uma vez para cada conta de computador.
     * Pode executar este comando a partir de um controlador de domínio ou de um PC com [RSAT](https://support.microsoft.com/help/2693643/remote-server-administration-tools-rsat-for-windows-operating-systems) instalado. 
-    * A `$COMPUTERACCOUNT` variável é a conta de computador criada no Ative Directory quando implementa o volume Kerberos. Esta é a conta que está `NFS-` prefixada. 
+    * A `$NFSCOMPUTERACCOUNT` variável é a conta de computador criada no Ative Directory quando implementa o volume Kerberos. Esta é a conta que está `NFS-` prefixada. 
     * A `$ANFSERVICEACCOUNT` variável é uma conta de utilizador ative não privilegiada com controlos delegados sobre a Unidade Organizacional onde a conta de computador foi criada. 
 
 5. Monte o volume no hospedeiro: 

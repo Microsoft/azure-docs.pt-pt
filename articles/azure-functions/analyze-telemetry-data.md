@@ -3,12 +3,13 @@ title: Analisar telemetria de funções Azure em Insights de Aplicação
 description: Saiba como visualizar e consultar dados de telemetria Azure Functions recolhidos e armazenados em Azure Application Insights.
 ms.topic: how-to
 ms.date: 10/14/2020
-ms.openlocfilehash: c4ddf845a303ccda1b13e954d9946934c5f39fd9
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.custom: contperfq2
+ms.openlocfilehash: 9091d59cbc3a4cf841e28505531c89c83e705c46
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168924"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217308"
 ---
 # <a name="analyze-azure-functions-telemetry-in-application-insights"></a>Analisar telemetria de funções Azure em Insights de Aplicação 
 

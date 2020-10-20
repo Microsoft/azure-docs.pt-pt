@@ -7,13 +7,13 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 10/15/2019
-ms.author: matjazl
-ms.openlocfilehash: 4b2772b449b3c398c8c8932db58b7078b7501824
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.author: cavoeg
+ms.openlocfilehash: 07221e0cf8feeef48de27a84450c28b08d22e0d3
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87852026"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217495"
 ---
 # <a name="quickstart-deploy-azure-api-for-fhir-using-powershell"></a>Quickstart: Implementar API Azure para FHIR utilizando PowerShell
 

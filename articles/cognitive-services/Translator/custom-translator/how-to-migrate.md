@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 5334168081ea18650bd6afd2411e076952e08749
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 449d57579b802191434cda3e63e103e5f3ef4bc5
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86537991"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220878"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrar espaço de trabalho do Hub e projetos para Tradutor Personalizado
 
@@ -55,7 +55,7 @@ Para migrar um projeto:
 
 3. Clique no link "Migrar" para o projeto apropriado.
 
-    ![Como migrar do Hub](media/how-to/how-to-migrate-from-hub.png)
+    ![Screenshot que destaca o botão Migrar para o projeto selecionado.](media/how-to/how-to-migrate-from-hub.png)
 
 4. Ao premir o link migratório, será apresentado um formulário que lhe permite:
    * Especifique o espaço de trabalho para o qual pretende transferir no Tradutor Personalizado
@@ -76,7 +76,7 @@ Para migrar um espaço de trabalho:
 
 3. Na página "Definições" clique em "Migrar dados do espaço de trabalho para tradutor personalizado".
 
-    ![Como migrar do Hub](media/how-to/how-to-migrate-workspace-from-hub.png)
+    ![Screenshot que destaca os dados do Espaço de Trabalho migratório para a opção De Tradutor Personalizado.](media/how-to/how-to-migrate-workspace-from-hub.png)
 
 4. Na página seguinte selecione qualquer uma destas duas opções:
 
@@ -134,10 +134,10 @@ Esta tabela compara as funcionalidades entre o Microsoft Tradutor Hub e o Custom
 | ------- | :-: | :---------------: |
 | Estado do recurso de personalização    | Disponibilidade Geral    | Disponibilidade Geral |
 | Versão API de texto    | V2     | V3  |
-| Personalização SMT    | Sim    | Não |
-| Personalização de NMT    | Não    | Sim |
-| Nova personalização unificada de serviços de fala    | Não    | Sim |
-| Sem vestígios | Sim | Sim |
+| Personalização SMT    | Yes    | No |
+| Personalização de NMT    | No    | Yes |
+| Nova personalização unificada de serviços de fala    | No    | Yes |
+| Sem vestígios | Yes | Yes |
 
 ## <a name="new-languages"></a>Novas línguas
 

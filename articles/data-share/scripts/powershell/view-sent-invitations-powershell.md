@@ -1,20 +1,17 @@
 ---
-title: 'PowerShell script: List Azure Data Share convites enviados a um consumidor Microsoft Docs'
+title: 'PowerShell script: Lista de convites de partilha de dados da Azure enviados a um consumidor'
 description: Saiba como este script PowerShell recebe convites enviados a um consumidor e veja um exemplo do script que pode usar.
-services: data-share
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
-ms.author: joanpo
-ms.openlocfilehash: 3f0374ba5b98c145359d18143584e23fc543c552
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f75894094fa2a15dbc9e2809ed6c3631df96c3f
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985631"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221218"
 ---
 # <a name="use-powershell-to-get-a-data-share-invitation"></a>Use o PowerShell para obter um convite de partilha de dados
 
@@ -40,11 +37,11 @@ Este script utiliza os seguintes comandos:
 
 | Comando | Notas |
 |---|---|
-| [Get-AzDataShareInvitação](/powershell/module/az.datashare/get-azdatashareinvitation?view=azps-2.6.0) | Receber e lista enviar convites de partilha de dados. |
+| [Get-AzDataShareInvitação](/powershell/module/az.datashare/get-azdatashareinvitation) | Receber e lista enviar convites de partilha de dados. |
 |||
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
+Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/).
 
 Amostras adicionais de scripts Azure Data Share PowerShell podem ser encontradas nas [amostras powerShell de partilha de dados Azure](../../samples-powershell.md).

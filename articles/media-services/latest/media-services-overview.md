@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: mvc
-ms.openlocfilehash: 58a142f0be87bb56f9ded9ace5a5143931740e93
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: c7bdf3e0300bffaffb7191aea019bed719cdc6fa
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019868"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220640"
 ---
 # <a name="azure-media-services-v3-overview"></a>Descrição geral dos Serviços de Multimédia do Azure v3
 
@@ -64,7 +64,7 @@ Os Serviços de Mídia permitem-lhe construir uma variedade de fluxos de trabalh
 Aprenda a codificar e embalar conteúdos, transmita vídeos a pedido, transmita em direto e analise os seus vídeos com o Media Services v3. Tutoriais, referências de API e outra documentação mostram-lhe como fornecer de forma segura transmissões em fluxo de vídeo ou áudio a pedido e live dimensionáveis para milhões de utilizadores.
 
 > [!TIP]
-> Antes de começar a desenvolver-se, reveja:<br/>* [Conceitos fundamentais](concepts-overview.md) (incita conceitos importantes, como embalagens, codificação e proteção)<br/>* [Desenvolvimento com Serviços de Mídia v3 APIs](media-services-apis-overview.md) (inclui informações sobre o acesso a APIs, convenções de nomeação, e assim por diante)
+> Antes de começar a desenvolver-se, reveja:<br/>* [Conceitos fundamentais](concepts-overview.md) (inclui conceitos importantes, como embalagem, codificação e proteção)<br/>* [Desenvolvimento com Serviços de Mídia v3 APIs](media-services-apis-overview.md) (inclui informações sobre o acesso a APIs, convenções de nomeação, e assim por diante)
 
 ### <a name="sdks"></a>SDKs
 
@@ -78,7 +78,7 @@ Os quickstarts mostram instruções fundamentais do dia 1 para novos clientes ex
 * [Stream de ficheiros de vídeo - CLI](stream-files-cli-quickstart.md)
 * [Transmitir ficheiros de vídeo - Node.js](stream-files-nodejs-quickstart.md)
 
-### <a name="tutorials"></a>Tutorials (Tutoriais)
+### <a name="tutorials"></a>Tutoriais
 
 Os tutoriais mostram procedimentos baseados em cenários para algumas das principais tarefas dos Serviços de Comunicação Social.
 

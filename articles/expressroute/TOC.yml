@@ -166,7 +166,7 @@
     - name: Melhores práticas
       items:
         - name: Melhores práticas para segurança de rede e serviços em nuvem
-          href: ../best-practices-network-security.md
+          href: /azure/cloud-adoption-framework/reference/networking-vdc
         - name: Otimizar o encaminhamento
           href: expressroute-optimize-routing.md
         - name: Encaminhamento assimétrico
@@ -192,9 +192,9 @@
     - name: CLI do Azure
       href: /cli/azure/network/express-route
     - name: REST
-      href: 'https://msdn.microsoft.com/library/azure/mt586720'
+      href: /rest/api/expressroute/
     - name: REST (clássico)
-      href: 'https://msdn.microsoft.com/library/azure/dn606310'
+      href: /previous-versions/azure/reference/dn606310(v=azure.100)
     - name: Modelo do Resource Manager
       displayName: 'ARM,resource manager template'
       href: /azure/templates/microsoft.network/expressroutecircuits

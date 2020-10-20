@@ -1,19 +1,16 @@
 ---
 title: Agendar trabalhos U-SQL do Azure Data Lake Analytics utilizando SSIS
 description: Saiba como utilizar os Serviços de Integração de Servidores SQL para agendar trabalhos U-SQL com script inline ou a partir de ficheiros de consulta U-SQL.
-services: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.workload: big-data
 ms.date: 07/17/2018
-ms.openlocfilehash: a5c7b9fb6a3431534d743f1ebd0b21f1da9fab7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b080b433f5af49e970faba02003fb68e21a08365
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318709"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221456"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Agendar empregos U-SQL utilizando serviços de integração de servidores SQL (SSIS)
 
@@ -21,16 +18,16 @@ Neste documento, aprende a orquestrar e criar empregos U-SQL utilizando o SQL Se
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[O Azure Feature Pack for Integration Services](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017#scenario-managing-data-in-the-cloud) fornece a tarefa [Azure Data Lake Analytics](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017) e o [Azure Data Lake Analytics Connection Manager](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager?view=sql-server-2017) que ajuda a ligar-se ao serviço Azure Data Lake Analytics. Para utilizar esta tarefa, certifique-se de que instala:
+[O Azure Feature Pack for Integration Services](/sql/integration-services/azure-feature-pack-for-integration-services-ssis#scenario-managing-data-in-the-cloud) fornece a tarefa [Azure Data Lake Analytics](/sql/integration-services/control-flow/azure-data-lake-analytics-task) e o [Azure Data Lake Analytics Connection Manager](/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager) que ajuda a ligar-se ao serviço Azure Data Lake Analytics. Para utilizar esta tarefa, certifique-se de que instala:
 
-- [Descarregue e instale ferramentas de dados do sql server (SSDT) para o Estúdio Visual](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017)
-- [Instalar pacote de recursos Azure para serviços de integração (SSIS)](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017)
+- [Descarregue e instale ferramentas de dados do sql server (SSDT) para o Estúdio Visual](/sql/ssdt/download-sql-server-data-tools-ssdt)
+- [Instalar pacote de recursos Azure para serviços de integração (SSIS)](/sql/integration-services/azure-feature-pack-for-integration-services-ssis)
 
 ## <a name="azure-data-lake-analytics-task"></a>Tarefa Azure Data Lake Analytics
 
 A tarefa Azure Data Lake Analytics permite que os utilizadores submetam empregos U-SQL para a conta Azure Data Lake Analytics. 
 
-[Saiba como configurar a tarefa Azure Data Lake Analytics](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017).
+[Saiba como configurar a tarefa Azure Data Lake Analytics](/sql/integration-services/control-flow/azure-data-lake-analytics-task).
 
 ![Tarefa Azure Data Lake Analytics em SSIS](./media/data-lake-analytics-schedule-jobs-ssis/data-lake-analytics-azure-data-lake-analytics-task-in-ssis.png)
 
@@ -61,13 +58,13 @@ Na vista de design de pacoteS SSIS, adicione uma **tarefa do sistema de ficheiro
 ### <a name="configure-azure-data-lake-store-file-system-task"></a>Configure Azure Data Lake Store File System Task
 
 1. Definir **Operação** para **CopyFromADLS**.
-2. Configurar **a AzureDataLakeConnection,** saiba mais sobre [o Azure Data Lake Store Connection Manager](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager?view=sql-server-2017).
+2. Configurar **a AzureDataLakeConnection,** saiba mais sobre [o Azure Data Lake Store Connection Manager](/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager).
 3. Definir **AzureDataLakeDirectory**. Aponte para a pasta que armazena os seus scripts U-SQL. Utilize um caminho relativo que seja relativo à pasta raiz da conta Azure Data Lake Store.
 4. Desfaça **o Destino** para uma pasta que cache os scripts U-SQL descarregados. Este caminho de pasta será utilizado no Foreach Loop Container para submissão de trabalho U-SQL. 
 
 ![Configure Azure Data Lake Store File System Task](./media/data-lake-analytics-schedule-jobs-ssis/configure-azure-data-lake-store-file-system-task.png)
 
-[Saiba mais sobre a tarefa do sistema de ficheiros Azure Data Lake Store.](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-store-file-system-task?view=sql-server-2017)
+[Saiba mais sobre a tarefa do sistema de ficheiros Azure Data Lake Store.](/sql/integration-services/control-flow/azure-data-lake-store-file-system-task)
 
 ### <a name="configure-foreach-loop-container"></a>Recipiente de loop foreach configurado
 
@@ -102,9 +99,9 @@ Na vista de design de pacoteS SSIS, adicione uma **tarefa do sistema de ficheiro
 
        ![Recipiente de loop foreach configurado](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-property-for-foreach-loop-container.png)
 
-3. Desconfiem **da AzureDataLakeAnalyticsConnection** na conta Azure Data Lake Analytics para a quais pretende submeter empregos. Saiba mais sobre [o Azure Data Lake Analytics Connection Manager](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager?view=sql-server-2017).
+3. Desconfiem **da AzureDataLakeAnalyticsConnection** na conta Azure Data Lake Analytics para a quais pretende submeter empregos. Saiba mais sobre [o Azure Data Lake Analytics Connection Manager](/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager).
 
-4. Desa estaleia outras configurações de trabalho. [Saiba Mais](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017).
+4. Desa estaleia outras configurações de trabalho. [Saiba Mais](/sql/integration-services/control-flow/azure-data-lake-analytics-task).
 
 5. Use **expressões** para definir dinamicamente o nome de trabalho U-SQL:
 
@@ -117,7 +114,7 @@ Na vista de design de pacoteS SSIS, adicione uma **tarefa do sistema de ficheiro
 
 Pode utilizar ficheiros U-SQL no Azure Blob Storage utilizando **a tarefa de descarregamento Azure Blob** no Azure Feature Pack. Esta abordagem permite-lhe utilizar os scripts na nuvem.
 
-Os passos são semelhantes ao [Cenário 2: Use ficheiros U-SQL na Azure Data Lake Store](#scenario-2-use-u-sql-files-in-azure-data-lake-store). Altere a tarefa do sistema de ficheiros Azure Data Lake Store para Azure Blob Download Task. [Saiba mais sobre a tarefa de download da Azure Blob](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
+Os passos são semelhantes ao [Cenário 2: Use ficheiros U-SQL na Azure Data Lake Store](#scenario-2-use-u-sql-files-in-azure-data-lake-store). Altere a tarefa do sistema de ficheiros Azure Data Lake Store para Azure Blob Download Task. [Saiba mais sobre a tarefa de download da Azure Blob](/sql/integration-services/control-flow/azure-blob-download-task).
 
 O fluxo de controlo é como abaixo.
 
@@ -162,10 +159,10 @@ Em alguns casos, pode querer definir dinamicamente o valor variável U-SQL no sc
 - Desacorda as variáveis do caminho do ficheiro de entrada e saída dinamicamente com base na data e hora atuais.
 - Desa estale o parâmetro para os procedimentos armazenados.
 
-[Saiba mais sobre como definir parâmetros para o script U-SQL](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017#parameter-mapping-page-configuration).
+[Saiba mais sobre como definir parâmetros para o script U-SQL](/sql/integration-services/control-flow/azure-data-lake-analytics-task#parameter-mapping-page-configuration).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Executar pacotes do SSIS no Azure](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
-- [Pacote de Recursos Azure para Serviços de Integração (SSIS)](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017#scenario-managing-data-in-the-cloud)
-- [Agendar empregos U-SQL usando a Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics)
+- [Executar pacotes do SSIS no Azure](../data-factory/how-to-invoke-ssis-package-ssis-activity.md)
+- [Pacote de Recursos Azure para Serviços de Integração (SSIS)](/sql/integration-services/azure-feature-pack-for-integration-services-ssis#scenario-managing-data-in-the-cloud)
+- [Agendar empregos U-SQL usando a Azure Data Factory](../data-factory/transform-data-using-data-lake-analytics.md)

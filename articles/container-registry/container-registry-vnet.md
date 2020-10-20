@@ -3,12 +3,12 @@ title: Restringir o acesso usando um ponto final de serviço
 description: Restringir o acesso a um registo de contentores Azure utilizando um ponto final de serviço numa rede virtual Azure. O acesso ao ponto final de serviço é uma característica do nível de serviço Premium.
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 1fc8d54d677112a9c934f9079e953a7389939bde
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3472549827781c6ed2f6be0417866747c81edd93
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488677"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215506"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Restringir o acesso a um registo de contentores utilizando um ponto final de serviço numa rede virtual Azure
 
@@ -49,13 +49,11 @@ A configuração de um ponto final do serviço de registo está disponível no n
 
 ## <a name="configure-network-access-for-registry"></a>Configure o acesso à rede para registo
 
-Nesta secção, configuure o seu registo de contentores para permitir o acesso a partir de uma sub-rede numa rede virtual Azure. São fornecidos passos equivalentes utilizando o portal Azure CLI e Azure.
+Nesta secção, configuure o seu registo de contentores para permitir o acesso a partir de uma sub-rede numa rede virtual Azure. Os passos são fornecidos utilizando o Azure CLI.
 
-### <a name="allow-access-from-a-virtual-network---cli"></a>Permitir o acesso a partir de uma rede virtual - CLI
+### <a name="add-a-service-endpoint-to-a-subnet"></a>Adicione um ponto final de serviço a uma sub-rede
 
-#### <a name="add-a-service-endpoint-to-a-subnet"></a>Adicione um ponto final de serviço a uma sub-rede
-
-Quando cria um VM, o Azure por padrão cria uma rede virtual no mesmo grupo de recursos. O nome da rede virtual baseia-se no nome da máquina virtual. Por exemplo, se nomear a sua máquina virtual *myDockerVM,* o nome de rede virtual padrão é *myDockerVMVNET,* com uma sub-rede chamada *myDockerVMSubnet*. Verifique isto no portal Azure ou utilizando o comando da [lista de vnets da rede Az:][az-network-vnet-list]
+Quando cria um VM, o Azure por padrão cria uma rede virtual no mesmo grupo de recursos. O nome da rede virtual baseia-se no nome da máquina virtual. Por exemplo, se nomear a sua máquina virtual *myDockerVM,* o nome de rede virtual padrão é *myDockerVMVNET,* com uma sub-rede chamada *myDockerVMSubnet*. Verifique-o utilizando o comando da [lista de vnets da rede Az:][az-network-vnet-list]
 
 ```azurecli
 az network vnet list \
@@ -101,7 +99,7 @@ Resultado:
 /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myDockerVMVNET/subnets/myDockerVMSubnet
 ```
 
-#### <a name="change-default-network-access-to-registry"></a>Alterar o acesso da rede padrão ao registo
+### <a name="change-default-network-access-to-registry"></a>Alterar o acesso da rede padrão ao registo
 
 Por predefinição, um registo de contentores Azure permite ligações de anfitriões em qualquer rede. Para limitar o acesso a uma rede selecionada, altere a ação padrão para negar o acesso. Substitua o nome do seu registo no seguinte comando [de atualização az acr:][az-acr-update]
 
@@ -109,7 +107,7 @@ Por predefinição, um registo de contentores Azure permite ligações de anfitr
 az acr update --name myContainerRegistry --default-action Deny
 ```
 
-#### <a name="add-network-rule-to-registry"></a>Adicione a regra da rede ao registo
+### <a name="add-network-rule-to-registry"></a>Adicione a regra da rede ao registo
 
 Utilize o comando de adicionar a [regra de rede az acr][az-acr-network-rule-add] para adicionar uma regra de rede ao seu registo que permite o acesso a partir da sub-rede do VM. Substitua o nome do registo do contentor e o documento de identificação do recurso da sub-rede no seguinte comando: 
 
@@ -143,11 +141,9 @@ Error response from daemon: login attempt to https://xxxxxxx.azurecr.io/v2/ fail
 
 ## <a name="restore-default-registry-access"></a>Restaurar o acesso ao registo predefinido
 
-Para restaurar o registo para permitir o acesso por defeito, remova quaisquer regras de rede configuradas. Em seguida, desafine a ação padrão para permitir o acesso. São fornecidos passos equivalentes utilizando o portal Azure CLI e Azure.
+Para restaurar o registo para permitir o acesso por defeito, remova quaisquer regras de rede configuradas. Em seguida, desafine a ação padrão para permitir o acesso. 
 
-### <a name="restore-default-registry-access---cli"></a>Restaurar o acesso ao registo predefinido - CLI
-
-#### <a name="remove-network-rules"></a>Remover regras de rede
+### <a name="remove-network-rules"></a>Remover regras de rede
 
 Para ver uma lista de regras de rede configuradas para o seu registo, execute o seguinte comando [da lista de regras de rede az acr:][az-acr-network-rule-list]
 
@@ -166,22 +162,20 @@ az acr network-rule remove \
   xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myDockerVMVNET/subnets/myDockerVMSubnet
 ```
 
-#### <a name="allow-access"></a>Permitir acesso
+### <a name="allow-access"></a>Permitir acesso
 
 Substitua o nome do seu registo no seguinte comando [de atualização az acr:][az-acr-update]
 ```azurecli
 az acr update --name myContainerRegistry --default-action Allow
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se criou todos os recursos Azure no mesmo grupo de recursos e já não precisa deles, pode eliminar opcionalmente os recursos utilizando um único comando [de eliminação do grupo AZ:](/cli/azure/group)
 
 ```azurecli
 az group delete --name myResourceGroup
 ```
-
-Para limpar os seus recursos no portal, navegue para o grupo de recursos myResourceGroup. Assim que o grupo de recursos estiver carregado, clique no **grupo de recursos Delete** para remover o grupo de recursos e os recursos aí armazenados.
 
 ## <a name="next-steps"></a>Passos seguintes
 

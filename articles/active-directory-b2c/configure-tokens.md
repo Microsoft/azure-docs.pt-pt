@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 49a5ff61e5f7a17005561e0729a9b0fcb0f954d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10f86d194c5c70f2de0ab6502893e228800b1bdf
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85389569"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215472"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Fichas de configuração no Azure Ative Directory B2C
 
@@ -23,7 +23,7 @@ Neste artigo, aprende-se a configurar a [vida e a compatibilidade de um símbolo
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[Crie um fluxo de utilizador](tutorial-create-user-flows.md) para permitir que os utilizadores se inscrevam e se inscrevam na sua aplicação.
+[Criar um fluxo de utilizador](tutorial-create-user-flows.md) para permitir que os utilizadores se inscrevam e iniciem sessão na sua aplicação.
 
 ## <a name="configure-jwt-token-lifetime"></a>Configurar a vida útil simbólica da JWT
 
@@ -40,6 +40,9 @@ Pode configurar a vida útil do símbolo em qualquer fluxo de utilizador.
     ![Definições de propriedade vitalícia simbólicas no portal Azure](./media/configure-tokens/token-lifetime.png)
 
 8. Clique em **Guardar**.
+
+> [!NOTE]
+> As aplicações de uma página única que utilizam o fluxo de código de autorização com O PKCE têm sempre um prazo de vida útil de 24 horas. [Saiba mais sobre as implicações de segurança dos tokens de atualização no navegador.](../active-directory/develop/reference-third-party-cookies-spas.md#security-implications-of-refresh-tokens-in-the-browser)
 
 ## <a name="configure-jwt-token-compatibility"></a>Configure compatibilidade simbólica JWT
 

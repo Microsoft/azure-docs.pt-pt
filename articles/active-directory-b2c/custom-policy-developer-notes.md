@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 23e443a542ed22906abb237e402834b707e623a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7788d45a9cc30cb688d33a629fbb6e53f5ca16cb
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88852039"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92214911"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Notas do desenvolvedor para políticas personalizadas no Azure Ative Directory B2C
 
@@ -66,7 +66,7 @@ As capacidades de enquadramento de política/identidade personalizadas estão em
 | Funcionalidade | Desenvolvimento | Pré-visualizar | GA | Notas |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [Código de autorização OAuth2](authorization-code-flow.md) |  |  | X |  |
-| Código de autorização OAuth2 com PKCE |  |  | X | Apenas aplicações móveis  |
+| Código de autorização OAuth2 com PKCE |  |  | X | [Clientes públicos e aplicações de página única](authorization-code-flow.md)  |
 | [Fluxo implícito OAuth2](implicit-flow-single-page-application.md) |  |  | X |  |
 | [Credenciais de senha do proprietário de recursos OAuth2](ropc-custom.md) |  | X |  |  |
 | [OIDC Connect](openid-connect.md) |  |  | X |  |

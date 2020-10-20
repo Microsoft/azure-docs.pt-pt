@@ -7,12 +7,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 10/15/2020
-ms.openlocfilehash: 1b61b643ea4b195878a1d12fc1ac4bb7fef23027
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a323dec66a3077784ff85deadd4f12086648fb3a
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151365"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220463"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Resolver problemas comuns no Azure Data Share 
 
@@ -34,7 +34,7 @@ Este erro pode ocorrer devido aos seguintes motivos:
     1. Pesquise **Microsoft.DataShare**
     1. Clique em **Registar** 
 
-    Você precisará ter o [papel de Azure Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) para a subscrição do Azure para completar estes passos. 
+    Você precisará ter o [papel de Azure Contributor](../role-based-access-control/built-in-roles.md#contributor) para a subscrição do Azure para completar estes passos. 
 
 * **O convite é enviado para o alias de e-mail em vez do seu e-mail de início de sessão do Azure.** Se registou o serviço do Azure Data Share ou já criou um recurso do Data Share no inquilino do Azure, mas ainda não consegue ver o convite, talvez seja porque o fornecedor inseriu o seu alias de e-mail como destinatário, em vez do seu endereço de e-mail de início de sessão do Azure. Entre em contacto com o seu fornecedor de dados e verifique se enviou o convite para o seu endereço de e-mail de início de sessão do Azure e não o seu alias de e-mail.
 
@@ -81,4 +81,3 @@ Para as fontes SQL, as seguintes são causas adicionais de falhas de instantâne
 Para aprender a partilhar dados, continue a partilhar o seu tutorial [de dados.](share-your-data.md) 
 
 Para aprender a receber dados, continue a aceitar e receber o tutorial [de dados.](subscribe-to-data-share.md)
-

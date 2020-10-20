@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: ac528d1cfb74221a7398e390cedda08df4ea4508
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: efb86dbcbe7619ff6727c5e7374835dc3fc7d731
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151407"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220504"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Funções e condições do Azure Data Share 
 
@@ -63,7 +63,7 @@ Para criar uma atribuição de funções para a identidade gerida do recurso de 
 1. Em *Select*, digite o nome do seu recurso Azure Data Share.
 1. Clique em *Guardar*.
 
-Para saber mais sobre a atribuição de funções, consulte para [adicionar ou remover atribuições de funções Azure utilizando o portal Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment). Se estiver a partilhar dados utilizando APIs REST, pode criar uma atribuição de funções utilizando a API, referindo-se a [Atribuições de funções add ou remove azure usando a API REST](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). 
+Para saber mais sobre a atribuição de funções, consulte para [adicionar ou remover atribuições de funções Azure utilizando o portal Azure](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment). Se estiver a partilhar dados utilizando APIs REST, pode criar uma atribuição de funções utilizando a API, referindo-se a [Atribuições de funções add ou remove azure usando a API REST](../role-based-access-control/role-assignments-rest.md). 
 
 Para fontes baseadas em SQL, um utilizador SQL precisa de ser criado a partir de um fornecedor externo na Base de Dados SQL com o mesmo nome que o recurso Azure Data Share enquanto se conecta à base de dados SQL utilizando a autenticação do Azure Ative Directory. Este utilizador tem de ser autorizado *db_datareader.* Um script de amostra juntamente com outros pré-requisitos para a partilha baseada em SQL pode ser encontrado na [Partilha da Base de Dados Azure SQL ou tutoria de Synapse Analytics.](how-to-share-from-sql.md) 
 
@@ -83,7 +83,7 @@ Para criar uma atribuição de funções para a identidade gerida do recurso de 
 1. Em *Select*, digite o nome do seu recurso Azure Data Share.
 1. Clique em *Guardar*.
 
-Para saber mais sobre a atribuição de funções, consulte para [adicionar ou remover atribuições de funções Azure utilizando o portal Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment). Se estiver a receber dados utilizando APIs REST, pode criar uma atribuição de funções utilizando a API, referindo-se a [Add ou remover atribuições de funções Azure utilizando a API REST](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). 
+Para saber mais sobre a atribuição de funções, consulte para [adicionar ou remover atribuições de funções Azure utilizando o portal Azure](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment). Se estiver a receber dados utilizando APIs REST, pode criar uma atribuição de funções utilizando a API, referindo-se a [Add ou remover atribuições de funções Azure utilizando a API REST](../role-based-access-control/role-assignments-rest.md). 
 
 Para um alvo baseado em SQL, um utilizador SQL precisa de ser criado a partir de um fornecedor externo na Base de Dados SQL com o mesmo nome que o recurso Azure Data Share enquanto se conecta à base de dados SQL utilizando a autenticação do Azure Ative Directory. Este utilizador precisa de ser autorizado *db_datareader, db_datawriter, db_ddladmin* permissão. Um script de amostra juntamente com outros pré-requisitos para a partilha baseada em SQL pode ser encontrado na [Partilha da Base de Dados Azure SQL ou tutoria de Synapse Analytics.](how-to-share-from-sql.md) 
 
@@ -103,7 +103,7 @@ Siga estes passos para registar o fornecedor de recursos Microsoft.DataShare na 
 1. Procure por Microsoft.DataShare.
 1. Clique em **Registar**.
  
-Para saber mais sobre o fornecedor de recursos, consulte os [fornecedores e tipos de recursos Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+Para saber mais sobre o fornecedor de recursos, consulte os [fornecedores e tipos de recursos Azure](../azure-resource-manager/management/resource-providers-and-types.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
