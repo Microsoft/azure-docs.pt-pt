@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: bb35b81a287179900485c7190a57c492cfc39203
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: d71a7535c40d240b6c9bf53cff906f12b4b8b5df
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043039"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204304"
 ---
 # <a name="write-client-app-authentication-code"></a>Escreva código de autenticação de aplicativos de cliente
 
@@ -105,9 +105,9 @@ client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, opts);
 
 O método [InteractiveBrowserCredential destina-se](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet) a aplicações interativas e irá criar um navegador web para autenticação. Pode usá-lo em vez de `DefaultAzureCredential` nos casos em que necessita de autenticação interativa.
 
-Para utilizar as credenciais de navegador interativas, você precisará de um **registo de aplicação** que tenha permissões para as APIs de Gémeos Digitais Azure. Para obter etapas sobre como configurar este registo de aplicações, consulte as permissões de [*acesso configurar para*](how-to-set-up-instance-portal.md#set-up-access-permissions-for-client-applications) a secção de aplicações do cliente de *Como-a-: Configurar uma instância e autenticação.* Assim que o registo da aplicação estiver configurado, você precisará...
-* ID de inscrição da aplicação *(cliente)*
-* ID do Diretório de Registo de aplicações *(inquilino)*
+Para utilizar as credenciais de navegador interativas, você precisará de um **registo de aplicação** que tenha permissões para as APIs de Gémeos Digitais Azure. Para etapas sobre como configurar este registo da aplicação, consulte [*Como fazer: Criar um registo de aplicações.*](how-to-create-app-registration.md) Assim que o registo da aplicação estiver configurado, você precisará...
+* ID de *Inscrição da* aplicação (cliente)[(instruções para encontrar)](how-to-create-app-registration.md#collect-client-id-and-tenant-id)
+* ID do Diretório *(inquilino)* do registo da aplicação[(instruções para encontrar)](how-to-create-app-registration.md#collect-client-id-and-tenant-id)
 * URL da instância Azure Digital Twins[(instruções para encontrar)](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)
 
 Aqui está um exemplo do código para criar um cliente SDK autenticado usando `InteractiveBrowserCredential` .

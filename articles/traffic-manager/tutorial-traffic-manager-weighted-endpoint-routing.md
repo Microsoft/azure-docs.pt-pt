@@ -6,20 +6,20 @@ author: duongau
 Customer intent: As an IT Admin, I want to distribute traffic based on the weight assigned to a website endpoint so that I can control the user traffic to a given website.
 ms.service: traffic-manager
 ms.topic: tutorial
-ms.date: 10/15/2018
+ms.date: 10/19/2020
 ms.author: duau
-ms.openlocfilehash: 90ed68e36b47d46c47e78407fac3b5fd74924b57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55c316a370b9e44e906e48b4716201384567c9c2
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89397088"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205885"
 ---
 # <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Tutorial: Controlar o encaminhamento de tráfego com pontos finais ponderados com o Gestor de Tráfego
 
 Este tutorial descreve como utilizar o Gestor de Tráfego do Azure para controlar o encaminhamento de tráfego do utilizador entre pontos finais com o método de encaminhamento ponderado. Com este método de encaminhamento, o utilizador atribui ponderações a cada ponto final na configuração do perfil do Gestor de Tráfego. Em seguida, o tráfego do utilizador é encaminhado com base na ponderação atribuída a cada ponto final. A ponderação é um número inteiro entre 1 e 1000. Quanto maior for o valor de ponderação atribuído a um ponto final, maior será a sua prioridade.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar duas VMs que executam um site básico no IIS.
@@ -158,7 +158,7 @@ Adicione os dois VMs que executam os servidores IIS myIISVMEastUS e myIISVMWestE
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
     | Tipo                    | Introduza o ponto final do Azure.                                   |
-    | Nome           | Introduza **myEastUSEndpoint**.                                        |
+    | Name           | Introduza **myEastUSEndpoint**.                                        |
     | Tipo de recurso de destino           | Selecione **Endereço IP público**.                          |
     | Recurso de destino          | Escolha um endereço IP público para mostrar a lista de recursos com endereços IP públicos na mesma subscrição. Em **Recurso**, selecione o endereço IP público com o nome **myIISVMEastUS-ip**. Este é o endereço IP público da VM do servidor do IIS na região E.U.A. Leste.|
     |  Peso      | Introduza **100**.        |
@@ -201,11 +201,13 @@ Nesta seção, pode ver o Gestor de Tráfego em ação.
 
 7. Repita os passos 1-6 na vm myVMWestEurope para ver a resposta ponderada do site.
 
-## <a name="delete-the-traffic-manager-profile"></a>Eliminar o perfil do Gestor de Tráfego
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não precisar dos grupos de recursos que criou neste tutorial, pode eliminá-los. Para tal, selecione o grupo de recursos (**ResourceGroupTM1** ou **ResourceGroupTM2**) e, em seguida, selecione **Eliminar**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
+Para saber mais sobre os métodos de encaminhamento, consulte:
+
 > [!div class="nextstepaction"]
-> [Encaminhar tráfego para pontos finais específicos com base na localização geográfica do utilizador](traffic-manager-configure-geographic-routing-method.md)
+> [Método de encaminhamento de tráfego](traffic-manager-routing-methods.md)

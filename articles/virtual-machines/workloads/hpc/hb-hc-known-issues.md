@@ -4,15 +4,15 @@ description: Saiba mais sobre problemas conhecidos com tamanhos de HPC e GPU VM 
 author: vermagit
 ms.service: virtual-machines
 ms.topic: article
-ms.date: 09/08/2020
+ms.date: 10/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 52050066aceef50e64c5887efb7b99da0b03f140
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: f69c39992b5c3826eb0126414a44c009a20e03cd
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996265"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207381"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>Problemas conhecidos relacionados com as VMs da série H e série N
 
@@ -39,9 +39,9 @@ Este MAC duplicado com cloud-init em Ubuntu é uma questão conhecida. A soluç�
     ```console
     sudo bash -c "cat > /etc/netplan/50-cloud-init.yaml" <<'EOF'
     network:
-        ethernets:
+      ethernets:
         eth0:
-            dhcp4: true
+          dhcp4: true
         version: 2
     EOF
     ```
