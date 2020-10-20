@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 3caf12e13b5999c40843f1203ac8ce7f2f21ef6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01169f3e73fb1d6ddf0ecaf4958c6121cb21c295
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665876"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216135"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Tutorial: Inscreva-se nos utilizadores e ligue para a API do Gráfico microsoft a partir de uma aplicação de página única JavaScript (SPA) usando fluxo de código auth
 
@@ -30,8 +30,6 @@ Este tutorial mostra-lhe como criar uma aplicação de página única JavaScript
 > * Ligue para o Microsoft Graph ou para a sua própria API que requer acesso a tokens obtidos a partir do ponto final da plataforma de identidade da Microsoft
 
 MSAL.js 2.0 melhora em MSAL.js 1.0, suportando o fluxo de código de autorização no navegador em vez do fluxo de concessão implícito. MSAL.js 2.0 **NÃO** suporta o fluxo implícito.
-
-[!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

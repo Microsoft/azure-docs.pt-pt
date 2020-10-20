@@ -3,12 +3,12 @@ title: Gestão do ciclo de vida da Azure VMware Solution VMs
 description: Aprenda a gerir todos os aspetos do ciclo de vida dos VMS da sua Solução VMware Azure com ferramentas nativas do Microsoft Azure.
 ms.topic: conceptual
 ms.date: 09/11/2020
-ms.openlocfilehash: 452fa6bf4610c9d0dcb46587242e8d6df9cebd0d
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 928a632a34dd31272c7c3bf92f6dc6dda97cb6cc
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950368"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216254"
 ---
 # <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Gestão do ciclo de vida da Azure VMware Solution VMs
 
@@ -53,8 +53,8 @@ Os VMs de Solução VMware Azure podem ser monitorizados através do MMA (també
 **A Azure Update Management** na Azure Automation gere as atualizações do sistema operativo para as suas máquinas Windows e Linux num ambiente híbrido. Monitoriza a conformidade de correção e encaminha os alertas de desvio para o Azure Monitor para reparação. A Azure Update Management deve ligar-se ao seu espaço de trabalho Log Analytics para utilizar dados armazenados para avaliar o estado das atualizações nos seus VMs.
 - Para adicionar Log Analytics à Azure Update Management, primeiro precisa [de criar uma conta Azure Automation](../automation/automation-create-standalone-account.md).
 - Para ligar o seu espaço de trabalho Log Analytics com a sua conta de automação, consulte [o espaço de trabalho do Log Analytics e a conta Demôm automação.](../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account)
-- Para ativar a Gestão de Atualizações Azure para os seus VMs, consulte [Enable Update Management a partir de uma conta Dempaça](../automation/update-management/update-mgmt-enable-automation-account.md).
-- Uma vez adicionadoS VMs à Azure Update Management, pode [implementar atualizações em VMs e rever os resultados](../automation/update-management/update-mgmt-deploy-updates.md). 
+- Para ativar a Gestão de Atualizações Azure para os seus VMs, consulte [Enable Update Management a partir de uma conta Dempaça](../automation/update-management/enable-from-automation-account.md).
+- Uma vez adicionadoS VMs à Azure Update Management, pode [implementar atualizações em VMs e rever os resultados](../automation/update-management/deploy-updates.md). 
 
 **O Azure Security Center** fornece uma proteção avançada de ameaças através das suas cargas de trabalho híbridas na nuvem e nas instalações. Avaliará a vulnerabilidade dos VMS da Solução VMware Azure e levantará alertas conforme necessário. Estes alertas de segurança podem ser encaminhados para o Azure Monitor para resolução.
 - O Centro de Segurança Azure não necessita de implantação. Para obter mais informações, consulte uma lista de [funcionalidades suportadas para máquinas virtuais.](../security-center/security-center-services.md)

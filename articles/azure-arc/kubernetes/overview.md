@@ -9,14 +9,14 @@ ms.author: mlearned
 description: Este artigo fornece uma visão geral de Azure Arc habilitado Kubernetes.
 keywords: Kubernetes, Arc, Azure, contentores
 ms.custom: references_regions
-ms.openlocfilehash: a4d53614a0ab6783b9adfe395fec4d79e7b62e1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 601fcb096bf2bfeb1a6120015690c9aff4b6177b
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91858426"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216084"
 ---
-# <a name="what-is-azure-arc-enabled-kubernetes-preview"></a>O que é o Kubernetes preparado para o Azure Arc (Pré-visualização)?
+# <a name="what-is-azure-arc-enabled-kubernetes-preview"></a>O que é a Pré-visualização do Kubernetes compatível com o Azure Arc?
 
 Pode anexar e configurar aglomerados Kubernetes dentro ou fora de Azure utilizando a pré-visualização de Kubernetes ativada por Azure Arc. Quando um cluster Kubernetes estiver ligado ao Arco de Azure, aparecerá no portal Azure. Terá um ID do Azure Resource Manager e uma identidade gerida. Os clusters estão ligados às subscrições padrão do Azure, estão localizados num grupo de recursos, e podem receber tags como qualquer outro recurso Azure. 
 
@@ -70,9 +70,9 @@ Azure Arc habilitado Kubernetes é atualmente apoiado nestas regiões:
 
 * Preciso de ligar os meus clusters de Serviço Azure Kubernetes em execução em Azure a Azure Arc?
 
-    N.º Todas as funcionalidades de Azure Arc ativadas Kubernetes como Azure Monitor, Azure Policy (Gatekeeper) estão nativamente disponíveis com a AKS, que já tem uma representação de recursos em Azure.
+    Não. Todas as funcionalidades de Azure Arc ativadas Kubernetes como Azure Monitor, Azure Policy (Gatekeeper) estão nativamente disponíveis com a AKS, que já tem uma representação de recursos em Azure.
     
-* Devo ligar o meu cluster AKS ao Azure Stack HCI ao Azure Arc? E os clusters kubernetes a funcionar no Azure Stack Hub ou no Azure Stack Engine?
+* Devo ligar o meu cluster AKS ao Azure Stack HCI ao Azure Arc? E os clusters kubernetes a funcionar no Azure Stack Hub ou no Azure Stack Edge?
 
     Sim, ligar estes aglomerados ao Arco Azure tem benefícios. Fornece uma representação de recursos para estes clusters Kubernetes em Azure Resource Manager. Utilizando esta representação de recursos, capacidades como a Configuração do Cluster, O Monitor Azure, Azure Policy (Gatekeeper) podem ser estendidas a estes clusters Kubernetes
 

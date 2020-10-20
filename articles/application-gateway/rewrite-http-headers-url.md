@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: surmb
-ms.openlocfilehash: 2ee34e1a7959aafa5db949b443fd58cca58719c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93af3183ae9e969d14a35ce4e365d48895ef4e79
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87281196"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216679"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Reescrever cabeçalhos HTTP e URL com Gateway de aplicação
 
@@ -50,7 +50,7 @@ Com capacidade de reescrita de URL no Gateway de Aplicação, pode:
 
 Para aprender a reescrever URL com o Portal Azure, consulte [aqui](rewrite-url-portal.md).
 
-![img](./media/rewrite-http-headers-url/url-rewrite-overview.png)
+![Diagrama que descreve o processo de reescrita de um URL com Gateway de aplicação.](./media/rewrite-http-headers-url/url-rewrite-overview.png)
 
 >[!NOTE]
 > A funcionalidade de reescrita de URL está em pré-visualização e está disponível apenas para Standard_v2 e WAF_v2 SKU de Application Gateway. Não é recomendado para utilização em ambiente de produção. Para saber mais sobre pré-visualizações, consulte [os termos de utilização aqui.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)

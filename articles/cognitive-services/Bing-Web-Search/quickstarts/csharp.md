@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 05/22/2020
+ms.date: 10/19/2020
 ms.author: aahi
 ms.custom: seodec2018, devx-track-csharp
-ms.openlocfilehash: 2760e6a46801871a25ecbe23a2400211ae312650
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f87cf1ed9194ff74f85dcd11ed398824750ef696
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88921703"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217291"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>Quickstart: Pesquise na web utilizando a API e C de Pesquisa web Bing #
 
@@ -29,14 +29,14 @@ Este programa de exemplo neste quickstart utiliza apenas classes .NET Core.
 Aqui estão algumas coisas de que irá precisar antes de executar este início rápido:
 
 * Windows: [Visual Studio 2017 ou posterior](https://www.visualstudio.com/downloads/)
-* Linux/macOS: [Mono](https://www.mono-project.com/)  
-* Uma chave de subscrição
+* Linux/macOS: [Código do Estúdio Visual](https://code.visualstudio.com/) e [.NET Core](https://dotnet.microsoft.com/download)
+* [Uma subscrição gratuita do Azure](https://azure.microsoft.com/free/dotnet)
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="create-a-project-and-declare-dependencies"></a>Criar um projeto e declarar dependências
 
-Crie um projeto novo no Visual Studio ou no Mono. Utilize o seguinte código para importar os espaços e tipos de nomes necessários:
+Crie um projeto de consola em Visual Studio ou VS Code. Utilize o seguinte código para importar os espaços e tipos de nomes necessários:
 
 ```csharp
 using System;

@@ -8,12 +8,12 @@ ms.date: 10/05/2020
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.openlocfilehash: f030a9e75507063e104e0bae0ca5654bd3528bac
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 6f8a7292ff21fbf287a4144abaf8e006513718e5
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91772724"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017017"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Ligar um ID de parceiro às contas do Azure
 
@@ -134,7 +134,7 @@ Sim. Um ID de parceiro ligado pode ser alterado, adicionado ou removido.
 
 A ligação entre o ID de parceiro e a conta é feita para cada inquilino do cliente. Ligue o ID de parceiro em cada inquilino de cliente.
 
-No entanto, se estiver a gerir recursos do cliente através do Azure Lighthouse, terá de criar a ligação no seu inquilino do fornecedor de serviços, utilizando uma conta que tenha acesso aos recursos do cliente. Para obter mais informações, veja [Ligar o seu ID de parceiro para ativar o crédito ganho de parceiro em recursos delegados](../../lighthouse/how-to/partner-earned-credit.md).
+No entanto, se estiver a gerir recursos do cliente através do Azure Lighthouse, terá de criar a ligação no seu inquilino do fornecedor de serviços, utilizando uma conta que tenha acesso aos recursos do cliente. Para obter mais informações, veja [Ligar o seu ID de parceiro para controlar o impacto nos recursos delegados](../../lighthouse/how-to/partner-earned-credit.md).
 
 **Outros parceiros ou clientes podem editar ou remover a ligação para o ID de parceiro?**
 
@@ -164,7 +164,7 @@ Sim, pode ligar o ID de parceiro com o Azure Stack.
 
 Se integrar clientes na gestão de recursos delegados do Azure mediante a [publicação de uma oferta de serviços geridos no Azure Marketplace](../../lighthouse/how-to/publish-managed-services-offers.md), o seu ID do MPN é adicionado automaticamente.
 
-Se [integrar clientes através da implementação de modelos do Azure Resource Manager](../../lighthouse/how-to/onboard-customer.md), terá de associar o seu ID do MPN a, pelo menos, uma conta de utilizador que tenha acesso a cada subscrição integrada. Tenha em atenção que terá de fazer isto no inquilino do seu fornecedor de serviços, e não em cada inquilino de cliente. Para simplificar, é recomendável criar uma conta principal de serviço no seu inquilino, associando-a ao seu ID do MPN e, em seguida, concedendo-lhe acesso a todos os clientes que integrar com uma [Função incorporada do Azure, que seja elegível para crédito concedido pelo parceiro](/partner-center/azure-roles-perms-pec). Para obter mais informações, veja [Ligar o seu ID de parceiro para ativar o crédito ganho de parceiro em recursos delegados](../../lighthouse/how-to/partner-earned-credit.md).
+Se [integrar clientes através da implementação de modelos do Azure Resource Manager](../../lighthouse/how-to/onboard-customer.md), terá de associar o seu ID do MPN a, pelo menos, uma conta de utilizador que tenha acesso a cada subscrição integrada. Tenha em atenção que terá de fazer isto no inquilino do seu fornecedor de serviços, e não em cada inquilino de cliente. Para simplificar, é recomendável criar uma conta principal de serviço no seu inquilino, associando-a ao seu ID do MPN e, em seguida, concedendo-lhe acesso a todos os clientes que integrar com uma [Função incorporada do Azure, que seja elegível para crédito concedido pelo parceiro](/partner-center/azure-roles-perms-pec). Para obter mais informações, veja [Ligar o seu ID de parceiro para controlar o impacto nos recursos delegados](../../lighthouse/how-to/partner-earned-credit.md).
 
 **Como posso explicar o Partner Admin Link (PAL) ao meu cliente?**
 

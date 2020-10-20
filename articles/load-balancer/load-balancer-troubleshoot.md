@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: 1cfe27fd5c63bc4c1436982212b91e07f54aedb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4dba170c750a61ea08e4116dc6f2b13ef14c87ed
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85801925"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217393"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Resolver problemas do Balanceador de Carga do Azure
 
@@ -30,6 +30,12 @@ Quando a conectividade do Balanceador de Carga não está disponível, os sintom
 - Os VMs por trás do Balanceador de Carga não estão a responder ao tráfego na porta configurada
 
 Quando os clientes externos para os VMs de backend passarem pelo equilibrador de carga, o endereço IP dos clientes será utilizado para a comunicação. Certifique-se de que o endereço IP dos clientes é adicionado à lista de autorizações da NSG. 
+
+## <a name="symptom-no-outbound-connectivity-from-standard-internal-load-balancers-ilb"></a>Sintoma: Sem conectividade de saída dos Balanceadores de Carga Internos Padrão (ILB)
+
+**Validação e resolução**
+
+Os ILBs standard são **seguros por defeito**. Os ILBs básicos permitiram a ligação à internet através de um endereço IP público *oculto.* Isto não é recombatido para cargas de trabalho de produção, uma vez que o endereço IP não é estático nem bloqueado através de NSGs que possui. Se mudou recentemente de um ILB Básico para um ILB padrão, deve criar um IP público explicitamente através da configuração [outbound](egress-only.md) que bloqueia o IP através de NSGs. 
 
 ## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>Sintoma: VMs por trás do Balanceador de Carga não estão respondendo a sondas de saúde
 Para que os servidores de backend participem no conjunto do balançador de carga, devem passar a verificação da sonda. Para obter mais informações sobre sondas de saúde, consulte [as sondas Understanding Load Balancer](load-balancer-custom-probe-overview.md). 

@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/15/2020
+ms.date: 10/19/2020
 ms.author: cherylmc
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 70417ce862294e1041951d722bbbc09de4adeef6
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: fef9eb49b10008c86ee044a199ae69a43585f4f3
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107118"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217976"
 ---
 # <a name="verify-a-vpn-gateway-connection"></a>Verifique uma ligação VPN Gateway
 
@@ -34,7 +34,6 @@ Para verificar uma ligação de gateway VPN para o modelo de implementação do 
 Para verificar uma ligação de gateway VPN para o modelo de implementação do Gestor de Recursos utilizando o Azure CLI, instale a versão mais recente dos [comandos CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0 ou mais tarde).
 
 [!INCLUDE [CLI](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
-
 
 ## <a name="azure-portal-classic"></a>Portal do Azure (clássico)
 

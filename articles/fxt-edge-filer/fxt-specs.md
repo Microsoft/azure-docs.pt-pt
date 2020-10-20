@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: 30af35075c06585b9c490495e9897c145e9974d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1a172adb54593421ef56e09c131e0ddcaee9f6e
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88184691"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215829"
 ---
 # <a name="azure-fxt-edge-filer-specifications"></a>Especificações do Azure FXT Edge Filer
 
@@ -28,7 +28,7 @@ Este artigo explica as especificações de hardware para os nós de hardware Azu
 
 ## <a name="drive-specifications"></a>Especificações de condução
 
-O sistema tem dez compartimentos de unidade, acessíveis a partir da frente. Cada unidade povoada é rotulada à direita com informações de capacidade. 
+O sistema tem dez compartimentos de unidade, acessíveis a partir da frente. Cada unidade povoada é rotulada à direita com informações de capacidade.
 
 Os números de unidade são impressos no espaço entre as unidades. No Azure FXT Edge Filer, a unidade 0 é a unidade superior esquerda, e a unidade 1 está diretamente por baixo.
 
@@ -39,10 +39,9 @@ Os números de unidade são impressos no espaço entre as unidades. No Azure FXT
 | 0, 1             | SO     | 480 GB SATA SSD |
 | 2, 3, 4, 5, 6, 7, 8, 9 | Dados   | FXT 6600: 3.2 TB NVMe SSD <br> FXT 6400: 1.6 TB NVMe SSD |
 
-
 ## <a name="dimensions-and-weight"></a>Dimensões e peso
 
-O Azure FXT Edge Filer foi concebido para caber num suporte de equipamento standard de 19" e é uma unidade de rack alta (1U). 
+O Azure FXT Edge Filer foi concebido para caber num suporte de equipamento standard de 19" e é uma unidade de rack alta (1U).
 
 <!-- 10x2.5 inches version -->
 
@@ -84,15 +83,15 @@ Esta secção dá classificações de energia e medições para o Azure FXT Edge
 
 <!-- matches the Dell regulatory label exactly -->
 
-### <a name="power-and-thermal-measurements"></a>Medições de energia e térmicas 
+### <a name="power-and-thermal-measurements"></a>Medições de energia e térmicas
 
-Os nós do Azure FXT Edge Filer utilizam ventiladores de velocidade variável, pelo que a energia depende da temperatura e da carga. As velocidades máximas do ventilador podem ser alcançadas em determinadas combinações de alta carga e temperaturas ambiente elevadas. 
+Os nós do Azure FXT Edge Filer utilizam ventiladores de velocidade variável, pelo que a energia depende da temperatura e da carga. As velocidades máximas do ventilador podem ser alcançadas em determinadas combinações de alta carga e temperaturas ambiente elevadas.
 
-Estes gráficos dão medições de consumo de energia e de saída térmica para combinações de frequência de tensão geralmente utilizadas. 
+Estes gráficos dão medições de consumo de energia e de saída térmica para combinações de frequência de tensão geralmente utilizadas.
 
-| FXT 6600 potência à temperatura ambiente <br />(22° C, 71,6° F) | 100 V, 60 Hz | 120 V, 60 Hz | 208 V, 60 Hz | 230 V, 50 Hz | 240 V, 50 Hz | 
+| FXT 6600 potência à temperatura ambiente <br />(22° C, 71,6° F) | 100 V, 60 Hz | 120 V, 60 Hz | 208 V, 60 Hz | 230 V, 50 Hz | 240 V, 50 Hz |
 |---------|---|---|---|---|---|
-| Tensão (V) | 100 | 120 | 208 | 230 | 240 | 
+| Tensão (V) | 100 | 120 | 208 | 230 | 240 |
 | Frequência (Hz) | 60 | 60 | 60 | 50 | 50 |
 | Corrente (A) | 5.02 | 4.16 |2.40 | 2.20 | 2.16 |
 | Energia Aparente (VA) | 502 | 499 | 499 | 506 | 518|
@@ -100,9 +99,9 @@ Estes gráficos dão medições de consumo de energia e de saída térmica para 
 | Poder Real (W) | 497 |494 | 489 | 496 | 508 |
 | Dissipação térmica (BTU/Hr) |1696 | 1686 | 1669 | 1692 | 1733 |
 
-| FxT 6600 potência a velocidade máxima do ventilador | 100 V, 60 Hz | 120 V, 60 Hz | 208 V, 60 Hz | 230 V, 50 Hz | 240 V, 50 Hz | 
+| FxT 6600 potência a velocidade máxima do ventilador | 100 V, 60 Hz | 120 V, 60 Hz | 208 V, 60 Hz | 230 V, 50 Hz | 240 V, 50 Hz |
 |---------|---|---|---|---|---|
-| Tensão (V) | 100 |120 | 208 | 230 | 240| 
+| Tensão (V) | 100 |120 | 208 | 230 | 240|
 | Frequência (Hz) | 60 | 60 | 60 | 50 | 50 |
 | Corrente (A) | 5.98 | 5.01 | 2.81 | 2.55 | 2.48 |
 | Energia Aparente (VA) | 598 | 601 | 584 | 587 | 595 |
@@ -110,13 +109,13 @@ Estes gráficos dão medições de consumo de energia e de saída térmica para 
 | Poder Real (W) | 592 | 595 | 573 | 575 | 583 |
 | Dissipação térmica (BTU/Hr) | 2020 |2031 | 1954 | 1961 | 1990 |
 
-| FXT 6400 potência à temperatura ambiente <br />(22° C, 71,6° F) | 100 V, 60 Hz | 120 V, 60 Hz | 208 V, 60 Hz | 230 V, 50 Hz | 240 V, 50 Hz | 
+| FXT 6400 potência à temperatura ambiente <br />(22° C, 71,6° F) | 100 V, 60 Hz | 120 V, 60 Hz | 208 V, 60 Hz | 230 V, 50 Hz | 240 V, 50 Hz |
 |---------|---|---|---|---|---|
 | Tensão (V) | 100 | 120 | 208 | 230 | 240 |
 | Frequência (Hz) |60 | 60 | 60 | 50 | 50 |
 | Corrente (A) | 4,63 | 3.86 | 2.24 | 2.04 | 1.94 |
 | Energia Aparente (VA) | 463 | 463 | 466 | 469 | 466 |
-| Fator de Potência | 0.99 | 0.99 | 0.98 | 0.98 | 0.98 | 
+| Fator de Potência | 0.99 | 0.99 | 0.98 | 0.98 | 0.98 |
 | Poder Real (W) | 458 | 459 | 457 | 460 | 456 |
 | Dissipação térmica (BTU/Hr) | 1564 | 1565 | 1558 | 1569 | 1557 |
 
@@ -143,10 +142,10 @@ Esta secção fornece especificações para o ambiente do hardware.
 | Ponto de orvalho máximo         | 29°C (84°F)                       | 33°C (91°F)                 |
 | Altitude                  | até 3048 metros (10.000 pés), sujeito a desadição de temperatura anotado abaixo | até 12.000 metros (39.370 pés) |
 
-> [!NOTE] 
+> [!NOTE]
 > **Desa classificação da temperatura da altitude:** A temperatura máxima é reduzida em 1°C/300 m (1°F/547 ft) acima de 950 m (3.117 pés).
 
-### <a name="airflow-shock-and-vibration"></a>Fluxo de ar, choque e vibração 
+### <a name="airflow-shock-and-vibration"></a>Fluxo de ar, choque e vibração
 
 | Atributo         | Especificação |
 |-------------------|---------------|
@@ -156,13 +155,13 @@ Esta secção fornece especificações para o ambiente do hardware.
 | Vibração, operacional     | 0,26 G<sub>RMS</sub> 5 Hz a 350 Hz aleatoriamente         |
 | Vibração, não operacional | 1.88 G<sub>RMS</sub> 10 Hz a 500 Hz durante 15 minutos (todos os seis lados testados)  |
 
-## <a name="safety-regulation-compliance"></a>Conformidade da regulamentação de segurança 
+## <a name="safety-regulation-compliance"></a>Conformidade da regulamentação de segurança
 
-O Azure FXT Edge Filer está em conformidade com os regulamentos listados. 
+O Azure FXT Edge Filer está em conformidade com os regulamentos listados.
 
-| Categoria       | Especificação regulamentar | 
+| Categoria       | Especificação regulamentar |
 |----------------|--------------------------|
-| Segurança geral | EN 60950-1:2006 +A1:2010 +A2:2013 +A11:2009 +A12:2011/IEC 60950-1:2005 ed2 +A1:2009 +A2:2013 <br>EN 62311:2008 | 
+| Segurança geral | EN 60950-1:2006 +A1:2010 +A2:2013 +A11:2009 +A12:2011/IEC 60950-1:2005 ed2 +A1:2009 +A2:2013 <br>EN 62311:2008 |
 | EMC            | FCC A, ICES-003  <br>EN 55032:2012/CISPR 32:2012  <br>EN 55032:2015/CISPR 32:2015  <br>EN 55024:2010 +A1:2015/CISPR 24:2010 +A1:2015  <br>EN 61000-3-2:2014/IEC 61000-3-2:2014 (Classe D)   <br>EN 61000-3-3:2013/IEC 61000-3-3:2013 |
 | Energia         | Regulamento da Comissão (UE) Nº. 617/2013  |
 | Rio Rohs           |    EN 50581:2012   |

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 722db99da3c46a4ea1e31ed329a8e3448cc5626b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ea1df2937c6ae771407e4adf839c9ff0fa9f7f5
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89268830"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218984"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar vídeos  
 
@@ -72,15 +72,15 @@ Consulte o artigo [de formatos de recipiente/ficheiro](../latest/media-encoder-s
 > O nome do vídeo não pode ter mais de 80 carateres.
 
 1. Inicie sessão no site do [Video Indexer](https://www.videoindexer.ai/).
-2. Para carregar um vídeo, selecione o botão ou ligação **Upload** (Carregar)
+1. Para carregar um vídeo, selecione o botão ou ligação **Upload** (Carregar)
 
-    ![Carregar](./media/video-indexer-get-started/video-indexer-upload.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/video-indexer-upload.png" alt-text="Carregar":::
+1. Após carregar o seu vídeo, o Video Indexer iniciará a indexação e análise do vídeo.
 
-    Após carregar o seu vídeo, o Video Indexer iniciará a indexação e análise do vídeo.
-
-    ![Carregado](./media/video-indexer-get-started/video-indexer-uploaded.png) 
-
-    Quando o Video Indexer concluir a análise, será apresentada uma notificação com uma ligação para o seu vídeo juntamente com uma breve descrição dos conteúdos encontrados no mesmo. Por exemplo: people (pessoas), topics (tópicos), OCRs.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Carregar":::
+1. Assim que o Video Indexer terminar de analisar, receberá um e-mail com um link para o seu vídeo e uma breve descrição do que foi encontrado no seu vídeo. Por exemplo: people (pessoas), topics (tópicos), OCRs.
 
 ## <a name="upload-and-index-with-api"></a><a name="apis"></a>Upload e índice com API
 

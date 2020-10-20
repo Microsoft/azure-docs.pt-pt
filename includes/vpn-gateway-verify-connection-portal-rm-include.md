@@ -1,24 +1,27 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 10/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c1793a22c59cda279a9d8c4522bcec2606d25582
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c825f042bb3e7fee5c00a8b34c12ca2d05f8d2e
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67673465"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217960"
 ---
 No portal do Azure, pode ver o estado da ligação de um Gateway de VPN do Resource Manager ao navegar para essa ligação. Os passos seguintes mostram uma forma de navegar para a ligação e realizar uma verificação.
 
 1. No [portal Azure,](https://portal.azure.com)clique em **Todos os recursos** e navegue até ao seu gateway de rede virtual.
-2. No painel do gateway de rede virtual, clique em **Ligações**. Pode ver o estado de cada ligação.
-3. Clique no nome da ligação que pretende verificar para abrir o **Essentials**. No Essentials, pode ver mais informações sobre a ligação. Quando efetuar uma ligação com êxito o **Estado** é alterado para "Com Êxito" e "Ligado".
+1. No painel do gateway de rede virtual, clique em **Ligações**. Pode ver o estado de cada ligação.
 
-   ![Utilizar o portal do Azure para verificar a ligação do Gateway de VPN](./media/vpn-gateway-verify-connection-portal-rm-include/connection-succeeded.png)
+   :::image type="content" source="./media/vpn-gateway-verify-connection-portal-rm-include/connections.png" alt-text="Ver ligações" lightbox="./media/vpn-gateway-verify-connection-portal-rm-include/connections-expand.png":::
+
+1. Clique no nome da ligação que pretende verificar. No **Essencial,** pode ver mais informações sobre a sua ligação. Os valores **de Estado** são 'Bem sucedidos' e 'Conectados' quando tiver feito uma ligação bem sucedida.
+
+   :::image type="content" source="./media/vpn-gateway-verify-connection-portal-rm-include/essentials.png" alt-text="Ver ligações" lightbox="./media/vpn-gateway-verify-connection-portal-rm-include/essentials-expand.png":::

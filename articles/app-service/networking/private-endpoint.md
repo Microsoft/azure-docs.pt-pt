@@ -9,12 +9,12 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 2c4b6377d28339b0b4953cd908f4964b64dab4fe
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 880100c3d67dfe10aacf10ed5bb57dec6e2c2a83
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873103"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217070"
 ---
 # <a name="using-private-endpoints-for-azure-web-app"></a>Utilização de pontos finais privados para app Web Azure
 
@@ -91,7 +91,7 @@ Por exemplo, a resolução de nomes será:
 
 |Nome |Tipo |Valor |Observação |
 |-----|-----|------|-------|
-|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
+|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|<-- Azure cria esta entrada no Azure Public DNS para apontar o serviço de aplicações para olink privado e isso é gerido por nós|
 |mywebapp.privatelink.azurewebsites.net|A|10.10.10.8|<-- Gere esta entrada no seu sistema DNS para apontar para o seu endereço IP private endpoint|
 
 Após esta configuração DNS, pode chegar à sua Web App em privado com o nome padrão mywebappname.azurewebsites.net. Tem de usar este nome, porque o certificado por defeito é emitido para *.azurewebsites.net.

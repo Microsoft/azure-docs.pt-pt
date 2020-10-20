@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 6d19027cfd406f81d31696c5cd2c1a235574e400
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a532418ebc5cab08b06f8dde87e8126bf8e96ffe
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91577854"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217172"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>Azure Defender para servidores SQL em máquinas 
 
@@ -33,7 +33,7 @@ Você verá alertas quando há atividades de base de dados suspeitas, potenciais
 |Estado de libertação:|Pré-visualizar|
 |Preços:|**O Azure Defender para servidores SQL em máquinas** é faturado como mostrado [na página de preços](security-center-pricing.md)|
 |Versões SQL protegidas:|Azure SQL Server (todas as versões abrangidas pelo suporte da Microsoft)|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov<br>![Não](./media/icons/no-icon.png) China Gov, Outro Gov|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Outro Gov|
 |||
 
 ## <a name="set-up-azure-defender-for-sql-servers-on-machines"></a>Configurar o Azure Defender para servidores SQL em máquinas
@@ -118,7 +118,7 @@ Os alertas do Azure Defender estão disponíveis na página de alertas do Securi
 
 1. Os alertas são projetados para serem autossuficientes, com medidas de reparação detalhadas e informações de investigação em cada um deles. Você pode investigar mais adiante usando outras capacidades do Azure Security Center e Azure Sentinel para uma visão mais ampla:
 
-    * Ativar o recurso de auditoria do SQL Server para mais investigações. Se você é um utilizador do Azure Sentinel, você pode carregar os registos de auditoria SQL dos eventos do Windows Security Log para Sentinel e desfrutar de uma experiência de investigação rica. [Saiba mais sobre a Auditoria do Servidor SQL.](https://docs.microsoft.com/sql/relational-databases/security/auditing/create-a-server-audit-and-server-audit-specification?view=sql-server-ver15)
+    * Ativar o recurso de auditoria do SQL Server para mais investigações. Se você é um utilizador do Azure Sentinel, você pode carregar os registos de auditoria SQL dos eventos do Windows Security Log para Sentinel e desfrutar de uma experiência de investigação rica. [Saiba mais sobre a Auditoria do Servidor SQL.](https://docs.microsoft.com/sql/relational-databases/security/auditing/create-a-server-audit-and-server-audit-specification?view=sql-server-ver15&preserve-view=true)
     * Para melhorar a sua postura de segurança, utilize as recomendações do Centro de Segurança para a máquina de anfitrião indicada em cada alerta. Isto reduzirá os riscos de futuros ataques. 
 
     [Saiba mais sobre como gerir e responder a alertas.](security-center-managing-and-responding-alerts.md)
@@ -129,6 +129,6 @@ Os alertas do Azure Defender estão disponíveis na página de alertas do Securi
 Para material relacionado, consulte o seguinte artigo:
 
 - [Alertas de segurança para a SQL Database e Azure Synapse Analytics (anteriormente SQL Data Warehouse)](alerts-reference.md#alerts-sql-db-and-warehouse)
-- [Configurar notificações de email para alertas de segurança](security-center-provide-security-contact-details.md)
+- [Configurar notificações por e-mail para alertas de segurança](security-center-provide-security-contact-details.md)
 - [Saiba mais sobre a Azure Sentinel](https://docs.microsoft.com/azure/sentinel/)
 - [Pacote de segurança de dados do Azure Security Center](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)

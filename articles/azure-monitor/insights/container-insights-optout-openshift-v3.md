@@ -3,16 +3,25 @@ title: Como parar de monitorizar o seu azure Red Hat OpenShift v3 cluster Micros
 description: Este artigo descreve como pode parar de monitorizar o seu cluster Azure Red Hat OpenShift com o Azure Monitor para contentores.
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 6ed92cd4cda1f3b5d43cc605d7224236528b94bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c21b17fd9faed7b133cd8ecad767ae7bd4aa868
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88815441"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216543"
 ---
-# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Como parar de monitorizar o seu cluster Azure Red Hat OpenShift v3 
+# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Como parar de monitorizar o seu cluster Azure Red Hat OpenShift v3
 
-Depois de ativar a monitorização do seu cluster 3.x do Chapéu Vermelho Azure, pode parar de monitorizar o cluster com o Azure Monitor para contentores se decidir que já não o quer monitorizar. Este artigo mostra como fazê-lo usando o modelo Azure Resource Manager fornecido. 
+>[!IMPORTANT]
+> Azure Red Hat OpenShift 3.11 será retirado em junho de 2022.
+>
+> A partir de outubro de 2020 já não poderá criar novos clusters 3.11.
+> Os agrupamentos de 3,11 existentes continuarão a funcionar até junho de 2022, mas deixarão de ser apoiados após essa data.
+>
+> Siga este guia para [criar um cluster Azure Red Hat OpenShift 4](../../openshift/tutorial-create-cluster.md).
+> Se tiver questões específicas, [contacte-nos.](mailto:aro-feedback@microsoft.com)
+
+Depois de ativar a monitorização do seu cluster 3.x do Chapéu Vermelho Azure, pode parar de monitorizar o cluster com o Azure Monitor para contentores se decidir que já não o quer monitorizar. Este artigo mostra como fazê-lo usando o modelo Azure Resource Manager fornecido.  
 
 ## <a name="azure-resource-manager-template"></a>Modelo Azure Resource Manager
 

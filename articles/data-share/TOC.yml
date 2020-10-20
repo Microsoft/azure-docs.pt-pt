@@ -8,6 +8,7 @@
     - name: Arquivos de dados suportados
       href: supported-data-stores.md
 - name: Guias de Início Rápido
+  expanded: true
   items:
     - name: Partilhar dados - portal do Azure
       href: share-your-data-portal.md
@@ -15,7 +16,6 @@
       displayName: Resource Manager
       href: share-your-data-arm.md
 - name: Tutoriais
-  expanded: true
   items:
     - name: Partilhar dados
       href: share-your-data.md
@@ -31,8 +31,6 @@
       href: concepts-pricing.md
 - name: Amostras
   items:
-    - name: Exemplos de código
-      href: 'https://docs.microsoft.com/samples/browse/?service=data-share/'
     - name: Azure PowerShell
       href: samples-powershell.md
 - name: Guias de procedimentos
@@ -69,15 +67,15 @@
     - name: .NET
       href: /dotnet/api/overview/azure/datashare
     - name: Azure PowerShell
-      href: 'https://docs.microsoft.com/powershell/module/az.datashare/?view=azps-2.6.0'
+      href: /powershell/module/az.datashare/?view=azps-2.6.0
     - name: API REST
       href: /rest/api/datashare
     - name: CLI do Azure
-      href: 'https://docs.microsoft.com/cli/azure/azure-cli-reference-for-data-share?view=azure-cli-latest'
+      href: /cli/azure/azure-cli-reference-for-data-share?view=azure-cli-latest
 - name: Recursos
   items:
     - name: Página de perguntas das Perguntas e Respostas da Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-data-share.html'
+      href: /answers/topics/azure-data-share.html
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-data-share'
     - name: Blogue
