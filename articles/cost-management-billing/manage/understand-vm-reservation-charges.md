@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: dd21faa07426c80bb3a95dbd1b6d4ee93f783881
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: e9ee1d9ff8145051bbbe6b65004f7f358b5fdade
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686450"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132147"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Como o desconto de reserva do Azure é aplicado a máquinas virtuais
 
@@ -57,7 +57,7 @@ Quando estiver a executar instâncias de máquina virtual do Windows, a reserva 
 
 ## <a name="discount-can-apply-to-different-sizes"></a>O desconto aplica-se a diferentes tamanhos
 
-Ao comprar uma Instância de VM Reservada e selecionar **Otimizada para flexibilidade de tamanho de instância**, a cobertura do desconto será aplicada ao tamanho da VM que selecionar. Também poderá ser aplicada a outros tamanhos de VMs que estão na mesma série do grupo de flexibilidade de tamanho de instância. Para obter mais informações, veja [Flexibilidade de tamanho da máquina virtual com Reserved VM Instances](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+Ao comprar uma Instância de VM Reservada e selecionar **Otimizada para flexibilidade de tamanho de instância**, a cobertura do desconto será aplicada ao tamanho da VM que selecionar. Também poderá ser aplicada a outros tamanhos de VMs que estão na mesma série do grupo de flexibilidade de tamanho de instância. Para obter mais informações, veja [Flexibilidade de tamanho da máquina virtual com Reserved VM Instances](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
 
 ## <a name="premium-storage-vms-dont-get-non-premium-discounts"></a>As VMs de armazenamento Premium não usufruem dos descontos não Premium
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/07/2020
+ms.date: 10/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a9b2c5b24b88dd51596dfb5bd8b5f397419ca6e4
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: e72bd04bb41537546191b8ceb320c0722bd10146
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215200"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340296"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Gerir a personalização SSO e token utilizando políticas personalizadas no Azure Ative Directory B2C
 
@@ -90,6 +90,45 @@ Os seguintes valores são definidos no exemplo anterior:
 
 > [!NOTE]
 > As aplicações de uma página única que utilizam o fluxo de código de autorização com O PKCE têm sempre um prazo de vida útil de 24 horas. [Saiba mais sobre as implicações de segurança dos tokens de atualização no navegador.](../active-directory/develop/reference-third-party-cookies-spas.md#security-implications-of-refresh-tokens-in-the-browser)
+
+## <a name="provide-optional-claims-to-your-app"></a>Fornecer reclamações opcionais à sua app
+
+As alegações [de produção de perfis técnicos](relyingparty.md#technicalprofile) da política do partido de Relying são valores que são devolvidos a uma aplicação. A adição de reclamações de saída irá emitir as reclamações no token após uma viagem bem sucedida do utilizador, e será enviada para a aplicação. Modifique o elemento de perfil técnico dentro da secção do partido dependente para adicionar as reclamações desejadas como uma reclamação de saída.
+
+1. Abra o seu ficheiro de política personalizado. Por exemplo, SignUpOrSignin.xml.
+1. Encontre o elemento OutputClaims. Adicione o OutputClaim que pretende ser incluído no token. 
+1. Desa estação os atributos de reclamação de saída. 
+
+O exemplo a seguir acrescenta a `accountBalance` alegação. A reclamação de contaBalance é enviada para o pedido como saldo. 
+
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="OpenIdConnect" />
+    <OutputClaims>
+      <OutputClaim ClaimTypeReferenceId="displayName" />
+      <OutputClaim ClaimTypeReferenceId="givenName" />
+      <OutputClaim ClaimTypeReferenceId="surname" />
+      <OutputClaim ClaimTypeReferenceId="email" />
+      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+      <OutputClaim ClaimTypeReferenceId="identityProvider" />
+      <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+      <!--Add the optional claims here-->
+      <OutputClaim ClaimTypeReferenceId="accountBalance" DefaultValue="" PartnerClaimType="balance" />
+    </OutputClaims>
+    <SubjectNamingInfo ClaimType="sub" />
+  </TechnicalProfile>
+</RelyingParty>
+```
+
+O elemento OutputClaim contém os seguintes atributos:
+
+  - **ClaimTypeReferenceId** - O identificador de um tipo de reclamação já definido na secção [ClaimsSchema](claimsschema.md) no ficheiro de política ou ficheiro de política dos pais.
+  - **PartnerClaimType** - Permite alterar o nome da reclamação no token. 
+  - **DefaultValue** - Um valor predefinido. Também pode definir o valor padrão para um [resolver de reclamação,](claim-resolver-overview.md)como iD de inquilino.
+  - **AlwaysUseDefaultValue** - Force a utilização do valor predefinido.
 
 ## <a name="next-steps"></a>Passos seguintes
 

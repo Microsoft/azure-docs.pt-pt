@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: e6bb3389fe035b1ccfbefaca788a40530581ac7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2b17e15c5548b4c9b93a62a7d4dfe62ff44404c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851084"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341758"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Endurecimento de rede adaptativa no Centro de Segurança Azure
 Aprenda a configurar o endurecimento adaptativo da rede no Centro de Segurança.
@@ -29,11 +29,11 @@ Aprenda a configurar o endurecimento adaptativo da rede no Centro de Segurança.
 |Estado de libertação:|Geralmente disponível (GA)|
 |Preços:|Requer [Azure Defender para servidores](defender-for-servers-introduction.md)|
 |Funções e permissões necessárias:|Escreva permissões nos NSGs da máquina|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 ## <a name="what-is-adaptive-network-hardening"></a>O que é o endurecimento adaptativo da rede?
-A aplicação de grupos de segurança de [rede (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview) para filtrar o tráfego de e para os recursos, melhora a sua postura de segurança de rede. No entanto, ainda pode haver alguns casos em que o tráfego real que flui através do NSG é um subconjunto das regras do NSG definidos. Nestes casos, melhorar ainda mais a postura de segurança pode ser alcançado endurecendo as regras do NSG, com base nos padrões reais de tráfego.
+A aplicação de grupos de segurança de [rede (NSG)](../virtual-network/network-security-groups-overview.md) para filtrar o tráfego de e para os recursos, melhora a sua postura de segurança de rede. No entanto, ainda pode haver alguns casos em que o tráfego real que flui através do NSG é um subconjunto das regras do NSG definidos. Nestes casos, melhorar ainda mais a postura de segurança pode ser alcançado endurecendo as regras do NSG, com base nos padrões reais de tráfego.
 
 O endurecimento da rede adaptativa fornece recomendações para endurecer ainda mais as regras do NSG. Usa um algoritmo de aprendizagem automática que fatores no tráfego real, configuração confiável conhecida, inteligência de ameaça e outros indicadores de compromisso, e depois fornece recomendações para permitir o tráfego apenas a partir de tuples IP/port específico.
 
@@ -93,7 +93,7 @@ Algumas orientações importantes para modificar uma regra de endurecimento adap
 * Não é possível alterar regras de "permitir" que se tornem regras de "negar". 
 
   > [!NOTE]
-  > A criação e modificação das regras de "negação" é feita diretamente no NSG. Para obter mais informações, consulte [Criar, alterar ou eliminar um grupo de segurança de rede](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+  > A criação e modificação das regras de "negação" é feita diretamente no NSG. Para obter mais informações, consulte [Criar, alterar ou eliminar um grupo de segurança de rede](../virtual-network/manage-network-security-group.md).
 
 * A **Negar toda** a regra de tráfego é o único tipo de regra de "negar" que seria listada aqui, e não pode ser modificada. No entanto, pode eliminá-lo (ver [Eliminar uma regra).](#delete-rule)
   > [!NOTE]
@@ -121,7 +121,7 @@ Algumas orientações importantes para modificar uma regra de endurecimento adap
 Pode adicionar uma regra de "permitir" que não foi recomendada pelo Centro de Segurança.
 
 > [!NOTE]
-> Só as regras de "permitir" podem ser adicionadas aqui. Se quiser adicionar regras de "negar", pode fazê-lo diretamente no NSG. Para obter mais informações, consulte [Criar, alterar ou eliminar um grupo de segurança de rede](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+> Só as regras de "permitir" podem ser adicionadas aqui. Se quiser adicionar regras de "negar", pode fazê-lo diretamente no NSG. Para obter mais informações, consulte [Criar, alterar ou eliminar um grupo de segurança de rede](../virtual-network/manage-network-security-group.md).
 
 *Para adicionar uma regra de endurecimento de rede adaptativa:*
 

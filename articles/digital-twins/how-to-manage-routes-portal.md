@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 91c767fb031633900434b3aa07ccfae7cf7458cb
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ec23252883f928cfa6c1651afbfe88e413d55571
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332098"
+ms.locfileid: "92339599"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gerir pontos finais e rotas em Azure Digital Twins (portal)
 
@@ -169,7 +169,6 @@ Depois de permitir o filtro mínimo `true` de, os pontos finais receberão uma v
 * Telemetria disparada por [gémeos digitais](concepts-twins-graph.md) usando o serviço Azure Digital Twins API
 * Notificações de mudança de propriedade gémea, disparadas sobre alterações de propriedade para qualquer gémeo no caso Azure Digital Twins
 * Eventos de ciclo de vida, disparados quando gémeos ou relacionamentos são criados ou eliminados
-* Eventos de mudança de modelo, disparados quando [os modelos](concepts-models.md) configurados numa instância Azure Digital Twins são adicionados ou eliminados
 
 Pode restringir os tipos de eventos que são enviados definindo um filtro mais específico.
 

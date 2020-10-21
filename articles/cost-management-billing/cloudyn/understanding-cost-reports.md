@@ -10,12 +10,12 @@ ms.subservice: cloudyn
 ms.reviewer: benshy
 ms.custom: seodec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9f42359cc843a934cf1258576d13eec8af2279cc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 9afe34097d005daeedf46fbaf30b37e53a8e3658
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687659"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132045"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Compreender os relatórios de gestão de custos da Cloudyn
 
@@ -205,5 +205,5 @@ Quando estiver a ver um relatório, clique em **Ações** e, em seguida, selecio
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre os relatórios incluídos na Cloudyn em [Utilizar relatórios da Cloudyn](../../cost-management/use-reports.md).
-- Saiba como utilizar relatórios para criar [dashboards](../../cost-management/dashboards.md).
+- Saiba mais sobre os relatórios incluídos na Cloudyn em [Utilizar relatórios da Cloudyn](./use-reports.md).
+- Saiba como utilizar relatórios para criar [dashboards](./dashboards.md).

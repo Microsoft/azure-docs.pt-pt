@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: c580dd26c64a27b88b4416e85da101b78782013e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: ee5a88dfcc3b4ab29cd3ad8c5ff7c4701d1fced6
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076985"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339718"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Utilize controlos de aplicação adaptativos para reduzir as superfícies de ataque das suas máquinas
 
@@ -52,7 +52,7 @@ Ao definir listas de aplicações conhecidas e gerar alertas quando qualquer out
 |----|:----|
 |Estado de libertação:|Geralmente disponível (GA)|
 |Preços:|Requer [Azure Defender para servidores](defender-for-servers-introduction.md)|
-|Máquinas suportadas:|![Sim ](./media/icons/yes-icon.png) Azure e máquinas não-Azure que executam Windows e Linux<br>![Sim ](./media/icons/yes-icon.png) [Azure Arc](https://docs.microsoft.com/azure/azure-arc/) máquinas|
+|Máquinas suportadas:|![Sim ](./media/icons/yes-icon.png) Azure e máquinas não-Azure que executam Windows e Linux<br>![Sim ](./media/icons/yes-icon.png) [Azure Arc](../azure-arc/index.yml) máquinas|
 |Funções e permissões necessárias:|**As** funções de Leitor de Segurança e **Leitor** podem ver grupos e listas de aplicações conhecidas e seguras<br>**As** funções de Administrador de Colaborador e **Segurança** podem editar grupos e listas de aplicações conhecidas e seguras|
 |Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
@@ -85,7 +85,7 @@ Selecione a recomendação ou abra a página de controlos de aplicações adapta
     - **Sem recomendação** - Máquinas sem uma lista de aplicações definidas, e que não suportam a funcionalidade. A sua máquina pode estar neste separador pelas seguintes razões:
       - Falta um agente do Log Analytics.
       - O agente do Log Analytics não está a enviar eventos.
-      - É uma máquina Windows com uma política [appLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) pré-existente, ativada por um GPO ou por uma política de segurança local
+      - É uma máquina Windows com uma política [appLocker](/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) pré-existente, ativada por um GPO ou por uma política de segurança local
 
       > [!TIP]
       > O Centro de Segurança precisa de pelo menos duas semanas de dados para definir as recomendações únicas por grupo de máquinas. As máquinas que foram criadas recentemente, ou que pertencem a subscrições que só recentemente foram ativadas com o Azure Defender, aparecerão no separador **No recommendation.**
@@ -224,7 +224,7 @@ Quando se desloca uma máquina de um grupo para outro, a política de controlo d
 
 Para gerir os controlos de aplicação adaptativas, utilize a nossa API REST. 
 
-A documentação completa da API está [aqui.](https://docs.microsoft.com/rest/api/securitycenter/adaptiveapplicationcontrols)
+A documentação completa da API está [aqui.](/rest/api/securitycenter/adaptiveapplicationcontrols)
 
 Algumas das funções que estão disponíveis na API REST:
 
@@ -245,5 +245,5 @@ Algumas das funções que estão disponíveis na API REST:
 ## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu a utilizar o controlo de aplicações adaptativas no Azure Security Center para definir as listas de aplicações em execução nas suas máquinas Azure e não-Azure. Para saber mais sobre algumas das outras funcionalidades de proteção da carga de trabalho em nuvem do Security Center, consulte:
 
-* [Compreensão do acesso ao VM just-in-time (JIT)](just-in-time-explained.md)
+* [Compreensão do acesso just-in-time (JIT) à VM](just-in-time-explained.md)
 * [Assegurar os seus clusters Azure Kubernetes](defender-for-kubernetes-introduction.md)

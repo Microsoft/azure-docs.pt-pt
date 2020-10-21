@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: 7700e151a49dbfbad452927ba4a308651a0b584a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68338341d47b8fa15d0bd88ea23e951210105fc4
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84782817"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340789"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Gestão de inquilinos cruzados no Centro de Segurança
 
@@ -57,4 +57,4 @@ Este artigo explica como funciona a gestão de inquilinos cruzados no Centro de 
 
 * [Fortaleça a sua postura de segurança com o Azure Security Center](security-center-monitoring.md) - Aprenda a monitorizar a saúde dos seus recursos Azure.
 * [Azure Security Center FAQ](faq-general.md) - Encontre perguntas frequentes sobre a utilização do serviço.
-* [Saiba mais sobre o Farol Azure em cenários empresariais](https://docs.microsoft.com/azure/lighthouse/concepts/enterprise) - Descubra como o Farol Azure pode simplificar a gestão de inquilinos cruzados dentro de uma empresa que utiliza vários inquilinos da AD Azure.
+* [Saiba mais sobre o Farol Azure em cenários empresariais](../lighthouse/concepts/enterprise.md) - Descubra como o Farol Azure pode simplificar a gestão de inquilinos cruzados dentro de uma empresa que utiliza vários inquilinos da AD Azure.
