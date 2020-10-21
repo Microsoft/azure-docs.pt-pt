@@ -1,17 +1,17 @@
 ---
-title: Criar um espaço de trabalho log Analytics no Portal Azure Microsoft Docs
+title: Criar um espaço de trabalho log Analytics no portal Azure Microsoft Docs
 description: Saiba como criar um espaço de trabalho Log Analytics para permitir soluções de gestão e recolha de dados a partir dos ambientes da sua nuvem e ambientes no portal Azure.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: f86cc5e3edc659a233066fcf2544ed4a5019d0f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0cf7c89c23b3df51dce2710be50c3c62f8f1e3cf
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324289"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320089"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Criar uma área de trabalho do Log Analytics no portal do Azure
 Utilize o menu **de espaços de trabalho Log Analytics** para criar um espaço de trabalho Log Analytics utilizando o portal Azure. Um espaço de trabalho Log Analytics é um ambiente único para os dados de registo do Azure Monitor. Cada espaço de trabalho tem o seu próprio repositório de dados e configuração, e as fontes de dados e soluções são configuradas para armazenar os seus dados num determinado espaço de trabalho. Necessita de um espaço de trabalho Log Analytics se pretender recolher dados a partir das seguintes fontes:
@@ -62,8 +62,5 @@ Quando cria um espaço de trabalho que foi eliminado nos últimos 14 dias e em [
 ## <a name="next-steps"></a>Passos seguintes
 Agora que tem um espaço de trabalho disponível, pode configurar a recolha de telemetria de monitorização, executar pesquisas de registo para analisar esses dados e adicionar uma solução de gestão para fornecer dados adicionais e insights analíticos. 
 
-* Para permitir a recolha de dados a partir de recursos Azure com Azure Diagnostics ou armazenamento Azure, consulte [registos e métricas de serviço Da Recolha Azure para utilização no Log Analytics](../platform/resource-logs.md#send-to-log-analytics-workspace).  
-* [Adicione o Gestor de Operações do System Center como uma fonte de dados](../platform/om-agents.md) para recolher dados de agentes que reportam o seu grupo de gestão de Gestor de Operações e armazene-os no seu espaço de trabalho Log Analytics. 
-* Ligue [o Gestor de Configuração](../platform/collect-sccm.md) à importação de computadores que sejam membros de coleções na hierarquia.  
-* Reveja as [soluções de monitorização](../insights/solutions.md) disponíveis e como adicionar ou remover uma solução do seu espaço de trabalho.
-
+* Consulte [a saúde do Monitor do log analytics workspace no Azure Monitor](../platform/monitor-workspace.md) crie regras de alerta para monitorizar a saúde do seu espaço de trabalho. 
+* Consulte [os registos e métricas de serviço Da Recolha Azure para utilização no Log Analytics](../platform/resource-logs.md#send-to-log-analytics-workspace) para permitir a recolha de dados a partir de recursos Azure com Azure Diagnostics ou armazenamento Azure.

@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d845c1fbefd5c9a6119d089824eba6cc35228a3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7224f8fe1461727504a85df4a5fd95ba871258a8
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90055814"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92308733"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteção de acesso privilegiado para implementações híbridas e na cloud no Azure AD
 
@@ -302,7 +302,7 @@ Se o seu Diretório Ativo Azure estiver ligado ao Ative Directory no local, siga
 
 #### <a name="establish-integrated-monitoring"></a>Estabelecer monitorização integrada
 
-O [Centro de Segurança Azure:](../../security-center/security-center-intro.md)
+O [Centro de Segurança Azure:](../../security-center/security-center-introduction.md)
 
 * Fornece monitorização integrada de segurança e gestão de políticas em todas as suas subscrições Azure
 * Ajuda a detetar ameaças que de outra forma podem passar despercebidas

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 5fc74c554cbb283bc6bbfee737ef98e59dd4b0ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af17e37e5acb1e3552dd92b82eaf8d6397e4bc5e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82509674"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279915"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procedimentos armazenados, gatilhos e funções definidas pelo utilizador
 
@@ -24,7 +24,7 @@ A escrita de procedimentos armazenados, gatilhos e funções definidas pelo util
 
 * **Lógica processual:** JavaScript como uma linguagem de programação de alto nível que fornece interface rica e familiar para expressar lógica de negócio. Pode executar uma sequência de operações complexas nos dados.
 
-* **Transações atómicas:** A Azure Cosmos DB garante que as operações de base de dados realizadas dentro de um único procedimento armazenado ou de um gatilho são atómicas. Esta funcionalidade atómica permite que uma aplicação combine operações relacionadas num único lote, de modo que todas as operações tenham sucesso ou nenhuma delas tenha sucesso.
+* **Transações atómicas:** As operações de base de dados DB da Azure Cosmos que são realizadas dentro de um único procedimento armazenado ou um gatilho são atómicas. Esta funcionalidade atómica permite que uma aplicação combine operações relacionadas num único lote, de modo que todas as operações tenham sucesso ou nenhuma delas tenha sucesso.
 
 * **Desempenho:** Os dados JSON são intrinsecamente mapeados para o sistema de tipo de linguagem JavaScript. Este mapeamento permite uma série de otimizações como a materialização preguiçosa de documentos JSON na piscina tampão e torná-los disponíveis a pedido do código de execução. Existem outros benefícios de desempenho associados à lógica de negócio de envio para a base de dados, que inclui:
 
@@ -55,7 +55,7 @@ Em Azure Cosmos DB, o tempo de execução javaScript é hospedado dentro do moto
 
 ### <a name="scope-of-a-transaction"></a>Âmbito de uma transação
 
-Os procedimentos armazenados estão associados a um contentor Azure Cosmos e a execução do procedimento armazenado é traçada para uma chave de partição lógica. Os procedimentos armazenados devem incluir um valor-chave de partição lógica durante a execução que define a partição lógica para o âmbito da transação. Para mais informações, consulte o artigo [de partição da Azure Cosmos DB.](partition-data.md)
+Os procedimentos armazenados estão associados a um contentor Azure Cosmos e a execução do procedimento armazenado é traçada para uma chave de partição lógica. Os procedimentos armazenados devem incluir um valor-chave de partição lógica durante a execução que define a partição lógica para o âmbito da transação. Para mais informações, consulte o artigo [de partição da Azure Cosmos DB.](partitioning-overview.md)
 
 ### <a name="commit-and-rollback"></a>Comprometer e reverter
 

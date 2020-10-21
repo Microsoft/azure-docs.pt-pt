@@ -7,12 +7,12 @@ ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
 ms.custom: devx-track-java
-ms.openlocfilehash: b0c9ef99e4cbb0683273d613d3a85e7f6455a40d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e8859eebf97b8d2788153e74e36f31fda3323c5
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87366726"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282468"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>Migrar de CouchBase para Azure Cosmos DB SQL API
 
@@ -33,7 +33,7 @@ Seguem-se as principais características que funcionam de forma diferente no Azu
 
 * AZure Cosmos DB tem um campo de "ID" dentro do documento, enquanto couchbase tem o ID como parte do balde. O campo "ID" é único em toda a partição.
 
-* Azure Cosmos DB escala utilizando a técnica de partição ou de fragmentos. O que significa que divide os dados em múltiplos fragmentos/divisórias. Estas divisórias/fragmentos são criados com base na propriedade chave de partição que você fornece. Pode selecionar a chave de partição para otimizar a leitura, bem como escrever operações ou ler/escrever também otimizado. Para saber mais, veja o artigo [de partição.](./partition-data.md)
+* Azure Cosmos DB escala utilizando a técnica de partição ou de fragmentos. O que significa que divide os dados em múltiplos fragmentos/divisórias. Estas divisórias/fragmentos são criados com base na propriedade chave de partição que você fornece. Pode selecionar a chave de partição para otimizar a leitura, bem como escrever operações ou ler/escrever também otimizado. Para saber mais, veja o artigo [de partição.](./partitioning-overview.md)
 
 * Na Azure Cosmos DB, não é necessário que a hierarquia de alto nível denote a coleção porque o nome da coleção já existe. Esta funcionalidade torna a estrutura JSON muito mais simples. Segue-se um exemplo que mostra diferenças no modelo de dados entre Couchbase e Azure Cosmos DB:
 

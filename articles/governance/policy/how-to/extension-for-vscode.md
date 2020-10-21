@@ -1,20 +1,20 @@
 ---
 title: Extensão da política Azure para Código do Estúdio Visual
 description: Saiba como usar a extensão da Política Azure para o Código do Estúdio Visual para procurar pseudónimos do Gestor de Recursos Azure.
-ms.date: 10/14/2020
+ms.date: 10/20/2020
 ms.topic: how-to
-ms.openlocfilehash: ea05ffab9c57c50e451008a1ec7c534afbedf282
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 233c9158c30d6c373dd6147090894dc83b83da3d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077937"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317617"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Use a extensão da política Azure para código de estúdio visual
 
-> Aplica-se à versão de extensão da Política Azure **0.0.21** e mais recente
+> Aplica-se à versão de extensão da Política Azure **0.1.0** e mais recente
 
-Saiba como usar a extensão da Política Azure para o Código do Estúdio Visual para procurar [pseudónimos](../concepts/definition-structure.md#aliases) e rever recursos e políticas. Primeiro, descreveremos como instalar a extensão da Política Azure no Código do Estúdio Visual. Depois vamos ver como procurar pseudónimos.
+Saiba como usar a extensão da Política Azure para o Código do Estúdio Visual para procurar [pseudónimos,](../concepts/definition-structure.md#aliases)rever recursos e políticas, exportar objetos e avaliar definições de políticas. Primeiro, descreveremos como instalar a extensão da Política Azure no Código do Estúdio Visual. Depois vamos ver como procurar pseudónimos.
 
 A extensão da Política Azure para Código do Estúdio Visual pode ser instalada em todas as plataformas que são suportadas pelo Código do Estúdio Visual. Este suporte inclui Windows, Linux e macOS.
 
@@ -151,6 +151,51 @@ A extensão da Política Azure lista tipos de política e atribuições de polí
 1. Utilize o filtro para selecionar qual a política ou para visualizar. O filtro funciona para _o displayName_ para a definição de política ou atribuição de políticas.
 
 Ao selecionar uma política ou atribuição, seja através da interface de pesquisa ou selecionando-a na visão de árvore, a extensão da Política Azure abre o JSON que representa a política ou atribuição e todos os valores de propriedade do Gestor de Recursos. A extensão pode validar o esquema JSON da Política Azure aberta.
+
+## <a name="export-objects"></a>Objetos de exportação
+
+Os objetos das suas subscrições podem ser exportados para um ficheiro JSON local. No painel **de Recursos** ou **Políticas,** paire sobre ou selecione um objeto exportável. No final da linha realçada, selecione o ícone de poupança e selecione uma pasta para guardar esses recursos JSON.
+
+Os seguintes objetos podem ser exportados localmente:
+
+- Painel de recursos
+  - Grupos de recursos
+  - Recursos individuais (seja num grupo de recursos ou sob um Fornecedor de Recursos)
+- Painel de políticas
+  - Atribuições de políticas
+  - Definições políticas incorporadas
+  - Definições de política personalizada
+  - Iniciativas
+
+## <a name="on-demand-evaluation-scan"></a>On-demand evaluation scan (Análise de avaliação a pedido)
+
+Pode iniciar-se uma verificação de avaliação com a extensão da Política Azure para o Código do Estúdio Visual. Para iniciar uma avaliação, selecione e pine cada um dos seguintes objetos: um recurso, uma definição de política e uma atribuição de políticas.
+
+1. Para fixar cada objeto, encontre-o no painel **de Recursos** ou no painel **de Políticas** e selecione o pino para um ícone do separador de edição. Fixar um objeto adiciona-o ao painel de **avaliação** da extensão.
+1. No painel de **avaliação,** selecione um de cada objeto e utilize o selecionador para o ícone de avaliação para assinalá-lo como incluído na avaliação.
+1. No topo do painel de **avaliação,** selecione o ícone de avaliação de execução. Um novo painel no Código do Estúdio Visual abre com os detalhes de avaliação resultantes no formulário JSON.
+
+> [!NOTE]
+> Se a definição de política selecionada for uma [AuditIfNotExists](../concepts/effects.md#auditifnotexists) ou [implementarIfNotExists,](../concepts/effects.md#deployifnotexists)no painel **de avaliação** utilize o ícone mais para selecionar um recurso _relacionado_ para a verificação da existência.
+
+Os resultados da avaliação fornecem informações sobre a definição de política e atribuição de políticas, juntamente com a **políticaEvaluations.evaluationResult** property. A saída é semelhante ao seguinte exemplo:
+
+```json
+{
+    "policyEvaluations": [
+        {
+            "policyInfo": {
+                ...
+            },
+            "evaluationResult": "Compliant",
+            "effectDetails": {
+                "policyEffect": "Audit",
+                "existenceScope": "None"
+            }
+        }
+    ]
+}
+```
 
 ## <a name="sign-out"></a>Terminar sessão
 

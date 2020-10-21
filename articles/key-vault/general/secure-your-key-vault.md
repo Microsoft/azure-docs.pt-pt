@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: efbed9ec44bd386a4540c397ca8958fb3ccea807
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b04bd6975a2ba8824124c769e66da1e4ebe7534a
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019890"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309926"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Acesso seguro a um cofre de chaves
 
@@ -130,7 +130,7 @@ Para obter mais informações sobre firewall key Vault e redes virtuais, consult
 
 ## <a name="private-endpoint-connection"></a>Conexão de ponto final privado
 
-Em caso de necessidade de bloquear completamente a exposição do Key Vault ao público, pode ser utilizado um Azure Private Endpoint. Um Azure Private Endpoint é uma interface de rede que o liga de forma privada e segura a um serviço alimentado pela Azure Private Link. O ponto final privado utiliza um endereço IP privado a partir do seu VNet, efetivamente trazendo o serviço para o seu VNet. Todo o tráfego para o serviço pode ser encaminhado através do ponto final privado, pelo que não são necessários gateways, dispositivos NAT, ligações ExpressRoute ou VPN, ou endereços IP públicos. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Pode ligar-se a um recurso Azure, dando-lhe o mais alto nível de granularidade no controlo de acessos.
+Em caso de necessidade de bloquear completamente a exposição do Key Vault ao público, pode ser utilizado um [Azure Private Endpoint.](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) Um Azure Private Endpoint é uma interface de rede que o liga de forma privada e segura a um serviço alimentado pela Azure Private Link. O ponto final privado utiliza um endereço IP privado a partir do seu VNet, efetivamente trazendo o serviço para o seu VNet. Todo o tráfego para o serviço pode ser encaminhado através do ponto final privado, pelo que não são necessários gateways, dispositivos NAT, ligações ExpressRoute ou VPN, ou endereços IP públicos. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Pode ligar-se a um recurso Azure, dando-lhe o mais alto nível de granularidade no controlo de acessos.
 
 Cenários comuns para a utilização de Link Privado para serviços Azure:
 
@@ -199,11 +199,11 @@ O nosso exemplo descreve um cenário simples. Cenários da vida real podem ser m
 
 ## <a name="resources"></a>Recursos
 
-[Sobre o Cofre](overview.md) 
- da Chave Azure Diretório Ativo [Azure](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) 
- Gestão de [Identidade Privilegiada](../../active-directory/privileged-identity-management/pim-configure.md) 
- [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) 
- [Ligação Privada](https://docs.microsoft.com/azure/private-link/private-link-overview)
+- [Acerca do Azure Key Vault](overview.md)
+- [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
+- [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)
+- [RBAC do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [Ligação Privada](https://docs.microsoft.com/azure/private-link/private-link-overview)
 
 ## <a name="next-steps"></a>Passos seguintes
 

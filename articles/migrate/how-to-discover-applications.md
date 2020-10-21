@@ -3,12 +3,12 @@ title: Descubra aplicativos, funções e funcionalidades em servidores no local 
 description: Saiba como descobrir apps, funções e funcionalidades em servidores no local com avaliação do servidor Azure Migrate.
 ms.topic: article
 ms.date: 06/10/2020
-ms.openlocfilehash: 535c8ae8c2d6e5d9d175e663a58d47dc76aa0529
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bdc26ac3a27026183e889bf258e2e1a5dadebfb
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86118652"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315199"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Descubra aplicativos, papéis e funcionalidades de máquinas
 
@@ -46,7 +46,7 @@ Depois de o aparelho ser implantado e tiver fornecido credenciais, o aparelho in
 
 ## <a name="verify-permissions"></a>Verificar permissões
 
-[Criou uma conta de leitura do vCenter Server apenas](tutorial-prepare-vmware.md#set-up-permissions-for-assessment) para a descoberta e avaliação. A conta apenas de leitura necessita de privilégios habilitados para **operações de hóspedes de máquinas virtuais,**  >  **Guest Operations**de forma a interagir com o VM para a descoberta de apps.
+[Criou uma conta de leitura do vCenter Server apenas](./tutorial-discover-vmware.md#prepare-vmware) para a descoberta e avaliação. A conta apenas de leitura necessita de privilégios habilitados para **operações de hóspedes de máquinas virtuais,**  >  **Guest Operations**de forma a interagir com o VM para a descoberta de apps.
 
 ### <a name="add-the-user-account-to-the-appliance"></a>Adicione a conta de utilizador ao aparelho
 

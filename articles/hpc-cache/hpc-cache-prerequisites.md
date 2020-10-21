@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: v-erkel
-ms.openlocfilehash: 9454dd8d1d6648396980f5148384d2e0119e0dab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39c890e9e6634413947a96b1ddac608ee44bd9a0
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612987"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327404"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Pré-requisitos para cache Azure HPC
 
@@ -73,7 +73,7 @@ Verifique estes pré-requisitos relacionados com a permissão antes de começar 
 
 * A instância de cache precisa de ser capaz de criar interfaces de rede virtuais (NICs). O utilizador que criar a cache deve ter privilégios suficientes na subscrição para criar NICs.
 
-* Se utilizar o armazenamento Blob, a Cache Azure HPC necessita de autorização para aceder à sua conta de armazenamento. Utilize o controlo de acesso baseado em funções (RBAC) para dar acesso à cache ao seu armazenamento Blob. São necessárias duas funções: Contribuidor de Conta de Armazenamento e Contribuinte de Dados blob de armazenamento.
+* Se utilizar o armazenamento Blob, a Cache Azure HPC necessita de autorização para aceder à sua conta de armazenamento. Utilize o controlo de acesso baseado em funções Azure (Azure RBAC) para dar acesso à cache ao seu armazenamento Blob. São necessárias duas funções: Contribuidor de Conta de Armazenamento e Contribuinte de Dados blob de armazenamento.
 
   Siga as instruções em [Adicionar os alvos de armazenamento](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) para adicionar as funções.
 

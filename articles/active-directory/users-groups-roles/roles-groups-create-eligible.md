@@ -13,16 +13,16 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07dc11877b38e830d90f544f1d7524b378bf5902
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f14960f98a4257b0c8f920915327661cd8b867c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90053757"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310396"
 ---
 # <a name="create-a-role-assignable-group-in-azure-active-directory"></a>Criar um grupo atribuível a funções no Azure Ative Directory
 
-Só é possível atribuir um papel a um grupo que foi criado com a propriedade 'isAssignableToRole' definida para True, ou foi criada no portal AD AZure com **funções AD Azure pode ser atribuída ao grupo** ligado. Este atributo de grupo faz do grupo um que pode ser atribuído a um papel no Azure Ative Directory (Azure AD). Este artigo descreve como criar este tipo especial de grupo. **Nota:** Um grupo com propriedade isAssignableToRole definido para verdadeiro não pode ser de tipo de membro dinâmico. Para obter mais informações, consulte [utilizar um grupo para gerir as atribuições de funções Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/roles-groups-concept).
+Só é possível atribuir um papel a um grupo que foi criado com a propriedade 'isAssignableToRole' definida para True, ou foi criada no portal AD AZure com **funções AD Azure pode ser atribuída ao grupo** ligado. Este atributo de grupo faz do grupo um que pode ser atribuído a um papel no Azure Ative Directory (Azure AD). Este artigo descreve como criar este tipo especial de grupo. **Nota:** Um grupo com propriedade isAssignableToRole definido para verdadeiro não pode ser de tipo de membro dinâmico. Para obter mais informações, consulte [utilizar um grupo para gerir as atribuições de funções Azure AD](./roles-groups-concept.md).
 
 ## <a name="using-azure-ad-admin-center"></a>Usando o centro de administração Ad da Adure
 
@@ -46,7 +46,7 @@ Só é possível atribuir um papel a um grupo que foi criado com a propriedade '
 
 O grupo é criado com quaisquer funções que lhe possas ter atribuído.
 
-## <a name="using-powershell"></a>Com o PowerShell
+## <a name="using-powershell"></a>Utilizar o PowerShell
 
 ### <a name="install-the-azure-ad-preview-module"></a>Instale o módulo de pré-visualização AZure AD
 

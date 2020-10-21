@@ -7,16 +7,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: f5a867a00fa28dcd03842d02be16d88e3a7d2e9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f26dc5214222bb7564c0ba2b199adefad056ed5
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132658"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280991"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Constrangimentos fundamentais únicos no Azure Cosmos DB
 
-Chaves únicas adicionam uma camada de integridade de dados a um recipiente Azure Cosmos. Cria-se uma política chave única quando se cria um recipiente Azure Cosmos. Com teclas únicas, certifique-se de que um ou mais valores dentro de uma divisória lógica são únicos. Também pode garantir a singularidade por [tecla de partição.](partition-data.md)
+Chaves únicas adicionam uma camada de integridade de dados a um recipiente Azure Cosmos. Cria-se uma política chave única quando se cria um recipiente Azure Cosmos. Com teclas únicas, certifique-se de que um ou mais valores dentro de uma divisória lógica são únicos. Também pode garantir a singularidade por [tecla de partição.](partitioning-overview.md)
 
 Depois de criar um recipiente com uma política chave única, a criação de um novo ou uma atualização de um item existente que resulte numa duplicação dentro de uma partição lógica é impedida, conforme especificado pelo constrangimento chave único. A chave de partição combinada com a chave única garante a singularidade de um item no âmbito do recipiente.
 
@@ -55,5 +55,5 @@ Só pode definir chaves únicas quando criar um recipiente Azure Cosmos. Uma cha
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre [divisórias lógicas](partition-data.md)
+* Saiba mais sobre [divisórias lógicas](partitioning-overview.md)
 * Explore [como definir chaves únicas ao](how-to-define-unique-keys.md) criar um recipiente

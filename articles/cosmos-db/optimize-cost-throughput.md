@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 22fcee69c32388c764434bedac04465bbc3e28cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef0462b849210bc9b6963ab25e7a216c978f0568
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801329"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281063"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Otimizar o débito aprovisionado no Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Pode aprovisionar o débito em bases de dados ou contentores e cada estratégia 
 
 * Se forre o rendimento numa base de dados, todos os contentores, por exemplo, recolhas/tabelas/gráficos dentro dessa base de dados podem partilhar o rendimento com base na carga. A produção reservada ao nível da base de dados é partilhada de forma desigual, dependendo da carga de trabalho num conjunto específico de contentores.
 
-* Se forrou a produção num contentor, a produção é garantida para esse contentor, apoiado pelo SLA. A escolha de uma chave de partição lógica é crucial para a distribuição uniforme da carga em todas as divisórias lógicas de um recipiente. Consulte os artigos [de partição](partitioning-overview.md) e [de escala horizontal](partition-data.md) para obter mais detalhes.
+* Se forrou a produção num contentor, a produção é garantida para esse contentor, apoiado pelo SLA. A escolha de uma chave de partição lógica é crucial para a distribuição uniforme da carga em todas as divisórias lógicas de um recipiente. Consulte os artigos [de partição](partitioning-overview.md) e [de escala horizontal](partitioning-overview.md) para obter mais detalhes.
 
 Seguem-se algumas orientações para decidir sobre uma estratégia de produção prevista:
 

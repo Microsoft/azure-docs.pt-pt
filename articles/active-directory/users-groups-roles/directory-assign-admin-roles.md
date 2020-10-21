@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ea814f3f855758895a5a887b944e5f760edb5e9
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 93b2bdef6ddacb08a49a974fe1e74ac47e21150e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057795"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313189"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administrator role permissions in Azure Active Directory (Permissões de cargos de administrador no Azure Active Directory)
 
@@ -142,7 +142,7 @@ Em | Pode fazer
 
 ### <a name="compliance-data-administrator"></a>[Administrador de Dados de Conformidade](#compliance-data-administrator-permissions)
 
-Os utilizadores com esta função têm permissões para rastrear dados no centro de conformidade Microsoft 365, Microsoft 365 admin center e Azure. Os utilizadores também podem rastrear dados de conformidade dentro do centro de administração Exchange, Compliance Manager e Teams & Skype for Business e criar bilhetes de suporte para Azure e Microsoft 365. [Esta documentação](https://docs.microsoft.com/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center?view=o365-worldwide#permissions-needed-to-use-features-in-the-security--compliance-center) tem detalhes sobre diferenças entre o Administrador de Conformidade e o Administrador de Dados de Conformidade.
+Os utilizadores com esta função têm permissões para rastrear dados no centro de conformidade Microsoft 365, Microsoft 365 admin center e Azure. Os utilizadores também podem rastrear dados de conformidade dentro do centro de administração Exchange, Compliance Manager e Teams & Skype for Business e criar bilhetes de suporte para Azure e Microsoft 365. [Esta documentação](/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center?view=o365-worldwide#permissions-needed-to-use-features-in-the-security--compliance-center) tem detalhes sobre diferenças entre o Administrador de Conformidade e o Administrador de Dados de Conformidade.
 
 Em | Pode fazer
 ----- | ----------

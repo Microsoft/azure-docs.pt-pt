@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 921a56dca8f1cda67e6f32458914fef4ac2d324c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74ebd25cb48276f76cdf379eaa596f4ec1f3a2b9
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601316"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92312598"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Referência do guia de operações do Azure Ative Directory
 
@@ -91,7 +91,7 @@ Alguns serviços de gestão de identidade e acesso requerem agentes no local par
 #### <a name="on-premises-agents-logs-recommended-reading"></a>Registos de agentes no local recomendados de leitura
 
 - [Resolver problemas do Proxy de Aplicações](../manage-apps/application-proxy-troubleshoot.md)
-- [Autosserviço de senha reinicia resolução de problemas- Diretório Ativo Azure](../authentication/active-directory-passwords-troubleshoot.md#password-writeback-event-log-error-codes)
+- [Autosserviço de senha reinicia resolução de problemas- Diretório Ativo Azure](../authentication/troubleshoot-sspr.md)
 - [Compreenda os conectores Proxy de aplicação AD Azure](../manage-apps/application-proxy-connectors.md)
 - [Azure AD Connect: Troubleshoot Pass-through Authentication](../hybrid/tshoot-connect-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs)
 - [Códigos de erro de resolução de problemas para a extensão NPS do Azure MFA](../authentication/howto-mfa-nps-extension-errors.md)
