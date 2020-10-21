@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 565282b2da5383c1d3471337f64588f97157a79c
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 098cfa1784571856cbd80d55fec4e6232e882d17
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328679"
+ms.locfileid: "92339854"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
@@ -227,7 +227,7 @@ Saiba mais no [Azure Defender para Key Vault](defender-for-key-vault-introductio
 
 **O Azure Defender for Storage** deteta atividade potencialmente prejudicial nas suas contas de Armazenamento Azure. Os seus dados podem ser protegidos quer sejam armazenados como recipientes blob, partilhas de ficheiros ou lagos de dados.
 
-O suporte para [ficheiros Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) e [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) está disponível em geral.
+O suporte para [ficheiros Azure](../storage/files/storage-files-introduction.md) e [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) está disponível em geral.
 
 A partir de 1 de outubro de 2020, começaremos a cobrar pela proteção de recursos nestes serviços.
 
@@ -363,7 +363,7 @@ As seguintes recomendações de segurança relacionadas com grupos de segurança
 
 ### <a name="deprecated-preview-aks-recommendation-pod-security-policies-should-be-defined-on-kubernetes-services"></a>Recomendação precída da AKS "As políticas de segurança do pod devem ser definidas nos Serviços Kubernetes"
 
-A recomendação de pré-visualização "Pod Security Policies deve ser definida nos Serviços Kubernetes" está a ser depreciada como descrito na documentação do [Serviço Azure Kubernetes.](https://docs.microsoft.com/azure/aks/use-pod-security-policies)
+A recomendação de pré-visualização "Pod Security Policies deve ser definida nos Serviços Kubernetes" está a ser depreciada como descrito na documentação do [Serviço Azure Kubernetes.](../aks/use-pod-security-policies.md)
 
 A funcionalidade de política de segurança do pod (pré-visualização), está definida para depreciação e deixará de estar disponível a partir de 15 de outubro de 2020 a favor da Azure Policy for AKS.
 
@@ -481,7 +481,7 @@ Saiba mais sobre [o inventário de ativos.](asset-inventory.md)
 
 ### <a name="added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication"></a>Suporte adicional para padrão de segurança do Azure Ative Directory (para autenticação de vários fatores)
 
-O Security Center adicionou suporte total para [falhas de segurança,](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults)as proteções de segurança de identidade gratuitas da Microsoft.
+O Security Center adicionou suporte total para [falhas de segurança,](../active-directory/fundamentals/concept-fundamentals-security-defaults.md)as proteções de segurança de identidade gratuitas da Microsoft.
 
 Os incumprimentos de segurança fornecem configurações de segurança de identidade pré-configuradas para defender a sua organização de ataques comuns relacionados com a identidade. Incumprimentos de segurança já protegem mais de 5 milhões de inquilinos em geral; 50.000 inquilinos também estão protegidos pelo Centro de Segurança.
 
@@ -489,7 +489,7 @@ O Security Center fornece agora uma recomendação de segurança sempre que iden
 
 O nosso objetivo é incentivar mais clientes a garantir os seus ambientes em nuvem com MFA, e mitigar um dos maiores riscos que é também o mais impactante para a sua [pontuação segura.](secure-score-security-controls.md)
 
-Saiba mais sobre [os incumprimentos de segurança.](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults)
+Saiba mais sobre [os incumprimentos de segurança.](../active-directory/fundamentals/concept-fundamentals-security-defaults.md)
 
 
 ### <a name="service-principals-recommendation-added"></a>Recomendação dos diretores de serviço adicionada
@@ -498,7 +498,7 @@ Foi adicionada uma nova recomendação para recomendar que os clientes do Securi
 
 A recomendação, **os principais do serviço devem ser usados para proteger as suas subscrições em vez de Certificados de Gestão** aconselha-o a usar os Principais de Serviço ou O Gestor de Recursos Azure para gerir mais de forma mais segura as suas subscrições. 
 
-Saiba mais sobre [aplicações e objetos principais de serviço no Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object).
+Saiba mais sobre [aplicações e objetos principais de serviço no Azure Ative Directory](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object).
 
 
 ### <a name="vulnerability-assessment-on-vms---recommendations-and-policies-consolidated"></a>Avaliação da vulnerabilidade em VMs - recomendações e políticas consolidadas
@@ -679,7 +679,7 @@ Estão a ser depreciadas seis políticas relacionadas com a segurança avançada
 - As notificações por e-mail aos administradores e proprietários de subscrições devem ser ativadas em definições avançadas de segurança de dados de casos DE SQL
 - As notificações por e-mail para administradores e proprietários de subscrições devem ser ativadas nas definições avançadas de segurança de dados do servidor SQL
 
-Saiba mais sobre [políticas incorporadas.](security-center-policy-definitions.md)
+Saiba mais sobre [políticas incorporadas.](./policy-reference.md)
 
 
 
@@ -699,7 +699,7 @@ As atualizações em junho incluem:
 
 ### <a name="secure-score-api-preview"></a>API de pontuação segura (pré-visualização)
 
-Pode agora aceder à sua pontuação através da [pontuação segura API](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (atualmente em pré-visualização). Os métodos API fornecem a flexibilidade para consultar os dados e construir o seu próprio mecanismo de reporte das suas pontuações seguras ao longo do tempo. Por exemplo, pode utilizar a API **de Pontuações Seguras** para obter a pontuação de uma subscrição específica. Além disso, pode utilizar a API **de Controlos de Pontuação Segura** para listar os controlos de segurança e a pontuação atual das suas subscrições.
+Pode agora aceder à sua pontuação através da [pontuação segura API](/rest/api/securitycenter/securescores/) (atualmente em pré-visualização). Os métodos API fornecem a flexibilidade para consultar os dados e construir o seu próprio mecanismo de reporte das suas pontuações seguras ao longo do tempo. Por exemplo, pode utilizar a API **de Pontuações Seguras** para obter a pontuação de uma subscrição específica. Além disso, pode utilizar a API **de Controlos de Pontuação Segura** para listar os controlos de segurança e a pontuação atual das suas subscrições.
 
 Por exemplo, ferramentas externas possibilitadas com a pontuação segura API, consulte [a área de pontuação segura da nossa comunidade GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score).
 
@@ -725,7 +725,7 @@ Saiba mais sobre [a segurança avançada de dados para máquinas SQL](defender-f
 
 ### <a name="two-new-recommendations-to-deploy-the-log-analytics-agent-to-azure-arc-machines-preview"></a>Duas novas recomendações para implantar o agente Log Analytics nas máquinas Azure Arc (pré-visualização)
 
-Foram adicionadas duas novas recomendações para ajudar a implantar o [Agente Desanalização](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) do Log para as suas máquinas Azure Arc e garantir que estão protegidas pelo Azure Security Center:
+Foram adicionadas duas novas recomendações para ajudar a implantar o [Agente Desanalização](../azure-monitor/platform/log-analytics-agent.md) do Log para as suas máquinas Azure Arc e garantir que estão protegidas pelo Azure Security Center:
 
 - **O agente Log Analytics deve ser instalado nas suas máquinas Azure Arc baseadas no Windows (Pré-visualização)**
 - **O agente Log Analytics deve ser instalado nas suas máquinas Azure Arc baseadas em Linux (Pré-visualização)**
@@ -921,11 +921,11 @@ As três recomendações que se moveram são:
 
 As duas novas recomendações adicionadas ao controlo são:
 
-- **A extensão de configuração do hóspede deve ser instalada em máquinas virtuais do Windows (Preview)** - A utilização da [Configuração do Hóspede Azure Policy](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) proporciona visibilidade dentro de máquinas virtuais para configurações de servidor e aplicação (apenas Windows).
+- **A extensão de configuração do hóspede deve ser instalada em máquinas virtuais do Windows (Preview)** - A utilização da [Configuração do Hóspede Azure Policy](../governance/policy/concepts/guest-configuration.md) proporciona visibilidade dentro de máquinas virtuais para configurações de servidor e aplicação (apenas Windows).
 
 - A **Proteção de Exploração do Windows Defender deve ser ativada nas suas máquinas (Preview)** - O Windows Defender Exploit Guard aproveita o agente de configuração de convidados Azure Policy. A Exploit Guard tem quatro componentes que são projetados para bloquear dispositivos contra uma grande variedade de vetores de ataque e comportamentos de bloqueio geralmente usados em ataques de malware, ao mesmo tempo que permite às empresas equilibrar os seus requisitos de risco de segurança e produtividade (apenas Windows).
 
-Saiba mais sobre o Windows Defender Exploit Guard in [Create e implemente uma política de Exploit Guard](https://docs.microsoft.com/mem/configmgr/protect/deploy-use/create-deploy-exploit-guard-policy).
+Saiba mais sobre o Windows Defender Exploit Guard in [Create e implemente uma política de Exploit Guard](/mem/configmgr/protect/deploy-use/create-deploy-exploit-guard-policy).
 
 Saiba mais sobre os controlos de segurança na [pontuação de segurança melhorada (pré-visualização)](secure-score-security-controls.md).
 

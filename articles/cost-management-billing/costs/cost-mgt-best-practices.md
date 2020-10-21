@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 729150188e918d4964f8abe729c66032d8e6c9c0
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 4dd22427038bc7c4052ee714c3ec3ce45d7a1837
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689155"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132827"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Como otimizar o investimento na cloud com o Azure Cost Management
 
@@ -126,7 +126,7 @@ Para obter mais informações, consulte a [calculadora de preços do Azure](http
 
 O Azure Migrate é um serviço que avalia as cargas de trabalho atuais da sua organização em datacenters no local. Dá-lhe uma ideia daquilo que poderá precisar de uma solução de substituição do Azure. Primeiro, o Azure Migrate analisa as máquinas virtuais no local para determinar se a migração é viável. Depois, recomenda o dimensionamento de VM no Azure para maximizar o desempenho. Por fim, cria também uma estimativa de custos para uma solução baseada no Azure.
 
-Para obter mais informações, veja [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-services-overview).
+Para obter mais informações, veja [Azure Migrate](../../migrate/migrate-services-overview.md).
 
 ## <a name="analyze-and-manage-your-costs"></a>Analisar e gerir os custos
 

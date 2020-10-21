@@ -7,18 +7,18 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 4387a1aa5b22c9808f36364b71f89a71736958b8
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: aba6ea467788c51d179ef9377243efb6035b6f98
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689478"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148361"
 ---
 # <a name="charge-back-azure-reservation-costs"></a>Fazer o estorno dos custos das Reservas do Azure
 
 Os leitores de faturação do Contrato Enterprise e do Contrato de Cliente Microsoft podem ver os dados dos custos amortizados referentes a reservas. Podem utilizar os dados dos custos para fazer o estorno do valor monetário de uma subscrição, grupo de recursos, recurso ou de uma etiqueta para os seus parceiros. Nos dados amortizados, o preço efetivo corresponde ao custo da reserva horária proporcional. O custo corresponde ao custo total da utilização da reserva pelo recurso nesse dia.
 
-Os utilizadores com uma subscrição individual podem obter os dados do custo amortizado a partir do respetivo ficheiro de utilização. Quando um recurso obtém um desconto de reserva, a secção *AdditionalInfo* no ficheiro de utilização contém os detalhes da reserva. Para obter mais informações, veja [Transferir a utilização do portal do Azure](https://docs.microsoft.com/azure/cost-management-billing/understand/download-azure-daily-usage#download-usage-from-the-azure-portal-csv).
+Os utilizadores com uma subscrição individual podem obter os dados do custo amortizado a partir do respetivo ficheiro de utilização. Quando um recurso obtém um desconto de reserva, a secção *AdditionalInfo* no ficheiro de utilização contém os detalhes da reserva. Para obter mais informações, veja [Transferir a utilização do portal do Azure](../understand/download-azure-daily-usage.md#download-usage-from-the-azure-portal-csv).
 
 ## <a name="get-reservation-charge-back-data-for-chargeback"></a>Obter dados de estorno da reserva para estorno
 

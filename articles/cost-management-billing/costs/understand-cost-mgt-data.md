@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.openlocfilehash: 904ea7a50e4546d2721a9e701c78b6b77ed2d43a
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a9ec5fd7d6e93d4413e86b5c9433cb6c0c9b59a1
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683186"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132317"
 ---
 # <a name="understand-cost-management-data"></a>Compreender os dados do Cost Management
 
@@ -110,7 +110,7 @@ O Azure Cost Management recebe etiquetas como parte de cada registo de utilizaç
 
 - As etiquetas têm de ser aplicadas diretamente aos recursos e não são implicitamente herdadas do grupo de recursos principal.
 - As etiquetas de recursos são suportadas apenas para recursos implementados em grupos de recursos.
-- Alguns recursos implementados podem não suportar etiquetas ou não incluir etiquetas nos dados de utilização – veja [Suporte de etiquetas para recursos do Azure](../../azure-resource-manager/tag-support.md).
+- Alguns recursos implementados podem não suportar etiquetas ou não incluir etiquetas nos dados de utilização – veja [Suporte de etiquetas para recursos do Azure](../../azure-resource-manager/management/tag-support.md).
 - As etiquetas de recursos só são incluídas nos dados de utilização enquanto a etiqueta é aplicada – as etiquetas não são aplicadas a dados históricos.
 - As etiquetas de recursos só estão disponíveis no Cost Management depois de os dados serem atualizados – veja [Atualizações e retenção de dados de custos e utilização](#cost-and-usage-data-updates-and-retention).
 - As etiquetas de recursos só estão disponíveis no Cost Management quando o recurso estiver ativo/em execução e a produzir registos de utilização (por exemplo, quando uma VM está desalocada).
@@ -121,7 +121,7 @@ Se não vir uma etiqueta específica no Cost Management, considere o seguinte:
 
 - A etiqueta foi aplicada diretamente no recurso?
 - A etiqueta foi aplicada há mais de 24 horas? Veja [Atualizações e retenção de dados de custos e utilização](#cost-and-usage-data-updates-and-retention)
-- O tipo de recurso suporta etiquetas? Os seguintes tipos de recursos não suportam etiquetas nos dados de utilização a partir de 1 de dezembro de 2019. Veja [Suporte de etiquetas para recursos do Azure](../../azure-resource-manager/tag-support.md) para obter a lista completa do que é suportado.
+- O tipo de recurso suporta etiquetas? Os seguintes tipos de recursos não suportam etiquetas nos dados de utilização a partir de 1 de dezembro de 2019. Veja [Suporte de etiquetas para recursos do Azure](../../azure-resource-manager/management/tag-support.md) para obter a lista completa do que é suportado.
     - Diretórios do Azure Active Directory B2C
     - Azure Bastion
     - Azure Firewalls
@@ -185,4 +185,4 @@ Os dados históricos de ofertas baseadas em crédito e de pré-pagamento podem n
 
 ## <a name="see-also"></a>Consulte também
 
-- Se ainda não tiver concluído o primeiro início rápido do Cost Management, leia-o em [Começar a analisar os custos](../../cost-management/quick-acm-cost-analysis.md).
+- Se ainda não tiver concluído o primeiro início rápido do Cost Management, leia-o em [Começar a analisar os custos](./quick-acm-cost-analysis.md).

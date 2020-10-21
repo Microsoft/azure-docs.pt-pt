@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: banders
-ms.openlocfilehash: d2d098c3a80bbbdb8c9fb64b25cc5967ee693046
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: ae504072e2a2cc481217933478ccbfb7bc3372b3
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371410"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132368"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Transferir subscrições do Azure entre subscritores e CSPs
 
@@ -26,7 +26,7 @@ Os parceiros CSP de faturação direta certificados como [Azure Expert Managed S
 Quando o pedido for aprovado, o CSP poderá disponibilizar uma fatura combinada aos clientes. Para saber mais acerca da transferência de subscrições pelos CSPs, veja [ Obter a propriedade de faturação da conta MPA](mpa-request-ownership.md).
 
 >[!IMPORTANT]
-> Depois de transferir uma subscrição de EA para um parceiro CSP, quaisquer aumentos de quota anteriormente aplicados à subscrição de EA serão repostos para o valor predefinido. Se uma quota adicional for obrigatória após a transferência da subscrição, peça ao fornecedor CSP que envie um pedido de [aumento de quota](https://docs.microsoft.com/azure/azure-portal/supportability/regional-quota-requests). 
+> Depois de transferir uma subscrição de EA para um parceiro CSP, quaisquer aumentos de quota anteriormente aplicados à subscrição de EA serão repostos para o valor predefinido. Se uma quota adicional for obrigatória após a transferência da subscrição, peça ao fornecedor CSP que envie um pedido de [aumento de quota](../../azure-portal/supportability/regional-quota-requests.md). 
 
 ## <a name="other-subscription-transfers-to-a-csp-partner"></a>Outras transferências de subscrições para um parceiro CSP
 
@@ -42,7 +42,7 @@ Para transferir quaisquer outras subscrições do Azure para um parceiro CSP, o 
 1. Antes de começar, [confirme](/rest/api/resources/resources/validatemoveresources) que todos os recursos do Azure podem ser movidos da subscrição de origem para a subscrição de destino.  
     Alguns recursos do Azure não podem ser movidos entre subscrições. Para ver a lista completa dos recursos do Azure que podem ser movidos, veja [Suporte da operação de transferência de recursos](../../azure-resource-manager/management/move-support-resources.md).
     > [!IMPORTANT]
-    >  - O Azure CSP só suporta recursos do Azure Resource Manager. Se os recursos do Azure na subscrição de origem tiverem sido criados através do modelo de implementação clássica do Azure, terá de os migrar para o [Azure Resource Manager](https://docs.microsoft.com/azure/cloud-solution-provider/migration/ea-payg-to-azure-csp/ea-open-direct-asm-to-arm) antes da migração. Tem de ser um parceiro para ver a página Web.
+    >  - O Azure CSP só suporta recursos do Azure Resource Manager. Se os recursos do Azure na subscrição de origem tiverem sido criados através do modelo de implementação clássica do Azure, terá de os migrar para o [Azure Resource Manager](/azure/cloud-solution-provider/migration/ea-payg-to-azure-csp/ea-open-direct-asm-to-arm) antes da migração. Tem de ser um parceiro para ver a página Web.
 
 1. Confirme que todos os serviços da subscrição de origem utilizam o modelo do Azure Resource Manager. Em seguida, transfira os recursos da subscrição de origem para a subscrição de destino com [Mover Recursos do Azure](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
     > [!IMPORTANT]

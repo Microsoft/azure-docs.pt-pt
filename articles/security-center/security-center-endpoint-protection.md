@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/29/2019
 ms.author: memildin
-ms.openlocfilehash: 8cc12ba40b6722f75e4f3f4e8ce7023a0523c278
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 778feda8d72101d4ae2a0f0c27549701dfb53340
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219671"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341418"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Avaliação e recomendações de proteção de pontos finais no Centro de Segurança Azure
 
@@ -29,9 +29,9 @@ O Azure Security Center fornece avaliações de saúde de versões [suportadas](
 
 ## <a name="windows-defender"></a>Windows Defender
 
-* O Security Center recomenda que **"Instale soluções de proteção de pontos finais na máquina virtual"** quando o [Get-MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps&preserve-view=true) for executado e o resultado é **AMServiceEnabled: Falso**
+* O Security Center recomenda que **"Instale soluções de proteção de pontos finais na máquina virtual"** quando o [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus?preserve-view=true&view=win10-ps) for executado e o resultado é **AMServiceEnabled: Falso**
 
-* O Security Center recomenda que **"Resolva problemas de saúde de proteção de ponto final nas suas máquinas"** quando o [Get-MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps&preserve-view=true) for executado e qualquer um dos seguintes ocorre:
+* O Security Center recomenda que **"Resolva problemas de saúde de proteção de ponto final nas suas máquinas"** quando o [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus?preserve-view=true&view=win10-ps) for executado e qualquer um dos seguintes ocorre:
 
   * Qualquer uma das seguintes propriedades são falsas:
 

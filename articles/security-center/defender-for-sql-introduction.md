@@ -8,16 +8,16 @@ ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 328a565dbb22a13c71a7001d43941e7be062dff9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7301f6bbb33c3eedff2e8c41edeaacb3df66d4c2
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449058"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342030"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Introdução ao Azure Defender para o SQL
 
-O Azure Defender for SQL inclui dois planos do Azure Defender que alargam o pacote de segurança de [dados](../azure-sql/database/advanced-data-security.md) do Azure Security Center para proteger as suas bases de dados e os seus dados onde quer que estejam localizados. 
+O Azure Defender for SQL inclui dois planos do Azure Defender que alargam o pacote de segurança de [dados](../azure-sql/database/azure-defender-for-sql.md) do Azure Security Center para proteger as suas bases de dados e os seus dados onde quer que estejam localizados. 
 
 ## <a name="availability"></a>Disponibilidade
 
@@ -26,7 +26,7 @@ O Azure Defender for SQL inclui dois planos do Azure Defender que alargam o paco
 |Estado de libertação:|**Azure Defender para servidores de base de dados Azure SQL** - Geralmente disponível (GA)<br>**Azure Defender para servidores SQL em máquinas** - Pré-visualização|
 |Preços:|Os dois planos que formam **o Azure Defender para o SQL** são faturados como mostrado na [página de preços](security-center-pricing.md)|
 |Versões SQL protegidas:|Base de Dados SQL do Azure <br>Instância Gerida do Azure SQL<br>Azure Synapse Analytics (anteriormente SQL DW)<br>SQL Server (todas as versões suportadas)|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov<br>![Não](./media/icons/no-icon.png) China Gov, Outro Gov|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Outro Gov|
 |||
 
 ## <a name="what-does-azure-defender-for-sql-protect"></a>O que a Azure Defender protege para a SQL?
@@ -69,5 +69,5 @@ Neste artigo, você aprendeu sobre Azure Defender para a SQL.
 Para obter material relacionado, consulte os seguintes artigos: 
 
 - [Como ativar o Azure Defender para servidores SQL em máquinas](defender-for-sql-usage.md)
-- [Como ativar o Azure Defender para servidores de base de dados SQL](../azure-sql/database/advanced-data-security.md)
+- [Como ativar o Azure Defender para servidores de base de dados SQL](../azure-sql/database/azure-defender-for-sql.md)
 - [A lista de alertas do Azure Defender para o SQL](alerts-reference.md#alerts-sql-db-and-warehouse)

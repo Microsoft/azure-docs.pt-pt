@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: f701e41c62336bcd7638360a27a0fb4c3ce3ec7d
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 71561f6ecdde09f259e54260e7bab4dcc0e85c98
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686671"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132640"
 ---
 # <a name="troubleshoot-viewing-your-billing-account-in-the-azure-portal"></a>Resolver problemas relativos à visualização da conta de faturação no portal do Azure
 
@@ -59,7 +59,7 @@ Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://ms.p
 
 Leia os seguintes artigos relativos à faturação e subscrições para ajudar a resolver problemas.
 
-- [Cartão rejeitado](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-declined-card)
-- [Problemas ao iniciar sessão na subscrição](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-sign-in-issue)
-- [Não foram encontradas subscrições](https://docs.microsoft.com/azure/cost-management-billing/manage/no-subscriptions-found)
-- [Vista de custos empresariais desativada](https://docs.microsoft.com/azure/cost-management-billing/manage/enterprise-mgmt-grp-troubleshoot-cost-view)
+- [Cartão rejeitado](./troubleshoot-declined-card.md)
+- [Problemas ao iniciar sessão na subscrição](./troubleshoot-sign-in-issue.md)
+- [Não foram encontradas subscrições](./no-subscriptions-found.md)
+- [Vista de custos empresariais desativada](./enterprise-mgmt-grp-troubleshoot-cost-view.md)

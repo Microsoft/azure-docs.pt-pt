@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 553652832f3f4ce84a0a141455551e4977215184
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 32db8396a687428c668a9b8a4213b50986614083
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684427"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150125"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Trocas e reembolsos personalizados das Reservas do Azure
 
@@ -21,7 +21,7 @@ As Reservas do Azure fornecem flexibilidade para ajudar a dar resposta às suas 
 A capacidade de troca self-service e de cancelamento não está disponível para os clientes com o Contrato Enterprise US Government. São suportados outros tipos de subscrições de administração pública dos EUA, incluindo Pay As You Go e Fornecedor de Soluções Cloud (CSP).
 
 > [!NOTE]
-> - **Tem de ter acesso de proprietário na Encomenda de Reserva para trocar ou reembolsar uma reserva existente**. Pode [Adicionar ou alterar os utilizadores que podem gerir reservas](https://docs.microsoft.com/azure/cost-management-billing/reservations/manage-reserved-vm-instance#add-or-change-users-who-can-manage-a-reservation).
+> - **Tem de ter acesso de proprietário na Encomenda de Reserva para trocar ou reembolsar uma reserva existente**. Pode [Adicionar ou alterar os utilizadores que podem gerir reservas](./manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 > - Atualmente, a Microsoft não cobra taxas de rescisão antecipadas relativamente a reembolsos de reservas. Poderemos cobrar estas taxas em reembolsos feitos no futuro. Não temos data para a aplicação desta taxa neste momento.
 
 ## <a name="how-to-exchange-or-refund-an-existing-reservation"></a>Como trocar ou reembolsar reservas já existentes

@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 10/15/2019
 ms.author: cavoeg
-ms.openlocfilehash: 07221e0cf8feeef48de27a84450c28b08d22e0d3
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 2cb50f2ae98dab1e64e01498e0913d1932e455cd
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217495"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339412"
 ---
 # <a name="quickstart-deploy-azure-api-for-fhir-using-powershell"></a>Quickstart: Implementar API Azure para FHIR utilizando PowerShell
 
@@ -58,7 +58,7 @@ $metadata = Invoke-WebRequest -Uri "https://nameoffhirservice.azurehealthcareapi
 $metadata.RawContent
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não continuar a utilizar esta aplicação, elimine o grupo de recursos com os seguintes passos:
 
@@ -68,7 +68,10 @@ Remove-AzResourceGroup -Name myResourceGroupName
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de arranque rápido, colocou a API Azure para fHIR na sua subscrição. Para definir definições adicionais na sua API Azure para FHIR, proceda às definições adicionais como orientar.
+Neste guia de arranque rápido, colocou a API Azure para fHIR na sua subscrição. Para definir definições adicionais na sua API Azure para FHIR, proceda às definições adicionais como orientar. Se estiver pronto para começar a usar a API Azure para FHIR, leia mais sobre como registar as aplicações.
 
 >[!div class="nextstepaction"]
 >[Definições adicionais em API Azure para FHIR](azure-api-for-fhir-additional-settings.md)
+
+>[!div class="nextstepaction"]
+>[Visão geral das candidaturas do registo](fhir-app-registration.md)

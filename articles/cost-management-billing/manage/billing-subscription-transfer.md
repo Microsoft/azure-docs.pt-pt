@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: 1fedad7dac4c253c68a0f27d0e0470123833a3be
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: d2814a989cb82216081083f3198d52ccd70210ff
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91666114"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131926"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de faturação de uma subscrição do Azure para outra conta
 
@@ -69,7 +69,7 @@ Se aceitou a propriedade de faturação de uma subscrição do Azure, recomendam
 1. Reveja e atualize Azure Administrador de Serviço, Coadministradores e as atribuições de funções do Azure. Para saber mais, veja [Adicionar ou alterar os administradores da subscrição](add-change-subscription-administrator.md) e [Adicionar ou remover atribuições de funções do Azure com o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
 1. Atualize as credenciais associadas aos serviços desta subscrição, incluindo:
    1. Os certificados de gestão que concedem ao utilizador direitos de administrador aos recursos da subscrição. Para obter mais informações, veja [Criar e carregar um certificado de gestão para o Azure](../../cloud-services/cloud-services-certs-create.md)
-   1. As chaves de acesso para serviços, como o Armazenamento. Para obter mais informações, veja [Acerca das contas de armazenamento do Azure](../../storage/common/storage-create-storage-account.md)
+   1. As chaves de acesso para serviços, como o Armazenamento. Para obter mais informações, veja [Acerca das contas de armazenamento do Azure](../../storage/common/storage-account-create.md)
    1. As credenciais de Acesso Remoto para serviços, como as Máquinas Virtuais do Azure.
 1. Se estiver a trabalhar com um parceiro, considere atualizar o ID do parceiro nesta subscrição. Pode atualizar a ID do parceiro no [portal do Azure](https://portal.azure.com). Para obter mais informações, veja [Ligar uma ID de parceiro às suas contas do Azure](link-partner-id.md)
 
