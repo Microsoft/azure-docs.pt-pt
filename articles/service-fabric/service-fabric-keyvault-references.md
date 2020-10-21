@@ -3,12 +3,12 @@ title: Tecido de serviço Azure - Utilização da aplicação de tecido de servi
 description: Este artigo explica como usar o suporte de teclado keyVaultReference de tecido de serviço para segredos de aplicação.
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: c4de6ae17ae728e1dbadbd6d6e2d94c0e1471112
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2221bb3e8e3ee3181b2cff70107dccc203954cf
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261146"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313799"
 ---
 # <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Suporte keyVaultReference para aplicações de Tecido de Serviço (pré-visualização)
 
@@ -18,7 +18,7 @@ Um desafio comum ao construir aplicações em nuvem é como armazenar de forma s
 > A utilização desta função de pré-visualização não é recomendada em ambientes de produção.
 
 > [!NOTE]
-> A funcionalidade de pré-visualização de referência keyVault suporta apenas segredos [versados.](https://docs.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#objects-identifiers-and-versioning) Segredos sem versão não são suportados.
+> A funcionalidade de pré-visualização de referência keyVault suporta apenas segredos [versados.](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning) Segredos sem versão não são suportados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

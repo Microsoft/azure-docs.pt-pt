@@ -930,7 +930,7 @@
     - name: Notas de versão
       href: release-notes.md
     - name: Código de exemplo
-      href: 'https://aka.ms/servicefabricsamples'
+      href: /samples/browse/?products=azure
     - name: Opções de suporte
       href: service-fabric-support.md
     - name: Versões do Service Fabric

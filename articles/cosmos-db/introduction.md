@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: 2301219db250b97fd7ea2eb3814f5eba2c70148a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aad69a34cc27f341bec5beda0f52e2581538aaf9
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91569874"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278425"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bem-vindo ao Azure Cosmos DB
 
@@ -60,7 +60,7 @@ O Cosmos DB é um serviço fundamental no Azure. Durante quase uma década, a C
 
 ### <a name="ubiquitous-regional-presence"></a>Presença regional ubíqua
 
-Cosmos DB está disponível em todas as regiões do Azure em todo o mundo, incluindo 54 regiões em nuvem pública, [Azure China 21Vianet](https://www.azure.cn/en-us/), Azure Germany, Azure Government, e Azure Government for Department of Defense (DoD). Veja a [presença regional da Cosmos DB.](regional-presence.md)
+Cosmos DB está disponível em todas as regiões do Azure em todo o mundo, incluindo 54 regiões em nuvem pública, [Azure China 21Vianet](https://www.azure.cn/en-us/), Azure Germany, Azure Government, e Azure Government for Department of Defense (DoD). Ver [Alta disponibilidade com Azure Cosmos DB](high-availability.md).
 
 ### <a name="secure-by-default-and-enterprise-ready"></a>Seguro por defeito e empresa pronta
 

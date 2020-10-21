@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: c8bc9e844687c85255be972011eba03e9c38de48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3910b6ffcce6c5bc4a8d565071c4b07db9e3ff63
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488308"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279021"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guia de referência para a utilização de funções em expressões para Apps lógicas Azure e Automatização de Energia
 
@@ -153,7 +153,7 @@ Para alterar o tipo ou formato de um valor, pode utilizar estas funções de con
 | [base64](../logic-apps/workflow-definition-language-functions-reference.md#base64) | Retornar a versão codificada base64 para uma cadeia. |
 | [base64ToBinary](../logic-apps/workflow-definition-language-functions-reference.md#base64ToBinary) | Devolva a versão binária para uma cadeia codificada base64. |
 | [base64ToString](../logic-apps/workflow-definition-language-functions-reference.md#base64ToString) | Devolva a versão de corda para uma corda codificada base64. |
-| [binário](../logic-apps/workflow-definition-language-functions-reference.md#binary) | Devolva a versão binária por um valor de entrada. |
+| [binary](../logic-apps/workflow-definition-language-functions-reference.md#binary) | Devolva a versão binária por um valor de entrada. |
 | [bool](../logic-apps/workflow-definition-language-functions-reference.md#bool) | Devolva a versão Boolean por um valor de entrada. |
 | [criarArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray) | Retornar uma matriz de várias entradas. |
 | [dataUri](../logic-apps/workflow-definition-language-functions-reference.md#dataUri) | Devolva os dados URI por um valor de entrada. |
@@ -166,7 +166,7 @@ Para alterar o tipo ou formato de um valor, pode utilizar estas funções de con
 | [flutuante](../logic-apps/workflow-definition-language-functions-reference.md#float) | Devolva um número de ponto flutuante para obter um valor de entrada. |
 | [int](../logic-apps/workflow-definition-language-functions-reference.md#int) | Devolva a versão inteiro por uma corda. |
 | [json](../logic-apps/workflow-definition-language-functions-reference.md#json) | Retornar o valor ou objeto do tipo JavaScript (JSON) para uma cadeia ou XML. |
-| [cadeia](../logic-apps/workflow-definition-language-functions-reference.md#string) | Devolva a versão de corda para obter um valor de entrada. |
+| [string](../logic-apps/workflow-definition-language-functions-reference.md#string) | Devolva a versão de corda para obter um valor de entrada. |
 | [uriComponente](../logic-apps/workflow-definition-language-functions-reference.md#uriComponent) | Retornar a versão codificada uri por um valor de entrada substituindo caracteres inseguros por URL por caracteres de fuga. |
 | [uriComponentToBinary](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToBinary) | Devolva a versão binária para uma corda codificada uri. |
 | [uriComponentToString](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToString) | Devolva a versão de corda para uma corda codificada uri. |
@@ -358,7 +358,7 @@ action().outputs.body.<property>
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | -----| ----------- |
-| <*ação-saída*> | Cadeia | A saída da ação ou propriedade atual |
+| <*ação-saída*> | String | A saída da ação ou propriedade atual |
 ||||
 
 <a name="actionBody"></a>
@@ -380,7 +380,7 @@ actionBody('<actionName>')
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | -----| ----------- |
-| <*acção-corpo-saída*> | Cadeia | A `body` saída da ação especificada |
+| <*acção-corpo-saída*> | String | A `body` saída da ação especificada |
 ||||
 
 *Exemplo*
@@ -425,7 +425,7 @@ actionOutputs('<actionName>')
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | -----| ----------- |
-| <*saída*> | Cadeia | A saída da ação especificada |
+| <*saída*> | String | A saída da ação especificada |
 ||||
 
 *Exemplo*
@@ -499,7 +499,7 @@ actions('<actionName>').outputs.body.<property>
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | -----| ----------- |
-| <*ação-saída*> | Cadeia | A saída da ação ou propriedade especificada |
+| <*ação-saída*> | String | A saída da ação ou propriedade especificada |
 ||||
 
 *Exemplo*
@@ -561,7 +561,7 @@ addDays('<timestamp>', <days>, '<format>'?)
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*hora atualizada*> | Cadeia | A hora da hora mais o número especificado de dias  |
+| <*hora atualizada*> | String | A hora da hora mais o número especificado de dias  |
 ||||
 
 *Exemplo 1*
@@ -603,7 +603,7 @@ addHours('<timestamp>', <hours>, '<format>'?)
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*hora atualizada*> | Cadeia | A hora da hora mais o número especificado de horas  |
+| <*hora atualizada*> | String | A hora da hora mais o número especificado de horas  |
 ||||
 
 *Exemplo 1*
@@ -645,7 +645,7 @@ addMinutes('<timestamp>', <minutes>, '<format>'?)
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*hora atualizada*> | Cadeia | A hora da hora mais o número especificado de minutos |
+| <*hora atualizada*> | String | A hora da hora mais o número especificado de minutos |
 ||||
 
 *Exemplo 1*
@@ -786,7 +786,7 @@ addSeconds('<timestamp>', <seconds>, '<format>'?)
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*hora atualizada*> | Cadeia | A hora da hora mais o número especificado de segundos  |
+| <*hora atualizada*> | String | A hora da hora mais o número especificado de segundos  |
 ||||
 
 *Exemplo 1*
@@ -830,7 +830,7 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*hora atualizada*> | Cadeia | A hora da hora mais o número especificado de unidades de tempo  |
+| <*hora atualizada*> | String | A hora da hora mais o número especificado de unidades de tempo  |
 ||||
 
 *Exemplo 1*
@@ -957,7 +957,7 @@ base64('<value>')
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*base64-string*> | Cadeia | A versão codificada de base64 para a cadeia de entrada |
+| <*base64-string*> | String | A versão codificada de base64 para a cadeia de entrada |
 ||||
 
 *Exemplo*
@@ -990,7 +990,7 @@ base64ToBinary('<value>')
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*binário-para-base64-corda*> | Cadeia | A versão binária para a cadeia codificada base64 |
+| <*binário-para-base64-corda*> | String | A versão binária para a cadeia codificada base64 |
 ||||
 
 *Exemplo*
@@ -1025,7 +1025,7 @@ base64ToString('<value>')
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*descodificada base64-cadeia*> | Cadeia | A versão de corda para uma cadeia codificada base64 |
+| <*descodificada base64-cadeia*> | String | A versão de corda para uma cadeia codificada base64 |
 ||||
 
 *Exemplo*
@@ -1055,7 +1055,7 @@ binary('<value>')
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*valor binário para a entrada*> | Cadeia | A versão binária para a cadeia especificada |
+| <*valor binário para a entrada*> | String | A versão binária para a cadeia especificada |
 ||||
 
 *Exemplo*
@@ -1089,7 +1089,7 @@ body('<actionName>')
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | -----| ----------- |
-| <*acção-corpo-saída*> | Cadeia | A `body` saída da ação especificada |
+| <*acção-corpo-saída*> | String | A `body` saída da ação especificada |
 ||||
 
 *Exemplo*
@@ -1205,7 +1205,7 @@ concat('<text1>', '<text2>', ...)
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*text1text2...*> | Cadeia | A corda criada a partir das cordas de entrada combinadas |
+| <*text1text2...*> | String | A corda criada a partir das cordas de entrada combinadas |
 ||||
 
 *Exemplo*
@@ -1283,7 +1283,7 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*tempotamp convertido*> | Cadeia | A hora convertida para o fuso horário alvo |
+| <*tempotamp convertido*> | String | A hora convertida para o fuso horário alvo |
 ||||
 
 *Exemplo 1*
@@ -1326,7 +1326,7 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*tempotamp convertido*> | Cadeia | A hora convertida para o fuso horário alvo |
+| <*tempotamp convertido*> | String | A hora convertida para o fuso horário alvo |
 ||||
 
 *Exemplo 1*
@@ -1368,7 +1368,7 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*tempotamp convertido*> | Cadeia | A hora convertida para UTC |
+| <*tempotamp convertido*> | String | A hora convertida para UTC |
 ||||
 
 *Exemplo 1*
@@ -1439,7 +1439,7 @@ dataUri('<value>')
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*data-uri*> | Cadeia | O dado URI para a cadeia de entrada |
+| <*data-uri*> | String | O dado URI para a cadeia de entrada |
 ||||
 
 *Exemplo*
@@ -1471,7 +1471,7 @@ dataUriToBinary('<value>')
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*binário-para-dados-uri*> | Cadeia | A versão binária para o dado URI |
+| <*binário-para-dados-uri*> | String | A versão binária para o dado URI |
 ||||
 
 *Exemplo*
@@ -1506,7 +1506,7 @@ dataUriToString('<value>')
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*string-for-data-uri*> | Cadeia | A versão de cadeia para o dado URI |
+| <*string-for-data-uri*> | String | A versão de cadeia para o dado URI |
 ||||
 
 *Exemplo*
@@ -1635,7 +1635,7 @@ decodeDataUri('<value>')
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*binário-para-dados-uri*> | Cadeia | A versão binária para uma cadeia URI de dados |
+| <*binário-para-dados-uri*> | String | A versão binária para uma cadeia URI de dados |
 ||||
 
 *Exemplo*
@@ -1670,7 +1670,7 @@ decodeUriComponent('<value>')
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*descodificado-uri*> | Cadeia | A cadeia atualizada com os caracteres de fuga descodificados |
+| <*descodificado-uri*> | String | A cadeia atualizada com os caracteres de fuga descodificados |
 ||||
 
 *Exemplo*
@@ -1742,7 +1742,7 @@ encodeUriComponent('<value>')
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*codificado-uri*> | Cadeia | A cadeia codificada uri com caracteres de fuga |
+| <*codificado-uri*> | String | A cadeia codificada uri com caracteres de fuga |
 ||||
 
 *Exemplo*
@@ -1836,7 +1836,7 @@ E devolve este resultado: `false`
 
 <a name="equals"></a>
 
-### <a name="equals"></a>equals
+### <a name="equals"></a>é igual a
 
 Verifique se ambos os valores, expressões ou objetos são equivalentes.
 Devolva-se quando ambos são equivalentes, ou devolva falso quando não são equivalentes.
@@ -1953,7 +1953,7 @@ formatDateTime('<timestamp>', '<format>'?)
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*reformatizado-timestamp*> | Cadeia | A datatampada atualizada no formato especificado |
+| <*reformatizado-timestamp*> | String | A datatampada atualizada no formato especificado |
 ||||
 
 *Exemplo*
@@ -2016,7 +2016,7 @@ formDataValue('<actionName>', '<key>')
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*valor-chave*> | Cadeia | O valor na chave especificada  |
+| <*valor-chave*> | String | O valor na chave especificada  |
 ||||
 
 *Exemplo*
@@ -2048,7 +2048,7 @@ formatNumber(<number>, <format>, <locale>?)
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*número formatado*> | Cadeia | O número especificado como uma cadeia no formato especificado. Pode lançar este valor de retorno para `int` um ou `float` . |
+| <*número formatado*> | String | O número especificado como uma cadeia no formato especificado. Pode lançar este valor de retorno para `int` um ou `float` . |
 ||||
 
 *Exemplo 1*
@@ -2102,7 +2102,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*hora atualizada*> | Cadeia | A datatamp atual mais o número especificado de unidades de tempo |
+| <*hora atualizada*> | String | A datatamp atual mais o número especificado de unidades de tempo |
 ||||
 
 *Exemplo 1*
@@ -2146,7 +2146,7 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*hora atualizada*> | Cadeia | O tempotando atual menos o número especificado de unidades de tempo |
+| <*hora atualizada*> | String | O tempotando atual menos o número especificado de unidades de tempo |
 ||||
 
 *Exemplo 1*
@@ -2268,7 +2268,7 @@ guid('<format>')
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*Valor GUID*> | Cadeia | Um GUID gerado aleatoriamente |
+| <*Valor GUID*> | String | Um GUID gerado aleatoriamente |
 ||||
 
 *Exemplo*
@@ -2648,7 +2648,7 @@ join([<collection>], '<delimiter>')
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*char1* >< *delimiter* >< *char2* ><> *delimitador...* | Cadeia | A cadeia resultante criada a partir de todos os itens na matriz especificada |
+| <*char1* >< *delimiter* >< *char2* ><> *delimitador...* | String | A cadeia resultante criada a partir de todos os itens na matriz especificada |
 ||||
 
 *Exemplo*
@@ -2862,7 +2862,7 @@ listCallbackUrl()
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*callback-URL*> | Cadeia | O URL de retorno para um gatilho ou ação |
+| <*callback-URL*> | String | O URL de retorno para um gatilho ou ação |
 ||||
 
 *Exemplo*
@@ -3022,7 +3022,7 @@ multipartBody('<actionName>', <index>)
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*corpo*> | Cadeia | O corpo para a parte especificada |
+| <*corpo*> | String | O corpo para a parte especificada |
 ||||
 
 <a name="not"></a>
@@ -3140,7 +3140,7 @@ outputs('<actionName>')
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | -----| ----------- |
-| <*saída*> | Cadeia | A saída da ação especificada |
+| <*saída*> | String | A saída da ação especificada |
 ||||
 
 *Exemplo*
@@ -3305,7 +3305,7 @@ replace('<text>', '<oldText>', '<newText>')
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*texto atualizado*> | Cadeia | A cadeia atualizada após a substituição do sub-cordão <p>Se o sub-adc de sublagem não for encontrado, devolva a corda original. |
+| <*texto atualizado*> | String | A cadeia atualizada após a substituição do sub-cordão <p>Se o sub-adc de sublagem não for encontrado, devolva a corda original. |
 ||||
 
 *Exemplo*
@@ -3708,7 +3708,7 @@ startOfDay('<timestamp>', '<format>'?)
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*hora atualizada*> | Cadeia | A marca de tempo especificada, mas a partir da marca de zero horas para o dia |
+| <*hora atualizada*> | String | A marca de tempo especificada, mas a partir da marca de zero horas para o dia |
 ||||
 
 *Exemplo*
@@ -3739,7 +3739,7 @@ startOfHour('<timestamp>', '<format>'?)
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*hora atualizada*> | Cadeia | A marca de tempo especificada, mas a partir da marca de zero minutos para a hora |
+| <*hora atualizada*> | String | A marca de tempo especificada, mas a partir da marca de zero minutos para a hora |
 ||||
 
 *Exemplo*
@@ -3770,7 +3770,7 @@ startOfMonth('<timestamp>', '<format>'?)
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*hora atualizada*> | Cadeia | A marca de tempo especificada, mas a partir do primeiro dia do mês na marca de zero horas |
+| <*hora atualizada*> | String | A marca de tempo especificada, mas a partir do primeiro dia do mês na marca de zero horas |
 ||||
 
 *Exemplo 1*
@@ -3853,7 +3853,7 @@ string(<value>)
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*valor de cordas*> | Cadeia | A versão de corda para o valor especificado. Se o parâmetro de *valor* for nulo ou avaliar a nulo, este valor é devolvido como um valor de cadeia vazia `""` ( ) |
+| <*valor de cordas*> | String | A versão de corda para o valor especificado. Se o parâmetro de *valor* for nulo ou avaliar a nulo, este valor é devolvido como um valor de cadeia vazia `""` ( ) |
 ||||
 
 
@@ -3934,7 +3934,7 @@ substring('<text>', <startIndex>, <length>)
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*subdiscípe-resultado*> | Cadeia | Um sub-cordão com o número especificado de caracteres, a partir da posição de índice especificado na cadeia de origem |
+| <*subdiscípe-resultado*> | String | Um sub-cordão com o número especificado de caracteres, a partir da posição de índice especificado na cadeia de origem |
 ||||
 
 *Exemplo*
@@ -3968,7 +3968,7 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*hora atualizada*> | Cadeia | O tempotamp menos o número especificado de unidades de tempo |
+| <*hora atualizada*> | String | O tempotamp menos o número especificado de unidades de tempo |
 ||||
 
 *Exemplo 1*
@@ -4064,7 +4064,7 @@ toLower('<text>')
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*texto minúsculo*> | Cadeia | A corda original em formato minúsculo |
+| <*texto minúsculo*> | String | A corda original em formato minúsculo |
 ||||
 
 *Exemplo*
@@ -4094,7 +4094,7 @@ toUpper('<text>')
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*texto maiúscula*> | Cadeia | A corda original em formato maiúscula |
+| <*texto maiúscula*> | String | A corda original em formato maiúscula |
 ||||
 
 *Exemplo*
@@ -4126,7 +4126,7 @@ trigger()
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*gatilho-saída*> | Cadeia | A saída de um gatilho no tempo de execução |
+| <*gatilho-saída*> | String | A saída de um gatilho no tempo de execução |
 ||||
 
 <a name="triggerBody"></a>
@@ -4143,7 +4143,7 @@ triggerBody()
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*gatilho-saída do corpo*> | Cadeia | A `body` saída do gatilho |
+| <*gatilho-saída do corpo*> | String | A `body` saída do gatilho |
 ||||
 
 <a name="triggerFormDataMultiValues"></a>
@@ -4194,7 +4194,7 @@ triggerFormDataValue('<key>')
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*valor-chave*> | Cadeia | O valor na chave especificada |
+| <*valor-chave*> | String | O valor na chave especificada |
 ||||
 
 *Exemplo*
@@ -4224,7 +4224,7 @@ triggerMultipartBody(<index>)
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*corpo*> | Cadeia | O corpo para a parte especificada na saída multipart de um gatilho |
+| <*corpo*> | String | O corpo para a parte especificada na saída multipart de um gatilho |
 ||||
 
 <a name="triggerOutputs"></a>
@@ -4241,7 +4241,7 @@ triggerOutputs()
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*gatilho-saída*> | Cadeia | A saída de um gatilho no tempo de execução  |
+| <*gatilho-saída*> | String | A saída de um gatilho no tempo de execução  |
 ||||
 
 <a name="trim"></a>
@@ -4261,7 +4261,7 @@ trim('<text>')
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*texto atualizado*> | Cadeia | Uma versão atualizada para a cadeia original sem liderar ou seguir espaço em branco |
+| <*texto atualizado*> | String | Uma versão atualizada para a cadeia original sem liderar ou seguir espaço em branco |
 ||||
 
 *Exemplo*
@@ -4325,7 +4325,7 @@ uriComponent('<value>')
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*codificado-uri*> | Cadeia | A cadeia codificada uri com caracteres de fuga |
+| <*codificado-uri*> | String | A cadeia codificada uri com caracteres de fuga |
 ||||
 
 *Exemplo*
@@ -4355,7 +4355,7 @@ uriComponentToBinary('<value>')
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*binário-para-codificado-uri*> | Cadeia | A versão binária para a cadeia codificada uri. O conteúdo binário é codificado e representado por `$content` . |
+| <*binário-para-codificado-uri*> | String | A versão binária para a cadeia codificada uri. O conteúdo binário é codificado e representado por `$content` . |
 ||||
 
 *Exemplo*
@@ -4390,7 +4390,7 @@ uriComponentToString('<value>')
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*descodificado-uri*> | Cadeia | A versão descodificada para a cadeia codificada uri |
+| <*descodificado-uri*> | String | A versão descodificada para a cadeia codificada uri |
 ||||
 
 *Exemplo*
@@ -4420,7 +4420,7 @@ uriHost('<uri>')
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*valor do hospedeiro*> | Cadeia | O `host` valor para o URI especificado |
+| <*valor do hospedeiro*> | String | O `host` valor para o URI especificado |
 ||||
 
 *Exemplo*
@@ -4450,7 +4450,7 @@ uriPath('<uri>')
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*valor do caminho*> | Cadeia | O `path` valor para o URI especificado. Se `path` não tiver um valor, devolva o caráter "/". |
+| <*valor do caminho*> | String | O `path` valor para o URI especificado. Se `path` não tiver um valor, devolva o caráter "/". |
 ||||
 
 *Exemplo*
@@ -4480,7 +4480,7 @@ uriPathAndQuery('<uri>')
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*caminho-consulta-valor*> | Cadeia | Os `path` `query` valores e valores para o URI especificado. Se `path` não especificar um valor, devolva o caractere "/". |
+| <*caminho-consulta-valor*> | String | Os `path` `query` valores e valores para o URI especificado. Se `path` não especificar um valor, devolva o caractere "/". |
 ||||
 
 *Exemplo*
@@ -4540,7 +4540,7 @@ uriQuery('<uri>')
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*consulta-valor*> | Cadeia | O `query` valor para o URI especificado |
+| <*consulta-valor*> | String | O `query` valor para o URI especificado |
 ||||
 
 *Exemplo*
@@ -4570,7 +4570,7 @@ uriScheme('<uri>')
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*valor do esquema*> | Cadeia | O `scheme` valor para o URI especificado |
+| <*valor do esquema*> | String | O `scheme` valor para o URI especificado |
 ||||
 
 *Exemplo*
@@ -4603,7 +4603,7 @@ Opcionalmente, pode especificar um formato diferente com o *<formato*> parâmetr
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*actual-timetamp*> | Cadeia | A data e hora atuais |
+| <*actual-timetamp*> | String | A data e hora atuais |
 ||||
 
 *Exemplo 1*
@@ -4767,7 +4767,21 @@ xpath('<xml>', '<xpath>')
 
 Suponha que tem esta `'items'` cadeia XML: 
 
-`"<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+```xml
+<?xml version="1.0"?>
+<produce>
+  <item>
+    <name>Gala</name>
+    <type>apple</type>
+    <count>20</count>
+  </item>
+  <item>
+    <name>Honeycrisp</name>
+    <type>apple</type>
+    <count>10</count>
+  </item>
+</produce>
+```
 
 Este exemplo passa na expressão XPath, `'/produce/item/name'` para encontrar os nó que combinam com o nó na cadeia `<name></name>` `'items'` XML, e devolve uma matriz com esses valores de nó:
 
@@ -4799,7 +4813,21 @@ Aqui está o resultado: `Honeycrisp`
 
 Neste exemplo, suponha que a sua `items` cadeia XML também contém os atributos, `expired='true'` `expired='false'` e:
 
-`"<?xml version="1.0"?> <produce> <item> <name expired='true'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name expired='false'>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+```xml
+<?xml version="1.0"?>
+<produce>
+  <item>
+    <name expired='true'>Gala</name>
+    <type>apple</type>
+    <count>20</count>
+  </item>
+  <item>
+    <name expired='false'>Honeycrisp</name>
+    <type>apple</type>
+    <count>10</count>
+  </item>
+</produce>
+```
 
 Este exemplo passa na expressão XPath, `'//name[@expired]'` para encontrar todos os `name` elementos que têm o `expired` atributo:
 
@@ -4811,7 +4839,21 @@ Aqui está o resultado: `[ Gala, Honeycrisp ]`
 
 Neste exemplo, suponha que a sua `items` cadeia XML contém apenas este atributo, `expired = 'true'` :
 
-`"<?xml version="1.0"?> <produce> <item> <name expired='true'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+```xml
+<?xml version="1.0"?>
+<produce>
+  <item>
+    <name expired='true'>Gala</name>
+    <type>apple</type>
+    <count>20</count>
+  </item>
+  <item>
+    <name>Honeycrisp</name>
+    <type>apple</type>
+    <count>10</count>
+  </item>
+</produce>
+```
 
 Este exemplo passa na expressão XPath, `'//name[@expired = 'true']'` para encontrar todos os `name` elementos que têm o atributo, `expired = 'true'` :
 
@@ -4826,7 +4868,21 @@ Neste exemplo, suponha que a sua `items` cadeia XML também contém estes atribu
 * `expired='true' price='12'`
 * `expired='false' price='40'`
 
-`"<?xml version="1.0"?> <produce> <item> <name expired='true' price='12'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name expired='false' price='40'>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+```xml
+<?xml version="1.0"?>
+<produce>
+  <item>
+    <name expired='true' price='12'>Gala</name>
+    <type>apple</type>
+    <count>20</count>
+  </item>
+  <item>
+    <name expired='false' price='40'>Honeycrisp</name>
+    <type>apple</type>
+    <count>10</count>
+  </item>
+</produce>
+```
 
 Este exemplo passa na expressão XPath, `'//name[price>35]'` para encontrar todos os `name` elementos que `price > 35` têm:
 
@@ -4838,7 +4894,21 @@ Aqui está o resultado: `Honeycrisp`
 
 Neste exemplo, suponha que a sua `items` cadeia XML é a mesma que no Exemplo 1:
 
-`"<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+```xml
+<?xml version="1.0"?>
+<produce>
+  <item>
+    <name>Gala</name>
+    <type>apple</type>
+    <count>20</count>
+  </item>
+  <item>
+    <name>Honeycrisp</name>
+    <type>apple</type>
+    <count>10</count>
+  </item>
+</produce>
+```
 
 Este exemplo encontra nóleiros que combinam com o `<count></count>` nó e adiciona esses valores de nó com a `sum()` função:
 
@@ -4850,7 +4920,9 @@ Aqui está o resultado: `30`
 
 Neste exemplo, suponha que você tem esta cadeia XML, que inclui o espaço de nome de documento XML, `xmlns="http://contoso.com"` :
 
-`"<?xml version="1.0"?> <file xmlns="http://contoso.com"> <location>Paris</location> </file>"`
+```xml
+<?xml version="1.0"?><file xmlns="http://contoso.com"><location>Paris</location></file>
+```
 
 Estas expressões usam a expressão `/*[name()="file"]/*[name()="location"]` `/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]` XPath, ou, para encontrar nós que correspondam ao `<location></location>` nó. Estes exemplos mostram a sintaxe que utiliza no Logic App Designer ou no editor de expressão:
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: 91094879de1e1762f95d35e22c1ea441e211b99e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d59fb0dc39103119edbc4096b506c588c38cece4
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979688"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282867"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Mover um espaço de trabalho Log Analytics para diferentes grupos de subscrição ou recursos
 
@@ -39,10 +39,12 @@ Soluções que devem ser removidas antes de poder desvincular a sua conta de aut
 - Centro de Segurança do Azure
 
 >[!IMPORTANT]
-> **Clientes da Azure Sentinel:**
+> **Clientes Azure Sentinel**
 > - Uma vez implantado num espaço de trabalho, o Azure Sentinel **não suporta atualmente** a deslocação desse espaço de trabalho para outros grupos de recursos ou subscrições. 
->
->   Se já moveu o espaço de trabalho, desative todas as regras ativas de acordo com **o Analytics** e reative-as após cinco minutos. No entanto, isto deve ser eficaz na maioria dos casos, para reiterar, não é apoiado e empreendido por sua conta e risco.
+> - Se já moveu o espaço de trabalho, desative todas as regras ativas de acordo com **o Analytics** e reative-as após cinco minutos. No entanto, isto deve ser eficaz na maioria dos casos, para reiterar, não é apoiado e empreendido por sua conta e risco.
+> 
+> **Alertas**
+> - Todos os alertas precisam de ser recriados após a mudança, uma vez que as permissões são baseadas no ID de Recursos Azure do espaço de trabalho e são alterações com o movimento do espaço de trabalho. 
 
 ### <a name="delete-solutions-in-azure-portal"></a>Eliminar soluções no portal Azure
 Utilize o seguinte procedimento para remover as soluções utilizando o portal Azure:

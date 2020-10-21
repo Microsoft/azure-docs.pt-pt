@@ -1,5 +1,5 @@
 ---
-title: Pontuação segura no Azure Security Center
+title: Pontuação de segurança no Centro de Segurança do Azure
 description: Descrição da pontuação segura do Azure Security Center e dos seus controlos de segurança
 services: security-center
 documentationcenter: na
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 3aab1329dc7bbcc70621684b3f1ac2362f4bc458
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4897c1b54eff5eb06e0ef49f0c74e261f5a9687e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268269"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281278"
 ---
-# <a name="secure-score-in-azure-security-center"></a>Pontuação segura no Azure Security Center
+# <a name="secure-score-in-azure-security-center"></a>Pontuação de segurança no Centro de Segurança do Azure
 
 ## <a name="introduction-to-secure-score"></a>Introdução para garantir pontuação
 
@@ -57,7 +57,7 @@ O Centro de Segurança exibe a sua pontuação de forma proeminente no portal: �
 
 ### <a name="get-your-secure-score-from-the-rest-api"></a>Obtenha a sua pontuação segura na API REST
 
-Pode aceder à sua pontuação através da [pontuação segura API](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (atualmente em pré-visualização). Os métodos API fornecem a flexibilidade para consultar os dados e construir o seu próprio mecanismo de reporte das suas pontuações seguras ao longo do tempo. Por exemplo, pode utilizar a API **de Pontuações Seguras** para obter a pontuação de uma subscrição específica. Além disso, pode utilizar a API **de Controlos de Pontuação Segura** para listar os controlos de segurança e a pontuação atual das suas subscrições.
+Pode aceder à sua pontuação através da pontuação segura API (atualmente em pré-visualização). Os métodos API fornecem a flexibilidade para consultar os dados e construir o seu próprio mecanismo de reporte das suas pontuações seguras ao longo do tempo. Por exemplo, pode utilizar a [API de Pontuações Seguras](https://docs.microsoft.com/rest/api/securitycenter/securescores) para obter a pontuação de uma subscrição específica. Além disso, pode utilizar a [API de Controlos de Pontuação Segura](https://docs.microsoft.com/rest/api/securitycenter/securescorecontrols) para listar os controlos de segurança e a pontuação atual das suas subscrições.
 
 ![Recuperação de uma única pontuação segura através da API](media/secure-score-security-controls/single-secure-score-via-api.png)
 
@@ -156,7 +156,7 @@ A tabela abaixo lista os controlos de segurança no Centro de Segurança Azure. 
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Restringir o acesso não autorizado à rede (pontuação máxima 4)</p></strong>Os pontos finais dentro de uma organização fornecem uma ligação direta da sua rede virtual aos serviços Azure suportados. Máquinas virtuais numa sub-rede podem comunicar com todos os recursos. Para limitar a comunicação de e para os recursos dentro de uma sub-rede, crie um grupo de segurança de rede e associe-o à sub-rede. As organizações podem limitar e proteger contra o tráfego não autorizado, criando regras de entrada e saída.</td>
-    <td class="tg-lboi"; width=55%>- O encaminhamento IP na sua máquina virtual deve ser desativado<br>- As gamas IP autorizadas devem ser definidas nos Serviços Kubernetes (Pré-visualização)<br>- (PRECADO) O acesso aos Serviços de Aplicações deve ser restringido (Pré-visualização)<br>- (PRECADO) As regras para aplicações web em IAAS NSGs devem ser endurecidas<br>- As máquinas virtuais devem ser associadas a um Grupo de Segurança de Rede<br>- O CORS não deve permitir que todos os recursos acedam à sua App API<br>- O CORS não deve permitir que todos os recursos acedam à sua App de Função<br>- O CORS não deve permitir que todos os recursos acedam à sua Aplicação Web<br>- Depuragem remota deve ser desligada para app API<br>- Depuragem remota deve ser desligada para a App de Função<br>- Depuragem remota deve ser desligada para aplicação web<br>- O acesso deve ser restringido para grupos de segurança de rede permissivos com VMs virados para a Internet<br>- As regras do Grupo de Segurança da Rede para máquinas virtuais que enfrentam a Internet devem ser endurecidas<br>- O addon Azure Policy para Kubernetes deve ser instalado e ativado nos seus clusters (pré-visualização)<br>- Os contentores devem ouvir apenas as portas permitidas (pré-visualização)<br>- Os serviços devem ouvir apenas as portas permitidas (pré-visualização)<br>- A utilização da rede de anfitriões e das portas deve ser restringida (pré-visualização)</td>
+    <td class="tg-lboi"; width=55%>- O encaminhamento IP na sua máquina virtual deve ser desativado<br>- As gamas IP autorizadas devem ser definidas nos Serviços Kubernetes (Pré-visualização)<br>- (PRECADO) O acesso aos Serviços de Aplicações deve ser restringido (Pré-visualização)<br>- (PRECADO) As regras para aplicações web em IAAS NSGs devem ser endurecidas<br>- As máquinas virtuais devem ser associadas a um Grupo de Segurança de Rede<br>- O CORS não deve permitir que todos os recursos acedam à sua App API<br>- O CORS não deve permitir que todos os recursos acedam à sua App de Função<br>- O CORS não deve permitir que todos os recursos acedam à sua Aplicação Web<br>- Depuragem remota deve ser desligada para app API<br>- Depuragem remota deve ser desligada para a App de Função<br>- Depuragem remota deve ser desligada para aplicação web<br>- O acesso deve ser restringido para grupos de segurança de rede permissivos com VMs virados para a Internet<br>- As regras do Grupo de Segurança da Rede para máquinas virtuais que enfrentam a Internet devem ser endurecidas<br>- O addon Azure Policy para Kubernetes deve ser instalado e ativado nos seus clusters (pré-visualização)<br>- Os contentores devem ouvir apenas as portas permitidas (pré-visualização)<br>- Os serviços devem ouvir apenas as portas permitidas (pré-visualização)<br>- A utilização da rede de anfitriões e das portas deve ser restringida (pré-visualização)<br>- As redes virtuais devem ser protegidas pelo Azure Firewall (pré-visualização)</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Aplicar controlo de aplicação adaptativo (pontuação máxima 3)</p></strong>O controlo de aplicações adaptativas (AAC) é uma solução inteligente, automatizada e de ponta a ponta, que permite controlar quais aplicações podem funcionar nas suas máquinas Azure e não-Azure. Também ajuda a endurecer as suas máquinas contra malware.<br>O Security Center utiliza machine learning para criar uma lista de aplicações conhecidas e seguras para um grupo de máquinas.<br>Esta abordagem inovadora à listagem de aplicações aprovada proporciona os benefícios de segurança sem a complexidade da gestão.<br>O AAC é particularmente relevante para servidores construídos de propósito que precisam executar um conjunto específico de aplicações.</td>
@@ -198,7 +198,7 @@ A tabela abaixo lista os controlos de segurança no Centro de Segurança Azure. 
 ## <a name="secure-score-faq"></a>Pontuação segura FAQ
 
 ### <a name="if-i-address-only-three-out-of-four-recommendations-in-a-security-control-will-my-secure-score-change"></a>Se eu abordar apenas três de quatro recomendações num controlo de segurança, a minha pontuação segura mudará?
-N.º Não mudará até que remediar todas as recomendações para um único recurso. Para obter a pontuação máxima para um controlo, você deve remediar todas as recomendações, para todos os recursos.
+Não. Não mudará até que remediar todas as recomendações para um único recurso. Para obter a pontuação máxima para um controlo, você deve remediar todas as recomendações, para todos os recursos.
 
 ### <a name="if-a-recommendation-isnt-applicable-to-me-and-i-disable-it-in-the-policy-will-my-security-control-be-fulfilled-and-my-secure-score-updated"></a>Se uma recomendação não for aplicável a mim, e eu a desativar na apólice, o meu controlo de segurança será cumprido e a minha pontuação segura atualizada?
 Sim. Recomendamos desativar recomendações quando são inaplicáveis no seu ambiente. Para obter instruções sobre como desativar uma recomendação específica, consulte [as políticas de segurança para desativar](https://docs.microsoft.com/azure/security-center/tutorial-security-policy#disable-security-policies).

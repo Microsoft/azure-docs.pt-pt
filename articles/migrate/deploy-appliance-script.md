@@ -3,12 +3,12 @@ title: Configurar um aparelho Azure Migrate com um script
 description: Saiba como configurar um aparelho Azure Migrate com um script
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: 6b0637019e40308cf40dcdbb4dc78512a8aa91e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4f92d787ea2a72dd534e514e27fa1a5defef39c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91438926"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317337"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Configurar um aparelho com um script
 
@@ -16,7 +16,7 @@ Siga este artigo para criar um [aparelho Azure Migrate](./migrate-appliance-arch
 
 Pode implantar o aparelho para VMware e Hiper-VMs utilizando um script ou utilizando um modelo que descarrega a partir do portal Azure. A utilização de um script é útil se não conseguir criar um VM utilizando o modelo descarregado.
 
-- Para utilizar um modelo, siga os tutoriais para [VMware](tutorial-prepare-vmware.md) ou [Hyper-V](tutorial-prepare-hyper-v.md).
+- Para utilizar um modelo, siga os tutoriais para [VMware](./tutorial-discover-vmware.md) ou [Hyper-V](./tutorial-discover-hyper-v.md).
 - Para configurar um aparelho para servidores físicos, só pode utilizar um script. Siga [este artigo.](how-to-set-up-appliance-physical.md)
 - Para instalar um aparelho numa nuvem do Governo Azure, siga [este artigo.](deploy-appliance-script-government.md)
 
