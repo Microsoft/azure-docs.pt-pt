@@ -59,6 +59,8 @@
       href: cache-best-practices.md
     - name: Segurança
       items:
+        - name: Opções de isolamento de rede
+          href: cache-network-isolation.md
         - name: Controlos de segurança do Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md

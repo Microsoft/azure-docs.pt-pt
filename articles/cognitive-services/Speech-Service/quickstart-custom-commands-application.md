@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 05b47a786fe845460177b66b5bd54cdb140c246e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d89f9330947d1c5d0146b8531f265d86d0fd5160
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87289413"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329156"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>Criar um assistente de voz com os Comandos Personalizados
 
@@ -123,7 +123,7 @@ No âmbito deste artigo, utilizaremos o cliente Assistente de Voz do Windows que
 1. Lançamento **VoiceAssistantClient.exe. **
 1. Crie um novo perfil de publicação e introduza valor para **o Perfil de Ligação.** Na secção **Definições Gerais,** introduza valores **A Chave de Subscrição** (isto é o mesmo que o valor chave de **recurso do Discurso** que guardou ao publicar a aplicação), **região-chave de subscrição** e **ID de aplicação de comandos personalizados**.
     > [!div class="mx-imgBorder"]
-    > ![WVAC Criar perfil](media/custom-commands/create-profile.png)
+    > ![Screenshot que realça a secção Definições Gerais para criar um perfil WVAC.](media/custom-commands/create-profile.png)
 1. **Selecione Guardar e Aplicar Perfil**.
 1. Agora experimente as seguintes entradas através de discurso/texto
     > [!div class="mx-imgBorder"]

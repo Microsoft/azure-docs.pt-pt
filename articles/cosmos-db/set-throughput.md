@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 8cca75f7071b8b9c8d1108b82ebf8f7049ec316a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 83909fdc75ec09b9ddd1fa9452f9a77e5763f895
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282582"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331826"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introdução à produção prevista na Azure Cosmos DB
 
@@ -96,7 +96,7 @@ Pode combinar os dois modelos. É permitido o fornecimento de produção na base
 
 Depois de criar um recipiente Azure Cosmos ou uma base de dados, pode atualizar o rendimento previsto. Não existe limite para a produção máxima prevista que possa configurar na base de dados ou no contentor.
 
-### <a name="current-provisioned-throughput"></a>Produção atual a provisionada
+### <a name="current-provisioned-throughput"></a><a id="current-provisioned-throughput"></a> Produção atual a provisionada
 
 Pode recuperar o rendimento previsto de um contentor ou de uma base de dados no portal Azure ou utilizando os SDKs:
 
@@ -135,6 +135,14 @@ Pode verificar programáticamente o progresso da escala, lendo a [produção atu
 * [Reponse de Reponse.isReplacePending()](/java/api/com.azure.cosmos.models.throughputresponse.isreplacepending?view=azure-java-stable&preserve-view=true) no Java SDK.
 
 Pode utilizar [as métricas do Azure Monitor](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) para visualizar o histórico de produção provisitada (RU/s) e armazenamento num recurso.
+
+## <a name="high-storage--low-throughput-program"></a><a id="high-storage-low-throughput-program"></a> Programa de alta produção / baixa produção
+
+Tal como descrito na secção [de produção](#current-provisioned-throughput) atual acima, o rendimento mínimo que pode prever num contentor ou base de dados depende de uma série de fatores. Um deles é a quantidade de dados atualmente armazenados, uma vez que a Azure Cosmos DB impõe um rendimento mínimo de 10 RU/s por GB de armazenamento.
+
+Isto pode ser uma preocupação em situações em que você precisa armazenar grandes quantidades de dados, mas tem baixos requisitos de produção em comparação. Para melhor acomodar estes cenários, a Azure Cosmos DB introduziu um **programa de "alto armazenamento/baixo rendimento"** que diminui a restrição RU/s por GB de 10 para 1 em contas elegíveis.
+
+Atualmente precisa de ter pelo menos 1 contentor ou base de dados de produção partilhada contendo mais de 1 TB de dados na sua conta para ser elegível. Para aderir a este programa e avaliar a sua plena elegibilidade, tudo o que tem de fazer é preencher [esta pesquisa.](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u) A equipa DB da Azure Cosmos irá então acompanhar e proceder com o seu embarque.
 
 ## <a name="comparison-of-models"></a>Comparação de modelos
 Este quadro mostra uma comparação entre a produção padrão de provisionamento (manual) numa base de dados vs. num contentor. 

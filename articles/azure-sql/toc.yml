@@ -263,6 +263,8 @@
           items:
             - name: Regras de firewall de IP ao nível do servidor
               href: database/firewall-create-server-level-portal-quickstart.md
+        - name: GitHub Actions
+          href: database/connect-github-actions-sql-db.md
     - name: Tutoriais
       items:
         - name: Estruturar uma base de dados

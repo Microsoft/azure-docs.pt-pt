@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom: devx-track-js
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 4e8d7054fb0df265285bda223e360ea61612aaf2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ca225f136b0c3a6fc8b47d00ff64064fe17d4ee
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263951"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281765"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Use um azulejo de marcação nos dashboards Azure para mostrar conteúdo personalizado
 
@@ -48,7 +48,7 @@ Pode adicionar um azulejo de marcação aos seus dashboards Azure para exibir co
       ![Screenshot mostrando URL de entrada](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-url.png)
 
       > [!NOTE]
-      > Para uma maior segurança, pode criar um ficheiro de marcação e armazená-lo numa [bolha de conta de armazenamento Azure onde a encriptação está ativada,](../storage/common/storage-service-encryption.md)e depois apontar para o ficheiro utilizando a opção URL. O conteúdo de marcação é encriptado através das opções de encriptação da conta de armazenamento. Apenas os utilizadores com permissões para o ficheiro podem ver o conteúdo de marcação no painel de instrumentos.
+      > Para uma maior segurança, pode criar um ficheiro de marcação e armazená-lo numa [bolha de conta de armazenamento Azure onde a encriptação está ativada,](../storage/common/storage-service-encryption.md)e depois apontar para o ficheiro utilizando a opção URL. O conteúdo de marcação é encriptado através das opções de encriptação da conta de armazenamento. Apenas os utilizadores com permissões para o ficheiro podem ver o conteúdo de marcação no painel de instrumentos. Descreva uma regra de partilha de recursos de origem cruzada (CORS) na conta de armazenamento para que o portal Azure _https://portal.azure.com/_ possa aceder ao ficheiro de marcação na bolha.
 
 1. Selecione **Feito** para descartar o **painel de ponto de edição.** O seu conteúdo aparece no azulejo markdown, que pode redimensionar arrastando a pega no canto inferior direito.
 

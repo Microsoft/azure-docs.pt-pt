@@ -1,16 +1,16 @@
 ---
 title: Definições políticas incorporadas para apps Azure Logic
 description: Lista definições de políticas incorporadas para Azure Logic Apps. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.topic: reference
 ms.suite: integration
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 7e645e1f22424e36d4cedf5fe429af078d9a6b54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee5a0c379b5c7a8fa2108537d3edf215c21205bd
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91822469"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92308250"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-logic-apps"></a>Definições incorporadas da Política Azure para apps Azure Logic
 

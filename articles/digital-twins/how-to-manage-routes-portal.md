@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9d60297ba3bf16eac496703635ec8faf647c7f94
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 91c767fb031633900434b3aa07ccfae7cf7458cb
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279362"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332098"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gerir pontos finais e rotas em Azure Digital Twins (portal)
 
@@ -72,7 +72,7 @@ Também pode ver o ponto final que foi criado de volta na página *Endpoints* pa
 
 Se a criação do ponto final falhar, observe a mensagem de erro e redaça após alguns minutos.
 
-Agora, o tópico da grelha de eventos está disponível como ponto final dentro de Azure Digital Twins, sob o nome especificado no campo _Nome._ Normalmente, você usará esse nome como alvo de uma rota de **eventos**, que irá criar [mais tarde neste artigo.](#event-routes)
+Agora, o tópico da grelha de eventos está disponível como ponto final dentro de Azure Digital Twins, sob o nome especificado no campo _Nome._ Normalmente, você usará esse nome como alvo de uma rota de **eventos**, que irá criar [mais tarde neste artigo.](#create-an-event-route)
 
 ### <a name="create-an-event-hubs-endpoint"></a>Criar um ponto final de Centro de Eventos
 
@@ -94,7 +94,7 @@ Pode verificar se o ponto final foi criado com sucesso, verificando o ícone de 
 
 Se a criação do ponto final falhar, observe a mensagem de erro e redaça após alguns minutos.
 
-Agora, o hub do Evento está disponível como ponto final dentro das Gémeas Digitais Azure, sob o nome especificado no campo _Nome._ Normalmente, você usará esse nome como alvo de uma rota de **eventos**, que irá criar [mais tarde neste artigo.](#event-routes)
+Agora, o hub do Evento está disponível como ponto final dentro das Gémeas Digitais Azure, sob o nome especificado no campo _Nome._ Normalmente, você usará esse nome como alvo de uma rota de **eventos**, que irá criar [mais tarde neste artigo.](#create-an-event-route)
 
 ### <a name="create-a-service-bus-endpoint"></a>Criar um ponto final de ônibus de serviço
 
@@ -116,7 +116,7 @@ Pode verificar se o ponto final foi criado com sucesso, verificando o ícone de 
 
 Se a criação do ponto final falhar, observe a mensagem de erro e redaça após alguns minutos.
 
-Agora, o tópico do Service Bus está disponível como ponto final dentro da Azure Digital Twins, sob o nome especificado no campo _Nome._ Normalmente, você usará esse nome como alvo de uma rota de **eventos**, que irá criar [mais tarde neste artigo.](#event-routes)
+Agora, o tópico do Service Bus está disponível como ponto final dentro da Azure Digital Twins, sob o nome especificado no campo _Nome._ Normalmente, você usará esse nome como alvo de uma rota de **eventos**, que irá criar [mais tarde neste artigo.](#create-an-event-route)
 
 ### <a name="create-an-endpoint-with-dead-lettering"></a>Criar um ponto final com letras mortas
 
@@ -126,7 +126,7 @@ Para criar um ponto final com letras mortas ativadas, deve utilizar as [APIs ARM
 
 Para obter instruções sobre como fazê-lo com as APIs, consulte as [*APIs e a*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) versão CLI deste artigo.
 
-## <a name="event-routes"></a>Rotas de eventos
+## <a name="create-an-event-route"></a>Criar uma rota de eventos
 
 Para enviar dados da Azure Digital Twins para um ponto final, terá de definir uma rota de **eventos.** Estas rotas permitem que os desenvolvedores liguem o fluxo de eventos, em todo o sistema e para os serviços a jusante. Leia mais sobre as rotas de eventos em [*Conceitos: Eventos de Roteamento Azure Digital Twins*](concepts-route-events.md).
 
@@ -135,7 +135,7 @@ Para enviar dados da Azure Digital Twins para um ponto final, terá de definir u
 >[!NOTE]
 >Se implementou recentemente os seus pontos finais, valide que terminaram de ser implementados **antes** de tentar usá-los para uma nova rota de eventos. Se não conseguir configurar a rota porque os pontos finais não estão prontos, aguarde alguns minutos e tente novamente.
 
-### <a name="create-an-event-route"></a>Criar uma rota de eventos 
+### <a name="creation-steps-with-the-azure-portal"></a>Etapas de criação com o portal Azure
 
 Uma definição de rota de evento contém estes elementos:
 * O nome da rota que pretende usar
@@ -161,7 +161,7 @@ Para que o percurso seja ativado, também deve adicionar um filtro de rota de **
 
 Quando terminar, premir o botão _Guardar_ para criar a sua rota de evento.
 
-### <a name="filter-events"></a>Filtrar eventos
+## <a name="filter-events"></a>Filtrar eventos
 
 Como descrito acima, as rotas têm um campo **de filtro.** Se o valor do filtro na sua rota `false` for, não serão enviados eventos para o seu ponto final. 
 

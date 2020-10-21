@@ -4,12 +4,12 @@ description: Aprenda a executar uma migração sem agente de VMware VMs com Azur
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: 37181246a20044f16414735e2247fa90fc36433b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e263306cf18dfebe4b73f8d940b8eb5c99ed16f
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530527"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310623"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migrar VMware VMs para Azure (sem agente)
 
@@ -36,8 +36,8 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Antes de começar este tutorial, tem de:
 
-1. [Complete o primeiro tutorial](tutorial-prepare-vmware.md) para preparar Azure e VMware para migração.
-2. Recomendamos que complete o segundo tutorial para [avaliar VMware VMs](tutorial-assess-vmware.md) antes de os migrar para Azure, mas não é preciso. 
+1. [Complete o primeiro tutorial](./tutorial-discover-vmware.md) para preparar Azure e VMware para migração.
+2. Recomendamos que complete o segundo tutorial para [avaliar VMware VMs](./tutorial-assess-vmware-azure-vm.md) antes de os migrar para Azure, mas não é preciso. 
 
 
 ## <a name="add-the-azure-migrate-server-migration-tool"></a>Adicione a ferramenta de migração do servidor Azure Migrate
@@ -59,7 +59,7 @@ Se ainda não montou um projeto Azure Migrate, [faça-o](how-to-add-tool-first-t
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Configurar o aparelho Azure Migrate
 
-A migração do servidor Azure Migrate é executada por um aparelho VMware VMware leve que é usado para a descoberta, avaliação e migração sem agentes de VMware VMs. Se seguir o [tutorial de avaliação,](tutorial-assess-vmware.md)já instalou o aparelho. Se não o fez, instale-o agora, usando um destes métodos:
+A migração do servidor Azure Migrate é executada por um aparelho VMware VMware leve que é usado para a descoberta, avaliação e migração sem agentes de VMware VMs. Se seguir o [tutorial de avaliação,](./tutorial-assess-vmware-azure-vm.md)já instalou o aparelho. Se não o fez, instale-o agora, usando um destes métodos:
 
 - **Modelo OVA**: [Configurar](how-to-set-up-appliance-vmware.md) num VMware VM usando um modelo OVA descarregado.
 - **Script**: [Configurar](deploy-appliance-script.md) num VMware VM ou numa máquina física, utilizando um script instalador PowerShell. Este método deve ser utilizado se não puder configurar um VM usando um modelo OVA, ou se estiver no Governo Azure.
@@ -210,7 +210,7 @@ Depois de verificar que a migração do teste funciona como esperado, pode migra
     - Mantenha as cargas de trabalho em execução e continuamente disponíveis ao replicar VMs do Azure para uma região secundária com o Site Recovery. [Saiba mais](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - Para uma maior segurança:
     - Bloqueie e limite o acesso ao tráfego de entrada com [o Azure Security Center - Mesmo a tempo da administração](../security-center/security-center-just-in-time.md).
-    - Restrinja o tráfego de rede para os pontos finais de gestão com os [Grupos de Segurança de Rede](../virtual-network/security-overview.md).
+    - Restrinja o tráfego de rede para os pontos finais de gestão com os [Grupos de Segurança de Rede](../virtual-network/network-security-groups-overview.md).
     - Implemente o [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) para ajudar a proteger discos e a manter os dados protegidos contra roubo e acesso não autorizado.
     - Leia mais sobre como [proteger recursos de IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) e aceda ao [Centro de Segurança do Azure](https://azure.microsoft.com/services/security-center/).
 - Para monitorização e gestão:

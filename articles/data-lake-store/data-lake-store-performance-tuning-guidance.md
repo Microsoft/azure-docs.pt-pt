@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: 4c9cb1d0496fe05c208cfd446a51cbf4ef8e8d4e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: e9a589b43490613834a810a68636c426e45c2656
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108614"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332523"
 ---
 # <a name="tune-azure-data-lake-storage-gen1-for-performance"></a>Tune Azure Data Lake Storage Gen1 para desempenho
 
@@ -25,7 +25,7 @@ Data Lake Storage Gen1 pode escalar para fornecer a produção necessária para 
 
 Ao ingerir dados de um sistema de origem para a Data Lake Storage Gen1, é importante considerar que o hardware de origem, hardware de rede de origem e conectividade de rede para data lake storage gen1 pode ser o estrangulamento.
 
-![Desempenho da Gen1 de armazenamento de dados](./media/data-lake-store-performance-tuning-guidance/bottleneck.png)
+![Diagrama que mostra que o hardware de origem, hardware de rede de origem e conectividade de rede para data lake storage gen1 pode ser o estrangulamento.](./media/data-lake-store-performance-tuning-guidance/bottleneck.png)
 
 É importante garantir que o movimento de dados não seja afetado por estes fatores.
 
@@ -100,7 +100,7 @@ Existem três camadas dentro de um cluster HDInsight que podem ser sintonizadas 
 
 **Executar o cluster com mais nós e/ou VMs de tamanho maior.** Um cluster maior permitir-lhe-á executar mais recipientes DE FIOS, como mostra a imagem abaixo.
 
-![Desempenho da Gen1 de armazenamento de dados](./media/data-lake-store-performance-tuning-guidance/VM.png)
+![Diagrama que mostra a utilização de mais recipientes DE FIOS.](./media/data-lake-store-performance-tuning-guidance/VM.png)
 
 **Utilize VMs com mais largura de banda de rede.** A quantidade de largura de banda de rede pode ser um estrangulamento se houver menos largura de banda de rede do que a produção de Data Lake Storage Gen1. Diferentes VMs terão diferentes tamanhos de largura de banda de rede. Escolha um tipo VM que tenha a maior largura de banda de rede possível.
 
@@ -108,7 +108,7 @@ Existem três camadas dentro de um cluster HDInsight que podem ser sintonizadas 
 
 **Utilize recipientes de YARN mais pequenos.** Reduza o tamanho de cada recipiente YARN para criar mais contentores com a mesma quantidade de recursos.
 
-![Desempenho da Gen1 de armazenamento de dados](./media/data-lake-store-performance-tuning-guidance/small-containers.png)
+![Diagrama que mostra a utilização de recipientes de YARN mais pequenos.](./media/data-lake-store-performance-tuning-guidance/small-containers.png)
 
 Dependendo da sua carga de trabalho, haverá sempre um tamanho mínimo de recipiente YARN que é necessário. Se escolheres um recipiente muito pequeno, os teus empregos vão ficar sem memória. Normalmente, os recipientes de YARN não devem ser inferiores a 1 GB. É comum ver 3 GB de contentores de YARN. Para algumas cargas de trabalho, poderá necessitar de recipientes de YARN maiores.
 
@@ -118,7 +118,7 @@ Dependendo da sua carga de trabalho, haverá sempre um tamanho mínimo de recipi
 
 **Utilize todos os recipientes disponíveis.** Deite o número de tarefas iguais ou maiores do que o número de contentores disponíveis de modo a que todos os recursos sejam utilizados.
 
-![Desempenho da Gen1 de armazenamento de dados](./media/data-lake-store-performance-tuning-guidance/use-containers.png)
+![Diagrama que mostra a utilização de todos os recipientes disponíveis.](./media/data-lake-store-performance-tuning-guidance/use-containers.png)
 
 **As tarefas falhadas são dispendiosas.** Se cada tarefa tiver uma grande quantidade de dados para processar, então a falha de uma tarefa resulta numa reequimia dispendiosa. Portanto, é melhor criar mais tarefas, cada uma das quais processa uma pequena quantidade de dados.
 

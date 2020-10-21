@@ -7,12 +7,12 @@ ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: bfff96666981a522cd6d91828604696a12ecad56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c354447625d58f65615f8d3efb596e7a723e0bbf
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576864"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331690"
 ---
 # <a name="introduction-to-azure-defender"></a>Introdução ao Azure Defender
 
@@ -36,13 +36,14 @@ Quando ativa o Azure Defender a partir da área de Preços e Definições do Azu
 - [Azure Defender para Serviço de Aplicações](defender-for-app-service-introduction.md)
 - [Azure Defender para Armazenamento](defender-for-storage-introduction.md)
 - [Azure Defender para SQL](defender-for-sql-introduction.md)
-- [Azure Defender para IoT](defender-for-iot-introduction.md)
 - [Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)
 - [Azure Defender para registos de contentor](defender-for-container-registries-introduction.md)
 - [Azure Defender para Key Vault](defender-for-key-vault-introduction.md)
 
 Cada um destes planos é explicado separadamente na documentação do Centro de Segurança.
 
+> [!TIP]
+> Azure Defender for IoT (pré-visualização) é um produto separado. Você encontrará todos os detalhes em [Atroduções Azure Defender para IoT (Preview)](../defender-for-iot/overview.md). 
 
 ## <a name="hybrid-cloud-protection"></a>Proteção de nuvem híbrida
 
@@ -50,7 +51,6 @@ Além de defender o seu ambiente Azure, pode adicionar as capacidades do Azure D
 
 - Proteja os seus servidores não-Azure
 - Proteja as suas máquinas virtuais noutras nuvens (como AWS e GCP)
-- Proteja os seus dispositivos IoT
 
 Você receberá inteligência de ameaça personalizada e alertas prioritários de acordo com o seu ambiente específico para que possa se concentrar no que mais importa.
 

@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, jovanpop
 ms.date: 03/13/2019
-ms.openlocfilehash: 1bcaaed394d8e802a9660e2fdf0e37994ee795a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d04d29b82ecf09d1ee52986fc40687e5511573da
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617694"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331911"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-azure-sql-managed-instance-from-on-premises"></a>Quickstart: Configurar uma ligação ponto-a-local com Azure SQL Gestão Instância a partir de instalações
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -86,13 +86,13 @@ Este guia de início rápido:
 2. Selecione **Ligar**.
 3. Na caixa de diálogo, selecione **Connect**.
 
-    ![Ligação VPN](./media/point-to-site-p2s-configure/vpn-connection2.png)  
+    ![Screenshot que realça o botão Ligar.](./media/point-to-site-p2s-configure/vpn-connection2.png)  
 4. Quando lhe for solicitado que o Connection Manager precisa de privilégios elevados para atualizar a sua tabela de rotas, escolha **Continue**.
 5. Selecione **Sim** na caixa de diálogo de controlo da conta do utilizador para continuar.
 
    Estabeleceu uma ligação VPN com o seu SQL Managed Instance VNet.
 
-    ![Ligação VPN](./media/point-to-site-p2s-configure/vpn-connection-succeeded.png)  
+    ![Screenshot que realça a mensagem Conectada quando tiver estabelecido a sua ligação.](./media/point-to-site-p2s-configure/vpn-connection-succeeded.png)  
 
 ## <a name="connect-with-ssms"></a>Ligar com o SSMS
 

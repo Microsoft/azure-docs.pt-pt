@@ -12,12 +12,12 @@ metadata:
   manager: nitinme
   ms.custom: custom-portals-hub
   ms.date: 08/28/2020
-  ms.openlocfilehash: 36e5543f09971d8456e79a59fc2e5457171f710b
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 882b492f3041d225b3861ddcfb36934649b3e987
+  ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91744003"
+  ms.lasthandoff: 10/19/2020
+  ms.locfileid: "92200938"
 highlightedContent:
   items:
   - title: O que são os Serviços Cognitivos?
@@ -29,21 +29,21 @@ highlightedContent:
   - title: Serviços Cognitivos e aprendizagem automática
     itemType: concept
     url: ./cognitive-services-and-machine-learning.md
+  - title: Contentores no local dos Serviços Cognitivos
+    itemType: concept
+    url: ./cognitive-services-container-support.md
+  - title: Serviços Cognitivos com bases de dados
+    itemType: concept
+    url: ./big-data/cognitive-services-for-big-data.md
   - title: Suporte de idiomas
     itemType: reference
     url: ./language-support.md
-  - title: Criar um recurso
-    itemType: how-to-guide
-    url: ./cognitive-services-apis-create-account.md
-  - title: Utilizar em Contentores
-    itemType: concept
-    url: ./cognitive-services-container-support.md
-  - title: Utilizar em Bases de Dados
-    itemType: concept
-    url: ./big-data/cognitive-services-for-big-data.md
   - title: Segurança
     itemType: concept
     url: cognitive-services-security.md
+  - title: Opções de suporte e ajuda
+    itemType: reference
+    url: ./cognitive-services-support-options.md
 conceptualContent:
   items:
   - title: Visão

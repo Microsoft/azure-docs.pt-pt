@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: bda72a72e8ac0adf48fd8981a6eccf40385469d5
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 122de64e33778966d563cc8e94b46515e54769f7
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281396"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331214"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Perguntas frequentes sobre a transição do Portal do Parceiro Cloud para o Centro de Parceiros
 
@@ -77,8 +77,8 @@ Para os tipos de oferta suportados no Partner Center, todas as ofertas foram mov
 
 | Tipo de oferta <img src="" width=150px>| Mudou-se para o Partner Center? <img src="" width=100px>| Passos seguintes |
 | --- | --- | --- |
-| SaaS | Sim | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create uma nova oferta SaaS no mercado comercial.](partner-center-portal/create-new-saas-offer.md) |
-| Máquina Virtual | Sim | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create a azure virtual machine offer no Azure Marketplace.](azure-vm-create.md) |
+| SaaS | Sim | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais no [Plano uma oferta SaaS para o mercado comercial.](plan-saas-offer.md) |
+| Máquina Virtual | Sim | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais no [Plano de uma oferta de máquina virtual.](marketplace-virtual-machines.md) |
 | Aplicação Azure | Sim | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create a oferta de aplicações Azure.](partner-center-portal/create-new-azure-apps-offer.md) |
 | Dynamics 365 Business Central | Sim | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create a Dynamics 365 Business Central.](partner-center-portal/create-new-business-central-offer.md) |
 | Dinâmica 365 para Envolvimento de Clientes & PowerApps | Sim | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create a Dynamics 365 para o envolvimento do cliente & oferta de PowerApps.](partner-center-portal/create-new-customer-engagement-offer.md) |

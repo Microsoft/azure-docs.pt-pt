@@ -4,15 +4,15 @@ description: Saiba como migrar um aparelho StorSimple 8100 ou 8600 para Azure Fi
 author: fauhse
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/09/2020
+ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: be61a6e75c4aa9b5714ffbf3b4f19656b347c493
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcb690829aaed1d5a256f53766f05c922f8b2a9a
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653252"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331119"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migração StorSimple 8100 e 8600 para Azure File Sync
 
@@ -20,335 +20,402 @@ A série StorSimple 8000 é representada pelos aparelhos 8100 ou 8600 físicos n
 
 A série StorSimple 8000 chegará ao seu [fim de vida](https://support.microsoft.com/en-us/lifecycle/search?alpha=StorSimple%208000%20Series) em dezembro de 2022. É importante começar a planear a sua migração o mais rápido possível. Este artigo fornece os conhecimentos de fundo necessários e passos de migração para uma migração bem sucedida para Azure File Sync. 
 
-## <a name="azure-file-sync"></a>Azure File Sync
+## <a name="phase-1-prepare-for-migration"></a>Fase 1: Preparar para a migração
 
-> [!IMPORTANT]
-> A Microsoft está empenhada em ajudar os clientes na sua migração. Envie um e-mail AzureFilesMigration@microsoft para um plano de migração personalizado, bem como assistência durante a migração.
+Esta secção contém os passos que deve tomar no início da sua migração de volumes StorSimple para ações de ficheiros Azure.
+
+### <a name="inventory"></a>Inventário
+Quando começar a planear a sua migração, identifique primeiro todos os aparelhos e volumes StorSimple necessários para migrar. Assim que o fizeres, podes decidir qual é o melhor caminho de migração para ti.
+
+* Os aparelhos físicos StorSimple (série 8000) utilizam este guia de migração. 
+* Aparelhos virtuais, [série StorSimple 1200, utilize um guia de migração diferente](storage-files-migration-storsimple-1200.md).
+
+### <a name="migration-cost-summary"></a>Resumo dos custos de migração
+As ações de ficheiros Azure de volumes StorSimple através de empregos de Transformação de Dados num recurso StorSimple Data Manager são gratuitas. No entanto, existem outros custos que podem ser incorridos durante e após uma migração:
+
+* **Saída de rede:** Os seus ficheiros StorSimple vivem numa conta de armazenamento dentro de uma região específica de Azure. Se você providenciar as ações de arquivo Azure que você migra para uma conta de armazenamento que está localizada na mesma região de Azure, não ocorrerá nenhum custo de saída. Pode mover os seus ficheiros para uma conta de armazenamento numa região diferente como parte desta migração. Nesse caso, os custos de saída aplicar-se-ão a si.
+* **Transações de ações de ficheiros Azure:** Quando os ficheiros são copiados numa partilha de ficheiros Azure (como parte de uma migração ou fora de um), os custos de transação aplicam-se à medida que os ficheiros e metadados estão a ser escritos. Como uma boa prática, inicie a sua partilha de ficheiros Azure no nível otimizado de transação durante a migração. Mude para o nível desejado após a conclusão da migração. As fases abaixo chamarão isto no ponto apropriado.
+* **Alterar um nível de partilha de ficheiros Azure:** Alterar o nível de uma ação de ações Azure operações de custos. Na maioria dos casos, será mais rentável seguir os conselhos do ponto anterior.
+* **Custo de armazenamento:** Quando esta migração começa a copiar ficheiros numa partilha de ficheiros Azure, o armazenamento do Azure Files é consumido e faturado. 
+* **StorSimple:** Até ter a oportunidade de desprovisionar os dispositivos StorSimple e as contas de armazenamento, o custo StorSimple para armazenamento, cópias de segurança e aparelhos continuará a ocorrer.
+
+### <a name="direct-share-access-vs-azure-file-sync"></a>Acesso direto à partilha vs. Azure File Sync
+As ações de ficheiros Azure abrem um novo mundo de oportunidades para estruturar a implementação dos seus serviços de ficheiros. Uma partilha de ficheiros Azure é apenas uma partilha de SMB na nuvem, que pode configurar para que os utilizadores tenham acesso diretamente ao protocolo SMB com a autenticação conhecida de Kerberos e permissões NTFS existentes (ACLs de ficheiros e pastas) que funcionam de forma nativa. [Saiba mais sobre o acesso à identidade baseada em ações de ficheiros Azure](storage-files-active-directory-overview.md).
+
+Uma alternativa ao acesso direto é um [Azure File Sync](https://aka.ms/AFS). O Azure File Sync é um analógico direto para a capacidade da StorSimple de cache ficheiros frequentemente utilizados no local. 
 
 Azure File Sync é um serviço de nuvem da Microsoft, baseado em dois componentes principais:
 
 * Sincronização de ficheiros e tiering de nuvem.
-* Ações de ficheiros como armazenamento nativo em Azure, que podem ser acedidas em vários protocolos como SMB e FILE REST. Uma partilha de ficheiros Azure é comparável a uma partilha de ficheiros num Servidor do Windows, que pode montar de forma nativa como uma unidade de rede. Suporta importantes aspetos de fidelidade de ficheiros como atributos, permissões e timetamps. Com as partilhas de ficheiros Azure, já não existe necessidade de uma aplicação ou serviço para interpretar os ficheiros e pastas armazenados na nuvem. Pode aceder-lhes de forma nativa sobre protocolos familiares e clientes como o Windows File Explorer. Isso faz com que o ficheiro Azure partilhe a abordagem ideal e mais flexível para armazenar dados de servidores de ficheiros de propósito geral, bem como alguns dados da aplicação, na nuvem.
+* Ações de ficheiros como armazenamento nativo em Azure, que podem ser acedidas em vários protocolos como SMB e FILE REST. 
+
+As ações de ficheiros Azure retêm importantes aspetos de fidelidade de ficheiros em ficheiros armazenados, como atributos, permissões e timetamps. Com as partilhas de ficheiros Azure, já não existe necessidade de uma aplicação ou serviço para interpretar os ficheiros e pastas armazenados na nuvem. Pode aceder-lhes de forma nativa sobre protocolos familiares e clientes como o Windows File Explorer. As ações de ficheiros Azure permitem armazenar dados de servidores de ficheiros de uso geral e dados de aplicação na nuvem. A cópia de segurança de uma partilha de ficheiros Azure é uma funcionalidade incorporada e pode ser melhorada pelo Azure Backup.
 
 Este artigo centra-se nos passos de migração. Se antes de migrar gostaria de saber mais sobre o Azure File Sync, recomendamos os seguintes artigos:
 
 * [Azure File Sync - visão geral](https://aka.ms/AFS "Descrição geral")
 * [Azure File Sync - guia de implementação](storage-sync-files-deployment-guide.md)
 
-## <a name="migration-goals"></a>Objetivos de migração
+### <a name="storsimple-service-data-encryption-key"></a>Chave de encriptação de dados de serviço StorSimple
+Quando montou o seu aparelho StorSimple pela primeira vez, gerou uma *' Chave de encriptação de dados*de serviço ' e instruiu-o a armazenar a chave de forma segura.
+Esta chave é utilizada para encriptar todos os dados na conta de armazenamento Azure associada, que o aparelho StorSimple armazena os seus ficheiros.
 
-O objetivo é garantir a integridade dos dados de produção, bem como garantir a disponibilidade. Este último requer manter o tempo de inatividade ao mínimo, de modo a que possa encaixar ou apenas exceder ligeiramente as janelas de manutenção regulares.
+A "Chave de Encriptação de Dados de Serviço" é necessária para uma migração bem sucedida. Agora é uma boa hora para recuperar esta chave dos seus registos, para cada um dos aparelhos no seu inventário.
 
-## <a name="storsimple-8000-series-migration-path-to-azure-file-sync"></a>StorSimple caminho de migração da série 8000 para Azure File Sync
+Se não conseguir encontrar as chaves nos seus registos, pode retirar a chave do aparelho. Cada aparelho tem uma chave de encriptação única.
 
-Um servidor local do Windows é necessário para executar um agente Azure File Sync. O Windows Server pode ser no mínimo um servidor 2012R2, mas idealmente é um Windows Server 2019.
+* Arquive um pedido de suporte com o Microsoft Azure através do portal Azure. O conteúdo do pedido deve ter os números de série do dispositivo StorSimple e o pedido de recuperação da "Chave de Encriptação de Dados de Serviço". 
+* Um engenheiro de suporte StorSimple entrará em contacto consigo com um pedido de reunião de partilha de ecrã.
+* Certifique-se de que, antes do início da reunião, ligue-se ao seu aparelho StorSimple [através de uma consola em série](../../storsimple/storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console) ou através de uma [sessão remota do PowerShell](../../storsimple/storsimple-8000-windows-powershell-administration.md#connect-remotely-to-storsimple-using-windows-powershell-for-storsimple). 
 
-Existem numerosas vias de migração alternativas e criaria demasiado tempo de um artigo para documentar todos eles e ilustrar por que razão carregam riscos ou desvantagens ao longo da rota que recomendamos como uma boa prática neste artigo.
+> [!CAUTION]
+> Quando estiver a decidir como ligar-se ao seu aparelho StorSimple, considere o seguinte:
+> * A ligação através de uma sessão HTTPS é a opção mais segura e recomendada.
+> * A ligação direta à consola em série do dispositivo é segura, mas a ligação à consola em série sobre os interruptores de rede não é. 
+> * As ligações de sessão HTTP são uma opção, mas não são **encriptadas** e, portanto, também não são recomendadas a menos que sejam utilizadas dentro de uma rede fechada e fidedigna.
 
-![StorSimple 8000 fases de migração de séries](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-overview.png "StorSimple 8000 série rota de migração panorâmica das fases mais abaixo neste artigo.")
+### <a name="storsimple-volume-backups"></a>Backups de volume StorSimple
+A StorSimple oferece cópias de segurança diferenciais ao nível do volume. As ações de ficheiros Azure também têm esta capacidade, chamadas snapshots de partilha.
 
-A imagem anterior retrata fases que correspondem a secções neste artigo.
-Utilizamos uma migração do lado da nuvem para evitar a recolha desnecessária de ficheiros para o seu aparelho StorSimple local. Esta abordagem evita o impacto do comportamento do caching local ou o uso de largura de banda de rede, qualquer um dos quais pode afetar as suas cargas de trabalho de produção.
-Uma migração do lado da nuvem está a operar num instantâneo (um clone de volume) dos seus dados. Assim, os seus dados de produção estão isolados deste processo até ao corte no final da migração. Trabalhar fora do que é essencialmente um backup, torna a migração segura e facilmente repetível, caso se detesse de alguma dificuldade.
+Decida se como parte da sua migração, também tem a obrigação de mover quaisquer backups.
 
-## <a name="considerations-around-existing-storsimple-backups"></a>Considerações em torno dos backups StorSimple existentes
+> [!CAUTION]
+> Pare aqui se tiver de migrar cópias de segurança dos volumes StorSimple.
+>
+> Atualmente, só pode migrar a sua cópia de segurança de volume mais recente. O apoio à migração de apoio chegará no final de 2020.
+> Se começar agora, não poderá "ligar" os seus backups mais tarde.
+> Na próxima versão, as cópias de segurança devem ser "reproduzidas" para as ações de ficheiros Azure, das mais antigas às mais recentes, com as fotos de partilha de ficheiros Azure tiradas entre elas.
 
-O StorSimple permite-lhe fazer backups sob a forma de clones de volume. Este artigo usa um novo clone de volume para migrar os seus ficheiros ao vivo.
-Se precisar de migrar cópias de segurança para além dos seus dados ao vivo, então todas as orientações deste artigo ainda se aplicam. A única diferença é que, em vez de começar com um novo clone de volume, começará com o clone de volume de reserva mais antigo que precisa para migrar.
+Se quiser apenas migrar os dados ao vivo e não tiver requisitos para cópias de segurança, pode continuar a seguir este guia.
+Se tiver apenas um requisito de retenção de backup de curto prazo, digamos, um mês ou dois, então pode decidir continuar a sua migração agora e apenas desprovisionar os seus recursos StorSimple após esse período. Esta abordagem permitir-lhe-ia criar o histórico de backup no lado da partilha de ficheiros Azure que precisar. Para o tempo em que mantém ambos os sistemas em funcionamento, aplica-se um custo adicional, o que faz com que esta não seja uma abordagem que deve considerar se precisar de mais do que uma retenção de backup de curto prazo.
 
-A sequência é a seguinte:
-
-* Determine o conjunto mínimo de clones de volume que deve migrar. Recomendamos manter esta lista ao mínimo, se possível, porque quanto mais backups migrar, mais tempo demorará o processo de migração global.
-* Ao passar pelo processo de migração, comece com o clone de volume mais antigo que pretende migrar e em cada migração subsequente, use o próximo mais antigo.
-* Quando cada migração de clone de volume estiver concluída, deve tirar uma foto de partilha de ficheiros Azure. [As imagens de partilha de ficheiros Azure](storage-snapshots-files.md) são como mantém cópias de segurança pontuais dos ficheiros e estrutura de pastas para as suas partilhas de ficheiros Azure. Você precisará destes instantâneos após a conclusão da migração, para garantir que você preservou versões de cada um dos seus clones de volume à medida que progride através da migração.
-* Certifique-se de que toma fotos de partilha de ficheiros Azure para todas as ações de ficheiros Azure, que são servidas pelo mesmo volume StorSimple. Os clones de volume estão no nível de volume, as imagens de partilha de ficheiros Azure estão no nível de ações. Deve tirar uma fotografia de partilha (em cada partilha de ficheiros Azure) após a migração de um clone de volume.
-* Repita o processo de migração para um clone de volume e faça snapshots de partilha após cada clone de volume até ser apanhado numa imagem dos dados ao vivo. O processo de migração de um clone de volume é descrito nas fases abaixo. 
-
-Se não precisar de movimentar backups e puder iniciar uma nova cadeia de backups no lado da partilha de ficheiros Azure após a migração de apenas os dados ao vivo, então isso é benéfico para reduzir a complexidade na migração e o tempo que a migração levará. Pode tomar a decisão de mover ou não backups e quantos por cada volume (e não cada ação) que tenha no StorSimple.
-
-## <a name="phase-1-get-ready"></a>Fase 1: Prepare-se
-
-:::row:::
-    :::column:::
-        ![Uma imagem que ilustra uma parte da imagem anterior, visão geral que ajuda a focar esta subsecção do artigo.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-1.png)
-    :::column-end:::
-    :::column:::
-        A base para a migração é um clone de volume e um aparelho em nuvem virtual, chamado StorSimple 8020.
-Esta fase centra-se na implantação destes recursos em Azure.
-    :::column-end:::
-:::row-end:::
-
-### <a name="deploy-a-storsimple-8020-virtual-appliance"></a>Implementar um aparelho virtual StorSimple 8020
-
-A implantação de um aparelho em nuvem é um processo que requer segurança, ligação em rede e algumas outras considerações.
-
-> [!IMPORTANT]
-> O seguinte guia contém algumas secções desnecessárias. Leia e siga o artigo desde o início até ao "Passo 3". Então volte a este artigo. Não precisa completar o "Passo 3" ou qualquer coisa além dele nesse guia, neste momento.
-
-[Implantação de um aparelho virtual StorSimple 8020](../../storsimple/storsimple-8000-cloud-appliance-u2.md)
-
-### <a name="determine-a-volume-clone-to-use"></a>Determine um clone de volume para usar
-
-Quando estiver pronto para iniciar a migração, o primeiro passo é pegar num novo clone de volume - tal como faria para o backup - que captura o estado atual do seu armazenamento em nuvem StorSimple. Tome um clone para cada um dos volumes StorSimple que tiver.
-Se precisa de mover backups, então o primeiro clone de volume que utiliza não é um clone recém-criado, mas o clone de volume mais antigo (cópia de segurança mais antiga) que precisa para migrar.
-Consulte a secção ["Considerações em torno das cópias de segurança StorSimple existentes"](#considerations-around-existing-storsimple-backups) para obter orientações detalhadas.
-
-> [!IMPORTANT]
-> O seguinte guia contém algumas secções desnecessárias. Leia e siga apenas os passos descritos na secção ligada à secção. Então volte a este artigo. Não é necessário seguir a secção "Próximos passos".
-
-[Criar um clone de um volume](../../storsimple/storsimple-8000-clone-volume-u2.md#create-a-clone-of-a-volume)
-
-### <a name="use-the-volume-clone"></a>Use o clone de volume
-
-A última fase da fase 1 é disponibilizar o clone de volume que escolheu, disponível no aparelho virtual 8020 em Azure.
-
-> [!IMPORTANT]
-> O seguinte guia contém os passos necessários, mas também - no final - uma instrução para formatar o volume. **NÃO FORMATAR O VOLUME** Leia e siga o "secção 7" ligado à "secção 7" desde o início até à instrução: "10. Para formatar um volume simples, ..."  Pare antes de seguir este passo e volte a este artigo.
-
-[Monte um clone de volume no aparelho virtual 8020 em Azure](../../storsimple/storsimple-8000-deployment-walkthrough-u2.md#step-7-mount-initialize-and-format-a-volume)
-
-### <a name="phase-1-summary"></a>Resumo da fase 1
-
-Agora que completou a fase 1, terá feito o seguinte:
-
-* Implantado um aparelho virtual StorSimple 8020 em Azure.
-* Determinado com que volume de clone começará a migração.
-* Montou o seu ous clone de volume (um para cada volume vivo) para o aparelho virtual StorSimple em Azure, com os seus dados disponíveis para posterior utilização.
-
-## <a name="phase-2-cloud-vm"></a>Fase 2: Cloud VM
-
-:::row:::
-    :::column:::
-        ![Ilustração que mostra que agora é hora de providenciar um VM e expor o clone de volume (ou múltiplo) ao VM sobre iSCSI.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-2.png)
-    :::column-end:::
-    :::column:::
-        Depois de o seu clone inicial estar disponível no aparelho virtual StorSimple 8020 em Azure, é agora altura de disponibilizar um VM e expor o clone de volume (ou múltiplo) ao VM sobre o iSCSI.
-    :::column-end:::
-:::row-end:::
-
-### <a name="deploy-an-azure-vm"></a>Implementar um VM Azure
-
-A máquina virtual do Windows Server em Azure é tal como o StorSimple 8020, uma infraestrutura temporária que só é necessária durante a migração.
-A configuração do VM que implementa depende principalmente do número de itens (ficheiros e pastas) que estará a sincronizar. Recomendamos que vá com uma configuração de desempenho mais alta se tiver alguma preocupação.
-
-Um único Servidor windows pode sincronizar até 30 ações de ficheiros Azure.
-As especificações que decide sobre a necessidade de abranger cada partilha/caminho ou a raiz do volume StorSimple e contar os itens (ficheiros e pastas).
-
-O tamanho geral dos dados é menos de um estrangulamento - é o número de itens que você precisa para adaptar as especificações da máquina.
-
-* [Saiba como dimensionar um Servidor do Windows com base no número de itens (ficheiros e pastas) que necessita para sincronizar.](storage-sync-files-planning.md#recommended-system-resources)
-
-    **Por favor, note:** O artigo anteriormente ligado apresenta uma tabela com um intervalo para memória do servidor (RAM). Oriente para o grande número para o VM Azure. Pode orientar-se para o número menor para a sua máquina no local.
-
-* [Saiba como implementar um Windows Sever VM.](../../virtual-machines/windows/quick-create-portal.md)
-
-> [!IMPORTANT]
-> Certifique-se de que o VM está implantado na mesma região de Azure que o aparelho virtual StorSimple 8020. Se, como parte desta migração, também precisar de alterar a região dos seus dados em nuvem da região onde está armazenada hoje, pode fazê-lo mais tarde, quando fornecer ações de ficheiros Azure.
-
-> [!IMPORTANT]
-> Frequentemente, um Windows Server no local é utilizado para fazer frente ao seu aparelho StorSimple no local. Nesta configuração, é possível ativar a função "[Deduplicação de Dados](https://docs.microsoft.com/windows-server/storage/data-deduplication/install-enable)" no Windows Server. **Se utilizou a Deduplicação de Dados com os seus dados StorSimple, certifique-se de que também ativa a Deduplicação de Dados neste Azure VM.** Não confunda esta deduplica ao nível do ficheiro com a deduplica de nível de bloco incorporada, para a qual não é necessária qualquer ação.
-
-> [!IMPORTANT]
-> Para otimizar para o desempenho, implemente um **disco de SO rápido** para o seu VM na nuvem. Armazenará a base de dados de sincronização no disco OS para todos os seus volumes de dados. Além disso, certifique-se de que cria um **grande disco de SO**. Dependendo do número de itens (ficheiros e pastas) nos seus volumes StorSimple, o disco OS poderá necessitar de **várias centenas** de GiB de espaço para acomodar a base de dados de sincronização.
-
-### <a name="expose-the-storsimple-8020-volumes-to-the-azure-vm"></a>Expor os volumes StorSimple 8020 ao Azure VM
-
-Nesta fase, está a ligar um ou vários volumes StorSimple do aparelho virtual 8020 ao iSCSI ao VM do Windows Server que a provisionou.
-
-> [!IMPORTANT]
-> Para os seguintes artigos, complete apenas o **IP get privado para o aparelho em nuvem** e Conecte-se sobre as secções **iSCSI** e volte a este artigo.
-
-1. [Obter o IP privado da aplicação da cloud](../../storsimple/storsimple-8000-cloud-appliance-u2.md#get-private-ip-for-the-cloud-appliance)
-2. [Conecte-se sobre o iSCSI](../../storsimple/storsimple-8000-deployment-walkthrough-u2.md#step-7-mount-initialize-and-format-a-volume)
-
-### <a name="phase-2-summary"></a>Resumo da fase 2
-
-Agora que terminou a fase 2, tem: 
-
-* A provisionou um VM do Windows Server na mesma região que o aparelho StorSimple 8020
-* Expôs todos os volumes aplicáveis do 8020 ao Windows Server VM sobre o iSCSI.
-* Deve agora ver o conteúdo do ficheiro e da pasta, quando utilizar o Explorador de Ficheiros no VM do servidor nos volumes montados.
-
-Só proceda à fase 3 quando tiver concluído estes passos para todos os volumes que necessitam de migração.
-
-## <a name="phase-3-set-up-azure-file-shares-and-get-ready-for-azure-file-sync"></a>Fase 3: Configurar ações de ficheiros Azure e preparar-se para o Azure File Sync
-
-:::row:::
-    :::column:::
-        ![Ilustração que mostra a necessidade de determinar e providenciar uma série de partilhas de ficheiros Azure e criar um Servidor do Windows no local como uma substituição do aparelho StorSimple.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-3.png)
-    :::column-end:::
-    :::column:::
-        Nesta fase, irá determinar e a provisionar uma série de partilhas de ficheiros Azure, criando um Servidor do Windows no local como substituição de aparelho StorSimple e configurar esse servidor para Azure File Sync. 
-    :::column-end:::
-:::row-end:::
-
-### <a name="map-your-existing-namespaces-to-azure-file-shares"></a>Mapeie os seus espaços de nome existentes para ações de ficheiros Azure
-
+### <a name="map-your-existing-storsimple-volumes-to-azure-file-shares"></a>Mapear os seus volumes StorSimple existentes para ações de ficheiros Azure
 [!INCLUDE [storage-files-migration-namespace-mapping](../../../includes/storage-files-migration-namespace-mapping.md)]
 
-### <a name="deploy-azure-file-shares"></a>Implementar ações de ficheiros Azure
+### <a name="number-of-storage-accounts"></a>Número de contas de armazenamento
+A sua migração provavelmente beneficiará de uma implementação de várias contas de armazenamento, que cada uma detém um número menor de ações de ficheiros Azure.
 
-[!INCLUDE [storage-files-migration-provision-azfs](../../../includes/storage-files-migration-provision-azure-file-share.md)]
+Se as suas ações de ficheiros forem altamente ativas (utilizadas por muitos utilizadores e/ou aplicações) então apenas duas ações de ficheiros Azure poderão atingir o limite de desempenho da sua conta de armazenamento. Por isso, a melhor prática é migrar para múltiplas contas de armazenamento, cada uma com as suas próprias ações individuais de ficheiros e, normalmente, não mais do que duas ou três ações por conta de armazenamento.
 
-> [!TIP]
-> Se precisar de alterar a região Azure da região atual, os seus dados StorSimple residem, então fornece as ações de ficheiroS Azure na nova região que pretende utilizar. Você determina a região selecionando-a quando fornece as contas de armazenamento que detêm as suas ações de ficheiroS Azure. Certifique-se de que também o recurso Azure File Sync que irá disponibilizar abaixo, está nessa mesma nova região.
+Uma boa prática é implementar contas de armazenamento com uma partilha de ficheiros cada. Você pode juntar várias ações de arquivo Azure na mesma conta de armazenamento, caso você tenha ações de arquivo nelas.
 
-### <a name="deploy-the-azure-file-sync-cloud-resource"></a>Implementar o recurso cloud Azure File Sync
+Estas considerações aplicam-se mais ao [acesso direto](#direct-share-access-vs-azure-file-sync) à nuvem (através de um VM ou serviço Azure) do que ao Azure File Sync. Se planeia utilizar o Azure File Sync apenas nestas ações, então agrupar várias numa única conta de armazenamento Azure está bem. Considere também que pode querer levantar e transferir uma aplicação para a nuvem, que depois acederia diretamente a uma partilha de ficheiros. Ou pode começar a usar um serviço em Azure que também beneficiaria de ter iops mais elevados e números de produção disponíveis. 
+
+Se fez uma lista das suas ações, deve mapear cada ação para a conta de armazenamento em que reside.
+
+> [!IMPORTANT]
+> Certifique-se de que decide sobre uma região Azure e, em seguida, cada conta de armazenamento e recurso Azure File Sync correspondem à mesma região que selecionou.
+
+### <a name="phase-1-summary"></a>Resumo da fase 1
+No final da Fase 1:
+* Tem uma boa visão geral dos seus dispositivos e volumes StorSimple.
+* O serviço de Transformação de Dados está pronto para aceder aos seus volumes StorSimple na nuvem, porque recuperou a chave de encriptação de dados de serviço para cada dispositivo StorSimple.
+* Tem um plano para não só quais volumes precisam de ser migrados, mas também como mapear os seus volumes para o número apropriado de ações de ficheiros Azure e contas de armazenamento.
+
+> [!CAUTION]
+> Se tiver de migrar cópias de segurança dos volumes StorSimple, **PARE AQUI**.
+>
+> Esta abordagem de migração baseia-se em novas capacidades de serviço de transformação de dados que atualmente não conseguem migrar backups. O apoio à migração de apoio chegará no final de 2020.
+> Atualmente só pode migrar os seus dados ao vivo. Se começar agora, não poderá "ligar" os seus backups mais tarde.
+> As cópias de segurança devem ser "reproduzidas" para as ações de ficheiros Azure, das mais antigas às mais recentes para os dados ao vivo, com os instantâneos de partilha de ficheiros Azure pelo meio.
+
+Se quiser apenas migrar os dados ao vivo e não tiver requisitos para cópias de segurança, pode continuar a seguir este guia.
+
+## <a name="phase-2-deploying-azure-storage-and-migration-resources"></a>Fase 2: Implantação de recursos de armazenamento e migração do Azure
+
+Esta secção discute considerações em torno da implantação dos diferentes tipos de recursos que são necessários em Azure. Alguns irão deter os seus dados após a migração e alguns são necessários apenas para a migração. Não comece a mobilizar recursos até ter concluído o seu plano de implantação. É difícil, às vezes impossível, mudar certos aspetos dos seus recursos Azure uma vez que eles foram implantados.
+
+### <a name="deploy-storage-accounts"></a>Implementar contas de armazenamento
+Provavelmente terá de implementar várias contas de armazenamento Azure. Cada um deles terá um número menor de ações de ficheiros Azure, de acordo com o seu plano de implantação, concluído na secção anterior deste artigo. Chegou ao portal Azure para [implementar as suas contas de armazenamento planeadas.](../common/storage-account-create.md#create-a-storage-account) Considere aderir às seguintes definições básicas para qualquer nova conta de armazenamento:
+
+##### <a name="subscription"></a>Subscrição
+Pode utilizar a mesma subscrição que utilizou para a sua implementação StorSimple ou outra. A única limitação é que a sua subscrição deve estar no mesmo inquilino AZure AD que a subscrição StorSimple. Considere mover a assinatura StorSimple para o inquilino correto antes de iniciar uma migração. Você só pode mover toda a subscrição, recursos StorSimple individuais não podem ser transferidos para um inquilino ou subscrição diferente.
+
+##### <a name="resource-group"></a>Grupo de recursos
+Os grupos de recursos estão a ajudar na organização de recursos e permissões de gestão de administração. Saiba mais sobre [grupos de recursos em Azure.](../../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group)
+
+##### <a name="storage-account-name"></a>Nome da conta de armazenamento
+O nome da sua conta de armazenamento passará a fazer parte de um URL e tem determinadas limitações de caracteres. Na sua convenção de nomeação, considere que os nomes das contas de armazenamento têm de ser únicos no mundo, permitir apenas letras e números minúsculas, exigir entre 3 a 24 caracteres, e não permitir caracteres especiais como hífens ou sublinhados. Ver também: Regras de [nomeação de recursos de armazenamento Azure](../../azure-resource-manager/management/resource-name-rules.md#microsoftstorage).
+
+##### <a name="location"></a>Localização
+A "Localização" ou região Azure de uma conta de armazenamento é muito importante. Se utilizar o Azure File Sync, todas as suas contas de armazenamento devem estar na mesma região que o seu recurso De Serviço de Sincronização de Armazenamento. A região Azure que escolher, deve ser próxima ou central para os seus servidores/utilizadores locais. Uma vez que o seu recurso tenha sido implantado, não pode alterar a sua região.
+
+Pode escolher uma região diferente de onde reside atualmente os seus dados StorSimple (conta de armazenamento).
+
+> [!IMPORTANT]
+> Se escolher uma região diferente da sua localização atual, storSimple, [os encargos de saída serão aplicados](https://azure.microsoft.com/pricing/details/bandwidth) durante a migração. Os dados deixarão a região StorSimple e entrarão na sua nova região de conta de armazenamento. Não se aplicam taxas de largura de banda se permanecer na mesma região de Azure.
+
+##### <a name="performance"></a>Desempenho
+Tem a opção de escolher armazenamento premium (SSD) para ações de ficheiros Azure ou armazenamento padrão. O armazenamento padrão inclui [vários níveis para uma partilha de ficheiros.](storage-how-to-create-file-share.md#changing-the-tier-of-an-azure-file-share) O armazenamento padrão é a opção certa para a maioria dos clientes que migram da StorSimple.
+
+Ainda não tem certeza?
+* Escolha o armazenamento premium se precisar do [desempenho de uma partilha de ficheiros Azure premium.](storage-files-planning.md#understanding-provisioning-for-premium-file-shares)
+* Escolha o armazenamento padrão para as cargas de trabalho do servidor de ficheiros de finalidade geral, incluindo dados quentes e dados de arquivo. Escolha também o armazenamento padrão se a única carga de trabalho na partilha na nuvem será O Azure File Sync.
+
+##### <a name="account-kind"></a>Tipo de conta
+* Para armazenamento padrão, escolha: *StorageV2 (finalidade geral v2)*
+* Para ações de ficheiros premium, escolha: *FileStorage*
+
+##### <a name="replication"></a>Replicação
+Existem várias definições de replicação disponíveis. Saiba mais sobre os diferentes tipos de replicação.
+
+Escolha apenas entre uma das duas opções seguintes:
+* *Armazenamento localmente redundante (LRS)*
+* *Armazenamento redundante de zona (ZRS)* - que não está disponível em todas as regiões de Azure.
+
+> [!NOTE]
+> Apenas os tipos de redundância LRS e ZRS são compatíveis com as grandes ações de ficheiros Azure de 100TiB.
+
+O armazenamento globalmente redundante (todas as variações) não é atualmente suportado. Pode mudar o seu tipo de redundância mais tarde, e para GRS quando o suporte chegar a Azure.
+
+##### <a name="enable-100tib-capacity-file-shares"></a>Ativar ações de ficheiros de capacidade 100TiB
+
+:::row:::
+    :::column:::
+        :::image type="content" source="media/storage-files-how-to-create-large-file-share/large-file-shares-advanced-enable.png" alt-text="Uma imagem mostrando o separador Advanced no portal Azure para a criação de uma conta de armazenamento.":::
+    :::column-end:::
+    :::column:::
+        Sob a secção *Avançada* do novo assistente de conta de armazenamento no portal Azure, pode ativar o suporte *de grandes ações* de ficheiros nesta conta de armazenamento. Se esta opção não estiver disponível para si, é provável que tenha selecionado o tipo de redundância errado. Certifique-se de que seleciona apenas LRS ou ZRS para que esta opção fique disponível.
+    :::column-end:::
+:::row-end:::
+
+Optar pelas grandes ações de ficheiros de capacidade 100TiB tem vários benefícios:
+* O seu desempenho é muito aumentado em comparação com as ações de ficheiros de menor capacidade de 5TiB. (por exemplo: 10 vezes o IOPS)
+* Sua migração terminará significativamente mais rápido.
+* Certifique-se de que uma partilha de ficheiros terá capacidade suficiente para reter todos os dados que irá migrar para o mesmo.
+* O crescimento futuro está coberto.
+
+### <a name="azure-file-shares"></a>Ações de ficheiros Azure
+Assim que as suas contas de armazenamento forem criadas, pode navegar na secção *"Partilhar ficheiro"* da conta de armazenamento e implementar o número adequado de ações de ficheiros Azure de acordo com o seu plano de migração a partir da Fase 1. Considere aderir às seguintes definições básicas para as suas novas ações de ficheiros em Azure:
+
+:::row:::
+    :::column:::
+        :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-share.png" alt-text="Uma imagem mostrando o separador Advanced no portal Azure para a criação de uma conta de armazenamento.":::
+    :::column-end:::
+    :::column:::
+        </br>**Nome**</br>Letras minúsculas, números e hífens são suportados.</br></br>**Quota**</br>A quota aqui é comparável à quota dura SMB num Servidor windows. A melhor prática é não estabelecer uma quota aqui, uma vez que a sua migração e outros serviços falharão quando a quota for atingida.</br></br>**Escalão de serviço**</br>Selecione *Transação Otimizada* para a sua nova partilha de ficheiros. Durante a migração, muitas transações ocorrerão e é mais eficiente em termos de custos mudar o seu nível mais tarde para o nível mais adequado à sua carga de trabalho.
+    :::column-end:::
+:::row-end:::
+
+### <a name="storsimple-data-manager"></a>StorSimple Data Manager
+O recurso Azure que lhe irá manter empregos de migração, chama-se *"StorSimple Data Manager".* Clique em novo recurso e procure-o e, em seguida, clique em *Criar*.
+
+Este é um recurso temporário usado para orquestração, você irá desprovisioná-lo após a sua migração completa. Deve ser implantado na mesma subscrição, grupo de recursos e região que a sua conta de armazenamento StorSimple.
+
+### <a name="azure-file-sync"></a>Azure File Sync
+O Azure File Sync (AFS) permite-lhe adicionar no local o caching dos ficheiros mais acessados. Semelhante às habilidades de cache do StorSimple, a funcionalidade de tiering de nuvem AFS oferece latência de acesso local em combinação com um melhor controlo sobre a capacidade de cache disponível no Servidor do Windows e sincronização de vários locais. Se ter uma cache no local é o seu objetivo, então na sua rede local, prepare um VM do Windows Server (servidores físicos e clusters de fail-over também são suportados), com capacidade suficiente de "Armazenamento Direto Anexado (DAS)". 
+
+> [!IMPORTANT]
+> Não crie ainda O Azure File Sync, o melhor é configurar o Azure File Sync depois de concluída a migração da sua parte. A implantação de AFS não deve começar antes da fase 4 de uma migração.
+
+### <a name="phase-2-summary"></a>Resumo da fase 2
+No final da Fase 2, terá implantado as suas contas de armazenamento, todas as ações de ficheiros Azure em todas as áreas e também um recurso StorSimple Data Manager. Usará este último na fase 3, quando, na verdade, configurar os seus empregos de migração.
+
+## <a name="phase-3-create-and-run-a-migration-job"></a>Fase 3: Criar e executar um trabalho de migração
+Esta secção descreve como configurar um trabalho de migração e mapear cuidadosamente os diretórios num volume StorSimple que deve ser copiado para o ficheiro target Azure que seleciona. Para começar, navegue para o seu Gestor de Dados StorSimple, encontre **definições de Job** no menu e selecione **+Definição de trabalho.** O tipo de armazenamento alvo é o padrão: *Azure file share*.
+
+![StorSimple 8000 série de empregos de migração.](media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-job-type.png "Uma imagem do portal Job definitions Azure com um novo diálogo de definição de Emprego aberto, que pede o tipo de trabalho: Copiar para uma partilha de ficheiros ou um recipiente blob.")
+
+> [!IMPORTANT]
+> Antes de executar qualquer trabalho de migração, pare quaisquer cópias de segurança programadas automaticamente dos seus volumes StorSimple.
+
+:::row:::
+    :::column:::
+        ![StorSimple 8000 trabalho de migração série.](media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-job.png "Uma imagem do novo formulário de criação de emprego para um Trabalho de Transformação de Dados.")
+    :::column-end:::
+    :::column:::
+        **Nome da definição de emprego**</br>Este nome deve indicar o conjunto de ficheiros que está a mover. Dar-lhe um nome semelhante ao da sua partilha de ficheiros Azure é uma boa prática. </br></br>**Local onde o trabalho funciona**</br>Ao selecionar uma região, deve selecionar a mesma região que a sua conta de armazenamento StorSimple ou, se isso não estiver disponível, então uma região próxima dela. </br></br><h3>Origem</h3>**Assinatura de origem**</br>Escolha a subscrição na qual armazena o seu recurso StorSimple Device Manager. </br></br>**Recurso StorSimple**</br>Escolha o seu StorSimple Device Manager com o qual o seu aparelho está registado. </br></br>**Chave de Encriptação dos Dados do Serviço**</br>Consulte esta [secção anterior neste artigo,](#storsimple-service-data-encryption-key)caso não consiga localizar a chave nos seus registos. </br></br>**Dispositivo**</br>Selecione o seu dispositivo StorSimple que mantém o volume onde pretende migrar. </br></br>**Volume**</br>Selecione o volume de origem. Mais tarde, decidirá se pretende migrar todo o volume ou subdiretórios para a partilha de ficheiros target Azure. </br></br><h3>Destino</h3>Escolha a subscrição, a conta de armazenamento e a partilha de ficheiros Azure como alvo deste trabalho de migração.
+    :::column-end:::
+:::row-end:::
+
+> [!IMPORTANT]
+> A cópia de segurança de volume mais recente será usada para realizar a migração. Certifique-se de que pelo menos uma cópia de segurança de volume está presente ou o trabalho falhará. Também certifique-se de que o mais recente backup que tem é bastante recente, para manter o delta ao vivo o mais pequeno possível. Pode valer a pena ativar manualmente e completar outra cópia de segurança de volume **antes** de executar o trabalho que acabou de criar.
+
+### <a name="directory-mapping"></a>Mapeamento do diretório
+Isto é opcional para o seu trabalho de migração. Se o deixar vazio, **todos os** ficheiros e pastas na raiz do seu volume StorSimple serão movidos para a raiz da sua partilha de ficheiros Target Azure. Na maioria dos casos, armazenar todo o conteúdo de um volume numa partilha de ficheiros Azure não é a melhor abordagem. Muitas vezes é melhor dividir o conteúdo de um volume em várias ações de ficheiros em Azure. Se ainda não fez um plano, confira esta secção primeiro: [Mapeie o seu volume StorSimple para ações de ficheiros Azure](#map-your-existing-storsimple-volumes-to-azure-file-shares)
+
+Como parte do seu plano de migração, pode ter decidido que as pastas de um volume StorSimple precisam de ser divididas em várias ações de ficheiros Azure. Se for esse o caso, podes conseguir essa divisão por:
+1. Definindo múltiplos trabalhos para migrar as pastas num só volume, cada um terá a mesma fonte de volume StorSimple, mas uma partilha de ficheiros Azure diferente como o alvo.
+1. Especificando com precisão quais as pastas do volume StorSimple que devem ser migradas para a partilha de ficheiros especificada, utilizando a secção de mapeamento do *diretório* do formulário de criação de emprego e seguindo a [semântica](#semantic-elements)de mapeamento específica .
+
+> [!IMPORTANT]
+> Os caminhos e expressões de mapeamento desta forma não podem ser validados quando o formulário é submetido. Se os mapeamentos forem especificados incorretamente, um trabalho pode falhar completamente ou produzir um resultado indesejável. Nesse caso, normalmente é melhor apagar a partilha de ficheiros Azure, recriá-la e, em seguida, corrigir as declarações de mapeamento num novo trabalho de migração para a parte. Executar um novo trabalho com uma declaração de mapeamento fixo pode corrigir pastas omitidas e trazê-las para a parte existente. No entanto, apenas as pastas que foram omitidas devido a erros ortográficos do caminho podem ser abordadas desta forma.
+
+#### <a name="semantic-elements"></a>Elementos semânticos
+Um mapeamento é expresso da esquerda para a direita: [\caminho de origem] \> [\caminho alvo].
+
+|Caráter semântico          | Significado  |
+|:---------------------------|:---------|
+| **\\**                     | indicador de nível de raiz        |
+| **\>**                     | [fonte] e operador de mapeamento [alvo]        |
+|**\|** ou RETURN (nova linha) | separador de duas instruções de mapeamento de pasta. </br>Em alternativa, pode omitir este personagem e pressionar a entrar para obter a próxima expressão de mapeamento na sua própria linha.        |
+
+### <a name="examples"></a>Exemplos
+Move o conteúdo da pasta "Dados do Utilizador" para a raiz da partilha de ficheiros-alvo:
+``` console
+\User data > \\
+```
+Move todo o conteúdo do volume para um novo caminho na partilha de ficheiros-alvo:
+``` console
+\ \> \Apps\HR tracker
+```
+Move o conteúdo da pasta de origem para um novo caminho na partilha de ficheiros-alvo:
+``` console
+\HR resumes-Backup \> \Backups\HR\resumes
+```
+Classifica vários locais de origem numa nova estrutura de diretório:
+``` console
+\HR\Candidate Tracker\v1.0 > \Apps\Candidate tracker
+\HR\Candidates\Resumes > \HR\Candidates\New
+\Archive\HR\Old Resumes > \HR\Candidates\Archived
+```
+
+### <a name="semantic-rules"></a>Regras semânticas
+* Especifique sempre os caminhos das pastas em relação ao nível da raiz. 
+* Inicie cada caminho de pasta com um indicador de nível de raiz " \" . 
+* Não inclua letras de unidade. 
+* Ao especificar vários caminhos, caminhos de origem ou alvo não pode sobrepor-se:</br>
+   Exemplo de sobreposição de caminho de origem inválido:</br>
+    *\\pasta\1 > \\ pasta*</br>
+    *\\pasta \\ 1 \\ 2 > \\ 2*</br>
+   Exemplo de sobreposição de caminho-alvo inválido:</br>
+   *\\> pasta \\*</br>
+   *\\> pasta2 \\*</br>
+* As pastas de origem que não existem serão ignoradas. 
+* Serão criadas estruturas de pasta que não existam no alvo. 
+* Tal como o Windows: os nomes das pastas são casos insensíveis, mas conservam casos.
+
+> [!NOTE]
+> os conteúdos da pasta "*\Informação do Volume do Sistema"* e do "*$Recycle.Bin*" no seu volume StorSimple não serão copiados pelo trabalho de transformação.
+
+### <a name="phase-3-summary"></a>Resumo da fase 3
+No final da Fase 3, terá gerido os seus trabalhos de transformação de dados de volumes StorSimple em ações de ficheiros Azure. Pode agora concentrar-se na criação de Azure File Sync para a partilha (após o fim dos empregos de migração para uma parte) ou no acesso direto de partilha para os seus trabalhadores de informação e aplicações para a partilha de ficheiros Azure.
+
+## <a name="phase-4-accessing-your-azure-file-shares"></a>Fase 4: Aceder às suas ações de ficheiros Azure
+
+Existem duas estratégias principais para aceder às suas partilhas de ficheiros Azure:
+
+* **Azure File Sync:** [Como implementar o Azure File Sync](#deploy-azure-file-sync) para um Servidor Windows no local. A AFS tem todas as vantagens de uma cache local, tal como a StorSimple.
+* **Acesso direto à partilha:** [Como implementar acesso direto à partilha](#deploy-direct-share-access). Utilize esta estratégia se o seu cenário de acesso a uma determinada partilha de ficheiros Azure não beneficiar do caching local ou deixar de ter a capacidade de hospedar um Servidor Windows no local. Aqui, os seus utilizadores e aplicações continuarão a aceder a ações SMB ao longo do protocolo SMB, mas estas ações já não se encontram num servidor no local, mas diretamente na nuvem.
+
+Já devia ter decidido qual a melhor opção para si, na [fase 1](#phase-1-prepare-for-migration) deste guia.
+
+O restante desta secção centra-se nas instruções de implantação.
+
+### <a name="deploy-azure-file-sync"></a>Implementar Azure File Sync
+
+É hora de implementar uma parte do Azure File Sync:
+1. Crie o recurso cloud Azure File Sync.
+1. Implemente o agente Azure File Sync no seu servidor on-prem.
+1. Registe o servidor com o recurso cloud
+
+Não crie ainda grupos de sincronização. A configuração da sincronização com uma partilha de ficheiros Azure só deverá ocorrer quando os seus trabalhos de migração para uma partilha de ficheiros Azure estiverem concluídos. Se começar a utilizar o File Sync antes da sua migração terminar, irá dificultar desnecessariamente a sua migração, uma vez que não consegue dizer facilmente quando é a hora de iniciar um corte.
+
+#### <a name="deploy-the-azure-file-sync-cloud-resource"></a>Implementar o recurso cloud Azure File Sync
 
 [!INCLUDE [storage-files-migration-deploy-afs-sss](../../../includes/storage-files-migration-deploy-azure-file-sync-storage-sync-service.md)]
 
 > [!TIP]
-> Se precisar de alterar a região Azure da região atual em que residem os seus dados StorSimple, então fornece as contas de armazenamento das suas ações de ficheiroS Azure na nova região. Certifique-se de que selecionou a mesma região quando implementar este Serviço de Sincronização de Armazenamento.
+> Se gosta de alterar em que região de Azure os seus dados residem quando a migração é feita, em seguida, implementar o Serviço de Sincronização de Armazenamento na mesma região que o armazenamento alvo é responsável por esta migração.
 
-### <a name="deploy-an-on-premises-windows-server"></a>Implementar um Servidor Windows no local
+#### <a name="deploy-an-on-premises-windows-server"></a>Implementar um Servidor Windows no local
 
-* Crie um Windows Server 2019 - no mínimo 2012R2 - como uma máquina virtual ou servidor físico. Um cluster de falha do Windows Server também é suportado. Não reutilizar o servidor que poderá ter na frente do StorSimple 8100 ou 8600.
+* Crie um Windows Server 2019 - no mínimo 2012R2 - como uma máquina virtual ou servidor físico. Um cluster de falha do Windows Server também é suportado. Não reutilizar o servidor na frente do StorSimple 8100 ou 8600.
 * Provisão ou adicionar Armazenamento Direto Anexado (DAS em comparação com o NAS, que não é suportado).
 
 É melhor dar ao seu novo Windows Server uma quantidade igual ou maior de armazenamento do que o seu aparelho StorSimple 8100 ou 8600 tem disponível localmente para caching. Utilizará o Servidor do Windows da mesma forma que utilizou o aparelho StorSimple, se tiver a mesma quantidade de armazenamento que o aparelho, então a experiência de caching deve ser semelhante, se não a mesma.
 Pode adicionar ou remover o armazenamento do seu Servidor Windows à vontade. Isto permite-lhe escalar o seu tamanho de volume local e a quantidade de armazenamento local disponível para caching.
 
-### <a name="prepare-the-windows-server-for-file-sync"></a>Prepare o Servidor do Windows para sincronização de ficheiros
+#### <a name="prepare-the-windows-server-for-file-sync"></a>Prepare o Servidor do Windows para sincronização de ficheiros
 
 [!INCLUDE [storage-files-migration-deploy-afs-agent](../../../includes/storage-files-migration-deploy-azure-file-sync-agent.md)]
 
-### <a name="configure-azure-file-sync-on-the-windows-server"></a>Configure Azure File Sync no Servidor windows
+#### <a name="configure-azure-file-sync-on-the-windows-server"></a>Configure Azure File Sync no Servidor windows
 
 O seu Windows Server registado no local deve estar pronto e ligado à internet para este processo.
 
+> [!IMPORTANT]
+> A sua migração StorSimple de ficheiros e pastas para a partilha de ficheiros Azure tem de estar completa antes de prosseguir. Certifique-se de que não há mais alterações na partilha de ficheiros.
+
 [!INCLUDE [storage-files-migration-configure-sync](../../../includes/storage-files-migration-configure-sync.md)]
 
+> [!IMPORTANT]
+> Certifique-se de ligar o nível da nuvem! O tiering em nuvem é a funcionalidade Azure File Sync que permite ao servidor local ter menos capacidade de armazenamento do que é armazenada na nuvem, mas tem o espaço de nome completo disponível. Os dados locais interessantes também são cached localmente para um desempenho rápido e local de acesso. Outra razão para ligar o nível da nuvem neste passo é que não queremos sincronizar o conteúdo dos ficheiros nesta fase, apenas o espaço de nomes deve estar em movimento neste momento.
+
+### <a name="deploy-direct-share-access"></a>Implementar acesso direto a partilhas
+
+:::row:::
+    :::column:::
+        [![Passo a passo guia e demonstração para como expor de forma segura as partilhas de ficheiros Azure diretamente aos trabalhadores de informação e apps - clique para jogar!](./media/storage-files-migration-storsimple-8000/azure-files-direct-access-video-placeholder.png)](https://youtu.be/KG0OX0RgytI)
+    :::column-end:::
+    :::column:::
+        Este vídeo é um guia e demonstração para como expor de forma segura as partilhas de ficheiros Azure diretamente aos trabalhadores da informação e apps em cinco passos simples.</br>
+        O vídeo refere documentação dedicada a alguns tópicos:
+* [Descrição geral de identidade](storage-files-active-directory-overview.md)
+* [Como o domínio juntar uma conta de armazenamento](storage-files-identity-auth-active-directory-enable.md)
+* [Visão geral de networking para ações de ficheiros Azure](storage-files-networking-overview.md)
+* [Como configurar pontos finais públicos e privados](storage-files-networking-endpoints.md)
+* [Como configurar uma VPN S2S](storage-files-configure-s2s-vpn.md)
+* [Como configurar uma VPN Windows P2S](storage-files-configure-p2s-vpn-windows.md)
+* [Como configurar um Linux P2S VPN](storage-files-configure-p2s-vpn-linux.md)
+* [Como configurar o encaminhamento do DNS](storage-files-networking-dns.md)
+* [Configurar DFS-N](https://aka.ms/AzureFiles/Namespaces)
+   :::column-end:::
+:::row-end:::
+
+### <a name="phase-4-summary"></a>Resumo da fase 4
+Nesta fase criou e executou vários empregos do *Serviço de Transformação de Dados* (DTS) no seu *Gestor de Dados StorSimple.* Esses empregos migraram os seus ficheiros e pastas para ações de ficheiros Azure. Além disso, implementou o Azure File Sync ou preparou as suas contas de rede e armazenamento para acesso direto à partilha.
+
+## <a name="phase-5-user-cut-over"></a>Fase 5: Corte do utilizador
+Esta fase tem tudo a ver com encerrar a sua migração:
+* Planeie o seu tempo de descanso.
+* Acompanhe quaisquer alterações que os seus utilizadores e aplicações tenham produzido no lado StorSimple enquanto os trabalhos de Transformação de Dados na Fase 3 estão em execução. 
+* Falhe os seus utilizadores no novo Windows Server com Azure File Sync ou nas partilhas de ficheiros Azure através de acesso direto a uma partilha.
+
+### <a name="plan-your-downtime"></a>Planeie o seu tempo de inatividade
+Esta abordagem de migração requer algum tempo de inatividade para os seus utilizadores e aplicações. O objetivo é manter o tempo de inatividade ao mínimo e as seguintes considerações podem ajudar:
+
+* Mantenha os seus volumes StorSimple disponíveis enquanto executa os seus trabalhos de transformação de dados.
+* Quando terminar de executar o seu(s) trabalho de migração de dados para uma partilha, é hora de remover o acesso do utilizador (pelo menos escrever acesso) dos volumes/ações StorSimple. Um RoboCopy final irá recuperar a sua partilha de ficheiros Azure, para depois cortar os seus utilizadores. O caso de executar o RoboCopy depende se optou por utilizar o Azure File Sync ou o acesso direto à partilha. A próxima secção do RoboCopy cobre isso.
+* Assim que tiver concluído a atualização do RoboCopy, está pronto para expor a nova localização aos seus utilizadores. Ou a partilha de ficheiros Azure diretamente ou uma partilha SMB num Servidor do Windows com AFS. Muitas vezes, uma implementação DFS-N ajudará a realizar um corte rápido e eficientemente. Manterá os seus endereços de ações existentes consistentes e repontará para um novo local, contendo os seus ficheiros e pastas migrados.
+
+### <a name="determine-when-your-namespace-has-fully-synced-to-your-server"></a>Determine quando o seu espaço de nome está totalmente sincronizado com o seu servidor
+
+Quando utiliza o Azure File Sync para uma partilha de ficheiros Azure, é importante que determine que todo o seu espaço de nome terminou de descarregar para o servidor ANTES de iniciar qualquer RoboCopy local. O tempo que leva para descarregar o seu espaço de nome depende do número de itens na sua partilha de ficheiros Azure. Existem dois métodos para determinar se o seu espaço de nome chegou totalmente ao servidor:
+
+#### <a name="azure-portal"></a>Portal do Azure
+Você pode usar o portal Azure para ver quando o seu espaço de nome chegou completamente.
+* Inscreva-se no portal Azure, navegue para o seu grupo de sincronização e verifique o estado de sincronização do seu grupo de sincronização e ponto final do servidor. 
+* A direção interessante é o download: Se o ponto final do servidor for recentemente provisionado, mostrará **a sincronização inicial** indicando que o espaço de nomes ainda está a descer.
+Uma vez que isso muda para qualquer coisa menos *a sincronização inicial,* o seu espaço de nome será totalmente povoado no servidor e você é bom para prosseguir com um RoboCopy local.
+
+#### <a name="windows-server-event-viewer"></a>Espectador de eventos do Servidor do Windows
+ou também pode usar o Visualizador de Eventos no seu Servidor do Windows para dizer quando o espaço de nome chegou completamente.
+
+1. Abra o **Visualizador de Eventos** e navegue para **Aplicações e Serviços.**
+1. Navegue e abra **microsoft\FileSync\Agente\Telemetria**.
+1. Procure o mais recente **evento 9102,** que corresponde a uma sessão de sincronização completa.
+1. Selecione **Detalhes** e confirme que está a olhar para um evento onde o valor **SyncDirection** é **Download.**
+1. Para o momento em que o seu espaço de nome tiver concluído o download para o servidor, haverá um único evento com **Scenario**, valor **FullGhostedSync** e **HResult**  =  **0**.
+1. Caso perca esse evento, também pode procurar outros **eventos 9102** com Download e Cenário **SyncDirection**  =  **Download** **Scenario**  =  **"RegularSync"** do SyncDirection. Encontrar um destes eventos também indica que o espaço de nomes terminou o download e a sincronização progrediu para sessões regulares de sincronização, quer haja algo para sincronizar ou não, neste momento.
+
+### <a name="a-final-robocopy"></a>Um RoboCopy final
+Neste momento, existem diferenças entre o seu Windows Server e o aparelho StorSimple 8100 ou 8600:
+
+1. É necessário acompanhar as alterações que os utilizadores/apps produziram no lado StorSimple enquanto a migração estava em curso.
+1. Para os casos em que utiliza o Azure File Sync: O aparelho StorSimple tem uma cache povoada vs. O Windows Server apenas um espaço de nome sem nenhum conteúdo de ficheiro armazenado localmente neste momento. Assim, o RoboCopy final pode ajudar a iniciar a cache afS local puxando o conteúdo de ficheiros em cache local tanto quanto está disponível e pode caber no servidor AFS.
+1. Alguns ficheiros podem ter sido deixados para trás pelo trabalho de transformação de dados devido a caracteres inválidos. Em caso afirmativo, copie-os para o Azure File Sync ativado no Windows Server. Mais tarde, podes ajustá-los para que se sincronizem. Se não utilizar o Azure File Sync para uma determinada participação, seria melhor renomear os ficheiros com caracteres inválidos no volume StorSimple e, em seguida, executar o RoboCopy diretamente contra a partilha de ficheiros Azure. 
+
 > [!WARNING]
-> **Certifique-se de ligar o nível da nuvem!** O tiering em nuvem é a funcionalidade AFS que permite ao servidor local ter menos capacidade de armazenamento do que é armazenado na nuvem, mas tem o espaço de nome completo disponível. Os dados locais interessantes também são cached localmente para um desempenho rápido e local de acesso. Outra razão para ligar o nível da nuvem neste passo é que não queremos sincronizar o conteúdo dos ficheiros nesta fase, apenas o espaço de nomes deve estar em movimento neste momento.
+> Não deve iniciar o RoboCopy antes que o servidor tenha o espaço de nome para uma partilha de ficheiros Azure descarregada na totalidade!
+> Check-out: "[Determine quando o seu espaço de nome foi totalmente descarregado para o seu servidor](#determine-when-your-namespace-has-fully-synced-to-your-server)"
 
-## <a name="phase-4-configure-the-azure-vm-for-sync"></a>Fase 4: Configurar o Azure VM para sincronização
+ Só queres copiar ficheiros que foram alterados depois do trabalho de migração ter sido feito pela última vez e ficheiros que não passaram pelos referidos empregos antes. Pode resolver os problemas porque não se moveram mais tarde no servidor, depois da migração estar completa. Ver [Azure File Sync resolução de problemas](storage-sync-files-troubleshoot.md#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
 
-:::row:::
-    :::column:::
-        ![Ilustração que mostra como você vai obter o VM conectado via Azure File Sync e iniciar uma primeira rodada de ficheiros em movimento a partir do seu(s) clone de volume StorSimple.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-4.png)
-    :::column-end:::
-    :::column:::
-        Esta fase diz respeito ao seu Azure VM com o iSCSI montado, clone de primeiro volume. Durante esta fase, você terá o VM ligado através do Azure File Sync e iniciará uma primeira ronda de ficheiros móveis a partir do seu(s) clone de volume StorSimple.
-        
-    :::column-end:::
-:::row-end:::
-
-Já configura o seu servidor no local que substituirá o seu aparelho StorSimple 8100 ou 8600, por Azure File Sync. 
-
-Configurar o Azure VM é um processo quase idêntico, com um passo adicional. Os seguintes passos irão guiá-lo através do processo.
-
-> [!IMPORTANT]
-> É importante que o VM Azure não esteja **configurado com o nível de nuvem ativado!** Você vai trocar o volume deste servidor com clones de volume mais recentes durante toda a migração. O tiering em nuvem não tem nenhum benefício e sobrecarga no uso do CPU que você deve evitar.
-
-1. [Desdobre o agente AFS. (ver secção anterior)](#prepare-the-windows-server-for-file-sync)
-2. [Preparar o VM para o Azure File Sync.](#get-the-vm-ready-for-azure-file-sync)
-3. [Configure sincronização](#configure-azure-file-sync-on-the-azure-vm)
-
-### <a name="get-the-vm-ready-for-azure-file-sync"></a>Prepare o VM para o Azure File Sync
-
-O Azure File Sync é utilizado para mover os ficheiros dos volumes iSCSI StorSimple montados para as ações de ficheiros target Azure.
-Durante este processo de migração, irá montar vários clones de volume para o seu VM, sob a mesma letra de unidade. O Azure File Sync tem de ser configurado para ver o próximo clone de volume que montou como uma versão mais recente dos ficheiros e pastas e atualizar as ações de ficheiros Azure ligadas através do Azure File Sync. 
-
-> [!IMPORTANT]
-> Para que isto funcione, uma chave de registo deve ser definida no servidor antes de o Azure File Sync ser configurado.
-
-1. Criar um novo diretório na unidade de sistema do VM. As informações do Azure File Sync terão de ser persistidos lá em vez de nos clones de volume montados. Por exemplo: `"C:\syncmetadata"`
-2. Abra o regedit e localize a seguinte colmeia de registo: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync`
-3. Criar uma nova chave de tipo String, chamada: ***MetadataRootPath***
-4. Desacorra o caminho completo para o diretório que criou no volume do sistema, por exemplo: `C:\syncmetadata"`
-
-### <a name="configure-azure-file-sync-on-the-azure-vm"></a>Configure Azure File Sync no Azure VM
-
-Este passo é semelhante à secção anterior, que discute como configurar o AFS no servidor no local.
-
-A diferença é que não deve ativar o tiering de nuvem neste servidor e que precisa de se certificar de que as pastas certas estão ligadas às ações de ficheiros Azure certas. Caso contrário, o seu nome de ações de ficheiros Azure e o conteúdo dos dados não corresponderão e não há forma de renomear os recursos da nuvem ou pastas locais sem reconfigurar a sincronização.
-
-Consulte a [secção anterior sobre como configurar o Azure File Sync num Servidor do Windows](#configure-azure-file-sync-on-the-windows-server).
-
-### <a name="step-4-summary"></a>Resumo do passo 4
-
-Neste momento, terá configurado com sucesso o Azure File Sync no Azure VM que montou o seu clone de volume StorSimple através do iSCSI.
-Os dados estão agora a fluir do Azure VM para as várias partilhas de ficheiros Azure e a partir daí aparece um espaço de nome totalmente cansado no seu Windows Server.
-
-> [!IMPORTANT]
-> Certifique-se de que não existem alterações ou acesso ao utilizador concedido ao Servidor do Windows neste momento.
-
-Os dados iniciais do clone de volume que se movem através do Azure VM para as ações de ficheiros Azure podem demorar muito tempo, potencialmente semanas. Estimar o tempo que isto vai demorar é complicado e depende de muitos fatores. Mais notavelmente a velocidade a que o Azure VM pode aceder a ficheiros nos volumes StorSimple e a rapidez com que o Azure File Sync pode processar os ficheiros e pastas que precisam de ser sincronizados. 
-
-Por experiência própria, podemos assumir que a largura de banda - portanto, o tamanho real dos dados - desempenha um papel subordinado. O tempo que esta ou qualquer ronda de migração subsequente demorará depende principalmente do número de itens que podem ser processados por segundo. Assim, por exemplo, 1 TiB com 100.000 ficheiros e pastas provavelmente terminará mais devagar do que 1 TiB com apenas 50.000 ficheiros e pastas.
-
-## <a name="phase-5-iterate-through-multiple-volume-clones"></a>Fase 5: Iterada através de clones de vários volumes
-
-:::row:::
-    :::column:::
-        ![Ilustração que mostra como minimizar o tempo de inatividade usando vários clones de volume e dizendo quando a sincronização é feita.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-5.png)
-    :::column-end:::
-    :::column:::
-        Como discutido na fase anterior, a sincronização inicial pode demorar muito tempo. Os seus utilizadores e aplicações ainda estão a aceder ao aparelho StorSimple 8100 ou 8600 no local. Isto significa que as mudanças estão a acumular-se, e a cada dia um delta maior entre os dados vivos e o clone de volume inicial, está atualmente a migrar, formas. Nesta secção, aprenderá a minimizar o tempo de inatividade utilizando vários clones de volume e dizendo quando a sincronização é feita.
-    :::column-end:::
-:::row-end:::
-
-Infelizmente, o processo de migração não é instantâneo. Isto significa que o delta acima referido para os dados vivos é uma consequência inevitável. A boa notícia é que pode repetir o processo de montagem de novos clones de volume. O delta de cada clone de volume será progressivamente menor. Assim, eventualmente, uma sincronização terminará numa duração de tempo que considere aceitável para levar utilizadores e apps offline para cortar para o seu servidor Windows no local.
-
-Repita os seguintes passos até que a sincronização complete numa duração suficientemente rápida para que se sinta confortável em levar os utilizadores e aplicações offline:
-
-1. [Determine que a sincronização está completa para um dado clone de volume.](#determine-when-sync-is-done)
-2. [Pegue num novo clone de volume e monte-o no aparelho virtual 8020.](#the-next-volume-clones)
-3. [Determinar quando a sincronização é feita.](#determine-when-sync-is-done)
-4. [Estratégia de corte](#cut-over-strategy)
-
-### <a name="the-next-volume-clones"></a>O próximo clone de volume(s)
-
-Discutimos a tomada de um clone de volume no início deste artigo.
-Esta fase tem duas ações:
-
-1. [Pegue um clone de volume](../../storsimple/storsimple-8000-clone-volume-u2.md#create-a-clone-of-a-volume)
-2. [Monte o clone de volume (ver acima)](#use-the-volume-clone)
-
-### <a name="determine-when-sync-is-done"></a>Determinar quando a sincronização é feita
-
-Quando a sincronização estiver feita, pode parar a sua medição de tempo e determinar se precisa de repetir o processo de tomada de um clone de volume e montá-lo ou se a sincronização de tempo demorou com o último clone de volume era suficientemente pequena.
-
-Para determinar a sincronização está completo:
-
-1. Abra o Observador de Eventos e navegue para **Aplicações e Serviços**
-2. Navegar e abrir **Microsoft\FileSync\Agente\Telemetria**
-3. Procure o mais recente **evento 9102,** que corresponde a uma sessão de sincronização completa
-4. Selecione **Detalhes** e confirme que o valor **SyncDirection** é **upload**
-5. Verifique o **HResult** e confirme que mostra **0**. Isto significa que a sessão de sincronização foi um sucesso. Se o HResult é um valor não-zero, então houve um erro durante a sincronização. Se o **PerItemErrorCount** for superior a 0, então alguns ficheiros ou pastas não sincronizaram corretamente. É possível ter um HResult de 0 mas um PerItemErrorCount que seja maior que 0. Neste momento, não precisas de te preocupar com o PerItemErrorCount. Vamos apanhar estes ficheiros mais tarde. Se esta contagem de erros for significativa, milhares de itens, contacte o suporte do cliente e peça para ser ligado ao grupo de produtos Azure File Sync para obter orientação direta sobre as melhores e próximas fases.
-6. Verifique para ver vários eventos 9102 com HResult 0 seguidos. Isto indica que a sincronização está completa para este clone de volume.
-
-### <a name="cut-over-strategy"></a>Estratégia de corte
-
-1. Determine se a sincronização de um clone de volume é rápida o suficiente agora. (Delta pequeno o suficiente.)
-2. Desative o aparelho StorSimple.
-3. Um RoboCopy final.
-
-Meça o tempo e determine se a sincronização de um clone de volume recente pode terminar dentro de uma janela de tempo suficientemente pequena, que pode pagar o tempo de inatividade no seu sistema.
-
-É tempo de desativar o acesso do utilizador ao aparelho StorSimple. Sem mais mudanças. O tempo de inatividade já começou.
-Tem de deixar o aparelho ligado e ligado, mas deve agora evitar alterações.
-
-Na fase 6, irá apanhar qualquer delta nos dados ao vivo desde o último clone de volume.
-
-## <a name="phase-6-a-final-robocopy"></a>Fase 6: Um RoboCopy final
-
-Neste momento, existem duas diferenças entre o seu Windows Server e o aparelho StorSimple 8100 ou 8600:
-
-1. Pode haver ficheiros que não tenham sincronizado (ver **PerItemErrors** do registo de eventos acima)
-2. O aparelho StorSimple tem uma cache povoada vs. o Windows Server apenas um espaço de nome sem nenhum conteúdo de ficheiro armazenado localmente neste momento.
-
-![Ilustração que mostra como a cache do Servidor do Windows foi trazida para o estado do aparelho e garante que nenhum ficheiro é deixado para trás com um RoboCopy final.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-6.png)
-
-Podemos levar a cache do Servidor do Windows até ao estado do aparelho e garantir que nenhum ficheiro seja deixado para trás com um RoboCopy final.
-
-> [!CAUTION]
-> É imperativo que o comando RoboCopy que segue, seja exatamente como descrito abaixo. Só queremos copiar ficheiros que sejam locais e ficheiros que não tenham passado pela abordagem clone+sync de volume antes. Podemos resolver os problemas porque não sincronizaram mais tarde, depois da migração estar completa. (Ver [Azure File Sync Resolução de problemas](storage-sync-files-troubleshoot.md#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing). É mais provável que os caracteres imprimíveis em nomes de ficheiros que não percam quando forem apagados.)
-
-Comando RoboCopy:
+RoboCopy tem vários parâmetros. O seguinte mostra um comando acabado e uma lista de razões para escolher estes parâmetros:
 
 ```console
-Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
+Robocopy /MT:16 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
 ```
 
 Antecedentes:
@@ -418,45 +485,48 @@ Antecedentes:
    :::column-end:::
 :::row-end:::
 
-Deve executar este comando RoboCopy para cada um dos diretórios no Windows Server como alvo, que configuraste com sincronização de ficheiros para um ficheiro Azure.
+Ao configurar as localizações de origem e alvo do comando RoboCopy, certifique-se de que revê a estrutura da origem e do alvo para garantir que correspondem. Se usou a característica de mapeamento de diretórios do trabalho de migração, a sua estrutura de diretório de raiz pode ser diferente da estrutura do seu volume StorSimple. Se for esse o caso, pode precisar de vários empregos de RoboCopy, um para cada sub-directório. Uma vez que este comando RoboCopy utiliza /MIR - não move ficheiros que são os mesmos (ficheiros hierarquizados, por exemplo), mas se obter mal a origem e o caminho-alvo, o MIR também purga estruturas de diretório na sua partilha de ficheiros Windows Server / Azure, que não estão presentes na via de origem StorSimple. Por isso, eles devem corresponder exatamente ao trabalho do RoboCopy para alcançar o seu objetivo pretendido de apenas atualizar o seu conteúdo migrado com as últimas alterações feitas enquanto a migração em curso. 
 
-Pode executar vários destes comandos em paralelo.
-Uma vez concluído este passo RoboCopy, pode permitir que os seus utilizadores e aplicações acedam ao Servidor do Windows como fizeram com o aparelho StorSimple anteriormente.
+Consulte o ficheiro de registo roboCopy para ver se os ficheiros foram deixados para trás. Se existirem problemas, corrija-os e reexame o comando RoboCopy. Não desprovisione quaisquer recursos StorSimple antes de corrigir problemas pendentes para ficheiros ou pastas que lhe interessam.
 
-Consulte o ficheiro de registo robocopia para ver se os ficheiros foram deixados para trás. Se existirem problemas, na maioria dos casos pode resolvê-los após a migração estar concluída e os seus utilizadores e aplicações foram realondo-os no seu Windows Server. Se precisar de corrigir problemas, faça-o antes da fase 7.
+Se não utilizar o Azure File Sync para cache a partilha de ficheiros Azure em questão, mas optou pelo acesso direto à partilha:
+1. [Monte a sua partilha de ficheiros Azure](storage-how-to-use-files-windows.md#mount-the-azure-file-share) como uma unidade de rede para uma máquina local do Windows.
+1. Execute o RoboCopy entre o seu StorSimple e a partilha de ficheiros Azure montado. Se os ficheiros não copiarem, corrija os seus nomes no lado StorSimple para remover caracteres inválidos e voltar a tentar roboCopy. O comando RoboCopy anteriormente listado pode ser executado várias vezes c/o causando uma recuperação desnecessária para StorSimple.
 
-É provável que seja necessário criar as ações SMB no Servidor do Windows que tinha nos dados StorSimple antes. Pode carregar este passo frontalmente e fazê-lo mais cedo para não perder tempo aqui, mas tem de garantir que antes deste ponto não ocorram alterações nos ficheiros no servidor do Windows.
+### <a name="user-cut-over"></a>Corte de utilizador
 
-Se tiver uma implementação DFS-N, pode apontar o DFN-Namespaces para as novas localizações da pasta do servidor. Se não tiver uma implementação DFS-N e tiver frontalmente o seu aparelho 8100 8600 localmente com um Windows Server, pode tirar esse servidor do domínio, e o domínio juntar-se ao seu novo Servidor do Windows com AFS ao domínio, dar-lhe o mesmo nome de servidor que o antigo servidor, e os mesmos nomes de partilha, então o corte para o novo servidor permanece transparente para os seus utilizadores. , política de grupo, ou scripts.
+Se utilizar o Azure File Sync, é provável que tenha de criar as ações SMB no que o AFS ativou o Windows Server que correspondem às ações que tinha nos volumes StorSimple. Pode carregar este passo frontalmente e fazê-lo mais cedo para não perder tempo aqui, mas tem de garantir que antes deste ponto, ninguém tem acesso para causar alterações no Servidor do Windows.
 
-## <a name="phase-7-deprovision"></a>Fase 7: Deprovisionamento
+Se tiver uma implementação DFS-N, pode apontar o DFN-Namespaces para as novas localizações da pasta do servidor. Se não tiver uma implementação DFS-N e tiver frontal o seu aparelho 8100 / 8600 localmente com um Servidor Windows, pode retirar esse servidor do domínio. Em seguida, o domínio junta-se ao seu novo, Azure File Sync ativado, Windows Server. Durante esse processo, dê ao servidor o mesmo nome do servidor e partilhe nomes como o servidor antigo, de modo a que o cut-over se mantenha transparente para os seus utilizadores, política de grupo e scripts.
 
-Durante a última fase, foi iterado através de vários clones de volume e, eventualmente, conseguiu reduzir o acesso do utilizador ao novo Windows Server depois de o ter desligado do aparelho StorSimple.
+[Saiba mais sobre o DFS-N](https://aka.ms/AzureFiles/Namespaces)
 
-Pode agora começar a desprovisionar recursos desnecessários.
+## <a name="deprovision"></a>Deprovisionamento
+Ao desprovisionar um recurso, perde-se o acesso à configuração desse recurso, bem como aos seus dados. A desprovisionamento não pode ser desfeita, por isso não prossiga até ter confirmado que a sua migração está completa e que não existem dependências nos ficheiros, pastas ou cópias de segurança de volume StorSimple que está prestes a desprovisionar.
+
 Antes de começar, é uma boa prática observar a sua nova implementação de Azure File Sync em produção, por um tempo. Isso dá-lhe opções para resolver quaisquer problemas que possa encontrar.
+Uma vez observado a sua implementação de Azure File Sync durante pelo menos alguns dias, pode começar a desprovisionar recursos nesta ordem:
 
-Uma vez satisfeito e tiver observado a sua implantação de AFS durante pelo menos alguns dias, pode começar a desprovisionar recursos nesta ordem:
-
-1. Desligue o Azure VM que usamos para mover dados dos clones de volume para as ações de ficheiros Azure através de sincronização de ficheiros.
-2. Vá ao seu recurso de Serviço de Sincronização de Armazenamento em Azure e não registe o Azure VM. Isso remove-o de todos os grupos de sincronização.
-
-    > [!WARNING]
-    > **CERTIFIQUE-se de escolher a máquina certa.** Desligou o VM da nuvem, o que significa que deve ser o único servidor offline na lista de servidores registados. Não deve escolher o Windows Server neste passo, ao fazê-lo irá desregissi-lo.
-
-3. Eliminar Azure VM e os seus recursos.
-4. Desative o aparelho StorSimple virtual 8020.
-5. Desprovisionar todos os recursos StorSimple no Azure.
-6. Desligue o aparelho físico StorSimple do seu centro de dados.
+1. Desprovisionar o seu recurso StorSimple Data Manager através do portal Azure.
+   Todos os seus trabalhos de DTS serão apagados com ele. Não conseguirá recuperar facilmente os registos de cópias. Se forem importantes para os seus registos, recupere-os antes de desprovisioná-los.
+1. Certifique-se de que os seus aparelhos físicos StorSimple foram migrados e, em seguida, não os registe.
+   Se não tem a certeza absoluta de que foram migradas, não prossiga. Se desprovisionar estes recursos enquanto ainda são necessários, não conseguirá recuperar os dados ou a sua configuração.
+1. Se não houver mais dispositivos registados num Gestor de Dispositivos StorSimple, pode proceder à remoção do próprio recurso do Gestor de Dispositivos.
+1. É agora altura de eliminar a conta de armazenamento StorSimple em Azure. Mais uma vez, pare e confirme que a sua migração está completa e nada e ninguém depende destes dados, antes de prosseguir.
+1. Desligue o aparelho físico StorSimple do seu centro de dados.
+1. Se possuir o aparelho StorSimple, é gratuito para o PC Reciclá-lo. 
+   Se o seu dispositivo estiver alugado, informe o locador e devolva o dispositivo conforme apropriado.
 
 A sua migração está completa.
 
+> [!NOTE]
+> Ainda tem perguntas ou encontrou algum problema?</br>
+> Estamos aqui para ajudar: AzureFilesMigration@microsoft .com
+
+
 ## <a name="next-steps"></a>Passos seguintes
 
-Conheça melhor o Azure File Sync. Especialmente com a flexibilidade das políticas de nivelamento em nuvem.
-
-Se vir no portal Azure, ou nos eventos anteriores, que alguns ficheiros não estão permanentemente a sincronizar, reveja o guia de resolução de problemas para que sejam medidas para resolver estes problemas.
-
-* [Visão geral do Azure File Sync: aka.ms/AFS](https://aka.ms/AFS)
-* [Tiering de nuvem](storage-sync-cloud-tiering.md) 
-* [Guia de resolução de problemas do Azure File Sync](storage-sync-files-troubleshoot.md)
+* Conheça melhor [o Azure File Sync: aka.ms/AFS](https://aka.ms/AFS).
+* Compreender a flexibilidade das políticas de [nivelamento em nuvem.](storage-sync-cloud-tiering.md)
+* [Ative o Azure Backup](../../backup/backup-afs.md#configure-backup-from-the-file-share-pane) nas suas ações de ficheiros Azure para agendar instantâneos e definir horários de retenção de backup.
+* Se vir no portal Azure que alguns ficheiros não estão a sincronizar permanentemente, reveja o [guia de resolução de problemas](storage-sync-files-troubleshoot.md) para obter medidas para resolver estes problemas.

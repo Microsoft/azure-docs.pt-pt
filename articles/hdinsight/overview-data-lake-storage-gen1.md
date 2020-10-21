@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 947dd125cf9c5f5874eed380b3d69cff11509e31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b598494500124ca4a70e8e2d7bfef023fbf7d498
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82187250"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328781"
 ---
 # <a name="azure-data-lake-storage-gen1-overview-in-hdinsight"></a>Visão geral do Azure Data Lake Storage Gen1 em HDInsight
 
@@ -57,7 +57,7 @@ Data Lake Storage Gen1 utiliza O Diretório Ativo Azure para autenticação e ut
 
 | **Funcionalidade** | **Descrição** |
 | --- | --- |
-| Autenticação |Data Lake Storage Gen1 integra-se com Azure Ative Directory (Azure AD) para gestão de identidade e acesso para todos os dados armazenados na Data Lake Storage Gen1. Devido à integração, a Data Lake Storage Gen1 beneficia de todas as funcionalidades Azure AD. Estas funcionalidades incluem: autenticação multifactor, Acesso Condicional e controlo de acesso baseado em funções. Além disso, monitorização de utilização de aplicações, monitorização de segurança e alerta, e assim por diante. Data Lake Storage Gen1 suporta o protocolo OAuth 2.0 para autenticação dentro da interface REST. Ver [autenticação dentro da Azure Data Lake Storage Gen1 usando o Diretório Ativo Azure](../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)|
+| Autenticação |Data Lake Storage Gen1 integra-se com Azure Ative Directory (Azure AD) para gestão de identidade e acesso para todos os dados armazenados na Data Lake Storage Gen1. Devido à integração, a Data Lake Storage Gen1 beneficia de todas as funcionalidades Azure AD. Estas funcionalidades incluem: autenticação multifactor, Acesso Condicional e controlo de acesso baseado em funções Azure. Além disso, monitorização de utilização de aplicações, monitorização de segurança e alerta, e assim por diante. Data Lake Storage Gen1 suporta o protocolo OAuth 2.0 para autenticação dentro da interface REST. Ver [autenticação dentro da Azure Data Lake Storage Gen1 usando o Diretório Ativo Azure](../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)|
 | Controlo de acesso |A Data Lake Storage Gen1 fornece controlo de acesso suportando permissões ao estilo POSIX que são expostas pelo protocolo WebHDFS. As ACLs podem ser ativadas na pasta raiz, nas subpastas e nos ficheiros individuais. Para obter mais informações sobre como os ACLs funcionam no contexto da Data Lake Storage Gen1, consulte o controlo de [acesso na Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md). |
 | Encriptação |Data Lake Storage Gen1 também fornece encriptação para dados que são armazenados na conta. Especifica as definições de encriptação ao criar uma conta Gen1 de armazenamento de data lake. Pode optar por ter os seus dados encriptados ou optar por nenhuma encriptação. Para obter mais informações, consulte [a encriptação na Data Lake Storage Gen1](../data-lake-store/data-lake-store-encryption.md). Para obter instruções sobre como fornecer uma configuração relacionada com encriptação, consulte [Começar com a Azure Data Lake Storage Gen1 utilizando o portal Azure](../data-lake-store/data-lake-store-get-started-portal.md). |
 

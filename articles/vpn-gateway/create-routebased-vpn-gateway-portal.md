@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 104d911164d0194efba41f1405c17fc240e8906d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e24473380fe4d0837518f1616df52621089ff2a5
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89393773"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328986"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Criar um gateway VPN baseado em rotas utilizando o portal Azure
 
@@ -22,6 +22,8 @@ Este artigo ajuda-o a criar rapidamente uma porta de entrada Azure VPN baseada e
 Os passos deste artigo criarão um VNet, uma sub-rede, uma sub-rede de gateway, e um gateway VPN baseado em rotas (gateway de rede virtual). Uma vez concluída a criação do gateway, pode então criar ligações. Estes passos requerem uma assinatura Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="create-a-virtual-network"></a><a name="vnet"></a>Criar uma rede virtual
+
+[!INCLUDE [Cross-premises addresses](../../includes/vpn-gateway-cross-premises.md)]
 
 [!INCLUDE [Basic Point-to-Site VNet](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 

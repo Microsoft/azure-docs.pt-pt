@@ -13,14 +13,14 @@ ms.workload: infrastructure
 ms.date: 10/16/2020
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7c2b606059f92cafc44e383c2aced0d6bed467c2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5fdaa1346e4837b3bf611d964158d132dcdfeeda
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149436"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282673"
 ---
-# <a name="backup-and-restore-on-sap-hana-on-azure"></a>Backup e restauro em SAP HANA em Azure
+# <a name="backup-and-restore-of-sap-hana-on-hana-large-instances"></a>Backup e restauro de SAP HANA em Grandes Instâncias HANA
 
 >[!IMPORTANT]
 >Este artigo não substitui a documentação da administração SAP HANA ou as Notas SAP. Esperamos que tenha uma compreensão sólida e experiência na administração e operações da SAP HANA, especialmente para apoio, restauro, elevada disponibilidade e recuperação de desastres. Neste artigo, são mostradas imagens do ESTÚDIO SAP HANA. O conteúdo, a estrutura e a natureza dos ecrãs das ferramentas de administração SAP e das próprias ferramentas podem mudar de lançamento SAP HANA para lançamento.

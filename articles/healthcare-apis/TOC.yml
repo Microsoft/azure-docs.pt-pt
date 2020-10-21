@@ -9,21 +9,17 @@
 - name: Guias de Início Rápido
   expanded: true
   items:
-    - name: Implementar a API do Azure para FHIR - Portal
-      href: fhir-paas-portal-quickstart.md
-    - name: Implementar a API do Azure para FHIR - PowerShell
-      href: fhir-paas-powershell-quickstart.md
-    - name: Implementar a API do Azure para FHIR - CLI
-      href: fhir-paas-cli-quickstart.md
-    - name: Implementar o Azure API for FHIR - modelo ARM
-      href: fhir-paas-arm-template-quickstart.md
-      displayName: deploy azure resource manager template
-    - name: Implementar o FHIR Server para o Azure - Portal
-      href: fhir-oss-portal-quickstart.md
-    - name: Implementar o FHIR Server para o Azure - PowerShell
-      href: fhir-oss-powershell-quickstart.md
-    - name: Implementar o FHIR Server para o Azure - CLI
-      href: fhir-oss-cli-quickstart.md
+    - name: Implementar o Azure API for FHIR
+      expanded: false
+      items:
+        - name: Utilizar o portal
+          href: fhir-paas-portal-quickstart.md
+        - name: Utilizar o PowerShell
+          href: fhir-paas-powershell-quickstart.md
+        - name: Com a CLI
+          href: fhir-paas-cli-quickstart.md
+        - name: Com o modelo do ARM
+          href: fhir-paas-arm-template-quickstart.md
     - name: Implementar o Conector IoT do Azure para o FHIR (pré-visualização) - Portal
       href: iot-fhir-portal-quickstart.md
 - name: Tutoriais
@@ -93,6 +89,8 @@
       href: find-identity-object-ids.md
     - name: Ativar Registo de Diagnósticos no Azure API for FHIR®
       href: enable-diagnostic-logging.md
+    - name: Exportar métricas do Conector IoT do Azure para FHIR (pré-visualização) através das definições Diagnóstico
+      href: iot-metrics-diagnostics-export.md
     - name: Obter um token para a API do Azure para FHIR - CLI
       href: get-healthcare-apis-access-token-cli.md
     - name: Resolver problemas de falhas no Conector IoT do Azure para o FHIR (pré-visualização)

@@ -4,12 +4,12 @@ description: Este artigo fornece informações sobre a autenticação de uma ide
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4d606e6cd035d4dae388d8559d100988a46e8203
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b23fc0a59f9accc70c69c1096c1a15f1313ee2e0
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89010023"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332455"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticar uma identidade gerida com o Azure Ative Directory para aceder aos Recursos dos Hubs de Eventos
 A Azure Event Hubs suporta a autenticação do Azure Ative Directory (Azure AD) com [identidades geridas para recursos Azure](../active-directory/managed-identities-azure-resources/overview.md). Identidades geridas para recursos Azure podem autorizar o acesso aos recursos do Event Hubs utilizando credenciais AD Azure a partir de aplicações executadas em Azure Virtual Machines (VMs), apps de funções, conjuntos de escala de máquina virtual e outros serviços. Ao utilizar identidades geridas para recursos Azure juntamente com a autenticação Azure AD, pode evitar armazenar credenciais com as suas aplicações que funcionam na nuvem.
@@ -26,7 +26,7 @@ Antes de utilizar identidades geridas para a Azure Resources para autorizar os r
 - [Bibliotecas de clientes Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 ## <a name="grant-permissions-to-a-managed-identity-in-azure-ad"></a>Conceder permissões a uma identidade gerida em Azure AD
-Para autorizar um pedido ao serviço Desembos hubs a partir de uma identidade gerida na sua aplicação, configurar primeiro as definições de controlo de acesso baseado em funções (RBAC) para essa identidade gerida. Azure Event Hubs define funções Azure que englobam permissões de envio e leitura de Centros de Eventos. Quando o papel de Azure é atribuído a uma identidade gerida, a identidade gerida é concedida acesso aos dados do Event Hubs no âmbito apropriado.
+Para autorizar um pedido ao serviço Desembos hubs a partir de uma identidade gerida na sua aplicação, configurar primeiro as definições de controlo de acesso baseado em funções (Azure RBAC) para essa identidade gerida. Azure Event Hubs define funções Azure que englobam permissões de envio e leitura de Centros de Eventos. Quando o papel de Azure é atribuído a uma identidade gerida, a identidade gerida é concedida acesso aos dados do Event Hubs no âmbito apropriado.
 
 Para obter mais informações sobre a atribuição de funções Azure, consulte [Authenticate com Azure Ative Directory para acesso aos recursos do Event Hubs](authorize-access-azure-active-directory.md).
 

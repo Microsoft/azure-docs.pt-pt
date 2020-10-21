@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 07/30/2020
 ms.author: mjbrown
-ms.openlocfilehash: 0fec28b880dad8b610833f38aaa6ea0f53d157f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7df610889c45a629087ae18731b5df9f63a8981f
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87506755"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281999"
 ---
 # <a name="create-a-database-and-graph-with-autoscale-for-azure-cosmos-db---gremlin-api"></a>Criar uma base de dados e gráfico com autoescala para Azure Cosmos DB - Gremlin API
 
@@ -49,5 +49,3 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 ## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/).
-
-Pode ver exemplos do script do Azure PowerShell Cosmos DB adicionais nos [scripts do PowerShell do Azure Cosmos DB](../../../powershell-samples.md).

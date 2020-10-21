@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: 2508846e5dd2fcc96aade9ce64b599bb4154de00
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 7b9e95c06dd48e78e42244d27d27d063bf5f0be7
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203386"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327778"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Começar pelos operadores de TI da Azure
 
@@ -198,9 +198,9 @@ Se exceder o valor do crédito, o seu serviço está desativado até ao início 
 
 ### <a name="grant-administrative-access-to-an-azure-subscription"></a>Conceder acesso administrativo a uma assinatura Azure
 
-O RBAC tem vários papéis incorporados que pode usar para atribuir permissões. Para tornar um utilizador um administrador de uma subscrição Azure, atribua-lhes a função [De Proprietário](../../role-based-access-control/built-in-roles.md#owner) no âmbito de subscrição. A função Proprietário dá ao utilizador acesso total a todos os recursos na subscrição, incluindo o direito de delegar o acesso a outras pessoas.
+O Azure RBAC tem vários papéis incorporados que pode usar para atribuir permissões. Para tornar um utilizador um administrador de uma subscrição Azure, atribua-lhes a função [De Proprietário](../../role-based-access-control/built-in-roles.md#owner) no âmbito de subscrição. A função Proprietário dá ao utilizador acesso total a todos os recursos na subscrição, incluindo o direito de delegar o acesso a outras pessoas.
 
-Para obter mais informações, veja [Gerir o acesso através do RBAC e do portal do Azure](../../role-based-access-control/role-assignments-portal.md).
+Para obter mais informações, veja [Utilizar o portal do Azure para adicionar ou remover atribuições de funções do Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="view-billing-information-in-the-azure-portal"></a>Ver informações de faturação no portal Azure
 
@@ -238,7 +238,7 @@ O Resource Manager oferece várias vantagens:
 
 - Pode definir as dependências entre os recursos, de modo a que sejam implementados na ordem correta.
 
-- Pode aplicar o controlo de acesso a todos os serviços do seu grupo de recursos porque o RBAC está nativamente integrado na plataforma de gestão.
+- Pode aplicar o controlo de acesso a todos os serviços do seu grupo de recursos porque o Azure RBAC está nativamente integrado na plataforma de gestão.
 
 - Pode aplicar etiquetas em recursos para organizar logicamente todos os recursos da sua subscrição.
 
@@ -286,7 +286,7 @@ Pode construir modelos de Gestor de Recursos em qualquer editor de texto. No ent
 
 Finalmente, pode converter grupos de recursos existentes num modelo reutilizável a partir do portal Azure. Isto pode ser útil se você quiser criar um modelo implantável de um grupo de recursos existente, ou você apenas quer examinar o JSON subjacente. Para exportar um grupo de recursos, selecione o botão **Script** Automation a partir das definições do grupo de recursos.
 
-## <a name="security-of-azure-resources-rbac"></a>Segurança dos recursos Azure (RBAC)
+## <a name="security-of-azure-resources-azure-rbac"></a>Segurança dos recursos Azure (Azure RBAC)
 
 Pode conceder acesso operacional às contas dos utilizadores num âmbito especificado: subscrição, grupo de recursos ou recurso individual. Isto significa que pode implantar um conjunto de recursos num grupo de recursos, como uma máquina virtual e todos os recursos relacionados, e conceder permissões a um utilizador ou grupo específico. Esta abordagem limita o acesso apenas aos recursos que pertencem ao grupo de recursos-alvo. Também pode conceder acesso a um único recurso, como uma máquina virtual ou uma rede virtual.
 
@@ -306,7 +306,7 @@ Aqui estão alguns [papéis incorporados em Azure:](../../role-based-access-cont
 
 - **Contribuinte da Conta de Armazenamento**: Um utilizador com esta função pode gerir contas de armazenamento mas não consegue gerir o acesso às contas de armazenamento.
 
-Para obter mais informações, veja [Gerir o acesso através do RBAC e do portal do Azure](../../role-based-access-control/role-assignments-portal.md).
+Para obter mais informações, veja [Utilizar o portal do Azure para adicionar ou remover atribuições de funções do Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="azure-virtual-machines"></a>Máquinas Virtuais do Microsoft Azure
 

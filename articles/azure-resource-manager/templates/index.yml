@@ -12,12 +12,12 @@ metadata:
   author: mumian
   ms.author: jgao
   ms.date: 07/30/2020
-  ms.openlocfilehash: 6a21841d24fcafefe25473e428e1926849f5e9cf
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: eda40d7dafa2c9946798067622e2732cf9de738d
+  ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "87446740"
+  ms.lasthandoff: 10/20/2020
+  ms.locfileid: "92282486"
 landingContent:
 - title: Acerca de modelos do ARM
   linkLists:
@@ -49,18 +49,30 @@ landingContent:
       url: quickstart-create-templates-use-the-portal.md
     - text: Criar modelos - VS Code
       url: quickstart-create-templates-use-visual-studio-code.md
+    - text: Criar e implementar especificações de modelo
+      url: quickstart-create-template-specs.md
   - linkListType: tutorial
     links:
     - text: Tutoriais para principiantes
       url: template-tutorial-create-first-template.md
     - text: Implementação
       url: deployment-tutorial-local-template.md
+    - text: Especificações de modelo
+      url: template-specs-create-linked.md
+    - text: Modelos avançados
+      url: template-tutorial-use-template-reference.md
+    - text: Gestor de Implementação
+      url: deployment-manager-tutorial.md
   - linkListType: learn
     links:
     - text: Infraestrutura consistente
       url: /learn/modules/create-azure-resource-manager-template-vs-code/
     - text: Vários ambientes
       url: /learn/modules/modify-azure-resource-manager-template-reuse/
+    - text: Validar implementações
+      url: /learn/modules/arm-template-test/
+    - text: Implementar modelos
+      url: /learn/modules/deploy-templates-command-line-github-actions/
 - title: Desenvolver modelos
   linkLists:
   - linkListType: how-to-guide
