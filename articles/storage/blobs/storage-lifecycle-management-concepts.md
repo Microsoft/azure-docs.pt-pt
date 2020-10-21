@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: 264f0e59e2c43ca92fc5209b8613282a0b0fca37
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: ee04ad28d6b52e63becd2991d77b453cd411f683
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203777"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309805"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerir o ciclo de vida do Armazenamento de Blobs do Azure
 
@@ -31,6 +31,8 @@ A política de gestão do ciclo de vida permite-lhe:
 Considere um cenário em que os dados tenham acesso frequente durante as fases iniciais do ciclo de vida, mas apenas ocasionalmente após duas semanas. Para além do primeiro mês, o conjunto de dados raramente é acedido. Neste cenário, o armazenamento quente é o melhor durante as fases iniciais. O armazenamento fresco é mais adequado para acessos ocasionais. O armazenamento de arquivo é a melhor opção de nível após a idade dos dados ao longo de um mês. Ao ajustar os níveis de armazenamento em relação à idade dos dados, pode conceber as opções de armazenamento menos dispendiosas para as suas necessidades. Para alcançar esta transição, as regras de política de gestão do ciclo de vida estão disponíveis para mover dados de envelhecimento para níveis mais frios.
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+>[!NOTE]
+>Se precisar de dados para se manter legível, por exemplo, quando utilizado pelo StorSimple, não descreva uma política para mover as bolhas para o nível Archive.
 
 ## <a name="availability-and-pricing"></a>Disponibilidade e preços
 
@@ -314,9 +316,9 @@ Os filtros incluem:
 
 | Nome do filtro | Tipo de filtro | Notas | é necessário |
 |-------------|-------------|-------|-------------|
-| blobTypes   | Uma matriz de valores de enum predefinidos. | O lançamento atual suporta `blockBlob` e `appendBlob` . Apenas a eliminação é suportada para `appendBlob` , o nível definido não é suportado. | Yes |
-| prefixOSatch | Uma série de cordas para prefixos a combinar. Cada regra pode definir até 10 prefixos. Uma corda de prefixo deve começar com um nome de recipiente. Por exemplo, se quiser combinar todas as bolhas `https://myaccount.blob.core.windows.net/container1/foo/...` por uma regra, o prefixoMatch é `container1/foo` . | Se não definir prefixoSatch, a regra aplica-se a todas as bolhas dentro da conta de armazenamento. | No |
-| blobIndexMatch | Uma matriz de valores dicionários que consistem na chave de etiqueta do Índice Blob e condições de valor a combinar. Cada regra pode definir até 10 condições de etiqueta de índice blob. Por exemplo, se quiser combinar todas as bolhas com `Project = Contoso` uma `https://myaccount.blob.core.windows.net/` regra, o blobIndexMatch é `{"name": "Project","op": "==","value": "Contoso"}` . | Se não definir blobIndexMatch, a regra aplica-se a todas as bolhas dentro da conta de armazenamento. | No |
+| blobTypes   | Uma matriz de valores de enum predefinidos. | O lançamento atual suporta `blockBlob` e `appendBlob` . Apenas a eliminação é suportada para `appendBlob` , o nível definido não é suportado. | Sim |
+| prefixOSatch | Uma série de cordas para prefixos a combinar. Cada regra pode definir até 10 prefixos. Uma corda de prefixo deve começar com um nome de recipiente. Por exemplo, se quiser combinar todas as bolhas `https://myaccount.blob.core.windows.net/container1/foo/...` por uma regra, o prefixoMatch é `container1/foo` . | Se não definir prefixoSatch, a regra aplica-se a todas as bolhas dentro da conta de armazenamento. | Não |
+| blobIndexMatch | Uma matriz de valores dicionários que consistem na chave de etiqueta do Índice Blob e condições de valor a combinar. Cada regra pode definir até 10 condições de etiqueta de índice blob. Por exemplo, se quiser combinar todas as bolhas com `Project = Contoso` uma `https://myaccount.blob.core.windows.net/` regra, o blobIndexMatch é `{"name": "Project","op": "==","value": "Contoso"}` . | Se não definir blobIndexMatch, a regra aplica-se a todas as bolhas dentro da conta de armazenamento. | Não |
 
 > [!NOTE]
 > O Blob Index está em pré-visualização pública, e está disponível nas regiões central do **Canadá,** **Canadá Oriental,** **France Central**e **França Sul.** Para saber mais sobre esta funcionalidade juntamente com questões e limitações conhecidas, consulte [Gerir e encontrar dados sobre o Armazenamento de Blob Azure blob com Índice blob (Preview)](storage-manage-find-blobs.md).

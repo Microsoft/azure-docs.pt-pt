@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/16/2018
-ms.openlocfilehash: a394fee7178b2e3e167c8bd905ab175b25d1d813
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/19/2020
+ms.openlocfilehash: 7838f9f1febcab073633dbb4af011e99acbe22d3
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75397473"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310285"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Trabalhe com cordas em consultas de log do Azure Monitor
 
@@ -74,8 +74,8 @@ Operador       |Descrição                         |Case-Sensitive|Exemplo `tru
 `!startswith_cs`  |O lado direito não é uma subsequância inicial do lado esquerdo|Sim        |`"Fabrikam" !startswith_cs "fab"`
 `endswith`     |O lado direito é uma subsequância de fecho do lado esquerdo|Não             |`"Fabrikam" endswith "Kam"`
 `!endswith`    |O lado direito não é uma subsequância de fecho do lado esquerdo|Não         |`"Fabrikam" !endswith "brik"`
-`endswith_cs`     |O lado direito é uma subsequância de fecho do lado esquerdo|Sim             |`"Fabrikam" endswith "Kam"`
-`!endswith_cs`    |O lado direito não é uma subsequância de fecho do lado esquerdo|Sim         |`"Fabrikam" !endswith "brik"`
+`endswith_cs`     |O lado direito é uma subsequância de fecho do lado esquerdo|Sim             |`"Fabrikam" endswith_cs "kam"`
+`!endswith_cs`    |O lado direito não é uma subsequância de fecho do lado esquerdo|Sim         |`"Fabrikam" !endswith_cs "brik"`
 `matches regex`|lado esquerdo contém uma correspondência para o lado direito        |Sim           |`"Fabrikam" matches regex "b.*k"`
 `in`           |É igual a um dos elementos       |Sim           |`"abc" in ("123", "345", "abc")`
 `!in`          |Não é igual a nenhum dos elementos   |Sim           |`"bca" !in ("123", "345", "abc")`

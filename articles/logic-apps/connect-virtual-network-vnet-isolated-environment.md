@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: 49248575cb10f3df746b9ba484244e4702fb5d72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fee95a435b477639fe2b98cf2c9cbf500df5941
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91369013"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310026"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Conecte-se às redes virtuais Azure a partir de Azure Logic Apps utilizando um ambiente de serviço de integração (ISE)
 
@@ -95,11 +95,11 @@ Para garantir que o ise está acessível e que as aplicações lógicas em que o
    > [!NOTE]
    > Pode utilizar esta abordagem para um único ISE quando o seu cenário requer limitar o número de endereços IP que precisam de acesso. Considere se os custos adicionais para a firewall ou para o aparelho de rede virtual fazem sentido para o seu cenário. Saiba mais sobre [os preços do Azure Firewall](https://azure.microsoft.com/pricing/details/azure-firewall/).
 
-* Se criou uma nova rede virtual Azure e sub-redes sem quaisquer constrangimentos, não precisa de configurar grupos de segurança de [rede (NSGs)](../virtual-network/security-overview.md#network-security-groups) na sua rede virtual para controlar o tráfego através de sub-redes.
+* Se criou uma nova rede virtual Azure e sub-redes sem quaisquer constrangimentos, não precisa de configurar grupos de segurança de [rede (NSGs)](../virtual-network/network-security-groups-overview.md#network-security-groups) na sua rede virtual para controlar o tráfego através de sub-redes.
 
-* Para uma rede virtual existente, pode configurar *opcionalmente* [grupos de segurança de rede (NSGs)](../virtual-network/security-overview.md#network-security-groups) para [filtrar o tráfego de rede através de sub-redes](../virtual-network/tutorial-filter-network-traffic.md). Se quiser seguir esta rota, ou se já estiver a utilizar NSGs, certifique-se de que [abre as portas descritas nesta tabela](#network-ports-for-ise) para esses NSGs.
+* Para uma rede virtual existente, pode configurar *opcionalmente* [grupos de segurança de rede (NSGs)](../virtual-network/network-security-groups-overview.md#network-security-groups) para [filtrar o tráfego de rede através de sub-redes](../virtual-network/tutorial-filter-network-traffic.md). Se quiser seguir esta rota, ou se já estiver a utilizar NSGs, certifique-se de que [abre as portas descritas nesta tabela](#network-ports-for-ise) para esses NSGs.
 
-  Ao configurar [as regras de segurança NSG,](../virtual-network/security-overview.md#security-rules)tem de utilizar *os* protocolos **TCP** e **UDP,** ou pode selecionar **Qualquer** em vez disso para que não tenha de criar regras separadas para cada protocolo. As regras de segurança NSG descrevem as portas que deve abrir para os endereços IP que precisam de acesso a essas portas. Certifique-se de que quaisquer firewalls, routers ou outros itens existentes entre estes pontos finais também mantêm essas portas acessíveis a esses endereços IP.
+  Ao configurar [as regras de segurança NSG,](../virtual-network/network-security-groups-overview.md#security-rules)tem de utilizar *os* protocolos **TCP** e **UDP,** ou pode selecionar **Qualquer** em vez disso para que não tenha de criar regras separadas para cada protocolo. As regras de segurança NSG descrevem as portas que deve abrir para os endereços IP que precisam de acesso a essas portas. Certifique-se de que quaisquer firewalls, routers ou outros itens existentes entre estes pontos finais também mantêm essas portas acessíveis a esses endereços IP.
 
 * Se configurar um túnel forçado através da sua firewall para redirecionar o tráfego ligado à Internet, reveja os [requisitos adicionais de túneis forçados](#forced-tunneling).
 

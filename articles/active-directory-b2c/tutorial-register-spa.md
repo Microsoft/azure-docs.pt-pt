@@ -12,12 +12,12 @@ ms.date: 04/10/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9debcca5e589038467c8201274471e3c2698cad6
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: fc01fb4296226126b996840109d3bb305b042364
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/20/2020
-ms.locfileid: "92223086"
+ms.locfileid: "92275818"
 ---
 # <a name="tutorial-register-a-single-page-application-spa-in-azure-active-directory-b2c"></a>Tutorial: Registar uma aplicação de uma página (SPA) no Azure Ative Directory B2C
 
@@ -61,11 +61,11 @@ Se ainda não criou o seu próprio [Inquilino Azure AD B2C,](tutorial-create-ten
 1. Nos **tipos de conta suportados,** selecione Contas em qualquer fornecedor de identidade ou **diretório organizacional (para autenticar utilizadores com fluxos de utilizador)**
 1. Em **Redirecionar URI,** selecione **aplicação de página única (SPA)** e, em seguida, introduza `https://jwt.ms` na caixa de texto URL.
 
-    O redirect URI é o ponto final para o qual o utilizador é enviado pelo servidor de autorização (Azure AD B2C, neste caso) após completar a sua interação com o utilizador, e para o qual é enviado um token de acesso ou código de autorização mediante autorização bem sucedida. Numa aplicação de produção, é tipicamente um ponto final acessível ao público onde a sua aplicação está a funcionar, como `https://contoso.com/auth-response` . Para testes como este tutorial, pode `https://jwt.ms` defini-lo para , uma aplicação web de propriedade da Microsoft que exibe o conteúdo descodificado de um símbolo (o conteúdo do token nunca sai do seu navegador). Durante o desenvolvimento da aplicação, pode adicionar o ponto final onde a sua aplicação ouve localmente, como `https://localhost:5000` . Pode adicionar e modificar URIs redirecionando as suas aplicações registadas a qualquer momento.
+    O redirect URI é o ponto final para o qual o utilizador é enviado pelo servidor de autorização (Azure AD B2C, neste caso) após completar a sua interação com o utilizador, e para o qual é enviado um token de acesso ou código de autorização mediante autorização bem sucedida. Numa aplicação de produção, é tipicamente um ponto final acessível ao público onde a sua aplicação está a funcionar, como `https://contoso.com/auth-response` . Para testes como este tutorial, pode `https://jwt.ms` defini-lo para , uma aplicação web de propriedade da Microsoft que exibe o conteúdo descodificado de um símbolo (o conteúdo do token nunca sai do seu navegador). Durante o desenvolvimento da aplicação, pode adicionar o ponto final onde a sua aplicação ouve localmente, como `http://localhost:5000` . Pode adicionar e modificar URIs redirecionando as suas aplicações registadas a qualquer momento.
 
     Aplicam-se as seguintes restrições ao redirecionamento de IUR:
 
-    * A URL de resposta deve começar pelo regime `https` .
+    * A URL de resposta deve começar pelo `https` regime, a menos que utilize `localhost` .
     * A URL de resposta é sensível a casos. O seu caso deve coincidir com o caso do caminho URL da sua aplicação de execução. Por exemplo, se a sua aplicação incluir como parte do seu `.../abc/response-oidc` caminho, não especifique `.../ABC/response-oidc` no URL de resposta. Como o navegador da Web trata os caminhos como sensíveis a casos, os cookies associados `.../abc/response-oidc` podem ser excluídos se forem redirecionados para o URL desajustado do `.../ABC/response-oidc` caso.
 
 1. Em **Permissões**, selecione o *consentimento de administração grant para abrir e offline_access caixa de verificação de permissões.*

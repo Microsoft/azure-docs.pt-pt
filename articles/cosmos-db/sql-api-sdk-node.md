@@ -9,32 +9,32 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-js
-ms.openlocfilehash: 106f446c56377c1211d04e388608cd31e2aeef23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3834b1890cb20b717462c4cb8ed1f779570c675
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804219"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275223"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK para API SQL: Lançar notas e recursos
 > [!div class="op_single_selector"]
 > * [SDK .NET v3](sql-api-sdk-dotnet-standard.md)
 > * [SDK .NET v2](sql-api-sdk-dotnet.md)
 > * [SDK v2 de .NET Core](sql-api-sdk-dotnet-core.md)
-> * [.NET Change Feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
+> * [SDK Feed de Alterações .NET v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [SDK v4 de Java](sql-api-sdk-java-v4.md)
 > * [SDK v2 Java assíncrono](sql-api-sdk-async-java.md)
 > * [SDK v2 Java síncrono](sql-api-sdk-java.md)
-> * [Dados da primavera v2](sql-api-sdk-java-spring-v2.md)
-> * [Dados da primavera v3](sql-api-sdk-java-spring-v3.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Spark Connector](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Fornecedor de Recursos REST](/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [Executor a granel - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Executor a granel - Java](sql-api-sdk-bulk-executor-java.md)
+> * [Executor em massa - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Executor em massa - Java](sql-api-sdk-bulk-executor-java.md)
 
 |Recurso  |Ligação  |
 |---------|---------|
@@ -353,7 +353,7 @@ Nem sempre as mudanças mais visíveis, mas ajudam a nossa equipa a enviar melho
 * Adicionou o suporte para a funcionalidade Time To Live (TTL) para documentos.
 
 ### <a name="160"></a><a name="1.6.0"></a>1.6.0
-* Coleções [divididas implementadas](partition-data.md) e [níveis de desempenho definidos pelo utilizador.](performance-levels.md)
+* Coleções [divididas implementadas](partitioning-overview.md) e [níveis de desempenho definidos pelo utilizador.](performance-levels.md)
 
 ### <a name="156"></a><a name="1.5.6"></a>1.5.6
 * RangePartitionResolver.resolveForRead bug onde não estava a retornar links devido a um mau concat de resultados.
@@ -414,9 +414,9 @@ Nem sempre as mudanças mais visíveis, mas ajudam a nossa equipa a enviar melho
 
 ## <a name="release--retirement-dates"></a>Liberação & Datas de Reforma
 
-A Microsoft fornece a notificação com pelo menos **12 meses** de antecedência para retirar um SDK de forma a suavizar a transição para uma versão mais recente/suportada. Novas funcionalidades e funcionalidades e otimizações são adicionadas apenas ao SDK atual, como tal é recomendado que você sempre atualize para a versão SDK mais recente o mais cedo possível.
+A Microsoft fornece a notificação com pelo menos **12 meses** de antecedência para retirar um SDK de forma a suavizar a transição para uma versão mais recente/suportada. As funcionalidades, características e otimizações novas só são adicionadas ao SDK atual, pelo que se recomenda que atualize sempre para a última versão dos SDKs o mais cedo possível.
 
-| Versão | Data de Lançamento | Data de Extinção |
+| Versão | Data da versão: | Data de Extinção |
 | --- | --- | --- |
 | [3.1.0](#3.1.0) |26 de julho de 2019 |--- |
 | [3.0.4](#3.0.4) |22 de julho de 2019 |--- |
@@ -475,5 +475,5 @@ A Microsoft fornece a notificação com pelo menos **12 meses** de antecedência
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Consulte também
-Para saber mais sobre cosmos DB, consulte a página de serviço [do Microsoft Azure Cosmos DB.](https://azure.microsoft.com/services/cosmos-db/)
+Para saber mais sobre o Azure Cosmos DB, veja a página do serviço [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/21/2020
 ms.author: duau
-ms.openlocfilehash: 6aa960837a3bfc7f8a04ca1f554fb10d635c2ea2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a24c0fdb244f87dbf281bcf59b5e1986a215142a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91349142"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275625"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application-using-azure-cli"></a>Quickstart: Criar uma porta frontal para uma aplicação web global altamente disponível usando O Azure CLI
 
@@ -46,7 +46,7 @@ Em Azure, aloca recursos relacionados a um grupo de recursos. Pode utilizar um g
 
 Para este arranque rápido, precisa de dois grupos de recursos. Um nos *EUA centrais* e o segundo no *Centro-Sul dos EUA.*
 
-Criar um grupo de recursos com [a criação de grupo az:](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create&preserve-view=true)
+Criar um grupo de recursos com [a criação de grupo az:](/cli/azure/group?view=azure-cli-latest#az-group-create&preserve-view=true)
 
 ```azurecli-interactive
 az group create \
@@ -68,7 +68,7 @@ Se ainda não tiver uma aplicação web, use o seguinte script para configurar d
 
 Antes de poder criar as aplicações web, necessitará de dois planos de serviço de aplicações, um no *Centro-Americano* e o segundo no *Centro-Americano.*
 
-Crie planos de serviço de aplicações com [plano de appservice az criar:](https://docs.microsoft.com/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create&preserve-view=true)
+Crie planos de serviço de aplicações com [plano de appservice az criar:](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create&preserve-view=true)
 
 ```azurecli-interactive
 az appservice plan create \
@@ -84,7 +84,7 @@ az appservice plan create \
 
 Executar os seguintes comandos criará uma aplicação web em cada um dos planos de serviço de aplicações no passo anterior. Os nomes das aplicações web têm de ser globalmente únicos.
 
-Crie aplicativo web com [a criação de webapp az:](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az_webapp_create&preserve-view=true)
+Crie aplicativo web com [a criação de webapp az:](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create&preserve-view=true)
 
 ```azurecli-interactive
 az webapp create \
@@ -104,7 +104,7 @@ Tome nota do nome de anfitrião predefinido de cada aplicação web para que pos
 
 Crie uma porta frontal básica com definições de equilíbrio de carga predefinidos, sonda de saúde e regras de encaminhamento, correndo para seguir:
 
-Criar porta frontal com [ação de rede porta frontal criar:](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door?view=azure-cli-latest#ext_front_door_az_network_front_door_create&preserve-view=true)
+Criar porta frontal com [ação de rede porta frontal criar:](/cli/azure/ext/front-door/network/front-door?view=azure-cli-latest#ext_front_door_az_network_front_door_create&preserve-view=true)
 
 ```azurecli-interactive
 az network front-door create \
@@ -130,11 +130,11 @@ Abra um navegador web e introduza o nome anfitrião obtido a partir dos comandos
 
 :::image type="content" source="./media/quickstart-create-front-door-cli/front-door-testing-page.png" alt-text="Página de teste da porta da frente":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar dos recursos que criou com a Porta da Frente, elimine ambos os grupos de recursos. Quando elimina o grupo de recursos, também elimina a Porta frontal e todos os seus recursos relacionados. 
 
-Para eliminar o grupo de recursos utilize [o grupo Az eliminar:](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az_group_delete&preserve-view=true)
+Para eliminar o grupo de recursos utilize [o grupo Az eliminar:](/cli/azure/group?view=azure-cli-latest#az_group_delete&preserve-view=true)
 
 ```azurecli-interactive
 az group delete \

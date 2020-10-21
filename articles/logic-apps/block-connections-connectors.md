@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: bd6afa8b3776ed48d4b25a36b2902265fa0ab5c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02d9852f6615c3926a02294e0e7eca50f2fbe9a5
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269765"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310042"
 ---
 # <a name="block-connections-created-by-connectors-in-azure-logic-apps"></a>Ligações de blocos criadas por conectores em Azure Logic Apps
 
@@ -224,7 +224,7 @@ Para obter mais informações sobre as definições políticas da Azure, consult
 
 * [Definição de estrutura política](../governance/policy/concepts/definition-structure.md)
 * [Tutorial: Criar e gerir políticas para impor o cumprimento](../governance/policy/tutorials/create-and-manage.md)
-* [Definições políticas incorporadas da Azure Policy para apps Azure Logic](../logic-apps/policy-samples.md)
+* [Definições políticas incorporadas da Azure Policy para apps Azure Logic](./policy-reference.md)
 
 <a name="create-policy-connector-usage"></a>
 
@@ -311,7 +311,7 @@ Para obter mais informações sobre as definições políticas da Azure, consult
 
 * [Definição de estrutura política](../governance/policy/concepts/definition-structure.md)
 * [Tutorial: Criar e gerir políticas para impor o cumprimento](../governance/policy/tutorials/create-and-manage.md)
-* [Definições políticas incorporadas da Azure Policy para apps Azure Logic](../logic-apps/policy-samples.md)
+* [Definições políticas incorporadas da Azure Policy para apps Azure Logic](./policy-reference.md)
 
 <a name="create-policy-assignment"></a>
 

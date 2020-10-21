@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.reviewer: sngun
-ms.openlocfilehash: b056c12f51c6e36a806f2bba0f5efe9ea9498798
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59f1231e2edf3277898ff57d8e6f8da42ee057ca
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90015641"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276985"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Alterar modelo de puxar feed em Azure Cosmos DB
 
@@ -112,7 +112,7 @@ Aqui está um exemplo que mostra como obter uma lista de gamas para o seu recipi
 IReadOnlyList<FeedRange> ranges = await container.GetFeedRangesAsync();
 ```
 
-Quando obtiver a lista de FeedRanges para o seu recipiente, terá uma `FeedRange` por [partição física.](partition-data.md#physical-partitions)
+Quando obtiver a lista de FeedRanges para o seu recipiente, terá uma `FeedRange` por [partição física.](partitioning-overview.md#physical-partitions)
 
 Utilizando um `FeedRange` , pode então criar um `FeedIterator` paralelizar o processamento da rede de mudanças através de várias máquinas ou fios. Ao contrário do exemplo anterior que mostrou como obter um `FeedIterator` para todo o recipiente ou uma única tecla de partição, pode utilizar o FeedRanges para obter vários FeedIterators que podem processar o feed de mudança em paralelo.
 

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 9/21/2020
-ms.openlocfilehash: 8a1b30803494facf6eaabcc3695770d694b4e221
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/20/2020
+ms.openlocfilehash: 0755ca7e77592a2efd6d8687f9eb19eacc2f0128
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708684"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315164"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Opções de computação e armazenamento em Azure Database para MySQL - Servidor Flexível (Pré-visualização)
 
@@ -49,25 +49,25 @@ As especificações detalhadas dos tipos de servidores disponíveis são as segu
 | Tamanho do cálculo         | vCores | Tamanho da memória (GiB) | 
 |----------------------|--------|-------------------|
 | **Rebentado**        |        |                   | 
-| B1s                  | 1      | 1                 |  
-| B1ms                 | 1      | 2                 | 
-| B2s                  | 2      | 4                 |  
+| Standard_B1s         | 1      | 1                 |  
+| Standard_B1ms        | 1      | 2                 | 
+| Standard_B2s         | 2      | 4                 |  
 | **Fins Gerais**  |        |                   | 
-| D2ds_v4              | 2      | 8                 |  
-| D4ds_v4              | 4      | 16                | 
-| D8ds_v4              | 8      | 32                | 
-| D16ds_v4             | 16     | 64                | 
-| D32ds_v4             | 32     | 128               |  
-| D48ds_v4             | 48     | 192               |  
-| D64ds_v4             | 64     | 256               | 
+| Standard_D2ds_v4     | 2      | 8                 |  
+| Standard_D4ds_v4     | 4      | 16                | 
+| Standard_D8ds_v4     | 8      | 32                | 
+| Standard_D16ds_v4    | 16     | 64                | 
+| Standard_D32ds_v4    | 32     | 128               |  
+| Standard_D48ds_v4    | 48     | 192               |  
+| Standard_D64ds_v4    | 64     | 256               | 
 | **Memória Otimizada** |        |                   |
-| E2ds_v4              | 2      | 16                |
-| E4ds_v4              | 4      | 32                |
-| E8ds_v4              | 8      | 64                |
-| E16ds_v4             | 16     | 128               |
-| E32ds_v4             | 32     | 256               |
-| E48ds_v4             | 48     | 384               |
-| E64ds_v4             | 64     | 504               |
+| Standard_E2ds_v4     | 2      | 16                |
+| Standard_E4ds_v4     | 4      | 32                |
+| Standard_E8ds_v4     | 8      | 64                |
+| Standard_E16ds_v4    | 16     | 128               |
+| Standard_E32ds_v4    | 32     | 256               |
+| Standard_E48ds_v4    | 48     | 384               |
+| Standard_E64ds_v4    | 64     | 504               |
 
 Para obter mais detalhes sobre a série computacional disponível, consulte a documentação Azure VM para [Burstable (série B)](../../virtual-machines/sizes-b-series-burstable.md), [Final Geral (série Ddsv4)](../../virtual-machines/ddv4-ddsv4-series.md)e [Memory Optimized (série Edsv4)](../../virtual-machines/edv4-edsv4-series.md).
 
@@ -110,25 +110,25 @@ Para saber mais sobre o máximo eficaz IOPS por tamanho de computação, utiliza
 | Tamanho do cálculo         | IOPS eficazes no máximo  | 
 |----------------------|---------------------|
 | **Rebentado**        |                     |
-| B1s                  | 320                 |
-| B1ms                 | 640                 |
-| B2s                  | 1280                | 
+| Standard_B1s         | 320                 |
+| Standard_B1ms        | 640                 |
+| Standard_B2s         | 1280                | 
 | **Fins Gerais**  |                     |
-| D2ds_v4              | 3200                |
-| D4ds_v4              | 6400                |
-| D8ds_v4              | 12800               |
-| D16ds_v4             | 20 000               |
-| D32ds_v4             | 20 000               |
-| D48ds_v4             | 20 000               | 
-| D64ds_v4             | 20 000               | 
+| Standard_D2ds_v4     | 3200                |
+| Standard_D4ds_v4     | 6400                |
+| Standard_D8ds_v4     | 12800               |
+| Standard_D16ds_v4    | 20 000               |
+| Standard_D32ds_v4    | 20 000               |
+| Standard_D48ds_v4    | 20 000               | 
+| Standard_D64ds_v4    | 20 000               | 
 | **Memória Otimizada** |                     | 
-| E2ds_v4              | 3200                | 
-| E4ds_v4              | 6400                | 
-| E8ds_v4              | 12800               | 
-| E16ds_v4             | 20 000               | 
-| E32ds_v4             | 20 000               | 
-| E48ds_v4             | 20 000               | 
-| E64ds_v4             | 20 000               |  
+| Standard_E2ds_v4     | 3200                | 
+| Standard_E4ds_v4     | 6400                | 
+| Standard_ E8ds_v4    | 12800               | 
+| Standard_ E16ds_v4   | 20 000               | 
+| Standard_E32ds_v4    | 20 000               | 
+| Standard_E48ds_v4    | 20 000               | 
+| Standard_E64ds_v4    | 20 000               |  
 
 O IOPS eficaz máximo depende do máximo disponível IOPS por tamanho de cálculo. Consulte a fórmula abaixo e consulte a coluna *Max desatado: IOPS/MBps* na [série B,](../../virtual-machines/sizes-b-series-burstable.md) [ddsv4 séries](../../virtual-machines/ddv4-ddsv4-series.md)e documentação [da série Edsv4.](../../virtual-machines/edv4-edsv4-series.md)
 
@@ -136,7 +136,7 @@ O IOPS eficaz máximo depende do máximo disponível IOPS por tamanho de cálcul
 
 Pode monitorizar o seu consumo de E/S no portal Azure (com o Azure Monitor) utilizando a métrica [IO%.](./concepts-monitoring.md) Se precisar de mais IOPS, terá de perceber se está limitado pelo tamanho do cálculo ou pelo armazenamento a provisionado. Dimensione o cálculo ou armazenamento do seu servidor em conformidade.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Cópia de segurança
 
 O serviço retira automaticamente cópias de segurança do seu servidor. Pode selecionar um período de retenção de um intervalo de 1 a 35 dias. Saiba mais sobre backups na cópia de segurança e restaurar o [artigo conceitos.](concepts-backup-restore.md)
 

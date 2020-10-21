@@ -3,12 +3,12 @@ title: Tipos de Recursos Suportados através da Azure Resource Health Microsoft 
 description: Tipos de Recursos Suportados através da Saúde dos Recursos Azure
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: e299e45f08b9e39af02208a0e74734475528b3ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3bbc7b03a508c9b156de039b4f8706f5063fd23b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447052"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316126"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos e verificações de saúde na saúde dos recursos Azure
 Abaixo está uma lista completa de todos os cheques executados através da saúde de recursos por tipos de recursos.
@@ -51,7 +51,7 @@ Abaixo está uma lista completa de todos os cheques executados através da saúd
 ## <a name="microsoftclassiccomputedomainnames"></a>Microsoft.classiccompute/domainnames
 |Verificações executadas|
 |---|
-|<ul><li>A implantação de slots de produção é saudável em todas as instâncias de função?</li><li>O papel é saudável em todos os seus casos de VM?</li><li>Qual é o estado de saúde de cada VM dentro de um papel de um serviço de nuvem?</li><li>A alteração de estado em VM deveu-se à operação iniciada pela plataforma ou pelo cliente?</li><li>O arranque do so convidado terminou?</li><li>Há manutenção planeada?</li><li>O hardware do anfitrião está degradado e prevê-se que falhe em breve?</li><li>[Saiba mais](https://docs.microsoft.com/azure/cloud-services/resource-health-for-cloud-services) sobre Verificações Executadas</li></ul>|
+|<ul><li>A implantação de slots de produção é saudável em todas as instâncias de função?</li><li>O papel é saudável em todos os seus casos de VM?</li><li>Qual é o estado de saúde de cada VM dentro de um papel de um serviço de nuvem?</li><li>A alteração de estado em VM deveu-se à operação iniciada pela plataforma ou pelo cliente?</li><li>O arranque do so convidado terminou?</li><li>Há manutenção planeada?</li><li>O hardware do anfitrião está degradado e prevê-se que falhe em breve?</li><li>[Saiba mais](../cloud-services/resource-health-for-cloud-services.md) sobre Verificações Executadas</li></ul>|
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.cognitiveservices/contas
 |Verificações executadas|
@@ -257,4 +257,4 @@ Abaixo está uma lista completa de todos os cheques executados através da saúd
 ## <a name="next-steps"></a>Passos Seguintes
 -  Consulte [o painel de saúde do serviço Azure](service-health-overview.md) e a [Introdução à Azure Resource Health](resource-health-overview.md) para saber mais sobre eles. 
 -  [Perguntas frequentes sobre Azure Resource Health](resource-health-faq.md)
-- Adasse alertas para que você é notificado de problemas de saúde. Para mais informações, consulte alertas de configuração [para eventos de saúde de serviço.](./alerts-activity-log-service-notifications-portal.md) 
+- Adasse alertas para que você é notificado de problemas de saúde. Para mais informações, consulte alertas de configuração [para eventos de saúde de serviço.](./alerts-activity-log-service-notifications-portal.md)

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: duau
-ms.openlocfilehash: bac1d1e41cab4aa3be10fb226df57277db20c78e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6db01531a34e936c59e5aa01a5c37f3a2ccf7345
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90030281"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277717"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutorial: Configurar HTTPS num domínio personalizado do Front Door
 
@@ -154,7 +154,7 @@ O registo CNAME deve estar no seguinte formato, em que *Nome* é o nome do seu d
 |-----------------|-------|-----------------------|
 | <www.contoso.com> | CNAME | contoso.azurefd.net |
 
-Para obter mais informações sobre os registos CNAME, veja [Criar o registo DNS CNAME](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain).
+Para obter mais informações sobre os registos CNAME, veja [Criar o registo DNS CNAME](../cdn/cdn-map-content-to-custom-domain.md).
 
 Se o registo CNAME estiver no formato correto, DigiCert verifica o seu nome de domínio personalizado automaticamente e cria um certificado dedicado para o seu nome de domínio. DigitCert não lhe enviará um e-mail de verificação e não terá de aprovar o seu próprio pedido. O certificado é válido por um ano e será auto-autoriado antes de expirar. Avance para [Aguardar pela propagação](#wait-for-propagation). 
 

@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.custom: sfrev, devx-track-azurepowershell
-ms.openlocfilehash: 08abd9ff1134415e47923f22e753691225fc23b8
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: f32bc444ba753f48955de4a4c16bde8dfb7a05fc
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164725"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316654"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparar o ambiente de desenvolvimento no Windows
 
@@ -94,7 +94,7 @@ Agora que o ambiente de desenvolvimento está configurado, pode começar a criar
 
 * [Saiba como criar, implementar e gerir aplicações](service-fabric-tutorial-create-dotnet-app.md)
 * [Saiba mais sobre os modelos de programação: Reliable Services e Reliable Actors](service-fabric-choose-framework.md)
-* [Veja exemplos de códigos do Service Fabric em GitHub](https://aka.ms/servicefabricsamples)
+* [Veja exemplos de códigos do Service Fabric em GitHub](/samples/browse/?products=azure)
 * [Visualizar o cluster através do Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 * [Prepare a Linux development environment on Windows](service-fabric-local-linux-cluster-windows.md) (Preparar um ambiente de desenvolvimento do Linux no Windows)
 * Saiba mais sobre as [opções de suporte do Service Fabric](service-fabric-support.md)

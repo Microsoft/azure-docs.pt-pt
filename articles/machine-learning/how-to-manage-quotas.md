@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: 93cf29651110356023752f2377c9a0fc358982a7
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 4b072257d49011819fe19d6e2901560df43b26dc
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203058"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275555"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Gerir & aumentar quotas de recursos com a Azure Machine Learning
 
@@ -177,7 +177,7 @@ Para solicitar um subsídio para estes cenários, utilize as seguintes etapas:
     | ----- | ----- |
     | Tipo de problema | Parte Técnica |
     | Serviço | Os meus serviços. Selecione __Machine Learning__ na lista de dropdown. |
-    | Tipo de problema | Configuração do espaço de trabalho, SDK e CLI |
+    | Tipo de problema | Configuração e Segurança do Espaço de Trabalho |
     | Subtipo de problema | Pedido de subsídio de subsídio de Endpoint Privado e DNS Zone privado |
 
 2. A partir da secção __Detalhes,__ utilize o campo __Descrição__ para fornecer a região Azure que pretende utilizar e o cenário que pretende utilizar. Se precisar de solicitar aumentos de quota para várias subscrições, liste também os IDs de subscrição neste campo.
