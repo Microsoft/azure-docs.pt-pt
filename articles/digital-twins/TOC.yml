@@ -55,6 +55,8 @@
               href: how-to-set-up-instance-portal.md
         - name: Escrever o código de autenticação da aplicação
           href: how-to-authenticate-client.md
+        - name: Criar um registo de aplicação
+          href: how-to-create-app-registration.md
         - name: Mover uma instância para uma região diferente
           href: how-to-move-regions.md
     - name: Conceber modelos

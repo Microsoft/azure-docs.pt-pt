@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 053a64f276a09cfd1e11d51743a557e7a238cbc2
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: e1a9a644e3ec4690dbb1f536dd15db995b56cf12
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207908"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331724"
 ---
 # <a name="azure-security-baseline-for-expressroute"></a>Linha de segurança Azure para ExpressRoute
 
@@ -242,7 +242,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 Pode utilizar o painel de controlo de identidade e acesso (IAM) no portal Azure para a sua subscrição para configurar o controlo de acesso baseado em funções (Azure RBAC). As funções são aplicadas aos utilizadores, grupos, diretores de serviços e identidades geridas no Ative Directory.
 
-Além disso, os parceiros que utilizam a API do Gestor de Recursos parceiros ExpressRoute podem aplicar Role-Based Controlo de Acesso ao recurso expressRouteCrossConnection. Estes controlos podem definir permissões para as quais as contas dos utilizadores podem modificar o recurso expressRouteCrossConnection e adicionar/atualizar/eliminar configurações de peering.
+Além disso, os parceiros que usam a API do Gestor de Recursos parceiros ExpressRoute podem aplicar o controlo de acesso baseado em funções ao recurso expressRouteCrossConnection. Estes controlos podem definir permissões para as quais as contas dos utilizadores podem modificar o recurso expressRouteCrossConnection e adicionar/atualizar/eliminar configurações de peering.
 
 * [Compreender Azure RBAC](../role-based-access-control/overview.md)
 
@@ -459,7 +459,7 @@ Como configurar o Site IPSEC sobre o ExpressRoute: https://docs.microsoft.com/az
 
 O Azure ExpressRoute também tem funções de proprietário de circuitos e de utilizador de circuitos. Os utilizadores de circuitos são proprietários de gateways de rede virtuais que não estão dentro da mesma subscrição que o circuito ExpressRoute. O proprietário do circuito tem o poder de modificar e revogar autorizações a qualquer momento. A revogação de uma autorização resulta na suprição de todas as ligações de ligação da subscrição cujo acesso foi revogado. Os utilizadores de circuitos podem resgatar autorizações (uma autorização por rede virtual).
 
-Além disso, os parceiros que utilizam a API do Gestor de Recursos parceiros ExpressRoute podem aplicar Role-Based Controlo de Acesso ao recurso expressRouteCrossConnection. Estes controlos podem definir permissões para as quais as contas dos utilizadores podem modificar o recurso expressRouteCrossConnection e adicionar/atualizar/eliminar configurações de peering.
+Além disso, os parceiros que usam a API do Gestor de Recursos parceiros ExpressRoute podem aplicar o controlo de acesso baseado em funções ao recurso expressRouteCrossConnection. Estes controlos podem definir permissões para as quais as contas dos utilizadores podem modificar o recurso expressRouteCrossConnection e adicionar/atualizar/eliminar configurações de peering.
 
 * [Compreender Azure RBAC](../role-based-access-control/overview.md)
 

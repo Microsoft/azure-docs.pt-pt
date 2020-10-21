@@ -28,6 +28,11 @@
     - name: Criar um grupo de gestão - REST
       displayName: hierarchy
       href: ./create-management-group-rest-api.md
+- name: Tutoriais
+  items:
+    - name: 'Saiba como: criar uma estratégia de governação de subscrições'
+      displayName: 'governance, module'
+      href: /learn/modules/build-cloud-governance-strategy-azure/3-create-subscription-governance-strategy
 - name: Guias de procedimentos
   expanded: true
   items:

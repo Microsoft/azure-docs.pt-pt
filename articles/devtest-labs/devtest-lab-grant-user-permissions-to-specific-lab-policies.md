@@ -3,25 +3,25 @@ title: Conceder permissões de utilizadores a políticas específicas de laborat
 description: Saiba como conceder permissões de utilizadores a políticas específicas de laboratório em Laboratórios DevTest com base nas necessidades de cada utilizador
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 8e910a5d4499d104e4b09076ec7862ae96272ef4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 976862476d25e4e9a4933d8a5319eec9d77ca39b
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87835685"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328475"
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Conceder permissões de utilizadores a políticas específicas de laboratório
 ## <a name="overview"></a>Descrição geral
 Este artigo ilustra como usar o PowerShell para conceder aos utilizadores permissões a uma determinada política de laboratório. Desta forma, as permissões podem ser aplicadas com base nas necessidades de cada utilizador. Por exemplo, pode querer conceder a um determinado utilizador a capacidade de alterar as definições de política de VM, mas não as políticas de custos.
 
 ## <a name="policies-as-resources"></a>Políticas como recursos
-Como discutido no artigo do [Azure role-based access control (Azure RBAC),](../role-based-access-control/role-assignments-portal.md) o RBAC permite uma gestão de recursos de acesso fino para o Azure. Utilizando o RBAC, pode segregar os deveres dentro da sua equipa de DevOps e conceder apenas a quantidade de acesso aos utilizadores de que necessitam para desempenharem os seus trabalhos.
+Como discutido no artigo do [Azure role-based access control (Azure RBAC),](../role-based-access-control/role-assignments-portal.md) o Azure RBAC permite uma gestão de recursos de acesso fino para o Azure. Utilizando o Azure RBAC, pode segregar os deveres dentro da sua equipa de DevOps e conceder apenas a quantidade de acesso aos utilizadores de que necessitam para desempenharem os seus trabalhos.
 
-Na DevTest Labs, uma política é um tipo de recurso que permite a ação do RBAC **Microsoft.DevTestLab/labs/policySets/policiesSets/**. Cada política de laboratório é um recurso no tipo de recursos da Política, e pode ser atribuída como um âmbito para um papel de Azure.
+Na DevTest Labs, uma política é um tipo de recurso que permite a ação Azure RBAC **Microsoft.DevTestLab/labs/policySets/policiesSets/**. Cada política de laboratório é um recurso no tipo de recursos da Política, e pode ser atribuída como um âmbito para um papel de Azure.
 
 Por exemplo, para conceder aos utilizadores a leitura/escrita da política **de tamanhos VM permitidos,** criaria uma função personalizada que funcionasse com o **Microsoft.DevTestLab/labs/policySets/policiesSets/policies/** action e, em seguida, atribuir os utilizadores adequados a este papel personalizado no âmbito do **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
 
-Para saber mais sobre papéis personalizados no RBAC, consulte o controlo de acesso de [funções personalizados.](../role-based-access-control/custom-roles.md)
+Para saber mais sobre papéis personalizados no Azure RBAC, consulte os [papéis personalizados Azure](../role-based-access-control/custom-roles.md).
 
 ## <a name="creating-a-lab-custom-role-using-powershell"></a>Criar um papel personalizado de laboratório usando o PowerShell
 Para começar, terá de instalar o [Azure PowerShell](/powershell/azure/install-az-ps). 

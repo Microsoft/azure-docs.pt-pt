@@ -3,12 +3,12 @@ title: Azure Event Hubs - Processa eventos Apache Kafka
 description: 'Tutorial: Este artigo mostra como processar eventos kafka que são ingeridos através de centros de eventos usando Azure Stream Analytics'
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: 1f0c7bf40b721a3f35fcf68c71cb38a4302a56f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 328537eebd05391fc4c8138395a9c10f0a5d072f
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531292"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319381"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Tutorial: Processa Apache Kafka para eventos de Centros de Eventos usando análise de stream 
 Este artigo mostra como transmitir dados para os Centros de Eventos e processá-lo com a Azure Stream Analytics. Acompanha-o pelos seguintes passos: 
@@ -25,7 +25,7 @@ Não precisa de alterar os seus clientes de protocolo ou executar os seus própr
 Para concluir este início rápido, certifique-se de que tem os seguintes pré-requisitos:
 
 * Uma subscrição do Azure. Se não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
-* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks).
+* [Java Development Kit (JDK) 1.7+](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 * [Transferir](https://maven.apache.org/download.cgi) e [instalar](https://maven.apache.org/install.html) um arquivo binário Maven.
 * [Rio Git](https://www.git-scm.com/)
 * Uma **conta de Armazenamento Azure.** Se não tiver um, [crie um](../storage/common/storage-account-create.md) antes de prosseguir. O trabalho stream Analytics neste walkthrough armazena os dados de saída num armazenamento de bolhas Azure. 
@@ -171,4 +171,4 @@ Depois de ter uma tarefa do Stream Analytics configurada para ler um fluxo de da
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste artigo, aprendeu a transmitir para os Centros de Eventos sem alterar os seus clientes de protocolo ou executar os seus próprios clusters. Para saber mais sobre os Centros de Eventos da Apache Kafka, consulte o [guia de desenvolvimento apache Kafka para o Azure Event Hubs.](apache-kafka-developer-guide.md) 
+Neste artigo, aprendeu a transmitir para os Centros de Eventos sem alterar os seus clientes de protocolo ou executar os seus próprios clusters. Para saber mais sobre os Centros de Eventos da Apache Kafka, consulte o [guia de desenvolvimento apache Kafka para o Azure Event Hubs.](apache-kafka-developer-guide.md)

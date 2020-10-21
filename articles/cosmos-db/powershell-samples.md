@@ -1,21 +1,23 @@
 ---
-title: Exemplos do Azure PowerShell para o Azure Cosmos DB
-description: Obtenha as amostras Azure PowerShell para executar tarefas comuns em Azure Cosmos DB
+title: Amostras Azure PowerShell para Azure Cosmos DB Core (SQL) API
+description: Obtenha as amostras Azure PowerShell para executar tarefas comuns em Azure Cosmos DB para Core (SQL) API
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 10/07/2020
+ms.date: 10/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 0c2d13ef49676917bc48dd5a2e682471558567f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 174458d9e5be24de669060ea8264f62017489c7a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842976"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279305"
 ---
-# <a name="azure-powershell-samples-for-azure-cosmos-db"></a>Exemplos do Azure PowerShell para o Azure Cosmos DB
+# <a name="azure-powershell-samples-for-azure-cosmos-db-core-sql-api"></a>Amostras Azure PowerShell para Azure Cosmos DB Core (SQL) API
 
 A tabela seguinte inclui links para scripts Azure PowerShell comumente usados para Azure Cosmos DB. Utilize os links no direito de navegar para amostras específicas da API. As amostras comuns são as mesmas em todas as APIs. As páginas de referência para todos os cmdlets Azure Cosmos DB PowerShell estão disponíveis na [Referência Azure PowerShell](/powershell/module/az.cosmosdb). Por favor, verifique se há atualizações `Az.CosmosDB` regularmente. Você também pode forme estas amostras PowerShell para Cosmos DB do nosso repositório GitHub, [Cosmos DB PowerShell Samples no GitHub](https://github.com/Azure/azure-docs-powershell-samples/tree/master/cosmosdb).
+
+Para os cmdlets PowerShell para outras APIs ver [amostras de powerShell para Cassandra,](powershell-samples-cassandra.md) [Amostras de PowerShell para API mongodb,](powershell-samples-mongodb.md) [amostras de energia para Gremlin,](powershell-samples-gremlin.md) [Amostras de Energia para tabela](powershell-samples-table.md)
 
 ## <a name="common-samples"></a>Amostras comuns
 
@@ -39,48 +41,4 @@ A tabela seguinte inclui links para scripts Azure PowerShell comumente usados pa
 |[Listar ou obter bases de dados ou contentores](scripts/powershell/sql/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Liste ou obtenha base de dados ou contentores. |
 |[Operações de produção](scripts/powershell/sql/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Operações de produção de uma base de dados ou contentor, incluindo obter, atualizar e migrar entre a escala automática e a produção padrão. |
 |[Bloquear recursos da supressão](scripts/powershell/sql/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Evite que os recursos sejam eliminados com bloqueios de recursos. |
-|||
-
-## <a name="cassandra-api-samples"></a>Amostras de Cassandra API
-
-|Tarefa | Descrição |
-|---|---|
-|[Criar uma conta, espaço-chave e tabela](scripts/powershell/cassandra/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma conta Azure Cosmos, espaço-chave e tabela. |
-|[Criar uma conta, espaço-chave e tabela com autoescala](scripts/powershell/cassandra/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma conta Azure Cosmos, espaço-chave e tabela com autoescala. |
-|[Listar ou obter espaços ou tabelas chave](scripts/powershell/cassandra/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Liste ou obtenha espaços ou tabelas de chaves. |
-|[Operações de produção](scripts/powershell/cassandra/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Operações de produção para um espaço-chave ou tabela, incluindo obter, atualizar e migrar entre a escala automática e a produção padrão. |
-|[Bloquear recursos da supressão](scripts/powershell/cassandra/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Evite que os recursos sejam eliminados com bloqueios de recursos. |
-|||
-
-## <a name="mongo-db-api-samples"></a>Amostras da API do Mongo DB
-
-|Tarefa | Descrição |
-|---|---|
-|[Criar uma conta, base de dados e recolha](scripts/powershell/mongodb/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma conta, base de dados e recolha da Azure Cosmos. |
-|[Criar uma conta, base de dados e recolha com autoescala](scripts/powershell/mongodb/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma conta, base de dados e recolha Azure Cosmos com autoescala. |
-|[Listar ou obter bases de dados ou coleções](scripts/powershell/mongodb/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Liste ou obtenha base de dados ou recolha. |
-|[Operações de produção](scripts/powershell/mongodb/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Operações de produção de uma base de dados ou recolha, incluindo obter, atualizar e migrar entre a autoescala e a produção padrão. |
-|[Bloquear recursos da supressão](scripts/powershell/mongodb/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Evite que os recursos sejam eliminados com bloqueios de recursos. |
-|||
-
-## <a name="gremlin-api-samples"></a>Amostras de API de Gremlin
-
-|Tarefa | Descrição |
-|---|---|
-|[Criar uma conta, base de dados e gráfico](scripts/powershell/gremlin/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma conta, base de dados e gráfico Azure Cosmos. |
-|[Criar uma conta, base de dados e gráfico com autoescala](scripts/powershell/gremlin/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma conta, base de dados e gráfico Azure Cosmos com autoescala. |
-|[Listar ou obter bases de dados ou gráficos](scripts/powershell/gremlin/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Liste ou obtenha base de dados ou gráfico. |
-|[Operações de produção](scripts/powershell/gremlin/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Operações de produção de uma base de dados ou gráfico, incluindo obter, atualizar e migrar entre a autoescala e a produção padrão. |
-|[Bloquear recursos da supressão](scripts/powershell/gremlin/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Evite que os recursos sejam eliminados com bloqueios de recursos. |
-|||
-
-## <a name="table-api-samples"></a>Amostras de API de tabela
-
-|Tarefa | Descrição |
-|---|---|
-|[Criar uma conta e tabela](scripts/powershell/table/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma conta e tabela Azure Cosmos. |
-|[Criar uma conta e tabela com autoescala](scripts/powershell/table/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma conta Azure Cosmos e tabela autoscale. |
-|[Listar ou obter tabelas](scripts/powershell/table/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Lista ou arranja mesas. |
-|[Operações de produção](scripts/powershell/table/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Operações de produção para uma tabela, incluindo obter, atualizar e migrar entre a autoescala e a produção padrão. |
-|[Bloquear recursos da supressão](scripts/powershell/table/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Evite que os recursos sejam eliminados com bloqueios de recursos. |
 |||

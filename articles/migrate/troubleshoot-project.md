@@ -6,12 +6,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/01/2020
-ms.openlocfilehash: b56244fccce623827367d504831ca8db517c108d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2245e13f348706f662055408196ea7a26484811
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86121644"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314646"
 ---
 # <a name="troubleshoot-azure-migrate-projects"></a>Resolver problemas relacionados com projetos do Azure Migrate
 
@@ -52,7 +52,7 @@ Se tentar criar um projeto e encontrar um erro de implantação:
 - Se receber o erro, "Os pedidos devem conter cabeçalhos de identidade do utilizador", o que pode indicar que não tem acesso ao inquilino do Azure Ative Directory (Azure AD) da organização. Neste caso:
     - Quando você é adicionado a um inquilino AZure AD pela primeira vez, você recebe um convite de e-mail para se juntar ao inquilino.
     - Aceite o convite para ser adicionado ao inquilino.
-    - Se não conseguir ver o e-mail, contacte um utilizador com acesso ao inquilino e peça-lhe que [reencaia o convite](../active-directory/b2b/add-users-administrator.md#resend-invitations-to-guest-users) para si.
+    - Se não conseguir ver o e-mail, contacte um utilizador com acesso ao inquilino e peça-lhe que [reencaia o convite](../active-directory/external-identities/add-users-administrator.md#resend-invitations-to-guest-users) para si.
     - Depois de receber o e-mail do convite, abra-o e selecione o link para aceitar o convite. Em seguida, assine fora do portal Azure e inscreva-se novamente. (refrescar o navegador não vai funcionar.) Pode então começar a criar o projeto de migração.
 
 ## <a name="how-do-i-delete-a-project"></a>Como posso apagar um projeto

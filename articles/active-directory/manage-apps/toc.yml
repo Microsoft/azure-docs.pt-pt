@@ -220,6 +220,8 @@
           href: troubleshoot-password-based-sso.md
         - name: Resolver problemas de início de sessão único baseado em SAML
           href: troubleshoot-saml-based-sso.md
+        - name: Depurar o início de sessão único baseado em SAML
+          href: debug-saml-sso-issues.md
         - name: Resolver problemas de início de sessão do utilizador
           items:
             - name: Pedido de consentimento inesperado

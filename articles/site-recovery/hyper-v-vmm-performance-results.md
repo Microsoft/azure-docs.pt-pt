@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 3edd182e335bc679d95d7be64f45b617a9f54c1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c8219214e7053dcf6b119f6cd5dc97daaa355f7
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73663177"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327642"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Resultados do teste para a replicação do Hiper-V num local secundário
 
@@ -47,7 +47,7 @@ Eis o que fizemos no teste:
 * A Réplica Hyper-V utiliza cache de memória auto-conservada para minimizar a sobrecarga do IOPS para rastreio. Armazena a escrita para o VHDX na memória e coloca-os no ficheiro de registo antes do momento em que o registo é enviado para o local de recuperação. Um autoclismo de disco também acontece se as escritas atingirem um limite pré-determinado.
 * O gráfico abaixo mostra a sobrecarga de IOPS do estado estável para replicação. Podemos ver que a sobrecarga do IOPS devido à replicação é de cerca de 5%, o que é bastante baixo.
 
-  ![Resultados primários](./media/hyper-v-vmm-performance-results/IC744913.png)
+  ![Gráfico que mostra a sobrecarga de IOPS do estado estável para replicação.](./media/hyper-v-vmm-performance-results/IC744913.png)
 
 A réplica hyper-V utiliza a memória no servidor primário para otimizar o desempenho do disco. Como mostrado no gráfico seguinte, a sobrecarga de memória em todos os servidores do cluster primário é marginal. A sobrecarga de memória mostrada é a percentagem de memória utilizada por replicação, em comparação com a memória instalada total no servidor Hiper-V.
 
@@ -55,20 +55,20 @@ A réplica hyper-V utiliza a memória no servidor primário para otimizar o dese
 
 A réplica hiper-V tem a sobrecarga mínima de CPU. Como mostrado no gráfico, a sobrecarga de replicação está na gama de 2-3%.
 
-![Resultados primários](./media/hyper-v-vmm-performance-results/IC744915.png)
+![Gráfico que mostra a sobrecarga de replicação está na faixa de 2-3%.](./media/hyper-v-vmm-performance-results/IC744915.png)
 
 ## <a name="secondary-server-performance"></a>Desempenho do servidor secundário
 
 A Réplica Hiper-V utiliza uma pequena quantidade de memória no servidor de recuperação, para otimizar o número de operações de armazenamento. O gráfico resume o uso da memória no servidor de recuperação. A sobrecarga de memória mostrada é a percentagem de memória utilizada por replicação, em comparação com a memória instalada total no servidor Hiper-V.
 
-![Resultados secundários](./media/hyper-v-vmm-performance-results/IC744916.png)
+![Gráfico que resume o uso da memória no servidor de recuperação.](./media/hyper-v-vmm-performance-results/IC744916.png)
 
 A quantidade de operações de E/S no local de recuperação é uma função do número de operações de escrita no site primário. Vamos olhar para o total de operações de E/S no local de recuperação em comparação com o total de operações de E/S e escrever operações no site principal. Os gráficos mostram que o total de IOPS no local de recuperação é
 
 * Cerca de 1,5 vezes o IOPS de escrita nas primárias.
 * Cerca de 37% do total de IOPS no local primário.
 
-![Resultados secundários](./media/hyper-v-vmm-performance-results/IC744917.png)
+![Gráfico que mostra uma comparação de PIOS em sites primários e secundários.](./media/hyper-v-vmm-performance-results/IC744917.png)
 
 ![Resultados secundários](./media/hyper-v-vmm-performance-results/IC744918.png)
 

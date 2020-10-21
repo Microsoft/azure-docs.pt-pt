@@ -105,30 +105,38 @@
               href: partner-center-portal/create-azure-container-technical-assets.md
             - name: Criar uma oferta do Azure Container
               href: partner-center-portal/create-azure-container-offer.md
-    - name: Ofertas de máquinas virtuais do Azure
+    - name: Oferta de máquina virtual do Azure
       items:
-        - name: Planear uma oferta de máquina virtual
+        - name: Planear uma oferta de VM
           href: marketplace-virtual-machines.md
-        - name: Criar e publicar uma oferta de máquina virtual
+        - name: Criar e publicar uma oferta de VM
           items:
-            - name: Criar uma oferta de máquina virtual do Azure
-              href: partner-center-portal/azure-vm-create-offer.md
-            - name: Criar recursos técnicos de VM do Azure
+            - name: Criar recursos técnicos de VM
               items:
-                - name: Problemas de certificação de máquinas virtuais
-                  href: partner-center-portal/vm-certification-issues-solutions.md
-                - name: Criar um recurso técnico de VM do Azure
-                  href: partner-center-portal/create-azure-vm-technical-asset.md
-                - name: FAQ dos recursos técnicos de VM do Azure
-                  href: partner-center-portal/common-issues-during-vhd-creation.md
-                - name: Testar uma máquina virtual implementada a partir de um VHD
-                  href: partner-center-portal/azure-vm-image-certification.md
-                - name: URI de SAS
-                  items:
-                    - name: Obter o URI de SAS
-                      href: partner-center-portal/get-sas-uri.md
-                    - name: FAQ do URI de SAS
-                      href: partner-center-portal/common-sas-uri-issues.md
+                - name: Criar uma VM a partir de uma base aprovada
+                  href: azure-vm-create-using-approved-base.md
+                - name: Criar uma VM com a sua própria imagem
+                  href: azure-vm-create-using-own-image.md
+                - name: Testar uma imagem de VM
+                  href: azure-vm-image-test.md
+                - name: Obter o URI de SAS
+                  href: azure-vm-get-sas-uri.md
+                - name: Mensagens de falha de SAS
+                  href: azure-vm-sas-failure-messages.md
+                - name: FAQ de criação da VM
+                  href: azure-vm-create-faq.md
+                - name: Resolução de problemas da certificação de VM
+                  href: azure-vm-create-certification-faq.md
+            - name: Criar uma oferta de VM
+              href: azure-vm-create.md
+            - name: Configurar as propriedades da oferta de VM
+              href: azure-vm-create-properties.md
+            - name: Configurar uma lista de ofertas de VM
+              href: azure-vm-create-listing.md
+            - name: Criar planos de VM
+              href: azure-vm-create-plans.md
+            - name: Adicionar uma audiência de pré-visualização
+              href: azure-vm-create-preview.md
     - name: Serviços de consultadoria
       items:
         - name: Planear uma oferta de serviços de consultoria
@@ -329,7 +337,7 @@
     - name: Horário de funcionamento para técnicas e publicação
       href: 'https://aka.ms/marketplacepublishingofficehours'
     - name: Opções de suporte do Centro de Parceiros
-      href: partner-center-portal/support.md
+      href: support.md
     - name: Anúncios do Centro de Parceiros
       href: /partner-center/announcements
     - name: Comunidade de Parceiros da Microsoft

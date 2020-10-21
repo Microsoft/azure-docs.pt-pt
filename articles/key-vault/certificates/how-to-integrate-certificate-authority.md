@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: d02568dbb5dfc6b7feb38d353e1ba0ecd8ae25d6
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: d5370343ac83d75df94e7291d26c87ce0c419d0e
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203998"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327421"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Integrar o Key Vault com a Autoridade de Certificação DigiCert
 
@@ -52,9 +52,9 @@ Depois de recolher informações acima da conta DigiCert CertCentral, pode agora
 
 1.  Para adicionar autoridade de certificado DigiCert, navegue para o cofre-chave que pretende adicionar DigiCert. 
 2.  Nas páginas das propriedades do Cofre-Chave, selecione **Certificados**.
-3.  **Selecione certificado As autoridades** de certificação. ![ Propriedades de certificados](../media/certificates/how-to-integrate-certificate-authority/select-certificate-authorities.png)
+3.  **Selecione certificado As autoridades** de certificação. ![ selecionar autoridades de certificados](../media/certificates/how-to-integrate-certificate-authority/select-certificate-authorities.png)
 4.  Selecione A opção **Adicionar.**
- ![Propriedades de certificados](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
+ ![adicionar autoridades de certificados](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
 5.  No ecrã **da Create a Certificate A Autoridade** escolhe os seguintes valores:
     -   **Nome**: Adicione um nome emitente identificável. Exemplo DigicertCA
     -   **Provedor**: Selecione DigiCert do menu.
@@ -101,24 +101,22 @@ New-AzKeyVault -Name 'Contoso-Vaultname' -ResourceGroupName 'ContosoResourceGrou
 - Definir **variável de ID de conta**
 - Definir variável **org iD**
 - Definir variável **chave API**
-- Definir variável **nome emitente**
 
 ```azurepowershell-interactive
 $accountId = "myDigiCertCertCentralAccountID"
-$org = New-AzKeyVaultCertificateOrganizationDetails -Id OrganizationIDfromDigiCertAccount
+$org = New-AzKeyVaultCertificateOrganizationDetail -Id OrganizationIDfromDigiCertAccount
 $secureApiKey = ConvertTo-SecureString DigiCertCertCentralAPIKey -AsPlainText –Force
-$issuerName = "DigiCertCA"
 ```
 
-4. Definir **emitente**. Isto irá adicionar Digicert como autoridade de certificado no cofre chave.
+4. Definir **emitente**. Isto irá adicionar Digicert como autoridade de certificado no cofre chave. Para saber mais sobre os parâmetros, [leia aqui](https://docs.microsoft.com/powershell/module/az.keyvault/Set-AzKeyVaultCertificateIssuer)
 ```azurepowershell-interactive
-Set-AzureKeyVaultCertificateIssuer -VaultName $vaultName -IssuerName $issuerName -IssuerProvider DigiCert -AccountId $accountId -ApiKey $secureApiKey -OrganizationDetails $org
+Set-AzKeyVaultCertificateIssuer -VaultName "Contoso-Vaultname" -Name "TestIssuer01" -IssuerProvider DigiCert -AccountId $accountId -ApiKey $secureApiKey -OrganizationDetails $org -PassThru
 ```
 
 5. **Definição de política para o certificado e certificado de emissão** da DigiCert diretamente dentro do Key Vault.
 
 ```azurepowershell-interactive
-$Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=contoso.com" -IssuerName DigiCertCA -ValidityInMonths 12 -RenewAtNumberOfDaysBeforeExpiry 60
+$Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=contoso.com" -IssuerName "TestIssuer01" -ValidityInMonths 12 -RenewAtNumberOfDaysBeforeExpiry 60
 Add-AzKeyVaultCertificate -VaultName "Contoso-Vaultname" -Name "ExampleCertificate" -CertificatePolicy $Policy
 ```
 
@@ -128,7 +126,7 @@ O certificado foi agora emitido com sucesso pela Digicert CA no interior especif
 
 Se o certificado emitido estiver em estado de 'desactivado' no portal Azure, proceda à visualização da **Operação Certificado** para rever a mensagem de erro do DigiCert para esse certificado.
 
- ![Propriedades de certificados](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
+ ![Operação de certificado](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
 
 Para obter mais informações, consulte as operações do [Certificado na referência API do Cofre-Chave](/rest/api/keyvault). Para obter informações sobre o estabelecimento de permissões, consulte [Cofres - Criar ou Atualizar](/rest/api/keyvault/vaults/createorupdate) e [Abóbadas - Atualizar a Política de Acesso](/rest/api/keyvault/vaults/updateaccesspolicy).
 
