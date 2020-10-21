@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 46bb3b1e450312a2c02fec3f98e2b3d7381b53d2
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 3a523421c128ea26503c0848ad8fcf7d74636a04
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946020"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341334"
 ---
 # <a name="quickstart-setting-up-azure-security-center"></a>Quickstart: Criação do Centro de Segurança Azure
 
@@ -96,7 +96,7 @@ Com o agente implantado nas suas máquinas, o Security Center pode fornecer reco
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste quickstart, permitiu que o Azure Defender e fornecesse o agente Log Analytics para uma gestão unificada de segurança e proteção contra ameaças através das suas cargas de trabalho em nuvem híbrida. Para obter mais informações sobre como utilizar o Centro de Segurança, avance para o início rápido para inclusão de computadores Windows que estão no local e noutras clouds.
 
 > [!div class="nextstepaction"]
@@ -105,7 +105,7 @@ Neste quickstart, permitiu que o Azure Defender e fornecesse o agente Log Analyt
 Quer otimizar e economizar nos gastos na nuvem?
 
 > [!div class="nextstepaction"]
-> [Comece a analisar custos com a Gestão de Custos](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [Comece a analisar custos com a Gestão de Custos](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 <!--Image references-->
 [2]: ./media/security-center-get-started/overview.png

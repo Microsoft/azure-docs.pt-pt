@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/07/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 10f86d194c5c70f2de0ab6502893e228800b1bdf
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 67bc9d6b35d4841999721a00592a6bbe23bff10f
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215472"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340228"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Fichas de configuração no Azure Ative Directory B2C
 
@@ -54,6 +54,17 @@ Pode configurar a vida útil do símbolo em qualquer fluxo de utilizador.
     ![Definições de propriedade de compatibilidade token no portal Azure](./media/configure-tokens/token-compatibility.png)
 
 5. Clique em **Guardar**.
+
+## <a name="provide-optional-claims-to-your-app"></a>Fornecer reclamações opcionais à sua app
+
+As reclamações da aplicação são valores que são devolvidos ao pedido. Atualize o fluxo do utilizador para conter as reclamações desejadas.
+
+1. Selecione **fluxos de utilizador (políticas)**.
+1. Abra o fluxo de utilizador que criou anteriormente.
+1. Selecione **Afirmações de aplicação**.
+1. Escolha as reclamações e atributos que deseja enviar de volta para a sua aplicação.
+1. Clique em **Guardar**.
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

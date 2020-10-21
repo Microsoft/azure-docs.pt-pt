@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 10/09/2020
 ms.author: banders
-ms.openlocfilehash: 2ca4affaeae7f19cf3c913b5dfcf89a04e5bc628
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 32c0779f4086574aeaf8d38ea675f80fbd2c1ec7
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92026804"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132232"
 ---
 # <a name="troubleshoot-mca-billing-issues-with-usage-file-pivot-tables"></a>Resolver problemas de faturação do MCA com tabelas dinâmicas de ficheiros de utilização
 
@@ -27,13 +27,13 @@ Este artigo ajuda-o a resolver problemas de faturação do Contrato de Cliente M
 
 Ao utilizar as informações dos ficheiros de utilização, pode obter uma melhor compreensão dos problemas de utilização e diagnosticá-los. Os ficheiros de utilização são gerados no formato delimitado por vírgulas (CSV). Como os ficheiros de utilização podem ser ficheiros CSV grandes, são mais fáceis de manipular e ver como tabelas dinâmicas numa aplicação de folha de cálculo, como o Excel. Os exemplos neste artigo utilizam o Excel, mas pode utilizar qualquer aplicação de folha de cálculo que desejar.
 
-Apenas os proprietários de Perfis de faturação, Colaboradores, Leitores ou Gestores de faturas têm acesso para transferir ficheiros de utilização. Para obter mais informações, veja [Transferir a utilização para um Contrato de Cliente Microsoft](https://docs.microsoft.com/azure/cost-management-billing/manage/download-azure-invoice-daily-usage-date#download-usage-for-your-microsoft-customer-agreement). 
+Apenas os proprietários de Perfis de faturação, Colaboradores, Leitores ou Gestores de faturas têm acesso para transferir ficheiros de utilização. Para obter mais informações, veja [Transferir a utilização para um Contrato de Cliente Microsoft](./download-azure-invoice-daily-usage-date.md#download-usage-for-your-microsoft-customer-agreement). 
 
 ## <a name="get-the-data-and-format-it"></a>Obter os dados e formatá-los
 
 Como os ficheiros de utilização do Azure estão no formato CSV, tem de preparar os dados para utilização no Excel. Utilize os passos seguintes para formatar os dados como uma tabela.
 
-1. Transfira o ficheiro de utilização através das instruções em [Transferir a utilização no portal do Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/download-azure-invoice-daily-usage-date#download-usage-in-azure-portal).
+1. Transfira o ficheiro de utilização através das instruções em [Transferir a utilização no portal do Azure](./download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal).
 1. Abra um ficheiro no Excel.
 1. Os dados não formatados são semelhantes ao exemplo seguinte.  
     :::image type="content" source="./media/troubleshoot-customer-agreement-billing-issues-usage-file-pivot-tables/raw-csv-data-mca.png" alt-text="Exemplo que mostra dados não formatados" lightbox="./media/troubleshoot-customer-agreement-billing-issues-usage-file-pivot-tables/raw-csv-data-mca.png" :::

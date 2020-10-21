@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: c8ab6f51daf18802b83508a3e1bbd5af3ee59799
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 50180984423b7c6d2921234a3502495016c4df5c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336965"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150104"
 ---
 # <a name="plan-to-manage-azure-costs"></a>Planear a gestão dos custos do Azure
 
@@ -24,7 +24,7 @@ Este artigo mostra como começar a planear a gestão dos custos do Azure. Quando
 - Obtenha custos estimados antes de adicionar serviços com a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/), a folha de preços do Azure ou ao adicionar serviços no portal do Azure.
 - Monitorize os custos com [orçamentos](../costs/tutorial-acm-create-budgets.md), [alertas](../costs/cost-mgt-alerts-monitor-usage-spending.md) e a [análise de custos](../costs/quick-acm-cost-analysis.md).
 - Reveja os custos na sua fatura comparando-os com os [ficheiros de utilização detalhada](../manage/download-azure-invoice-daily-usage-date.md).
-- Integre os dados da faturação e dos custos com o seu próprio sistema de relatórios com a utilização de APIs de [faturação](https://docs.microsoft.com/rest/api/billing/) e [consumo](https://docs.microsoft.com/rest/api/consumption/).
+- Integre os dados da faturação e dos custos com o seu próprio sistema de relatórios com a utilização de APIs de [faturação](/rest/api/billing/) e [consumo](/rest/api/consumption/).
 - Utilize funcionalidades e ferramentas adicionais para clientes do Contrato Enterprise (EA), do Fornecedor de Soluções Cloud (CSP) e do Azure Sponsorship.
 - Tire partido de [alguns dos serviços mais populares do Azure gratuitamente por 12 meses](../manage/create-free-services.md) disponíveis com a [conta gratuita do Azure](https://azure.microsoft.com/free/). Juntamente com as recomendações listadas abaixo, veja [Evitar que seja faturado pela sua conta gratuita](../manage/avoid-charges-free-account.md).
 
@@ -125,7 +125,7 @@ Reveja o tutorial [Otimizar custos a partir de recomendações](../costs/tutoria
 
 ## <a name="integrate-with-billing-and-consumption-apis"></a>Integrar com APIs de faturação e consumo
 
-Utilize as APIs de [faturação](https://docs.microsoft.com/rest/api/billing/) e [consumo](https://docs.microsoft.com/rest/api/consumption/) do Azure para obter, através de programação, os dados de faturação e de custos. Utilize a API RateCard e a API de Utilização em conjunto para obter a utilização faturada. Para obter mais informações, veja [Gain insights into your Microsoft Azure resource consumption](../manage/usage-rate-card-overview.md) (Obter informações sobre o consumo de recursos do Microsoft Azure).
+Utilize as APIs de [faturação](/rest/api/billing/) e [consumo](/rest/api/consumption/) do Azure para obter, através de programação, os dados de faturação e de custos. Utilize a API RateCard e a API de Utilização em conjunto para obter a utilização faturada. Para obter mais informações, veja [Gain insights into your Microsoft Azure resource consumption](../manage/usage-rate-card-overview.md) (Obter informações sobre o consumo de recursos do Microsoft Azure).
 
 ## <a name="additional-resources-and-special-cases"></a><a name="other-offers"></a> Recursos adicionais e casos especiais
 

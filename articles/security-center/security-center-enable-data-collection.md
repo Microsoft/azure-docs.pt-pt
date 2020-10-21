@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: e5c9540bed34de3cad5c74c7041c8d7e06aef9ca
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 68df6d6707ebe4f1a4b75a8005e746e2c1eba864
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946064"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341588"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Data collection in Azure Security Center (Recolha de dados no Centro de Segurança do Azure)
 O Security Center recolhe dados das suas máquinas virtuais Azure (VMs), conjuntos de escala de máquinas virtuais, contentores IaaS e computadores não-Azure (incluindo no local) para monitorizar vulnerabilidades e ameaças de segurança. Os dados são recolhidos utilizando o agente Log Analytics, que lê várias configurações relacionadas com a segurança e registos de eventos da máquina e copia os dados para o seu espaço de trabalho para análise. Exemplos desses dados são: tipo e versão do sistema operativo, registos do sistema operativo (registos de eventos windows), processos de execução, nome da máquina, endereços IP e registados no utilizador.
@@ -133,7 +133,7 @@ Para selecionar um espaço de trabalho existente do Log Analytics:
 
 
 ## <a name="cross-subscription-workspace-selection"></a>Seleção de espaço de trabalho de subscrição cruzada
-Quando seleciona um espaço de trabalho para armazenar os seus dados, todos os espaços de trabalho em todas as suas subscrições estão disponíveis. A seleção da área de trabalho de subscrições cruzadas permite-lhe recolher dados de máquinas virtuais em execução em diferentes subscrições e armazenar os mesmos na área de trabalho da sua preferência. Esta seleção será útil se estiver a utilizar uma área de trabalho centralizada na sua organização e pretender utilizá-la para a recolha de dados de segurança. Para obter mais informações sobre como gerir espaços de trabalho, consulte [Gerir o acesso ao espaço de trabalho.](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access)
+Quando seleciona um espaço de trabalho para armazenar os seus dados, todos os espaços de trabalho em todas as suas subscrições estão disponíveis. A seleção da área de trabalho de subscrições cruzadas permite-lhe recolher dados de máquinas virtuais em execução em diferentes subscrições e armazenar os mesmos na área de trabalho da sua preferência. Esta seleção será útil se estiver a utilizar uma área de trabalho centralizada na sua organização e pretender utilizá-la para a recolha de dados de segurança. Para obter mais informações sobre como gerir espaços de trabalho, consulte [Gerir o acesso ao espaço de trabalho.](../azure-monitor/platform/manage-access.md)
 
 
 
@@ -174,9 +174,9 @@ Aqui está uma desagregação completa dos IDs de eventos de Segurança e App Lo
 | | 6273,6278,6416,6423,6424,8001,8002,8003,8004,8005,8006,8007,8222,26401,30004 |
 
 > [!NOTE]
-> - Se estiver a utilizar o Objeto de Política de Grupo (GPO), recomenda-se que ative as políticas de auditoria Process Creation Event 4688 e o campo *CommandLine* dentro do evento 4688. Para mais informações sobre o Evento de Criação de Processos 4688, consulte [as FAQ](faq-data-collection-agents.md#what-happens-when-data-collection-is-enabled)do Security Center. Para obter mais informações sobre estas políticas de auditoria, consulte [as Recomendações de Política de Auditoria.](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations)
+> - Se estiver a utilizar o Objeto de Política de Grupo (GPO), recomenda-se que ative as políticas de auditoria Process Creation Event 4688 e o campo *CommandLine* dentro do evento 4688. Para mais informações sobre o Evento de Criação de Processos 4688, consulte [as FAQ](faq-data-collection-agents.md#what-happens-when-data-collection-is-enabled)do Security Center. Para obter mais informações sobre estas políticas de auditoria, consulte [as Recomendações de Política de Auditoria.](/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations)
 > -  Para permitir a recolha de dados para [controlos de aplicações adaptativos,](security-center-adaptive-application.md)o Security Center configura uma política local do AppLocker em modo de auditoria para permitir todas as aplicações. Isto fará com que o AppLocker gere eventos que são depois recolhidos e alavancados pelo Security Center. É importante notar que esta política não será configurada em nenhuma máquina em que já exista uma política configurada do AppLocker. 
-> - Para recolher o [ID 5156](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=5156)da plataforma de filtragem do Windows, é necessário ativar a [ligação da plataforma de filtragem de auditoria](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-filtering-platform-connection) (Auditpol /set /subcategoria:"Ligação da plataforma de filtragem" /Sucesso:Ativar)
+> - Para recolher o [ID 5156](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=5156)da plataforma de filtragem do Windows, é necessário ativar a [ligação da plataforma de filtragem de auditoria](/windows/security/threat-protection/auditing/audit-filtering-platform-connection) (Auditpol /set /subcategoria:"Ligação da plataforma de filtragem" /Sucesso:Ativar)
 >
 
 Para escolher a sua política de filtragem:
@@ -204,7 +204,7 @@ O centro de segurança instalará a extensão do agente Log Analytics lado a lad
 
 - Uma extensão VM pré-existente está presente<br>
     - Quando o Monitor é instalado como uma extensão, a configuração da extensão permite reportar apenas a um único espaço de trabalho. O Centro de Segurança não substitui as ligações existentes aos espaços de trabalho do utilizador. O Security Center irá armazenar dados de segurança a partir do VM no espaço de trabalho já ligado, desde que a solução "security" ou "securityFree" tenha sido instalada no mesmo. O Security Center pode atualizar a versão de extensão para a versão mais recente deste processo.  
-    - Para ver para que espaço de trabalho a extensão existente está a enviar dados, executar o teste para validar a [conectividade com o Azure Security Center](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/). Em alternativa, pode abrir espaços de trabalho do Log Analytics, selecionar um espaço de trabalho, selecionar o VM e ver a ligação do agente Log Analytics. 
+    - Para ver para que espaço de trabalho a extensão existente está a enviar dados, executar o teste para validar a [conectividade com o Azure Security Center](/archive/blogs/yuridiogenes/validating-connectivity-with-azure-security-center). Em alternativa, pode abrir espaços de trabalho do Log Analytics, selecionar um espaço de trabalho, selecionar o VM e ver a ligação do agente Log Analytics. 
     - Se tiver um ambiente onde o agente Log Analytics está instalado em postos de trabalho dos clientes e reporte a um espaço de trabalho log analytics existente, reveja a lista de [sistemas operativos suportados pelo Azure Security Center](security-center-os-coverage.md) para se certificar de que o seu sistema operativo é suportado. Para obter mais informações, consulte [os clientes de analítica de registo existentes.](./faq-azure-monitor-logs.md)
  
 ### <a name="turn-off-automatic-provisioning"></a>Desligue o provisionamento automático <a name="offprovisioning"></a>
@@ -265,8 +265,8 @@ Pode instalar manualmente o agente Log Analytics, para que o Security Center pos
 
 1. Para utilizar o PowerShell para implantar a extensão, utilize as instruções da documentação das máquinas virtuais:
 
-    - [Para máquinas Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#powershell-deployment)
-    - [Para máquinas Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-linux?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#azure-cli-deployment)
+    - [Para máquinas Windows](../virtual-machines/extensions/oms-windows.md?toc=%252fazure%252fazure-monitor%252ftoc.json#powershell-deployment)
+    - [Para máquinas Linux](../virtual-machines/extensions/oms-linux.md?toc=%252fazure%252fazure-monitor%252ftoc.json#azure-cli-deployment)
 
 
 
@@ -287,7 +287,7 @@ Pode instalar manualmente o agente Log Analytics, para que o Security Center pos
     Para obter mais informações sobre as razões pelas quais o Security Center não consegue monitorizar com sucesso VMs e computadores inicializados para provisão automático, consulte [problemas de saúde do agente de monitorização](security-center-troubleshooting-guide.md#mon-agent).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Este artigo mostrou-lhe como funciona a recolha de dados e o provisionamento automático no Centro de Segurança. Para saber mais sobre o Centro de Segurança, consulte as seguintes páginas:
 
 - [FAQ do Centro de Segurança do Azure](faq-general.md) – Encontre as perguntas mais frequentes acerca de como utilizar o serviço.

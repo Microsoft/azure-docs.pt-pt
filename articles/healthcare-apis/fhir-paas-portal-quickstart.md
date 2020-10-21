@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 03/15/2020
 ms.author: cavoeg
-ms.openlocfilehash: f3b3430ef7669022e532166848cb16d6aa66efe8
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: cabacd5204f4a9ac5c17c7bd66924482b5bf688a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220793"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339293"
 ---
 # <a name="quickstart-deploy-azure-api-for-fhir-using-azure-portal"></a>Quickstart: Implementar AZure API para FHIR usando o portal Azure
 
@@ -61,13 +61,16 @@ Se desejar configurar o serviço FHIR para utilizar um inquilino externo ou secu
 
 Para validar que a nova conta FHIR API é anteada, obter uma declaração de capacidade apontando um navegador para `https://<ACCOUNT-NAME>.azurehealthcareapis.com/metadata` .
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não é necessário, pode eliminar o grupo de recursos, a Azure API para fHIR, e todos os recursos relacionados. Para tal, selecione o grupo de recursos que contém a API Azure para a conta FHIR, selecione **Delete resource group**, em seguida, confirme o nome do grupo de recursos para eliminar.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de arranque rápido, colocou a API Azure para fHIR na sua subscrição. Para definir definições adicionais na sua API Azure para FHIR, proceda às definições adicionais como orientar.
+Neste guia de arranque rápido, colocou a API Azure para fHIR na sua subscrição. Para definir definições adicionais na sua API Azure para FHIR, proceda às definições adicionais como orientar. Se estiver pronto para começar a usar a API Azure para FHIR, leia mais sobre como registar as aplicações.
 
 >[!div class="nextstepaction"]
 >[Definições adicionais em API Azure para FHIR](azure-api-for-fhir-additional-settings.md)
+
+>[!div class="nextstepaction"]
+>[Visão geral das candidaturas do registo](fhir-app-registration.md)

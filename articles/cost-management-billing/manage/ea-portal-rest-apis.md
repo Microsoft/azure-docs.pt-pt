@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: c277da54e56fcd0ce68444d499b17e84f706ad03
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: c4c99142c64278514066efa8925ed8e3f6617235
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442501"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132589"
 ---
 # <a name="azure-enterprise-rest-apis"></a>APIs REST do Azure Enterprise
 
@@ -25,15 +25,15 @@ Os clientes Microsoft Azure Enterprise podem obter as informações de utilizaç
 
 ### <a name="available-apis"></a>APIs disponíveis
 
-**Saldo e Resumo –** a [API de Saldo e Resumo](../../billing/billing-enterprise-api-balance-summary.md) fornece um resumo mensal das informações sobre os saldos, as novas compras, os custos dos serviços do Azure Marketplace, os ajustes e os custos de utilização excedida. Para obter mais informações, veja [Reporting APIs for Enterprise customers – Balance and Summary](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) (APIs de Relatórios para clientes Enterprise – Saldo e Resumo).
+**Saldo e Resumo –** a [API de Saldo e Resumo](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) fornece um resumo mensal das informações sobre os saldos, as novas compras, os custos dos serviços do Azure Marketplace, os ajustes e os custos de utilização excedida. Para obter mais informações, veja [Reporting APIs for Enterprise customers – Balance and Summary](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) (APIs de Relatórios para clientes Enterprise – Saldo e Resumo).
 
-**Detalhes de Utilização –** a [API de Detalhes de Utilização](../../billing/billing-enterprise-api-usage-detail.md) fornece uma discriminação diária das quantidades consumidas e dos custos estimados de uma inscrição. O resultado também inclui informações sobre as instâncias, os medidores e os departamentos. Pode consultar a API por período de faturação ou por uma data de início e de fim especificada. Para obter mais informações, veja [Reporting APIs for Enterprise customers – Usage Details](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail) (APIs de Relatórios para clientes Enterprise – Detalhes de Utilização).
+**Detalhes de Utilização –** a [API de Detalhes de Utilização](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail) fornece uma discriminação diária das quantidades consumidas e dos custos estimados de uma inscrição. O resultado também inclui informações sobre as instâncias, os medidores e os departamentos. Pode consultar a API por período de faturação ou por uma data de início e de fim especificada. Para obter mais informações, veja [Reporting APIs for Enterprise customers – Usage Details](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail) (APIs de Relatórios para clientes Enterprise – Detalhes de Utilização).
 
-**Custo da Loja do Marketplace –** a [API de Custo da Loja do Marketplace](../../billing/billing-enterprise-api-marketplace-storecharge.md) apresenta os custos do marketplace com base na utilização, discriminados por dia relativamente ao período de faturação especificado ou às datas de início e de fim. Para obter mais informações, veja [Reporting APIs for Enterprise customers – Marketplace Store Charge](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge) (APIs de Relatórios para clientes Enterprise – Custo da Loja Marketplace).
+**Custo da Loja do Marketplace –** a [API de Custo da Loja do Marketplace](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge) apresenta os custos do marketplace com base na utilização, discriminados por dia relativamente ao período de faturação especificado ou às datas de início e de fim. Para obter mais informações, veja [Reporting APIs for Enterprise customers – Marketplace Store Charge](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge) (APIs de Relatórios para clientes Enterprise – Custo da Loja Marketplace).
 
 **Folha de Preços –**  a [API da Folha de Preços](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) fornece a tarifa aplicável de cada medidor para uma inscrição e o período de faturação. Para obter mais informações, veja [Reporting APIs for Enterprise customers – Price Sheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) (APIs de Relatórios para clientes Enterprise – Folha de Preços).
 
-**Períodos de Faturação –**  a [API de Períodos de Faturação](../../billing/billing-enterprise-api-billing-periods.md) apresenta, por ordem cronológica inversa, uma lista dos períodos de faturação que têm dados de consumo para uma inscrição. Cada período contém uma propriedade que aponta para a rota da API para os quatro conjuntos de dados: BalanceSummary, UsageDetails, Marketplace Charges e PriceSheet. Para obter mais informações, veja [Reporting APIs for Enterprise customers – Billing Periods](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) (APIs de Relatórios para clientes Enterprise – Períodos de Faturação).
+**Períodos de Faturação –**  a [API de Períodos de Faturação](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) apresenta, por ordem cronológica inversa, uma lista dos períodos de faturação que têm dados de consumo para uma inscrição. Cada período contém uma propriedade que aponta para a rota da API para os quatro conjuntos de dados: BalanceSummary, UsageDetails, Marketplace Charges e PriceSheet. Para obter mais informações, veja [Reporting APIs for Enterprise customers – Billing Periods](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) (APIs de Relatórios para clientes Enterprise – Períodos de Faturação).
 
 ### <a name="enable-api-data-access"></a>Ativar o acesso aos dados da API
 

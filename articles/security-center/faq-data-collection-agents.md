@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 0a368e54c940ff580b7e8f49dd108fafddde5b17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 315183040515110a6a21afcd00e12d1b12313170
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441476"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341843"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>FAQ - Perguntas sobre recolha de dados, agentes e espaços de trabalho
 
@@ -27,7 +27,7 @@ O Security Center recolhe dados das suas máquinas virtuais Azure (VMs), conjunt
 
 ## <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>Estou cobrado para registos do Monitor Azure nos espaços de trabalho criados pelo Security Center?
 
-N.º Os espaços de trabalho criados pelo Security Center, enquanto configurados para registos do Monitor Azure por faturação de nó, não incorrem em cargas de registos do Azure Monitor. A faturação do Security Center baseia-se sempre na sua política de segurança do Security Center e nas soluções instaladas num espaço de trabalho:
+Não. Os espaços de trabalho criados pelo Security Center, enquanto configurados para registos do Monitor Azure por faturação de nó, não incorrem em cargas de registos do Azure Monitor. A faturação do Security Center baseia-se sempre na sua política de segurança do Security Center e nas soluções instaladas num espaço de trabalho:
 
 - **Azure Defender off** – O Security Center permite a solução 'SecurityCenterFree' no espaço de trabalho predefinido. Não será cobrado se o Azure Defender estiver fora.
 
@@ -43,7 +43,7 @@ Para obter mais informações sobre preços, consulte [os preços do Security Ce
 
 ## <a name="what-is-the-log-analytics-agent"></a>O que é o agente log analytics?
 
-Para monitorizar vulnerabilidades e ameaças de segurança, o Azure Security Center depende do [Agente De Análise de Registo](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) - este é o mesmo agente utilizado pelo serviço Azure Monitor. 
+Para monitorizar vulnerabilidades e ameaças de segurança, o Azure Security Center depende do [Agente De Análise de Registo](../azure-monitor/platform/log-analytics-agent.md) - este é o mesmo agente utilizado pelo serviço Azure Monitor. 
 
 O agente é por vezes referido como o Agente de Monitorização da Microsoft (ou "MMA"). 
 
@@ -66,7 +66,7 @@ Os Windows ou Linux IaaS VMs se qualificam se:
 
 - A extensão do agente Log Analytics não está atualmente instalada no VM.
 - O VM está em estado de funcionamento.
-- O Windows ou o Linux [Azure Virtual Machine Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) estão instalados.
+- O Windows ou o Linux [Azure Virtual Machine Agent](../virtual-machines/extensions/agent-windows.md) estão instalados.
 - O VM não é utilizado como um aparelho, como firewall de aplicação web ou firewall de próxima geração.
 
 
@@ -88,7 +88,7 @@ A localização do espaço de trabalho predefinido depende da sua região de Azu
 
 ## <a name="what-data-is-collected-by-the-log-analytics-agent"></a>Que dados são recolhidos pelo agente Log Analytics?
 
-Para obter uma lista completa das aplicações e serviços monitorizados pelo agente, veja [o que é monitorizado pelo Azure Monitor?](https://docs.microsoft.com/azure/azure-monitor/monitor-reference#azure-services)
+Para obter uma lista completa das aplicações e serviços monitorizados pelo agente, veja [o que é monitorizado pelo Azure Monitor?](../azure-monitor/monitor-reference.md#azure-services)
 
 > [!IMPORTANT]
 > Note que para alguns serviços, como o Azure Firewall, se tiver ativado o registo e escolhido um recurso chatty para registar (por exemplo, definir o log para *verbose),* poderá ver impactos significativos nas necessidades de armazenamento do seu espaço de trabalho Log Analytics. 

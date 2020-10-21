@@ -8,18 +8,18 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: c31d3136ec4bcdf6da7680d41de078f8bd03d256
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b5dc30de19704b5e8950515cfa6224b4bbdbaf0
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447101"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341351"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Gerir incidentes de segurança no Centro de Segurança Azure
 
 Triagem e investigação de alertas de segurança pode ser demorado até para os analistas de segurança mais qualificados. Para muitos, é difícil saber por onde começar. 
 
-O Security Center utiliza [análises](security-center-detection-capabilities.md) para ligar a informação entre [alertas de segurança distintos](security-center-managing-and-responding-alerts.md). Utilizando estas ligações, o Security Center pode fornecer uma única visão de uma campanha de ataque e seus alertas relacionados para ajudá-lo a entender as ações do atacante e os recursos afetados.
+O Security Center utiliza [análises](./security-center-alerts-overview.md) para ligar a informação entre [alertas de segurança distintos](security-center-managing-and-responding-alerts.md). Utilizando estas ligações, o Security Center pode fornecer uma única visão de uma campanha de ataque e seus alertas relacionados para ajudá-lo a entender as ações do atacante e os recursos afetados.
 
 Esta página fornece uma visão geral dos incidentes no Centro de Segurança.
 

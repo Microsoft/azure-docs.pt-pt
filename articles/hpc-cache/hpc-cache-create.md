@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: bed158fb99654bd48184073b1266ae630255558b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 867cfa1321106c24354b29ea803a4fb914a6778d
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613174"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341385"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Criar uma Cache Azure HPC
 
@@ -81,7 +81,7 @@ Depois de criar a cache, deve autorizar a utilização do serviço de cofre de c
 
 ## <a name="add-resource-tags-optional"></a>Adicionar etiquetas de recursos (opcional)
 
-A página **Tags** permite adicionar [etiquetas de recursos](https://go.microsoft.com/fwlink/?linkid=873112) à sua instância cache Azure HPC.
+A página **Tags** permite adicionar [etiquetas de recursos](../azure-resource-manager/management/tag-resources.md) à sua instância cache Azure HPC.
 
 ## <a name="finish-creating-the-cache"></a>Termine de criar a cache
 
@@ -105,7 +105,7 @@ Quando a criação termina, uma notificação aparece com um link para a nova in
 [!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
 
 > [!NOTE]
-> Atualmente, o CLI Azure não suporta a criação de um cache com chaves de encriptação geridas pelo cliente. Use o portal Azure.
+> Atualmente, o CLI Azure não suporta a criação de um cache com chaves de encriptação geridas pelo cliente. Utilize o portal do Azure.
 
 Utilize o comando [az hpc-cache](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-create) para criar uma nova Cache Azure HPC.
 
@@ -192,11 +192,11 @@ A mensagem inclui algumas informações úteis, incluindo estes itens:
 ## <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 > [!CAUTION]
-> O módulo Az.HPCCache PowerShell está atualmente em pré-visualização pública. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço. Não é recomendado para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas ou podem ter capacidades restritas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> O módulo Az.HPCCache PowerShell está atualmente em pré-visualização pública. Esta versão de pré-visualização é disponibilizada sem contrato de nível de serviço. Não é recomendada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas ou podem ter capacidades restritas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="requirements"></a>Requisitos
 
-Se optar por utilizar o PowerShell localmente, este artigo requer que instale o módulo Az PowerShell e se conecte à sua conta Azure utilizando o cmdlet [Connect-AzAccount.](/powershell/module/az.accounts/connect-azaccount) Para obter mais informações sobre a instalação do módulo Az PowerShell, consulte [instalar a Azure PowerShell](/powershell/azure/install-az-ps). Se optar por utilizar a Cloud Shell, consulte [a visão geral da Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) para obter mais informações.
+Se optar por utilizar o PowerShell localmente, este artigo requer que instale o módulo Az PowerShell e se conecte à sua conta Azure utilizando o cmdlet [Connect-AzAccount.](/powershell/module/az.accounts/connect-azaccount) Para obter mais informações sobre a instalação do módulo Az PowerShell, consulte [instalar a Azure PowerShell](/powershell/azure/install-az-ps). Se optar por utilizar a Cloud Shell, consulte [a visão geral da Azure Cloud Shell](../cloud-shell/overview.md) para obter mais informações.
 
 > [!IMPORTANT]
 > Enquanto o módulo **Az.HPCCache** PowerShell estiver em pré-visualização, deve instalá-lo separadamente utilizando o `Install-Module` cmdlet. Depois deste módulo PowerShell ficar geralmente disponível, fará parte dos futuros lançamentos do módulo Az PowerShell e estará disponível de forma nativa a partir de Azure Cloud Shell.
@@ -208,7 +208,7 @@ Install-Module -Name Az.HPCCache
 ## <a name="create-the-cache-with-azure-powershell"></a>Crie a cache com Azure PowerShell
 
 > [!NOTE]
-> A Azure PowerShell não suporta atualmente a criação de um cache com chaves de encriptação geridas pelo cliente. Use o portal Azure.
+> A Azure PowerShell não suporta atualmente a criação de um cache com chaves de encriptação geridas pelo cliente. Utilize o portal do Azure.
 
 Utilize o [cmdlet New-AzHpcCache](/powershell/module/az.hpccache/new-azhpccache) para criar uma nova Cache Azure HPC.
 

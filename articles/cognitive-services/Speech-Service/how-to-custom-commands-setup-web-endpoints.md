@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: e64c5ddfafb8bc8e9041e6d6b3e473a9a20565ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a8bdd911db82a07bfcdd1596b7a8203a19a6442
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843129"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341962"
 ---
 # <a name="set-up-web-endpoints"></a>Configurar pontos finais Web
 
@@ -206,4 +206,4 @@ Se testou a aplicação com `turn on tv` na secção anterior, vai ver os progra
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Ativar um processo de CI/CD para a sua aplicação de Comandos Personalizados](./how-to-custom-commands-deploy-cicd.md)
+> [Aplicação de Comandos Personalizados de Exportação como uma habilidade remota](./how-to-custom-commands-integrate-remote-skills.md)

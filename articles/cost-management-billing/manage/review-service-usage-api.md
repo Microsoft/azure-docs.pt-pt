@@ -7,12 +7,12 @@ ms.subservice: enterprise
 ms.topic: reference
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: a7b06ff41e537513558e7f4dc8e1732966299b01
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 018e61fbc74091fa25211b8a25ce067862a0cc7d
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684733"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132402"
 ---
 # <a name="review-azure-resource-usage-using-the-rest-api"></a>Analisar a utilização dos recursos do Azure com a API REST
 
@@ -153,4 +153,4 @@ Configure a definição `timeframe` para `Custom` para definir um período de te
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Introdução à API REST do Azure](https://docs.microsoft.com/rest/api/azure/)   
+- [Introdução à API REST do Azure](/rest/api/azure/)

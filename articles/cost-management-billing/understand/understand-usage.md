@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: d113ad7d3de3478fbbdcce32363e048b7a8a75ce
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 559fe43bbd9b8951a97733ae1250046f65f10404
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681741"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149369"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Compreender os termos no ficheiro de utilização e de custos do Azure
 
@@ -90,8 +90,8 @@ PublisherType | Todos | Tipo de publicador (Valores: **Azure**, **AWS**, **Marke
 Quantidade | Todos | O número de unidades compradas ou consumidas.
 ReservationId | EA, MCA | Identificador exclusivo da instância da reserva comprada.
 ReservationName | EA, MCA | Nome da instância da reserva comprada.
-ResourceGroup | Todos | Nome do [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) no qual se encontra o recurso. Nem todos os custos provêm de recursos implementados em grupos de recursos. Os custos que não têm um grupo de recursos são apresentados como nulos/vazios, **Outros** ou **Não aplicável**.
-ResourceId<sup>1</sup> | Todos | Identificador exclusivo do recurso [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources).
+ResourceGroup | Todos | Nome do [grupo de recursos](../../azure-resource-manager/management/overview.md) no qual se encontra o recurso. Nem todos os custos provêm de recursos implementados em grupos de recursos. Os custos que não têm um grupo de recursos são apresentados como nulos/vazios, **Outros** ou **Não aplicável**.
+ResourceId<sup>1</sup> | Todos | Identificador exclusivo do recurso [Azure Resource Manager](/rest/api/resources/resources).
 ResourceLocation | Todos | Localização do datacenter onde o recurso está em execução. Veja Localização.
 ResourceName | EA, PAYG | Nome do recurso. Nem todos os custos são provenientes de recursos implementados. Os custos que não têm um tipo de recurso são apresentados como nulos/vazios, **Outros** ou **Não aplicável**.
 ResourceType | MCA | Tipo da instância do recurso. Nem todos os custos são provenientes de recursos implementados. Os custos que não têm um tipo de recurso são apresentados como nulos/vazios, **Outros** ou **Não aplicável**.

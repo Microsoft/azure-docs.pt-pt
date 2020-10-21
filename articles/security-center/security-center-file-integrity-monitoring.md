@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 45e173f87559368244ab7b0f90af1dbb6fc739d4
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 1773e1345e9410f54a0364b586c3afca5b648b4c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205392"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341537"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitorização da integridade do ficheiro no Centro de Segurança Azure
 Saiba como configurar a monitorização da integridade do ficheiro (FIM) no Azure Security Center utilizando este walkthrough.
@@ -30,7 +30,7 @@ Saiba como configurar a monitorização da integridade do ficheiro (FIM) no Azur
 |----|:----|
 |Estado de libertação:|Geralmente disponível (GA)|
 |Preços:|Requer [Azure Defender para servidores](defender-for-servers-introduction.md).<br>O FIM envia dados para o espaço de trabalho do Log Analytics. Os encargos de dados aplicam-se, com base na quantidade de dados que envia. Consulte [os preços do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) para saber mais.|
-|Funções e permissões necessárias:|**O proprietário do espaço de trabalho** pode ativar/desativar o FIM (para mais informações, consulte [Azure Roles for Log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)).<br>**O leitor** pode ver resultados.|
+|Funções e permissões necessárias:|**O proprietário do espaço de trabalho** pode ativar/desativar o FIM (para mais informações, consulte [Azure Roles for Log Analytics](/services-hub/health/azure-roles#azure-roles)).<br>**O leitor** pode ver resultados.|
 |Nuvens:|![Sim ](./media/icons/yes-icon.png) nuvens comerciais<br>![Sim ](./media/icons/yes-icon.png) EUA Gov<br>![No ](./media/icons/no-icon.png) China Gov, Other Gov<br>Suportado apenas em regiões onde a Azure Automation está disponível.<br>Consulte [regiões apoiadas para o espaço de trabalho do Log Analytics ligado.](../automation/how-to/region-mappings.md)<br>[Saiba mais sobre o rastreio de mudanças.](../automation/change-tracking/overview.md)|
 |||
 
@@ -262,7 +262,7 @@ Neste artigo, aprendeu a utilizar a monitorização da integridade dos ficheiros
 
 * [Definição de políticas de segurança](tutorial-security-policy.md) -- Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos Azure.
 * [Gerir recomendações de segurança-](security-center-recommendations.md) Saiba como as recomendações o ajudam a proteger os seus recursos Azure.
-* [Blogue de Segurança do Azure](https://docs.microsoft.com/archive/blogs/azuresecurity/) – Obtenha as notícias e informações mais recentes de segurança do Azure.
+* [Blogue de Segurança do Azure](/archive/blogs/azuresecurity/) – Obtenha as notícias e informações mais recentes de segurança do Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-file-integrity-monitoring/security-center-dashboard.png

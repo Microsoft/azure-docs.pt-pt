@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: 02e78969ce30f109f16309075b040b06c773b0dd
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 88ab04eb69be0f9f765e6f95a0ea1194189d823a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946230"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341267"
 ---
 # <a name="monitor-identity-and-access"></a>Monitorizar a identidade e o acesso
 
@@ -30,7 +30,7 @@ Ao monitorizar as atividades e configurações relacionadas com a identidade, po
 
 O Azure Security Center dispõe de dois controlos de segurança dedicados para garantir que está a cumprir os requisitos de identidade e segurança da sua organização: 
 
- - **Gerir acessos e permissões** - Encorajamo-lo a adotar o [modelo de acesso menos privilegiado](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) e garantir que concede aos seus utilizadores apenas o acesso necessário para que eles façam o seu trabalho. Este controlo também inclui recomendações para implementar [o controlo de acesso baseado em papéis (RBAC)](../role-based-access-control/overview.md) para controlar o acesso aos seus recursos.
+ - **Gerir acessos e permissões** - Encorajamo-lo a adotar o [modelo de acesso menos privilegiado](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) e garantir que concede aos seus utilizadores apenas o acesso necessário para que eles façam o seu trabalho. Este controlo também inclui recomendações para implementar [o controlo de acesso baseado em papéis (RBAC)](../role-based-access-control/overview.md) para controlar o acesso aos seus recursos.
  
  - **Ativar MFA** - Com [O MFA](https://www.microsoft.com/security/business/identity/mfa) ativado, as suas contas são mais seguras, e os utilizadores ainda podem autenticar para quase qualquer aplicação com um único sent-on.
 
@@ -84,10 +84,10 @@ Para ver quais as contas que não têm MFA ativada, utilize a seguinte consulta 
     > As contas são apresentadas como IDs de objeto em vez de nomes de conta para proteger a privacidade dos titulares da conta.
 
 > [!TIP]
-> Alternativamente, pode utilizar o método de API REST do Centro de Segurança [Avaliações - Obter](https://docs.microsoft.com/rest/api/securitycenter/assessments/get).
+> Alternativamente, pode utilizar o método de API REST do Centro de Segurança [Avaliações - Obter](/rest/api/securitycenter/assessments/get).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre recomendações aplicáveis a outros tipos de recursos Azure, consulte o seguinte artigo:
 
 - [Proteger a sua rede no Centro de Segurança do Azure](security-center-network-recommendations.md)
