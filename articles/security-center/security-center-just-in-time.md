@@ -8,14 +8,14 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 4a709527c0de2e092bcca2bbd9bc596aa0eb4cc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6091ccbb64ec880224e861e1b8ee2bd39363385c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440725"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342387"
 ---
-# <a name="secure-your-management-ports-with-just-in-time-access"></a>Proteja as suas portas de gestão com acesso just-in-time
+# <a name="secure-your-management-ports-with-just-in-time-access"></a>Proteger as portas de gestão com acesso just-in-time
 
 Bloqueie o tráfego de entrada para as suas Máquinas Virtuais Azure com a função de acesso à máquina virtual (JIT) do Azure Security Center. Isto reduz a exposição a ataques, proporcionando fácil acesso quando precisa de se ligar a um VM.
 
@@ -35,9 +35,9 @@ Esta página ensina-lhe como incluir o JIT no seu programa de segurança. Vai ap
 |----|:----|
 |Estado de libertação:|Geralmente disponível (GA)|
 |Preços:|Requer [Azure Defender para servidores](defender-for-servers-introduction.md)|
-|VMs suportados:|![Sim ](./media/icons/yes-icon.png) VMs implantados através do Azure Resource Manager.<br>![Não há ](./media/icons/no-icon.png) VMs implantados com modelos clássicos de implantação. [Saiba mais sobre estes modelos de implantação.](../azure-resource-manager/management/deployment-models.md)<br>![Sem ](./media/icons/no-icon.png) VMs protegidos por Firewalls Azure controlados pelo [Azure Firewall Manager](https://docs.microsoft.com/azure/firewall-manager/overview)|
+|VMs suportados:|![Sim ](./media/icons/yes-icon.png) VMs implantados através do Azure Resource Manager.<br>![Não há ](./media/icons/no-icon.png) VMs implantados com modelos clássicos de implantação. [Saiba mais sobre estes modelos de implantação.](../azure-resource-manager/management/deployment-models.md)<br>![Sem ](./media/icons/no-icon.png) VMs protegidos por Firewalls Azure controlados pelo [Azure Firewall Manager](../firewall-manager/overview.md)|
 |Funções e permissões necessárias:|**As** funções reader e **SecurityReader** podem visualizar o estado e os parâmetros do JIT.<br>Para criar funções personalizadas que possam funcionar com o JIT, veja [quais as permissões necessárias para configurar e utilizar o JIT?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit)<br>Para criar um papel menos privilegiado para os utilizadores que precisam solicitar o acesso do JIT a um VM, e não realizar outras operações JIT, use o [script Set-JitLeastPrivilegedRole](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) a partir das páginas comunitárias do Centro de Segurança GitHub.|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 
@@ -164,7 +164,7 @@ Pode ativar o JIT num VM a partir das páginas de máquinas virtuais Azure do po
 
 ### <a name="powershell"></a>[**PowerShell**](#tab/jit-config-powershell)
 
-### <a name="enable-jit-on-your-vms-using-powershell"></a>Ative o JIT nos seus VMs utilizando o PowerShell
+### <a name="enable-jit-on-your-vms-using-powershell"></a>Ativar o JIT nas VMs com o PowerShell
 
 Para ativar o acesso em VM a tempo da PowerShell, utilize o cmdlet oficial do Centro de Segurança Azure PowerShell `Set-AzJitNetworkAccessPolicy` .
 
@@ -215,7 +215,7 @@ Os seguintes comandos PowerShell criam esta configuração JIT:
 
 A funcionalidade de acesso VM just-in-time pode ser utilizada através do API do Centro de Segurança Azure. Utilize esta API para obter informações sobre VMs configurados, adicione novos, solicite acesso a um VM, e muito mais. 
 
-Saiba mais nas [políticas de acesso à rede JIT.](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies)
+Saiba mais nas [políticas de acesso à rede JIT.](/rest/api/securitycenter/jitnetworkaccesspolicies)
 
 
 --- 
@@ -229,7 +229,7 @@ Saiba mais nas [políticas de acesso à rede JIT.](https://docs.microsoft.com/re
 
 
 
-## <a name="request-access-to-a-jit-enabled-vm"></a>Solicitar acesso a um VM ativado pelo JIT
+## <a name="request-access-to-a-jit-enabled-vm"></a>Pedir acesso a uma VM com o JIT ativado
 
 Pode solicitar acesso a um VM ativado pelo JIT a partir do portal Azure (em Centro de Segurança ou máquinas Virtuais Azure) ou programáticamente.
 
@@ -290,7 +290,7 @@ Para solicitar o acesso a partir de máquinas virtuais Azure:
 
 ### <a name="powershell"></a>[**PowerShell**](#tab/jit-request-powershell)
 
-### <a name="request-access-to-a-jit-enabled-vm-using-powershell"></a>Solicitar acesso a um VM ativado pelo JIT utilizando o PowerShell
+### <a name="request-access-to-a-jit-enabled-vm-using-powershell"></a>Pedir acesso a uma VM com o JIT ativado com o PowerShell
 
 No exemplo seguinte, pode ver um pedido de acesso vm just-in-time a um VM específico no qual a porta 22 é solicitada para ser aberta para um endereço IP específico e por um período específico:
 
@@ -319,7 +319,7 @@ Executar o seguinte em PowerShell:
     Start-AzJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
     ```
 
-Saiba mais na documentação do [cmdlet PowerShell](https://docs.microsoft.com/powershell/scripting/developer/cmdlet/cmdlet-overview).
+Saiba mais na documentação do [cmdlet PowerShell](/powershell/scripting/developer/cmdlet/cmdlet-overview).
 
 
 
@@ -329,7 +329,7 @@ Saiba mais na documentação do [cmdlet PowerShell](https://docs.microsoft.com/p
 
 A funcionalidade de acesso VM just-in-time pode ser utilizada através do API do Centro de Segurança Azure. Utilize esta API para obter informações sobre VMs configurados, adicione novos, solicite acesso a um VM, e muito mais. 
 
-Saiba mais nas [políticas de acesso à rede JIT.](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies)
+Saiba mais nas [políticas de acesso à rede JIT.](/rest/api/securitycenter/jitnetworkaccesspolicies)
 
 ---
 

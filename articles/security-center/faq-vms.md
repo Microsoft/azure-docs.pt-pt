@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 0b7817539a26b7ebfa24efd086edf8b0ef82eae3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d91f8242e31aa1efdf9301101307d5bad39a459
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80436015"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342217"
 ---
 # <a name="faq---questions-about-virtual-machines"></a>FAQ - Perguntas sobre máquinas virtuais
 
 
 ## <a name="what-types-of-virtual-machines-are-supported"></a>Que tipos de máquinas virtuais são suportadas?
 
-A monitorização e recomendações estão disponíveis para máquinas virtuais (VMs) criadas utilizando os [modelos clássicos e de implementação do Gestor de Recursos.](../azure-classic-rm.md)
+A monitorização e recomendações estão disponíveis para máquinas virtuais (VMs) criadas utilizando os [modelos clássicos e de implementação do Gestor de Recursos.](/azure/security-center/./azure-resource-manager/management/deployment-models)
 
 Consulte [as plataformas apoiadas no Centro de Segurança Azure](security-center-os-coverage.md) para obter uma lista de plataformas apoiadas.
 
@@ -51,7 +51,7 @@ Abaixo estão os tempos de latência para o Centro de Segurança de verificaçõ
 O Centro de Segurança normalmente analisa novos dados a cada hora, e atualiza as recomendações em conformidade. 
 
 > [!NOTE]
-> O Security Center utiliza o agente Log Analytics para recolher e armazenar dados. Para saber mais, consulte [a Plataforma de Migração do Centro de Segurança Azure.](security-center-platform-migration.md)
+> O Security Center utiliza o agente Log Analytics para recolher e armazenar dados. Para saber mais, consulte [a Plataforma de Migração do Centro de Segurança Azure.](./security-center-enable-data-collection.md)
 
 
 ## <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>Por que recebo a mensagem "Agente VM está desaparecido?"

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 026425c78934209a2d258d50a5c7f51feeebd63b
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 1574810de5b1a2df1b82ea9cc19c88be5c72fec6
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275352"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342149"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteja os seus pontos finais com a solução EDR integrada do Security Center: Microsoft Defender for Endpoint
 
@@ -42,10 +42,10 @@ O Microsoft Defender for Endpoint é uma solução holística de segurança de p
 |---------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Estado de libertação:                  | Geralmente disponível (GA)                                                                                                                                                                                                                                                                                      |
 | Preços:                        | Requer [Azure Defender para servidores](security-center-pricing.md)                                                                                                                                                                                                                                             |
-| Plataformas suportadas:            | ![Sim](./media/icons/yes-icon.png) Máquinas Azure executando Janelas<br>![Sim](./media/icons/yes-icon.png) Máquinas Azure Arc executando janelas|
+| Plataformas suportadas:            | ![Yes](./media/icons/yes-icon.png) Máquinas Azure executando Janelas<br>![Yes](./media/icons/yes-icon.png) Máquinas Azure Arc executando janelas|
 | Versões suportadas do Windows:  | O Defender for Endpoint está integrado no Windows 10 1703 (e mais recente) e no Windows Server 2019.<br>O Security Center suporta a deteção no Windows Server 2016, 2012 R2 e 2008 R2 SP1.<br>A monitorização do ponto final do servidor utilizando esta integração foi desativada para os clientes do Office 365 GCC. |
 | Funções e permissões necessárias: | Para ativar/desativar a integração: **Administrador de segurança** ou **Proprietário**<br>Para ver alertas de MDATP no Centro de Segurança: **Leitor de segurança,** **leitor,** **contribuinte do grupo de recursos,** **proprietário do grupo de recursos,** **administrador de segurança,** **proprietário de assinatura,** ou **colaborador de subscrição**                         |
-| Nuvens:                         | ![Sim](./media/icons/yes-icon.png) Nuvens comerciais.<br>![Não](./media/icons/no-icon.png) Clientes da GCC que executam cargas de trabalho em nuvens azure globais<br>![Sim](./media/icons/yes-icon.png) US Gov<br>![Não](./media/icons/no-icon.png) China Gov, Outro Gov                                                        |
+| Nuvens:                         | ![Yes](./media/icons/yes-icon.png) Nuvens comerciais.<br>![No](./media/icons/no-icon.png) Clientes da GCC que executam cargas de trabalho em nuvens azure globais<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Outro Gov                                                        |
 |                                 |                                                                                                                                                                                                                                                                                                               |
 
 
@@ -81,7 +81,7 @@ Depois de configurar o local, não pode mudá-lo. Se precisar de mover os seus d
     > [!NOTE]
     > Para proteger as máquinas ativadas pelo Arco Azure, utilize as instruções em [Quickstart: Ligue a máquina híbrida com servidores ativados Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
 
-1. Se já licenciou e implementou o Microsoft Defender para pontos finais nos seus servidores, remova-o utilizando o procedimento descrito nos [servidores do Windows offboard](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers).
+1. Se já licenciou e implementou o Microsoft Defender para pontos finais nos seus servidores, remova-o utilizando o procedimento descrito nos [servidores do Windows offboard](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers).
 1. A partir do menu do Centro de Segurança, **selecione definições de preços &**.
 1. Selecione a subscrição que pretende alterar.
 1. Selecione **deteção de ameaças**.
@@ -94,11 +94,11 @@ Depois de configurar o local, não pode mudá-lo. Se precisar de mover os seus d
 
 ## <a name="access-the-microsoft-defender-for-endpoint-portal"></a>Aceda ao Microsoft Defender para o portal Endpoint
 
-1. Certifique-se de que a conta de utilizador tem as permissões necessárias. [Saiba mais](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access).
+1. Certifique-se de que a conta de utilizador tem as permissões necessárias. [Saiba mais](/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access).
 
-1. Verifique se tem um representante ou uma firewall que bloqueie o tráfego anónimo. O sensor Defender for Endpoint liga-se a partir do contexto do sistema, pelo que deve ser permitido tráfego anónimo. Para garantir o acesso sem entraves ao portal Defender para o Endpoint, siga as instruções em Permitir o [acesso aos URLs de serviço no servidor proxy](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server).
+1. Verifique se tem um representante ou uma firewall que bloqueie o tráfego anónimo. O sensor Defender for Endpoint liga-se a partir do contexto do sistema, pelo que deve ser permitido tráfego anónimo. Para garantir o acesso sem entraves ao portal Defender para o Endpoint, siga as instruções em Permitir o [acesso aos URLs de serviço no servidor proxy](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server).
 
-1. Abra o [portal Microsoft Defender Security Center](https://securitycenter.windows.com/). Saiba mais sobre as funcionalidades e ícones do portal, na [visão geral do portal do Microsoft Defender Security Center](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/portal-overview). 
+1. Abra o [portal Microsoft Defender Security Center](https://securitycenter.windows.com/). Saiba mais sobre as funcionalidades e ícones do portal, na [visão geral do portal do Microsoft Defender Security Center](/windows/security/threat-protection/microsoft-defender-atp/portal-overview). 
 
 ## <a name="send-a-test-alert"></a>Enviar um alerta de teste
 
@@ -128,7 +128,7 @@ O Defender for Endpoint está incluído sem custos adicionais com **o Azure Defe
 
 ### <a name="how-do-i-switch-from-a-third-party-edr-tool"></a>Como posso mudar de uma ferramenta EDR de terceiros?
 
-As instruções completas para mudar de uma solução de ponto final não microsoft estão disponíveis na documentação do Microsoft Defender for Endpoint: [Visão geral da migração](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration).
+As instruções completas para mudar de uma solução de ponto final não microsoft estão disponíveis na documentação do Microsoft Defender for Endpoint: [Visão geral da migração](/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration).
   
 
 

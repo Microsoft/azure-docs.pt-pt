@@ -8,18 +8,18 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: b713977d811411ea2ccd7dfa22c7757321ecd7aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 015b3fb116c4eb16e4280e2f71873e88dccff278
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91712294"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92344037"
 ---
-# <a name="create-automatic-responses-to-alerts-and-recommendations-with-workflow-automation"></a>Criar respostas automáticas a alertas e recomendações com automatização de fluxos de trabalho
+# <a name="create-automatic-responses-to-alerts-and-recommendations-with-workflow-automation"></a>Criar respostas automáticas para alertas e recomendações com a automatização do fluxo de trabalho
 
 Todos os programas de segurança incluem vários fluxos de trabalho para resposta a incidentes. Estes processos podem incluir notificar as partes interessadas relevantes, lançar um processo de gestão de mudanças e aplicar medidas de reparação específicas. Os peritos em segurança recomendam que automatize o máximo de passos possível. A automação reduz as despesas gerais. Também pode melhorar a sua segurança garantindo que os passos do processo são feitos de forma rápida, consistente e de acordo com os seus requisitos predefinidos.
 
-Este artigo descreve a funcionalidade de automatização do fluxo de trabalho do Azure Security Center. Esta funcionalidade pode desencadear Aplicações Lógicas em alertas de segurança e recomendações. Por exemplo, pode querer que o Centro de Segurança envie um e-mail a um utilizador específico quando ocorre um alerta. Também aprenderá a criar Aplicações Lógicas usando [Apps Azure Logic.](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)
+Este artigo descreve a funcionalidade de automatização do fluxo de trabalho do Azure Security Center. Esta funcionalidade pode desencadear Aplicações Lógicas em alertas de segurança e recomendações. Por exemplo, pode querer que o Centro de Segurança envie um e-mail a um utilizador específico quando ocorre um alerta. Também aprenderá a criar Aplicações Lógicas usando [Apps Azure Logic.](../logic-apps/logic-apps-overview.md)
 
 > [!NOTE]
 > Se usou previamente a vista Playbooks (Preview) na barra lateral, encontrará as mesmas funcionalidades juntamente com a funcionalidade expandida na nova página de automação do fluxo de trabalho.
@@ -32,8 +32,8 @@ Este artigo descreve a funcionalidade de automatização do fluxo de trabalho do
 |----|:----|
 |Estado de libertação:|Geralmente disponível (GA)|
 |Preços:|Gratuito|
-|Funções e permissões necessárias:|**Papel de administrador de segurança** ou **Proprietário** no grupo de recursos<br>Também deve ter permissões de escrita para o recurso alvo<br><br>Para trabalhar com fluxos de trabalho Azure Logic Apps, também deve ter as seguintes funções/permissões de Aplicações Lógicas:<br> - As permissões [do Operador de Aplicações Lógicas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) são necessárias ou o acesso à Aplicação Lógica /gatilho (esta função não pode criar ou editar aplicações lógicas; apenas *executar* as existentes)<br> - As permissões [de Contribuidores de Aplicações Lógicas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) são necessárias para a criação e modificação de Aplicações Lógicas<br>Se quiser utilizar conectores Logic App, poderá precisar de credenciais adicionais para iniciar sôm nos respetivos serviços (por exemplo, as suas instâncias Outlook/Teams/Slack)|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Funções e permissões necessárias:|**Papel de administrador de segurança** ou **Proprietário** no grupo de recursos<br>Também deve ter permissões de escrita para o recurso alvo<br><br>Para trabalhar com fluxos de trabalho Azure Logic Apps, também deve ter as seguintes funções/permissões de Aplicações Lógicas:<br> - As permissões [do Operador de Aplicações Lógicas](../role-based-access-control/built-in-roles.md#logic-app-operator) são necessárias ou o acesso à Aplicação Lógica /gatilho (esta função não pode criar ou editar aplicações lógicas; apenas *executar* as existentes)<br> - As permissões [de Contribuidores de Aplicações Lógicas](../role-based-access-control/built-in-roles.md#logic-app-contributor) são necessárias para a criação e modificação de Aplicações Lógicas<br>Se quiser utilizar conectores Logic App, poderá precisar de credenciais adicionais para iniciar sôm nos respetivos serviços (por exemplo, as suas instâncias Outlook/Teams/Slack)|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 
@@ -101,9 +101,9 @@ Neste artigo, aprendeu a criar Aplicações Lógicas, automatizando a sua execu�
 
 Para obter material relacionado, consulte: 
 
-- [O módulo Microsoft Learn sobre como utilizar a automatização do fluxo de trabalho para automatizar uma resposta de segurança](https://docs.microsoft.com/learn/modules/resolve-threats-with-azure-security-center/)
+- [O módulo Microsoft Learn sobre como utilizar a automatização do fluxo de trabalho para automatizar uma resposta de segurança](/learn/modules/resolve-threats-with-azure-security-center/)
 - [Recomendações de segurança no Centro de Segurança do Azure](security-center-recommendations.md)
 - [Alertas de segurança no Centro de Segurança do Azure](security-center-alerts-overview.md)
-- [Acerca do Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)
-- [Conectores do Logic Apps](https://docs.microsoft.com/connectors/)
-- [Esquemas de tipos de dados de automatização de fluxo de trabalho](https://aka.ms/ASCAutomationSchemas)
+- [Acerca do Azure Logic Apps](../logic-apps/logic-apps-overview.md)
+- [Conectores do Logic Apps](/connectors/)
+- [Esquemas de tipos de dados de automatização do fluxo de trabalho](https://aka.ms/ASCAutomationSchemas)

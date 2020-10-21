@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: memildin
-ms.openlocfilehash: 8b27c3d0982e945fcabc6e7748646ea2ee1a4184
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: ffc74e05d6cbe7722b9bf293c1a1e75a7de1b879
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945300"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342064"
 ---
 # <a name="continuously-export-security-alerts-and-recommendations"></a>Alertas e recomendações de segurança de exportação contínua
 
@@ -41,7 +41,7 @@ Este artigo descreve como configurar a exportação contínua para espaços de t
 |Estado de libertação:|Geralmente disponível (GA)|
 |Preços:|Gratuito|
 |Funções e permissões necessárias:|<ul><li>**Administrador de segurança** ou **Proprietário** no grupo de recursos</li><li>Escreva permissões para o recurso alvo</li><li>Se estiver a utilizar as políticas de Azure 'DeployIfNotExist' descritas abaixo, também necessitará de permissões para atribuir políticas</li></ul>|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov<br>![Sim](./media/icons/yes-icon.png) China Gov (para Event Hub), Outro Gov|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![Yes](./media/icons/yes-icon.png) China Gov (para Event Hub), Outro Gov|
 |||
 
 
@@ -52,7 +52,7 @@ Este artigo descreve como configurar a exportação contínua para espaços de t
 
 Pode configurar a exportação contínua a partir das páginas do Centro de Segurança no portal Azure, através do Centro de Segurança REST API, ou em escala utilizando os modelos de Política Azure fornecidos. Selecione o separador apropriado abaixo para obter detalhes de cada um.
 
-### <a name="use-the-azure-portal"></a>[**Utilizar o portal do Azure**](#tab/azure-portal)
+### <a name="use-the-azure-portal"></a>[**Use o portal Azure**](#tab/azure-portal)
 
 ### <a name="configure-continuous-export-from-the-security-center-pages-in-azure-portal"></a>Configure a exportação contínua das páginas do Centro de Segurança no portal Azure
 
@@ -80,7 +80,7 @@ Os passos abaixo são necessários quer esteja a configurar uma exportação con
 
 ### <a name="configure-continuous-export-using-the-rest-api"></a>Configure a exportação contínua utilizando a API REST
 
-A exportação contínua pode ser configurada e gerida através do Azure Security Center [automas API](https://docs.microsoft.com/rest/api/securitycenter/automations). Utilize esta API para criar ou atualizar regras para exportação para qualquer um dos seguintes destinos possíveis:
+A exportação contínua pode ser configurada e gerida através do Azure Security Center [automas API](/rest/api/securitycenter/automations). Utilize esta API para criar ou atualizar regras para exportação para qualquer um dos seguintes destinos possíveis:
 
 - Hub de Eventos do Azure
 - Área de trabalho do Log Analytics
@@ -97,7 +97,7 @@ A API fornece funcionalidade adicional não disponível a partir do portal Azure
     > [!TIP]
     > Se tiver configurado várias configurações de exportação utilizando a API, ou se tiver usado parâmetros apenas para API, essas funcionalidades extra não serão apresentadas na UI do Centro de Segurança. Em vez disso, haverá um banner informando-o de que existem outras configurações.
 
-Saiba mais sobre as automatizações API na [documentação REST API](https://docs.microsoft.com/rest/api/securitycenter/automations).
+Saiba mais sobre as automatizações API na [documentação REST API](/rest/api/securitycenter/automations).
 
 
 
@@ -163,7 +163,7 @@ Para ver os esquemas de eventos dos tipos de dados exportados, visite os [esquem
 
 ##  <a name="view-exported-alerts-and-recommendations-in-azure-monitor"></a>Ver alertas e recomendações exportadas no Azure Monitor
 
-Em alguns casos, pode optar por visualizar os alertas de segurança exportados e/ou recomendações no [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview). 
+Em alguns casos, pode optar por visualizar os alertas de segurança exportados e/ou recomendações no [Azure Monitor](../azure-monitor/platform/alerts-overview.md). 
 
 O Azure Monitor fornece uma experiência de alerta unificada para uma variedade de alertas Azure, incluindo Log de Diagnóstico, alertas métricos e alertas personalizados baseados em consultas de espaço de trabalho Log Analytics.
 
@@ -173,13 +173,13 @@ Para visualizar alertas e recomendações do Security Center no Azure Monitor, c
 
     ![Página de alertas do Azure Monitor](./media/continuous-export/azure-monitor-alerts.png)
 
-1. Na página de regras de criar, configuure a sua nova regra (da mesma forma que configuraria uma regra de [alerta de registo no Azure Monitor):](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log)
+1. Na página de regras de criar, configuure a sua nova regra (da mesma forma que configuraria uma regra de [alerta de registo no Azure Monitor):](../azure-monitor/platform/alerts-unified-log.md)
 
     * Para **obter recursos,** selecione o espaço de trabalho Log Analytics para o qual exportou alertas e recomendações de segurança.
 
     * Para **obter a condição**, selecione Custom log **search**. Na página que aparece, configurar o período de consulta, de resguardo e de frequência. Na consulta de pesquisa, pode escrever *SecurityAlert* ou *SecurityRecommendation* para consultar os tipos de dados que o Security Center exporta continuamente para que permita a exportação Contínua para log analytics. 
     
-    * Opcionalmente, configuure o [Grupo de Ação](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) que gostaria de desencadear. Os grupos de ação podem desencadear o envio de e-mails, bilhetes ITSM, WebHooks e muito mais.
+    * Opcionalmente, configuure o [Grupo de Ação](../azure-monitor/platform/action-groups.md) que gostaria de desencadear. Os grupos de ação podem desencadear o envio de e-mails, bilhetes ITSM, WebHooks e muito mais.
     ![Regra de alerta do Monitor Azure](./media/continuous-export/azure-monitor-alert-rule.png)
 
 Verá agora novos alertas ou recomendações do Azure Security Center (dependendo das regras de exportação contínua configuradas e da condição definida na sua regra de alerta do Monitor Azure) nos alertas do Azure Monitor, com o desencadeamento automático de um grupo de ação (se fornecido).
@@ -207,14 +207,14 @@ Saiba mais sobre [os preços do Azure Event Hub](https://azure.microsoft.com/pri
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a configurar as exportações contínuas das suas recomendações e alertas. Também aprendeu a descarregar os seus dados de alerta como um ficheiro CSV. 
 
 Para obter material relacionado, consulte a seguinte documentação: 
 
 - Saiba mais sobre [os modelos de automatização do fluxo de trabalho.](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation)
-- [Documentação dos Hubs de Eventos do Azure](https://docs.microsoft.com/azure/event-hubs/)
-- [Documentação do Azure Sentinel](https://docs.microsoft.com/azure/sentinel/)
-- [Documentação do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/)
+- [Documentação dos Hubs de Eventos do Azure](../event-hubs/index.yml)
+- [Documentação do Azure Sentinel](../sentinel/index.yml)
+- [Documentação do Azure Monitor](../azure-monitor/index.yml)
 - [Esquemas de tipos de dados de exportação](https://aka.ms/ASCAutomationSchemas)

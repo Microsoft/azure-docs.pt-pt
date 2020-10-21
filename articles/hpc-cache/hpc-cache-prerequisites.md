@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: v-erkel
-ms.openlocfilehash: 39c890e9e6634413947a96b1ddac608ee44bd9a0
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 92c8d860925ebde7d20befbaa708e8530cd1a0eb
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327404"
+ms.locfileid: "92344020"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Pré-requisitos para cache Azure HPC
 
@@ -65,7 +65,7 @@ Se necessitar apenas de acesso ao armazenamento Blob, pode utilizar o servidor D
 
 Um servidor DNS simples também pode ser usado para carregar as ligações do cliente de equilíbrio entre todos os pontos de montagem de cache disponíveis.
 
-Saiba mais sobre as redes virtuais Azure e as configurações do servidor DNS na [resolução name para recursos em redes virtuais Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
+Saiba mais sobre as redes virtuais Azure e as configurações do servidor DNS na [resolução name para recursos em redes virtuais Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ## <a name="permissions"></a>Permissões
 
@@ -110,7 +110,7 @@ Se utilizar um sistema de armazenamento NFS (por exemplo, um sistema NAS de hard
 
 Mais informações estão incluídas na [configuração do Troubleshoot NAS e nos problemas de alvo de armazenamento NFS](troubleshoot-nas.md).
 
-* **Conectividade de rede:** O Cache Azure HPC necessita de acesso de rede de alta largura de banda entre a sub-rede de cache e o centro de dados do sistema NFS. [Recomenda-se o ExpressRoute](https://docs.microsoft.com/azure/expressroute/) ou acesso semelhante. Se utilizar uma VPN, poderá ser necessário configurá-lo para fixar o SSS TCP a 1350 para se certificar de que os grandes pacotes não estão bloqueados. Leia [as restrições de tamanho do pacote VPN](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) para ajudar a resolver as definições de VPN.
+* **Conectividade de rede:** O Cache Azure HPC necessita de acesso de rede de alta largura de banda entre a sub-rede de cache e o centro de dados do sistema NFS. [Recomenda-se o ExpressRoute](../expressroute/index.yml) ou acesso semelhante. Se utilizar uma VPN, poderá ser necessário configurá-lo para fixar o SSS TCP a 1350 para se certificar de que os grandes pacotes não estão bloqueados. Leia [as restrições de tamanho do pacote VPN](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) para ajudar a resolver as definições de VPN.
 
 * **Acesso portuário:** A cache precisa de acesso a portas TCP/UDP específicas no seu sistema de armazenamento. Diferentes tipos de armazenamento têm diferentes requisitos portuários.
 

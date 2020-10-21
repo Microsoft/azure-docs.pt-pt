@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: troubleshooting
 ms.date: 10/05/2020
 ms.subservice: alerts
-ms.openlocfilehash: 0546bd173a5cab456c0ccdafcd5a35c11b0d5ee9
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 2e68a780890b8ddf857bf8f52a0ecf9a4c24b36c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102158"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342132"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Problemas de resolução de problemas nos alertas métricos do Monitor Azure 
 
@@ -228,7 +228,7 @@ Certifique-se de que está a utilizar os comandos CLI certos para alertas métri
 Para criar uma regra de alerta métrico, terá de ter as seguintes permissões:
 
 - Leia a permissão sobre o recurso alvo da regra de alerta
-- Escreva a permissão no grupo de recursos em que a regra de alerta é criada (se estiver a criar a regra de alerta a partir do portal Azure, a regra de alerta é criada no mesmo grupo de recursos em que reside o recurso-alvo)
+- Escreva a permissão no grupo de recursos em que a regra de alerta é criada (se estiver a criar a regra de alerta a partir do portal Azure, a regra de alerta é criada por padrão no mesmo grupo de recursos em que reside o recurso-alvo)
 - Leia a permissão em qualquer grupo de ação associado à regra de alerta (se aplicável)
 
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: dad35af600b8973268d07f3a8baae225b91cebc1
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 59a87e7c91266dd1ec2d7263df7149d07f6e7ce8
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275226"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342302"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de recursos para máquinas
 
@@ -30,48 +30,48 @@ Os dois separadores abaixo mostram as funcionalidades do Azure Security Center q
 
 |**Funcionalidade**|**Máquinas Virtuais do Azure**|**Conjuntos de Dimensionamento de Máquinas Virtuais do Azure**|**Máquinas habilittadas a Azure Arc**|**Azure Defender necessário**
 |----|:----:|:----:|:----:|:----:|
-|[Integração ATP do Microsoft Defender](security-center-wdatp.md)|✔</br>(em versões suportadas)|✔</br>(em versões suportadas)|✔|Sim|
-|[Análise comportamental de máquina virtual (e alertas de segurança)](alerts-reference.md)|✔|✔|✔|Sim|
-|[Alertas de segurança sem ficheiros](alerts-reference.md#alerts-windows)|✔|✔|✔|Sim|
-|[Alertas de segurança baseados em rede](other-threat-protections.md#network-layer)|✔|✔|-|Sim|
-|[Acesso just-in-time à VM](security-center-just-in-time.md)|✔|-|-|Sim|
-|[Avaliação da vulnerabilidade nativa](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Sim|
-|[Monitorização da integridade do ficheiro](security-center-file-integrity-monitoring.md)|✔|✔|✔|Sim|
-|[Controlos de aplicações adaptáveis](security-center-adaptive-application.md)|✔|-|✔|Sim|
-|[Mapa de rede](security-center-network-recommendations.md#network-map)|✔|✔|-|Sim|
-|[Proteção de rede ajustável](security-center-adaptive-network-hardening.md)|✔|-|-|Sim|
-|[Relatórios de & do painel de conformidade regulamentar](security-center-compliance-dashboard.md)|✔|✔|✔|Sim|
-|Recomendações e proteção contra ameaças em contentores IaaS hospedados em Docker|-|-|-|Sim|
+|[Integração ATP do Microsoft Defender](security-center-wdatp.md)|✔</br>(em versões suportadas)|✔</br>(em versões suportadas)|✔|Yes|
+|[Análise comportamental de máquina virtual (e alertas de segurança)](alerts-reference.md)|✔|✔|✔|Yes|
+|[Alertas de segurança sem ficheiros](alerts-reference.md#alerts-windows)|✔|✔|✔|Yes|
+|[Alertas de segurança baseados em rede](other-threat-protections.md#network-layer)|✔|✔|-|Yes|
+|[Acesso just-in-time à VM](security-center-just-in-time.md)|✔|-|-|Yes|
+|[Avaliação da vulnerabilidade nativa](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Yes|
+|[Monitorização da integridade do ficheiro](security-center-file-integrity-monitoring.md)|✔|✔|✔|Yes|
+|[Controlos de aplicações adaptáveis](security-center-adaptive-application.md)|✔|-|✔|Yes|
+|[Mapa de rede](security-center-network-recommendations.md#network-map)|✔|✔|-|Yes|
+|[Proteção de rede ajustável](security-center-adaptive-network-hardening.md)|✔|-|-|Yes|
+|[Relatórios de & do painel de conformidade regulamentar](security-center-compliance-dashboard.md)|✔|✔|✔|Yes|
+|Recomendações e proteção contra ameaças em contentores IaaS hospedados em Docker|-|-|-|Yes|
 |Avaliação de patches de SO em falta|✔|✔|✔|Azure: Não<br><br>Ativado pelo arco: Sim|
 |Avaliação de erros de segurança|✔|✔|✔|Azure: Não<br><br>Ativado pelo arco: Sim|
 |[Avaliação da proteção do ponto final](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: Não<br><br>Ativado pelo arco: Sim|
-|Avaliação da encriptação do disco|✔</br>(para [cenários apoiados)](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)|✔|-|Não|
-|Avaliação da vulnerabilidade de terceiros|✔|-|-|Não|
-|[Avaliação da segurança da rede](security-center-network-recommendations.md)|✔|✔|-|Não|
+|Avaliação da encriptação do disco|✔</br>(para [cenários apoiados)](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)|✔|-|No|
+|Avaliação da vulnerabilidade de terceiros|✔|-|-|No|
+|[Avaliação da segurança da rede](security-center-network-recommendations.md)|✔|✔|-|No|
 
 
 ### <a name="linux-machines"></a>[**Máquinas Linux**](#tab/features-linux)
 
 |**Funcionalidade**|**Máquinas Virtuais do Azure**|**Conjuntos de Dimensionamento de Máquinas Virtuais do Azure**|**Máquinas habilittadas a Azure Arc**|**Azure Defender necessário**
 |----|:----:|:----:|:----:|:----:|
-|[Integração ATP do Microsoft Defender](security-center-wdatp.md)|-|-|-|Sim|
-|[Análise comportamental de máquina virtual (e alertas de segurança)](security-center-alerts-iaas.md)|✔</br>(em versões suportadas)|✔</br>(em versões suportadas)|✔|Sim|
-|[Alertas de segurança sem ficheiros](alerts-reference.md#alerts-windows)|-|-|-|Sim|
-|[Alertas de segurança baseados em rede](other-threat-protections.md#network-layer)|✔|✔|-|Sim|
-|[Acesso just-in-time à VM](security-center-just-in-time.md)|✔|-|-|Sim|
-|[Avaliação da vulnerabilidade nativa](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Sim|
-|[Monitorização da integridade do ficheiro](security-center-file-integrity-monitoring.md)|✔|✔|✔|Sim|
-|[Controlos de aplicações adaptáveis](security-center-adaptive-application.md)|✔|-|✔|Sim|
-|[Mapa de rede](security-center-network-recommendations.md#network-map)|✔|✔|-|Sim|
-|[Proteção de rede ajustável](security-center-adaptive-network-hardening.md)|✔|-|-|Sim|
-|[Relatórios de & do painel de conformidade regulamentar](security-center-compliance-dashboard.md)|✔|✔|✔|Sim|
-|Recomendações e proteção contra ameaças em contentores IaaS hospedados em Docker|✔|✔|✔|Sim|
+|[Integração ATP do Microsoft Defender](security-center-wdatp.md)|-|-|-|Yes|
+|[Análise comportamental de máquina virtual (e alertas de segurança)](./azure-defender.md)|✔</br>(em versões suportadas)|✔</br>(em versões suportadas)|✔|Yes|
+|[Alertas de segurança sem ficheiros](alerts-reference.md#alerts-windows)|-|-|-|Yes|
+|[Alertas de segurança baseados em rede](other-threat-protections.md#network-layer)|✔|✔|-|Yes|
+|[Acesso just-in-time à VM](security-center-just-in-time.md)|✔|-|-|Yes|
+|[Avaliação da vulnerabilidade nativa](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Yes|
+|[Monitorização da integridade do ficheiro](security-center-file-integrity-monitoring.md)|✔|✔|✔|Yes|
+|[Controlos de aplicações adaptáveis](security-center-adaptive-application.md)|✔|-|✔|Yes|
+|[Mapa de rede](security-center-network-recommendations.md#network-map)|✔|✔|-|Yes|
+|[Proteção de rede ajustável](security-center-adaptive-network-hardening.md)|✔|-|-|Yes|
+|[Relatórios de & do painel de conformidade regulamentar](security-center-compliance-dashboard.md)|✔|✔|✔|Yes|
+|Recomendações e proteção contra ameaças em contentores IaaS hospedados em Docker|✔|✔|✔|Yes|
 |Avaliação de patches de SO em falta|✔|✔|✔|Azure: Não<br><br>Ativado pelo arco: Sim|
 |Avaliação de erros de segurança|✔|✔|✔|Azure: Não<br><br>Ativado pelo arco: Sim|
-|[Avaliação da proteção do ponto final](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Não|
-|Avaliação da encriptação do disco|✔</br>(para [cenários apoiados)](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)|✔|-|Não|
-|Avaliação da vulnerabilidade de terceiros|✔|-|-|Não|
-|[Avaliação da segurança da rede](security-center-network-recommendations.md)|✔|✔|-|Não|
+|[Avaliação da proteção do ponto final](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|No|
+|Avaliação da encriptação do disco|✔</br>(para [cenários apoiados)](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)|✔|-|No|
+|Avaliação da vulnerabilidade de terceiros|✔|-|-|No|
+|[Avaliação da segurança da rede](security-center-network-recommendations.md)|✔|✔|-|No|
 
 --- 
 
@@ -91,15 +91,15 @@ Para obter informações sobre quando são geradas recomendações para cada uma
 
 | Endpoint Protection| Plataformas | Instalação do Centro de Segurança | Deteção do Centro de Segurança |
 |------|------|-----|-----|
-| Microsoft Defender Antivírus| Windows Server 2016 ou mais tarde| Não, Incorporado no SO| Sim |
-| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (ver nota abaixo) | Através de Extensão | Sim |
-| Trend Micro – Segurança Profunda | Família Windows Server  | Não | Sim |
-| Symantec v12.1.1100+| Família Windows Server  | Não | Sim |
-| McAfee v10+ | Família Windows Server  | Não | Sim |
-| McAfee v10+ | Família linux servidor  | Não | Sim, é o seu **\*** |
-| Sophos V9+| Família linux servidor  | Não | Sim, é o seu  **\***  |
+| Microsoft Defender Antivírus| Windows Server 2016 ou mais tarde| Não, Incorporado no SO| Yes |
+| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (ver nota abaixo) | Através de Extensão | Yes |
+| Trend Micro – Segurança Profunda | Família Windows Server  | No | Yes |
+| Symantec v12.1.1100+| Família Windows Server  | No | Yes |
+| McAfee v10+ | Família Windows Server  | No | Yes |
+| McAfee v10+ | Família linux servidor  | No | Sim *\** , |
+| Sophos V9+| Família linux servidor  | No | Sim, é o seu  _*\**_  |
 
- **\*** O estado de cobertura e os dados de suporte só estão atualmente disponíveis no espaço de trabalho Log Analytics associado às suas subscrições protegidas. Não se reflete no portal do Centro de Segurança Azure.
+ _ *\** * O estado de cobertura e os dados de suporte só estão atualmente disponíveis no espaço de trabalho Log Analytics associado às suas subscrições protegidas. Não se reflete no portal do Centro de Segurança Azure.
 
 > [!NOTE]
 > A deteção da Proteção de Pontos Finais do Centro de Sistema (SCEP) numa máquina virtual Do Windows Server 2008 R2 requer que o SCEP seja instalado após o PowerShell (v3.0 ou mais recente).

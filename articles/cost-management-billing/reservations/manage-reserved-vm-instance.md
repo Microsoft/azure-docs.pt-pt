@@ -8,12 +8,12 @@ ms.reviewer: yashesvi
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: d032937fe79b9f51818ce8917c36fa1cc30397c0
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 300ac0996d9dcb9ecb07abd3392447e393c1781b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400131"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151620"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gerir Reservas para recursos do Azure
 
@@ -110,7 +110,7 @@ Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para
 
 ## <a name="change-optimize-setting-for-reserved-vm-instances"></a>Alterar a definição de otimização do Reserved VM Instances
 
- Quando compra um Reserved VM Instance, escolhe a flexibilidade de tamanho de instância ou a prioridade de capacidade. A flexibilidade de tamanho da instância aplica o desconto de reserva a outras VMs no mesmo [grupo de tamanho de VM](https://aka.ms/RIVMGroups). A prioridade de capacidade prioriza a capacidade de datacenter das implementações. Esta opção oferece-lhe uma garantia adicional no que diz respeito à capacidade de lançar as instâncias de VM quando precisar delas.
+ Quando compra um Reserved VM Instance, escolhe a flexibilidade de tamanho de instância ou a prioridade de capacidade. A flexibilidade de tamanho da instância aplica o desconto de reserva a outras VMs no mesmo [grupo de tamanho de VM](../../virtual-machines/reserved-vm-instance-size-flexibility.md). A prioridade de capacidade prioriza a capacidade de datacenter das implementações. Esta opção oferece-lhe uma garantia adicional no que diz respeito à capacidade de lançar as instâncias de VM quando precisar delas.
 
 Por predefinição, quando o âmbito da reserva é partilhado, a flexibilidade de tamanho de instância fica ativa. A capacidade de datacenter não é priorizada para as implementações de VM.
 
@@ -173,7 +173,7 @@ Para comprar um plano de serviço:
 - [Efetuar pré-pagamento de recursos do Azure Cosmos DB com capacidade reservada do Azure Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md)
 
 Para comprar um plano de software:
-- [Efetuar pré-pagamento dos planos de software Red Hat nas Reservas do Azure](../../virtual-machines/linux/prepay-rhel-software-charges.md)
+- [Efetuar pré-pagamento dos planos de software Red Hat nas Reservas do Azure](../../virtual-machines/linux/prepay-suse-software-charges.md)
 - [Efetuar o pré-pagamento de planos de software SUSE das Reservas do Azure](../../virtual-machines/linux/prepay-suse-software-charges.md)
 
 Compreender o desconto e a utilização:

@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/10/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: c4eb30df74e2a8d6748ede987df0b1c41cff0ca3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50426e0b0920e89cf83dc5a81c515b06c06c09c5
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448483"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342098"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Alertas de Supressão do Azure Defender
 
@@ -26,7 +26,7 @@ Esta página explica como pode usar regras de supressão de alertas para suprimi
 |Estado de libertação:|Pré-visualizar|
 |Preços:|Gratuito<br>(A maioria dos alertas de segurança só estão disponíveis com o Azure Defender)|
 |Funções e permissões necessárias:|**Administração de segurança** e **Proprietário** pode criar/eliminar regras.<br>**O leitor de segurança** e **o Reader** podem ver as regras.|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 
@@ -49,16 +49,16 @@ As suas regras de supressão definem os critérios para os quais os alertas deve
 
 ## <a name="create-a-suppression-rule"></a>Criar uma regra de supressão
 
-Há algumas formas de criar regras para suprimir alertas de segurança indesejados:
+Existem algumas formas de criar regras para suprimir alertas de segurança indesejados:
 
-- Para suprimir alertas ao nível do grupo de gestão, use a Política Azure
-- Para suprimir alertas ao nível da subscrição, pode utilizar o portal Azure ou a API REST, conforme explicado abaixo
+- Para suprimir alertas ao nível do grupo de gestão, utilize o Azure Policy
+- Para suprimir alertas ao nível da subscrição, pode utilizar o portal do Azure ou a API REST, conforme explicado abaixo
 
 As regras de supressão só podem descartar alertas que já tenham sido desencadeados nas subscrições selecionadas.
 
 Para criar uma regra diretamente no portal Azure:
 
-1. Da página de alertas de segurança do Centro de Segurança:
+1. Na página de alertas de segurança do Centro de Segurança:
 
     - Localize o alerta específico que não quer ver mais, e a partir do menu de elipses (...) para o alerta, **selecione Criar regra de supressão**:
 
@@ -76,11 +76,11 @@ Para criar uma regra diretamente no portal Azure:
     > Se abrir a nova página de regras a partir de um alerta específico, o alerta e a subscrição serão automaticamente configurados na sua nova regra. Se utilizar o novo link **de regra de supressão,** as subscrições selecionadas corresponderão ao filtro atual no portal.
 
     [![Painel de criação de regras de supressão](media/alerts-suppression-rules/new-suppression-rule-pane.png)](media/alerts-suppression-rules/new-suppression-rule-pane.png#lightbox)
-1. Introduza detalhes da regra:
-    - **Nome** - Um nome para a regra. Os nomes das regras devem começar com uma letra ou um número, estar entre 2 e 50 caracteres, e não conter símbolos que não sejam traços (-) ou sublinhados (_). 
+1. Introduza os detalhes da regra:
+    - **Nome** - Um nome para a regra. Os nomes das regras devem começar com uma letra ou um número, ter entre 2 e 50 carateres e não conter outros símbolos que não sejam traços (-) ou sublinhados (_). 
     - **Estado** - Ativado ou incapacitado.
     - **Razão** - Selecione uma das razões incorporadas ou 'outras' se não satisfazer as suas necessidades.
-    - **Data de validade** - Data e hora de fim da regra. As regras podem ser até seis meses.
+    - **Data de validade** - Data e hora de fim da regra. As regras podem ser executadas por um máximo de seis meses.
 1. Opcionalmente, teste a regra usando o botão **Simulação** para ver quantos alertas teriam sido dispensados se esta regra estivesse ativa.
 1. Salve a regra. 
 
@@ -139,7 +139,7 @@ Os métodos HTTP relevantes para as regras de supressão na API REST são:
 
 - **DELETE**: Elimina uma regra existente (mas não altera o estado dos alertas já dispensados).
 
-Para obter todos os detalhes e exemplos de utilização, consulte a documentação da [API.](https://docs.microsoft.com/rest/api/securitycenter/) 
+Para obter todos os detalhes e exemplos de utilização, consulte a documentação da [API.](/rest/api/securitycenter/) 
 
 
 ## <a name="next-steps"></a>Passos seguintes
