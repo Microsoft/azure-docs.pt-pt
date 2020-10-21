@@ -16,12 +16,12 @@ ms.date: 09/15/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8d9740e05bf4236f1b2b722c9a91b3644533fce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a3c5274a1b63d486bb7eb48b89560d5684db2e2
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90707905"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317014"
 ---
 # <a name="powershell-for-azure-ad-roles-in-privileged-identity-management"></a>PowerShell para funções de AD Azure em Gestão de Identidade Privilegiada
 
@@ -54,7 +54,7 @@ Este artigo contém instruções para a utilização de cmdlets PowerShell (Azur
     ![Encontre o ID da organização nas propriedades da organização AZure AD](./media/powershell-for-azure-ad-roles/tenant-id-for-Azure-ad-org.png)
 
 > [!Note]
-> As seguintes secções são exemplos simples que podem ajudá-lo a funcionar. Pode encontrar documentação mais detalhada sobre os seguintes cmdlets em [https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true) . No entanto, deve substituir "azureResources" no parâmetro providerID por "aadRoles". Também terá de se lembrar de usar o ID do Inquilino para a sua organização AZure AD como parâmetro de recursosId.
+> As seguintes secções são exemplos simples que podem ajudá-lo a funcionar. Pode encontrar documentação mais detalhada sobre os seguintes cmdlets em [https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true](/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true) . No entanto, deve substituir "azureResources" no parâmetro providerID por "aadRoles". Também terá de se lembrar de usar o ID do Inquilino para a sua organização AZure AD como parâmetro de recursosId.
 
 ## <a name="retrieving-role-definitions"></a>Recuperação de definições de funções
 

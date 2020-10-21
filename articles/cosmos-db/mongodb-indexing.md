@@ -9,12 +9,12 @@ ms.date: 08/07/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: abd6d6379fba1efac20255ca97e66e6b2d7e72ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8816d4db6ee054df574263f90522f08f7dcd058
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324413"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282369"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gerir a indexação na API da Azure Cosmos para a MongoDB
 
@@ -324,7 +324,7 @@ Independentemente do valor especificado para a propriedade do índice **de fundo
 
 Não há impacto em ler disponibilidade ao adicionar um novo índice. As consultas só utilizarão novos índices uma vez que a transformação do índice esteja completa. Durante a transformação do índice, o motor de consulta continuará a utilizar os índices existentes, pelo que observará um desempenho de leitura semelhante durante a transformação de indexação ao que tinha observado antes de iniciar a alteração de indexação. Ao adicionar novos índices, também não existe o risco de resultados de consulta incompletos ou inconsistentes.
 
-Ao remover índices e fazer imediatamente consultas, os filtros nos índices caídos, os resultados podem ser inconsistentes e incompletos até que a transformação do índice termine. Se remover índices, o motor de consulta não garante resultados consistentes ou completos quando as consultas filtram estes índices recentemente removidos. A maioria dos desenvolvedores não baixa índices e, em seguida, tenta imediatamente consultá-los para que, na prática, esta situação seja improvável.
+Ao remover índices e fazer imediatamente consultas, os filtros nos índices caídos, os resultados podem ser inconsistentes e incompletos até que a transformação do índice termine. Se remover índices, o motor de consulta não fornece resultados consistentes ou completos quando as consultas filtram estes índices recentemente removidos. A maioria dos desenvolvedores não baixa índices e, em seguida, tenta imediatamente consultá-los para que, na prática, esta situação seja improvável.
 
 > [!NOTE]
 > Pode [acompanhar o progresso do índice.](#track-index-progress)

@@ -5,14 +5,14 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
-ms.date: 3/11/2019
+ms.date: 10/20/2020
 ms.author: rohink
-ms.openlocfilehash: cc36eca0b39db5188be7a63ffb148cc0f4cf30bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 151d5f083fe0e945b330d65095c908be93e3330f
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91252889"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316401"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Tutorial: criar registos DNS num domínio personalizado para uma aplicação Web 
 
@@ -38,12 +38,9 @@ Neste tutorial, ficará a saber como:
 > * Adicione nomes de anfitriões personalizados à sua aplicação web
 > * Testar os nomes de anfitrião personalizados
 
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -56,6 +53,8 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
    2. Para delegar a zona ao DNS do Azure, siga os passos em [Delegação de domínio DNS](dns-delegate-domain-azure-dns.md).
 
 Depois de criar uma zona e delegá-la ao DNS do Azure, pode criar registos para o seu domínio personalizado.
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-an-a-record-and-txt-record"></a>Criar um registo A e um registo TXT
 

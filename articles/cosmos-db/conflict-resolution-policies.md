@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 49400ad0da86eddf7bbbd51dd92101084cdf1ee1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69bc58e7d217bbd902a82a15333eee6df40a21c9
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570099"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276340"
 ---
 # <a name="conflict-types-and-resolution-policies-when-using-multiple-write-regions"></a>Tipos de conflitos e políticas de resolução ao utilizar várias regiões de escrita
 
@@ -32,7 +32,7 @@ A Azure Cosmos DB oferece um mecanismo flexível orientado pela política para r
 
 * **Últimas Vitórias de Escrita (LWW)**: Esta política de resolução, por padrão, utiliza uma propriedade de timetamp definida pelo sistema. Baseia-se no protocolo do relógio de sincronização temporal. Se utilizar a API SQL, pode especificar qualquer outra propriedade numérica personalizada (por exemplo, a sua própria noção de um timetamp) para ser usada para a resolução de conflitos. Uma propriedade numérica personalizada também é referida como o caminho de *resolução de conflitos.* 
 
-  Se dois ou mais itens entrar em conflito na inserção ou substituição de operações, o item com o valor mais elevado para a rota de resolução de conflitos torna-se o vencedor. O sistema determina o vencedor se vários itens itens tiverem o mesmo valor numérico para o caminho de resolução de conflitos. Todas as regiões têm a garantia de convergir para um único vencedor e acabar com a mesma versão do item comprometido. Quando se apagam conflitos, a versão eliminada vence sempre quer insira quer substitua conflitos. Este resultado ocorre independentemente do valor da via de resolução de conflitos.
+  Se dois ou mais itens entrar em conflito na inserção ou substituição de operações, o item com o valor mais elevado para a rota de resolução de conflitos torna-se o vencedor. O sistema determina o vencedor se vários itens itens tiverem o mesmo valor numérico para o caminho de resolução de conflitos. Todas as regiões convergirão para um único vencedor e acabarão com a mesma versão do item comprometido. Quando se apagam conflitos, a versão eliminada vence sempre quer insira quer substitua conflitos. Este resultado ocorre independentemente do valor da via de resolução de conflitos.
 
   > [!NOTE]
   > Last Write Wins é a política de resolução de conflitos padrão e usa o tempo para `_ts` as seguintes APIs: SQL, MongoDB, Cassandra, Gremlin e Table. Propriedade numérica personalizada está disponível apenas para API SQL.

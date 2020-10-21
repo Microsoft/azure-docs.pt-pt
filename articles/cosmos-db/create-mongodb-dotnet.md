@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/15/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e041ed67513a9be79c45f9fb4d1658d9d44aeeac
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: bffaca9db9a6ecefc9870a2e39ba86640d70b945
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123084"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281734"
 ---
 # <a name="quickstart-build-a-net-web-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Quickstart: Construa uma aplicação web .NET utilizando a API da Azure Cosmos para a MongoDB 
 
@@ -27,7 +27,7 @@ ms.locfileid: "92123084"
 > * [Golang](create-mongodb-go.md)
 >  
 
-O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente. Pode criar e consultar rapidamente documentos, bases de dados chave/valor e gráficos, que beneficiam da distribuição global e das capacidades de escala horizontal no núcleo da Cosmos DB. 
+Azure Cosmos DB é a base de dados NoSQL rápida da Microsoft com APIs abertos para qualquer escala. Pode criar e consultar rapidamente documentos, bases de dados chave/valor e gráficos, que beneficiam da distribuição global e das capacidades de escala horizontal no núcleo da Cosmos DB. 
 
 Este quickstart demonstra como criar uma conta Cosmos com [a API da Azure Cosmos para a MongoDB.](mongodb-introduction.md) Em seguida, você construirá e implementará uma aplicação web de lista de tarefas construída usando o [controlador MongoDB .NET](https://docs.mongodb.com/ecosystem/drivers/csharp/).
 
@@ -159,7 +159,7 @@ Atualizou agora a sua aplicação com todas as informações que precisa para co
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

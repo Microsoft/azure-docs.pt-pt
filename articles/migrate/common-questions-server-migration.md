@@ -3,12 +3,12 @@ title: Perguntas comuns sobre migração de servidores Azure Migrate
 description: Obtenha respostas para perguntas comuns sobre a utilização da migração do servidor Azure Migrate para migrar máquinas.
 ms.topic: conceptual
 ms.date: 08/28/2020
-ms.openlocfilehash: 80334bb2f0d6c0284c9031a99c0eb469b348873d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b62110e6b2ce97cdd80ed91ee4b1e75d119c7c7d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275545"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315242"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migração do servidor Azure Migrate: Questões comuns
 
@@ -29,25 +29,25 @@ Azure Migrate: A ferramenta de migração do servidor migra máquinas baseadas e
 
 | **Sistemas operativos suportados para máquinas baseadas na UEFI** | **VMware sem agente para Azure**                                                                                                             | **Hyper-V sem agente para Azure** | **VMware baseado em agente, nuvens físicas e outras para Azure** |
 | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ---------------------------------------------------------- |
-| Windows Server 2019, 2016, 2012 R2, 201                 | S                                                                                                                                         | S                              | S                                                          |
-| Windows 10 Pro, Empresa Windows 10                   | S                                                                                                                                         | S                              | S                                                          |
-| SUSE Linux Enterprise Server 15 SP1                     | S                                                                                                                                         | S                              | S                                                          |
-| SUSE Linux Enterprise Server 12 SP4                     | S                                                                                                                                         | S                              | S                                                          |
-| Ubuntu Server 16.04, 18.04, 19.04, 19.10                | S                                                                                                                                         | S                              | S                                                          |
-| RHEL 8.1, 8.0, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x        | S<br>                 _RHEL 8.x requer [preparação manual](https://go.microsoft.com/fwlink/?linkid=2143939)_   | S                              | S                                                          |
-| Cent OS 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 6.x               | S<br>_Cent OS 8.x requer [preparação manual](https://go.microsoft.com/fwlink/?linkid=2143939)_ | S                              | S                                                          |
-| Oracle Linux 7.7, 7.7-CI                                |  S                                                                                                                                        | S                              | S                                                          |
+| Windows Server 2019, 2016, 2012 R2, 201                 | Y                                                                                                                                         | Y                              | Y                                                          |
+| Windows 10 Pro, Empresa Windows 10                   | Y                                                                                                                                         | Y                              | Y                                                          |
+| SUSE Linux Enterprise Server 15 SP1                     | Y                                                                                                                                         | Y                              | Y                                                          |
+| SUSE Linux Enterprise Server 12 SP4                     | Y                                                                                                                                         | Y                              | Y                                                          |
+| Ubuntu Server 16.04, 18.04, 19.04, 19.10                | Y                                                                                                                                         | Y                              | Y                                                          |
+| RHEL 8.1, 8.0, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x        | Y<br>                 _RHEL 8.x requer [preparação manual](./prepare-for-migration.md#linux-machines)_   | Y                              | Y                                                          |
+| Cent OS 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 6.x               | Y<br>_Cent OS 8.x requer [preparação manual](./prepare-for-migration.md#linux-machines)_ | Y                              | Y                                                          |
+| Oracle Linux 7.7, 7.7-CI                                |  Y                                                                                                                                        | Y                              | Y                                                          |
 
 ## <a name="can-i-use-the-recovery-services-vault-created-by-azure-migrate-for-disaster-recovery-scenarios"></a>Posso usar o cofre de serviços de recuperação criado por Azure Migrate para cenários de recuperação de desastres?
 Não recomendamos a utilização do cofre de serviços de recuperação criado pela Azure Migrate para cenários de recuperação de desastres. Fazê-lo pode resultar em falhas de replicação de início em Azure Migrate. 
 
 ## <a name="where-should-i-install-the-replication-appliance-for-agent-based-migrations"></a>Onde devo instalar o aparelho de replicação para migrações baseadas em agentes?
 
-O aparelho de replicação deve ser instalado numa máquina dedicada. O aparelho de replicação não deve ser instalado numa máquina de origem que pretende replicar ou no aparelho de deteção e avaliação Azure Migrate que possa ter instalado anteriormente. Siga o [tutorial](https://docs.microsoft.com/azure/migrate/tutorial-migrate-physical-virtual-machines) para mais detalhes.
+O aparelho de replicação deve ser instalado numa máquina dedicada. O aparelho de replicação não deve ser instalado numa máquina de origem que pretende replicar ou no aparelho de deteção e avaliação Azure Migrate que possa ter instalado anteriormente. Siga o [tutorial](./tutorial-migrate-physical-virtual-machines.md) para mais detalhes.
 
 ## <a name="how-can-i-migrate-my-aws-ec2-instances-to-azure"></a>Como posso migrar os meus casos AWS EC2 para Azure?
 
-Reveja este [artigo](https://docs.microsoft.com/azure/migrate/tutorial-migrate-aws-virtual-machines) para descobrir, avaliar e migrar as suas instâncias AWS EC2 para Azure.
+Reveja este [artigo](./tutorial-migrate-aws-virtual-machines.md) para descobrir, avaliar e migrar as suas instâncias AWS EC2 para Azure.
 
 ## <a name="can-i-migrate-aws-vms-running-amazon-linux-operating-system"></a>Posso migrar VMS AWS com sistema operativo Amazon Linux?
 
@@ -79,18 +79,18 @@ Independentemente da opção de migração escolhida, o primeiro passo para migr
 Eis algumas considerações a ter em mente ao decidir sobre a opção de migração.
 
 **As migrações sem agentes** não requerem que nenhum software (agentes) seja implantado na origem VMs/servidores que estão a ser migrados. A opção sem agente orquestra a replicação integrando-se com a funcionalidade fornecida pelo fornecedor de virtualização.
-As opções de replicação sem agente estão disponíveis para [VMware VMs](https://docs.microsoft.com/azure/migrate/tutorial-migrate-vmware) e [VMs Hiper-V](https://docs.microsoft.com/azure/migrate/tutorial-migrate-hyper-v).
+As opções de replicação sem agente estão disponíveis para [VMware VMs](./tutorial-migrate-vmware.md) e [VMs Hiper-V](./tutorial-migrate-hyper-v.md).
 
 **As migrações baseadas em agentes** exigem que o software (agentes) Azure Migrate seja instalado na fonte VMs/máquinas a migrar. A opção baseada em agente não depende da plataforma de virtualização para a funcionalidade de replicação e pode, portanto, ser usada com qualquer servidor que executa uma arquitetura x86/x64 e uma versão de um sistema operativo suportado pelo método de replicação baseado no agente.
 
-A opção de migração baseada em agentes pode ser utilizada para [VMware VMs,](https://docs.microsoft.com/azure/migrate/tutorial-migrate-vmware-agent) [Hiper-VMs,](https://docs.microsoft.com/azure/migrate/tutorial-migrate-physical-virtual-machines) [servidores físicos,](https://docs.microsoft.com/azure/migrate/tutorial-migrate-physical-virtual-machines) [VMs em execução em AWS,](https://docs.microsoft.com/azure/migrate/tutorial-migrate-aws-virtual-machines)VMs em execução em GCP, ou VMs em execução em um fornecedor de virtualização diferente. A migração baseada em agentes trata as suas máquinas como servidores físicos para efeitos da migração.
+A opção de migração baseada em agentes pode ser utilizada para [VMware VMs,](./tutorial-migrate-vmware-agent.md) [Hiper-VMs,](./tutorial-migrate-physical-virtual-machines.md) [servidores físicos,](./tutorial-migrate-physical-virtual-machines.md) [VMs em execução em AWS,](./tutorial-migrate-aws-virtual-machines.md)VMs em execução em GCP, ou VMs em execução em um fornecedor de virtualização diferente. A migração baseada em agentes trata as suas máquinas como servidores físicos para efeitos da migração.
 
 Embora a Migração Sem Agente ofereça comodidade e simplicidade adicionais sobre as opções de replicação baseadas em agente para os cenários suportados (VMWare e Hyper-V), poderá considerar a utilização do cenário baseado no agente para os seguintes casos de utilização:
 
 - Ambiente constrangido do IOPS: A replicação sem agente utiliza instantâneos e consome armazenamento IOPS/largura de banda. Recomendamos o método de migração baseado em agente se houver restrições no armazenamento/IOPS no seu ambiente.
 - Se não tiver um servidor vCenter, pode tratar os seus VMware VMs como servidores físicos e utilizar o fluxo de trabalho de migração baseado em agentes.
 
-Para saber mais, reveja este [artigo](https://docs.microsoft.com/azure/migrate/server-migrate-overview) para comparar opções de migração para migrações VMware.
+Para saber mais, reveja este [artigo](./server-migrate-overview.md) para comparar opções de migração para migrações VMware.
 
 ## <a name="how-does-agentless-migration-work"></a>Como funciona a migração sem agente?
 
@@ -101,13 +101,13 @@ A opção de replicação sem agente funciona utilizando mecanismos fornecidos p
 Quando a replicação é configurada para uma máquina virtual, passa primeiro por uma fase inicial de replicação. Durante a replicação inicial, é tirada uma imagem VM e uma cópia completa dos dados dos discos instantâneos são replicados em discos geridos na sua subscrição. Após a replicação inicial para o VM estar concluída, o processo de replicação transita para uma fase de replicação incremental (replicação delta). Na fase de replicação incremental, as alterações de dados que ocorreram desde o último ciclo de replicação concluído são periodicamente replicadas e aplicadas aos discos geridos por réplicas, mantendo assim a replicação em sincronização com as alterações que ocorriam no VM. No caso das máquinas virtuais VMware, a tecnologia de rastreio de blocos alterada da VMware é utilizada para acompanhar as mudanças entre ciclos de replicação. No início do ciclo de replicação, é tirada uma imagem VM e é utilizada uma localização de blocos alterada para obter as alterações entre o instantâneo atual e o último instantâneo replicado com sucesso. Desta forma, apenas os dados que mudaram desde o último ciclo de replicação concluído precisam de ser replicados para manter a replicação para o VM em sincronização. No final de cada ciclo de replicação, o instantâneo é libertado e a consolidação do instantâneo é realizada para a máquina virtual. Da mesma forma, no caso das máquinas virtuais Hyper-V, o motor de rastreio de mudança de réplica Hiper-V é utilizado para acompanhar as mudanças entre ciclos de replicação consecutivos.
 Quando executa a operação de migração numa máquina virtual replicante, tem a opção de desligar a máquina virtual no local e executar uma replicação incremental final para garantir a perda zero de dados. Ao executar a opção migradora, os discos geridos por réplica correspondentes à máquina virtual são utilizados para criar a máquina virtual em Azure.
 
-Para começar, consulte os tutoriais de [migração sem agente VMware](https://docs.microsoft.com/azure/migrate/tutorial-migrate-vmware) e [hiper-V sem agente.](https://docs.microsoft.com/azure/migrate/tutorial-migrate-hyper-v)
+Para começar, consulte os tutoriais de [migração sem agente VMware](./tutorial-migrate-vmware.md) e [hiper-V sem agente.](./tutorial-migrate-hyper-v.md)
 
 ## <a name="how-does-agent-based-migration-work"></a>Como funciona a migração baseada em agentes?
 
 Além das opções de migração sem agente para máquinas virtuais VMware e máquinas virtuais Hiper-V, a ferramenta de migração do Servidor oferece uma opção de migração baseada em agentes para migrar servidores Windows e Linux que estão a funcionar em servidores físicos, ou funcionando como máquinas virtuais x86/x64 em VMware, Hyper-V, AWS, Google Cloud Platform, etc.
 
-O método de migração baseado em agente utiliza software de agente instalado no servidor em migração para replicar dados do servidor para OZure. O processo de replicação utiliza uma arquitetura de descarregamento na qual o agente retransmite dados de replicação a um servidor de replicação dedicado chamado de aparelho de replicação ou Servidor de Configuração (ou a um Servidor de Processo de escala). [Saiba mais](https://docs.microsoft.com/azure/migrate/agent-based-migration-architecture) sobre como funciona a opção de migração baseada em agentes. 
+O método de migração baseado em agente utiliza software de agente instalado no servidor em migração para replicar dados do servidor para OZure. O processo de replicação utiliza uma arquitetura de descarregamento na qual o agente retransmite dados de replicação a um servidor de replicação dedicado chamado de aparelho de replicação ou Servidor de Configuração (ou a um Servidor de Processo de escala). [Saiba mais](./agent-based-migration-architecture.md) sobre como funciona a opção de migração baseada em agentes. 
 
 Nota: O aparelho de replicação é diferente do aparelho de descoberta Azure Migrate e deve ser instalado numa máquina separada/dedicada.
 
@@ -127,7 +127,7 @@ Tempo para completar a replicação inicial = {tamanho de discos (ou tamanho usa
 
 ### <a name="agent-based-vmware-vm-migration"></a>Migração VMware VM baseada em agente
 
-Para um método de replicação baseado em agente, o planejador de implementação pode ajudar a perfilar o ambiente para o churn de dados e ajudar a prever o requisito de largura de banda necessário. Para saber mais, veja este [artigo.](https://docs.microsoft.com/azure/migrate/agent-based-migration-architecture#plan-vmware-deployment) 
+Para um método de replicação baseado em agente, o planejador de implementação pode ajudar a perfilar o ambiente para o churn de dados e ajudar a prever o requisito de largura de banda necessário. Para saber mais, veja este [artigo.](./agent-based-migration-architecture.md#plan-vmware-deployment) 
 
 ## <a name="how-do-i-throttle-replication-in-using-azure-migrate-appliance-for-agentless-vmware-replication"></a>Como posso acelerar a replicação na utilização do aparelho Azure Migrate para a replicação de VMware sem agente?  
 
@@ -153,10 +153,10 @@ Por exemplo, se um VM demorar quatro horas para um ciclo delta, o próximo ciclo
 
 ## <a name="how-do-i-migrate-windows-server-2003-running-on-vmwarehyper-v-to-azure"></a>Como posso migrar o Windows Server 2003 em funcionamento em VMware/Hyper-V para Azure?
 
-[O suporte alargado do Windows Server 2003](https://go.microsoft.com/fwlink/?linkid=2140400) terminou em 14 de julho de 2015.  A equipa de suporte do Azure continua a ajudar na resolução de problemas que dizem respeito a executar o Windows Server 2003 no Azure. No entanto, este suporte está limitado a questões que não requerem resolução de problemas ou patches ao nível do SISTEMA.
+[O suporte alargado do Windows Server 2003](/troubleshoot/azure/virtual-machines/run-win-server-2003#microsoft-windows-server-2003-end-of-support) terminou em 14 de julho de 2015.  A equipa de suporte do Azure continua a ajudar na resolução de problemas que dizem respeito a executar o Windows Server 2003 no Azure. No entanto, este suporte está limitado a questões que não requerem resolução de problemas ou patches ao nível do SISTEMA.
 Migrar as suas aplicações para instâncias Azure que executam uma versão mais recente do Windows Server é a abordagem recomendada para garantir que está a aproveitar eficazmente a flexibilidade e fiabilidade da nuvem Azure.
 
-No entanto, se ainda optar por migrar o Seu Windows Server 2003 para Azure, pode utilizar a ferramenta Azure Migrate: Server Migration se o seu Servidor do Windows for um VM em execução em VMware ou Hyper-V Rever este artigo para [preparar as máquinas do Windows Server 2003 para migração](https://go.microsoft.com/fwlink/?linkid=2140302).
+No entanto, se ainda optar por migrar o Seu Windows Server 2003 para Azure, pode utilizar a ferramenta Azure Migrate: Server Migration se o seu Servidor do Windows for um VM em execução em VMware ou Hyper-V Rever este artigo para [preparar as máquinas do Windows Server 2003 para migração](./prepare-windows-server-2003-migration.md).
 
 ## <a name="what-is-the-difference-between-the-test-migration-and-migrate-operations"></a>Qual é a diferença entre as operações de migração de testes e migração?
 

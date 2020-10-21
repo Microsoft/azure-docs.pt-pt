@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: a0cba1c3a7a3b713fa5f0603ad9e116068d8df66
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2c7953ea7b85eca3628329b427f960f9466fd6b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618476"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316031"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Recursos de armazenamento blob disponíveis no Azure Data Lake Storage Gen2
 
@@ -49,7 +49,7 @@ Esta tabela lista as funcionalidades de armazenamento Blob que pode utilizar com
 |Blob soft delete|Ainda não suportado|Ainda não suportado|[Eliminação recuperável para blobs](storage-blob-soft-delete.md)|
 |Rio Blobfuse|Pré-visualizar|Ainda não suportado|[Como montar o armazenamento Blob como um sistema de ficheiros com blobfuse](storage-how-to-mount-container-linux.md)|
 |Falha na conta|Ainda não suportado|Ainda não suportado|[Recuperação de desastres e falha na conta](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|Recipiente blob ACL|Ainda não suportado<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|Ainda não suportado<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|[Conjunto de recipiente ACL](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)|
+|Recipiente blob ACL|Não suportado<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|Não suportado<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|Consulte a nota relacionada abaixo desta tabela.|
 |Chaves fornecidas pelo cliente|Ainda não suportado|Ainda não suportado|[Fornecer uma chave de encriptação sobre um pedido para o armazenamento Blob](encryption-customer-provided-keys.md)|
 |Domínios personalizados|Ainda não suportado|Ainda não suportado|[Mapear um domínio personalizado para um ponto final de armazenamento Azure Blob](storage-custom-domain-name.md)|
 |Âmbitos de encriptação|Ainda não suportado|Ainda não suportado|[Criar e gerir os âmbitos de encriptação (pré-visualização)](encryption-scope-manage.md)|
@@ -63,7 +63,7 @@ Esta tabela lista as funcionalidades de armazenamento Blob que pode utilizar com
 
 <div id="preview-form"><sup>3</sup> Para utilizar instantâneos, armazenamento imutável ou websites estáticos com Data Lake Storage Gen2, você precisa inscrever-se na pré-visualização completando este <a href=https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u>formulário</a>.  </div>
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [Problemas conhecidos com Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
 - [Serviços Azure que suportam Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md)

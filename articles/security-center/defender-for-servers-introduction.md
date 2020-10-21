@@ -7,12 +7,12 @@ ms.date: 9/23/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 8757399329f3a9bd9f4d7b914b12b2a0f7e85603
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 711963a60d5c75031ff676a9c7f1db47f20fe895
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448296"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275252"
 ---
 # <a name="introduction-to-azure-defender-for-servers"></a>Introdução ao Azure Defender para servidores
 
@@ -27,11 +27,18 @@ Para o Linux, o Azure Defender recolhe registos de auditoria de máquinas Linux 
 
 As capacidades de deteção e proteção de ameaças fornecidas com o Azure Defender para servidores incluem:
 
+- **Licença integrada para o Microsoft Defender para Endpoint (apenas Windows)** - O Azure Defender para servidores inclui  [o Microsoft Defender para Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender). Em conjunto, fornecem capacidades abrangentes de deteção e resposta de pontos finais (EDR). [Saiba mais](security-center-wdatp.md).
+
+    Quando o Defender for Endpoint deteta uma ameaça, desencadeia um alerta. O alerta é mostrado no Centro de Segurança. A partir do Security Center, também podes orientar-te para a consola Defender for Endpoint, e realizar uma investigação detalhada para descobrir o alcance do ataque. Saiba mais sobre o Microsoft Defender para Endpoint.
+
+    > [!IMPORTANT]
+    > O Microsoft Defender para o sensor **Endpoint** está automaticamente ativado nos servidores do Windows que utilizam o Security Center.
+
 - **Pesquisa de avaliação de vulnerabilidade para VMs** - O scanner de vulnerabilidade incluído no Azure Security Center é alimentado pela Qualys. 
 
     O scanner qualys é uma das principais ferramentas para a identificação em tempo real de vulnerabilidades nas suas Máquinas Virtuais Azure. Você não precisa de uma licença Qualys ou mesmo uma conta Qualys - tudo é tratado perfeitamente dentro do Centro de Segurança. [Saiba mais](deploy-vulnerability-assessment-vm.md).
 
-- **Acesso em VM just-in-time (JIT)**  - Os atores da ameaça caçam ativamente máquinas acessíveis com portas de gestão abertas, como RDP ou SSH. Todas as suas máquinas virtuais são alvos potenciais para um ataque. Quando um VM é comprometido com sucesso, é usado como ponto de entrada para atacar mais recursos dentro do seu ambiente.
+- **Acesso de máquina virtual (VM) just-in-time (VM)** - Os atores da ameaça caçam ativamente máquinas acessíveis com portas de gestão abertas, como RDP ou SSH. Todas as suas máquinas virtuais são alvos potenciais para um ataque. Quando um VM é comprometido com sucesso, é usado como ponto de entrada para atacar mais recursos dentro do seu ambiente.
 
     Quando ativa o Azure Defender para servidores, pode utilizar o acesso VM just-in-time para bloquear o tráfego de entrada nos seus VMs, reduzindo a exposição a ataques, proporcionando fácil acesso à ligação aos VM quando necessário. [Saiba mais](just-in-time-explained.md).
 
@@ -46,13 +53,6 @@ As capacidades de deteção e proteção de ameaças fornecidas com o Azure Defe
 - **Endurecimento adaptativo da rede (ANH)** - Aplicação de grupos de segurança de rede (NSG) para filtrar o tráfego de e para os recursos, melhora a sua postura de segurança de rede. No entanto, ainda pode haver alguns casos em que o tráfego real que flui através do NSG é um subconjunto das regras do NSG definidos. Nestes casos, melhorar ainda mais a postura de segurança pode ser alcançado endurecendo as regras do NSG, com base nos padrões reais de tráfego.
 
     O Endurecimento da Rede Adaptativa fornece recomendações para endurecer ainda mais as regras do NSG. Usa um algoritmo de aprendizagem automática que fatores no tráfego real, configuração confiável conhecida, inteligência de ameaça e outros indicadores de compromisso, e depois fornece recomendações para permitir o tráfego apenas a partir de tuples IP/port específico. [Saiba mais](security-center-adaptive-network-hardening.md).
-
-- **Integração com o Microsoft Defender Advanced Threat Protection (ATP) (apenas Windows)** - O Azure Defender integra-se com o Microsoft Defender Advanced Threat Protection (ATP). Em conjunto, fornecem capacidades abrangentes de deteção e resposta de pontos finais (EDR). [Saiba mais](security-center-wdatp.md).
-
-    > [!IMPORTANT]
-    > O sensor ATP do Microsoft Defender está automaticamente ativado nos servidores do Windows que utilizam o Security Center.
-
-    Quando o Microsoft Defender ATP deteta uma ameaça, desencadeia um alerta. O alerta é mostrado no Centro de Segurança. A partir do Security Center, também pode ser o pivô da consola ATP do Microsoft Defender e realizar uma investigação detalhada para descobrir o alcance do ataque. Para obter mais informações sobre o Microsoft Defender ATP, consulte [os servidores onboard para o serviço ATP Microsoft Defender](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
 
 - **Docker host hardening** - Azure Security Center identifica contentores não geridos hospedados em IaaS Linux VMs, ou outras máquinas Linux que executam contentores Docker. O Centro de Segurança avalia continuamente as configurações destes contentores. Em seguida, compara-os com o Center for Internet Security (CIS) Docker Benchmark. O Centro de Segurança inclui todo o conjunto de regras do CIS Docker Benchmark e alerta-o se os seus contentores não satisfizerem nenhum dos controlos. [Saiba mais](harden-docker-hosts.md).
 

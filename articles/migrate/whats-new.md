@@ -4,12 +4,12 @@ description: Saiba mais sobre as novidades e novidades recentes no serviço Azur
 ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: a36e73496b07df18c61b07df9d90992c0ab399ce
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: b03f3a7e10aa42f3393ecc22cb74f4e565587032
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124661"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314578"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Novidades em Azure Migrate
 
@@ -36,7 +36,7 @@ ms.locfileid: "92124661"
 
 ## <a name="update-june-2020"></a>Atualização (junho de 2020)
 
-- As avaliações para migração de VMware VMs para [Azure VMware Solution (AVS)](https://go.microsoft.com/fwlink/?linkid=2132637) são agora suportadas. [Saiba mais](how-to-create-azure-vmware-solution-assessment.md)
+- As avaliações para migração de VMware VMs para [Azure VMware Solution (AVS)](./concepts-azure-vmware-solution-assessment-calculation.md) são agora suportadas. [Saiba mais](how-to-create-azure-vmware-solution-assessment.md)
 - Suporte para múltiplas credenciais no aparelho para a descoberta do servidor físico.
 - Suporte para permitir o login do Azure a partir de um aparelho para inquilino onde a restrição do inquilino tenha sido configurada.
 
@@ -104,4 +104,4 @@ Se estiver a utilizar a versão anterior do Azure Migrate (apenas foi suportada 
 
 - [Saiba mais](https://azure.microsoft.com/pricing/details/azure-migrate/) sobre os preços do Azure Migrate.
 - [Veja as perguntas mais frequentes](resources-faq.md) sobre o Azure Migrate.
-- Experimente os nossos tutoriais para avaliar [VMware VMs](tutorial-assess-vmware.md) e [VMs Hiper-V.](tutorial-assess-hyper-v.md)
+- Experimente os nossos tutoriais para avaliar [VMware VMs](./tutorial-assess-vmware-azure-vm.md) e [VMs Hiper-V.](tutorial-assess-hyper-v.md)

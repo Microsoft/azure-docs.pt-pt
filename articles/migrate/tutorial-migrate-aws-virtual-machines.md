@@ -4,12 +4,12 @@ description: Este artigo descreve como migrar VMS AWS para Azure com Azure Migra
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 6c4b53e3c3673b913e4afbfb65801d83f0640bd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62bfad2cc92e7af61a10360878ebaa3093897e97
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651842"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310727"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Detetar, avaliar e migrar VMs do Amazon Web Services (AWS) para o Azure
 
@@ -40,7 +40,7 @@ Antes de migrar para Azure, recomendamos que realize uma avaliação de descober
 
 Configurar uma avaliação da seguinte forma:
 
-1. Siga o [tutorial](./tutorial-prepare-physical.md) para configurar o Azure e prepare os seus VMS AWS para uma avaliação. Tenha em atenção que:
+1. Siga o [tutorial](./tutorial-discover-physical.md) para configurar o Azure e prepare os seus VMS AWS para uma avaliação. Tenha em atenção que:
 
     - A Azure Migrate utiliza a autenticação de palavra-passe ao descobrir casos AWS. As instâncias AWS não suportam a autenticação de palavra-passe por padrão. Antes de descobrir a ocorrência, tem de ativar a autenticação de senhas.
         - Para máquinas Windows, permita a porta WinRM 5985 (HTTP). Isto permite chamadas remotas de WMI.
@@ -370,7 +370,7 @@ Depois de verificar que a migração do teste funciona como esperado, pode migra
     - Mantenha as cargas de trabalho em execução e continuamente disponíveis ao replicar VMs do Azure para uma região secundária com o Site Recovery. [Saiba mais](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - Para uma maior segurança:
     - Bloqueie e limite o acesso ao tráfego de entrada com [o Azure Security Center - Mesmo a tempo da administração](../security-center/security-center-just-in-time.md).
-    - Restrinja o tráfego de rede para os pontos finais de gestão com os [Grupos de Segurança de Rede](../virtual-network/security-overview.md).
+    - Restrinja o tráfego de rede para os pontos finais de gestão com os [Grupos de Segurança de Rede](../virtual-network/network-security-groups-overview.md).
     - Implemente o [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) para ajudar a proteger discos e a manter os dados protegidos contra roubo e acesso não autorizado.
     - Leia mais sobre como [proteger recursos de IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) e aceda ao [Centro de Segurança do Azure](https://azure.microsoft.com/services/security-center/).
 - Para monitorização e gestão:

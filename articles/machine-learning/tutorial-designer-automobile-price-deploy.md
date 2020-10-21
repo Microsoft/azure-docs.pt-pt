@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: a4923e48c890a50d642d937f014e466e998171cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95e5b3ac568cfa370fd1e49fad990b681aef46d9
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90896641"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311522"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Tutorial: Implementar um modelo de machine learning com o designer
 
@@ -61,7 +61,7 @@ Para implantar o seu oleoduto, tem primeiro de converter o gasoduto de treino nu
 
 1. **Selecione Enviar**, e use o mesmo alvo de cálculo e experimente que usou na primeira parte.
 
-    Se for a primeira corrida, pode levar até 20 minutos para o seu oleoduto terminar de funcionar. As definições de computação padrão têm um tamanho mínimo de nó de 0, o que significa que o designer deve alocar recursos depois de estar inativo. As repetidas operações de gasoduto levarão menos tempo, uma vez que os recursos de computação já estão atribuídos. Além disso, o designer utiliza resultados em cache para cada módulo para melhorar ainda mais a eficiência.
+    Se esta for a primeira corrida, pode levar até 20 minutos para o seu oleoduto terminar de funcionar. As definições de computação padrão têm um tamanho mínimo de nó de 0, o que significa que o designer deve alocar recursos depois de estar inativo. As repetidas operações de gasoduto levarão menos tempo, uma vez que os recursos de computação já estão atribuídos. Além disso, o designer utiliza resultados em cache para cada módulo para melhorar ainda mais a eficiência.
 
 1. Selecione **Implementar**.
 
@@ -103,21 +103,17 @@ Depois de o seu serviço AKS ter terminado o fornecimento, volte ao gasoduto de 
 
     Uma notificação de sucesso acima da tela aparece após o fim da implantação. Pode levar alguns minutos.
 
-## <a name="test-the-real-time-endpoint"></a>Teste o ponto final em tempo real
+## <a name="view-the-real-time-endpoint"></a>Ver o ponto final em tempo real
 
-Após o fim da implementação, pode testar o seu ponto de chegada em tempo real indo para a página **Endpoints.**
+Após o fim da implementação, pode ver o seu ponto de chegada em tempo real indo para a página **Endpoints.**
 
 1. Na página **Endpoints,** selecione o ponto final que implementou.
 
-    ![Screenshot mostrando o separador pontos finais em tempo real com o ponto final recentemente criado em destaque](./media/tutorial-designer-automobile-price-deploy/endpoints.png)
+1. No separador **Detalhes,** pode ver mais informações como o REST URI, status e tags.
 
-1. Selecione **Teste**.
+1. No separador **Consumir,** pode encontrar chaves de segurança e definir métodos de autenticação.
 
-1. Pode inserir manualmente dados de teste ou utilizar os dados da amostra preenchidos automaticamente e selecionar **o Teste**.
-
-    O portal submete um pedido de teste ao ponto final e mostra os resultados. Embora um valor de preço seja gerado para os dados de entrada, não é usado para gerar o valor de previsão.
-
-    ![Screenshot mostrando como testar o ponto final em tempo real com a etiqueta pontuada para o preço realçado](./media/tutorial-designer-automobile-price-deploy/test-endpoint.png)
+Para obter mais informações sobre o consumo do seu serviço web, consulte [Consumir um modelo implementado como um webservice](how-to-consume-web-service.md)
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

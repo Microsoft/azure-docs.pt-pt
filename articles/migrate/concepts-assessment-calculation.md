@@ -3,12 +3,12 @@ title: Avaliações de Azure VM na Avaliação do Servidor Migratório Azure
 description: Conheça as avaliações na Avaliação do Servidor Azure Migrate
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 4020df3ef77e4b8ae0618108f539322092b93079
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d08e3c1c0035ee2bb56ee54f1ffb7ffb439d61b6
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275528"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319318"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vms"></a>Visão geral da avaliação do servidor (migrar para VMs Azure)
 
@@ -54,7 +54,7 @@ Se estiver a implantar um aparelho Azure Migrate para descobrir servidores no lo
 
 Após o início da descoberta da máquina, pode recolher máquinas que pretende avaliar em grupo e fazer uma avaliação para o grupo com o tipo de avaliação **Azure VM**.
 
-Siga os nossos tutoriais para [VMware,](tutorial-prepare-vmware.md) [Hyper-V](tutorial-prepare-hyper-v.md)ou [servidores físicos](tutorial-prepare-physical.md) para experimentar estes passos.
+Siga os nossos tutoriais para [VMware,](./tutorial-discover-vmware.md) [Hyper-V](./tutorial-discover-hyper-v.md)ou [servidores físicos](./tutorial-discover-physical.md) para experimentar estes passos.
 
 ## <a name="how-do-i-assess-with-imported-data"></a>Como avalio com dados importados?
 
@@ -173,7 +173,7 @@ Windows Server 2012 R2 e todos os SPs | O Azure oferece todo o apoio. | Pronto p
 Windows Server 2012 e todos os SPs | O Azure oferece todo o apoio. | Pronto para O Azure.
 Windows Server 2008 R2 com todos os SPs | O Azure oferece todo o apoio.| Pronto para O Azure.
 Windows Server 2008 (32 bits e 64 bits) | O Azure oferece todo o apoio. | Pronto para O Azure.
-Windows Server 2003 e Windows Server 2003 R2 | Estes sistemas operativos passaram as suas datas de fim de suporte e precisam de um Acordo de [Apoio Personalizado (CSA)](https://aka.ms/WSosstatement) para apoio em Azure. | Condicionalmente pronto para O Azure. Considere melhorar o SO antes de migrar para Azure.
+Windows Server 2003 e Windows Server 2003 R2 | Estes sistemas operativos passaram as suas datas de fim de suporte e precisam de um Acordo de [Apoio Personalizado (CSA)](/troubleshoot/azure/virtual-machines/server-software-support) para apoio em Azure. | Condicionalmente pronto para O Azure. Considere melhorar o SO antes de migrar para Azure.
 Windows 2000, Windows 98, Windows 95, Windows NT, Windows 3.1 e MS-DOS | Estes sistemas operativos passaram as datas de fim de suporte. A máquina pode começar em Azure, mas a Azure não fornece suporte ao SISTEMA. | Condicionalmente pronto para O Azure. Recomendamos que atualize o SO antes de migrar para Azure.
 Windows 7, Windows 8 e Windows 10 | O Azure fornece suporte apenas com uma [subscrição do Visual Studio.](../virtual-machines/windows/client-images.md) | Condicionalmente pronto para O Azure.
 Windows 10 Pro | A Azure fornece suporte com [direitos de hospedagem multitenant.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Condicionalmente pronto para O Azure.
@@ -297,6 +297,6 @@ Os custos são apresentados na moeda especificada nas definições de avaliaçã
 
 [Reveja as](best-practices-assessment.md) melhores práticas para criar avaliações. 
 
-- Saiba mais sobre avaliações de execução de [VMware VMs,](tutorial-prepare-vmware.md) [Hiper-VMs](tutorial-prepare-hyper-v.md)e [servidores físicos](tutorial-prepare-physical.md).
-- Saiba mais sobre a avaliação dos servidores [importados com um ficheiro CSV](tutorial-assess-import.md).
+- Saiba mais sobre avaliações de execução de [VMware VMs,](./tutorial-discover-vmware.md) [Hiper-VMs](./tutorial-discover-hyper-v.md)e [servidores físicos](./tutorial-discover-physical.md).
+- Saiba mais sobre a avaliação dos servidores [importados com um ficheiro CSV](./tutorial-discover-import.md).
 - Saiba como configurar [a visualização da dependência.](concepts-dependency-visualization.md)

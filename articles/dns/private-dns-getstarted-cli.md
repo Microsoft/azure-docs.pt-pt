@@ -5,15 +5,15 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
-ms.date: 10/05/2019
+ms.date: 10/20/2020
 ms.author: rohink
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8fdf78c0a3dd2f7a130d827751ce93c5539575df
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: df180f0aefc817004e99d63998d000498c4d15aa
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87502961"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310155"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-cli"></a>Quickstart: Criar uma zona de DNS privada Azure utilizando o Azure CLI
 
@@ -21,13 +21,7 @@ Este quickstart acompanha-o através dos degraus para criar a sua primeira zona 
 
 Uma zona DNS é utilizada para alojar os registos DNS para um determinado domínio. Para começar a alojar o seu domínio no DNS do Azure, tem de criar uma zona DNS para esse nome de domínio. Cada registo DNS para o seu domínio é então criado no interior desta zona DNS. Para publicar uma zona DNS privada na sua rede virtual, especifique a lista de redes virtuais permitidas para resolver registos na zona.  Estas são chamadas redes virtuais *ligadas.* Quando o registo automático é ativado, o Azure DNS também atualiza os registos da zona sempre que uma máquina virtual é criada, altera o seu endereço IP ou é eliminado.
 
-Neste início rápido, vai aprender a:
-
-> [!div class="checklist"]
-> * Criar uma zona privada de DNS
-> * Criar máquinas virtuais de teste
-> * Criar um registo DNS adicional
-> * Testar a zona privada
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -203,7 +197,7 @@ Repita para myVM02.
    PS C:\>
    ```
 
-## <a name="delete-all-resources"></a>Eliminar todos os recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o grupo de recursos **MyAzureResourceGroup** para eliminar os recursos criados neste arranque rápido.
 

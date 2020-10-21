@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51983e52643d587fc497a1a67fcb0cd29dbb7f17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b218f4c94e33d4a91b3981c66d3ac052c6caf7e2
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91306570"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318136"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planeamento Azure Ative Directy Access Reviews implementação
 
@@ -87,7 +87,7 @@ Considere as suas necessidades organizacionais para determinar a estratégia de 
 
 ### <a name="engage-the-right-stakeholders"></a>Envolver as partes interessadas certas
 
-Quando os projetos tecnológicos falham, normalmente fazem-no devido a expectativas desajustadas no impacto, resultados e responsabilidades. Para evitar estas armadilhas, [certifique-se de que está a envolver as partes interessadas certas](https://aka.ms/deploymentplans) e que as funções do projeto são claras.
+Quando os projetos tecnológicos falham, normalmente fazem-no devido a expectativas desajustadas no impacto, resultados e responsabilidades. Para evitar estas armadilhas, [certifique-se de que está a envolver as partes interessadas certas](../fundamentals/active-directory-deployment-plans.md) e que as funções do projeto são claras.
 
 Para avaliações de acesso, provavelmente incluirá representantes das seguintes equipas dentro da sua organização:
 
@@ -182,7 +182,7 @@ Os alvos típicos para revisão incluem:
 
 * Membro [do](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) grupo (sincronizado com Azure AD, ou criado em AZure AD ou Microsoft 365, incluindo Microsoft Teams).
 
-* [Pacote de acesso](/azure/active-directory/governance/entitlement-management-overview) que agrupam recursos (grupos, apps e sites) num único pacote para gerir o acesso.
+* [Pacote de acesso](./entitlement-management-overview.md) que agrupam recursos (grupos, apps e sites) num único pacote para gerir o acesso.
 
 * [Funções de AD AZure e Funções de Recursos Azure definidas](../privileged-identity-management/pim-resource-roles-assign-roles.md) na Gestão de Identidade Privilegiada.
 
@@ -448,7 +448,7 @@ Para reduzir o risco associado a atribuições de papéis antigos, deve rever re
 
 ![Screenshot que mostra a lista de "Membros de Revisão" de papéis de Azure A D.](./media/deploy-access-review/8-review-azure-ad-roles-picker.png)
 
-Siga as instruções nos links abaixo:
+Siga as instruções nas ligações abaixo:
 
 | Artigos de procedimentos | Descrição |
 | - | - |
@@ -463,7 +463,7 @@ Para reduzir o risco associado a atribuições de funções velhas, deve rever r
 
 ![rever papéis de anúncios azure](./media/deploy-access-review/9-review-azure-roles-picker.png)
 
-Siga as instruções nos links abaixo:
+Siga as instruções nas ligações abaixo:
 
 | Artigos de procedimentos| Descrição |
 | - | -|
@@ -518,4 +518,3 @@ Conheça as tecnologias abaixo relacionadas.
 * [O que é Azure AD Entitlement Management?](entitlement-management-overview.md)
 
 * [O que é o Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md)
-

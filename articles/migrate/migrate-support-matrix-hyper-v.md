@@ -3,12 +3,12 @@ title: Suporte para avaliação de Hiper-V em Azure Migrate
 description: Saiba mais sobre o suporte para avaliação de Hiper-V com avaliação do servidor Azure Migrate
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 16eeb0822a8d598c74ab5118fbd39bda84186db0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36cc96915380a464f02df5806337a06f022ecbbf
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318182"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311336"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Matriz de suporte para avaliação de Hiper-V
 
@@ -83,4 +83,4 @@ O quadro seguinte resume os requisitos portuários para avaliação.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Preparar para avaliação de VM hiper-V](tutorial-prepare-hyper-v.md)
+[Preparar para avaliação de VM hiper-V](./tutorial-discover-hyper-v.md)
