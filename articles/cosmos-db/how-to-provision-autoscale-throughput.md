@@ -1,22 +1,25 @@
 ---
-title: Provisão de produção de escala automática em Azure Cosmos DB
-description: Saiba como providenciar a produção de autoescalação no nível do contentor e da base de dados em Azure Cosmos DB utilizando o portal Azure, CLI, PowerShell e vários outros SDKs.
+title: Provisão de produção de escala automática em Azure Cosmos DB SQL API
+description: Saiba como providenciar a produção de autoescalação no nível do contentor e da base de dados no Azure Cosmos DB SQL API utilizando o portal Azure, CLI, PowerShell e vários outros SDKs.
 author: deborahc
 ms.author: dech
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 07/30/2020
+ms.date: 10/15/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4e7c5f3f4bf84b7a267cb883df5f375f2a8cf981
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 190289165b291edabf31320eee1328c1b0cf6205
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89017146"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277841"
 ---
-# <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db"></a>Provisão de produção automática na base de dados ou contentor em Azure Cosmos DB
+# <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db---sql-api"></a>Provisão de produção de escala automática na base de dados ou contentor em Azure Cosmos DB - SQL API
 
-Este artigo explica como providenciar a produção de autoescalação numa base de dados ou contentor (recolha, gráfico ou tabela) em Azure Cosmos DB. Pode ativar a autoescala num único contentor ou providenciar a produção de autoescala numa base de dados e partilhá-la entre todos os contentores da base de dados.
+Este artigo explica como providenciar a produção de autoescalação numa base de dados ou contentor (recolha, gráfico ou tabela) em Azure Cosmos DB SQL API. Pode ativar a autoescala num único contentor ou providenciar a produção de autoescala numa base de dados e partilhá-la entre todos os contentores da base de dados.
+
+Se estiver a utilizar uma API diferente, consulte [a API para a MongoDB,](how-to-provision-throughput-mongodb.md) [Cassandra API,](how-to-provision-throughput-cassandra.md) [artigos da API gremlin](how-to-provision-throughput-gremlin.md) para prever o rendimento.
 
 ## <a name="azure-portal"></a>Portal do Azure
 
@@ -52,7 +55,7 @@ Para obter uma escala automática na base de dados de produção partilhada, sel
 > [!NOTE]
 > Quando ativa automaticamente uma base de dados ou um recipiente existente, o valor inicial para max RU/s é determinado pelo sistema, com base nas definições de produção e armazenamento atuais. Após o funcionamento concluído, pode alterar o máximo RU/s, se necessário. [Saiba mais.](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) 
 
-## <a name="azure-cosmos-db-net-v3-sdk-for-sql-api"></a>Azure Cosmos DB .NET V3 SDK para SQL API
+## <a name="azure-cosmos-db-net-v3-sdk"></a>Azure Cosmos DB .NET V3 SDK
 
 Utilize a [versão 3.9 ou superior](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) do Azure Cosmos DB .NET SDK para a SQL API para gerir recursos de autoescala. 
 
@@ -109,7 +112,7 @@ int? currentThroughput = autoscaleContainerThroughput.Throughput;
 await container.ReplaceThroughputAsync(ThroughputProperties.CreateAutoscaleThroughput(newAutoscaleMaxThroughput));
 ```
 
-## <a name="azure-cosmos-db-java-v4-sdk-for-sql-api"></a>Azure Cosmos DB Java V4 SDK para API SQL
+## <a name="azure-cosmos-db-java-v4-sdk"></a>Azure Cosmos DB Java V4 SDK
 
 Pode utilizar a [versão 4.0 ou superior](https://mvnrepository.com/artifact/com.azure/azure-cosmos) do Azure Cosmos DB Java SDK para a SQL API gerir recursos de autoescala.
 
@@ -242,14 +245,6 @@ container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newA
 ```
 
 ---
-
-## <a name="cassandra-api"></a>API de Cassandra
-
-As contas DB da Azure Cosmos para a API cassandra podem ser aprovisionadas para autoescalação utilizando [os modelos CQL](manage-scale-cassandra.md#use-autoscale), [Azure CLI,](cli-samples.md) [Azure PowerShell](powershell-samples.md) ou [Azure Resource Manager](resource-manager-samples.md).
-
-## <a name="azure-cosmos-db-api-for-mongodb"></a>API do Azure Cosmos DB para MongoDB
-
-As contas DB da Azure Cosmos para a MongoDB API podem ser previstas para escala automática utilizando [os comandos de extensão MongoDB,](mongodb-custom-commands.md) [Azure CLI,](cli-samples.md) [Azure PowerShell](powershell-samples.md) ou [Azure Resource Manager](resource-manager-samples.md).
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 

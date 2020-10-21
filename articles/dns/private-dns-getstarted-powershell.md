@@ -5,14 +5,14 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
-ms.date: 10/05/2019
+ms.date: 10/20/2020
 ms.author: rohink
-ms.openlocfilehash: 0db53bcd6516bd52e2796deaa49fe0dd582e0588
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fd795c9e251a7c4c0c8cbea5ce6c48cec3535484
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "76939397"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311760"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-azure-powershell"></a>Quickstart: Criar uma zona de DNS privada Azure usando Azure PowerShell
 
@@ -22,19 +22,13 @@ Este artigo explica-lhe os passos para criar a sua primeira zona DNS privada e o
 
 Uma zona DNS é utilizada para alojar os registos DNS para um determinado domínio. Para começar a alojar o seu domínio no DNS do Azure, tem de criar uma zona DNS para esse nome de domínio. Cada registo DNS para o seu domínio é então criado no interior desta zona DNS. Para publicar uma zona DNS privada na sua rede virtual, especifique a lista de redes virtuais permitidas para resolver registos na zona.  Estas são chamadas redes virtuais *ligadas.* Quando o registo automático é ativado, o Azure DNS também atualiza os registos da zona sempre que uma máquina virtual é criada, altera o seu endereço IP ou é eliminado.
 
-Neste artigo, vai aprender a:
-
-> [!div class="checklist"]
-> * Criar uma zona privada de DNS
-> * Criar máquinas virtuais de teste
-> * Criar um registo DNS adicional
-> * Testar a zona privada
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 Se preferir, pode completar este quickstart utilizando [o Azure CLI](private-dns-getstarted-cli.md).
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-the-resource-group"></a>Criar o grupo de recursos
 
@@ -197,7 +191,7 @@ Repita para myVM02.
    PS C:\>
    ```
 
-## <a name="delete-all-resources"></a>Eliminar todos os recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o grupo de recursos **MyAzureResourceGroup** para eliminar os recursos criados neste artigo.
 

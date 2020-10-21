@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: ba2d0acec37d0f59240381cdea04f4d53ded0b1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00d8e0d3ba57034bd65dfb7663341e4fcdf586dc
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273046"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310924"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Criar o controlador de dados Azure Arc
 
@@ -26,7 +26,7 @@ Os serviços de dados habilitados a Azure Arc podem ser criados em vários tipos
 
 Atualmente, a lista suportada de serviços e distribuições de Kubernetes são as seguintes:
 
-- Serviço de Kubernetes do Azure (AKS)
+- Azure Kubernetes Service (AKS)
 - Motor de serviço Azure Kubernetes (motor AKS) em Azure Stack
 - Serviço Azure Kubernetes em Azure Stack HCI
 - Azure RedHat OpenShift (ARO)
@@ -65,7 +65,7 @@ Existem múltiplas opções para a criação do controlador de dados Azure Arc:
 > **Só quer experimentar as coisas?**  
 > Desempenhe-se rapidamente com [o Azure Arc Jumpstart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) no Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) ou num Azure VM!
 > 
-- [Criar um controlador de dados com CLI de dados Azure (azdata)](create-data-controller-using-azdata.md)
+- [Criar um controlador de dados com [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]](create-data-controller-using-azdata.md)
 - [Criar um controlador de dados com o Azure Data Studio](create-data-controller-azure-data-studio.md)
 - [Crie um controlador de dados a partir do portal Azure através de um caderno Jupyter no Azure Data Studio](create-data-controller-resource-in-azure-portal.md)
 - [Criar um controlador de dados com ferramentas Kubernetes como kubectl ou oc](create-data-controller-using-kubernetes-native-tools.md)

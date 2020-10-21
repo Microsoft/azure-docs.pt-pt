@@ -17,12 +17,12 @@ ms.date: 09/23/2020
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1fc5051a6cc8b8f36a980ff86690ed4f8cbac60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36e6642e230fa809630751e224ff9384ea8524d1
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91347716"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319783"
 ---
 # <a name="azure-active-directory-sign-in-activity-reports---preview"></a>Relatórios de atividades de inscrição do Azure Ative Directory - pré-visualização
 
@@ -32,8 +32,8 @@ A arquitetura de reporte no Azure Ative Directory (Azure AD) consiste nos seguin
     - **Ins- Ins-** Informações sobre quando os utilizadores, aplicações e recursos geridos insinuam-se na Azure AD e acedem a recursos.
     - **Registos de**  -  auditoria [Os registos de auditoria](concept-audit-logs.md) fornecem informações sobre a atividade do sistema sobre utilizadores e gestão de grupos, aplicações geridas e atividades de diretório.
 - **Segurança** 
-    - **Entradas arriscadas** - Um [sinal de risco](concept-risky-sign-ins.md) é um indicador para uma tentativa de inscrição por alguém que não é o legítimo proprietário de uma conta de utilizador.
-    - **Utilizadores sinalizados para o risco** - Um [utilizador de risco](concept-user-at-risk.md) é um indicador para uma conta de utilizador que pode ter sido comprometida.
+    - **Entradas arriscadas** - Um [sinal de risco](../identity-protection/overview-identity-protection.md) é um indicador para uma tentativa de inscrição por alguém que não é o legítimo proprietário de uma conta de utilizador.
+    - **Utilizadores sinalizados para o risco** - Um [utilizador de risco](../identity-protection/overview-identity-protection.md) é um indicador para uma conta de utilizador que pode ter sido comprometida.
 
 O relatório clássico de inscrições no Azure Ative Directory fornece-lhe uma visão geral das inscrições interativas do utilizador. Além disso, tem agora acesso a três relatórios adicionais de inscrição que estão agora em pré-visualização:
 
@@ -86,7 +86,7 @@ Na lâmina de relatório de inscrição, pode alternar entre:
 
 - **Iniciars-ins - Inscrições** por apps e diretores de serviço que não envolvam nenhum utilizador. Nestes insusentuques, a app ou serviço fornece uma credencial em seu próprio nome para autenticar ou aceder a recursos.
 
-- **Identidades geridas para a Azure resources sign-ins** - Sign-ins by Azure resources that have secrets managed by Azure. Para mais informações, veja [quais são as identidades geridas para os recursos da Azure?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 
+- **Identidades geridas para a Azure resources sign-ins** - Sign-ins by Azure resources that have secrets managed by Azure. Para mais informações, veja [quais são as identidades geridas para os recursos da Azure?](../managed-identities-azure-resources/overview.md) 
 
 
 ![Tipos de relatórios de inscrição](./media/concept-all-sign-ins/sign-ins-report-types.png)

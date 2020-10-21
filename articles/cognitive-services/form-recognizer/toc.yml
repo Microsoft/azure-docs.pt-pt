@@ -90,6 +90,8 @@
           href: 'https://docs.microsoft.com/javascript/api/overview/azure/ai-form-recognizer-readme'
 - name: Recursos
   items:
+    - name: Opções de suporte e ajuda
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
     - name: Preços e limites
       href: 'https://azure.microsoft.com/en-us/pricing/details/cognitive-services/form-recognizer/'
     - name: UserVoice

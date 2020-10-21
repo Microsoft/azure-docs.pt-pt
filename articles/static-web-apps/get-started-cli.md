@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 7e0fdbc50dd36e4ea23903a5929735c1c83bd394
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ed49892284b53844c5c578b752a598cdbdd9b946
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88752934"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320334"
 ---
 # <a name="quickstart-building-your-first-static-web-app-using-the-azure-cli"></a>Quickstart: Construir a sua primeira aplicação web estática usando o Azure CLI
 
@@ -22,10 +22,10 @@ Se não tiver uma subscrição do Azure, [crie uma conta de teste gratuita](http
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Conta GitHub](https://github.com)
+- Conta do [GitHub](https://github.com)
 - [Token de acesso pessoal do GitHub](https://docs.github.com/github/authenticating-to-github/creating-a-personal-access-token)
 - [Conta Azure](https://portal.azure.com)
-- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) instalado (versão 2.8.0 e superior)
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) instalado (versão 2.8.0 e superior)
 
 [!INCLUDE [create repository from template](../../includes/static-web-apps-get-started-create-repo.md)]
 
@@ -37,7 +37,7 @@ Em seguida, mude para a nova pasta utilizando o seguinte comando.
 cd my-first-static-web-app
 ```
 
-## <a name="create-a-static-web-app"></a>Crie uma aplicação web estática
+## <a name="create-a-static-web-app"></a>Criar uma aplicação Web estática
 
 Agora que o repositório foi criado, pode criar uma aplicação web estática a partir do Azure CLI.
 
@@ -123,7 +123,7 @@ Agora que o repositório foi criado, pode criar uma aplicação web estática a 
 
 [!INCLUDE [view website](../../includes/static-web-apps-get-started-view-website.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não continuar a utilizar esta aplicação, pode eliminar a instância Azure Static Web Apps executando o seguinte comando:
 

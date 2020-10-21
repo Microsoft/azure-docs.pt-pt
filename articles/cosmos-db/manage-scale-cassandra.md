@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: thvankra
-ms.openlocfilehash: 26f635525afea289e2e791b802478040a7851eee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6518767b0148828280071188c086e396401a6fc
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87486515"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277674"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Dimensionar elasticamente uma conta Azure Cosmos DB Cassandra API
 
@@ -38,7 +38,7 @@ Se precisar de minimizar a latência, existe um espectro de opções para gerir 
 
 As seguintes secções explicam as vantagens e desvantagens de cada abordagem. Pode então decidir qual a melhor estratégia para equilibrar as necessidades de escala do seu sistema, o custo global e as necessidades de eficiência para a sua solução.
 
-## <a name="use-the-azure-portal"></a><a id="use-azure-portal"></a>Utilizar o portal do Azure
+## <a name="use-the-azure-portal"></a><a id="use-azure-portal"></a>Use o portal Azure
 
 Você pode escalar os recursos na conta Azure Cosmos DB Cassandra API usando o portal Azure. Para saber mais, consulte o artigo sobre [a produção de provisões em contentores e bases de dados.](set-throughput.md) Este artigo explica os benefícios relativos da fixação de produção em qualquer [base de dados](set-throughput.md#set-throughput-on-a-database) ou nível [de contentor](set-throughput.md#set-throughput-on-a-container) no portal Azure. Os termos "base de dados" e "contentor" mencionados nestes artigos mapeiam para "keyspace" e "mesa" respectivamente para a API de Cassandra.
 
@@ -62,7 +62,7 @@ A vantagem desta abordagem é que permite responder às necessidades de escala d
 
 Além da forma padrão (manual) ou programática de provisão de produção, também pode configurar recipientes Azure cosmos em produção de autoescala. A autoescala será automaticamente e instantaneamente dimensionada para as suas necessidades de consumo dentro de gamas RU especificadas sem comprometer as SLAs. Para saber mais, consulte os [recipientes e bases de dados Create Azure Cosmos em artigo de autoescalação.](provision-throughput-autoscale.md)
 
-A vantagem desta abordagem é que é a forma mais fácil de gerir as necessidades de escala no seu sistema. Garante não aplicar a limitação de taxas **dentro das gamas RU configuradas**. A desvantagem é que, se as necessidades de escala no seu sistema forem previsíveis, a autoescala pode ser uma forma menos rentável de lidar com as suas necessidades de escala do que usar o plano de controlo sob medida ou abordagens de nível SDK acima mencionadas.
+A vantagem desta abordagem é que é a forma mais fácil de gerir as necessidades de escala no seu sistema. Não aplicará a limitação das taxas **dentro das gamas RU configuradas**. A desvantagem é que, se as necessidades de escala no seu sistema forem previsíveis, a autoescala pode ser uma forma menos rentável de lidar com as suas necessidades de escala do que usar o plano de controlo sob medida ou abordagens de nível SDK acima mencionadas.
 
 Para definir ou alterar a potência máxima (RUs) para a autoescala utilizando o CQL, utilize o seguinte (substituindo o teclado/nome da tabela em conformidade):
 

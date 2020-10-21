@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: cda123adb667b4c857e05ce53d603e328e995766
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 869bfcb87aa4846674db233c4268e9269929cd04
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108172"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320171"
 ---
 # <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Faça upload de dados de utilização, métricas e registos para o Azure Monitor
 
@@ -25,7 +25,7 @@ Periodicamente, pode exportar informações de utilização para efeitos de fatu
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Necessitará do Azure CLI (az) e do Azure Data CLI (azdata) instalados.  [Instale ferramentas](./install-client-tools.md).
+Você precisará do Azure CLI (az) e do [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] instalado.  [Instale ferramentas](./install-client-tools.md).
 
 Antes de enviar dados para o Azure, tem de garantir que a sua subscrição do Azure tem o fornecedor de recursos Microsoft.AzureData registado.
 
@@ -45,7 +45,7 @@ az provider register -n Microsoft.AzureData --wait
 
 As informações de utilização, tais como o inventário e a utilização de recursos, podem ser enviadas para a Azure da seguinte forma:
 
-1. Exportar os dados de utilização utilizando ```azdata export``` o comando, da seguinte forma:
+1. Exportar os dados de utilização utilizando `azdata export` o comando, da seguinte forma:
 
    ```console
    #login to the data controller and enter the values at the prompt
@@ -56,7 +56,7 @@ As informações de utilização, tais como o inventário e a utilização de re
    ```
    Este comando cria um `usage.json` ficheiro com todos os recursos de dados ativados pelo Arco Azure, tais como instâncias geridas pelo SQL e instâncias de hiperescala postgresQL, etc. que são criadas no controlador de dados.
 
-2. Faça o upload dos dados de utilização usando ```azdata upload``` o comando
+2. Faça o upload dos dados de utilização usando `azdata upload` o comando
 
    > [!NOTE]
    > Por favor, aguarde pelo menos 24 horas após a criação do controlador de dados Azure Arc antes de executar o upload

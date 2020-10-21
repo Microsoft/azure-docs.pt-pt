@@ -2,13 +2,13 @@
 title: Configure Monitor Azure para recolha de dados de agente de contentores Microsoft Docs
 description: Este artigo descreve como pode configurar o Monitor Azure para o agente de contentores controlar a recolha de registos de variáveis stdout/stderr e ambiente.
 ms.topic: conceptual
-ms.date: 06/01/2020
-ms.openlocfilehash: 675b9c9c109ee8bb3b0087523bf5af46ce2c5270
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.date: 10/09/2020
+ms.openlocfilehash: 1644e541ee873a5bb058dd9bde2b82a907a400ff
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994607"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320399"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Configurar a recolha de dados do agente para o Azure Monitor para contentores
 
@@ -29,19 +29,27 @@ Este artigo demonstra como criar a ConfigMap e configurar a recolha de dados com
 
 ### <a name="data-collection-settings"></a>Definições de recolha de dados
 
-Seguem-se as definições que podem ser configuradas para controlar a recolha de dados.
+A tabela a seguir descreve as definições que pode configurar para controlar a recolha de dados:
 
 | Chave | Tipo de dados | Valor | Descrição |
 |--|--|--|--|
 | `schema-version` | Corda (sensível a maiôs) | v1 | Esta é a versão de esquema usada pelo agente<br> ao analisar este ConfigMap.<br> A versão de esquema suportada atualmente é v1.<br> Modificar este valor não é suportado e será<br> rejeitado quando configMap é avaliado. |
-| `config-version` | Cadeia |  | Suporta a capacidade de acompanhar a versão deste ficheiro config no seu sistema/repositório de controlo de origem.<br> Os caracteres máximos permitidos são 10, e todos os outros caracteres são truncados. |
+| `config-version` | String |  | Suporta a capacidade de acompanhar a versão deste ficheiro config no seu sistema/repositório de controlo de origem.<br> Os caracteres máximos permitidos são 10, e todos os outros caracteres são truncados. |
 | `[log_collection_settings.stdout] enabled =` | Booleano | true ou false | Isto controla se a recolha do registo do contentor de stdout estiver ativada. Quando `true` definidos e nenhum espaço de nome é excluído para a coleção de registos de stdout<br> `log_collection_settings.stdout.exclude_namespaces`(definição abaixo), os registos de estatido serão recolhidos de todos os recipientes em todas as cápsulas/nós do cluster. Se não for especificado em ConfigMaps,<br> o valor predefinido é `enabled = true` . |
-| `[log_collection_settings.stdout] exclude_namespaces =` | Cadeia | Matriz separada por vírgula | Array de espaços de nome Kubernetes para os quais os registos de stdout não serão recolhidos. Esta definição só é eficaz se<br> `log_collection_settings.stdout.enabled`<br> está definido para `true` .<br> Se não for especificado no ConfigMap, o valor predefinido é<br> `exclude_namespaces = ["kube-system"]`. |
+| `[log_collection_settings.stdout] exclude_namespaces =` | String | Matriz separada por vírgula | Array de espaços de nome Kubernetes para os quais os registos de stdout não serão recolhidos. Esta definição só é eficaz se<br> `log_collection_settings.stdout.enabled`<br> está definido para `true` .<br> Se não for especificado no ConfigMap, o valor predefinido é<br> `exclude_namespaces = ["kube-system"]`. |
 | `[log_collection_settings.stderr] enabled =` | Booleano | true ou false | Isto controla se a recolha de registos de contentores stderr estiver ativada.<br> Quando `true` definidos e nenhum espaço de nome é excluído para a coleção de registos de stdout<br> `log_collection_settings.stderr.exclude_namespaces`(regulação), os registos stderr serão recolhidos de todos os recipientes em todas as cápsulas/nós do cluster.<br> Se não for especificado em ConfigMaps, o valor predefinido é<br> `enabled = true`. |
-| `[log_collection_settings.stderr] exclude_namespaces =` | Cadeia | Matriz separada por vírgula | Array de espaços de nomes Kubernetes para os quais os registos stderr não serão recolhidos.<br> Esta definição só é eficaz se<br> `log_collection_settings.stdout.enabled` está definido para `true` .<br> Se não for especificado no ConfigMap, o valor predefinido é<br> `exclude_namespaces = ["kube-system"]`. |
+| `[log_collection_settings.stderr] exclude_namespaces =` | String | Matriz separada por vírgula | Array de espaços de nomes Kubernetes para os quais os registos stderr não serão recolhidos.<br> Esta definição só é eficaz se<br> `log_collection_settings.stdout.enabled` está definido para `true` .<br> Se não for especificado no ConfigMap, o valor predefinido é<br> `exclude_namespaces = ["kube-system"]`. |
 | `[log_collection_settings.env_var] enabled =` | Booleano | true ou false | Esta definição controla a coleção variável ambiental<br> em todas as cápsulas/nós no cluster<br> e incumprimentos para `enabled = true` quando não especificado<br> em ConfigMaps.<br> Se a recolha de variáveis ambientais estiver ativada globalmente, pode desativá-la para um recipiente específico<br> definindo a variável ambiental<br> `AZMON_COLLECT_ENV` para **Falso** quer com uma definição de Dockerfile quer no [ficheiro de configuração para o Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) sob o **env:** secção.<br> Se a recolha de variáveis ambientais for globalmente desativada, então não é possível permitir a recolha de um recipiente específico (isto é, a única sobreposição que pode ser aplicada ao nível do contentor é desativar a recolha quando já está ativada globalmente). |
 | `[log_collection_settings.enrich_container_logs] enabled =` | Booleano | true ou false | Esta definição controla o enriquecimento de registo de contentores para povoar os valores de propriedade name e Image<br> para cada registo escrito na tabela ContainerLog para todos os registos de contentores do cluster.<br> É padrão quando `enabled = false` não especificado no ConfigMap. |
 | `[log_collection_settings.collect_all_kube_events]` | Booleano | true ou false | Esta definição permite a recolha de eventos Kube de todos os tipos.<br> Por predefinição, os eventos Kube com o tipo *Normal* não são recolhidos. Quando esta definição está definida para `true` , os eventos *normais* já não são filtrados e todos os eventos são recolhidos.<br> Por predefinição, isto está definido para `false` . |
+
+### <a name="metric-collection-settings"></a>Configurações de recolha métrica
+
+A tabela a seguir descreve as definições que pode configurar para controlar a recolha métrica:
+
+| Chave | Tipo de dados | Valor | Descrição |
+|--|--|--|--|
+| `[metric_collection_settings.collect_kube_system_pv_metrics] enabled =` | Booleano | true ou false | Esta definição permite que as métricas de utilização persistentes (PV) sejam recolhidas no espaço de nomes do sistema kube. Por padrão, as métricas de utilização para volumes persistentes com alegações de volume persistentes no espaço de nome do sistema kube não são recolhidas. Quando esta definição é definida para `true` , métricas de utilização de PV para todos os espaços de nome são recolhidas. Por predefinição, isto está definido para `false` . |
 
 ConfigMaps é uma lista global e pode haver apenas um ConfigMap aplicado ao agente. Não pode ter outro ConfigMaps a anular as coleções.
 
@@ -49,10 +57,10 @@ ConfigMaps é uma lista global e pode haver apenas um ConfigMap aplicado ao agen
 
 Execute os seguintes passos para configurar e implementar o seu ficheiro de configuração ConfigMap no seu cluster.
 
-1. [Descarregue](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) o ficheiro ConfigMap yaml do modelo e guarde-o como contentor-azm-ms-agentconfig.yaml. 
+1. Descarregue o [ficheiro ConfigMap YAML](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml) do modelo e guarde-o como contentor-azm-ms-agentconfig.yaml. 
 
-   >[!NOTE]
-   >Este passo não é necessário ao trabalhar com o Azure Red Hat OpenShift uma vez que o modelo ConfigMap já existe no cluster.
+   > [!NOTE]
+   > Este passo não é necessário quando se trabalha com o Azure Red Hat OpenShift porque o modelo ConfigMap já existe no cluster.
 
 2. Edite o ficheiro ConfigMap yaml com as suas personalizações para recolher variáveis stdout, stderr e/ou ambientais. Se estiver a editar o ficheiro ConfigMap yaml para Azure Red Hat OpenShift, primeiro executar o comando `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` para abrir o ficheiro num editor de texto.
 

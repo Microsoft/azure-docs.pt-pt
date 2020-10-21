@@ -2,19 +2,20 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 31d6c091e07d2f35d8856dce3adab04997b012b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e83e5fdd0d8797377407e27614e98c348b008164
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91821154"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311829"
 ---
 |Nome<br /><sub>(Portal Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[O Azure Policy Add-on para o serviço Kubernetes (AKS) deve ser instalado e ativado nos seus clusters](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0a15ec92-a229-4763-bb14-0ea34a568f8d) |O Azure Policy Add-on for Kubernetes service (AKS) estende o Gatekeeper v3, um webhook do controlador de admissão para o Open Policy Agent (OPA), para aplicar aplicações e salvaguardas em escala nos seus clusters de forma centralizada e consistente. |Auditoria, Deficientes |[1.0.1 pré-visualização](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/AKS_AzurePolicyAddOn_Audit.json) |
+|[Implementar add-on de política Azure para clusters de serviço Azure Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa8eff44f-8c92-45c3-a3fb-9880802d67a7) |Utilize o Azure Policy Add-on para gerir e reportar sobre o estado de conformidade dos seus clusters Azure Kubernetes Service (AKS). Para obter mais informações, veja [https://aka.ms/akspolicydoc](https://aka.ms/akspolicydoc). |implementarIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/AKS_AzurePolicyAddOn_Deploy.json) |
 |[Implementar GitOps para o cluster Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d61c4d2-aef2-432b-87fc-7f96b019b7e1) |Esta política implementa uma "fonteControlConfiguration" para os clusters de Kubernetes para garantir que os clusters obtenham a sua fonte de verdade a partir do repo git definido. Para obter instruções sobre a utilização desta política, visite [https://aka.ms/K8sGitOpsPolicy](https://aka.ms/K8sGitOpsPolicy) . |DeployIfNotExists |[1.0.0-pré-visualização](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/Deploy-GitOps-to-Kubernetes-cluster_DINE.json) |
 |[Não permita contentores privilegiados no cluster Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F95edb821-ddaf-4404-9732-666045e056b4) |Esta política não permite a criação de contentores privilegiados num aglomerado de Kubernetes. Esta política está geralmente disponível para o Serviço Kubernetes (AKS), e pré-visualização para AKS Engine e Azure Arc habilitado a Kubernetes. Para obter instruções sobre a utilização desta política, visite [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc) . |auditoria, negação, desativado |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/ContainerNoPrivilege.json) |
 |[Impor entrada HTTPS no cluster Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1a5b4dca-0b6f-4cf5-907c-56316bc1bf3d) |Esta política aplica a entrada https num cluster kubernetes. Esta política está geralmente disponível para o Serviço Kubernetes (AKS), e pré-visualização para AKS Engine e Azure Arc habilitado a Kubernetes. Para obter instruções sobre a utilização desta política, visite [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc) . |auditoria, negação, desativado |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/IngressHttpsOnly.json) |

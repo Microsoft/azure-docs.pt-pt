@@ -3,12 +3,12 @@ title: Use Apache Kafka MirrorMaker - Azure Event Hubs Microsoft Docs
 description: Este artigo fornece informações sobre como usar o Kafka MirrorMaker para espelhar um cluster Kafka em AzureEvent Hubs.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: aea8ebcfa65d5f4c90aa1908d03f0fcde8906bba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab0f78adeeff34334c9800632fc58ab634b4fab6
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85320195"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92308346"
 ---
 # <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>Use Kafka MirrorMaker com centros de eventos para Apache Kafka
 
@@ -39,7 +39,7 @@ Para concluir este tutorial, confirme que tem:
 
 * Leia o artigo [Hubs de Eventos para o Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md). 
 * Uma subscrição do Azure. Se não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
-* [Kit de Desenvolvimento java (JDK) 1.7+](https://aka.ms/azure-jdks)
+* [Kit de Desenvolvimento java (JDK) 1.7+](/azure/developer/java/fundamentals/java-jdk-long-term-support)
     * No Ubuntu, execute `apt-get install default-jdk` para instalar o JDK.
     * Certifique-se de que define a variável de ambiente JAVA_HOME para apontar para a pasta onde está instalado o JDK.
 * [Faça o download](https://maven.apache.org/download.cgi) e [instale](https://maven.apache.org/install.html) um arquivo binário Maven

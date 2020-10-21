@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5d0956634289713f691feb1a9182233e6795e319
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 652299ebb98f685a16871cf4e944608a471d8df2
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201738"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279099"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gerir pontos finais e rotas em Azure Digital Twins (APIs e CLI)
 
@@ -90,13 +90,13 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 Quando um ponto final não consegue entregar um evento dentro de um determinado período de tempo ou depois de tentar entregar o evento um certo número de vezes, pode enviar o evento não entregue para uma conta de armazenamento. Este processo é conhecido como **letra morta.**
 
-Para criar um ponto final com letras mortas ativadas, deve utilizar as [APIs ARM](https://docs.microsoft.com/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) para criar o seu ponto final. 
+Para criar um ponto final com letras mortas ativadas, deve utilizar as [APIs ARM](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) para criar o seu ponto final. 
 
 Antes de definir o local da letra morta, deve ter uma conta de armazenamento com um recipiente. Forneça o URL para este recipiente ao criar o ponto final. A letra morta é fornecida como URL de contentor com um token SAS. Esse símbolo só precisa de `write` permissão para o contentor de destino dentro da conta de armazenamento. O URL totalmente formado será no formato de: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
 
-Para saber mais sobre fichas SAS, consulte: [Conceder acesso limitado aos recursos de Armazenamento Azure usando assinaturas de acesso partilhado (SAS)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+Para saber mais sobre fichas SAS, consulte: [Conceder acesso limitado aos recursos de Armazenamento Azure usando assinaturas de acesso partilhado (SAS)](/azure/storage/common/storage-sas-overview)
 
-Para saber mais sobre letras mortas, consulte [Conceitos: Rotas do Evento](./concepts-route-events.md#dead-letter-events)
+Para saber mais sobre letras [*mortas, consulte Conceitos: Rotas do evento.*](concepts-route-events.md#dead-letter-events)
 
 #### <a name="configuring-the-endpoint"></a>Configurar o ponto final
 
@@ -114,7 +114,7 @@ Ao criar um ponto final, adicione um `deadLetterSecret` ao objeto no corpo do `p
 }
 ```
 
-Para mais informações, consulte a documentação AZure Digital Twins REST API: [Endpoints - DigitalTwinsEndpoint CreateOrUpdate](https://docs.microsoft.com/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
+Para mais informações, consulte a documentação AZure Digital Twins REST API: [Endpoints - DigitalTwinsEndpoint CreateOrUpdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
 
 ### <a name="message-storage-schema"></a>Esquema de armazenamento de mensagens
 
@@ -124,7 +124,7 @@ As mensagens com letras mortas serão armazenadas no seguinte formato na sua con
 
 As mensagens com letras mortas corresponderão ao esquema do evento original que se destinava a ser entregue no seu ponto final original.
 
-Aqui está um exemplo de uma mensagem de letra morta para uma [notificação de criação de gémeos:](./how-to-interpret-event-data.md#digital-twin-life-cycle-notifications)
+Aqui está um exemplo de uma mensagem de letra morta para uma [notificação de criação de gémeos:](how-to-interpret-event-data.md#digital-twin-life-cycle-notifications)
 
 ```json
 {
