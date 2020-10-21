@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 50d077c1d7c9e4e421a43a4e0379b57608d1192c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63663d228052934616a59f5d84ff16a6510e46c9
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361771"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282082"
 ---
 # <a name="understanding-the-differences-between-nosql-and-relational-databases"></a>Compreender as diferenças entre as bases de dados NoSQL e as bases de dados relacionais
 
@@ -95,8 +95,8 @@ Saiba como gerir a sua conta Azure Cosmos e outros conceitos:
 * [Como gerir a sua conta Azure Cosmos](how-to-manage-database-account.md)
 * [Distribuição global](distribute-data-globally.md)
 * [Níveis de consistência](consistency-levels.md)
-* [Trabalhar com contentores e itens da Azure Cosmos](databases-containers-items.md)
-* [Ponto final de serviço VNET para a sua conta Azure Cosmos](vnet-service-endpoint.md)
-* [FIREWALL para a sua conta Azure Cosmos](firewall-support.md)
+* [Trabalhar com contentores e itens da Azure Cosmos](account-databases-containers-items.md)
+* [Ponto final de serviço VNET para a sua conta Azure Cosmos](how-to-configure-vnet-service-endpoint.md)
+* [FIREWALL para a sua conta Azure Cosmos](how-to-configure-firewall.md)
 * [Como adicionar e remover regiões do Azure na sua conta Azure Cosmos](how-to-manage-database-account.md)
 * [Azure Cosmos DB SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

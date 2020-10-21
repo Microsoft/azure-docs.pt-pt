@@ -7,18 +7,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 9d8bd72b6a03164a41e0b7c0ff00ac728cecf7f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17c01188f783664747b7c20b9703ee5d33a8ab3f
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91355391"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278742"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Transações e controlo de simultaneidade otimista
 
 As transações de base de dados fornecem um modelo de programação seguro e previsível para lidar com alterações simultâneas aos dados. As bases de dados relacionais tradicionais, como o SQL Server, permitem-lhe escrever a lógica de negócio utilizando procedimentos armazenados e/ou gatilhos, enviando-o para o servidor para execução diretamente dentro do motor da base de dados. Com bases de dados relacionais tradicionais, é-lhe exigido que lide com duas linguagens de programação diferentes, a linguagem de programação de aplicações (não transacional), como JavaScript, Python, C#, Java, etc. e a linguagem de programação transacional (como o T-SQL) que é executada de forma nativa pela base de dados.
 
-O motor de base de dados em Azure Cosmos DB suporta transações completas acid (Atomicity, Consistência, Isolamento, Durabilidade) com isolamento instantâneo. Todas as operações de base de dados no âmbito da [partição lógica](partition-data.md) de um contentor são executadas transacionalmente dentro do motor de base de dados que é hospedado pela réplica da partição. Estas operações incluem tanto escrever (atualizar um ou mais itens dentro da partição lógica) e ler operações. O quadro a seguir ilustra diferentes operações e tipos de transações:
+O motor de base de dados em Azure Cosmos DB suporta transações completas acid (Atomicity, Consistência, Isolamento, Durabilidade) com isolamento instantâneo. Todas as operações de base de dados no âmbito da [partição lógica](partitioning-overview.md) de um contentor são executadas transacionalmente dentro do motor de base de dados que é hospedado pela réplica da partição. Estas operações incluem tanto escrever (atualizar um ou mais itens dentro da partição lógica) e ler operações. O quadro a seguir ilustra diferentes operações e tipos de transações:
 
 | **Operação**  | **Tipo de operação** | **Transação de item único ou multi-itens** |
 |---------|---------|---------|
@@ -61,7 +61,7 @@ O valor do item `_etag` muda sempre que o item é atualizado. Para substituir as
 
 Saiba mais sobre as transações de bases de dados e o controlo otimista da conuscção nos seguintes artigos:
 
-- [Trabalhar com bases de dados, contentores e itens da Azure Cosmos](databases-containers-items.md)
+- [Trabalhar com bases de dados, contentores e itens da Azure Cosmos](account-databases-containers-items.md)
 - [Níveis de consistência](consistency-levels.md)
 - [Tipos de conflito e políticas de resolução](conflict-resolution-policies.md)
 - [Procedimentos armazenados, gatilhos e funções definidas pelo utilizador](stored-procedures-triggers-udfs.md)

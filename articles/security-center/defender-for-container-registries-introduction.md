@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 12264a79ee5428e98d6cf7d37bef6706295e68dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c504ebdec524390d9deb22088979199f80e4f13
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448376"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275966"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introdução ao Azure Defender para registos de contentores
 
@@ -66,7 +66,7 @@ O Centro de Segurança filtra e classifica as descobertas do scanner. Quando uma
 
 ### <a name="can-i-get-the-scan-results-via-rest-api"></a>Posso obter os resultados da digitalização através da REST API?
 Sim. Os resultados estão em [Sub-Avaliações Rest API](/rest/api/securitycenter/subassessments/list/). Além disso, pode utilizar o Azure Resource Graph (ARG), a API semelhante a Kusto para todos os seus recursos: uma consulta pode obter uma digitalização específica.
- 
+
 ### <a name="what-registry-types-are-scanned-what-types-are-billed"></a>Que tipos de registo são digitalizados? Que tipos são cobrados?
 Para obter uma lista dos tipos de registos de contentores suportados pelo Azure Defender para registos de contentores, consulte [Disponibilidade](defender-for-container-registries-usage.md#availability).
 

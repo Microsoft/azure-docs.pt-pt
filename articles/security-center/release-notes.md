@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: eb5e5cc97b13d8eb8e671501e9b16479ba59642a
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: a93ba674e82da090eb2b7c8805880f6e79d7e5d7
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999298"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280206"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
@@ -28,6 +28,136 @@ Esta página é atualizada com frequência, por isso revisite-a com frequência.
 > [!TIP]
 > Se procura itens com mais de seis meses, vai encontrá-los no Arquivo para o [que há de novo no Azure Security Center.](release-notes-archive.md)
 
+
+## <a name="october-2020"></a>Outubro de 2020
+
+- [Avaliação de vulnerabilidade para máquinas no local e multi-nuvens (pré-visualização)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview)
+- [Recomendação do Azure Firewall adicionada (pré-visualização)](#azure-firewall-recommendation-added-preview)
+- [Microsoft.Security/securityStatuses removido do Azure Resource Graph (ARG)](#microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg)
+
+### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview"></a>Avaliação de vulnerabilidade para máquinas no local e multi-nuvens (pré-visualização)
+
+[O Azure Defender para](defender-for-servers-introduction.md)o scanner integrado de avaliação de vulnerabilidades dos servidores (alimentado por Qualys) agora verifica servidores ativados a Azure Arc.
+
+Quando tiver ativado o Azure Arc nas suas máquinas não-Azure, o Security Center oferecer-se-á para implementar o scanner integrado de vulnerabilidade neles - manual e à escala.
+
+Com esta atualização, pode libertar o poder do **Azure Defender para os servidores** consolidarem o seu programa de gestão de vulnerabilidades em todos os seus ativos Azure e não-Azure.
+
+Principais capacidades:
+
+- Monitorização do estado de provisionamento do scanner VA (avaliação de vulnerabilidade) nas máquinas Azure Arc
+- Provisionando o agente VA integrado às máquinas de Windows e Arú azul desprotegidas (manual e à escala)
+- Receber e analisar vulnerabilidades detetadas de agentes implantados (manualmente e à escala)
+- Experiência unificada para VMs Azure e máquinas Azure Arc
+
+[Saiba mais sobre a implementação do scanner de vulnerabilidade integrado nas suas máquinas híbridas.](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines)
+
+[Saiba mais sobre os servidores ativados do Azure Arc](https://docs.microsoft.com/azure/azure-arc/servers/).
+
+
+### <a name="azure-firewall-recommendation-added-preview"></a>Recomendação do Azure Firewall adicionada (pré-visualização)
+
+Foi adicionada uma nova recomendação para proteger todas as suas redes virtuais com a Azure Firewall.
+
+A recomendação, **as redes virtuais devem ser protegidas pelo Azure Firewall,** aconselha-o a restringir o acesso às suas redes virtuais e a prevenir potenciais ameaças utilizando o Azure Firewall.
+
+Saiba mais sobre [a Azure Firewall](https://azure.microsoft.com/services/azure-firewall/).
+
+
+### <a name="microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg"></a>Microsoft.Security/securityStatuses removido do Azure Resource Graph (ARG)
+
+O Azure Resource Graph é um serviço em Azure que é projetado para fornecer uma exploração eficiente de recursos com a capacidade de consultar em escala através de um determinado conjunto de subscrições para que possa governar eficazmente o seu ambiente. 
+
+Para o Azure Security Center, pode utilizar o ARG e a [Língua De Consulta de Kusto (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/) para consultar uma ampla gama de dados de postura de segurança. Por exemplo:
+
+- Utilizações de inventário de ativos (ARG)
+- Documentamos uma consulta de amostra ARG sobre como [identificar contas sem autenticação de vários fatores (MFA) ativada](security-center-identity-access.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)
+
+Dentro da ARG existem tabelas de dados para utilizar nas suas consultas.
+
+:::image type="content" source="./media/release-notes/azure-resource-graph-tables.png" alt-text="Azure Resource Graph Explorer e as tabelas disponíveis&quot;:::
+
+> [!TIP]
+> A documentação ARG lista todas as tabelas disponíveis na [tabela Azure Resource Graph e referência do tipo de recurso.](../governance/resource-graph/reference/supported-tables-resources.md)
+
+A partir desta atualização, a tabela **Microsoft.Security/securityStatuses** foi removida. A API de segurançastatuses ainda está disponível.
+
+A substituição de dados pode ser utilizada pela tabela Microsoft.Security/Assessments.
+
+A grande diferença entre microsoft.Security/securityStatuses e Microsoft.Security/Assessments é que, embora a primeira mostre agregação de avaliações, os segundos detenha um único recorde para cada um.
+
+Por exemplo, microsoft.Security/securityStatuses devolveria um resultado com uma série de duas avaliações de política:
+
+```
+{
+id: &quot;/subscriptions/449bcidd-3470-4804-ab56-2752595 felab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/securityStatuses/mico-rg-vnet&quot;,
+name: &quot;mico-rg-vnet&quot;,
+type: &quot;Microsoft.Security/securityStatuses&quot;,
+properties:  {
+    policyAssessments: [
+        {assessmentKey: &quot;e3deicce-f4dd-3b34-e496-8b5381bazd7e&quot;, category: &quot;Networking&quot;, policyName: &quot;Azure DDOS Protection Standard should be enabled&quot;,...},
+        {assessmentKey: &quot;sefac66a-1ec5-b063-a824-eb28671dc527&quot;, category: &quot;Compute&quot;, policyName: &quot;&quot;,...}
+    ],
+    securitystateByCategory: [{category: &quot;Networking&quot;, securityState: &quot;None&quot; }, {category: &quot;Compute&quot;,...],
+    name: &quot;GenericResourceHealthProperties&quot;,
+    type: &quot;VirtualNetwork&quot;,
+    securitystate: &quot;High"
+}
+```
+Considerando que a Microsoft.Security/Assessments manterá um registo para cada avaliação de política da seguinte forma:
+
+```
+{
+type: "Microsoft.Security/assessments",
+id:  "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourceGroups/mico-rg/providers/Microsoft. Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/assessments/e3delcce-f4dd-3b34-e496-8b5381ba2d70",
+name: "e3deicce-f4dd-3b34-e496-8b5381ba2d70",
+properties:  {
+    resourceDetails: {Source: "Azure", Id: "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet"...},
+    displayName: "Azure DDOS Protection Standard should be enabled",
+    status: (code: "NotApplicable", cause: "VnetHasNOAppGateways", description: "There are no Application Gateway resources attached to this Virtual Network"...}
+}
+
+{
+type: "Microsoft.Security/assessments",
+id:  "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourcegroups/mico-rg/providers/microsoft.network/virtualnetworks/mico-rg-vnet/providers/Microsoft.Security/assessments/80fac66a-1ec5-be63-a824-eb28671dc527",
+name: "8efac66a-1ec5-be63-a824-eb28671dc527",
+properties: {
+    resourceDetails: (Source: "Azure", Id: "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourcegroups/mico-rg/providers/microsoft.network/virtualnetworks/mico-rg-vnet"...),
+    displayName: "Audit diagnostic setting",
+    status:  {code: "Unhealthy"}
+}
+```
+
+**Exemplo de conversão de uma consulta ARG existente utilizando segurançaSés para utilizar agora o quadro de avaliações:**
+
+Consulta que refere Índices de Segurança:
+
+```kusto
+SecurityResources 
+| where type == 'microsoft.security/securitystatuses' and properties.type == 'virtualMachine'
+| where name in ({vmnames}) 
+| project name, resourceGroup, policyAssesments = properties.policyAssessments, resourceRegion = location, id, resourceDetails = properties.resourceDetails
+```
+
+Consulta de substituição do quadro de avaliações:
+
+```kusto
+securityresources
+| where type == "microsoft.security/assessments" and id contains "virtualMachine"
+| extend resourceName = extract(@"(?i)/([^/]*)/providers/Microsoft.Security/assessments", 1, id)
+| extend source = tostring(properties.resourceDetails.Source)
+| extend resourceId = trim(" ", tolower(tostring(case(source =~ "azure", properties.resourceDetails.Id,
+source =~ "aws", properties.additionalData.AzureResourceId,
+source =~ "gcp", properties.additionalData.AzureResourceId,
+extract("^(.+)/providers/Microsoft.Security/assessments/.+$",1,id)))))
+| extend resourceGroup = tolower(tostring(split(resourceId, "/")[4]))
+| where resourceName in ({vmnames}) 
+| project resourceName, resourceGroup, resourceRegion = location, id, resourceDetails = properties.additionalData
+```
+
+Saiba mais nos seguintes links:
+- [Como criar consultas com o Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
+- [Linguagem de Consulta Kusto (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/)
 
 
 ## <a name="september-2020"></a>Setembro de 2020
@@ -180,7 +310,33 @@ As ferramentas integradas de avaliação de vulnerabilidades do Security Center 
 
 Os resultados de segurança estão agora disponíveis para exportação através de exportação contínua quando seleciona recomendações e permite a opção **de conclusões de segurança.**
 
-:::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Incluir resultados de segurança alternando na configuração contínua da exportação" :::
+:::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Azure Resource Graph Explorer e as tabelas disponíveis&quot;:::
+
+> [!TIP]
+> A documentação ARG lista todas as tabelas disponíveis na [tabela Azure Resource Graph e referência do tipo de recurso.](../governance/resource-graph/reference/supported-tables-resources.md)
+
+A partir desta atualização, a tabela **Microsoft.Security/securityStatuses** foi removida. A API de segurançastatuses ainda está disponível.
+
+A substituição de dados pode ser utilizada pela tabela Microsoft.Security/Assessments.
+
+A grande diferença entre microsoft.Security/securityStatuses e Microsoft.Security/Assessments é que, embora a primeira mostre agregação de avaliações, os segundos detenha um único recorde para cada um.
+
+Por exemplo, microsoft.Security/securityStatuses devolveria um resultado com uma série de duas avaliações de política:
+
+```
+{
+id: &quot;/subscriptions/449bcidd-3470-4804-ab56-2752595 felab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/securityStatuses/mico-rg-vnet&quot;,
+name: &quot;mico-rg-vnet&quot;,
+type: &quot;Microsoft.Security/securityStatuses&quot;,
+properties:  {
+    policyAssessments: [
+        {assessmentKey: &quot;e3deicce-f4dd-3b34-e496-8b5381bazd7e&quot;, category: &quot;Networking&quot;, policyName: &quot;Azure DDOS Protection Standard should be enabled&quot;,...},
+        {assessmentKey: &quot;sefac66a-1ec5-b063-a824-eb28671dc527&quot;, category: &quot;Compute&quot;, policyName: &quot;&quot;,...}
+    ],
+    securitystateByCategory: [{category: &quot;Networking&quot;, securityState: &quot;None&quot; }, {category: &quot;Compute&quot;,...],
+    name: &quot;GenericResourceHealthProperties&quot;,
+    type: &quot;VirtualNetwork&quot;,
+    securitystate: &quot;High" :::
 
 Páginas relacionadas:
 
@@ -245,7 +401,33 @@ Além disso, as recomendações **de pré-visualização** não tornam um recurs
 
 Um exemplo de uma recomendação de pré-visualização:
 
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Incluir resultados de segurança alternando na configuração contínua da exportação":::
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Azure Resource Graph Explorer e as tabelas disponíveis&quot;:::
+
+> [!TIP]
+> A documentação ARG lista todas as tabelas disponíveis na [tabela Azure Resource Graph e referência do tipo de recurso.](../governance/resource-graph/reference/supported-tables-resources.md)
+
+A partir desta atualização, a tabela **Microsoft.Security/securityStatuses** foi removida. A API de segurançastatuses ainda está disponível.
+
+A substituição de dados pode ser utilizada pela tabela Microsoft.Security/Assessments.
+
+A grande diferença entre microsoft.Security/securityStatuses e Microsoft.Security/Assessments é que, embora a primeira mostre agregação de avaliações, os segundos detenha um único recorde para cada um.
+
+Por exemplo, microsoft.Security/securityStatuses devolveria um resultado com uma série de duas avaliações de política:
+
+```
+{
+id: &quot;/subscriptions/449bcidd-3470-4804-ab56-2752595 felab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/securityStatuses/mico-rg-vnet&quot;,
+name: &quot;mico-rg-vnet&quot;,
+type: &quot;Microsoft.Security/securityStatuses&quot;,
+properties:  {
+    policyAssessments: [
+        {assessmentKey: &quot;e3deicce-f4dd-3b34-e496-8b5381bazd7e&quot;, category: &quot;Networking&quot;, policyName: &quot;Azure DDOS Protection Standard should be enabled&quot;,...},
+        {assessmentKey: &quot;sefac66a-1ec5-b063-a824-eb28671dc527&quot;, category: &quot;Compute&quot;, policyName: &quot;&quot;,...}
+    ],
+    securitystateByCategory: [{category: &quot;Networking&quot;, securityState: &quot;None&quot; }, {category: &quot;Compute&quot;,...],
+    name: &quot;GenericResourceHealthProperties&quot;,
+    type: &quot;VirtualNetwork&quot;,
+    securitystate: &quot;High":::
 
 [Saiba mais sobre pontuação segura](secure-score-security-controls.md).
 
@@ -254,7 +436,33 @@ Um exemplo de uma recomendação de pré-visualização:
 
 A página de detalhes para recomendações inclui agora um indicador de intervalo de frescura (sempre que relevante) e uma clara demonstração da gravidade da recomendação.
 
-:::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="Incluir resultados de segurança alternando na configuração contínua da exportação":::
+:::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="Azure Resource Graph Explorer e as tabelas disponíveis&quot;:::
+
+> [!TIP]
+> A documentação ARG lista todas as tabelas disponíveis na [tabela Azure Resource Graph e referência do tipo de recurso.](../governance/resource-graph/reference/supported-tables-resources.md)
+
+A partir desta atualização, a tabela **Microsoft.Security/securityStatuses** foi removida. A API de segurançastatuses ainda está disponível.
+
+A substituição de dados pode ser utilizada pela tabela Microsoft.Security/Assessments.
+
+A grande diferença entre microsoft.Security/securityStatuses e Microsoft.Security/Assessments é que, embora a primeira mostre agregação de avaliações, os segundos detenha um único recorde para cada um.
+
+Por exemplo, microsoft.Security/securityStatuses devolveria um resultado com uma série de duas avaliações de política:
+
+```
+{
+id: &quot;/subscriptions/449bcidd-3470-4804-ab56-2752595 felab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/securityStatuses/mico-rg-vnet&quot;,
+name: &quot;mico-rg-vnet&quot;,
+type: &quot;Microsoft.Security/securityStatuses&quot;,
+properties:  {
+    policyAssessments: [
+        {assessmentKey: &quot;e3deicce-f4dd-3b34-e496-8b5381bazd7e&quot;, category: &quot;Networking&quot;, policyName: &quot;Azure DDOS Protection Standard should be enabled&quot;,...},
+        {assessmentKey: &quot;sefac66a-1ec5-b063-a824-eb28671dc527&quot;, category: &quot;Compute&quot;, policyName: &quot;&quot;,...}
+    ],
+    securitystateByCategory: [{category: &quot;Networking&quot;, securityState: &quot;None&quot; }, {category: &quot;Compute&quot;,...],
+    name: &quot;GenericResourceHealthProperties&quot;,
+    type: &quot;VirtualNetwork&quot;,
+    securitystate: &quot;High":::
 
 
 
@@ -678,7 +886,33 @@ Os controlos de segurança - e este alternador - fazem parte da nova experiênci
 
 Saiba mais sobre os controlos de segurança na [pontuação de segurança melhorada (pré-visualização) no Azure Security Center](secure-score-security-controls.md).
 
-:::image type="content" source="./media/secure-score-security-controls/recommendations-group-by-toggle.gif" alt-text="Incluir resultados de segurança alternando na configuração contínua da exportação":::
+:::image type="content" source="./media/secure-score-security-controls/recommendations-group-by-toggle.gif" alt-text="Azure Resource Graph Explorer e as tabelas disponíveis&quot;:::
+
+> [!TIP]
+> A documentação ARG lista todas as tabelas disponíveis na [tabela Azure Resource Graph e referência do tipo de recurso.](../governance/resource-graph/reference/supported-tables-resources.md)
+
+A partir desta atualização, a tabela **Microsoft.Security/securityStatuses** foi removida. A API de segurançastatuses ainda está disponível.
+
+A substituição de dados pode ser utilizada pela tabela Microsoft.Security/Assessments.
+
+A grande diferença entre microsoft.Security/securityStatuses e Microsoft.Security/Assessments é que, embora a primeira mostre agregação de avaliações, os segundos detenha um único recorde para cada um.
+
+Por exemplo, microsoft.Security/securityStatuses devolveria um resultado com uma série de duas avaliações de política:
+
+```
+{
+id: &quot;/subscriptions/449bcidd-3470-4804-ab56-2752595 felab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/securityStatuses/mico-rg-vnet&quot;,
+name: &quot;mico-rg-vnet&quot;,
+type: &quot;Microsoft.Security/securityStatuses&quot;,
+properties:  {
+    policyAssessments: [
+        {assessmentKey: &quot;e3deicce-f4dd-3b34-e496-8b5381bazd7e&quot;, category: &quot;Networking&quot;, policyName: &quot;Azure DDOS Protection Standard should be enabled&quot;,...},
+        {assessmentKey: &quot;sefac66a-1ec5-b063-a824-eb28671dc527&quot;, category: &quot;Compute&quot;, policyName: &quot;&quot;,...}
+    ],
+    securitystateByCategory: [{category: &quot;Networking&quot;, securityState: &quot;None&quot; }, {category: &quot;Compute&quot;,...],
+    name: &quot;GenericResourceHealthProperties&quot;,
+    type: &quot;VirtualNetwork&quot;,
+    securitystate: &quot;High":::
 
 ### <a name="expanded-security-control-implement-security-best-practices"></a>Controlo de segurança alargado "Implementar as melhores práticas de segurança" 
 
@@ -731,47 +965,3 @@ Alguns dos benefícios desta transição:
 - **Agregação de alerta** - Quando o CDA detetou vários padrões de ataque dentro de uma única lixeira de colisão, desencadeou vários alertas de segurança. A deteção de ataques sem ficheiro combina todos os padrões de ataque identificados do mesmo processo num único alerta, removendo a necessidade de correlacionar vários alertas.
 
 - **Requisitos reduzidos no seu espaço de trabalho Log Analytics** - Os despejos de crash que contenham dados potencialmente sensíveis deixarão de ser enviados para o seu espaço de trabalho Log Analytics.
-
-
-
-## <a name="april-2020"></a>Abril de 2020
-
-As atualizações em abril incluem:
-- [Pacotes de conformidade dinâmicos estão agora geralmente disponíveis](#dynamic-compliance-packages-are-now-generally-available)
-- [Recomendações de identidade agora incluídas no free tier do Azure Security Center](#identity-recommendations-now-included-in-azure-security-center-free-tier)
-
-
-### <a name="dynamic-compliance-packages-are-now-generally-available"></a>Pacotes de conformidade dinâmicos estão agora geralmente disponíveis
-
-O painel de conformidade regulamentar do Azure Security Center inclui agora **pacotes de conformidade dinâmicos** (agora geralmente disponíveis) para acompanhar normas adicionais da indústria e regulamentares.
-
-Pacotes de conformidade dinâmicos podem ser adicionados ao seu grupo de subscrição ou gestão a partir da página de política de segurança do Centro de Segurança. Quando você tem bordo um padrão ou benchmark, o padrão aparece no seu painel de conformidade regulamentar com todos os dados de conformidade associados mapeados como avaliações. Um relatório resumo de qualquer uma das normas que foram a bordo estará disponível para download.
-
-Agora, pode adicionar padrões como:
-
-- **NIST SP 800-53 R4**
-- **SWIFT CSP CSCF-v2020**
-- **UK Official and UK NHS**
-- **Canada Federal PBMM**
-- **Azure CIS 1.1.0 (novo)** (que é uma representação mais completa do Azure CIS 1.1.0)
-
-Além disso, adicionámos recentemente o **Azure Security Benchmark**, as diretrizes específicas para segurança e conformidade da Microsoft para as melhores práticas de segurança e conformidade baseadas em quadros comuns de conformidade. As normas adicionais serão suportadas no painel de instrumentos à medida que se tornarem disponíveis.  
- 
-Saiba mais sobre [a personalização do conjunto de normas no seu painel de conformidade regulamentar.](update-regulatory-compliance-packages.md)
-
-
-### <a name="identity-recommendations-now-included-in-azure-security-center-free-tier"></a>Recomendações de identidade agora incluídas no free tier do Azure Security Center
-
-Recomendações de segurança para identidade e acesso no free tier do Azure Security Center estão agora geralmente disponíveis. Isto faz parte do esforço para tornar gratuita a gestão da postura de segurança na nuvem (CSPM). Até agora, estas recomendações só estavam disponíveis no nível normal de preços.
-
-Exemplos de recomendações de identidade e acesso incluem:
-
-- "A autenticação multifactor deve ser ativada em contas com permissões do proprietário na sua subscrição."
-- "Um máximo de três proprietários deve ser designado para a sua assinatura."
-- "As contas precotados devem ser removidas da sua subscrição."
-
-Se tiver subscrições no nível de preços gratuitos, as suas pontuações seguras serão impactadas por esta alteração, uma vez que nunca foram avaliadas pela sua identidade e segurança de acesso.
-
-Saiba mais sobre [recomendações de identidade e acesso.](recommendations-reference.md#recs-identity)
-
-Saiba mais sobre [a monitorização da identidade e do acesso.](security-center-identity-access.md)

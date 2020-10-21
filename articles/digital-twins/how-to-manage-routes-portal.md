@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8549fba2071ce98b206b3babe073137817aa3145
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d60297ba3bf16eac496703635ec8faf647c7f94
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91252838"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279362"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gerir pontos finais e rotas em Azure Digital Twins (portal)
 
@@ -117,6 +117,14 @@ Pode verificar se o ponto final foi criado com sucesso, verificando o ícone de 
 Se a criação do ponto final falhar, observe a mensagem de erro e redaça após alguns minutos.
 
 Agora, o tópico do Service Bus está disponível como ponto final dentro da Azure Digital Twins, sob o nome especificado no campo _Nome._ Normalmente, você usará esse nome como alvo de uma rota de **eventos**, que irá criar [mais tarde neste artigo.](#event-routes)
+
+### <a name="create-an-endpoint-with-dead-lettering"></a>Criar um ponto final com letras mortas
+
+Quando um ponto final não consegue entregar um evento dentro de um determinado período de tempo ou depois de tentar entregar o evento um certo número de vezes, pode enviar o evento não entregue para uma conta de armazenamento. Este processo é conhecido como **letra morta.**
+
+Para criar um ponto final com letras mortas ativadas, deve utilizar as [APIs ARM](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) para criar o seu ponto final, em vez do portal Azure.
+
+Para obter instruções sobre como fazê-lo com as APIs, consulte as [*APIs e a*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) versão CLI deste artigo.
 
 ## <a name="event-routes"></a>Rotas de eventos
 

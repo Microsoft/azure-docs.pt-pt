@@ -4,12 +4,12 @@ description: Este artigo percorre a experiência de implementar uma aplicação 
 ms.topic: conceptual
 ms.date: 8/5/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 61eba8b7285c2a015ee40d48bc4a73850b412576
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee040916ae1ce6ac931abc1fc07021b08cdbf895
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89075193"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309059"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Upgrade de aplicação de tecido de serviço usando PowerShell
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ Uma atualização de aplicações monitorizada pode ser realizada usando as APIs
 Com o Service Fabric monitorizado a fazer upgrades, o administrador de aplicação pode configurar a política de avaliação de saúde que o Service Fabric utiliza para determinar se a aplicação é saudável. Além disso, o administrador pode configurar as medidas a tomar quando a avaliação de saúde falhar (por exemplo, fazer um revés automático.) Esta secção passa por uma atualização monitorizada para uma das amostras SDK que utiliza o PowerShell. 
 
 > [!NOTE]
-> [ApplicationParameter](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s não são preservados através de uma atualização de aplicações. Para preservar os parâmetros de aplicação atuais, o utilizador deve obter os parâmetros primeiro e passá-los para a chamada de API de upgrade como abaixo:
+> [ApplicationParameter](/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s não são preservados através de uma atualização de aplicações. Para preservar os parâmetros de aplicação atuais, o utilizador deve obter os parâmetros primeiro e passá-los para a chamada de API de upgrade como abaixo:
 ```powershell
 $myApplication = Get-ServiceFabricApplication -ApplicationName fabric:/myApplication
 $appParamCollection = $myApplication.ApplicationParameters
@@ -149,4 +149,3 @@ Torne as atualizações da sua aplicação compatíveis aprendendo a utilizar a 
 Aprenda a utilizar funcionalidades avançadas ao atualizar a sua aplicação referindo-se a [tópicos avançados.](service-fabric-application-upgrade-advanced.md)
 
 Corrija problemas comuns nas atualizações de aplicações referindo-se aos passos nas [atualizações de aplicações de resolução de problemas](service-fabric-application-upgrade-troubleshooting.md).
-

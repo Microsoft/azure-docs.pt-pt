@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 05/01/2020
 ms.author: mjbrown
-ms.openlocfilehash: 94c41df305abe3e1678efc1dc59d0c855c5cb069
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d2b6334769d7dcb1fda66119188c35a3951efd8
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87506683"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282751"
 ---
 # <a name="list-and-get-databases-and-graphs-for-azure-cosmos-db---mongodb-api"></a>Listar e obter bases de dados e gráficos para Azure Cosmos DB - MongoDB API
 
@@ -49,5 +49,3 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 ## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
-
-Pode ver exemplos do script do Azure PowerShell Cosmos DB adicionais nos [scripts do PowerShell do Azure Cosmos DB](../../../powershell-samples.md).

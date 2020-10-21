@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: ac7879590424fa921425dcd077503733affeb634
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ef5c0cb0ffca5cc156d64074ebe241cebbcfb8e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361752"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277271"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-sync-java-sdk-v2"></a>Dicas de desempenho para Azure Cosmos DB Sync Java SDK v2
 
@@ -35,7 +35,7 @@ Azure Cosmos DB é uma base de dados distribuída rápida e flexível que escala
 
 Então, se está a perguntar"Como posso melhorar o desempenho da minha base de dados?" Considerar as seguintes opções:
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 <a id="direct-connection"></a>
 
 1. **Modo de ligação: Utilize directHttps**
@@ -184,4 +184,4 @@ Então, se está a perguntar"Como posso melhorar o desempenho da minha base de d
     A taxa de pedido (custo de processamento do pedido) de uma determinada operação está diretamente correlacionada com a dimensão do documento. As operações em grandes documentos custam mais do que operações para pequenos documentos.
 
 ## <a name="next-steps"></a>Passos seguintes
-Para saber mais sobre a conceção da sua aplicação para escala e alto desempenho, consulte [Partition e dimensionamento em Azure Cosmos DB](partition-data.md).
+Para saber mais sobre a conceção da sua aplicação para escala e alto desempenho, consulte [Partition e dimensionamento em Azure Cosmos DB](partitioning-overview.md).

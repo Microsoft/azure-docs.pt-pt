@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 10/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: be43b74e7128f9b250d25f8bdb2642c6f7b41d2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6adb06f22013e68987f3315d52e3594fba63907
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87115532"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309019"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Pedir tokens de acesso no Azure Active Directory B2C
 
@@ -50,10 +50,15 @@ O exemplo seguinte mostra os âmbitos codificados num URL:
 scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fapi%2Fread%20openid%20offline_access
 ```
 
-Se pedir mais âmbitos do que aqueles que forem concedidos à sua aplicação cliente, a chamada é bem-sucedida se for concedida pelo menos uma permissão. .A afirmação **scp** no token de acesso resultante é preenchida apenas com as permissões que foram devidamente concedidas. A norma OpenID Connect especifica vários valores de âmbitos especiais. Os âmbitos seguintes representam a permissão para aceder ao perfil do utilizador:
+Se pedir mais âmbitos do que aqueles que forem concedidos à sua aplicação cliente, a chamada é bem-sucedida se for concedida pelo menos uma permissão. .A afirmação **scp** no token de acesso resultante é preenchida apenas com as permissões que foram devidamente concedidas. 
+
+### <a name="openid-connect-scopes"></a>Âmbitos de ligação OpenID
+
+A norma OpenID Connect especifica vários valores de âmbitos especiais. Os âmbitos seguintes representam a permissão para aceder ao perfil do utilizador:
 
 - **openid** - pede um token de ID.
 - **offline_access** - peça um token de atualização com os [fluxos de Código de Autorização](authorization-code-flow.md).
+- **0000000-0000-0000-0000-000000000000000000000** - Usando o ID do cliente como o âmbito indica que a sua aplicação precisa de um token de acesso que pode ser usado contra o seu próprio serviço ou API web, representado pelo mesmo ID do cliente.
 
 Se o parâmetro **response_type** num pedido `/authorize` incluir `token`, o parâmetro **scope** tem de incluir pelo menos um âmbito de recurso que não `openid` e `offline_access` que vão ser concedidos. Caso contrário, o pedido `/authorize` falha.
 

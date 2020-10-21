@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 07779769dae4c43148bbf4a8205feceea85ed363
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52ae961a813b6d14592953fdf8662cbaecf662e1
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87320056"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280445"
 ---
 # <a name="managed-application-metered-billing"></a>Faturação gerida com medidos de aplicação 
 
@@ -117,7 +117,7 @@ Se tiver um dos seguintes problemas, pode abrir um bilhete de apoio.
 * Um problema que precisa de ser agravado devido a um erro ou erro do seu lado (ex. evento de utilização errada).
 * Quaisquer outras questões relacionadas com a faturação medido.
 
-Siga a instrução de [Suporte ao programa de marketplace comercial no Partner Center](./support.md) para entender as opções de suporte dos editores e abrir o bilhete de suporte com a Microsoft.
+Siga a instrução de [Suporte ao programa de marketplace comercial no Partner Center](../support.md) para entender as opções de suporte dos editores e abrir o bilhete de suporte com a Microsoft.
 
 ## <a name="next-steps"></a>Passos seguintes
 

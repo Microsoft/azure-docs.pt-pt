@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: a992d240955f42ec030a84c887ba086ce92f9790
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb47dde8813f31f4a6acceb696a8b7c7eb0095be
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88605261"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281532"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Modelo de preços no Azure Cosmos DB
 
@@ -19,7 +19,7 @@ O modelo de preços do Azure Cosmos DB simplifica a gestão e o planeamento de 
 
 - **Operações de base de dados**: A forma como é cobrado pelas suas operações de base de dados depende do tipo de conta Azure Cosmos que está a utilizar.
 
-  - **Produção prevista**: [A produção proviscizada](set-throughput.md) (também designada por produção reservada) garante um elevado desempenho em qualquer escala. Especifica a produção de que necessita nas [Unidades](request-units.md) de Pedido por segundo (RU/s), e a Azure Cosmos DB dedica os recursos necessários para garantir a produção configurada. Pode [provistirá a produção numa base de dados ou num contentor.](set-throughput.md) Com base nas suas necessidades de carga de trabalho, pode escalar a produção para cima/para baixo a qualquer momento ou utilizar [a autoescala](provision-throughput-autoscale.md) (embora exista um rendimento mínimo exigido numa base de dados ou num recipiente para garantir as SLAs). É cobrado de hora a hora para o rendimento máximo previsto por uma hora.
+  - **Produção provisão**: [A produção proviscizada](set-throughput.md) (também designada por produção reservada) proporciona um elevado desempenho em qualquer escala. Especifica a produção de que necessita nas [Unidades](request-units.md) de Pedido por segundo (RU/s), e a Azure Cosmos DB dedica os recursos necessários para fornecer a produção configurada. Pode [provistirá a produção numa base de dados ou num contentor.](set-throughput.md) Com base nas suas necessidades de carga de trabalho, pode escalar a produção para cima/para baixo a qualquer momento ou utilizar [a autoescala](provision-throughput-autoscale.md) (embora exista um rendimento mínimo exigido numa base de dados ou num recipiente para garantir as SLAs). É cobrado de hora a hora para o rendimento máximo previsto por uma hora.
 
    > [!NOTE]
    > Como o modelo de produção a provisionado dedica recursos ao seu contentor ou base de dados, será cobrado pelo rendimento que a provisionou, mesmo que não execute nenhuma carga de trabalho.

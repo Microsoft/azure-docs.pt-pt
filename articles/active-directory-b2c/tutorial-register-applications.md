@@ -12,12 +12,12 @@ ms.date: 04/10/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f278f0713280dde27d6c3892b4d1f1557d17ecb4
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: d38f10e5a4f2562825ed2374317602b0640894ae
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215948"
+ms.locfileid: "92275873"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>Tutorial: Registar uma aplicação web no Azure Ative Directory B2C
 
@@ -26,9 +26,9 @@ Antes de as suas [candidaturas](application-types.md) poderem interagir com o Az
 Uma "aplicação web" refere-se a uma aplicação web tradicional que executa a maior parte da lógica de aplicação no servidor. Podem ser construídos com estruturas como ASP.NET Core, Maven (Java), Flask (Python) e Express (Node.js).
 
 > [!IMPORTANT]
-> Se estiver a utilizar uma **aplicação de uma página ("SPA")** em vez disso (por exemplo, utilizando angular, vue ou React), aprenda [a registar uma aplicação de uma página](tutorial-register-spa.md).
+> Se estiver a utilizar uma aplicação de uma página ("SPA") em vez disso (por exemplo, utilizando angular, vue ou React), aprenda [a registar uma aplicação de uma página](tutorial-register-spa.md).
 > 
-> Se estiver a utilizar uma **aplicação nativa** (por exemplo, iOS, Android, mobile & desktop), aprenda [a registar uma aplicação de cliente nativo](add-native-application.md).
+> Se estiver a utilizar uma aplicação nativa (por exemplo, iOS, Android, mobile & desktop), aprenda [a registar uma aplicação de cliente nativo](add-native-application.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -67,13 +67,11 @@ Para registar uma aplicação web no seu inquilino Azure AD B2C, pode utilizar a
 1. Selecione **Aplicações (Legado)** e, em seguida, **selecione Adicionar**.
 1. Introduza um nome para a aplicação. Por exemplo, *webapp1*.
 1. Para **incluir aplicativo web/web API,** selecione **Sim**.
-1. Para **URL de resposta,** insira um ponto final onde a Azure AD B2C deve devolver quaisquer fichas que o seu pedido de candidatura. Por exemplo, pode defini-lo para ouvir localmente em `https://localhost:44316` . Se ainda não sabe o número da porta, pode introduzir um valor de espaço reservado e alterá-lo mais tarde.
+1. Para **URL de resposta,** insira um ponto final onde a Azure AD B2C deve devolver quaisquer fichas que o seu pedido de candidatura. Por exemplo, pode defini-lo para ouvir localmente em `http://localhost:5000` . Pode adicionar e modificar URIs redirecionando as suas aplicações registadas a qualquer momento.
 
-    Para testes como este tutorial, pode defini-lo para `https://jwt.ms` o qual exibe o conteúdo de um símbolo para inspeção. Para este tutorial, desa um pouco para o **URL de resposta** `https://jwt.ms` .
+    Aplicam-se as seguintes restrições ao redirecionamento de IUR:
 
-    Aplicam-se as seguintes restrições aos URLs de resposta:
-
-    * A URL de resposta deve começar pelo regime `https` .
+    * A URL de resposta deve começar pelo `https` regime, a menos que utilize `localhost` .
     * A URL de resposta é sensível a casos. O seu caso deve coincidir com o caso do caminho URL da sua aplicação de execução. Por exemplo, se a sua aplicação incluir como parte do seu `.../abc/response-oidc` caminho, não especifique `.../ABC/response-oidc` no URL de resposta. Como o navegador da Web trata os caminhos como sensíveis a casos, os cookies associados `.../abc/response-oidc` podem ser excluídos se forem redirecionados para o URL desajustado do `.../ABC/response-oidc` caso.
 
 1. Selecione **Criar** para completar o registo de inscrição.

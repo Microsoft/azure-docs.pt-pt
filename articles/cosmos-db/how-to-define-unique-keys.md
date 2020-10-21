@@ -1,18 +1,18 @@
 ---
 title: Defina chaves únicas para um recipiente Azure Cosmos
-description: Aprenda a definir chaves únicas para um recipiente Azure Cosmos usando o portal Azure, PowerShell, .Net, Java e vários outros SDKs.
+description: Aprenda a definir chaves únicas para um recipiente Azure Cosmos usando o portal Azure, PowerShell, .NET, Java e vários outros SDKs.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: thweiss
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: b275703e0f5952be9ab052a789b64d2ea171922c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 968ae8e582587564f1e268f16c18cf6d562d4333
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330541"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279551"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Defina chaves únicas para um recipiente Azure Cosmos
 
@@ -36,7 +36,7 @@ Este artigo apresenta as diferentes formas de definir [chaves únicas](unique-ke
 
     :::image type="content" source="./media/how-to-define-unique-keys/unique-keys-portal.png" alt-text="Screenshot da entrada única de restrição de chave no portal Azure":::
 
-## <a name="use-powershell"></a>Use Powershell
+## <a name="use-powershell"></a>Utilizar o PowerShell
 
 Para criar um recipiente com chaves únicas ver, [Crie um recipiente Azure Cosmos com chave única e TTL](manage-with-powershell.md#create-container-unique-key-ttl)
 
@@ -151,5 +151,5 @@ client.CreateContainer('dbs/' + config['DATABASE'], {
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre [partição](partition-data.md)
+- Saiba mais sobre [partição](partitioning-overview.md)
 - Explore [como funciona a indexação](index-overview.md)

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: thweiss
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: dd1a59c2e6b0656233174c53b08ab013ce73d0f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9821e53abcdf95c6cf235cb9d39cd310fcfb66f
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334434"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279715"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configure Azure Private Link para uma conta Azure Cosmos
 
@@ -46,7 +46,7 @@ Utilize os seguintes passos para criar um ponto final privado para uma conta Azu
     | Grupo de recursos | Selecione um grupo de recursos.|
     | **Detalhes da instância** |  |
     | Name | Insira qualquer nome para o seu ponto final privado. Se este nome for tomado, crie um único. |
-    |Region| Selecione a região onde pretende implantar Private Link. Crie o ponto final privado no mesmo local onde existe a sua rede virtual.|
+    |Região| Selecione a região onde pretende implantar Private Link. Crie o ponto final privado no mesmo local onde existe a sua rede virtual.|
     |||
 1. Selecione **Seguinte: Recurso**.
 1. Em **Criar um ponto final privado - Recurso,** insira ou selecione estas informações:
@@ -684,7 +684,7 @@ Se não limpar os registos do DNS, problemas inesperados de data plane podem aco
 
 Para saber mais sobre as funcionalidades de segurança da Azure Cosmos DB, consulte os seguintes artigos:
 
-* Para configurar uma firewall para Azure Cosmos DB, consulte [o suporte do Firewall](firewall-support.md).
+* Para configurar uma firewall para Azure Cosmos DB, consulte [o suporte do Firewall](how-to-configure-firewall.md).
 
 * Para aprender a configurar um ponto final de serviço de rede virtual para a sua conta Azure Cosmos, consulte [o acesso configurar a partir de redes virtuais.](how-to-configure-vnet-service-endpoint.md)
 

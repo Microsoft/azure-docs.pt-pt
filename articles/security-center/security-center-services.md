@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: a311439e8efc5481fbfd7431c1514ba6be576e39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dad35af600b8973268d07f3a8baae225b91cebc1
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91858018"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275226"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de recursos para máquinas
 
@@ -28,7 +28,7 @@ Os dois separadores abaixo mostram as funcionalidades do Azure Security Center q
 
 ### <a name="windows-machines"></a>[**Máquinas de windows**](#tab/features-windows)
 
-|**Funcionalidade**|**Máquinas Virtuais do Azure**|**Conjuntos de Dimensionamento de Máquinas Virtuais do Azure**|**Máquinas não-Azure**|**Azure Defender necessário**
+|**Funcionalidade**|**Máquinas Virtuais do Azure**|**Conjuntos de Dimensionamento de Máquinas Virtuais do Azure**|**Máquinas habilittadas a Azure Arc**|**Azure Defender necessário**
 |----|:----:|:----:|:----:|:----:|
 |[Integração ATP do Microsoft Defender](security-center-wdatp.md)|✔</br>(em versões suportadas)|✔</br>(em versões suportadas)|✔|Sim|
 |[Análise comportamental de máquina virtual (e alertas de segurança)](alerts-reference.md)|✔|✔|✔|Sim|
@@ -42,9 +42,9 @@ Os dois separadores abaixo mostram as funcionalidades do Azure Security Center q
 |[Proteção de rede ajustável](security-center-adaptive-network-hardening.md)|✔|-|-|Sim|
 |[Relatórios de & do painel de conformidade regulamentar](security-center-compliance-dashboard.md)|✔|✔|✔|Sim|
 |Recomendações e proteção contra ameaças em contentores IaaS hospedados em Docker|-|-|-|Sim|
-|Avaliação de patches de SO em falta|✔|✔|✔|Azure: Não<br><br>Non-Azure: Sim|
-|Avaliação de erros de segurança|✔|✔|✔|Azure: Não<br><br>Non-Azure: Sim|
-|[Avaliação da proteção do ponto final](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: Não<br><br>Non-Azure: Sim|
+|Avaliação de patches de SO em falta|✔|✔|✔|Azure: Não<br><br>Ativado pelo arco: Sim|
+|Avaliação de erros de segurança|✔|✔|✔|Azure: Não<br><br>Ativado pelo arco: Sim|
+|[Avaliação da proteção do ponto final](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: Não<br><br>Ativado pelo arco: Sim|
 |Avaliação da encriptação do disco|✔</br>(para [cenários apoiados)](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)|✔|-|Não|
 |Avaliação da vulnerabilidade de terceiros|✔|-|-|Não|
 |[Avaliação da segurança da rede](security-center-network-recommendations.md)|✔|✔|-|Não|
@@ -52,7 +52,7 @@ Os dois separadores abaixo mostram as funcionalidades do Azure Security Center q
 
 ### <a name="linux-machines"></a>[**Máquinas Linux**](#tab/features-linux)
 
-|**Funcionalidade**|**Máquinas Virtuais do Azure**|**Conjuntos de Dimensionamento de Máquinas Virtuais do Azure**|**Máquinas não-Azure**|**Azure Defender necessário**
+|**Funcionalidade**|**Máquinas Virtuais do Azure**|**Conjuntos de Dimensionamento de Máquinas Virtuais do Azure**|**Máquinas habilittadas a Azure Arc**|**Azure Defender necessário**
 |----|:----:|:----:|:----:|:----:|
 |[Integração ATP do Microsoft Defender](security-center-wdatp.md)|-|-|-|Sim|
 |[Análise comportamental de máquina virtual (e alertas de segurança)](security-center-alerts-iaas.md)|✔</br>(em versões suportadas)|✔</br>(em versões suportadas)|✔|Sim|
@@ -66,8 +66,8 @@ Os dois separadores abaixo mostram as funcionalidades do Azure Security Center q
 |[Proteção de rede ajustável](security-center-adaptive-network-hardening.md)|✔|-|-|Sim|
 |[Relatórios de & do painel de conformidade regulamentar](security-center-compliance-dashboard.md)|✔|✔|✔|Sim|
 |Recomendações e proteção contra ameaças em contentores IaaS hospedados em Docker|✔|✔|✔|Sim|
-|Avaliação de patches de SO em falta|✔|✔|✔|Azure: Não<br><br>Non-Azure: Sim|
-|Avaliação de erros de segurança|✔|✔|✔|Azure: Não<br><br>Non-Azure: Sim|
+|Avaliação de patches de SO em falta|✔|✔|✔|Azure: Não<br><br>Ativado pelo arco: Sim|
+|Avaliação de erros de segurança|✔|✔|✔|Azure: Não<br><br>Ativado pelo arco: Sim|
 |[Avaliação da proteção do ponto final](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Não|
 |Avaliação da encriptação do disco|✔</br>(para [cenários apoiados)](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)|✔|-|Não|
 |Avaliação da vulnerabilidade de terceiros|✔|-|-|Não|

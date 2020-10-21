@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 6c890e9fbda316bfa7f5f3a42572f35ca73811ea
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: c74535b8cf11ec4beb413654bdddedb5ba847eea
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931806"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275546"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>SaaS cumpre APIs versão 2 no mercado comercial
 
@@ -953,11 +953,11 @@ O editor deve implementar um webhook no serviço SaaS para manter o estado de su
 
 Para iniciar o processo de desenvolvimento, recomendamos a criação de respostas falsas da API do lado da editora.  Estas respostas podem basear-se em respostas de amostra fornecidas neste documento.
 
-Quando a editora estiver pronta para o fim dos testes: 
+Quando a editora estiver pronta para o fim dos testes:
 
 * Publique uma oferta SaaS a um público de pré-visualização limitado e mantenha-a em fase de pré-visualização.
-* Esta oferta deve ter um plano com 0 preço, para não desencadear despesas reais de faturação durante os testes.  Outra opção é definir um preço não-zero e cancelar todas as compras de teste dentro de 24 horas. 
-* Certifique-se de que todos os fluxos são invocados de ponta a ponta, tal como um cliente compraria a oferta. 
+* Esta oferta deve ter um plano com 0 preço, para não desencadear despesas reais de faturação durante os testes.  Outra opção é definir um preço não-zero e cancelar todas as compras de teste dentro de 24 horas.
+* Certifique-se de que todos os fluxos são invocados de ponta a ponta, tal como um cliente compraria a oferta.
 * Se o parceiro quiser testar o fluxo de compra e faturação total, faça-o com uma oferta que tenha um preço superior a 0$.  A compra será faturada e uma fatura será gerada.
 
 Um fluxo de compra pode ser desencadeado a partir do portal Azure ou dos sites Microsoft AppSource, dependendo do local onde a oferta está a ser publicada.
@@ -966,8 +966,7 @@ Um fluxo de compra pode ser desencadeado a partir do portal Azure ou dos sites M
 
 ## <a name="get-support"></a>Obter suporte
 
-Consulte [o Suporte para o programa de marketplace comercial no Partner Center](support.md) para opções de suporte de editores.
-
+Consulte [o Suporte para o programa de marketplace comercial no Partner Center](../support.md) para opções de suporte de editores.
 
 ## <a name="next-steps"></a>Passos seguintes
 

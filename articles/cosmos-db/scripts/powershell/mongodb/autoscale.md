@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 07/30/2020
 ms.author: mjbrown
-ms.openlocfilehash: 4f41f940b26adfe66745dca447294102e65607a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 446de7ca48148bd8d9066e4862a23393850d5281
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87506695"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279381"
 ---
 # <a name="create-a-database-and-collection-with-autoscale-for-azure-cosmos-db---mongodb-api"></a>Criar uma base de dados e uma recolha com autoescala para Azure Cosmos DB - MongoDB API
 
@@ -50,5 +50,3 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 ## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/).
-
-Pode ver exemplos do script do Azure PowerShell Cosmos DB adicionais nos [scripts do PowerShell do Azure Cosmos DB](../../../powershell-samples.md).

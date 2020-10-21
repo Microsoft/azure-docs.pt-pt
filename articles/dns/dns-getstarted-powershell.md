@@ -6,15 +6,15 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
-ms.date: 3/11/2019
+ms.date: 10/20/2020
 ms.author: rohink
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7361f58247019584d7fb3d60cdd7f76b2e62a212
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f2563c33d02490732f73fcf9d1a78f548ec2d3e2
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91355487"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282225"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-powershell"></a>Início rápido: Criar uma zona DNS do Azure e registar com o Azure PowerShell
 
@@ -26,9 +26,12 @@ Uma zona DNS é utilizada para alojar os registos DNS para um determinado domín
 
 O DNS do Azure também suporta a criação de domínios privados. Para obter instruções passo-a-passo sobre como criar a primeira zona DNS privada e o registo, veja [Introdução às zonas privadas do DNS do Azure com o PowerShell](private-dns-getstarted-powershell.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## <a name="prerequisites"></a>Pré-requisitos
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- Azure PowerShell instalado localmente ou Azure Cloud Shell
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-the-resource-group"></a>Criar o grupo de recursos
 
@@ -94,7 +97,7 @@ Agora que tem uma zona de DNS de teste com um registo de teste 'A', pode testar 
 
 O nome de anfitrião **www \. contoso.xyz** resolve para **10.10.10.10**, tal como o configuraste. Este resultado verifica que a resolução de nomes está a funcionar corretamente.
 
-## <a name="delete-all-resources"></a>Eliminar todos os recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não forem necessários, pode eliminar todos os recursos criados neste Início Rápido ao eliminar o grupo de recursos:
 

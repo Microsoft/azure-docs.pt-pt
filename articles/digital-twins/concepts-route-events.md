@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: b49e6fc45a84f600131f571d1305c8160ddb1d21
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 49fe4f2d0a31918dec94163b4ebb5c45af53cfe7
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145983"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282259"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Rotas eventos dentro e fora de Azure Digital Twins
 
@@ -83,7 +83,7 @@ await client.CreateEventRoute("routeName", er);
 
 1. Primeiro, um `EventRoute` objeto é criado, e o construtor toma o nome de um ponto final. Este `endpointName` campo identifica um ponto final como um Event Hub, Event Grid ou Service Bus. Estes pontos finais devem ser criados na sua subscrição e anexados à Azure Digital Twins utilizando APIs do plano de controlo antes de escrutinar esta chamada de registo.
 
-2. O objeto de rota do evento também tem um campo [**filtro,**](./how-to-manage-routes-apis-cli.md#filter-events) que pode ser usado para restringir os tipos de eventos que seguem esta rota. Um filtro `true` permite a rota sem filtragem adicional (um filtro de `false` desativa a rota). 
+2. O objeto de rota do evento também tem um campo [**filtro,**](how-to-manage-routes-apis-cli.md#filter-events) que pode ser usado para restringir os tipos de eventos que seguem esta rota. Um filtro `true` permite a rota sem filtragem adicional (um filtro de `false` desativa a rota). 
 
 3. Este objeto de rota do evento é então passado para `CreateEventRoute` , juntamente com um nome para a rota.
 
@@ -93,18 +93,19 @@ await client.CreateEventRoute("routeName", er);
 As rotas também podem ser criadas usando o [CLI das Gémeas Digitais Azure.](how-to-use-cli.md)
 
 ## <a name="dead-letter-events"></a>Eventos de cartas mortas
+
 Quando um ponto final não consegue entregar um evento dentro de um determinado período de tempo ou depois de tentar entregar o evento um certo número de vezes, pode enviar o evento não entregue para uma conta de armazenamento. Este processo é conhecido como **letra morta.** A Azure Digital Twins vai escrever um evento quando **uma das seguintes** condições for cumprida. 
 
-- Evento não é entregue dentro do período de tempo a viver
-- O número de tentativas para entregar o evento excedeu o limite
+* Evento não é entregue dentro do período de tempo a viver
+* O número de tentativas para entregar o evento excedeu o limite
 
-Se uma das condições for cumprida, o evento é abandonado ou sem carta.  Por defeito, cada ponto final **não** liga letras mortas. Para o ativar, tem de especificar uma conta de armazenamento para realizar eventos não entregues ao criar o ponto final. Você puxa eventos desta conta de armazenamento para resolver entregas.
+Se uma das condições for cumprida, o evento é abandonado ou sem carta. Por defeito, cada ponto final **não** liga letras mortas. Para o ativar, tem de especificar uma conta de armazenamento para realizar eventos não entregues ao criar o ponto final. Em seguida, pode retirar eventos desta conta de armazenamento para resolver as entregas.
 
 Antes de definir o local da letra morta, deve ter uma conta de armazenamento com um recipiente. Forneça o URL para este recipiente ao criar o ponto final. A letra morta é fornecida como URL de contentor com um token SAS. Esse símbolo só precisa de `write` permissão para o contentor de destino dentro da conta de armazenamento. O URL totalmente formado será no formato de: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
 
 Para saber mais sobre fichas SAS, consulte: [ *Conceder acesso limitado aos recursos de Armazenamento Azure usando assinaturas de acesso partilhado (SAS)*](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
 
-Para aprender a configurar uma letra morta ver [*Como fazer: Gerir pontos finais e rotas em Azure Digital Twins (APIs e CLI)*](./how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering).
+Para aprender a configurar um ponto final com letras [*mortas, consulte Como-a-: Gerir pontos finais e rotas em Azure Digital Twins (APIs e CLI)*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering).
 
 ### <a name="types-of-event-messages"></a>Tipos de mensagens de eventos
 

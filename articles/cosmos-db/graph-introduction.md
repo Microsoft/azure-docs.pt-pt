@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: jasonh
-ms.openlocfilehash: 67a2c9537851343e8e5dad4a3654b31082e83d11
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 72f40a980a2f7039d036ca14c549bae8ab45abb2
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91409617"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279836"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Introdução à API de Gremlin em Azure Cosmos DB
 
@@ -48,7 +48,7 @@ Seguem-se as características diferenciadas que a AZure Cosmos DB Gremlin API of
 
   O Azure Cosmos DB elimina a necessidade de gerir recursos de máquinas e bases de dados. A maioria das plataformas de base de dados de gráficos existentes estão ligadas às limitações da sua infraestrutura e muitas vezes exigem um elevado grau de manutenção para garantir o seu funcionamento. 
   
-  Como um serviço totalmente gerido, cosmos DB remove a necessidade de gerir máquinas virtuais, atualizar software de tempo de execução, gerir o fragmento ou replicação, ou lidar com atualizações complexas de nível de dados. São criadas cópias de segurança automáticas de todos os gráficos e estes são protegidos contra falhas regionais. Estas garantias permitem que os desenvolvedores se concentrem na entrega do valor da aplicação em vez de operarem e gerirem as suas bases de dados de gráficos. 
+  Como um serviço totalmente gerido, cosmos DB remove a necessidade de gerir máquinas virtuais, atualizar software de tempo de execução, gerir o fragmento ou replicação, ou lidar com atualizações complexas de nível de dados. São criadas cópias de segurança automáticas de todos os gráficos e estes são protegidos contra falhas regionais. Isto permite que os desenvolvedores se concentrem na entrega do valor da aplicação em vez de operarem e gerirem as suas bases de dados de gráficos. 
 
 * **Indexação automática**
 

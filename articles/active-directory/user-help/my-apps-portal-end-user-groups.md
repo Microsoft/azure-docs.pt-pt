@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 02/03/2020
+ms.date: 10/19/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: f5804819e3a7a63120fa8c64d8df27b16608ece1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2774750b61ce92b3b34f6a5cbd961e4faa7d3e7
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798079"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277495"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>Atualize as informações dos seus Grupos no portal My Apps
 
-Pode utilizar a sua conta de trabalho ou escola com o portal **My Apps,** para visualizar e iniciar muitas das aplicações baseadas na nuvem da sua organização, para atualizar algumas das informações do seu perfil e conta, para ver as informações dos seus **Grupos** e para realizar **avaliações** de acesso às suas apps e grupos. Se não tiver acesso ao portal **My Apps,** tem de contactar o seu Helpdesk para obter permissão.
+Pode utilizar a sua conta de trabalho ou escola com o portal **My Apps** baseado na Web para visualizar e iniciar muitas das aplicações baseadas na nuvem da sua organização, para atualizar algumas das informações do seu perfil e conta, para ver as informações dos seus **Grupos** e para realizar **avaliações** de acesso às suas apps e grupos. Se não tiver acesso ao portal **My Apps,** tem de contactar o seu Helpdesk para obter permissão.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
@@ -44,13 +44,11 @@ Se o seu administrador lhe der permissão para ver o **azulejo dos Grupos,** pod
 
     A página **apps** aparece, mostrando todas as aplicações baseadas na nuvem pertencentes à sua organização e disponíveis para você usar.
 
-    ![Página de aplicativos no portal My Apps](media/my-apps-portal/my-apps-portal-apps-page-groups-tile.png)
+    ![Página de aplicativos no portal My Apps](media/my-apps-portal-end-user-groups/my-apps-home-large.png)
 
-3. Selecione o **azulejo de Grupos** para ver as informações relacionadas com o grupo.
+3. Retire o menu **My Apps** e selecione **My Groups** para ver as informações relacionadas com o grupo.
 
-    ![Página de grupos com grupos de propriedade e membros](media/my-apps-portal/my-apps-portal-groups-page.png)
-
-4. Com base nas suas permissões, pode utilizar a página **Grupos** para:
+4. Com base nas suas permissões, pode utilizar a página **My Groups** para:
 
     - **Reveja os grupos que possui.** Veja informações sobre quaisquer grupos que possua dentro da sua organização a partir da área **dos Grupos I.** A seleção de um nome de grupo específico fornece-lhe mais detalhes sobre o grupo, incluindo o tipo de grupo, o número de membros, a política de junção e a lista de membros ativos.
 

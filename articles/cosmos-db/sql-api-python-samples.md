@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 08/11/2020
 ms.author: rosouz
 ms.custom: devx-track-python
-ms.openlocfilehash: a0db0ff7db8f0bf5b036e40080ee7ff8eac62b63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba4382e03e6fc1acfd606a375a062c05581f712c
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322687"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278230"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Exemplos do Python do Azure Cosmos DB
 
@@ -50,7 +50,7 @@ As soluções de amostra que fazem operações CRUD e outras operações comuns 
 
 ## <a name="database-examples"></a>Exemplos de base de dados
 
-A amostra [database_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py) Python mostra como fazer as seguintes tarefas. Para conhecer as bases de dados do Azure Cosmos antes de executar as seguintes amostras, consulte [Trabalhar com bases de dados, contentores e artigos](databases-containers-items.md) conceptuais.
+A amostra [database_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py) Python mostra como fazer as seguintes tarefas. Para conhecer as bases de dados do Azure Cosmos antes de executar as seguintes amostras, consulte [Trabalhar com bases de dados, contentores e artigos](account-databases-containers-items.md) conceptuais.
 
 | Tarefa | Referência da API |
 | --- | --- |
@@ -62,7 +62,7 @@ A amostra [database_management.py](https://github.com/Azure/azure-sdk-for-python
 
 ## <a name="container-examples"></a>Exemplos de contentor
 
-A amostra [container_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py) Python mostra como fazer as seguintes tarefas. Para conhecer as coleções Azure Cosmos antes de executar as seguintes amostras, consulte [Trabalhar com bases de dados, contentores e artigos](databases-containers-items.md) conceptuais.
+A amostra [container_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py) Python mostra como fazer as seguintes tarefas. Para conhecer as coleções Azure Cosmos antes de executar as seguintes amostras, consulte [Trabalhar com bases de dados, contentores e artigos](account-databases-containers-items.md) conceptuais.
 
 | Tarefa | Referência da API |
 | --- | --- |
@@ -75,7 +75,7 @@ A amostra [container_management.py](https://github.com/Azure/azure-sdk-for-pytho
 
 ## <a name="item-examples"></a>Exemplos de itens
 
-A amostra [item_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py) Python mostra como fazer as seguintes tarefas. Para conhecer os documentos do Azure Cosmos antes de executar as [seguintes amostras, consulte Trabalhar com bases de dados, contentores e artigos conceptuais.](databases-containers-items.md)
+A amostra [item_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py) Python mostra como fazer as seguintes tarefas. Para conhecer os documentos do Azure Cosmos antes de executar as [seguintes amostras, consulte Trabalhar com bases de dados, contentores e artigos conceptuais.](account-databases-containers-items.md)
 
 | Tarefa | Referência da API |
 | --- | --- |

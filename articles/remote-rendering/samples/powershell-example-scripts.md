@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 32d0ebc3f37f7af4d9cdb1940f1870dbf51f86b4
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: cb8cc98a020cb382a6941c1e410eab4543594629
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206136"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279014"
 ---
 # <a name="example-powershell-scripts"></a>Scripts do PowerShell de exemplo
 
@@ -21,6 +21,9 @@ A Azure Remote Rendering fornece as seguintes duas APIs DE REST:
 - [Sessão REST API](../how-tos/session-rest-api.md)
 
 O [repositório de amostras de ARR](https://github.com/Azure/azure-remote-rendering) contém scripts de amostra na pasta *Scripts* para interagir com as APIs REST do serviço. Este artigo descreve o seu uso.
+
+> [!TIP]
+> Há também uma [ferramenta baseada em UI chamada ARRT](azure-remote-rendering-asset-tool.md) para interagir com o serviço, que é uma alternativa conveniente para usar scripts. ![ARRT](./media/azure-remote-rendering-asset-tool.png "Screenshot arrt")
 
 > [!CAUTION]
 > Chamar as funções de API REST com demasiada frequência fará com que o servidor se ausse e volte a falhar eventualmente. O código de falha http id neste caso é 429 ("muitos pedidos"). Em regra, deve haver um atraso de **5-10 segundos entre chamadas subsequentes**.
@@ -46,7 +49,7 @@ Para executar os scripts de amostra, precisa de uma configuração funcional do 
     > [!NOTE]
     > Caso a sua organização tenha mais do que uma subscrição, poderá necessitar de especificar os argumentos do SubscriptionId e do Inquilino. Encontre detalhes na [documentação Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
-1. Descarregue a pasta *Scripts* a partir do [repositório GithHub de renderização remota do Azure.](https://github.com/Azure/azure-remote-rendering)
+1. Descarregue a pasta *Scripts* a partir do [repositório GitHub de renderização remota Azure.](https://github.com/Azure/azure-remote-rendering)
 
 ## <a name="configuration-file"></a>Ficheiro de configuração
 

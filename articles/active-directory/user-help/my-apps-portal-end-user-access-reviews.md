@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 02/03/2020
+ms.date: 10/19/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: dbe05f264b0fca6c1a5e8e7d944d94a6bed55392
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbea4ef39b970f667c5dddec52f56a428d401f65
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798028"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277452"
 ---
 # <a name="perform-an-access-review-from-the-my-apps-portal"></a>Realizar uma análise de acesso a partir do portal My Apps
 
@@ -45,7 +45,7 @@ Se o seu administrador lhe tiver dado permissão para realizar as suas próprias
 
     A página **apps** aparece, mostrando todas as aplicações baseadas na nuvem pertencentes à sua organização e disponíveis para você usar.
 
-    ![Página de aplicativos no portal My Apps](media/my-apps-portal/my-apps-portal-apps-page-access-review-tile.png)
+    ![Página de aplicativos no portal My Apps](media/my-apps-portal/my-apps-home.png)
 
 3. Selecione o **azulejo de comentários de acesso** para ver uma lista de avaliações de acesso à espera da sua aprovação.
 
