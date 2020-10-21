@@ -4,12 +4,12 @@ description: Como descrever os recursos de ponto final num manifesto de serviço
 ms.topic: conceptual
 ms.date: 09/16/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 775e554128b9828915ce7dafaf4bccf597911912
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 5e8f39fe25011d02b989614fdc6538cd92c12d4e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017595"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313575"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Especificar recursos num manifesto de serviço
 ## <a name="overview"></a>Descrição geral
@@ -158,7 +158,7 @@ Aqui está um exemplo ApplicationManifest demonstrando a configuração necessá
 
 Para os agrupamentos Linux, a loja **MY** por defeito na pasta **/var/lib/sfcerts**.
 
-Para um exemplo de uma aplicação completa que utiliza um ponto final HTTPS, consulte [adicionar um ponto final HTTPS a um serviço frontal da API core ASP.NET utilizando o Kestrel](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-dotnet-app-enable-https-endpoint#define-an-https-endpoint-in-the-service-manifest).
+Para um exemplo de uma aplicação completa que utiliza um ponto final HTTPS, consulte [adicionar um ponto final HTTPS a um serviço frontal da API core ASP.NET utilizando o Kestrel](./service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#define-an-https-endpoint-in-the-service-manifest).
 
 ## <a name="port-acling-for-http-endpoints"></a>ACLing de porta para pontos finais HTTP
 O Tecido de Serviço automaticamente ACL HTTP(S) pontos finais especificados por padrão. **Não** realizará ACLing automático se um ponto final não tiver uma [SegurançaAccessPolicy](service-fabric-assign-policy-to-endpoint.md) associada a ele e o Service Fabric estiver configurado para executar usando uma conta com privilégios de Administrador.

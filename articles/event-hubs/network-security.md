@@ -3,12 +3,12 @@ title: Segurança de rede para hubs de eventos Azure
 description: Este artigo descreve como configurar o acesso a partir de pontos finais privados
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: ae6cbdc8258cde9bb2da961cb452f996f0797cfe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02a3a3436c354f7a9c817298d0ce887e33d8016a
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91767800"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318488"
 ---
 # <a name="network-security-for-azure-event-hubs"></a>Segurança de rede para hubs de eventos Azure 
 Este artigo descreve como usar as seguintes funcionalidades de segurança com os Azure Event Hubs: 
@@ -22,7 +22,7 @@ Este artigo descreve como usar as seguintes funcionalidades de segurança com os
 ## <a name="service-tags"></a>Etiquetas de serviço
 Uma etiqueta de serviço representa um grupo de prefixos de endereço IP de um determinado serviço Azure. A Microsoft gere os prefixos de endereços englobados pela etiqueta de serviço e atualiza automaticamente a etiqueta de serviço à medida que os endereços mudam, minimizando a complexidade das atualizações frequentes às regras de segurança da rede. Para obter mais informações sobre etiquetas de serviço, consulte [a visão geral das etiquetas de serviço.](../virtual-network/service-tags-overview.md)
 
-Pode utilizar tags de serviço para definir controlos de acesso à rede em [grupos de segurança](../virtual-network/security-overview.md#security-rules)de rede   ou [Azure Firewall](../firewall/service-tags.md). Utilize etiquetas de serviço no lugar de endereços IP específicos quando criar regras de segurança. Ao especificar o nome da etiqueta de serviço (por exemplo, **EventHub)** no campo de *origem*ou destino adequado   de uma *destination*   regra, pode permitir ou negar o tráfego para o serviço correspondente.
+Pode utilizar tags de serviço para definir controlos de acesso à rede em [grupos de segurança](../virtual-network/network-security-groups-overview.md#security-rules)de rede   ou [Azure Firewall](../firewall/service-tags.md). Utilize etiquetas de serviço no lugar de endereços IP específicos quando criar regras de segurança. Ao especificar o nome da etiqueta de serviço (por exemplo, **EventHub)** no campo de *origem*ou destino adequado   de uma *destination*   regra, pode permitir ou negar o tráfego para o serviço correspondente.
 
 | Etiqueta de serviço | Objetivo | Pode usar entrada ou saída? | Pode ser regional? | Pode usar com Azure Firewall? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|

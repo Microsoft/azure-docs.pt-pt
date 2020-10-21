@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 112c1c6a0fbbd7e0011890d1ce92c6e21e168137
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00d60d803fb73a0f299b00179e5f598f3189e03e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91817981"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309656"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Atribuir funções âmbito a uma unidade administrativa
 
@@ -60,7 +60,7 @@ Selecione a função a atribuir e, em seguida, **selecione atribuir atribuiçõe
 
 > [!Note]
 >
-> Para atribuir um papel numa unidade administrativa utilizando a PIM, siga os passos [aqui](/active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md#assign-a-role-with-restricted-scope).
+> Para atribuir um papel numa unidade administrativa utilizando a PIM, siga os passos [aqui](../privileged-identity-management/pim-how-to-add-role-to-user.md?tabs=new#assign-a-role-with-restricted-scope).
 
 ### <a name="powershell"></a>PowerShell
 

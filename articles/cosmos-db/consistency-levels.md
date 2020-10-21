@@ -5,25 +5,35 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: 27c1a896d25a0db00ff5f263d949f6657a658e3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: 70077f8f0e7a951b6da8cf65c874b17eb98b416c
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567207"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276396"
 ---
-# <a name="what-are-consistency-levels-in-azure-cosmos-db"></a>O que são níveis de consistência no Azure Cosmos DB?
+# <a name="consistency-levels-in-azure-cosmos-db"></a>Níveis de consistência no Azure Cosmos DB
 
-Bases de dados distribuídas que dependem da replicação para alta disponibilidade, baixa latência, ou ambos, fazem a troca fundamental entre a consistência de leitura vs. disponibilidade, latência e produção. A maioria das bases de dados distribuídas comercialmente pedem aos desenvolvedores que escolham entre os dois modelos de consistência extrema: *forte* consistência e *eventual* consistência. A linearizabilidade do modelo de consistência forte é o padrão dourado da programabilidade de dados. Mas adiciona um preço de maior latência de escrita (em estado estável) e disponibilidade reduzida (durante as falhas). Por outro lado, uma eventual consistência oferece maior disponibilidade e melhor desempenho, mas dificulta o programa de aplicações.
+As bases de dados distribuídas que dependem da replicação para a elevada disponibilidade, baixa latência, ou ambas, devem fazer uma troca fundamental entre a consistência da leitura, disponibilidade, latência e produção tal como definida pelo [teorema paclc.](https://en.wikipedia.org/wiki/PACELC_theorem) A linearizabilidade do modelo de consistência forte é o padrão dourado da programabilidade de dados. Mas adiciona um preço elevado de latências de escrita mais altas devido a dados que têm que replicar e comprometer-se em grandes distâncias. Uma forte consistência também pode sofrer de uma disponibilidade reduzida (durante falhas) porque os dados não podem replicar-se e comprometer-se em todas as regiões. A eventual consistência oferece maior disponibilidade e melhor desempenho, mas é mais difícil programar aplicações porque os dados podem não ser completamente consistentes em todas as regiões.
 
-Azure Cosmos DB aborda a consistência dos dados como um espectro de escolhas em vez de dois extremos. Os desenvolvedores podem usar estas opções para fazer escolhas precisas e trocas granulares no que diz respeito à alta disponibilidade e desempenho.
+A maioria das bases de dados NoSQL distribuídas comercialmente disponíveis no mercado hoje fornecem apenas consistência forte e eventual. A Azure Cosmos DB oferece cinco níveis bem definidos. Dos mais fortes aos mais fracos, os níveis são:
 
-Com a Azure Cosmos DB, os desenvolvedores podem escolher entre cinco níveis de consistência bem definidos no espectro de consistência. Estes níveis incluem *forte,* *limitado,* *sessão,* *prefixo consistente*e *eventual* consistência. Os níveis são bem definidos e intuitivos e podem ser usados para cenários específicos do mundo real. Cada nível fornece [compensações de disponibilidade e desempenho](consistency-levels-tradeoffs.md) e são apoiados por SLAs. A imagem a seguir mostra os diferentes níveis de consistência como espectro.
+- *Forte*
+- *Estagnação limitada*
+- *Sessão*
+- *Prefixo consistente*
+- *Eventual*
+
+Cada nível proporciona compensações de disponibilidade e desempenho. A imagem a seguir mostra os diferentes níveis de consistência como espectro.
 
 :::image type="content" source="./media/consistency-levels/five-consistency-levels.png" alt-text="Consistência como espectro" border="false" :::
 
 Os níveis de consistência são agnósticos regiões e são garantidos para todas as operações, independentemente da região a partir da qual são servidas as leituras e as escritas, o número de regiões associadas à sua conta Azure Cosmos, ou se a sua conta está configurada com uma única ou múltiplas regiões de escrita.
+
+## <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Níveis de consistência e APIs do Azure Cosmos DB
+
+A Azure Cosmos DB fornece suporte nativo para APIs compatíveis com protocolos de arame para bases de dados populares. Estes incluem MongoDB, Apache Cassandra, Gremlin e Azure Table armazenamento. Ao utilizar a API Gremlin e a API de tabela, é utilizado o nível de consistência padrão configurado na conta Azure Cosmos. Para detalhes sobre o mapeamento de nível de consistência entre a API cassandra ou a API para os níveis de consistência da MongoDB e da Azure Cosmos, o mapeamento da consistência da [API](cassandra-consistency.md) de Cassandra e [a API para mapeamento de consistência mongoDB.](mongodb-consistency.md)
 
 ## <a name="scope-of-the-read-consistency"></a>Âmbito da consistência da leitura
 
@@ -35,7 +45,7 @@ Pode configurar o nível de consistência padrão na sua conta Azure Cosmos a qu
 
 ## <a name="guarantees-associated-with-consistency-levels"></a>Garantias associadas aos níveis de consistência
 
-As SLAs abrangentes fornecidas pela Azure Cosmos DB garantem que 100% dos pedidos de leitura cumprem a garantia de consistência para qualquer nível de consistência que escolha. Um pedido de leitura satisfaz a consistência SLA se todas as garantias de consistência associadas ao nível de consistência estiverem satisfeitas. As definições precisas dos cinco níveis de consistência no Azure Cosmos DB utilizando a linguagem de especificação TLA+ são fornecidas no repo [azure-cosmos-tla](https://github.com/Azure/azure-cosmos-tla) GitHub.
+A Azure Cosmos DB garante que 100% dos pedidos de leitura cumprem a garantia de consistência para o nível de consistência escolhido. As definições precisas dos cinco níveis de consistência no Azure Cosmos DB utilizando a linguagem de especificação TLA+ são fornecidas no repo [azure-cosmos-tla](https://github.com/Azure/azure-cosmos-tla) GitHub.
 
 A semântica dos cinco níveis de consistência é descrita aqui:
 
@@ -46,9 +56,11 @@ A semântica dos cinco níveis de consistência é descrita aqui:
   :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="Consistência como espectro" pode ser configurada de duas maneiras:
 
 - O número de versões *(K)* do item
-- O intervalo de tempo *(T)* pelo qual as leituras podem ficar atrás das escritas
+- O intervalo de tempo *(T)* pode ficar atrás das escritas
 
-A estagnação limitada oferece uma ordem global total fora da "janela velha". Quando um cliente realiza operações de leitura dentro de uma região que aceita escritas, as garantias dadas pela consistência limitada são idênticas às garantias pela forte consistência.
+Para uma única conta de região, o valor mínimo de *K* e *T* é de 10 operações de escrita ou 5 segundos. Para contas multi-regiões, o valor mínimo de *K* e *T* é de 100.000 operações de escrita ou 300 segundos.
+
+A estagnação limitada oferece uma ordem global total fora da "janela velha". Quando um cliente realiza operações de leitura dentro de uma região que aceita escritas, as garantias dadas pela consistência limitada são idênticas às garantias pela forte consistência. À medida que a janela de estagnação se aproxima para qualquer tempo ou atualizações, o que estiver mais perto, o serviço irá acelerar novas gravações para permitir que a replicação se apanhe e honre a garantia de consistência.
 
 Dentro da janela de estagnação, a estagnação limitada fornece as seguintes garantias de consistência:
 
@@ -74,7 +86,7 @@ Os clientes fora da sessão que realizam escritas verão as seguintes garantias:
 
 - **Prefixo consistente**: As atualizações devolvidas contêm algum prefixo de todas as atualizações, sem lacunas. Garantias consistentes de nível de consistência prefixo que lê nunca ver escritos fora de ordem.
 
-Se as gravações forem realizadas na `A, B, C` ordem, então um cliente vê ou `A` , ou , mas nunca `A,B` `A,B,C` permutações fora de ordem como `A,C` ou `B,A,C` . O Prefixo consistente fornece latências de escrita, disponibilidade e produção de leitura comparáveis às de eventual consistência, mas também fornece garantias de encomenda que se adequam às necessidades dos cenários em que a ordem é importante. 
+Se as gravações forem realizadas na `A, B, C` ordem, então um cliente vê ou `A` , ou , mas nunca `A,B` `A,B,C` permutações fora de ordem como `A,C` ou `B,A,C` . O Prefixo consistente fornece latências de escrita, disponibilidade e produção de leitura comparáveis às de eventual consistência, mas também fornece garantias de encomenda que se adequam às necessidades dos cenários em que a ordem é importante.
 
 Abaixo estão as garantias de consistência para Prefix consistente:
 
@@ -91,6 +103,73 @@ O gráfico a seguir ilustra a consistência do prefixo de consistência com nota
 A consistência eventual é a forma mais fraca de consistência porque um cliente pode ler os valores que são mais antigos do que os que tinha lido antes. A eventual consistência é ideal quando a aplicação não requer quaisquer garantias de encomenda. Exemplos incluem contagem de retweets, gostos ou comentários não roscados. O gráfico a seguir ilustra a eventual consistência com notas musicais.
 
   :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="Consistência como espectro":::
+
+## <a name="consistency-guarantees-in-practice"></a>Garantias de consistência na prática
+
+Na prática, pode muitas vezes obter garantias de consistência mais fortes. As garantias de consistência para uma operação de leitura correspondem à frescura e ao pedido da base de dados que solicita. A consistência de leitura está ligada à ordem e propagação das operações de escrita/atualização.  
+
+Se não houver operações de escrita na base de dados, uma operação de leitura com **eventuais,** **sessão**ou níveis consistentes de consistência **prefixo** é suscetível de produzir os mesmos resultados que uma operação de leitura com forte nível de consistência.
+
+Se a sua conta Azure Cosmos estiver configurada com um nível de consistência diferente da forte consistência, pode descobrir a probabilidade de os seus clientes ficarem fortes e consistentes com leituras para as suas cargas de trabalho, olhando para a métrica *Probabilisticamente Bounded Staleness* (PBS). Esta métrica está exposta no portal Azure, para saber mais, consulte a [métrica de Staleness (PBS) (Monitor Probabilisisticamente Bounded).](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)
+
+A estagnação deslimaturada probabilística mostra como a sua eventual consistência é a sua eventual consistência. Esta métrica fornece uma visão de quantas vezes você pode obter uma consistência mais forte do que o nível de consistência que você tem atualmente configurado na sua conta Azure Cosmos. Por outras palavras, pode-se ver a probabilidade (medida em milissegundos) de obter leituras fortemente consistentes para uma combinação de regiões de escrita e leitura.
+
+## <a name="consistency-levels-and-latency"></a>Níveis de consistência e latência
+
+A latência lida para todos os níveis de consistência é sempre garantida ser inferior a 10 milissegundos no percentil 99. A latência média de leitura, no percentil 50, é tipicamente de 4 milissegundos ou menos.
+
+A latência da escrita para todos os níveis de consistência é sempre garantida ser inferior a 10 milissegundos no percentil 99. A latência média da escrita, no percentil 50, é geralmente de 5 milissegundos ou menos. As contas da Azure Cosmos que abrangem várias regiões e estão configuradas com forte consistência são uma exceção a esta garantia.
+
+### <a name="write-latency-and-strong-consistency"></a>Escreva latência e forte consistência
+
+Para as contas de Azure Cosmos configuradas com forte consistência com mais de uma região, a latência da escrita é igual a duas vezes tempo de ida e volta (RTT) entre qualquer uma das duas regiões mais distantes, mais 10 milissegundos no percentil 99. A alta rede RTT entre as regiões traduzir-se-á numa maior latência para os pedidos de DB da Cosmos, uma vez que a forte consistência só completa uma operação depois de garantir que foi comprometida com todas as regiões dentro de uma conta.
+
+A latência exata do RTT é uma função da distância de velocidade da luz e da topologia de rede Azure. A rede Azure não fornece quaisquer SLAs de latência para o RTT entre duas regiões do Azure, no entanto publica [estatísticas de latência de ida e volta da rede Azure](../networking/azure-network-latency.md). Para a sua conta Azure Cosmos, as latências de replicação são exibidas no portal Azure. Pode utilizar o portal Azure (vá à lâmina Métricas, selecione 'Aba de Consistência' para monitorizar as latências de replicação entre várias regiões que estão associadas à sua conta Azure Cosmos.
+
+> [!IMPORTANT]
+> A forte consistência das contas com regiões com uma extensão superior a 8000 km é bloqueada por defeito devido à elevada latência escrita. Para ativar esta capacidade contacte o suporte.
+
+## <a name="consistency-levels-and-throughput"></a>Níveis de consistência e produção
+
+- Para uma estagnação forte e limitada, as leituras são feitas contra duas réplicas num conjunto de réplicas (quórum minoritário) para fornecer garantias de consistência. Sessão, prefixo consistente e, eventualmente, leituras de réplica única. O resultado é que, para o mesmo número de unidades de pedido, ler a produção para uma estagnação forte e limitada é metade dos outros níveis de consistência.
+
+- Para um determinado tipo de operação de escrita, como inserir, substituir, aumentar e apagar, o resultado de escrita para unidades de pedido é idêntico para todos os níveis de consistência.
+
+|**Nível de consistência**|**Leituras de quórum**|**Quorum escreve**|
+|--|--|--|
+|**Forte**|Minoria Local|Maioria Global|
+|**Estagnação limitada**|Minoria Local|Maioria Local|
+|**Sessão**|Réplica única (token de sessão)|Maioria Local|
+|**Prefixo consistente**|Réplica única|Maioria Local|
+|**Eventual**|Réplica única|Maioria Local|
+
+> [!NOTE]
+> O custo ru/s das leituras para as leituras da minoria local é o dobro dos níveis de consistência mais fracos porque as leituras são feitas a partir de duas réplicas para fornecer garantias de consistência para a estagnação forte e limitada.
+
+## <a name="consistency-levels-and-data-durability"></a><a id="rto"></a>Níveis de consistência e durabilidade dos dados
+
+Dentro de um ambiente de base de dados distribuído globalmente, existe uma relação direta entre o nível de consistência e a durabilidade dos dados na presença de uma paralisação a nível regional. À medida que desenvolve o seu plano de continuidade de negócios, precisa entender o tempo máximo aceitável antes que a aplicação recupere totalmente após um evento disruptivo. O tempo necessário para uma aplicação de recuperação total é conhecido como **objetivo de tempo de recuperação** **(RTO).** Também precisa entender o período máximo de atualizações de dados recentes que a aplicação pode tolerar perder ao recuperar após um evento disruptivo. O período de tempo das atualizações que pode perder é conhecido como **objetivo de ponto de recuperação** **(RPO).**
+
+O quadro abaixo define a relação entre o modelo de consistência e a durabilidade dos dados na presença de uma paragem generalizada da região. É importante notar que num sistema distribuído, mesmo com forte consistência, é impossível ter uma base de dados distribuída com um RPO e RTO de zero devido ao [Teorema da PAC.](https://en.wikipedia.org/wiki/CAP_theorem)
+
+|**Regiões(s)**|**Modo de replicação**|**Nível de consistência**|**RPO**|**RTO**|
+|---------|---------|---------|---------|---------|
+|1|Regiões de escrita únicas ou múltiplas|Qualquer nível de consistência|< 240 Minutos|<1 Semana|
+|>1|Região de escrita única|Sessão, Prefixo Consistente, Eventual|< 15 minutos|< 15 minutos|
+|>1|Região de escrita única|Estagnação Limitada|*K*  &  *T*|< 15 minutos|
+|>1|Região de escrita única|Forte|0|< 15 minutos|
+|>1|Múltiplas regiões de escrita|Sessão, Prefixo Consistente, Eventual|< 15 minutos|0|
+|>1|Múltiplas regiões de escrita|Estagnação Limitada|*K*  &  *T*|0|
+
+*K* = O número de *versões "K"* (isto é, atualizações) de um item.
+
+*T* = O intervalo de tempo *"T"* desde a última atualização.
+
+Para uma única conta de região, o valor mínimo de *K* e *T* é de 10 operações de escrita ou 5 segundos. Para contas multi-regiões, o valor mínimo de *K* e *T* é de 100.000 operações de escrita ou 300 segundos. Isto define o RPO mínimo para os dados quando se utiliza a Estagnação Limitada.
+
+## <a name="strong-consistency-and-multiple-write-regions"></a>Forte consistência e múltiplas regiões de escrita
+
+As contas cosmos configuradas com múltiplas regiões de escrita não podem ser configuradas para uma forte consistência, uma vez que não é possível que um sistema distribuído forneça um RPO de zero e um RTO de zero. Além disso, não existem benefícios de latência de escrita na utilização de uma forte consistência com múltiplas regiões de escrita, porque uma escrita para qualquer região deve ser replicada e comprometida com todas as regiões configuradas dentro da conta. Isto resulta na mesma latência escrita que uma única conta de uma região de escrita.
 
 ## <a name="additional-reading"></a>Leitura adicional
 
@@ -110,6 +189,6 @@ Para saber mais sobre os níveis de consistência no Azure Cosmos DB, leia os se
 
 - [Escolha o nível de consistência certo para a sua aplicação](consistency-levels-choosing.md)
 - [Níveis de consistência em Azure Cosmos DB APIs](consistency-levels-across-apis.md)
-- [Disponibilidade e compensações de desempenho para vários níveis de consistência](consistency-levels-tradeoffs.md)
 - [Configurar o nível de consistência predefinido](how-to-manage-consistency.md#configure-the-default-consistency-level)
 - [Substituir o nível de consistência predefinido](how-to-manage-consistency.md#override-the-default-consistency-level)
+- [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/)

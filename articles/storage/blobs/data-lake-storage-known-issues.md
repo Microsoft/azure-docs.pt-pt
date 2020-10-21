@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/08/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: fee5427981cbd2c04a5ee88500a1aee77e2e5ffd
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 1c887093972507904b007c696214708eb0e2b039
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876129"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282197"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conhecidos com Azure Data Lake Storage Gen2
 
@@ -92,7 +92,11 @@ As aplicações de terceiros que usam APIs REST para trabalhar continuarão a fu
 
 Se o [acesso de leitura anónima](storage-manage-access-to-resources.md) tiver sido concedido a um recipiente, então os ACLs não têm qualquer efeito nesse recipiente ou nos ficheiros desse contentor.
 
-## <a name="premium-performance-blockblobstorage-storage-accounts"></a>Contas de armazenamento blockBlobStorage de desempenho premium
+### <a name="diagnostic-logs"></a>Registos de diagnósticos
+
+A definição para dias de retenção ainda não está suportada, mas pode eliminar registos manualmente utilizando qualquer ferramenta suportada, como O Explorador de Armazenamento Azure, REST ou um SDK.
+
+## <a name="issues-specific-to-premium-performance-blockblobstorage-storage-accounts"></a>Emissões específicas das contas de armazenamento blockBlobStorage de desempenho premium
 
 ### <a name="diagnostic-logs"></a>Registos de diagnósticos
 
@@ -108,8 +112,6 @@ Set-AzCurrentStorageAccount -Name premiumGen2Account -ResourceGroupName PremiumG
 #Enable logging
 Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays 14
 ```
-
-A definição para dias de retenção ainda não está suportada, mas pode eliminar registos manualmente utilizando qualquer ferramenta suportada, como O Explorador de Armazenamento Azure, REST ou um SDK.
 
 ### <a name="lifecycle-management-policies"></a>Políticas de gestão do ciclo de vida
 

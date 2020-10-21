@@ -1,19 +1,19 @@
 ---
 title: Criar um ponto de terminação privado para uma ligação segura
 titleSuffix: Azure Cognitive Search
-description: Criar um ponto final privado numa rede virtual para uma ligação segura a um serviço de Pesquisa Cognitiva Azure
+description: Crie um ponto final privado numa rede virtual para uma ligação segura a um serviço de Pesquisa Cognitiva Azure.
 manager: nitinme
 author: mrcarter8
 ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.openlocfilehash: 0cfa7b63d1ce9dd4d9b40cd0eedac247f9c56437
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/19/2020
+ms.openlocfilehash: bbbc79a129ec3140ea6d286cbdce0165e2f6ae7b
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935760"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280395"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Criar um ponto final privado para uma ligação segura à Pesquisa Cognitiva Azure
 
@@ -47,7 +47,7 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede para hospedar o VM qu
     | Subscrição | Selecione a sua subscrição|
     | Grupo de recursos | Selecione **Criar novo,** insira *myResourceGroup,* em seguida, selecione **OK** |
     | Nome | Insira *myVirtualNetwork* |
-    | Region | Selecione a região desejada |
+    | Região | Selecione a região desejada |
     |||
 
 1. Deixe as predefinições para o resto das definições. Clique **em Rever + criar** e, em seguida, **criar**
@@ -121,7 +121,7 @@ Nesta secção, irá criar um novo serviço de Pesquisa Cognitiva Azure com um P
     | Grupo de recursos | Selecione **myResourceGroup**. Criou isto na secção anterior.  |
     | **DETALHES DE INSTÂNCIA** |  |
     | Nome da máquina virtual | *Insira o myVm*. |
-    | Region | Selecione **West US** ou qualquer região que estiver usando. |
+    | Região | Selecione **West US** ou qualquer região que estiver usando. |
     | Opções de disponibilidade | Deixar o incumprimento **Não é necessário um despedimento de infraestrutura**. |
     | Imagem | Selecione **o Centro de Dados 2019 do Windows**Server . |
     | Tamanho | Deixe o **padrão DS1 v2**. |
@@ -152,10 +152,16 @@ Nesta secção, irá criar um novo serviço de Pesquisa Cognitiva Azure com um P
     | Selecione as portas de entrada | Selecione **HTTP** e **RDP**.|
     ||
 
+   > [!NOTE]
+   > Os endereços IPv4 podem ser expressos em formato [CIDR.](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) Lembre-se de evitar a gama IP reservada à rede privada, conforme descrito no [RFC 1918](https://tools.ietf.org/html/rfc1918):
+   >
+   > - `10.0.0.0 - 10.255.255.255  (10/8 prefix)`
+   > - `172.16.0.0 - 172.31.255.255  (172.16/12 prefix)`
+   > - `192.168.0.0 - 192.168.255.255 (192.168/16 prefix)`
+
 1. Selecione **Rever + criar**. Acedeu à página **Rever + criar**, onde o Azure valida a sua configuração.
 
 1. Quando vir a mensagem **A validação passou**, selecione **Criar**. 
-
 
 ## <a name="connect-to-the-vm"></a>Ligar à VM
 
@@ -181,7 +187,6 @@ Faça o download e, em seguida, ligue-se ao *myVm VM* da seguinte forma:
 1. Poderá receber um aviso de certificado durante o processo de início de sessão. Se recebeu um aviso de certificado, selecione **Sim** ou **Continuar**.
 
 1. Assim que o ambiente de trabalho em VM aparecer, minimize-o para voltar ao seu ambiente de trabalho local.  
-
 
 ## <a name="test-connections"></a>Ligações de teste
 

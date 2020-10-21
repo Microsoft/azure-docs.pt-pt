@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 08/12/2020
 ms.author: joflore
-ms.openlocfilehash: 5d89f1a3d6028afb3450e0112a6081c9c706775b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 607d3bc8eca3bd969f0f47ca95923040fb22591e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962467"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275855"
 ---
 # <a name="join-a-suse-linux-enterprise-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Junte-se a uma máquina virtual SUSE Linux Enterprise a um domínio gerido por Azure Ative Directory Domain Services
 
@@ -165,7 +165,7 @@ Para se juntar ao domínio gerido utilizando **winbind** e o módulo de *membros
 
 1. Se pretender alterar as gamas UID e GID para os utilizadores e grupos de Samba, selecione *Expert Settings*.
 
-1. Configure a sincronização do tempo NTP para o seu domínio gerido selecionando a *Configuração NTP*. Insira os endereços IP do domínio gerido. Estes endereços IP são apresentados na janela *Propriedades* do portal Azure para o seu domínio gerido, tais como *10.0.2.4* e *10.0.2.5*.
+1. Configure a sincronização do tempo do Protocolo de Tempo de Rede (NTP) para o seu domínio gerido selecionando a *Configuração NTP*. Insira os endereços IP do domínio gerido. Estes endereços IP são apresentados na janela *Propriedades* do portal Azure para o seu domínio gerido, tais como *10.0.2.4* e *10.0.2.5*.
 
 1. Selecione **OK** e confirme a união de domínio quando solicitado.
 
@@ -174,6 +174,127 @@ Para se juntar ao domínio gerido utilizando **winbind** e o módulo de *membros
     ![Exemplo de screenshot do pedido de diálogo de autenticação quando se junta um VM SLE ao domínio gerido](./media/join-suse-linux-vm/domain-join-authentication-prompt.png)
 
 Depois de se ter juntado ao domínio gerido, pode iniciar sedutação a partir da sua estação de trabalho utilizando o gestor de ecrã do seu ambiente de trabalho ou da consola.
+
+## <a name="join-vm-to-the-managed-domain-using-winbind-from-the-yast-command-line-interface"></a>Junte-se ao VM para o domínio gerido usando Winbind da interface da linha de comando YaST
+
+Para aderir ao domínio gerido utilizando **winbind** e a interface de *linha de comando YaST:*
+
+* Junte-se ao domínio:
+
+  ```console
+  sudo yast samba-client joindomain domain=aaddscontoso.com user=<admin> password=<admin password> machine=<(optional) machine account>
+  ```
+
+## <a name="join-vm-to-the-managed-domain-using-winbind-from-the-terminal"></a>Junte-se vM ao domínio gerido usando Winbind do terminal
+
+Para aderir ao domínio gerido usando **winbind** e o * `samba net` comando*:
+
+1. Instale o cliente kerberos e o samba-winbind:
+
+   ```console
+   sudo zypper in krb5-client samba-winbind
+   ```
+
+2. Editar os ficheiros de configuração:
+
+   * /etc/samba/smb.conf
+   
+     ```ini
+     [global]
+         workgroup = AADDSCONTOSO
+         usershare allow guests = NO #disallow guests from sharing
+         idmap config * : backend = tdb
+         idmap config * : range = 1000000-1999999
+         idmap config AADDSCONTOSO : backend = rid
+         idmap config AADDSCONTOSO : range = 5000000-5999999
+         kerberos method = secrets and keytab
+         realm = AADDSCONTOSO.COM
+         security = ADS
+         template homedir = /home/%D/%U
+         template shell = /bin/bash
+         winbind offline logon = yes
+         winbind refresh tickets = yes
+     ```
+
+   * /etc/krb5.conf
+   
+     ```ini
+     [libdefaults]
+         default_realm = AADDSCONTOSO.COM
+         clockskew = 300
+     [realms]
+         AADDSCONTOSO.COM = {
+             kdc = PDC.AADDSCONTOSO.COM
+             default_domain = AADDSCONTOSO.COM
+             admin_server = PDC.AADDSCONTOSO.COM
+         }
+     [domain_realm]
+         .aaddscontoso.com = AADDSCONTOSO.COM
+     [appdefaults]
+         pam = {
+             ticket_lifetime = 1d
+             renew_lifetime = 1d
+             forwardable = true
+             proxiable = false
+             minimum_uid = 1
+         }
+     ```
+
+   * /etc/segurança/pam_winbind.conf
+   
+     ```ini
+     [global]
+         cached_login = yes
+         krb5_auth = yes
+         krb5_ccache_type = FILE
+         warn_pwd_expire = 14
+     ```
+
+   * /etc/nsswitch.conf
+   
+     ```ini
+     passwd: compat winbind
+     group: compat winbind
+     ```
+
+3. Verifique se a data e hora em Azure AD e Linux estão sincronizadas. Pode fazê-lo adicionando o servidor AD Azure ao serviço NTP:
+   
+   1. Adicione a seguinte linha a /etc/ntp.conf:
+     
+      ```console
+      server aaddscontoso.com
+      ```
+
+   1. Reiniciar o serviço NTP:
+     
+      ```console
+      sudo systemctl restart ntpd
+      ```
+
+4. Junte-se ao domínio:
+
+   ```console
+   sudo net ads join -U Administrator%Mypassword
+   ```
+
+5. Ativar o winbind como fonte de login nos Módulos de Autenticação Pluggable Linux (PAM):
+
+   ```console
+   pam-config --add --winbind
+   ```
+
+6. Permitir a criação automática de diretórios domésticos para que os utilizadores possam iniciar sessão:
+
+   ```console
+   pam-config -a --mkhomedir
+   ```
+
+7. Iniciar e ativar o serviço winbind:
+
+   ```console
+   sudo systemctl enable winbind
+   sudo systemctl start winbind
+   ```
 
 ## <a name="allow-password-authentication-for-ssh"></a>Permitir a autenticação de palavra-passe para SSH
 

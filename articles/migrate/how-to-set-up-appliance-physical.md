@@ -4,12 +4,12 @@ description: Saiba como configurar um aparelho Azure Migrate para avaliação f�
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 04/15/2020
-ms.openlocfilehash: 348c12e08a9bed98016ac825921b67836b32b9e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e9d79d16e805eeaf770327a56a4247067c78a35
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448066"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314157"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Configurar um aparelho para servidores físicos
 
@@ -122,7 +122,7 @@ Coloque o aparelho pela primeira vez.
    
    O s-in com um PIN não é suportado.
 3. Depois de iniciar sessão com sucesso, volte à aplicação web. 
-4. Se a conta de utilizador Azure utilizada para a exploração madeireira tiver as [permissões certas](tutorial-prepare-physical.md) sobre os recursos Azure criados durante a geração chave, o registo do aparelho será iniciado.
+4. Se a conta de utilizador Azure utilizada para a exploração madeireira tiver as [permissões certas](./tutorial-discover-physical.md) sobre os recursos Azure criados durante a geração chave, o registo do aparelho será iniciado.
 1. Depois de o aparelho estar registado com sucesso, pode ver os dados do registo clicando nos **detalhes do Ver.**
 
 

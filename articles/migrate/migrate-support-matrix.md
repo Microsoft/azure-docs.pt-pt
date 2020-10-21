@@ -4,12 +4,12 @@ description: Fornece um resumo das configurações e limitações de suporte par
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: raynew
-ms.openlocfilehash: ee45d2f489b23289e4f92a544590a510e77ece13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e693df8ce74d57ccbc52f5496517893a7d7be17b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627956"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317246"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matriz de suporte Azure Migrate
 
@@ -34,9 +34,9 @@ A tabela resume os cenários de descoberta, avaliação e migração suportados.
 
 O suporte específico da ferramenta é resumido na tabela.
 
-**Ferramenta** | **Avaliar** | **Migrar** 
+**Ferramenta** | **Avaliação** | **Migrar** 
 --- | --- | ---
-Avaliação do servidor Azure Migrate | Avaliar [VMware VMs,](tutorial-prepare-vmware.md) [VMs hiper-V](tutorial-prepare-hyper-v.md)e [servidores físicos](tutorial-prepare-physical.md). |  Não disponível (NA)
+Avaliação do servidor Azure Migrate | Avaliar [VMware VMs,](./tutorial-discover-vmware.md) [VMs hiper-V](./tutorial-discover-hyper-v.md)e [servidores físicos](./tutorial-discover-physical.md). |  Não disponível (NA)
 Migração do Servidor do Azure Migrate | ND | Migrar [VMware VMs,](tutorial-migrate-vmware.md) [Hiper-VMs](tutorial-migrate-hyper-v.md)e [servidores físicos](tutorial-migrate-physical-virtual-machines.md).
 [Carbonite](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure) | ND | Migrar VMware VMs, VMs Hiper-V, servidores físicos, cargas de trabalho em nuvem pública. 
 [Cloudamize](https://www.cloudamize.com/platform#tab-0)| Avaliar VMware VMs, VMs Hiper-V, servidores físicos, cargas de trabalho em nuvem pública. | ND
@@ -69,9 +69,9 @@ Para a Azure Migrar para trabalhar com o Azure, precisa destas permissões antes
 
 **Tarefa** | **Permissões** | **Detalhes**
 --- | --- | ---
-Criar um projeto do Azure Migrate | A sua conta Azure precisa de permissões para criar um projeto. | Configurar para [VMware,](tutorial-prepare-vmware.md#assign-permissions-to-create-project) [Hiper-V,](tutorial-prepare-hyper-v.md#assign-permissions-to-create-project)ou [servidores físicos](tutorial-prepare-physical.md#assign-permissions-to-create-project).
-Registe o aparelho Azure Migrate| A Azure Migrate usa um [aparelho Azure Migrate](migrate-appliance.md) leve para avaliar máquinas com avaliação do servidor Azure Migrate e para executar [migração sem agentes](server-migrate-overview.md) de VMware VMs com Migração de Servidores Azure Migrate. Este aparelho descobre máquinas e envia metadados e dados de desempenho para a Azure Migrate.<br/><br/> Durante o registo, os fornecedores de registo (Microsoft.OffAzure, Microsoft.Migrate e Microsoft.KeyVault) estão registados com a subscrição escolhida no aparelho, de modo a que a subscrição funcione com o fornecedor de recursos. Para se registar, precisa de acesso do Colaborador ou proprietário na subscrição.<br/><br/> **VMware**-Durante o embarque, a Azure Migrate cria duas aplicações Azure Ative Directory (Azure AD). A primeira aplicação comunica entre os agentes do aparelho e o serviço Azure Migrate. A aplicação não tem permissões para fazer chamadas de gestão de recursos Azure ou ter acesso a recursos do RBAC. A segunda aplicação acede a um Azure Key Vault criado na subscrição do utilizador apenas para migração de VMware sem agente. Na migração sem agente, a Azure Migrate cria um Cofre-Chave para gerir as chaves de acesso à conta de armazenamento de replicação na sua subscrição. Tem acesso RBAC no Cofre da Chave Azure (no inquilino do cliente) quando a descoberta é iniciada a partir do aparelho.<br/><br/> **Hiper-V**- Durante o embarque. Azure Migrate cria uma aplicação AD Azure. A aplicação comunica entre os agentes do aparelho e o serviço Azure Migrate. A aplicação não tem permissões para fazer chamadas de gestão de recursos Azure ou ter acesso a recursos do RBAC. | Configurar para [VMware,](tutorial-prepare-vmware.md#assign-permissions-to-create-azure-ad-apps) [Hiper-V,](tutorial-prepare-hyper-v.md#assign-permissions-to-create-azure-ad-apps)ou [servidores físicos](tutorial-prepare-physical.md#assign-permissions-to-register-the-appliance).
-Crie um cofre chave para migração sem agente VMware | Para migrar VMware VMs com a migração do servidor Azure Migrate Sem agente, a Azure Migrate cria um Cofre-Chave para gerir as chaves de acesso à conta de armazenamento de replicação na sua subscrição. Para criar o cofre, define permissões (Proprietário, ou Administrador de Dados e De acesso ao Utilizador) no grupo de recursos em que reside o projeto Azure Migrate. | [Estabeleça](tutorial-prepare-vmware.md#assign-permissions-to-create-a-key-vault) permissões.
+Criar um projeto do Azure Migrate | A sua conta Azure precisa de permissões para criar um projeto. | Configurar para [VMware,](./tutorial-discover-vmware.md#prepare-an-azure-user-account) [Hiper-V,](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account)ou [servidores físicos](./tutorial-discover-physical.md#prepare-an-azure-user-account).
+Registe o aparelho Azure Migrate| A Azure Migrate usa um [aparelho Azure Migrate](migrate-appliance.md) leve para avaliar máquinas com avaliação do servidor Azure Migrate e para executar [migração sem agentes](server-migrate-overview.md) de VMware VMs com Migração de Servidores Azure Migrate. Este aparelho descobre máquinas e envia metadados e dados de desempenho para a Azure Migrate.<br/><br/> Durante o registo, os fornecedores de registo (Microsoft.OffAzure, Microsoft.Migrate e Microsoft.KeyVault) estão registados com a subscrição escolhida no aparelho, de modo a que a subscrição funcione com o fornecedor de recursos. Para se registar, precisa de acesso do Colaborador ou proprietário na subscrição.<br/><br/> **VMware**-Durante o embarque, a Azure Migrate cria duas aplicações Azure Ative Directory (Azure AD). A primeira aplicação comunica entre os agentes do aparelho e o serviço Azure Migrate. A aplicação não tem permissões para fazer chamadas de gestão de recursos Azure ou ter acesso a recursos do RBAC. A segunda aplicação acede a um Azure Key Vault criado na subscrição do utilizador apenas para migração de VMware sem agente. Na migração sem agente, a Azure Migrate cria um Cofre-Chave para gerir as chaves de acesso à conta de armazenamento de replicação na sua subscrição. Tem acesso RBAC no Cofre da Chave Azure (no inquilino do cliente) quando a descoberta é iniciada a partir do aparelho.<br/><br/> **Hiper-V**- Durante o embarque. Azure Migrate cria uma aplicação AD Azure. A aplicação comunica entre os agentes do aparelho e o serviço Azure Migrate. A aplicação não tem permissões para fazer chamadas de gestão de recursos Azure ou ter acesso a recursos do RBAC. | Configurar para [VMware,](./tutorial-discover-vmware.md#prepare-an-azure-user-account) [Hiper-V,](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account)ou [servidores físicos](./tutorial-discover-physical.md#prepare-an-azure-user-account).
+Crie um cofre chave para migração sem agente VMware | Para migrar VMware VMs com a migração do servidor Azure Migrate Sem agente, a Azure Migrate cria um Cofre-Chave para gerir as chaves de acesso à conta de armazenamento de replicação na sua subscrição. Para criar o cofre, define permissões (Proprietário, ou Administrador de Dados e De acesso ao Utilizador) no grupo de recursos em que reside o projeto Azure Migrate. | [Estabeleça](./tutorial-discover-vmware.md#prepare-an-azure-user-account) permissões.
 
 ## <a name="supported-geographies-public-cloud"></a>Geografias apoiadas (nuvem pública)
 
@@ -127,5 +127,5 @@ Existem duas versões do serviço Azure Migrate:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Avaliar VMware VMs](tutorial-assess-vmware.md) para migração.
+- [Avaliar VMware VMs](./tutorial-assess-vmware-azure-vm.md) para migração.
 - [Avaliar os VMs hiper-V](tutorial-assess-hyper-v.md) para migração.

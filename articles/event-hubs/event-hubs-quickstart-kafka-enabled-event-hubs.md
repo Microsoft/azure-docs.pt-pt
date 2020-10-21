@@ -3,12 +3,12 @@ title: 'Quickstart: Streaming de dados com Azure Event Hubs usando o protocolo K
 description: 'Quickstart: Este artigo fornece informações sobre como transmitir para Azure Event Hubs usando o protocolo kafka e APIs.'
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 612a7515c14b77569b34c91d9b43413353b4d0e8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e87d9b1e4a444695d64dc6acfa0e29f7b72e37f2
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90061552"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319358"
 ---
 # <a name="quickstart-data-streaming-with-event-hubs-using-the-kafka-protocol"></a>Quickstart: Streaming de dados com Centros de Eventos utilizando o protocolo Kafka
 Este quickstart mostra como transmitir para Os Centros de Eventos sem alterar os seus clientes de protocolo ou executar os seus próprios clusters. Aprende a usar os seus produtores e consumidores para falar com o Event Hubs com apenas uma alteração de configuração nas suas aplicações. 
@@ -22,7 +22,7 @@ Para concluir este início rápido, certifique-se de que tem os seguintes pré-r
 
 * Leia o artigo [Hubs de Eventos para o Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md).
 * Uma subscrição do Azure. Se não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
-* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks).
+* [Java Development Kit (JDK) 1.7+](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 * [Transferir](https://maven.apache.org/download.cgi) e [instalar](https://maven.apache.org/install.html) um arquivo binário Maven.
 * [Rio Git](https://www.git-scm.com/)
 
@@ -103,4 +103,4 @@ Quando cria um espaço de nome de nível **padrão,** o ponto final de Kafka par
 Se o cluster Kafka dos Hubs de Eventos tiver eventos, começará agora a recebê-los do consumidor.
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste artigo, aprendeu a transmitir para os Centros de Eventos sem alterar os seus clientes de protocolo ou executar os seus próprios clusters. Para saber mais, consulte [o guia de desenvolvimento apache Kafka para o Azure Event Hubs.](apache-kafka-developer-guide.md) 
+Neste artigo, aprendeu a transmitir para os Centros de Eventos sem alterar os seus clientes de protocolo ou executar os seus próprios clusters. Para saber mais, consulte [o guia de desenvolvimento apache Kafka para o Azure Event Hubs.](apache-kafka-developer-guide.md)
