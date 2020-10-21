@@ -6,12 +6,12 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.openlocfilehash: 45303a8aaaa348d310d7f8b5e7cd98f8d465a282
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: af49a7bec68c30e4ded576a8d84eac850eb745f8
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280819"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331367"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Casos de utilização comuns do Azure Cosmos DB
 

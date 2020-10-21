@@ -1,20 +1,19 @@
 ---
 title: Entenda o analisador de modelos Digital Twins Microsoft Docs
-description: Como desenvolvedor, aprenda a usar o parser DTDL para validar modelos
+description: Como desenvolvedor, aprenda a usar o analisador DTDL para validar modelos.
 author: rido-min
 ms.author: rmpablos
-ms.date: 04/29/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-manager: peterpr
-ms.openlocfilehash: 20c4452a32c791f33e08c883d8cec89a345ab188
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d68abe8548dac3306228683e4b6ce8935a248ebc
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87352434"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331792"
 ---
 # <a name="understand-the-digital-twins-model-parser"></a>Compreender o parser de modelos de duplos digitais
 
@@ -28,9 +27,12 @@ O parser está disponível em NuGet.org com o ID: [Microsoft.Azure.DigitalTwins.
 dotnet add package Microsoft.Azure.DigitalTwins.Parser
 ```
 
+> [!NOTE]
+> No momento da escrita, a versão parser é `3.12.5` .
+
 ## <a name="use-the-parser-to-validate-a-model"></a>Use o parser para validar um modelo
 
-O modelo que pretende validar pode ser composto por uma ou mais interfaces descritas nos ficheiros JSON. Pode utilizar o analisador para carregar todos os ficheiros numa determinada pasta e utilizar o parser para validar todos os ficheiros como um todo, incluindo quaisquer referências entre os ficheiros:
+Um modelo pode ser composto por uma ou mais interfaces descritas em ficheiros JSON. Pode utilizar o analisador para carregar todos os ficheiros numa determinada pasta e utilizar o parser para validar todos os ficheiros como um todo, incluindo quaisquer referências entre os ficheiros:
 
 1. Criar uma `IEnumerable<string>` lista com uma lista de todos os conteúdos do modelo:
 
@@ -57,18 +59,20 @@ O modelo que pretende validar pode ser composto por uma ou mais interfaces descr
     IReadOnlyDictionary<Dtmi, DTEntityInfo> parseResult = await modelParser.ParseAsync(modelJson);
     ```
 
-1. Verifique se há erros de validação. Se o analisador encontrar algum erro, lança uma `AggregateException` lista de mensagens de erro detalhadas:
+1. Verifique se há erros de validação. Se o analisador encontrar algum erro, atira uma `ParsingException` com uma lista de erros:
 
     ```csharp
     try
     {
         IReadOnlyDictionary<Dtmi, DTEntityInfo> parseResult = await modelParser.ParseAsync(modelJson);
     }
-    catch (AggregateException ae)
+    catch (ParsingException pex)
     {
-        foreach (var e in ae.InnerExceptions)
+        Console.WriteLine(pex.Message);
+        foreach (var err in pex.Errors)
         {
-            Console.WriteLine(e.Message);
+            Console.WriteLine(err.PrimaryID);
+            Console.WriteLine(err.Message);
         }
     }
     ```
@@ -76,19 +80,10 @@ O modelo que pretende validar pode ser composto por uma ou mais interfaces descr
 1. Inspecione o `Model` . Se a validação for bem sucedida, pode utilizar a API do analisador de modelos para inspecionar o modelo. O seguinte corte de código mostra como iterar sobre todos os modelos analisados e exibe as propriedades existentes:
 
     ```csharp
-    foreach (var m in parseResult)
+    foreach (var item in parseResult)
     {
-        Console.WriteLine(m.Key);
-        foreach (var item in m.Value.AsEnumerable<DTEntityInfo>())
-        {
-            var p = item as DTInterfaceInfo;
-            if (p!=null)
-            {
-                Console.WriteLine($"\t{p.Id}");
-                Console.WriteLine($"\t{p.Description.FirstOrDefault()}");
-            }
-            Console.WriteLine("--------------");
-        }
+        Console.WriteLine($"\t{item.Key}");
+        Console.WriteLine($"\t{item.Value.DisplayName?.Values.FirstOrDefault()}");
     }
     ```
 

@@ -4,12 +4,12 @@ description: Mostra como gerir grandes conjuntos de tópicos em Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9016d26384827279a5a89afecff59f572d7ce273
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 277db97211b196c9853470c2d12cc2246a4005b2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87502040"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330082"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Gerir tópicos e publicar eventos usando domínios de eventos
 
@@ -79,7 +79,7 @@ Note o `endpoint` e como eles são `id` obrigados a gerir o domínio e publicar 
 
 ## <a name="manage-access-to-topics"></a>Gerir o acesso a tópicos
 
-Gerir o acesso a tópicos é feito através da [atribuição de funções.](../role-based-access-control/role-assignments-cli.md) A atribuição de funções utiliza o controlo de acesso baseado em funções para limitar as operações nos recursos da Azure a utilizadores autorizados num determinado âmbito.
+Gerir o acesso a tópicos é feito através da [atribuição de funções.](../role-based-access-control/role-assignments-cli.md) A atribuição de funções utiliza o controlo de acesso baseado em funções Azure para limitar as operações nos recursos Azure a utilizadores autorizados num determinado âmbito.
 
 O Event Grid tem duas funções incorporadas, que podes usar para atribuir acesso a determinados utilizadores em vários tópicos dentro de um domínio. Estas funções são `EventGrid EventSubscription Contributor (Preview)` , que permite a criação e eliminação de subscrições, e , que `EventGrid EventSubscription Reader (Preview)` apenas permite a listagem de subscrições de eventos.
 

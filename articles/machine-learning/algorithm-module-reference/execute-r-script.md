@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 07/27/2020
-ms.openlocfilehash: 252ea54cf6be9dd381648d67e56a7a5ff2c7acc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: a86c0b115ef866453e457ad528dd694ed7b49b48
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542293"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330398"
 ---
 # <a name="execute-r-script-module"></a>Executar módulo de script R
 
@@ -194,11 +194,11 @@ Os conjuntos de dados armazenados no designer são automaticamente convertidos p
     > [!NOTE]
     > O código R existente pode necessitar de pequenas alterações para ser executado num oleoduto de design. Por exemplo, os dados de entrada que fornece no formato CSV devem ser explicitamente convertidos para um conjunto de dados antes de poder usá-lo no seu código. Os tipos de dados e colunas utilizados na língua R também diferem de algumas formas dos tipos de dados e colunas utilizados no designer.
 
-    Se o seu script for maior que 16 KB, utilize a porta **script Bundle** para evitar erros como *o CommandLine excede o limite de 16597 caracteres*. 
+1. Se o seu script for maior que 16 KB, utilize a porta **script Bundle** para evitar erros como *o CommandLine excede o limite de 16597 caracteres*. 
     
     1. Embrulhe o script e outros recursos personalizados para um ficheiro zip.
     1. Faça o upload do ficheiro zip como um **conjunto de dados de ficheiro** para o estúdio. 
-    1. Arraste o módulo de conjunto de dados da lista *My datasets* no painel do módulo esquerdo na página de autoria do designer. 
+    1. Arraste o módulo de conjunto de dados da lista *datasets* no painel do módulo esquerdo na página de autoria do designer. 
     1. Ligue o módulo de conjunto de dados à porta do Pacote de **Scripts** do módulo **executo R Script.**
     
     Segue-se o código de amostra para consumir o script no pacote de scripts:
@@ -220,7 +220,7 @@ Os conjuntos de dados armazenados no designer são automaticamente convertidos p
 
 1. Envie o oleoduto.  
 
-## <a name="results"></a>Results
+## <a name="results"></a>Resultados
 
 Executar os módulos R Script podem devolver várias saídas, mas devem ser fornecidos como quadros de dados R. O designer converte automaticamente quadros de dados em conjuntos de dados para compatibilidade com outros módulos.
 

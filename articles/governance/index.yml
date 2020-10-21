@@ -10,13 +10,13 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 06/29/2020
-  ms.openlocfilehash: 2b36da366c41b43a125a25c682aa15b7594f0d1d
-  ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+  ms.date: 10/20/2020
+  ms.openlocfilehash: c3a70e38b870d11d7a12e438d3a0390c23df20bd
+  ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/14/2020
-  ms.locfileid: "92057948"
+  ms.lasthandoff: 10/21/2020
+  ms.locfileid: "92317739"
 highlightedContent:
   items:
   - title: Descrição geral da governação
@@ -28,9 +28,9 @@ highlightedContent:
   - title: Governação no Cloud Adoption Framework
     itemType: architecture
     url: /azure/architecture/cloud-adoption/governance
-  - title: Aplicar e monitorizar normas de infraestrutura com o Azure Policy
+  - title: Criar uma estratégia de governação da cloud no Azure
     itemType: learn
-    url: /learn/modules/intro-to-governance/
+    url: /learn/modules/build-cloud-governance-strategy-azure/
 productDirectory:
   title: Componentes e Serviços
   items:

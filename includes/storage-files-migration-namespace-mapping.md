@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 2/20/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 16b9342f0374377349f338db7ce5c8389c77ea18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80e04ec06edc7169f0a4318c2c94de34dda9d96a
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87425000"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331099"
 ---
 Neste passo, está a avaliar quantas ações de ficheiros Azure precisa. Uma única instância do Windows Server (ou cluster) pode sincronizar até 30 ações de ficheiros Azure.
 
@@ -28,11 +28,15 @@ Se o seu departamento de RH (por exemplo) tiver um total de 15 ações, poderá 
 
 O Azure File Sync suporta sincronizar a raiz de um volume para uma partilha de ficheiros Azure. Se sincronizar a pasta raiz, todas as sub-dobradeiras e ficheiros irão para a mesma partilha de ficheiros Azure.
 
-Sincronizar a raiz do volume nem sempre é a melhor resposta. Existem benefícios em sincronizar vários locais. Por exemplo, fazê-lo ajuda a manter o número de itens mais baixo por âmbito de sincronização. Configurar o Azure File Sync com um número mais baixo de itens não é apenas benéfico para a sincronização de ficheiros. Um menor número de itens também beneficia cenários como estes:
+Sincronizar a raiz do volume nem sempre é a melhor resposta. Existem benefícios em sincronizar vários locais. Por exemplo, fazê-lo ajuda a manter o número de itens mais baixo por âmbito de sincronização. Enquanto testamos ações de ficheiros Azure e Azure File Sync com 100 milhões de itens (ficheiros e pastas) por ação, uma boa prática é tentar manter o número abaixo de 20 ou 30 milhões numa única ação. Configurar o Azure File Sync com um número mais baixo de itens não é apenas benéfico para a sincronização de ficheiros. Um menor número de itens também beneficia cenários como estes:
 
-* A restauração do lado da nuvem a partir de uma imagem de partilha de ficheiros Azure pode ser tomada como uma cópia de segurança.
+* A verificação inicial do conteúdo da nuvem antes que o espaço de nome possa começar a aparecer num servidor ativado por Azure File Sync pode completar-se mais rapidamente.
+* A restauração do lado da nuvem a partir de uma imagem de partilha de ficheiros Azure será mais rápida.
 * A recuperação de desastres de um servidor no local pode acelerar significativamente.
 * As alterações efetuadas diretamente numa partilha de ficheiros Azure (sincronização externa) podem ser detetadas e sincronizadas mais rapidamente.
+
+> [!TIP]
+> Se não tiver a certeza de quantos ficheiros e pasta tem, pode consultar a ferramenta TreeSize da JAM Software GmbH.
 
 #### <a name="a-structured-approach-to-a-deployment-map"></a>Uma abordagem estruturada de um mapa de implantação
 
@@ -53,14 +57,12 @@ Para tomar a decisão sobre quantas ações de arquivo Azure precisa, reveja os 
 >
 > Este agrupamento sob uma raiz comum não tem impacto no acesso aos seus dados. Os teus ACLs ficam como estão. Só precisa de ajustar quaisquer caminhos de partilha (como ações SMB ou NFS) que possa ter nas pastas do servidor que agora se transformou numa raiz comum. Nada mais muda.
 
-Outro aspeto importante do Azure File Sync e um desempenho e experiência equilibrados é compreender os fatores de escala para o desempenho do Azure File Sync. Obviamente, quando os ficheiros são sincronizados pela internet, ficheiros maiores demoram mais tempo e largura de banda a sincronizar.
-
 > [!IMPORTANT]
 > O vetor de escala mais importante para O Azure File Sync é o número de itens (ficheiros e pastas) que precisam de ser sincronizados.
 
 O Azure File Sync suporta sincronizar até 100 Milhões de itens para uma única partilha de ficheiros Azure. Este limite pode ser ultrapassado e só mostra o que a equipa Azure File Sync testa regularmente.
 
-É uma boa prática manter o número de itens por sincronização baixo. É um fator importante a ter em conta no seu mapeamento de pastas para ações de ficheiros Azure.
+É uma boa prática manter o número de itens por sincronização baixo. É um fator importante a ter em conta no seu mapeamento de pastas para ações de ficheiros Azure. Enquanto testamos ações de ficheiros Azure e Azure File Sync com 100 milhões de itens (ficheiros e pastas) por ação, uma boa prática é tentar manter o número abaixo de 20 ou 30 milhões numa única ação. Divida o seu espaço de nome em várias ações se começar a exceder estes números. Pode continuar a agrupar várias ações on-prem na mesma partilha de ficheiros Azure, desde que fique aproximadamente abaixo destes números. Isto lhe dará espaço para crescer.
 
 Na sua situação, é possível que um conjunto de pastas possa logicamente sincronizar-se com a mesma partilha de ficheiros Azure (utilizando a nova abordagem comum da pasta raiz mencionada anteriormente). Mas ainda pode ser melhor reagrupar pastas de modo a sincronizar em duas em vez de uma partilha de ficheiros Azure. Pode utilizar esta abordagem para manter o número de ficheiros e pastas por partilha de ficheiros equilibrado em todo o servidor.
 
@@ -73,7 +75,7 @@ Na sua situação, é possível que um conjunto de pastas possa logicamente sinc
     :::column:::
         Utilize uma combinação dos conceitos anteriores para ajudar a determinar quantas ações de ficheiros Azure precisa e quais as partes dos seus dados existentes que acabarão em que a ação de ficheiros Azure.
         
-        Crie uma tabela que registe os seus pensamentos, para que possa encaminhá-la no próximo passo. Manter-se organizado é importante, porque pode ser fácil perder detalhes do seu plano de mapeamento quando está a autar muitos recursos Azure ao mesmo tempo. Para ajudá-lo a criar um mapeamento completo, pode descarregar um ficheiro Microsoft Excel como modelo.
+        Crie uma tabela que grava os seus pensamentos, para que possa referir-se a ela quando necessário. Manter-se organizado é importante, porque pode ser fácil perder detalhes do seu plano de mapeamento quando está a autar muitos recursos Azure ao mesmo tempo. Para ajudá-lo a criar um mapeamento completo, pode descarregar um ficheiro Microsoft Excel como modelo.
 
 [//]: # (HTML aparece como a única maneira de conseguir adicionar uma tabela aninhada de duas colunas com a análise de imagem de trabalho e texto/hiperligação na mesma linha.)
 

@@ -4,12 +4,12 @@ description: Este artigo fornece informações que o ajudam a otimizar o custo e
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: dbf0bb9cae87a51eb6e0a4fb25c700ec6f423ff1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dfac69a055c9b0c75032622caf7fb8502fad3406
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85476262"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328271"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>Governação da infraestrutura Azure DevTest Labs - Gerir custos e propriedade
 O custo e a propriedade são as principais preocupações quando se considera construir os seus ambientes de desenvolvimento e teste. Nesta secção, encontra informações que o ajudam a otimizar o custo e a alinhar a propriedade em todo o seu ambiente.
@@ -34,9 +34,9 @@ Apenas os subscritores ativos do Visual Studio (subscrições padrão, subscriç
 
 Se decidir utilizar a oferta DevTest, note que este benefício é exclusivamente para desenvolvimento e teste das suas aplicações. A utilização dentro da subscrição não tem um SLA apoiado financeiramente, exceto para o uso de Azure DevOps e HockeyApp.
 
-## <a name="define-a-role-based-access-across-your-organization"></a>Defina um acesso baseado em funções em toda a sua organização
+## <a name="define-role-based-access-across-your-organization"></a>Defina o acesso baseado em funções em toda a sua organização
 ### <a name="question"></a>Pergunta
-Como posso definir o controlo de acesso baseado em funções para os meus ambientes DevTest Labs para garantir que as TI possam governar enquanto os desenvolvedores/teste podem fazer o seu trabalho? 
+Como posso definir o controlo de acesso baseado em funções da Azure para os meus ambientes DevTest Labs para garantir que as TI possam governar enquanto os desenvolvedores/teste podem fazer o seu trabalho? 
 
 ### <a name="answer"></a>Resposta
 Há um padrão amplo, no entanto o detalhe depende da sua organização.

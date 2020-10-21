@@ -4,12 +4,12 @@ description: Saiba como descobrir instâncias AWS com avaliação do servidor Az
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: e48d123a9317d35cd2bb8e38a29d23cae3b75eb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b837ae89831024b169782fe9ae1a062677a4b45b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275460"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311283"
 ---
 # <a name="tutorial-discover-aws-instances-with-server-assessment"></a>Tutorial: Descubra instâncias AWS com avaliação do servidor
 
@@ -224,7 +224,7 @@ Coloque o aparelho pela primeira vez.
    
    O s-in com um PIN não é suportado.
 3. Depois de iniciar sessão com sucesso, volte à aplicação web. 
-4. Se a conta de utilizador Azure utilizada para a exploração madeireira tiver as [permissões certas](tutorial-prepare-physical.md) sobre os recursos Azure criados durante a geração chave, o registo do aparelho será iniciado.
+4. Se a conta de utilizador Azure utilizada para a exploração madeireira tiver as [permissões certas](./tutorial-discover-physical.md) sobre os recursos Azure criados durante a geração chave, o registo do aparelho será iniciado.
 1. Depois de o aparelho estar registado com sucesso, pode ver os dados do registo clicando nos **detalhes do Ver.**
 
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: 99c5ff39820b652a33ab670e63ca709f8747c4cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7deaca67212146881754f785e6dceaa064bde6e7
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88751274"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329428"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Migrar para os centros apache Hadoop para Azure HDInsight - segurança e devOps melhores práticas
 
@@ -51,7 +51,7 @@ Utilize os seguintes passos para implantar o cluster HDInsight de domínio:
     |LDAPS URL|por exemplo, `ldaps://contoso.onmicrosoft.com:636` . .|
     |Aceder ao grupo de utilizadores|Os grupos de segurança cujos utilizadores pretende sincronizar com o cluster, por exemplo: `HiveUsers` . Se quiser especificar vários grupos de utilizadores, separe-os por pontos e vírgula ';'. O(s) grupo(s) deve existir no diretório antes de criar o cluster ESP.|
 
-Para obter mais informações, veja os artigos seguintes:
+Para obter mais informações, veja os seguintes artigos:
 
 - [Uma introdução à segurança apache Hadoop com clusters HDInsight unidos pelo domínio](../domain-joined/hdinsight-security-overview.md)
 - [Plan Azure juntam-se a aglomerados Apache Hadoop em HDInsight](../domain-joined/apache-domain-joined-architecture.md)
@@ -81,7 +81,7 @@ A segurança final da empresa pode ser alcançada utilizando os seguintes contro
     - A encriptação Server-Side transparente utilizando chaves geridas pela Microsoft ou chaves geridas pelo cliente.
     - Na encriptação de Trânsito utilizando Client-Side encriptação, https e TLS.
 
-Para obter mais informações, veja os artigos seguintes:
+Para obter mais informações, veja os seguintes artigos:
 
 - [Visão geral das Redes Virtuais Azure](../../virtual-network/virtual-networks-overview.md)
 - [Visão geral dos grupos de segurança da rede Azure](../../virtual-network/security-overview.md)

@@ -9,19 +9,21 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: jingwang
-ms.openlocfilehash: dad1f9f232cb9d713af81f6aea57a4ffe651da19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65dc9f556a9b7c257273349c056cf997973e942f
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331969"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328288"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Excel formato na Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Siga este artigo quando quiser **analisar os ficheiros Excel**. A Azure Data Factory suporta ".xls" e ".xlsx".
 
-O formato Excel é suportado para os seguintes conectores: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), Azure File Storage Gen2 , [Azure File Storage](connector-azure-file-storage.md), FILE [System,](connector-file-system.md) [FTP,](connector-ftp.md) [Google Cloud Storage,](connector-google-cloud-storage.md) [HDFS](connector-hdfs.md), [HTTP](connector-http.md)e [SFTP](connector-sftp.md). É suportado como fonte, mas não afundado.
+O formato Excel é suportado para os seguintes conectores: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), Azure File Storage Gen2 , [Azure File Storage](connector-azure-file-storage.md), FILE [System,](connector-file-system.md) [FTP,](connector-ftp.md) [Google Cloud Storage,](connector-google-cloud-storage.md) [HDFS](connector-hdfs.md), [HTTP](connector-http.md)e [SFTP](connector-sftp.md). É suportado como fonte, mas não afundado. 
+
+**Nota:** O formato ".xls" não é suportado durante a utilização [http](connector-http.md). 
 
 ## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
@@ -36,7 +38,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 | firstRowAsHeader | Especifica se deve tratar a primeira linha na folha/intervalo dada como uma linha de cabeçalho com nomes de colunas.<br>Os valores permitidos são **verdadeiros** e **falsos** (padrão). | Não       |
 | nullValue        | Especifica a representação de cadeia de valor nulo. <br>O valor predefinido é **a corda vazia.** | Não       |
 | compressão | Grupo de propriedades para configurar a compressão do ficheiro. Configure esta secção quando pretender fazer compressão/descompressão durante a execução da atividade. | Não |
-| tipo<br/>*(em) `compression` * | O códice de compressão usado para ler/escrever ficheiros JSON. <br>Os valores permitidos são **bzip2**, **gzip,** **deflate,** **ZipDeflate,** **TarGzip,** **snappy,** ou **lz4**. O padrão não é comprimido.<br>**Nota** atualmente A atividade copy não suporta "snappy" & "lz4", e o fluxo de dados de mapeamento não suporta "ZipDeflate".<br>**Note** que ao utilizar a atividade de cópia para descomprimir ficheiros **ZipDeflate** e escrever para a loja de dados da pia baseada em ficheiros, os ficheiros são extraídos para a pasta: `<path specified in dataset>/<folder named as source zip file>/` . | N.º  |
+| tipo<br/>*(em) `compression` * | O códice de compressão usado para ler/escrever ficheiros JSON. <br>Os valores permitidos são **bzip2**, **gzip,** **deflate,** **ZipDeflate,** **TarGzip,** **snappy,** ou **lz4**. O padrão não é comprimido.<br>**Nota** atualmente A atividade copy não suporta "snappy" & "lz4", e o fluxo de dados de mapeamento não suporta "ZipDeflate".<br>**Note** que ao utilizar a atividade de cópia para descomprimir ficheiros **ZipDeflate** e escrever para a loja de dados da pia baseada em ficheiros, os ficheiros são extraídos para a pasta: `<path specified in dataset>/<folder named as source zip file>/` . | Não.  |
 | nível<br/>*(em) `compression` * | A relação de compressão. <br>Os valores permitidos são **ótimos** ou **mais rápidos.**<br>- **Mais rápido:** O funcionamento da compressão deve ser concluído o mais rapidamente possível, mesmo que o ficheiro resultante não seja perfeitamente comprimido.<br>- **Ótimo**: O funcionamento da compressão deve ser perfeitamente comprimido, mesmo que a operação leve mais tempo a ser concluída. Para mais informações, consulte o tópico [nível de compressão.](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) | Não       |
 
 Abaixo está um exemplo do conjunto de dados do Excel no Azure Blob Storage:
@@ -71,7 +73,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 ### <a name="excel-as-source"></a>Excel como fonte 
 
-As seguintes propriedades são suportadas na secção *** \* de origem \* *** da atividade de cópia.
+As seguintes propriedades são suportadas na atividade de cópia **_ \_ secção \* fonte*** .
 
 | Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
@@ -109,9 +111,9 @@ A tabela abaixo lista as propriedades suportadas por uma fonte do Excel. Pode ed
 | Nome                      | Descrição                                                  | Obrigatório | Valores permitidos                                            | Propriedade de script de fluxo de dados         |
 | ------------------------- | ------------------------------------------------------------ | -------- | --------------------------------------------------------- | --------------------------------- |
 | Caminhos de wild card           | Todos os ficheiros correspondentes ao caminho wildcard serão processados. Substitui a pasta e o caminho do ficheiro definido no conjunto de dados. | não       | Corda[]                                                  | wildcardPaths                     |
-| Caminho da raiz da partição       | Para os dados de ficheiros que são divididos, pode introduzir um caminho de raiz de partição para ler pastas partidas como colunas | não       | Cadeia                                                    | partitionRootPath                 |
+| Caminho da raiz da partição       | Para os dados de ficheiros que são divididos, pode introduzir um caminho de raiz de partição para ler pastas partidas como colunas | não       | String                                                    | partitionRootPath                 |
 | Lista de ficheiros             | Se a sua fonte está a apontar para um ficheiro de texto que lista ficheiros para processar | não       | `true` ou `false`                                         | fileList                          |
-| Coluna para armazenar nome de ficheiro | Criar uma nova coluna com o nome e caminho do ficheiro de origem       | não       | Cadeia                                                    | rowUrlColumn                      |
+| Coluna para armazenar nome de ficheiro | Criar uma nova coluna com o nome e caminho do ficheiro de origem       | não       | String                                                    | rowUrlColumn                      |
 | Após a conclusão          | Elimine ou mova os ficheiros após o processamento. O caminho do arquivo começa a partir da raiz do recipiente | não       | Excluir: `true` ou `false` <br> Mover-se: `['<from>', '<to>']` | purgeFiles <br> moveFiles         |
 | Filtrar por última modificação   | Opte por filtrar ficheiros com base na última alteração que foram alterados | não       | Timestamp                                                 | modificado Depois <br> modificadoSForo antes |
 | Não permita que não encontrem ficheiros | Se for verdade, um erro não é jogado se nenhum ficheiro for encontrado | não | `true` ou `false` | ignoreNoFilesFound |

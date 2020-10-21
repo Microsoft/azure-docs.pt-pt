@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: 4dba170c750a61ea08e4116dc6f2b13ef14c87ed
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 231b6ffa3730721d4e44ecb15c2fc58591b80178
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217393"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314819"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Resolver problemas do Balanceador de Carga do Azure
 
@@ -157,6 +157,17 @@ Se decidir abrir um caso de apoio, recolhê as seguintes informações para uma 
 - Utilize a PSPing de um dos VMs de backend dentro da VNet para testar a resposta da porta da sonda (exemplo: psping 10.0.0.4:3389) e resultados recorde. 
 - Se não for recebida qualquer resposta nestes testes de ping, faça um rastreio de Netsh simultâneo no VM de backend e no VM de teste VNet enquanto corre PsPing, então pare o rastreio de Netsh. 
  
+## <a name="symptom-load-balancer-in-failed-state"></a>Sintoma: Balanceador de carga em estado de falha 
+
+**Resolução**
+
+- Assim que identificar o recurso que está em estado de falha, vá ao [Azure Resource Explorer](https://resources.azure.com/) e identifique o recurso neste estado. 
+- Atualize o toggle no canto superior direito para Ler/Escrever.
+- Clique em Editar para obter o recurso em estado falhado.
+- Clique em PUT seguido por GET para garantir que o estado de provisionamento foi atualizado para Sucesso.
+- Em seguida, pode prosseguir com outras ações, uma vez que o recurso está fora do estado falhado.
+
+
 ## <a name="next-steps"></a>Passos seguintes
 
 Se os passos anteriores não resolverem o problema, abra um [bilhete de apoio](https://azure.microsoft.com/support/options/).

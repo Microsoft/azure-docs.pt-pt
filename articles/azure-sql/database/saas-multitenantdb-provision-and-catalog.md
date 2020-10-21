@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 92dcb1e75d43a946b9b6a238aaa360ec3d84dbb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b381e2dbdbfd30d10f37637b30bcdfbab8ed99a
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619628"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331945"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Provisão e catálogo de novos inquilinos numa aplicação SaaS utilizando uma base de dados Azure SQL de vários inquilinos
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -150,7 +150,7 @@ Seguem-se elementos-chave do fluxo de trabalho de provisionamento por onde passa
 - **Adicione o nome do inquilino a uma mesa de extensão de catálogo**: O nome do local é adicionado à mesa dos Inquilinos no catálogo.  Esta adição mostra como a base de dados do Catálogo pode ser alargada para suportar dados adicionais específicos da aplicação.
 - **Página Open Events para o novo inquilino**: A página de eventos *Bushwillow Blues* é aberta no navegador.
 
-   ![eventos](./media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
+   ![Screenshot que mostra a página eventos para um novo inquilino.](./media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
 
 #### <a name="debugger-steps"></a>Passos de depuração
 
@@ -163,7 +163,7 @@ Para entender como a app Wingtip implementa o novo provisionamento de inquilinos
 
 2. Adicione um breakpoint colocando o seu cursor em qualquer lugar da linha 38, a linha que diz: *New-Tenant '*, e, em seguida, pressione **F9**.
 
-   ![ponto de interrupção](./media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
+   ![Screenshot que destaca a linha que inclui Novo Inquilino.](./media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
 
 3. Executar o script pressionando **F5**.
 

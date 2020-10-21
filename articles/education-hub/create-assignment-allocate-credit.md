@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
-ms.openlocfilehash: a850e5ea851ee539c663b00ecc7f2053eae8dc34
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7904efb92aa8362605f1f68ee0b39f4241339031
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87534095"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332472"
 ---
 # <a name="create-an-assignment-and-allocate-credit"></a>Criar uma tarefa e alocar crédito
 
@@ -31,7 +31,7 @@ O Azure Education Hub aceita qualquer endereço de e-mail no ___________________
 > [!IMPORTANT]
 > O trabalho e as contas escolares estão sujeitos às suas próprias políticas, incluindo se um endereço de e-mail de um domínio diferente da organização é permitido (por exemplo, adicionar student2@outlook.com ao @school.edu domínio). Certifique-se de verificar estas políticas antes de adicionar novos utilizadores.
 
-Quando uma conta de trabalho ou escola (por student1@school.edu exemplo, ) é adicionada como controlo de acesso baseado em funções (RBAC) no Portal do Patrocinador educador ou no [portal Azure,](https://portal.azure.com)o Azure envia automaticamente e-mails ao destinatário. Este e-mail requer que o utilizador aceite a nova conta e a função Azure antes de receber acesso à subscrição. Se é assistente de ensino de curso (TA) ou professor, certifique-se de informar os alunos sobre isso para que a sua subscrição seja exibida no portal Azure, como esperado. O e-mail deve ser semelhante a isto:
+Quando uma conta de trabalho ou escola (por exemplo, student1@school.edu ) é adicionada usando o controlo de acesso baseado em funções Azure (Azure RBAC) no Portal do Patrocinador educador ou no [portal Azure](https://portal.azure.com), o Azure envia automaticamente e-mail para o destinatário. Este e-mail requer que o utilizador aceite a nova conta e a função Azure antes de receber acesso à subscrição. Se é assistente de ensino de curso (TA) ou professor, certifique-se de informar os alunos sobre isso para que a sua subscrição seja exibida no portal Azure, como esperado. O e-mail deve ser semelhante a isto:
 
 :::image type="content" source="media/create-assignment-allocate-credit/azure-active-directory-get-started.png" alt-text="Diretório Ativo Azure Começa" border="false":::
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: e08150f5998b71523a986eac1f8a9be993125f5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc2047832f8cfbf31c04c84eb7a70fee6631fa4b
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619157"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330126"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Recuperação de desastres para uma aplicação SaaS multi-arrendatário usando a geo-replicação da base de dados
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -114,7 +114,7 @@ Nesta tarefa, inicia-se um processo que sincroniza a configuração dos servidor
     * **$DemoScenario = 1**, Inicie um trabalho de fundo que sincroniza o servidor do inquilino e a informação de configuração da piscina no catálogo
 
 3. Prima **F5** para executar o script de sincronização. É aberta uma nova sessão PowerShell para sincronizar a configuração dos recursos dos inquilinos.
-![Processo de sincronização](./media/saas-dbpertenant-dr-geo-replication/sync-process.png)
+![Screenshot que mostra a nova sessão PowerShell que é aberta para sincronizar a configuração dos recursos dos inquilinos.](./media/saas-dbpertenant-dr-geo-replication/sync-process.png)
 
 Deixe a janela PowerShell em segundo plano e continue com o resto do tutorial. 
 

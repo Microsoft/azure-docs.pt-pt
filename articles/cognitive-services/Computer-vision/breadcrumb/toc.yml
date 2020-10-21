@@ -9,3 +9,14 @@
         - name: Análise espacial da Imagem Digitalizada
           tocHref: /legal/cognitive-services/computer-vision/
           topicHref: /azure/cognitive-services/Computer-vision/index
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+    - name: Serviços Cognitivos
+      tocHref: /azure/cognitive-services/
+      topicHref: /azure/cognitive-services/index
+      items:
+        - name: Imagem Digitalizada
+          tocHref: /azure/cognitive-services/
+          topicHref: /azure/cognitive-services/computer-vision/index

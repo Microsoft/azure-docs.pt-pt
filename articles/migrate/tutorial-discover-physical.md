@@ -4,12 +4,12 @@ description: Saiba como descobrir servidores físicos no local com a Avaliação
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 00fb4073bc8a7b1375f92202b5a6bd0a59a23816
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7cbd7939248686a251fdf56bf1a5f1acc952a3a
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442298"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314090"
 ---
 # <a name="tutorial-discover-physical-servers-with-server-assessment"></a>Tutorial: Descubra servidores físicos com avaliação do servidor
 
@@ -208,7 +208,7 @@ Coloque o aparelho pela primeira vez.
    
    O s-in com um PIN não é suportado.
 3. Depois de iniciar sessão com sucesso, volte à aplicação web. 
-4. Se a conta de utilizador Azure utilizada para a exploração madeireira tiver as [permissões certas](tutorial-prepare-physical.md) sobre os recursos Azure criados durante a geração chave, o registo do aparelho será iniciado.
+4. Se a conta de utilizador Azure utilizada para a exploração madeireira tiver as [permissões certas]() sobre os recursos Azure criados durante a geração chave, o registo do aparelho será iniciado.
 1. Depois de o aparelho estar registado com sucesso, pode ver os dados do registo clicando nos **detalhes do Ver.**
 
 
@@ -245,5 +245,3 @@ Após o fim da descoberta, pode verificar se os servidores aparecem no portal.
 
 - [Avaliar servidores físicos](tutorial-assess-physical.md) para migração para VMs Azure.
 - [Reveja os dados](migrate-appliance.md#collected-data---physical) que o aparelho recolhe durante a descoberta.
-
-

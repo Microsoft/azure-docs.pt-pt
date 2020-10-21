@@ -1,14 +1,14 @@
 ---
 title: Experiências de gestão entre inquilinos
 description: A gestão de recursos delegados Azure permite uma experiência de gestão de inquilinos cruzados.
-ms.date: 10/12/2020
+ms.date: 10/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7b2476d58cdfe057a94c52b40af7694abc7b263f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b033e141d176db839e897ac4add738a4a799de99
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970644"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315938"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
@@ -69,6 +69,10 @@ A maioria das tarefas e serviços podem ser realizados em recursos delegados ent
 - Faça o back up e restaure os [dados dos clientes a partir de cargas de trabalho no local, VMs Azure, ações de ficheiros Azure, e muito mais](../..//backup/backup-overview.md#what-can-i-back-up)
 - Utilize o [Backup Explorer](../../backup/monitor-azure-backup-with-backup-explorer.md) para ajudar a visualizar informações operacionais de itens de backup (incluindo recursos Azure ainda não configurados para backup) e informações de monitorização (empregos e alertas) para subscrições delegadas. O Backup Explorer está atualmente disponível apenas para dados Azure VM.
 - Use [Relatórios de Backup](../../backup/configure-reports.md) em subscrições delegadas para acompanhar tendências históricas, analisar o consumo de armazenamento de backup e auditar backups e restauros.
+
+[Plantas Azure:](../../governance/blueprints/index.yml)
+
+- Utilize plantas Azure para orquestrar a implementação de modelos de recursos e outros artefactos (requer [acesso adicional](https://www.wesleyhaakman.org/preparing-azure-lighthouse-customer-subscriptions-for-azure-blueprints/) para preparar a subscrição do cliente)
 
 [Gestão de Custos Azure + Faturação:](../../cost-management-billing/index.yml)
 

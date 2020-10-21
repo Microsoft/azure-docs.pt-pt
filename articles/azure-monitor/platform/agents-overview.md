@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/02/2020
-ms.openlocfilehash: ec7b776f7d573ea07f010eeab81d98222102be41
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.date: 10/20/2020
+ms.openlocfilehash: 66d420a902cbfb56ece75646ee39bbba774b6208
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202009"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92312419"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Visão geral dos agentes do Monitor Azure
 
@@ -162,26 +162,26 @@ As tabelas a seguir enumeram os sistemas operativos que são suportados pelos ag
 | CentOS Linux 7                                           | X | X |   | X |
 | CentOS Linux 7.8                                         | X | X | X | X |
 | CentOS Linux 7.6                                         | X | X | X | X |
-| CentOS Linux 6                                           | X | X |   |   |
-| CentOS Linux 6.5+                                        | X | X |   | X |
+| CentOS Linux 6                                           |   | X |   |   |
+| CentOS Linux 6.5+                                        |   | X |   | X |
 | Debian 10                                                | X |   |   |   |
 | Debian 9                                                 | X | X | x | X |
 | Debian 8                                                 |   | X | X | X |
 | Debian 7                                                 |   |   |   | X |
 | OpenSUSE 13.1+                                           |   |   |   | X |
 | Oráculo Linux 7                                           | X | X |   | X |
-| Oracle Linux 6                                           | X | X |   |   |
-| Oracle Linux 6.4+                                        | X | X |   | X |
+| Oracle Linux 6                                           |   | X |   |   |
+| Oracle Linux 6.4+                                        |   | X |   | X |
 | Red Hat Enterprise Linux Server 8                        |   | X |   |   |
 | Red Hat Enterprise Linux Server 7                        | X | X | X | X |
-| Red Hat Enterprise Linux Server 6                        | X | X | X |   |
-| Red Hat Enterprise Linux Server 6.7+                     | X | X | X | X |
+| Red Hat Enterprise Linux Server 6                        |   | X | X |   |
+| Red Hat Enterprise Linux Server 6.7+                     |   | X | X | X |
 | SUSE Linux Enterprise Server 15                          | X | X |   |   |
 | SUSE Linux Enterprise Server 12                          | X | X | X | X |
 | Ubuntu 20.04 LTS                                         |   | X |   |   |
 | Ubuntu 18.04 LTS                                         | X | X | X | X |
 | Ubuntu 16.04 LTS                                         | X | X | X | X |
-| Ubuntu 14.04 LTS                                         | X | X |   | X |
+| Ubuntu 14.04 LTS                                         |   | X |   | X |
 
 
 #### <a name="dependency-agent-linux-kernel-support"></a>Suporte de kernel do agente de dependência Linux

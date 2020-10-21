@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6f64c8155724a1306f5074a9164bcf97391dfbf6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7f177b8738fdaf8d0975877d9af094b6f0a49a9
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000350"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328152"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Tutorial: Responder aos eventos de autocarro do Azure Service recebidos através da Azure Event Grid utilizando funções Azure e Apps Azure Logic
 Neste tutorial, você aprende a responder aos eventos do Azure Service Bus que são recebidos através da Azure Event Grid utilizando Azure Functions e Azure Logic Apps. 
@@ -96,7 +96,7 @@ Conecte uma aplicação lógica com a Azure Service Bus e a Azure Event Grid seg
         ![Logic Apps Designer - selecione a chave de acesso partilhada](./media/service-bus-to-event-grid-integration-example/logic-app-shared-access-key.png) 
     8. Selecione o seu **tópico** e **subscrição**. 
     
-        ![Logic Apps Designer - selecione o tópico e subscrição do Service Bus](./media/service-bus-to-event-grid-integration-example/logic-app-select-topic-subscription.png)
+        ![Screenshot que mostra onde seleciona o seu tópico e subscrição.](./media/service-bus-to-event-grid-integration-example/logic-app-select-topic-subscription.png)
 7. Selecione **+ Novo passo**, e faça os seguintes passos: 
     1. Selecione **Service Bus**.
     2. **Selecione Preencha a mensagem numa subscrição de tópico** da lista de ações. 

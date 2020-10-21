@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
-ms.date: 09/29/2020
-ms.openlocfilehash: de372b9800f4b76b42624b30f05848bc570ae6e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: d4934d784e871988b5bc30f7b7cf8c09651576e2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450120"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330376"
 ---
 # <a name="execute-python-script-module"></a>Execute o módulo de script python
 
@@ -120,9 +120,47 @@ O módulo de script execute python contém o código Python de amostra que pode 
 
     ![Execute o mapa de entrada python](media/module/python-module.png)
 
-4. Para incluir novos pacotes ou código Python, adicione o ficheiro com fecho que contém estes recursos personalizados no **pacote Script**. A entrada para **o pacote Script** deve ser um ficheiro com fecho de correr enviado para o seu espaço de trabalho como conjunto de dados do tipo de ficheiro. Pode fazer o upload do conjunto de dados na página do ativo **dos Conjuntos de Dados.** Pode arrastar o módulo de conjunto de dados da lista **My datasets** na árvore do módulo esquerdo na página de autoria do designer. 
+4. Para incluir novos pacotes ou código Python, ligue o ficheiro com fecho que contém estes recursos personalizados à porta **do pacote script.** Ou se o seu script for maior que 16 KB, use a porta **script Bundle** para evitar erros como *o CommandLine excede o limite de 16597 caracteres*. 
 
-    Qualquer ficheiro contido no arquivo com fecho de correr carregado pode ser utilizado durante a execução do gasoduto. Se o arquivo inclui uma estrutura de diretório, a estrutura é preservada, mas você deve preparar um diretório chamado **src** para o caminho.
+    
+    1. Embrulhe o script e outros recursos personalizados para um ficheiro zip.
+    1. Faça o upload do ficheiro zip como um **conjunto de dados de ficheiro** para o estúdio. 
+    1. Arraste o módulo de conjunto de dados da lista *datasets* no painel do módulo esquerdo na página de autoria do designer. 
+    1. Ligue o módulo de conjunto de dados à porta do Pacote de **Scripts** do módulo **executo R Script.**
+    
+    Qualquer ficheiro contido no arquivo com fecho de correr carregado pode ser utilizado durante a execução do gasoduto. Se o arquivo incluir uma estrutura de diretório, a estrutura é preservada.
+    
+    Segue-se um exemplo de pacote de scripts, que contém um ficheiro de script python e um ficheiro txt:
+      
+    > [!div class="mx-imgBorder"]
+    > ![Exemplo do pacote de script](media/module/python-script-bundle.png)  
+
+    Segue-se o conteúdo `my_script.py` de:
+
+    ```python
+    def my_func(dataframe1):
+    return dataframe1
+    ```
+    Segue-se o código de amostra que mostra como consumir os ficheiros no pacote de scripts:    
+
+    ```python
+    import pandas as pd
+    from my_script import my_func
+ 
+    def azureml_main(dataframe1 = None, dataframe2 = None):
+ 
+        # Execution logic goes here
+        print(f'Input pandas.DataFrame #1: {dataframe1}')
+ 
+        # Test the custom defined python function
+        dataframe1 = my_func(dataframe1)
+ 
+        # Test to read custom uploaded files by relative path
+        with open('./Script Bundle/my_sample.txt', 'r') as text_file:
+            sample = text_file.read()
+    
+        return dataframe1, pd.DataFrame(columns=["Sample"], data=[[sample]])
+    ```
 
 5. Na caixa de texto do **script Python,** escreva ou cole um script Python válido.
 
@@ -150,7 +188,7 @@ O módulo de script execute python contém o código Python de amostra que pode 
 
     Todos os dados e códigos são carregados numa máquina virtual, e executados usando o ambiente python especificado.
 
-## <a name="results"></a>Results
+## <a name="results"></a>Resultados
 
 Os resultados de quaisquer cálculos pelo código Python incorporado devem ser fornecidos como `pandas.DataFrame` , que é automaticamente convertido para o formato de conjunto de dados Azure Machine Learning. Em seguida, pode utilizar os resultados com outros módulos na tubagem.
 
