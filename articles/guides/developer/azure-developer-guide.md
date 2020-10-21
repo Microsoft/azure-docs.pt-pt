@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: 17474b4f38ccc6f43e664042b1218a8c253718e5
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 770c9f7d677f739781db6290fa0c43e410761d17
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203420"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327823"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para programadores do Azure
 
@@ -281,7 +281,7 @@ Para criar ou trabalhar com uma subscrição do Azure, tem de ter uma conta Azur
 
 Cada subscrição do Azure tem uma relação de confiança com uma instância do Azure AD. Tal significa que confia nesse diretório para autenticar utilizadores, serviços e dispositivos. Várias subscrições podem confiar no mesmo diretório, mas uma subscrição apenas pode confiar num diretório. Para saber mais, consulte [como as assinaturas Azure estão associadas ao Azure Ative Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
-Além de definir identidades individuais da conta Azure, também *chamados utilizadores,* pode definir *grupos* em Azure AD. A criação de grupos de utilizadores é uma boa forma de gerir o acesso aos recursos numa subscrição utilizando o controlo de acesso baseado em funções (RBAC). Para aprender a criar grupos, consulte [Criar um grupo na pré-visualização do Azure Ative Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Também pode criar e gerir grupos [utilizando o PowerShell](../../active-directory/users-groups-roles/groups-settings-v2-cmdlets.md).
+Além de definir identidades individuais da conta Azure, também *chamados utilizadores,* pode definir *grupos* em Azure AD. A criação de grupos de utilizadores é uma boa forma de gerir o acesso aos recursos numa subscrição utilizando o controlo de acesso baseado em funções Azure (Azure RBAC). Para aprender a criar grupos, consulte [Criar um grupo na pré-visualização do Azure Ative Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Também pode criar e gerir grupos [utilizando o PowerShell](../../active-directory/users-groups-roles/groups-settings-v2-cmdlets.md).
 
 ### <a name="manage-your-subscriptions"></a>Gerir as subscrições
 
@@ -297,11 +297,11 @@ O Azure Resource Explorer é uma ótima ferramenta para visualizar os recursos q
 
 Quando permite o acesso aos recursos do Azure, é sempre uma boa prática proporcionar aos utilizadores o menor privilégio que é necessário para fazer uma determinada tarefa.
 
-- **Controlo de acesso baseado em funções (RBAC)**: Em Azure, pode conceder acesso a contas de utilizador (principais) num âmbito especificado: subscrição, grupo de recursos ou recursos individuais. O RBAC permite-lhe implantar recursos num grupo de recursos e conceder permissões a um utilizador ou grupo específico. Também permite limitar o acesso apenas aos recursos que pertencem ao grupo de recursos-alvo. Também pode conceder acesso a um único recurso, como uma máquina virtual ou uma rede virtual. Para conceder acesso, atribui uma função ao utilizador, grupo ou principal de serviço. Existem muitos papéis predefinidos, e também pode definir os seus próprios papéis personalizados. Para saber mais, veja [o que é o controlo de acesso baseado em funções do Azure (Azure RBAC)?](../../role-based-access-control/overview.md)
+- **Controlo de acesso baseado em funções (Azure RBAC)**: Em Azure, pode conceder acesso a contas de utilizador (principais) num âmbito especificado: subscrição, grupo de recursos ou recursos individuais. O Azure RBAC permite-lhe implantar recursos num grupo de recursos e conceder permissões a um utilizador ou grupo específico. Também permite limitar o acesso apenas aos recursos que pertencem ao grupo de recursos-alvo. Também pode conceder acesso a um único recurso, como uma máquina virtual ou uma rede virtual. Para conceder acesso, atribui uma função ao utilizador, grupo ou principal de serviço. Existem muitos papéis predefinidos, e também pode definir os seus próprios papéis personalizados. Para saber mais, veja [o que é o controlo de acesso baseado em funções do Azure (Azure RBAC)?](../../role-based-access-control/overview.md)
 
   > **Quando utilizar:** Quando necessitar de uma gestão de acesso fino para utilizadores e grupos ou quando necessitar de fazer de um utilizador um proprietário de uma subscrição.
   >
-  > **Começar**: Para saber mais, consulte [Gerir o acesso através do RBAC e do portal Azure.](../../role-based-access-control/role-assignments-portal.md)
+  > **Começar**: Para saber mais, consulte [Adicionar ou remover atribuições de funções Azure utilizando o portal Azure](../../role-based-access-control/role-assignments-portal.md).
 
 - **Objetos principais do**serviço : Além de fornecer acesso a principais utilizadores e grupos, pode conceder o mesmo acesso a um diretor de serviço.
 

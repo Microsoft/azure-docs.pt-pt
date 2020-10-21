@@ -229,6 +229,8 @@
   items:
     - name: Documentação do reconhecimento de intenção
       href: index-intent-recognition.yml
+    - name: Descrição geral do reconhecimento de intenção
+      href: intent-recognition.md
     - name: Início rápido do reconhecimento de intenção
       href: quickstarts/intent-recognition.md
     - name: Guias de procedimentos

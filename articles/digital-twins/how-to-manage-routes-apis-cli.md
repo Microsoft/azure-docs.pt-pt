@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 652299ebb98f685a16871cf4e944608a471d8df2
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 96d759f0f722e332eb25e049fd336c784eb99789
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279099"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332081"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gerir pontos finais e rotas em Azure Digital Twins (APIs e CLI)
 
@@ -64,7 +64,7 @@ Uma vez criado o tópico, pode ligá-lo à Azure Digital Twins com o seguinte [c
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-Agora, o tópico da grelha de eventos está disponível como ponto final dentro da Azure Digital Twins, sob o nome especificado com o `--endpoint-name` argumento. Normalmente, você usará esse nome como alvo de uma rota de **eventos**, que irá criar [mais tarde neste artigo](#event-routes-with-apis-and-the-c-sdk) usando o serviço Azure Digital Twins API.
+Agora, o tópico da grelha de eventos está disponível como ponto final dentro da Azure Digital Twins, sob o nome especificado com o `--endpoint-name` argumento. Normalmente, você usará esse nome como alvo de uma rota de **eventos**, que irá criar [mais tarde neste artigo](#create-an-event-route) usando o serviço Azure Digital Twins API.
 
 ### <a name="create-an-event-hubs-or-service-bus-endpoint"></a>Crie um centro de eventos ou ponto final de ônibus de serviço
 
@@ -150,7 +150,7 @@ Aqui está um exemplo de uma mensagem de letra morta para uma [notificação de 
 }
 ```
 
-## <a name="event-routes-with-apis-and-the-c-sdk"></a>Rotas de eventos (com APIs e o C# SDK)
+## <a name="create-an-event-route"></a>Criar uma rota de eventos
 
 Para enviar dados da Azure Digital Twins para um ponto final, terá de definir uma rota de **eventos.** Azure Digital Twins **EventRoutes APIs** permitem aos desenvolvedores ligar o fluxo de eventos, em todo o sistema e para serviços a jusante. Leia mais sobre as rotas de eventos em [*Conceitos: Eventos de Roteamento Azure Digital Twins*](concepts-route-events.md).
 
@@ -163,7 +163,7 @@ As amostras desta secção utilizam o [.NET (C#) SDK](https://www.nuget.org/pack
 >
 > Se estiver a escrever este fluxo, é melhor prestar contas por isso construindo em 2-3 minutos de tempo de espera para o serviço de ponto final terminar a implantação antes de seguir para a configuração da rota.
 
-### <a name="create-an-event-route"></a>Criar uma rota de eventos
+### <a name="creation-code-with-apis-and-the-c-sdk"></a>Código de criação com APIs e o C# SDK
 
 As rotas do evento são definidas usando [APIs de plano de dados.](how-to-use-apis-sdks.md#overview-data-plane-apis) 
 
@@ -217,7 +217,7 @@ catch (RequestFailedException e)
 }
 ```
 
-### <a name="filter-events"></a>Filtrar eventos
+## <a name="filter-events"></a>Filtrar eventos
 
 Sem filtragem, os pontos finais recebem uma variedade de eventos da Azure Digital Twins:
 * Telemetria disparada por [gémeos digitais](concepts-twins-graph.md) usando o serviço Azure Digital Twins API

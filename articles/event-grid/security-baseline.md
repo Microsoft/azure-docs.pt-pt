@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d027797deee9435127592fc91c21d59ee93fe9b5
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 2a1396f67c94b34b4fdef0bdaf7e01770da91246
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152254"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331520"
 ---
 # <a name="azure-security-baseline-for-event-grid"></a>Linha de base de segurança Azure para a Grade de Eventos
 
@@ -287,9 +287,9 @@ Além disso, pode embarcar no seu espaço de trabalho Log Analytics para Azure S
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Manter um inventário das contas administrativas
 
-**Orientação**: A Azure Event Grid permite-lhe controlar o nível de acesso dado a diferentes utilizadores para fazer várias operações de gestão, tais como subscrições de eventos de lista, criar novas e gerar chaves. A Grade de Eventos utiliza o controlo de acesso baseado em funções da Azure (RBAC). A Grade de Eventos suporta funções incorporadas, bem como funções personalizadas.
+**Orientação**: A Azure Event Grid permite-lhe controlar o nível de acesso dado a diferentes utilizadores para fazer várias operações de gestão, tais como subscrições de eventos de lista, criar novas e gerar chaves. A Grade de Eventos utiliza o controlo de acesso baseado em funções Azure (Azure RBAC). A Grade de Eventos suporta funções incorporadas, bem como funções personalizadas.
 
-O controlo de acesso baseado em funções (RBAC) permite-lhe gerir o acesso aos recursos Azure através de atribuições de funções. Pode atribuir estas funções aos utilizadores, grupos de diretores de serviço e identidades geridas. Existem funções incorporadas pré-definidas para determinados recursos, e estas funções podem ser inventariadas ou consultadas através de ferramentas como Azure CLI, Azure PowerShell ou o portal Azure.
+O controlo de acesso baseado em funções (Azure RBAC) permite-lhe gerir o acesso aos recursos Azure através de atribuições de funções. Pode atribuir estas funções aos utilizadores, grupos de diretores de serviço e identidades geridas. Existem funções incorporadas pré-definidas para determinados recursos, e estas funções podem ser inventariadas ou consultadas através de ferramentas como Azure CLI, Azure PowerShell ou o portal Azure.
 
 - [Autorizar o acesso aos recursos da Grade de Eventos](security-authorization.md)
 
@@ -457,7 +457,7 @@ Pode agilizar este processo criando definições de diagnóstico para contas de 
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: Isolar sistemas de armazenamento ou tratamento de informações sensíveis
 
-**Orientação**: Implementar o isolamento utilizando assinaturas e grupos de gestão separados para domínios de segurança individuais, tais como o tipo de ambiente e o nível de sensibilidade aos dados. Pode restringir o nível de acesso aos seus recursos Azure que as suas aplicações e ambientes empresariais exigem. Você pode controlar o acesso aos recursos Azure via Azure Ative Directory RBAC.
+**Orientação**: Implementar o isolamento utilizando assinaturas e grupos de gestão separados para domínios de segurança individuais, tais como o tipo de ambiente e o nível de sensibilidade aos dados. Pode restringir o nível de acesso aos seus recursos Azure que as suas aplicações e ambientes empresariais exigem. Você pode controlar o acesso aos recursos Azure via Azure RBAC.
 
 - [Como criar subscrições adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
@@ -501,7 +501,7 @@ Para a plataforma subjacente, que é gerida pela Microsoft, a Microsoft trata to
 
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4.6: Utilizar o Azure RBAC para gerir o acesso aos recursos
 
-**Orientação**: A Azure Event Grid suporta a utilização do Azure Ative Directory (AD) para autorizar pedidos aos recursos da Grelha de Eventos. Com o Azure AD, pode utilizar o controlo de acesso baseado em funções (RBAC) para conceder permissões a um principal de segurança, que pode ser um utilizador ou um diretor de serviço de aplicação.
+**Orientação**: A Azure Event Grid suporta a utilização do Azure Ative Directory (AD) para autorizar pedidos aos recursos da Grelha de Eventos. Com o Azure AD, pode utilizar o controlo de acesso baseado em funções (Azure RBAC) para conceder permissões a um principal de segurança, que pode ser um utilizador ou um diretor de serviço de aplicação.
 
 - [Autorizar o acesso aos recursos da Grade de Eventos](security-authorization.md)
 
@@ -926,7 +926,7 @@ Atualmente, a Event Grid não suporta chaves geridas pelo cliente.
 
 - [Alertas de segurança no Centro de Segurança do Azure](../security-center/security-center-alerts-overview.md)
 
-- [Utilizar etiquetas para organizar os seus recursos do Azure](../azure-resource-manager/management/tag-resources.md)
+- [Utilizar etiquetas para organizar os recursos do Azure](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 

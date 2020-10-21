@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/25/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 118e137f06a49f2c125b1ca156877514d65af86f
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 34afc732d64a7aa29261989cc790c8a113208d96
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047068"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331775"
 ---
 # <a name="use-the-azure-digital-twins-cli"></a>Utilizar a CLI do Azure Digital Twins
 
@@ -23,7 +23,7 @@ Além de gerir a sua instância Azure Digital Twins no portal Azure, a Azure Dig
 * Gerir relações gémeas
 * Pontos finais configurados
 * Gerir [rotas](concepts-route-events.md)
-* Configurar a [segurança](concepts-security.md) através do controlo de acesso baseado em funções (RBAC)
+* Configurar a [segurança](concepts-security.md) através do controlo de acesso baseado em funções Azure (Azure RBAC)
 
 [!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 

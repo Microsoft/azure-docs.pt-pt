@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 83cc1b2fd0936d814e4a31714fecfdea7ccce988
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f107741dc3e601d0a46c295932a745c99dadb96d
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89225671"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328081"
 ---
 # <a name="azure-security-baseline-for-azure-dns"></a>Linha de segurança Azure para Azure DNS
 
@@ -102,7 +102,7 @@ No Azure DNS, existe o papel de Contribuinte da Zona DNS, bem como nível de zon
 
 - [Como obter membros de um papel de diretório em Azure AD com PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
-- [Compreenda Azure RBAC em Azure DNS](dns-protect-zones-recordsets.md#role-based-access-control)
+- [Compreenda Azure RBAC em Azure DNS](dns-protect-zones-recordsets.md#azure-role-based-access-control)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -260,13 +260,13 @@ Pode agilizar este processo criando definições de diagnóstico para contas de 
 
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4.6: Utilizar o Azure RBAC para gerir o acesso aos recursos
 
-**Orientação**: O Azure Role-Based Access Control (Azure RBAC) permite uma gestão de acessos finos para utilizadores, grupos e recursos da Azure. Com o Azure RBAC, pode conceder o nível de acesso de que os utilizadores precisam. 
+**Orientação**: O controlo de acesso baseado em funções (Azure RBAC) permite uma gestão de acessos finos para utilizadores, grupos e recursos da Azure. Com o Azure RBAC, pode conceder o nível de acesso de que os utilizadores precisam. 
 
 No Azure DNS, existe o papel de Contribuinte da Zona DNS, bem como nível de zona e nível recorde Azure RBAC. Também é possível construir os seus próprios papéis Azure personalizados para fornecer um controlo mais fino.
 
 - [Como configurar o Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
-- [Compreenda Azure RBAC em Azure DNS](dns-protect-zones-recordsets.md#role-based-access-control)
+- [Compreenda Azure RBAC em Azure DNS](dns-protect-zones-recordsets.md#azure-role-based-access-control)
 
 - [Compreenda Azure RBAC em Azure Private DNS](dns-protect-private-zones-recordsets.md)
 
@@ -494,7 +494,7 @@ Além disso, marque subscrições usando tags e crie um sistema de nomeação pa
 
 - [Alertas de segurança no Centro de Segurança do Azure](../security-center/security-center-alerts-overview.md)
 
-- [Utilizar etiquetas para organizar os seus recursos do Azure](/azure/azure-resource-manager/resource-group-using-tags)
+- [Utilizar etiquetas para organizar os recursos do Azure](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 

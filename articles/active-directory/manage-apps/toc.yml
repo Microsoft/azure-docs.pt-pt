@@ -61,6 +61,8 @@
           href: plan-sso-deployment.md
         - name: Opções de início de sessão único
           href: sso-options.md
+        - name: SSO baseado em OIDC
+          href: configure-oidc-single-sign-on.md
         - name: SAML-based SSO (SSO baseado no SAML)
           href: configure-saml-single-sign-on.md
         - name: SSO baseado em palavra-passe

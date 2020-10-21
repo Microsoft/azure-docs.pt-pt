@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: 86fd6a5d7ca1cb9c828a4ad095720f1664b82caa
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: d1c3ad9aa034e6eace5323dd80c5275699a6e728
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201448"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331503"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>O pedido de serviço falhou. Estado: 403 (Proibido)
 
@@ -25,7 +25,7 @@ Este erro pode ocorrer em muitos tipos de pedidos de serviço que requerem auten
 
 ### <a name="cause-1"></a>Causa #1
 
-Na maioria das vezes, este erro indica que as permissões de controlo de acesso (RBAC) baseadas em funções para o serviço não estão corretamente configuradas. Muitas ações para uma instância Azure Digital Twins requerem que você tenha o papel de *Azure Digital Twins Owner (Preview)* **sobre o caso que você está tentando gerir**. 
+Na maioria das vezes, este erro indica que as permissões de controlo de acesso baseado em funções (Azure RBAC) para o serviço não estão corretamente configuradas. Muitas ações para uma instância Azure Digital Twins requerem que você tenha o papel de *Azure Digital Twins Owner (Preview)* **sobre o caso que você está tentando gerir**. 
 
 ### <a name="cause-2"></a>Causa #2
 

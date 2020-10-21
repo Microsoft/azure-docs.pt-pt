@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: d92dad445b1aeace24dc0af7d95289f5535a5680
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 8653279c353ad679503f2501afeb14725c7fc215
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281788"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329037"
 ---
 # <a name="how-to-plan-a-virtual-machine-offer"></a>Como planear uma oferta de máquina virtual
 
@@ -23,12 +23,9 @@ Antes de iniciar, [Crie uma conta de marketplace comercial no Partner Center](ht
 
 ### <a name="technical-fundamentals"></a>Fundamentos técnicos
 
-O processo de conceção, construção e testes oferece tempo e requer experiência tanto na plataforma Azure como nas tecnologias usadas para construir a sua oferta. A sua equipa de engenharia deve ter um conhecimento de trabalho das seguintes tecnologias da Microsoft:
+O processo de conceção, construção e testes oferece tempo e requer experiência tanto na plataforma Azure como nas tecnologias usadas para construir a sua oferta. A sua equipa de engenharia deverá ter um conhecimento de trabalho das [Máquinas Virtuais Azure,](https://azure.microsoft.com/services/virtual-machines/) [Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage)e [Azure Networking,](https://azure.microsoft.com/services/?filter=networking#networking)bem como proficiência com o [design e arquitetura das aplicações Azure.](https://azure.microsoft.com/solutions/architecture/) Consulte estes recursos técnicos adicionais: 
 
-- [Design e arquitetura de aplicações Azure](https://azure.microsoft.com/solutions/architecture/)
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage)e [Azure Networking](https://azure.microsoft.com/services/?filter=networking#networking)
-
-- Tutoriais
+- Tutorials (Tutoriais)
   - [VMs do Linux](../virtual-machines/linux/tutorial-manage-vm.md)
   - [VMs do Windows](../virtual-machines/windows/tutorial-manage-vm.md)
 
@@ -40,9 +37,17 @@ O processo de conceção, construção e testes oferece tempo e requer experiên
 
 ## <a name="technical-requirements"></a>Requisitos técnicos
 
+As ofertas de VM têm os seguintes requisitos técnicos:
+
+- Tem de preparar um disco rígido virtual do sistema operativo (VHD). Os VHDs do disco de dados são opcionais. Isto é explicado em mais detalhes abaixo.
+- O cliente pode cancelar a sua oferta a qualquer momento.
+- Deve criar pelo menos um plano para a sua oferta. O seu plano tem um preço baseado na [opção de licenciamento](#licensing-options) que seleciona.
+   > [!IMPORTANT]
+   > Cada Imagem VM num plano deve ter o mesmo número de discos de dados.
+
 Um VM contém dois componentes:
 
-- **Sistema operativo de disco rígido virtual (VHD)** – Contém o sistema operativo e a solução que se implanta com a sua oferta. O processo de preparação do VHD difere consoante se trate de um VM baseado em Linux, Windows ou personalizado.
+- **Funcionamento VHD** – Contém o sistema operativo e a solução que se implanta com a sua oferta. O processo de preparação do VHD difere consoante se trate de um VM baseado em Linux, Windows ou personalizado.
 - **VHDs de disco de dados** (opcional) – Armazenamento dedicado e persistente para um VM. Não utilize o VHD do sistema operativo (por exemplo, o C: unidade) para armazenar informações persistentes. 
     - Pode incluir até 16 discos de dados.
     - Utilize um VHD por disco de dados, mesmo que o disco esteja em branco.
@@ -50,13 +55,7 @@ Um VM contém dois componentes:
     > [!NOTE]
     > Independentemente do sistema operativo que utilize, adicione apenas o número mínimo de discos de dados necessários pela solução. Os clientes não podem remover discos que fazem parte de uma imagem no momento da implementação, mas podem sempre adicionar discos durante ou após a implementação.
 
-As ofertas de VM têm os seguintes requisitos técnicos:
-
-- Tem de preparar um disco rígido virtual do sistema operativo (VHD). Os VHDs do disco de dados são opcionais.
-- O cliente pode cancelar a sua oferta a qualquer momento.
-- Deve criar pelo menos um plano para a sua oferta. O seu plano tem um preço baseado na [opção de licenciamento](#licensing-options) que seleciona.
-   > [!IMPORTANT]
-   > Cada Imagem VM num plano deve ter o mesmo número de discos de dados.
+Para obter instruções detalhadas sobre a preparação dos seus ativos técnicos, consulte [Criar uma máquina virtual utilizando uma base aprovada](azure-vm-create-using-approved-base.md) ou Criar uma máquina virtual utilizando a sua própria [imagem](azure-vm-create-using-own-image.md).
 
 ## <a name="preview-audience"></a>Audiência de pré-visualização
 
@@ -134,5 +133,6 @@ Ao criar a sua oferta no Partner Center, verá o **separador Revenda através do
 
 ## <a name="next-steps"></a>Passos seguintes
 
+- [Crie uma oferta de máquina virtual no Azure Marketplace](azure-vm-create.md)
 - [Crie uma máquina virtual utilizando uma base aprovada](azure-vm-create-using-approved-base.md) ou crie uma máquina virtual utilizando a sua própria [imagem](azure-vm-create-using-own-image.md).
 - [Melhores práticas de listagem de ofertas](gtm-offer-listing-best-practices.md)

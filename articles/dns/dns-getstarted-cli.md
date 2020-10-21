@@ -6,15 +6,15 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
-ms.date: 3/11/2019
+ms.date: 10/20/2020
 ms.author: rohink
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a08a3bb8e01d827b806dae269b65569cb415404d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7d02095bbe3326209cff6b4e99858b2598c7a914
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91358615"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282230"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>Início Rápido: criar uma zona DNS do Azure e registar com a CLI do Azure
 
@@ -23,6 +23,11 @@ Este artigo explica-lhe os passos para criar a primeira zona DNS e registar com 
 Uma zona DNS é utilizada para alojar os registos DNS para um determinado domínio. Para começar a alojar o seu domínio no DNS do Azure, tem de criar uma zona DNS para esse nome de domínio. Cada registo DNS para o seu domínio é então criado no interior desta zona DNS. Por fim, para publicar a zona DNS na Internet, tem de configurar os servidores de nomes do domínio. Cada um destes passos está descrito abaixo.
 
 O Azure DNS também suporta zonas privadas de DNS. Para saber mais sobre zonas DNS privadas, veja [Utilizar o DNS do Azure para domínios privados](private-dns-overview.md). Para obter um exemplo de como criar uma zona DNS privada, veja [Começar a utilizar zonas privadas do DNS do Azure com a CLI](./private-dns-getstarted-cli.md).
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- [Versão Azure CLI 2.0.4 ou posterior](/cli/azure/install-azure-cli) (se executar a Azure CLI localmente).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -96,7 +101,7 @@ Agora que tem uma zona de DNS de teste com um registo de teste 'A', pode testar 
 
 O nome de anfitrião **www \. contoso.xyz** resolve para **10.10.10.10**, tal como o configuraste. Este resultado verifica que a resolução de nomes está a funcionar corretamente.
 
-## <a name="delete-all-resources"></a>Eliminar todos os recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não forem necessários, pode eliminar todos os recursos criados neste Início Rápido ao eliminar o grupo de recursos:
 

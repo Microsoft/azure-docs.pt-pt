@@ -16,12 +16,12 @@ ms.date: 09/30/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38edbd9e491d4bea469c6b83ad98df48fbce1d4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c578d9df8c008d73460801547e6b9361e60baa8
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597496"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318008"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Tutorial: Crie o seu primeiro pacote de acesso na gestão de direitos Azure AD
 
@@ -42,7 +42,7 @@ Para uma demonstração passo a passo do processo de implementação da gestão 
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
 
-Também pode criar um pacote de acesso programáticamente utilizando o Microsoft Graph. Para um tutorial que mostre como criar um pacote de acesso programáticamente, consulte [a API de gestão de direitos.](https://docs.microsoft.com/graph/tutorial-access-package-api?view=graph-rest-beta)
+Também pode criar um pacote de acesso programáticamente utilizando o Microsoft Graph. Para um tutorial que mostre como criar um pacote de acesso programáticamente, consulte [a API de gestão de direitos.](/graph/tutorial-access-package-api?view=graph-rest-beta)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

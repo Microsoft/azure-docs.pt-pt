@@ -3,18 +3,18 @@ title: Azure DevTest Labs FAQ Microsoft Docs
 description: Este artigo fornece respostas a algumas das perguntas frequentes (FAQ) sobre Azure DevTest Labs.
 ms.topic: article
 ms.date: 07/17/2020
-ms.openlocfilehash: 6f4c0e34242677eca6a32af4731817085be12436
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 1cbea3628d6c8c1b43766140d201ce46964a60b5
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144591"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328390"
 ---
 # <a name="azure-devtest-labs-faq"></a>FAQ de Azure DevTest Labs
 Obtenha respostas para algumas das perguntas mais comuns sobre a Azure DevTest Labs.
 
 ## <a name="blog-post"></a>Blog post
-O nosso blog DevTest Labs Team foi reformado a partir de 20 de março de 2019. 
+O nosso blog DevTest Labs Team foi reformado a partir de 20 de março de 2019. 
 
 ### <a name="where-can-i-track-feature-updates-from-now-on"></a>Onde posso rastrear as atualizações de funcionalidades a partir de agora?
 A partir de agora, publicaremos atualizações de funcionalidades e publicações informativas de blogs no blog Azure e atualizações do Azure. Estas publicações de blog também ligarão à nossa documentação sempre que necessário.
@@ -22,7 +22,7 @@ A partir de agora, publicaremos atualizações de funcionalidades e publicaçõe
 Subscreva as atualizações [do DevTest Labs Azure Blog](https://azure.microsoft.com/blog/tag/azure-devtest-labs/) e [DavTest Labs Azure](https://azure.microsoft.com/updates/?product=devtest-lab) para se manter informado sobre novas funcionalidades na DevTest Labs.
 
 ### <a name="what-happens-to-the-existing-blog-posts"></a>O que acontece com as publicações de blog existentes?
-Estamos atualmente a trabalhar na migração de posts de blog existentes (excluindo atualizações de falhas) para a nossa [documentação da DevTest Labs.](devtest-lab-overview.md) Quando o blog da MSDN for depreciado, será redirecionado para a visão geral da documentação para a DevTest Labs. Uma vez redirecionado, pode pesquisar o artigo que procura no título 'Filter by'. Ainda não emigrámos todos os postos, mas devemos estar prontos até ao final deste mês. 
+Estamos atualmente a trabalhar na migração de posts de blog existentes (excluindo atualizações de falhas) para a nossa [documentação da DevTest Labs.](devtest-lab-overview.md) Quando o blog da MSDN for depreciado, será redirecionado para a visão geral da documentação para a DevTest Labs. Uma vez redirecionado, pode pesquisar o artigo que procura no título 'Filter by'. Ainda não emigrámos todos os postos, mas devemos estar prontos até ao final deste mês. 
 
 
 ### <a name="where-do-i-see-outage-updates"></a>Onde vejo atualizações de paralisação?
@@ -68,7 +68,7 @@ DevTest Labs é um serviço gratuito. Criar laboratórios e configurar política
 ## <a name="security"></a>Segurança
 
 ### <a name="what-are-the-different-security-levels-in-devtest-labs"></a>Quais são os diferentes níveis de segurança nos Laboratórios DevTest?
-O acesso à segurança é determinado pelo Role-Based Access Control (RBAC). Para aprender como funciona o acesso, ajuda a aprender as diferenças entre uma permissão, um papel e um âmbito, tal como definido pelo RBAC.
+O acesso à segurança é determinado pelo controlo de acesso baseado em funções Azure (Azure RBAC). Para aprender como funciona o acesso, ajuda a aprender as diferenças entre uma permissão, um papel e um âmbito, como definido pelo Azure RBAC.
 
 - **Permissão**: Uma permissão é um acesso definido a uma ação específica. Por exemplo, uma permissão pode ser lida no acesso a todos os VMs.
 - **Função**: Um papel é um conjunto de permissões que podem ser agrupadas e atribuídas a um utilizador. Por exemplo, um utilizador com uma função de proprietário de subscrição tem acesso a todos os recursos dentro de uma subscrição.
@@ -83,7 +83,7 @@ Também pode criar papéis personalizados em DevTest Labs. Para aprender a criar
 
 Uma vez que os âmbitos são hierárquicos, quando um utilizador tem permissões num determinado âmbito, o utilizador recebe automaticamente essas permissões em todos os âmbitos de âmbito mais baixos do âmbito. Por exemplo, se um utilizador tiver o papel de proprietário de subscrição, o utilizador tem acesso a todos os recursos numa subscrição. Estes recursos incluem VMs, redes virtuais e laboratórios. Um proprietário de subscrição herda automaticamente o papel de proprietário de laboratório. No entanto, o contrário não é verdade. Um dono de laboratório tem acesso a um laboratório, que é um âmbito inferior ao nível de subscrição. Então, um dono de laboratório não pode ver VMs, redes virtuais, ou quaisquer outros recursos que estejam fora do laboratório.
 
-### <a name="how-do-i-define-role-based-access-control-for-my-devtest-labs-environments-to-ensure-that-it-can-govern-while-developerstest-can-do-their-work"></a>Como posso definir o controlo de acesso baseado em funções para os meus ambientes DevTest Labs para garantir que as TI possam governar enquanto os desenvolvedores/teste podem fazer o seu trabalho?
+### <a name="how-do-i-define-azure-role-based-access-control-for-my-devtest-labs-environments-to-ensure-that-it-can-govern-while-developerstest-can-do-their-work"></a>Como posso definir o controlo de acesso baseado em funções da Azure para os meus ambientes DevTest Labs para garantir que as TI possam governar enquanto os desenvolvedores/teste podem fazer o seu trabalho?
 Há um padrão amplo, no entanto o detalhe depende da sua organização.
 
 A Central IT deve possuir apenas o que for necessário e permitir que as equipas de projeto e de candidatura tenham o nível de controlo necessário. Normalmente, significa que a TI central é proprietária da subscrição e lida com funções de TI fundamentais, tais como configurações de networking. O conjunto de **proprietários** para uma subscrição deve ser pequeno. Estes proprietários podem nomear proprietários adicionais quando há necessidade, ou aplicar políticas de nível de subscrição, por exemplo "No Public IP".
@@ -92,7 +92,7 @@ Pode haver um subconjunto de utilizadores que requerem acesso através de uma su
 
 O recurso DevTest Labs deve ser propriedade de proprietários próximos da equipa de projeto/aplicação. É porque entendem os seus requisitos para máquinas, e software necessário. Na maioria das organizações, o proprietário deste recurso DevTest Labs é geralmente o líder do projeto/desenvolvimento. Este proprietário pode gerir utilizadores e políticas dentro do ambiente de laboratório e pode gerir todos os VMs no ambiente DevTest Labs.
 
-Os membros da equipa de projeto/aplicação devem ser adicionados à função **de Utilizadores da DevTest Labs.** Estes utilizadores podem criar máquinas virtuais (em linha com as políticas de laboratório e nível de subscrição). Também podem gerir as suas próprias máquinas virtuais. Não conseguem gerir máquinas virtuais que pertencem a outros utilizadores.
+Os membros da equipa de projeto/aplicação devem ser adicionados à função **de Utilizador DavTest Labs.** Estes utilizadores podem criar máquinas virtuais (em linha com as políticas de laboratório e nível de subscrição). Também podem gerir as suas próprias máquinas virtuais. Não conseguem gerir máquinas virtuais que pertencem a outros utilizadores.
 
 Para mais informações, consulte [o andaime da empresa Azure – documentação prescritiva de governação de assinaturas.](/azure/architecture/cloud-adoption/appendix/azure-scaffold)
 
@@ -367,7 +367,7 @@ Sim. Há dois aspetos a ter em conta : tráfego de entrada e saída.
 
 Também pode utilizar grupos de segurança de rede para máquinas virtuais ou sub-redes. Este passo adiciona uma camada adicional de proteção para permitir/bloquear o tráfego.
 
-## <a name="troubleshooting"></a>Resolução de problemas
+## <a name="troubleshooting"></a>Resolução de Problemas
 
 ### <a name="why-isnt-my-existing-virtual-network-saving-properly"></a>Porque é que a minha rede virtual existente não está a poupar corretamente?
 Uma possibilidade é que o nome da sua rede virtual contenha períodos. Em caso afirmativo, tente remover os períodos ou substitui-los por hífens. Então, tente novamente salvar a rede virtual.

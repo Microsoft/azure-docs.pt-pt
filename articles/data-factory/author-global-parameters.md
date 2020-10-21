@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: djpmsft
 ms.author: daperlov
 ms.date: 08/31/2020
-ms.openlocfilehash: a936fbec23a38c5b96c678b38b92eed9346b88bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c20bb77711833a1a17082e25e31d4a2e14db5bf9
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567541"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328203"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Parâmetros globais na Azure Data Factory
 
@@ -52,7 +52,7 @@ Para a maioria dos casos de utilização, recomenda-se incluir parâmetros globa
 
 ![Incluir no modelo ARM](media/author-global-parameters/include-arm-template.png)
 
-A adição de parâmetros globais ao modelo ARM adiciona uma definição de nível de fábrica que pode sobrepor-se a outras definições de nível de fábrica, tais como uma chave gerida pelo cliente ou uma configuração de git em outros ambientes. Se tiver estas definições ativadas num ambiente elevado como UAT ou PROD, é melhor implementar parâmetros globais através de um script PowerShell nos passos abaixo realçados.
+A adição de parâmetros globais ao modelo ARM adiciona uma definição de nível de fábrica que irá sobrepor-se a outras definições de nível de fábrica, tais como uma chave gerida pelo cliente ou uma configuração de git em outros ambientes. Se tiver estas definições ativadas num ambiente elevado como UAT ou PROD, é melhor implementar parâmetros globais através de um script PowerShell nos passos abaixo realçados.
 
 ### <a name="deploying-using-powershell"></a>Implantação utilizando PowerShell
 

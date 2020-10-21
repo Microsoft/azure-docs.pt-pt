@@ -122,6 +122,8 @@
       items:
         - name: Não existem subscrições elegíveis
           href: troubleshoot-no-eligible-subscriptions.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Resolver problemas da utilização da reserva
+          href: troubleshoot-reservation-utilization.md??toc=/azure/cost-management-billing/reservations/toc.json
 - name: Referência
   items:
     - name: API REST de Reservas

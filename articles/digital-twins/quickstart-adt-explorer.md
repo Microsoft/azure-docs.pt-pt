@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: 5fb00fb6382bb53f40ad63a95c880c47f91cae2f
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 455cf921cfcd4ac5d0e81fb4e092ec165070a3f1
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201669"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331571"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Quickstart - Explore uma amostra do cenário Azure Digital Twins usando o ADT Explorer
 
@@ -53,7 +53,7 @@ Em primeiro lugar, **crie uma instância Azure Digital Twins** e a autenticaçã
 * Depois de configurar o seu exemplo Azure Digital Twins, você precisará do nome de **_anfitrião_** do caso[(encontre no portal).](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)
 
 Para autenticar a aplicação ADT Explorer, também terá de configurar um **registo de aplicações.** Siga as instruções em [*Como-a: Crie um registo de aplicações*](how-to-create-app-registration.md) para configurar isto. 
-* Uma vez que tenha um registo de aplicações, você precisará do ID de **_Aplicação (cliente)_** do registo e **_diretório (inquilino)_** [(encontre-os no portal.](how-to-create-app-registration.md#collect-client-id-and-tenant-id)
+* Uma vez que você tem um registro de aplicação, você precisará do ID de **_Aplicação (cliente)_** do registo e **_diretório (inquilino)_** [(encontre-os no portal).](how-to-create-app-registration.md#collect-client-id-and-tenant-id)
 
 ### <a name="set-adt-explorer-permissions"></a>Definir permissões do Explorador ADT
 
@@ -312,7 +312,7 @@ A intenção deste exercício é demonstrar como pode usar o gráfico Azure Digi
 
 Embora neste arranque rápido, tenha feito a atualização de temperatura manualmente, é comum na Azure Digital Twins ligar gémeos digitais a dispositivos IoT reais para que recebam atualizações automaticamente, com base em dados de telemetria. Isto permite-lhe construir um gráfico ao vivo que reflita sempre o estado real do seu ambiente, e usar consultas para obter informações sobre o que está a acontecer no seu ambiente em tempo real.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para embrulhar o trabalho para este arranque rápido, primeiro termine a aplicação de consola de execução. Isto irá desligar a ligação à aplicação ADT Explorer no navegador, e deixará de ser capaz de ver dados ao vivo no navegador. Pode fechar o separador do navegador.
 

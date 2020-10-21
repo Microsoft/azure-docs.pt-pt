@@ -4,12 +4,12 @@ description: Descreve como implementar modelos de Gestor de Recursos Azure utili
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.custom: github-actions-azure,subject-armqs
-ms.openlocfilehash: b5852a65b4ed3c7cc73352fed37eeff035f8563c
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f982ecd208dfd30757050df48c783718ed2b917a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92106795"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282855"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Implemente modelos de gestor de recursos Azure usando ações do GitHub
 
@@ -40,13 +40,19 @@ O ficheiro tem duas secções:
 
 Pode criar um [principal de serviço](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) com o comando [ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) no [Azure CLI](/cli/azure/). Executar este comando com [Azure Cloud Shell](https://shell.azure.com/) no portal Azure ou selecionando o botão **Try it.**
 
+Crie um grupo de recursos se ainda não tiver um. 
+
+```azurecli-interactive
+    az group create -n {MyResourceGroup}
+```
+
 Substitua o espaço reservado `myApp` pelo nome da sua aplicação. 
 
 ```azurecli-interactive
-   az ad sp create-for-rbac --name {myApp} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} --sdk-auth
+   az ad sp create-for-rbac --name {myApp} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{MyResourceGroup} --sdk-auth
 ```
 
-No exemplo acima, substitua os espaços reservados pelo seu ID de subscrição e nome de grupo de recursos. A saída é um objeto JSON com as credenciais de atribuição de funções que fornecem acesso à sua aplicação de Serviço de Aplicações semelhante abaixo. Copie este objeto JSON para mais tarde.
+No exemplo acima, substitua os espaços reservados pelo seu ID de subscrição e nome de grupo de recursos. A saída é um objeto JSON com as credenciais de atribuição de funções que fornecem acesso à sua aplicação de Serviço de Aplicações semelhante abaixo. Copie este objeto JSON para mais tarde. Só vai precisar das secções com os `clientId` `clientSecret` `subscriptionId` valores e `tenantId` valores. 
 
 ```output 
   {
@@ -73,9 +79,9 @@ Você precisa criar segredos para as suas credenciais Azure, grupo de recursos e
 
 1. Cole toda a saída JSON do comando Azure CLI para o campo de valor do segredo. Dê o nome ao `AZURE_CREDENTIALS` segredo.
 
-1. Criar outro segredo chamado `AZURE_RG` . Adicione o nome do seu grupo de recursos ao campo de valor do segredo. 
+1. Criar outro segredo chamado `AZURE_RG` . Adicione o nome do seu grupo de recursos ao campo de valor do segredo (exemplo: `myResourceGroup` ). 
 
-1. Crie um segredo adicional chamado `AZURE_SUBSCRIPTION` . Adicione o seu ID de subscrição ao campo de valor do segredo. 
+1. Crie um segredo adicional chamado `AZURE_SUBSCRIPTION` . Adicione o seu ID de subscrição ao campo de valor do segredo (exemplo: `90fd3f9d-4c61-432d-99ba-1273f236afa2` ). 
 
 ## <a name="add-resource-manager-template"></a>Adicionar modelo de gestor de recursos
 
@@ -114,17 +120,19 @@ O ficheiro de fluxo de trabalho deve ser armazenado na pasta **.github/workflows
             creds: ${{ secrets.AZURE_CREDENTIALS }}
      
           # Deploy ARM template
-        - uses: azure/arm-deploy@v1
         - name: Run ARM deploy
+          uses: azure/arm-deploy@v1
           with:
             subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
             resourceGroupName: ${{ secrets.AZURE_RG }}
             template: ./azuredeploy.json
-            parameters: storageAccountType=Standard_LRS
+            parameters: storageAccountType=Standard_LRS 
         
           # output containerName variable from template
         - run: echo ${{ steps.deploy.outputs.containerName }}
     ```
+    > [!NOTE]
+    > Pode especificar um ficheiro de parâmetros de formato JSON na ação ARM Deploy (exemplo: `.azuredeploy.parameters.json` ).  
 
     A primeira secção do ficheiro de fluxo de trabalho inclui:
 
@@ -143,7 +151,7 @@ Uma vez que o fluxo de trabalho está configurado para ser acionado pelo ficheir
 1. Selecione o fluxo de trabalho para abri-lo.
 1. Selecione **executar a implementação** DO ARM a partir do menu para verificar a implementação.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando o seu grupo de recursos e repositório já não forem necessários, limpe os recursos que implementou eliminando o grupo de recursos e o seu repositório GitHub. 
 

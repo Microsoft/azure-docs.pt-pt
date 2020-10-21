@@ -8,16 +8,16 @@ ms.service: cosmos-db
 ms.topic: quickstart
 ms.date: 06/01/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 249ff87813fe23505a09db020d4c6ad0f272796d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b6aa31e816a42e9cf1344137676fbbafb0c06730
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85483300"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282188"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-an-arm-template"></a>Quickstart: Crie um Azure Cosmos DB e um recipiente usando um modelo ARM
 
-O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente. Pode utilizar o Azure Cosmos DB para criar e consultar rapidamente bases de dados chave/valor, bases de dados de documentos e bases de dados de gráficos. Este quickstart foca-se no processo de implantação de um modelo de Gestor de Recursos Azure (modelo ARM) para criar uma base de dados Azure Cosmos e um contentor dentro dessa base de dados. Pode armazenar mais tarde os dados neste recipiente.
+Azure Cosmos DB é a base de dados NoSQL rápida da Microsoft com APIs abertos para qualquer escala. Pode utilizar o Azure Cosmos DB para criar e consultar rapidamente bases de dados chave/valor, bases de dados de documentos e bases de dados de gráficos. Este quickstart foca-se no processo de implantação de um modelo de Gestor de Recursos Azure (modelo ARM) para criar uma base de dados Azure Cosmos e um contentor dentro dessa base de dados. Pode armazenar mais tarde os dados neste recipiente.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 

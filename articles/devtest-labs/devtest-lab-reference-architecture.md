@@ -4,12 +4,12 @@ description: Este artigo fornece orientação de arquitetura de referência para
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 7b9652009a4e3c7bfdea029f204429a86562a552
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 29f739c2fb9dd1cc58bf6c400eeee1bebb6243c2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144555"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328849"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>Azure DevTest Labs referencia arquitetura para empresas
 Este artigo fornece arquitetura de referência para ajudá-lo a implementar uma solução baseada na Azure DevTest Labs em uma empresa. Inclui o seguinte:
@@ -24,7 +24,7 @@ Este artigo fornece arquitetura de referência para ajudá-lo a implementar uma 
 Estes são os elementos-chave da arquitetura de referência:
 
 - **Azure Ative Directory (Azure AD)**: A DevTest Labs utiliza o [serviço Azure AD para gestão de identidades](../active-directory/fundamentals/active-directory-whatis.md). Considere estes dois aspetos fundamentais quando dá aos utilizadores acesso a um ambiente baseado em DevTest Labs:
-    - **Gestão de recursos**: Proporciona acesso ao portal Azure para gerir recursos (criar máquinas virtuais; criar ambientes; iniciar, parar, reiniciar, excluir e aplicar artefactos; e assim por diante). A gestão de recursos é feita em Azure utilizando o controlo de acesso baseado em funções (RBAC). Atribui funções aos utilizadores e define permissões de recursos e de nível de acesso.
+    - **Gestão de recursos**: Proporciona acesso ao portal Azure para gerir recursos (criar máquinas virtuais; criar ambientes; iniciar, parar, reiniciar, excluir e aplicar artefactos; e assim por diante). A gestão de recursos é feita utilizando o controlo de acesso baseado em funções Azure (Azure RBAC). Atribui funções aos utilizadores e define permissões de recursos e de nível de acesso.
     - **Máquinas virtuais (nível de rede)**: Na configuração predefinida, as máquinas virtuais utilizam uma conta de administração local. Se houver um domínio disponível[(Azure AD Domain Services](../active-directory-domain-services/overview.md), um domínio no local ou um domínio baseado na nuvem), as máquinas podem ser unidas ao domínio. Os utilizadores podem então utilizar as suas identidades baseadas em domínios para se conectarem aos VMs.
 - **Conectividade no local**: No nosso diagrama de arquitetura, o [ExpressRoute](../expressroute/expressroute-introduction.md) é utilizado. Mas também pode utilizar uma [VPN site-to-site.](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md) Embora o ExpressRoute não seja necessário para a DevTest Labs, é comumente usado em empresas. O ExpressRoute só é necessário se precisar de acesso aos recursos corporativos. Os cenários comuns são:
     - Tem dados no local que não podem ser movidos para a nuvem.

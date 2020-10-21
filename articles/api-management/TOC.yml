@@ -80,6 +80,8 @@
       href: self-hosted-gateway-overview.md
     - name: Observabilidade
       href: observability.md
+    - name: CI/CD com modelos do ARM
+      href: devops-api-development-templates.md
 - name: Guias de procedimentos
   items:
     - name: Definir APIs

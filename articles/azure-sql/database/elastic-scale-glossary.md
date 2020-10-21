@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 9c229fe6c1ccc7e2ce8e4f46ece51f315c8b7a90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 166e365a4ead8ad6d0f7e543c081161ebff5f027
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362619"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330466"
 ---
 # <a name="elastic-database-tools-glossary"></a>Glossário de ferramentas elásticas de base de dados
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -41,7 +41,7 @@ Estes termos são utilizados na [Adição de um fragmento utilizando ferramentas
 
 **Multi-inquilino** e **inquilino único:** Isto mostra uma base de dados de inquilinos únicos e uma base de dados multi-inquilino:
 
-![Bases de dados individuais e multi-arrendatários](./media/elastic-scale-glossary/multi-single-simple.png)
+![Screenshot que mostra uma base de dados de inquilinos únicos e uma base de dados de vários inquilinos.](./media/elastic-scale-glossary/multi-single-simple.png)
 
 Aqui está uma representação de bases de **dados** de solteiros e multi-inquilinos. 
 

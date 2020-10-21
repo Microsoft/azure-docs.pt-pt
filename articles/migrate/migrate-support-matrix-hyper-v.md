@@ -3,12 +3,12 @@ title: Suporte para avaliação de Hiper-V em Azure Migrate
 description: Saiba mais sobre o suporte para avaliação de Hiper-V com avaliação do servidor Azure Migrate
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 36cc96915380a464f02df5806337a06f022ecbbf
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 4c50bd2bdd0e5a0d68b545a914582352d7b34421
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311336"
+ms.locfileid: "92331979"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Matriz de suporte para avaliação de Hiper-V
 
@@ -63,7 +63,7 @@ O quadro seguinte resume os requisitos portuários para avaliação.
 **Dispositivo** | **Ligação**
 --- | ---
 **Aparelho** | Ligações de entrada na porta TCP 3389 para permitir ligações remotas de ambiente de trabalho ao aparelho.<br/><br/> Ligações de entrada na porta 44368 para aceder remotamente à aplicação de gestão do aparelho utilizando o URL: ``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Ligações de saída nas portas 443 (HTTPS), para enviar metadados de descoberta e desempenho para Azure Migrate.
-**Hospedeiro/cluster hiper-V** | Ligação de entrada na porta WinRM 5985 (HTTP) para retirar metadados e dados de desempenho para VMs hiper-V usando uma sessão de Modelo de Informação Comum (CIM).
+**Hospedeiro/cluster hiper-V** | Ligação de entrada na porta WinRM 5985 (HTTP) ou 5986 (HTTPS) para retirar metadados e dados de desempenho para VMs hiper-V usando uma sessão de Modelo de Informação Comum (CIM).
 
 ## <a name="agent-based-dependency-analysis-requirements"></a>Requisitos de análise de dependência baseados em agentes
 

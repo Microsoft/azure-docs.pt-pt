@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f47e9cb93b90c8a2401d1dfe6c0ff7800b0bcf27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 007409d755da2d879297b4b898663dcbd9fd6d7f
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401134"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329632"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Linha de base de segurança Azure para centros de eventos
 
@@ -397,7 +397,7 @@ Como configurar localizações nomeadas em Azure: https://docs.microsoft.com/azu
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Utilizar o Diretório Ativo Azure
 
-**Orientação**: Utilize o Azure Ative Directory (AD) como o sistema central de autenticação e autorização para recursos Azure, tais como Centros de Eventos. Isto permite que o controlo de acesso baseado em funções (RBAC) a recursos sensíveis administrativos.
+**Orientação**: Utilize o Azure Ative Directory (AD) como o sistema central de autenticação e autorização para recursos Azure, tais como Centros de Eventos. Isto permite que o controlo de acesso baseado em funções (Azure RBAC) para recursos sensíveis administrativos.
 
  Como criar e configurar um exemplo AD Azure: https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
 
@@ -539,9 +539,9 @@ Compreender a proteção de dados do cliente em Azure: https://docs.microsoft.co
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Utilizar o Azure RBAC para controlar o acesso aos recursos
 
-**Orientação**: Azure Event Hubs suporta a utilização do Azure Ative Directory (AD) para autorizar pedidos aos recursos do Event Hubs. Com o Azure AD, pode utilizar o controlo de acesso baseado em funções (RBAC) para conceder permissões a um principal de segurança, que pode ser um utilizador ou um diretor de serviço de aplicação.
+**Orientação**: Azure Event Hubs suporta a utilização do Azure Ative Directory (AD) para autorizar pedidos aos recursos do Event Hubs. Com o Azure AD, pode utilizar o controlo de acesso baseado em funções (Azure RBAC) para conceder permissões a um principal de segurança, que pode ser um utilizador ou um diretor de serviço de aplicação.
 
-Compreenda o Azure AD RBAC e as funções disponíveis para os Azure Event Hubs: https://docs.microsoft.com/azure/event-hubs/authorize-access-azure-active-directory
+Compreenda o Azure RBAC e as funções disponíveis para os Azure Event Hubs: https://docs.microsoft.com/azure/event-hubs/authorize-access-azure-active-directory
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
