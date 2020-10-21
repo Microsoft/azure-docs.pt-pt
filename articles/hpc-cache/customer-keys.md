@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: v-erkel
-ms.openlocfilehash: 2cd97e205d88fe7ead02889f5ae9ad9df0985f07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bce19e384e600e95b8306dcbba38652b4432bc9
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87092529"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340534"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Utilize chaves de encriptação geridas pelo cliente para cache Azure HPC
 
@@ -58,7 +58,7 @@ Permissões de acesso ao cofre chave:
 
 * O utilizador que cria a Cache Azure HPC deve ter permissões equivalentes à [função de contribuinte Key Vault](../role-based-access-control/built-in-roles.md#key-vault-contributor). As mesmas permissões são necessárias para configurar e gerir o Azure Key Vault.
 
-  Leia [Acesso seguro a um cofre chave](../key-vault/key-vault-secure-your-key-vault.md) para mais informações.
+  Leia [Acesso seguro a um cofre chave](../key-vault/general/secure-your-key-vault.md) para mais informações.
 
 ## <a name="1-set-up-azure-key-vault"></a>1. Configurar o Cofre da Chave Azure
 
@@ -66,7 +66,7 @@ Pode configurar um cofre e uma chave antes de criar a cache, ou fazê-lo como pa
 
 Na hora da criação da cache, deve especificar uma versão de cofre, chave e chave para usar para a encriptação do cache.
 
-Leia a documentação do [Cofre da Chave Azure](../key-vault/key-vault-overview.md) para mais detalhes.
+Leia a documentação do [Cofre da Chave Azure](../key-vault/general/overview.md) para mais detalhes.
 
 > [!NOTE]
 > O Cofre da Chave Azure deve utilizar a mesma subscrição e estar na mesma região que a Cache Azure HPC. Certifique-se de que a região que escolhe [suporta a função de chaves gerida pelo cliente](hpc-cache-overview.md#region-availability).
@@ -92,7 +92,7 @@ O utilizador que criar a cache deve ter privilégios iguais ao [papel de contrib
 
 1. Depois de selecionar um cofre, selecione a chave individual a partir das opções disponíveis ou crie uma nova chave. A chave deve ser uma chave RSA de 2048.
 
-1. Especifique a versão para a chave selecionada. Saiba mais sobre a versão na documentação do [Cofre da Chave Azure](../key-vault/about-keys-secrets-and-certificates.md#objects-identifiers-and-versioning).
+1. Especifique a versão para a chave selecionada. Saiba mais sobre a versão na documentação do [Cofre da Chave Azure](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning).
 
 Continue com o resto das especificações e crie a cache conforme descrito na [Create a Azure HPC Cache](hpc-cache-create.md).
 

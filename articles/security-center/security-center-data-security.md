@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2020
 ms.author: memildin
-ms.openlocfilehash: d829ffb9d3a264052e3f688018acd7afa854578e
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 49533947ff01aea07eaacd9d761b6414fb672a1c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018275"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339480"
 ---
 # <a name="azure-security-center-data-security"></a>Segurança de dados do Azure Security Center
 
@@ -51,7 +51,7 @@ A Microsoft usa padrões e inteligência de ameaças vistas em vários inquilino
 ## <a name="manage-data-collection-from-machines"></a>Gerir a recolha de dados a partir de máquinas
 Quando ativar o Centro de Segurança do Azure, a recolha de dados é ativada para cada uma das suas subscrições do Azure. Também pode ativar a recolha de dados para as suas subscrições no Security Center. Quando a recolha de dados está ativada, o Security Center fornece o agente Log Analytics em todas as máquinas virtuais Azure suportadas existentes e quaisquer novas que sejam criadas.
 
-O agente Log Analytics procura várias configurações e eventos relacionados com a segurança em [rastreios de eventos para](https://docs.microsoft.com/windows/win32/etw/event-tracing-portal) rastreios do Windows (ETW). Além disso, o sistema operativo irá gerar eventos do registo de eventos durante a execução da máquina. Os exemplos destes dados incluem: tipo e versão do sistema operativo, registos de sistema operativo (registos de eventos do Windows), processos em execução, nome da máquina, endereços IP, utilizador com sessão iniciada e ID do inquilino. O agente Log Analytics lê entradas de registo de eventos e vestígios de ETW e copia-os para o seu(s) espaço de trabalho para análise. O agente Log Analytics também permite eventos de criação de processos e auditoria de linha de comando.
+O agente Log Analytics procura várias configurações e eventos relacionados com a segurança em [rastreios de eventos para](/windows/win32/etw/event-tracing-portal) rastreios do Windows (ETW). Além disso, o sistema operativo irá gerar eventos do registo de eventos durante a execução da máquina. Os exemplos destes dados incluem: tipo e versão do sistema operativo, registos de sistema operativo (registos de eventos do Windows), processos em execução, nome da máquina, endereços IP, utilizador com sessão iniciada e ID do inquilino. O agente Log Analytics lê entradas de registo de eventos e vestígios de ETW e copia-os para o seu(s) espaço de trabalho para análise. O agente Log Analytics também permite eventos de criação de processos e auditoria de linha de comando.
 
 Se não estiver a utilizar o Azure Defender, também pode desativar a recolha de dados de máquinas virtuais na Política de Segurança. A Recolha de Dados é necessária para subscrições protegidas pelo Azure Defender. A recolha de instantâneos e artefactos de discos de VM continua ativada, mesmo que a recolha de dados tenha sido desativada.
 
@@ -82,10 +82,10 @@ Os clientes podem aceder aos dados relacionados com o Security Center a partir d
 
 | Fluxo                                                                                | Tipos de dados                                                                                                                                                                                                          |
 |---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Registo de atividades do Azure](../azure-monitor/platform/activity-log.md)                       | Todos os alertas de segurança, pedidos de acesso aprovados do Centro de Segurança [just-in-time,](security-center-just-in-time.md) e todos os alertas gerados por [controlos de aplicações adaptativos](security-center-adaptive-application.md).|
-| [Registos do Monitor Azure](../azure-monitor/platform/data-platform.md)                      | Todos os alertas de segurança.                                                                                                                                                                                                |
+| [Log de atividades Azure](../azure-monitor/platform/activity-log.md)                       | Todos os alertas de segurança, pedidos de acesso aprovados do Centro de Segurança [just-in-time,](security-center-just-in-time.md) e todos os alertas gerados por [controlos de aplicações adaptativos](security-center-adaptive-application.md).|
+| [Registos do Azure Monitor](../azure-monitor/platform/data-platform.md)                      | Todos os alertas de segurança.                                                                                                                                                                                                |
 | [Azure Resource Graph](../governance/resource-graph/overview.md)                      | Alertas de segurança, recomendações de segurança, resultados de avaliação de vulnerabilidades, informações de pontuação seguras, estado das verificações de conformidade, e muito mais.                                                                       |
-| [Azure Security Center REST API](https://docs.microsoft.com/rest/api/securitycenter/) (API REST do Centro de Segurança do Azure) | Alertas de segurança, recomendações de segurança, e muito mais.                                                                                                                                                                |
+| [Azure Security Center REST API](/rest/api/securitycenter/) (API REST do Centro de Segurança do Azure) | Alertas de segurança, recomendações de segurança, e muito mais.                                                                                                                                                                |
 |                                                                                       |                                                                                                                                                                                                                     |
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -5,28 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/20/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d03391ba5a82c128197c86ea6ed84389552fadb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90c70dd626ea093b9dfe2fd71e39b53c81ac5d5f
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91439843"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340642"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Os elementos do e-mail de convite de colaboração B2B - Azure Ative Directory
 
 Os e-mails de convite são um componente crítico para trazer parceiros a bordo como utilizadores de colaboração B2B em Azure AD. Embora não seja [necessário que envie um e-mail para convidar alguém que use a colaboração B2B](add-user-without-invite.md), ao fazê-lo dá ao utilizador toda a informação de que necessita para tomar uma decisão sobre se aceita o seu convite. Também lhes dá um link a que podem sempre se referir no futuro quando precisam de voltar aos seus recursos.
 
 ![Screenshot mostrando o e-mail de convite B2B](media/invitation-email-elements/invitation-email.png)
-
-> [!NOTE]
-> Este novo modelo de e-mail ainda está sendo lançado para todos os inquilinos, por isso alguns inquilinos ainda estão usando um design mais antigo. Até ao final de maio de 2020, os convites de todos os inquilinos estarão a usar este modelo.
 
 ## <a name="explaining-the-email"></a>Explicando o e-mail
 
@@ -52,17 +49,11 @@ O e-mail começa com um breve aviso ao utilizador sobre phishing, alertando-os d
 
 ![Imagem do aviso de phishing no e-mail](media/invitation-email-elements/phishing-warning.png)
 
-### <a name="inviters-information"></a>Informação do convidado
+### <a name="inviters-information-and-invitation-message"></a>Informação do convidado e mensagem de convite
 
-O e-mail inclui informações sobre o convidado e a organização de onde estão a enviar o convite. Isto inclui o nome e endereço de e-mail do remetente, bem como o nome e o domínio primário associados à organização. Todas estas informações devem ajudar o convidado a tomar uma decisão informada sobre a aceitação do convite.
+O e-mail inclui o nome e o domínio primário associados à organização que envia o convite. Estas informações devem ajudar o convidado a tomar uma decisão informada sobre a aceitação do convite. Se o convidado incluir uma mensagem como parte do seu convite quando [convida um utilizador convidado para o diretório, grupo ou app](add-users-administrator.md) ou quando utiliza o convite [API,](customize-invitation-api.md)a mensagem é destacada na secção principal do e-mail. Também estão incluídos o nome e a imagem do perfil do convidado se definirem um. A mensagem em si é uma área de texto, por isso, por razões de segurança, não processa tags HTML.
 
-![Imagem da informação do convidado no e-mail](media/invitation-email-elements/inviters-information.png)
-
-### <a name="invitation-message"></a>Mensagem de convite
-
-Se o convidado incluir uma mensagem como parte do seu convite quando [convida um utilizador convidado para o diretório, grupo ou app](add-users-administrator.md) ou quando utiliza o convite [API,](customize-invitation-api.md)a mensagem é destacada na secção principal do e-mail. Também estão incluídos o nome e a imagem do perfil do convidado se definirem um. A mensagem em si é uma área de texto, por isso, por razões de segurança, não processa tags HTML.
-
-![Imagem da mensagem de convite no e-mail](media/invitation-email-elements/invitation-message.png)
+![Imagem da mensagem de convite no e-mail](media/invitation-email-elements/invitation-message-inviters-info.png)
 
 ### <a name="accept-button-and-redirect-url"></a>Aceite o botão e redirecione o URL
 

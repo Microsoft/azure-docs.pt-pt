@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: rohogue
 ms.custom: references_regions
-ms.openlocfilehash: c6459e2daf17772b28ee53289754deb33b4823ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 647a9792384a21dfc191371ef444cbdc098bc819
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88272696"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342370"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Perguntas Frequentes de Avere vFXT for Azure
 
@@ -26,7 +26,7 @@ Avere vFXT for Azure é um sistema de ficheiros de alto desempenho que cache dad
 
 ### <a name="is-avere-vfxt-a-storage-solution"></a>Avere vFXT é uma solução de armazenamento?
 
-N.º Avere vFXT for Azure é uma *cache* de sistema de ficheiros que se liga a ambientes de armazenamento, como o seu EMC ou NetApp NAS, ou um recipiente de bolhas Azure. Avere vFXT simplifica os pedidos de dados dos clientes, e cache os dados que serve para melhorar o desempenho em escala e ao longo do tempo. Avere vFXT em si não armazena dados. Não tem informações sobre a quantidade de dados armazenados por trás.
+Não. Avere vFXT for Azure é uma *cache* de sistema de ficheiros que se liga a ambientes de armazenamento, como o seu EMC ou NetApp NAS, ou um recipiente de bolhas Azure. Avere vFXT simplifica os pedidos de dados dos clientes, e cache os dados que serve para melhorar o desempenho em escala e ao longo do tempo. Avere vFXT em si não armazena dados. Não tem informações sobre a quantidade de dados armazenados por trás.
 
 ### <a name="is-avere-vfxt-a-tiering-solution"></a>Avere vFXT é uma solução de tiering?
 
@@ -106,7 +106,7 @@ O cluster Avere vFXT pode ser tão pequeno como três nós de máquina virtual o
 
 ### <a name="does-the-avere-vfxt-environment-autoscale"></a>O ambiente Avere vFXT "autoscale"?
 
-N.º Pode escalar o tamanho do cluster para cima e para baixo, mas adicionar ou remover nós de cluster é um passo manual.
+Não. Pode escalar o tamanho do cluster para cima e para baixo, mas adicionar ou remover nós de cluster é um passo manual.
 
 ### <a name="can-i-run-the-avere-vfxt-cluster-as-a-virtual-machine-scale-set"></a>Posso executar o cluster Avere vFXT como um conjunto de escala de máquina virtual?
 
@@ -126,7 +126,7 @@ Sim. Certifique-se de que tem uma quota suficiente na região para apoiar o clus
 
 ### <a name="can-i-run-the-avere-vfxt-cluster-machines-in-different-availability-zones"></a>Posso executar as máquinas de cluster Avere vFXT em diferentes zonas de disponibilidade?
 
-N.º O modelo de alta disponibilidade em Avere vFXT atualmente não suporta membros individuais do cluster Avere vFXT localizados em diferentes zonas de disponibilidade.
+Não. O modelo de alta disponibilidade em Avere vFXT atualmente não suporta membros individuais do cluster Avere vFXT localizados em diferentes zonas de disponibilidade.
 
 ### <a name="can-i-clone-avere-vfxt-virtual-machines"></a>Posso clonar máquinas virtuais Avere vFXT?
 
@@ -160,7 +160,7 @@ A descoloragem e a recolocação dos SSDs não são suportadas. Os metadados ou 
 
 ### <a name="does-the-system-encrypt-the-cache"></a>O sistema encripta a cache?
 
-Os dados são riscados nos discos, mas não são encriptados. No entanto, os próprios discos podem ser encriptados. Para obter mais informações, consulte [Políticas Seguras e utilize políticas em máquinas virtuais em Azure](https://docs.microsoft.com/azure/virtual-machines/linux/security-policy#encryption).
+Os dados são riscados nos discos, mas não são encriptados. No entanto, os próprios discos podem ser encriptados. Para obter mais informações, consulte [Políticas Seguras e utilize políticas em máquinas virtuais em Azure](../virtual-machines/security-policy.md#encryption).
 
 ## <a name="technical-networking"></a>Técnico: Networking
 
@@ -253,13 +253,13 @@ Leia [o ficheiro central da nuvem de armazenamento Azure Blob](avere-vfxt-add-st
 
 ### <a name="can-i-use-archive-blob-storage"></a>Posso usar o armazenamento de bolhas de arquivo?
 
-N.º O acordo de nível de serviço (SLA) para armazenamento de arquivo não é compatível com as necessidades de acesso a ficheiros e de acesso a ficheiros em tempo real do sistema Avere vFXT.
+Não. O acordo de nível de serviço (SLA) para armazenamento de arquivo não é compatível com as necessidades de acesso a ficheiros e de acesso a ficheiros em tempo real do sistema Avere vFXT.
 
 ### <a name="can-i-use-cool-blob-storage"></a>Posso usar um armazenamento de bolhas legais?
 
 O armazenamento de bolhas de nível frio não é geralmente recomendado para um Avere vFXT para filete de núcleo Azure. O nível cool oferece custos de armazenamento mais baixos, mas custos de operações mais elevados. (Consulte [os preços do blob do bloco](<https://azure.microsoft.com/pricing/details/storage/blobs/>) para mais detalhes.) Se os dados forem acedidos e modificados ou eliminados com frequência, considere a utilização do nível Hot.
 
-[Os níveis de acesso](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers#cool-access-tier) dão mais informações sobre quando poderá fazer sentido utilizar o armazenamento de nível Cool como um ficheiro de núcleo vFXT.
+[Os níveis de acesso](../storage/blobs/storage-blob-storage-tiers.md#cool-access-tier) dão mais informações sobre quando poderá fazer sentido utilizar o armazenamento de nível Cool como um ficheiro de núcleo vFXT.
 
 ### <a name="how-do-i-encrypt-the-blob-container"></a>Como criptografo o recipiente de bolhas?
 

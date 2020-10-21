@@ -7,12 +7,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: aa8cf0d2a48c75b71895eb75db362c4ec4e291c5
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 006c995217ced91690798ae68f04e3b6c3148228
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88925050"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131960"
 ---
 # <a name="create-an-additional-azure-subscription"></a>Criar uma subscrição do Azure adicional
 
@@ -30,7 +30,7 @@ Precisará das seguintes permissões para criar subscrições:
 |---------|---------|
 |Contrato Enterprise (EA) |  Função de Proprietário de Conta na inscrição do Contrato Enterprise. Para obter mais informações, veja [Compreender as funções administrativas do Contrato Enterprise no Azure](understand-ea-roles.md).    |
 |Contrato de Cliente da Microsoft (MCA) |  Função de proprietário ou contribuidor na secção da fatura, no perfil de faturação ou na conta de faturação. Ou função de criador da subscrição do Azure na secção da fatura.  Para obter mais informações, veja [Tarefa e funções da faturação da subscrição](understand-mca-roles.md#subscription-billing-roles-and-tasks).    |
-|Contrato de Parceiro da Microsoft (MPA) |   Função de Administrador Global e de Agente de Administração na organização de parceiro CSP. Para saber mais, veja [Partner Center - Assign users roles and permissions](https://docs.microsoft.com/partner-center/permissions-overview) (Centro de Parceiros – Atribuir funções e permissões de utilizadores).  O utilizador tem de iniciar sessão no inquilino parceiro para criar subscrições do Azure.   |
+|Contrato de Parceiro da Microsoft (MPA) |   Função de Administrador Global e de Agente de Administração na organização de parceiro CSP. Para saber mais, veja [Partner Center - Assign users roles and permissions](/partner-center/permissions-overview) (Centro de Parceiros – Atribuir funções e permissões de utilizadores).  O utilizador tem de iniciar sessão no inquilino parceiro para criar subscrições do Azure.   |
 
 ## <a name="create-a-subscription-in-the-azure-portal"></a>Criar uma subscrição no portal do Azure
 
@@ -79,7 +79,7 @@ Também pode criar subscrições adicionais através de programação. Para obte
 
 - [Adicionar ou alterar administradores de subscrição do Azure](add-change-subscription-administrator.md)
 - [Move Resources to New Resource Group or Subscription (Mover recursos para um grupo de recursos ou subscrição nova)](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
-- [Criar grupos de gestão para a organização e gestão de recursos](../../governance/management-groups/create.md)
+- [Criar grupos de gestão para a organização e gestão de recursos](../../governance/management-groups/create-management-group-portal.md)
 - [Cancelar a subscrição do Azure](cancel-azure-subscription.md)
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
