@@ -9,12 +9,12 @@ ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 3277dc4d9c4485b117bfcfd1d6e130e7370cd8c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: abd27e15ccf5b421e69e78b2b726d192ffdecacb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939197"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372366"
 ---
 # <a name="connect-to-azure-arc-enabled-sql-managed-instance"></a>Ligue ao Arco Azure ativado sql instância gerida
 
@@ -68,7 +68,7 @@ sqlcmd -S 52.229.9.30,30913 -U sa
 
 Se estiver a utilizar uma máquina virtual Azure, o endereço IP do ponto final não mostrará o endereço IP público. Para localizar o endereço IP externo, utilize o seguinte comando:
 
-```console
+```azurecli
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
 ```
 
@@ -78,7 +78,7 @@ Também poderá ser necessário expor a porta do exemplo sql através do gateway
 
 Para definir uma regra, terá de saber o nome do seu NSG que pode descobrir usando o comando abaixo:
 
-```console
+```azurecli
 az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 ```
 
@@ -86,7 +86,7 @@ Uma vez que tenha o nome do NSG, pode adicionar uma regra de firewall usando o s
 
 Substitua o valor do `--destination-port-ranges` parâmetro abaixo pelo número de porta que obteve do `azdata sql instance list` comando F acima.
 
-```console
+```azurecli
 az network nsg rule create -n db_port --destination-port-ranges 30913 --source-address-prefixes '*' --nsg-name azurearcvmNSG --priority 500 -g azurearcvm-rg --access Allow --description 'Allow port through for db access' --destination-address-prefixes '*' --direction Inbound --protocol Tcp --source-port-ranges '*'
 ```
 

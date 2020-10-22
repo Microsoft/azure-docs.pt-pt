@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 74ebd25cb48276f76cdf379eaa596f4ec1f3a2b9
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2de3f78b58e10a4fbf65bb00d516448a089f85b6
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312598"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370955"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Referência do guia de operações do Azure Ative Directory
 
@@ -49,7 +49,7 @@ Ao rever a sua lista, poderá descobrir que precisa de atribuir um proprietário
 
 #### <a name="owners-recommended-reading"></a>Proprietários recomendaram leitura
 
-- [Atribuir funções de administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Atribuir funções de administrador no Azure Active Directory](../roles/permissions-reference.md)
 - [Governação no Azure](../../governance/index.yml)
 
 ## <a name="hybrid-management"></a>Gestão híbrida
@@ -154,7 +154,7 @@ Consulte a tabela seguinte para saber o tipo de notificações enviadas e onde v
 
 ### <a name="ad-fs-lockdown"></a>Bloqueio AD FS
 
-As organizações, que configuram aplicações para autenticar diretamente para a Azure AD beneficiam do [bloqueio inteligente AZURE AD](../authentication/concept-sspr-howitworks.md). Se utilizar O FS AD no Windows Server 2012 R2, implemente [a proteção de bloqueio de extranet](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)AD FS . Se utilizar O FS AD no Windows Server 2016 ou mais tarde, implemente [o bloqueio inteligente da extranet](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). No mínimo, recomendamos que permita que o bloqueio da extranet contenha o risco de ataques de força bruta contra o Ative Directory no local. No entanto, se tiver AD FS no Windows 2016 ou superior, também deverá ativar o bloqueio inteligente da extranet que ajudará a mitigar os ataques [de spray de palavra-passe.](https://www.microsoft.com/microsoft-365/blog/2018/03/05/azure-ad-and-adfs-best-practices-defending-against-password-spray-attacks/)
+As organizações, que configuram aplicações para autenticar diretamente para a Azure AD beneficiam do [bloqueio inteligente AZURE AD](../authentication/concept-sspr-howitworks.md). Se utilizar O FS AD no Windows Server 2012 R2, implemente [a proteção de bloqueio de extranet](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)AD FS . Se utilizar O FS AD no Windows Server 2016 ou mais tarde, implemente [o bloqueio inteligente da extranet](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). No mínimo, recomendamos que permita que o bloqueio da extranet contenha o risco de ataques de força bruta contra o Ative Directory no local. No entanto, se tiver AD FS no Windows 2016 ou superior, também deverá ativar o bloqueio inteligente da extranet que ajudará a mitigar os ataques [de spray de palavra-passe.](https://www.microsoft.com/microsoft-365/blog/2018/03/05/azure-ad-and-adfs-best-practices-defending-against-password-spray-attacks/)
 
 Se o AD FS for utilizado apenas para a federação Azure AD, existem alguns pontos finais que podem ser desligados para minimizar a área da superfície de ataque. Por exemplo, se o FS AD for utilizado apenas para o Azure AD, deve desativar WS-Trust pontos finais que não sejam os pontos finais ativados para **o utilizador** e **o transporte de janelas.**
 
@@ -166,9 +166,9 @@ O modelo de nível administrativo ative directory foi concebido para proteger os
 
 O [modelo de nível](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) é composto por três níveis e inclui apenas contas administrativas, não contas padrão de utilizador.
 
-- **Nível 0**   - Controlo Direto das identidades empresariais no ambiente. A Camada 0 inclui contas, grupos e outros recursos que têm controlo administrativo direto ou indireto da floresta, dos domínios ou dos controladores de domínio do Active Directory e todos os elementos no mesmo. A sensibilidade de segurança de todos os ativos da Camada 0 é equivalente, uma vez que têm controlo uns sobre os outros.
-- **Nível 1**   - Controlo de servidores e aplicações empresariais. Os ativos da Camada 1 incluem sistemas operativos de servidor, serviços em nuvem e aplicações empresariais. As contas de administrador da Camada 1 têm controlo administrativo de uma quantidade significativa de valor de negócios alojado nestes ativos. Uma função de exemplo comum são os administradores do servidor que realizam a manutenção destes sistemas operativos e são capazes de afetar todos os serviços da empresa.
-- **Nível 2**   - Controlo de postos de trabalho e dispositivos de utilização. As contas de administrador da Camada 2 têm controlo administrativo de uma quantidade significativa de valor de negócios alojado em dispositivos e estações de trabalho do utilizador. Os exemplos incluem administradores de Suporte Técnico e suporte de computador pois podem afetar a integridade dos dados de praticamente qualquer utilizador.
+- **Camada 0** – Controlo direto de identidades da empresa no ambiente. A Camada 0 inclui contas, grupos e outros recursos que têm controlo administrativo direto ou indireto da floresta, dos domínios ou dos controladores de domínio do Active Directory e todos os elementos no mesmo. A sensibilidade de segurança de todos os ativos da Camada 0 é equivalente, uma vez que têm controlo uns sobre os outros.
+- **Camada 1** – Controlo de aplicações e servidores da empresa. Os ativos da Camada 1 incluem sistemas operativos de servidor, serviços em nuvem e aplicações empresariais. As contas de administrador da Camada 1 têm controlo administrativo de uma quantidade significativa de valor de negócios alojado nestes ativos. Uma função de exemplo comum são os administradores do servidor que realizam a manutenção destes sistemas operativos e são capazes de afetar todos os serviços da empresa.
+- **Camada 2** – Controlo dos dispositivos e das estações de trabalho do utilizador. As contas de administrador da Camada 2 têm controlo administrativo de uma quantidade significativa de valor de negócios alojado em dispositivos e estações de trabalho do utilizador. Os exemplos incluem administradores de Suporte Técnico e suporte de computador pois podem afetar a integridade dos dados de praticamente qualquer utilizador.
 
 Bloqueie o acesso a componentes de identidade no local, tais como Azure AD Connect, AD FS e serviços SQL da mesma forma que faz para controladores de domínio.
 

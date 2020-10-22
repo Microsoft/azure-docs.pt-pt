@@ -11,12 +11,12 @@ author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 643010ef1f6e941a57673a711e1871aafd1e341d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aaa9fa036f86fc822a4bb2175f404cdff1ca81d7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361913"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362574"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>Tutorial: Configurar o assistente de análise de registo
 
@@ -45,7 +45,7 @@ Familiarize-se com estes artigos:
 
 - [Como integrar registos de atividades com Log Analytics](./howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Gerir conta de acesso de emergência em Azure AD](../users-groups-roles/directory-emergency-access.md)
+- [Gerir conta de acesso de emergência em Azure AD](../roles/security-emergency-access.md)
 
 - [Referência rápida de KQL](/azure/data-explorer/kql-quick-reference)
 
@@ -96,11 +96,11 @@ Configurar um espaço de trabalho de análise de log é composto por dois passos
 
 7. Procure **Azure Active Directory**.
 
-    ![Azure Ative Firectory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 8. Na secção **de Monitorização,** clique na **definição de Diagnóstico**.
 
-    ![Azure Ative Firectory](./media/tutorial-log-analytics-wizard/diagnostic-settings.png)
+    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/diagnostic-settings.png)
 
 9. Na página de **definições de Diagnóstico,** clique **na definição de diagnóstico de adicionar**.
 
@@ -128,7 +128,7 @@ Este procedimento mostra como executar consultas utilizando a **língua de consu
 
 2. Procure **Azure Active Directory**.
 
-    ![Azure Ative Firectory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. Na secção **'Monitorização',** clique em **'Registos'.**
 
@@ -210,7 +210,7 @@ Este procedimento mostra como enviar alertas quando a conta breakglass é utiliz
 
 2. Procure **Azure Active Directory**.
 
-    ![Azure Ative Firectory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. Na secção **'Monitorização',** clique em **'Registos'.**
 
@@ -301,7 +301,7 @@ Este procedimento mostra como criar um novo livro utilizando o modelo de arranqu
 
 2. Procure **Azure Active Directory**.
 
-    ![Azure Ative Firectory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. Na secção **de Monitorização,** clique em **Livros de Trabalho.**
 
@@ -353,7 +353,7 @@ Este procedimento mostra como adicionar uma consulta a um modelo de livro existe
 
 2. Procure **Azure Active Directory**.
 
-    ![Azure Ative Firectory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. Na secção **de Monitorização,** clique em **Livros de Trabalho.**
 

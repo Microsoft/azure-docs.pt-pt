@@ -16,12 +16,12 @@ ms.date: 09/30/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c578d9df8c008d73460801547e6b9361e60baa8
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: b4030dedfb0d7308bb5a0f7a86bc49ee168e6d0c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318008"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362812"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Tutorial: Crie o seu primeiro pacote de acesso na gestão de direitos Azure AD
 
@@ -67,7 +67,7 @@ Um diretório de recursos tem um ou mais recursos para partilhar. Neste passo, v
 
 1. Criar ou configurar os dois utilizadores seguintes. Pode usar estes nomes ou nomes diferentes. **ADmin1** pode ser o utilizador em que está atualmente inscrito como.
 
-    | Nome | Função de diretório |
+    | Name | Função de diretório |
     | --- | --- |
     | **Administrador1** | Administrador global<br/>-ou-<br/>Administrador de utilizadores |
     | **Requestor1** | Utilizador |
@@ -118,10 +118,10 @@ Um pacote de *acesso* é um pacote de recursos que uma equipa ou projeto precisa
 
     ![Novo pacote de acesso - Separador de funções de recursos](./media/entitlement-management-access-package-first/resource-roles.png)
     >[!IMPORTANT]
-    >Os grupos atribuíveis a funções adicionados a um pacote de acesso serão indicados utilizando o sub tipo **atribuível às funções**. Consulte a [Criação de um grupo atribuível a funções](../users-groups-roles/roles-groups-create-eligible.md) no Azure Ative Directory para obter mais detalhes sobre grupos atribuíveis às funções AZure AD. Se não vir um grupo atribuível a um papel que pretenda adicionar ou não conseguir adicioná-lo, certifique-se de que tem o papel de AD Azure e o papel de gestão de direitos necessários para executar esta operação. Pode ser necessário perguntar a alguém com as funções necessárias que adicione o recurso ao seu catálogo. Para obter mais informações, consulte [as funções necessárias para adicionar recursos a um catálogo.](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
+    >Os grupos atribuíveis a funções adicionados a um pacote de acesso serão indicados utilizando o sub tipo **atribuível às funções**. Consulte a [Criação de um grupo atribuível a funções](../roles/groups-create-eligible.md) no Azure Ative Directory para obter mais detalhes sobre grupos atribuíveis às funções AZure AD. Se não vir um grupo atribuível a um papel que pretenda adicionar ou não conseguir adicioná-lo, certifique-se de que tem o papel de AD Azure e o papel de gestão de direitos necessários para executar esta operação. Pode ser necessário perguntar a alguém com as funções necessárias que adicione o recurso ao seu catálogo. Para obter mais informações, consulte [as funções necessárias para adicionar recursos a um catálogo.](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
     >[!NOTE]
-    > Ao utilizar [grupos dinâmicos,](../users-groups-roles/groups-create-rule.md) não verá outras funções disponíveis para além do proprietário. Esta ação é propositada.
+    > Ao utilizar [grupos dinâmicos,](../enterprise-users/groups-create-rule.md) não verá outras funções disponíveis para além do proprietário. Esta ação é propositada.
     > ![Scenario overview (Descrição geral do cenário)](./media/entitlement-management-access-package-first/dynamic-group-warning.png)
     
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: a4f578ca2e9fc448fb85b803cce46974a8c2e4dc
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: d77b4b5824c4426f106d10ca246c5b0d5e76327a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92326054"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372264"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Monitorizar a saúde do espaço de trabalho log Analytics no Azure Monitor
 Para manter o desempenho e disponibilidade do seu espaço de trabalho Log Analytics no Azure Monitor, é necessário ser capaz de detetar proativamente quaisquer problemas que surjam. Este artigo descreve como monitorizar a saúde do seu espaço de trabalho Log Analytics utilizando dados na tabela [Operação.](/azure-monitor/reference/tables/operation) Esta tabela está incluída em todos os espaços de trabalho do Log Analytics e contém erros e avisos que ocorrem no seu espaço de trabalho. Deve rever regularmente estes dados e criar alertas para ser notificado proativamente quando houver incidentes importantes no seu espaço de trabalho.
@@ -55,19 +55,19 @@ As operações de ingestão são questões que ocorreram durante a ingestão de 
 |:---|:---|:---|:---|
 | Tronco personalizado | Erro   | Limite de coluna de campos personalizados alcançado. | [Limites de serviço do Azure Monitor](../service-limits.md#log-analytics-workspaces) |
 | Tronco personalizado | Erro   | A ingestão de registos personalizados falhou. | |
-| Tronco personalizado | Erro   | Metadados. | |
-| Dados | Erro   | Os dados foram retirados porque o pedido foi criado mais cedo do que o número de dias definidos. | [Gerir a utilização e os custos com Registos do Azure Monitor](manage-cost-storage.md#alert-when-daily-cap-reached)
+| Metadados. | Erro | Erro de configuração detetado. | |
+| Recolha de dados | Erro   | Os dados foram retirados porque o pedido foi criado mais cedo do que o número de dias definidos. | [Gerir a utilização e os custos com Registos do Azure Monitor](manage-cost-storage.md#alert-when-daily-cap-reached)
 | Recolha de dados | Informações    | A configuração da máquina de recolha é detetada.| |
 | Recolha de dados | Informações    | A recolha de dados começou devido ao novo dia. | [Gerir a utilização e os custos com Registos do Azure Monitor](/manage-cost-storage.md#alert-when-daily-cap-reached) |
 | Recolha de dados | Aviso | A recolha de dados parou devido ao limite diário atingido.| [Gerir a utilização e os custos com Registos do Azure Monitor](/manage-cost-storage.md#alert-when-daily-cap-reached) |
+| Processamento de dados | Erro   | Formato JSON inválido. | [Envie dados de registo para O Monitor de Azure com a API do Colecionador de Dados HTTP (pré-visualização pública)](data-collector-api.md#request-body) | 
+| Processamento de dados | Aviso | O valor foi aparado até ao tamanho máximo permitido. | [Limites de serviço do Azure Monitor](../service-limits.md#log-analytics-workspaces) |
+| Processamento de dados | Aviso | Valor de campo aparado à medida que o limite de tamanho atingido. | [Limites de serviço do Azure Monitor](../service-limits.md#log-analytics-workspaces) | 
 | Taxa de ingestão | Informações | Limite de taxa de ingestão aproximando-se dos 70%. | [Limites de serviço do Azure Monitor](../service-limits.md#log-analytics-workspaces) |
 | Taxa de ingestão | Aviso | Limite de taxa de ingestão aproximando-se do limite. | [Limites de serviço do Azure Monitor](../service-limits.md#log-analytics-workspaces) |
 | Taxa de ingestão | Erro   | Limite de taxa atingido. | [Limites de serviço do Azure Monitor](../service-limits.md#log-analytics-workspaces) |
-| Análise JSON | Erro   | Formato JSON inválido. | [Envie dados de registo para O Monitor de Azure com a API do Colecionador de Dados HTTP (pré-visualização pública)](data-collector-api.md#request-body) | 
-| Análise JSON | Aviso | O valor foi aparado até ao tamanho máximo permitido. | [Limites de serviço do Azure Monitor](../service-limits.md#log-analytics-workspaces) |
-| Limite de tamanho da coluna max | Aviso | Valor de campo aparado à medida que o limite de tamanho atingido. | [Limites de serviço do Azure Monitor](../service-limits.md#log-analytics-workspaces) | 
 | Armazenamento | Erro   | Não é possível aceder à conta de armazenamento, uma vez que as credenciais utilizadas são inválidas.  |
-| Tabela   | Erro   | Limite de campo personalizado máximo atingido. | [Limites de serviço do Azure Monitor](../service-limits.md#log-analytics-workspaces)|
+
 
 
    
@@ -91,21 +91,32 @@ Para criar uma regra de alerta para uma operação específica, utilize uma cons
 
 O exemplo a seguir cria um alerta de alerta quando a taxa de volume de ingestão atingiu 80% do limite.
 
-```kusto
-_LogsOperation
-| where Category == "Ingestion"
-| where Operation == "Ingestion rate"
-| where Level == "Warning"
-```
+- Destino: Selecione o seu espaço de trabalho Log Analytics
+- Critérios:
+  - Nome do sinal: Pesquisa de registo personalizado
+  - Consulta de pesquisa: `_LogOperation | where Category == "Ingestion" | where Operation == "Ingestion rate" | where Level == "Warning"`
+  - Com base em: Número de resultados
+  - Condição: Maior do que
+  - Limiar: 0
+  - Período: 5 (minutos)
+  - Frequência: 5 (minutos)
+- Nome da regra de alerta: Limite de dados diário atingido
+- Gravidade: Aviso (Sev 1)
+
 
 O exemplo a seguir cria um alerta quando a recolha de dados atingiu o limite diário. 
-```kusto
-Operation 
-| where OperationCategory == "Ingestion" 
-|where OperationKey == "Data Collection" 
-| where OperationStatus == "Warning"
-```
 
+- Destino: Selecione o seu espaço de trabalho Log Analytics
+- Critérios:
+  - Nome do sinal: Pesquisa de registo personalizado
+  - Consulta de pesquisa: `_LogOperation | where Category == "Ingestion" | where Operation == "Data Collection" | where Level == "Warning"`
+  - Com base em: Número de resultados
+  - Condição: Maior do que
+  - Limiar: 0
+  - Período: 5 (minutos)
+  - Frequência: 5 (minutos)
+- Nome da regra de alerta: Limite de dados diário atingido
+- Gravidade: Aviso (Sev 1)
 
 
 

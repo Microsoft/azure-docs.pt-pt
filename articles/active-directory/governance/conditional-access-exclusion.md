@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: def74cccb3ad2c45a18210cc9d5a0d7ff0ba76f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4a18ad04064ef8356e21d106843d6c946f50741
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88783693"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362727"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Utilize avaliações de acesso Azure AD para gerir utilizadores excluídos das políticas de acesso condicional
 
@@ -38,7 +38,7 @@ Como outro exemplo, você pode estar usando [localizações nomeadas](../conditi
 
 ![Locais nomeados em Acesso Condicional](./media/conditional-access-exclusion/named-locations.png)
 
-Infelizmente, alguns utilizadores podem ainda ter uma razão válida para se inscreverem nestes países/regiões bloqueados. Por exemplo, os utilizadores podem estar a viajar para trabalhar e precisam de aceder aos recursos corporativos. Neste caso, a política de acesso condicional para bloquear estes países/regiões poderia utilizar um grupo de segurança na nuvem para os utilizadores excluídos da política. Os utilizadores que precisam de acesso durante a viagem, podem adicionar-se ao grupo utilizando a [gestão do Grupo de Self-Service Azure AD](../users-groups-roles/groups-self-service-management.md).
+Infelizmente, alguns utilizadores podem ainda ter uma razão válida para se inscreverem nestes países/regiões bloqueados. Por exemplo, os utilizadores podem estar a viajar para trabalhar e precisam de aceder aos recursos corporativos. Neste caso, a política de acesso condicional para bloquear estes países/regiões poderia utilizar um grupo de segurança na nuvem para os utilizadores excluídos da política. Os utilizadores que precisam de acesso durante a viagem, podem adicionar-se ao grupo utilizando a [gestão do Grupo de Self-Service Azure AD](../enterprise-users/groups-self-service-management.md).
 
 Outro exemplo pode ser o facto de ter uma política de Acesso Condicional [que bloqueia a autenticação de legados para a grande maioria dos seus utilizadores.](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/07/azure-ad-conditional-access-support-for-blocking-legacy-auth-is-in-public-preview/) No entanto, se tiver alguns utilizadores que necessitem de utilizar métodos de autenticação legado para aceder aos seus recursos através do Office 2010 ou clientes baseados no IMAP/SMTP/POP, então pode excluir estes utilizadores da política que bloqueia métodos de autenticação legado.
 

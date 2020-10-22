@@ -1,16 +1,16 @@
 ---
 author: baanders
-description: incluir arquivo para limpeza de uma instância básica de Azure Digital Twins e registo de aplicativos
+description: incluir arquivo para limpeza de uma instância básica de Gémeos Digitais Azure
 ms.service: digital-twins
 ms.topic: include
 ms.date: 8/13/2020
 ms.author: baanders
-ms.openlocfilehash: e8f167555434338416381aaf8978a3d551686fb2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e095a7b286a8860535d6b58fa93098735b30c87
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90606465"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372327"
 ---
 Se já não necessitar dos recursos criados neste tutorial, siga estes passos para eliminá-los.
 
@@ -23,10 +23,4 @@ Abra uma Azure Cloud Shell e execute o seguinte comando para eliminar o grupo de
 
 ```azurecli
 az group delete --name <your-resource-group>
-```
-
-Em seguida, elimine o registo de aplicações Azure Ative Directory que criou para a sua aplicação cliente com este comando:
-
-```azurecli
-az ad app delete --id <your-application-ID>
 ```

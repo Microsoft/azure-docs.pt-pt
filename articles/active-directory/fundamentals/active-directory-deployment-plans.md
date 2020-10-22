@@ -12,12 +12,12 @@ ms.date: 08/20/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75081c218536d17798d1ffa788f79130211f72d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: acd2f49f009a8bd71d8cfc9f442e579bb1ad396b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89318432"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371890"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Planos de implementação do Azure Active Directory
 Procura orientação de ponta a ponta sobre a implementação de capacidades do Azure Ative Directory (Azure AD) ? Os planos de implementação da AD AZure percorrem o valor do negócio, as considerações de planeamento e os procedimentos operacionais necessários para implementar com sucesso as capacidades comuns da AD Azure.
@@ -54,7 +54,7 @@ Um piloto permite-lhe testar com um pequeno grupo antes de ligar uma capacidade 
 
 Na sua primeira onda, direcione a TI, a usabilidade e outros utilizadores apropriados que possam testar e fornecer feedback. Este feedback deve ser utilizado para desenvolver ainda mais as comunicações e instruções que envia aos seus utilizadores e para fornecer informações sobre os tipos de problemas que o seu pessoal de suporte pode ver. 
 
-O alargamento do lançamento a grupos maiores de utilizadores deve ser efetuado aumentando o âmbito de aplicação do grupo(s) visados. Isto pode ser feito através da [adesão dinâmica do grupo,](../users-groups-roles/groups-dynamic-membership.md)ou adicionando manualmente os utilizadores ao(s) grupo(s) alvo.
+O alargamento do lançamento a grupos maiores de utilizadores deve ser efetuado aumentando o âmbito de aplicação do grupo(s) visados. Isto pode ser feito através da [adesão dinâmica do grupo,](../enterprise-users/groups-dynamic-membership.md)ou adicionando manualmente os utilizadores ao(s) grupo(s) alvo.
 
 
 ## <a name="deploy-authentication"></a>Implementar autenticação
@@ -81,7 +81,7 @@ O alargamento do lançamento a grupos maiores de utilizadores deve ser efetuado 
 | -| -|
 | [ADFS para Sincronização Hash de Palavras-passe](../hybrid/plan-migrate-adfs-password-hash-sync.md)| Com a sincronização de Hash Password, as hashes de senhas de utilizador são sincronizadas desde o Ative Directy no local até ao Azure AD, permitindo que o Azure AD autente os utilizadores sem qualquer interação com o Ative Directory no local |
 | [ADFS para Autenticação Pass-through](../hybrid/plan-migrate-adfs-pass-through-authentication.md)| A Azure AD AD Authentication ajuda os seus utilizadores a iniciar súmis tanto no local como em aplicações baseadas na nuvem usando as mesmas palavras-passe. Esta funcionalidade proporciona aos utilizadores uma melhor experiência - uma palavra-passe a menos para se lembrarem - e reduz os custos de IT helpdesk porque os utilizadores são menos propensos a esquecer como fazer o s. Quando as pessoas iniciam sessão com o Azure AD, esta funcionalidade valida as respetivas palavras-passe diretamente no seu Active Directory no local. |
-| [Azure AD Application Proxy](../manage-apps/application-proxy-deployment-plan.md) |Os colaboradores dos nossos dias querem ser produtivos em qualquer sítio, em qualquer altura e em qualquer dispositivo. Precisam de aceder a aplicações SaaS na nuvem e aplicações corporativas no local. O proxy da Azure AD Application permite este acesso robusto sem redes privadas virtuais (VPNs) ou zonas desmilitarizadas (DMZs). |
+| [Proxy de Aplicações do Azure AD](../manage-apps/application-proxy-deployment-plan.md) |Os colaboradores dos nossos dias querem ser produtivos em qualquer sítio, em qualquer altura e em qualquer dispositivo. Precisam de aceder a aplicações SaaS na nuvem e aplicações corporativas no local. O proxy da Azure AD Application permite este acesso robusto sem redes privadas virtuais (VPNs) ou zonas desmilitarizadas (DMZs). |
 | [SSO totalmente integrado](../hybrid/how-to-connect-sso-quick-start.md)| O Início de Sessão Único Totalmente Integrado do Azure Active Directory (SSO Totalmente Integrado do Azure AD) inicia sessão automaticamente pelos utilizadores quando estão a utilizar os dispositivos da empresa ligados à sua rede empresarial. Com esta funcionalidade, os utilizadores não precisarão de digitar as suas palavras-passe para iniciar sação no AZure AD e normalmente não precisarão de introduzir os seus nomes de utilizador. Esta funcionalidade proporciona aos utilizadores autorizados um fácil acesso às suas aplicações baseadas na nuvem sem necessitar de componentes adicionais no local. |
 
 ## <a name="deploy-user-provisioning"></a>Implementar o fornecimento de utilizadores

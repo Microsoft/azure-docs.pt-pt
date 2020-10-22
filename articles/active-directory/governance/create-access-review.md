@@ -15,12 +15,12 @@ ms.date: 09/15/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02d1c40c26dd6b6992d8df85a986b4157a22226a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b87af4a08c5a796d96d853ca63e50e335b9731fb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602936"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362778"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Criar uma revisão de acesso de grupos e aplicações em avaliações de acesso Azure AD
 
@@ -164,6 +164,7 @@ Se você atribuiu os hóspedes como revisores e eles não aceitaram o convite, e
 |Autorrevisto | As decisões foram registadas pelo sistema para todos os utilizadores que não foram revistos. A revisão está pronta para proceder à **Aplicação** se o Auto-Apply estiver ativado. |
 |Aplicação | Não haverá alteração de acesso para utilizadores que tenham sido aprovados. |
 |Aplicado | Os utilizadores negados, caso existam, foram removidos do recurso ou diretório. |
+|Com falhas | A revisão não pôde progredir. Este erro pode estar relacionado com a supressão do arrendatário, uma alteração nas licenças ou outras alterações internas do arrendatário. |
 
 ## <a name="create-reviews-via-apis"></a>Criar comentários via APIs
 

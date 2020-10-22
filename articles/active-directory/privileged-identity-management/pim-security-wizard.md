@@ -14,12 +14,12 @@ ms.date: 09/01/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff5d15ef66b597fdf56fefe90f35cbf122bb093f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4662e9fb537a93cb87c554e319256e2eca40d2e7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91534442"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372434"
 ---
 # <a name="discovery-and-insights-preview-for-azure-ad-roles-formerly-security-wizard"></a>Discovery and Insights (pré-visualização) para os papéis de Azure AD (anteriormente Assistente de Segurança)
 
@@ -29,7 +29,7 @@ Se estiver a começar com a Gestão de Identidade Privilegiada (PIM) na sua orga
 
 Antes da sua organização começar a usar Gestão de Identidade Privilegiada, todas as atribuições de funções são permanentes. Os utilizadores estão sempre nas suas funções atribuídas mesmo quando não precisam dos seus privilégios. A descoberta e insights (pré-visualização), que substitui o antigo Assistente de Segurança, mostra-lhe uma lista de funções privilegiadas e quantos utilizadores estão atualmente nessas funções. Pode listar atribuições para uma função para saber mais sobre os utilizadores designados se um ou mais deles não forem familiares.
 
-:heavy_check_mark: A Microsoft recomenda que mantenha **duas** contas de vidro de rutura que são permanentemente atribuídas ao papel de administrador global. Certifique-se de que estas contas não requerem o mesmo mecanismo de autenticação de vários fatores que as suas contas administrativas normais para iniciar sedutação, conforme descrito em [Gerir contas de acesso de emergência em Azure AD](../users-groups-roles/directory-emergency-access.md).
+:heavy_check_mark: A Microsoft recomenda que mantenha **duas** contas de vidro de rutura que são permanentemente atribuídas ao papel de administrador global. Certifique-se de que estas contas não requerem o mesmo mecanismo de autenticação de vários fatores que as suas contas administrativas normais para iniciar sedutação, conforme descrito em [Gerir contas de acesso de emergência em Azure AD](../roles/security-emergency-access.md).
 
 Além disso, mantenha as atribuições de funções permanentes se um utilizador tiver uma conta Microsoft (por outras palavras, uma conta que utilize para iniciar sessão em serviços da Microsoft como o Skype, ou Outlook.com). Se necessitar de autenticação multi-factor para um utilizador com uma conta Microsoft para ativar uma atribuição de funções, o utilizador será bloqueado.
 

@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b076c757c8f86941c79da4f0be598aaa5ea6761
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 37dc60fd14eb26ab4c8f5a867b97369a066b743b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317951"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362761"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Quais as novidades no Diretório Ativo do Azure?
 
@@ -94,7 +94,7 @@ Os utilizadores finais podem [aceder às suas chaves de recuperação através d
 **Categoria de serviço:** RBAC  
 **Capacidade do produto:** Controlo de Acessos
  
-Os utilizadores com a função [de Administrador de Dispositivos de Equipas](../users-groups-roles/directory-assign-admin-roles.md#teams-devices-administrator) podem gerir [dispositivos certificados por Equipas](https://www.microsoft.com/microsoft-365/microsoft-teams/across-devices/devices) a partir do Centro de Administração de Equipas. 
+Os utilizadores com a função [de Administrador de Dispositivos de Equipas](../roles/permissions-reference.md#teams-devices-administrator) podem gerir [dispositivos certificados por Equipas](https://www.microsoft.com/microsoft-365/microsoft-teams/across-devices/devices) a partir do Centro de Administração de Equipas. 
 
 Esta função permite ao utilizador visualizar todos os dispositivos num só olhar, com a capacidade de pesquisar e filtrar dispositivos. O utilizador também pode verificar os detalhes de cada dispositivo, incluindo a conta iniciada e a localização e modelo do dispositivo. O utilizador pode alterar as definições do dispositivo e atualizar as versões do software. Esta função não concede permissões para verificar a atividade das Equipas e chamar a qualidade do dispositivo.
  
@@ -146,7 +146,7 @@ O portal AD AZure foi atualizado para facilitar a utilizadores nas páginas de T
 - Novas capacidades de triagem em propriedades como nome, nome principal do utilizador e data de eliminação.
 - Um novo total de utilizadores conta que atualiza com quaisquer pesquisas ou filtros.
 
-Para mais informações, consulte [as melhorias de gestão do utilizador (pré-visualização) no Azure Ative Directory](../users-groups-roles/users-search-enhanced.md).
+Para mais informações, consulte [as melhorias de gestão do utilizador (pré-visualização) no Azure Ative Directory](../enterprise-users/users-search-enhanced.md).
 
 ---
 
@@ -255,7 +255,7 @@ Nesta pré-visualização, os clientes podem alternar entre a experiência exist
 
 Atualizámos permissões de nível de diretório para utilizadores convidados. Estas permissões permitem que os administradores exijam restrições e controlos adicionais no acesso externo do utilizador do hóspede. Os administradores podem agora adicionar restrições adicionais para o acesso dos hóspedes externos ao perfil do utilizador e dos grupos e à informação de adesão. Com esta funcionalidade de pré-visualização pública, os clientes podem gerir o acesso externo ao utilizador em escala, obstaculando os membros do grupo, incluindo restringir os utilizadores convidados de verem os membros do grupo(s) em que se encontram.
 
-Para saber mais, consulte [permissões de acesso restritos ao hóspede](../users-groups-roles/users-restrict-guest-permissions.md) e [permissões por defeito dos utilizadores.](./users-default-permissions.md)
+Para saber mais, consulte [permissões de acesso restritos ao hóspede](../enterprise-users/users-restrict-guest-permissions.md) e [permissões por defeito dos utilizadores.](./users-default-permissions.md)
  
 ---
 
@@ -358,7 +358,7 @@ Anteriormente, os fornecedores de ID Connect Open Personalizado só podiam ser a
 **Categoria de serviço:** Funções de AD AZure  
 **Capacidade do produto:** Controlo de Acessos
 
-Agora pode atribuir funções incorporadas a Azure a grupos de nuvem com esta nova funcionalidade. Por exemplo, pode atribuir a função de Administrador SharePoint a Contoso_SharePoint_Admins grupo. Também pode usar o PIM para fazer do grupo um membro elegível do papel, em vez de conceder acesso permanente. Para aprender a configurar esta funcionalidade, consulte [Use grupos de nuvem para gerir atribuições de funções no Azure Ative Directory (pré-visualização)](../users-groups-roles/roles-groups-concept.md).
+Agora pode atribuir funções incorporadas a Azure a grupos de nuvem com esta nova funcionalidade. Por exemplo, pode atribuir a função de Administrador SharePoint a Contoso_SharePoint_Admins grupo. Também pode usar o PIM para fazer do grupo um membro elegível do papel, em vez de conceder acesso permanente. Para aprender a configurar esta funcionalidade, consulte [Use grupos de nuvem para gerir atribuições de funções no Azure Ative Directory (pré-visualização)](../roles/groups-concept.md).
  
 ---
 
@@ -368,7 +368,7 @@ Agora pode atribuir funções incorporadas a Azure a grupos de nuvem com esta no
 **Categoria de serviço:** Funções de AD AZure  
 **Capacidade do produto:** Controlo de Acessos
  
-Os utilizadores na função Insights Business Leader podem aceder a um conjunto de dashboards e insights através da [aplicação M365 Insights](https://www.microsoft.com/microsoft-365/partners/workplaceanalytics). Isto inclui acesso total a todos os dashboards e apresenta insights e funcionalidade de exploração de dados. No entanto, os utilizadores nesta função não têm acesso às definições de configuração do produto, que é da responsabilidade do administrador do Insights. Para saber mais sobre este papel, consulte [permissões de função de administrador no Azure Ative Directory](../users-groups-roles/directory-assign-admin-roles.md#insights-business-leader)
+Os utilizadores na função Insights Business Leader podem aceder a um conjunto de dashboards e insights através da [aplicação M365 Insights](https://www.microsoft.com/microsoft-365/partners/workplaceanalytics). Isto inclui acesso total a todos os dashboards e apresenta insights e funcionalidade de exploração de dados. No entanto, os utilizadores nesta função não têm acesso às definições de configuração do produto, que é da responsabilidade do administrador do Insights. Para saber mais sobre este papel, consulte [permissões de função de administrador no Azure Ative Directory](../roles/permissions-reference.md#insights-business-leader)
  
 ---
 
@@ -378,7 +378,7 @@ Os utilizadores na função Insights Business Leader podem aceder a um conjunto 
 **Categoria de serviço:** Funções de AD AZure  
 **Capacidade do produto:** Controlo de Acessos
  
-Os utilizadores na função de Administrador de Insights podem aceder a todo o conjunto de capacidades administrativas na [aplicação M365 Insights](https://www.microsoft.com/microsoft-365/partners/workplaceanalytics). Um utilizador nesta função pode ler informações de diretórios, monitorizar a saúde do serviço, bilhetes de suporte de ficheiros e aceder aos aspetos de definição do administrador do Insights. Para saber mais sobre este papel, consulte [permissões de função de administrador no Azure Ative Directory](../users-groups-roles/directory-assign-admin-roles.md#insights-administrator)
+Os utilizadores na função de Administrador de Insights podem aceder a todo o conjunto de capacidades administrativas na [aplicação M365 Insights](https://www.microsoft.com/microsoft-365/partners/workplaceanalytics). Um utilizador nesta função pode ler informações de diretórios, monitorizar a saúde do serviço, bilhetes de suporte de ficheiros e aceder aos aspetos de definição do administrador do Insights. Para saber mais sobre este papel, consulte [permissões de função de administrador no Azure Ative Directory](../roles/permissions-reference.md#insights-administrator)
  
 --- 
 
@@ -528,7 +528,7 @@ Para obter mais informações sobre os fluxos dos utilizadores, consulte as [ver
  
 Em julho de 2020 adicionámos 55 novas aplicações na nossa galeria app com o apoio da Federação:
 
-[Palmas](http://www.rmit.com.ar/)Palmas , [Appreiz](https://microsoftteams.appreiz.com/), [Inextor Vault](https://inexto.com/inexto-suite/inextor), [Beekast](https://my.beekast.com/), [Templafy OpenID Connect,](https://app.templafy.com/) [Rececionista PeterConnects,](https://msteams.peterconnects.com/) [AlohaCloud,](https://appfusions.alohacloud.com/auth) [Control Tower,](https://bpm.tnxcorp.com/sso/microsoft) [Cocoom,](https://start.cocoom.com/) [COINS Construction Cloud,](https://sso.coinsconstructioncloud.com/#login/) [Medxnote MT,](https://task.teamsmain.medx.im/authorization) [Reflekt,](https://reflekt.konsolute.com/login) [Rever,](https://app.reverscore.net/access) [MyCompanyArchive,](https://login.mycompanyarchive.com/) [GRem sines,](https://app.greminders.com/o365-oauth) [Titanfile](../saas-apps/titanfile-tutorial.md), [Wootric](../saas-apps/wootric-tutorial.md), [SolarWinds Orion](https://support.solarwinds.com/SuccessCenter/s/orion-platform?language=en_US),  [OpenText Directory Services](../saas-apps/opentext-directory-services-tutorial.md), [Datasite](../saas-apps/datasite-tutorial.md), [BlogIn](../saas-apps/blogin-tutorial.md), [IntSights](../saas-apps/intsights-tutorial.md), [kpifire,](../saas-apps/kpifire-tutorial.md) [Textline](../saas-apps/textline-tutorial.md), [Cloud Academy - SSO,](../saas-apps/cloud-academy-sso-tutorial.md) [Community Spark,](../saas-apps/community-spark-tutorial.md) [Chatwork,](../saas-apps/chatwork-tutorial.md) [CloudSign](../saas-apps/cloudsign-tutorial.md), [C3M Cloud Control,](../saas-apps/c3m-cloud-control-tutorial.md) [SmartHR](https://smarthr.jp/), [NumlyEngage™](../saas-apps/numlyengage-tutorial.md), [Michigan Data Hub Single Sign-On](../saas-apps/michigan-data-hub-single-sign-on-tutorial.md), [Egress](../saas-apps/egress-tutorial.md), [SendSafe,](../saas-apps/sendsafely-tutorial.md) [Eletive,](https://app.eletive.com/) [Right-Hand Cybersecurity ADI](https://right-hand.ai/), [Fyde Enterprise Authentication](https://enterprise.fyde.com/), [Verme](../saas-apps/verme-tutorial.md), [Lenses.io](../saas-apps/lensesio-tutorial.md), [Momenta](../saas-apps/momenta-tutorial.md), [Uprise](https://app.uprise.co/sign-in), [Q,](https://q.moduleq.com/login) [CloudCords](../saas-apps/cloudcords-tutorial.md), [TellMe Bot](https://tellme365liteweb.azurewebsites.net/), [Inspire](https://app.inspiresoftware.com/), [Maverics Identity Orchestrator SAML Connector,](https://www.strata.io/identity-fabric/) [Smartschool (Sistema de Gestão Escolar)](https://smart-schoolapp.com/frmLoginForm), [Zepto - Cronometragem Inteligente,](https://user.zepto-ai.com/signin) [Studi.ly,](https://studi.ly/) [Trackplan,](http://www.trackplanfm.com/) [Skedda,](../saas-apps/skedda-tutorial.md) [WhosOnLocation,](../saas-apps/whos-on-location-tutorial.md) [Coggle,](../saas-apps/coggle-tutorial.md) [Kemp LoadMaster,](https://kemptechnologies.com/cloud-load-balancer/) [BrowserStack Single Sign-on](../saas-apps/browserstack-single-sign-on-tutorial.md)
+[Palmas](http://www.rmit.com.ar/)Palmas , [Appreiz](https://microsoftteams.appreiz.com/), [Inextor Vault](https://inexto.com/inexto-suite/inextor), [Beekast](https://my.beekast.com/), [Templafy OpenID Connect,](https://app.templafy.com/) [Rececionista PeterConnects,](https://msteams.peterconnects.com/) [AlohaCloud,](https://appfusions.alohacloud.com/auth) [Control Tower,](https://bpm.tnxcorp.com/sso/microsoft) [Cocoom,](https://start.cocoom.com/) [COINS Construction Cloud,](https://sso.coinsconstructioncloud.com/#login/) [Medxnote MT,](https://task.teamsmain.medx.im/authorization) [Reflekt,](https://reflekt.konsolute.com/login) [Rever,](https://app.reverscore.net/access) [MyCompanyArchive,](https://login.mycompanyarchive.com/) [GRem sines,](https://app.greminders.com/o365-oauth) [Titanfile](../saas-apps/titanfile-tutorial.md), [Wootric](../saas-apps/wootric-tutorial.md), [SolarWinds Orion](https://support.solarwinds.com/SuccessCenter/s/orion-platform?language=en_US),  [OpenText Directory Services](../saas-apps/opentext-directory-services-tutorial.md), [Datasite](../saas-apps/datasite-tutorial.md), [BlogIn](../saas-apps/blogin-tutorial.md), [IntSights](../saas-apps/intsights-tutorial.md), [kpifire,](../saas-apps/kpifire-tutorial.md) [Textline](../saas-apps/textline-tutorial.md), [Cloud Academy - SSO,](../saas-apps/cloud-academy-sso-tutorial.md) [Community Spark,](../saas-apps/community-spark-tutorial.md) [Chatwork,](../saas-apps/chatwork-tutorial.md) [CloudSign](../saas-apps/cloudsign-tutorial.md), [C3M Cloud Control,](../saas-apps/c3m-cloud-control-tutorial.md) [SmartHR](https://smarthr.jp/), [NumlyEngage™](../saas-apps/numlyengage-tutorial.md), [Michigan Data Hub Single Sign-On](../saas-apps/michigan-data-hub-single-sign-on-tutorial.md), [Egress](../saas-apps/egress-tutorial.md), [SendSafe,](../saas-apps/sendsafely-tutorial.md) [Eletive,](https://app.eletive.com/) [Right-Hand Cybersecurity ADI](https://right-hand.ai/), [Fyde Enterprise Authentication](https://enterprise.fyde.com/), [Verme](../saas-apps/verme-tutorial.md), [Lenses.io](../saas-apps/lensesio-tutorial.md), [Momenta](../saas-apps/momenta-tutorial.md), [Uprise](https://app.uprise.co/sign-in), [Q,](https://q.moduleq.com/login) [CloudCords](../saas-apps/cloudcords-tutorial.md), [TellMe Bot](https://tellme365liteweb.azurewebsites.net/), [Inspire](https://app.inspiresoftware.com/), [Maverics Identity Orchestrator SAML Connector,](https://www.strata.io/identity-fabric/) [Smartschool (Sistema de Gestão Escolar)](https://smartschoolz.com/login), [Zepto - Cronometragem Inteligente,](https://user.zepto-ai.com/signin) [Studi.ly,](https://studi.ly/) [Trackplan,](http://www.trackplanfm.com/) [Skedda,](../saas-apps/skedda-tutorial.md) [WhosOnLocation,](../saas-apps/whos-on-location-tutorial.md) [Coggle,](../saas-apps/coggle-tutorial.md) [Kemp LoadMaster,](https://kemptechnologies.com/cloud-load-balancer/) [BrowserStack Single Sign-on](../saas-apps/browserstack-single-sign-on-tutorial.md)
 
 Também pode encontrar a documentação de todas as aplicações a partir daqui https://aka.ms/AppsTutorial
 
@@ -554,7 +554,7 @@ Para obter mais informações sobre como proteger melhor a sua organização uti
 **Categoria de serviço:** Funções de AD AZure  
 **Capacidade do produto:** Controlo de Acessos
  
-Agora pode ver atribuições de funções em todos os âmbitos para um papel no separador "Papéis e administradores" no portal AD AZure. Também pode descarregar essas atribuições de funções para cada papel num ficheiro CSV. Para obter orientações sobre a visualização e adição de atribuições de funções, consulte [Ver e atribuir funções de administrador no Azure Ative Directory](../users-groups-roles/directory-manage-roles-portal.md).
+Agora pode ver atribuições de funções em todos os âmbitos para um papel no separador "Papéis e administradores" no portal AD AZure. Também pode descarregar essas atribuições de funções para cada papel num ficheiro CSV. Para obter orientações sobre a visualização e adição de atribuições de funções, consulte [Ver e atribuir funções de administrador no Azure Ative Directory](../roles/manage-roles-portal.md).
  
 ---
 
@@ -703,7 +703,7 @@ Os riskyUsers e riskDetections Microsoft Graph APIs estão agora geralmente disp
 
 Pode agora criar etiquetas de sensibilidade e utilizar as definições de etiquetas para aplicar políticas a grupos Microsoft 365, incluindo a política de privacidade (Pública ou Privada) e política externa de acesso ao utilizador. Pode criar um rótulo com a política de privacidade para ser privado e política externa de acesso ao utilizador para não permitir adicionar utilizadores convidados. Quando um utilizador aplica esta etiqueta a um grupo, o grupo será privado e nenhum utilizador convidado pode ser adicionado ao grupo. 
 
-As etiquetas de sensibilidade são importantes para proteger os seus dados críticos do negócio e permitir-lhe gerir grupos em escala, de forma compatível e segura. Para obter orientações sobre a utilização de etiquetas de sensibilidade, consulte [os rótulos de sensibilidade atribuir aos grupos Microsoft 365 no Azure Ative Directory (pré-visualização)](../users-groups-roles/groups-assign-sensitivity-labels.md).
+As etiquetas de sensibilidade são importantes para proteger os seus dados críticos do negócio e permitir-lhe gerir grupos em escala, de forma compatível e segura. Para obter orientações sobre a utilização de etiquetas de sensibilidade, consulte [os rótulos de sensibilidade atribuir aos grupos Microsoft 365 no Azure Ative Directory (pré-visualização)](../enterprise-users/groups-assign-sensitivity-labels.md).
  
 ---
 
@@ -805,7 +805,7 @@ As notificações por e-mail serão enviadas a partir do seguinte endereço: azu
 **Capacidade do produto:** Autenticação do Utilizador
  
 
-Atualmente, os utilizadores que estão em domínios federados em AZure AD, mas que não estão sincronizados com o inquilino, não podem aceder às Equipas. A partir do final de junho, esta nova capacidade irá permitir-lhes fazê-lo, alargando a funcionalidade de inscrição verificada por e-mail existente. Isto permitirá aos utilizadores que possam iniciar sposição num IdP federado, mas que ainda não tenham um objeto de utilizador no ID Azure, tenham um objeto de utilizador criado automaticamente e sejam autenticados para equipas. O objeto do utilizador será marcado como "self-service sign up". Esta é uma extensão da capacidade existente para fazer auto-inscrição verificada por e-mail que os utilizadores em domínios geridos podem fazer e podem ser controlados usando a mesma bandeira. Esta alteração completa durante os dois meses seguintes. Atenção às atualizações de documentação [aqui.](../users-groups-roles/directory-self-service-signup.md)
+Atualmente, os utilizadores que estão em domínios federados em AZure AD, mas que não estão sincronizados com o inquilino, não podem aceder às Equipas. A partir do final de junho, esta nova capacidade irá permitir-lhes fazê-lo, alargando a funcionalidade de inscrição verificada por e-mail existente. Isto permitirá aos utilizadores que possam iniciar sposição num IdP federado, mas que ainda não tenham um objeto de utilizador no ID Azure, tenham um objeto de utilizador criado automaticamente e sejam autenticados para equipas. O objeto do utilizador será marcado como "self-service sign up". Esta é uma extensão da capacidade existente para fazer auto-inscrição verificada por e-mail que os utilizadores em domínios geridos podem fazer e podem ser controlados usando a mesma bandeira. Esta alteração completa durante os dois meses seguintes. Atenção às atualizações de documentação [aqui.](../enterprise-users/directory-self-service-signup.md)
  
 ---
 
@@ -853,7 +853,7 @@ Se o token original do SAML usou um formato diferente para NameID (por exemplo, 
 **Categoria de serviço:** Azure AD Cloud Provisioning  
 **Capacidade do produto:** Gestão do ciclo de vida da identidade
  
-Os administradores de TI podem começar a usar o novo papel de "Hybrid Admin" como o papel menos privilegiado para a criação do Azure ADConnect Cloud Provisioning. Com este novo papel, já não tens de usar o papel da Administração Global para configurar e configurar o Cloud Provisioning. [Saiba mais](../users-groups-roles/roles-delegate-by-task.md#connect).
+Os administradores de TI podem começar a usar o novo papel de "Hybrid Admin" como o papel menos privilegiado para a criação do Azure ADConnect Cloud Provisioning. Com este novo papel, já não tens de usar o papel da Administração Global para configurar e configurar o Cloud Provisioning. [Saiba mais](../roles/delegate-by-task.md#connect).
  
 ---
 
@@ -1225,7 +1225,7 @@ Para mais informações, consulte [a gestão de unidades administrativas no Dire
 
 **Administrador de impressora**: Os utilizadores com esta função podem registar impressoras e gerir todos os aspetos de todas as configurações da impressora na solução De Impressão Universal da Microsoft, incluindo as definições do Conector de Impressão Universal. Podem consentir com todos os pedidos de autorização de impressão delegados. Os administradores da impressora também têm acesso a relatórios de impressão. 
 
-**Técnico de impressora**: Os utilizadores com esta função podem registar impressoras e gerir o estado da impressora na solução de Impressão Universal da Microsoft. Também podem ler todas as informações do conector. As tarefas-chave que um Técnico de Impressora não pode fazer são definir permissões do utilizador em impressoras e partilhar impressoras. [Saiba mais.](../users-groups-roles/directory-assign-admin-roles.md#printer-administrator)
+**Técnico de impressora**: Os utilizadores com esta função podem registar impressoras e gerir o estado da impressora na solução de Impressão Universal da Microsoft. Também podem ler todas as informações do conector. As tarefas-chave que um Técnico de Impressora não pode fazer são definir permissões do utilizador em impressoras e partilhar impressoras. [Saiba mais.](../roles/permissions-reference.md#printer-administrator)
 
 ---
 
@@ -1237,7 +1237,7 @@ Para mais informações, consulte [a gestão de unidades administrativas no Dire
 
 **Capacidade do produto:** Controlo de Acessos
 
-Os utilizadores desta função podem permitir, configurar e gerir serviços e configurações relacionadas com a ativação da identidade híbrida em AZure AD. Esta função confere a possibilidade de configurar a Azure AD a um dos três métodos de autenticação suportados&#8212;sincronização de hash password (PHS), autenticação pass-through (PTA) ou Federação (AD FS ou provedor de federação de terceiros)&#8212;e implantar infraestruturas relacionadas nas instalações para os permitir. As infraestruturas no local incluem agentes de provisionamento e de PTA. Esta função garante a capacidade de permitir que o Seamless Single Sign-On (S-SSO) permita a autenticação sem emenda em dispositivos não Windows 10 ou computadores não-Windows Server 2016. Além disso, esta função confere a possibilidade de ver registos de inscrição e de aceder à saúde e análise para fins de monitorização e resolução de problemas. [Saiba mais.](../users-groups-roles/directory-assign-admin-roles.md#hybrid-identity-administrator)
+Os utilizadores desta função podem permitir, configurar e gerir serviços e configurações relacionadas com a ativação da identidade híbrida em AZure AD. Esta função confere a possibilidade de configurar a Azure AD a um dos três métodos de autenticação suportados&#8212;sincronização de hash password (PHS), autenticação pass-through (PTA) ou Federação (AD FS ou provedor de federação de terceiros)&#8212;e implantar infraestruturas relacionadas nas instalações para os permitir. As infraestruturas no local incluem agentes de provisionamento e de PTA. Esta função garante a capacidade de permitir que o Seamless Single Sign-On (S-SSO) permita a autenticação sem emenda em dispositivos não Windows 10 ou computadores não-Windows Server 2016. Além disso, esta função confere a possibilidade de ver registos de inscrição e de aceder à saúde e análise para fins de monitorização e resolução de problemas. [Saiba mais.](../roles/permissions-reference.md#hybrid-identity-administrator)
 
 ---
 
@@ -1249,7 +1249,7 @@ Os utilizadores desta função podem permitir, configurar e gerir serviços e co
 
 **Capacidade do produto:** Controlo de Acessos
 
-Os utilizadores com esta função podem rever recomendações de arquitetura de perímetro de rede da Microsoft que são baseadas em telemetria de rede a partir das suas localizações de utilizadores. O desempenho da rede para o Microsoft 365 baseia-se na arquitetura cuidadosa do perímetro da rede de clientes da empresa, que é geralmente específica da localização do utilizador. Esta função permite a edição das localizações do utilizador descobertas e a configuração de parâmetros de rede para esses locais para facilitar a melhoria das medições de telemetria e recomendações de design. [Saiba mais.](../users-groups-roles/directory-assign-admin-roles.md#network-administrator)
+Os utilizadores com esta função podem rever recomendações de arquitetura de perímetro de rede da Microsoft que são baseadas em telemetria de rede a partir das suas localizações de utilizadores. O desempenho da rede para o Microsoft 365 baseia-se na arquitetura cuidadosa do perímetro da rede de clientes da empresa, que é geralmente específica da localização do utilizador. Esta função permite a edição das localizações do utilizador descobertas e a configuração de parâmetros de rede para esses locais para facilitar a melhoria das medições de telemetria e recomendações de design. [Saiba mais.](../roles/permissions-reference.md#network-administrator)
 
 ---
 
@@ -1267,10 +1267,10 @@ Também pode baixar listas de recursos Ad AD Azure a partir da experiência do p
 
 Para mais informações, confira o seguinte:
 
-- [Criar utilizadores](../users-groups-roles/users-bulk-add.md) ou [convidar utilizadores convidados](../external-identities/tutorial-bulk-invite.md)
-- [Eliminar utilizadores](../users-groups-roles/users-bulk-delete.md) ou [restaurar utilizadores eliminados](../users-groups-roles/users-bulk-restore.md)
-- [Baixar lista de utilizadores](../users-groups-roles/users-bulk-download.md) ou [baixar lista de grupos](../users-groups-roles/groups-bulk-download.md)
-- [Adicione (importar) membros](../users-groups-roles/groups-bulk-import-members.md) ou [remova membros](../users-groups-roles/groups-bulk-remove-members.md) ou [Descarregue a lista de membros](../users-groups-roles/groups-bulk-download-members.md) para um grupo
+- [Criar utilizadores](../enterprise-users/users-bulk-add.md) ou [convidar utilizadores convidados](../external-identities/tutorial-bulk-invite.md)
+- [Eliminar utilizadores](../enterprise-users/users-bulk-delete.md) ou [restaurar utilizadores eliminados](../enterprise-users/users-bulk-restore.md)
+- [Baixar lista de utilizadores](../enterprise-users/users-bulk-download.md) ou [baixar lista de grupos](../enterprise-users/groups-bulk-download.md)
+- [Adicione (importar) membros](../enterprise-users/groups-bulk-import-members.md) ou [remova membros](../enterprise-users/groups-bulk-remove-members.md) ou [Descarregue a lista de membros](../enterprise-users/groups-bulk-download-members.md) para um grupo
 
 ---
 
@@ -1350,7 +1350,7 @@ Refrescamos a nossa experiência de provisão para criar uma visão de gestão m
 
 O Azure Ative Directory (Azure AD) fornece agora os meios para validar regras dinâmicas de grupo. No separador **Regras Validadas,** pode validar a sua regra dinâmica contra membros do grupo de amostras para confirmar que a regra está a funcionar como esperado. Ao criar ou atualizar regras dinâmicas do grupo, os administradores querem saber se um utilizador ou um dispositivo será membro do grupo. Isto ajuda a avaliar se um utilizador ou dispositivo cumpre os critérios de regra e ajuda na resolução de problemas quando a adesão não é esperada.
 
-Para obter mais informações, consulte [validar uma regra de adesão dinâmica do grupo (pré-visualização)](../users-groups-roles/groups-dynamic-rule-validation.md).
+Para obter mais informações, consulte [validar uma regra de adesão dinâmica do grupo (pré-visualização)](../enterprise-users/groups-dynamic-rule-validation.md).
 
 ---
 
