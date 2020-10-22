@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Aprenda a resolver problemas e resolva problemas comuns ao ativar e utilizar espaços Azure Dev
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: 5d8bf69d456bca2a88b8aa2031d5ef0ba20f7c30
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 42551443fb5af1bd3f783c33f708b231eea68907
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979126"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364172"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Azure Dev Spaces resolução de problemas
 
@@ -278,7 +278,7 @@ Ao executar um serviço com Azure Dev Spaces num cluster AKS com identidade [ger
 
 Os serviços que a Azure Dev Spaces funciona no seu cluster utilizam a identidade gerida do cluster para falar com os serviços de backend Azure Dev Spaces fora do cluster. Quando a identidade gerida do pod é instalada, as regras de networking são configuradas nos nós do seu cluster para redirecionar todas as chamadas para credenciais de identidade geridas para um [DaemonSet de Identidade Gerida no Nó (NMI) instalado no cluster](https://github.com/Azure/aad-pod-identity#node-managed-identity). Este NMI DaemonSet identifica a cápsula de chamada e garante que o casulo foi rotulado adequadamente para aceder à identidade gerida solicitada. O Azure Dev Spaces não consegue detetar se um cluster tem identidade gerida por pods instalada e não consegue executar a configuração necessária para permitir que os serviços do Azure Dev Spaces acedam à identidade gerida do cluster. Uma vez que os serviços Azure Dev Spaces não foram configurados para aceder à identidade gerida do cluster, o NMI DaemonSet não lhes permitirá obter um token AD Azure para a identidade gerida e não comunicar com os serviços de backend da Azure Dev Spaces.
 
-Para corrigir este problema, aplique uma [AzurePodIdentityExcepção](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md) para o *azds-injector-webhook* e cápsulas de atualização instrumentadas pela Azure Dev Spaces para aceder à identidade gerida.
+Para corrigir este problema, aplique uma [AzurePodIdentityExcepção](https://azure.github.io/aad-pod-identity/docs/configure/application_exception) para o *azds-injector-webhook* e cápsulas de atualização instrumentadas pela Azure Dev Spaces para aceder à identidade gerida.
 
 Crie um ficheiro chamado *webhookException.yaml* e copie a seguinte definição YAML:
 
