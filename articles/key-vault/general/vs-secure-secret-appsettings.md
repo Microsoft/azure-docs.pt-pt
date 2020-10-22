@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: cawa
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 79fa01e53b53f3066e55736c105d6489ccbd96e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96b6b262765a361befeadd9b5a42d37ca5e66497
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019849"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372060"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Guardar de forma segura as definições de aplicações secretas para uma aplicação web
 
@@ -56,14 +56,19 @@ Se já tiver a sua aplicação web criada, conceda à aplicação web acesso ao 
     > Antes do Visual Studio 2017 V15.6 usámos para recomendar a instalação da extensão de autenticação de serviços Azure para o Estúdio Visual. Mas é depreciado agora, uma vez que a funcionalidade está integrada no Estúdio Visual. Assim, se estiver numa versão mais antiga do Visual Studio 2017, sugerimos que atualize pelo menos VS 2017 15.6 ou acima para que possa utilizar esta funcionalidade de forma nativa e aceder ao cofre-chave de usar a própria Identidade de entrada do Estúdio Visual.
     >
 
-4. Adicione os seguintes pacotes NuGet ao seu projeto:
+4. Faça login no Azure utilizando o CLI, pode escrever:
+
+    ```azurecli
+    az login
+    ```
+
+5. Adicione os seguintes pacotes NuGet ao seu projeto:
 
     ```
-    Microsoft.Azure.KeyVault
-    Microsoft.Azure.Services.AppAuthentication
-    Microsoft.Extensions.Configuration.AzureKeyVault
+    Azure.Identity
+    Azure.Extensions.AspNetCore.Configuration.Secrets
     ```
-5. Adicione o seguinte código ao ficheiro Program.cs:
+6. Adicione o seguinte código ao ficheiro Program.cs:
 
     ```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -73,12 +78,7 @@ Se já tiver a sua aplicação web criada, conceda à aplicação web acesso ao 
                     var keyVaultEndpoint = GetKeyVaultEndpoint();
                     if (!string.IsNullOrEmpty(keyVaultEndpoint))
                     {
-                        var azureServiceTokenProvider = new AzureServiceTokenProvider();
-                        var keyVaultClient = new KeyVaultClient(
-                            new KeyVaultClient.AuthenticationCallback(
-                                azureServiceTokenProvider.KeyVaultTokenCallback));
-                        builder.AddAzureKeyVault(
-                        keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
+                        builder.AddAzureKeyVault(new Uri(keyVaultEndpoint), new DefaultAzureCredential(), new KeyVaultSecretManager());
                     }
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
@@ -88,11 +88,12 @@ Se já tiver a sua aplicação web criada, conceda à aplicação web acesso ao 
 
         private static string GetKeyVaultEndpoint() => Environment.GetEnvironmentVariable("KEYVAULT_ENDPOINT");
     ```
-6. Adicione o URL do cofre de chaves para launchsettings.jsno ficheiro. O nome variável ambiente *KEYVAULT_ENDPOINT* é definido no código adicionado no passo 6.
+
+7. Adicione o URL do cofre de chaves para launchsettings.jsno ficheiro. O nome variável ambiente *KEYVAULT_ENDPOINT* é definido no código adicionado no passo 7.
 
     ![Adicione o URL do Cofre de Chaves como uma variável do ambiente do projeto](../media/vs-secure-secret-appsettings/add-keyvault-url.png)
 
-7. Comece a depurar o projeto. Deve funcionar com sucesso.
+8. Comece a depurar o projeto. Deve funcionar com sucesso.
 
 ## <a name="aspnet-and-net-applications"></a>ASP.NET e .NET
 

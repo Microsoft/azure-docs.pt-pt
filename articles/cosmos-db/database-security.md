@@ -4,14 +4,14 @@ description: Saiba como a Azure Cosmos DB fornece proteção de bases de dados e
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/10/2020
+ms.date: 10/21/2020
 ms.author: mjbrown
-ms.openlocfilehash: 3658c621a5ac633bf42334df3e354c88afcf9b27
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 6236b34c76ccd9e4688b97e7844cbadf9f515213
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278809"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372247"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Segurança no Azure Cosmos DB – descrição geral
 
@@ -60,7 +60,7 @@ Vamos investigar cada um em detalhe.
 |Requisito de segurança|A abordagem de segurança de Azure Cosmos DB|
 |---|---|
 |Segurança da rede|A utilização de uma firewall IP é a primeira camada de proteção para proteger a sua base de dados. O Azure Cosmos DB suporta controlos de acesso baseados em IP orientados por políticas para suporte a firewall de entrada. Os controlos de acesso baseados em IP são semelhantes às regras de firewall utilizadas pelos sistemas de base de dados tradicionais, mas são expandidos de modo a que uma conta de base de dados Azure Cosmos só seja acessível a partir de um conjunto aprovado de máquinas ou serviços na nuvem. Saiba mais no artigo [de suporte ao firewall da Azure Cosmos.](how-to-configure-firewall.md)<br><br>O Azure Cosmos DB permite-lhe ativar um endereço IP específico (168.61.48.0), uma gama IP (168.61.48.0/8) e combinações de IPs e intervalos. <br><br>Todos os pedidos provenientes de máquinas fora desta lista permitida são bloqueados pela Azure Cosmos DB. Os pedidos de máquinas aprovadas e serviços de nuvem devem então completar o processo de autenticação para ser dado controlo de acesso aos recursos.<br><br> Pode utilizar [tags de serviço de rede virtuais](../virtual-network/service-tags-overview.md) para alcançar o isolamento da rede e proteger os seus recursos DB Azure Cosmos da Internet geral. Utilize etiquetas de serviço no lugar de endereços IP específicos quando criar regras de segurança. Ao especificar o nome da etiqueta de serviço (por exemplo, AzureCosmosDB) no campo de origem ou destino adequado de uma regra, pode permitir ou negar o tráfego para o serviço correspondente.|
-|Autorização|A Azure Cosmos DB utiliza código de autenticação de mensagens baseadas em haxixe (HMAC) para autorização. <br><br>Cada pedido é hashed usando a chave de conta secreta, e o haxixe codificado subsequente base-64 é enviado com cada chamada para Azure Cosmos DB. Para validar o pedido, o serviço DB Azure Cosmos utiliza a chave secreta e propriedades corretas para gerar um haxixe, comparando o valor com o do pedido. Se os dois valores coincidirem, a operação é autorizada com sucesso e o pedido é processado, caso contrário existe uma falha de autorização e o pedido é rejeitado.<br><br>Pode utilizar uma [chave primária,](secure-access-to-data.md#primary-keys)ou um [token](secure-access-to-data.md#resource-tokens) de recursos que permite o acesso a um recurso de grãos finos, como um documento.<br><br>Saiba mais sobre [a garantia de acesso aos recursos DB da Azure Cosmos](secure-access-to-data.md).|
+|Autorização|A Azure Cosmos DB utiliza código de autenticação de mensagens baseadas em haxixe (HMAC) para autorização. <br><br>Cada pedido é hashed usando a chave de conta secreta, e o haxixe codificado subsequente base-64 é enviado com cada chamada para Azure Cosmos DB. Para validar o pedido, o serviço DB Azure Cosmos utiliza a chave secreta e propriedades corretas para gerar um haxixe, comparando o valor com o do pedido. Se os dois valores coincidirem, a operação é autorizada com sucesso e o pedido é processado, caso contrário existe uma falha de autorização e o pedido é rejeitado.<br><br>Pode utilizar uma [chave primária,](#primary-keys)ou um [token](secure-access-to-data.md#resource-tokens) de recursos que permite o acesso a um recurso de grãos finos, como um documento.<br><br>Saiba mais sobre [a garantia de acesso aos recursos DB da Azure Cosmos](secure-access-to-data.md).|
 |Utilizadores e permissões|Utilizando a chave principal para a conta, pode criar recursos de utilizador e recursos de permissão por base de dados. Um token de recurso está associado a uma permissão numa base de dados e determina se o utilizador tem acesso (read-write, read-only ou sem acesso) a um recurso de aplicação na base de dados. Os recursos de aplicação incluem contentores, documentos, anexos, procedimentos armazenados, gatilhos e UDFs. O token de recursos é então utilizado durante a autenticação para fornecer ou negar o acesso ao recurso.<br><br>Saiba mais sobre [a garantia de acesso aos recursos DB da Azure Cosmos](secure-access-to-data.md).|
 |Integração ativa do diretório (RBAC)| Também pode fornecer ou restringir o acesso à conta Cosmos, base de dados, contentor e ofertas (produção) utilizando o controlo de acesso (IAM) no portal Azure. O IAM fornece controlo de acesso baseado em funções e integra-se com o Ative Directory. Você pode usar papéis ou papéis personalizados para indivíduos e grupos. Consulte o artigo [de integração do Ative Directory](role-based-access-control.md) para obter mais informações.|
 |Replicação global|O Azure Cosmos DB oferece uma distribuição global chave na mão, que permite replicar os seus dados em qualquer um dos centros de dados mundiais da Azure com o clique de um botão. A replicação global permite escalar globalmente e fornecer acesso de baixa latência aos seus dados em todo o mundo.<br><br>No contexto da segurança, a replicação global garante a proteção de dados contra falhas regionais.<br><br>Saiba mais em [Distribuir dados globalmente](distribute-data-globally.md).|
@@ -80,6 +80,25 @@ Vamos investigar cada um em detalhe.
 |Certificações de segurança e proteção de dados| Para obter a lista de certificações mais atualizada, consulte o site geral de conformidade do [Azure,](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) bem como o mais recente [Documento de Conformidade Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) com todas as certificações (pesquisa por Cosmos). Para uma leitura mais focada, confira o post de 25 de abril de 2018 [Azure #CosmosDB: Seguro, privado, conforme que inclui SOCS 1/2 Tipo 2, HITRUST, PCI DSS Level 1, ISO 27001, HIPAA, FedRAMP High, entre muitos outros.
 
 A imagem que se segue mostra como pode utilizar registos de registos de auditoria e de atividade para monitorizar a sua conta: :::image type="content" source="./media/database-security/nosql-database-security-application-logging.png" alt-text="Responsabilidades do fornecedor de clientes e de base de dados":::
+
+<a id="primary-keys"></a>
+
+## <a name="primary-keys"></a>Chaves primárias
+
+As chaves primárias fornecem acesso a todos os recursos administrativos da conta de base de dados. Chaves primárias:
+
+- Fornecer acesso a contas, bases de dados, utilizadores e permissões. 
+- Não é possível utilizar acesso granular a contentores e documentos.
+- São criados durante a criação de uma conta.
+- Pode ser regenerado a qualquer momento.
+
+Cada conta é composta por duas chaves primárias: uma chave primária e uma chave secundária. O objetivo das chaves duplas é que possa regenerar, ou rolar chaves, proporcionando acesso contínuo à sua conta e dados.
+
+Além das duas chaves primárias da conta cosmos DB, existem duas chaves só de leitura. Estas chaves só de leitura permitem a leitura das operações na conta. As teclas só de leitura não fornecem acesso aos recursos de permissões de leitura.
+
+As chaves primárias, secundárias, lidas apenas e as teclas primárias de leitura podem ser recuperadas e regeneradas usando o portal Azure. Para obter instruções, consulte [ver, copiar e regenerar as teclas de acesso](manage-with-cli.md#regenerate-account-key).
+
+:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Responsabilidades do fornecedor de clientes e de base de dados":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

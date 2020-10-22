@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 6b7d670f5e38968fa6592e323ede075abf687435
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 404f435e321e53694807a627121d84f6cbf6724d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939022"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359684"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>Níveis de desempenho para discos geridos (pré-visualização)
 
@@ -52,9 +52,9 @@ Para obter informações sobre faturação, consulte [preços de disco geridos](
 ## <a name="restrictions"></a>Restrições
 
 - Atualmente esta funcionalidade é suportada apenas para SSDs premium.
-- Tem de separar o disco de um VM em funcionamento antes de poder alterar o nível do disco.
+- Tem de fazer negócios com o seu VM ou separar o disco de um VM em execução antes de poder alterar o nível do disco.
 - A utilização dos níveis de desempenho P60, P70 e P80 está restrita a discos de 4.096 GiB ou superiores.
-- O nível de desempenho de um disco só pode ser alterado uma vez a cada 24 horas.
+- O nível de desempenho de um disco só pode ser desclassificado uma vez a cada 24 horas.
 
 ## <a name="regional-availability"></a>Disponibilidade regional
 
