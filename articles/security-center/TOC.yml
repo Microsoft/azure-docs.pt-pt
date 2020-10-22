@@ -44,8 +44,6 @@
         - name: Azure Defender para SQL
           displayName: database
           href: defender-for-sql-introduction.md
-        - name: Azure Defender para IoT
-          href: defender-for-iot-introduction.md
         - name: Azure Defender para Key Vault
           displayName: 'KV, akv'
           href: defender-for-key-vault-introduction.md
@@ -255,7 +253,7 @@
 - name: Referência
   items:
     - name: APIs REST
-      href: 'https://docs.microsoft.com/rest/api/securitycenter/'
+      href: /rest/api/securitycenter/
     - name: FAQ do Centro de Segurança do Azure
       items:
         - name: Perguntas gerais
@@ -283,9 +281,9 @@
     - name: Gerir dados de utilizadores
       href: security-center-privacy.md
     - name: Documentação sobre o Azure Defender para IoT
-      href: 'https://docs.microsoft.com/azure/asc-for-iot/'
+      href: /azure/asc-for-iot/
     - name: Documentação da segurança do Azure
-      href: /azure/security/
+      href: ../security/index.yml
     - name: Atualizações do Azure
       href: 'https://azure.microsoft.com/updates/?category=security-identity'
     - name: Plano de Preparação

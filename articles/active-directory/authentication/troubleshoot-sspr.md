@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ef46cf0947f1ea31c74a6d189b5bdf00fea44fc
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9e661bd24acbb15ced9f5bb0a0fba7eec51eae06
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963827"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363543"
 ---
 # <a name="troubleshoot-self-service-password-reset-in-azure-active-directory"></a>Resolução de problemas de autosserviço redefinição de senha no Azure Ative Directory
 
@@ -32,7 +32,7 @@ Se tiver problemas em ver ou configurar opções SSPR no portal Azure, reveja as
 
 Não verá se **a palavra-passe reinicia** a opção do menu se não tiver uma licença AD Azure atribuída ao administrador que executa a operação.
 
-Para atribuir uma licença à conta do administrador em questão, siga os passos para [atribuir, verificar e resolver problemas com licenças](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
+Para atribuir uma licença à conta do administrador em questão, siga os passos para [atribuir, verificar e resolver problemas com licenças](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
 ### <a name="i-dont-see-a-particular-configuration-option"></a>Não vejo uma opção de configuração específica.
 
@@ -52,7 +52,7 @@ Se tiver problemas com relatórios SSPR no portal Azure, reveja as seguintes eta
 
 Isto pode acontecer se não tiver uma licença AZure AD atribuída ao administrador que executa a operação.
 
-Para atribuir uma licença à conta do administrador em questão, siga os passos para [atribuir, verificar e resolver problemas com licenças](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
+Para atribuir uma licença à conta do administrador em questão, siga os passos para [atribuir, verificar e resolver problemas com licenças](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
 ### <a name="user-registrations-show-multiple-times"></a>As inscrições dos utilizadores mostram várias vezes.
 
@@ -74,7 +74,7 @@ No portal Azure, altere a configuração **de autosserviço de redefinição ati
 
 Apenas um grupo AZure AD pode atualmente ser ativado para SSPR utilizando o portal Azure. Como parte de uma implantação mais ampla da SSPR, os grupos aninhados são apoiados. Certifique-se de que os utilizadores do grupo que escolher têm as licenças apropriadas atribuídas. Reveja o passo anterior de resolução de problemas para permitir a SSPR, conforme necessário.
 
-Reveja também as etapas de resolução de problemas para garantir que o administrador que executa as opções de configuração tem uma licença atribuída. Para atribuir uma licença à conta do administrador em questão, siga os passos para [atribuir, verificar e resolver problemas com licenças](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
+Reveja também as etapas de resolução de problemas para garantir que o administrador que executa as opções de configuração tem uma licença atribuída. Para atribuir uma licença à conta do administrador em questão, siga os passos para [atribuir, verificar e resolver problemas com licenças](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
 ### <a name="theres-an-error-processing-the-request"></a>Há um erro no processamento do pedido.
 
@@ -87,7 +87,7 @@ Se você ou os seus utilizadores tiverem problemas em utilizar o SSPR, reveja os
 | Erro | Solução |
 | --- | --- |
 | O diretório não está habilitado para reset de senha. | No portal Azure, altere a configuração **de autosserviço de redefinição ativada** para *Selecionado* ou *Tudo* e, em seguida, selecione **Guardar**. |
-| O utilizador não tem uma licença AD Azure atribuída. | Isto pode acontecer se não tiver uma licença AZure AD atribuída ao utilizador pretendido. Para atribuir uma licença à conta do administrador em questão, siga os passos para [atribuir, verificar e resolver problemas com licenças](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses). |
+| O utilizador não tem uma licença AD Azure atribuída. | Isto pode acontecer se não tiver uma licença AZure AD atribuída ao utilizador pretendido. Para atribuir uma licença à conta do administrador em questão, siga os passos para [atribuir, verificar e resolver problemas com licenças](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses). |
 | O diretório está ativado para reset de palavra-passe, mas o utilizador tem informações de autenticação em falta ou mal formadas. | Certifique-se de que o utilizador formou corretamente dados de contacto no ficheiro no diretório. Para obter mais informações, consulte [os dados utilizados pela Azure AD, redefinindo a palavra-passe de autosserviço](howto-sspr-authenticationdata.md). |
 | O diretório está ativado para reset de palavra-passe, mas o utilizador tem apenas um pedaço de dados de contacto no ficheiro quando a política está definida para exigir dois métodos de verificação. | Certifique-se de que o utilizador dispõe de pelo menos dois métodos de contacto devidamente configurados. Um exemplo é ter um número de telemóvel *e* um número de telefone do escritório. |
 | O diretório está ativado para o reset da palavra-passe e o utilizador está devidamente configurado, mas o utilizador não pode ser contactado. | Isto pode ser o resultado de um erro de serviço temporário ou se houver dados de contacto incorretos que não possamos detetar corretamente. <br> <br> Se o utilizador esperar 10 segundos, é apresentado um link para "Tentar novamente" e "Contacte o seu administrador". Se o utilizador selecionar "Tente novamente", retriciona a chamada. Se o utilizador selecionar "Contacte o seu administrador", envia um e-mail de formulário aos administradores solicitando um reset de palavra-passe para ser executado para essa conta de utilizador. |

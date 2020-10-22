@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: b7d05cd394453ff7c3a40b80a4cd6c850b86ee21
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 7cc9e8a1cf51d57bf10523174179b5a9f2ef6e97
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070372"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363696"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planear uma implementação de aprovisionamento automático de utilizadores
 
@@ -42,7 +42,7 @@ Os principais benefícios de permitir o fornecimento automático de utilizadores
 
 * **Reduzir o custo.** O fornecimento automático de utilizadores reduz os custos evitando ineficiências e erros humanos associados ao fornecimento manual. Reduz a necessidade de soluções de fornecimento de utilizadores desenvolvidas por medida, scripts e registos de auditoria.
 
-### <a name="licensing"></a>Licensing
+### <a name="licensing"></a>Licenciamento
 
 A Azure AD proporciona integração de autosserviço de qualquer aplicação usando modelos fornecidos no menu da galeria de aplicações. Para obter uma lista completa dos requisitos de licença, consulte [a página de licenciamento da Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -139,13 +139,13 @@ A comunicação é fundamental para o sucesso de qualquer novo serviço. Comunic
 
 Recomendamos que a configuração inicial do fornecimento automático do utilizador esteja num ambiente de teste com um pequeno subconjunto de utilizadores antes de o escalonar a todos os utilizadores em produção. Consulte [as melhores práticas](../fundamentals/active-directory-deployment-plans.md#best-practices-for-a-pilot) para dirigir um piloto.
 
-#### <a name="best-practices-for-a-pilot"></a>Melhores práticas para um piloto  
+#### <a name="best-practices-for-a-pilot"></a>Melhores práticas para um piloto  
 
 Um piloto permite-lhe testar com um pequeno grupo antes de implementar uma capacidade para todos. Certifique-se de que, como parte do seu teste, cada caso de utilização dentro da sua organização é completamente testado.
 
 Na sua primeira onda, direcione a TI, a usabilidade e outros utilizadores apropriados que possam testar e fornecer feedback. Utilize este feedback para desenvolver as comunicações e instruções que envia aos seus utilizadores e para fornecer informações sobre os tipos de problemas que o seu pessoal de suporte pode ver.
 
-Alargar o lançamento a grupos maiores de utilizadores, aumentando o âmbito do(s) grupo(s) visado. Isto pode ser feito através da [adesão dinâmica do grupo,](../users-groups-roles/groups-dynamic-membership.md)ou adicionando manualmente os utilizadores ao(s) grupo(s) alvo.
+Alargar o lançamento a grupos maiores de utilizadores, aumentando o âmbito do(s) grupo(s) visado. Isto pode ser feito através da [adesão dinâmica do grupo,](../enterprise-users/groups-dynamic-membership.md)ou adicionando manualmente os utilizadores ao(s) grupo(s) alvo.
 
 ## <a name="plan-application-connections-and-administration"></a>Ligações de aplicação do plano e administração
 

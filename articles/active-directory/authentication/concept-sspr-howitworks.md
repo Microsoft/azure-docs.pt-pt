@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a4e540ff6a81be8afa769d93b0649e0fce49882
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8fa1c2627917bfe386c488470f6a78db4c51f2ec
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965102"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363679"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Reposição personalizada de palavra-passe do AAD
 
@@ -227,7 +227,7 @@ A SSPR executa o equivalente a uma redefinição de senha iniciada por administr
 O reset e a alteração da palavra-passe são totalmente suportados em todas as configurações business-to-business (B2B). O reset da palavra-passe do utilizador B2B é suportado nos seguintes três casos:
 
 * **Utilizadores de uma organização parceira com um inquilino Azure AD existente**: Se a organização com quem se associa tem um inquilino AZure AD existente, respeitamos quaisquer políticas de reset de palavra-passe que estejam habilitadas nesse inquilino. Para que a palavra-passe seja reposta para funcionar, a organização parceira apenas precisa de se certificar de que o Azure AD SSPR está ativado. Não existe qualquer custo adicional para os clientes microsoft 365.
-* **Utilizadores que se inscrevem através** de inscrição de self-service: Se a organização com quem se associa usou a função [de inscrição de self-service](../users-groups-roles/directory-self-service-signup.md) para entrar num inquilino, deixamos que repusessem a palavra-passe com o e-mail que registaram.
+* **Utilizadores que se inscrevem através** de inscrição de self-service: Se a organização com quem se associa usou a função [de inscrição de self-service](../enterprise-users/directory-self-service-signup.md) para entrar num inquilino, deixamos que repusessem a palavra-passe com o e-mail que registaram.
 * **Utilizadores B2B**: Quaisquer novos utilizadores B2B criados através da utilização das novas [capacidades Azure AD B2B](../external-identities/what-is-b2b.md) também podem redefinir as suas palavras-passe com o e-mail que registaram durante o processo de convite.
 
 Para testar este cenário, vá a https://passwordreset.microsoftonline.com um destes utilizadores parceiros. Se tiverem um e-mail alternativo ou um e-mail de autenticação definido, o reset da palavra-passe funciona como esperado.
