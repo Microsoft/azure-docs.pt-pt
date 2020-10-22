@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: d0cffbd1fa09abef9853e0ef853696c3c8ed353c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22f74d3135597e8627cf7af933f8c6f4fbebc990
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86246814"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364053"
 ---
 # <a name="design-secure-applications-on-azure"></a>Design aplicações seguras em Azure
 Neste artigo apresentamos atividades de segurança e controlos a ter em conta quando desenha aplicações para a nuvem. São abrangidos os recursos de formação, juntamente com questões de segurança e conceitos a ter em conta durante as fases de requisitos e de conceção do Ciclo de Vida para o Desenvolvimento de Segurança da Microsoft [(SDL).](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) O objetivo é ajudá-lo a definir atividades e serviços Azure que você pode usar para desenhar uma aplicação mais segura.
@@ -226,7 +226,7 @@ Certifique-se de que a sua aplicação impõe [menos privilégios](https://docs.
 
 #### <a name="implement-just-in-time-access"></a>Implementar acesso just-in-time
 
-Implementar o acesso *just-in-time* (JIT) para reduzir ainda mais o tempo de exposição dos privilégios. Utilize [a Azure AD Gestão de Identidade Privilegiada](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#stage-3-take-control-of-admin-activity) para:
+Implementar o acesso *just-in-time* (JIT) para reduzir ainda mais o tempo de exposição dos privilégios. Utilize [a Azure AD Gestão de Identidade Privilegiada](../../active-directory/roles/security-planning.md#stage-3-take-control-of-admin-activity) para:
 
 - Dê aos utilizadores as permissões de que precisam apenas de JIT.
 - Atribua funções por uma duração reduzida com confiança de que os privilégios são revogados automaticamente.
