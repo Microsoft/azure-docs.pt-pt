@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: 1189324cf0bb2731a100032058c7ba9ae4add758
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: b9fdaf8a0791570ecee402442c5faefe2f70a22b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332047"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370445"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Sobre networking em Azure VM recuperação de desastres
 
@@ -62,9 +62,9 @@ login.microsoftonline.com | Requerida autorização e autenticação para os URL
 Ao utilizar o NSG para controlar a conectividade de saída, estas etiquetas de serviço precisam de ser permitidas.
 
 - Para as contas de armazenamento na região de origem:
-    - Crie uma regra NSG baseada em [serviço de armazenamento](../virtual-network/security-overview.md#service-tags) para a região de origem.
+    - Crie uma regra NSG baseada em [serviço de armazenamento](../virtual-network/network-security-groups-overview.md#service-tags) para a região de origem.
     - Permitir estes endereços para que os dados possam ser escritos na conta de armazenamento de cache, a partir do VM.
-- Criar uma regra NSG baseada em etiquetas de [serviço Azure Ative (AAD)](../virtual-network/security-overview.md#service-tags) para permitir o acesso a todos os endereços IP correspondentes ao AAD
+- Criar uma regra NSG baseada em etiquetas de [serviço Azure Ative (AAD)](../virtual-network/network-security-groups-overview.md#service-tags) para permitir o acesso a todos os endereços IP correspondentes ao AAD
 - Crie uma regra NSG baseada em tags do EventsHub para a região alvo, permitindo o acesso à monitorização da Recuperação do Local.
 - Crie uma regra NSG baseada em etiquetas de serviço AzureSiteRecovery para permitir o acesso ao serviço de Recuperação de Locais em qualquer região.
 - Crie uma regra NSG baseada em etiquetas AzureKeyVault. Isto é necessário apenas para permitir a replicação de máquinas virtuais ativadas por ADE via portal.

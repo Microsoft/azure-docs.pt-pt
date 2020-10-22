@@ -3,12 +3,12 @@ title: Ver e gerir fornecedores de serviços
 description: Os clientes podem utilizar a página de prestadores de serviços no portal Azure para visualizar informações sobre prestadores de serviços, ofertas de prestadores de serviços e recursos delegados.
 ms.date: 10/12/2020
 ms.topic: how-to
-ms.openlocfilehash: ecbeb7f5b6fccb7b66043cf57aa5f48674c6fe8b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e94a9fd6562a9fa8bc0f2d84cce477e7907a1e48
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974401"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371108"
 ---
 # <a name="view-and-manage-service-providers"></a>Ver e gerir fornecedores de serviços
 
@@ -78,7 +78,7 @@ Os clientes podem querer ganhar visibilidade nas subscrições e/ou grupos de re
 
 Fornecemos uma [definição de política integrada da Azure](../../governance/policy/samples/built-in-policies.md#lighthouse) Para auditar a [delegação de âmbitos a um inquilino gestor.](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/Lighthouse_Delegations_Audit.json) Pode atribuir esta política a um grupo de gestão que inclua todas as subscrições que pretende auditar. Quando verificar o cumprimento desta política, quaisquer subscrições e/ou grupos de recursos delegados (dentro do grupo de gestão ao qual a apólice é atribuída) serão apresentados num estado incompatível. Em seguida, pode rever os resultados e confirmar que não existem delegações inesperadas.
 
-Outra [definição de política incorporada](../../governance/policy/samples/built-in-policies.md#lighthouse) permite restringir as [delegações a inquilinos de gestão específica.](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Lighthouse/AllowCertainManagingTenantIds_Deny.json) Esta política pode igualmente ser aplicada a um grupo de gestão que inclua quaisquer subscrições para as quais pretende limitar as delegações. Após a implementação da apólice, qualquer tentativa de delegar uma assinatura a um inquilino fora dos que especificar será negada.
+Outra [definição de política incorporada](../../governance/policy/samples/built-in-policies.md#lighthouse) permite restringir as [delegações a inquilinos de gestão específica.](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/AllowCertainManagingTenantIds_Deny.json) Esta política pode igualmente ser aplicada a um grupo de gestão que inclua quaisquer subscrições para as quais pretende limitar as delegações. Após a implementação da apólice, qualquer tentativa de delegar uma assinatura a um inquilino fora dos que especificar será negada.
 
 Para obter mais informações sobre como atribuir uma política e ver os resultados do estado de conformidade, consulte [Quickstart: Criar uma atribuição de política](../../governance/policy/assign-policy-portal.md).
 

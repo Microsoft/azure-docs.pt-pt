@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/06/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 3783c3dea67ebb9a77486d18bf80e67b85292744
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 6a14ef6f75d5939501c6bd8ca84620a7a5619a54
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144173"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369068"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerir a utilização e os custos com Registos do Azure Monitor    
 
@@ -243,7 +243,7 @@ Para começar, aqui estão as definições recomendadas para a consulta de alert
 - Destino: Selecione o seu recurso Log Analytics
 - Critérios: 
    - Nome do sinal: Pesquisa de registo personalizado
-   - Consulta de pesquisa: `_LogOperation | where Detail has 'OverQuota'`
+   - Consulta de pesquisa: `_LogOperation | where Category == "Ingestion" | where Operation == "Ingestion rate" | where Level == "Warning"`
    - Com base em: Número de resultados
    - Condição: Maior do que
    - Limiar: 0
@@ -600,9 +600,9 @@ Para alertar se o volume de dados faturado nas últimas 24 horas foi superior a 
 - **Definir condição de alerta** especifique a sua área de trabalho do Log Analytics como o destino de recursos.
 - **Critérios de alerta** especifique o seguinte:
    - **Nome do Sinal** selecione **Pesquisa de registos personalizada**
-   - **Consulta de pesquisa** para `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50` . Se quiser uma divergência 
+   - **Consulta de pesquisa** para `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50` . Se quiser um diferente 
    - A **Lógica de alerta** é **Baseada no** *número de resultados* e a **Condição** é *Maior do que* um **Limiar** de *0*
-   - **Período** de tempo de *1440* minutos e **frequência de alerta** a cada *1440* minutos para correr uma vez por dia.
+   - **Período** de tempo de *1440* minutos e **frequência de alerta** a cada *1440* minutos para ser executado uma vez por dia.
 - **Definir detalhes do alerta** especifique o seguinte:
    - **Nome** para *volume de dados fatural superior a 50 GB em 24 horas*
    - A **gravidade** como *Aviso*

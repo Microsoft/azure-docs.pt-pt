@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 08/27/2020
-ms.openlocfilehash: a2d2c4d29a6af073e3e4e6a74c257cb864b8a78c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d794716fe1f4717acbabfd90643b72c682e475bc
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400694"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370598"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Gerir a sua conta de mercado comercial no Partner Center
 
@@ -170,7 +170,7 @@ Para adicionar utilizadores à sua conta Partner Center que já existe na conta 
 
 ### <a name="create-new-users"></a>Criar novos utilizadores
 
-Para criar novas contas de utilizador, tem de ter uma conta com permissões [**de administrador global.**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+Para criar novas contas de utilizador, tem de ter uma conta com permissões [**de administrador global.**](../../active-directory/roles/permissions-reference.md)
 
 1. Ir para **os Utilizadores** (nas **definições de Conta),** selecionar **Adicionar utilizadores,** em seguida, escolher **Criar novos utilizadores**.
 1. Introduza um nome próprio, apelido e nome de utilizador para cada novo utilizador. 
@@ -184,7 +184,7 @@ A criação de um novo utilizador no Partner Center também criará uma conta pa
 
 ### <a name="invite-new-users-by-email"></a>Convidar novos utilizadores por e-mail
 
-Para convidar utilizadores que não fazem parte da sua conta de trabalho da empresa (inquilino Azure AD) por e-mail, você deve ter uma conta com permissões [**de administrador global.**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+Para convidar utilizadores que não fazem parte da sua conta de trabalho da empresa (inquilino Azure AD) por e-mail, você deve ter uma conta com permissões [**de administrador global.**](../../active-directory/roles/permissions-reference.md)
 
 1. Aceda aos **Utilizadores** (nas **definições de Conta),** selecione **Adicionar utilizadores,** em seguida, escolha **Convidar os utilizadores por e-mail**.
 2. Insira um ou mais endereços de e-mail (até 10), separados por vírgulas ou pontos-e-vírgulas.
@@ -204,7 +204,7 @@ Para remover um utilizador da sua conta de trabalho (inquilino Azure AD), vá ao
 
 ### <a name="change-a-user-password"></a>Alterar uma palavra-passe do utilizador
 
-Se um dos seus utilizadores precisar de alterar a sua palavra-passe, pode fazê-lo se tiver fornecido um **e-mail de recuperação de passwords** ao criar a conta de utilizador. Também pode atualizar a palavra-passe de um utilizador seguindo os passos abaixo. Para alterar a palavra-passe de um utilizador na sua conta de trabalho da empresa (inquilino Azure AD), tem de ser inscrito numa conta com permissões [**de administrador global.**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) Isto irá alterar a palavra-passe do utilizador no seu inquilino Azure AD, juntamente com a palavra-passe que usam para aceder ao Partner Center.
+Se um dos seus utilizadores precisar de alterar a sua palavra-passe, pode fazê-lo se tiver fornecido um **e-mail de recuperação de passwords** ao criar a conta de utilizador. Também pode atualizar a palavra-passe de um utilizador seguindo os passos abaixo. Para alterar a palavra-passe de um utilizador na sua conta de trabalho da empresa (inquilino Azure AD), tem de ser inscrito numa conta com permissões [**de administrador global.**](../../active-directory/roles/permissions-reference.md) Isto irá alterar a palavra-passe do utilizador no seu inquilino Azure AD, juntamente com a palavra-passe que usam para aceder ao Partner Center.
 
 1. A partir da página **Utilizadores** (nas **definições de Conta),** selecione o nome da conta de utilizador que pretende editar.
 2. Selecione o botão **de palavra-passe Reset** na parte inferior da página.

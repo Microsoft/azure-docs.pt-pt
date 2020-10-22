@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f3918016e35029ea6cc1b60d407ad475b35895b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbd7eecd80b528b1d20d016d51c985bc24d1301d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565469"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371805"
 ---
 # <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Adicione ou remova um grupo de outro grupo usando o Azure Ative Directory
 Este artigo ajuda-o a adicionar e remover um grupo de outro grupo usando o Azure Ative Directory.
@@ -78,6 +78,6 @@ Estes artigos fornecem informações adicionais acerca do Azure Active Directory
 
 - [Editar as suas definições de grupo](active-directory-groups-settings-azure-portal.md)
 
-- [Utilizar um grupo para gerir o acesso a aplicações SaaS](../users-groups-roles/groups-saasapps.md)
+- [Utilizar um grupo para gerir o acesso a aplicações SaaS](../enterprise-users/groups-saasapps.md)
 
-- [Cenários, limitações e questões conhecidas usando grupos para gerir o licenciamento no Azure Ative Directory](../users-groups-roles/licensing-group-advanced.md#limitations-and-known-issues)
+- [Cenários, limitações e questões conhecidas usando grupos para gerir o licenciamento no Azure Ative Directory](../enterprise-users/licensing-group-advanced.md#limitations-and-known-issues)

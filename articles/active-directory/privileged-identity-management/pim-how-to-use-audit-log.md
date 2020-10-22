@@ -14,12 +14,12 @@ ms.date: 01/07/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe2f464791995b9168868f1661a3c303d46f7987
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8481c562ecbab1f26e877e55a5a9454695ddf4c0
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530124"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370836"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-privileged-identity-management"></a>Ver histórico de auditoria para funções de Azure AD em Gestão de Identidade Privilegiada
 
@@ -29,7 +29,7 @@ Pode utilizar o histórico de auditoria da Gestão de Identidade Privilegiada (P
 
 A partir de novembro de 2019, a parte de funções da AZure AD da Gestão de Identidade Privilegiada está a ser atualizada para uma nova versão que corresponde às experiências para funções de recursos Azure. Isto cria funcionalidades adicionais, bem como [alterações à API existente.](azure-ad-roles-features.md#api-changes) Enquanto a nova versão está a ser lançada, quais os procedimentos que segue neste artigo dependem da versão de Gestão de Identidade Privilegiada que tem atualmente. Siga os passos nesta secção para determinar qual a versão da Gestão de Identidade Privilegiada que tem. Depois de conhecer a sua versão de Gestão de Identidade Privilegiada, pode selecionar os procedimentos deste artigo que correspondam a essa versão.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com/) com um utilizador que esteja na [função de administrador](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) privilegiado.
+1. Inscreva-se no [portal Azure](https://portal.azure.com/) com um utilizador que esteja na [função de administrador](../roles/permissions-reference.md#privileged-role-administrator) privilegiado.
 1. Open **Azure AD Gestão de Identidade Privilegiada.** Se tiver um banner no topo da página geral, siga as instruções no separador **Nova versão** deste artigo. Caso contrário, siga as instruções no separador **versão anterior.**
 
     [![Screenshot que mostra a página "Azure AD roles - Directory roles audit history".](media/pim-how-to-use-audit-log/directory-roles-audit-history.png "Selecione o separador para a sua versão")](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
@@ -74,7 +74,7 @@ A minha auditoria permite-lhe ver a sua atividade de papel pessoal.
 
 Siga estes passos para ver o histórico de auditoria para as funções de Azure AD.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com/) com um utilizador que é membro da função de Administrador de [Função Privilegiada.](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
+1. Inscreva-se no [portal Azure](https://portal.azure.com/) com um utilizador que é membro da função de Administrador de [Função Privilegiada.](../roles/permissions-reference.md#privileged-role-administrator)
 
 1. Open **Azure AD Gestão de Identidade Privilegiada.**
 

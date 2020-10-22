@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: d876862d8f41ab8df646bef051629fd45c4d4601
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3693c30a34601512770f5d9071f5d786410fb00e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939625"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92360382"
 ---
 # <a name="view-logs-and-metrics-using-kibana-and-grafana"></a>Ver registos e métricas usando Kibana e Grafana
 
@@ -30,7 +30,7 @@ Para aceder aos dashboards, terá de recuperar o endereço IP do seu cluster. O 
 
 Utilize o seguinte comando para obter o endereço IP público:
 
-```console
+```azurecli
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
 ```
 
@@ -66,7 +66,7 @@ Os passos abaixo destacam como criar uma regra NSG para os pontos finais de Kiba
 
 ### <a name="find-the-name-of-the-nsg"></a>Localize o nome do NSG
 
-```console
+```azurecli
 az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 ```
 
@@ -74,7 +74,7 @@ az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 
 Uma vez que tenha o nome do NSG, pode adicionar uma regra usando o seguinte comando:
 
-```console
+```azurecli
 az network nsg rule create -n ports_30777 --nsg-name azurearcvmNSG --priority 600 -g azurearcvm-rg --access Allow --description 'Allow Kibana and Grafana ports' --destination-address-prefixes '*' --destination-port-ranges 30777 --direction Inbound --protocol Tcp --source-address-prefixes '*' --source-port-ranges '*'
 ```
 

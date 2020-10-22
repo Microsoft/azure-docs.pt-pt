@@ -10,12 +10,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 05/08/2020
-ms.openlocfilehash: bc8fd73b18e197c42e4750612320c1b15a6db020
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4a7eabe35e501aa840693f6fad3803b73160a25
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83849217"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368898"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformar dados usando a atividade da Spark na Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -61,18 +61,18 @@ A tabela a seguir descreve as propriedades JSON utilizadas na definição JSON:
 
 | Propriedade              | Descrição                              | Obrigatório |
 | --------------------- | ---------------------------------------- | -------- |
-| name                  | O nome da atividade no oleoduto.    | Sim      |
-| descrição           | Texto descrevendo o que a atividade faz.  | Não       |
-| tipo                  | Para a Atividade de Faísca, o tipo de atividade é HDInsightSpark. | Sim      |
-| linkedServiceName     | Nome do Serviço HDInsight Spark Linked no qual o programa Spark é executado. Para saber mais sobre este serviço ligado, consulte o artigo [de serviços ligados a Compute.](compute-linked-services.md) | Sim      |
-| SparkJobLinkedService | O serviço de armazenamento Azure que detém o ficheiro de trabalho spark, dependências e registos. Apenas os serviços ligados a **[Azure Blob](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)** e **[ADLS Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)** são suportados aqui. Se não especificar um valor para esta propriedade, o armazenamento associado ao cluster HDInsight é utilizado. O valor deste imóvel só pode ser um serviço ligado ao Azure Storage. | Não       |
-| rootPath              | O recipiente e pasta Azure Blob que contém o ficheiro Spark. O nome do ficheiro é sensível a casos. Consulte a secção de estrutura da pasta (secção seguinte) para obter mais detalhes sobre a estrutura desta pasta. | Sim      |
-| ingressoFilePata         | Caminho relativo para a pasta raiz do código/embalagem Spark. O ficheiro de entrada deve ser um ficheiro Python ou um ficheiro .jar. | Sim      |
-| nome de classeName             | Classe principal java/faísca da aplicação      | Não       |
-| argumentos             | Uma lista de argumentos de linha de comando para o programa Spark. | Não       |
-| proxyUser             | A conta de utilizador a personificar para executar o programa Spark | Não       |
-| sparkConfig           | Especifique os valores das propriedades de configuração spark listadas no tópico: [Configuração de faíscas - Propriedades da aplicação](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Não       |
-| obterDebugInfo          | Especifica quando os ficheiros de registo spark são copiados para o armazenamento Azure utilizado pelo cluster HDInsight (ou) especificado pelo sparkJobLinkedService. Valores permitidos: Nenhum, Sempre ou Fracasso. Valor predefinido: Nenhum. | Não       |
+| name                  | O nome da atividade no oleoduto.    | Yes      |
+| descrição           | Texto descrevendo o que a atividade faz.  | No       |
+| tipo                  | Para a Atividade de Faísca, o tipo de atividade é HDInsightSpark. | Yes      |
+| linkedServiceName     | Nome do Serviço HDInsight Spark Linked no qual o programa Spark é executado. Para saber mais sobre este serviço ligado, consulte o artigo [de serviços ligados a Compute.](compute-linked-services.md) | Yes      |
+| SparkJobLinkedService | O serviço de armazenamento Azure que detém o ficheiro de trabalho spark, dependências e registos. Apenas os serviços ligados a **[Azure Blob](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)** e **[ADLS Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)** são suportados aqui. Se não especificar um valor para esta propriedade, o armazenamento associado ao cluster HDInsight é utilizado. O valor deste imóvel só pode ser um serviço ligado ao Azure Storage. | No       |
+| rootPath              | O recipiente e pasta Azure Blob que contém o ficheiro Spark. O nome do ficheiro é sensível a casos. Consulte a secção de estrutura da pasta (secção seguinte) para obter mais detalhes sobre a estrutura desta pasta. | Yes      |
+| ingressoFilePata         | Caminho relativo para a pasta raiz do código/embalagem Spark. O ficheiro de entrada deve ser um ficheiro Python ou um ficheiro .jar. | Yes      |
+| nome de classeName             | Classe principal java/faísca da aplicação      | No       |
+| argumentos             | Uma lista de argumentos de linha de comando para o programa Spark. | No       |
+| proxyUser             | A conta de utilizador a personificar para executar o programa Spark | No       |
+| sparkConfig           | Especifique os valores das propriedades de configuração spark listadas no tópico: [Configuração de faíscas - Propriedades da aplicação](https://spark.apache.org/docs/latest/configuration.html#available-properties). | No       |
+| obterDebugInfo          | Especifica quando os ficheiros de registo spark são copiados para o armazenamento Azure utilizado pelo cluster HDInsight (ou) especificado pelo sparkJobLinkedService. Valores permitidos: Nenhum, Sempre ou Fracasso. Valor predefinido: Nenhum. | No       |
 
 ## <a name="folder-structure"></a>Estrutura de pasta
 Os trabalhos de faísca são mais extensíveis do que os trabalhos de Porco/Colmeia. Para trabalhos com Spark, você pode fornecer várias dependências, tais como pacotes de frascos (colocados no java CLASSPATH), ficheiros python (colocados no PYTHONPATH) e quaisquer outros ficheiros.
@@ -82,12 +82,12 @@ Crie a seguinte estrutura de pasta no armazenamento Azure Blob referenciado pelo
 | Caminho                  | Descrição                              | Necessário | Tipo   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
 | `.` (raiz)            | O caminho fundamental do trabalho de faísca no serviço ligado ao armazenamento | Sim      | Pasta |
-| &lt;utilizador definido &gt; | O caminho que aponta para o ficheiro de entrada do trabalho de Faísca | Sim      | Ficheiro   |
-| ./frascos                | Todos os ficheiros desta pasta são carregados e colocados no classe java do cluster | Não       | Pasta |
-| ./pyFiles             | Todos os ficheiros desta pasta são carregados e colocados no PYTHONPATH do cluster | Não       | Pasta |
-| ./ficheiros               | Todos os ficheiros desta pasta são carregados e colocados no diretório de funcionamento do executor | Não       | Pasta |
-| ./arquivos            | Todos os ficheiros desta pasta não estão comprimidos | Não       | Pasta |
-| ./logs                | A pasta que contém troncos do cluster Spark. | Não       | Pasta |
+| &lt;utilizador definido &gt; | O caminho que aponta para o ficheiro de entrada do trabalho de Faísca | Yes      | Ficheiro   |
+| ./frascos                | Todos os ficheiros desta pasta são carregados e colocados no classe java do cluster | No       | Pasta |
+| ./pyFiles             | Todos os ficheiros desta pasta são carregados e colocados no PYTHONPATH do cluster | No       | Pasta |
+| ./ficheiros               | Todos os ficheiros desta pasta são carregados e colocados no diretório de funcionamento do executor | No       | Pasta |
+| ./arquivos            | Todos os ficheiros desta pasta não estão comprimidos | No       | Pasta |
+| ./logs                | A pasta que contém troncos do cluster Spark. | No       | Pasta |
 
 Aqui está um exemplo para um armazenamento contendo dois ficheiros de trabalho Spark no Azure Blob Storage referenciado pelo serviço ligado a HDInsight.
 
@@ -119,5 +119,5 @@ Veja os seguintes artigos que explicam como transformar dados de outras formas:
 * [Atividade de streaming de Hadoop](transform-data-using-hadoop-streaming.md)
 * [Atividade de faísca](transform-data-using-spark.md)
 * [Atividade personalizada do .NET](transform-data-using-dotnet-custom-activity.md)
-* [Atividade de execução de lote de aprendizagem automática](transform-data-using-machine-learning.md)
+* [Azure Machine Learning Studio (clássico) Atividade de execução de lote](transform-data-using-machine-learning.md)
 * [Atividade de procedimento armazenado](transform-data-using-stored-procedure.md)

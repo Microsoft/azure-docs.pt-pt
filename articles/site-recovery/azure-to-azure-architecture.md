@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: 57435e703395928c4619b7c9c6bf8614269f58a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3e00c3832f243ec0190023116bbfdeaaad86c94
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825426"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370428"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitetura da recuperação após desastre do Azure para o Azure
 
@@ -134,7 +134,7 @@ Se o acesso de saída para VMs for controlado com URLs, permita estes URLs.
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Fornece autorização e autenticação para os URLs do serviço Site Recovery. |
 | Replicação               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`     | Permite que a VM comunique com o serviço Site Recovery. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Permite que a VM escreva dados de monitorização e diagnóstico do Site Recovery. |
-| Cofre de Chaves                 | `*.vault.azure.net`                        | `*.vault.usgovcloudapi.net`                  | Permite o acesso para permitir a replicação de máquinas virtuais ativadas por ADE através do portal |
+| Key Vault                 | `*.vault.azure.net`                        | `*.vault.usgovcloudapi.net`                  | Permite o acesso para permitir a replicação de máquinas virtuais ativadas por ADE através do portal |
 | Automatização do Azure          | `*.automation.ext.azure.com`               | `*.azure-automation.us`                      | Permite permitir a atualização automática do agente de mobilidade para um item replicado via portal |
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividade de saída para intervalos de endereços IP
@@ -167,11 +167,11 @@ Permitir saída HTTPS: porta 443 | Permitir gamas que correspondam ao Controlado
 
 #### <a name="control-access-with-nsg-rules"></a>Controlar o acesso com as regras da NSG
 
-Se controlar a conectividade VM filtrando o tráfego de rede de e para as redes/subesí redes Azure utilizando [as regras NSG,](../virtual-network/security-overview.md)note os seguintes requisitos:
+Se controlar a conectividade VM filtrando o tráfego de rede de e para as redes/subesí redes Azure utilizando [as regras NSG,](../virtual-network/network-security-groups-overview.md)note os seguintes requisitos:
 
 - As regras NSG para a região de Azure de origem devem permitir o acesso de saída para o tráfego de replicação.
 - Recomendamos que crie regras num ambiente de teste antes de as colocar em produção.
-- Utilize etiquetas de serviço em vez de permitir [endereços](../virtual-network/security-overview.md#service-tags) IP individuais.
+- Utilize etiquetas de serviço em vez de permitir [endereços](../virtual-network/network-security-groups-overview.md#service-tags) IP individuais.
     - As etiquetas de serviço representam um grupo de prefixos de endereço IP reunidos para minimizar a complexidade ao criar regras de segurança.
     - A Microsoft atualiza automaticamente as tags de serviço ao longo do tempo. 
  

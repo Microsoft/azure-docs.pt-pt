@@ -12,12 +12,12 @@ ms.date: 04/11/2019
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63b716aa22954af51a9eb53a0d04a8299d348c71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27896bac6f5436fb6717e4bc1ab0a1f9381904ad
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87797242"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370921"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Adicionar ou atualizar as informações do perfil de um utilizador com o Azure Active Directory
 Adicione informações sobre o perfil do utilizador, incluindo uma imagem de perfil, informações específicas do trabalho e algumas definições utilizando o Azure Ative Directory (Azure AD). Para obter mais informações sobre a adição de novos utilizadores, consulte [Como adicionar ou eliminar utilizadores no Azure Ative Directory](add-users-azure-active-directory.md).
@@ -66,4 +66,4 @@ Depois de atualizar os perfis dos seus utilizadores, pode realizar os seguintes 
 
 - [Criar um grupo básico e adicionar membros](active-directory-groups-create-azure-portal.md)
 
-Ou pode executar outras tarefas de gestão de utilizadores, como atribuir delegados, usar políticas e partilhar contas de utilizador. Para obter mais informações sobre outras ações disponíveis, consulte [a documentação de gestão de utilizadores do Azure Ative Directory](../users-groups-roles/index.yml).
+Ou pode executar outras tarefas de gestão de utilizadores, como atribuir delegados, usar políticas e partilhar contas de utilizador. Para obter mais informações sobre outras ações disponíveis, consulte [a documentação de gestão de utilizadores do Azure Ative Directory](../enterprise-users/index.yml).

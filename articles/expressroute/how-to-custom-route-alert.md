@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: b1b93110c3dba38dadf7079fc24ba12e81793c02
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: a960150d68cf2f939e206321a20d98b0e4080313
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329854"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371499"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Configurar alertas personalizados para monitorizar rotas anunciadas
 
@@ -70,7 +70,7 @@ Criar uma conta De automação com permissões run-as. Para obter instruções, 
 
 ### <a name="2-assign-the-run-as-account-a-role"></a><a name="about"></a>2. Atribuir a execução como conta uma função
 
-Por predefinição, a **função Contribuinte** é atribuída ao titular de serviço que é utilizado pela sua conta **Run As.** Pode manter a função predefinida atribuída ao principal de serviço, ou pode restringir permissões atribuindo uma [função incorporada](../role-based-access-control/built-in-roles.md) (por exemplo, Leitor) ou uma [função personalizada](../active-directory/users-groups-roles/roles-create-custom.md).
+Por predefinição, a **função Contribuinte** é atribuída ao titular de serviço que é utilizado pela sua conta **Run As.** Pode manter a função predefinida atribuída ao principal de serviço, ou pode restringir permissões atribuindo uma [função incorporada](../role-based-access-control/built-in-roles.md) (por exemplo, Leitor) ou uma [função personalizada](../active-directory/roles/custom-create.md).
 
  Utilize os seguintes passos para determinar a função atribuída ao titular de serviço que é utilizado pela sua conta Run As:
 

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 800c1742b49fce7e1adf8c3ca22181cfb7d0a085
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9aed5f282ff7b5d573a6f8511f2fc4dbfd27135d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565512"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371822"
 ---
 # <a name="delete-a-group-using-azure-active-directory"></a>Excluir um grupo que usa o Azure Ative Directory
 Pode eliminar um grupo Azure Ative Directory (Azure AD) por várias razões, mas normalmente será porque:
@@ -48,4 +48,4 @@ Pode eliminar um grupo Azure Ative Directory (Azure AD) por várias razões, mas
 
 - Se eliminar um grupo por engano, pode criá-lo novamente. Para obter mais informações, consulte [Como criar um grupo básico e adicionar membros](active-directory-groups-create-azure-portal.md).
 
-- Se eliminar um grupo Microsoft 365 por engano, poderá ser capaz de restaurá-lo. Para obter mais informações, consulte [Restaurar um grupo do Office 365 eliminado](../users-groups-roles/groups-restore-deleted.md).
+- Se eliminar um grupo Microsoft 365 por engano, poderá ser capaz de restaurá-lo. Para obter mais informações, consulte [Restaurar um grupo do Office 365 eliminado](../enterprise-users/groups-restore-deleted.md).
