@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/14/2020
-ms.openlocfilehash: 114a0d6f97149baad0c9e76fb359c52996820575
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 7ce183595ed8e20c4b5cf4afe9ac1174882dc392
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207160"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370326"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Tutorial: Use Apache HBase em Azure HDInsight
 
 Este tutorial demonstra como criar um cluster Apache HBase em Azure HDInsight, criar tabelas HBase e tabelas de consultas usando a Colmeia Apache.  Para obter informações gerais do HBase, consulte o artigo [Descrição geral do HBase do HDInsight](./apache-hbase-overview.md).
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar cluster Apache HBase
@@ -228,6 +228,31 @@ Os dados da HBase também podem ser consultados a partir da Hive utilizando hbas
 
 A API de REST está protegida por [autenticação básica](https://en.wikipedia.org/wiki/Basic_access_authentication). Deve sempre efetuar pedidos com HTTP Secure (HTTPS) para ajudar a garantir que as credenciais são enviadas de forma segura para o servidor.
 
+1. Para ativar as APIs de REPOUSO HBase no cluster HDInsight, adicione o seguinte script de arranque personalizado à secção **De Ação do Script.** Pode adicionar o script de arranque quando criar o cluster ou depois de o cluster ter sido criado. Para **o tipo de nó,** selecione **Servidores de Região** para garantir que o script é executado apenas em Servidores da Região HBase.
+
+
+    ```bash
+    #! /bin/bash
+
+    THIS_MACHINE=`hostname`
+
+    if [[ $THIS_MACHINE != wn* ]]
+    then
+        printf 'Script to be executed only on worker nodes'
+        exit 0
+    fi
+
+    RESULT=`pgrep -f RESTServer`
+    if [[ -z $RESULT ]]
+    then
+        echo "Applying mitigation; starting REST Server"
+        sudo python /usr/lib/python2.7/dist-packages/hdinsight_hbrest/HbaseRestAgent.py
+    else
+        echo "Rest server already running"
+        exit 0
+    fi
+    ```
+
 1. Definir variável ambiente para facilitar a utilização. Edite os comandos abaixo substituindo pela `MYPASSWORD` palavra-passe de login do cluster. `MYCLUSTERNAME`Substitua-o pelo nome do seu cluster HBase. Então entre nos comandos.
 
     ```bash
@@ -319,7 +344,7 @@ O HBase em HDInsight é fornecido com uma interface de utilizador da Web para mo
    - tarefas
    - atributos de software
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para evitar inconsistências, recomendamos que desative as tabelas do HBase antes de eliminar o cluster. Pode utilizar o comando HBase `disable 'Contacts'` . Se não continuar a utilizar esta aplicação, elimine o cluster HBase que criou com os seguintes passos:
 

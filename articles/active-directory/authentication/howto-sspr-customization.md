@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abca66dbe80cecec2320256d8a736408de20b64f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4bef201cbd14a4de0c785b5f86d534f27bfedb31
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968298"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363713"
 ---
 # <a name="customize-the-user-experience-for-azure-active-directory-self-service-password-reset"></a>Personalize a experiência do utilizador para o reposição da palavra-passe de autosserviço do Azure Ative Directory
 
@@ -50,7 +50,7 @@ O e-mail de contacto predefinido é enviado aos destinatários na seguinte encom
 
 Em todos os casos, são notificados no máximo 100 destinatários.
 
-Para saber mais sobre as diferentes funções de administrador e como atribuí-las, consulte [as funções de administrador de atribuição no Diretório Ativo Azure](../users-groups-roles/directory-assign-admin-roles.md).
+Para saber mais sobre as diferentes funções de administrador e como atribuí-las, consulte [as funções de administrador de atribuição no Diretório Ativo Azure](../roles/permissions-reference.md).
 
 ### <a name="disable-contact-your-administrator-emails"></a>Desativar os e-mails "Contacte o seu administrador"
 

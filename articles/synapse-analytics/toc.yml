@@ -44,8 +44,6 @@
       href: quickstart-create-workspace-powershell.md
     - name: Implementar com um modelo
       href: quickstart-deployment-template-workspaces.md
-    - name: Utilizar o Synapse Studio
-      href: quickstart-synapse-studio.md
     - name: Associar uma Área de trabalho do Power BI
       href: quickstart-power-bi.md
     - name: Criar conjuntos

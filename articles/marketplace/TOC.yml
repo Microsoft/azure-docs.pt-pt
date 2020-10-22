@@ -105,12 +105,22 @@
               href: partner-center-portal/create-azure-container-technical-assets.md
             - name: Criar uma oferta do Azure Container
               href: partner-center-portal/create-azure-container-offer.md
-    - name: Oferta de máquina virtual do Azure
+    - name: Ofertas de máquinas virtuais do Azure
       items:
         - name: Planear uma oferta de VM
           href: marketplace-virtual-machines.md
         - name: Criar e publicar uma oferta de VM
           items:
+            - name: Criar uma oferta de VM
+              href: azure-vm-create.md
+            - name: Configurar as propriedades da oferta de VM
+              href: azure-vm-create-properties.md
+            - name: Configurar uma lista de ofertas de VM
+              href: azure-vm-create-listing.md
+            - name: Criar planos de VM
+              href: azure-vm-create-plans.md
+            - name: Adicionar uma audiência de pré-visualização
+              href: azure-vm-create-preview.md
             - name: Criar recursos técnicos de VM
               items:
                 - name: Criar uma VM a partir de uma base aprovada
@@ -127,16 +137,6 @@
                   href: azure-vm-create-faq.md
                 - name: Resolução de problemas da certificação de VM
                   href: azure-vm-create-certification-faq.md
-            - name: Criar uma oferta de VM
-              href: azure-vm-create.md
-            - name: Configurar as propriedades da oferta de VM
-              href: azure-vm-create-properties.md
-            - name: Configurar uma lista de ofertas de VM
-              href: azure-vm-create-listing.md
-            - name: Criar planos de VM
-              href: azure-vm-create-plans.md
-            - name: Adicionar uma audiência de pré-visualização
-              href: azure-vm-create-preview.md
     - name: Serviços de consultadoria
       items:
         - name: Planear uma oferta de serviços de consultoria

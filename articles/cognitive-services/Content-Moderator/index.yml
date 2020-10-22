@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 10/24/2019
-  ms.openlocfilehash: 92648f5b1720cd8274817d289dae1f4631e8b7e7
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 37c729258885bd979cf0b3b2ba2f7d3a11b79d57
+  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "82195957"
+  ms.lasthandoff: 10/22/2020
+  ms.locfileid: "92372111"
 landingContent:
 - title: Acerca do Content Moderator
   linkLists:
@@ -148,9 +148,5 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: UserVoice
-      url: https://cognitive.uservoice.com/forums/559960-content-moderator
-    - text: Base de Dados de Conhecimento
-      url: https://cognitive.uservoice.com/knowledgebase/topics/132073-content-moderator
-    - text: Stack Overflow
-      url: https://stackoverflow.com/questions/tagged/microsoft-cognitive
+    - text: Opções de suporte e ajuda
+      url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/content-moderator/context/context

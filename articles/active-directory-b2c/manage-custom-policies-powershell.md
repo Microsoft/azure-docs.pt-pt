@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8a86be8fa08b6fec7c401ad30165b590b3a6ccde
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 888e2287c869200434e198204881d5bd5014f87d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85387682"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363866"
 ---
 # <a name="manage-azure-ad-b2c-custom-policies-with-azure-powershell"></a>Gerir as políticas personalizadas Azure AD B2C com a Azure PowerShell
 
@@ -29,7 +29,7 @@ A Azure PowerShell fornece vários cmdlets para a gestão de políticas personal
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Inquilino Azure AD B2C,](tutorial-create-tenant.md)e credenciais para um utilizador no diretório com a função [de Administrador de Política B2C IEF](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator)
+* [Inquilino Azure AD B2C,](tutorial-create-tenant.md)e credenciais para um utilizador no diretório com a função [de Administrador de Política B2C IEF](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator)
 * [Políticas personalizadas](custom-policy-get-started.md) enviadas para o seu inquilino
 * [Azure AD PowerShell para **módulo de pré-visualização** de gráfico](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
 
@@ -37,7 +37,7 @@ A Azure PowerShell fornece vários cmdlets para a gestão de políticas personal
 
 Para trabalhar com políticas personalizadas no seu inquilino Azure AD B2C, primeiro precisa ligar a sua sessão PowerShell ao inquilino utilizando o comando [Connect-AzureAD.][Connect-AzureAD]
 
-Execute o seguinte comando, `{b2c-tenant-name}` substituindo-o pelo nome do seu inquilino Azure AD B2C. Inscreva-se com uma conta que atribuiu o papel de [Administrador de Política B2C IEF](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator) no diretório.
+Execute o seguinte comando, `{b2c-tenant-name}` substituindo-o pelo nome do seu inquilino Azure AD B2C. Inscreva-se com uma conta que atribuiu o papel de [Administrador de Política B2C IEF](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator) no diretório.
 
 ```PowerShell
 Connect-AzureAD -Tenant "{b2c-tenant-name}.onmicrosoft.com"

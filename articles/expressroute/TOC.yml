@@ -95,6 +95,10 @@
       href: expressroute-connect-azure-to-public-cloud.md
     - name: Conectividade entre redes
       href: cross-network-connectivity.md
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
     - name: Atributos de segurança
       href: expressroute-security-controls.md
     - name: BFD através do ExpressRoute
@@ -269,5 +273,3 @@
           href: expressroute-howto-add-gateway-classic.md
         - name: Criar e modificar um peering público
           href: about-public-peering.md
-    - name: Linha de base de segurança
-      href: security-baseline.md

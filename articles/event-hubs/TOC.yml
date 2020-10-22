@@ -115,8 +115,6 @@
               href: authenticate-shared-access-signature.md
         - name: Segurança da rede
           href: network-security.md
-        - name: Controlos de segurança incorporados
-          href: event-hubs-security-controls.md
         - name: Controlos de segurança do Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
