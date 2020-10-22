@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2018
 ms.openlocfilehash: 7b670cafa4d643e37fae068a4c0033fc97a96ccd
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
+ms.lasthandoff: 10/22/2020
 ms.locfileid: "92166595"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guia de referência para ver peças de visualização do designer no Azure Monitor
@@ -81,7 +81,7 @@ O cabeçalho apresenta um único número que mostra uma contagem de registos de 
 | Separador de nome e valor |O delimiter de caracteres únicos para usar para analisar a propriedade do texto em múltiplos valores. Para obter mais informações, consulte [As Definições Comuns](#sparklines). |
 | Navegação por clique | Ação tomada quando clica num item da lista.  Para obter mais informações, consulte [As Definições Comuns](#click-through-navigation). |
 | **Lista** |** Títulos da Coluna>** |
-| Nome |O texto que é exibido no topo da primeira coluna. |
+| Name |O texto que é exibido no topo da primeira coluna. |
 | Valor |O texto que é exibido no topo da segunda coluna. |
 | **Lista** |** Limiares de>** |
 | Ativar limiares |Selecione este link para ativar os limiares. Para obter mais informações, consulte [As Definições Comuns](#thresholds). |
@@ -112,7 +112,7 @@ O cabeçalho tem dois números que mostram uma contagem de registos de consultas
 | Separador de nome e valor |O delimiter de caracteres únicos para usar para analisar a propriedade do texto em múltiplos valores. Para obter mais informações, consulte [As Definições Comuns](#sparklines). |
 | Navegação por clique | Ação tomada quando clica num item da lista.  Para obter mais informações, consulte [As Definições Comuns](#click-through-navigation). |
 | **Lista** |** Títulos da Coluna>** |
-| Nome |O texto que é exibido no topo da primeira coluna. |
+| Name |O texto que é exibido no topo da primeira coluna. |
 | Valor |O texto que é exibido no topo da segunda coluna. |
 | **Lista** |** Limiares de>** |
 | Ativar limiares |Selecione este link para ativar os limiares. Para obter mais informações, consulte [As Definições Comuns](#thresholds). |
@@ -153,7 +153,7 @@ O cabeçalho apresenta um único número que resume uma coluna de valor numa con
 | Separador de nome e valor |O delimiter de caracteres únicos para usar para analisar a propriedade do texto em múltiplos valores. Para obter mais informações, consulte [As Definições Comuns](#sparklines). |
 | Navegação por clique | Ação tomada quando clica num item da lista.  Para obter mais informações, consulte [As Definições Comuns](#click-through-navigation). |
 | **Lista** |** Títulos da Coluna>** |
-| Nome |O texto que é exibido no topo da primeira coluna. |
+| Name |O texto que é exibido no topo da primeira coluna. |
 | Valor |O texto que é exibido no topo da segunda coluna. |
 | **Lista** |** Limiares de>** |
 | Ativar limiares |Selecione este link para ativar os limiares. Para obter mais informações, consulte [As Definições Comuns](#thresholds). |
@@ -185,7 +185,7 @@ O cabeçalho apresenta os resultados de duas consultas de registo ao longo do te
 | Operação |A operação para executar para a linha de faísca. Para obter mais informações, consulte [As Definições Comuns](#sparklines). |
 | Navegação por clique | Ação tomada quando clica num item da lista.  Para obter mais informações, consulte [As Definições Comuns](#click-through-navigation). |
 | **Lista** |** Títulos da Coluna>** |
-| Nome |O texto que é exibido no topo da primeira coluna. |
+| Name |O texto que é exibido no topo da primeira coluna. |
 | Valor |O texto que é exibido no topo da segunda coluna. |
 | **Lista** |** Limiares de>** |
 | Ativar limiares |Selecione este link para ativar os limiares. Para obter mais informações, consulte [As Definições Comuns](#thresholds). |
@@ -246,7 +246,7 @@ O cabeçalho apresenta um gráfico de linha com várias séries a partir de uma 
 | Separador de nome e valor |O delimiter de caracteres únicos para usar para analisar a propriedade do texto em múltiplos valores. Para obter mais informações, consulte [As Definições Comuns](#sparklines). |
 | Navegação por clique | Ação tomada quando clica num item da lista.  Para obter mais informações, consulte [As Definições Comuns](#click-through-navigation). |
 | **Lista** |** Títulos da Coluna>** |
-| Nome |O texto que é exibido no topo da primeira coluna. |
+| Name |O texto que é exibido no topo da primeira coluna. |
 | Valor |O texto que é exibido no topo da segunda coluna. |
 | **Lista** |** Limiares de>** |
 | Ativar limiares |Selecione este link para ativar os limiares. Para obter mais informações, consulte [As Definições Comuns](#thresholds). |
@@ -282,7 +282,7 @@ O cabeçalho apresenta um gráfico de linha com várias séries a partir de uma 
 | Separador de nome e valor |O delimiter de caracteres únicos para usar para analisar a propriedade do texto em múltiplos valores. Para obter mais informações, consulte [As Definições Comuns](#sparklines). |
 | Navegação por clique | Ação tomada quando clica num item da lista.  Para obter mais informações, consulte [As Definições Comuns](#click-through-navigation). |
 | **Lista** |** Títulos da Coluna>** |
-| Nome |O texto que é exibido no topo da primeira coluna. |
+| Name |O texto que é exibido no topo da primeira coluna. |
 | Valor |O texto que é exibido no topo da segunda coluna. |
 | **Lista** |** Limiares de>** |
 | Ativar limiares |Selecione este link para ativar os limiares. Para obter mais informações, consulte [As Definições Comuns](#thresholds). |
@@ -352,7 +352,7 @@ O quadro que se segue descreve as definições dos limiares:
 | Definições | Descrição |
 |:--- |:--- |
 | Ativar limiares |Selecione este link para exibir um ícone de cor à esquerda de cada valor. O ícone indica a saúde do valor em relação aos limiares especificados. |
-| Nome |O nome do valor limiar. |
+| Name |O nome do valor limiar. |
 | Limiar |O valor para o limiar. A cor de saúde de cada item da lista é definida para a cor do valor limiar mais elevado que é ultrapassado pelo valor do item. Se não forem ultrapassados os valores limiares, é utilizada uma cor padrão. |
 | Color |A cor que indica o valor limiar. |
 

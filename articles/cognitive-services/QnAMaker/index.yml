@@ -11,12 +11,12 @@ metadata:
   services: cognitive-services
   title: Documentação do Criador de FAQ
   description: O Criador de FAQ é um serviço de API com base na cloud, que cria uma camada de conversação, perguntas e respostas com os seus dados. O Criador de FAQ permite-lhe incorporar um serviço de perguntas e respostas a partir do seu conteúdo semiestruturado, como documentos de FAQ, URLs e manuais de produtos. O serviço Criador de FAQ responde às perguntas em linguagem natural dos seus utilizadores, correspondendo-as à melhor resposta possível de FAQ da sua Base de Dados de Conhecimento.
-  ms.openlocfilehash: 09c577368ef6ca9b6bc584601ad018c2a63c7347
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: d82dcd03ce64c76a84811b5789ee5460ba089641
+  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "84628041"
+  ms.lasthandoff: 10/22/2020
+  ms.locfileid: "92372077"
 landingContent:
 - title: Acerca do Criador de FAQ
   linkLists:
@@ -122,9 +122,7 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
+    - text: Opções de suporte e ajuda
+      url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/qnamaker/context/context
     - text: Resolução de problemas
       url: troubleshooting.md
-    - text: Colocar questões no Stack Overflow
-      url: https://stackoverflow.com/questions/tagged/QnAMaker
-    - text: Influenciar o serviço com o UserVoice
-      url: https://cognitive.uservoice.com/forums/578689-qna-maker-api
