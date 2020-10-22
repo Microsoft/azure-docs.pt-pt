@@ -1,0 +1,85 @@
+### YamlMime:Landing
+title: Documentação sobre funções do Azure AD - Azure AD
+summary: O controlo de acesso baseado em funções do Azure AD gere o acesso aos recursos do Azure AD. Crie funções personalizadas, atribua funções que utilizam unidades administrativas para restringir o âmbito de controlo, atribua o acesso a aplicações a grupos ou utilizadores, faça a gestão da elegibilidade com o Privileged Identity Management (PIM) ou delegue permissões para distribuir tarefas de gestão de identidades.
+metadata:
+  title: Documentação sobre as funções do Azure Active Directory
+  description: Saiba como utilizar as funções do Azure AD para gerir o acesso na sua organização.
+  services: active-directory
+  ms.service: active-directory
+  ms.subservice: roles
+  manager: daveba
+  ms.topic: landing-page
+  ms.date: 10/19/2020
+  author: curtand
+  ms.author: curtand
+  ms.openlocfilehash: 16a64fd66ab391436f991b5f92f306f7ecf2eb58
+  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 10/22/2020
+  ms.locfileid: "92372830"
+landingContent:
+- title: Acerca das funções do Azure AD
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Descrição geral das funções personalizadas
+      url: custom-overview.md
+  - linkListType: concept
+    links:
+    - text: Delegar a administração
+      url: concept-delegation.md
+    - text: Compreender as unidades administrativas no Azure AD
+      url: administrative-units.md
+    - text: Utilizar os grupos da cloud para gerir atribuições de funções
+      url: groups-concept.md
+- title: Introdução
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Conceder permissão para criar registos ilimitados de aplicações
+      url: quickstart-app-registration-limits.md
+- title: Delegar funções
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Eliminar funções por tarefa
+      url: delegate-by-task.md
+    - text: Delegar gestão de aplicações
+      url: delegate-app-roles.md
+- title: Atribuir funções a utilizadores
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Criar funções personalizadas
+      url: custom-create.md
+    - text: Atribuir funções com o Graph API
+      url: custom-assign-graph.md
+    - text: Atribuir com o PowerShell
+      url: custom-assign-powershell.md
+    - text: Atribuir funções com o Graph API
+      url: custom-assign-graph.md
+- title: Atribuir funções a grupos
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Criar grupos aos quais se pode atribuir funções
+      url: groups-create-eligible.md
+    - text: Atribuir uma função a um grupo da cloud
+      url: groups-assign-role.md
+    - text: Tornar um grupo elegível para PIM
+      url: groups-pim-eligible.md
+    - text: Ver as atribuições para um grupo
+      url: groups-view-assignments.md
+- title: Gerir o âmbito com unidades administrativas
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Adicionar e remover unidades administrativas
+      url: admin-units-manage.md
+    - text: Atribuir utilizadores a unidades
+      url: admin-units-add-manage-users.md
+    - text: Atribuir grupos a unidades
+      url: admin-units-add-manage-groups.md
+    - text: Atribuir grupos com âmbito
+      url: admin-units-assign-roles.md

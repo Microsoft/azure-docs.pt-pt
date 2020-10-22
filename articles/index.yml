@@ -13,12 +13,12 @@ metadata:
   ms.date: 09/25/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 15814264f69ee29de8e71602cc7c0fb5754fa386
-  ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+  ms.openlocfilehash: 8dd08112bbfd56ddccb14cef1123b10ed7907a95
+  ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/18/2020
-  ms.locfileid: "92164385"
+  ms.lasthandoff: 10/21/2020
+  ms.locfileid: "92329219"
 highlightedContent:
   items:
   - title: Guia de introdução para programadores do Azure
@@ -219,6 +219,12 @@ productDirectory:
     azureCategories:
     - ai-machine-learning
     url: genomics/index.yml
+  - title: Assistente de Métricas (Pré-visualização)
+    summary: Um serviço de IA que monitoriza as métricas e diagnostica problemas
+    imageSrc: ./media/index/metrics-advisor.svg
+    azureCategories:
+    - ai-machine-learning
+    url: cognitive-services/metrics-advisor/index.yml
   - title: Personalizador
     summary: Um serviço de IA que proporciona uma experiência de utilizador personalizada
     imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg

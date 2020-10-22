@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: cherylmc
   ms.author: cherylmc
-  ms.date: 08/29/2019
-  ms.openlocfilehash: b5412d949ddadb5b10e2027a10530c9b831f9ef3
-  ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+  ms.date: 10/20/2020
+  ms.openlocfilehash: e6102ae6a688819af63680a259b4fedf8650e7c2
+  ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/15/2020
-  ms.locfileid: "92078923"
+  ms.lasthandoff: 10/21/2020
+  ms.locfileid: "92327319"
 landingContent:
 - title: Sobre o Azure Bastion
   linkLists:
@@ -29,6 +29,10 @@ landingContent:
       url: bastion-faq.md
 - title: Introdução
   linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Configurar o Bastion e ligar a uma VM
+      url: quickstart-host-portal.md
   - linkListType: how-to-guide
     links:
     - text: Criar um anfitrião do Bastion
