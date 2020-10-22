@@ -4,12 +4,12 @@ description: Saiba como ativar e ver os registos do nó mestre kubernetes no Ser
 services: container-service
 ms.topic: article
 ms.date: 10/14/2020
-ms.openlocfilehash: 79ed9308488725d9be0c839bbd04b6783bbbd85a
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 1089cb4ea52efaa545478ced053a921728a894ef
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076390"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368456"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Ativar e rever os registos de nó principal do Kubernetes no Azure Kubernetes Service (AKS)
 
@@ -37,9 +37,11 @@ Os registos do Monitor Azure estão ativados e geridos no portal Azure. Para ati
 
 Além das entradas escritas por Kubernetes, os registos de auditoria do seu projeto também têm entradas de AKS.
 
-Os registos de auditoria são registados em duas categorias, *kube-audit-admin* e *kube-audit*. A categoria *kube-audit* contém todos os dados de registo de auditoria para cada evento de auditoria, incluindo *obter,* *lista,* *criar,* *atualizar,* *excluir,* *corrigir*e *publicar*.
+Os registos de auditoria são registados em três categorias: *kube-audit,* *kube-audit-admin*, e *guard*.
 
-A categoria *kube-audit-admin* é um subconjunto da categoria de registo *de auditoria de kube.* *kube-audit-admin* reduz significativamente o número de registos, excluindo os eventos de auditoria de *obter* e *listar* do registo.
+- A categoria *kube-audit* contém todos os dados de registo de auditoria para cada evento de auditoria, incluindo *obter,* *lista,* *criar,* *atualizar,* *excluir,* *corrigir*e *publicar*.
+- A categoria *kube-audit-admin* é um subconjunto da categoria de registo *de auditoria de kube.* *kube-audit-admin* reduz significativamente o número de registos, excluindo os eventos de auditoria de *obter* e *listar* do registo.
+- A categoria *de guarda* é gerida a Azure AD e as auditorias Azure RBAC. Para a gestão Azure AD: token in, informações do utilizador para fora. Para Azure RBAC: comentários de acesso dentro e fora.
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Agende uma cápsula de teste no cluster AKS
 
@@ -75,7 +77,7 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>Ver registos recolhidos
 
-Pode levar alguns minutos para os registos de diagnóstico serem ativados e aparecer.
+Pode levar até 10 minutos para os registos de diagnóstico serem ativados e aparecerem.
 
 > [!NOTE]
 > Se necessitar de todos os dados de registo de auditoria para o cumprimento ou outros fins, recolha-os e guarde-os em armazenamento barato, como armazenamento de bolhas. Utilize a categoria de registo de administração *de contas para* recolher e guardar um conjunto significativo de dados de registo de auditoria para fins de monitorização e alerta.

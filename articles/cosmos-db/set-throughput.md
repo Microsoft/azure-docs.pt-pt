@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 83909fdc75ec09b9ddd1fa9452f9a77e5763f895
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 7caa29807f2779ee1f52cb22de2bf95fdb9cb37e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331826"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367130"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introdução à produção prevista na Azure Cosmos DB
 
@@ -43,9 +43,6 @@ A imagem a seguir mostra como uma partição física acolhe uma ou mais divisór
 :::image type="content" source="./media/set-throughput/resource-partition.png" alt-text="Partição física que acolhe uma ou mais divisórias lógicas de um recipiente" border="false":::
 
 ## <a name="set-throughput-on-a-database"></a>Definir saída numa base de dados
-
-> [!NOTE]
-> Atualmente, não é possível o fornecimento de produção numa base de dados da Azure Cosmos nas contas onde [as chaves geridas pelo cliente](how-to-setup-cmk.md) estão ativadas.
 
 Quando fornece o rendimento numa base de dados Azure Cosmos, o resultado é partilhado em todos os contentores (chamados contentores de base de dados partilhados) na base de dados. A única exceção ocorre se tiver especificado um débito aprovisionado em contentores específicos na base de dados. A partilha da produção de nível de base de dados entre os seus contentores é análoga à hospedagem de uma base de dados num conjunto de máquinas. Como todos os contentores dentro de uma base de dados partilham os recursos disponíveis numa máquina, naturalmente não obtém um desempenho previsível em nenhum recipiente específico. Para aprender a configurar a produção prevista numa base de dados, consulte a [produção de Configure prevista numa base de dados do Azure Cosmos.](how-to-provision-database-throughput.md) Para aprender a configurar a produção de autoescalação numa base de dados, consulte [a produção de escala automática da Provision](how-to-provision-autoscale-throughput.md).
 

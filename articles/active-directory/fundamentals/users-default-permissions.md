@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18, contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a6c2255fcba12b19f375e694a0494011aa09b0e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 019501eef0857c9dc7cd7f63a656eccf61608f1b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101867"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367827"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Quais são as permissões de utilizador predefinidas no Azure Ative Directory?
 No Azure Active Directory (Azure AD), é concedido a todos os utilizadores um conjunto de permissões predefinidas. O acesso de um utilizador consiste no tipo de utilizador, nas suas [atribuições de papel](active-directory-users-assign-role-azure-portal.md)e na sua propriedade de objetos individuais. Este artigo descreve essas permissões predefinidas e contém uma comparação entre as predefinições do utilizador membro e convidado. As permissões do utilizador predefinidas só podem ser alteradas nas definições do utilizador em Azure AD.
@@ -48,19 +48,18 @@ As permissões por predefinição para os utilizadores membros podem ser restrin
 Permissão | Explicação da definição
 ---------- | ------------
 Os utilizadores podem registar a aplicação | Definir esta opção para Não impede os utilizadores de criar registos de aplicações. A capacidade pode então ser concedida a indivíduos específicos adicionando-os à função de Desenvolvedor de Aplicações.
-Permitir que os utilizadores conectem o trabalho ou a conta escolar com o LinkedIn | Definir esta opção para Não impede que os utilizadores conectem o seu trabalho ou conta escolar com a sua conta LinkedIn. Para mais informações, consulte [a partilha e consentimento de contactos da conta LinkedIn.](../users-groups-roles/linkedin-user-consent.md)
-Capacidade de criar grupos de segurança | Definir esta opção para Não impede que os utilizadores criem grupos de segurança. Os administradores globais e os administradores de utilizadores ainda podem criar grupos de segurança. Veja [Cmdlets do Azure Active Directory para configurar definições de grupo](../users-groups-roles/groups-settings-cmdlets.md) para saber como.
-Capacidade de criar grupos Microsoft 365 | Definir esta opção para No impede os utilizadores de criar grupos Microsoft 365. Definir esta opção para Alguns permite que um conjunto selecionado de utilizadores crie grupos Microsoft 365. Os administradores globais e os administradores de utilizadores ainda poderão criar grupos Microsoft 365. Veja [Cmdlets do Azure Active Directory para configurar definições de grupo](../users-groups-roles/groups-settings-cmdlets.md) para saber como.
+Permitir que os utilizadores conectem o trabalho ou a conta escolar com o LinkedIn | Definir esta opção para Não impede que os utilizadores conectem o seu trabalho ou conta escolar com a sua conta LinkedIn. Para mais informações, consulte [a partilha e consentimento de contactos da conta LinkedIn.](../enterprise-users/linkedin-user-consent.md)
+Capacidade de criar grupos de segurança | Definir esta opção para Não impede que os utilizadores criem grupos de segurança. Os administradores globais e os administradores de utilizadores ainda podem criar grupos de segurança. Veja [Cmdlets do Azure Active Directory para configurar definições de grupo](../enterprise-users/groups-settings-cmdlets.md) para saber como.
+Capacidade de criar grupos Microsoft 365 | Definir esta opção para No impede os utilizadores de criar grupos Microsoft 365. Definir esta opção para Alguns permite que um conjunto selecionado de utilizadores crie grupos Microsoft 365. Os administradores globais e os administradores de utilizadores ainda poderão criar grupos Microsoft 365. Veja [Cmdlets do Azure Active Directory para configurar definições de grupo](../enterprise-users/groups-settings-cmdlets.md) para saber como.
 Restringir o acesso ao portal de administração do Azure AD | Definir esta opção para Não permite que os não administradores utilizem o portal de administração AD Azure para ler e gerir os recursos Azure AD. Sim, restringe todos os não administradores de acederem a quaisquer dados AD do Azure no portal da administração.<p>**Nota:** esta definição não restringe o acesso aos dados AD do Azure utilizando o PowerShell ou outros clientes, como o Visual Studio.Quando definido para Sim, para conceder a um utilizador específico não administrador a capacidade de usar o portal de administração AD Azure atribuir qualquer papel administrativo, como o papel de Leitores de Diretório.<p>Esta função permite a leitura de informações básicas do diretório, que os utilizadores membros têm por padrão (os hóspedes e os principais de serviço não).
 Capacidade de ler outros utilizadores | Esta definição só está disponível no PowerShell. A colocação desta bandeira em $false impede que todos os não administradores leiam a informação do utilizador a partir do diretório. Esta bandeira não impede a leitura de informações dos utilizadores noutros serviços da Microsoft, como o Exchange Online. Esta definição destina-se a circunstâncias especiais, e não é recomendada a colocação desta bandeira $false.
-
 
 ## <a name="restrict-guest-users-default-permissions"></a>Restringir permissões por defeito dos utilizadores de hóspedes
 
 As permissões por predefinição para utilizadores convidados podem ser restringidas das seguintes formas:
 
->[!NOTE] 
->A definição de restrições de **acesso ao utilizador dos Hóspedes** substituiu as **permissões dos utilizadores do Guest são** de definição limitada. Para obter orientações sobre a utilização desta funcionalidade, consulte [permissões de acesso ao hóspede (pré-visualização) no Azure Ative Directory](../users-groups-roles/users-restrict-guest-permissions.md).
+>[!NOTE]
+>A definição de restrições de acesso ao utilizador dos hóspedes substituiu as **permissões dos utilizadores do Guest são** de definição limitada. Para obter orientações sobre a utilização desta funcionalidade, consulte [permissões de acesso ao hóspede (pré-visualização) no Azure Ative Directory](../enterprise-users/users-restrict-guest-permissions.md).
 
 Permissão | Explicação da definição
 ---------- | ------------
@@ -143,7 +142,7 @@ Os utilizadores podem realizar as seguintes ações em grupos de propriedade.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para saber mais sobre a definição de restrições de acesso ao utilizador dos hóspedes, consulte [permissões de acesso ao hóspede (pré-visualização) em Azure Ative Directory](../users-groups-roles/users-restrict-guest-permissions.md).
+* Para saber mais sobre a definição de restrições de acesso ao utilizador dos hóspedes, consulte [permissões de acesso ao hóspede (pré-visualização) em Azure Ative Directory](../enterprise-users/users-restrict-guest-permissions.md).
 * Para saber mais sobre como atribuir funções de administrador AZure, consulte [atribuir um utilizador às funções de administrador no Azure Ative Directory](active-directory-users-assign-role-azure-portal.md)
 * Para saber mais sobre como o Microsoft Azure controla o acesso aos recursos, consulte [Noções sobre o acesso aos recursos no Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Para obter mais informações sobre como o Azure Active Directory está relacionado com a sua subscrição do Azure, veja [Como as subscrições do Azure estão associadas ao Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)

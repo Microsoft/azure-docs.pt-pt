@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 5fdce791ba8848b93a8457f3738392b1f5f15508
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b990fc7282cd986b0903fb1f33114a164be1c191
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801805"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366688"
 ---
 # <a name="how-provisioning-works"></a>Como funciona o aprovisionamento
 
@@ -65,15 +65,15 @@ Para o fornecimento de saída da Azure AD a uma aplicação SaaS, confiar nas [a
 
 * **Os grupos.** Com um plano de licença Azure AD Premium, pode utilizar grupos para atribuir acesso a uma aplicação SaaS. Em seguida, quando o âmbito de provisionamento é definido apenas para **utilizadores e grupos atribuídos,** o serviço de fornecimento de AD AZure irá prestar ou desatar utilizadores com base no facto de serem membros de um grupo que está atribuído à aplicação. O objeto de grupo em si não é a provisionado a menos que a aplicação suporte objetos de grupo. Certifique-se de que os grupos atribuídos à sua aplicação têm a propriedade "SecurityEnabled" definida como "True".
 
-* **Grupos dinâmicos.** O serviço de fornecimento de utilizadores Azure AD pode ler e prestar aos utilizadores em [grupos dinâmicos.](../users-groups-roles/groups-create-rule.md) Tenha em mente estas ressalvas e recomendações:
+* **Grupos dinâmicos.** O serviço de fornecimento de utilizadores Azure AD pode ler e prestar aos utilizadores em [grupos dinâmicos.](../enterprise-users/groups-create-rule.md) Tenha em mente estas ressalvas e recomendações:
 
   * Os grupos dinâmicos podem impactar o desempenho do fornecimento de ponta a ponta das aplicações Azure AD para SaaS.
 
-  * A rapidez com que um utilizador num grupo dinâmico é a provisionado ou desavisionado numa aplicação SaaS depende da rapidez com que o grupo dinâmico pode avaliar as mudanças de adesão. Para obter informações sobre como verificar o estado de processamento de um grupo dinâmico, consulte o estado de [processamento de verificação de uma regra de adesão](../users-groups-roles/groups-create-rule.md).
+  * A rapidez com que um utilizador num grupo dinâmico é a provisionado ou desavisionado numa aplicação SaaS depende da rapidez com que o grupo dinâmico pode avaliar as mudanças de adesão. Para obter informações sobre como verificar o estado de processamento de um grupo dinâmico, consulte o estado de [processamento de verificação de uma regra de adesão](../enterprise-users/groups-create-rule.md).
 
   * Quando um utilizador perde a adesão ao grupo dinâmico, é considerado um evento de desavisionamento. Considere este cenário ao criar regras para grupos dinâmicos.
 
-* **Grupos aninhados.** O serviço de fornecimento de utilizadores Azure AD não pode ler ou providenciar utilizadores em grupos aninhados. O serviço só pode ler e providenciar aos utilizadores que sejam membros imediatos de um grupo explicitamente designado. Esta limitação de "atribuições baseadas em grupo a aplicações" também afeta uma única sessão de sessão (ver [Utilização de um grupo para gerir o acesso às aplicações saaS).](../users-groups-roles/groups-saasapps.md) Em vez disso, atribua diretamente ou de outra forma [o âmbito nos](define-conditional-rules-for-provisioning-user-accounts.md) grupos que contêm os utilizadores que precisam de ser provisionados.
+* **Grupos aninhados.** O serviço de fornecimento de utilizadores Azure AD não pode ler ou providenciar utilizadores em grupos aninhados. O serviço só pode ler e providenciar aos utilizadores que sejam membros imediatos de um grupo explicitamente designado. Esta limitação de "atribuições baseadas em grupo a aplicações" também afeta uma única sessão de sessão (ver [Utilização de um grupo para gerir o acesso às aplicações saaS).](../enterprise-users/groups-saasapps.md) Em vez disso, atribua diretamente ou de outra forma [o âmbito nos](define-conditional-rules-for-provisioning-user-accounts.md) grupos que contêm os utilizadores que precisam de ser provisionados.
 
 ### <a name="attribute-based-scoping"></a>Scoping baseado em atributos 
 
@@ -184,12 +184,12 @@ Certifique-se de que tem o mapeamento *ativo* para a sua aplicação. Se utiliza
 
 Os seguintes cenários desencadearão um desativação ou uma eliminação: 
 * Um utilizador é eliminado suavemente em Azure AD (enviado para o caixote do lixo de reciclagem / Propriedade AccountEnabled definida como falsa).
-    30 dias após a perda de um utilizador em Azure AD, serão permanentemente eliminados do arrendatário. Neste momento, o serviço de fornecimento enviará um pedido de DELETE para eliminar permanentemente o utilizador na aplicação. A qualquer momento durante a janela de 30 dias, pode [eliminar manualmente um utilizador permanentemente](../fundamentals/active-directory-users-restore.md), o que envia um pedido de eliminação para a aplicação.
+    30 dias após a perda de um utilizador em Azure AD, serão permanentemente eliminados do arrendatário. Neste momento, o serviço de fornecimento enviará um pedido de DELETE para eliminar permanentemente o utilizador na aplicação. A qualquer momento durante a janela de 30 dias, pode [eliminar manualmente um utilizador permanentemente](../fundamentals/active-directory-users-restore.md), o que envia um pedido de eliminação para a aplicação.
 * Um utilizador é permanentemente eliminado / removido do caixote do lixo em Azure AD.
 * Um utilizador não é atribuído a partir de uma aplicação.
 * Um utilizador vai de âmbito para fora do alcance (já não passa um filtro de escotagem).
     
-Por predefinição, o serviço de fornecimento AZure AD elimina ou desativa os utilizadores que ficam fora de alcance. Se quiser anular este comportamento predefinido, pode definir uma bandeira para [saltar as exclusões fora de alcance.](skip-out-of-scope-deletions.md)
+Por predefinição, o serviço de fornecimento AZure AD elimina ou desativa os utilizadores que ficam fora de alcance. Se quiser anular este comportamento predefinido, pode definir uma bandeira para [saltar as exclusões fora de alcance.](skip-out-of-scope-deletions.md)
 
 Se ocorrer um dos quatro eventos acima e a aplicação-alvo não suportar eliminações suaves, o serviço de fornecimento enviará um pedido de DELETE para eliminar permanentemente o utilizador da aplicação.
 

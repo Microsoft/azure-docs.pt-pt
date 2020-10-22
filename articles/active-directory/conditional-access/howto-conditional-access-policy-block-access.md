@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e57da384253912a875bacbc5f43aa9f9b99b45b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84e0801daa5bf83889be87987d440e377287b5ea
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265991"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366195"
 ---
 # <a name="conditional-access-block-access"></a>Acesso Condicional: Acesso ao bloco
 
@@ -32,7 +32,7 @@ Políticas como estas podem ter efeitos colaterais não intencionais. Os testes 
 As políticas de acesso condicional são ferramentas poderosas, recomendamos excluir as seguintes contas da sua política:
 
 * **Acesso de emergência** ou contas **de break-glass** para evitar o bloqueio de conta em todo o inquilino. No cenário improvável de todos os administradores estarem bloqueados fora do seu inquilino, a sua conta administrativa de acesso de emergência pode ser usada para entrar no arrendatário tomar medidas para recuperar o acesso.
-   * Mais informações podem ser encontradas no artigo, [Gerir contas de acesso de emergência em Azure AD](../users-groups-roles/directory-emergency-access.md).
+   * Mais informações podem ser encontradas no artigo, [Gerir contas de acesso de emergência em Azure AD](../roles/security-emergency-access.md).
 * **Contas de serviço** e **principais serviços**, como a Conta Azure AD Connect Sync. As contas de serviço são contas não interativas que não estão ligadas a nenhum utilizador em particular. Normalmente são utilizados por serviços back-end que permitem o acesso programático a aplicações, mas também são usados para iniciar seduções em sistemas para fins administrativos. Contas de serviço como estas devem ser excluídas, uma vez que o MFA não pode ser concluído programáticamente. As chamadas efetuadas pelos principais serviços não são bloqueadas pelo Acesso Condicional.
    * Se a sua organização tiver estas contas em uso em scripts ou código, considere substituí-las por [identidades geridas.](../managed-identities-azure-resources/overview.md) Como solução temporária, pode excluir estas contas específicas da política de base.
 

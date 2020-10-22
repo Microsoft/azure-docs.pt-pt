@@ -13,19 +13,19 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: d5699c1d08df8364f33371f911ea3be892b4b285
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 949ddae903a53957f62b89a01ce477edb92917c1
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90528133"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92365917"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>Modo de dispositivo partilhado para dispositivos iOS
 
 > [!NOTE]
 > Esta funcionalidade está em pré-visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Os trabalhadores da firstline, como os associados de retalho, os tripulantes de voo e os trabalhadores de serviços de campo, usam frequentemente um dispositivo móvel partilhado para realizar o seu trabalho. Estes dispositivos partilhados podem apresentar riscos de segurança se os seus utilizadores partilharem as suas palavras-passe ou PINs, intencionalmente ou não, para acederem a dados de clientes e negócios no dispositivo partilhado.
 
@@ -43,7 +43,7 @@ Para criar uma aplicação de modo de dispositivo compartilhado, os desenvolvedo
 
 1. **Os administradores de dispositivos** preparam o dispositivo para ser partilhado utilizando um fornecedor de gestão de dispositivos móveis (MDM) como o Microsoft Intune para gerir os dispositivos na sua organização. O MDM empurra a aplicação microsoft Authenticator para os dispositivos e liga o "Modo Partilhado" para cada dispositivo através de uma atualização de perfil para o dispositivo. Esta definição de Modo Partilhado é o que altera o comportamento das aplicações suportadas no dispositivo. Esta configuração do fornecedor MDM define o modo de dispositivo partilhado para o dispositivo e permite o [plug-in Microsoft Enterprise SSO para dispositivos Apple](apple-sso-plugin.md) que é necessário para o modo de dispositivo partilhado.
 
-1. [**Requerido apenas durante a Pré-visualização Pública**] Um utilizador com [função de Administrador de Dispositivos Cloud](../users-groups-roles/directory-assign-admin-roles.md#cloud-device-administrator) deve então lançar a [aplicação Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) e juntar o seu dispositivo à organização.
+1. [**Requerido apenas durante a Pré-visualização Pública**] Um utilizador com [função de Administrador de Dispositivos Cloud](../roles/permissions-reference.md#cloud-device-administrator) deve então lançar a [aplicação Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) e juntar o seu dispositivo à organização.
 
     Para configurar a adesão aos seus papéis organizacionais no portal Azure: **Azure Ative Directory**  >  **Roles and Administrators**Cloud  >  **Device Administrators**
 

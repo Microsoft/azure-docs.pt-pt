@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 648d456534e86075a243a84ac0485d95a7f28479
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1873e21db1c586453dc9e9fe890268d8797303a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843112"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367011"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Tutorial: Investigar incidentes com Azure Sentinel
 
 > [!IMPORTANT]
 > O gráfico de investigação está atualmente em pré-visualização pública.
 > Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção.
-> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 Este tutorial ajuda-o a investigar incidentes com a Azure Sentinel. Depois de ligar as suas fontes de dados ao Azure Sentinel, pretende ser notificado quando algo suspeito acontece. Para que possa fazê-lo, o Azure Sentinel permite criar regras avançadas de alerta, que geram incidentes que pode atribuir e investigar.
@@ -42,7 +42,7 @@ Um incidente pode incluir vários alertas. É uma agregação de todas as provas
 ## <a name="prerequisites"></a>Pré-requisitos
 - Só poderá investigar o incidente se utilizar os campos de mapeamento da entidade quando configurar a sua regra de análise. O gráfico da investigação requer que o seu incidente original inclua entidades.
 
-- Se tiver um utilizador convidado que precise de atribuir incidentes, o utilizador deve ser atribuído ao papel de [Leitor de Diretório](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) no seu inquilino Azure AD. Os utilizadores regulares (não convidados) têm esta função atribuída por padrão.
+- Se tiver um utilizador convidado que precise de atribuir incidentes, o utilizador deve ser atribuído ao papel de [Leitor de Diretório](../active-directory/roles/permissions-reference.md#directory-readers) no seu inquilino Azure AD. Os utilizadores regulares (não convidados) têm esta função atribuída por padrão.
 
 ## <a name="how-to-investigate-incidents"></a>Como investigar incidentes
 

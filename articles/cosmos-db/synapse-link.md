@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 97f24537f2fa68f1a9be83e2c9abdc8101edb8d0
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 731e23c99a92d8f7d3558ea111d19f179db61da4
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014550"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367623"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>O que é Azure Synapse Link para Azure Cosmos DB (Preview)?
 
@@ -120,8 +120,6 @@ O Synapse Link não é recomendado se estiver à procura de requisitos tradicion
 
 * Atualmente, a loja analítica só pode ser ativada para novos contentores. Para utilizar a loja analítica para recipientes existentes, migrar dados dos seus recipientes existentes para novos recipientes utilizando [ferramentas de migração Azure Cosmos DB](cosmosdb-migrationchoices.md). Pode ativar o Synapse Link em novas e existentes contas DB do Azure Cosmos.
 
-* O acesso à loja analítica Azure Cosmos DB com servidor Sinaapse SQL está atualmente sob pré-visualização fechada. Para solicitar acesso, envie um e-mail para a [equipa do Azure Synapse Link.](mailto:cosmosdbsynapselink@microsoft.com)
-
 * Para os recipientes com loja analítica ligada, a cópia de segurança automática e a restauração dos seus dados na loja analítica não são suportadas neste momento. Quando o Synapse Link estiver ativado numa conta de base de [dados,](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore) a Azure Cosmos DB continuará a receber automaticamente cópias de segurança dos seus dados na loja transacional (apenas) de contentores num intervalo de backup programado, como sempre. É importante notar que quando um recipiente com loja analítica ligada é restaurado para uma nova conta, o recipiente será restaurado apenas com uma loja transacional e sem loja analítica ativada. 
 
 * O acesso à loja de análiseS DB da Azure Cosmos com o Sinaapse SQL abastado não está disponível atualmente.
@@ -134,7 +132,7 @@ O modelo de faturação da Azure Synapse Link inclui os custos incorridos com a 
 
 Para saber mais, consulte os seguintes documentos:
 
-* [Visão geral da loja analítica Azure Cosmos DB](analytical-store-introduction.md)
+* [Descrição geral do arquivo analítico do Azure Cosmos DB](analytical-store-introduction.md)
 
 * [Introdução ao Azure Synapse Link para o Azure Cosmos DB](configure-synapse-link.md)
  
