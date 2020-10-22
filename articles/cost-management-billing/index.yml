@@ -10,13 +10,13 @@ metadata:
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 01/01/2020
-  ms.openlocfilehash: 66d082c844e3c9c78bf8dbec09e52f8efaf1ee57
-  ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+  ms.date: 11/21/2020
+  ms.openlocfilehash: 4b3308b7475d9f1adc5446907e19d363fc4faca0
+  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/16/2020
-  ms.locfileid: "92132283"
+  ms.lasthandoff: 10/22/2020
+  ms.locfileid: "92367028"
 landingContent:
 - title: Analisar os seus custos
   linkLists:
@@ -72,14 +72,10 @@ landingContent:
     links:
     - text: Utilizar alertas de custos
       url: costs/cost-mgt-alerts-monitor-usage-spending.md
-    - text: Alocar custos
-      url: costs/allocate-costs.md
     - text: Ver e transferir a sua fatura do Azure
       url: understand/download-azure-invoice.md
     - text: Ver e transferir a utilização e os custos do Azure
       url: understand/download-azure-daily-usage.md
-    - text: Ver os encargos de serviços externos
-      url: understand/understand-azure-marketplace-charges.md
 - title: Otimizar os seus custos
   linkLists:
   - linkListType: concept
@@ -142,23 +138,3 @@ landingContent:
       url: understand/mca-download-tax-document.md
     - text: Pagar a fatura do Contrato de Cliente Microsoft
       url: understand/pay-bill.md
-- title: Comprar reservas
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Escolher uma reserva para comprar
-      url: reservations/determine-reservation-purchase.md
-    - text: Trocas e reembolsos das reservas
-      url: reservations/exchange-and-refund-azure-reservations.md
-  - linkListType: how-to-guide
-    links:
-    - text: Comprar uma reserva
-      url: reservations/prepare-buy-reservation.md
-    - text: Gerir reservas
-      url: reservations/manage-reserved-vm-instance.md
-    - text: Ver compras de reservas
-      url: reservations/view-purchase-refunds.md
-    - text: Estornar reservas
-      url: reservations/charge-back-usage.md
-    - text: Renovar reservas
-      url: reservations/reservation-renew.md
