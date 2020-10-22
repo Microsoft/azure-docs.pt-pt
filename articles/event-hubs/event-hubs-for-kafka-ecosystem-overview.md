@@ -3,12 +3,12 @@ title: Use o centro de eventos da aplicação Apache Kafka - Azure Event Hubs ! 
 description: Este artigo fornece informações sobre o suporte da Apache Kafka pela Azure Event Hubs.
 ms.topic: article
 ms.date: 09/25/2020
-ms.openlocfilehash: 2b101adf173f3d623bb85d811ba5832020313f14
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: d9aa8af30d5ef5e1a985e4d73a9d4a8921ac7d45
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327302"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369595"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Use hubs de eventos Azure a partir de aplicações Apache Kafka
 O Event Hubs fornece um ponto final compatível com as APIs de produtor e consumidor apache kafka ® que podem ser usadas pela maioria das aplicações de clientes Apache Kafka existentes como alternativa à gestão do seu próprio cluster Apache Kafka. O Event Hubs apoia os clientes APIs de produtor e consumidor da Apache Kafka na versão 1.0 ou superior.
@@ -62,7 +62,7 @@ O Azure Event Hubs oferece múltiplas opções para autorizar o acesso aos seus 
 #### <a name="oauth-20"></a>OAuth 2.0
 O Event Hubs integra-se com o Azure Ative Directory (Azure AD), que fornece um servidor de autorização centralizado compatível com **OAuth 2.0.** Com a Azure AD, pode utilizar o controlo de acesso baseado em funções (Azure RBAC) para conceder permissões finas às identidades do seu cliente. Pode utilizar esta funcionalidade com os seus clientes Kafka especificando **SASL_SSL** para o protocolo e  **OAUTHBEARER** para o mecanismo. Para obter mais informações sobre as funções e níveis de Azure para o acesso à deteção, consulte [o Acesso autorizado com a Azure AD](authorize-access-azure-active-directory.md).
 
-```xml
+```properties
 bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
 security.protocol=SASL_SSL
 sasl.mechanism=OAUTHBEARER
@@ -73,15 +73,19 @@ sasl.login.callback.handler.class=CustomAuthenticateCallbackHandler;
 #### <a name="shared-access-signature-sas"></a>Assinatura de acesso compartilhado (SAS)
 O Event Hubs também fornece as **Assinaturas de Acesso Compartilhado (SAS)** para acesso delegado aos Centros de Eventos para recursos kafka. Autorizar o acesso utilizando o mecanismo baseado em fichas OAuth 2.0 proporciona uma segurança superior e facilidade de utilização sobre o SAS. As funções incorporadas também podem eliminar a necessidade de autorização baseada em ACL, que tem de ser mantida e gerida pelo utilizador. Pode utilizar esta funcionalidade com os seus clientes Kafka especificando **SASL_SSL** para o protocolo e **a PLAIN** para o mecanismo. 
 
-```xml
+```properties
 bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
 security.protocol=SASL_SSL
 sasl.mechanism=PLAIN
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
 ```
 
+> [!IMPORTANT]
+> `{YOUR.EVENTHUBS.CONNECTION.STRING}`Substitua-a pela cadeia de ligação para o seu espaço de nomes 'Centros de Eventos'. Para obter instruções sobre a obtenção da cadeia de ligação, consulte [obter uma cadeia de ligação Dos Centros de Eventos](event-hubs-get-connection-string.md). Aqui está uma configuração de exemplo: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
+
 > [!NOTE]
 > Ao utilizar a autenticação SAS com clientes Kafka, as ligações estabelecidas não são desligadas quando a tecla SAS é regenerada. 
+
 
 #### <a name="samples"></a>Amostras 
 Para um **tutorial** com instruções passo a passo para criar um centro de eventos e acessá-lo usando SAS ou OAuth, consulte [Quickstart: Streaming de dados com Centros de Eventos utilizando o protocolo Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md).

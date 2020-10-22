@@ -14,12 +14,12 @@ ms.date: 10/22/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b3070a1296b368ea2c56038ec696942416a6fe2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d9fdc44681c8773d7b6f724174a74e76e57939e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84743886"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369765"
 ---
 # <a name="create-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>Criar uma revisão de acesso das funções AZURE AD na Gestão de Identidade Privilegiada
 
@@ -29,7 +29,7 @@ Este artigo descreve como criar uma ou mais avaliações de acesso para funçõe
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[Administrador privilegiado](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
+[Administrador privilegiado](../roles/permissions-reference.md#privileged-role-administrator)
 
 ## <a name="open-access-reviews"></a>Comentários de acesso aberto
 

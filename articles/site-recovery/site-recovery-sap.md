@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
-ms.openlocfilehash: 7b4a622de142fd44b64015c8238f44dafc34ce72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69f0a20bdcba23d947e3d1b573c1a359da245161
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86133694"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369425"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configurar a recuperação de desastres para uma implementação de aplicativos SAP NetWeaver de vários níveis
 
@@ -39,11 +39,11 @@ Antes de começar, certifique-se de que sabe como fazer as seguintes tarefas:
 
 Pode utilizar a Recuperação do Local para implementar uma solução de recuperação de desastres nos seguintes cenários:
 * Tem sistemas SAP a funcionar num datacenter Azure, e está a reproduzi-los para outro datacenter Azure (recuperação de desastres Azure-to-Azure). 
-   Para mais informações, consulte [a arquitetura de replicação Azure-to-Azure.](https://aka.ms/asr-a2a-architecture)
+   Para mais informações, consulte [a arquitetura de replicação Azure-to-Azure.](./azure-to-azure-architecture.md)
 * Tem sistemas SAP a funcionar em servidores VMware (ou físicos) no local. Também está a replicar os sistemas SAP para um local de recuperação de desastres num datacenter Azure (recuperação de desastres VMware-to-Azure). 
-   Este cenário requer alguns componentes adicionais. Para mais informações, consulte [a arquitetura de replicação VMware-to-Azure](https://aka.ms/asr-v2a-architecture).
+   Este cenário requer alguns componentes adicionais. Para mais informações, consulte [a arquitetura de replicação VMware-to-Azure](./vmware-azure-architecture.md).
 * Tem sistemas SAP a funcionar no hiper-V no local. Também está a replicar os sistemas SAP para um local de recuperação de desastres num datacenter Azure (recuperação de desastres Hiper-V-a-Azure).
-   Este cenário requer alguns componentes adicionais. Para obter mais informações, consulte [a arquitetura de replicação Hyper-V-to-Azure.](https://aka.ms/asr-h2a-architecture)
+   Este cenário requer alguns componentes adicionais. Para obter mais informações, consulte [a arquitetura de replicação Hyper-V-to-Azure.](./hyper-v-azure-architecture.md)
 
 Neste artigo, usamos um cenário de recuperação de desastres **Azure-to-Azure.** O cenário mostra-lhe as capacidades de recuperação de desastres SAP da Recuperação do Local. Como a replicação da Recuperação do Site não é específica da aplicação, espera-se que o processo descrito também se aplique a outros cenários.
 

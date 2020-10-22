@@ -3,12 +3,12 @@ title: Perguntas frequentes - Azure Event Hubs Microsoft Docs
 description: Este artigo fornece uma lista de perguntas frequentes (FAQ) para Azure Event Hubs e suas respostas.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: 65b6fd40c66ec055a5b80ccea9d2dd9ba1510d54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94ddfbf0803ea7ab53b1b42b977a9ebdd2354bc5
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729105"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369612"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Os Centros de Eventos fazem perguntas frequentes
 
@@ -132,7 +132,7 @@ bootstrap.servers={YOUR. OS EVENTHUBS. FQDN}:9093 request.timeout.ms=60000 secur
 
 Exemplo:
 
-bootstrap.servers=dummynamespace.servicebus.windows.net:9093 request.timeout.ms=60000 security.protocol=SASL_SSL sasl.mechanism=PLAIN sasl.jaas.config=org.apache.kafka.common.security.plain.Plain.PlainLoginModule requirou username="$ConnectionString" password="Endpoint=sb://dummynamespace.servicebus.windows.net/; SharedAccessKeyName=DummyAccessKeyName; SharedAccessKey=5dOntTRytoC24opYThisAsit3is2B+OGY1US/fuL3ly=";
+bootstrap.servers=dummynamespace.servicebus.windows.net:9093 request.timeout.ms=60000 security.protocol=SASL_SSL sasl.mechanism=PLAIN sasl.jaas.config=org.apache.kafka.common.security.plain.Plain.PlainLoginModule requirou username="$ConnectionString" password="Endpoint=sb://dummynamespace.servicebus.windows.net/; SharedAccessKeyName=DummyAccessKeyName; SharedAccessKey=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 Nota: Se sasl.jaas.config não for uma configuração suportada no seu quadro, encontre as configurações que são usadas para definir o nome de utilizador e palavra-passe SASL e use-as em vez disso. Desa estama de utilizador para $ConnectionString e a palavra-passe na sua cadeia de ligação 'Centro de Eventos'.
 

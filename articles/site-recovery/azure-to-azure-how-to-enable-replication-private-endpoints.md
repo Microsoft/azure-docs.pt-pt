@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2020
 ms.custom: references_regions
-ms.openlocfilehash: 37784c4a294ccf296818f2afb1a8a345cb9d813e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2db8d09511385039ea79ad1ed1f50177156f69c8
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658248"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369935"
 ---
 # <a name="replicate-machines-with-private-endpoints"></a>Máquinas de replicar com pontos finais privados
 
@@ -127,7 +127,7 @@ Pode ser utilizado um ponto final privado para o Azure Storage. Criar pontos fin
 > [!NOTE]
 > O ponto final privado para armazenamento só pode ser criado numa conta de armazenamento **V2 para fins** gerais. Para obter informações sobre preços, consulte [os preços normais](https://azure.microsoft.com/pricing/details/storage/page-blobs/)da página blob .
 
-Siga as orientações para a [criação de armazenamento privado](../private-link/create-private-endpoint-storage-portal.md#create-your-private-endpoint) para criar uma conta de armazenamento com ponto final privado. Certifique-se de selecionar **Sim** à integração com a zona privada de DNS. Selecione uma zona DNS já criada ou crie uma nova.
+Siga as orientações para a [criação de armazenamento privado](../private-link/tutorial-private-endpoint-storage-portal.md#create-storage-account-with-a-private-endpoint) para criar uma conta de armazenamento com ponto final privado. Certifique-se de selecionar **Sim** à integração com a zona privada de DNS. Selecione uma zona DNS já criada ou crie uma nova.
 
 ## <a name="grant-required-permissions-to-the-vault"></a>Grant exigiu permissões para o cofre.
 

@@ -13,16 +13,16 @@ ms.subservice: pim
 ms.date: 09/16/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f4d1e0d43758645d43843417eadf0ce21d43cb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69884b9e07172e9b25f4c14884be8713da23cbdb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91533847"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369833"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Atribuir funções de Azure AD em Gestão de Identidade Privilegiada
 
-Com o Azure Ative Directory (Azure AD), um administrador global pode fazer atribuições **permanentes** de funções de administrador aZure AD. Estas atribuições de funções podem ser criadas utilizando o [portal Azure](../users-groups-roles/directory-assign-admin-roles.md) ou utilizando [comandos PowerShell](/powershell/module/azuread#directory_roles).
+Com o Azure Ative Directory (Azure AD), um administrador global pode fazer atribuições **permanentes** de funções de administrador aZure AD. Estas atribuições de funções podem ser criadas utilizando o [portal Azure](../roles/permissions-reference.md) ou utilizando [comandos PowerShell](/powershell/module/azuread#directory_roles).
 
 O serviço Azure AD Privileged Identity Management (PIM) também permite que os administradores de funções privilegiadas façam atribuições de funções de administração permanentes. Além disso, os administradores de funções privilegiados podem tornar os utilizadores **elegíveis** para funções de administração Azure AD. Um administrador elegível pode ativar o papel quando precisar, e as suas permissões expiram assim que terminarem.
 
@@ -30,7 +30,7 @@ O serviço Azure AD Privileged Identity Management (PIM) também permite que os 
 
 A partir de novembro de 2019, a parte de funções da AZure AD da Gestão de Identidade Privilegiada está a ser atualizada para uma nova versão que corresponde às experiências para funções de recursos Azure. Isto cria funcionalidades adicionais, bem como [alterações à API existente.](azure-ad-roles-features.md#api-changes) Enquanto a nova versão está a ser lançada, quais os procedimentos que segue neste artigo dependem da versão de Gestão de Identidade Privilegiada que tem atualmente. Siga os passos nesta secção para determinar qual a versão da Gestão de Identidade Privilegiada que tem. Depois de conhecer a sua versão de Gestão de Identidade Privilegiada, pode selecionar os procedimentos deste artigo que correspondam a essa versão.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com/) com um utilizador que esteja na [função de administrador](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) privilegiado.
+1. Inscreva-se no [portal Azure](https://portal.azure.com/) com um utilizador que esteja na [função de administrador](../roles/permissions-reference.md#privileged-role-administrator) privilegiado.
 1. Open **Azure AD Gestão de Identidade Privilegiada.** Se tiver um banner no topo da página geral, siga as instruções no separador **Nova versão** deste artigo. Caso contrário, siga as instruções no separador **versão anterior.**
 
   [![Selecione Azure AD > Gestão de Identidade Privilegiada.](media/pim-how-to-add-role-to-user/pim-new-version.png)](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
@@ -41,7 +41,7 @@ A partir de novembro de 2019, a parte de funções da AZure AD da Gestão de Ide
 
 Siga estes passos para tornar um utilizador elegível para um papel de administrador AZure AD.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com/) com um utilizador que é membro da função de administrador de [função Privileged.](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
+1. Inscreva-se no [portal Azure](https://portal.azure.com/) com um utilizador que é membro da função de administrador de [função Privileged.](../roles/permissions-reference.md#privileged-role-administrator)
 
     Para obter informações sobre como conceder a outro administrador acesso à gestão da Gestão de Identidade Privilegiada, consulte [o Acesso de Concessão a outros administradores para gerir a Gestão de Identidade Privilegiada.](pim-how-to-give-access-to-pim.md)
 
@@ -77,7 +77,7 @@ Siga estes passos para tornar um utilizador elegível para um papel de administr
 
 ## <a name="assign-a-role-with-restricted-scope"></a>Atribuir uma função com âmbito restrito
 
-Para determinadas funções, o âmbito das permissões concedidas pode ser restringido a uma única unidade de administração, ao principal serviço ou à aplicação. Este procedimento é um exemplo se atribuir uma função que tenha o âmbito de uma unidade administrativa. Para obter uma lista de funções que suportam o âmbito através de uma unidade administrativa, consulte [atribuir funções a uma unidade administrativa](../users-groups-roles/roles-admin-units-assign-roles.md). Esta funcionalidade está neste momento a ser lançada para organizações Azure AD.
+Para determinadas funções, o âmbito das permissões concedidas pode ser restringido a uma única unidade de administração, ao principal serviço ou à aplicação. Este procedimento é um exemplo se atribuir uma função que tenha o âmbito de uma unidade administrativa. Para obter uma lista de funções que suportam o âmbito através de uma unidade administrativa, consulte [atribuir funções a uma unidade administrativa](../roles/admin-units-assign-roles.md). Esta funcionalidade está neste momento a ser lançada para organizações Azure AD.
 
 1. Inscreva-se no centro de administração do [Azure Ative Com](https://aad.portal.azure.com) permissões privilegiadas de Administrador de Função.
 
@@ -97,7 +97,7 @@ Para determinadas funções, o âmbito das permissões concedidas pode ser restr
    - Selecione o âmbito de função (neste caso, unidades administrativas)
    - Selecione uma unidade administrativa para o âmbito
 
-Para obter mais informações sobre a criação de unidades administrativas, consulte [Adicionar e remover unidades administrativas.](../users-groups-roles/roles-admin-units-manage.md)
+Para obter mais informações sobre a criação de unidades administrativas, consulte [Adicionar e remover unidades administrativas.](../roles/admin-units-manage.md)
 
 ## <a name="update-or-remove-an-existing-role-assignment"></a>Atualizar ou remover uma atribuição de função existente
 

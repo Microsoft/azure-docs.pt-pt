@@ -11,19 +11,19 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6adf7e6c5abbba3c018f9a03b5167aec7537c704
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b21f14bc6f80445d1119f34d24281d764fff38c8
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87908965"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369170"
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Grupos dinâmicos e colaboração B2B do Diretório Ativo Azure
 
 ## <a name="what-are-dynamic-groups"></a>O que são grupos dinâmicos?
 A configuração dinâmica da adesão ao grupo de segurança para o Azure Ative Directory (Azure AD) está disponível [no portal Azure](https://portal.azure.com). Os administradores podem definir regras para povoar grupos que são criados em Azure AD com base em atributos do utilizador (como userType, departamento ou país/região). Os membros podem ser automaticamente adicionados ou removidos de um grupo de segurança com base nos seus atributos. Estes grupos podem fornecer acesso a aplicações ou recursos em nuvem (sites, documentos sharePoint) e atribuir licenças aos membros. Leia mais sobre grupos dinâmicos em [grupos dedicados no Azure Ative Directory](../active-directory-accessmanagement-dedicated-groups.md).
 
-O [licenciamento Azure AD Premium P1 ou P2](https://azure.microsoft.com/pricing/details/active-directory/) apropriado é necessário para criar e utilizar grupos dinâmicos. Saiba mais no artigo [Crie regras baseadas em atributos para a adesão dinâmica do grupo no Azure Ative Directory](../users-groups-roles/groups-dynamic-membership.md).
+O [licenciamento Azure AD Premium P1 ou P2](https://azure.microsoft.com/pricing/details/active-directory/) apropriado é necessário para criar e utilizar grupos dinâmicos. Saiba mais no artigo [Crie regras baseadas em atributos para a adesão dinâmica do grupo no Azure Ative Directory](../enterprise-users/groups-dynamic-membership.md).
 
 ## <a name="creating-an-all-users-dynamic-group"></a>Criar um grupo dinâmico "todos os utilizadores"
 Você pode criar um grupo que contenha todos os utilizadores dentro de um inquilino usando uma regra de adesão. Quando os utilizadores são adicionados ou removidos do arrendatário no futuro, a adesão do grupo é ajustada automaticamente.
