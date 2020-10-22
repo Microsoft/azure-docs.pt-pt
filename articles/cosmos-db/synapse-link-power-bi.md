@@ -6,19 +6,16 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: acomet
-ms.openlocfilehash: 26a6ddf3ea3009c1463f40403c9d1860a7cb81f2
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 1157ca31a66e5df92ff28f5d7190993e51d7dd65
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126008"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367640"
 ---
 # <a name="use-power-bi-and-serverless-synapse-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link-preview"></a>Use power BI e serverless Synapse SQL pool para analisar os dados DB do Azure Cosmos com Synapse Link (pré-visualização) 
 
 Neste artigo, você aprende a construir uma piscina Sinaapse SQL sem servidor (que, anteriormente, foi referida como **SQL on-demand**) e vistas sobre Synapse Link para Azure Cosmos DB. Você vai consultar os contentores Azure Cosmos e, em seguida, construir um modelo com Power BI sobre essas vistas para refletir essa consulta.
-
-> [!NOTE]
-> A utilização da loja analítica Azure Cosmos DB com piscina SQL sem servidor está atualmente sob pré-visualização fechada. Para solicitar acesso, contacte a equipa DB da [Azure Cosmos.](mailto:cosmosdbsynapselink@microsoft.com)
 
 Neste cenário, utilizará dados falsos sobre as vendas de produtos Surface numa loja de retalho parceira. Irá analisar as receitas por loja com base na proximidade com as grandes famílias e no impacto da publicidade para uma semana específica. Neste artigo, cria **duas vistas chamadas RetailSales** e **StoreDemographics** e uma consulta entre eles. Pode obter os dados do produto da amostra deste [repo GitHub.](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData)
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 10/10/2020
 ms.author: alkohli
-ms.openlocfilehash: c841c96326f636e16f3b4f86fcb88a0962011c0f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8957d8982a3bfe1da2811dc10d0c3e77a72fc288
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976836"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367606"
 ---
 # <a name="azure-key-vault-integration-with-azure-stack-edge"></a>Integração do Azure Key Vault com Azure Stack Edge 
 
@@ -22,7 +22,7 @@ O Azure Key Vault está integrado com o recurso Azure Stack Edge para gestão se
 
 ## <a name="about-key-vault-and-azure-stack-edge"></a>Sobre o cofre key e Azure Stack Edge
 
-O serviço de nuvem Azure Key Vault é utilizado para armazenar e controlar de forma segura o acesso a fichas, senhas, certificados, chaves API e outros segredos. O Key Vault também facilita a criação e controlo das chaves de encriptação utilizadas para encriptar os seus dados. 
+O serviço de nuvem Azure Key Vault é utilizado para armazenar e controlar de forma segura o acesso a fichas, senhas, certificados, chaves API e outros segredos. O Key Vault também facilita a criação e controlo das chaves de encriptação utilizadas para encriptar os seus dados. Para obter mais informações sobre transações permitidas e encargos correspondentes, consulte [preços para a Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
 
 Para o serviço Azure Stack Edge, um dos segredos usados é a Chave de Integridade do Canal (CIK). Esta chave permite-lhe encriptar os seus segredos. Com a integração do cofre chave, o CIK está guardado de forma segura no cofre da chave. Para mais informações, consulte [Securely store secrets and keys](../key-vault/general/overview.md#securely-store-secrets-and-keys).
 
@@ -44,6 +44,8 @@ Um cofre chave é criado para o recurso Azure Stack Edge durante o processo de g
 - Pode optar por aceitar o nome de chave predefinido ou especificar um nome personalizado para o cofre de chaves. O nome do cofre deve ter entre 3 e 24 caracteres. Não pode usar um cofre que já está a ser utilizado. <!--The MSI is then used to authenticate to key vault to retrieve secrets.--> 
 
     ![MSI criado durante a criação de recursos Azure Stack Edge](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png)
+
+- Para navegar no cofre da chave Azure, vá às **Propriedades** do seu recurso Azure Stack Edge e selecione o nome do cofre da chave. 
 
 - Para evitar a eliminação acidental, está ativado um bloqueio de recursos no cofre da chave. Um soft-delete também é ativado no cofre da chave que permite que o cofre da chave seja restaurado dentro de 90 dias se houver uma eliminação acidental. Para obter mais informações, consulte [a visão geral do Azure Key Vault](../key-vault/general/soft-delete-overview.md)
 

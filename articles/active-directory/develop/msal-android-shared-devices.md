@@ -13,19 +13,19 @@ ms.date: 03/31/2020
 ms.author: marsma
 ms.reviewer: hahamil
 ms.custom: aaddev, identitypla | Azuretformtop40
-ms.openlocfilehash: d9874e27c21906512c2f6c841767b4d6591dbeaf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1bf6b33176bf7942fbd76fa86ecd61b4f24e154
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80550269"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366008"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Modo de dispositivo partilhado para dispositivos Android
 
 > [!NOTE]
 > Esta funcionalidade está em pré-visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Os trabalhadores da firstline, como os associados de retalho, os tripulantes de voo e os trabalhadores de serviços de campo, usam frequentemente um dispositivo móvel partilhado para fazer o seu trabalho. Isso torna-se problemático quando começam a partilhar palavras-passe ou números pin para aceder a dados de clientes e negócios no dispositivo partilhado.
 
@@ -36,7 +36,7 @@ O modo de dispositivo partilhado também fornece a gestão de identidade da Micr
 Para criar uma aplicação de modo de dispositivo compartilhado, os desenvolvedores e os administradores de dispositivos em nuvem trabalham em conjunto:
 
 - Os desenvolvedores escrevem uma aplicação de uma única conta (as aplicações de múltiplas contas não são suportadas no modo de dispositivo partilhado), adicionam `"shared_device_mode_supported": true` à configuração da aplicação e escrevem código para lidar com coisas como a assinatura do dispositivo partilhado.
-- Os administradores do dispositivo preparam o dispositivo para ser partilhado instalando a aplicação autenticadora e definindo o dispositivo para o modo partilhado utilizando a aplicação autenticadora. Apenas os utilizadores que estejam na função [de Administrador de Dispositivos cloud](../users-groups-roles/directory-assign-admin-roles.md#cloud-device-administrator-permissions) podem colocar um dispositivo em modo partilhado utilizando a [aplicação Authenticator](../user-help/user-help-auth-app-overview.md). Pode configurar a adesão aos seus papéis organizacionais no portal Azure via: **Azure Ative Directory**  >  **Roles and Administrators**  >  **Cloud Device Administrators**.
+- Os administradores do dispositivo preparam o dispositivo para ser partilhado instalando a aplicação autenticadora e definindo o dispositivo para o modo partilhado utilizando a aplicação autenticadora. Apenas os utilizadores que estejam na função [de Administrador de Dispositivos cloud](../roles/permissions-reference.md#cloud-device-administrator-permissions) podem colocar um dispositivo em modo partilhado utilizando a [aplicação Authenticator](../user-help/user-help-auth-app-overview.md). Pode configurar a adesão aos seus papéis organizacionais no portal Azure via: **Azure Ative Directory**  >  **Roles and Administrators**  >  **Cloud Device Administrators**.
 
  Este artigo centra-se principalmente no que os desenvolvedores devem pensar.
 

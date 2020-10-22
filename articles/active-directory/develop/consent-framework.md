@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/21/2020
 ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
-ms.openlocfilehash: a5e53c29c41b3c4a5a2dd1f421e128231aa5eec3
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 74321bc75fa760727e7896f47cdfc5b2929047e5
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327554"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366093"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Enquadramento do consentimento do Azure Active Directory
 
@@ -49,7 +49,7 @@ Os passos a seguir mostram-lhe como funciona a experiência de consentimento tan
 
 1. Após o consentimento do utilizador, um código de autorização é devolvido à sua aplicação, que é resgatada para adquirir um token de acesso e atualização. Para obter mais informações sobre este fluxo, consulte [o fluxo de código de autorização OAuth 2.0](v2-oauth2-auth-code-flow.md).
 
-1. Como administrador, também pode consentir com as permissões delegadas de uma aplicação em nome de todos os utilizadores do seu inquilino. O consentimento administrativo impede que o diálogo de consentimento apareça para cada utilizador do arrendatário, e pode ser feito no [portal Azure](https://portal.azure.com) pelos utilizadores com a função de administrador. Para saber quais as funções de administrador que podem consentir com permissões delegadas, consulte [permissões de função do Administrador em Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+1. Como administrador, também pode consentir com as permissões delegadas de uma aplicação em nome de todos os utilizadores do seu inquilino. O consentimento administrativo impede que o diálogo de consentimento apareça para cada utilizador do arrendatário, e pode ser feito no [portal Azure](https://portal.azure.com) pelos utilizadores com a função de administrador. Para saber quais as funções de administrador que podem consentir com permissões delegadas, consulte [permissões de função do Administrador em Azure AD](../roles/permissions-reference.md).
 
     **Para consentir com as permissões delegadas de uma aplicação**
 

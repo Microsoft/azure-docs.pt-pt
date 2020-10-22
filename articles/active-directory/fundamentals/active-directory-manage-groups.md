@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25dace3ad7d467d6add236782c5e39f85d6462a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 735f838ad4532b140eddcb4ce1ced24fba9a81be
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87797312"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369119"
 ---
 # <a name="manage-app-and-resource-access-using-azure-active-directory-groups"></a>Gerir o acesso a aplicações e recursos com grupos do Azure Active Directory
 O Azure Ative Directory (Azure AD) permite-lhe utilizar grupos para gerir o acesso às suas aplicações baseadas na nuvem, aplicações no local e nos seus recursos. Os seus recursos podem fazer parte da organização Azure AD, tais como permissões para gerir objetos através de funções em AZure AD, ou externas à organização, tais como para aplicações de Software como um Serviço (SaaS), serviços Azure, sites SharePoint e recursos no local.
@@ -43,7 +43,7 @@ Existem quatro formas de atribuir direitos de acesso a recursos aos seus utiliza
 
 - **Missão de grupo.** O proprietário do recurso atribui um grupo AD Azure ao recurso, que automaticamente dá acesso a todos os membros do grupo ao recurso. A adesão ao grupo é gerida tanto pelo proprietário do grupo como pelo proprietário do recurso, permitindo que o proprietário adicione ou remova os membros do grupo. Para obter mais informações sobre a adição ou remoção da adesão ao grupo, consulte [Como: Adicionar ou remover um grupo de outro grupo utilizando o portal Azure Ative Directory](active-directory-groups-membership-azure-portal.md). 
 
-- **Atribuição baseada em regras.** O proprietário do recurso cria um grupo e utiliza uma regra para definir quais os utilizadores que são atribuídos a um recurso específico. A regra baseia-se em atributos atribuídos a utilizadores individuais. O titular do recurso gere a regra, determinando quais os atributos e valores necessários para permitir o acesso ao recurso. Para obter mais informações, consulte [Criar um grupo dinâmico e verificar o estado](../users-groups-roles/groups-create-rule.md).
+- **Atribuição baseada em regras.** O proprietário do recurso cria um grupo e utiliza uma regra para definir quais os utilizadores que são atribuídos a um recurso específico. A regra baseia-se em atributos atribuídos a utilizadores individuais. O titular do recurso gere a regra, determinando quais os atributos e valores necessários para permitir o acesso ao recurso. Para obter mais informações, consulte [Criar um grupo dinâmico e verificar o estado](../enterprise-users/groups-create-rule.md).
 
     Também pode ver este pequeno vídeo para obter uma explicação rápida sobre a criação e utilização de grupos dinâmicos:
 
@@ -56,13 +56,13 @@ Existem quatro formas de atribuir direitos de acesso a recursos aos seus utiliza
 ## <a name="can-users-join-groups-without-being-assigned"></a>Os utilizadores podem juntar-se a grupos sem serem designados?
 O proprietário do grupo pode permitir que os utilizadores encontrem os seus próprios grupos para aderir, em vez de atribuí-los. O proprietário também pode configurar o grupo para aceitar automaticamente todos os utilizadores que aderirem ou exigirem aprovação.
 
-Após um pedido de acesso a um grupo, o pedido é reencaminhado para o proprietário do grupo. Se for necessário, o proprietário pode aprovar o pedido e o utilizador é notificado da adesão ao grupo. No entanto, se tiver vários proprietários e um deles não aprovar, o utilizador é notificado, mas não é adicionado ao grupo. Para obter mais informações e instruções sobre como permitir que os seus utilizadores solicitem aderir a grupos, consulte [Configurar AZure AD para que os utilizadores possam solicitar para se juntarem a grupos](../users-groups-roles/groups-self-service-management.md)
+Após um pedido de acesso a um grupo, o pedido é reencaminhado para o proprietário do grupo. Se for necessário, o proprietário pode aprovar o pedido e o utilizador é notificado da adesão ao grupo. No entanto, se tiver vários proprietários e um deles não aprovar, o utilizador é notificado, mas não é adicionado ao grupo. Para obter mais informações e instruções sobre como permitir que os seus utilizadores solicitem aderir a grupos, consulte [Configurar AZure AD para que os utilizadores possam solicitar para se juntarem a grupos](../enterprise-users/groups-self-service-management.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 Agora que tem uma pequena introdução à gestão de acessos usando grupos, começa a gerir os seus recursos e apps.
 
-- [Criar um novo grupo utilizando o Azure Ative Directory](active-directory-groups-create-azure-portal.md) ou [Criar e gerir um novo grupo usando cmdlets PowerShell](../users-groups-roles/groups-settings-v2-cmdlets.md)
+- [Criar um novo grupo utilizando o Azure Ative Directory](active-directory-groups-create-azure-portal.md) ou [Criar e gerir um novo grupo usando cmdlets PowerShell](../enterprise-users/groups-settings-v2-cmdlets.md)
 
-- [Utilize grupos para atribuir acesso a uma aplicação Integrada SaaS](../users-groups-roles/groups-saasapps.md)
+- [Utilize grupos para atribuir acesso a uma aplicação Integrada SaaS](../enterprise-users/groups-saasapps.md)
 
 - [Sync um grupo no local para Azure usando Azure AD Connect](../hybrid/whatis-hybrid-identity.md)
