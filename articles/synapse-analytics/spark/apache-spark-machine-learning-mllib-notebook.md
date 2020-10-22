@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: 667ce8ede9469063e5714470a8e18c218f3c2c90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b723c77b193b499286a692bd5145131a904a7f07
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540324"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369340"
 ---
 # <a name="tutorial-build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Tutorial: Construa uma app de machine learning com Apache Spark MLlib e Azure Synapse Analytics
 
@@ -278,7 +278,7 @@ plt.show()
 
 Depois de ter terminado a execução da aplicação, desligue o portátil para libertar os recursos fechando o separador ou selecione **Sessão final** do painel de estado na parte inferior do portátil.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [Visão geral: Apache Spark on Azure Synapse Analytics](apache-spark-overview.md)
 
@@ -286,7 +286,7 @@ Depois de ter terminado a execução da aplicação, desligue o portátil para l
 
 - [.NET para documentação Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
-- [Documentação oficial da Faísca Apache Spark](https://spark.apache.org/docs/latest/)
+- [Documentação oficial da Faísca Apache Spark](https://spark.apache.org/docs/2.4.5/)
 
 >[!NOTE]
 > Parte da documentação oficial do Apache Spark baseia-se na utilização da consola Spark, que não está disponível no Azure Synapse Spark. Utilize o [caderno](../quickstart-apache-spark-notebook.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) ou as experiências [IntelliJ.](../spark/intellij-tool-synapse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)

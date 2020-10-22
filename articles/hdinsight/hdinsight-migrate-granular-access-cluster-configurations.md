@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/20/2020
-ms.openlocfilehash: e67d705f8e878cff6934c2e8a172148fab3f1d71
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 23811f379f8738e3fe9f162e23627d0c3c457621
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329003"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367504"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrar para o acesso granular baseado em funções para as configurações de cluster
 
@@ -136,12 +136,12 @@ Atualização para a [versão 1.0.0](https://search.maven.org/artifact/com.micro
 
 ### <a name="sdk-for-go"></a>SDK para ir
 
-Atualize para a [versão 27.1.0](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight) ou mais tarde do HDInsight SDK para Go. Podem ser necessárias modificações mínimas de código se estiver a utilizar um método afetado por estas alterações:
+Atualize para a [versão 27.1.0](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight) ou mais tarde do HDInsight SDK para Go. Podem ser necessárias modificações mínimas de código se estiver a utilizar um método afetado por estas alterações:
 
-- [`ConfigurationsClient.get`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ConfigurationsClient.Get)**deixarão de devolver parâmetros sensíveis** como chaves de armazenamento (core-site) ou credenciais HTTP (gateway).
-    - Para recuperar todas as configurações, incluindo parâmetros sensíveis, [`ConfigurationsClient.list`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ConfigurationsClient.List) utilize-a para a frente.Note que os utilizadores com a função 'Reader' não poderão utilizar este método. Isto permite o controlo granular sobre o qual os utilizadores podem aceder a informações sensíveis para um cluster. 
-    - Para obter apenas credenciais de gateway HTTP, use [`ClustersClient.get_gateway_settings`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ClustersClient.GetGatewaySettings) .
-- [`ConfigurationsClient.update`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ConfigurationsClient.Update) está agora precotado e foi substituído por [`ClustersClient.update_gateway_settings`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ClustersClient.UpdateGatewaySettings) .
+- [`ConfigurationsClient.get`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight#ConfigurationsClient.Get)**deixarão de devolver parâmetros sensíveis** como chaves de armazenamento (core-site) ou credenciais HTTP (gateway).
+    - Para recuperar todas as configurações, incluindo parâmetros sensíveis, [`ConfigurationsClient.list`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight#ConfigurationsClient.List) utilize-a para a frente.Note que os utilizadores com a função 'Reader' não poderão utilizar este método. Isto permite o controlo granular sobre o qual os utilizadores podem aceder a informações sensíveis para um cluster. 
+    - Para obter apenas credenciais de gateway HTTP, use [`ClustersClient.get_gateway_settings`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight#ClustersClient.GetGatewaySettings) .
+- [`ConfigurationsClient.update`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight#ConfigurationsClient.Update) está agora precotado e foi substituído por [`ClustersClient.update_gateway_settings`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight#ClustersClient.UpdateGatewaySettings) .
 
 ### <a name="azhdinsight-powershell"></a>Az.HDInsight PowerShell
 Atualize a [versão 2.0.0](https://www.powershellgallery.com/packages/Az) ou posterior do Az PowerShell para evitar interrupções.  Podem ser necessárias modificações mínimas de código se estiver a utilizar um método afetado por estas alterações.

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 4233df62de48dd7a7253c488b0cd69c38cd8d445
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 815a35c167bbcd3ac03dfdaaf6d699e58a791f33
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87503502"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369391"
 ---
 # <a name="run-a-test-failover-disaster-recovery-drill-to-azure"></a>Executar um teste de failover (simulacro de recuperação de desastres) para Azure 
 
@@ -43,7 +43,7 @@ Este procedimento descreve como executar um teste de failover para um plano de r
     - Se o mesmo endereço IP não estiver disponível na sub-rede, então o VM recebe outro endereço IP disponível na sub-rede. [Saiba mais](#create-a-network-for-test-failover).
 4. Se estiver a falhar no Azure e a encriptação de dados estiver ativada, na **Chave de Encriptação,** selecione o certificado que foi emitido quando ativar a encriptação durante a instalação do Fornecedor. Pode ignorar este passo se a encriptação não estiver ativada.
 5. Track failover progress on the **Jobs** tab. Deverá ser capaz de ver a máquina de réplica de teste no portal Azure.
-6. Para iniciar uma ligação RDP ao Azure VM, é necessário [adicionar um endereço IP público](https://aka.ms/addpublicip) na interface de rede do VM falhado.
+6. Para iniciar uma ligação RDP ao Azure VM, é necessário [adicionar um endereço IP público](/archive/blogs/srinathv/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr) na interface de rede do VM falhado.
 7. Quando tudo estiver a funcionar como esperado, clique em **Teste de Limpeza failover**. Isto elimina os VMs que foram criados durante o teste failover.
 8. Em **Notas,** registem e guarde quaisquer observações associadas ao teste.
 
@@ -106,9 +106,9 @@ Se pretender ligar-se aos VMs Azure utilizando RDP/SSH após a falha, siga os re
 **Ativação pós-falha** | **Localização** | **Ações**
 --- | --- | ---
 **Azure VM executando janelas** | Máquina no local antes do failover | Para aceder ao Azure VM através da internet, ative o RDP e certifique-se de que as regras TCP e UDP são adicionadas ao **Público**, e que o PDR é permitido para todos os perfis em Apps Permitidas do Windows **Firewall**  >  **Allowed Apps**.<br/><br/> Para aceder ao Azure VM sobre uma ligação site-to-site, ative o RDP **Windows Firewall**na máquina e certifique-se de que o RDP é permitido nas  ->  **aplicações e funcionalidades permitidas**pelo Windows Firewall , para redes **de domínio e privado.**<br/><br/>  Certifique-se de que a política do sistema operativo SAN está definida para **OnlineAll**. [Saiba mais](https://support.microsoft.com/kb/3031135).<br/><br/> Certifique-se de que não existem atualizações do Windows pendentes no VM quando desencadear uma falha. A atualização do Windows pode começar quando falhar e não poderá iniciar sessão no VM até que a atualização esteja concluída.
-**Azure VM executando janelas** | Azure VM após falha |  [Adicione um endereço IP público](https://aka.ms/addpublicip) para a VM.<br/><br/> As regras do grupo de segurança da rede sobre o falhado sobre o VM (e a sub-rede Azure à qual está ligada) precisam de permitir a entrada de ligações à porta RDP.<br/><br/> Verifique **os diagnósticos da Boot** para verificar uma imagem do VM.<br/><br/> Se não conseguir ligar, verifique se o VM está em funcionamento e reveja estas [dicas de resolução de problemas](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+**Azure VM executando janelas** | Azure VM após falha |  [Adicione um endereço IP público](/archive/blogs/srinathv/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr) para a VM.<br/><br/> As regras do grupo de segurança da rede sobre o falhado sobre o VM (e a sub-rede Azure à qual está ligada) precisam de permitir a entrada de ligações à porta RDP.<br/><br/> Verifique **os diagnósticos da Boot** para verificar uma imagem do VM.<br/><br/> Se não conseguir ligar, verifique se o VM está em funcionamento e reveja estas [dicas de resolução de problemas](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 **Azure VM executando Linux** | Máquina no local antes do failover | Certifique-se de que o serviço Secure Shell no VM está programado para iniciar automaticamente no arranque do sistema.<br/><br/> Verifique se as regras de firewall permitem uma ligação SSH ao mesmo.
-**Azure VM executando Linux** | Azure VM após falha | As regras do grupo de segurança da rede sobre o falhado sobre o VM (e a sub-rede Azure à qual está ligada) precisam de permitir a entrada de ligações à porta SSH.<br/><br/> [Adicione um endereço IP público](https://aka.ms/addpublicip) para a VM.<br/><br/> Verifique **os diagnósticos da Boot** para obter uma imagem do VM.<br/><br/>
+**Azure VM executando Linux** | Azure VM após falha | As regras do grupo de segurança da rede sobre o falhado sobre o VM (e a sub-rede Azure à qual está ligada) precisam de permitir a entrada de ligações à porta SSH.<br/><br/> [Adicione um endereço IP público](/archive/blogs/srinathv/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr) para a VM.<br/><br/> Verifique **os diagnósticos da Boot** para obter uma imagem do VM.<br/><br/>
 
 Siga os passos descritos [aqui](site-recovery-failover-to-azure-troubleshoot.md) para resolver quaisquer problemas de conectividade após a ativação pós-falha.
 

@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 100be6a4376883a4f2a91b1efd172242c1d19e19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 899c64e818896cde18e955d6abd82594734c4b57
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80878396"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368167"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Conceitos, terminologia e entidades no Azure Scheduler
 
@@ -40,7 +40,7 @@ A um nível elevado, a API REST do Scheduler expõe estas operações para a ges
 
 ### <a name="job-management"></a>Gestão de trabalhos
 
-Suporta operações de criação e edição de tarefas. Todas as tarefas têm de pertencer a uma coleção de tarefas existente, pelo que não existe nenhuma criação implícita. Para obter mais informações, veja [API REST do Scheduler – Tarefas](https://docs.microsoft.com/rest/api/scheduler/jobs). Aqui está o endereço URI para estas operações:
+Suporta operações de criação e edição de tarefas. Todas as tarefas têm de pertencer a uma coleção de tarefas existente, pelo que não existe nenhuma criação implícita. Para obter mais informações, veja [API REST do Scheduler – Tarefas](/rest/api/scheduler/jobs). Aqui está o endereço URI para estas operações:
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}
@@ -48,7 +48,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 
 ### <a name="job-collection-management"></a>Gestão de coleções de tarefas
 
-Suporta operações de criação e edição de tarefas e coleções de tarefas, que são mapeadas para quotas e definições partilhadas. Por exemplo, as quotas especificam o número máximo de tarefas e o intervalo de periodicidade mais pequeno. Para obter mais informações, veja [API REST do Scheduler – Coleções de Tarefas](https://docs.microsoft.com/rest/api/scheduler/jobcollections). Aqui está o endereço URI para estas operações:
+Suporta operações de criação e edição de tarefas e coleções de tarefas, que são mapeadas para quotas e definições partilhadas. Por exemplo, as quotas especificam o número máximo de tarefas e o intervalo de periodicidade mais pequeno. Para obter mais informações, veja [API REST do Scheduler – Coleções de Tarefas](/rest/api/scheduler/jobcollections). Aqui está o endereço URI para estas operações:
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}
@@ -56,7 +56,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 
 ### <a name="job-history-management"></a>Gestão do histórico de tarefas
 
-Suporta a operação GET para obter 60 dias do histórico de execuções de tarefas, por exemplo, o tempo decorrido da tarefa e os resultados de execução da tarefa. Inclui suporte de parâmetros de cadeias de consulta para filtrar com base no estado. Para obter mais informações, veja [API REST do Scheduler – Tarefas – Lista do Histórico de Tarefas](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory). Aqui está o endereço URI para esta operação:
+Suporta a operação GET para obter 60 dias do histórico de execuções de tarefas, por exemplo, o tempo decorrido da tarefa e os resultados de execução da tarefa. Inclui suporte de parâmetros de cadeias de consulta para filtrar com base no estado. Para obter mais informações, veja [API REST do Scheduler – Tarefas – Lista do Histórico de Tarefas](/rest/api/scheduler/jobs/listjobhistory). Aqui está o endereço URI para esta operação:
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history
@@ -84,13 +84,13 @@ A tarefa também inclui os dados fornecidos pelo sistema, como o próximo tempo 
 
 | Elemento | Obrigatório | Descrição | 
 |---------|----------|-------------| 
-| [**horário de início**](#start-time) | Não | A hora de início da tarefa com um desvio de fuso horário no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
-| [**ação**](#action) | Sim | Os detalhes da ação principal, que pode incluir um objeto **errorAction** | 
-| [**errorAction**](#error-action) | Não | Os detalhes da ação secundária que será executada se a ação principal falhar |
-| [**recorrência**](#recurrence) | Não | Os detalhes, como a frequência e o intervalo de uma tarefa periódica | 
-| [**retriptaPolícia**](#retry-policy) | Não | Os detalhes de quantas vezes se repete uma ação | 
-| [**estado**](#state) | Sim | Os detalhes do estado atual da tarefa |
-| [**estado**](#status) | Sim | Os detalhes do estado atual da tarefa, que é controlado pelo serviço |
+| [**horário de início**](#start-time) | No | A hora de início da tarefa com um desvio de fuso horário no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
+| [**ação**](#action) | Yes | Os detalhes da ação principal, que pode incluir um objeto **errorAction** | 
+| [**errorAction**](#error-action) | No | Os detalhes da ação secundária que será executada se a ação principal falhar |
+| [**recorrência**](#recurrence) | No | Os detalhes, como a frequência e o intervalo de uma tarefa periódica | 
+| [**retriptaPolícia**](#retry-policy) | No | Os detalhes de quantas vezes se repete uma ação | 
+| [**estado**](#state) | Yes | Os detalhes do estado atual da tarefa |
+| [**estado**](#status) | Yes | Os detalhes do estado atual da tarefa, que é controlado pelo serviço |
 ||||
 
 Veja a seguir um exemplo que mostra uma definição abrangente da tarefa para uma ação HTTP com detalhes de elemento mais completos descritos nas secções posteriores: 
@@ -214,7 +214,7 @@ Veja a seguir um exemplo de uma ação do tópico do Service Bus:
 },
 ```
 
-Para obter mais informações sobre os tokens de Assinatura de Acesso Partilhado (SAS), veja [Autorizar com Assinaturas de Acesso Partilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Para obter mais informações sobre os tokens de Assinatura de Acesso Partilhado (SAS), veja [Autorizar com Assinaturas de Acesso Partilhado](../storage/common/storage-sas-overview.md).
 
 <a name="error-action"></a>
 
@@ -249,15 +249,15 @@ Uma tarefa voltará a ocorrer se a definição JSON da tarefa incluir o objeto *
 | Propriedade | Necessário | Valor | Descrição | 
 |----------|----------|-------|-------------| 
 | **frequência** | Sim, quando a **periodicidade** é utilizada | “Minuto”, “Hora”, “Dia”, “Semana”, “Mês”, “Ano” | A unidade de tempo entre ocorrências | 
-| **interval** | Não | 1 a 1000, inclusive | Um número inteiro positivo que determina o número de unidades de tempo entre cada ocorrência com base na **frequência** | 
-| **agendar** | Não | Varia | Os detalhes das agendas mais complexas e avançadas. Veja **hours**, **hours**, **weekDays**, **months** e **monthDays** | 
-| **horas** | Não | 1 a 24 | Um matriz com a hora marca quando a tarefa será executada | 
-| **minutos** | Não | 0 a 59 | Um matriz com os minutos marca quando a tarefa será executada | 
-| **months** | Não | 1 a 12 | Um matriz com os meses marca quando a tarefa será executada | 
-| **monthDays** | Não | Varia | Um matriz com os dias do mês marca quando a tarefa será executada | 
-| **weekDays** | Não | “Segunda-feira”, “Terça-feira”, “Quarta-feira”, “Quinta-feira”, “Sexta-feira”, “Sábado”, “Domingo” | Um matriz com os dias da semana marca quando a tarefa será executada | 
-| **contar** | Não | <*nenhuma*> | O número de repetições. A predefinição é a repetição infinita. Não pode utilizar **count** e **endTime** em simultâneo, será respeitada a primeira regra a ser concluída. | 
-| **endTime** | Não | <*nenhuma*> | A data e hora para quando parar a periodicidade. A predefinição é a repetição infinita. Não pode utilizar **count** e **endTime** em simultâneo, será respeitada a primeira regra a ser concluída. | 
+| **interval** | No | 1 a 1000, inclusive | Um número inteiro positivo que determina o número de unidades de tempo entre cada ocorrência com base na **frequência** | 
+| **agendar** | No | Varia | Os detalhes das agendas mais complexas e avançadas. Veja **hours**, **hours**, **weekDays**, **months** e **monthDays** | 
+| **horas** | No | 1 a 24 | Um matriz com a hora marca quando a tarefa será executada | 
+| **minutos** | No | 0 a 59 | Um matriz com os minutos marca quando a tarefa será executada | 
+| **months** | No | 1 a 12 | Um matriz com os meses marca quando a tarefa será executada | 
+| **monthDays** | No | Varia | Um matriz com os dias do mês marca quando a tarefa será executada | 
+| **weekDays** | No | “Segunda-feira”, “Terça-feira”, “Quarta-feira”, “Quinta-feira”, “Sexta-feira”, “Sábado”, “Domingo” | Um matriz com os dias da semana marca quando a tarefa será executada | 
+| **contar** | No | <*nenhuma*> | O número de repetições. A predefinição é a repetição infinita. Não pode utilizar **count** e **endTime** em simultâneo, será respeitada a primeira regra a ser concluída. | 
+| **endTime** | No | <*nenhuma*> | A data e hora para quando parar a periodicidade. A predefinição é a repetição infinita. Não pode utilizar **count** e **endTime** em simultâneo, será respeitada a primeira regra a ser concluída. | 
 ||||
 
 Para obter mais informações sobre estes elementos, veja [Criar agendas complexas e periodicidades avançadas](../scheduler/scheduler-advanced-complexity.md).
@@ -278,9 +278,9 @@ Para o caso de uma tarefa do Scheduler poder falhar, pode configurar uma políti
 
 | Propriedade | Necessário | Valor | Descrição | 
 |----------|----------|-------|-------------| 
-| **retryType** | Sim | **Determinado**, **Nenhum** | Determina se especificou uma política de repetição (**determinado**) ou não (**nenhum**). | 
-| **retryInterval** | Não | PT30S | Especifica o intervalo e a frequência entre tentativas de repetição no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). O valor mínimo é 15 segundos e o valor máximo é 18 meses. | 
-| **retryCount** | Não | 4 | Especifica o número de tentativas de repetição. O valor máximo é 20. | 
+| **retryType** | Yes | **Determinado**, **Nenhum** | Determina se especificou uma política de repetição (**determinado**) ou não (**nenhum**). | 
+| **retryInterval** | No | PT30S | Especifica o intervalo e a frequência entre tentativas de repetição no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). O valor mínimo é 15 segundos e o valor máximo é 18 meses. | 
+| **retryCount** | No | 4 | Especifica o número de tentativas de repetição. O valor máximo é 20. | 
 ||||
 
 Para obter mais informações, veja [Elevada disponibilidade e fiabilidade](../scheduler/scheduler-high-availability-reliability.md).

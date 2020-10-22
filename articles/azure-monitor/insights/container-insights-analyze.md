@@ -3,12 +3,12 @@ title: Monitorização de Kubernetes com monitor Azure para contentores Microsof
 description: Este artigo descreve como pode ver e analisar o desempenho de um cluster Kubernetes com o Azure Monitor para contentores.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 5d267715ed9748c69c33bbd7bc5af0db7b118502
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: de61e8e5b2716a3ca212a0a830a4d48b8bd2c3ef
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994758"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368762"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorize o desempenho do cluster Kubernetes com o Azure Monitor para contentores
 
@@ -290,6 +290,10 @@ Os ícones no campo de estado indicam os estados on-line das cápsulas, conforme
 | ![Último ícone de estado de execução relatado](./media/container-insights-analyze/containers-grey-icon.png) | Última vez que correu, mas não responde há mais de 30 minutos.|
 | ![Ícone de estado terminado](./media/container-insights-analyze/containers-terminated-icon.png) | Com sucesso parou ou não conseguiu parar|
 | ![Ícone de estado falhado](./media/container-insights-analyze/containers-failed-icon.png) | Estado falhado |
+
+## <a name="monitor-and-visualize-network-configurations"></a>Monitorize e visualize configurações de rede
+O Azure Network Policy Manager inclui métricas prometeu informativas que permitem monitorizar e entender melhor as suas configurações de rede. Fornece visualizações incorporadas no portal Azure ou na Grafana Labs. Para mais detalhes, consulte [Configurações de Rede Monitor e Visualize com Azure NPM](../../virtual-network/kubernetes-network-policies.md#monitor-and-visualize-network-configurations-with-azure-npm).
+
 
 ## <a name="workbooks"></a>Livros
 

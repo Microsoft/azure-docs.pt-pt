@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b90ca2812651e139fb62d86ba0bf4d181d5e9d76
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 0e44cb38435ca86ad7cd4709d5e99f5cf41fcf91
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145282"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366331"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planear a implementação do Acesso Condicional
 
@@ -220,7 +220,7 @@ Criar uma política para cada app não é eficiente e leva a uma administração
 
 ### <a name="set-up-emergency-access-accounts"></a>Criar contas de acesso de emergência
 
-Se configurar mal uma apólice, pode bloquear as organizações fora do portal Azure. Atenuar o impacto do bloqueio acidental do administrador através da criação de [duas](../users-groups-roles/directory-emergency-access.md) ou mais contas de acesso de emergência na sua organização.
+Se configurar mal uma apólice, pode bloquear as organizações fora do portal Azure. Atenuar o impacto do bloqueio acidental do administrador através da criação de [duas](../roles/security-emergency-access.md) ou mais contas de acesso de emergência na sua organização.
 
 * Crie uma conta de utilizador dedicada à administração de políticas e excluída de todas as suas políticas.
 
