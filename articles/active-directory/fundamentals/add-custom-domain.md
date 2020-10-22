@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc512bf664857129377d2eb928ff025d1c5f659b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28847ece3c08e93d14d381b35fc93fb16dad95a1
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89321179"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370870"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Adicione o seu nome de domínio personalizado usando o portal Azure Ative Directory
 
@@ -104,9 +104,9 @@ Se a Azure AD não puder verificar um nome de domínio personalizado, experiment
 
   Se não conseguir atualizar o registo no site do registo, partilhe a entrada com alguém que tenha permissões para adicionar a entrada e verificar se está correta.
 
-- **Certifique-se de que o nome de domínio já não está a ser utilizado noutro diretório.** Um nome de domínio só pode ser verificado num diretório. Se o seu nome de domínio for verificado em outro diretório, também não pode ser verificado no novo diretório. Para corrigir este problema de duplicação, deve eliminar o nome de domínio do antigo diretório. Para obter mais informações sobre a eliminação de nomes de domínio, consulte [Gerir os nomes de domínio personalizados](../users-groups-roles/domains-manage.md).
+- **Certifique-se de que o nome de domínio já não está a ser utilizado noutro diretório.** Um nome de domínio só pode ser verificado num diretório. Se o seu nome de domínio for verificado em outro diretório, também não pode ser verificado no novo diretório. Para corrigir este problema de duplicação, deve eliminar o nome de domínio do antigo diretório. Para obter mais informações sobre a eliminação de nomes de domínio, consulte [Gerir os nomes de domínio personalizados](../enterprise-users/domains-manage.md).
 
-- **Certifique-se de não ter nenhum inquilino de Bi de energia não gerido.** Se os seus utilizadores ativaram o Power BI através de uma inscrição de self-service e criaram um inquilino não gerido para a sua organização, deve assumir a gestão como administrador interno ou externo, utilizando o PowerShell. Para obter mais informações, veja [Take over an unmanaged directory as administrator in Azure Active Directory](../users-groups-roles/domains-admin-takeover.md) (Assumir um diretório não gerido como administrador no Azure Active Directory).
+- **Certifique-se de não ter nenhum inquilino de Bi de energia não gerido.** Se os seus utilizadores ativaram o Power BI através de uma inscrição de self-service e criaram um inquilino não gerido para a sua organização, deve assumir a gestão como administrador interno ou externo, utilizando o PowerShell. Para obter mais informações, veja [Take over an unmanaged directory as administrator in Azure Active Directory](../enterprise-users/domains-admin-takeover.md) (Assumir um diretório não gerido como administrador no Azure Active Directory).
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -114,6 +114,6 @@ Se a Azure AD não puder verificar um nome de domínio personalizado, experiment
 
 - Adicione os utilizadores ao seu domínio. Para obter mais informações, consulte [Como adicionar ou eliminar utilizadores.](add-users-azure-active-directory.md)
 
-- Gerencie as informações sobre o nome de domínio no Azure AD. Para obter mais informações, consulte [gerir nomes de domínio personalizados.](../users-groups-roles/domains-manage.md)
+- Gerencie as informações sobre o nome de domínio no Azure AD. Para obter mais informações, consulte [gerir nomes de domínio personalizados.](../enterprise-users/domains-manage.md)
 
 - Se tiver versões no local do Windows Server que pretende utilizar ao lado do Azure Ative Directory, consulte [Integrar os seus diretórios no local com o Azure Ative Directory](../hybrid/whatis-hybrid-identity.md).

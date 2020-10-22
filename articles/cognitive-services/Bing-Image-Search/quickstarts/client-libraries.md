@@ -9,15 +9,15 @@ zone_pivot_groups: programming-languages-set-ten
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 03/04/2020
+ms.date: 10/21/2020
 ms.author: aahi
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: d139706ff0e5d04d15dee237fc25ad73f92da4db
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b0873bfc0483f3c927e2608a952222b76ea2f968
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91327426"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371291"
 ---
 # <a name="quickstart-use-the-bing-image-search-client-library"></a>Quickstart: Use a biblioteca de clientes Bing Image Search
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: 0bff283b8e9c0c753100c635ecd4451b467c206d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc36fccf84807621b8b3a186979ccfd000fe48f3
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89146628"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372485"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Planeie um Azure Ative Directory My Apps
 
@@ -97,7 +97,7 @@ A funcionalidade das Minhas Apps pode ser ativada gradualmente. Recomendamos a s
 1. As Minhas Aplicações
    * Lançador de aplicativos
    * Gestão de aplicativos self-service
-   * Integração microsoft 365
+   * Integração do Microsoft 365
 
 1. Descoberta de aplicativo de self-service
    * Reposição personalizada de palavra-passe
@@ -122,11 +122,11 @@ A tabela a seguir lista várias configurações importantes das Minhas Apps e os
 | Determinar os grupos-piloto| Identifique o grupo de segurança Azure AD para ser utilizado e certifique-se de que todos os membros piloto fazem parte do grupo. |
 | Determinar o grupo ou grupos a habilitar para a produção.| Identifique os grupos de segurança AZure AD, ou os grupos de Diretório Ativo sincronizados com a Azure AD, a serem utilizados. Certifique-se de que todos os membros piloto fazem parte do grupo. |
 | Permitir que os utilizadores utilizem SSO para determinados tipos de aplicações| SSO Federado, OAuth, Password SSO, App Proxy |
-| Permitir que os utilizadores utilizem o reset da palavra-passe de autosserviço | Sim |
-| Permitir que os utilizadores utilizem a autenticação multi-factor| Sim |
+| Permitir que os utilizadores utilizem o reset da palavra-passe de autosserviço | Yes |
+| Permitir que os utilizadores utilizem a autenticação multi-factor| Yes |
 | Permitir que os utilizadores utilizem a gestão do grupo self-service para determinados tipos de grupos| Grupos de segurança, Grupos Microsoft 365 |
-| Permitir que os utilizadores utilizem a gestão de aplicações self-service| Sim |
-| Permitir que os utilizadores utilizem comentários de acesso| Sim |
+| Permitir que os utilizadores utilizem a gestão de aplicações self-service| Yes |
+| Permitir que os utilizadores utilizem comentários de acesso| Yes |
 
 ### <a name="plan-consent-strategy"></a>Estratégia de consentimento do plano
 
@@ -225,7 +225,7 @@ Fluxos de trabalho de aprovação estão disponíveis para aprovação explícit
 
 Pode permitir que os utilizadores criem e gerem os seus próprios grupos de segurança ou grupos Microsoft 365 em Azure AD. O proprietário do grupo pode aprovar ou negar pedidos de adesão e delegar o controlo da adesão ao grupo. As funcionalidades de gestão do grupo self-service não estão disponíveis para grupos de segurança ou listas de distribuição habilitadas por correio.
 
-Para planear a adesão ao grupo de self-service, determine se permitirá que todos os utilizadores da sua organização criem e gerem grupos ou apenas um subconjunto de utilizadores. Se está a permitir um subconjunto de utilizadores, terá de criar um grupo ao qual essas pessoas são adicionadas. Consulte [Configurar a gestão do grupo self-service no Azure Ative Directory](../users-groups-roles/groups-self-service-management.md) para obter detalhes sobre como permitir estes cenários.
+Para planear a adesão ao grupo de self-service, determine se permitirá que todos os utilizadores da sua organização criem e gerem grupos ou apenas um subconjunto de utilizadores. Se está a permitir um subconjunto de utilizadores, terá de criar um grupo ao qual essas pessoas são adicionadas. Consulte [Configurar a gestão do grupo self-service no Azure Ative Directory](../enterprise-users/groups-self-service-management.md) para obter detalhes sobre como permitir estes cenários.
 
 ## <a name="plan-reporting-and-auditing"></a>Relatórios e auditorias do plano
 
@@ -299,7 +299,7 @@ Os seguintes testes devem ser realizados com dispositivos corporativos e disposi
 
 ## <a name="manage-your-implementation"></a>Gerir a sua implementação
 
-Utilize o papel menos privilegiado para realizar uma tarefa necessária no Diretório Ativo Azure. [Reveja as diferentes funções disponíveis](../users-groups-roles/directory-assign-admin-roles.md) e escolha a certa para resolver as suas necessidades para cada persona para esta aplicação. Algumas funções podem ter de ser aplicadas temporariamente e removidas após a colocação concluída.
+Utilize o papel menos privilegiado para realizar uma tarefa necessária no Diretório Ativo Azure. [Reveja as diferentes funções disponíveis](../roles/permissions-reference.md) e escolha a certa para resolver as suas necessidades para cada persona para esta aplicação. Algumas funções podem ter de ser aplicadas temporariamente e removidas após a colocação concluída.
 
 | Pessoas fictícias| Funções| Papel de AD AZure  |
 | - | -| -|

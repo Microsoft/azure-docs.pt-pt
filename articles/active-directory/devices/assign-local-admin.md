@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d3082e3dc45102bc8700c7d1285ef832d09712a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0903828b04922104a9dd93ac79459bf73644f35c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87419823"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92365838"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Como gerir o grupo de administradores locais em Azure AD juntou dispositivos
 
@@ -39,7 +39,7 @@ A Azure AD também adiciona o papel de administrador de dispositivo AZure AD ao 
 
 Para visualizar e atualizar a adesão à função de administrador global, consulte:
 
-- [Ver todos os membros de uma função de administrador no Azure Ative Directory](../users-groups-roles/directory-manage-roles-portal.md)
+- [Ver todos os membros de uma função de administrador no Azure Ative Directory](../roles/manage-roles-portal.md)
 - [Atribua um utilizador a funções de administrador no Azure Active Directory](../fundamentals/active-directory-users-assign-role-azure-portal.md)
 
 

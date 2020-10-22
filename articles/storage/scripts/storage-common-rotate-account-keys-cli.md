@@ -7,15 +7,15 @@ ms.service: storage
 ms.subservice: blobs
 ms.devlang: cli
 ms.topic: sample
-ms.date: 06/22/2017
+ms.date: 10/20/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bfda6c5315e11a4a924b82dc3eacdf692357827b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 08e1b3837863b197f8463a0d969e78afab2b9858
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87503689"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370411"
 ---
 # <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Criar uma conta de armazenamento e rodar as chaves de acesso da conta
 

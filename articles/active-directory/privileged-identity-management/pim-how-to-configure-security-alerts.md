@@ -14,12 +14,12 @@ ms.date: 03/05/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cbe32125d957bb1fd53e7cb5a39ae9f745cef4a
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 0f82314b0a4e16829b4c192a14fae7f24875365d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317022"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359616"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Configure alertas de segurança para funções de Ad Azure em Gestão de Identidade Privilegiada
 
@@ -29,7 +29,7 @@ A Gestão privilegiada de Identidade (PIM) gera alertas quando há atividade sus
 
 A partir de novembro de 2019, a parte de funções da AZure AD da Gestão de Identidade Privilegiada está a ser atualizada para uma nova versão que corresponde às experiências para funções de recursos Azure. Isto cria funcionalidades adicionais, bem como [alterações à API existente.](azure-ad-roles-features.md#api-changes) Enquanto a nova versão está a ser lançada, quais os procedimentos que segue neste artigo dependem da versão de Gestão de Identidade Privilegiada que tem atualmente. Siga os passos nesta secção para determinar qual a versão da Gestão de Identidade Privilegiada que tem. Depois de conhecer a sua versão de Gestão de Identidade Privilegiada, pode selecionar os procedimentos deste artigo que correspondam a essa versão.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com/) com um utilizador que esteja na [função de administrador](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) privilegiado.
+1. Inscreva-se no [portal Azure](https://portal.azure.com/) com um utilizador que esteja na [função de administrador](../roles/permissions-reference.md#privileged-role-administrator) privilegiado.
 1. Open **Azure AD Gestão de Identidade Privilegiada.** Se tiver um banner no topo da página geral, siga as instruções no separador **Nova versão** deste artigo. Caso contrário, siga as instruções no separador **versão anterior.**
 
   [![Selecione Azure AD > Gestão de Identidade Privilegiada.](media/pim-how-to-add-role-to-user/pim-new-version.png)](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
@@ -87,7 +87,7 @@ Esta secção lista todos os alertas de segurança para as funções Azure AD, j
 | **Como consertar?** | Reveja as contas da lista. Se já não precisarem de acesso, removam-nos dos seus papéis privilegiados. |
 | **Prevenção** | Certifique-se de que as contas que são partilhadas estão a rodar senhas fortes quando há uma alteração nos utilizadores que conhecem a palavra-passe. </br>Reveja regularmente contas com funções privilegiadas usando [revisões de acesso](pim-how-to-start-security-review.md) e remova atribuições de funções que já não são necessárias. |
 | **Ação de mitigação no portal** | Retira a conta do seu papel privilegiado. |
-| **Melhores práticas** | As contas partilhadas, de serviço e de acesso de emergência que autenticam usando uma palavra-passe e que são atribuídas a funções administrativas altamente privilegiadas, como administrador global ou administrador de Segurança, devem ter as suas palavras-passe rotativas para os seguintes casos:<ul><li>Após um incidente de segurança envolvendo uso indevido ou compromisso de direitos de acesso administrativo</li><li>Depois de os privilégios de qualquer utilizador serem alterados para que deixem de ser administradores (por exemplo, depois de um funcionário que foi administrador deixar a TI ou deixar a organização)</li><li>A intervalos regulares (por exemplo, trimestrais ou ano a ano), mesmo que não se tenha sabido violação ou alteração do pessoal de TI</li></ul>Uma vez que várias pessoas têm acesso às credenciais destas contas, as credenciais devem ser giradas para garantir que as pessoas que deixaram as suas funções já não possam aceder às contas. [Saiba mais sobre a garantia de contas](../users-groups-roles/directory-admin-roles-secure.md) |
+| **Melhores práticas** | As contas partilhadas, de serviço e de acesso de emergência que autenticam usando uma palavra-passe e que são atribuídas a funções administrativas altamente privilegiadas, como administrador global ou administrador de Segurança, devem ter as suas palavras-passe rotativas para os seguintes casos:<ul><li>Após um incidente de segurança envolvendo uso indevido ou compromisso de direitos de acesso administrativo</li><li>Depois de os privilégios de qualquer utilizador serem alterados para que deixem de ser administradores (por exemplo, depois de um funcionário que foi administrador deixar a TI ou deixar a organização)</li><li>A intervalos regulares (por exemplo, trimestrais ou ano a ano), mesmo que não se tenha sabido violação ou alteração do pessoal de TI</li></ul>Uma vez que várias pessoas têm acesso às credenciais destas contas, as credenciais devem ser giradas para garantir que as pessoas que deixaram as suas funções já não possam aceder às contas. [Saiba mais sobre a garantia de contas](../roles/security-planning.md) |
 
 ### <a name="roles-are-being-assigned-outside-of-privileged-identity-management"></a>As funções estão a ser atribuídas fora da Gestão de Identidade Privilegiada
 

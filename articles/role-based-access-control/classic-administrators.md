@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 76b41e25a95f23b66edfbd4715037074537221f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc8a23d8cdb923f86d581d1af2967112d226c847
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87076442"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370632"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores de subscrição clássicos do Azure
 
@@ -71,9 +71,9 @@ Os utilizadores convidados que tenham sido designados Co-Administrator papel pod
 
 Seria de esperar que o utilizador B conseguisse tudo. A razão para esta diferença é que a conta Microsoft é adicionada à subscrição como utilizador convidado em vez de um utilizador membro. Os utilizadores convidados têm diferentes permissões por defeito em Azure AD em comparação com os utilizadores membros. Por exemplo, os utilizadores de membros podem ler outros utilizadores em AZure AD e os utilizadores convidados não podem. Os utilizadores membros podem registar novos principais serviços em Azure AD e os utilizadores convidados não podem.
 
-Se um utilizador convidado precisar de ser capaz de executar estas tarefas, uma solução possível é atribuir as funções específicas de Azure AD que o utilizador convidado necessita. Por exemplo, no cenário anterior, poderia atribuir o papel de [Leitores](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) de Diretório para ler outros utilizadores e atribuir o papel [de Desenvolvedor de Aplicações](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) para poder criar diretores de serviço. Para obter mais informações sobre os utilizadores de membros e convidados e as suas permissões, consulte [quais são as permissões padrão do utilizador no Azure Ative Directory?](../active-directory/fundamentals/users-default-permissions.md) Para obter mais informações sobre a concessão de acesso aos utilizadores [convidados, consulte adicionar ou remover atribuições de funções Azure para utilizadores externos de hóspedes utilizando o portal Azure](role-assignments-external-users.md).
+Se um utilizador convidado precisar de ser capaz de executar estas tarefas, uma solução possível é atribuir as funções específicas de Azure AD que o utilizador convidado necessita. Por exemplo, no cenário anterior, poderia atribuir o papel de [Leitores](../active-directory/roles/permissions-reference.md#directory-readers) de Diretório para ler outros utilizadores e atribuir o papel [de Desenvolvedor de Aplicações](../active-directory/roles/permissions-reference.md#application-developer) para poder criar diretores de serviço. Para obter mais informações sobre os utilizadores de membros e convidados e as suas permissões, consulte [quais são as permissões padrão do utilizador no Azure Ative Directory?](../active-directory/fundamentals/users-default-permissions.md) Para obter mais informações sobre a concessão de acesso aos utilizadores [convidados, consulte adicionar ou remover atribuições de funções Azure para utilizadores externos de hóspedes utilizando o portal Azure](role-assignments-external-users.md).
 
-Note que os [papéis incorporados do Azure](../role-based-access-control/built-in-roles.md) são diferentes dos papéis da [AD Azure](../active-directory/users-groups-roles/directory-assign-admin-roles.md). Os papéis incorporados não dão acesso ao Azure AD. Para mais informações, consulte [Compreender os diferentes papéis.](../role-based-access-control/rbac-and-directory-admin-roles.md)
+Note que os [papéis incorporados do Azure](../role-based-access-control/built-in-roles.md) são diferentes dos papéis da [AD Azure](../active-directory/roles/permissions-reference.md). Os papéis incorporados não dão acesso ao Azure AD. Para mais informações, consulte [Compreender os diferentes papéis.](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
 Para obter informações que comparem utilizadores de membros e utilizadores [convidados, consulte quais são as permissões padrão do utilizador no Azure Ative Directory?](../active-directory/fundamentals/users-default-permissions.md)
 
@@ -125,8 +125,8 @@ Só pode haver um Administrador de Serviço por Subscrição Azure. A alteraçã
 
 | Conta de Administrador de Conta | Pode alterar o Administrador de Serviço para uma conta Microsoft diferente? | Pode alterar o Administrador de Serviço para uma conta AD Azure no mesmo diretório? | Pode alterar o Administrador de Serviço para uma conta AD Azure num diretório diferente? |
 | --- | --- | --- | --- |
-| Conta Microsoft | Sim | Não | Não |
-| Conta do Azure AD | Sim | Sim | Não |
+| Conta Microsoft | Yes | No | No |
+| Conta do Azure AD | Yes | Yes | No |
 
 Se o Administrador de Conta for uma conta AD Azure, pode alterar o Administrador de Serviço para uma conta AD Azure no mesmo diretório, mas não num diretório diferente. Por exemplo, abby@contoso.com pode alterar o Administrador de Serviço para , mas não pode alterar o Administrador de Serviço para a bob@contoso.com menos que tenha uma presença no john@notcontoso.com john@notcontoso.com diretório contoso.com.
 

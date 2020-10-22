@@ -1,5 +1,5 @@
 ---
-title: O que é automatizado ML / AutoML
+title: O que é ML automatizado? AutoML
 titleSuffix: Azure Machine Learning
 description: Saiba como o Azure Machine Learning pode escolher automaticamente um algoritmo para si e gerar um modelo para economizar tempo usando os parâmetros e critérios que fornece para selecionar o melhor algoritmo para o seu modelo.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: 4908f66dbc699a449b7b94febac8133bacc9f669
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49c3e5602834576e8d3de86ac7d6683f9b6f7b89
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760974"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367521"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>O que é o machine learning automatizado (AutoML)?
 
@@ -158,7 +158,7 @@ A interface web para ML automatizado usa sempre um [alvo de computação](concep
 Considere estes fatores ao escolher o seu alvo de computação:
 
  * **Escolha um cálculo local**: Se o seu cenário for sobre explorações iniciais ou demonstrações usando pequenos dados e comboios curtos (isto é, segundos ou alguns minutos por criança), treinar no seu computador local pode ser uma escolha melhor.  Não há tempo de configuração, os recursos de infraestrutura (o seu PC ou VM) estão disponíveis diretamente.
- * **Escolheu um cluster de computação ML remoto**: Se estiver a treinar com conjuntos de dados maiores, como na formação de produção, criando modelos que necessitem de comboios mais longos, o cálculo remoto proporcionará um desempenho de tempo muito melhor de ponta a ponta, porque `AutoML` irá paralelizar os comboios através dos nós do cluster. Num cálculo remoto, o tempo de arranque da infraestrutura interna irá adicionar cerca de 1,5 minutos por criança, além de minutos adicionais para a infraestrutura de cluster se os VMs ainda não estiverem a funcionar.
+ * **Escolha um cluster de computação ML remoto**: Se estiver a treinar com conjuntos de dados maiores, como na formação de produção, criando modelos que necessitem de comboios mais longos, o cálculo remoto proporcionará um desempenho de tempo muito melhor de ponta a ponta, porque `AutoML` irá paralelizar os comboios através dos nós do cluster. Num cálculo remoto, o tempo de arranque da infraestrutura interna irá adicionar cerca de 1,5 minutos por criança, além de minutos adicionais para a infraestrutura de cluster se os VMs ainda não estiverem em funcionamento.
 
 ### <a name="pros-and-cons"></a>Prós e contras
 Considere estes prós e contras ao optar por utilizar local vs. remoto.
@@ -166,7 +166,7 @@ Considere estes prós e contras ao optar por utilizar local vs. remoto.
 |  | Prós (Vantagens)  |Contras (Handicaps)  |
 |---------|---------|---------|---------|
 |**Alvo de computação local** |  <li> Sem tempo de arranque do ambiente   | <li>  Subconjunto de funcionalidades<li>  Não se pode paralelizar corridas <li> Pior para grandes dados. <li>Sem streaming de dados durante o treino <li>  Sem caracterização baseada em DNN <li> Python SDK apenas |
-|**Clusters de computação ML remotos**|  <li> Conjunto completo de funcionalidades <li> Paralelamente corridas de crianças <li>   Grande suporte a dados<li>  A caracterização baseada em DNN <li>  Escalabilidade dinâmica do cluster computacional a pedido <li> Experiência sem código (Web UI) também disponível  |  <li> Tempo de arranque para os nóns de cluster <li> Tempo de arranque para cada corrida de crianças    |
+|**Clusters de computação ML remotos**|  <li> Conjunto completo de funcionalidades <li> Paralelamente corridas de crianças <li>   Grande suporte a dados<li>  A caracterização baseada em DNN <li>  Escalabilidade dinâmica do cluster computacional a pedido <li> Experiência sem código (Web UI) também disponível  |  <li> Tempo de arranque para os nosdes de cluster <li> Tempo de arranque para cada corrida de crianças    |
 
 ### <a name="feature-availability"></a>Disponibilidade de funcionalidades 
 
@@ -219,7 +219,7 @@ As seguintes definições permitem-lhe configurar a sua experiência automatizad
 |**Dividir dados em conjuntos de comboio/validação**| ✓|✓
 |**Suporta tarefas ML: classificação, regressão e previsão**| ✓| ✓
 |**Otimiza com base na métrica primária**| ✓| ✓
-|**Suporta o cálculo AML como alvo de computação** | ✓|✓
+|**Suporta a computação Azure ML como alvo de computação** | ✓|✓
 |**Configure horizonte de previsão, meta fica & janela rolante**|✓|✓
 |**Definir critérios de saída** |✓|✓ 
 |**Definir iterações simultâneas**| ✓|✓

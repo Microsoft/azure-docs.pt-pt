@@ -1,15 +1,14 @@
 ---
 title: Ligue máquinas híbridas ao Azure a partir do portal Azure
 description: Neste artigo, aprende-se a instalar o agente e a ligar máquinas ao Azure utilizando servidores ativados pelo Azure Arc a partir do portal Azure.
-ms.date: 09/24/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
-ms.custom: references_regions
-ms.openlocfilehash: 2ba834d8c55f53792606fffe65d65794e837e9e3
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 8769a3b76172bc6508b7c52eda359695c01eaa4b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101737"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370156"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Ligue máquinas híbridas ao Azure a partir do portal Azure
 
@@ -17,7 +16,7 @@ Pode ativar os servidores ativados do Azure Arc para um ou um pequeno número de
 
 Este método requer que tenha permissões de administrador na máquina para instalar e configurar o agente. No Linux, utilizando a conta raiz e no Windows, é membro do grupo de Administradores Locais.
 
-Antes de começar, certifique-se de rever os [pré-requisitos](agent-overview.md#prerequisites) e verificar se a sua subscrição e recursos cumprem os requisitos.
+Antes de começar, certifique-se de rever os [pré-requisitos](agent-overview.md#prerequisites) e verificar se a sua subscrição e recursos cumprem os requisitos. Para obter informações sobre regiões apoiadas e outras considerações conexas, consulte [as regiões de Azure apoiadas.](overview.md#supported-regions)
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -25,22 +24,13 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 O script para automatizar o download e instalação, e para estabelecer a ligação com a Azure Arc, está disponível a partir do portal Azure. Para concluir o processo, faça o seguinte:
 
-1. A partir do seu navegador, aceda ao [portal Azure.](https://aka.ms/hybridmachineportal)
+1. A partir do seu navegador, aceda ao [portal Azure.](https://portal.azure.com)
 
 1. Na página **Servers - Azure Arc,** selecione **Adicionar** na parte superior esquerda.
 
 1. Na página **de método Selecione uma** página de método, selecione os **servidores Add utilizando azulejos de script interativos** e, em seguida, selecione **Gerar script**.
 
-1. Na página **de script 'Gerar',** selecione o grupo de subscrição e recursos onde pretende que a máquina seja gerida dentro do Azure. Selecione um local Azure onde os metadados da máquina serão armazenados.
-
-    >[!NOTE]
-    >Os servidores ativados Azure Arc suportam apenas as seguintes regiões:
-    >- Rio Eastus
-    >- Westus2
-    >- Europa Ocidental
-    >- Sudeste da Ásia
-    >
-    >Reveja considerações adicionais ao selecionar uma região [aqui](overview.md#supported-regions) no artigo de visão geral.
+1. Na página **de script 'Gerar',** selecione o grupo de subscrição e recursos onde pretende que a máquina seja gerida dentro do Azure. Selecione um local Azure onde os metadados da máquina serão armazenados. Esta localização pode ser a mesma ou diferente, como a localização do grupo de recursos.
 
 1. Na página **Pré-Requisitos,** reveja as informações e, em seguida, selecione **Seguinte: Detalhes do recurso**.
 
@@ -84,7 +74,7 @@ msiexec.exe /i AzureConnectedMachineAgent.msi /?
     msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\Azcmagentsetup.log"
     ```
 
-    Se o agente não iniciar após a configuração terminar, verifique se os registos são informativo de erro. O diretório de registos é *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
+    Se o agente não iniciar após a configuração terminar, verifique se os registos são informativo de erro. O diretório de registos é *%ProgramData%\AzureConnectedMachineAgent\log*.
 
 2. Se a máquina precisar de comunicar através de um servidor proxy, para definir a variável de ambiente do servidor proxy, executar o seguinte comando:
 
@@ -117,7 +107,7 @@ msiexec.exe /i AzureConnectedMachineAgent.msi /?
 
 1. Altere para a pasta ou partilhe para a seguinte cópia do script e execute-o no servidor executando o `./OnboardingScript.ps1` script.
 
-Se o agente não iniciar após a configuração terminar, verifique se os registos são informativo de erro. O diretório de registos é *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
+Se o agente não iniciar após a configuração terminar, verifique se os registos são informativo de erro. O diretório de registos é *%ProgramData%\AzureConnectedMachineAgent\log*.
 
 ## <a name="install-and-validate-the-agent-on-linux"></a>Instale e valide o agente no Linux
 

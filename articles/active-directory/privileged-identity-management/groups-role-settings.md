@@ -15,12 +15,12 @@ ms.date: 07/27/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c31897e5dc50815d692be83af5d03ffe58c216c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c3cd91fb2a878567dc4b09fbddfcf448ec95edd
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87505942"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368541"
 ---
 # <a name="configure-privileged-access-group-settings-preview-in-privileged-identity-management"></a>Configurar configurações privilegiadas do grupo de acesso (pré-visualização) na Gestão de Identidade Privilegiada
 
@@ -30,7 +30,7 @@ As definições de função são as definições predefinidos que são aplicadas
 
 Siga estes passos para abrir as definições para uma função de grupo de acesso privilegiado Azure.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com/) com um utilizador na função [de Administrador de Função Privilegiada.](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
+1. Inscreva-se no [portal Azure](https://portal.azure.com/) com um utilizador na função [de Administrador de Função Privilegiada.](../roles/permissions-reference.md#privileged-role-administrator)
 
 1. Open **Azure AD Gestão de Identidade Privilegiada.**
 

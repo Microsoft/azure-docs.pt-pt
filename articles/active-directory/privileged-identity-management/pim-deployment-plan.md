@@ -14,12 +14,12 @@ ms.date: 08/27/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bfe0fee14ed463e265dc4e7e4177c702b051c81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c9ba7217dfc167a06a1fea389cfc40a5e1251ca
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89050204"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367810"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Implementar gestão de identidade privilegiada da Azure AD (PIM)
 
@@ -58,7 +58,7 @@ Esta secção prevê uma revisão para fins de planeamento das partes relevantes
 
 ## <a name="roles-that-can-be-managed-by-pim"></a>Funções que podem ser geridas pela PIM
 
-**As funções de Azure AD** estão todas no Azure Ative Directory (como Administrador Global, Administrador de Câmbio e Administrador de Segurança). Pode ler mais sobre as funções e a sua funcionalidade nas [permissões de funções de Administrador no Azure Ative Directory](../users-groups-roles/directory-assign-admin-roles.md). Para obter ajuda para determinar quais as funções a atribuir aos seus administradores, consulte [as funções menos privilegiadas por tarefa](../users-groups-roles/roles-delegate-by-task.md).
+**As funções de Azure AD** estão todas no Azure Ative Directory (como Administrador Global, Administrador de Câmbio e Administrador de Segurança). Pode ler mais sobre as funções e a sua funcionalidade nas [permissões de funções de Administrador no Azure Ative Directory](../roles/permissions-reference.md). Para obter ajuda para determinar quais as funções a atribuir aos seus administradores, consulte [as funções menos privilegiadas por tarefa](../roles/delegate-by-task.md).
 
 **As funções Azure** são funções que estão ligadas a um recurso Azure, grupo de recursos, subscrição ou grupo de gestão. Pode utilizar o PIM para fornecer acesso just-in-time a funções Azure incorporadas, como Proprietário, Administrador de Acesso ao Utilizador e Colaborador, bem como a [funções personalizadas.](../../role-based-access-control/custom-roles.md) Para obter mais informações sobre os papéis do Azure, consulte [o controlo de acesso baseado em funções da Azure.](../../role-based-access-control/overview.md)
 
@@ -78,7 +78,7 @@ A secção seguinte ajuda-o a identificar todas as partes interessadas envolvida
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-ad-roles"></a>Stakeholders: Gestão privilegiada da identidade para funções de Ad Azure
 
-| Nome | Função | Ação |
+| Name | Função | Ação |
 | --- | --- | --- |
 | Nome e e-mail | **Arquiteto de identidade ou Administrador Global da Azure**<br/>Um representante da equipa de gestão de identidade responsável por definir como alinhar esta mudança com a infraestrutura de gestão de identidade central na sua organização. | SO/R/I |
 | Nome e e-mail | **Proprietário de serviço / gestor de linha**<br/>Um representante dos proprietários de TI de um serviço ou de um grupo de serviços. São fundamentais para tomar decisões e ajudar a lançar a Gestão de Identidade Privilegiada para a sua equipa. | SO/R/I |
@@ -88,7 +88,7 @@ A secção seguinte ajuda-o a identificar todas as partes interessadas envolvida
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-roles"></a>Stakeholders: Gestão de Identidade Privilegiada para funções de Azure
 
-| Nome | Função | Ação |
+| Name | Função | Ação |
 | --- | --- | --- |
 | Nome e e-mail | **Assinatura / Titular de recursos**<br/>Um representante dos proprietários de TI de cada subscrição ou recurso que pretende implementar Gestão de Identidade Privilegiada para | SO/R/I |
 | Nome e e-mail | **Proprietário de segurança**<br/>Um representante da equipa de segurança que pode assinar que o plano cumpre os requisitos de segurança da sua organização. | SO/R |
@@ -111,7 +111,7 @@ Para as funções de Azure AD, é comum que as organizações atribuam o papel d
 
 Siga estes passos para implementar o princípio do menor privilégio para as suas funções de AD Azure.
 
-1. Compreender a granularidade das funções lendo e compreendendo as [funções de administrador da AD Azure disponível.](../users-groups-roles/directory-assign-admin-roles.md#available-roles) Você e a sua equipa também devem referenciar [funções de administrador por tarefa de identidade no AD AZure,](../users-groups-roles/roles-delegate-by-task.md)o que explica o papel menos privilegiado para tarefas específicas.
+1. Compreender a granularidade das funções lendo e compreendendo as [funções de administrador da AD Azure disponível.](../roles/permissions-reference.md#available-roles) Você e a sua equipa também devem referenciar [funções de administrador por tarefa de identidade no AD AZure,](../roles/delegate-by-task.md)o que explica o papel menos privilegiado para tarefas específicas.
 
 1. Lista quem tem papéis privilegiados na sua organização. Pode utilizar a Descoberta de Gestão de Identidade Privilegiada [e insights (pré-visualização)](pim-security-wizard.md) para reduzir a sua exposição.
 
@@ -200,11 +200,11 @@ A atribuição de um papel a um grupo em vez de a utilizadores individuais é um
 
 #### <a name="many-users-are-assigned-to-a-role"></a>Muitos utilizadores são designados para um papel
 
-Acompanhar quem é designado para um papel e gerir as suas atribuições com base na sua necessidade pode levar tempo quando feito manualmente. Para atribuir um grupo a um papel, primeiro [criar um grupo atribuível](../users-groups-roles/roles-groups-create-eligible.md) e, em seguida, atribuir o grupo como elegível para um papel. Esta ação sujeita todos os membros do grupo ao mesmo processo de ativação que os utilizadores individuais que são elegíveis para elevar para o papel. Os membros do grupo ativam as suas atribuições ao grupo individualmente utilizando o pedido de ativação e o processo de aprovação da Gestão de Identidade Privilegiada. O grupo não está ativado, apenas a filiação do grupo do utilizador.
+Acompanhar quem é designado para um papel e gerir as suas atribuições com base na sua necessidade pode levar tempo quando feito manualmente. Para atribuir um grupo a um papel, primeiro [criar um grupo atribuível](../roles/groups-create-eligible.md) e, em seguida, atribuir o grupo como elegível para um papel. Esta ação sujeita todos os membros do grupo ao mesmo processo de ativação que os utilizadores individuais que são elegíveis para elevar para o papel. Os membros do grupo ativam as suas atribuições ao grupo individualmente utilizando o pedido de ativação e o processo de aprovação da Gestão de Identidade Privilegiada. O grupo não está ativado, apenas a filiação do grupo do utilizador.
 
 #### <a name="you-want-to-delegate-assigning-the-role"></a>Quer delegar atribuindo o papel
 
-Um dono de grupo pode gerir a adesão a um grupo. Para os grupos azure AD atribuíveis, apenas o Administrador de Função Privilegiado, o Administrador Global e os proprietários do grupo podem gerir a adesão ao grupo. Ao adicionar novos membros ao grupo, o membro obtém acesso às funções a que o grupo é atribuído se a atribuição é elegível ou ativa. Utilize os proprietários do grupo para delegar a gestão da filiação do grupo para um papel atribuído para reduzir a amplitude de privilégios exigida. Para obter mais informações sobre a atribuição de um proprietário a um grupo ao criar o grupo, consulte [Criar um grupo atribuível a papéis em Azure AD](../users-groups-roles/roles-groups-create-eligible.md).
+Um dono de grupo pode gerir a adesão a um grupo. Para os grupos azure AD atribuíveis, apenas o Administrador de Função Privilegiado, o Administrador Global e os proprietários do grupo podem gerir a adesão ao grupo. Ao adicionar novos membros ao grupo, o membro obtém acesso às funções a que o grupo é atribuído se a atribuição é elegível ou ativa. Utilize os proprietários do grupo para delegar a gestão da filiação do grupo para um papel atribuído para reduzir a amplitude de privilégios exigida. Para obter mais informações sobre a atribuição de um proprietário a um grupo ao criar o grupo, consulte [Criar um grupo atribuível a papéis em Azure AD](../roles/groups-create-eligible.md).
 
 > [!TIP]
 > :heavy_check_mark: A Microsoft recomenda que leve os **grupos** azure a atribuir funções sob gestão pela Privileged Identity Management. Depois de um grupo atribuível a papéis ser gerido pela PIM, é chamado de grupo de acesso privilegiado. Utilize o PIM para exigir que os proprietários do grupo ativem a sua atribuição de funções de Proprietário antes de poderem gerir a adesão ao grupo. Para obter mais informações sobre a gestão de grupos sob gestão pim, consulte [Trazer grupos de acesso privilegiados (pré-visualização) para a Gestão de Identidade Privilegiada.](groups-discover-groups.md)
@@ -214,7 +214,7 @@ Um dono de grupo pode gerir a adesão a um grupo. Para os grupos azure AD atribu
 Uma vez que tenha decidido a lista de funções a gerir pela Gestão de Identidade Privilegiada, deve decidir quais os utilizadores que devem obter o papel elegível contra o papel permanentemente ativo. As funções ativas permanentes são as funções normais atribuídas através do Azure Ative Directory e dos recursos Azure, enquanto as funções elegíveis só podem ser atribuídas na Gestão de Identidade Privilegiada.
 
 > [!TIP]
-> :heavy_check_mark: A **Microsoft recomenda** que tenha zero atribuições permanentemente ativas para as funções AD do Azure e para as funções Azure, para além das duas contas de acesso de emergência recomendadas para [o break-glass](../users-groups-roles/directory-emergency-access.md), que devem ter o papel de Administrador Global permanente.
+> :heavy_check_mark: A **Microsoft recomenda** que tenha zero atribuições permanentemente ativas para as funções AD do Azure e para as funções Azure, para além das duas contas de acesso de emergência recomendadas para [o break-glass](../roles/security-emergency-access.md), que devem ter o papel de Administrador Global permanente.
 
 Apesar de recomendarmos zero administrador permanente, por vezes é difícil para as organizações conseguir isso imediatamente. Aqui estão as coisas a ter em conta ao tomar esta decisão:
 

@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Este artigo fornece uma visão geral de Azure Arc habilitado Kubernetes.
 keywords: Kubernetes, Arc, Azure, contentores
 ms.custom: references_regions
-ms.openlocfilehash: 601fcb096bf2bfeb1a6120015690c9aff4b6177b
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 7e48ebf98f12e79cb154fb50d8e6dbdfaea1cd95
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216084"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371312"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes-preview"></a>O que é a Pré-visualização do Kubernetes compatível com o Azure Arc?
 
@@ -37,6 +37,7 @@ As funcionalidades de Kubernetes ativadas pelo Azure Arc foram testadas pela equ
 * Kubernetes Encantados Canónicos 1.18
 * Motor AKS
 * Motor AKS no Azure Stack Hub
+* AKS em Azure Stack HCI
 * Cluster API Provider Azure
 
 ## <a name="supported-scenarios"></a>Cenários suportados 

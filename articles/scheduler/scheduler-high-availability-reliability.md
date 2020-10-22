@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/16/2016
-ms.openlocfilehash: 20c2054e168a9b17d9b4ab159cfefbf607ab6d11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98a6672af7e74fdd0732f3ba03264d2f674eb44f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78898551"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368150"
 ---
 # <a name="high-availability-and-reliability-for-azure-scheduler"></a>Alta disponibilidade e fiabilidade para a Azure Scheduler
 
@@ -22,7 +22,7 @@ ms.locfileid: "78898551"
 >
 > O programador já não está disponível no portal Azure, mas os cmdlets [REST API](/rest/api/scheduler) e [Azure Scheduler PowerShell](scheduler-powershell-reference.md) permanecem disponíveis neste momento para que possa gerir os seus empregos e coleções de emprego.
 
-O Azure Scheduler proporciona [elevada disponibilidade](https://docs.microsoft.com/azure/architecture/framework/#resiliency) e fiabilidade para os seus trabalhos. Para mais informações, consulte [SLA para Agendar](https://azure.microsoft.com/support/legal/sla/scheduler).
+O Azure Scheduler proporciona [elevada disponibilidade](/azure/architecture/framework/#resiliency) e fiabilidade para os seus trabalhos. Para mais informações, consulte [SLA para Agendar](https://azure.microsoft.com/support/legal/sla/scheduler).
 
 ## <a name="high-availability"></a>Elevada disponibilidade
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 236b4f47894db8aa8880b7535b6ee0921802a31c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3210aa5ae2ff94ba2c7dda673fbb60847c4dfd0b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317366"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372162"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>VMs de início/paragem durante a visão geral fora de horas
 
@@ -79,7 +79,7 @@ Para ativar os VMs para os VMs iniciar/parar durante o período de folga utiliza
 Pode ativar VMs para os VMs iniciar/parar durante o período de folga utilizando uma nova conta de Automação e espaço de trabalho log Analytics. Neste caso, necessita das permissões definidas na secção anterior, bem como das permissões definidas nesta secção. Também precisa das seguintes funções:
 
 - Co-Administrator na subscrição. Esta função é necessária para criar a conta Classic Run As se você vai gerir VMs clássicos. [As contas Classic Run As](automation-create-standalone-account.md#create-a-classic-run-as-account) já não são criadas por defeito.
-- Adesão ao papel de Promotor de Aplicações [AD Azure.](../active-directory/users-groups-roles/directory-assign-admin-roles.md) Para obter mais informações sobre a configuração de Run As Accounts, consulte [permissões para configurar executar como contas](manage-runas-account.md#permissions).
+- Adesão ao papel de Promotor de Aplicações [AD Azure.](../active-directory/roles/permissions-reference.md) Para obter mais informações sobre a configuração de Run As Accounts, consulte [permissões para configurar executar como contas](manage-runas-account.md#permissions).
 - Colaborador na subscrição ou nas seguintes permissões.
 
 | Permissão |Âmbito|
@@ -154,16 +154,16 @@ Em todos os cenários, as variáveis `External_Start_ResourceGroupNames` `Extern
 
 ### <a name="schedules"></a>Agendas
 
-A tabela que se segue lista cada um dos horários predefinidos criados na sua conta Automation.Pode modificá-los ou criar os seus próprios horários personalizados.Por predefinição, todos os horários são desativado, exceto os horários **de Scheduled_StartVM** e **Scheduled_StopVM.**
+A tabela que se segue lista cada um dos horários predefinidos criados na sua conta Automation. Pode modificá-los ou criar os seus próprios horários personalizados. Por predefinição, todos os horários são desativado, exceto os horários **de Scheduled_StartVM** e **Scheduled_StopVM.**
 
 Não ative todos os horários, porque fazê-lo pode criar ações de horário sobrepostas. É melhor determinar quais as otimizações que pretende fazer e modificá-las em conformidade. Consulte os cenários de exemplo na secção geral para obter mais explicações.
 
 |Nome da agenda | Frequência | Descrição|
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | A cada 8 horas | Executa o **AutoStop_CreateAlert_Parent** livro de 8 horas, o que por sua vez para os valores baseados em VM em `External_Start_ResourceGroupNames` , e `External_Stop_ResourceGroupNames` `External_ExcludeVMNames` variáveis. Em alternativa, pode especificar uma lista de VMs separadas por vírgula utilizando o `VMList` parâmetro.|
-|Scheduled_StopVM | Definido pelo utilizador, diariamente | Executa o **ScheduledStopStart_Parent** livro de bordo com um parâmetro de `Stop` todos os dias na hora especificada.Para automaticamente todos os VMs que cumprem as regras definidas por ativos variáveis.Ativar o horário relacionado **Programado-StartVM**.|
-|Scheduled_StartVM | Definido pelo utilizador, diariamente | Executa o **ScheduledStopStart_Parent** livro com um valor de parâmetro de `Start` cada dia na hora especificada. Inicia automaticamente todos os VMs que cumprem as regras definidas por ativos variáveis.Ativar o horário relacionado **Agendado-StopVM**.|
-|Sequenced-StopVM | 1:00 AM (UTC), todas as sextas-feiras | Executa o **Sequenced_StopStop_Parent** runbook com um valor de parâmetro de `Stop` todas as sextas-feiras no momento especificado.Sequencialmente (ascendente) para todos os VMs com uma etiqueta de **SequenceStop** definida pelas variáveis apropriadas. Para obter mais informações sobre valores de etiquetas e variáveis de ativos, consulte [Runbooks](#runbooks).Ativar o horário relacionado, **Sequenciado-StartVM**.|
+|Scheduled_StopVM | Definido pelo utilizador, diariamente | Executa o **ScheduledStopStart_Parent** livro de bordo com um parâmetro de `Stop` todos os dias na hora especificada. Para automaticamente todos os VMs que cumprem as regras definidas por ativos variáveis. Ativar o horário relacionado **Programado-StartVM**.|
+|Scheduled_StartVM | Definido pelo utilizador, diariamente | Executa o **ScheduledStopStart_Parent** livro com um valor de parâmetro de `Start` cada dia na hora especificada. Inicia automaticamente todos os VMs que cumprem as regras definidas por ativos variáveis. Ativar o horário relacionado **Agendado-StopVM**.|
+|Sequenced-StopVM | 1:00 AM (UTC), todas as sextas-feiras | Executa o **Sequenced_StopStop_Parent** runbook com um valor de parâmetro de `Stop` todas as sextas-feiras no momento especificado. Sequencialmente (ascendente) para todos os VMs com uma etiqueta de **SequenceStop** definida pelas variáveis apropriadas. Para obter mais informações sobre valores de etiquetas e variáveis de ativos, consulte [Runbooks](#runbooks). Ativar o horário relacionado, **Sequenciado-StartVM**.|
 |Sequenced-StartVM | 13:00 PM (UTC), todas as segundas-feiras | Executa o **SequencedStopStart_Parent** livro com um valor de parâmetro de `Start` todas as segundas-feiras na hora especificada. Sequencialmente (descendente) inicia todos os VMs com uma etiqueta de **SequenceStart** definida pelas variáveis apropriadas. Para obter mais informações sobre os valores da etiqueta e os ativos variáveis, consulte [Runbooks](#runbooks). Ativar o horário relacionado, **Sequenciado-StopVM**.
 
 ## <a name="use-the-feature-with-classic-vms"></a>Use a funcionalidade com VMs clássicos

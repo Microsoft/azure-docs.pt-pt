@@ -10,14 +10,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 10/21/2020
 ms.author: duau
-ms.openlocfilehash: 6db01531a34e936c59e5aa01a5c37f3a2ccf7345
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 6c6d33a36c4a0b71932e8c19c8f6dd105c33817c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277717"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368337"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutorial: Configurar HTTPS num domínio personalizado do Front Door
 
@@ -134,6 +134,11 @@ Conceda permissão à Porta Frontal Azure para aceder aos certificados na sua co
     - As contas do cofre de chaves do ID da sua subscrição. 
     - Os certificados (segredos) no cofre de chaves selecionado. 
     - As versões dos certificados disponíveis. 
+
+> [!NOTE]
+> Deixar a versão do certificado em branco levaria a:
+> - A versão mais recente do certificado a ser selecionada.
+> - Rotação automática de certificados para a versão mais recente, quando uma versão mais recente do certificado estiver disponível no seu Cofre-Chave.
  
 5. Quando utiliza o seu próprio certificado, a validação de domínio não é necessária. Avance para [Aguardar pela propagação](#wait-for-propagation).
 
