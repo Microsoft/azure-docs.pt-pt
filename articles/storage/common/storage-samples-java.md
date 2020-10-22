@@ -4,16 +4,16 @@ description: Ver, descarregar e executar código de amostra e aplicações para 
 author: mhopkins-msft
 ms.custom: devx-track-java
 ms.author: mhopkins
-ms.date: 02/13/2020
+ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: b0e0588810fcac239a3647f9b750dd036341ab9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e3cd6be0da7c6d9401945293283de874c7cd866
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322232"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359769"
 ---
 # <a name="azure-storage-samples-using-v12-java-client-libraries"></a>Amostras de armazenamento Azure usando bibliotecas de clientes v12 Java
 
@@ -453,4 +453,5 @@ Para obter informações sobre amostras para outras línguas:
 * .NET: [Amostras de armazenamento Azure usando .NET](storage-samples-dotnet.md)
 * Python: [Amostras de armazenamento Azure usando Python](storage-samples-python.md)
 * JavaScript/Node.js: [Amostras de armazenamento de Azure usando JavaScript](storage-samples-javascript.md)
+* C++: [Amostras de armazenamento Azure usando C++](storage-samples-c-plus-plus.md)
 * Todas as outras línguas: [amostras de armazenamento Azure](storage-samples.md)

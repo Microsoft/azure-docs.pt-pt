@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: duau
-ms.openlocfilehash: dd4c6f0b9d518acf06f7d018a65cc2b9b92db33d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2365317d83a4c11fa17cb5c449a25b70da17c2eb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89395456"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368371"
 ---
 # <a name="configure-expressroute-global-reach"></a>Configurar o Alcance Global do ExpressRoute
 
@@ -105,17 +105,17 @@ Quando a operação anterior terminar, terá conectividade entre as suas redes n
 
 Utilize o seguinte comando para verificar a configuração do circuito onde a configuração foi feita (por exemplo, circuito 1 no exemplo anterior).
 ```azurepowershell-interactive
-$ckt1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
+$ckt_1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
 ```
 
-Se simplesmente executar *$ckt 1* em PowerShell, vê *CircuitConnectionStatus* na saída. Diz-lhe se a conectividade está estabelecida, "Conectada", ou "Desligada". 
+Se simplesmente executar *$ckt_1* em PowerShell, vê *CircuitConnectionStatus* na saída. Diz-lhe se a conectividade está estabelecida, "Conectada", ou "Desligada". 
 
 ## <a name="disable-connectivity"></a>Desativar a conectividade
 
 Para desativar a conectividade entre as suas redes no local, corram os comandos contra o circuito onde a configuração foi feita (por exemplo, circuito 1 no exemplo anterior).
 
 ```azurepowershell-interactive
-$ckt1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
+$ckt_1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
 Remove-AzExpressRouteCircuitConnectionConfig -Name "Your_connection_name" -ExpressRouteCircuit $ckt_1
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
 ```

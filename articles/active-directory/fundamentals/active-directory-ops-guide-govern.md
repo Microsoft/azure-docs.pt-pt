@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: f420f66e1db6efc6a0aa43cb88f26687839f0d1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4df373f78a9c74584d0e4046f7532a2190f3a3f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89321519"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370972"
 ---
 # <a name="azure-active-directory-governance-operations-reference-guide"></a>Guia de referência de operações de governação do Diretório Ativo Azure
 
@@ -49,7 +49,7 @@ Ao rever a sua lista, poderá descobrir que precisa de atribuir um proprietário
 
 #### <a name="owner-recommended-reading"></a>Leitura recomendada pelo proprietário
 
-- [Atribuir funções de administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Atribuir funções de administrador no Azure Active Directory](../roles/permissions-reference.md)
 - [Governação no Azure](../../governance/index.yml)
 
 ### <a name="configuration-changes-testing"></a>Teste de alterações de configuração
@@ -66,7 +66,7 @@ Existem alterações que requerem considerações especiais durante os testes, d
 |Lançando uma nova funcionalidade|Se o suporte da funcionalidade chegar a um conjunto de utilizadores alvo, identifique os utilizadores piloto e construa.a partir. Por exemplo, o reset da palavra-passe de autosserviço e a autenticação de vários fatores podem visar utilizadores ou grupos específicos.|
 |Corte de um pedido de um fornecedor de identidade no local (IdP), por exemplo, Ative Directory, para Azure AD|Se a aplicação suportar várias configurações de IdP, por exemplo, Salesforce, configurar tanto e testar Azure AD durante uma janela de alteração (caso a aplicação introduza a página HRD). Se a aplicação não suportar vários IDPs, marque os testes durante uma janela de controlo de alteração e tempo de inatividade do programa.|
 |Atualizar regras dinâmicas de grupo|Criar um grupo dinâmico paralelo com a nova regra. Compare com o resultado calculado, por exemplo, executar PowerShell com a mesma condição.<br>Se o teste passar, troque os locais onde o antigo grupo foi utilizado (se possível).|
-|Licenças de produtos migram|Consulte a [alteração da licença para um único utilizador num grupo licenciado no Azure Ative Directory](../users-groups-roles/licensing-groups-change-licenses.md).|
+|Licenças de produtos migram|Consulte a [alteração da licença para um único utilizador num grupo licenciado no Azure Ative Directory](../enterprise-users/licensing-groups-change-licenses.md).|
 |Alterar regras de FS da AD, tais como Autorização, Emissão, MFA|Utilize a alegação do grupo para direcionar o subconjunto dos utilizadores.|
 |Alterar experiência de autenticação AD FS ou alterações semelhantes em toda a exploração|Crie uma quinta paralela com o mesmo nome de anfitrião, implemente alterações config, teste de clientes usando ficheiro HOSTS, regras de encaminhamento NLB ou encaminhamento semelhante.<br>Se a plataforma alvo não suportar ficheiros HOSTS (por exemplo dispositivos móveis), altere a mudança de controlo.|
 
@@ -92,9 +92,9 @@ Com o tempo, os utilizadores podem acumular acesso a recursos à medida que se d
 
 ### <a name="privileged-account-usage"></a>Utilização privilegiada da conta
 
-Os hackers muitas vezes visam contas de administração e outros elementos de acesso privilegiado para obter rapidamente acesso a dados e sistemas sensíveis.Uma vez que os utilizadores com funções privilegiadas tendem a acumular-se ao longo do tempo, é importante rever e gerir o acesso administrativo regularmente e fornecer acesso privilegiado just-in-time aos recursos Azure AD e Azure.
+Os hackers muitas vezes visam contas de administração e outros elementos de acesso privilegiado para obter rapidamente acesso a dados e sistemas sensíveis. Uma vez que os utilizadores com funções privilegiadas tendem a acumular-se ao longo do tempo, é importante rever e gerir o acesso administrativo regularmente e fornecer acesso privilegiado just-in-time aos recursos Azure AD e Azure.
 
-Se não existir nenhum processo na sua organização para gerir contas privilegiadas, ou se atualmente tiver administradores que utilizem as suas contas regulares de utilizador para gerir serviços e recursos, deverá começar imediatamente a utilizar contas separadas, por exemplo, uma para atividades regulares do dia-a-dia; o outro para acesso privilegiado e configurado com MFA. Melhor ainda, se a sua organização tem uma subscrição Azure AD Premium P2, então deve implementar imediatamente [a Azure AD Gestão de Identidade Privilegiada](../privileged-identity-management/pim-configure.md#license-requirements) (PIM). No mesmo token, você também deve rever essas contas privilegiadas e [atribuir papéis menos privilegiados](../users-groups-roles/directory-admin-roles-secure.md) se aplicável.
+Se não existir nenhum processo na sua organização para gerir contas privilegiadas, ou se atualmente tiver administradores que utilizem as suas contas regulares de utilizador para gerir serviços e recursos, deverá começar imediatamente a utilizar contas separadas, por exemplo, uma para atividades regulares do dia-a-dia; o outro para acesso privilegiado e configurado com MFA. Melhor ainda, se a sua organização tem uma subscrição Azure AD Premium P2, então deve implementar imediatamente [a Azure AD Gestão de Identidade Privilegiada](../privileged-identity-management/pim-configure.md#license-requirements) (PIM). No mesmo token, você também deve rever essas contas privilegiadas e [atribuir papéis menos privilegiados](../roles/security-planning.md) se aplicável.
 
 Outro aspeto da gestão privilegiada das contas que deve ser implementada é a definição de [revisões](../governance/access-reviews-overview.md) de acesso para essas contas, manualmente ou [automatizadas através da PIM.](../privileged-identity-management/pim-how-to-perform-security-review.md)
 
@@ -104,12 +104,12 @@ Outro aspeto da gestão privilegiada das contas que deve ser implementada é a d
 
 ### <a name="emergency-access-accounts"></a>Contas de acesso de emergência
 
-As organizações devem criar contas de emergência para estarem [preparadas](../users-groups-roles/directory-emergency-access.md) para gerir o AZure AD em casos como interrupções de autenticação como:
+As organizações devem criar contas de emergência para estarem [preparadas](../roles/security-emergency-access.md) para gerir o AZure AD em casos como interrupções de autenticação como:
 
 - Componentes de paralisação de infraestruturas de autenticação (AD FS, AD no local, serviço MFA)
 - Volume de negócios do pessoal administrativo
 
-Para evitar ser inadvertidamente bloqueado fora do seu inquilino porque não pode iniciar sessão ou ativar uma conta individual de um utilizador existente como administrador, deve criar duas ou mais contas de emergência e garantir que são implementadas e alinhadas com [as melhores práticas da Microsoft](../users-groups-roles/directory-admin-roles-secure.md) e quebrar os [procedimentos de vidro.](../users-groups-roles/directory-admin-roles-secure.md#break-glass-what-to-do-in-an-emergency)
+Para evitar ser inadvertidamente bloqueado fora do seu inquilino porque não pode iniciar sessão ou ativar uma conta individual de um utilizador existente como administrador, deve criar duas ou mais contas de emergência e garantir que são implementadas e alinhadas com [as melhores práticas da Microsoft](../roles/security-planning.md) e quebrar os [procedimentos de vidro.](../roles/security-planning.md#break-glass-what-to-do-in-an-emergency)
 
 ### <a name="privileged-access-to-azure-ea-portal"></a>Acesso privilegiado ao portal Azure EA
 
@@ -119,7 +119,7 @@ Para ser claro, se o nível de autorização do portal EA está atualmente defin
 
 #### <a name="privileged-access-recommended-reading"></a>Leitura recomendada de acesso privilegiado
 
-- [Administrator role permissions in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md) (Permissões de cargos de administrador no Azure Active Directory)
+- [Administrator role permissions in Azure Active Directory](../roles/permissions-reference.md) (Permissões de cargos de administrador no Azure Active Directory)
 
 ## <a name="entitlement-management"></a>Gestão de direitos
 

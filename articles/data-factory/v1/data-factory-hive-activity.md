@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 41f570f93e95e9801b08c06cacc0423b1bf3b8e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36e0d8a0c0ee5e5202c47acdd74b869181cfaf9e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91252788"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371686"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformar dados usando a atividade da Colmeia na Fábrica de Dados Azure 
 > [!div class="op_single_selector" title1="Atividades de Transformação"]
@@ -26,8 +26,8 @@ ms.locfileid: "91252788"
 > * [Atividade mapReduce](data-factory-map-reduce.md)
 > * [Atividade de streaming de Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Atividade de Faísca](data-factory-spark.md)
-> * [Atividade de Execução em Lote do Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
-> * [Atividade de Recursos de Atualização de Machine Learning](data-factory-azure-ml-update-resource-activity.md)
+> * [Azure Machine Learning Studio (clássico) Atividade de execução de lote](data-factory-azure-ml-batch-execution-activity.md)
+> * [Azure Machine Learning Studio (clássico) Atualização De Recursos Atividade](data-factory-azure-ml-update-resource-activity.md)
 > * [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md)
 > * [Atividade de U-SQL do Data Lake Analytics](data-factory-usql-activity.md)
 > * [.NET Atividade Personalizada](data-factory-use-custom-activities.md)
@@ -74,15 +74,15 @@ A atividade de Hive HDInsight num [oleoduto](data-factory-create-pipelines.md) d
 ## <a name="syntax-details"></a>Detalhes da sintaxe
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| name |Nome da atividade |Sim |
-| descrição |Texto que descreve para que a atividade é usada |Não |
-| tipo |HDinsightHive |Sim |
-| entradas |Entradas consumidas pela atividade da Colmeia |Não |
-| saídas |Saídas produzidas pela atividade da Colmeia |Sim |
-| linkedServiceName |Referência ao cluster HDInsight registado como um serviço ligado na Data Factory |Sim |
-| script |Especificar o script da Colmeia inline |Não |
-| scriptPath |Guarde o script hive num armazenamento de bolhas Azure e forneça o caminho para o arquivo. Use a propriedade 'script' ou 'scriptPath'. Ambos não podem ser usados juntos. O nome do ficheiro é sensível a casos. |Não |
-| define |Especifique os parâmetros como pares chave/valor para referência dentro do script da Colmeia usando 'hiveconf' |Não |
+| name |Nome da atividade |Yes |
+| descrição |Texto que descreve para que a atividade é usada |No |
+| tipo |HDinsightHive |Yes |
+| entradas |Entradas consumidas pela atividade da Colmeia |No |
+| saídas |Saídas produzidas pela atividade da Colmeia |Yes |
+| linkedServiceName |Referência ao cluster HDInsight registado como um serviço ligado na Data Factory |Yes |
+| script |Especificar o script da Colmeia inline |No |
+| scriptPath |Guarde o script hive num armazenamento de bolhas Azure e forneça o caminho para o arquivo. Use a propriedade 'script' ou 'scriptPath'. Ambos não podem ser usados juntos. O nome do ficheiro é sensível a casos. |No |
+| define |Especifique os parâmetros como pares chave/valor para referência dentro do script da Colmeia usando 'hiveconf' |No |
 
 ## <a name="example"></a>Exemplo
 Vamos considerar um exemplo de análise de registos de jogos onde pretendes identificar o tempo gasto pelos utilizadores a jogar jogos lançados pela tua empresa. 

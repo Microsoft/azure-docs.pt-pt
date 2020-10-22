@@ -13,25 +13,25 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb7ab83bc9939d2f0b4b0ff0860ea97a0b07f12f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe0c7eec5c023fcba3152ad6329d318210a0c2ab
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89321247"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370938"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Atribuir funções de administrador e não administrador aos utilizadores com o Azure Ative Directory
 
 No Azure Ative Directory (Azure AD), se um dos seus utilizadores precisar de permissão para gerir os recursos Azure AD, deve atribuí-los a uma função que forneça as permissões de que necessitam. Para obter informações sobre quais as funções que gerem os recursos da Azure e quais as funções que gerem os recursos da AD Azure, consulte [as funções de administrador de subscrição clássica, funções de Azure e Ad AD.](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-Para obter mais informações sobre as funções de Ad Azure disponíveis, consulte [as funções de administrador de atribuição no Diretório Ativo Azure](../users-groups-roles/directory-assign-admin-roles.md). Para adicionar utilizadores, consulte [Adicionar novos utilizadores ao Azure Ative Directory](add-users-azure-active-directory.md).
+Para obter mais informações sobre as funções de Ad Azure disponíveis, consulte [as funções de administrador de atribuição no Diretório Ativo Azure](../roles/permissions-reference.md). Para adicionar utilizadores, consulte [Adicionar novos utilizadores ao Azure Ative Directory](add-users-azure-active-directory.md).
 
 ## <a name="assign-roles"></a>Atribuir funções
 
 Uma forma comum de atribuir funções Azure AD a um utilizador está na página **de funções atribuídas** para um utilizador. Também pode configurar a elegibilidade do utilizador para ser elevado just-in-time para uma função usando Gestão de Identidade Privilegiada (PIM). Para obter mais informações sobre como utilizar a PIM, consulte [Gestão de Identidade Privilegiada.](../privileged-identity-management/index.yml)
 
 > [!Note]
-> Se tiver um plano de licença Azure AD Premium P2 e já utilizar o PIM, todas as tarefas de gestão de funções são desempenhadas na [experiência de Gestão de Identidade Privilegiada.](../users-groups-roles/directory-manage-roles-portal.md) Atualmente, esta funcionalidade limita-se a atribuir apenas uma função de cada vez. Não é possível selecionar várias funções e atribuí-las a um utilizador de uma só vez.
+> Se tiver um plano de licença Azure AD Premium P2 e já utilizar o PIM, todas as tarefas de gestão de funções são desempenhadas na [experiência de Gestão de Identidade Privilegiada.](../roles/manage-roles-portal.md) Atualmente, esta funcionalidade limita-se a atribuir apenas uma função de cada vez. Não é possível selecionar várias funções e atribuí-las a um utilizador de uma só vez.
 >
 > ![Funções AD AD geridas em PIM para utilizadores que já usam PIM e têm uma licença Premium P2](./media/active-directory-users-assign-role-azure-portal/pim-manages-roles-for-p2.png)
 
@@ -81,4 +81,4 @@ Se precisar de remover a atribuição de funções de um utilizador, também pod
 
 - [Adicionar utilizadores convidados a partir de outro diretório](../external-identities/what-is-b2b.md)
 
-Outras tarefas de gestão do utilizador que pode consultar estão disponíveis na documentação de [gestão de utilizadores do Azure Ative Directory.](../users-groups-roles/index.yml)
+Outras tarefas de gestão do utilizador que pode consultar estão disponíveis na documentação de [gestão de utilizadores do Azure Ative Directory.](../enterprise-users/index.yml)

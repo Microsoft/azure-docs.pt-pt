@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f58e5a07348dfde4e4618eb58746f08016c55ed6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6af2f65aa2e2052a79f4c5cffd7ff4a38a9fc838
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049575"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366569"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Crie uma estratégia resiliente de gestão de controlo de acessos com o Azure Ative Directory
 
@@ -285,7 +285,7 @@ Se a sua organização estiver a utilizar políticas antigas de MFA por utilizad
 ## <a name="learn-more"></a>Saiba mais
 
 * [Documentação da Autenticação do Azure AD](./howto-mfaserver-iis.md)
-* [Gerir contas administrativas de acesso de emergência em Azure AD](../users-groups-roles/directory-emergency-access.md)
+* [Gerir contas administrativas de acesso de emergência em Azure AD](../roles/security-emergency-access.md)
 * [Configurar localizações nomeadas no Azure Ative Directory](../reports-monitoring/quickstart-configure-named-locations.md)
   * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
 * [Como configurar o Azure Ative Directory híbrido juntou dispositivos](../devices/hybrid-azuread-join-plan.md)

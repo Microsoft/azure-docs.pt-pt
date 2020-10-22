@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 59bbca9461ff174ebe2451a6c01d84dee404cf56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 674ce347f929dd70e32537e9bde3139c5fafc7ea
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398311"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368014"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Problemas de resolução Azure-to-Azure Problemas de conectividade da rede VM
 
@@ -60,7 +60,7 @@ Não é possível estabelecer uma ligação com os pontos finais ip4 de autentic
 #### <a name="resolution"></a>Resolução
 
 - A recuperação do site Azure requer acesso às gamas IP da Microsoft 365 para autenticação.
-- Se estiver a utilizar as regras do Grupo de Segurança da Rede Azure (NSG) /proxy de firewall para controlar a conectividade da rede de saída no VM, certifique-se de que permite a comunicação às gamas IP da Microsoft 365. Crie uma regra NSG baseada em etiquetas de [serviço Azure Ative (Azure AD)](../virtual-network/security-overview.md#service-tags) que permita o acesso a todos os endereços IP correspondentes ao Azure AD.
+- Se estiver a utilizar as regras do Grupo de Segurança da Rede Azure (NSG) /proxy de firewall para controlar a conectividade da rede de saída no VM, certifique-se de que permite a comunicação às gamas IP da Microsoft 365. Crie uma regra NSG baseada em etiquetas de [serviço Azure Ative (Azure AD)](../virtual-network/network-security-groups-overview.md#service-tags) que permita o acesso a todos os endereços IP correspondentes ao Azure AD.
 - Se novos endereços forem adicionados à AZure AD no futuro, você precisa criar novas regras NSG.
 
 ### <a name="example-nsg-configuration"></a>Configuração NSG exemplo

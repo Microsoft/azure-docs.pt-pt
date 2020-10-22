@@ -16,12 +16,12 @@ ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4f8987a8daccc012f9d6da53e46fe7c4e8b43ad
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 8d3f8e9441064a5d2d1372e3f177534b8dfefb93
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146356"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359837"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologias do Azure AD Connect
 Este artigo descreve várias topologias no local e Azure Ative Directory (Azure AD) que utilizam a sincronização Azure AD Connect como a solução-chave de integração. Este artigo inclui configurações suportadas e não apoiadas.
@@ -142,7 +142,7 @@ Também pode utilizar este método para substituir o servidor de sincronização
 
 ## <a name="multiple-azure-ad-tenants"></a>Vários inquilinos da AD AZure
 Recomendamos ter um único inquilino em Azure AD para uma organização.
-Antes de planear utilizar vários inquilinos da AD Azure, veja o artigo [Gestão de unidades administrativas em Azure AD.](../users-groups-roles/directory-administrative-units.md) Abrange cenários comuns onde se pode usar um único inquilino.
+Antes de planear utilizar vários inquilinos da AD Azure, veja o artigo [Gestão de unidades administrativas em Azure AD.](../roles/administrative-units.md) Abrange cenários comuns onde se pode usar um único inquilino.
 
 ![Topologia para múltiplas florestas e múltiplos inquilinos](./media/plan-connect-topologies/multiforestmultidirectory.png)
 
@@ -168,7 +168,7 @@ Esta topologia tem as seguintes restrições em cenários apoiados de outra form
 * Os dispositivos Windows 10 podem ser associados apenas a um inquilino AZure AD.
 * A opção de inscrição única (SSO) para sincronização de hash de palavra-passe e autenticação pass-through pode ser usada com apenas um inquilino AZure AD.
 
-A exigência de um conjunto de objetos mutuamente exclusivos também se aplica à gravação. Algumas funcionalidades de writeback não são suportadas com esta topologia porque assumem uma única configuração no local. Essas funcionalidades incluem:
+A exigência de um conjunto de objetos mutuamente exclusivos também se aplica à gravação. Algumas funcionalidades de writeback não são suportadas com esta topologia porque assumem uma única configuração no local. Estas funcionalidades incluem:
 
 * Writeback de grupo com configuração predefinida.
 * Reversão do dispositivo.
