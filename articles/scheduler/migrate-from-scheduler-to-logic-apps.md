@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 02/29/2020
-ms.openlocfilehash: 5d161b287f9706473c96d25684fa23a2c94b8c3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e9ca2c7b5d15fcc6be451bbe215c8b85d5309eb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532158"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368269"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migrar tarefas do Azure Scheduler para o Azure Logic Apps
 
@@ -133,7 +133,7 @@ Depois de enviar a chamada, a resposta da sua aplicação lógica aparece na cai
 
 ## <a name="cancel-a-one-time-job"></a>Cancelar um trabalho único
 
-Em Logic Apps, cada trabalho único executa como uma única instância de execução de aplicações lógicas. Para cancelar um trabalho único, pode utilizar [Workflow Runs - Cancelar](https://docs.microsoft.com/rest/api/logic/workflowruns/cancel) na API de Apps Lógicas REST. Quando enviar uma chamada para o gatilho, forneça o [ID do fluxo de trabalho](#workflow-run-id).
+Em Logic Apps, cada trabalho único executa como uma única instância de execução de aplicações lógicas. Para cancelar um trabalho único, pode utilizar [Workflow Runs - Cancelar](/rest/api/logic/workflowruns/cancel) na API de Apps Lógicas REST. Quando enviar uma chamada para o gatilho, forneça o [ID do fluxo de trabalho](#workflow-run-id).
 
 ## <a name="schedule-recurring-jobs"></a>Agendar empregos recorrentes
 
@@ -239,7 +239,7 @@ Se a sua subscrição Azure tiver um plano de suporte pago, pode criar um pedido
 
 **Comunidade**
 
-* [Microsoft Q&Uma página de perguntas para apps Azure Logic](https://docs.microsoft.com/answers/topics/azure-logic-apps.html)
+* [Microsoft Q&Uma página de perguntas para apps Azure Logic](/answers/topics/azure-logic-apps.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-scheduler)
 
 ## <a name="next-steps"></a>Passos seguintes

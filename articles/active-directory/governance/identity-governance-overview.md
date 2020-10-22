@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ecbebfc75cb8c77ebb99ad04b1f9e33b3c4ef64
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e02df83d4b7874a1d158aae45f1619eb543e0aec
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91306468"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362455"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>O que é o Azure AD Identity Governance?
 
@@ -58,7 +58,7 @@ As organizações precisam de um processo para gerir o acesso para além do que 
 
 Normalmente, os delegados de TI acedem a decisões de aprovação aos decisores empresariais.  Além disso, as TI podem envolver os próprios utilizadores.  Por exemplo, os utilizadores que acedam a dados confidenciais dos clientes na aplicação de marketing de uma empresa na Europa precisam de conhecer as políticas da empresa. Os utilizadores convidados podem desconhecer os requisitos de tratamento dos dados numa organização para a qual foram convidados.
 
-As organizações podem automatizar o processo de ciclo de vida de acesso através de tecnologias como [grupos dinâmicos,](../users-groups-roles/groups-dynamic-membership.md)juntamente com o fornecimento de utilizadores a [aplicações SaaS](../saas-apps/tutorial-list.md) ou [apps integradas com o SCIM.](../app-provisioning/use-scim-to-provision-users-and-groups.md)  As organizações também podem controlar quais [os utilizadores convidados que têm acesso a aplicações no local.](../external-identities/hybrid-cloud-to-on-premises.md)  Estes direitos de acesso podem então ser regularmente revistos utilizando [avaliações recorrentes de acesso a Azure AD](access-reviews-overview.md).   [A gestão de direitos AD AZure](entitlement-management-overview.md) também permite definir como os utilizadores solicitam acesso através de pacotes de membros de grupo e equipa, funções de aplicação e funções SharePoint Online.
+As organizações podem automatizar o processo de ciclo de vida de acesso através de tecnologias como [grupos dinâmicos,](../enterprise-users/groups-dynamic-membership.md)juntamente com o fornecimento de utilizadores a [aplicações SaaS](../saas-apps/tutorial-list.md) ou [apps integradas com o SCIM.](../app-provisioning/use-scim-to-provision-users-and-groups.md)  As organizações também podem controlar quais [os utilizadores convidados que têm acesso a aplicações no local.](../external-identities/hybrid-cloud-to-on-premises.md)  Estes direitos de acesso podem então ser regularmente revistos utilizando [avaliações recorrentes de acesso a Azure AD](access-reviews-overview.md).   [A gestão de direitos AD AZure](entitlement-management-overview.md) também permite definir como os utilizadores solicitam acesso através de pacotes de membros de grupo e equipa, funções de aplicação e funções SharePoint Online.
 
 Quando um utilizador tenta aceder a aplicações, a Azure AD aplica políticas [de Acesso Condicional.](../conditional-access/index.yml) Por exemplo, as políticas de Acesso Condicional podem incluir a exibição de um [termos de utilização](../conditional-access/terms-of-use.md) e [garantir que o utilizador concordou com esses termos](../conditional-access/require-tou.md) antes de poder aceder a uma aplicação.
 
@@ -86,7 +86,7 @@ Além das funcionalidades acima enumeradas, as funcionalidades adicionais da AZU
 |Cumprimento e provisionamento|Provisão automática e desprovisionamento em aplicações conectadas a Azure AD, incluindo via SCIM e em sites SharePoint Online. |[fornecimento de utilizadores](../app-provisioning/user-provisioning.md)|
 |Reportagem e análise|Os administradores podem recuperar registos de auditoria de fornecimentos recentes de utilizadores e assinar em atividade. Integração com o Azure Monitor e "quem tem acesso" através de pacotes de acesso.|Relatórios e [monitorização](../reports-monitoring/overview-monitoring.md) [da AD Azure](../reports-monitoring/overview-reports.md)|
 |Acesso privilegiado|Acesso just-in-time e programado, alerta, fluxos de trabalho de aprovação para funções AD Azure (incluindo funções personalizadas) e funções de Recursos Azure.|[Azure AD PIM](../privileged-identity-management/pim-configure.md)|
-|Auditing (Auditoria)|Os administradores podem ser alertados para a criação de contas de administração.|[Alertas Azure AD PIM](../privileged-identity-management/pim-how-to-configure-security-alerts.md)|
+|Auditoria|Os administradores podem ser alertados para a criação de contas de administração.|[Alertas Azure AD PIM](../privileged-identity-management/pim-how-to-configure-security-alerts.md)|
 
 ## <a name="getting-started"></a>Introdução
 
@@ -100,7 +100,7 @@ Se tiver algum feedback sobre as funcionalidades de Governação de Identidade, 
 Embora não exista uma solução ou recomendação perfeita para cada cliente, os seguintes guias de configuração também fornecem as políticas de base que a Microsoft recomenda que siga para garantir uma mão de obra mais segura e produtiva.
 
 - [Configurações de acesso aos dispositivos e identidade](/microsoft-365/enterprise/microsoft-365-policies-configurations)
-- [A proteger o acesso privilegiado](../users-groups-roles/directory-admin-roles-secure.md)
+- [A proteger o acesso privilegiado](../roles/security-planning.md)
 
 ## <a name="appendix---least-privileged-roles-for-managing-in-identity-governance-features"></a>Apêndice - funções menos privilegiadas para a gestão de funcionalidades de Governação da Identidade
 

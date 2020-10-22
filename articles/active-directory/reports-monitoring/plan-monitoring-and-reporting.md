@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 568a524e9300905a5e70b2cf7481fc7eabfc669e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 094ecd88c8b493d44b756d03d700b43cbcba1ee9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311225"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362404"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planear um Azure Ative Directory reportando e monitorizando a implementação
 
@@ -151,7 +151,7 @@ As seguintes funções podem ler relatórios Azure AD:
 
 * Leitor de Relatórios
 
-Saiba mais sobre [as funções administrativas do Azure Ad](../users-groups-roles/directory-assign-admin-roles.md).
+Saiba mais sobre [as funções administrativas do Azure Ad](../roles/permissions-reference.md).
 
 *Aplique sempre o conceito de privilégios mínimos para reduzir o risco de um compromisso de conta.* Considere implementar a [Gestão de Identidade Privilegiada](../privileged-identity-management/pim-configure.md) para garantir ainda mais a sua organização.
 

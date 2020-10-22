@@ -3,14 +3,14 @@ title: Como criar implementações de atualização para a Azure Automation Upda
 description: Este artigo descreve como agendar as implementações de atualização e rever o seu estado.
 services: automation
 ms.subservice: update-management
-ms.date: 10/14/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8b9b3df024839007a349d3a412de4a70ff3a1cd2
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 2c4489e22344d2807b22bf4752add9c336215bec
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222743"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369709"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Como implementar atualizações e rever resultados
 
@@ -54,12 +54,12 @@ Para agendar uma nova implementação de atualização, execute os seguintes pas
     > [!NOTE]
     > Esta opção não está disponível se selecionar um servidor Azure VM ou Arc ativado. O sistema operativo é automaticamente identificado.
 
-5. Nos **Grupos para atualizar (pré-visualização)** região, defina uma consulta que combine subscrição, grupos de recursos, localizações e tags para construir um grupo dinâmico de VMs Azure para incluir na sua implementação. Para saber mais, consulte [Utilize grupos dinâmicos com a Gestão de Atualização.](configure-groups.md)
+5. Nos **Grupos para atualizar a** região, defina uma consulta que combine subscrições, grupos de recursos, localizações e tags para construir um grupo dinâmico de VMs Azure para incluir na sua implementação. Para saber mais, consulte [Utilize grupos dinâmicos com a Gestão de Atualização.](configure-groups.md)
 
     > [!NOTE]
     > Esta opção não está disponível se selecionar um servidor Azure VM ou Arc ativado. A máquina é automaticamente direcionada para a implantação programada.
 
-6. Nas **Máquinas para atualizar a** região, selecione uma pesquisa guardada, um grupo importado ou escolha **Máquinas** do menu suspenso e selecione máquinas individuais. Com esta opção, pode ver a prontidão do agente Log Analytics para cada máquina. Para conhecer os diferentes métodos de criação de grupos informáticos nos registos do Monitor Azure, consulte [grupos de computador nos registos do Azure Monitor](../../azure-monitor/platform/computer-groups.md). Pode incluir até um máximo de 500 máquinas numa atualização programada.
+6. Nas **Máquinas para atualizar a** região, selecione uma pesquisa guardada, um grupo importado ou escolha **Máquinas** do menu suspenso e selecione máquinas individuais. Com esta opção, pode ver a prontidão do agente Log Analytics para cada máquina. Para conhecer os diferentes métodos de criação de grupos informáticos nos registos do Monitor Azure, consulte [grupos de computador nos registos do Azure Monitor](../../azure-monitor/platform/computer-groups.md). Pode incluir até um máximo de 1000 máquinas numa atualização programada.
 
     > [!NOTE]
     > Esta opção não está disponível se selecionar um servidor Azure VM ou Arc ativado. A máquina é automaticamente direcionada para a implantação programada.
@@ -83,7 +83,7 @@ Para agendar uma nova implementação de atualização, execute os seguintes pas
 
 10. Utilize a **Recorrência** para especificar se a implementação ocorre uma vez ou utiliza um horário recorrente e, em seguida, selecione **OK**.
 
-11. Na região **pré-scripts + post-scripts (Pré-visualização),** selecione os scripts para executar antes e depois da sua implantação. Para saber mais, consulte [Gerir pré-scripts e post-scripts](pre-post-scripts.md).
+11. Na região **pré-scripts + Post-scripts,** selecione os scripts para executar antes e depois da sua implantação. Para saber mais, consulte [Gerir pré-scripts e post-scripts](pre-post-scripts.md).
 
 12. Utilize o campo **de janela de manutenção (minutos)** para especificar o tempo permitido para as atualizações serem instaladas. Considere os seguintes detalhes ao especificar uma janela de manutenção:
 
@@ -111,7 +111,7 @@ Para agendar uma nova implementação de atualização, execute os seguintes pas
     > [!NOTE]
     > Quando terminar de configurar o calendário de implementação de um servidor ativado pelo Arco selecionado, selecione **Review + create**.
 
-15. Volta ao dashboard de estado. Selecione **horários de implementação** para mostrar o calendário de implementação que criou.
+15. Volta ao dashboard de estado. Selecione **horários de implementação** para mostrar o calendário de implementação que criou. Um máximo de 500 horários estão listados. Se tiver mais de 500 horários e pretender rever a lista completa, consulte as Configurações de [Atualização](/rest/api/automation/softwareupdateconfigurations/list) de Software - List REST API usando a versão 2019-06-01 ou superior.
 
 ## <a name="schedule-an-update-deployment-programmatically"></a>Agendar uma atualização programática
 

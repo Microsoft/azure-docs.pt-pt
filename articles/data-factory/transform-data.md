@@ -1,6 +1,6 @@
 ---
 title: Transformar dados
-description: Transforme dados ou processos na Azure Data Factory usando Hadoop, Machine Learning ou Azure Data Lake Analytics.
+description: Transforme dados ou processos na Azure Data Factory usando Hadoop, Azure Machine Learning Studio (clássico) ou Azure Data Lake Analytics.
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -10,12 +10,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 07/31/2018
-ms.openlocfilehash: 19b4ee621a3918a49b524c5e4515bddd5962e0f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 039afdafdccbefe03b5b366a89256409fda482e9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442790"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368864"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformar dados no Azure Data Factory
 
@@ -26,7 +26,7 @@ ms.locfileid: "89442790"
 > * [MapReduce](transform-data-using-hadoop-map-reduce.md)  
 > * [HDInsight Streaming](transform-data-using-hadoop-streaming.md)
 > * [HDInsight Spark](transform-data-using-spark.md)
-> * [Aprendizagem automática](transform-data-using-machine-learning.md) 
+> * [Azure Machine Learning Studio (clássico)](transform-data-using-machine-learning.md) 
 > * [Procedimento armazenado](transform-data-using-stored-procedure.md)
 > * [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md)
 > * [Caderno databricks](transform-data-databricks-notebook.md)
@@ -70,12 +70,12 @@ A atividade de streaming HDInsight num oleoduto da Data Factory executa programa
 ### <a name="hdinsight-spark-activity"></a>Atividade de HdInsight Spark
 A atividade HDInsight Spark num oleoduto data factory executa programas Spark no seu próprio cluster HDInsight. Para mais detalhes, consulte [os programas Invoke Spark da Azure Data Factory](transform-data-using-spark.md). 
 
-### <a name="machine-learning-activities"></a>Atividades de Aprendizagem Automática
-A Azure Data Factory permite-lhe criar facilmente oleodutos que utilizem um serviço web de aprendizagem automática Azure para análise preditiva. Utilizando a [atividade de execução de lote](transform-data-using-machine-learning.md) num oleoduto Azure Data Factory, pode invocar um serviço web machine learning para fazer previsões sobre os dados em lote.
+### <a name="azure-machine-learning-studio-classic-activities"></a>Atividades do Azure Machine Learning Studio (clássico)
+A Azure Data Factory permite-lhe criar facilmente oleodutos que utilizem um serviço web publicado do Azure Machine Learning Studio (clássico) para análise preditiva. Utilizando a [atividade de execução de lotes](transform-data-using-machine-learning.md) num oleoduto Azure Data Factory, pode invocar um serviço web Studio (clássico) para fazer previsões sobre os dados em lote.
 
-Com o tempo, os modelos preditivos nas experiências de pontuação machine learning precisam de ser retreinados usando novos conjuntos de dados de entrada. Depois de terminar a reconversão, pretende atualizar o serviço web de pontuação com o modelo de Machine Learning retreinado. Pode utilizar a [atividade de Update Resource](update-machine-learning-models.md) para atualizar o serviço web com o modelo recém-treinado.  
+Com o tempo, os modelos preditivos no Estúdio (clássico) experiências de pontuação precisam de ser retreinados usando novos conjuntos de dados de entrada. Depois de terminar a reconversão, pretende atualizar o serviço web de pontuação com o modelo de aprendizagem automática retreinado. Pode utilizar a [atividade de Update Resource](update-machine-learning-models.md) para atualizar o serviço web com o modelo recém-treinado.  
 
-Consulte [as atividades de Machine Learning](transform-data-using-machine-learning.md) para obter detalhes sobre estas atividades de Machine Learning. 
+Consulte [as atividades do Use Azure Machine Learning Studio (clássico)](transform-data-using-machine-learning.md) para mais detalhes sobre estas atividades do Studio (clássico). 
 
 ### <a name="stored-procedure-activity"></a>Atividade de procedimento armazenado
 Pode utilizar a atividade do Procedimento Armazenado do SQL server num oleoduto da Data Factory para invocar um procedimento armazenado numa das seguintes lojas de dados: Azure SQL Database, Azure Synapse Analytics (anteriormente SQL Data Warehouse), SQL Server Database na sua empresa ou um VM Azure. Consulte o artigo [de atividade do Procedimento Armazenado](transform-data-using-stored-procedure.md) para obter mais informações.  

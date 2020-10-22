@@ -16,16 +16,16 @@ ms.date: 07/27/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b6709d7589ebf4c82ec25c6b7a79fa31a305839
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 30724edafdee0c04f0c8b004ce335072b4ce0fd4
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87506947"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367453"
 ---
 # <a name="management-capabilities-for-privileged-access-azure-ad-groups-preview"></a>Capacidades de gestão para acesso privilegiado Grupos AD de acesso (pré-visualização)
 
-Na Gestão de Identidade Privilegiada (PIM), pode agora atribuir elegibilidade para adesão ou propriedade de grupos de acesso privilegiados. A partir desta pré-visualização, pode atribuir funções incorporadas ao Azure Ative Directory (Azure AD) a grupos de nuvem e utilizar o PIM para gerir a elegibilidade e ativação do membro do grupo e do proprietário. Para obter mais informações sobre grupos atribuíveis por funções em Azure AD, consulte [use grupos de nuvem para gerir atribuições de funções no Azure Ative Directory (pré-visualização)](../users-groups-roles/roles-groups-concept.md).
+Na Gestão de Identidade Privilegiada (PIM), pode agora atribuir elegibilidade para adesão ou propriedade de grupos de acesso privilegiados. A partir desta pré-visualização, pode atribuir funções incorporadas ao Azure Ative Directory (Azure AD) a grupos de nuvem e utilizar o PIM para gerir a elegibilidade e ativação do membro do grupo e do proprietário. Para obter mais informações sobre grupos atribuíveis por funções em Azure AD, consulte [use grupos de nuvem para gerir atribuições de funções no Azure Ative Directory (pré-visualização)](../roles/groups-concept.md).
 
 ## <a name="require-different-policies-for-each-role-assignable-group"></a>Requerem políticas diferentes para cada grupo atribuível
 

@@ -17,12 +17,12 @@ ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: f8bf2a1bb4892637ac504d5920754fc412691a4a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 24e514208683d540f08818020238090583a1bc42
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91597381"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362472"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>O que é a gestão de direitos do Azure AD?
 
@@ -77,9 +77,9 @@ A gestão de direitos introduz à Azure AD o conceito de pacote de *acesso.* Um 
 
 Também pode controlar o acesso a outros recursos que dependem de grupos de segurança AD Azure ou grupos Microsoft 365.  Por exemplo:
 
-- Pode dar licenças aos utilizadores para o Microsoft 365 utilizando um grupo de segurança AZure AD num pacote de acesso e configurando [o licenciamento baseado em grupo](../users-groups-roles/licensing-groups-assign.md) para esse grupo.
+- Pode dar licenças aos utilizadores para o Microsoft 365 utilizando um grupo de segurança AZure AD num pacote de acesso e configurando [o licenciamento baseado em grupo](../enterprise-users/licensing-groups-assign.md) para esse grupo.
 - Você pode dar aos utilizadores acesso para gerir recursos Azure usando um grupo de segurança Azure AD em um pacote de acesso e criando uma [atribuição de papel Azure](../../role-based-access-control/role-assignments-portal.md) para esse grupo.
-- Pode dar aos utilizadores acesso para gerir as funções de Azure AD utilizando grupos atribuíveis às funções AD do Azure num pacote de acesso e [atribuindo um papel de AD Azure a esse grupo.](../users-groups-roles/roles-groups-assign-role.md)
+- Pode dar aos utilizadores acesso para gerir as funções de Azure AD utilizando grupos atribuíveis às funções AD do Azure num pacote de acesso e [atribuindo um papel de AD Azure a esse grupo.](../roles/groups-assign-role.md)
 
 ## <a name="how-do-i-control-who-gets-access"></a>Como controlo quem tem acesso?
 

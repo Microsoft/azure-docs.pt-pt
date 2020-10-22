@@ -3,12 +3,12 @@ title: Tutorial - Implementar e configurar VMware HCX
 description: Aprenda a implementar e configurar uma solução VMware HCX para a sua nuvem privada Azure VMware Solution.
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 607ff3cb04002883b49b4c5bc37d312cbb83c8e5
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: c78eae11497702054bb54b5980228fd0a3962577
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173611"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367776"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Implementar e configurar o VMware HCX
 
@@ -64,7 +64,9 @@ Os componentes da infraestrutura devem estar a executar a versão mínima necess
 
 * Configure [Azure ExpressRoute Global Reach](tutorial-expressroute-global-reach-private-cloud.md) entre os circuitos on-in e Azure VMware Solution SDDC ExpressRoute.
 
-* Todas as portas necessárias devem estar abertas para comunicação entre os componentes no local e o Azure VMware Solution SDDC. Para mais informações, consulte a [documentação VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-E456F078-22BE-494B-8E4B-076EF33A9CF4.html).
+* [Todas as portas necessárias](https://ports.vmware.com/home/VMware-HCX) devem estar abertas para comunicação entre os componentes no local e o Azure VMware Solution SDDC.
+
+Para mais informações, consulte a [documentação VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-E456F078-22BE-494B-8E4B-076EF33A9CF4.html).
 
 
 ### <a name="ip-addresses"></a>Endereços IP
@@ -73,13 +75,13 @@ Os componentes da infraestrutura devem estar a executar a versão mínima necess
    
 ## <a name="deploy-the-vmware-hcx-connector-ova-on-premises"></a>Implementar o Conector VMware HCX OVA no local
 
->[!NOTE]
->Antes de colocar o aparelho virtual no seu vCenter no local, terá de descarregar o VMware HCX Connector OVA. 
+> [!NOTE]
+> Antes de colocar o aparelho virtual no seu vCenter no local, tem de descarregar o VMware HCX Connector OVA. 
 
 1. Abra uma janela do navegador, inscreva-se no Azure VMware Solution HCX Manager na `https://x.x.x.9` porta 443 com as credenciais de utilizador **cloudadmin** e, em seguida, vá para **suporte**.
 
-   >[!TIP]
-   >Note o endereço IP do HCX Cloud Manager na Solução VMware Azure. Para identificar o endereço IP, no painel Azure VMware Solution, vá para **Gerir**conectividade  >  **Connectivity** e, em seguida, selecione o separador **HCX.** 
+   > [!TIP]
+   > Note o endereço IP do HCX Cloud Manager na Solução VMware Azure. Para identificar o endereço IP, no painel Azure VMware Solution, vá para **Gerir**conectividade  >  **Connectivity** e, em seguida, selecione o separador **HCX.** 
    >
    >A palavra-passe vCenter foi definida quando configura a nuvem privada.
 
@@ -102,8 +104,8 @@ Os componentes da infraestrutura devem estar a executar a versão mínima necess
 
 1. Selecione **Seguinte**, verifique a configuração e, em seguida, selecione **Finish** para implementar o Conector HCX OVA.
      
-   >[!NOTE]
-   >Geralmente, o Conector VMware HCX que está a implementar agora é implantado na rede de gestão do cluster.  
+   > [!NOTE]
+   > Geralmente, o Conector VMware HCX que está a implementar agora é implantado na rede de gestão do cluster.  
    
    > [!IMPORTANT]
    > Pode ser necessário ligar o aparelho virtual manualmente.  Se for esse o caso, aguarde 10-15 minutos antes de seguir para o próximo passo.
@@ -171,7 +173,7 @@ Pode ligar (emparelhamento) o VMware HCX Cloud Manager na Solução VMware Azure
 1. Introduza o endereço de URL ou IP remoto hCX que observou anteriormente, o nome de utilizador Azure VMware Solution cloudadmin@vsphere.local e a palavra-passe. Em seguida, selecione **Ligar**.
 
    > [!NOTE]
-   > O URL HCX remoto é o endereço IP do HCX Cloud Manager da nuvem privada Azure VMware, que é o endereço ".9" da rede de gestão. Por exemplo, se o seu vCenter for 192.168.4.2, então o URL HCX será de 192.168.4.9.
+   > Para estabelecer um par de site com sucesso, o seu conector HCX deve ser capaz de encaminhar para o seu HCX Cloud Manager IP sobre a porta 443.
    >
    > A palavra-passe é a mesma palavra-passe que usou para iniciar súm no vCenter. Definiu esta palavra-passe no ecrã inicial de implantação.
 
@@ -272,6 +274,13 @@ Para uma visão geral deste procedimento, consulte o [vídeo Azure VMware Soluti
 
 Agora é hora de configurar uma malha de serviço entre as instalações e a Azure VMware Solution SDDC.
 
+   > [!NOTE]
+   > Para estabelecer com sucesso uma malha de serviço com a Solução Azure VMware:
+   >
+   > As portas UDP 500/4500 estão abertas entre os endereços de perfil de rede definidos pelo conector HCX no local e os endereços de perfil de rede 'uplink' da Solução VMware Azure VCX Cloud.
+   >
+   > Certifique-se de rever as portas necessárias ao [HCX](https://ports.vmware.com/home/VMware-HCX).
+
 1. Em **Infraestruturas**, selecione **Interconnect**  >  **Service Mesh**Create Service  >  **Mesh**.    
 
    :::image type="content" source="media/tutorial-vmware-hcx/create-service-mesh.png" alt-text="Screenshot de navegação para um modelo OVF." lightbox="media/tutorial-vmware-hcx/create-service-mesh.png":::
@@ -351,3 +360,4 @@ Para obter mais informações sobre a utilização do HCX, aceda à documentaç�
 
 * [Documentação VMware HCX](https://docs.vmware.com/en/VMware-HCX/index.html)
 * [Máquinas virtuais migratórias com VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g).
+* [Portas necessárias de HCX](https://ports.vmware.com/home/VMware-HCX)
